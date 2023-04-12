@@ -1,9 +1,9 @@
 ---
 title: Agentless replication of VMware virtual machines concepts 
 description: Describes concepts related to agentless migration of VMware VMs in Azure Migrate.
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
+author: piyushdhore-microsoft 
+ms.author: piyushdhore
+ms.manager: vijain
 ms.topic: conceptual
 ms.date: 12/12/2022
 ms.custom: engagement-fy23

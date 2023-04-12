@@ -63,6 +63,7 @@ Global Azure cloud is supported with Arc support on the following regions:
 | ------ | ----------- | -------------------------- |
 | `australiaeast` | :heavy_check_mark: | :heavy_check_mark: |
 | `australiasoutheast` | :heavy_check_mark: | :x: |
+| `brazilsouth` | :heavy_check_mark: | :x: |
 | `canadacentral` | :heavy_check_mark: | :heavy_check_mark: |
 | `canadaeast` | :heavy_check_mark: | :heavy_check_mark: |
 | `centralindia` | :heavy_check_mark: | :heavy_check_mark: |
@@ -72,18 +73,24 @@ Global Azure cloud is supported with Arc support on the following regions:
 | `eastus2` | :heavy_check_mark: | :heavy_check_mark: |
 | `eastus2euap` | :x: | :heavy_check_mark: |
 | `francecentral` | :heavy_check_mark: | :heavy_check_mark: |
+| `francesouth` | :heavy_check_mark: | :x: |
 | `germanywestcentral` | :heavy_check_mark: | :heavy_check_mark: |
 | `japaneast` | :heavy_check_mark: | :heavy_check_mark: |
+| `japanwest` | :heavy_check_mark: | :x: |
 | `koreacentral` | :heavy_check_mark: | :heavy_check_mark: |
+| `koreasouth` | :heavy_check_mark: | :x: |
 | `northcentralus` | :heavy_check_mark: | :heavy_check_mark: |
 | `northeurope` | :heavy_check_mark: | :heavy_check_mark: |
 | `norwayeast` | :heavy_check_mark: | :x: |
 | `southafricanorth` | :heavy_check_mark: | :x: |
 | `southcentralus` | :heavy_check_mark: | :heavy_check_mark: |
 | `southeastasia` | :heavy_check_mark: | :heavy_check_mark: |
+| `southindia` | :heavy_check_mark: | :x: |
 | `swedencentral` | :heavy_check_mark: | :heavy_check_mark: |
 | `switzerlandnorth` | :heavy_check_mark: | :heavy_check_mark: |
+| `uaenorth` | :heavy_check_mark: | :x: |
 | `uksouth` | :heavy_check_mark: | :heavy_check_mark: |
+| `ukwest` | :heavy_check_mark: | :x: |
 | `westcentralus` | :heavy_check_mark: | :heavy_check_mark: |
 | `westeurope` | :heavy_check_mark: | :heavy_check_mark: |
 | `westus` | :heavy_check_mark: | :heavy_check_mark: |
@@ -96,6 +103,7 @@ Global Azure cloud is supported with Arc support on the following regions:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Install the latest version of the [Azure CLI][install-cli].
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster] or connect an [Arc-enabled Kubernetes cluster][arc-k8s-cluster].
+- Make sure you have [an Azure Kubernetes Service RBAC Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-rbac-admin) 
 
 ### Set up the Azure CLI extension for cluster extensions
 

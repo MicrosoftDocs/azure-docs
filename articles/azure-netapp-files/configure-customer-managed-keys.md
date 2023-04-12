@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: references_regions 
-ms.date: 02/21/2023
+ms.date: 03/07/2023
 ms.author: anfdocs
 ---
 
@@ -21,13 +21,26 @@ ms.author: anfdocs
 
 Customer-managed keys in Azure NetApp Files volume encryption enable you to use your own keys rather than a Microsoft-managed key when creating a new volume. With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys. 
 
+The following diagram demonstrates how customer-managed keys work with Azure NetApp Files:
+
+:::image type="content" source="../media/azure-netapp-files/customer-managed-keys-diagram.png" alt-text="Conceptual diagram of customer-managed keys." lightbox="../media/azure-netapp-files/customer-managed-keys-diagram.png":::
+
+1. Azure NetApp Files grants permissions to encryption keys to a managed identity. The managed identity is either a user-assigned managed identity that you create and manage or a system-assigned managed identity associated with the NetApp account.
+2. You configure encryption with a customer-managed key for the NetApp account.
+3. You use the managed identity to which the Azure Key Vault admin granted permissions in step one to authenticate access to Azure Key Vault via Azure Active Directory.
+4. Azure NetApp Files wraps the account encryption key with the customer-managed key in Azure Key Vault.
+
+    Customer-managed keys have no performance impact on Azure NetApp Files. Its only difference from Microsoft-managed keys is how the key is managed.
+1. For read/write operations, Azure NetApp Files sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
+
 ## Considerations
 
 > [!IMPORTANT]
-> Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. Wait for an official confirmation email from the Azure NetApp Files team before using customer-managed keys.
+> Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. Customer-managed keys feature is expected to be enabled within a week from submitting waitlist request.
 
 * Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption. 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
+* Customer-managed keys private endpoints do not support the **Disable public access** option. You must choose one of the **Allow public access** options.
 * Switching from user-assigned identity to the system-assigned identity isn't currently supported.
 * MSI Automatic certificate renewal isn't currently supported.  
 * The MSI certificate has a lifetime of 90 days. It becomes eligible for renewal after 46 days. **After 90 days, the certificate is no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
@@ -38,24 +51,48 @@ Customer-managed keys in Azure NetApp Files volume encryption enable you to use 
 
     * If the account isn't eligible for MSI certificate renewal, an error will communicate the date and time when the account is eligible. It's recommended you run this operation periodically (for example, daily) to prevent the certificate from expiring and from the customer-managed key volume going offline.
 
-<!-- 
-   *  You will need to call the operation via ARM REST API. Submit a POST request to `/subscriptions/<16 digit subscription ID>/resourceGroups/<resource_group_name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-04`.
-    This operation is available with the Azure CLI, PowerShell, and SDK beginning with the `2022-05` versions.
-    * If the certificate is more than 46 days old, you can call proxy Azure Resource Manager (ARM) operation via REST API to renew the certificate. For example: 
-        ```rest
-         /{accountResourceId}/renewCredentials?api-version=2022-01 – example /subscriptions/<16 digit subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-01  
-        ```  -->
-
 * Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless `Private endpoint network policy` is enabled on the subnet. It's recommended to keep this option disabled. 
 * If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
+* Currently, customer-managed keys can't be configured while creating data replication volumes to establish an Azure NetApp Files cross-region replication or cross-zone replication relationship.
 
 ## Supported regions 
 
 Azure NetApp Files customer-managed keys is supported for the following regions: 
 
+* Australia Central
+* Australia Central 2
+* Australia East
+* Australia Southeast
+* Brazil South
+* Canada Central 
+* Central US
 * East Asia
+* East US
 * East US 2
+* France Central 
+* Germany North
+* Germany West Central
+* Japan East
+* Japan West
+* Korea Central
+* North Central US
+* North Europe
+* Norway East
+* Norway West
+* Qatar Central
+* South Africa North
+* South Central US
+* South India
+* Southeast Asia
+* Sweden Central
+* Switzerland North
+* UAE Central
+* UAE North
+* UK South
 * West Europe
+* West US
+* West US 2
+* West US 3
 
 ## Requirements
 
@@ -91,6 +128,9 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 
 1. Select the identity type that you want to use for authentication to the Azure Key Vault. If your Azure Key Vault is configured to use Vault access policy as its permission model, then both options are available. Otherwise, only the user-assigned option is available.
     * If you choose **System-assigned**, select the **Save** button. The Azure portal configures the NetApp account automatically with the following process: A system-assigned identity is added to your NetApp account. An access policy is to be created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt.
+
+    :::image type="content" source="../media/azure-netapp-files/encryption-system-assigned.png" alt-text="Screenshot of the encryption menu with system-assigned options." lightbox="../media/azure-netapp-files/encryption-system-assigned.png":::
+
     * If you choose **User-assigned**, you must select an identity to use. Choosing **Select an identity** opens a context pane prompting you to select a user-assigned managed identity. 
 
     :::image type="content" source="../media/azure-netapp-files/encryption-user-assigned.png" alt-text="Screenshot of user-assigned submenu." lightbox="../media/azure-netapp-files/encryption-user-assigned.png":::
@@ -117,7 +157,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
     1. `Microsoft.KeyVault/vaults/keys/encrypt/action`
     1. `Microsoft.KeyVault/vaults/keys/decrypt/action`
 
-    Although there are pre-defined roles with these privileges, it is recommended that you create a custom role with the required permissions. See [Azure custom roles](../role-based-access-control/custom-roles.md) for details.
+    Although there are pre-defined roles with these permissions, they grant more privileges than are required. For the minimum level of privileges, you should create a custom role with only the required permissions. For details, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
     ```json
     {

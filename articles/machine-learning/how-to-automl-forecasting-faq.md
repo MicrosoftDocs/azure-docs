@@ -51,9 +51,9 @@ There are four basic configurations supported by AutoML forecasting:
 
 |Configuration|Scenario|Pros|Cons|
 |--|--|--|--|
-|**Default AutoML**|Recommended if the dataset has a small number of time series that have roughly similar historic behavior.|- Simple to configure from code/SDK or AzureML Studio <br><br> - AutoML has the chance to cross-learn across different time series since the regression models pool all series together in training. See the [model grouping](./concept-automl-forecasting-methods.md#model-grouping) section for more information.|- Regression models may be less accurate if the time series in the training data have divergent behavior <br> <br> - Time series models may take a long time to train if there are a large number of series in the training data. See the ["why is AutoML slow on my data"](#why-is-automl-slow-on-my-data) answer for more information.|
-|**AutoML with deep learning**|Recommended for datasets with more than 1000 observations and, potentially, numerous time series exhibiting complex patterns. When enabled, AutoML will sweep over temporal convolutional neural network (TCN) models during training. See the [enable deep learning](./how-to-auto-train-forecast.md#enable-deep-learning) section for more information.|- Simple to configure from code/SDK or AzureML Studio <br> <br> - Cross-learning opportunities since the TCN pools data over all series <br> <br> - Potentially higher accuracy due to the large capacity of DNN models. See the [forecasting models in AutoML](./concept-automl-forecasting-methods.md#forecasting-models-in-automl) section for more information.|- Training can take much longer due to the complexity of DNN models <br> <br> - Series with small amounts of history are unlikely to benefit from these models.|
-|**Many Models**|Recommended if you need to train and manage a large number of forecasting models in a scalable way. See the [forecasting at scale](./how-to-auto-train-forecast.md#forecasting-at-scale) section for more information.|- Scalable <br> <br> - Potentially higher accuracy when time series have divergent behavior from one another.|- No cross-learning across time series <br> <br> - You can't configure or launch Many Models jobs from AzureML Studio, only the code/SDK experience is currently available.|
+|**Default AutoML**|Recommended if the dataset has a small number of time series that have roughly similar historic behavior.|- Simple to configure from code/SDK or Azure Machine Learning studio <br><br> - AutoML has the chance to cross-learn across different time series since the regression models pool all series together in training. See the [model grouping](./concept-automl-forecasting-methods.md#model-grouping) section for more information.|- Regression models may be less accurate if the time series in the training data have divergent behavior <br> <br> - Time series models may take a long time to train if there are a large number of series in the training data. See the ["why is AutoML slow on my data"](#why-is-automl-slow-on-my-data) answer for more information.|
+|**AutoML with deep learning**|Recommended for datasets with more than 1000 observations and, potentially, numerous time series exhibiting complex patterns. When enabled, AutoML will sweep over [temporal convolutional neural network (TCN) models](./concept-automl-forecasting-deep-learning.md#introduction-to-tcnforecaster) during training. See the [enable deep learning](./how-to-auto-train-forecast.md#enable-deep-learning) section for more information.|- Simple to configure from code/SDK or Azure Machine Learning studio <br> <br> - Cross-learning opportunities since the TCN pools data over all series <br> <br> - Potentially higher accuracy due to the large capacity of DNN models. See the [forecasting models in AutoML](./concept-automl-forecasting-methods.md#forecasting-models-in-automl) section for more information.|- Training can take much longer due to the complexity of DNN models <br> <br> - Series with small amounts of history are unlikely to benefit from these models.|
+|**Many Models**|Recommended if you need to train and manage a large number of forecasting models in a scalable way. See the [forecasting at scale](./how-to-auto-train-forecast.md#forecasting-at-scale) section for more information.|- Scalable <br> <br> - Potentially higher accuracy when time series have divergent behavior from one another.|- No cross-learning across time series <br> <br> - You can't configure or launch Many Models jobs from Azure Machine Learning studio, only the code/SDK experience is currently available.|
 |**Hierarchical Time Series**|HTS is recommended if the series in your data have nested, hierarchical structure and you need to train or make forecasts at aggregated levels of the hierarchy. See the [hierarchical time series forecasting](how-to-auto-train-forecast.md#hierarchical-time-series-forecasting) section for more information.|- Training at aggregated levels can reduce noise in the leaf node time series and potentially lead to higher accuracy models. <br> <br> - Forecasts can be retrieved for any level of the hierarchy by aggregating or dis-aggregating forecasts from the training level.|- You need to provide the aggregation level for training. AutoML doesn't currently have an algorithm to find an optimal level.|
 
 > [!NOTE]
@@ -138,9 +138,33 @@ If your AutoML forecasting job fails, you'll see an error message in the studio 
 > [!NOTE]
 > For Many Models or HTS job, training is usually on multi-node compute clusters. Logs for these jobs are present for each node IP address. You will need to search for error logs in each node in this case. The error logs, along with the driver logs, are in the `user_logs` folder for each node IP. 
 
+## How do I deploy model from forecasting training jobs?
+
+Model from forecasting training jobs can be deployed in either of the two ways:
+
+- Online Endpoint
+    - Please refer [this link](./how-to-deploy-automl-endpoint.md) for online deployment.
+    - You can check the scoring file used in the deployment or click on the "Test" tab on the endpoint page in the studio to understand the structure of input that is expected by the deployment.
+    - You can refer [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-energy-demand/automl-forecasting-task-energy-demand-advanced-mlflow.ipynb) to see an example.
+- Batch Endpoint
+    - Please refer [this link](./how-to-use-batch-endpoint.md) for batch deployment.
+    - It requires you to develop a custom scoring script.
+    - You can refer [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-orange-juice-sales/automl-forecasting-orange-juice-sales-mlflow.ipynb) to see an example.
+
+For UI deployments, we encourage to use either of the two options:
+- Real-time endpoint
+- Batch endpoint
+
+:::image type="content" source="media/how-to-automl-forecasting-faq/deployment-ui.png" alt-text="A view of the possible deployment options for an AutoML forecasting model.":::
+
+**Please don't use the 1st option i.e. "Real-time-endpoint (quick)"**.
+
+> [!NOTE]
+> As of now, we don't support deploying MLflow model from forecasting training jobs through SDK, CLI, or UI. You will run into errors if you try this.
+
 ## What is a workspace / environment / experiment/ compute instance / compute target? 
 
-If you aren't familiar with Azure Machine Learning concepts, start with the ["What is AzureML"](overview-what-is-azure-machine-learning.md) article and the [workspaces](./concept-workspace.md) article.
+If you aren't familiar with Azure Machine Learning concepts, start with the ["What is Azure Machine Learning"](overview-what-is-azure-machine-learning.md) article and the [workspaces](./concept-workspace.md) article.
 
 ## Next steps
 * Learn more about [how to set up AutoML to train a time-series forecasting model](./how-to-auto-train-forecast.md).

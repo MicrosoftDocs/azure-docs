@@ -56,6 +56,12 @@ sections:
           Can I use Synapse Link in Azure Cosmos DB serverless accounts?
         answer: |
           Yes, for both the APIs for MongoDB and NoSQLs database accounts. Currently, API for MongoDB accounts are only supported through Azure CLI or PowerShell.
+          
+      - question: |
+          What permissions do I need to enable Synapse Link in my database account?
+        answer: |
+          You need [Contributor role](role-based-access-control.md) to enable Synapse Link at account level.
+                    
 
   - name: Azure Cosmos DB analytical store
     questions:
@@ -155,6 +161,12 @@ sections:
           Is analytical store supported by Terraform?
         answer: |
           Currently Terraform doesn’t support analytical store containers. Please check [Terraform GitHub Issues](https://github.com/hashicorp/terraform/issues) for more information.
+
+      - question: |
+          What permissions do I need to enable Synapse Link in my containers or collections?
+        answer: |
+          You need at least [Operator role](role-based-access-control.md) to enable Synapse Link, for consequence to enable analytical store, at container or collection level.
+
           
   - name: Analytical Time to live (TTL)
     questions:
@@ -204,6 +216,11 @@ sections:
            Does Azure Synapse Link provide network isolation with Azure Synapse managed virtual networks?
         answer: |
            Yes, You can control network access to the data in the transactional and analytical stores independently. Network isolation is done using separate managed private endpoints for each store, within managed virtual networks in Azure Synapse workspaces. To learn more, see how to [Configure private endpoints for analytical store](analytical-store-private-endpoints.md) article.
+           
+      - question: |
+           I'm getting error 403 (Could not retrieve Analytical Store status for one or more containers Response status code does not indicate success: 403 (Forbidden)) after Azure Private Link was enabled for my database account. What's happening?
+        answer: |
+           Usually, 403's are due to network/firewall settings that prevent users from accessing specific data, even from the portal. The most common cause for this problem is that step 1 of the enable Network isolation process using private endpoints has not been performed. You need to use Azure CLI or PowerShell for this. More details [here](analytical-store-private-endpoints.md).
        
   - name: Synapse run-times
     questions:

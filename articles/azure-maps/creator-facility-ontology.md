@@ -19,13 +19,13 @@ Facility ontology defines how Azure Maps Creator internally stores facility data
 
 :::zone pivot="facility-ontology-v1"
 
-The Facility 1.0 contains revisions for the Facility feature class definitions for [Azure Maps Services](https://aka.ms/AzureMaps).
+The Facility 1.0 contains revisions for the Facility feature class definitions for [Azure Maps services](https://aka.ms/AzureMaps).
 
 :::zone-end
 
 :::zone pivot="facility-ontology-v2"
 
-The Facility 2.0 contains revisions for the Facility feature class definitions for [Azure Maps Services](https://aka.ms/AzureMaps).
+The Facility 2.0 contains revisions for the Facility feature class definitions for [Azure Maps services](https://aka.ms/AzureMaps).
 
 :::zone-end
 

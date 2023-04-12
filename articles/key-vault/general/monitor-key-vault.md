@@ -204,4 +204,4 @@ See [Alerting for Azure Key Vault](alert.md) for more details.
 
 - See [Monitoring Azure Key Vault data reference](monitor-key-vault-reference.md) for a reference of the metrics, logs, and other important values created by Key Vault.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
-- Seem [Alerting for Azure Key Vault](alert.md)
+- See [Alerting for Azure Key Vault](alert.md)

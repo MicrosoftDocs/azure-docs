@@ -8,9 +8,10 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
-ms.custom: mvc
-ms.date: 12/12/2022
+ms.date: 02/28/2023
 ms.author: mbaldwin
+ms.collection:
+  - zerotrust-services
 
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Key Vault is and if it offers anything that could be used in my organization.
 
@@ -24,6 +25,8 @@ Azure Key Vault is one of several [key management solutions in Azure](../../secu
 - **Certificate Management** - Azure Key Vault lets you easily provision, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use with Azure and your internal connected resources.
 
 Azure Key Vault has two service tiers: Standard, which encrypts with a software key, and a Premium tier, which includes hardware security module(HSM)-protected keys. To see a comparison between the Standard and Premium tiers, see the [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
+
+[!INCLUDE [Zero Trust principles ](../../../includes/security/zero-trust-principles-key-management.md)]
 
 ## Why use Azure Key Vault?
 
@@ -79,4 +82,4 @@ Key Vault itself can integrate with storage accounts, event hubs, and log analyt
 - Learn more about [keys, secrets, and certificates](about-keys-secrets-certificates.md)
 - [Quickstart: Create an Azure Key Vault using the CLI](../secrets/quick-create-cli.md)
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
-- [Key Vault Developer's Guide](../general/developers-guide.md)
+- [What is Zero Trust?](/security/zero-trust/zero-trust-overview)

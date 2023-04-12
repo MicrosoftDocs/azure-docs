@@ -11,6 +11,7 @@ author: ssalgadodev
 ms.reviewer: ssalgado
 ms.date: 03/11/2021
 ms.custom: deploy, sdkv1, event-tier1-build-2022
+monikerRange: 'azureml-api-1'
 ---
 
 
@@ -28,8 +29,6 @@ Azure Machine Learning can deploy a trained model as a web service. The web serv
 > The information in this article is specific to the deployment of the model. It provides information on the supported deployment configurations that allow the model to be used by Cognitive Search.
 >
 > For information on how to configure Cognitive Search to use the deployed model, see the [Build and deploy a custom skill with Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md) tutorial.
->
-> For the sample that the tutorial is based on, see [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
 
 When deploying a model for use with Azure Cognitive Search, the deployment must meet the following requirements:
 
@@ -45,7 +44,7 @@ When deploying a model for use with Azure Cognitive Search, the deployment must 
 
 * A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).  
 
-* A registered model. If you do not have a model, use the example notebook at [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
+* A registered model.
 
 * A general understanding of [How and where to deploy models](v1/how-to-deploy-and-where.md).
 
@@ -224,7 +223,7 @@ from azureml.core.webservice import AksWebservice, Webservice
 
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough
 # cores and memory to handle this deployment configuration. Note that memory is also used by
-# things such as dependencies and AzureML components.
+# things such as dependencies and Azure Machine Learning components.
 
 aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
                                                        autoscale_min_replicas=1, 

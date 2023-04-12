@@ -123,4 +123,4 @@ metricsui-qqgbv                      2/2     Running     0          15h
 
 ## Next steps
 
-- [Add exporters and pipelines to your telemetry router](/adding-exporters-and-pipelines.md)
+- [Add exporters and pipelines to your telemetry router](adding-exporters-and-pipelines.md)

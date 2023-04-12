@@ -6,6 +6,7 @@ author: mbaldwin
 
 ms.service: key-vault
 ms.subservice: general
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 01/04/2023
 ms.author: mbaldwin

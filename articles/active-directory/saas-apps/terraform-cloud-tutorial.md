@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Terraform Cloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Terraform Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and Terraform Cloud.
 services: active-directory
 author: jeevansd
@@ -8,10 +8,10 @@ ms.reviewer: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.custom: devx-track-terraform
 ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
-
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Terraform Cloud
