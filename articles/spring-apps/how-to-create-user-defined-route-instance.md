@@ -39,6 +39,7 @@ This diagram illustrates the following features of the architecture:
 * Each Azure Spring Apps instance is isolated within a dedicated subnet.
 * The firewall is owned and managed by customers. 
 * This structure ensures that the firewall enables a healthy environment for all the functions you need.
+* Azure Spring Apps is not automatically generating Azure Public IP resources.
 
 ### Define environment variables
 
