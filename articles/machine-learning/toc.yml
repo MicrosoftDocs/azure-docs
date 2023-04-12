@@ -600,6 +600,12 @@
             - name: Access data in jobs
               displayName: Access data in jobs
               href: how-to-read-write-data-v2.md
+            - name: Import data
+              displayName: Import data
+              href: how-to-import-data-assets.md
+            - name: Use connections
+              displayName: Use connections
+              href: how-to-connection.md
             - name: Working with Tables (mltable)
               displayName: Working with Tables (mltable)
               href: how-to-mltable.md
@@ -630,14 +636,6 @@
         - name: Data administration and authentication
           displayName: Data administration and authentication
           href: how-to-administrate-data-authentication.md
-        - name: Access data
-          items:
-            - name: Use connections
-              displayName: Use connections
-              href: how-to-connection.md
-            - name: Import data
-              displayName: Import data
-              href: how-to-import-data-assets.md
         # v1
         - name: Access data
           items:
