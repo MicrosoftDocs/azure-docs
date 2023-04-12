@@ -91,7 +91,7 @@ Use the following commands to create an environment with workload profile suppor
         |---|---|  
         | Every replica requires one IP. Users can't have apps with more than 21 replicas across all apps. Zero downtime deployment requires double the IPs since the old revision is running until the new revision is successfully deployed. | Every instance (VM node) requires a single IP.  You can have up to 21 instances across all workload profiles, and hundreds or more replicas running on these workload profiles. |
 
-::: zone-end
+    ::: zone-end
 
 1. Create *Consumption + Dedicated* environment with workload profile support
 
