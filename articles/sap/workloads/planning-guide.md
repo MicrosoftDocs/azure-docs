@@ -291,13 +291,15 @@ Standard load balancer modifies the [default outbound access](/azure/virtual-net
 
 #### Multiple vNICs per VM
 
-You can define multiple virtual network interface cards (vNIC) for an Azure VM, each assigned to any subnet within the same virtual network as the primary vNIC. With the ability to have multiple vNICs, you can start to set up network traffic separation, if necessary. For example, client traffic is routed through the primary vNIC and backend traffic is routed through a second vNIC. Dependent on the type of VM there are different limitations for the number of vNICs a VM can have assigned. Exact details, functionality, and restrictions can be found in this articles -  [Assign multiple IP addresses to virtual machines using the Azure portal](/azure/virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal)
+You can define multiple virtual network interface cards (vNIC) for an Azure VM, each assigned to any subnet within the same virtual network as the primary vNIC. With the ability to have multiple vNICs, you can start to set up network traffic separation, if necessary. For example, client traffic is routed through the primary vNIC and some admin or backend traffic is routed through a second vNIC. Depending on operating system (OS) and image used, traffic routes for NICs inside the OS will need to be setup for correct routing.
+
+The type and size of VM will restrict how many vNICs a VM can have assigned. Exact details, functionality, and restrictions can be found in this article -  [Assign multiple IP addresses to virtual machines using the Azure portal](/azure/virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal)
 
 > [!NOTE]
-> Adding additional vNICs to a VM does not increase the available network bandwidth. All network interfaces share the same bandwidth. Use of multiple NICs is only recommended if private subnets need to be accessed by VMs. Recommended design pattern is to rely on NSG functionality and simplify the network and subnet requirements with as few network interfaces, typically just one, if possible. Exception to this design is HANA scale-out where a secondary vNIC is required for HANA internal network.
+> Adding additional vNICs to a VM does not increase the available network bandwidth. All network interfaces share the same bandwidth. Use of multiple NICs is only recommended if private subnets need to be accessed by VMs. Recommended design pattern is to rely on NSG functionality and simplify the network and subnet requirements with as few network interfaces, typically just one, if possible. Exception is HANA scale-out where a secondary vNIC is required for HANA internal network.
 
 > [!WARNING]
-> If using multiple vNICs on a VM, it is recommended for primary network card's subnet handle user network traffic. 
+> If using multiple vNICs on a VM, it is recommended for primary network card's subnet to handle user network traffic.
 
 #### Accelerated networking
 
