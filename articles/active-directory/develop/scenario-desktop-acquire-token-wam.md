@@ -162,6 +162,11 @@ This message indicates that either the application user closed the dialog that d
    if (-not (Get-AppxPackage Microsoft.AccountsControl)) { Add-AppxPackage -Register "$env:windir\SystemApps\Microsoft.AccountsControl_cw5n1h2txyewy\AppxManifest.xml" -DisableDevelopmentMode -ForceApplicationShutdown } Get-AppxPackage Microsoft.AccountsControl
    ```
 
+### Connection issues
+
+The application user sees an error message similar to "Please check your connection and try again". If this issue occurs regularly, see the [troubleshooting guide for Office](https://learn.microsoft.com/microsoft-365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016), which also uses the broker.
+
+
 ## Sample
 
 [WPF sample that uses WAM](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2)
