@@ -57,7 +57,6 @@ The following details relate to the `lastSignInDateTime` property.
 
 - To read the property, you need to grant the app the following Microsoft Graph permissions: 
     - AuditLog.Read.All
-    - Directory.Read.All  
     - User.Read.All
 
 - Each interactive sign-in that was successful results in an update of the underlying data store. Typically, successful sign-ins show up in the related sign-in report within 10 minutes.
