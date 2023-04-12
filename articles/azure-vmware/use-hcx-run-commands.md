@@ -64,4 +64,5 @@ This process may take between 10-15 minutes.
 > [!NOTE] 
 > HCX cloud manager will be unavailable during the scaling. 
 
- 
+ ## Next step
+To learn more on run commands, see [Run commands](concepts-run-command.md)
