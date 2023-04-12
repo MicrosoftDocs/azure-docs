@@ -41,7 +41,7 @@ Speech feature summaries are provided below with links for more information.
 
 ### Speech-to-text
 
-Use [speech-to-text](speech-to-text.md) to transcribe audio into text, either in [real time](#real-time-speech-to-text) or asynchronously with [batch transcription](#batch-transcription). 
+Use [speech-to-text](speech-to-text.md) to transcribe audio into text, either in [real-time](#real-time-speech-to-text) or asynchronously with [batch transcription](#batch-transcription). 
 
 > [!TIP]
 > You can try real-time speech-to-text in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.
