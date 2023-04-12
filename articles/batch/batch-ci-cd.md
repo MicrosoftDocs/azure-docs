@@ -1,5 +1,5 @@
 ---
-title: Use Azure Pipelines to build and deploy HPC solutions
+title: Use Azure Pipelines to build and deploy an HPC solution
 description: Use Azure Pipelines CI/CD build and release pipelines to deploy Azure Resource Manager templates for an Azure Batch high performance computing (HPC) solution.
 author: chrisreddington
 ms.author: chredd
@@ -7,7 +7,7 @@ ms.date: 04/12/2023
 ms.topic: how-to
 ---
 
-# Use Azure Pipelines to build and deploy HPC solutions
+# Use Azure Pipelines to build and deploy an HPC solution
 
 Azure DevOps tools can automate building and testing Azure Batch high performance computing (HPC) solutions. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) provides modern continuous integration (CI) and continuous deployment (CD) processes for building, deploying, testing, and monitoring software. These processes accelerate your software delivery, allowing you to focus on your code rather than support infrastructure and operations.
 
@@ -19,15 +19,15 @@ This article shows how to set up CI/CD processes by using [Azure Pipelines](/azu
 
 To follow the steps in this article, you need:
 
-- An [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization), and an [Azure DevOps project](/azure/devops/organizations/projects/create-project) with an [Azure Repos](https://learn.microsoft.com/en-us/azure/devops/repos/git/create-new-repo?view=azure-devops) repository created in the organization. You must have **Project Administrator**, **Build Administrator**, and **Release Administrator** roles in the Azure DevOps project.
+- An [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization), and an [Azure DevOps project](/azure/devops/organizations/projects/create-project) with an [Azure Repos](/azure/devops/repos/git/create-new-repo) repository created in the organization. You must have **Project Administrator**, **Build Administrator**, and **Release Administrator** roles in the Azure DevOps project.
 
-- An active Azure subscription with **Owner** or other role that includes role assignment abilities. For more information, see [Understand Azure role assignments](/role-based-access-control/role-assignments).
+- An active Azure subscription with **Owner** or other role that includes role assignment abilities. For more information, see [Understand Azure role assignments](/azure/role-based-access-control/role-assignments).
 
 - A basic understanding of [source control](/azure/devops/user-guide/source-control) and [ARM template syntax](/azure/azure-resource-manager/templates/syntax).
 
 ## Prepare the solution
 
-The example in this article uses several ARM templates and an existing open-source video processing application, [ffmpeg](https://ffmpeg.org). You can copy or download these resources and push them to your Azure Repos repository.
+The example in this article uses several ARM templates and an existing open-source video processing application, [FFmpeg](https://ffmpeg.org). You can copy or download these resources and push them to your Azure Repos repository.
 
 >[!IMPORTANT]
 >This example deploys Windows software on Windows-based Batch nodes. Azure Pipelines, ARM templates, and Batch also fully support Linux and macOS software and nodes.
@@ -273,11 +273,11 @@ Save the following code as a file named *deployment.json*. This final template a
 
 ### Set up your repository
 
-Upload the ARM templates, ffmpeg app, and a YAML build definition file into your Azure Repos repository.
+Upload the ARM templates, FFmpeg app, and a YAML build definition file into your Azure Repos repository.
 
 1. Upload the four ARM templates to an *arm-templates* folder in your repository.
 
-1. For the application package, download and extract the [Windows 64-bit version of ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08), and upload it to an *hpc-application* folder in your repository.
+1. For the application package, download and extract the [Windows 64-bit version of FFmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08), and upload it to a *hpc-application* folder in your repository.
 
 1. For the build definition, save the following definition as a file named *hpc-app.build.yml*, and upload it to a *pipelines* folder in your repository.
 
@@ -302,7 +302,7 @@ Upload the ARM templates, ffmpeg app, and a YAML build definition file into your
        targetPath: '$(Build.ArtifactStagingDirectory)/package'
    ```
 
-When you're finished setting up your repository, the folder structure should have three main sections:
+When you're finished setting up your repository, the folder structure should have the following main sections:
 
    - An *arm-templates* folder that contains the ARM templates.
    - A *hpc-application* folder that contains ffmpeg.
@@ -349,7 +349,7 @@ In this section, you create a [YAML build pipeline](/azure/devops/pipelines/get-
 
 ### Create the Release pipeline
 
-You use an Azure Pipelines [Release pipeline](/azure/devops/pipelines/release) to deploy your application and underlying infrastructure. Release pipelines enable CD and automate your release process. There are several steps to deploy your application and underlying infrastructure.
+You use an Azure Pipelines [Release pipeline](/azure/devops/pipelines/release/releases) to deploy your application and underlying infrastructure. Release pipelines enable CD and automate your release process. There are several steps to deploy your application and underlying infrastructure.
 
 The [linked templates](/azure/azure-resource-manager/templates/linked-templates) for this solution must be accessible from a public HTTP or HTTPS endpoint. This endpoint could be a GitHub repository, an Azure Blob Storage account, or another storage location. To ensure that the uploaded template artifacts remain secure, hold them in a private mode, but access them by using some form of shared access signature (SAS) token.
 
