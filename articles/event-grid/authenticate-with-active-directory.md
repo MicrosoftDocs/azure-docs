@@ -8,6 +8,9 @@ ms.date: 01/05/2022
 # Authentication and authorization with Azure Active Directory
 This article describes how to authenticate Azure Event Grid publishing clients using Azure Active Directory (Azure AD).
 
+> [!IMPORTANT]
+> Azure AD authentication isn't supported for namespace topics. 
+
 ## Overview
 The [Microsoft Identity](../active-directory/develop/v2-overview.md) platform provides an integrated authentication and access control management for resources and applications that use Azure Active Directory (Azure AD) as their identity provider. Use the Microsoft Identity platform to provide authentication and authorization support in your applications. It's based on open standards such as OAuth 2.0 and OpenID Connect and offers tools and open-source libraries that support many authentication scenarios. It provides advanced features such as [Conditional Access](../active-directory/conditional-access/overview.md) that allows you to set policies that require multifactor authentication or allow access from specific locations, for example.
 
