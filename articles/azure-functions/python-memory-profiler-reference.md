@@ -55,7 +55,7 @@ Before you start developing a Python function app, you must meet these requireme
     traces
     | where timestamp > ago(1d)
     | where message startswith_cs "memory_profiler_logs:"
-    | parse message with "memory_profiler_logs: " LineNumber "  " TotalMem_MiB "  " IncreMem_MiB "  " Occurences "  " Contents
+    | parse message with "memory_profiler_logs: " LineNumber "  " TotalMem_MiB "  " IncreMem_MiB "  " Occurrences "  " Contents
     | union (
         traces
         | where timestamp > ago(1d)
@@ -63,7 +63,7 @@ Before you start developing a Python function app, you must meet these requireme
         | parse message with "memory_profiler_logs: Filename: " FileName
         | project timestamp, FileName, itemId
     )
-    | project timestamp, LineNumber=iff(FileName != "", FileName, LineNumber), TotalMem_MiB, IncreMem_MiB, Occurences, Contents, RequestId=itemId
+    | project timestamp, LineNumber=iff(FileName != "", FileName, LineNumber), TotalMem_MiB, IncreMem_MiB, Occurrences, Contents, RequestId=itemId
     | order by timestamp asc
     ```
     
@@ -249,7 +249,7 @@ After you make the above changes, there are a few more steps to initialize a Pyt
 
     ```text
     Filename: <ProjectRoot>\HttpTriggerAsync\__init__.py
-    Line #    Mem usage    Increment  Occurences   Line Contents
+    Line #    Mem usage    Increment  Occurrences   Line Contents
     ============================================================
         19     45.1 MiB     45.1 MiB           1   @memory_profiler.profile
         20                                         async def get_microsoft_page_async(url: str):
