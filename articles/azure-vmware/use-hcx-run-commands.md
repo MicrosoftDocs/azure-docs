@@ -12,7 +12,7 @@ In this article, you learn how to use HCX run commands. Use run commands to perf
 
 This article describes two HCX commands: **Restart HCX Manager** and **Scale HCX Manager**. 
 
-## Restart HCX Manage 
+## Restart HCX Manager 
 
 This Command checks for active HCX migrations and replications. If none are found, it restarts the HCX cloud manager (HCX VM's guest OS). 
 
@@ -24,14 +24,14 @@ This Command checks for active HCX migrations and replications. If none are foun
 1. Set parameters and select **Run**. 
 Optional run command parameters.   
 
-    If the parameters are used incorrectly, they can halt active migrations, and replications and cause other issues. Brief description of each parameter with an example of when teach should be used.  
+    If the parameters are used incorrectly, they can halt active migrations, and replications and cause other issues. Brief description of each parameter with an example of when it should be used.  
     
     **Hard Reboot Parameter** - Restarts the virtual machine instead of the default of a GuestOS Reboot. This command is like pulling the power plug on a machine. We don't want to risk disk corruption so this should only be used if a normal reboot fails, and we have exhausted all other options.  
     
     **Force Parameter** - If there are ANY active HCX migrations/replications, this parameter avoids the check for active HCX migrations/replications. If the Virtual machine is in a powered off state, this parameter powers the machine on.  
 
     **Scenario 1**: A customer has a migration that has been stuck in an active state for weeks and they need a restart of HCX for a separate issue. Without this parameter, the script will fail due to the detection of the active migration. 
-    Scenario 2: The HCX Manager is powered off and the customer would like to power it back on.
+    **Scenario 2**: The HCX Manager is powered off and the customer would like to power it back on.
 
     :::image type="content" source="media/hcx-commands/restart-command.png" alt-text="Diagram that shows run command parameters for Restart-HcxManager command." border="false" lightbox="media/hcx-commands/restart-command.png":::   
 
@@ -49,7 +49,7 @@ Use the Scale HCX manager run command to increase the resource allocation of you
 
 1. Select the **Microsoft.AVS.Management** package dropdown menu and select the ``Set-HcxScaledCpuAndMemorySetting`` command.
  
-    :::image type="content" source="media/hcx-commands/set-hcx-scale.png" alt-text="Diagram that shows run command parameters for Set-HcxScaledCpuAndMemorySetting Command." border="false" lightbox="media/hcx-commands/set-hcx-scale.png"::: 
+    :::image type="content" source="media/hcx-commands/set-hcx-scale.png" alt-text="Diagram that shows run command parameters for Set-HcxScaledCpuAndMemorySetting command." border="false" lightbox="media/hcx-commands/set-hcx-scale.png"::: 
  
 1. Agree to restart HCX by toggling ``AgreeToRestartHCX`` to **True**. 
     You must acknowledge that the virtual machine will be restarted.  
@@ -58,10 +58,10 @@ Use the Scale HCX manager run command to increase the resource allocation of you
     >[!NOTE]
     > If this required parameter is set to false that cmdlet execution will fail. 
 
-1. Select **Run** to execute.  
-This process may take between 10-15 minutes.  
-
-   >[!NOTE]
+1. Select **Run** to execute.
+    This process may take between 10-15 minutes.  
+   
+    >[!NOTE]
     > HCX cloud manager will be unavailable during the scaling. 
 
  ## Next step
