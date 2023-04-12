@@ -69,7 +69,7 @@ Once connected, query the `query_store.query_texts_view view` to retrieve the de
 
 In the example shown below, we utilize Azure Cloud Shell and the `psql` tool to accomplish this task:
 
-    :::image type="content" source="./media/how-to-troubleshooting-guides/retrieve-query-text.png" alt-text="Retrieving the Query Text":::
+:::image type="content" source="./media/how-to-troubleshooting-guides/retrieve-query-text.png" alt-text="Retrieving the Query Text":::
 
 ### Retrieving the Username
 
@@ -80,7 +80,7 @@ To retrieve the username, you can query the `pg_roles` view or use the query sho
 SELECT 'UserID'::regrole;
 ```
 
-    :::image type="content" source="./media/how-to-troubleshooting-guides/retrieve-username.png" alt-text="Retrieving the Username":::
+:::image type="content" source="./media/how-to-troubleshooting-guides/retrieve-username.png" alt-text="Retrieving the Username":::
 
 
 ## Next steps
