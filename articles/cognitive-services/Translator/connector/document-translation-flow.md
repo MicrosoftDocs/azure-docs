@@ -151,9 +151,11 @@ Now that completed the prerequisites and initial setup, let's get started using 
 
 ## Start Document Translation
 
-Now, we're ready to select an action. Here, you learn to translate documents and get the status of the operation using your [**Azure blob storage**](#use-azure-blob-storage) or [**Microsoft SharePoint**](#use-microsoft-sharepoint) account.
+Now, we're ready to select an action. Here, you learn to translate documents and get the status of the operation using your [**Azure blob storage**](#azure-blob-storage) or [**Microsoft SharePoint**](#microsoft-sharepoint) account.
 
 ### [Use Azure blob storage](#tab/blob-storage)
+
+### Azure blob storage
 
 1. In the Choose an operation pop-up window, enter Translator V3 in the **Search connectors and actions** search bar and select the **Microsoft Translator V3** icon.
 
@@ -248,6 +250,10 @@ Time to check our flow and document translation results. A green bar appears at 
 1. As a final check, navigate to your Azure blob storage target source container. You see the translated document in the **Overview** section. The document may be in a folder labeled with the translation language code.
 
 #### [Use Microsoft SharePoint](#tab/sharepoint)
+
+### Microsoft SharePoint
+
+Here are the steps that will be covered in this section:
 
 > [!div class="checklist"]
 >

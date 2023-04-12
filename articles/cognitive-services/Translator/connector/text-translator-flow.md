@@ -53,9 +53,11 @@ Now that completed the prerequisites, let's get started using the V3 connector t
 
    :::image type="content" source="../media/connectors/choose-operation.png" alt-text="Screenshot showing the selection of Translator V3 as the next flow step.":::
 
-Now, we're ready to select a [**text translation**](#translate-text) or [**text transliteration**](#transliterate-text) action.
+Now, we're ready to select a [**text translation**](#translate) or [**text transliteration**](#transliterate) action.
 
 #### [Translate text](#tab/translate)
+
+### Translate
 
 1. Select the **Translate text** action.
 1. If you're using the Translator V3 connector for the first time, you need to enter your resource credentials:
@@ -81,6 +83,8 @@ Now, we're ready to select a [**text translation**](#translate-text) or [**text 
    :::image type="content" source="../media/connectors/translate-text-step.png" alt-text="Screenshot showing the translate text step.":::
 
 #### [Transliterate text](#tab/transliterate)
+
+### Transliterate
 
 1. Select the **Transliterate text** action.
 1. If you're using the Translator V3 connector for the first time, you need to enter your resource credentials:
