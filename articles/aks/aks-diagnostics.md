@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes Service (AKS) Diagnostics Overview
+title: Azure Kubernetes Service (AKS) Diagnose and Solve Problems Overview
 description: Learn about self-diagnosing clusters in Azure Kubernetes Service.
 services: container-service
 author: rongzhang
@@ -8,24 +8,24 @@ ms.date: 03/10/2023
 ms.author: rongzhang
 ---
 
-# Azure Kubernetes Service Diagnostics overview
+# Azure Kubernetes Service Diagnose and Solve Problems overview
 
-Troubleshooting Azure Kubernetes Service (AKS) cluster issues plays an important role in maintaining your cluster, especially if your cluster is running mission-critical workloads. AKS Diagnostics is an intelligent, self-diagnostic experience that:
+Troubleshooting Azure Kubernetes Service (AKS) cluster issues plays an important role in maintaining your cluster, especially if your cluster is running mission-critical workloads. AKS Diagnose and Solve Problems is an intelligent, self-diagnostic experience that:
 * Helps you identify and resolve problems in your cluster. 
 * Requires no extra configuration or billing cost.
  
 
-## Open AKS Diagnostics
+## Open AKS Diagnose and Solve Problems
 
-To access AKS Diagnostics:
+To access AKS Diagnose and Solve Problems:
 
 1. Navigate to your Kubernetes cluster in the [Azure portal](https://portal.azure.com).
-2. Click on **Diagnose and solve problems** in the left navigation, which opens AKS Diagnostics.
+2. Click on **Diagnose and solve problems** in the left navigation, which opens AKS Diagnose and Solve Problems.
 3. Choose a category that best describes the issue of your cluster by:
     * Referring the keywords in each tile description on the homepage.
     * Typing a keyword that best describes your issue in the search bar.
 
-![Homepage](./media/concepts-diagnostics/aks-diagnostics-homepage.PNG)
+![screenshot of AKS Diagnose and Solve Problems Homepage.](./media/concepts-diagnostics/aks-diagnostics-homepage.PNG)
 
 
 ## View a diagnostic report
@@ -43,29 +43,29 @@ Based on the outcome, you may follow the detailed instructions or peruse the doc
 
 **Example scenario 1**: I observed that my application is getting disconnected or experiencing intermittent connection issues. In response, I click **Connectivity Issues** tile to investigate the potential causes. 
 
-![AKS Diagnostics Results - Networking Tile](./media/concepts-diagnostics/aks-diagnostics-tile.png)
+![screenshot of AKS Diagnose and solve problems Results - Networking Tile.](./media/concepts-diagnostics/aks-diagnostics-tile.png)
 
-I received a diagnostic alert indicating that the disconnection may be related to my *Cluster DNS*. To gether more information, I clicked on *View details*. 
+I received a diagnostic alert indicating that the disconnection may be related to my *Cluster DNS*. To gather more information, I clicked on *View details*. 
 
-![AKS Diagnostics Results - Networking](./media/concepts-diagnostics/aks-diagnostics-results.png)
+![Screenshot of AKS Diagnose and solve problems - Networking.](./media/concepts-diagnostics/aks-diagnostics-results.png)
 
 Based on the diagnostic result, it appears that the issue may be related to known DNS issues or VNET configuration. Thankfully, I can use the documentation links provided to address the issue and resolve the problem.
 
-![AKS Diagnostics Results - Networking - Cluster DNS](./media/concepts-diagnostics/aks-diagnostics-network.png)
+![AKS Diagnose and Solve Problems Results - Networking - Cluster DNS.](./media/concepts-diagnostics/aks-diagnostics-network.png)
 
 Furthermore, if the recommended documentation based on the diagnostic results does not resolve the issue, you can return to the previous step in Diagnostics and refer to additional documentation.
 
-![AKS Diagnostics Results - Additional - Docs](./media/concepts-diagnostics/aks-diagnostics-doc.png)
+![Screenshot of AKS Diagnose and solve problem result - Additional - Docs.](./media/concepts-diagnostics/aks-diagnostics-doc.png)
 
-## Use Diagnostics for Best Practices
+## Use AKS Diagnose and Solve Problems for Best Practices
 
-Deploying applications on AKS requires adherence to best practices to guarantee optimal performance, availability, and security. To this end, the AKS Diagnostics **Best Practices** tile provides an array of best practices that can assist in managing various aspects such as VM resource provisioning, cluster upgrades, scaling operations, subnet configuration, and other essential aspects of a cluster's configuration. Leveraging the AKS Diagnostics can be vital in ensuring that your cluster adheres to best practices and that any potential issues are identified and resolved in a timely and effective manner. By incorporating AKS Diagnostics into your operational practices, you can be confident in the reliability and security of your application in production.
+Deploying applications on AKS requires adherence to best practices to guarantee optimal performance, availability, and security. To this end, the AKS Diagnose and Solve Problems **Best Practices** tile provides an array of best practices that can assist in managing various aspects such as VM resource provisioning, cluster upgrades, scaling operations, subnet configuration, and other essential aspects of a cluster's configuration. Leveraging the AKS Diagnose and Solve Problems can be vital in ensuring that your cluster adheres to best practices and that any potential issues are identified and resolved in a timely and effective manner. By incorporating AKS Diagnose and Solve Problems into your operational practices, you can be confident in the reliability and security of your application in production.
 
 **Example Scenario 2**: My cluster seems to be in good health. All nodes are ready, and my application runs without any issues. However, I am curious about the best practices I can follow to prevent potential problems. So, I click on the **Best Practices** tile. After reviewing the recommendations, I discovered that even though my cluster appears healthy at the moment, there are still some things I can do to avoid latency, throttling or VM uptime issues in the future. 
 
-![AKS Diagnostics Results - Best - Practice](./media/concepts-diagnostics/aks-diagnostics-best.png)
+![Screenshot of AKS Diagnose and solve problem - Best - Practice.](./media/concepts-diagnostics/aks-diagnostics-best.png)
 
-![AKS Diagnostics Results - Best - result](./media/concepts-diagnostics/aks-diagnostics-practice.png)
+![Screenshot of AKS Diagnose and solve problem - Best - result.](./media/concepts-diagnostics/aks-diagnostics-practice.png)
 
 ## Next steps
 
