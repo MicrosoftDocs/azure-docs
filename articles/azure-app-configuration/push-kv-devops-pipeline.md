@@ -27,7 +27,18 @@ The [Azure App Configuration Push](https://marketplace.visualstudio.com/items?it
 
 ## Add role assignment
 
-[!INCLUDE [azure-app-configuration-role-assignment](../../includes/azure-app-configuration-role-assignment.md)]
+Assign the proper App Configuration role assignments to the credentials being used within the task so that the task can access the App Configuration store.
+
+1. Go to your target App Configuration store. 
+1. In the left menu, select **Access control (IAM)**.
+1. In the right pane, select **Add role assignments**.
+
+    :::image type="content"  border="true" source="./media/azure-app-configuration-role-assignment/add-role-assignment-button.png" alt-text="Screenshot shows the Add role assignments button.":::
+1. For **Role**, select **App Configuration Data Owner**. This role allows the task to read from and write to the App Configuration store.
+1. Select the service principal associated with the service connection that you created in the previous section.
+
+    :::image type="content"  border="true" source="./media/azure-app-configuration-role-assignment/add-role-assignment-data-owner.png" alt-text="Screenshot shows the Add role assignment dialog.":::
+1. Select **Review + assign**.
 
 ## Use in builds
 
@@ -50,7 +61,7 @@ This section will cover how to use the Azure App Configuration Push task in an A
 
 ## Use in releases
 
-This section will cover how to use the Azure App Configuration Push task in an Azure DevOps release pipelines.
+This section will cover how to use the Azure App Configuration Push task in an Azure DevOps release pipeline.
 
 1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. Documentation for release pipelines can be found [here](/azure/devops/pipelines/release).
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.

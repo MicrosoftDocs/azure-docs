@@ -2,8 +2,8 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 ms.topic: conceptual
-ms.date: 12/16/2022
-ms.custom: seodec18, devx-track-azurepowershell
+ms.date: 03/02/2023
+ms.custom: seodec18, devx-track-arm-template
 ---
 # Throttling Resource Manager requests
 
@@ -37,7 +37,7 @@ The remaining requests are returned in the [response header values](#remaining-r
 
 ## Resource provider limits
 
-Resource providers apply their own throttling limits. The resource provider throttles per region of the resource in the request and per principal ID. Because Resource Manager throttles by instance of Resource Manager, and there are several instances of Resource Manager in each region, the resource provider might receive more requests than the default limits in the previous section.
+Resource providers apply their own throttling limits. Within each subscription, the resource provider throttles per region of the resource in the request. Because Resource Manager throttles by instance of Resource Manager, and there are several instances of Resource Manager in each region, the resource provider might receive more requests than the default limits in the previous section.
 
 This section discusses the throttling limits of some widely used resource providers.
 

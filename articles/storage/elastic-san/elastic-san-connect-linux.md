@@ -1,24 +1,24 @@
 ---
-title: Connect to an Azure Elastic SAN (preview) volume - Linux.
-description: Learn how to connect to an Azure Elastic SAN (preview) volume from a Linux client.
+title: Connect to an Azure Elastic SAN Preview volume - Linux.
+description: Learn how to connect to an Azure Elastic SAN Preview volume from a Linux client.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions, ignite-2022, devx-track-azurepowershell
 ---
 
-# Connect to Elastic SAN (preview) volumes - Linux
+# Connect to Elastic SAN Preview volumes - Linux
 
-This article explains how to connect to an Elastic storage area network (SAN) volume from a Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN (preview) volumes - Windows](elastic-san-connect-windows.md).
+This article explains how to connect to an Elastic storage area network (SAN) volume from a Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md).
 
 In this article, you'll add the Storage service endpoint to an Azure virtual network's subnet, then you'll configure your volume group to allow connections from your subnet. Finally, you'll configure your client environment to connect to an Elastic SAN volume and establish a connection.
 
 ## Prerequisites
 
-- Complete [Deploy an Elastic SAN (preview)](elastic-san-create.md)
+- Complete [Deploy an Elastic SAN Preview](elastic-san-create.md)
 - An Azure Virtual Network, which you'll need to establish a connection from compute clients in Azure to your Elastic SAN volumes.
 
 ## Limitations
@@ -105,17 +105,17 @@ When using multiple sessions, generally, you should aggregate them with Multipat
 
 To create iSCSI connections from a Linux client, install the iSCSI initiator package. The exact command may vary depending on your distribution, and you should consult their documentation if necessary.
 
-As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi` and with Red Hat Enterprise Linux (RHEL) you'd use `sudo yum install iscsi-initiator-utils -y`.
+As an example, with Ubuntu you'd use `sudo apt install open-iscsi`, with SUSE Linux Enterprise Server (SLES) you'd use `sudo zypper install open-iscsi` and with Red Hat Enterprise Linux (RHEL) you'd use `sudo yum install iscsi-initiator-utils`.
 
 #### Multipath I/O - for multi-session connectivity
 
-Install the Multipath I/O package for your Linux distribution. The installation will vary based on your distribution, and you should consult their documentation. As an example, on Ubuntu the command would be `sudo apt install multipath-tools` and for RHEL the command would be `sudo yum install device-mapper-multipath`.
+Install the Multipath I/O package for your Linux distribution. The installation will vary based on your distribution, and you should consult their documentation. As an example, on Ubuntu the command would be `sudo apt install multipath-tools`, for SLES the command would be `sudo zypper install multipath-tools` and for RHEL the command would be `sudo yum install device-mapper-multipath`.
 
 Once you've installed the package, check if **/etc/multipath.conf** exists. If **/etc/multipath.conf** doesn't exist, create an empty file and use the settings in the following example for a general configuration. As an example, `mpathconf --enable` will create **/etc/multipath.conf** on RHEL. 
 
 You'll need to make some modifications to **/etc/multipath.conf**. You'll need to add the devices section in the following example, and the defaults section in the following example sets some defaults are generally applicable. If you need to make any other specific configurations, such as excluding volumes from the multipath topology, see the man page for multipath.conf.
 
-```
+```config
 defaults {
     user_friendly_names yes		# To create ‘mpathn’ names for multipath devices
     path_grouping_policy multibus	# To place all the paths in one priority group
@@ -131,7 +131,7 @@ devices {
 }
 ```
 
-After creating or modifying the file, restart Multipath I/O. On Ubuntu, the command is `sudo systemctl restart multipath-tools.service` and on RHEL the command is `sudo systemctl restart multipathd`.
+After creating or modifying the file, restart Multipath I/O. On Ubuntu, the command is `sudo systemctl restart multipath-tools.service` and on RHEL and SLES the command is `sudo systemctl restart multipathd`.
 
 ### Gather information
 
@@ -164,15 +164,15 @@ To establish persistent iSCSI connections, modify **node.startup** in **/etc/isc
 
 Replace **yourTargetIQN**, **yourTargetPortalHostName**, and **yourTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
 
-```
-iscsiadm -m node --targetname yourTargetIQN --portal yourTargetPortalHostName:yourTargetPortalPort -o new
+```bash
+sudo iscsiadm -m node --targetname yourTargetIQN --portal yourTargetPortalHostName:yourTargetPortalPort -o new
 
-iscsiadm -m node --targetname yourTargetIQN -p yourTargetPortalHostName:yourTargetPortalPort -l
+sudo iscsiadm -m node --targetname yourTargetIQN -p yourTargetPortalHostName:yourTargetPortalPort -l
 ```
 
 Then, get the session ID and create as many sessions as needed with the session ID. To get the session ID, run `iscsiadm -m session` and you should see output similar to the following:
 
-```
+```output
 tcp:[15] <name>:port,-1 <iqn>
 tcp:[18] <name>:port,-1 <iqn>
 ```
@@ -180,15 +180,15 @@ tcp:[18] <name>:port,-1 <iqn>
 
 The following script is a loop that creates as many additional sessions as you specify. Replace **numberOfAdditionalSessions** with your desired number of additional sessions and replace **sessionID** with the session ID you'd like to use, then run the script.
 
-```
-for i in `seq 1 numberOfAdditionalSessions`; do sudo iscsiadm -m session -r sessionID --op new; done
+```bash
+sudo for i in `seq 1 numberOfAdditionalSessions`; do sudo iscsiadm -m session -r sessionID --op new; done
 ```
 
 You can verify the number of sessions using `sudo multipath -ll`
 
 When you've finished creating sessions for each of your volumes, run the following command once for each volume you'd like to maintain persistent connections to. This keeps the volume's connections active when your client reboots.
 
-```
+```bash
 sudo iscsiadm -m node --targetname yourTargetIQN --portal yourTargetPortalHostName:yourTargetPortalPort --op update -n node.session.nr_sessions -v numberofAdditionalSessions+1
 ```
 
@@ -198,12 +198,12 @@ To establish persistent iSCSI connections, modify **node.startup** in **/etc/isc
 
 Replace **yourTargetIQN**, **yourTargetPortalHostName**, and **yourTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
 
-```
-iscsiadm -m node --targetname yourTargetIQN --portal yourTargetPortalHostName:yourTargetPortalPort -o new
+```bash
+sudo iscsiadm -m node --targetname yourTargetIQN --portal yourTargetPortalHostName:yourTargetPortalPort -o new
 
-iscsiadm -m node --targetname yourTargetIQN -p yourTargetPortalHostName:yourTargetPortalPort -l
+sudo iscsiadm -m node --targetname yourTargetIQN -p yourTargetPortalHostName:yourTargetPortalPort -l
 ```
 
 ## Next steps
 
-[Configure Elastic SAN networking (preview)](elastic-san-networking.md)
+[Configure Elastic SAN networking Preview](elastic-san-networking.md)

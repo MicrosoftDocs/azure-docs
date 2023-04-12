@@ -30,7 +30,7 @@ For a list of Linux distributions supported by the Log Analytics agent, see [Ove
 OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit). OpenSSL earlier than 1.x isn't supported on any platform.
 
 >[!NOTE]
->The Log Analytics Linux agent doesn't run in containers. To monitor containers, use the [Container Monitoring solution](../containers/containers.md) for Docker hosts or [Container insights](../containers/container-insights-overview.md) for Kubernetes.
+>The Log Analytics Linux agent doesn't run in containers. To monitor containers, use the [Container Monitoring solution](/previous-versions/azure/azure-monitor/containers/containers) for Docker hosts or [Container insights](../containers/container-insights-overview.md) for Kubernetes.
 
 Starting with versions released after August 2018, we're making the following changes to our support model:  
 
@@ -195,7 +195,7 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
     ```
 
     > [!NOTE]
-    > The preceding command uses the optional `--skip-docker-provider-install` flag to disable the Container Monitoring data collection because the [Container Monitoring solution](../containers/containers.md) is being retired.
+    > The preceding command uses the optional `--skip-docker-provider-install` flag to disable the Container Monitoring data collection because the [Container Monitoring solution](/previous-versions/azure/azure-monitor/containers/containers) is being retired.
 
 1. To configure the Linux agent to install and connect to a Log Analytics workspace through a Log Analytics gateway, run the following command. It provides the proxy, workspace ID, and workspace key parameters. This configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The `proxyhost` property accepts a fully qualified domain name or IP address of the Log Analytics gateway server.  
 
@@ -209,10 +209,10 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-1. To configure the Linux computer to connect to a Log Analytics workspace in Azure Government cloud, run the following command that provides the workspace ID and primary key copied earlier:
+1. To configure the Linux computer to connect to a Log Analytics workspace in Azure Government or Azure China cloud, run the following command that provides the workspace ID and primary key copied earlier, substituting `opinsights.azure.us` or `opinsights.azure.cn` respectively for the domain name:
 
     ```
-    sudo sh ./omsagent-*.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
+    sudo sh ./omsagent-*.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d <domain name>
     ```
 
 To install the agent packages and configure the agent to report to a specific Log Analytics workspace at a later time, run:

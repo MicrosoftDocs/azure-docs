@@ -61,8 +61,8 @@ public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
 
-    SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.SpeakText("I'm excited to try text-to-speech");
+    SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    speechSynthesizer.SpeakText("I'm excited to try text-to-speech");
 }
 ```
 
@@ -79,8 +79,8 @@ public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     AudioConfig audioConfig = AudioConfig.fromDefaultSpeakerOutput();
 
-    SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.SpeakText("I'm excited to try text to speech");
+    SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    speechSynthesizer.SpeakText("I'm excited to try text to speech");
 }
 ```
 
@@ -102,9 +102,9 @@ This time, you save the result to a [`SpeechSynthesisResult`](/java/api/com.micr
 ```java
 public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
+    SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
 
-    SpeechSynthesisResult result = synthesizer.SpeakText("I'm excited to try text-to-speech");
+    SpeechSynthesisResult result = speechSynthesizer.SpeakText("I'm excited to try text-to-speech");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     System.out.print(stream.getStatus());
 }
@@ -136,8 +136,8 @@ public static void main(String[] args) {
     // set the output format
     speechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 
-    SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
-    SpeechSynthesisResult result = synthesizer.SpeakText("I'm excited to try text-to-speech");
+    SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
+    SpeechSynthesisResult result = speechSynthesizer.SpeakText("I'm excited to try text-to-speech");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     stream.saveToWavFile("path/to/write/file.wav");
 }
@@ -184,10 +184,10 @@ From here, the result object is exactly the same as previous examples:
 ```java
 public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
-    SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
+    SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
 
     String ssml = xmlToString("ssml.xml");
-    SpeechSynthesisResult result = synthesizer.SpeakSsml(ssml);
+    SpeechSynthesisResult result = speechSynthesizer.SpeakSsml(ssml);
     AudioDataStream stream = AudioDataStream.fromResult(result);
     stream.saveToWavFile("path/to/write/file.wav");
 }

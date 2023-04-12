@@ -5,6 +5,7 @@ author: timwarner-msft
 ms.author: timwarner
 ms.date: 07/19/2022
 ms.topic: sample
+ms.custom: devx-track-azurepowershell
 ---
 # Starter Resource Graph query samples
 

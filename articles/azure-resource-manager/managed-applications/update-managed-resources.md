@@ -4,6 +4,7 @@ description: Describes how to work on resources in the managed resource group fo
 author: davidsmatlak
 
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 10/26/2017
 ms.author: davidsmatlak
 ---

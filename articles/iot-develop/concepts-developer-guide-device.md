@@ -43,7 +43,7 @@ To build an IoT Plug and Play device, module, or IoT Edge module, follow these s
 1. Update your device or module to announce the `model-id` as part of the device connection.
 1. Implement telemetry, properties, and commands that follow the [IoT Plug and Play conventions](concepts-convention.md)
 
-Once your device or module implementation is ready, use the [Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md) to validate that the device follows the IoT Plug and Play conventions.
+Once your device or module implementation is ready, use the [Azure IoT explorer](../iot/howto-use-iot-explorer.md) to validate that the device follows the IoT Plug and Play conventions.
 
 :::zone pivot="programming-language-ansi-c"
 

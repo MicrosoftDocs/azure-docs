@@ -10,7 +10,7 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-python
-#Customer intent:  As a Python developer, I want use Personalizer in an Azure Notebook so that I can understand the end to end lifecycle of a Personalizer loop.
+#Customer intent: As a Python developer, I want use Personalizer in an Azure Notebook so that I can understand the end to end lifecycle of a Personalizer loop.
 ---
 
 # Tutorial: Use Personalizer in Azure Notebook

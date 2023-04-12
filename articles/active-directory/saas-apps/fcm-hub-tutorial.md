@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with FCM HUB | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with FCM HUB'
 description: Learn how to configure single sign-on between Azure Active Directory and FCM HUB.
 services: active-directory
 author: jeevansd

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 02/28/2023
 ms.author: anfdocs
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -25,6 +25,26 @@ This article shows you how to create an SMB3 volume. For NFS volumes, see [Creat
 
 * You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).     
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
+* The [SMB Continuous Availability](#continuous-availability) feature is currently in preview. You must submit a waitlist request before you can use this feature.
+* The [non-browsable shares](#non-browsable-share) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
+
+1. Register the feature: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSmbNonBrowsable
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBAccessBasedEnumeration
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSmbNonBrowsable
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBAccessBasedEnumeration   
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Configure Active Directory connections 
 
@@ -99,40 +119,33 @@ Before creating an SMB volume, you need to create an Active Directory connection
         - It must start with an alphabetical character.
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.   
-        
+
     * <a name="smb3-encryption"></a>If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
 
         This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.   
-        See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information. 
+        See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information.
+
+    * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, select **Enable Access Based Enumeration**.
+
+        This feature will hide directories and files created under a share from users who do not have access permissions to the files or folders under the share. Users will still be able to view the share.
+
+    * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
+
+        This feature prevents the Windows client from browsing the share. The share does not show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
+
+    > [!IMPORTANT]
+    > Both the access-based enumeration and non-browsable shares features are currently in preview. If this is your first time using either, refer to the steps in [Before you begin](#before-you-begin) to register either feature.
 
     * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
 
         > [!IMPORTANT]   
-        > The SMB Continuous Availability feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using the Continuous Availability feature.   
+        > The SMB Continuous Availability feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using the Continuous Availability feature.   
         > 
         You should enable Continuous Availability only for Citrix App Layering, SQL Server, and [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md). Using SMB Continuous Availability shares for workloads other than Citrix App Layering, SQL Server, and FSLogix user profile containers is *not* supported. This feature is currently supported on Windows SQL Server. Linux SQL Server is not currently supported. If you are using a non-administrator (domain) account to install SQL Server, ensure that the account has the required security privilege assigned. If the domain account does not have the required security privilege (`SeSecurityPrivilege`), and the privilege cannot be set at the domain level, you can grant the privilege to the account by using the **Security privilege users** field of Active Directory connections. See [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection).
 
         **Custom applications are not supported with SMB Continuous Availability.**
 
-    <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
-    <!-- 
-        ```azurepowershell-interactive
-        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare
-        ```
-
-        Check the status of the feature registration: 
-
-        > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
-
-        ```azurepowershell-interactive
-        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare
-        ```
-        
-        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-    --> 
-
-    ![Screenshot that describes the Protocol tab of creating an SMB volume.](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
+    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png" alt-text="Screenshot showing the Protocol tab of creating an SMB volume." lightbox="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png":::
 
 5. Select **Review + Create** to review the volume details. Then select **Create** to create the SMB volume.
 

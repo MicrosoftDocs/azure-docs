@@ -5,6 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.author: cshoe
 ms.service: container-apps
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 1/18/2023
 ---
@@ -15,7 +16,10 @@ Azure Container Apps uses [availability zones](../availability-zones/az-overview
 
 Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. You can build high availability into your application architecture by co-locating your compute, storage, networking, and data resources within a zone and replicating in other zones.
 
-By enabling Container Apps' zone redundancy feature, replicas are automatically randomly distributed across the zones in the region.  Traffic is load balanced among the replicas.  If a zone outage occurs, traffic will automatically be routed to the replicas in the remaining zones.
+By enabling Container Apps' zone redundancy feature, replicas are automatically distributed across the zones in the region.  Traffic is load balanced among the replicas.  If a zone outage occurs, traffic will automatically be routed to the replicas in the remaining zones.
+
+> [!NOTE]
+> There is no extra charge for enabling zone redundancy, but it only provides benefits when you have 2 or more replicas, with 3 or more being ideal since most regions that support zone redundancy have 3 zones.
 
 In the unlikely event of a full region outage, you have the option of using one of two strategies:
 
@@ -112,7 +116,7 @@ Next, query for the infrastructure subnet ID.
 # [Bash](#tab/bash)
 
 ```bash
-INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group <RESOURCE_GROUP_NAME> --vnet-name <VNET_NAME> --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
+INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group <RESOURCE_GROUP_NAME> --vnet-name <VNET_NAME> --name infrastructure --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)

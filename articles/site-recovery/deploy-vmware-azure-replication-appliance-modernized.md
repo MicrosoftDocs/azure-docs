@@ -3,7 +3,7 @@ title: Deploy Azure Site Recovery replication appliance - Modernized
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/21/2022
+ms.date: 03/27/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -231,7 +231,7 @@ If there is any organizational restrictions, you can manually set up the Site Re
 
   **Use the following steps to register the appliance**:
 
-1. Configure the proxy settings by toggling on the **use proxy to connect to internet** option.
+1. If the appliance uses a proxy for internet access, configure the proxy settings by toggling on the **use proxy to connect to internet** option.
 
     All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported.
 

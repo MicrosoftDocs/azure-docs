@@ -9,7 +9,7 @@ metadata:
    proven to run network-intensive workloads and mission-critical applications under the stringent  security, 
    resiliency, observability, manageability, and performance required by telecommunication' operators. 
    Learn how to deploy, manage and use Operator Nexus with these concepts, quickstarts, and how-to guides.
-  ms.service: hybrid-service 
+  ms.service: azure-operator-nexus
   ms.topic: landing-page
   author: jashobhit
   ms.author: shobhitjain
@@ -24,7 +24,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-           - text: What is Operator Nexus ?
+           - text: What is Operator Nexus?
              url: overview.md
       - linkListType: concept
         links:
@@ -44,18 +44,36 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-           - text: Before you start deployment
-             url: quickstart-network-fabric-controller-cluster-manager-create.md       
+           - text: Before you start NFC/CM deployment
+             url: howto-azure-operator-nexus-prerequisites.md      
            - text: Before you start platform deployment
-             url: quickstarts-platform-prerequisites.md
-           - text: Platform deployment
-             url: quickstarts-platform-deployment.md
+             url: howto-platform-prerequisites.md
       - linkListType: quickstart
         links:
            - text: Before you start tenant workload deployment
              url: quickstarts-tenant-workload-prerequisites.md
            - text: Tenant workload deployment
              url: quickstarts-tenant-workload-deployment.md
+#
+  # Card
+  - title: Observability
+    linkLists:
+      - linkListType: concept
+        links:
+           - text: Observability concepts
+             url: concepts-observability.md 
+      - linkListType: how-to-guide
+        links:
+           - text: Monitor AKS-Hybrid Cluster
+             url: howto-monitor-aks-h-cluster.md      
+           - text: Monitor VMs for VNF
+             url: howto-monitor-virtualized-network-functions-virtual-machines.md
+           - text: Cluster metrics configuration management
+             url: howto-cluster-metrics-configuration-management.md
+      - linkListType: reference
+        links:
+           - text: List of metrics collected
+             url: List-of-metrics-collected.md
 #
   # Card
 # - title: How-to guides

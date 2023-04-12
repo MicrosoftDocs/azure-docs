@@ -1,5 +1,5 @@
 ---
-title: Phone authentication methods - Azure Active Directory
+title: Phone authentication methods
 description: Learn about using phone authentication methods in Azure Active Directory to help improve and secure sign-in events
 
 services: active-directory
@@ -30,7 +30,7 @@ To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*
 > [!NOTE]
 > There needs to be a space between the country/region code and the phone number.
 >
-> Password reset and Azure AD Multi-Factor Authentication don't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
+> Password reset and Azure AD Multi-Factor Authentication support phone extensions only in office phone.
 
 ## Mobile phone verification
 
