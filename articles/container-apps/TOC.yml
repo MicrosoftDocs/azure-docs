@@ -6,6 +6,8 @@
       href: overview.md
     - name: Compare container options in Azure
       href: compare-options.md
+    - name: Application types
+      href: application-types.md
 - name: Quickstarts
   expanded: true
   items: 
@@ -25,6 +27,8 @@
       href: deploy-visual-studio.md
     - name: Visual Studio Code
       href: deploy-visual-studio-code.md
+  - name: Run a job
+    href: jobs-get-started-cli.md
 - name: Concepts
   items:
     - name: Plans
@@ -77,6 +81,8 @@
       href: workload-profiles-overview.md
     - name: Dapr integration
       href: dapr-overview.md
+    - name: Jobs
+      href: jobs.md
     - name: Azure Arc-enabled Kubernetes clusters
       href: azure-arc-overview.md
 - name: How-to guides
@@ -188,8 +194,14 @@
         href: microservices-dapr-service-invoke.md
       - name: Deploy a Dapr application using GitHub Actions
         href: dapr-github-actions.md
+    - name: Custom runner with a job
+      href: jobs-runner.md
     - name: Background processing
-      href: background-processing.md
+      items: 
+      - name: In a container app
+        href: background-processing.md
+      - name: In a job
+        href: background-processing-jobs.md
     - name: Create an Azure Files storage mount
       href: storage-mounts-azure-files.md
     - name: Azure Arc
