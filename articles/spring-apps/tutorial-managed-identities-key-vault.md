@@ -31,7 +31,7 @@ The following video describes how to manage secrets using Azure Key Vault.
 ## Prerequisites
 
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli)
+* [Install the Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli)
 * [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
 
 ## Create a resource group
@@ -71,7 +71,7 @@ az keyvault secret set \
 After installing corresponding extension, create an Azure Spring Apps instance with the Azure CLI command `az spring create`.
 
 ```azurecli
-az extension add --name spring
+az extension add --upgrade --name spring
 az spring create \
     --resource-group <your-resource-group-name> \
     --name <your-Azure-Spring-Apps-instance-name>
