@@ -128,7 +128,7 @@ When technology projects fail, it's typically because of mismatched expectations
 
 ### Plan communications
 
-Communication is critical to the success of any new service. Proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues.
+Communication is critical to the success of any new service. Proactively communicate to your users about their experience, how the experience is changing, when to expect any change, and how to gain support if they experience issues.
 
 ### Plan a pilot
 
