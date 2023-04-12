@@ -72,6 +72,10 @@ For example, "communication" is common to both English and French and if given w
             "id": "2",
             "text": "communication",
             "countryHint": "fr"
+        },
+        {
+             "id": "3",
+            "text": "pruthvi surya ke charo aur ghumti hai"
         }
     ]
 }
@@ -102,6 +106,18 @@ The language detection model now has additional context to make a better judgmen
                 "name":"French"
             },
             "id":"2",
+            "warnings":[
+                
+            ]
+        },
+        {
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"hi",
+                "name":"Hindi",
+                "script": "Latin"
+            },
+            "id":"3",
             "warnings":[
                 
             ]
