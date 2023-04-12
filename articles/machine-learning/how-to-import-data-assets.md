@@ -1,5 +1,5 @@
 ---
-title: Import Data
+title: Import Data (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to import data from external sources on to Azure Machine Learning platform
 services: machine-learning
@@ -13,7 +13,7 @@ ms.date: 04/12/2023
 ms.custom: data4ml
 ---
 
-# Import data assets
+# Import data assets (preview)
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
@@ -28,6 +28,8 @@ The transferred data is partitioned and securely stored as parquet files in Azur
 The caching feature involves upfront compute and storage costs. However, it pays for itself, and can save money, because it reduces recurring training compute costs compared to direct connections to external source data during training. It caches data as parquet files, which makes job training faster and more reliable against connection timeouts for larger data sets. This leads to fewer reruns, and fewer training failures.
 
 You can now import data from Snowflake, Amazon S3 and Azure SQL.
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
