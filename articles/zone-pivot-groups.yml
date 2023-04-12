@@ -1016,6 +1016,20 @@ groups:
     title: Windows container
   - id: code-windows
     title: Windows code
+- id: app-service-getting-started-stacks
+  title: Language stacks
+  prompt: Choose a stack
+  pivots:
+  - id: stack-net
+    title: .NET
+  - id: stack-python
+    title: Python
+  - id: stack-nodejs
+    title: Node.js
+  - id: stack-java
+    title: Java
+  - id: stack-php
+    title: PHP       
 - id: programming-languages-spring-apps
 # Owner: karler
   title: Programming languages
@@ -1370,6 +1384,20 @@ groups:
   pivots:
   - id: platform-azcli
     title: Azure CLI
+  - id: platform-azp
+    title: Azure portal
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+- id: acs-azp-java-python-csharp-js
+  title: Platform
+  prompt: Choose a platform
+  pivots:
   - id: platform-azp
     title: Azure portal
   - id: programming-language-java
@@ -2253,3 +2281,14 @@ groups:
     title: Automated host pool
   - id: host-pool-standard
     title: Standard host pool
+# Owner: kevinguo-ed
+- id: azure-web-pubsub-create-resource-methods
+  title: Create a resource using any one of the methods
+  prompt: Choose an option
+  pivots: 
+  - id: method-azure-portal
+    title: Azure portal
+  - id: method-azure-cli
+    title: Azure CLI
+  - id: method-bicep
+    title: Bicep template
