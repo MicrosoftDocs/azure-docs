@@ -96,7 +96,7 @@ Sign in to the Azure portal, and select **Monitor** > **Alerts** to create alert
 
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image11.png" alt-text="Screenshot that shows configuring email, SMS, push, and voice.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image12.png" lightbox=="media/monitor-using-azure-monitor/alerts_image12.png" alt-text="Screenshot that shows defining an action group.":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image12.png" lightbox="media/monitor-using-azure-monitor/alerts_image12.png" alt-text="Screenshot that shows defining an action group.":::
 
 ## Next steps
 
