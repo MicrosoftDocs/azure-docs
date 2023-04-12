@@ -106,29 +106,20 @@ To learn more about the Azure Resource Manager and Classic deployment models, se
 
 ### Run As account
 
-When you create a Run As account, it performs the following tasks:
-
-* Creates an Azure AD application with a self-signed certificate, creates a service principal account for the application in Azure AD, and assigns the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role for the account in your current subscription. You can change the certificate setting to [Reader](../role-based-access-control/built-in-roles.md#reader) or any other role. For more information, see [Role-based access control in Azure Automation](automation-role-based-access-control.md).
-
-* Creates an Automation certificate asset named `AzureRunAsCertificate` in the specified Automation account. The certificate asset holds the certificate private key that the Azure AD application uses.
-
-* Creates an Automation connection asset named `AzureRunAsConnection` in the specified Automation account. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint.
+Run As Account consists of the following components:
+- An Azure AD application with a self-signed certificate, and a service principal account for the application in Azure AD, which is assigned the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role for the account in your current subscription. You can change the certificate setting to [Reader](../role-based-access-control/built-in-roles.md#reader) or any other role. For more information, see [Role-based access control in Azure Automation](automation-role-based-access-control.md).
+- An Automation certificate asset named `AzureRunAsCertificate` in the specified Automation account. The certificate asset holds the certificate private key that the Azure AD application uses.
+- An Automation connection asset named `AzureRunAsConnection` in the specified Automation account. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint.
 
 ### Azure Classic Run As account
 
-> [!IMPORTANT]
-> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+Azure Classic Run As Account consists of the following components:
+- A management certificate in the subscription.
+- An Automation certificate asset named `AzureClassicRunAsCertificate` in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
+- An Automation connection asset named `AzureClassicRunAsConnection` in the specified Automation account. The connection asset holds the subscription name, subscription ID, and certificate asset name.
 
-When you create an Azure Classic Run As account, it performs the following tasks:
-
-> [!NOTE]
-> You must be a co-administrator on the subscription to create or renew this type of Run As account.
-
-* Creates a management certificate in the subscription.
-
-* Creates an Automation certificate asset named `AzureClassicRunAsCertificate` in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
-
-* Creates an Automation connection asset named `AzureClassicRunAsConnection` in the specified Automation account. The connection asset holds the subscription name, subscription ID, and certificate asset name.
+> [NOTE]
+> You must be a co-administrator on the subscription to renew this type of Run As account.
 
 ## Service principal for Run As account
 
