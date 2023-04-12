@@ -96,7 +96,7 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 
 1. Select **Resource groups** from the left pane.
 
-1. Select the resource group that you created in the previous section. The default resource group name is the project name with **`rg`** appended.
+1. Select the resource group that you created in the previous section. The default resource group name is the project name with **-rg** appended.
 
 1. Select the load balancer. Its default name is the project name with **-lb** appended.
 
