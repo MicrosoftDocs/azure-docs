@@ -19,8 +19,6 @@ Use this article to learn about formatting your data to be imported into custom 
 
 <!--If you are trying to [import your data](../how-to/create-project.md#import-project) into custom Text Analytics for health, it has to follow a specific format. If you don't have data to import, you can [create your project](../how-to/create-project.md) and use the Language Studio to [label your documents](../how-to/tag-data.md).-->
 
-## Labels file format
-
 Your Labels file should be in the `json` format below to be used when importing your labels into a project.
 
 ```json
