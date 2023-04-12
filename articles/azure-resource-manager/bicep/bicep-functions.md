@@ -2,6 +2,7 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 07/05/2022
 ---
 
