@@ -324,7 +324,7 @@ Here is the publisher, offer, SKU, and version of the source marketplace image:
 * `$(pirSku)`
 * `$(pirVersion)`
 
-Here is the image URI, which is the resource ID of the distributed image:
+Here's the image URI, which is the resource ID of the distributed image:
 
 * `$(imageUri)`
 
