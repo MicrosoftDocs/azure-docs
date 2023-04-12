@@ -1,5 +1,5 @@
 ---
-title: Create maps between schemas
+title: Create maps for data transformation
 description: Create maps to transform data between schemas in Azure Logic Apps using Visual Studio Code.
 services: logic-apps
 ms.service: logic-apps
@@ -40,10 +40,10 @@ The Data Mapper extension currently supports only schemas in flat folder-structu
 
 - The latest Data Mapper extension for Visual Studio Code
 
-- The source and target schema files that describe the data to transform
+- The source and target schema files that describe the data to transform. These files can have either the following formats:
 
-  - The source schema must be an XML schema definition file with the .xsd file extension.
-  - The target schema must be a JavaScript Object Notation file with the (.json) extension.
+  - An XML schema definition file with the .xsd file extension
+  - A JavaScript Object Notation file with the .json file extension
 
 - A Standard logic app project that includes a stateful workflow with at least a trigger. If you don't have a project, follow these steps in Visual Studio Code:
 
