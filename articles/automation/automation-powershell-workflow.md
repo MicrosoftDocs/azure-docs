@@ -153,7 +153,7 @@ For more information on using InlineScript, see [Running Windows PowerShell Comm
 
 One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script.
 
-You can use the `Parallel` keyword to create a script block with multiple commands that run concurrently. This uses the following syntax shown below. In this case, Activity1 and Activity2 starts at the same time. Activity3 starts only after both Activity1 and Activity2 have completed.
+You can use the `Parallel` keyword to create a script block with multiple commands that run concurrently. This uses the following syntax shown below. In this case, Activity1 and Activity2 start at the same time. Activity3 starts only after both Activity1 and Activity2 have completed.
 
 ```powershell
 Parallel
