@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 05/18/2022
+ms.date: 03/28/2023
 author: ericd-mst-github
 ms.author: nikhilpatel
 ms.reviewer: erd
@@ -17,13 +17,13 @@ ms.custom:
 
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing, and global distribution of applications for your virtual machines.
 
-> [!IMPORTANT]
-> Deploying VM applications in Azure Compute Gallery **do not currently support using Azure policies**.
 
 
 While you can create an image of a VM with apps pre-installed, you would need to update your image each time you have application changes. Separating your application installation from your VM images means there’s no need to publish a new image for every line of code change.
 
 Application packages provide benefits over other deployment and packaging methods:
+
+- VM Applications have support for [Azure Policies](../governance/policy/overview.md)
 
 - Grouping and versioning of your packages
 
@@ -52,13 +52,15 @@ The VM application packages use multiple resource types:
 
 ## Limitations
 
-- **No more than 3 replicas per region**: When creating a VM Application version, the maximum number of replicas per region is three. 
+- **No more than 3 replicas per region**: When creating a VM Application version, the maximum number of replicas per region is three.
+
+- **Public access on storage**: Only public level access to storage accounts work, as other restriction levels fail deployments.
 
 - **Retrying failed installations**: Currently, the only way to retry a failed installation is to remove the application from the profile, then add it back.
 
-- **Only 5 applications per VM**: No more than five applications may be deployed to a VM at any point.
+- **Only 25 applications per VM**: No more than 25 applications may be deployed to a VM at any point.
 
-- **1GB application size**: The maximum file size of an application version is 1 GB. 
+- **2GB application size**: The maximum file size of an application version is 2 GB. 
 
 - **No guarantees on reboots in your script**: If your script requires a reboot, the recommendation is to place that application last during deployment. While the code attempts to handle reboots, it may fail.
 
@@ -67,6 +69,8 @@ The VM application packages use multiple resource types:
 - **Multiple versions of same application on the same VM**: You can't have multiple versions of the same application on a VM.
 - **Move operations currently not supported**: Moving VMs with VM Apps to other resource groups are not supported at this time.
 
+> [!NOTE]
+>  For Azure Compute Gallery and VM Applications, Storage SAS can be deleted after replication.
 
 ## Cost
 

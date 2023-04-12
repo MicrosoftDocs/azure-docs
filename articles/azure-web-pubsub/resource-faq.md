@@ -5,7 +5,7 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview 
-ms.date: 11/11/2021
+ms.date: 03/21/2023
 ---
 
 # Azure Web PubSub service FAQ
@@ -33,4 +33,4 @@ Azure Web PubSub service is more suitable for situations where:
 
 ##  Where does my data reside?
 
-Azure Web PubSub service works as a data processor service. It won't store any customer content, and data residency is included by design. If you use Azure Web PubSub service together with other Azure services, like Azure Storage for diagnostics, see [this white paper](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for guidance about how to keep data residency in Azure regions.
+Azure Web PubSub does not store any customer data. If you use Azure Web PubSub service together with other Azure services, like Azure Storage for diagnostics, see [this white paper](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for guidance about how to keep data residency in Azure regions.

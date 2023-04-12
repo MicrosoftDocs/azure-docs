@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 03/02/2023
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -20,21 +20,24 @@ By using containers, you can run _some_ of the Azure Cognitive Services Speech s
 
 With Speech containers, you can build a speech application architecture that's optimized for both robust cloud capabilities and edge locality. Several containers are available, which use the same [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) as the cloud-based Azure Speech services.
 
+## Available Speech containers
+
 > [!IMPORTANT]
 > We retired the standard speech synthesis voices and text-to-speech container on August 31, 2021. Consider migrating your applications to use the neural text-to-speech container instead. For more information on updating your application, see [Migrate from standard voice to prebuilt neural voice](./how-to-migrate-to-prebuilt-neural-voice.md).
 
-| Container | Features | Latest | Release status |
-|--|--|--|--|
-| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 3.8.0 | Generally available |
-| Custom speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 3.8.0 | Generally available |
-| Speech language identification | Detects the language spoken in audio files. | 1.5.0 | Preview |
-| Neural text-to-speech | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | 2.7.0 | Generally available |
+| Container | Features | Supported versions and locales |
+|--|--|--|
+| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | Latest: 3.12.0<br/><br/>For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list).|
+| Custom speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | Latest: 3.12.0<br/><br/>For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list). |
+| Speech language identification | Detects the language spoken in audio files. | Latest: 1.11.0<sup>1</sup><br/><br/>For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/language-detection/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/language-detection/tags/list). |
+| Neural text-to-speech | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | Latest: 2.11.0<br/><br/>For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list). |
+
+<sup>1</sup> The container is available in public preview. Containers in preview are still under development and don't meet Microsoft's stability and support requirements.
 
 ## Prerequisites
 
 > [!IMPORTANT]
-> * To use the Speech containers, you must submit an online request and have it approved. For more information, see the "Request approval to run the container" section.
-> * *Generally available* containers meet Microsoft's stability and support requirements. Containers in *preview* are still under development.
+> To use the Speech containers, you must submit an online request and have it approved. For more information, see the "Request approval to run the container" section.
 
 You must meet the following prerequisites before you use Speech service containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. You need:
 
@@ -53,19 +56,21 @@ You must meet the following prerequisites before you use Speech service containe
 
 The following table describes the minimum and recommended allocation of resources for each Speech container:
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-| Speech-to-text | 4 core, 4-GB memory | 8 core, 6-GB memory |
-| Custom speech-to-text | 4 core, 4-GB memory | 8 core, 6-GB memory |
-| Speech language identification | 1 core, 1-GB memory | 1 core, 1-GB memory |
-| Neural text-to-speech | 6 core, 12-GB memory | 8 core, 16-GB memory |
+| Container | Minimum | Recommended |Speech Model|
+|-----------|---------|-------------| -------- |
+| Speech-to-text | 4 core, 4-GB memory | 8 core, 8-GB memory |+4 to 8 GB memory|
+| Custom speech-to-text | 4 core, 4-GB memory | 8 core, 8-GB memory |+4 to 8 GB memory|
+| Speech language identification | 1 core, 1-GB memory | 1 core, 1-GB memory |n/a|
+| Neural text-to-speech | 6 core, 12-GB memory | 8 core, 16-GB memory |n/a|
 
 Each core must be at least 2.6 gigahertz (GHz) or faster.
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 > [!NOTE]
-> The minimum and recommended allocations are based on Docker limits, *not* the host machine resources. For example, speech-to-text containers memory map portions of a large language model. We recommend that the entire file should fit in memory, which is an additional 4 to 6 GB. Also, the first run of either container might take longer because models are being paged into memory.
+> The minimum and recommended allocations are based on Docker limits, *not* the host machine resources.
+> For example, speech-to-text containers memory map portions of a large language model. We recommend that the entire file should fit in memory. You need to add an additional 4 to 8 GB to load the speech modesl (see above table).
+> Also, the first run of either container might take longer because models are being paged into memory.
 
 ### Advanced Vector Extension support
 
@@ -83,11 +88,11 @@ Fill out and submit the [request form](https://aka.ms/csgate) to request access 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
-## Get the container image with docker pull
-
-Container images for Speech are available in the following container registry.
+## Speech container images
 
 # [Speech-to-text](#tab/stt)
+
+The Speech-to-text container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `speech-to-text`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text`. You can find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/tags).
 
 | Container | Repository |
 |-----------|------------|
@@ -95,17 +100,29 @@ Container images for Speech are available in the following container registry.
 
 # [Custom speech-to-text](#tab/cstt)
 
+The Custom Speech-to-text container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-speech-to-text`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text`. 
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/tags).
+
 | Container | Repository |
 |-----------|------------|
 | Custom speech-to-text | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest` |
 
 # [Neural text-to-speech](#tab/ntts)
 
+The Neural Text-to-speech container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `neural-text-to-speech`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech`.
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/about).
+
 | Container | Repository |
 |-----------|------------|
 | Neural text-to-speech | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest` |
 
 # [Speech language identification](#tab/lid)
+
+The Speech language detection container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `language-detection`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection`.
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/language-detection/tags).
 
 > [!TIP]
 > To get the most useful results, use the Speech language identification container with the speech-to-text or custom speech-to-text containers.
@@ -115,10 +132,9 @@ Container images for Speech are available in the following container registry.
 | Speech language identification | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
 
 ***
-
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### Docker pull for the Speech containers
+### Get the container image with docker pull
 
 # [Speech-to-text](#tab/stt)
 
@@ -192,7 +208,7 @@ The following tag is an example of the format:
 For all the supported locales and corresponding voices of the neural text-to-speech container, see [Neural text-to-speech image tags](../containers/container-image-tags.md#neural-text-to-speech).
 
 > [!IMPORTANT]
-> When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container [locale and voice](language-support.md?tabs=stt-tts). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
+> When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container [locale and voice](language-support.md?tabs=tts). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
 
 # [Speech language identification](#tab/lid)
 
@@ -205,7 +221,6 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/language-d
 ```
 
 ***
-
 ## Use the container
 
 After the container is on the [host computer](#host-computer-requirements-and-recommendations), use the following process to work with the container.
@@ -217,19 +232,17 @@ After the container is on the [host computer](#host-computer-requirements-and-re
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. For more information on how to get the `{Endpoint_URI}` and `{API_Key}` values, see [Gather required parameters](#gather-required-parameters). More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
 
-## Run the container in disconnected environments
-
-You must request access to use containers disconnected from the internet. For more information, see [Request access to use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
-
 > [!NOTE]
 > For general container requirements, see [Container requirements and recommendations](#container-requirements-and-recommendations).
 
 # [Speech-to-text](#tab/stt)
 
+### Run the container connected to the internet 
+
 To run the standard speech-to-text container, execute the following `docker run` command:
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+docker run --rm -it -p 5000:5000 --memory 8g --cpus 4 \
 mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -239,7 +252,7 @@ ApiKey={API_KEY}
 This command:
 
 * Runs a *speech-to-text* container from the container image.
-* Allocates 4 CPU cores and 4 GB of memory.
+* Allocates 4 CPU cores and 8 GB of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
@@ -248,7 +261,21 @@ This command:
 > To install GStreamer in a container, 
 > follow Linux instructions for GStreamer in [Use codec compressed audio input with the Speech SDK](how-to-use-codec-compressed-audio-input-streams.md).
 
-#### Diarization on the speech-to-text output
+### Run the container disconnected from the internet
+
+[!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
+
+The speech-to-text container provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
+### Diarization on the speech-to-text output
 
 Diarization is enabled by default. To get diarization in your response, use `diarize_speech_config.set_service_property`.
 
@@ -273,7 +300,7 @@ Diarization is enabled by default. To get diarization in your response, use `dia
     > "Identity" mode returns `"SpeakerId": "Customer"` or `"SpeakerId": "Agent"`.
     > "Anonymous" mode returns `"SpeakerId": "Speaker 1"` or `"SpeakerId": "Speaker 2"`.
     
-#### Analyze sentiment on the speech-to-text output
+### Analyze sentiment on the speech-to-text output
 
 Starting in v2.6.0 of the speech-to-text container, you should use Language service 3.0 API endpoint instead of the preview one. For example:
 
@@ -307,7 +334,7 @@ This command:
 * Performs the same steps as the preceding command.
 * Stores a Language service API endpoint and key, for sending sentiment analysis requests.
 
-#### Phraselist v2 on the speech-to-text output
+### Phraselist v2 on the speech-to-text output
 
 Starting in v2.6.0 of the speech-to-text container, you can get the output with your own phrases, either the whole sentence or phrases in the middle. For example, *the tall man* in the following sentence:
 
@@ -356,7 +383,7 @@ The following table represents the various `docker run` parameters and their cor
 To run the custom speech-to-text container, execute the following `docker run` command:
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+docker run --rm -it -p 5000:5000 --memory 8g --cpus 4 \
 -v {VOLUME_MOUNT}:/usr/local/models \
 mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
 ModelId={MODEL_ID} \
@@ -368,7 +395,7 @@ ApiKey={API_KEY}
 This command:
 
 * Runs a custom speech-to-text container from the container image.
-* Allocates 4 CPU cores and 4 GB of memory.
+* Allocates 4 CPU cores and 8 GB of memory.
 * Loads the custom speech-to-text model from the volume input mount, for example, *C:\CustomSpeech*.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Downloads the model given the `ModelId` (if not found on the volume mount).
@@ -458,6 +485,75 @@ ApiKey={API_KEY}
 
 Starting in v2.5.0 of the custom-speech-to-text container, you can get custom pronunciation results in the output. All you need to do is have your own custom pronunciation rules set up in your custom model and mount the model to a custom-speech-to-text container.
 
+
+### Run the container disconnected from the internet
+
+To use this container disconnected from the internet, you must first request access by filling out an application, and purchasing a commitment plan. See [Use Docker containers in disconnected environments](../containers/disconnected-containers.md) for more information.
+
+In order to prepare and configure the Custom Speech-to-Text container you will need two separate speech resources:
+
+1. A regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This will be used to train, download, and configure your custom speech models for use in your container.
+1. An Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
+
+Download the docker container and run it to get the required speech model as [described above](#get-the-container-image-with-docker-pull) using the regular Azure Speech resource. Next, you will need to download your disconnected license file.
+
+The `DownloadLicense=True` parameter in your `docker run` command will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use a license file with the appropriate container that you've been approved for. For example, you can't use a license file for a speech-to-text container with a form recognizer container.
+
+| Placeholder | Value | Format or example |
+|-------------|-------|---|
+| `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
+| `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/host/license:/path/to/license/directory` |
+| `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
+
+```bash
+docker run --rm -it -p 5000:5000 \ 
+-v {LICENSE_MOUNT} \
+{IMAGE} \
+eula=accept \
+billing={ENDPOINT_URI} \
+apikey={API_KEY} \
+DownloadLicense=True \
+Mounts:License={CONTAINER_LICENSE_DIRECTORY} 
+```
+
+Once the license file has been downloaded, you can run the container in a disconnected environment. The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
+
+Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with `Mounts:License=`. An output mount must also be specified so that billing usage records can be written.
+
+Placeholder | Value | Format or example |
+|-------------|-------|---|
+| `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
+ `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `4g` |
+| `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
+| `{LICENSE_MOUNT}` | The path where the license will be located and mounted.  | `/host/license:/path/to/license/directory` |
+| `{OUTPUT_PATH}` | The output path for logging [usage records](../containers/disconnected-containers.md#usage-records). | `/host/output:/path/to/output/directory` |
+| `{MODEL_PATH}` | The path where the model is located. | `/path/to/model/` |
+| `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
+| `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.  | `/path/to/output/directory` |
+
+```bash
+docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
+-v {LICENSE_MOUNT} \ 
+-v {OUTPUT_PATH} \
+-v {MODEL_PATH} \
+{IMAGE} \
+eula=accept \
+Mounts:License={CONTAINER_LICENSE_DIRECTORY}
+Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
+```
+
+The [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
 # [Neural text-to-speech](#tab/ntts)
 
 To run the neural text-to-speech container, execute the following `docker run` command:
@@ -476,6 +572,23 @@ This command:
 * Allocates 6 CPU cores and 12 GB of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
+
+
+### Run the container disconnected from the internet
+
+[!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
+
+
+The neural text-to-speech container provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
 
 # [Speech language identification](#tab/lid)
 
@@ -505,7 +618,6 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 Increasing the number of concurrent calls can affect reliability and latency. For language identification, we recommend a maximum of four concurrent calls using 1 CPU with 1 GB of memory. For hosts with 2 CPUs and 2 GB of memory, we recommend a maximum of six concurrent calls.
 
 ***
-
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container. Otherwise, the container won't start. For more information, see [Billing](#billing).
 
@@ -632,7 +744,6 @@ speech_config.set_service_property(
 ```
 
 ---
-
 If you want to completely disable sentiment analysis, add a `false` value to `sentimentanalysis.enabled`.
 
 ```python
@@ -697,3 +808,5 @@ In this article, you learned concepts and workflow for how to download, install,
 * Review [configure containers](speech-container-configuration.md) for configuration settings.
 * Learn how to [use Speech service containers with Kubernetes and Helm](speech-container-howto-on-premises.md).
 * Use more [Cognitive Services containers](../cognitive-services-container-support.md).
+
+

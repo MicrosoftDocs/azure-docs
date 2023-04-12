@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Brandfolder | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Brandfolder'
 description: Learn how to configure single sign-on between Azure Active Directory and Brandfolder.
 services: active-directory
 author: jeevansd

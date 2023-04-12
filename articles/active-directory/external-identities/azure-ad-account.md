@@ -1,14 +1,13 @@
 ---
 
-title: Azure AD Account identity provider
-description: Use Azure Active Directory to enable an external user (guest) to sign in to your Azure AD apps with their Azure AD work account.
+title: Add Azure AD Account as an identity provider
+description: Use Azure Active Directory to enable an external user (guest) to sign in to your Azure AD apps with their Azure AD work or school account.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/11/2022
-
+ms.date: 03/27/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -19,17 +18,17 @@ ms.custom: engagement-fy23
 
 # Add Azure Active Directory (Azure AD) as an identity provider for External Identities
 
-Azure Active Directory is available as an identity provider option for [B2B collaboration](what-is-b2b.md) by default. If an external guest user has an Azure AD account through work or school, they can redeem your B2B collaboration invitations or complete your sign-up user flows using their Azure AD account.
+Azure Active Directory is available as an identity provider option for B2B collaboration by default. If an external guest user has an Azure AD account through work or school, they can redeem your B2B collaboration invitations or complete your sign-up user flows using their Azure AD account.
 
 ## Guest sign-in using Azure Active Directory accounts
 
-Azure Active Directory is available in the list of External Identities identity providers by default. No further configuration is needed to allow guest users to sign in with their Azure AD account using either the [invitation flow](redemption-experience.md#invitation-redemption-flow) or a [self-service sign-up user flow](self-service-sign-up-overview.md).
+If you want to enable guest users to sign in with their Azure AD account, you can use either the invitation flow or a self-service sign-up user flow. No additional configuration is required.
 
 :::image type="content" source="media/azure-ad-account/azure-ad-account-identity-provider.png" alt-text="Screenshot of Azure AD account in the identity provider list." lightbox="media/azure-ad-account/azure-ad-account-identity-provider.png":::
 
 ### Azure AD account in the invitation flow
 
-When you [invite a guest user](add-users-administrator.md) to B2B collaboration, you can specify their Azure AD account as the email address they'll use to sign in.
+When you [invite a guest user](add-users-administrator.md) to B2B collaboration, you can specify their Azure AD account as the **Email address** they'll use to sign in.
 
 :::image type="content" source="media/azure-ad-account/azure-ad-account-invite.png" alt-text="Screenshot of inviting a guest user using the Azure AD account." lightbox="media/azure-ad-account/azure-ad-account-invite.png":::
 

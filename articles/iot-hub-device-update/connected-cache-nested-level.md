@@ -1,11 +1,11 @@
 ---
-title: Microsoft Connected Cache two level nested Azure IoT Edge Gateway with outbound unauthenticated proxy | Microsoft Docs
+title: Microsoft Connected Cache two level nested Azure IoT Edge Gateway with outbound unauthenticated proxy
 titleSuffix:  Device Update for Azure IoT Hub
 description: Microsoft Connected Cache two level nested Azure IoT Edge Gateway with outbound unauthenticated proxy tutorial
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Sign up for Azure Video Indexer and upload your first video - Azure
-description: Learn how to sign up and upload your first video using the Azure Video Indexer portal.
+description: Learn how to sign up and upload your first video using the Azure Video Indexer website.
 ms.topic: quickstart
 ms.date: 08/24/2022
 ms.author: juliako
@@ -9,13 +9,11 @@ ms.custom: mode-other
 
 # Quickstart: How to sign up and upload your first video
 
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
-
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 You can access Azure Video Indexer capabilities in three ways:
 
-* Azure Video Indexer portal: An easy-to-use solution that lets you evaluate the product, manage the account, and customize models (as described in this article).
+* The [Azure Video Indexer website](https://www.videoindexer.ai/): An easy-to-use solution that lets you evaluate the product, manage the account, and customize models (as described in this article).
 * API integration: All of Azure Video Indexer's capabilities are available through a REST API, which lets you integrate the solution into your apps and infrastructure. To get started, see [Use Azure Video Indexer REST API](video-indexer-use-apis.md).
 * Embeddable widget: Lets you embed the Azure Video Indexer insights, player, and editor experiences into your app. For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
 

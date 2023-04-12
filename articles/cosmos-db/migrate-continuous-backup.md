@@ -6,7 +6,7 @@ ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: ignite-2022
-ms.date: 08/24/2022
+ms.date: 03/31/2023
 ms.topic: how-to
 ms.reviewer: mjbrown
 ---
@@ -26,19 +26,18 @@ The following are the key reasons to migrate into continuous mode:
 * The ability to choose the events on the container, database, or account and decide when to initiate the restore.
 
 > [!IMPORTANT]
-> Support for 7-day continous backup in both provisioning and migration scenarios is still in preview. Please use PowerShell and Azure CLI to migrate or provision an account with continous backup configured at the 7-day tier.
+> Support for 7-day continous backup in both provisioning and migration scenarios is still in preview. 
 
 > [!NOTE]
 > The migration capability is one-way only and it's an irreversible action. Which means once you migrate from periodic mode to continuous mode, you can’t switch back to periodic mode.
 >
 > You can migrate an account to continuous backup mode only if the following conditions are true. Also checkout the [point in time restore limitations](continuous-backup-restore-introduction.md#current-limitations) before migrating your account:
 >
-> * If the account is of type API for NoSQL or MongoDB.
-> * If the account is of type API for Table or Gremlin. Support for these two APIs is in preview.
+> * If the account is of type API for NoSQL,API for Table, Gremlin or API for MongoDB.
 > * If the account has a single write region.
 > * If the account isn't enabled with analytical store.
 >
-> If the account is using [customer-managed keys](./how-to-setup-cmk.md), a user-assigned managed identity must be declared in the Key Vault access policy and must be set as the default identity on the account.
+> If the account is using [customer-managed keys](./how-to-setup-cmk.md), a managed identity (System-assigned or User-assigned) must be declared in the Key Vault access policy and must be set as the default identity on the account.
 
 ## Permissions
 
@@ -64,7 +63,7 @@ Use the following steps to migrate your account from periodic backup to continuo
 
 ## <a id="powershell"></a>Migrate using PowerShell
 
-1. Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or any version higher than 6.2.0.
+1. Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps) or any version higher than 6.2.0.
 2. To use ``Continous7Days`` mode for provisioning or migrating, you'll have to use preview of the ``cosmosdb`` extension. Use ``Install-Module -Name Az.CosmosDB -AllowPrerelease``
 3. Next, run the following steps:
 
@@ -227,7 +226,7 @@ Yes.
 
 ### Which accounts can be targeted for backup migration?
 
-Currently, API for NoSQL and MongoDB accounts with single write region that have shared, provisioned, or autoscale provisioned throughput support migration. Support for API for Table and Gremlin is in preview.
+Currently, API for NoSQL, API for Table, Gremlin API and API for MongoDB accounts with single write region that have shared, provisioned, or autoscale provisioned throughput support migration.  
 
 Accounts enabled with analytical storage and multiple-write regions aren't supported for migration.
 

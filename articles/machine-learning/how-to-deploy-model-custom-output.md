@@ -10,7 +10,7 @@ author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
 ms.reviewer: mopeakande
-ms.custom: devplatv2
+ms.custom: devplatv2, devx-track-azurecli
 ---
 
 # Customize outputs in batch deployments
@@ -29,20 +29,20 @@ In any of those cases, Batch Deployments allow you to take control of the output
 
 ## About this sample
 
-This example shows how you can deploy a model to perform batch inference and customize how your predictions are written in the output. This example uses an MLflow model based on the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). The database contains 76 attributes, but we are using a subset of 14 of them. The model tries to predict the presence of heart disease in a patient. It is integer valued from 0 (no presence) to 1 (presence).
+This example shows how you can deploy a model to perform batch inference and customize how your predictions are written in the output. This example uses a model based on the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). The database contains 76 attributes, but we are using a subset of 14 of them. The model tries to predict the presence of heart disease in a patient. It is integer valued from 0 (no presence) to 1 (presence).
 
 The model has been trained using an `XGBBoost` classifier and all the required preprocessing has been packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli/endpoints/batch` if you are using the Azure CLI or `sdk/endpoints/batch` if you are using our SDK for Python.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli/endpoints/batch/deploy-models/custom-outputs-parquet` if you are using the Azure CLI or `sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet` if you are using our SDK for Python.
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/cli/endpoints/batch
+cd azureml-examples/cli/endpoints/batch/deploy-models/custom-outputs-parquet
 ```
 
 ### Follow along in Jupyter Notebooks
 
-You can follow along this sample in a Jupyter Notebook. In the cloned repository, open the notebook: [custom-output-batch.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/custom-output-batch.ipynb).
+You can follow along this sample in a Jupyter Notebook. In the cloned repository, open the notebook: [custom-output-batch.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb).
 
 ## Prerequisites
 
@@ -60,25 +60,22 @@ In this example, we are going to create a deployment that can write directly to 
 
 Batch Endpoint can only deploy registered models. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
    
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 ```azurecli
-MODEL_NAME='heart-classifier'
-az ml model create --name $MODEL_NAME --type "mlflow_model" --path "heart-classifier-mlflow/model"
+MODEL_NAME='heart-classifier-sklpipe'
+az ml model create --name $MODEL_NAME --type "custom_model" --path "model"
 ```
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/sdk)
 
 ```python
 model_name = 'heart-classifier'
 model = ml_client.models.create_or_update(
-     Model(name=model_name, path='heart-classifier-mlflow/model', type=AssetTypes.MLFLOW_MODEL)
+     Model(name=model_name, path='model', type=AssetTypes.CUSTOM_MODEL)
 )
 ```
 ---
-
-> [!NOTE]
-> The model used in this tutorial is an MLflow model. However, the steps apply for both MLflow models and custom models.
 
 ### Creating a scoring script
 
@@ -89,38 +86,9 @@ We need to create a scoring script that can read the input data provided by the 
 3. Appends the predictions to a `pandas.DataFrame` along with the input data.
 4. Writes the data in a file named as the input file, but in `parquet` format.
 
-__batch_driver_parquet.py__
+__code/batch_driver.py__
 
-```python
-import os
-import mlflow
-import pandas as pd
-from pathlib import Path
-
-def init():
-    global model
-    global output_path
-
-    # AZUREML_MODEL_DIR is an environment variable created during deployment
-    # It is the path to the model folder
-    # Please provide your model's folder name if there's one:
-    model_path = os.path.join(os.environ["AZUREML_MODEL_DIR"], "model")
-    output_path = os.environ['AZUREML_BI_OUTPUT_PATH']
-    model = mlflow.pyfunc.load_model(model_path)
-
-def run(mini_batch):
-    for file_path in mini_batch:        
-        data = pd.read_csv(file_path)
-        pred = model.predict(data)
-        
-        data['prediction'] = pred
-        
-        output_file_name = Path(file_path).stem
-        output_file_path = os.path.join(output_path, output_file_name + '.parquet')
-        data.to_parquet(output_file_path)
-        
-     return mini_batch
-```
+:::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/code/batch_driver.py" :::
 
 __Remarks:__
 * Notice how the environment variable `AZUREML_BI_OUTPUT_PATH` is used to get access to the output path of the deployment job. 
@@ -136,63 +104,40 @@ Follow the next steps to create a deployment using the previous scoring script:
 
 1. First, let's create an environment where the scoring script can be executed:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
-   No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file.
+   No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file.
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml" range="6-9":::
+   
+   # [Python](#tab/sdk)
    
    Let's get a reference to the environment:
    
    ```python
    environment = Environment(
-       conda_file="./heart-classifier-mlflow/environment/conda.yaml",
-       image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+       name="batch-mlflow-xgboost",
+       conda_file="environment/conda.yaml",
+       image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
    )
    ```
 
-2. MLflow models don't require you to indicate an environment or a scoring script when creating the deployments as it is created for you. However, in this case we are going to indicate a scoring script and environment since we want to customize how inference is executed.
+2. Create the deployment
 
    > [!NOTE]
    > This example assumes you have an endpoint created with the name `heart-classifier-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md).
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
    
-   ```yaml
-   $schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
-   endpoint_name: heart-classifier-batch
-   name: classifier-xgboost-parquet
-   description: A heart condition classifier based on XGBoost
-   model: azureml:heart-classifier@latest
-   environment:
-      image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest
-      conda_file: ./heart-classifier-mlflow/environment/conda.yaml
-   code_configuration:
-     code: ./heart-classifier-custom/code/
-     scoring_script: batch_driver_parquet.py
-   compute: azureml:cpu-cluster
-   resources:
-     instance_count: 2
-   max_concurrency_per_instance: 2
-   mini_batch_size: 2
-   output_action: summary_only
-   retry_settings:
-     max_retries: 3
-     timeout: 300
-   error_threshold: -1
-   logging_level: info
-   ```
+   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml":::
    
    Then, create the deployment with the following command:
    
-   ```azurecli
-   DEPLOYMENT_NAME="classifier-xgboost-parquet"
-   az ml batch-deployment create -f endpoint.yml
-   ```
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_batch_deployment_set_default" :::
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    To create a new deployment under the created endpoint, use the following script:
    
@@ -204,8 +149,8 @@ Follow the next steps to create a deployment using the previous scoring script:
        model=model,
        environment=environment,
        code_configuration=CodeConfiguration(
-           code="./heart-classifier-mlflow/code/",
-           scoring_script="batch_driver_parquet.py",
+           code="code/",
+           scoring_script="batch_driver.py",
        ),
        compute=compute_name,
        instance_count=2,
@@ -235,11 +180,12 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
 1. Let's create the data asset first. This data asset consists of a folder with multiple CSV files that we want to process in parallel using batch endpoints. You can skip this step is your data is already registered as a data asset or you want to use a different input type.
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    Create a data asset definition in `YAML`:
    
    __heart-dataset-unlabeled.yml__
+   
    ```yaml
    $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
    name: heart-dataset-unlabeled
@@ -254,7 +200,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    az ml data create -f heart-dataset-unlabeled.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    data_path = "resources/heart-dataset/"
@@ -266,12 +212,23 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
        description="An unlabeled dataset for heart classification",
        name=dataset_name,
    )
+   ```
+   
+   Then, create the data asset:
+   
+   ```python
    ml_client.data.create_or_update(heart_dataset_unlabeled)
+   ```
+   
+   To get the newly created data asset, use:
+   
+   ```python
+   heart_dataset_unlabeled = ml_client.data.get(name=dataset_name, label="latest")
    ```
    
 1. Now that the data is uploaded and ready to be used, let's invoke the endpoint:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    ```azurecli
    JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --deployment-name $DEPLOYMENT_NAME --input azureml:heart-dataset-unlabeled@latest | jq -r '.name')
@@ -280,7 +237,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    input = Input(type=AssetTypes.URI_FOLDER, path=heart_dataset_unlabeled.id)
@@ -293,13 +250,13 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    
 1. A batch job is started as soon as the command returns. You can monitor the status of the job until it finishes:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    ```azurecli
    az ml job show --name $JOB_NAME
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    ml_client.jobs.get(job.name)
@@ -314,7 +271,7 @@ The job generates a named output called `score` where all the generated files ar
 
 You can download the results of the job by using the job name:
 
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 To download the predictions, use the following command:
 
@@ -322,7 +279,7 @@ To download the predictions, use the following command:
 az ml job download --name $JOB_NAME --output-name score --download-path ./
 ```
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/sdk)
 
 ```python
 ml_client.jobs.download(name=job.name, output_name='score', download_path='./')

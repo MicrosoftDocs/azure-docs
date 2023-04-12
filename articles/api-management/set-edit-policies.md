@@ -122,7 +122,7 @@ API Management gives you flexibility to configure policy definitions at multiple
 > Not all policies can be applied at each scope or policy section. If the policy that you want to add isn't enabled, ensure that you are in a supported policy section and scope for that policy. To review the policy sections and scopes for a policy, check the **Usage** section in the [Policy reference](api-management-policies.md) topics.
 
 > [!NOTE]
-> The **Backend** policy section can only contain one policy element. By default, API Management configures the [`forward-request`](api-management-advanced-policies.md#ForwardRequest) policy in the **Backend** section at the global scope, and the `base` element at other scopes.
+> The **Backend** policy section can only contain one policy element. By default, API Management configures the [`forward-request`](forward-request-policy.md) policy in the **Backend** section at the global scope, and the `base` element at other scopes.
 
 ### Global scope
 
@@ -181,7 +181,7 @@ Operation scope is configured for a selected API operation.
 
 You can create reusable [policy fragments](policy-fragments.md) in your API Management instance. Policy fragments are XML elements containing your configurations of one or more policies. Policy fragments help you configure policies consistently and maintain policy definitions without needing to repeat or retype XML code. 
 
-Use the [`include-fragment`](api-management-advanced-policies.md#IncludeFragment) policy to insert a policy fragment in a policy definition.
+Use the [`include-fragment`](include-fragment-policy.md) policy to insert a policy fragment in a policy definition.
 
 ## Use `base` element to set policy evaluation order
 

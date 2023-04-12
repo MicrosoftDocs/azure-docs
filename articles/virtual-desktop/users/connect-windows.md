@@ -24,24 +24,26 @@ Before you can access your resources, you'll need to meet the prerequisites:
   - Windows 11 IoT Enterprise
   - Windows 10
   - Windows 10 IoT Enterprise
-  - Windows 7
   - Windows Server 2019
   - Windows Server 2016
   - Windows Server 2012 R2
+   
+   > [!IMPORTANT]
+   > Support for Windows 7 ended on January 10, 2023.
 
 - Download the Remote Desktop client installer, choosing the correct version for your device:
   - [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2068602) *(most common)*
   - [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2098960)
   - [Windows on Arm](https://go.microsoft.com/fwlink/?linkid=2098961)
 
-- .NET Framework 4.6.2 or later. You may need to install this on Windows 7, Windows Server 2012 R2, Windows Server 2016, and some versions of Windows 10. To download the latest version, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
-
-> [!IMPORTANT]
-> Extended support for using Windows 7 to connect to Azure Virtual Desktop ends on January 10, 2023.
+- .NET Framework 4.6.2 or later. You may need to install this on Windows Server 2012 R2, Windows Server 2016, and some versions of Windows 10. To download the latest version, see [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
 ## Install the Remote Desktop client
 
 Once you've downloaded the Remote Desktop client, you'll need to install it by following these steps:
+
+> [!TIP]
+> If you want to deploy the Remote Desktop client in an enterprise, you can use `msiexec` to install the MSI file. For more information, see [Enterprise deployment](client-features-windows.md#enterprise-deployment).
 
 1. Run the installer by double-clicking the file you downloaded.
 

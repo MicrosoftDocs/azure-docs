@@ -2,11 +2,11 @@
 title: Transfer Azure Enterprise enrollment accounts and subscriptions
 description: Describes how Azure Enterprise enrollment accounts and subscriptions are transferred.
 author: bandersmsft
-ms.reviewer: baolcsva
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 03/07/2023
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -69,7 +69,9 @@ When you request to transfer an entire enterprise enrollment to an enrollment, t
 
 ### Effective transfer date
 
-The effective transfer day can be on or after the start date of the target enrollment. Transfers can only be backdated till the first day of the month in which request is made. Additionally, if individual subscriptions are deleted or transferred in the current month, then the deletion/transfer date becomes the new earliest possible effective transfer date.
+The effective transfer day can be on or after the start date of the target enrollment. The effective transfer date is the date that you want to transfer the old source enrollment to the new one. The date can be backdated to the first date of the current month, but not before it. For example, if today’s date is January 25, 2023 the enrollment transfer can be backdated to January 1, 2023 but not before it.
+
+Additionally, if individual subscriptions are deleted or transferred in the current month, then the deletion/transfer date becomes the new earliest possible effective transfer date.
 
 The source enrollment usage is charged against Azure Prepayment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged.
 
@@ -79,7 +81,9 @@ When you request an enrollment transfer, provide the following information:
 
 - For the source enrollment, the enrollment number.
 - For the target enrollment, the enrollment number to transfer to.
-- For the enrollment transfer effective date, it can be a date on or after the start date of the target enrollment but no earlier than the first day of the month in which the request is made. The chosen date can't affect usage for any overage invoice already issued.
+- Choose an enrollment transfer effective date.
+    - The date must be or after the start date of the new target enrollment.
+    - If you have an overage invoice that was already issued, the date that you choose doesn’t affect usage.
 
 Other points to keep in mind before an enrollment transfer:
 
@@ -97,6 +101,8 @@ Other points to keep in mind before an enrollment transfer:
         :::image type="content" source="./media/ea-transfers/cross-currency-reservation-transfer-effects.png" alt-text="Diagram illustrating the effects  of cross currency reservation transfers." border="false" lightbox="./media/ea-transfers/cross-currency-reservation-transfer-effects.png":::
   - Whenever there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment at the time of next monthly payment for an individual reservation. This cancellation is intentional and affects only the monthly reservation purchases.
   - You may have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency. If you repurchase a reservation, the purchase term (one or three years) is reset. The repurchase doesn't continue under the previous term.
+- In case of backdated enrollment transfer, Savings plan benefit is applicable from the transfer request submission date and not from the effective transfer date.
+
 
 
 ### Auto enrollment transfer

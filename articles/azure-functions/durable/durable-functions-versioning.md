@@ -3,7 +3,7 @@ title: Versioning in Durable Functions - Azure
 description: Learn how to implement versioning in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ---
 
@@ -36,12 +36,10 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 
 ```java
 @FunctionName("FooBar")
-public String fooBarOrchestration(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            boolean result = ctx.callActivity("Foo", boolean.class).await();
-            ctx.callActivity("Bar", result).await();
-        });
+public void fooBarOrchestration(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    boolean result = ctx.callActivity("Foo", boolean.class).await();
+    ctx.callActivity("Bar", result).await();
 }
 ```
 
@@ -64,12 +62,10 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 
 ```java
 @FunctionName("FooBar")
-public String fooBarOrchestration(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            String result = ctx.callActivity("Foo", String.class).await();
-            ctx.callActivity("Bar", result).await();
-        });
+public void fooBarOrchestration(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    String result = ctx.callActivity("Foo", String.class).await();
+    ctx.callActivity("Bar", result).await();
 }
 ```
 
@@ -100,12 +96,10 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 
 ```java
 @FunctionName("FooBar")
-public String fooBarOrchestration(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            boolean result = ctx.callActivity("Foo", boolean.class).await();
-            ctx.callActivity("Bar", result).await();
-        });
+public void fooBarOrchestration(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    boolean result = ctx.callActivity("Foo", boolean.class).await();
+    ctx.callActivity("Bar", result).await();
 }
 ```
 
@@ -133,16 +127,14 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 
 ```java
 @FunctionName("FooBar")
-public String fooBarOrchestration(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            boolean result = ctx.callActivity("Foo", boolean.class).await();
-            if (result) {
-                ctx.callActivity("SendNotification").await();
-            }
+public void fooBarOrchestration(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    boolean result = ctx.callActivity("Foo", boolean.class).await();
+    if (result) {
+        ctx.callActivity("SendNotification").await();
+    }
 
-            ctx.callActivity("Bar", result).await();
-        });
+    ctx.callActivity("Bar", result).await();
 }
 ```
 

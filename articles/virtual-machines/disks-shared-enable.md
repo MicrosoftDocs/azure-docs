@@ -4,7 +4,7 @@ description: Configure an Azure managed disk with shared disks so that you can s
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 01/25/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -295,7 +295,7 @@ Update-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Dis
 ```azurecli
 #Modifying a disk to enable or modify sharing configuration
 
-az disk update --name mySharedDisk --max-shares 5
+az disk update --name mySharedDisk --max-shares 5 --resource-group myResourceGroup
 ```
 
 ## Using Azure shared disks with your VMs

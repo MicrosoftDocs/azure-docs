@@ -1,10 +1,10 @@
 ---
-title: Filter for devices as a condition in Conditional Access policy - Azure Active Directory
+title: Filter for devices as a condition in Conditional Access policy
 description: Use filter for devices in Conditional Access to enhance security posture
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/28/2022
+ms.date: 01/25/2023
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
@@ -19,9 +19,9 @@ When creating Conditional Access policies, administrators have asked for the abi
 
 ## Common scenarios
 
-There are multiple scenarios that organizations can now enable using filter for devices condition. Below are some core scenarios with examples of how to use this new condition.
+There are multiple scenarios that organizations can now enable using filter for devices condition. The following scenarios provide examples of how to use this new condition.
 
-- **Restrict access to privileged resources**. For this example, lets say you want to allow access to Microsoft Azure Management from a user who is assigned a privileged role Global Admin, has satisfied multifactor authentication and accessing from a device that is [privileged or secure admin workstations](/security/compass/privileged-access-devices) and attested as compliant. For this scenario, organizations would create two Conditional Access policies:
+- **Restrict access to privileged resources**. For this example, lets say you want to allow access to Microsoft Azure Management from a user who is assigned a privileged role Global Administrator, has satisfied multifactor authentication and accessing from a device that is [privileged or secure admin workstations](/security/compass/privileged-access-devices) and attested as compliant. For this scenario, organizations would create two Conditional Access policies:
    - Policy 1: All users with the directory role of Global Administrator, accessing the Microsoft Azure Management cloud app, and for Access controls, Grant access, but require multifactor authentication and require device to be marked as compliant.
    - Policy 2: All users with the directory role of Global Administrator, accessing the Microsoft Azure Management cloud app, excluding a filter for devices using rule expression device.extensionAttribute1 equals SAW and for Access controls, Block. Learn how to [update extensionAttributes on an Azure AD device object](/graph/api/device-update?view=graph-rest-1.0&tabs=http&preserve-view=true).
 - **Block access to organization resources from devices running an unsupported Operating System**. For this example, lets say you want to block access to resources from Windows OS version older than Windows 10. For this scenario, organizations would create the following Conditional Access policy:
@@ -36,9 +36,6 @@ There are multiple scenarios that organizations can now enable using filter for 
 ## Create a Conditional Access policy
 
 Filter for devices is an option when creating a Conditional Access policy in the Azure portal or using the Microsoft Graph API.
-
-> [!IMPORTANT]
-> Device state and filter for devices cannot be used together in Conditional Access policy.
 
 The following steps will help create two Conditional Access policies to support the first scenario under [Common scenarios](#common-scenarios). 
 
@@ -57,7 +54,7 @@ Policy 1: All users with the directory role of Global Administrator, accessing t
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **Select apps**, and select **Microsoft Azure Management**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and **Require device to be marked as compliant**, then select **Select**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and **Require device to be marked as compliant**, then select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
@@ -89,7 +86,7 @@ Setting extension attributes is made possible through the Graph API. For more in
 
 ### Filter for devices Graph API
 
-The filter for devices API is available in Microsoft Graph v1.0 endpoint and can be accessed using https://graph.microsoft.com/v1.0/identity/conditionalaccess/policies/. You can configure a filter for devices when creating a new Conditional Access policy or you can update an existing policy to configure the filter for devices condition. To update an existing policy, you can do a patch call on the Microsoft Graph v1.0 endpoint mentioned above by appending the policy ID of an existing policy and executing the following request body. The example here shows configuring a filter for devices condition excluding devices that aren't marked as SAW devices. The rule syntax can consist of more than one single expression. To learn more about the syntax, see [dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md). 
+The filter for devices API is available in Microsoft Graph v1.0 endpoint and can be accessed using the endpoint `https://graph.microsoft.com/v1.0/identity/conditionalaccess/policies/`. You can configure a filter for devices when creating a new Conditional Access policy or you can update an existing policy to configure the filter for devices condition. To update an existing policy, you can do a patch call on the Microsoft Graph v1.0 endpoint by appending the policy ID of an existing policy and executing the following request body. The example here shows configuring a filter for devices condition excluding devices that aren't marked as SAW devices. The rule syntax can consist of more than one single expression. To learn more about the syntax, see [dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md). 
 
 ```json
 {
@@ -122,18 +119,21 @@ The following device attributes can be used with the filter for devices conditio
 | model | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | Any string | (device.model -notContains "Surface") |
 | operatingSystem | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | A valid operating system (like Windows, iOS, or Android) | (device.operatingSystem -eq "Windows") |
 | operatingSystemVersion | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | A valid operating system version (like 6.1 for Windows 7, 6.2 for Windows 8, or 10.0 for Windows 10 and Windows 11) | (device.operatingSystemVersion -in ["10.0.18363", "10.0.19041", "10.0.19042", "10.0.22000"]) |
-| physicalIds | Contains, NotContains | As an example all Windows Autopilot devices store ZTDId (a unique value assigned to all imported Windows Autopilot devices) in device physicalIds property. | (device.devicePhysicalIDs -contains "[ZTDId]:value") |
-| profileType | Equals, NotEquals | A valid profile type set for a device. Supported values are: RegisteredDevice (default), SecureVM (used for Windows VMs in Azure enabled with Azure AD sign in.), Printer (used for printers), Shared (used for shared devices), IoT (used for IoT devices) | (device.profileType -notIn ["Printer", "Shared", "IoT"] |
+| physicalIds | Contains, NotContains | As an example all Windows Autopilot devices store ZTDId (a unique value assigned to all imported Windows Autopilot devices) in device physicalIds property. | (device.physicalIds -contains "[ZTDId]:value") |
+| profileType | Equals, NotEquals | A valid profile type set for a device. Supported values are: RegisteredDevice (default), SecureVM (used for Windows VMs in Azure enabled with Azure AD sign in.), Printer (used for printers), Shared (used for shared devices), IoT (used for IoT devices) | (device.profileType -eq "Printer") |
 | systemLabels | Contains, NotContains | List of labels applied to the device by the system. Some of the supported values are: AzureResource (used for Windows VMs in Azure enabled with Azure AD sign in), M365Managed (used for devices managed using Microsoft Managed Desktop), MultiUser (used for shared devices) | (device.systemLabels -contains "M365Managed") |
-| trustType | Equals, NotEquals | A valid registered state for devices. Supported values are: AzureAD (used for Azure AD joined devices), ServerAD (used for Hybrid Azure AD joined devices), Workplace (used for Azure AD registered devices) | (device.trustType -ne 'Workplace') |
-| extensionAttribute1-15 | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | extensionAttributes1-15 are attributes that customers can use for device objects. Customers can update any of the extensionAttributes1 through 15 with custom values and use them in the filter for devices condition in Conditional Access. Any string value can be used. | (device.extensionAttribute1 -eq 'SAW') |
+| trustType | Equals, NotEquals | A valid registered state for devices. Supported values are: AzureAD (used for Azure AD joined devices), ServerAD (used for Hybrid Azure AD joined devices), Workplace (used for Azure AD registered devices) | (device.trustType -eq "ServerAD") |
+| extensionAttribute1-15 | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | extensionAttributes1-15 are attributes that customers can use for device objects. Customers can update any of the extensionAttributes1 through 15 with custom values and use them in the filter for devices condition in Conditional Access. Any string value can be used. | (device.extensionAttribute1 -eq "SAW") |
+
+> [!NOTE] 
+> When building complex rules or using too many individual identifiers like deviceid for device identities, keep in mind "The maximum length for the filter rule is 3072 characters".
 
 > [!NOTE] 
 > The `Contains` and the `NotContains` operators work differently depending on attribute types. For string attributes such as `operatingSystem` and `model`, the `Contains` operator indicates whether a specified substring occurs within the attribute. For string collection attributes such as `physicalIds` and `systemLabels`, the `Contains` operator indicates whether a specified string matches one of the whole strings in the collection.
 
 ## Policy behavior with filter for devices
 
-The filter for devices condition in Conditional Access evaluates policy based on device attributes of a registered device in Azure AD and hence it's important to understand under what circumstances the policy is applied or not applied. The table below illustrates the behavior when a filter for devices condition is configured. 
+The filter for devices condition in Conditional Access evaluates policy based on device attributes of a registered device in Azure AD and hence it's important to understand under what circumstances the policy is applied or not applied. The following table illustrates the behavior when a filter for devices condition is configured. 
 
 | Filter for devices condition | Device registration state | Device filter Applied 
 | --- | --- | --- |

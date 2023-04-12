@@ -21,7 +21,7 @@ In this article, you'll learn the various ways you can:
 
 ## Pre-requisites
 
-- [An Application Insights resource](../app/create-new-resource.md). Make note of the instrumentation key.
+- [An Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource). Make note of the instrumentation key.
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) to build docker images.
 - [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) installed.
 
@@ -47,7 +47,7 @@ In this article, you'll learn the various ways you can:
 
    We've added delay in the `Controllers/WeatherForecastController.cs` project to simulate the bottleneck.
 
-   ```CSharp
+   ```csharp
    [HttpGet(Name = "GetWeatherForecast")]
    public IEnumerable<WeatherForecast> Get()
    {
@@ -68,16 +68,36 @@ In this article, you'll learn the various ways you can:
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. Enable Application Insights and Profiler in `Startup.cs`:
+1. Enable Application Insights and Profiler:
+   
+   ### [ASP.NET Core 6 and later](#tab/net-core-new)
+   
+   Add `builder.Services.AddApplicationInsightsTelemetry()` and `builder.Services.AddServiceProfiler()` after the `WebApplication.CreateBuilder()` method in `Program.cs`:
+   
+   ```csharp
+   var builder = WebApplication.CreateBuilder(args);
 
-    ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
-        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
-        services.AddControllersWithViews();
-    }
-    ```
+   builder.Services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
+   builder.Services.AddServiceProfiler(); // Add this line of code to enable Profiler
+   builder.Services.AddControllersWithViews();
+
+   var app = builder.Build();
+   ```   
+   
+   ### [ASP.NET Core 5 and earlier](#tab/net-core-old)
+   
+   Add `services.AddApplicationInsightsTelemetry()` and `services.AddServiceProfiler()` to the `ConfigureServices()` method in `Startup.cs`:
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+     services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
+     services.AddServiceProfiler(); // Add this line of code to enable Profiler
+     services.AddControllersWithViews();
+   }
+   ```
+   
+   ---
 
 ## Pull the latest ASP.NET Core build/runtime images
 

@@ -2,8 +2,8 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 11/03/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 03/17/2023
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
 # Install Bicep tools
@@ -16,7 +16,7 @@ Let's make sure your environment is set up for working with Bicep files. To auth
 |  | [Visual Studio and Bicep extension](#visual-studio-and-bicep-extension) | automatic |
 | Deploy | [Azure CLI](#azure-cli) | automatic |
 |  | [Azure PowerShell](#azure-powershell) | [manual](#install-manually) |
-|  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | automatic |
+|  | [VS Code and Bicep extension](#vs-code-and-bicep-extension) | [manual](#install-manually) |
 |  | [Air-gapped cloud](#install-on-air-gapped-cloud) | download |
 
 ## VS Code and Bicep extension
@@ -212,12 +212,20 @@ The `bicep install` and `bicep upgrade` commands don't work in an air-gapped env
     1. Download **bicep-win-x64.exe** from the [Bicep release page](https://github.com/Azure/bicep/releases/latest/) in a non-air-gapped environment.
     1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine. Rename file to **bicep.exe**.
 
+When using the [Azure CLI task](/azure/devops/pipelines/tasks/reference/azure-cli-v2) on air-gapped cloud, you must set the `useGlobalConfig` property of the task to `true`. The default value is `false`. See [CI/CD with Azure Pipelines and Bicep files](./add-template-to-azure-pipelines.md) for an example.
+
 ## Install the nightly builds
 
 If you'd like to try the latest pre-release bits of Bicep before they're released, see [Install nightly builds](https://github.com/Azure/bicep/blob/main/docs/installing-nightly.md).
 
 > [!WARNING]
 > These pre-release builds are much more likely to have known or unknown bugs.
+
+## Install the NuGet package
+
+The Bicep team has made the [Azure.Bicep.Core NuGet package](https://www.nuget.org/packages/Azure.Bicep.Core) publicly available on nuget.org. While it is public, it is not a supported package. Any dependency you take on this package will be done at your own risk and we reserve the right to push breaking changes to this package at any time.
+
+For more information about installing and consuming NuGet packages, see [Consume packages](/nuget/consume-packages/overview-and-workflow).
 
 ## Next steps
 

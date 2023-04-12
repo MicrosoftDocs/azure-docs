@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 7/14/2022
 ms.author: RunCai
-ms.custom: mode-arm, devx-track-azurecli 
+ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
@@ -165,6 +165,9 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     az account set --subscription <subscription-id>
     ```
 1. Grant confidential VM Service Principal `Confidential VM Orchestrator` to tenant
+    
+    For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role.
+    
     ```azurecli
     Connect-AzureAD -Tenant "your tenant ID"
     New-AzureADServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"    

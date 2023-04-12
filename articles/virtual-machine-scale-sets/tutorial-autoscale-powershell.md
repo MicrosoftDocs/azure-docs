@@ -16,8 +16,6 @@ ms.custom: avverma, devx-track-azurepowershell
 > [!NOTE]
 > This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchestration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -188,8 +186,8 @@ mstsc /v 52.168.121.216:50001
 Once logged in, open Internet Explorer from the taskbar.
 
 - Select **OK** to accept the prompt to *Use recommended security, privacy, and compatibility settings*
-- Type *http://download.sysinternals.com/files/CPUSTRES.zip* in the address bar.
-- As Internet Explorer Enhanced Security Configuration is enabled, choose to **Add** the *http://download.sysinternals.com* domain to your list of trusted sites.
+- Type `http://download.sysinternals.com/files/CPUSTRES.zip` in the address bar.
+- As Internet Explorer Enhanced Security Configuration is enabled, choose to **Add** the `http://download.sysinternals.com` domain to your list of trusted sites.
 - When prompted for the file download, select **Open**, then select and **Run** the *CPUSTRES.EXE* tool.
 
 To generate some CPU load, check two boxes for **Active** threads. From the **Activity** drop-down menu for both threads, select *Maximum*. You can open Task Manager to confirm that the CPU load on the VM is at 100%.
@@ -243,7 +241,6 @@ To remove your scale set and additional resources, delete the resource group and
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
-
 
 ## Next steps
 In this tutorial, you learned how to automatically scale in or out a scale set with Azure PowerShell:

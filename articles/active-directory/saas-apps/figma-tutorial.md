@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Figma | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Figma'
 description: Learn how to configure single sign-on between Azure Active Directory and Figma.
 services: active-directory
 author: jeevansd

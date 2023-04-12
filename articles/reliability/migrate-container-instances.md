@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 07/22/2022
 ms.author: anaharris
 ms.reviewer: tomvcassidy
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Migrate Azure Container Instances to availability zone support

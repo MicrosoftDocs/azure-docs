@@ -1,12 +1,12 @@
 ---
-title: Authentication Methods Activity - Azure Active Directory
+title: Authentication Methods Activity
 description: Overview of the authentication methods that users register to sign in and reset passwords. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 01/12/2023
 
 ms.author: justinha
 author: sopand
@@ -112,7 +112,7 @@ The registration details report shows the following information for each user:
 - SSPR Registered (Registered, Not Registered)
 - SSPR Enabled (Enabled, Not Enabled)
 - SSPR Capable (Capable, Not Capable) 
-- Methods registered (Email, Mobile Phone, Alternative Mobile Phone, Office Phone, Microsoft Authenticator Push, Software One Time Passcode, FIDO2, Security Key, Security questions)
+- Methods registered (Alternate Mobile Phone, Email, FIDO2 Security Key, Hardware OATH token, Microsoft Authenticator app, Microsoft Passwordless phone sign-in, Mobile Phone, Office Phone, Security questions, Software OATH token, Temporary Access Pass, Windows Hello for Business)
 
   ![Screenshot of user registration details](media/how-to-authentication-methods-usage-insights/registration-details.png)
 
@@ -133,7 +133,7 @@ The registration details report shows the following information for each user:
 ## Limitations
 
 - The data in the report is not updated in real-time and may reflect a latency of up to a few hours.
-- The **PhoneAppNotification** or **PhoneAppOTP** methods that a user might have configured are not displayed in the dashboard. 
+- The **PhoneAppNotification** or **PhoneAppOTP** methods that a user might have configured are not displayed in the dashboard on **Azure AD Authentication methods - Policies**. 
 
 ## Next steps
 

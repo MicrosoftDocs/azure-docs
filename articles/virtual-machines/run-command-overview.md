@@ -2,13 +2,11 @@
 title: Run scripts in a Windows or Linux VM in Azure with Run Command
 description: This topic provides an overview of running scripts within an Azure virtual machine by using the Run Command feature
 ms.service: virtual-machines
-author: cynthn
-ms.author: cynthn
-ms.date: 10/27/2021
+author: nikhilpatel909
+ms.author: erd
+ms.date: 03/10/2023
 ms.topic: how-to  
-ms.reviewer: jushiman
-ms.custom: devx-track-azurepowershell
-
+ms.reviewer: erd
 ---
 
 # Run scripts in your VM by using Run Command
@@ -16,24 +14,23 @@ ms.custom: devx-track-azurepowershell
 Run Command uses the virtual machine (VM) agent to run scripts within an Azure Windows or Linux VM. You can use these scripts for general machine or application management. They can help you to quickly diagnose and remediate VM access and network issues and get the VM back to a good state. Scripts can be embedded in the properties or referenced to a pre published gallery script. 
 
 
-The original set of commands are action orientated. The updated set of commands, currently in Public Preview, are management orientated and enable you to run multiple scripts and has less restrictions. This article will explain the difference between the two sets of run commands and help you decide which set is the right one to use in your scenario.  
+The original set of commands are action orientated. The updated set of commands are management orientated and enable you to run multiple scripts and has less restrictions. This article will explain the difference between the two sets of run commands and help you decide which set is the right one to use in your scenario.  
 
 > [!IMPORTANT]
-> **Managed Run Command** is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> **Managed Run Command**  is currently available in Azure CLI, PowerShell, and API at this time. Portal functionality will soon be available.
+
 
 
 ## When to use action or managed commands
 
 The original set of commands are action orientated. You should consider using this set of commands for situations where you need to run:
-- A small script to get a content from a VM 
+- A small script to get a content from a VM
 - A script to configure a VM (set registry keys, change configuration) 
 - A one time script for diagnostics
 
 See [Action Run Commands for Linux](./linux/run-command.md) and [Action Run Commands for Windows](./windows/run-command.md) for available action commands and instructions on how to apply them. 
 
-The updated set of commands, currently in Public Preview, are management orientated. Consider using managed run commands if your needs align to the following examples:
+The updated set of commands are management orientated. Consider using managed run commands if your needs align to the following examples:
 - Script needs to run as part of VM deployment 
 - Recurrent script execution is needed 
 - Multiple scripts needs to execute sequentially 

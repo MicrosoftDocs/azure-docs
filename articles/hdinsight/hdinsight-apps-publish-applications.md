@@ -4,7 +4,7 @@ description: Learn how to create an HDInsight application, and then publish it i
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 01/04/2023
 
 ---
 # Publish an HDInsight application in the Azure Marketplace
@@ -31,7 +31,7 @@ Two steps are involved in publishing applications in the Marketplace. First, def
     "version": "0.0.1-preview",
     "clusterFilters": {
         "types": ["Hadoop", "HBase", "Spark"],
-        "versions": ["3.6"]
+        "versions": ["4.0"]
     }
 }
 ```

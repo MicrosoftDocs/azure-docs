@@ -29,6 +29,9 @@ However, we recommending avoiding UDFs when:
 
 If you must use the same UDF multiple times in a query, you should reference the UDF in a [subquery](subquery.md#evaluate-once-and-reference-many-times), allowing you to use a JOIN expression to evaluate the UDF once but reference it many times.
 
+> [!NOTE]
+> Server-side JavaScript features including user-defined functions do not support importing modules.
+
 ## Examples
 
 The following example registers a UDF under an item container in the Azure Cosmos DB database. The example creates a UDF whose name is `REGEX_MATCH`. It accepts two JSON string values, `input` and `pattern`, and checks if the first matches the pattern specified in the second using JavaScript's `string.match()` function.

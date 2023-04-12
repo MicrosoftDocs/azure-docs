@@ -1,5 +1,5 @@
 ---
-title: Resilient end-user experience using Azure AD B2C | Microsoft Docs
+title: Resilient end-user experience using Azure AD B2C
 description: Methods to build resilience in end-user experience using Azure AD B2C
 services: active-directory 
 ms.service: active-directory
@@ -9,8 +9,7 @@ ms.topic: how-to
 author: gargi-sinha
 ms.author: gasinh
 manager: martinco
-ms.reviewer: 
-ms.date: 09/13/2022
+ms.date: 12/01/2022
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
@@ -29,7 +28,7 @@ The sign-up and sign-in end-user experience is made up of the following elements
 
 ## Choose between user flow and custom policy  
 
-To help you set up the most common identity tasks, Azure AD B2C provides built-in configurable [user flows](../../active-directory-b2c/user-flow-overview.md). You can also build your own [custom policies](../../active-directory-b2c/custom-policy-overview.md), that offers you maximum flexibility. However, it's recommended to use custom policies only to address complex scenarios.
+To help you set up the most common identity tasks, Azure AD B2C provides built-in configurable [user flows](../../active-directory-b2c/user-flow-overview.md). You can also build your own [custom policies](../../active-directory-b2c/custom-policy-overview.md) that offer you maximum flexibility. However, it's recommended to use custom policies only to address complex scenarios.
 
 ### How to decide between user flow and custom policy
 
@@ -45,7 +44,7 @@ When using an [external identity provider](../../active-directory-b2c/add-identi
 
 ### How to set up multiple IDPs
 
-As part of the external identity provider registration process, include a verified identity claim such as the user’s mobile number or email address. Commit the verified claims to the underlying Azure AD B2C directory instance. If the external provider is unavailable, revert to the verified identity claim, and fall back to the phone number as an authentication method. Another option is to send the user a one-time passcode to allow the user to sign in..
+As part of the external identity provider registration process, include a verified identity claim such as the user's mobile number or email address. Commit the verified claims to the underlying Azure AD B2C directory instance. If the external provider is unavailable, revert to the verified identity claim, and fall back to the phone number as an authentication method. Another option is to send the user a one-time passcode to allow the user to sign in.
 
  Follow these steps to [build alternate authentication paths](https://github.com/azure-ad-b2c/samples/tree/master/policies/idps-filter):
 
@@ -61,9 +60,9 @@ When using a [phone service for Multi-factor authentication (MFA)](../../active-
 
 ### How to choose an alternate MFA  
 
-The Azure AD B2C service uses a built-in phone-based MFA provider, to deliver time-based One-time passcodes (OTPs). It is in the form of a voice call and text message to user’s pre-registered phone number. The following alternative methods are available for various scenarios:
+The Azure AD B2C service uses a built-in phone-based MFA provider, to deliver time-based One-time passcodes (OTPs). It is in the form of a voice call and text message to user's pre-registered phone number. The following alternative methods are available for various scenarios:
 
-When using **user flows**, there are two methods to build resilience:
+When you use **user flows**, there are two methods to build resilience:
 
 - **Change user flow configuration**:  Upon detecting a disruption in the phone-based OTP delivery, change the OTP delivery method from phone-based to email-based and redeploy the user flow, leaving the applications unchanged.
 
@@ -71,24 +70,24 @@ When using **user flows**, there are two methods to build resilience:
 
 - **Change applications**: For each identity task such as sign-up and sign-in, define two sets of user flows. Configure first set to use phone-based OTP and the second to email-based OTP. Upon detecting a disruption in the phone-based OTP delivery, change and redeploy the applications to switch from the first set of user flows to the second, leaving the user flows unchanged.  
 
-When using **custom policies**, there are four methods to build resilience. Below list is in the order of complexity and you'll need to redeploy updated policies.
+When you use **custom policies**, there are four methods to build resilience. Below list is in the order of complexity and you'll need to redeploy updated policies.
 
-- **Enable user selection of either phone-based OTP or email-based OTP**: Expose both options to the users and enable users to self-select one of the options. There is no need to make changes to the policies or applications.
+- **Enable user selection of either phone-based OTP or email-based OTP**: Expose both options to the users and enable users to self-select one of the options. There's no need to make changes to the policies or applications.
 
-- **Dynamically switch between phone-based OTP and email-based OTP**:  Collect both phone and email information at sign-up. Define custom policy in advance to conditionally switch during a phone disruption, from phone-based to email-based OTP delivery. There is no need to make changes to the policies or applications.
+- **Dynamically switch between phone-based OTP and email-based OTP**:  Collect both phone and email information at sign-up. Define custom policy in advance to conditionally switch during a phone disruption, from phone-based to email-based OTP delivery. There's no need to make changes to the policies or applications.
 
 - **Use an Authenticator app**: Update custom policy to use an [Authenticator app](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-mfa-totp). If your normal MFA is either phone-based or email-based OTP, then redeploy your custom policies to switch to use the Authenticator app.
 
 >[!Note]
 >Users need to configure Authenticator app integration during the sign-up.
 
-- **Use Security Questions**: If none of the above methods are applicable, implement Security Questions as a backup. Set up Security Questions for users during onboarding or profile edit and store the answers in a separate database other than the directory. This method doesn't meet the MFA requirement of “something you have” for example, phone, but offers a secondary “something that you know”.
+- **Use Security Questions**: If none of the above methods are applicable, implement Security Questions as a backup. Set up Security Questions for users during onboarding or profile edit and store the answers in a separate database other than the directory. This method doesn't meet the MFA requirement of "something you have" for example, phone, but offers a secondary "something that you know".
 
 ## Use a content delivery network
 
 Content delivery networks (CDNs) are better performant and less expensive than blob stores for storage of custom user flow UI. The web page content is delivered faster from a geographically distributed network of highly available servers.  
 
-Periodically test your CDN’s availability and the performance of content distribution through end-to-end scenario and load testing. If you're planning for an upcoming surge because of promotion or holiday traffic, revise your estimates for load testing.
+Periodically test your CDN's availability and the performance of content distribution through end-to-end scenario and load testing. If you're planning for an upcoming surge because of promotion or holiday traffic, revise your estimates for load testing.
   
 ## Next steps
 

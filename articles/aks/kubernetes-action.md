@@ -1,7 +1,6 @@
 ---
 title: Build, test, and deploy containers to Azure Kubernetes Service using GitHub Actions
 description:  Learn how to use GitHub Actions to deploy your container to Kubernetes
-services: container-service
 ms.topic: article
 ms.date: 08/02/2022
 ms.custom: github-actions-azure
@@ -164,7 +163,7 @@ jobs:
           manifests: |
              azure-vote-all-in-one-redis.yaml
           images: '${{ secrets.registry }}.azurecr.io/${{ secrets.repository }}/azure-vote-front:${{ github.sha }}'
-          pull: false 
+          pull-images: false 
 ```
 
 > [!IMPORTANT]

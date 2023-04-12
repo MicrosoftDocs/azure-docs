@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 02/15/2022
+ms.date: 11/28/2022
 ms.reviewer: sngun
 ---
 
@@ -24,6 +24,9 @@ All newly created data warehouse instances will have a system-defined maintenanc
 Although a maintenance window can be between three and eight hours this does not mean the data warehouse will be offline for the duration. Maintenance can occur at any time within that window and you should expect a single disconnect during that period lasting ~5 -6 mins as the service deploys new code to your data warehouse. DW400c and lower may experience multiple brief losses in connectivity at various times during the maintenance window. When maintenance starts, all active sessions will be canceled, and non-committed transactions will be rolled back. To minimize instance downtime, make sure that your data warehouse has no long-running transactions before your chosen maintenance period.
 
 All maintenance operations should finish within the specified maintenance windows unless we are required to deploy a time sensitive update. If your data warehouse is paused during a scheduled maintenance, it will be updated during the resume operation. You'll be notified immediately after your data warehouse maintenance is completed.
+
+> [!NOTE]
+> The maintenance windows are not applicable for DW400c or lower performance levels. They can undergo maintenance at any time.
 
 ## Alerts and monitoring
 
@@ -54,17 +57,23 @@ To view the maintenance schedule that has been applied to your Synapse SQL pool,
 
 ![Overview blade](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
+## Skip or disable maintenance schedule
+
+To ensure compliance with latest security requirements, we are unable to accommodate requests to skip or delay these updates. However, you may have some options to adjust your maintenance window within the current cycle depending on your situation:
+- If you receive a pending notification for maintenance, and you need more time to finish your jobs or notify your team, you can change the window start time as long as you do so before the beginning of your defined maintenance window. This will shift your window forward in time within the cycle. Note that if you change the window to a start time before the actual present time, maintenance will be triggered immediately.
+- You can manually trigger the maintenance by pausing and resuming (or scaling) your SQL Dedicated pool after the start of a cycle for which a "Pending" notification has been received. The weekend maintenance cycle starts on Saturday at 00:00 UTC; the midweek maintenance cycle starts Tuesday at 12:00 UTC.
+- Although we do require a minimum window of 3 hours, note that maintenance usually takes less than 30 minutes to complete, but it may take longer in some cases. For example, if there are active transactions when the maintenance starts, they will be aborted and rolled back, which may cause delays in coming back online. To avoid this scenario, we recommend that you ensure that no long-running transactions are active during the start of your maintenance window.
+
 ## Change a maintenance schedule
 
 A maintenance schedule can be updated or changed at any time. If the selected instance is going through an active maintenance cycle, the settings will be saved. They'll become active during the next identified maintenance period. [Learn more](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about monitoring your data warehouse during an active maintenance event.
 
 > [!NOTE]
-> In case you are using DW400c or lower, you will not be able to change the maintenance schedule because DW400c and lower data warehouse tiers could complete maintenance outside of a designated maintenance window.
-
+> In case you are using DW400c or lower, although you are able to change the maintenance schedule, it will not be adhered to since it's a lower performance level. As mentioned earlier, these data warehouse tiers can undergo maintenance at any time.
 
 ## Identifying the primary and secondary windows
 
-The primary and secondary windows must have separate day ranges. An example is a primary window of Tuesday–Thursday and a secondary of window of Saturday–Sunday.
+The primary and secondary windows must have separate day ranges. An example is a primary window of Tuesday–Thursday and a secondary of window of Saturday–Sunday. The terms "Primary" and "Secondary" should be considered as "Window 1" and "Window 2" respectively. This means either of the windows can be picked up in any order for deploying maintenance upgrades.
 
 To change the maintenance schedule for your Synapse SQL pool, complete the following steps:
 
@@ -88,6 +97,7 @@ During preview, some regions might not yet support the full set of available **D
   
 5. Select **Save**. A message appears, confirming that your new schedule is now active.
 
+   You can update the Day, Start time, Time window (including the default 8-hour window) selections at any time. 
    If you're saving a schedule in a region that doesn't support maintenance scheduling, the following message appears. Your settings are saved and become active when the feature becomes available in your selected region.
 
    ![Message about region availability](./media/maintenance-scheduling/maintenance-not-active-toast.png)

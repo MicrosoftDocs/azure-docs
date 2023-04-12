@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 ms.subservice: autoscale
 ms.date: 10/12/2022
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-arm-template
 ms.reviewer: akkumari
 ---
 # Use predictive autoscale to scale out before load demands in virtual machine scale sets
@@ -291,9 +291,9 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 
 For more information on Azure Resource Manager templates, see [Resource Manager template overview](../../azure-resource-manager/templates/overview.md).
 
-## Common questions
+## Frequently asked questions
 
-This section answers common questions.
+This section answers frequently asked questions.
 
 ### Why is CPU percentage over 100 percent on predictive charts?
 The predictive chart shows the cumulative load for all machines in the scale set. If you have 5 VMs in a scale set, the maximum cumulative load for all VMs will be 500%, that is, five times the 100% maximum CPU load of each VM. 

@@ -16,7 +16,8 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Display call transcription state on the client
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+> [!NOTE]
+> Call transcription state is only available from Teams meetings. Currently there's no support for call transcription state for ACS to ACS calls.
 
 When using call transcription you may want to let your users know that a call is being transcribe. Here's how.
 
@@ -24,7 +25,7 @@ When using call transcription you may want to let your users know that a call is
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/access-tokens.md).
+- A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 ::: zone pivot="platform-android"

@@ -1,13 +1,14 @@
 ---
 title: What is Azure Resource Mover?
 description: Learn about Azure Resource Mover
-author: rayne-wiselman
+author: ankitaduttaMSFT
 manager: evansma
-ms.service: azure-migrate
+ms.service: resource-mover
 ms.topic: overview
-ms.date: 09/09/2020
-ms.author: raynew
-ms.custom: mvc
+ms.date: 02/02/2023
+ms.author: ankitadutta
+ms.custom: mvc, engagement-fy23, UpdateFrequency.5
+
 #Customer intent: As an Azure admin, I need a simple way to move Azure resources, and want to understand how Azure Resource Mover can help me do that.
 
 ---
@@ -61,7 +62,7 @@ Using Resource Mover, you can currently move the following resources across regi
 - NICs
 - Availability sets 
 - Azure virtual networks 
-- Public IP addresses
+- Public IP addresses (Public IP will not be retained across regions)
 - Network security groups (NSGs)
 - Internal and public load balancers 
 - Azure SQL databases and elastic pools

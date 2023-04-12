@@ -4,6 +4,7 @@ description: Enable Azure Arc to deploy your self-hosted Azure API Management ga
 author: dlepow
 ms.author: danlep
 ms.service: api-management
+ms.custom: devx-track-azurecli
 ms.topic: article 
 ms.date: 05/25/2021
 ---
@@ -18,6 +19,8 @@ Deploying the API Management gateway on an Azure Arc-enabled Kubernetes cluster 
 
 > [!NOTE]
 > You can also deploy the self-hosted gateway [directly to Kubernetes](./how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md).
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 

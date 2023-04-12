@@ -18,7 +18,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 This article shows you how to use VMware Tanzu® Service Registry with Azure Spring Apps Enterprise tier.
 
-The [Tanzu Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/2.1/spring-cloud-services/GUID-service-registry-index.html) is one of the commercial VMware Tanzu components. This component helps you apply the *service discovery* design pattern to your applications.
+Tanzu Service Registry is one of the commercial VMware Tanzu components. This component helps you apply the *service discovery* design pattern to your applications.
 
 Service discovery is one of the main ideas of the microservices architecture. Without service discovery, you'd have to hand-configure each client of a service or adopt some form of access convention. This process can be difficult, and the configurations and conventions can be brittle in production. Instead, you can use the Tanzu Service Registry to dynamically discover and invoke registered services in your application.
 
@@ -450,6 +450,37 @@ This command produces the following output.
 ```
 
 In this way, you can obtain detailed information from the program as needed.
+
+## Enable/disable Service Registry after service creation
+
+You can enable and disable Service Registry after service creation using the Azure portal or Azure CLI. Before disabling Service Registry, you're required to unbind all of your apps from it.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to enable or disable Service Registry using the Azure portal:
+
+1. Navigate to your service resource, and then select **Service Registry**.
+1. Select **Manage**.
+1. Select or unselect the **Enable Service Registry**, and then select **Save**.
+1. You can now view the state of Service Registry on the **Service Registry** page.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following Azure CLI commands to enable or disable Service Registry:
+
+```azurecli
+az spring service-registry create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+```azurecli
+az spring service-registry delete \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+---
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for HIPAA HITRUST 9.2
 description: Details of the HIPAA HITRUST 9.2 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 11/04/2022
+ms.date: 02/14/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -143,7 +143,7 @@ This built-in initiative is deployed as part of the
 
 ## 01 Information Protection Program
 
-### 0.01 Information Security Management Program
+### 0101.00a1Organizational.123-00.a 0.01 Information Security Management Program
 
 **ID**: 0101.00a1Organizational.123-00.a
 **Ownership**: Shared
@@ -156,7 +156,7 @@ This built-in initiative is deployed as part of the
 |[Review and update the information security architecture](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fced291b8-1d3d-7e27-40cf-829e9dd523c8) |CMA_C1504 - Review and update the information security architecture |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1504.json) |
 |[Update information security policies](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5226dee6-3420-711b-4709-8e675ebd828f) |CMA_0518 - Update information security policies |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0518.json) |
 
-### 0.01 Information Security Management Program
+### 0102.00a2Organizational.123-00.a 0.01 Information Security Management Program
 
 **ID**: 0102.00a2Organizational.123-00.a
 **Ownership**: Shared
@@ -167,7 +167,7 @@ This built-in initiative is deployed as part of the
 |[Review and update the information security architecture](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fced291b8-1d3d-7e27-40cf-829e9dd523c8) |CMA_C1504 - Review and update the information security architecture |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1504.json) |
 |[Update information security policies](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5226dee6-3420-711b-4709-8e675ebd828f) |CMA_0518 - Update information security policies |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0518.json) |
 
-### 0.01 Information Security Management Program
+### 0103.00a3Organizational.1234567-00.a 0.01 Information Security Management Program
 
 **ID**: 0103.00a3Organizational.1234567-00.a
 **Ownership**: Shared
@@ -178,7 +178,7 @@ This built-in initiative is deployed as part of the
 |[Establish security requirements for the manufacturing of connected devices](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fafbecd30-37ee-a27b-8e09-6ac49951a0ee) |CMA_0279 - Establish security requirements for the manufacturing of connected devices |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0279.json) |
 |[Implement security engineering principles of information systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf2e9507-169b-4114-3a52-877561ee3198) |CMA_0325 - Implement security engineering principles of information systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0325.json) |
 
-### 02.01 Prior to Employment
+### 0104.02a1Organizational.12-02.a 02.01 Prior to Employment
 
 **ID**: 0104.02a1Organizational.12-02.a
 **Ownership**: Shared
@@ -200,7 +200,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 02.01 Prior to Employment
+### 0105.02a2Organizational.1-02.a 02.01 Prior to Employment
 
 **ID**: 0105.02a2Organizational.1-02.a
 **Ownership**: Shared
@@ -214,7 +214,7 @@ This built-in initiative is deployed as part of the
 |[Protect special information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa315c657-4a00-8eba-15ac-44692ad24423) |CMA_0409 - Protect special information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0409.json) |
 |[Rescreen individuals at a defined frequency](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6aeb800-0b19-944d-92dc-59b893722329) |CMA_C1512 - Rescreen individuals at a defined frequency |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1512.json) |
 
-### 02.01 Prior to Employment
+### 0106.02a2Organizational.23-02.a 02.01 Prior to Employment
 
 **ID**: 0106.02a2Organizational.23-02.a
 **Ownership**: Shared
@@ -226,7 +226,7 @@ This built-in initiative is deployed as part of the
 |[Protect special information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa315c657-4a00-8eba-15ac-44692ad24423) |CMA_0409 - Protect special information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0409.json) |
 |[Rescreen individuals at a defined frequency](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6aeb800-0b19-944d-92dc-59b893722329) |CMA_C1512 - Rescreen individuals at a defined frequency |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1512.json) |
 
-### 02.03 During Employment
+### 0107.02d1Organizational.1-02.d 02.03 During Employment
 
 **ID**: 0107.02d1Organizational.1-02.d
 **Ownership**: Shared
@@ -235,7 +235,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Establish information security workforce development and improvement program](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb544f797-a73b-1be3-6d01-6b1a085376bc) |CMA_C1752 - Establish information security workforce development and improvement program |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1752.json) |
 
-### 02.03 During Employment
+### 0108.02d1Organizational.23-02.d 02.03 During Employment
 
 **ID**: 0108.02d1Organizational.23-02.d
 **Ownership**: Shared
@@ -251,7 +251,7 @@ This built-in initiative is deployed as part of the
 |[Retain training records](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3153d9c0-2584-14d3-362d-578b01358aeb) |CMA_0456 - Retain training records |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0456.json) |
 |[Review security testing, training, and monitoring plans](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc3b3cc61-9c70-5d78-7f12-1aefcc477db7) |CMA_C1754 - Review security testing, training, and monitoring plans |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1754.json) |
 
-### 02.03 During Employment
+### 0109.02d1Organizational.4-02.d 02.03 During Employment
 
 **ID**: 0109.02d1Organizational.4-02.d
 **Ownership**: Shared
@@ -279,7 +279,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 02.03 During Employment
+### 0110.02d2Organizational.1-02.d 02.03 During Employment
 
 **ID**: 0110.02d2Organizational.1-02.d
 **Ownership**: Shared
@@ -289,7 +289,7 @@ This built-in initiative is deployed as part of the
 |[Appoint a senior information security officer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6cf9f2c-5fd8-3f16-a1f1-f0b69c904928) |CMA_C1733 - Appoint a senior information security officer |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1733.json) |
 |[Establish information security workforce development and improvement program](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb544f797-a73b-1be3-6d01-6b1a085376bc) |CMA_C1752 - Establish information security workforce development and improvement program |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1752.json) |
 
-### 02.03 During Employment
+### 0111.02d2Organizational.2-02.d 02.03 During Employment
 
 **ID**: 0111.02d2Organizational.2-02.d
 **Ownership**: Shared
@@ -306,7 +306,7 @@ This built-in initiative is deployed as part of the
 |[Require notification of third-party personnel transfer or termination](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fafd5d60a-48d2-8073-1ec2-6687e22f2ddd) |CMA_C1532 - Require notification of third-party personnel transfer or termination |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1532.json) |
 |[Require third-party providers to comply with personnel security policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8c31e15-642d-600f-78ab-bad47a5787e6) |CMA_C1530 - Require third-party providers to comply with personnel security policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1530.json) |
 
-### 05.01 Internal Organization
+### 01110.05a1Organizational.5-05.a 05.01 Internal Organization
 
 **ID**: 01110.05a1Organizational.5-05.a
 **Ownership**: Shared
@@ -318,7 +318,7 @@ This built-in initiative is deployed as part of the
 |[Establish third-party personnel security requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3881168c-5d38-6f04-61cc-b5d87b2c4c58) |CMA_C1529 - Establish third-party personnel security requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1529.json) |
 |[Require third-party providers to comply with personnel security policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8c31e15-642d-600f-78ab-bad47a5787e6) |CMA_C1530 - Require third-party providers to comply with personnel security policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1530.json) |
 
-### 05.01 Internal Organization
+### 01111.05a2Organizational.5-05.a 05.01 Internal Organization
 
 **ID**: 01111.05a2Organizational.5-05.a
 **Ownership**: Shared
@@ -327,7 +327,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Appoint a senior information security officer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6cf9f2c-5fd8-3f16-a1f1-f0b69c904928) |CMA_C1733 - Appoint a senior information security officer |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1733.json) |
 
-### 02.03 During Employment
+### 0112.02d2Organizational.3-02.d 02.03 During Employment
 
 **ID**: 0112.02d2Organizational.3-02.d
 **Ownership**: Shared
@@ -342,7 +342,7 @@ This built-in initiative is deployed as part of the
 |[Require compliance with intellectual property rights](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F725164e5-3b21-1ec2-7e42-14f077862841) |CMA_0432 - Require compliance with intellectual property rights |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0432.json) |
 |[Track software license usage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77cc89bb-774f-48d7-8a84-fb8c322c3000) |CMA_C1235 - Track software license usage |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1235.json) |
 
-### 04.01 Information Security Policy
+### 0113.04a1Organizational.123-04.a 04.01 Information Security Policy
 
 **ID**: 0113.04a1Organizational.123-04.a
 **Ownership**: Shared
@@ -353,7 +353,7 @@ This built-in initiative is deployed as part of the
 |[Protect the information security program plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2e7a98c9-219f-0d58-38dc-d69038224442) |CMA_C1732 - Protect the information security program plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1732.json) |
 |[Update information security policies](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5226dee6-3420-711b-4709-8e675ebd828f) |CMA_0518 - Update information security policies |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0518.json) |
 
-### 04.01 Information Security Policy
+### 0114.04b1Organizational.1-04.b 04.01 Information Security Policy
 
 **ID**: 0114.04b1Organizational.1-04.b
 **Ownership**: Shared
@@ -370,7 +370,7 @@ This built-in initiative is deployed as part of the
 |[Review and update system maintenance policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2067b904-9552-3259-0cdd-84468e284b7c) |CMA_C1395 - Review and update system maintenance policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1395.json) |
 |[Update information security policies](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5226dee6-3420-711b-4709-8e675ebd828f) |CMA_0518 - Update information security policies |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0518.json) |
 
-### 04.01 Information Security Policy
+### 0115.04b2Organizational.123-04.b 04.01 Information Security Policy
 
 **ID**: 0115.04b2Organizational.123-04.b
 **Ownership**: Shared
@@ -398,7 +398,7 @@ This built-in initiative is deployed as part of the
 |[Review security assessment and authorization policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa4493012-908c-5f48-a468-1e243be884ce) |CMA_C1143 - Review security assessment and authorization policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1143.json) |
 |[Update information security policies](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5226dee6-3420-711b-4709-8e675ebd828f) |CMA_0518 - Update information security policies |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0518.json) |
 
-### 04.01 Information Security Policy
+### 0116.04b3Organizational.1-04.b 04.01 Information Security Policy
 
 **ID**: 0116.04b3Organizational.1-04.b
 **Ownership**: Shared
@@ -410,7 +410,7 @@ This built-in initiative is deployed as part of the
 |[Review and update planning policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F28aa060e-25c7-6121-05d8-a846f11433df) |CMA_C1491 - Review and update planning policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1491.json) |
 |[Review and update system maintenance policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2067b904-9552-3259-0cdd-84468e284b7c) |CMA_C1395 - Review and update system maintenance policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1395.json) |
 
-### 05.01 Internal Organization
+### 0117.05a1Organizational.1-05.a 05.01 Internal Organization
 
 **ID**: 0117.05a1Organizational.1-05.a
 **Ownership**: Shared
@@ -419,7 +419,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Appoint a senior information security officer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6cf9f2c-5fd8-3f16-a1f1-f0b69c904928) |CMA_C1733 - Appoint a senior information security officer |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1733.json) |
 
-### 05.01 Internal Organization
+### 0118.05a1Organizational.2-05.a 05.01 Internal Organization
 
 **ID**: 0118.05a1Organizational.2-05.a
 **Ownership**: Shared
@@ -435,7 +435,7 @@ This built-in initiative is deployed as part of the
 |[Implement security engineering principles of information systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf2e9507-169b-4114-3a52-877561ee3198) |CMA_0325 - Implement security engineering principles of information systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0325.json) |
 |[Update information security policies](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5226dee6-3420-711b-4709-8e675ebd828f) |CMA_0518 - Update information security policies |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0518.json) |
 
-### 05.01 Internal Organization
+### 0119.05a1Organizational.3-05.a 05.01 Internal Organization
 
 **ID**: 0119.05a1Organizational.3-05.a
 **Ownership**: Shared
@@ -449,7 +449,7 @@ This built-in initiative is deployed as part of the
 |[Establish security requirements for the manufacturing of connected devices](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fafbecd30-37ee-a27b-8e09-6ac49951a0ee) |CMA_0279 - Establish security requirements for the manufacturing of connected devices |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0279.json) |
 |[Implement security engineering principles of information systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf2e9507-169b-4114-3a52-877561ee3198) |CMA_0325 - Implement security engineering principles of information systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0325.json) |
 
-### 05.01 Internal Organization
+### 0120.05a1Organizational.4-05.a 05.01 Internal Organization
 
 **ID**: 0120.05a1Organizational.4-05.a
 **Ownership**: Shared
@@ -465,7 +465,7 @@ This built-in initiative is deployed as part of the
 |[Govern the allocation of resources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33d34fac-56a8-1c0f-0636-3ed94892a709) |CMA_0293 - Govern the allocation of resources |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0293.json) |
 |[Secure commitment from leadership](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70057208-70cc-7b31-3c3a-121af6bc1966) |CMA_0489 - Secure commitment from leadership |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0489.json) |
 
-### 05.01 Internal Organization
+### 0121.05a2Organizational.12-05.a 05.01 Internal Organization
 
 **ID**: 0121.05a2Organizational.12-05.a
 **Ownership**: Shared
@@ -479,7 +479,7 @@ This built-in initiative is deployed as part of the
 |[Implement the risk management strategy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6fe3856-4635-36b6-983c-070da12a953b) |CMA_C1744 - Implement the risk management strategy |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1744.json) |
 |[Review and update risk assessment policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F20012034-96f0-85c2-4a86-1ae1eb457802) |CMA_C1537 - Review and update risk assessment policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1537.json) |
 
-### 05.01 Internal Organization
+### 0122.05a2Organizational.3-05.a 05.01 Internal Organization
 
 **ID**: 0122.05a2Organizational.3-05.a
 **Ownership**: Shared
@@ -493,7 +493,7 @@ This built-in initiative is deployed as part of the
 |[Provide security training before providing access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2b05dca2-25ec-9335-495c-29155f785082) |CMA_0418 - Provide security training before providing access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0418.json) |
 |[Provide security training for new users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1cb7bf71-841c-4741-438a-67c65fdd7194) |CMA_0419 - Provide security training for new users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0419.json) |
 
-### 05.01 Internal Organization
+### 0123.05a2Organizational.4-05.a 05.01 Internal Organization
 
 **ID**: 0123.05a2Organizational.4-05.a
 **Ownership**: Shared
@@ -503,7 +503,7 @@ This built-in initiative is deployed as part of the
 |[Establish a privacy program](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F39eb03c1-97cc-11ab-0960-6209ed2869f7) |CMA_0257 - Establish a privacy program |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0257.json) |
 |[Manage contacts for authorities and special interest groups](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5269d7e4-3768-501d-7e46-66c56c15622c) |CMA_0359 - Manage contacts for authorities and special interest groups |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0359.json) |
 
-### 05.01 Internal Organization
+### 0124.05a3Organizational.1-05.a 05.01 Internal Organization
 
 **ID**: 0124.05a3Organizational.1-05.a
 **Ownership**: Shared
@@ -513,7 +513,7 @@ This built-in initiative is deployed as part of the
 |[Appoint a senior information security officer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6cf9f2c-5fd8-3f16-a1f1-f0b69c904928) |CMA_C1733 - Appoint a senior information security officer |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1733.json) |
 |[Document security and privacy training activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F524e7136-9f6a-75ba-9089-501018151346) |CMA_0198 - Document security and privacy training activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0198.json) |
 
-### 05.01 Internal Organization
+### 0125.05a3Organizational.2-05.a 05.01 Internal Organization
 
 **ID**: 0125.05a3Organizational.2-05.a
 **Ownership**: Shared
@@ -529,7 +529,7 @@ This built-in initiative is deployed as part of the
 |[Employ independent assessors to conduct security control assessments](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb65c5d8e-9043-9612-2c17-65f231d763bb) |CMA_C1148 - Employ independent assessors to conduct security control assessments |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1148.json) |
 |[Perform a risk assessment](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8c5d3d8d-5cba-0def-257c-5ab9ea9644dc) |CMA_0388 - Perform a risk assessment |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0388.json) |
 
-### 02.03 During Employment
+### 0135.02f1Organizational.56-02.f 02.03 During Employment
 
 **ID**: 0135.02f1Organizational.56-02.f
 **Ownership**: Shared
@@ -541,7 +541,7 @@ This built-in initiative is deployed as part of the
 |[Notify personnel upon sanctions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6228396e-2ace-7ca5-3247-45767dbf52f4) |CMA_0380 - Notify personnel upon sanctions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0380.json) |
 |[Require third-party providers to comply with personnel security policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8c31e15-642d-600f-78ab-bad47a5787e6) |CMA_C1530 - Require third-party providers to comply with personnel security policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1530.json) |
 
-### 02.01 Prior to Employment
+### 0137.02a1Organizational.3-02.a 02.01 Prior to Employment
 
 **ID**: 0137.02a1Organizational.3-02.a
 **Ownership**: Shared
@@ -550,7 +550,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Review and update personnel security policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe5c5fc78-4aa5-3d6b-81bc-5fcc88b318e9) |CMA_C1507 - Review and update personnel security policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1507.json) |
 
-### 04.01 Information Security Policy
+### 0162.04b1Organizational.2-04.b 04.01 Information Security Policy
 
 **ID**: 0162.04b1Organizational.2-04.b
 **Ownership**: Shared
@@ -562,7 +562,7 @@ This built-in initiative is deployed as part of the
 |[Implement security engineering principles of information systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf2e9507-169b-4114-3a52-877561ee3198) |CMA_0325 - Implement security engineering principles of information systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0325.json) |
 |[Review and update information integrity policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6bededc0-2985-54d5-4158-eb8bad8070a0) |CMA_C1667 - Review and update information integrity policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1667.json) |
 
-### 05.01 Internal Organization
+### 0165.05a3Organizational.3-05.a 05.01 Internal Organization
 
 **ID**: 0165.05a3Organizational.3-05.a
 **Ownership**: Shared
@@ -571,7 +571,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Review and update planning policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F28aa060e-25c7-6121-05d8-a846f11433df) |CMA_C1491 - Review and update planning policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1491.json) |
 
-### 05.01 Internal Organization
+### 0177.05h1Organizational.12-05.h 05.01 Internal Organization
 
 **ID**: 0177.05h1Organizational.12-05.h
 **Ownership**: Shared
@@ -584,7 +584,7 @@ This built-in initiative is deployed as part of the
 |[Employ independent assessors to conduct security control assessments](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb65c5d8e-9043-9612-2c17-65f231d763bb) |CMA_C1148 - Employ independent assessors to conduct security control assessments |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1148.json) |
 |[Select additional testing for security control assessments](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff78fc35e-1268-0bca-a798-afcba9d2330a) |CMA_C1149 - Select additional testing for security control assessments |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1149.json) |
 
-### 05.01 Internal Organization
+### 0178.05h1Organizational.3-05.h 05.01 Internal Organization
 
 **ID**: 0178.05h1Organizational.3-05.h
 **Ownership**: Shared
@@ -595,7 +595,7 @@ This built-in initiative is deployed as part of the
 |[Deliver security assessment results](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8e49107c-3338-40d1-02aa-d524178a2afe) |CMA_C1147 - Deliver security assessment results |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1147.json) |
 |[Produce Security Assessment report](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70a7a065-a060-85f8-7863-eb7850ed2af9) |CMA_C1146 - Produce Security Assessment report |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1146.json) |
 
-### 05.01 Internal Organization
+### 0179.05h1Organizational.4-05.h 05.01 Internal Organization
 
 **ID**: 0179.05h1Organizational.4-05.h
 **Ownership**: Shared
@@ -606,7 +606,7 @@ This built-in initiative is deployed as part of the
 |[Establish a risk management strategy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd36700f2-2f0d-7c2a-059c-bdadd1d79f70) |CMA_0258 - Establish a risk management strategy |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0258.json) |
 |[Implement plans of action and milestones for security program process](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd93fe1be-13e4-421d-9c21-3158e2fa2667) |CMA_C1737 - Implement plans of action and milestones for security program process |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1737.json) |
 
-### 05.01 Internal Organization
+### 0180.05h2Organizational.1-05.h 05.01 Internal Organization
 
 **ID**: 0180.05h2Organizational.1-05.h
 **Ownership**: Shared
@@ -617,7 +617,7 @@ This built-in initiative is deployed as part of the
 
 ## 02 Endpoint Protection
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0201.09j1Organizational.124-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0201.09j1Organizational.124-09.j
 **Ownership**: Shared
@@ -643,7 +643,7 @@ This built-in initiative is deployed as part of the
 |[System updates should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |Missing security system updates on your servers will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0202.09j1Organizational.3-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0202.09j1Organizational.3-09.j
 **Ownership**: Shared
@@ -666,7 +666,7 @@ This built-in initiative is deployed as part of the
 |[Review role group changes weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70fe686f-1f91-7dab-11bf-bca4201e183b) |CMA_0476 - Review role group changes weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0476.json) |
 |[Specify permitted actions associated with customer audit information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3eecf628-a1c8-1b48-1b5c-7ca781e97970) |CMA_C1122 - Specify permitted actions associated with customer audit information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1122.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0204.09j2Organizational.1-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0204.09j2Organizational.1-09.j
 **Ownership**: Shared
@@ -685,7 +685,7 @@ This built-in initiative is deployed as part of the
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 |[Verify security functions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fece8bb17-4080-5127-915f-dc7267ee8549) |CMA_C1708 - Verify security functions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1708.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0205.09j2Organizational.2-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0205.09j2Organizational.2-09.j
 **Ownership**: Shared
@@ -703,7 +703,7 @@ This built-in initiative is deployed as part of the
 |[Set automated notifications for new and trending cloud applications in your organization](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf38215f-70c4-0cd6-40c2-c52d86690a45) |CMA_0495 - Set automated notifications for new and trending cloud applications in your organization |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0495.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0206.09j2Organizational.34-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0206.09j2Organizational.34-09.j
 **Ownership**: Shared
@@ -717,7 +717,7 @@ This built-in initiative is deployed as part of the
 |[Review malware detections report weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4a6f5cbd-6c6b-006f-2bb1-091af1441bce) |CMA_0475 - Review malware detections report weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0475.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0207.09j2Organizational.56-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0207.09j2Organizational.56-09.j
 **Ownership**: Shared
@@ -732,7 +732,7 @@ This built-in initiative is deployed as part of the
 |[Review threat protection status weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffad161f5-5261-401a-22dd-e037bae011bd) |CMA_0479 - Review threat protection status weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0479.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0208.09j2Organizational.7-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0208.09j2Organizational.7-09.j
 **Ownership**: Shared
@@ -744,7 +744,7 @@ This built-in initiative is deployed as part of the
 |[Separate user and information system management functionality](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8a703eb5-4e53-701b-67e4-05ba2f7930c8) |CMA_0493 - Separate user and information system management functionality |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0493.json) |
 |[Use dedicated machines for administrative tasks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb8972f60-8d77-1cb8-686f-9c9f4cdd8a59) |CMA_0527 - Use dedicated machines for administrative tasks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0527.json) |
 
-### 09.06 Network Security Management
+### 0209.09m3Organizational.7-09.m 09.06 Network Security Management
 
 **ID**: 0209.09m3Organizational.7-09.m
 **Ownership**: Shared
@@ -758,7 +758,7 @@ This built-in initiative is deployed as part of the
 |[Train staff on PII sharing and its consequences](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8019d788-713d-90a1-5570-dac5052f517d) |CMA_C1871 - Train staff on PII sharing and its consequences |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1871.json) |
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0214.09j1Organizational.6-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0214.09j1Organizational.6-09.j
 **Ownership**: Shared
@@ -779,7 +779,7 @@ This built-in initiative is deployed as part of the
 |[Review threat protection status weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffad161f5-5261-401a-22dd-e037bae011bd) |CMA_0479 - Review threat protection status weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0479.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0215.09j2Organizational.8-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0215.09j2Organizational.8-09.j
 **Ownership**: Shared
@@ -794,7 +794,7 @@ This built-in initiative is deployed as part of the
 |[Review threat protection status weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffad161f5-5261-401a-22dd-e037bae011bd) |CMA_0479 - Review threat protection status weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0479.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0216.09j2Organizational.9-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0216.09j2Organizational.9-09.j
 **Ownership**: Shared
@@ -815,7 +815,7 @@ This built-in initiative is deployed as part of the
 |[Review file and folder activity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef718fe4-7ceb-9ddf-3198-0ee8f6fe9cba) |CMA_0473 - Review file and folder activity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0473.json) |
 |[Review role group changes weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70fe686f-1f91-7dab-11bf-bca4201e183b) |CMA_0476 - Review role group changes weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0476.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0217.09j2Organizational.10-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0217.09j2Organizational.10-09.j
 **Ownership**: Shared
@@ -848,7 +848,7 @@ This built-in initiative is deployed as part of the
 |[Review threat protection status weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffad161f5-5261-401a-22dd-e037bae011bd) |CMA_0479 - Review threat protection status weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0479.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0219.09j2Organizational.12-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0219.09j2Organizational.12-09.j
 **Ownership**: Shared
@@ -863,7 +863,7 @@ This built-in initiative is deployed as part of the
 |[Review threat protection status weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffad161f5-5261-401a-22dd-e037bae011bd) |CMA_0479 - Review threat protection status weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0479.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0225.09k1Organizational.1-09.k 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0225.09k1Organizational.1-09.k
 **Ownership**: Shared
@@ -881,7 +881,7 @@ This built-in initiative is deployed as part of the
 |[Review threat protection status weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffad161f5-5261-401a-22dd-e037bae011bd) |CMA_0479 - Review threat protection status weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0479.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0226.09k1Organizational.2-09.k 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0226.09k1Organizational.2-09.k
 **Ownership**: Shared
@@ -898,7 +898,7 @@ This built-in initiative is deployed as part of the
 |[Review malware detections report weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4a6f5cbd-6c6b-006f-2bb1-091af1441bce) |CMA_0475 - Review malware detections report weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0475.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0227.09k2Organizational.12-09.k 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0227.09k2Organizational.12-09.k
 **Ownership**: Shared
@@ -924,7 +924,7 @@ This built-in initiative is deployed as part of the
 |[Review user groups and applications with access to sensitive data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb1c944e-0e94-647b-9b7e-fdb8d2af0838) |CMA_0481 - Review user groups and applications with access to sensitive data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0481.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 0228.09k2Organizational.3-09.k 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 0228.09k2Organizational.3-09.k
 **Ownership**: Shared
@@ -945,7 +945,7 @@ This built-in initiative is deployed as part of the
 
 ## 03 Portable Media Security
 
-### 09.07 Media Handling
+### 0301.09o1Organizational.123-09.o 09.07 Media Handling
 
 **ID**: 0301.09o1Organizational.123-09.o
 **Ownership**: Shared
@@ -967,7 +967,7 @@ This built-in initiative is deployed as part of the
 |[Review and update media protection policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4e19d22-8c0e-7cad-3219-c84c62dc250f) |CMA_C1427 - Review and update media protection policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1427.json) |
 |[Transparent Data Encryption on SQL databases should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17k78e20-9358-41c9-923c-fb736d382a12) |Transparent data encryption should be enabled to protect data-at-rest and meet compliance requirements |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDBEncryption_Audit.json) |
 
-### 09.07 Media Handling
+### 0302.09o2Organizational.1-09.o 09.07 Media Handling
 
 **ID**: 0302.09o2Organizational.1-09.o
 **Ownership**: Shared
@@ -982,7 +982,7 @@ This built-in initiative is deployed as part of the
 |[Restrict media use](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6122970b-8d4a-7811-0278-4c6c68f61e4f) |CMA_0450 - Restrict media use |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0450.json) |
 |[Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |By default, a virtual machine's OS and data disks are encrypted-at-rest using platform-managed keys. Temp disks, data caches and data flowing between compute and storage aren't encrypted. Disregard this recommendation if: 1. using encryption-at-host, or 2. server-side encryption on Managed Disks meets your security requirements. Learn more in: Server-side encryption of Azure Disk Storage: [https://aka.ms/disksse,](https://aka.ms/disksse,) Different disk encryption offerings: [https://aka.ms/diskencryptioncomparison](https://aka.ms/diskencryptioncomparison) |AuditIfNotExists, Disabled |[2.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
-### 09.07 Media Handling
+### 0303.09o2Organizational.2-09.o 09.07 Media Handling
 
 **ID**: 0303.09o2Organizational.2-09.o
 **Ownership**: Shared
@@ -996,7 +996,7 @@ This built-in initiative is deployed as part of the
 |[Manage the transportation of assets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4ac81669-00e2-9790-8648-71bc11bc91eb) |CMA_0370 - Manage the transportation of assets |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0370.json) |
 |[Restrict media use](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6122970b-8d4a-7811-0278-4c6c68f61e4f) |CMA_0450 - Restrict media use |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0450.json) |
 
-### 09.07 Media Handling
+### 0304.09o3Organizational.1-09.o 09.07 Media Handling
 
 **ID**: 0304.09o3Organizational.1-09.o
 **Ownership**: Shared
@@ -1012,7 +1012,7 @@ This built-in initiative is deployed as part of the
 |[SQL managed instances should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac01ad65-10e5-46df-bdd9-6b0cad13e1d2) |Implementing Transparent Data Encryption (TDE) with your own key provides you with increased transparency and control over the TDE Protector, increased security with an HSM-backed external service, and promotion of separation of duties. This recommendation applies to organizations with a related compliance requirement. |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_EnsureServerTDEisEncryptedWithYourOwnKey_Deny.json) |
 |[SQL servers should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a370ff3-6cab-4e85-8995-295fd854c5b8) |Implementing Transparent Data Encryption (TDE) with your own key provides increased transparency and control over the TDE Protector, increased security with an HSM-backed external service, and promotion of separation of duties. This recommendation applies to organizations with a related compliance requirement. |Audit, Deny, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_EnsureServerTDEisEncryptedWithYourOwnKey_Deny.json) |
 
-### 09.07 Media Handling
+### 0305.09q1Organizational.12-09.q 09.07 Media Handling
 
 **ID**: 0305.09q1Organizational.12-09.q
 **Ownership**: Shared
@@ -1027,7 +1027,7 @@ This built-in initiative is deployed as part of the
 |[Manage the transportation of assets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4ac81669-00e2-9790-8648-71bc11bc91eb) |CMA_0370 - Manage the transportation of assets |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0370.json) |
 |[Restrict media use](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6122970b-8d4a-7811-0278-4c6c68f61e4f) |CMA_0450 - Restrict media use |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0450.json) |
 
-### 09.07 Media Handling
+### 0306.09q1Organizational.3-09.q 09.07 Media Handling
 
 **ID**: 0306.09q1Organizational.3-09.q
 **Ownership**: Shared
@@ -1041,7 +1041,7 @@ This built-in initiative is deployed as part of the
 |[Implement controls to secure all media](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe435f7e3-0dd9-58c9-451f-9b44b96c0232) |CMA_0314 - Implement controls to secure all media |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0314.json) |
 |[Implement training for protecting authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe4b00788-7e1c-33ec-0418-d048508e095b) |CMA_0329 - Implement training for protecting authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0329.json) |
 
-### 09.07 Media Handling
+### 0307.09q2Organizational.12-09.q 09.07 Media Handling
 
 **ID**: 0307.09q2Organizational.12-09.q
 **Ownership**: Shared
@@ -1051,7 +1051,7 @@ This built-in initiative is deployed as part of the
 |[Control information flow](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F59bedbdc-0ba9-39b9-66bb-1d1c192384e6) |CMA_0079 - Control information flow |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0079.json) |
 |[Employ flow control mechanisms of encrypted information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F79365f13-8ba4-1f6c-2ac4-aa39929f56d0) |CMA_0211 - Employ flow control mechanisms of encrypted information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0211.json) |
 
-### 09.07 Media Handling
+### 0308.09q3Organizational.1-09.q 09.07 Media Handling
 
 **ID**: 0308.09q3Organizational.1-09.q
 **Ownership**: Shared
@@ -1062,7 +1062,7 @@ This built-in initiative is deployed as part of the
 |[Implement controls to secure all media](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe435f7e3-0dd9-58c9-451f-9b44b96c0232) |CMA_0314 - Implement controls to secure all media |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0314.json) |
 |[Manage the transportation of assets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4ac81669-00e2-9790-8648-71bc11bc91eb) |CMA_0370 - Manage the transportation of assets |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0370.json) |
 
-### 09.07 Media Handling
+### 0314.09q3Organizational.2-09.q 09.07 Media Handling
 
 **ID**: 0314.09q3Organizational.2-09.q
 **Ownership**: Shared
@@ -1081,7 +1081,7 @@ This built-in initiative is deployed as part of the
 
 ## 04 Mobile Device Security
 
-### 01.07 Mobile Computing and Teleworking
+### 0401.01x1System.124579-01.x 01.07 Mobile Computing and Teleworking
 
 **ID**: 0401.01x1System.124579-01.x
 **Ownership**: Shared
@@ -1096,7 +1096,7 @@ This built-in initiative is deployed as part of the
 |[Prohibit remote activation of collaborative computing devices](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F678ca228-042d-6d8e-a598-c58d5670437d) |CMA_C1648 - Prohibit remote activation of collaborative computing devices |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1648.json) |
 |[Protect data in transit using encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb11697e8-9515-16f1-7a35-477d5c8a1344) |CMA_0403 - Protect data in transit using encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0403.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0403.01x1System.8-01.x 01.07 Mobile Computing and Teleworking
 
 **ID**: 0403.01x1System.8-01.x
 **Ownership**: Shared
@@ -1111,7 +1111,7 @@ This built-in initiative is deployed as part of the
 |[Not allow for information systems to accompany with individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41172402-8d73-64c7-0921-909083c086b0) |CMA_C1182 - Not allow for information systems to accompany with individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1182.json) |
 |[Protect data in transit using encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb11697e8-9515-16f1-7a35-477d5c8a1344) |CMA_0403 - Protect data in transit using encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0403.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0405.01y1Organizational.12345678-01.y 01.07 Mobile Computing and Teleworking
 
 **ID**: 0405.01y1Organizational.12345678-01.y
 **Ownership**: Shared
@@ -1120,7 +1120,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Define mobile device requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ca3a3ea-3a1f-8ba0-31a8-6aed0fe1a7a4) |CMA_0122 - Define mobile device requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0122.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0407.01y2Organizational.1-01.y 01.07 Mobile Computing and Teleworking
 
 **ID**: 0407.01y2Organizational.1-01.y
 **Ownership**: Shared
@@ -1130,7 +1130,7 @@ This built-in initiative is deployed as part of the
 |[Define mobile device requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ca3a3ea-3a1f-8ba0-31a8-6aed0fe1a7a4) |CMA_0122 - Define mobile device requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0122.json) |
 |[Implement controls to secure alternate work sites](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcd36eeec-67e7-205a-4b64-dbfe3b4e3e4e) |CMA_0315 - Implement controls to secure alternate work sites |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0315.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0408.01y3Organizational.12-01.y 01.07 Mobile Computing and Teleworking
 
 **ID**: 0408.01y3Organizational.12-01.y
 **Ownership**: Shared
@@ -1143,7 +1143,7 @@ This built-in initiative is deployed as part of the
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 |[Manage nonlocal maintenance and diagnostic activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1fb1cb0e-1936-6f32-42fd-89970b535855) |CMA_0364 - Manage nonlocal maintenance and diagnostic activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0364.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0409.01y3Organizational.3-01.y 01.07 Mobile Computing and Teleworking
 
 **ID**: 0409.01y3Organizational.3-01.y
 **Ownership**: Shared
@@ -1152,7 +1152,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Define mobile device requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ca3a3ea-3a1f-8ba0-31a8-6aed0fe1a7a4) |CMA_0122 - Define mobile device requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0122.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0410.01x1System.12-01.xMobileComputingandCommunications 01.07 Mobile Computing and Teleworking
 
 **ID**: 0410.01x1System.12-01.xMobileComputingandCommunications
 **Ownership**: Shared
@@ -1162,7 +1162,7 @@ This built-in initiative is deployed as part of the
 |[Define mobile device requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ca3a3ea-3a1f-8ba0-31a8-6aed0fe1a7a4) |CMA_0122 - Define mobile device requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0122.json) |
 |[Protect data in transit using encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb11697e8-9515-16f1-7a35-477d5c8a1344) |CMA_0403 - Protect data in transit using encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0403.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0415.01y1Organizational.10-01.y 01.07 Mobile Computing and Teleworking
 
 **ID**: 0415.01y1Organizational.10-01.y
 **Ownership**: Shared
@@ -1175,7 +1175,7 @@ This built-in initiative is deployed as part of the
 |[Implement controls to secure all media](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe435f7e3-0dd9-58c9-451f-9b44b96c0232) |CMA_0314 - Implement controls to secure all media |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0314.json) |
 |[Manage nonlocal maintenance and diagnostic activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1fb1cb0e-1936-6f32-42fd-89970b535855) |CMA_0364 - Manage nonlocal maintenance and diagnostic activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0364.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0416.01y3Organizational.4-01.y 01.07 Mobile Computing and Teleworking
 
 **ID**: 0416.01y3Organizational.4-01.y
 **Ownership**: Shared
@@ -1187,7 +1187,7 @@ This built-in initiative is deployed as part of the
 |[Manage nonlocal maintenance and diagnostic activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1fb1cb0e-1936-6f32-42fd-89970b535855) |CMA_0364 - Manage nonlocal maintenance and diagnostic activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0364.json) |
 |[Protect data in transit using encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb11697e8-9515-16f1-7a35-477d5c8a1344) |CMA_0403 - Protect data in transit using encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0403.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0417.01y3Organizational.5-01.y 01.07 Mobile Computing and Teleworking
 
 **ID**: 0417.01y3Organizational.5-01.y
 **Ownership**: Shared
@@ -1196,7 +1196,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Define mobile device requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ca3a3ea-3a1f-8ba0-31a8-6aed0fe1a7a4) |CMA_0122 - Define mobile device requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0122.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0425.01x1System.13-01.x 01.07 Mobile Computing and Teleworking
 
 **ID**: 0425.01x1System.13-01.x
 **Ownership**: Shared
@@ -1205,7 +1205,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Define mobile device requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ca3a3ea-3a1f-8ba0-31a8-6aed0fe1a7a4) |CMA_0122 - Define mobile device requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0122.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0426.01x2System.1-01.x 01.07 Mobile Computing and Teleworking
 
 **ID**: 0426.01x2System.1-01.x
 **Ownership**: Shared
@@ -1220,7 +1220,7 @@ This built-in initiative is deployed as part of the
 |[Not allow for information systems to accompany with individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41172402-8d73-64c7-0921-909083c086b0) |CMA_C1182 - Not allow for information systems to accompany with individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1182.json) |
 |[Protect data in transit using encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb11697e8-9515-16f1-7a35-477d5c8a1344) |CMA_0403 - Protect data in transit using encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0403.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0427.01x2System.2-01.x 01.07 Mobile Computing and Teleworking
 
 **ID**: 0427.01x2System.2-01.x
 **Ownership**: Shared
@@ -1232,7 +1232,7 @@ This built-in initiative is deployed as part of the
 |[Not allow for information systems to accompany with individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41172402-8d73-64c7-0921-909083c086b0) |CMA_C1182 - Not allow for information systems to accompany with individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1182.json) |
 |[Protect data in transit using encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb11697e8-9515-16f1-7a35-477d5c8a1344) |CMA_0403 - Protect data in transit using encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0403.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0428.01x2System.3-01.x 01.07 Mobile Computing and Teleworking
 
 **ID**: 0428.01x2System.3-01.x
 **Ownership**: Shared
@@ -1244,7 +1244,7 @@ This built-in initiative is deployed as part of the
 |[Not allow for information systems to accompany with individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41172402-8d73-64c7-0921-909083c086b0) |CMA_C1182 - Not allow for information systems to accompany with individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1182.json) |
 |[Protect data in transit using encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb11697e8-9515-16f1-7a35-477d5c8a1344) |CMA_0403 - Protect data in transit using encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0403.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 0429.01x1System.14-01.x 01.07 Mobile Computing and Teleworking
 
 **ID**: 0429.01x1System.14-01.x
 **Ownership**: Shared
@@ -1299,7 +1299,7 @@ This built-in initiative is deployed as part of the
 
 ## 05 Wireless Security
 
-### 09.06 Network Security Management
+### 0504.09m2Organizational.5-09.m 09.06 Network Security Management
 
 **ID**: 0504.09m2Organizational.5-09.m
 **Ownership**: Shared
@@ -1311,7 +1311,7 @@ This built-in initiative is deployed as part of the
 |[Identify and authenticate network devices](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fae5345d5-8dab-086a-7290-db43a3272198) |CMA_0296 - Identify and authenticate network devices |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0296.json) |
 |[Protect wireless access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd42a8f69-a193-6cbc-48b9-04a9e29961f1) |CMA_0411 - Protect wireless access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0411.json) |
 
-### 09.06 Network Security Management
+### 0505.09m2Organizational.3-09.m 09.06 Network Security Management
 
 **ID**: 0505.09m2Organizational.3-09.m
 **Ownership**: Shared
@@ -1329,7 +1329,7 @@ This built-in initiative is deployed as part of the
 
 ## 06 Configuration Management
 
-### 06.02 Compliance with Security Policies and Standards, and Technical Compliance
+### 0601.06g1Organizational.124-06.g 06.02 Compliance with Security Policies and Standards, and Technical Compliance
 
 **ID**: 0601.06g1Organizational.124-06.g
 **Ownership**: Shared
@@ -1343,7 +1343,7 @@ This built-in initiative is deployed as part of the
 |[Produce Security Assessment report](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70a7a065-a060-85f8-7863-eb7850ed2af9) |CMA_C1146 - Produce Security Assessment report |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1146.json) |
 |[Update POA&M items](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcc057769-01d9-95ad-a36f-1e62a7f9540b) |CMA_C1157 - Update POA&M items |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1157.json) |
 
-### 06.02 Compliance with Security Policies and Standards, and Technical Compliance
+### 0602.06g1Organizational.3-06.g 06.02 Compliance with Security Policies and Standards, and Technical Compliance
 
 **ID**: 0602.06g1Organizational.3-06.g
 **Ownership**: Shared
@@ -1361,7 +1361,7 @@ This built-in initiative is deployed as part of the
 |[Require developers to document approved changes and potential impact](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a868d0c-538f-968b-0191-bddb44da5b75) |CMA_C1597 - Require developers to document approved changes and potential impact |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1597.json) |
 |[Update POA&M items](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcc057769-01d9-95ad-a36f-1e62a7f9540b) |CMA_C1157 - Update POA&M items |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1157.json) |
 
-### 06.02 Compliance with Security Policies and Standards, and Technical Compliance
+### 0603.06g2Organizational.1-06.g 06.02 Compliance with Security Policies and Standards, and Technical Compliance
 
 **ID**: 0603.06g2Organizational.1-06.g
 **Ownership**: Shared
@@ -1375,7 +1375,7 @@ This built-in initiative is deployed as part of the
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 |[View and configure system diagnostic data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0123edae-3567-a05a-9b05-b53ebe9d3e7e) |CMA_0544 - View and configure system diagnostic data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0544.json) |
 
-### 06.02 Compliance with Security Policies and Standards, and Technical Compliance
+### 0604.06g2Organizational.2-06.g 06.02 Compliance with Security Policies and Standards, and Technical Compliance
 
 **ID**: 0604.06g2Organizational.2-06.g
 **Ownership**: Shared
@@ -1390,7 +1390,7 @@ This built-in initiative is deployed as part of the
 |[Turn on sensors for endpoint security solution](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5fc24b95-53f7-0ed1-2330-701b539b97fe) |CMA_0514 - Turn on sensors for endpoint security solution |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0514.json) |
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 
-### 10.04 Security of System Files
+### 0605.10h1System.12-10.h 10.04 Security of System Files
 
 **ID**: 0605.10h1System.12-10.h
 **Ownership**: Shared
@@ -1404,7 +1404,7 @@ This built-in initiative is deployed as part of the
 |[Windows machines should meet requirements for 'Security Options - Audit'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33936777-f2ac-45aa-82ec-07958ec9ade4) |Windows machines should have the specified Group Policy settings in the category 'Security Options - Audit' for forcing audit policy subcategory and shutting down if unable to log security audits. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsAudit_AINE.json) |
 |[Windows machines should meet requirements for 'System Audit Policies - Account Management'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94d9aca8-3757-46df-aa51-f218c5f11954) |Windows machines should have the specified Group Policy settings in the category 'System Audit Policies - Account Management' for auditing application, security, and user group management, and other management events. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SystemAuditPoliciesAccountManagement_AINE.json) |
 
-### 06.02 Compliance with Security Policies and Standards, and Technical Compliance
+### 0613.06h1Organizational.12-06.h 06.02 Compliance with Security Policies and Standards, and Technical Compliance
 
 **ID**: 0613.06h1Organizational.12-06.h
 **Ownership**: Shared
@@ -1414,7 +1414,7 @@ This built-in initiative is deployed as part of the
 |[Perform vulnerability scans](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c5e0e1a-216f-8f49-0a15-76ed0d8b8e1f) |CMA_0393 - Perform vulnerability scans |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0393.json) |
 |[Remediate information system flaws](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbe38a620-000b-21cf-3cb3-ea151b704c3b) |CMA_0427 - Remediate information system flaws |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0427.json) |
 
-### 06.02 Compliance with Security Policies and Standards, and Technical Compliance
+### 0614.06h2Organizational.12-06.h 06.02 Compliance with Security Policies and Standards, and Technical Compliance
 
 **ID**: 0614.06h2Organizational.12-06.h
 **Ownership**: Shared
@@ -1428,7 +1428,7 @@ This built-in initiative is deployed as part of the
 |[Remediate information system flaws](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbe38a620-000b-21cf-3cb3-ea151b704c3b) |CMA_0427 - Remediate information system flaws |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0427.json) |
 |[Select additional testing for security control assessments](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff78fc35e-1268-0bca-a798-afcba9d2330a) |CMA_C1149 - Select additional testing for security control assessments |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1149.json) |
 
-### 06.02 Compliance with Security Policies and Standards, and Technical Compliance
+### 0615.06h2Organizational.3-06.h 06.02 Compliance with Security Policies and Standards, and Technical Compliance
 
 **ID**: 0615.06h2Organizational.3-06.h
 **Ownership**: Shared
@@ -1437,7 +1437,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Remediate information system flaws](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbe38a620-000b-21cf-3cb3-ea151b704c3b) |CMA_0427 - Remediate information system flaws |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0427.json) |
 
-### 09.01 Documented Operating Procedures
+### 0618.09b1System.1-09.b 09.01 Documented Operating Procedures
 
 **ID**: 0618.09b1System.1-09.b
 **Ownership**: Shared
@@ -1461,7 +1461,7 @@ This built-in initiative is deployed as part of the
 |[Retain previous versions of baseline configs](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5e4e9685-3818-5934-0071-2620c4fa2ca5) |CMA_C1181 - Retain previous versions of baseline configs |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1181.json) |
 |[View and configure system diagnostic data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0123edae-3567-a05a-9b05-b53ebe9d3e7e) |CMA_0544 - View and configure system diagnostic data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0544.json) |
 
-### 10.04 Security of System Files
+### 0626.10h1System.3-10.h 10.04 Security of System Files
 
 **ID**: 0626.10h1System.3-10.h
 **Ownership**: Shared
@@ -1472,7 +1472,7 @@ This built-in initiative is deployed as part of the
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 |[View and configure system diagnostic data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0123edae-3567-a05a-9b05-b53ebe9d3e7e) |CMA_0544 - View and configure system diagnostic data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0544.json) |
 
-### 10.04 Security of System Files
+### 0627.10h1System.45-10.h 10.04 Security of System Files
 
 **ID**: 0627.10h1System.45-10.h
 **Ownership**: Shared
@@ -1491,7 +1491,7 @@ This built-in initiative is deployed as part of the
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 |[View and configure system diagnostic data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0123edae-3567-a05a-9b05-b53ebe9d3e7e) |CMA_0544 - View and configure system diagnostic data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0544.json) |
 
-### 10.04 Security of System Files
+### 0628.10h1System.6-10.h 10.04 Security of System Files
 
 **ID**: 0628.10h1System.6-10.h
 **Ownership**: Shared
@@ -1503,7 +1503,7 @@ This built-in initiative is deployed as part of the
 |[Remediate information system flaws](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbe38a620-000b-21cf-3cb3-ea151b704c3b) |CMA_0427 - Remediate information system flaws |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0427.json) |
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 
-### 10.05 Security In Development and Support Processes
+### 0635.10k1Organizational.12-10.k 10.05 Security In Development and Support Processes
 
 **ID**: 0635.10k1Organizational.12-10.k
 **Ownership**: Shared
@@ -1520,7 +1520,7 @@ This built-in initiative is deployed as part of the
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 |[Windows machines should meet requirements for 'System Audit Policies - Detailed Tracking'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58383b73-94a9-4414-b382-4146eb02611b) |Windows machines should have the specified Group Policy settings in the category 'System Audit Policies - Detailed Tracking' for auditing DPAPI, process creation/termination, RPC events, and PNP activity. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SystemAuditPoliciesDetailedTracking_AINE.json) |
 
-### 10.05 Security In Development and Support Processes
+### 0636.10k2Organizational.1-10.k 10.05 Security In Development and Support Processes
 
 **ID**: 0636.10k2Organizational.1-10.k
 **Ownership**: Shared
@@ -1536,7 +1536,7 @@ This built-in initiative is deployed as part of the
 |[Review and update configuration management policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb8a8df9-521f-3ccd-7e2c-3d1fcc812340) |CMA_C1175 - Review and update configuration management policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1175.json) |
 |[Windows machines should meet requirements for 'System Audit Policies - Detailed Tracking'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58383b73-94a9-4414-b382-4146eb02611b) |Windows machines should have the specified Group Policy settings in the category 'System Audit Policies - Detailed Tracking' for auditing DPAPI, process creation/termination, RPC events, and PNP activity. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SystemAuditPoliciesDetailedTracking_AINE.json) |
 
-### 10.05 Security In Development and Support Processes
+### 0637.10k2Organizational.2-10.k 10.05 Security In Development and Support Processes
 
 **ID**: 0637.10k2Organizational.2-10.k
 **Ownership**: Shared
@@ -1551,7 +1551,7 @@ This built-in initiative is deployed as part of the
 |[Implement an automated configuration management tool](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33832848-42ab-63f3-1a55-c0ad309d44cd) |CMA_0311 - Implement an automated configuration management tool |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0311.json) |
 |[Windows machines should meet requirements for 'System Audit Policies - Detailed Tracking'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58383b73-94a9-4414-b382-4146eb02611b) |Windows machines should have the specified Group Policy settings in the category 'System Audit Policies - Detailed Tracking' for auditing DPAPI, process creation/termination, RPC events, and PNP activity. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SystemAuditPoliciesDetailedTracking_AINE.json) |
 
-### 10.05 Security In Development and Support Processes
+### 0638.10k2Organizational.34569-10.k 10.05 Security In Development and Support Processes
 
 **ID**: 0638.10k2Organizational.34569-10.k
 **Ownership**: Shared
@@ -1573,7 +1573,7 @@ This built-in initiative is deployed as part of the
 |[Perform audit for configuration change control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1282809c-9001-176b-4a81-260a085f4872) |CMA_0390 - Perform audit for configuration change control |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0390.json) |
 |[Windows machines should meet requirements for 'System Audit Policies - Detailed Tracking'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58383b73-94a9-4414-b382-4146eb02611b) |Windows machines should have the specified Group Policy settings in the category 'System Audit Policies - Detailed Tracking' for auditing DPAPI, process creation/termination, RPC events, and PNP activity. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SystemAuditPoliciesDetailedTracking_AINE.json) |
 
-### 10.05 Security In Development and Support Processes
+### 0639.10k2Organizational.78-10.k 10.05 Security In Development and Support Processes
 
 **ID**: 0639.10k2Organizational.78-10.k
 **Ownership**: Shared
@@ -1589,7 +1589,7 @@ This built-in initiative is deployed as part of the
 |[Remediate information system flaws](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbe38a620-000b-21cf-3cb3-ea151b704c3b) |CMA_0427 - Remediate information system flaws |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0427.json) |
 |[Windows machines should meet requirements for 'System Audit Policies - Detailed Tracking'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58383b73-94a9-4414-b382-4146eb02611b) |Windows machines should have the specified Group Policy settings in the category 'System Audit Policies - Detailed Tracking' for auditing DPAPI, process creation/termination, RPC events, and PNP activity. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SystemAuditPoliciesDetailedTracking_AINE.json) |
 
-### 10.05 Security In Development and Support Processes
+### 0640.10k2Organizational.1012-10.k 10.05 Security In Development and Support Processes
 
 **ID**: 0640.10k2Organizational.1012-10.k
 **Ownership**: Shared
@@ -1619,7 +1619,7 @@ This built-in initiative is deployed as part of the
 |[Require developers to produce evidence of security assessment plan execution](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8a63511-66f1-503f-196d-d6217ee0823a) |CMA_C1602 - Require developers to produce evidence of security assessment plan execution |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1602.json) |
 |[Windows machines should meet requirements for 'System Audit Policies - Detailed Tracking'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58383b73-94a9-4414-b382-4146eb02611b) |Windows machines should have the specified Group Policy settings in the category 'System Audit Policies - Detailed Tracking' for auditing DPAPI, process creation/termination, RPC events, and PNP activity. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SystemAuditPoliciesDetailedTracking_AINE.json) |
 
-### 10.05 Security In Development and Support Processes
+### 0641.10k2Organizational.11-10.k 10.05 Security In Development and Support Processes
 
 **ID**: 0641.10k2Organizational.11-10.k
 **Ownership**: Shared
@@ -1640,7 +1640,7 @@ This built-in initiative is deployed as part of the
 |[Review development process, standards and tools](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e876c5c-0f2a-8eb6-69f7-5f91e7918ed6) |CMA_C1610 - Review development process, standards and tools |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1610.json) |
 |[Windows machines should meet requirements for 'System Audit Policies - Detailed Tracking'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58383b73-94a9-4414-b382-4146eb02611b) |Windows machines should have the specified Group Policy settings in the category 'System Audit Policies - Detailed Tracking' for auditing DPAPI, process creation/termination, RPC events, and PNP activity. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SystemAuditPoliciesDetailedTracking_AINE.json) |
 
-### 10.05 Security In Development and Support Processes
+### 0642.10k3Organizational.12-10.k 10.05 Security In Development and Support Processes
 
 **ID**: 0642.10k3Organizational.12-10.k
 **Ownership**: Shared
@@ -1655,7 +1655,7 @@ This built-in initiative is deployed as part of the
 |[Implement an automated configuration management tool](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33832848-42ab-63f3-1a55-c0ad309d44cd) |CMA_0311 - Implement an automated configuration management tool |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0311.json) |
 |[Windows machines should meet requirements for 'System Audit Policies - Detailed Tracking'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58383b73-94a9-4414-b382-4146eb02611b) |Windows machines should have the specified Group Policy settings in the category 'System Audit Policies - Detailed Tracking' for auditing DPAPI, process creation/termination, RPC events, and PNP activity. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SystemAuditPoliciesDetailedTracking_AINE.json) |
 
-### 10.05 Security In Development and Support Processes
+### 0643.10k3Organizational.3-10.k 10.05 Security In Development and Support Processes
 
 **ID**: 0643.10k3Organizational.3-10.k
 **Ownership**: Shared
@@ -1680,7 +1680,7 @@ This built-in initiative is deployed as part of the
 |[Retain previous versions of baseline configs](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5e4e9685-3818-5934-0071-2620c4fa2ca5) |CMA_C1181 - Retain previous versions of baseline configs |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1181.json) |
 |[Windows machines should meet requirements for 'System Audit Policies - Detailed Tracking'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58383b73-94a9-4414-b382-4146eb02611b) |Windows machines should have the specified Group Policy settings in the category 'System Audit Policies - Detailed Tracking' for auditing DPAPI, process creation/termination, RPC events, and PNP activity. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SystemAuditPoliciesDetailedTracking_AINE.json) |
 
-### 10.05 Security In Development and Support Processes
+### 0644.10k3Organizational.4-10.k 10.05 Security In Development and Support Processes
 
 **ID**: 0644.10k3Organizational.4-10.k
 **Ownership**: Shared
@@ -1708,7 +1708,7 @@ This built-in initiative is deployed as part of the
 |[View and configure system diagnostic data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0123edae-3567-a05a-9b05-b53ebe9d3e7e) |CMA_0544 - View and configure system diagnostic data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0544.json) |
 |[Windows machines should meet requirements for 'System Audit Policies - Detailed Tracking'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58383b73-94a9-4414-b382-4146eb02611b) |Windows machines should have the specified Group Policy settings in the category 'System Audit Policies - Detailed Tracking' for auditing DPAPI, process creation/termination, RPC events, and PNP activity. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SystemAuditPoliciesDetailedTracking_AINE.json) |
 
-### 09.08 Exchange of Information
+### 0662.09sCSPOrganizational.2-09.s 09.08 Exchange of Information
 
 **ID**: 0662.09sCSPOrganizational.2-09.s
 **Ownership**: Shared
@@ -1719,7 +1719,7 @@ This built-in initiative is deployed as part of the
 |[Employ independent assessors to conduct security control assessments](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb65c5d8e-9043-9612-2c17-65f231d763bb) |CMA_C1148 - Employ independent assessors to conduct security control assessments |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1148.json) |
 |[Select additional testing for security control assessments](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff78fc35e-1268-0bca-a798-afcba9d2330a) |CMA_C1149 - Select additional testing for security control assessments |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1149.json) |
 
-### 10.04 Security of System Files
+### 0663.10h1System.7-10.h 10.04 Security of System Files
 
 **ID**: 0663.10h1System.7-10.h
 **Ownership**: Shared
@@ -1743,7 +1743,7 @@ This built-in initiative is deployed as part of the
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 |[View and configure system diagnostic data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0123edae-3567-a05a-9b05-b53ebe9d3e7e) |CMA_0544 - View and configure system diagnostic data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0544.json) |
 
-### 10.04 Security of System Files
+### 0669.10hCSPSystem.1-10.h 10.04 Security of System Files
 
 **ID**: 0669.10hCSPSystem.1-10.h
 **Ownership**: Shared
@@ -1767,7 +1767,7 @@ This built-in initiative is deployed as part of the
 |[Perform audit for configuration change control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1282809c-9001-176b-4a81-260a085f4872) |CMA_0390 - Perform audit for configuration change control |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0390.json) |
 |[Require developers to manage change integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb33d61c1-7463-7025-0ec0-a47585b59147) |CMA_C1595 - Require developers to manage change integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1595.json) |
 
-### 10.04 Security of System Files
+### 0670.10hCSPSystem.2-10.h 10.04 Security of System Files
 
 **ID**: 0670.10hCSPSystem.2-10.h
 **Ownership**: Shared
@@ -1778,7 +1778,7 @@ This built-in initiative is deployed as part of the
 |[Perform disposition review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb5a4be05-3997-1731-3260-98be653610f6) |CMA_0391 - Perform disposition review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0391.json) |
 |[Verify personal data is deleted at the end of processing](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6b877a6-5d6d-1862-4b7f-3ccc30b25b63) |CMA_0540 - Verify personal data is deleted at the end of processing |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0540.json) |
 
-### 10.05 Security In Development and Support Processes
+### 0671.10k1System.1-10.k 10.05 Security In Development and Support Processes
 
 **ID**: 0671.10k1System.1-10.k
 **Ownership**: Shared
@@ -1802,7 +1802,7 @@ This built-in initiative is deployed as part of the
 |[Require developers to implement only approved changes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F085467a6-9679-5c65-584a-f55acefd0d43) |CMA_C1596 - Require developers to implement only approved changes |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1596.json) |
 |[Require developers to manage change integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb33d61c1-7463-7025-0ec0-a47585b59147) |CMA_C1595 - Require developers to manage change integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1595.json) |
 
-### 10.05 Security In Development and Support Processes
+### 0672.10k3System.5-10.k 10.05 Security In Development and Support Processes
 
 **ID**: 0672.10k3System.5-10.k
 **Ownership**: Shared
@@ -1822,7 +1822,7 @@ This built-in initiative is deployed as part of the
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 |[View and configure system diagnostic data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0123edae-3567-a05a-9b05-b53ebe9d3e7e) |CMA_0544 - View and configure system diagnostic data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0544.json) |
 
-### 06.02 Compliance with Security Policies and Standards, and Technical Compliance
+### 068.06g2Organizational.34-06.g 06.02 Compliance with Security Policies and Standards, and Technical Compliance
 
 **ID**: 068.06g2Organizational.34-06.g
 **Ownership**: Shared
@@ -1836,7 +1836,7 @@ This built-in initiative is deployed as part of the
 |[Employ independent assessors to conduct security control assessments](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb65c5d8e-9043-9612-2c17-65f231d763bb) |CMA_C1148 - Employ independent assessors to conduct security control assessments |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1148.json) |
 |[Produce Security Assessment report](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70a7a065-a060-85f8-7863-eb7850ed2af9) |CMA_C1146 - Produce Security Assessment report |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1146.json) |
 
-### 06.02 Compliance with Security Policies and Standards, and Technical Compliance
+### 069.06g2Organizational.56-06.g 06.02 Compliance with Security Policies and Standards, and Technical Compliance
 
 **ID**: 069.06g2Organizational.56-06.g
 **Ownership**: Shared
@@ -1853,7 +1853,7 @@ This built-in initiative is deployed as part of the
 
 ## 07 Vulnerability Management
 
-### 07.01 Responsibility for Assets
+### 0701.07a1Organizational.12-07.a 07.01 Responsibility for Assets
 
 **ID**: 0701.07a1Organizational.12-07.a
 **Ownership**: Shared
@@ -1868,7 +1868,7 @@ This built-in initiative is deployed as part of the
 |[Protect against and prevent data theft from departing employees](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F80a97208-264e-79da-0cc7-4fca179a0c9c) |CMA_0398 - Protect against and prevent data theft from departing employees |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0398.json) |
 |[Retain terminated user data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c7032fe-9ce6-9092-5890-87a1a3755db1) |CMA_0455 - Retain terminated user data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0455.json) |
 
-### 07.01 Responsibility for Assets
+### 0702.07a1Organizational.3-07.a 07.01 Responsibility for Assets
 
 **ID**: 0702.07a1Organizational.3-07.a
 **Ownership**: Shared
@@ -1878,7 +1878,7 @@ This built-in initiative is deployed as part of the
 |[Define information security roles and responsibilities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef5a7059-6651-73b1-18b3-75b1b79c1565) |CMA_C1565 - Define information security roles and responsibilities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1565.json) |
 |[Establish terms and conditions for processing resources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5715bf33-a5bd-1084-4e19-bc3c83ec1c35) |CMA_C1077 - Establish terms and conditions for processing resources |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1077.json) |
 
-### 07.01 Responsibility for Assets
+### 0703.07a2Organizational.1-07.a 07.01 Responsibility for Assets
 
 **ID**: 0703.07a2Organizational.1-07.a
 **Ownership**: Shared
@@ -1889,7 +1889,7 @@ This built-in initiative is deployed as part of the
 |[Establish and maintain an asset inventory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27965e62-141f-8cca-426f-d09514ee5216) |CMA_0266 - Establish and maintain an asset inventory |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0266.json) |
 |[Maintain records of processing of personal data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F92ede480-154e-0e22-4dca-8b46a74a3a51) |CMA_0353 - Maintain records of processing of personal data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0353.json) |
 
-### 07.01 Responsibility for Assets
+### 0704.07a3Organizational.12-07.a 07.01 Responsibility for Assets
 
 **ID**: 0704.07a3Organizational.12-07.a
 **Ownership**: Shared
@@ -1900,7 +1900,7 @@ This built-in initiative is deployed as part of the
 |[Establish and maintain an asset inventory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27965e62-141f-8cca-426f-d09514ee5216) |CMA_0266 - Establish and maintain an asset inventory |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0266.json) |
 |[Maintain records of processing of personal data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F92ede480-154e-0e22-4dca-8b46a74a3a51) |CMA_0353 - Maintain records of processing of personal data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0353.json) |
 
-### 07.01 Responsibility for Assets
+### 0705.07a3Organizational.3-07.a 07.01 Responsibility for Assets
 
 **ID**: 0705.07a3Organizational.3-07.a
 **Ownership**: Shared
@@ -1911,7 +1911,7 @@ This built-in initiative is deployed as part of the
 |[Identify individuals with security roles and responsibilities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0dcbaf2f-075e-947b-8f4c-74ecc5cd302c) |CMA_C1566 - Identify individuals with security roles and responsibilities |Manual, Disabled |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1566.json) |
 |[Integrate risk management process into SDLC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F00f12b6f-10d7-8117-9577-0f2b76488385) |CMA_C1567 - Integrate risk management process into SDLC |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1567.json) |
 
-### 10.02 Correct Processing in Applications
+### 0706.10b1System.12-10.b 10.02 Correct Processing in Applications
 
 **ID**: 0706.10b1System.12-10.b
 **Ownership**: Shared
@@ -1923,7 +1923,7 @@ This built-in initiative is deployed as part of the
 |[Integrate risk management process into SDLC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F00f12b6f-10d7-8117-9577-0f2b76488385) |CMA_C1567 - Integrate risk management process into SDLC |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1567.json) |
 |[Perform information input validation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8b1f29eb-1b22-4217-5337-9207cb55231e) |CMA_C1723 - Perform information input validation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1723.json) |
 
-### 10.02 Correct Processing in Applications
+### 0708.10b2System.2-10.b 10.02 Correct Processing in Applications
 
 **ID**: 0708.10b2System.2-10.b
 **Ownership**: Shared
@@ -1934,7 +1934,7 @@ This built-in initiative is deployed as part of the
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 |[View and configure system diagnostic data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0123edae-3567-a05a-9b05-b53ebe9d3e7e) |CMA_0544 - View and configure system diagnostic data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0544.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0709.10m1Organizational.1-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0709.10m1Organizational.1-10.m
 **Ownership**: Shared
@@ -1952,10 +1952,10 @@ This built-in initiative is deployed as part of the
 |[Vulnerabilities in security configuration on your machines should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Servers which do not satisfy the configured baseline will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[Vulnerabilities in security configuration on your virtual machine scale sets should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Audit the OS vulnerabilities on your virtual machine scale sets to protect them from attacks. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
 |[Vulnerability assessment should be enabled on SQL Managed Instance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |Audit each SQL Managed Instance which doesn't have recurring vulnerability assessment scans enabled. Vulnerability assessment can discover, track, and help you remediate potential database vulnerabilities. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
-|[Vulnerability assessment should be enabled on your SQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9) |Audit Azure SQL servers which do not have recurring vulnerability assessment scans enabled. Vulnerability assessment can discover, track, and help you remediate potential database vulnerabilities. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnServer_Audit.json) |
+|[Vulnerability assessment should be enabled on your SQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9) |Audit Azure SQL servers which do not have vulnerability assessment properly configured. Vulnerability assessment can discover, track, and help you remediate potential database vulnerabilities. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnServer_Audit.json) |
 |[Windows machines should meet requirements for 'Security Options - Microsoft Network Server'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcaf2d518-f029-4f6b-833b-d7081702f253) |Windows machines should have the specified Group Policy settings in the category 'Security Options - Microsoft Network Server' for disabling SMB v1 server. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsMicrosoftNetworkServer_AINE.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0710.10m2Organizational.1-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0710.10m2Organizational.1-10.m
 **Ownership**: Shared
@@ -1972,7 +1972,7 @@ This built-in initiative is deployed as part of the
 |[View and configure system diagnostic data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0123edae-3567-a05a-9b05-b53ebe9d3e7e) |CMA_0544 - View and configure system diagnostic data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0544.json) |
 |[Vulnerability assessment should be enabled on SQL Managed Instance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |Audit each SQL Managed Instance which doesn't have recurring vulnerability assessment scans enabled. Vulnerability assessment can discover, track, and help you remediate potential database vulnerabilities. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0711.10m2Organizational.23-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0711.10m2Organizational.23-10.m
 **Ownership**: Shared
@@ -1984,7 +1984,7 @@ This built-in initiative is deployed as part of the
 |[Perform a trend analysis on threats](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50e81644-923d-33fc-6ebb-9733bc8d1a06) |CMA_0389 - Perform a trend analysis on threats |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0389.json) |
 |[Perform threat modeling](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbf883b14-9c19-0f37-8825-5e39a8b66d5b) |CMA_0392 - Perform threat modeling |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0392.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0712.10m2Organizational.4-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0712.10m2Organizational.4-10.m
 **Ownership**: Shared
@@ -1994,7 +1994,7 @@ This built-in initiative is deployed as part of the
 |[Employ independent team for penetration testing](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F611ebc63-8600-50b6-a0e3-fef272457132) |CMA_C1171 - Employ independent team for penetration testing |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1171.json) |
 |[Select additional testing for security control assessments](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff78fc35e-1268-0bca-a798-afcba9d2330a) |CMA_C1149 - Select additional testing for security control assessments |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1149.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0713.10m2Organizational.5-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0713.10m2Organizational.5-10.m
 **Ownership**: Shared
@@ -2007,7 +2007,7 @@ This built-in initiative is deployed as part of the
 |[Measure the time between flaw identification and flaw remediation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdad1887d-161b-7b61-2e4d-5124a7b5724e) |CMA_C1674 - Measure the time between flaw identification and flaw remediation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1674.json) |
 |[Vulnerabilities in security configuration on your machines should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Servers which do not satisfy the configured baseline will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0714.10m2Organizational.7-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0714.10m2Organizational.7-10.m
 **Ownership**: Shared
@@ -2035,7 +2035,7 @@ This built-in initiative is deployed as part of the
 |[Review role group changes weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70fe686f-1f91-7dab-11bf-bca4201e183b) |CMA_0476 - Review role group changes weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0476.json) |
 |[Vulnerabilities in security configuration on your virtual machine scale sets should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Audit the OS vulnerabilities on your virtual machine scale sets to protect them from attacks. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0715.10m2Organizational.8-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0715.10m2Organizational.8-10.m
 **Ownership**: Shared
@@ -2044,7 +2044,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Vulnerabilities in container security configurations should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Audit vulnerabilities in security configuration on machines with Docker installed and display as recommendations in Azure Security Center. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0716.10m3Organizational.1-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0716.10m3Organizational.1-10.m
 **Ownership**: Shared
@@ -2057,7 +2057,7 @@ This built-in initiative is deployed as part of the
 |[Produce Security Assessment report](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70a7a065-a060-85f8-7863-eb7850ed2af9) |CMA_C1146 - Produce Security Assessment report |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1146.json) |
 |[SQL databases should have vulnerability findings resolved](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |Monitor vulnerability assessment scan results and recommendations for how to remediate database vulnerabilities. |AuditIfNotExists, Disabled |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0717.10m3Organizational.2-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0717.10m3Organizational.2-10.m
 **Ownership**: Shared
@@ -2068,7 +2068,7 @@ This built-in initiative is deployed as part of the
 |[Perform threat modeling](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbf883b14-9c19-0f37-8825-5e39a8b66d5b) |CMA_0392 - Perform threat modeling |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0392.json) |
 |[Vulnerabilities in security configuration on your virtual machine scale sets should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Audit the OS vulnerabilities on your virtual machine scale sets to protect them from attacks. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0718.10m3Organizational.34-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0718.10m3Organizational.34-10.m
 **Ownership**: Shared
@@ -2080,7 +2080,7 @@ This built-in initiative is deployed as part of the
 |[Perform threat modeling](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbf883b14-9c19-0f37-8825-5e39a8b66d5b) |CMA_0392 - Perform threat modeling |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0392.json) |
 |[Vulnerabilities in security configuration on your machines should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Servers which do not satisfy the configured baseline will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0719.10m3Organizational.5-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0719.10m3Organizational.5-10.m
 **Ownership**: Shared
@@ -2091,7 +2091,7 @@ This built-in initiative is deployed as part of the
 |[Perform threat modeling](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbf883b14-9c19-0f37-8825-5e39a8b66d5b) |CMA_0392 - Perform threat modeling |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0392.json) |
 |[Vulnerability assessment should be enabled on SQL Managed Instance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |Audit each SQL Managed Instance which doesn't have recurring vulnerability assessment scans enabled. Vulnerability assessment can discover, track, and help you remediate potential database vulnerabilities. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
 
-### 07.01 Responsibility for Assets
+### 0720.07a1Organizational.4-07.a 07.01 Responsibility for Assets
 
 **ID**: 0720.07a1Organizational.4-07.a
 **Ownership**: Shared
@@ -2101,7 +2101,7 @@ This built-in initiative is deployed as part of the
 |[Create a data inventory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F043c1e56-5a16-52f8-6af8-583098ff3e60) |CMA_0096 - Create a data inventory |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0096.json) |
 |[Maintain records of processing of personal data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F92ede480-154e-0e22-4dca-8b46a74a3a51) |CMA_0353 - Maintain records of processing of personal data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0353.json) |
 
-### 07.01 Responsibility for Assets
+### 0722.07a1Organizational.67-07.a 07.01 Responsibility for Assets
 
 **ID**: 0722.07a1Organizational.67-07.a
 **Ownership**: Shared
@@ -2112,7 +2112,7 @@ This built-in initiative is deployed as part of the
 |[Restrict use of open source software](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08c11b48-8745-034d-1c1b-a144feec73b9) |CMA_C1237 - Restrict use of open source software |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1237.json) |
 |[Track software license usage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77cc89bb-774f-48d7-8a84-fb8c322c3000) |CMA_C1235 - Track software license usage |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1235.json) |
 
-### 07.01 Responsibility for Assets
+### 0723.07a1Organizational.8-07.a 07.01 Responsibility for Assets
 
 **ID**: 0723.07a1Organizational.8-07.a
 **Ownership**: Shared
@@ -2121,7 +2121,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Review and update media protection policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4e19d22-8c0e-7cad-3219-c84c62dc250f) |CMA_C1427 - Review and update media protection policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1427.json) |
 
-### 07.01 Responsibility for Assets
+### 0724.07a3Organizational.4-07.a 07.01 Responsibility for Assets
 
 **ID**: 0724.07a3Organizational.4-07.a
 **Ownership**: Shared
@@ -2135,7 +2135,7 @@ This built-in initiative is deployed as part of the
 |[Set automated notifications for new and trending cloud applications in your organization](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf38215f-70c4-0cd6-40c2-c52d86690a45) |CMA_0495 - Set automated notifications for new and trending cloud applications in your organization |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0495.json) |
 |[Update antivirus definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea9d7c95-2f10-8a4d-61d8-7469bd2e8d65) |CMA_0517 - Update antivirus definitions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0517.json) |
 
-### 07.01 Responsibility for Assets
+### 0725.07a3Organizational.5-07.a 07.01 Responsibility for Assets
 
 **ID**: 0725.07a3Organizational.5-07.a
 **Ownership**: Shared
@@ -2146,7 +2146,7 @@ This built-in initiative is deployed as part of the
 |[Establish and maintain an asset inventory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27965e62-141f-8cca-426f-d09514ee5216) |CMA_0266 - Establish and maintain an asset inventory |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0266.json) |
 |[Maintain records of processing of personal data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F92ede480-154e-0e22-4dca-8b46a74a3a51) |CMA_0353 - Maintain records of processing of personal data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0353.json) |
 
-### 10.02 Correct Processing in Applications
+### 0733.10b2System.4-10.b 10.02 Correct Processing in Applications
 
 **ID**: 0733.10b2System.4-10.b
 **Ownership**: Shared
@@ -2156,7 +2156,7 @@ This built-in initiative is deployed as part of the
 |[Perform information input validation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8b1f29eb-1b22-4217-5337-9207cb55231e) |CMA_C1723 - Perform information input validation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1723.json) |
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0786.10m2Organizational.13-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0786.10m2Organizational.13-10.m
 **Ownership**: Shared
@@ -2165,7 +2165,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Incorporate flaw remediation into configuration management](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34aac8b2-488a-2b96-7280-5b9b481a317a) |CMA_C1671 - Incorporate flaw remediation into configuration management |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1671.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0787.10m2Organizational.14-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0787.10m2Organizational.14-10.m
 **Ownership**: Shared
@@ -2177,7 +2177,7 @@ This built-in initiative is deployed as part of the
 |[Incorporate flaw remediation into configuration management](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34aac8b2-488a-2b96-7280-5b9b481a317a) |CMA_C1671 - Incorporate flaw remediation into configuration management |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1671.json) |
 |[Measure the time between flaw identification and flaw remediation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdad1887d-161b-7b61-2e4d-5124a7b5724e) |CMA_C1674 - Measure the time between flaw identification and flaw remediation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1674.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0788.10m3Organizational.20-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0788.10m3Organizational.20-10.m
 **Ownership**: Shared
@@ -2186,7 +2186,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Employ independent team for penetration testing](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F611ebc63-8600-50b6-a0e3-fef272457132) |CMA_C1171 - Employ independent team for penetration testing |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1171.json) |
 
-### 10.06 Technical Vulnerability Management
+### 0790.10m3Organizational.22-10.m 10.06 Technical Vulnerability Management
 
 **ID**: 0790.10m3Organizational.22-10.m
 **Ownership**: Shared
@@ -2211,7 +2211,7 @@ This built-in initiative is deployed as part of the
 |[Review file and folder activity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef718fe4-7ceb-9ddf-3198-0ee8f6fe9cba) |CMA_0473 - Review file and folder activity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0473.json) |
 |[Review role group changes weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70fe686f-1f91-7dab-11bf-bca4201e183b) |CMA_0476 - Review role group changes weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0476.json) |
 
-### 10.02 Correct Processing in Applications
+### 0791.10b2Organizational.4-10.b 10.02 Correct Processing in Applications
 
 **ID**: 0791.10b2Organizational.4-10.b
 **Ownership**: Shared
@@ -2229,7 +2229,7 @@ This built-in initiative is deployed as part of the
 
 ## 08 Network Protection
 
-### 01.04 Network Access Control
+### 0805.01m1Organizational.12-01.m 01.04 Network Access Control
 
 **ID**: 0805.01m1Organizational.12-01.m
 **Ownership**: Shared
@@ -2237,7 +2237,7 @@ This built-in initiative is deployed as part of the
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[\[Preview\]: Container Registry should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78) |This policy audits any Container Registry not configured to use a virtual network service endpoint. |Audit, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ContainerRegistry_Audit.json) |
-|[App Service apps should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Use virtual network service endpoints to restrict access to your app from selected subnets from an Azure virtual network. To learn more about App Service service endpoints, visit [https://aka.ms/appservice-vnet-service-endpoint](https://aka.ms/appservice-vnet-service-endpoint). |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json) |
+|[App Service apps should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Use virtual network service endpoints to restrict access to your app from selected subnets from an Azure virtual network. To learn more about App Service service endpoints, visit [https://aks.ms/appservice-vnet-service-endpoint](https://aks.ms/appservice-vnet-service-endpoint). |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json) |
 |[Cosmos DB should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe0a2b1a3-f7f9-4569-807f-2a9edebdf4d9) |This policy audits any Cosmos DB not configured to use a virtual network service endpoint. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_CosmosDB_Audit.json) |
 |[Event Hub should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd63edb4a-c612-454d-b47d-191a724fcbf0) |This policy audits any Event Hub not configured to use a virtual network service endpoint. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_EventHub_AuditIfNotExists.json) |
 |[Gateway subnets should not be configured with a network security group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F35f9c03a-cc27-418e-9c0c-539ff999d010) |This policy denies if a gateway subnet is configured with a network security group. Assigning a network security group to a gateway subnet will cause the gateway to stop functioning. |deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkSecurityGroupOnGatewaySubnet_Deny.json) |
@@ -2249,7 +2249,7 @@ This built-in initiative is deployed as part of the
 |[Subnets should be associated with a Network Security Group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe71308d3-144b-4262-b144-efdc3cc90517) |Protect your subnet from potential threats by restricting access to it with a Network Security Group (NSG). NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your subnet. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnSubnets_Audit.json) |
 |[Virtual machines should be connected to an approved virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |This policy audits any virtual machine connected to a virtual network that is not approved. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
 
-### 01.04 Network Access Control
+### 0806.01m2Organizational.12356-01.m 01.04 Network Access Control
 
 **ID**: 0806.01m2Organizational.12356-01.m
 **Ownership**: Shared
@@ -2257,7 +2257,7 @@ This built-in initiative is deployed as part of the
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[\[Preview\]: Container Registry should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78) |This policy audits any Container Registry not configured to use a virtual network service endpoint. |Audit, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ContainerRegistry_Audit.json) |
-|[App Service apps should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Use virtual network service endpoints to restrict access to your app from selected subnets from an Azure virtual network. To learn more about App Service service endpoints, visit [https://aka.ms/appservice-vnet-service-endpoint](https://aka.ms/appservice-vnet-service-endpoint). |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json) |
+|[App Service apps should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Use virtual network service endpoints to restrict access to your app from selected subnets from an Azure virtual network. To learn more about App Service service endpoints, visit [https://aks.ms/appservice-vnet-service-endpoint](https://aks.ms/appservice-vnet-service-endpoint). |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json) |
 |[Cosmos DB should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe0a2b1a3-f7f9-4569-807f-2a9edebdf4d9) |This policy audits any Cosmos DB not configured to use a virtual network service endpoint. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_CosmosDB_Audit.json) |
 |[Event Hub should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd63edb4a-c612-454d-b47d-191a724fcbf0) |This policy audits any Event Hub not configured to use a virtual network service endpoint. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_EventHub_AuditIfNotExists.json) |
 |[Gateway subnets should not be configured with a network security group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F35f9c03a-cc27-418e-9c0c-539ff999d010) |This policy denies if a gateway subnet is configured with a network security group. Assigning a network security group to a gateway subnet will cause the gateway to stop functioning. |deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkSecurityGroupOnGatewaySubnet_Deny.json) |
@@ -2270,7 +2270,7 @@ This built-in initiative is deployed as part of the
 |[Subnets should be associated with a Network Security Group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe71308d3-144b-4262-b144-efdc3cc90517) |Protect your subnet from potential threats by restricting access to it with a Network Security Group (NSG). NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your subnet. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnSubnets_Audit.json) |
 |[Virtual machines should be connected to an approved virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |This policy audits any virtual machine connected to a virtual network that is not approved. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
 
-### 10.02 Correct Processing in Applications
+### 0808.10b2System.3-10.b 10.02 Correct Processing in Applications
 
 **ID**: 0808.10b2System.3-10.b
 **Ownership**: Shared
@@ -2280,7 +2280,7 @@ This built-in initiative is deployed as part of the
 |[Implement system boundary protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F01ae60e2-38bb-0a32-7b20-d3a091423409) |CMA_0328 - Implement system boundary protection |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0328.json) |
 |[Route traffic through authenticated proxy network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd91558ce-5a5c-551b-8fbb-83f793255e09) |CMA_C1633 - Route traffic through authenticated proxy network |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1633.json) |
 
-### 01.04 Network Access Control
+### 0809.01n2Organizational.1234-01.n 01.04 Network Access Control
 
 **ID**: 0809.01n2Organizational.1234-01.n
 **Ownership**: Shared
@@ -2306,7 +2306,7 @@ This built-in initiative is deployed as part of the
 |[Subnets should be associated with a Network Security Group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe71308d3-144b-4262-b144-efdc3cc90517) |Protect your subnet from potential threats by restricting access to it with a Network Security Group (NSG). NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your subnet. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnSubnets_Audit.json) |
 |[Virtual machines should be connected to an approved virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |This policy audits any virtual machine connected to a virtual network that is not approved. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
 
-### 01.04 Network Access Control
+### 0810.01n2Organizational.5-01.n 01.04 Network Access Control
 
 **ID**: 0810.01n2Organizational.5-01.n
 **Ownership**: Shared
@@ -2331,7 +2331,7 @@ This built-in initiative is deployed as part of the
 |[Subnets should be associated with a Network Security Group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe71308d3-144b-4262-b144-efdc3cc90517) |Protect your subnet from potential threats by restricting access to it with a Network Security Group (NSG). NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your subnet. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnSubnets_Audit.json) |
 |[Virtual machines should be connected to an approved virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |This policy audits any virtual machine connected to a virtual network that is not approved. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
 
-### 09.06 Network Security Management
+### 08101.09m2Organizational.14-09.m 09.06 Network Security Management
 
 **ID**: 08101.09m2Organizational.14-09.m
 **Ownership**: Shared
@@ -2347,7 +2347,7 @@ This built-in initiative is deployed as part of the
 |[Protect passwords with encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb2d3e5a2-97ab-5497-565a-71172a729d93) |CMA_0408 - Protect passwords with encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0408.json) |
 |[Secure the interface to external systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff1efad2-6b09-54cc-01bf-d386c4d558a8) |CMA_0491 - Secure the interface to external systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0491.json) |
 
-### 09.06 Network Security Management
+### 08102.09nCSPOrganizational.1-09.n 09.06 Network Security Management
 
 **ID**: 08102.09nCSPOrganizational.1-09.n
 **Ownership**: Shared
@@ -2357,7 +2357,7 @@ This built-in initiative is deployed as part of the
 |[Implement system boundary protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F01ae60e2-38bb-0a32-7b20-d3a091423409) |CMA_0328 - Implement system boundary protection |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0328.json) |
 |[Secure the interface to external systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff1efad2-6b09-54cc-01bf-d386c4d558a8) |CMA_0491 - Secure the interface to external systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0491.json) |
 
-### 01.04 Network Access Control
+### 0811.01n2Organizational.6-01.n 01.04 Network Access Control
 
 **ID**: 0811.01n2Organizational.6-01.n
 **Ownership**: Shared
@@ -2389,7 +2389,7 @@ This built-in initiative is deployed as part of the
 |[Subnets should be associated with a Network Security Group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe71308d3-144b-4262-b144-efdc3cc90517) |Protect your subnet from potential threats by restricting access to it with a Network Security Group (NSG). NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your subnet. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnSubnets_Audit.json) |
 |[Virtual machines should be connected to an approved virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |This policy audits any virtual machine connected to a virtual network that is not approved. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
 
-### 01.04 Network Access Control
+### 0812.01n2Organizational.8-01.n 01.04 Network Access Control
 
 **ID**: 0812.01n2Organizational.8-01.n
 **Ownership**: Shared
@@ -2410,7 +2410,7 @@ This built-in initiative is deployed as part of the
 |[Subnets should be associated with a Network Security Group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe71308d3-144b-4262-b144-efdc3cc90517) |Protect your subnet from potential threats by restricting access to it with a Network Security Group (NSG). NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your subnet. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnSubnets_Audit.json) |
 |[Virtual machines should be connected to an approved virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |This policy audits any virtual machine connected to a virtual network that is not approved. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
 
-### 01.04 Network Access Control
+### 0814.01n1Organizational.12-01.n 01.04 Network Access Control
 
 **ID**: 0814.01n1Organizational.12-01.n
 **Ownership**: Shared
@@ -2430,7 +2430,7 @@ This built-in initiative is deployed as part of the
 |[Subnets should be associated with a Network Security Group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe71308d3-144b-4262-b144-efdc3cc90517) |Protect your subnet from potential threats by restricting access to it with a Network Security Group (NSG). NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your subnet. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_NetworkSecurityGroupsOnSubnets_Audit.json) |
 |[Virtual machines should be connected to an approved virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |This policy audits any virtual machine connected to a virtual network that is not approved. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
 
-### 01.04 Network Access Control
+### 0815.01o2Organizational.123-01.o 01.04 Network Access Control
 
 **ID**: 0815.01o2Organizational.123-01.o
 **Ownership**: Shared
@@ -2442,7 +2442,7 @@ This built-in initiative is deployed as part of the
 |[Route traffic through authenticated proxy network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd91558ce-5a5c-551b-8fbb-83f793255e09) |CMA_C1633 - Route traffic through authenticated proxy network |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1633.json) |
 |[Route traffic through managed network access points](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbab9ef1d-a16d-421a-822d-3fa94e808156) |CMA_0484 - Route traffic through managed network access points |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0484.json) |
 
-### 01.06 Application and Information Access Control
+### 0816.01w1System.1-01.w 01.06 Application and Information Access Control
 
 **ID**: 0816.01w1System.1-01.w
 **Ownership**: Shared
@@ -2456,7 +2456,7 @@ This built-in initiative is deployed as part of the
 |[Obtain user security function documentation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbe1c34ab-295a-07a6-785c-36f63c1d223e) |CMA_C1581 - Obtain user security function documentation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1581.json) |
 |[Protect administrator and user documentation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F09960521-759e-5d12-086f-4192a72a5e92) |CMA_C1583 - Protect administrator and user documentation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1583.json) |
 
-### 01.06 Application and Information Access Control
+### 0817.01w2System.123-01.w 01.06 Application and Information Access Control
 
 **ID**: 0817.01w2System.123-01.w
 **Ownership**: Shared
@@ -2477,7 +2477,7 @@ This built-in initiative is deployed as part of the
 |[Separate user and information system management functionality](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8a703eb5-4e53-701b-67e4-05ba2f7930c8) |CMA_0493 - Separate user and information system management functionality |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0493.json) |
 |[Use dedicated machines for administrative tasks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb8972f60-8d77-1cb8-686f-9c9f4cdd8a59) |CMA_0527 - Use dedicated machines for administrative tasks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0527.json) |
 
-### 01.06 Application and Information Access Control
+### 0818.01w3System.12-01.w 01.06 Application and Information Access Control
 
 **ID**: 0818.01w3System.12-01.w
 **Ownership**: Shared
@@ -2489,7 +2489,7 @@ This built-in initiative is deployed as part of the
 |[Manage availability and capacity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fedcc36f1-511b-81e0-7125-abee29752fe7) |CMA_0356 - Manage availability and capacity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0356.json) |
 |[Secure commitment from leadership](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70057208-70cc-7b31-3c3a-121af6bc1966) |CMA_0489 - Secure commitment from leadership |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0489.json) |
 
-### 09.06 Network Security Management
+### 0819.09m1Organizational.23-09.m 09.06 Network Security Management
 
 **ID**: 0819.09m1Organizational.23-09.m
 **Ownership**: Shared
@@ -2499,7 +2499,7 @@ This built-in initiative is deployed as part of the
 |[Check for privacy and security compliance before establishing internal connections](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fee4bbbbb-2e52-9adb-4e3a-e641f7ac68ab) |CMA_0053 - Check for privacy and security compliance before establishing internal connections |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0053.json) |
 |[Require interconnection security agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F096a7055-30cb-2db4-3fda-41b20ac72667) |CMA_C1151 - Require interconnection security agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1151.json) |
 
-### 09.06 Network Security Management
+### 0821.09m2Organizational.2-09.m 09.06 Network Security Management
 
 **ID**: 0821.09m2Organizational.2-09.m
 **Ownership**: Shared
@@ -2525,7 +2525,7 @@ This built-in initiative is deployed as part of the
 |[Perform audit for configuration change control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1282809c-9001-176b-4a81-260a085f4872) |CMA_0390 - Perform audit for configuration change control |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0390.json) |
 |[Review changes for any unauthorized changes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc246d146-82b0-301f-32e7-1065dcd248b7) |CMA_C1204 - Review changes for any unauthorized changes |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1204.json) |
 
-### 09.06 Network Security Management
+### 0822.09m2Organizational.4-09.m 09.06 Network Security Management
 
 **ID**: 0822.09m2Organizational.4-09.m
 **Ownership**: Shared
@@ -2540,7 +2540,7 @@ This built-in initiative is deployed as part of the
 |[Route traffic through authenticated proxy network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd91558ce-5a5c-551b-8fbb-83f793255e09) |CMA_C1633 - Route traffic through authenticated proxy network |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1633.json) |
 |[Route traffic through managed network access points](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbab9ef1d-a16d-421a-822d-3fa94e808156) |CMA_0484 - Route traffic through managed network access points |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0484.json) |
 
-### 09.06 Network Security Management
+### 0824.09m3Organizational.1-09.m 09.06 Network Security Management
 
 **ID**: 0824.09m3Organizational.1-09.m
 **Ownership**: Shared
@@ -2558,7 +2558,7 @@ This built-in initiative is deployed as part of the
 |[Turn on sensors for endpoint security solution](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5fc24b95-53f7-0ed1-2330-701b539b97fe) |CMA_0514 - Turn on sensors for endpoint security solution |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0514.json) |
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 
-### 09.06 Network Security Management
+### 0825.09m3Organizational.23-09.m 09.06 Network Security Management
 
 **ID**: 0825.09m3Organizational.23-09.m
 **Ownership**: Shared
@@ -2573,7 +2573,7 @@ This built-in initiative is deployed as part of the
 |[Provide monitoring information as needed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fc1f0da-0050-19bb-3d75-81ae15940df6) |CMA_C1689 - Provide monitoring information as needed |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1689.json) |
 |[Route traffic through managed network access points](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbab9ef1d-a16d-421a-822d-3fa94e808156) |CMA_0484 - Route traffic through managed network access points |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0484.json) |
 
-### 09.06 Network Security Management
+### 0826.09m3Organizational.45-09.m 09.06 Network Security Management
 
 **ID**: 0826.09m3Organizational.45-09.m
 **Ownership**: Shared
@@ -2584,7 +2584,7 @@ This built-in initiative is deployed as part of the
 |[Implement system boundary protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F01ae60e2-38bb-0a32-7b20-d3a091423409) |CMA_0328 - Implement system boundary protection |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0328.json) |
 |[Secure the interface to external systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff1efad2-6b09-54cc-01bf-d386c4d558a8) |CMA_0491 - Secure the interface to external systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0491.json) |
 
-### 09.06 Network Security Management
+### 0828.09m3Organizational.8-09.m 09.06 Network Security Management
 
 **ID**: 0828.09m3Organizational.8-09.m
 **Ownership**: Shared
@@ -2593,7 +2593,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Review changes for any unauthorized changes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc246d146-82b0-301f-32e7-1065dcd248b7) |CMA_C1204 - Review changes for any unauthorized changes |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1204.json) |
 
-### 09.06 Network Security Management
+### 0829.09m3Organizational.911-09.m 09.06 Network Security Management
 
 **ID**: 0829.09m3Organizational.911-09.m
 **Ownership**: Shared
@@ -2603,7 +2603,7 @@ This built-in initiative is deployed as part of the
 |[Implement managed interface for each external service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb262e1dd-08e9-41d4-963a-258909ad794b) |CMA_C1626 - Implement managed interface for each external service |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1626.json) |
 |[Implement system boundary protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F01ae60e2-38bb-0a32-7b20-d3a091423409) |CMA_0328 - Implement system boundary protection |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0328.json) |
 
-### 09.06 Network Security Management
+### 0830.09m3Organizational.1012-09.m 09.06 Network Security Management
 
 **ID**: 0830.09m3Organizational.1012-09.m
 **Ownership**: Shared
@@ -2619,7 +2619,7 @@ This built-in initiative is deployed as part of the
 |[Secure the interface to external systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff1efad2-6b09-54cc-01bf-d386c4d558a8) |CMA_0491 - Secure the interface to external systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0491.json) |
 |[Support personal verification credentials issued by legal authorities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d39b5d9-0392-8954-8359-575ce1957d1a) |CMA_0507 - Support personal verification credentials issued by legal authorities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0507.json) |
 
-### 09.06 Network Security Management
+### 0832.09m3Organizational.14-09.m 09.06 Network Security Management
 
 **ID**: 0832.09m3Organizational.14-09.m
 **Ownership**: Shared
@@ -2630,7 +2630,7 @@ This built-in initiative is deployed as part of the
 |[Require interconnection security agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F096a7055-30cb-2db4-3fda-41b20ac72667) |CMA_C1151 - Require interconnection security agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1151.json) |
 |[Update interconnection security agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd48a6f19-a284-6fc6-0623-3367a74d3f50) |CMA_0519 - Update interconnection security agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0519.json) |
 
-### 09.06 Network Security Management
+### 0835.09n1Organizational.1-09.n 09.06 Network Security Management
 
 **ID**: 0835.09n1Organizational.1-09.n
 **Ownership**: Shared
@@ -2645,7 +2645,7 @@ This built-in initiative is deployed as part of the
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 |[Virtual machines should be migrated to new Azure Resource Manager resources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d84d5fb-01f6-4d12-ba4f-4a26081d403d) |Use new Azure Resource Manager for your virtual machines to provide security enhancements such as: stronger access control (RBAC), better auditing, Azure Resource Manager based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ClassicCompute_Audit.json) |
 
-### 09.06 Network Security Management
+### 0836.09.n2Organizational.1-09.n 09.06 Network Security Management
 
 **ID**: 0836.09.n2Organizational.1-09.n
 **Ownership**: Shared
@@ -2657,7 +2657,7 @@ This built-in initiative is deployed as part of the
 |[Require interconnection security agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F096a7055-30cb-2db4-3fda-41b20ac72667) |CMA_C1151 - Require interconnection security agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1151.json) |
 |[Update interconnection security agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd48a6f19-a284-6fc6-0623-3367a74d3f50) |CMA_0519 - Update interconnection security agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0519.json) |
 
-### 09.06 Network Security Management
+### 0837.09.n2Organizational.2-09.n 09.06 Network Security Management
 
 **ID**: 0837.09.n2Organizational.2-09.n
 **Ownership**: Shared
@@ -2685,7 +2685,7 @@ This built-in initiative is deployed as part of the
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 |[Update interconnection security agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd48a6f19-a284-6fc6-0623-3367a74d3f50) |CMA_0519 - Update interconnection security agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0519.json) |
 
-### 01.04 Network Access Control
+### 0850.01o1Organizational.12-01.o 01.04 Network Access Control
 
 **ID**: 0850.01o1Organizational.12-01.o
 **Ownership**: Shared
@@ -2694,7 +2694,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Route traffic through authenticated proxy network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd91558ce-5a5c-551b-8fbb-83f793255e09) |CMA_C1633 - Route traffic through authenticated proxy network |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1633.json) |
 
-### 09.06 Network Security Management
+### 0858.09m1Organizational.4-09.m 09.06 Network Security Management
 
 **ID**: 0858.09m1Organizational.4-09.m
 **Ownership**: Shared
@@ -2709,7 +2709,7 @@ This built-in initiative is deployed as part of the
 |[Protect wireless access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd42a8f69-a193-6cbc-48b9-04a9e29961f1) |CMA_0411 - Protect wireless access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0411.json) |
 |[Windows machines should meet requirements for 'Windows Firewall Properties'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F35d9882c-993d-44e6-87d2-db66ce21b636) |Windows machines should have the specified Group Policy settings in the category 'Windows Firewall Properties' for firewall state, connections, rule management, and notifications. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsFirewallProperties_AINE.json) |
 
-### 09.06 Network Security Management
+### 0859.09m1Organizational.78-09.m 09.06 Network Security Management
 
 **ID**: 0859.09m1Organizational.78-09.m
 **Ownership**: Shared
@@ -2731,27 +2731,27 @@ This built-in initiative is deployed as part of the
 |[Secure the interface to external systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff1efad2-6b09-54cc-01bf-d386c4d558a8) |CMA_0491 - Secure the interface to external systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0491.json) |
 |[Separate duties of individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60ee1260-97f0-61bb-8155-5d8b75743655) |CMA_0492 - Separate duties of individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0492.json) |
 
-### 09.06 Network Security Management
+### 0860.09m1Organizational.9-09.m 09.06 Network Security Management
 
 **ID**: 0860.09m1Organizational.9-09.m
 **Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Deploy Diagnostic Settings for Network Security Groups](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9c29499-c1d1-4195-99bd-2ec9e3a9dc89) |This policy automatically deploys diagnostic settings to network security groups. A storage account with name '{storagePrefixParameter}{NSGLocation}' will be automatically created. |deployIfNotExists |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForNSG_Deploy.json) |
+|[Deploy Diagnostic Settings for Network Security Groups](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9c29499-c1d1-4195-99bd-2ec9e3a9dc89) |This policy automatically deploys diagnostic settings to network security groups. A storage account with name '{storagePrefixParameter}{NSGLocation}' will be automatically created. |deployIfNotExists |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForNSG_Deploy.json) |
 |[Establish an alternate processing site](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf5ff768-a34b-720e-1224-e6b3214f3ba6) |CMA_0262 - Establish an alternate processing site |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0262.json) |
 |[Implement managed interface for each external service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb262e1dd-08e9-41d4-963a-258909ad794b) |CMA_C1626 - Implement managed interface for each external service |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1626.json) |
 |[Secure the interface to external systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff1efad2-6b09-54cc-01bf-d386c4d558a8) |CMA_0491 - Secure the interface to external systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0491.json) |
 |[Separately store backup information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc26e2fd-3149-74b4-5988-d64bb90f8ef7) |CMA_C1293 - Separately store backup information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1293.json) |
 
-### 09.06 Network Security Management
+### 0861.09m2Organizational.67-09.m 09.06 Network Security Management
 
 **ID**: 0861.09m2Organizational.67-09.m
 **Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[App Service apps should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Use virtual network service endpoints to restrict access to your app from selected subnets from an Azure virtual network. To learn more about App Service service endpoints, visit [https://aka.ms/appservice-vnet-service-endpoint](https://aka.ms/appservice-vnet-service-endpoint). |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json) |
+|[App Service apps should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Use virtual network service endpoints to restrict access to your app from selected subnets from an Azure virtual network. To learn more about App Service service endpoints, visit [https://aks.ms/appservice-vnet-service-endpoint](https://aks.ms/appservice-vnet-service-endpoint). |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json) |
 |[Document and implement wireless access guidelines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F04b3e7f6-4841-888d-4799-cda19a0084f6) |CMA_0190 - Document and implement wireless access guidelines |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0190.json) |
 |[Document wireless access security controls](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8f835d6a-4d13-9a9c-37dc-176cebd37fda) |CMA_C1695 - Document wireless access security controls |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1695.json) |
 |[Identify and authenticate network devices](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fae5345d5-8dab-086a-7290-db43a3272198) |CMA_0296 - Identify and authenticate network devices |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0296.json) |
@@ -2759,7 +2759,7 @@ This built-in initiative is deployed as part of the
 |[Protect wireless access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd42a8f69-a193-6cbc-48b9-04a9e29961f1) |CMA_0411 - Protect wireless access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0411.json) |
 |[Windows machines should meet requirements for 'Security Options - Network Access'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3ff60f98-7fa4-410a-9f7f-0b00f5afdbdd) |Windows machines should have the specified Group Policy settings in the category 'Security Options - Network Access' for including access for anonymous users, local accounts, and remote access to the registry. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsNetworkAccess_AINE.json) |
 
-### 09.06 Network Security Management
+### 0862.09m2Organizational.8-09.m 09.06 Network Security Management
 
 **ID**: 0862.09m2Organizational.8-09.m
 **Ownership**: Shared
@@ -2771,7 +2771,7 @@ This built-in initiative is deployed as part of the
 |[Protect passwords with encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb2d3e5a2-97ab-5497-565a-71172a729d93) |CMA_0408 - Protect passwords with encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0408.json) |
 |[SQL Server should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fae5d2f14-d830-42b6-9899-df6cfe9c71a3) |This policy audits any SQL Server not configured to use a virtual network service endpoint. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_SQLServer_AuditIfNotExists.json) |
 
-### 09.06 Network Security Management
+### 0863.09m2Organizational.910-09.m 09.06 Network Security Management
 
 **ID**: 0863.09m2Organizational.910-09.m
 **Ownership**: Shared
@@ -2804,7 +2804,7 @@ This built-in initiative is deployed as part of the
 |[Perform audit for configuration change control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1282809c-9001-176b-4a81-260a085f4872) |CMA_0390 - Perform audit for configuration change control |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0390.json) |
 |[Review and update the information security architecture](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fced291b8-1d3d-7e27-40cf-829e9dd523c8) |CMA_C1504 - Review and update the information security architecture |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1504.json) |
 
-### 09.06 Network Security Management
+### 0864.09m2Organizational.12-09.m 09.06 Network Security Management
 
 **ID**: 0864.09m2Organizational.12-09.m
 **Ownership**: Shared
@@ -2816,7 +2816,7 @@ This built-in initiative is deployed as part of the
 |[Establish voip usage restrictions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F68a39c2b-0f17-69ee-37a3-aa10f9853a08) |CMA_0280 - Establish voip usage restrictions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0280.json) |
 |[Secure the interface to external systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff1efad2-6b09-54cc-01bf-d386c4d558a8) |CMA_0491 - Secure the interface to external systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0491.json) |
 
-### 09.06 Network Security Management
+### 0865.09m2Organizational.13-09.m 09.06 Network Security Management
 
 **ID**: 0865.09m2Organizational.13-09.m
 **Ownership**: Shared
@@ -2829,7 +2829,7 @@ This built-in initiative is deployed as part of the
 |[Require interconnection security agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F096a7055-30cb-2db4-3fda-41b20ac72667) |CMA_C1151 - Require interconnection security agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1151.json) |
 |[Update interconnection security agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd48a6f19-a284-6fc6-0623-3367a74d3f50) |CMA_0519 - Update interconnection security agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0519.json) |
 
-### 09.06 Network Security Management
+### 0866.09m3Organizational.1516-09.m 09.06 Network Security Management
 
 **ID**: 0866.09m3Organizational.1516-09.m
 **Ownership**: Shared
@@ -2848,7 +2848,7 @@ This built-in initiative is deployed as part of the
 |[Secure the interface to external systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff1efad2-6b09-54cc-01bf-d386c4d558a8) |CMA_0491 - Secure the interface to external systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0491.json) |
 |[Storage accounts should restrict network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34c877ad-507e-4c82-993e-3452a6e0ad3c) |Network access to storage accounts should be restricted. Configure network rules so only applications from allowed networks can access the storage account. To allow connections from specific internet or on-premises clients, access can be granted to traffic from specific Azure virtual networks or to public internet IP address ranges |Audit, Deny, Disabled |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_NetworkAcls_Audit.json) |
 
-### 09.06 Network Security Management
+### 0868.09m3Organizational.18-09.m 09.06 Network Security Management
 
 **ID**: 0868.09m3Organizational.18-09.m
 **Ownership**: Shared
@@ -2861,7 +2861,7 @@ This built-in initiative is deployed as part of the
 |[Route traffic through managed network access points](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbab9ef1d-a16d-421a-822d-3fa94e808156) |CMA_0484 - Route traffic through managed network access points |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0484.json) |
 |[Secure the interface to external systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff1efad2-6b09-54cc-01bf-d386c4d558a8) |CMA_0491 - Secure the interface to external systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0491.json) |
 
-### 09.06 Network Security Management
+### 0869.09m3Organizational.19-09.m 09.06 Network Security Management
 
 **ID**: 0869.09m3Organizational.19-09.m
 **Ownership**: Shared
@@ -2880,7 +2880,7 @@ This built-in initiative is deployed as part of the
 |[Establish and document a configuration management plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F526ed90e-890f-69e7-0386-ba5c0f1f784f) |CMA_0264 - Establish and document a configuration management plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0264.json) |
 |[Implement an automated configuration management tool](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33832848-42ab-63f3-1a55-c0ad309d44cd) |CMA_0311 - Implement an automated configuration management tool |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0311.json) |
 
-### 09.06 Network Security Management
+### 0870.09m3Organizational.20-09.m 09.06 Network Security Management
 
 **ID**: 0870.09m3Organizational.20-09.m
 **Ownership**: Shared
@@ -2896,7 +2896,7 @@ This built-in initiative is deployed as part of the
 |[Route traffic through authenticated proxy network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd91558ce-5a5c-551b-8fbb-83f793255e09) |CMA_C1633 - Route traffic through authenticated proxy network |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1633.json) |
 |[Support personal verification credentials issued by legal authorities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d39b5d9-0392-8954-8359-575ce1957d1a) |CMA_0507 - Support personal verification credentials issued by legal authorities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0507.json) |
 
-### 09.06 Network Security Management
+### 0871.09m3Organizational.22-09.m 09.06 Network Security Management
 
 **ID**: 0871.09m3Organizational.22-09.m
 **Ownership**: Shared
@@ -2908,7 +2908,7 @@ This built-in initiative is deployed as part of the
 |[Provide secure name and address resolution services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbbb2e6d6-085f-5a35-a55d-e45daad38933) |CMA_0416 - Provide secure name and address resolution services |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0416.json) |
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 
-### 09.06 Network Security Management
+### 0885.09n2Organizational.3-09.n 09.06 Network Security Management
 
 **ID**: 0885.09n2Organizational.3-09.n
 **Ownership**: Shared
@@ -2919,7 +2919,7 @@ This built-in initiative is deployed as part of the
 |[Require interconnection security agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F096a7055-30cb-2db4-3fda-41b20ac72667) |CMA_C1151 - Require interconnection security agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1151.json) |
 |[Update interconnection security agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd48a6f19-a284-6fc6-0623-3367a74d3f50) |CMA_0519 - Update interconnection security agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0519.json) |
 
-### 09.06 Network Security Management
+### 0886.09n2Organizational.4-09.n 09.06 Network Security Management
 
 **ID**: 0886.09n2Organizational.4-09.n
 **Ownership**: Shared
@@ -2929,7 +2929,7 @@ This built-in initiative is deployed as part of the
 |[Employ restrictions on external system interconnections](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F80029bc5-834f-3a9c-a2d8-acbc1aab4e9f) |CMA_C1155 - Employ restrictions on external system interconnections |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1155.json) |
 |[Network Watcher should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Scenario level monitoring enables you to diagnose problems at an end to end network level view. It is required to have a network watcher resource group to be created in every region where a virtual network is present. An alert is enabled if a network watcher resource group is not available in a particular region. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
 
-### 09.06 Network Security Management
+### 0887.09n2Organizational.5-09.n 09.06 Network Security Management
 
 **ID**: 0887.09n2Organizational.5-09.n
 **Ownership**: Shared
@@ -2940,7 +2940,7 @@ This built-in initiative is deployed as part of the
 |[Require developer to identify SDLC ports, protocols, and services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6da5cca-5795-60ff-49e1-4972567815fe) |CMA_C1578 - Require developer to identify SDLC ports, protocols, and services |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1578.json) |
 |[Secure the interface to external systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff1efad2-6b09-54cc-01bf-d386c4d558a8) |CMA_0491 - Secure the interface to external systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0491.json) |
 
-### 09.06 Network Security Management
+### 0888.09n2Organizational.6-09.n 09.06 Network Security Management
 
 **ID**: 0888.09n2Organizational.6-09.n
 **Ownership**: Shared
@@ -2965,7 +2965,7 @@ This built-in initiative is deployed as part of the
 |[Review cloud service provider's compliance with policies and agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fffea18d9-13de-6505-37f3-4c1f88070ad7) |CMA_0469 - Review cloud service provider's compliance with policies and agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0469.json) |
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 
-### 01.04 Network Access Control
+### 0894.01m2Organizational.7-01.m 01.04 Network Access Control
 
 **ID**: 0894.01m2Organizational.7-01.m
 **Ownership**: Shared
@@ -2973,7 +2973,7 @@ This built-in initiative is deployed as part of the
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[\[Preview\]: Container Registry should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78) |This policy audits any Container Registry not configured to use a virtual network service endpoint. |Audit, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ContainerRegistry_Audit.json) |
-|[App Service apps should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Use virtual network service endpoints to restrict access to your app from selected subnets from an Azure virtual network. To learn more about App Service service endpoints, visit [https://aka.ms/appservice-vnet-service-endpoint](https://aka.ms/appservice-vnet-service-endpoint). |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json) |
+|[App Service apps should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Use virtual network service endpoints to restrict access to your app from selected subnets from an Azure virtual network. To learn more about App Service service endpoints, visit [https://aks.ms/appservice-vnet-service-endpoint](https://aks.ms/appservice-vnet-service-endpoint). |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json) |
 |[Authorize access to security functions and information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faeed863a-0f56-429f-945d-8bb66bd06841) |CMA_0022 - Authorize access to security functions and information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0022.json) |
 |[Authorize and manage access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50e9324a-7410-0539-0662-2c1e775538b7) |CMA_0023 - Authorize and manage access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0023.json) |
 |[Cosmos DB should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe0a2b1a3-f7f9-4569-807f-2a9edebdf4d9) |This policy audits any Cosmos DB not configured to use a virtual network service endpoint. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_CosmosDB_Audit.json) |
@@ -3027,7 +3027,7 @@ This built-in initiative is deployed as part of the
 
 ## 09 Transmission Protection
 
-### 09.08 Exchange of Information
+### 0901.09s1Organizational.1-09.s 09.08 Exchange of Information
 
 **ID**: 0901.09s1Organizational.1-09.s
 **Ownership**: Shared
@@ -3066,7 +3066,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 09.08 Exchange of Information
+### 0902.09s2Organizational.13-09.s 09.08 Exchange of Information
 
 **ID**: 0902.09s2Organizational.13-09.s
 **Ownership**: Shared
@@ -3088,7 +3088,7 @@ This built-in initiative is deployed as part of the
 |[Provide privacy training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F518eafdd-08e5-37a9-795b-15a8d798056d) |CMA_0415 - Provide privacy training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0415.json) |
 |[Route traffic through managed network access points](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbab9ef1d-a16d-421a-822d-3fa94e808156) |CMA_0484 - Route traffic through managed network access points |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0484.json) |
 
-### 10.03 Cryptographic Controls
+### 0903.10f1Organizational.1-10.f 10.03 Cryptographic Controls
 
 **ID**: 0903.10f1Organizational.1-10.f
 **Ownership**: Shared
@@ -3099,7 +3099,7 @@ This built-in initiative is deployed as part of the
 |[Define cryptographic use](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4ccd607-702b-8ae6-8eeb-fc3339cd4b42) |CMA_0120 - Define cryptographic use |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0120.json) |
 |[Protect passwords with encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb2d3e5a2-97ab-5497-565a-71172a729d93) |CMA_0408 - Protect passwords with encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0408.json) |
 
-### 10.03 Cryptographic Controls
+### 0904.10f2Organizational.1-10.f 10.03 Cryptographic Controls
 
 **ID**: 0904.10f2Organizational.1-10.f
 **Ownership**: Shared
@@ -3117,7 +3117,7 @@ This built-in initiative is deployed as part of the
 |[Protect passwords with encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb2d3e5a2-97ab-5497-565a-71172a729d93) |CMA_0408 - Protect passwords with encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0408.json) |
 |[Restrict access to private keys](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8d140e8b-76c7-77de-1d46-ed1b2e112444) |CMA_0445 - Restrict access to private keys |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0445.json) |
 
-### 09.08 Exchange of Information
+### 0912.09s1Organizational.4-09.s 09.08 Exchange of Information
 
 **ID**: 0912.09s1Organizational.4-09.s
 **Ownership**: Shared
@@ -3134,7 +3134,7 @@ This built-in initiative is deployed as part of the
 |[Provide privacy training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F518eafdd-08e5-37a9-795b-15a8d798056d) |CMA_0415 - Provide privacy training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0415.json) |
 |[Route traffic through managed network access points](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbab9ef1d-a16d-421a-822d-3fa94e808156) |CMA_0484 - Route traffic through managed network access points |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0484.json) |
 
-### 09.08 Exchange of Information
+### 0913.09s1Organizational.5-09.s 09.08 Exchange of Information
 
 **ID**: 0913.09s1Organizational.5-09.s
 **Ownership**: Shared
@@ -3147,7 +3147,7 @@ This built-in initiative is deployed as part of the
 |[Produce, control and distribute asymmetric cryptographic keys](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fde077e7e-0cc8-65a6-6e08-9ab46c827b05) |CMA_C1646 - Produce, control and distribute asymmetric cryptographic keys |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1646.json) |
 |[Protect passwords with encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb2d3e5a2-97ab-5497-565a-71172a729d93) |CMA_0408 - Protect passwords with encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0408.json) |
 
-### 09.08 Exchange of Information
+### 0914.09s1Organizational.6-09.s 09.08 Exchange of Information
 
 **ID**: 0914.09s1Organizational.6-09.s
 **Ownership**: Shared
@@ -3161,7 +3161,7 @@ This built-in initiative is deployed as part of the
 |[Produce Security Assessment report](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70a7a065-a060-85f8-7863-eb7850ed2af9) |CMA_C1146 - Produce Security Assessment report |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1146.json) |
 |[Review and update system and communications protection policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fadf517f3-6dcd-3546-9928-34777d0c277e) |CMA_C1616 - Review and update system and communications protection policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1616.json) |
 
-### 09.08 Exchange of Information
+### 0915.09s2Organizational.2-09.s 09.08 Exchange of Information
 
 **ID**: 0915.09s2Organizational.2-09.s
 **Ownership**: Shared
@@ -3173,7 +3173,7 @@ This built-in initiative is deployed as part of the
 |[Establish terms and conditions for accessing resources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c93dba1-84fd-57de-33c7-ef0400a08134) |CMA_C1076 - Establish terms and conditions for accessing resources |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1076.json) |
 |[Establish terms and conditions for processing resources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5715bf33-a5bd-1084-4e19-bc3c83ec1c35) |CMA_C1077 - Establish terms and conditions for processing resources |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1077.json) |
 
-### 09.08 Exchange of Information
+### 0916.09s2Organizational.4-09.s 09.08 Exchange of Information
 
 **ID**: 0916.09s2Organizational.4-09.s
 **Ownership**: Shared
@@ -3188,7 +3188,7 @@ This built-in initiative is deployed as part of the
 |[Prohibit remote activation of collaborative computing devices](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F678ca228-042d-6d8e-a598-c58d5670437d) |CMA_C1648 - Prohibit remote activation of collaborative computing devices |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1648.json) |
 |[Restrict media use](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6122970b-8d4a-7811-0278-4c6c68f61e4f) |CMA_0450 - Restrict media use |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0450.json) |
 
-### 09.08 Exchange of Information
+### 0926.09v1Organizational.2-09.v 09.08 Exchange of Information
 
 **ID**: 0926.09v1Organizational.2-09.v
 **Ownership**: Shared
@@ -3201,7 +3201,7 @@ This built-in initiative is deployed as part of the
 |[Protect passwords with encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb2d3e5a2-97ab-5497-565a-71172a729d93) |CMA_0408 - Protect passwords with encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0408.json) |
 |[Provide secure name and address resolution services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbbb2e6d6-085f-5a35-a55d-e45daad38933) |CMA_0416 - Provide secure name and address resolution services |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0416.json) |
 
-### 09.08 Exchange of Information
+### 0927.09v1Organizational.3-09.v 09.08 Exchange of Information
 
 **ID**: 0927.09v1Organizational.3-09.v
 **Ownership**: Shared
@@ -3213,7 +3213,7 @@ This built-in initiative is deployed as part of the
 |[Identify and authenticate network devices](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fae5345d5-8dab-086a-7290-db43a3272198) |CMA_0296 - Identify and authenticate network devices |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0296.json) |
 |[Support personal verification credentials issued by legal authorities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d39b5d9-0392-8954-8359-575ce1957d1a) |CMA_0507 - Support personal verification credentials issued by legal authorities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0507.json) |
 
-### 09.08 Exchange of Information
+### 0928.09v1Organizational.45-09.v 09.08 Exchange of Information
 
 **ID**: 0928.09v1Organizational.45-09.v
 **Ownership**: Shared
@@ -3230,7 +3230,7 @@ This built-in initiative is deployed as part of the
 |[Protect passwords with encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb2d3e5a2-97ab-5497-565a-71172a729d93) |CMA_0408 - Protect passwords with encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0408.json) |
 |[Secure the interface to external systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff1efad2-6b09-54cc-01bf-d386c4d558a8) |CMA_0491 - Secure the interface to external systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0491.json) |
 
-### 09.08 Exchange of Information
+### 0929.09v1Organizational.6-09.v 09.08 Exchange of Information
 
 **ID**: 0929.09v1Organizational.6-09.v
 **Ownership**: Shared
@@ -3247,7 +3247,7 @@ This built-in initiative is deployed as part of the
 |[Protect passwords with encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb2d3e5a2-97ab-5497-565a-71172a729d93) |CMA_0408 - Protect passwords with encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0408.json) |
 |[Provide secure name and address resolution services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbbb2e6d6-085f-5a35-a55d-e45daad38933) |CMA_0416 - Provide secure name and address resolution services |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0416.json) |
 
-### 09.09 Electronic Commerce Services
+### 0943.09y1Organizational.1-09.y 09.09 Electronic Commerce Services
 
 **ID**: 0943.09y1Organizational.1-09.y
 **Ownership**: Shared
@@ -3259,7 +3259,7 @@ This built-in initiative is deployed as part of the
 |[Protect passwords with encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb2d3e5a2-97ab-5497-565a-71172a729d93) |CMA_0408 - Protect passwords with encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0408.json) |
 |[Secure transfer to storage accounts should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 
-### 09.09 Electronic Commerce Services
+### 0944.09y1Organizational.2-09.y 09.09 Electronic Commerce Services
 
 **ID**: 0944.09y1Organizational.2-09.y
 **Ownership**: Shared
@@ -3275,7 +3275,7 @@ This built-in initiative is deployed as part of the
 |[Identify and manage downstream information exchanges](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc7fddb0e-3f44-8635-2b35-dc6b8e740b7c) |CMA_0298 - Identify and manage downstream information exchanges |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0298.json) |
 |[Information flow control using security policy filters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F13ef3484-3a51-785a-9c96-500f21f84edd) |CMA_C1029 - Information flow control using security policy filters |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1029.json) |
 
-### 09.09 Electronic Commerce Services
+### 0945.09y1Organizational.3-09.y 09.09 Electronic Commerce Services
 
 **ID**: 0945.09y1Organizational.3-09.y
 **Ownership**: Shared
@@ -3289,7 +3289,7 @@ This built-in initiative is deployed as part of the
 |[Produce, control and distribute asymmetric cryptographic keys](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fde077e7e-0cc8-65a6-6e08-9ab46c827b05) |CMA_C1646 - Produce, control and distribute asymmetric cryptographic keys |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1646.json) |
 |[Protect passwords with encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb2d3e5a2-97ab-5497-565a-71172a729d93) |CMA_0408 - Protect passwords with encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0408.json) |
 
-### 09.09 Electronic Commerce Services
+### 0947.09y2Organizational.2-09.y 09.09 Electronic Commerce Services
 
 **ID**: 0947.09y2Organizational.2-09.y
 **Ownership**: Shared
@@ -3308,7 +3308,7 @@ This built-in initiative is deployed as part of the
 |[Restrict location of information processing, storage and services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0040d2e5-2779-170d-6a2c-1f5fca353335) |CMA_C1593 - Restrict location of information processing, storage and services |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1593.json) |
 |[Transfer backup information to an alternate storage site](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7bdb79ea-16b8-453e-4ca4-ad5b16012414) |CMA_C1294 - Transfer backup information to an alternate storage site |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1294.json) |
 
-### 09.09 Electronic Commerce Services
+### 0948.09y2Organizational.3-09.y 09.09 Electronic Commerce Services
 
 **ID**: 0948.09y2Organizational.3-09.y
 **Ownership**: Shared
@@ -3322,7 +3322,7 @@ This built-in initiative is deployed as part of the
 |[Issue public key certificates](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F97d91b33-7050-237b-3e23-a77d57d84e13) |CMA_0347 - Issue public key certificates |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0347.json) |
 |[Satisfy token quality requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F056a723b-4946-9d2a-5243-3aa27c4d31a1) |CMA_0487 - Satisfy token quality requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0487.json) |
 
-### 09.09 Electronic Commerce Services
+### 0949.09y2Organizational.5-09.y 09.09 Electronic Commerce Services
 
 **ID**: 0949.09y2Organizational.5-09.y
 **Ownership**: Shared
@@ -3336,7 +3336,7 @@ This built-in initiative is deployed as part of the
 |[Identify external service providers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F46ab2c5e-6654-1f58-8c83-e97a44f39308) |CMA_C1591 - Identify external service providers |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1591.json) |
 |[Require developer to identify SDLC ports, protocols, and services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6da5cca-5795-60ff-49e1-4972567815fe) |CMA_C1578 - Require developer to identify SDLC ports, protocols, and services |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1578.json) |
 
-### 09.08 Exchange of Information
+### 0960.09sCSPOrganizational.1-09.s 09.08 Exchange of Information
 
 **ID**: 0960.09sCSPOrganizational.1-09.s
 **Ownership**: Shared
@@ -3346,7 +3346,7 @@ This built-in initiative is deployed as part of the
 |[Function apps should not have CORS configured to allow every resource to access your apps](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0820b7b9-23aa-4725-a1ce-ae4558f718e5) |Cross-Origin Resource Sharing (CORS) should not allow all domains to access your Function app. Allow only required domains to interact with your Function app. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_RestrictCORSAccess_FuntionApp_Audit.json) |
 |[Identify external service providers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F46ab2c5e-6654-1f58-8c83-e97a44f39308) |CMA_C1591 - Identify external service providers |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1591.json) |
 
-### 09.06 Network Security Management
+### 099.09m2Organizational.11-09.m 09.06 Network Security Management
 
 **ID**: 099.09m2Organizational.11-09.m
 **Ownership**: Shared
@@ -3380,7 +3380,7 @@ This built-in initiative is deployed as part of the
 
 ## 10 Password Management
 
-### 01.02 Authorized Access to Information Systems
+### 1002.01d1System.1-01.d 01.02 Authorized Access to Information Systems
 
 **ID**: 1002.01d1System.1-01.d
 **Ownership**: Shared
@@ -3390,7 +3390,7 @@ This built-in initiative is deployed as part of the
 |[Obscure feedback information during authentication process](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1ff03f2a-974b-3272-34f2-f6cd51420b30) |CMA_C1344 - Obscure feedback information during authentication process |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1344.json) |
 |[Protect passwords with encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb2d3e5a2-97ab-5497-565a-71172a729d93) |CMA_0408 - Protect passwords with encryption |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0408.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1003.01d1System.3-01.d 01.02 Authorized Access to Information Systems
 
 **ID**: 1003.01d1System.3-01.d
 **Ownership**: Shared
@@ -3401,7 +3401,7 @@ This built-in initiative is deployed as part of the
 |[Refresh authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3ae68d9a-5696-8c32-62d3-c6f9c52e437c) |CMA_0425 - Refresh authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0425.json) |
 |[Verify identity before distributing authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72889284-15d2-90b2-4b39-a1e9541e1152) |CMA_0538 - Verify identity before distributing authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0538.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1004.01d1System.8913-01.d 01.02 Authorized Access to Information Systems
 
 **ID**: 1004.01d1System.8913-01.d
 **Ownership**: Shared
@@ -3417,7 +3417,7 @@ This built-in initiative is deployed as part of the
 |[Refresh authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3ae68d9a-5696-8c32-62d3-c6f9c52e437c) |CMA_0425 - Refresh authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0425.json) |
 |[Verify identity before distributing authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72889284-15d2-90b2-4b39-a1e9541e1152) |CMA_0538 - Verify identity before distributing authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0538.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1005.01d1System.1011-01.d 01.02 Authorized Access to Information Systems
 
 **ID**: 1005.01d1System.1011-01.d
 **Ownership**: Shared
@@ -3431,7 +3431,7 @@ This built-in initiative is deployed as part of the
 |[Implement parameters for memorized secret verifiers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3b30aa25-0f19-6c04-5ca4-bd3f880a763d) |CMA_0321 - Implement parameters for memorized secret verifiers |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0321.json) |
 |[Produce, control and distribute symmetric cryptographic keys](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16c54e01-9e65-7524-7c33-beda48a75779) |CMA_C1645 - Produce, control and distribute symmetric cryptographic keys |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1645.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1006.01d2System.1-01.d 01.02 Authorized Access to Information Systems
 
 **ID**: 1006.01d2System.1-01.d
 **Ownership**: Shared
@@ -3444,7 +3444,7 @@ This built-in initiative is deployed as part of the
 |[Implement training for protecting authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe4b00788-7e1c-33ec-0418-d048508e095b) |CMA_0329 - Implement training for protecting authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0329.json) |
 |[Obscure feedback information during authentication process](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1ff03f2a-974b-3272-34f2-f6cd51420b30) |CMA_C1344 - Obscure feedback information during authentication process |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1344.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1007.01d2System.2-01.d 01.02 Authorized Access to Information Systems
 
 **ID**: 1007.01d2System.2-01.d
 **Ownership**: Shared
@@ -3453,7 +3453,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Define cryptographic use](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4ccd607-702b-8ae6-8eeb-fc3339cd4b42) |CMA_0120 - Define cryptographic use |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0120.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1008.01d2System.3-01.d 01.02 Authorized Access to Information Systems
 
 **ID**: 1008.01d2System.3-01.d
 **Ownership**: Shared
@@ -3476,7 +3476,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1009.01d2System.4-01.d 01.02 Authorized Access to Information Systems
 
 **ID**: 1009.01d2System.4-01.d
 **Ownership**: Shared
@@ -3488,7 +3488,7 @@ This built-in initiative is deployed as part of the
 |[Implement parameters for memorized secret verifiers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3b30aa25-0f19-6c04-5ca4-bd3f880a763d) |CMA_0321 - Implement parameters for memorized secret verifiers |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0321.json) |
 |[Refresh authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3ae68d9a-5696-8c32-62d3-c6f9c52e437c) |CMA_0425 - Refresh authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0425.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1014.01d1System.12-01.d 01.02 Authorized Access to Information Systems
 
 **ID**: 1014.01d1System.12-01.d
 **Ownership**: Shared
@@ -3507,7 +3507,7 @@ This built-in initiative is deployed as part of the
 |[Reissue authenticators for changed groups and accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2f204e72-1896-3bf8-75c9-9128b8683a36) |CMA_0426 - Reissue authenticators for changed groups and accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0426.json) |
 |[Verify identity before distributing authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72889284-15d2-90b2-4b39-a1e9541e1152) |CMA_0538 - Verify identity before distributing authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0538.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1015.01d1System.14-01.d 01.02 Authorized Access to Information Systems
 
 **ID**: 1015.01d1System.14-01.d
 **Ownership**: Shared
@@ -3519,7 +3519,7 @@ This built-in initiative is deployed as part of the
 |[Reissue authenticators for changed groups and accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2f204e72-1896-3bf8-75c9-9128b8683a36) |CMA_0426 - Reissue authenticators for changed groups and accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0426.json) |
 |[Verify identity before distributing authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72889284-15d2-90b2-4b39-a1e9541e1152) |CMA_0538 - Verify identity before distributing authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0538.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1022.01d1System.15-01.d 01.02 Authorized Access to Information Systems
 
 **ID**: 1022.01d1System.15-01.d
 **Ownership**: Shared
@@ -3535,7 +3535,7 @@ This built-in initiative is deployed as part of the
 |[Refresh authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3ae68d9a-5696-8c32-62d3-c6f9c52e437c) |CMA_0425 - Refresh authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0425.json) |
 |[Restrict media use](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6122970b-8d4a-7811-0278-4c6c68f61e4f) |CMA_0450 - Restrict media use |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0450.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1031.01d1System.34510-01.d 01.02 Authorized Access to Information Systems
 
 **ID**: 1031.01d1System.34510-01.d
 **Ownership**: Shared
@@ -3551,7 +3551,7 @@ This built-in initiative is deployed as part of the
 
 ## 11 Access Control
 
-### 01.02 Authorized Access to Information Systems
+### 1106.01b1System.1-01.b 01.02 Authorized Access to Information Systems
 
 **ID**: 1106.01b1System.1-01.b
 **Ownership**: Shared
@@ -3569,7 +3569,7 @@ This built-in initiative is deployed as part of the
 |[Review user accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F79f081c7-1634-01a1-708e-376197999289) |CMA_0480 - Review user accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0480.json) |
 |[Verify identity before distributing authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72889284-15d2-90b2-4b39-a1e9541e1152) |CMA_0538 - Verify identity before distributing authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0538.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1107.01b1System.2-01.b 01.02 Authorized Access to Information Systems
 
 **ID**: 1107.01b1System.2-01.b
 **Ownership**: Shared
@@ -3581,7 +3581,7 @@ This built-in initiative is deployed as part of the
 |[Manage Authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4aacaec9-0628-272c-3e83-0d68446694e0) |CMA_C1321 - Manage Authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1321.json) |
 |[Verify identity before distributing authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72889284-15d2-90b2-4b39-a1e9541e1152) |CMA_0538 - Verify identity before distributing authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0538.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1108.01b1System.3-01.b 01.02 Authorized Access to Information Systems
 
 **ID**: 1108.01b1System.3-01.b
 **Ownership**: Shared
@@ -3593,7 +3593,7 @@ This built-in initiative is deployed as part of the
 |[Monitor account activity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7b28ba4f-0a87-46ac-62e1-46b7c09202a8) |CMA_0377 - Monitor account activity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0377.json) |
 |[Notify Account Managers of customer controlled accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4b8fd5da-609b-33bf-9724-1c946285a14c) |CMA_C1009 - Notify Account Managers of customer controlled accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1009.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1109.01b1System.479-01.b 01.02 Authorized Access to Information Systems
 
 **ID**: 1109.01b1System.479-01.b
 **Ownership**: Shared
@@ -3625,7 +3625,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 |[Verify identity before distributing authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72889284-15d2-90b2-4b39-a1e9541e1152) |CMA_0538 - Verify identity before distributing authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0538.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1110.01b1System.5-01.b 01.02 Authorized Access to Information Systems
 
 **ID**: 1110.01b1System.5-01.b
 **Ownership**: Shared
@@ -3644,7 +3644,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 01.05 Operating System Access Control
+### 11109.01q1Organizational.57-01.q 01.05 Operating System Access Control
 
 **ID**: 11109.01q1Organizational.57-01.q
 **Ownership**: Shared
@@ -3659,7 +3659,7 @@ This built-in initiative is deployed as part of the
 |[Prevent identifier reuse for the defined time period](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4781e5fd-76b8-7d34-6df3-a0a7fca47665) |CMA_C1314 - Prevent identifier reuse for the defined time period |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1314.json) |
 |[Support personal verification credentials issued by legal authorities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d39b5d9-0392-8954-8359-575ce1957d1a) |CMA_0507 - Support personal verification credentials issued by legal authorities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0507.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1111.01b2System.1-01.b 01.02 Authorized Access to Information Systems
 
 **ID**: 1111.01b2System.1-01.b
 **Ownership**: Shared
@@ -3669,7 +3669,7 @@ This built-in initiative is deployed as part of the
 |[Define and enforce conditions for shared and group accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7eb1d0b-6d4f-2d59-1591-7563e11a9313) |CMA_0117 - Define and enforce conditions for shared and group accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0117.json) |
 |[Reissue authenticators for changed groups and accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2f204e72-1896-3bf8-75c9-9128b8683a36) |CMA_0426 - Reissue authenticators for changed groups and accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0426.json) |
 
-### 01.05 Operating System Access Control
+### 11111.01q2System.4-01.q 01.05 Operating System Access Control
 
 **ID**: 11111.01q2System.4-01.q
 **Ownership**: Shared
@@ -3681,7 +3681,7 @@ This built-in initiative is deployed as part of the
 |[MFA should be enabled on accounts with read permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe3576e28-8b17-4677-84c3-db2990658d64) |Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with read privileges to prevent a breach of accounts or resources. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForReadPermissions_Audit.json) |
 |[Verify identity before distributing authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72889284-15d2-90b2-4b39-a1e9541e1152) |CMA_0538 - Verify identity before distributing authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0538.json) |
 
-### 01.05 Operating System Access Control
+### 11112.01q2Organizational.67-01.q 01.05 Operating System Access Control
 
 **ID**: 11112.01q2Organizational.67-01.q
 **Ownership**: Shared
@@ -3692,7 +3692,7 @@ This built-in initiative is deployed as part of the
 |[Adopt biometric authentication mechanisms](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7d7a8356-5c34-9a95-3118-1424cfaf192a) |CMA_0005 - Adopt biometric authentication mechanisms |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0005.json) |
 |[Satisfy token quality requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F056a723b-4946-9d2a-5243-3aa27c4d31a1) |CMA_0487 - Satisfy token quality requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0487.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1112.01b2System.2-01.b 01.02 Authorized Access to Information Systems
 
 **ID**: 1112.01b2System.2-01.b
 **Ownership**: Shared
@@ -3707,7 +3707,7 @@ This built-in initiative is deployed as part of the
 |[Update the security authorization](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F449ebb52-945b-36e5-3446-af6f33770f8f) |CMA_C1160 - Update the security authorization |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1160.json) |
 |[Verify identity before distributing authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72889284-15d2-90b2-4b39-a1e9541e1152) |CMA_0538 - Verify identity before distributing authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0538.json) |
 
-### 01.05 Operating System Access Control
+### 11126.01t1Organizational.12-01.t 01.05 Operating System Access Control
 
 **ID**: 11126.01t1Organizational.12-01.t
 **Ownership**: Shared
@@ -3716,7 +3716,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Reauthenticate or terminate a user session](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd6653f89-7cb5-24a4-9d71-51581038231b) |CMA_0421 - Reauthenticate or terminate a user session |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0421.json) |
 
-### 01.03 User Responsibilities
+### 1114.01h1Organizational.123-01.h 01.03 User Responsibilities
 
 **ID**: 1114.01h1Organizational.123-01.h
 **Ownership**: Shared
@@ -3726,7 +3726,7 @@ This built-in initiative is deployed as part of the
 |[Define and enforce the limit of concurrent sessions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd8350d4c-9314-400b-288f-20ddfce04fbd) |CMA_C1050 - Define and enforce the limit of concurrent sessions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1050.json) |
 |[Terminate user session automatically](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4502e506-5f35-0df4-684f-b326e3cc7093) |CMA_C1054 - Terminate user session automatically |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1054.json) |
 
-### 02.04 Termination or Change of Employment
+### 11154.02i1Organizational.5-02.i 02.04 Termination or Change of Employment
 
 **ID**: 11154.02i1Organizational.5-02.i
 **Ownership**: Shared
@@ -3742,7 +3742,7 @@ This built-in initiative is deployed as part of the
 |[Reevaluate access upon personnel transfer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe89436d8-6a93-3b62-4444-1d2a42ad56b2) |CMA_0424 - Reevaluate access upon personnel transfer |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0424.json) |
 |[Retain terminated user data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c7032fe-9ce6-9092-5890-87a1a3755db1) |CMA_0455 - Retain terminated user data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0455.json) |
 
-### 02.04 Termination or Change of Employment
+### 11155.02i2Organizational.2-02.i 02.04 Termination or Change of Employment
 
 **ID**: 11155.02i2Organizational.2-02.i
 **Ownership**: Shared
@@ -3760,7 +3760,7 @@ This built-in initiative is deployed as part of the
 |[Protect against and prevent data theft from departing employees](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F80a97208-264e-79da-0cc7-4fca179a0c9c) |CMA_0398 - Protect against and prevent data theft from departing employees |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0398.json) |
 |[Retain terminated user data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c7032fe-9ce6-9092-5890-87a1a3755db1) |CMA_0455 - Retain terminated user data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0455.json) |
 
-### 01.04 Network Access Control
+### 1116.01j1Organizational.145-01.j 01.04 Network Access Control
 
 **ID**: 1116.01j1Organizational.145-01.j
 **Ownership**: Shared
@@ -3774,7 +3774,7 @@ This built-in initiative is deployed as part of the
 |[MFA should be enabled on accounts with owner permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa633080-8b72-40c4-a2d7-d00c03e80bed) |Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with owner permissions to prevent a breach of accounts or resources. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForOwnerPermissions_Audit.json) |
 |[Verify identity before distributing authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72889284-15d2-90b2-4b39-a1e9541e1152) |CMA_0538 - Verify identity before distributing authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0538.json) |
 
-### 01.04 Network Access Control
+### 1118.01j2Organizational.124-01.j 01.04 Network Access Control
 
 **ID**: 1118.01j2Organizational.124-01.j
 **Ownership**: Shared
@@ -3791,7 +3791,7 @@ This built-in initiative is deployed as part of the
 |[Provide privacy training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F518eafdd-08e5-37a9-795b-15a8d798056d) |CMA_0415 - Provide privacy training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0415.json) |
 |[Route traffic through managed network access points](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbab9ef1d-a16d-421a-822d-3fa94e808156) |CMA_0484 - Route traffic through managed network access points |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0484.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 11180.01c3System.6-01.c 01.02 Authorized Access to Information Systems
 
 **ID**: 11180.01c3System.6-01.c
 **Ownership**: Shared
@@ -3806,7 +3806,7 @@ This built-in initiative is deployed as part of the
 |[Management ports of virtual machines should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0f33259-77d7-4c9e-aac6-3aabcfae693c) |Possible network Just In Time (JIT) access will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_JITNetworkAccess_Audit.json) |
 |[Restrict access to privileged accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F873895e8-0e3a-6492-42e9-22cd030e9fcd) |CMA_0446 - Restrict access to privileged accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0446.json) |
 
-### 01.04 Network Access Control
+### 1119.01j2Organizational.3-01.j 01.04 Network Access Control
 
 **ID**: 1119.01j2Organizational.3-01.j
 **Ownership**: Shared
@@ -3819,7 +3819,7 @@ This built-in initiative is deployed as part of the
 |[Secure the interface to external systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff1efad2-6b09-54cc-01bf-d386c4d558a8) |CMA_0491 - Secure the interface to external systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0491.json) |
 |[Set automated notifications for new and trending cloud applications in your organization](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf38215f-70c4-0cd6-40c2-c52d86690a45) |CMA_0495 - Set automated notifications for new and trending cloud applications in your organization |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0495.json) |
 
-### 01.05 Operating System Access Control
+### 11190.01t1Organizational.3-01.t 01.05 Operating System Access Control
 
 **ID**: 11190.01t1Organizational.3-01.t
 **Ownership**: Shared
@@ -3832,7 +3832,7 @@ This built-in initiative is deployed as part of the
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 |[Manage the input, output, processing, and storage of data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe603da3a-8af7-4f8a-94cb-1bcc0e0333d2) |CMA_0369 - Manage the input, output, processing, and storage of data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0369.json) |
 
-### 09.10 Monitoring
+### 1120.09ab3System.9-09.ab 09.10 Monitoring
 
 **ID**: 1120.09ab3System.9-09.ab
 **Ownership**: Shared
@@ -3841,7 +3841,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Azure Monitor should collect activity logs from all regions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |This policy audits the Azure Monitor log profile which does not export activities from all Azure supported regions including global. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
 
-### 01.04 Network Access Control
+### 1121.01j3Organizational.2-01.j 01.04 Network Access Control
 
 **ID**: 1121.01j3Organizational.2-01.j
 **Ownership**: Shared
@@ -3860,7 +3860,7 @@ This built-in initiative is deployed as part of the
 |[Provide privacy training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F518eafdd-08e5-37a9-795b-15a8d798056d) |CMA_0415 - Provide privacy training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0415.json) |
 |[Support personal verification credentials issued by legal authorities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d39b5d9-0392-8954-8359-575ce1957d1a) |CMA_0507 - Support personal verification credentials issued by legal authorities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0507.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 11219.01b1Organizational.10-01.b 01.02 Authorized Access to Information Systems
 
 **ID**: 11219.01b1Organizational.10-01.b
 **Ownership**: Shared
@@ -3873,7 +3873,7 @@ This built-in initiative is deployed as part of the
 |[Employ least privilege access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc7fd64-291f-028e-4ed6-6e07886e163f) |CMA_0212 - Employ least privilege access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0212.json) |
 |[Separate duties of individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60ee1260-97f0-61bb-8155-5d8b75743655) |CMA_0492 - Separate duties of individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0492.json) |
 
-### 01.05 Operating System Access Control
+### 1122.01q1System.1-01.q 01.05 Operating System Access Control
 
 **ID**: 1122.01q1System.1-01.q
 **Ownership**: Shared
@@ -3888,7 +3888,7 @@ This built-in initiative is deployed as part of the
 |[Identify and authenticate non-organizational users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1379836-3492-6395-451d-2f5062e14136) |CMA_C1346 - Identify and authenticate non-organizational users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1346.json) |
 |[Support personal verification credentials issued by legal authorities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d39b5d9-0392-8954-8359-575ce1957d1a) |CMA_0507 - Support personal verification credentials issued by legal authorities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0507.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 11220.01b1System.10-01.b 01.02 Authorized Access to Information Systems
 
 **ID**: 11220.01b1System.10-01.b
 **Ownership**: Shared
@@ -3922,7 +3922,7 @@ This built-in initiative is deployed as part of the
 |[Review user accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F79f081c7-1634-01a1-708e-376197999289) |CMA_0480 - Review user accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0480.json) |
 |[Revoke privileged roles as appropriate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32f22cfa-770b-057c-965b-450898425519) |CMA_0483 - Revoke privileged roles as appropriate |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0483.json) |
 
-### 01.05 Operating System Access Control
+### 1123.01q1System.2-01.q 01.05 Operating System Access Control
 
 **ID**: 1123.01q1System.2-01.q
 **Ownership**: Shared
@@ -3936,7 +3936,7 @@ This built-in initiative is deployed as part of the
 |[Employ least privilege access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc7fd64-291f-028e-4ed6-6e07886e163f) |CMA_0212 - Employ least privilege access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0212.json) |
 |[Enforce mandatory and discretionary access control policies](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb1666a13-8f67-9c47-155e-69e027ff6823) |CMA_0246 - Enforce mandatory and discretionary access control policies |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0246.json) |
 
-### 01.05 Operating System Access Control
+### 1124.01q1System.34-01.q 01.05 Operating System Access Control
 
 **ID**: 1124.01q1System.34-01.q
 **Ownership**: Shared
@@ -3946,7 +3946,7 @@ This built-in initiative is deployed as part of the
 |[Define and enforce conditions for shared and group accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7eb1d0b-6d4f-2d59-1591-7563e11a9313) |CMA_0117 - Define and enforce conditions for shared and group accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0117.json) |
 |[Reissue authenticators for changed groups and accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2f204e72-1896-3bf8-75c9-9128b8683a36) |CMA_0426 - Reissue authenticators for changed groups and accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0426.json) |
 
-### 01.05 Operating System Access Control
+### 1125.01q2System.1-01.q 01.05 Operating System Access Control
 
 **ID**: 1125.01q2System.1-01.q
 **Ownership**: Shared
@@ -3958,7 +3958,7 @@ This built-in initiative is deployed as part of the
 |[Enforce user uniqueness](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe336d5f4-4d8f-0059-759c-ae10f63d1747) |CMA_0250 - Enforce user uniqueness |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0250.json) |
 |[Support personal verification credentials issued by legal authorities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d39b5d9-0392-8954-8359-575ce1957d1a) |CMA_0507 - Support personal verification credentials issued by legal authorities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0507.json) |
 
-### 01.05 Operating System Access Control
+### 1127.01q2System.3-01.q 01.05 Operating System Access Control
 
 **ID**: 1127.01q2System.3-01.q
 **Ownership**: Shared
@@ -3968,7 +3968,7 @@ This built-in initiative is deployed as part of the
 |[Audit Windows machines missing any of specified members in the Administrators group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F30f71ea1-ac77-4f26-9fc5-2d926bbd4ba7) |Requires that prerequisites are deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). Machines are non-compliant if the local Administrators group does not contain one or more members that are listed in the policy parameter. |auditIfNotExists |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_AdministratorsGroupMembersToInclude_AINE.json) |
 |[Distribute authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098dcde7-016a-06c3-0985-0daaf3301d3a) |CMA_0184 - Distribute authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0184.json) |
 
-### 01.05 Operating System Access Control
+### 1128.01q2System.5-01.q 01.05 Operating System Access Control
 
 **ID**: 1128.01q2System.5-01.q
 **Ownership**: Shared
@@ -3979,7 +3979,7 @@ This built-in initiative is deployed as part of the
 |[Enforce rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F509552f5-6528-3540-7959-fbeae4832533) |CMA_0248 - Enforce rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0248.json) |
 |[Provide privacy training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F518eafdd-08e5-37a9-795b-15a8d798056d) |CMA_0415 - Provide privacy training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0415.json) |
 
-### 01.06 Application and Information Access Control
+### 1129.01v1System.12-01.v 01.06 Application and Information Access Control
 
 **ID**: 1129.01v1System.12-01.v
 **Ownership**: Shared
@@ -3999,7 +3999,7 @@ This built-in initiative is deployed as part of the
 |[Revoke privileged roles as appropriate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32f22cfa-770b-057c-965b-450898425519) |CMA_0483 - Revoke privileged roles as appropriate |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0483.json) |
 |[Use privileged identity management](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe714b481-8fac-64a2-14a9-6f079b2501a4) |CMA_0533 - Use privileged identity management |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0533.json) |
 
-### 01.06 Application and Information Access Control
+### 1130.01v2System.1-01.v 01.06 Application and Information Access Control
 
 **ID**: 1130.01v2System.1-01.v
 **Ownership**: Shared
@@ -4012,7 +4012,7 @@ This built-in initiative is deployed as part of the
 |[Establish conditions for role membership](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F97cfd944-6f0c-7db2-3796-8e890ef70819) |CMA_0269 - Establish conditions for role membership |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0269.json) |
 |[Restrict access to privileged accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F873895e8-0e3a-6492-42e9-22cd030e9fcd) |CMA_0446 - Restrict access to privileged accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0446.json) |
 
-### 01.06 Application and Information Access Control
+### 1131.01v2System.2-01.v 01.06 Application and Information Access Control
 
 **ID**: 1131.01v2System.2-01.v
 **Ownership**: Shared
@@ -4026,7 +4026,7 @@ This built-in initiative is deployed as part of the
 |[Identify and manage downstream information exchanges](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc7fddb0e-3f44-8635-2b35-dc6b8e740b7c) |CMA_0298 - Identify and manage downstream information exchanges |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0298.json) |
 |[Information flow control using security policy filters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F13ef3484-3a51-785a-9c96-500f21f84edd) |CMA_C1029 - Information flow control using security policy filters |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1029.json) |
 
-### 01.06 Application and Information Access Control
+### 1132.01v2System.3-01.v 01.06 Application and Information Access Control
 
 **ID**: 1132.01v2System.3-01.v
 **Ownership**: Shared
@@ -4036,7 +4036,7 @@ This built-in initiative is deployed as part of the
 |[Establish a data leakage management procedure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c9aa856-6b86-35dc-83f4-bc72cec74dea) |CMA_0255 - Establish a data leakage management procedure |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0255.json) |
 |[Protect special information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa315c657-4a00-8eba-15ac-44692ad24423) |CMA_0409 - Protect special information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0409.json) |
 
-### 01.06 Application and Information Access Control
+### 1133.01v2System.4-01.v 01.06 Application and Information Access Control
 
 **ID**: 1133.01v2System.4-01.v
 **Ownership**: Shared
@@ -4045,7 +4045,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Identify actions allowed without authentication](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F92a7591f-73b3-1173-a09c-a08882d84c70) |CMA_0295 - Identify actions allowed without authentication |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0295.json) |
 
-### 01.06 Application and Information Access Control
+### 1134.01v3System.1-01.v 01.06 Application and Information Access Control
 
 **ID**: 1134.01v3System.1-01.v
 **Ownership**: Shared
@@ -4056,7 +4056,7 @@ This built-in initiative is deployed as part of the
 |[Limit privileges to make changes in production environment](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2af551d5-1775-326a-0589-590bfb7e9eb2) |CMA_C1206 - Limit privileges to make changes in production environment |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1206.json) |
 |[Protect special information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa315c657-4a00-8eba-15ac-44692ad24423) |CMA_0409 - Protect special information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0409.json) |
 
-### 02.04 Termination or Change of Employment
+### 1135.02i1Organizational.1234-02.i 02.04 Termination or Change of Employment
 
 **ID**: 1135.02i1Organizational.1234-02.i
 **Ownership**: Shared
@@ -4073,7 +4073,7 @@ This built-in initiative is deployed as part of the
 |[Retain terminated user data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c7032fe-9ce6-9092-5890-87a1a3755db1) |CMA_0455 - Retain terminated user data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0455.json) |
 |[Revoke privileged roles as appropriate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32f22cfa-770b-057c-965b-450898425519) |CMA_0483 - Revoke privileged roles as appropriate |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0483.json) |
 
-### 02.04 Termination or Change of Employment
+### 1136.02i2Organizational.1-02.i 02.04 Termination or Change of Employment
 
 **ID**: 1136.02i2Organizational.1-02.i
 **Ownership**: Shared
@@ -4087,7 +4087,7 @@ This built-in initiative is deployed as part of the
 |[Protect against and prevent data theft from departing employees](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F80a97208-264e-79da-0cc7-4fca179a0c9c) |CMA_0398 - Protect against and prevent data theft from departing employees |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0398.json) |
 |[Retain terminated user data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c7032fe-9ce6-9092-5890-87a1a3755db1) |CMA_0455 - Retain terminated user data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0455.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 1137.06e1Organizational.1-06.e 06.01 Compliance with Legal Requirements
 
 **ID**: 1137.06e1Organizational.1-06.e
 **Ownership**: Shared
@@ -4103,7 +4103,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1139.01b1System.68-01.b 01.02 Authorized Access to Information Systems
 
 **ID**: 1139.01b1System.68-01.b
 **Ownership**: Shared
@@ -4117,7 +4117,7 @@ This built-in initiative is deployed as part of the
 |[Reissue authenticators for changed groups and accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2f204e72-1896-3bf8-75c9-9128b8683a36) |CMA_0426 - Reissue authenticators for changed groups and accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0426.json) |
 |[Restrict access to privileged accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F873895e8-0e3a-6492-42e9-22cd030e9fcd) |CMA_0446 - Restrict access to privileged accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0446.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1143.01c1System.123-01.c 01.02 Authorized Access to Information Systems
 
 **ID**: 1143.01c1System.123-01.c
 **Ownership**: Shared
@@ -4135,7 +4135,7 @@ This built-in initiative is deployed as part of the
 |[Require approval for account creation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fde770ba6-50dd-a316-2932-e0d972eaa734) |CMA_0431 - Require approval for account creation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0431.json) |
 |[Restrict access to privileged accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F873895e8-0e3a-6492-42e9-22cd030e9fcd) |CMA_0446 - Restrict access to privileged accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0446.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1144.01c1System.4-01.c 01.02 Authorized Access to Information Systems
 
 **ID**: 1144.01c1System.4-01.c
 **Ownership**: Shared
@@ -4149,7 +4149,7 @@ This built-in initiative is deployed as part of the
 |[Employ least privilege access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc7fd64-291f-028e-4ed6-6e07886e163f) |CMA_0212 - Employ least privilege access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0212.json) |
 |[Enforce mandatory and discretionary access control policies](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb1666a13-8f67-9c47-155e-69e027ff6823) |CMA_0246 - Enforce mandatory and discretionary access control policies |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0246.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1145.01c2System.1-01.c 01.02 Authorized Access to Information Systems
 
 **ID**: 1145.01c2System.1-01.c
 **Ownership**: Shared
@@ -4165,7 +4165,7 @@ This built-in initiative is deployed as part of the
 |[There should be more than one owner assigned to your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F09024ccc-0c5f-475e-9457-b7c0d9ed487b) |It is recommended to designate more than one subscription owner in order to have administrator access redundancy. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_DesignateMoreThanOneOwner_Audit.json) |
 |[Use privileged identity management](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe714b481-8fac-64a2-14a9-6f079b2501a4) |CMA_0533 - Use privileged identity management |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0533.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1146.01c2System.23-01.c 01.02 Authorized Access to Information Systems
 
 **ID**: 1146.01c2System.23-01.c
 **Ownership**: Shared
@@ -4181,7 +4181,7 @@ This built-in initiative is deployed as part of the
 |[External accounts with owner permissions should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8456c1c-aa66-4dfb-861a-25d127b775c9) |External accounts with owner permissions should be removed from your subscription in order to prevent unmonitored access. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_RemoveExternalAccountsWithOwnerPermissions_Audit.json) |
 |[Restrict access to privileged accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F873895e8-0e3a-6492-42e9-22cd030e9fcd) |CMA_0446 - Restrict access to privileged accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0446.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1147.01c2System.456-01.c 01.02 Authorized Access to Information Systems
 
 **ID**: 1147.01c2System.456-01.c
 **Ownership**: Shared
@@ -4195,7 +4195,7 @@ This built-in initiative is deployed as part of the
 |[Employ least privilege access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc7fd64-291f-028e-4ed6-6e07886e163f) |CMA_0212 - Employ least privilege access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0212.json) |
 |[Enforce mandatory and discretionary access control policies](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb1666a13-8f67-9c47-155e-69e027ff6823) |CMA_0246 - Enforce mandatory and discretionary access control policies |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0246.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1148.01c2System.78-01.c 01.02 Authorized Access to Information Systems
 
 **ID**: 1148.01c2System.78-01.c
 **Ownership**: Shared
@@ -4211,7 +4211,7 @@ This built-in initiative is deployed as part of the
 |[Restrict access to privileged accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F873895e8-0e3a-6492-42e9-22cd030e9fcd) |CMA_0446 - Restrict access to privileged accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0446.json) |
 |[Windows machines should meet requirements for 'Security Options - Accounts'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fee984370-154a-4ee8-9726-19d900e56fc0) |Windows machines should have the specified Group Policy settings in the category 'Security Options - Accounts' for limiting local account use of blank passwords and guest account status. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsAccounts_AINE.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1150.01c2System.10-01.c 01.02 Authorized Access to Information Systems
 
 **ID**: 1150.01c2System.10-01.c
 **Ownership**: Shared
@@ -4226,7 +4226,7 @@ This built-in initiative is deployed as part of the
 |[Information flow control using security policy filters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F13ef3484-3a51-785a-9c96-500f21f84edd) |CMA_C1029 - Information flow control using security policy filters |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1029.json) |
 |[Management ports should be closed on your virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22730e10-96f6-4aac-ad84-9383d35b5917) |Open remote management ports are exposing your VM to a high level of risk from Internet-based attacks. These attacks attempt to brute force credentials to gain admin access to the machine. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OpenManagementPortsOnVirtualMachines_Audit.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1151.01c3System.1-01.c 01.02 Authorized Access to Information Systems
 
 **ID**: 1151.01c3System.1-01.c
 **Ownership**: Shared
@@ -4241,7 +4241,7 @@ This built-in initiative is deployed as part of the
 |[Revoke privileged roles as appropriate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32f22cfa-770b-057c-965b-450898425519) |CMA_0483 - Revoke privileged roles as appropriate |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0483.json) |
 |[Use privileged identity management](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe714b481-8fac-64a2-14a9-6f079b2501a4) |CMA_0533 - Use privileged identity management |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0533.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1152.01c3System.2-01.c 01.02 Authorized Access to Information Systems
 
 **ID**: 1152.01c3System.2-01.c
 **Ownership**: Shared
@@ -4258,7 +4258,7 @@ This built-in initiative is deployed as part of the
 |[There should be more than one owner assigned to your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F09024ccc-0c5f-475e-9457-b7c0d9ed487b) |It is recommended to designate more than one subscription owner in order to have administrator access redundancy. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_DesignateMoreThanOneOwner_Audit.json) |
 |[Use privileged identity management](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe714b481-8fac-64a2-14a9-6f079b2501a4) |CMA_0533 - Use privileged identity management |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0533.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1153.01c3System.35-01.c 01.02 Authorized Access to Information Systems
 
 **ID**: 1153.01c3System.35-01.c
 **Ownership**: Shared
@@ -4268,7 +4268,7 @@ This built-in initiative is deployed as part of the
 |[Require approval for account creation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fde770ba6-50dd-a316-2932-e0d972eaa734) |CMA_0431 - Require approval for account creation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0431.json) |
 |[Role-Based Access Control (RBAC) should be used on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac4a19c2-fa67-49b4-8ae5-0b2e78c49457) |To provide granular filtering on the actions that users can perform, use Role-Based Access Control (RBAC) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies. |Audit, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableRBAC_KubernetesService_Audit.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1166.01e1System.12-01.e 01.02 Authorized Access to Information Systems
 
 **ID**: 1166.01e1System.12-01.e
 **Ownership**: Shared
@@ -4284,7 +4284,7 @@ This built-in initiative is deployed as part of the
 |[Review account provisioning logs](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa830fe9e-08c9-a4fb-420c-6f6bf1702395) |CMA_0460 - Review account provisioning logs |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0460.json) |
 |[Review user accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F79f081c7-1634-01a1-708e-376197999289) |CMA_0480 - Review user accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0480.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1167.01e2System.1-01.e 01.02 Authorized Access to Information Systems
 
 **ID**: 1167.01e2System.1-01.e
 **Ownership**: Shared
@@ -4294,7 +4294,7 @@ This built-in initiative is deployed as part of the
 |[Assign system identifiers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff29b17a4-0df2-8a50-058a-8570f9979d28) |CMA_0018 - Assign system identifiers |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0018.json) |
 |[Identify status of individual users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fca748dfe-3e28-1d18-4221-89aea30aa0a5) |CMA_C1316 - Identify status of individual users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1316.json) |
 
-### 01.02 Authorized Access to Information Systems
+### 1168.01e2System.2-01.e 01.02 Authorized Access to Information Systems
 
 **ID**: 1168.01e2System.2-01.e
 **Ownership**: Shared
@@ -4306,7 +4306,7 @@ This built-in initiative is deployed as part of the
 |[Reassign or remove user privileges as needed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7805a343-275c-41be-9d62-7215b96212d8) |CMA_C1040 - Reassign or remove user privileges as needed |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1040.json) |
 |[Review user privileges](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff96d2186-79df-262d-3f76-f371e3b71798) |CMA_C1039 - Review user privileges |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1039.json) |
 
-### 01.04 Network Access Control
+### 1175.01j1Organizational.8-01.j 01.04 Network Access Control
 
 **ID**: 1175.01j1Organizational.8-01.j
 **Ownership**: Shared
@@ -4319,7 +4319,7 @@ This built-in initiative is deployed as part of the
 |[Management ports of virtual machines should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0f33259-77d7-4c9e-aac6-3aabcfae693c) |Possible network Just In Time (JIT) access will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_JITNetworkAccess_Audit.json) |
 |[Support personal verification credentials issued by legal authorities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d39b5d9-0392-8954-8359-575ce1957d1a) |CMA_0507 - Support personal verification credentials issued by legal authorities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0507.json) |
 
-### 01.04 Network Access Control
+### 1178.01j2Organizational.7-01.j 01.04 Network Access Control
 
 **ID**: 1178.01j2Organizational.7-01.j
 **Ownership**: Shared
@@ -4331,7 +4331,7 @@ This built-in initiative is deployed as part of the
 |[Require use of individual authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08ad71d0-52be-6503-4908-e015460a16ae) |CMA_C1305 - Require use of individual authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1305.json) |
 |[Support personal verification credentials issued by legal authorities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d39b5d9-0392-8954-8359-575ce1957d1a) |CMA_0507 - Support personal verification credentials issued by legal authorities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0507.json) |
 
-### 01.04 Network Access Control
+### 1179.01j3Organizational.1-01.j 01.04 Network Access Control
 
 **ID**: 1179.01j3Organizational.1-01.j
 **Ownership**: Shared
@@ -4346,7 +4346,7 @@ This built-in initiative is deployed as part of the
 |[Monitor access across the organization](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F48c816c5-2190-61fc-8806-25d6f3df162f) |CMA_0376 - Monitor access across the organization |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0376.json) |
 |[Provide privacy training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F518eafdd-08e5-37a9-795b-15a8d798056d) |CMA_0415 - Provide privacy training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0415.json) |
 
-### 01.04 Network Access Control
+### 1192.01l1Organizational.1-01.l 01.04 Network Access Control
 
 **ID**: 1192.01l1Organizational.1-01.l
 **Ownership**: Shared
@@ -4359,7 +4359,7 @@ This built-in initiative is deployed as part of the
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 |[Management ports of virtual machines should be protected with just-in-time network access control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0f33259-77d7-4c9e-aac6-3aabcfae693c) |Possible network Just In Time (JIT) access will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_JITNetworkAccess_Audit.json) |
 
-### 01.04 Network Access Control
+### 1193.01l2Organizational.13-01.l 01.04 Network Access Control
 
 **ID**: 1193.01l2Organizational.13-01.l
 **Ownership**: Shared
@@ -4372,7 +4372,7 @@ This built-in initiative is deployed as part of the
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 |[Management ports should be closed on your virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22730e10-96f6-4aac-ad84-9383d35b5917) |Open remote management ports are exposing your VM to a high level of risk from Internet-based attacks. These attacks attempt to brute force credentials to gain admin access to the machine. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OpenManagementPortsOnVirtualMachines_Audit.json) |
 
-### 01.04 Network Access Control
+### 1194.01l2Organizational.2-01.l 01.04 Network Access Control
 
 **ID**: 1194.01l2Organizational.2-01.l
 **Ownership**: Shared
@@ -4381,7 +4381,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[App Service apps should have remote debugging turned off](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcb510bfd-1cba-4d9f-a230-cb0976f4bb71) |Remote debugging requires inbound ports to be opened on an App Service app. Remote debugging should be turned off. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_DisableRemoteDebugging_WebApp_Audit.json) |
 
-### 01.04 Network Access Control
+### 1195.01l3Organizational.1-01.l 01.04 Network Access Control
 
 **ID**: 1195.01l3Organizational.1-01.l
 **Ownership**: Shared
@@ -4390,7 +4390,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Function apps should have remote debugging turned off](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e60b895-3786-45da-8377-9c6b4b6ac5f9) |Remote debugging requires inbound ports to be opened on Function apps. Remote debugging should be turned off. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_DisableRemoteDebugging_FunctionApp_Audit.json) |
 
-### 01.04 Network Access Control
+### 1197.01l3Organizational.3-01.l 01.04 Network Access Control
 
 **ID**: 1197.01l3Organizational.3-01.l
 **Ownership**: Shared
@@ -4401,7 +4401,7 @@ This built-in initiative is deployed as part of the
 
 ## 12 Audit Logging & Monitoring
 
-### 06.01 Compliance with Legal Requirements
+### 1201.06e1Organizational.2-06.e 06.01 Compliance with Legal Requirements
 
 **ID**: 1201.06e1Organizational.2-06.e
 **Ownership**: Shared
@@ -4421,7 +4421,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 09.10 Monitoring
+### 1202.09aa1System.1-09.aa 09.10 Monitoring
 
 **ID**: 1202.09aa1System.1-09.aa
 **Ownership**: Shared
@@ -4434,7 +4434,7 @@ This built-in initiative is deployed as part of the
 |[Review and update the events defined in AU-02](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa930f477-9dcb-2113-8aa7-45bb6fc90861) |CMA_C1106 - Review and update the events defined in AU-02 |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1106.json) |
 |[System updates on virtual machine scale sets should be installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc3f317a7-a95c-4547-b7e7-11017ebdf2fe) |Audit whether there are any missing system security updates and critical updates that should be installed to ensure that your Windows and Linux virtual machine scale sets are secure. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssMissingSystemUpdates_Audit.json) |
 
-### 09.10 Monitoring
+### 1203.09aa1System.2-09.aa 09.10 Monitoring
 
 **ID**: 1203.09aa1System.2-09.aa
 **Ownership**: Shared
@@ -4445,7 +4445,7 @@ This built-in initiative is deployed as part of the
 |[Determine auditable events](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2f67e567-03db-9d1f-67dc-b6ffb91312f4) |CMA_0137 - Determine auditable events |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0137.json) |
 |[Resource logs in Logic Apps should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34f95f76-5386-4de7-b824-0d8478470c9d) |Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes; when a security incident occurs or when your network is compromised |AuditIfNotExists, Disabled |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Logic%20Apps/LogicApps_AuditDiagnosticLog_Audit.json) |
 
-### 09.10 Monitoring
+### 1204.09aa1System.3-09.aa 09.10 Monitoring
 
 **ID**: 1204.09aa1System.3-09.aa
 **Ownership**: Shared
@@ -4457,7 +4457,7 @@ This built-in initiative is deployed as part of the
 |[Monitor account activity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7b28ba4f-0a87-46ac-62e1-46b7c09202a8) |CMA_0377 - Monitor account activity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0377.json) |
 |[Resource logs in IoT Hub should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F383856f8-de7f-44a2-81fc-e5135b5c2aa4) |Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes; when a security incident occurs or when your network is compromised |AuditIfNotExists, Disabled |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |
 
-### 09.10 Monitoring
+### 1205.09aa2System.1-09.aa 09.10 Monitoring
 
 **ID**: 1205.09aa2System.1-09.aa
 **Ownership**: Shared
@@ -4471,7 +4471,7 @@ This built-in initiative is deployed as part of the
 |[Provide capability to process customer-controlled audit records](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21633c09-804e-7fcd-78e3-635c6bfe2be7) |CMA_C1126 - Provide capability to process customer-controlled audit records |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1126.json) |
 |[Resource logs in Batch accounts should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F428256e6-1fac-4f48-a757-df34c2b3336d) |Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes; when a security incident occurs or when your network is compromised |AuditIfNotExists, Disabled |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_AuditDiagnosticLog_Audit.json) |
 
-### 09.10 Monitoring
+### 1206.09aa2System.23-09.aa 09.10 Monitoring
 
 **ID**: 1206.09aa2System.23-09.aa
 **Ownership**: Shared
@@ -4486,7 +4486,7 @@ This built-in initiative is deployed as part of the
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 |[View and configure system diagnostic data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0123edae-3567-a05a-9b05-b53ebe9d3e7e) |CMA_0544 - View and configure system diagnostic data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0544.json) |
 
-### 09.10 Monitoring
+### 1207.09aa2System.4-09.aa 09.10 Monitoring
 
 **ID**: 1207.09aa2System.4-09.aa
 **Ownership**: Shared
@@ -4507,7 +4507,7 @@ This built-in initiative is deployed as part of the
 |[Retain terminated user data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c7032fe-9ce6-9092-5890-87a1a3755db1) |CMA_0455 - Retain terminated user data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0455.json) |
 |[Review audit data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6625638f-3ba1-7404-5983-0ea33d719d34) |CMA_0466 - Review audit data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0466.json) |
 
-### 09.10 Monitoring
+### 1208.09aa3System.1-09.aa 09.10 Monitoring
 
 **ID**: 1208.09aa3System.1-09.aa
 **Ownership**: Shared
@@ -4533,7 +4533,7 @@ This built-in initiative is deployed as part of the
 |[Resource logs in Service Bus should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes; when a security incident occurs or when your network is compromised |AuditIfNotExists, Disabled |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 
-### 09.10 Monitoring
+### 1209.09aa3System.2-09.aa 09.10 Monitoring
 
 **ID**: 1209.09aa3System.2-09.aa
 **Ownership**: Shared
@@ -4544,7 +4544,7 @@ This built-in initiative is deployed as part of the
 |[Configure Azure Audit capabilities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa3e98638-51d4-4e28-910a-60e98c1a756f) |CMA_C1108 - Configure Azure Audit capabilities |Manual, Disabled |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1108.json) |
 |[Determine auditable events](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2f67e567-03db-9d1f-67dc-b6ffb91312f4) |CMA_0137 - Determine auditable events |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0137.json) |
 
-### 09.10 Monitoring
+### 1210.09aa3System.3-09.aa 09.10 Monitoring
 
 **ID**: 1210.09aa3System.3-09.aa
 **Ownership**: Shared
@@ -4552,7 +4552,7 @@ This built-in initiative is deployed as part of the
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Adhere to retention periods defined](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1ecb79d7-1a06-9a3b-3be8-f434d04d1ec1) |CMA_0004 - Adhere to retention periods defined |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0004.json) |
-|[Audit diagnostic setting](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) |Audit diagnostic setting for selected resource types |AuditIfNotExists |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
+|[Audit diagnostic setting for selected resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7f89b1eb-583c-429a-8828-af049802c1d9) |Audit diagnostic setting for selected resource types. Be sure to select only resource types which support diagnostics settings. |AuditIfNotExists |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForTypes_Audit.json) |
 |[Audit privileged functions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff26af0b1-65b6-689a-a03f-352ad2d00f98) |CMA_0019 - Audit privileged functions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0019.json) |
 |[Audit user account status](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F49c23d9b-02b0-0e42-4f94-e8cef1b8381b) |CMA_0020 - Audit user account status |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0020.json) |
 |[Determine auditable events](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2f67e567-03db-9d1f-67dc-b6ffb91312f4) |CMA_0137 - Determine auditable events |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0137.json) |
@@ -4563,7 +4563,7 @@ This built-in initiative is deployed as part of the
 |[Review audit data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6625638f-3ba1-7404-5983-0ea33d719d34) |CMA_0466 - Review audit data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0466.json) |
 |[Use system clocks for audit records](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1ee4c7eb-480a-0007-77ff-4ba370776266) |CMA_0535 - Use system clocks for audit records |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0535.json) |
 
-### 09.10 Monitoring
+### 12100.09ab2System.15-09.ab 09.10 Monitoring
 
 **ID**: 12100.09ab2System.15-09.ab
 **Ownership**: Shared
@@ -4574,7 +4574,7 @@ This built-in initiative is deployed as part of the
 |[Document wireless access security controls](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8f835d6a-4d13-9a9c-37dc-176cebd37fda) |CMA_C1695 - Document wireless access security controls |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1695.json) |
 |[Virtual machines should have the Log Analytics extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa70ca396-0a34-413a-88e1-b956c1e683be) |This policy audits any Windows/Linux virtual machines if the Log Analytics extension is not installed. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VirtualMachines_LogAnalyticsAgent_AuditIfNotExists.json) |
 
-### 09.10 Monitoring
+### 12101.09ab1Organizational.3-09.ab 09.10 Monitoring
 
 **ID**: 12101.09ab1Organizational.3-09.ab
 **Ownership**: Shared
@@ -4600,7 +4600,7 @@ This built-in initiative is deployed as part of the
 |[The Log Analytics extension should be installed on Virtual Machine Scale Sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fefbde977-ba53-4479-b8e9-10b957924fbf) |This policy audits any Windows/Linux Virtual Machine Scale Sets if the Log Analytics extension is not installed. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VMSS_LogAnalyticsAgent_AuditIfNotExists.json) |
 |[Update information security policies](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5226dee6-3420-711b-4709-8e675ebd828f) |CMA_0518 - Update information security policies |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0518.json) |
 
-### 09.10 Monitoring
+### 12102.09ab1Organizational.4-09.ab 09.10 Monitoring
 
 **ID**: 12102.09ab1Organizational.4-09.ab
 **Ownership**: Shared
@@ -4615,7 +4615,7 @@ This built-in initiative is deployed as part of the
 |[Select additional testing for security control assessments](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff78fc35e-1268-0bca-a798-afcba9d2330a) |CMA_C1149 - Select additional testing for security control assessments |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1149.json) |
 |[Update POA&M items](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcc057769-01d9-95ad-a36f-1e62a7f9540b) |CMA_C1157 - Update POA&M items |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1157.json) |
 
-### 09.10 Monitoring
+### 12103.09ab1Organizational.5-09.ab 09.10 Monitoring
 
 **ID**: 12103.09ab1Organizational.5-09.ab
 **Ownership**: Shared
@@ -4634,7 +4634,7 @@ This built-in initiative is deployed as part of the
 |[Review file and folder activity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef718fe4-7ceb-9ddf-3198-0ee8f6fe9cba) |CMA_0473 - Review file and folder activity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0473.json) |
 |[Review role group changes weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70fe686f-1f91-7dab-11bf-bca4201e183b) |CMA_0476 - Review role group changes weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0476.json) |
 
-### 09.10 Monitoring
+### 1211.09aa3System.4-09.aa 09.10 Monitoring
 
 **ID**: 1211.09aa3System.4-09.aa
 **Ownership**: Shared
@@ -4647,11 +4647,11 @@ This built-in initiative is deployed as part of the
 |[Establish configuration management requirements for developers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8747b573-8294-86a0-8914-49e9b06a5ace) |CMA_0270 - Establish configuration management requirements for developers |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0270.json) |
 |[Perform audit for configuration change control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1282809c-9001-176b-4a81-260a085f4872) |CMA_0390 - Perform audit for configuration change control |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0390.json) |
 |[Perform disposition review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb5a4be05-3997-1731-3260-98be653610f6) |CMA_0391 - Perform disposition review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0391.json) |
-|[Resource logs in Azure Key Vault Managed HSM should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) |To recreate activity trails for investigation purposes when a security incident occurs or when your network is compromised, you may want to audit by enabling resource logs on Managed HSMs. Please follow the instructions here: [https://docs.microsoft.com/azure/key-vault/managed-hsm/logging](../../../key-vault/managed-hsm/logging.md). |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_AuditDiagnosticLog_Audit.json) |
+|[Resource logs in Azure Key Vault Managed HSM should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) |To recreate activity trails for investigation purposes when a security incident occurs or when your network is compromised, you may want to audit by enabling resource logs on Managed HSMs. Please follow the instructions here: [https://docs.microsoft.com/azure/key-vault/managed-hsm/logging](/azure/key-vault/managed-hsm/logging). |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_AuditDiagnosticLog_Audit.json) |
 |[Resource logs in Key Vault should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes when a security incident occurs or when your network is compromised |AuditIfNotExists, Disabled |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 |[Verify personal data is deleted at the end of processing](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6b877a6-5d6d-1862-4b7f-3ccc30b25b63) |CMA_0540 - Verify personal data is deleted at the end of processing |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0540.json) |
 
-### 09.10 Monitoring
+### 1212.09ab1System.1-09.ab 09.10 Monitoring
 
 **ID**: 1212.09ab1System.1-09.ab
 **Ownership**: Shared
@@ -4662,7 +4662,7 @@ This built-in initiative is deployed as part of the
 |[Obtain legal opinion for monitoring system activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd9af7f88-686a-5a8b-704b-eafdab278977) |CMA_C1688 - Obtain legal opinion for monitoring system activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1688.json) |
 |[Provide monitoring information as needed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fc1f0da-0050-19bb-3d75-81ae15940df6) |CMA_C1689 - Provide monitoring information as needed |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1689.json) |
 
-### 09.10 Monitoring
+### 1213.09ab2System.128-09.ab 09.10 Monitoring
 
 **ID**: 1213.09ab2System.128-09.ab
 **Ownership**: Shared
@@ -4673,7 +4673,7 @@ This built-in initiative is deployed as part of the
 |[Auto provisioning of the Log Analytics agent should be enabled on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |To monitor for security vulnerabilities and threats, Azure Security Center collects data from your Azure virtual machines. Data is collected by the Log Analytics agent, formerly known as the Microsoft Monitoring Agent (MMA), which reads various security-related configurations and event logs from the machine and copies the data to your Log Analytics workspace for analysis. We recommend enabling auto provisioning to automatically deploy the agent to all supported Azure VMs and any new ones that are created. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
 |[Route traffic through managed network access points](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbab9ef1d-a16d-421a-822d-3fa94e808156) |CMA_0484 - Route traffic through managed network access points |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0484.json) |
 
-### 09.10 Monitoring
+### 1214.09ab2System.3456-09.ab 09.10 Monitoring
 
 **ID**: 1214.09ab2System.3456-09.ab
 **Ownership**: Shared
@@ -4690,7 +4690,7 @@ This built-in initiative is deployed as part of the
 |[Revoke privileged roles as appropriate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32f22cfa-770b-057c-965b-450898425519) |CMA_0483 - Revoke privileged roles as appropriate |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0483.json) |
 |[Use privileged identity management](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe714b481-8fac-64a2-14a9-6f079b2501a4) |CMA_0533 - Use privileged identity management |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0533.json) |
 
-### 09.10 Monitoring
+### 1215.09ab2System.7-09.ab 09.10 Monitoring
 
 **ID**: 1215.09ab2System.7-09.ab
 **Ownership**: Shared
@@ -4702,7 +4702,7 @@ This built-in initiative is deployed as part of the
 |[Provide capability to process customer-controlled audit records](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21633c09-804e-7fcd-78e3-635c6bfe2be7) |CMA_C1126 - Provide capability to process customer-controlled audit records |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1126.json) |
 |[Virtual machines should have the Log Analytics extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa70ca396-0a34-413a-88e1-b956c1e683be) |This policy audits any Windows/Linux virtual machines if the Log Analytics extension is not installed. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VirtualMachines_LogAnalyticsAgent_AuditIfNotExists.json) |
 
-### 09.10 Monitoring
+### 1216.09ab3System.12-09.ab 09.10 Monitoring
 
 **ID**: 1216.09ab3System.12-09.ab
 **Ownership**: Shared
@@ -4730,7 +4730,7 @@ This built-in initiative is deployed as part of the
 |[The Log Analytics extension should be installed on Virtual Machine Scale Sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fefbde977-ba53-4479-b8e9-10b957924fbf) |This policy audits any Windows/Linux Virtual Machine Scale Sets if the Log Analytics extension is not installed. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VMSS_LogAnalyticsAgent_AuditIfNotExists.json) |
 |[Turn on sensors for endpoint security solution](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5fc24b95-53f7-0ed1-2330-701b539b97fe) |CMA_0514 - Turn on sensors for endpoint security solution |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0514.json) |
 
-### 09.10 Monitoring
+### 1217.09ab3System.3-09.ab 09.10 Monitoring
 
 **ID**: 1217.09ab3System.3-09.ab
 **Ownership**: Shared
@@ -4743,7 +4743,7 @@ This built-in initiative is deployed as part of the
 |[Document wireless access security controls](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8f835d6a-4d13-9a9c-37dc-176cebd37fda) |CMA_C1695 - Document wireless access security controls |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1695.json) |
 |[Set automated notifications for new and trending cloud applications in your organization](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf38215f-70c4-0cd6-40c2-c52d86690a45) |CMA_0495 - Set automated notifications for new and trending cloud applications in your organization |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0495.json) |
 
-### 09.10 Monitoring
+### 1218.09ab3System.47-09.ab 09.10 Monitoring
 
 **ID**: 1218.09ab3System.47-09.ab
 **Ownership**: Shared
@@ -4758,7 +4758,7 @@ This built-in initiative is deployed as part of the
 |[Set automated notifications for new and trending cloud applications in your organization](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf38215f-70c4-0cd6-40c2-c52d86690a45) |CMA_0495 - Set automated notifications for new and trending cloud applications in your organization |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0495.json) |
 |[Turn on sensors for endpoint security solution](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5fc24b95-53f7-0ed1-2330-701b539b97fe) |CMA_0514 - Turn on sensors for endpoint security solution |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0514.json) |
 
-### 09.10 Monitoring
+### 1219.09ab3System.10-09.ab 09.10 Monitoring
 
 **ID**: 1219.09ab3System.10-09.ab
 **Ownership**: Shared
@@ -4770,7 +4770,7 @@ This built-in initiative is deployed as part of the
 |[Provide audit review, analysis, and reporting capability](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F44f8a42d-739f-8030-89a8-4c2d5b3f6af3) |CMA_C1124 - Provide audit review, analysis, and reporting capability |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1124.json) |
 |[Provide capability to process customer-controlled audit records](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21633c09-804e-7fcd-78e3-635c6bfe2be7) |CMA_C1126 - Provide capability to process customer-controlled audit records |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1126.json) |
 
-### 09.10 Monitoring
+### 1220.09ab3System.56-09.ab 09.10 Monitoring
 
 **ID**: 1220.09ab3System.56-09.ab
 **Ownership**: Shared
@@ -4783,7 +4783,7 @@ This built-in initiative is deployed as part of the
 |[Verify software, firmware and information integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb28735f-518f-870e-15b4-49623cbe3aa0) |CMA_0542 - Verify software, firmware and information integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0542.json) |
 |[View and configure system diagnostic data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0123edae-3567-a05a-9b05-b53ebe9d3e7e) |CMA_0544 - View and configure system diagnostic data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0544.json) |
 
-### 09.10 Monitoring
+### 1222.09ab3System.8-09.ab 09.10 Monitoring
 
 **ID**: 1222.09ab3System.8-09.ab
 **Ownership**: Shared
@@ -4801,7 +4801,7 @@ This built-in initiative is deployed as part of the
 |[Provide capability to process customer-controlled audit records](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21633c09-804e-7fcd-78e3-635c6bfe2be7) |CMA_C1126 - Provide capability to process customer-controlled audit records |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1126.json) |
 |[Set automated notifications for new and trending cloud applications in your organization](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf38215f-70c4-0cd6-40c2-c52d86690a45) |CMA_0495 - Set automated notifications for new and trending cloud applications in your organization |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0495.json) |
 
-### 09.01 Documented Operating Procedures
+### 1229.09c1Organizational.1-09.c 09.01 Documented Operating Procedures
 
 **ID**: 1229.09c1Organizational.1-09.c
 **Ownership**: Shared
@@ -4813,7 +4813,7 @@ This built-in initiative is deployed as part of the
 |[Role-Based Access Control (RBAC) should be used on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac4a19c2-fa67-49b4-8ae5-0b2e78c49457) |To provide granular filtering on the actions that users can perform, use Role-Based Access Control (RBAC) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies. |Audit, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableRBAC_KubernetesService_Audit.json) |
 |[Separate duties of individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60ee1260-97f0-61bb-8155-5d8b75743655) |CMA_0492 - Separate duties of individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0492.json) |
 
-### 09.01 Documented Operating Procedures
+### 1230.09c2Organizational.1-09.c 09.01 Documented Operating Procedures
 
 **ID**: 1230.09c2Organizational.1-09.c
 **Ownership**: Shared
@@ -4834,7 +4834,7 @@ This built-in initiative is deployed as part of the
 |[Review user groups and applications with access to sensitive data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb1c944e-0e94-647b-9b7e-fdb8d2af0838) |CMA_0481 - Review user groups and applications with access to sensitive data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0481.json) |
 |[Separate duties of individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60ee1260-97f0-61bb-8155-5d8b75743655) |CMA_0492 - Separate duties of individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0492.json) |
 
-### 09.01 Documented Operating Procedures
+### 1231.09c2Organizational.23-09.c 09.01 Documented Operating Procedures
 
 **ID**: 1231.09c2Organizational.23-09.c
 **Ownership**: Shared
@@ -4845,7 +4845,7 @@ This built-in initiative is deployed as part of the
 |[Document separation of duties](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe6f7b584-877a-0d69-77d4-ab8b923a9650) |CMA_0204 - Document separation of duties |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0204.json) |
 |[Separate duties of individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60ee1260-97f0-61bb-8155-5d8b75743655) |CMA_0492 - Separate duties of individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0492.json) |
 
-### 09.01 Documented Operating Procedures
+### 1232.09c3Organizational.12-09.c 09.01 Documented Operating Procedures
 
 **ID**: 1232.09c3Organizational.12-09.c
 **Ownership**: Shared
@@ -4874,7 +4874,7 @@ This built-in initiative is deployed as part of the
 |[Use privileged identity management](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe714b481-8fac-64a2-14a9-6f079b2501a4) |CMA_0533 - Use privileged identity management |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0533.json) |
 |[Windows machines should meet requirements for 'User Rights Assignment'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe068b215-0026-4354-b347-8fb2766f73a2) |Windows machines should have the specified Group Policy settings in the category 'User Rights Assignment' for allowing log on locally, RDP, access from the network, and many other user activities. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_UserRightsAssignment_AINE.json) |
 
-### 09.01 Documented Operating Procedures
+### 1233.09c3Organizational.3-09.c 09.01 Documented Operating Procedures
 
 **ID**: 1233.09c3Organizational.3-09.c
 **Ownership**: Shared
@@ -4885,7 +4885,7 @@ This built-in initiative is deployed as part of the
 |[Document separation of duties](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe6f7b584-877a-0d69-77d4-ab8b923a9650) |CMA_0204 - Document separation of duties |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0204.json) |
 |[Separate duties of individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60ee1260-97f0-61bb-8155-5d8b75743655) |CMA_0492 - Separate duties of individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0492.json) |
 
-### 09.10 Monitoring
+### 1270.09ad1System.12-09.ad 09.10 Monitoring
 
 **ID**: 1270.09ad1System.12-09.ad
 **Ownership**: Shared
@@ -4911,7 +4911,7 @@ This built-in initiative is deployed as part of the
 |[Revoke privileged roles as appropriate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F32f22cfa-770b-057c-965b-450898425519) |CMA_0483 - Revoke privileged roles as appropriate |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0483.json) |
 |[Use privileged identity management](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe714b481-8fac-64a2-14a9-6f079b2501a4) |CMA_0533 - Use privileged identity management |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0533.json) |
 
-### 09.10 Monitoring
+### 1271.09ad1System.1-09.ad 09.10 Monitoring
 
 **ID**: 1271.09ad1System.1-09.ad
 **Ownership**: Shared
@@ -4927,7 +4927,7 @@ This built-in initiative is deployed as part of the
 |[Require approval for account creation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fde770ba6-50dd-a316-2932-e0d972eaa734) |CMA_0431 - Require approval for account creation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0431.json) |
 |[Separate duties of individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60ee1260-97f0-61bb-8155-5d8b75743655) |CMA_0492 - Separate duties of individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0492.json) |
 
-### 09.10 Monitoring
+### 1271.09ad2System.1 09.10 Monitoring
 
 **ID**: 1271.09ad2System.1
 **Ownership**: Shared
@@ -4942,7 +4942,7 @@ This built-in initiative is deployed as part of the
 |[Require approval for account creation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fde770ba6-50dd-a316-2932-e0d972eaa734) |CMA_0431 - Require approval for account creation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0431.json) |
 |[Separate duties of individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60ee1260-97f0-61bb-8155-5d8b75743655) |CMA_0492 - Separate duties of individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0492.json) |
 
-### 09.01 Documented Operating Procedures
+### 1276.09c2Organizational.2-09.c 09.01 Documented Operating Procedures
 
 **ID**: 1276.09c2Organizational.2-09.c
 **Ownership**: Shared
@@ -4968,7 +4968,7 @@ This built-in initiative is deployed as part of the
 |[Separate duties of individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60ee1260-97f0-61bb-8155-5d8b75743655) |CMA_0492 - Separate duties of individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0492.json) |
 |[Use privileged identity management](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe714b481-8fac-64a2-14a9-6f079b2501a4) |CMA_0533 - Use privileged identity management |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0533.json) |
 
-### 09.01 Documented Operating Procedures
+### 1277.09c2Organizational.4-09.c 09.01 Documented Operating Procedures
 
 **ID**: 1277.09c2Organizational.4-09.c
 **Ownership**: Shared
@@ -4980,7 +4980,7 @@ This built-in initiative is deployed as part of the
 |[Separate duties of individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60ee1260-97f0-61bb-8155-5d8b75743655) |CMA_0492 - Separate duties of individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0492.json) |
 |[Windows machines should meet requirements for 'Security Options - User Account Control'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F492a29ed-d143-4f03-b6a4-705ce081b463) |Windows machines should have the specified Group Policy settings in the category 'Security Options - User Account Control' for mode for admins, behavior of elevation prompt, and virtualizing file and registry write failures. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsUserAccountControl_AINE.json) |
 
-### 09.01 Documented Operating Procedures
+### 1278.09c2Organizational.56-09.c 09.01 Documented Operating Procedures
 
 **ID**: 1278.09c2Organizational.56-09.c
 **Ownership**: Shared
@@ -4991,7 +4991,7 @@ This built-in initiative is deployed as part of the
 |[Document separation of duties](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe6f7b584-877a-0d69-77d4-ab8b923a9650) |CMA_0204 - Document separation of duties |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0204.json) |
 |[Separate duties of individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60ee1260-97f0-61bb-8155-5d8b75743655) |CMA_0492 - Separate duties of individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0492.json) |
 
-### 09.01 Documented Operating Procedures
+### 1279.09c3Organizational.4-09.c 09.01 Documented Operating Procedures
 
 **ID**: 1279.09c3Organizational.4-09.c
 **Ownership**: Shared
@@ -5004,7 +5004,7 @@ This built-in initiative is deployed as part of the
 
 ## 13 Education, Training and Awareness
 
-### 02.03 During Employment
+### 1301.02e1Organizational.12-02.e 02.03 During Employment
 
 **ID**: 1301.02e1Organizational.12-02.e
 **Ownership**: Shared
@@ -5029,7 +5029,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 02.03 During Employment
+### 1302.02e2Organizational.134-02.e 02.03 During Employment
 
 **ID**: 1302.02e2Organizational.134-02.e
 **Ownership**: Shared
@@ -5056,7 +5056,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 02.03 During Employment
+### 1303.02e2Organizational.2-02.e 02.03 During Employment
 
 **ID**: 1303.02e2Organizational.2-02.e
 **Ownership**: Shared
@@ -5072,7 +5072,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 02.03 During Employment
+### 1304.02e3Organizational.1-02.e 02.03 During Employment
 
 **ID**: 1304.02e3Organizational.1-02.e
 **Ownership**: Shared
@@ -5089,7 +5089,7 @@ This built-in initiative is deployed as part of the
 |[Require developers to provide training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F676c3c35-3c36-612c-9523-36d266a65000) |CMA_C1611 - Require developers to provide training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1611.json) |
 |[Train personnel on disclosure of nonpublic information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F97f0d974-1486-01e2-2088-b888f46c0589) |CMA_C1084 - Train personnel on disclosure of nonpublic information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1084.json) |
 
-### 02.03 During Employment
+### 1305.02e3Organizational.23-02.e 02.03 During Employment
 
 **ID**: 1305.02e3Organizational.23-02.e
 **Ownership**: Shared
@@ -5100,7 +5100,7 @@ This built-in initiative is deployed as part of the
 |[Monitor security and privacy training completion](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82bd024a-5c99-05d6-96ff-01f539676a1a) |CMA_0379 - Monitor security and privacy training completion |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0379.json) |
 |[Retain training records](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3153d9c0-2584-14d3-362d-578b01358aeb) |CMA_0456 - Retain training records |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0456.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 1306.06e1Organizational.5-06.e 06.01 Compliance with Legal Requirements
 
 **ID**: 1306.06e1Organizational.5-06.e
 **Ownership**: Shared
@@ -5119,7 +5119,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 07.01 Responsibility for Assets
+### 1307.07c1Organizational.124-07.c 07.01 Responsibility for Assets
 
 **ID**: 1307.07c1Organizational.124-07.c
 **Ownership**: Shared
@@ -5136,7 +5136,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 09.04 Protection Against Malicious and Mobile Code
+### 1308.09j1Organizational.5-09.j 09.04 Protection Against Malicious and Mobile Code
 
 **ID**: 1308.09j1Organizational.5-09.j
 **Ownership**: Shared
@@ -5156,7 +5156,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 1309.01x1System.36-01.x 01.07 Mobile Computing and Teleworking
 
 **ID**: 1309.01x1System.36-01.x
 **Ownership**: Shared
@@ -5170,7 +5170,7 @@ This built-in initiative is deployed as part of the
 |[Provide security training for new users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1cb7bf71-841c-4741-438a-67c65fdd7194) |CMA_0419 - Provide security training for new users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0419.json) |
 |[Provide updated security awareness training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd136ae80-54dd-321c-98b4-17acf4af2169) |CMA_C1090 - Provide updated security awareness training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1090.json) |
 
-### 01.07 Mobile Computing and Teleworking
+### 1310.01y1Organizational.9-01.y 01.07 Mobile Computing and Teleworking
 
 **ID**: 1310.01y1Organizational.9-01.y
 **Ownership**: Shared
@@ -5188,7 +5188,7 @@ This built-in initiative is deployed as part of the
 |[Provide security training for new users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1cb7bf71-841c-4741-438a-67c65fdd7194) |CMA_0419 - Provide security training for new users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0419.json) |
 |[Provide updated security awareness training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd136ae80-54dd-321c-98b4-17acf4af2169) |CMA_C1090 - Provide updated security awareness training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1090.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1311.12c2Organizational.3-12.c 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1311.12c2Organizational.3-12.c
 **Ownership**: Shared
@@ -5199,7 +5199,7 @@ This built-in initiative is deployed as part of the
 |[Provide contingency training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fde936662-13dc-204c-75ec-1af80f994088) |CMA_0412 - Provide contingency training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0412.json) |
 |[Provide information spillage training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d4d0e90-32d9-4deb-2166-a00d51ed57c0) |CMA_0413 - Provide information spillage training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0413.json) |
 
-### 02.03 During Employment
+### 1313.02e1Organizational.3-02.e 02.03 During Employment
 
 **ID**: 1313.02e1Organizational.3-02.e
 **Ownership**: Shared
@@ -5210,7 +5210,7 @@ This built-in initiative is deployed as part of the
 |[Provide information spillage training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d4d0e90-32d9-4deb-2166-a00d51ed57c0) |CMA_0413 - Provide information spillage training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0413.json) |
 |[Provide periodic role-based security training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ac8621d-9acd-55bf-9f99-ee4212cc3d85) |CMA_C1095 - Provide periodic role-based security training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1095.json) |
 
-### 02.03 During Employment
+### 1314.02e2Organizational.5-02.e 02.03 During Employment
 
 **ID**: 1314.02e2Organizational.5-02.e
 **Ownership**: Shared
@@ -5222,7 +5222,7 @@ This built-in initiative is deployed as part of the
 |[Perform a risk assessment](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8c5d3d8d-5cba-0def-257c-5ab9ea9644dc) |CMA_0388 - Perform a risk assessment |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0388.json) |
 |[Provide privacy training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F518eafdd-08e5-37a9-795b-15a8d798056d) |CMA_0415 - Provide privacy training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0415.json) |
 
-### 02.03 During Employment
+### 1315.02e2Organizational.67-02.e 02.03 During Employment
 
 **ID**: 1315.02e2Organizational.67-02.e
 **Ownership**: Shared
@@ -5236,7 +5236,7 @@ This built-in initiative is deployed as part of the
 |[Provide security training before providing access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2b05dca2-25ec-9335-495c-29155f785082) |CMA_0418 - Provide security training before providing access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0418.json) |
 |[Provide security training for new users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1cb7bf71-841c-4741-438a-67c65fdd7194) |CMA_0419 - Provide security training for new users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0419.json) |
 
-### 07.01 Responsibility for Assets
+### 1324.07c1Organizational.3-07.c 07.01 Responsibility for Assets
 
 **ID**: 1324.07c1Organizational.3-07.c
 **Ownership**: Shared
@@ -5252,7 +5252,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 09.08 Exchange of Information
+### 1325.09s1Organizational.3-09.s 09.08 Exchange of Information
 
 **ID**: 1325.09s1Organizational.3-09.s
 **Ownership**: Shared
@@ -5271,7 +5271,7 @@ This built-in initiative is deployed as part of the
 |[Update rules of behavior and access agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6610f662-37e9-2f71-65be-502bdc2f554d) |CMA_0521 - Update rules of behavior and access agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0521.json) |
 |[Update rules of behavior and access agreements every 3 years](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ad83b58-2042-085d-08f0-13e946f26f89) |CMA_0522 - Update rules of behavior and access agreements every 3 years |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0522.json) |
 
-### 02.03 During Employment
+### 1327.02e2Organizational.8-02.e 02.03 During Employment
 
 **ID**: 1327.02e2Organizational.8-02.e
 **Ownership**: Shared
@@ -5284,7 +5284,7 @@ This built-in initiative is deployed as part of the
 |[Provide security training for new users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1cb7bf71-841c-4741-438a-67c65fdd7194) |CMA_0419 - Provide security training for new users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0419.json) |
 |[Provide updated security awareness training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd136ae80-54dd-321c-98b4-17acf4af2169) |CMA_C1090 - Provide updated security awareness training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1090.json) |
 
-### 02.03 During Employment
+### 1331.02e3Organizational.4-02.e 02.03 During Employment
 
 **ID**: 1331.02e3Organizational.4-02.e
 **Ownership**: Shared
@@ -5298,7 +5298,7 @@ This built-in initiative is deployed as part of the
 |[Manage a secure surveillance camera system](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff2222056-062d-1060-6dc2-0107a68c34b2) |CMA_0354 - Manage a secure surveillance camera system |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0354.json) |
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 
-### 02.03 During Employment
+### 1334.02e2Organizational.12-02.e 02.03 During Employment
 
 **ID**: 1334.02e2Organizational.12-02.e
 **Ownership**: Shared
@@ -5310,7 +5310,7 @@ This built-in initiative is deployed as part of the
 |[Provide security training for new users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1cb7bf71-841c-4741-438a-67c65fdd7194) |CMA_0419 - Provide security training for new users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0419.json) |
 |[Provide updated security awareness training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd136ae80-54dd-321c-98b4-17acf4af2169) |CMA_C1090 - Provide updated security awareness training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1090.json) |
 
-### 02.03 During Employment
+### 1336.02e1Organizational.5-02.e 02.03 During Employment
 
 **ID**: 1336.02e1Organizational.5-02.e
 **Ownership**: Shared
@@ -5327,7 +5327,7 @@ This built-in initiative is deployed as part of the
 
 ## 14 Third Party Assurance
 
-### 05.02 External Parties
+### 1404.05i2Organizational.1-05.i 05.02 External Parties
 
 **ID**: 1404.05i2Organizational.1-05.i
 **Ownership**: Shared
@@ -5336,7 +5336,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Review and update system and services acquisition policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff49925aa-9b11-76ae-10e2-6e973cc60f37) |CMA_C1560 - Review and update system and services acquisition policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1560.json) |
 
-### 05.02 External Parties
+### 1406.05k1Organizational.110-05.k 05.02 External Parties
 
 **ID**: 1406.05k1Organizational.110-05.k
 **Ownership**: Shared
@@ -5355,7 +5355,7 @@ This built-in initiative is deployed as part of the
 |[Document the information system environment in acquisition contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc148208b-1a6f-a4ac-7abc-23b1d41121b1) |CMA_0205 - Document the information system environment in acquisition contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0205.json) |
 |[Document the protection of cardholder data in third party contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77acc53d-0f67-6e06-7d04-5750653d4629) |CMA_0207 - Document the protection of cardholder data in third party contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0207.json) |
 
-### 05.02 External Parties
+### 1407.05k2Organizational.1-05.k 05.02 External Parties
 
 **ID**: 1407.05k2Organizational.1-05.k
 **Ownership**: Shared
@@ -5368,7 +5368,7 @@ This built-in initiative is deployed as part of the
 |[Require notification of third-party personnel transfer or termination](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fafd5d60a-48d2-8073-1ec2-6687e22f2ddd) |CMA_C1532 - Require notification of third-party personnel transfer or termination |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1532.json) |
 |[Require third-party providers to comply with personnel security policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8c31e15-642d-600f-78ab-bad47a5787e6) |CMA_C1530 - Require third-party providers to comply with personnel security policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1530.json) |
 
-### 09.02 Control Third Party Service Delivery
+### 1408.09e1System.1-09.e 09.02 Control Third Party Service Delivery
 
 **ID**: 1408.09e1System.1-09.e
 **Ownership**: Shared
@@ -5382,7 +5382,7 @@ This built-in initiative is deployed as part of the
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 |[Update interconnection security agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd48a6f19-a284-6fc6-0623-3367a74d3f50) |CMA_0519 - Update interconnection security agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0519.json) |
 
-### 09.02 Control Third Party Service Delivery
+### 1409.09e2System.1-09.e 09.02 Control Third Party Service Delivery
 
 **ID**: 1409.09e2System.1-09.e
 **Ownership**: Shared
@@ -5405,7 +5405,7 @@ This built-in initiative is deployed as part of the
 |[Monitor third-party provider compliance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8ded0c6-a668-9371-6bb6-661d58787198) |CMA_C1533 - Monitor third-party provider compliance |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1533.json) |
 |[Require third-party providers to comply with personnel security policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8c31e15-642d-600f-78ab-bad47a5787e6) |CMA_C1530 - Require third-party providers to comply with personnel security policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1530.json) |
 
-### 09.02 Control Third Party Service Delivery
+### 1410.09e2System.23-09.e 09.02 Control Third Party Service Delivery
 
 **ID**: 1410.09e2System.23-09.e
 **Ownership**: Shared
@@ -5424,7 +5424,7 @@ This built-in initiative is deployed as part of the
 |[Document the information system environment in acquisition contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc148208b-1a6f-a4ac-7abc-23b1d41121b1) |CMA_0205 - Document the information system environment in acquisition contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0205.json) |
 |[Document the protection of cardholder data in third party contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77acc53d-0f67-6e06-7d04-5750653d4629) |CMA_0207 - Document the protection of cardholder data in third party contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0207.json) |
 
-### 09.02 Control Third Party Service Delivery
+### 1411.09f1System.1-09.f 09.02 Control Third Party Service Delivery
 
 **ID**: 1411.09f1System.1-09.f
 **Ownership**: Shared
@@ -5441,7 +5441,7 @@ This built-in initiative is deployed as part of the
 |[Route traffic through managed network access points](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbab9ef1d-a16d-421a-822d-3fa94e808156) |CMA_0484 - Route traffic through managed network access points |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0484.json) |
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 
-### 10.05 Security In Development and Support Processes
+### 1416.10l1Organizational.1-10.l 10.05 Security In Development and Support Processes
 
 **ID**: 1416.10l1Organizational.1-10.l
 **Ownership**: Shared
@@ -5460,7 +5460,7 @@ This built-in initiative is deployed as part of the
 |[Document the information system environment in acquisition contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc148208b-1a6f-a4ac-7abc-23b1d41121b1) |CMA_0205 - Document the information system environment in acquisition contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0205.json) |
 |[Document the protection of cardholder data in third party contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77acc53d-0f67-6e06-7d04-5750653d4629) |CMA_0207 - Document the protection of cardholder data in third party contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0207.json) |
 
-### 10.05 Security In Development and Support Processes
+### 1417.10l2Organizational.1-10.l 10.05 Security In Development and Support Processes
 
 **ID**: 1417.10l2Organizational.1-10.l
 **Ownership**: Shared
@@ -5480,7 +5480,7 @@ This built-in initiative is deployed as part of the
 |[Document the protection of cardholder data in third party contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77acc53d-0f67-6e06-7d04-5750653d4629) |CMA_0207 - Document the protection of cardholder data in third party contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0207.json) |
 |[Require developers to produce evidence of security assessment plan execution](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8a63511-66f1-503f-196d-d6217ee0823a) |CMA_C1602 - Require developers to produce evidence of security assessment plan execution |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1602.json) |
 
-### 05.02 External Parties
+### 1419.05j1Organizational.12-05.j 05.02 External Parties
 
 **ID**: 1419.05j1Organizational.12-05.j
 **Ownership**: Shared
@@ -5499,7 +5499,7 @@ This built-in initiative is deployed as part of the
 |[Document the information system environment in acquisition contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc148208b-1a6f-a4ac-7abc-23b1d41121b1) |CMA_0205 - Document the information system environment in acquisition contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0205.json) |
 |[Document the protection of cardholder data in third party contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77acc53d-0f67-6e06-7d04-5750653d4629) |CMA_0207 - Document the protection of cardholder data in third party contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0207.json) |
 
-### 05.02 External Parties
+### 1421.05j2Organizational.12-05.j 05.02 External Parties
 
 **ID**: 1421.05j2Organizational.12-05.j
 **Ownership**: Shared
@@ -5517,7 +5517,7 @@ This built-in initiative is deployed as part of the
 |[Document the information system environment in acquisition contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc148208b-1a6f-a4ac-7abc-23b1d41121b1) |CMA_0205 - Document the information system environment in acquisition contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0205.json) |
 |[Document the protection of cardholder data in third party contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77acc53d-0f67-6e06-7d04-5750653d4629) |CMA_0207 - Document the protection of cardholder data in third party contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0207.json) |
 
-### 05.02 External Parties
+### 1422.05j2Organizational.3-05.j 05.02 External Parties
 
 **ID**: 1422.05j2Organizational.3-05.j
 **Ownership**: Shared
@@ -5531,7 +5531,7 @@ This built-in initiative is deployed as part of the
 |[Review cloud service provider's compliance with policies and agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fffea18d9-13de-6505-37f3-4c1f88070ad7) |CMA_0469 - Review cloud service provider's compliance with policies and agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0469.json) |
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 
-### 05.02 External Parties
+### 1423.05j2Organizational.4-05.j 05.02 External Parties
 
 **ID**: 1423.05j2Organizational.4-05.j
 **Ownership**: Shared
@@ -5548,7 +5548,7 @@ This built-in initiative is deployed as part of the
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 |[Verify security controls for external information systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdc7ec756-221c-33c8-0afe-c48e10e42321) |CMA_0541 - Verify security controls for external information systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0541.json) |
 
-### 05.02 External Parties
+### 1424.05j2Organizational.5-05.j 05.02 External Parties
 
 **ID**: 1424.05j2Organizational.5-05.j
 **Ownership**: Shared
@@ -5564,7 +5564,7 @@ This built-in initiative is deployed as part of the
 |[Support personal verification credentials issued by legal authorities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d39b5d9-0392-8954-8359-575ce1957d1a) |CMA_0507 - Support personal verification credentials issued by legal authorities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0507.json) |
 |[Verify identity before distributing authenticators](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72889284-15d2-90b2-4b39-a1e9541e1152) |CMA_0538 - Verify identity before distributing authenticators |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0538.json) |
 
-### 05.02 External Parties
+### 1429.05k1Organizational.34-05.k 05.02 External Parties
 
 **ID**: 1429.05k1Organizational.34-05.k
 **Ownership**: Shared
@@ -5586,7 +5586,7 @@ This built-in initiative is deployed as part of the
 |[Monitor third-party provider compliance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8ded0c6-a668-9371-6bb6-661d58787198) |CMA_C1533 - Monitor third-party provider compliance |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1533.json) |
 |[Require third-party providers to comply with personnel security policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8c31e15-642d-600f-78ab-bad47a5787e6) |CMA_C1530 - Require third-party providers to comply with personnel security policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1530.json) |
 
-### 05.02 External Parties
+### 1430.05k1Organizational.56-05.k 05.02 External Parties
 
 **ID**: 1430.05k1Organizational.56-05.k
 **Ownership**: Shared
@@ -5607,7 +5607,7 @@ This built-in initiative is deployed as part of the
 |[Establish third-party personnel security requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3881168c-5d38-6f04-61cc-b5d87b2c4c58) |CMA_C1529 - Establish third-party personnel security requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1529.json) |
 |[Require third-party providers to comply with personnel security policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8c31e15-642d-600f-78ab-bad47a5787e6) |CMA_C1530 - Require third-party providers to comply with personnel security policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1530.json) |
 
-### 05.02 External Parties
+### 1431.05k1Organizational.7-05.k 05.02 External Parties
 
 **ID**: 1431.05k1Organizational.7-05.k
 **Ownership**: Shared
@@ -5620,7 +5620,7 @@ This built-in initiative is deployed as part of the
 |[Require notification of third-party personnel transfer or termination](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fafd5d60a-48d2-8073-1ec2-6687e22f2ddd) |CMA_C1532 - Require notification of third-party personnel transfer or termination |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1532.json) |
 |[Require third-party providers to comply with personnel security policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8c31e15-642d-600f-78ab-bad47a5787e6) |CMA_C1530 - Require third-party providers to comply with personnel security policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1530.json) |
 
-### 05.02 External Parties
+### 1432.05k1Organizational.89-05.k 05.02 External Parties
 
 **ID**: 1432.05k1Organizational.89-05.k
 **Ownership**: Shared
@@ -5635,7 +5635,7 @@ This built-in initiative is deployed as part of the
 |[Monitor third-party provider compliance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8ded0c6-a668-9371-6bb6-661d58787198) |CMA_C1533 - Monitor third-party provider compliance |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1533.json) |
 |[Require third-party providers to comply with personnel security policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8c31e15-642d-600f-78ab-bad47a5787e6) |CMA_C1530 - Require third-party providers to comply with personnel security policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1530.json) |
 
-### 09.02 Control Third Party Service Delivery
+### 1438.09e2System.4-09.e 09.02 Control Third Party Service Delivery
 
 **ID**: 1438.09e2System.4-09.e
 **Ownership**: Shared
@@ -5657,7 +5657,7 @@ This built-in initiative is deployed as part of the
 |[Review cloud service provider's compliance with policies and agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fffea18d9-13de-6505-37f3-4c1f88070ad7) |CMA_0469 - Review cloud service provider's compliance with policies and agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0469.json) |
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 
-### 05.02 External Parties
+### 1450.05i2Organizational.2-05.i 05.02 External Parties
 
 **ID**: 1450.05i2Organizational.2-05.i
 **Ownership**: Shared
@@ -5675,7 +5675,7 @@ This built-in initiative is deployed as part of the
 |[Review cloud service provider's compliance with policies and agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fffea18d9-13de-6505-37f3-4c1f88070ad7) |CMA_0469 - Review cloud service provider's compliance with policies and agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0469.json) |
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 
-### 05.02 External Parties
+### 1451.05iCSPOrganizational.2-05.i 05.02 External Parties
 
 **ID**: 1451.05iCSPOrganizational.2-05.i
 **Ownership**: Shared
@@ -5704,7 +5704,7 @@ This built-in initiative is deployed as part of the
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 |[Use privileged identity management](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe714b481-8fac-64a2-14a9-6f079b2501a4) |CMA_0533 - Use privileged identity management |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0533.json) |
 
-### 05.02 External Parties
+### 1452.05kCSPOrganizational.1-05.k 05.02 External Parties
 
 **ID**: 1452.05kCSPOrganizational.1-05.k
 **Ownership**: Shared
@@ -5715,7 +5715,7 @@ This built-in initiative is deployed as part of the
 |[Establish third-party personnel security requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3881168c-5d38-6f04-61cc-b5d87b2c4c58) |CMA_C1529 - Establish third-party personnel security requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1529.json) |
 |[Require third-party providers to comply with personnel security policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8c31e15-642d-600f-78ab-bad47a5787e6) |CMA_C1530 - Require third-party providers to comply with personnel security policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1530.json) |
 
-### 05.02 External Parties
+### 1453.05kCSPOrganizational.2-05.k 05.02 External Parties
 
 **ID**: 1453.05kCSPOrganizational.2-05.k
 **Ownership**: Shared
@@ -5733,7 +5733,7 @@ This built-in initiative is deployed as part of the
 |[Review cloud service provider's compliance with policies and agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fffea18d9-13de-6505-37f3-4c1f88070ad7) |CMA_0469 - Review cloud service provider's compliance with policies and agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0469.json) |
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 
-### 05.02 External Parties
+### 1454.05kCSPOrganizational.3-05.k 05.02 External Parties
 
 **ID**: 1454.05kCSPOrganizational.3-05.k
 **Ownership**: Shared
@@ -5749,7 +5749,7 @@ This built-in initiative is deployed as part of the
 |[Review cloud service provider's compliance with policies and agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fffea18d9-13de-6505-37f3-4c1f88070ad7) |CMA_0469 - Review cloud service provider's compliance with policies and agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0469.json) |
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 
-### 05.02 External Parties
+### 1455.05kCSPOrganizational.4-05.k 05.02 External Parties
 
 **ID**: 1455.05kCSPOrganizational.4-05.k
 **Ownership**: Shared
@@ -5766,7 +5766,7 @@ This built-in initiative is deployed as part of the
 |[Review cloud service provider's compliance with policies and agreements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fffea18d9-13de-6505-37f3-4c1f88070ad7) |CMA_0469 - Review cloud service provider's compliance with policies and agreements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0469.json) |
 |[Undergo independent security review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b55929b-0101-47c0-a16e-d6ac5c7d21f8) |CMA_0515 - Undergo independent security review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0515.json) |
 
-### 09.02 Control Third Party Service Delivery
+### 1464.09e2Organizational.5-09.e 09.02 Control Third Party Service Delivery
 
 **ID**: 1464.09e2Organizational.5-09.e
 **Ownership**: Shared
@@ -5781,7 +5781,7 @@ This built-in initiative is deployed as part of the
 
 ## 15 Incident Management
 
-### 02.03 During Employment
+### 1501.02f1Organizational.123-02.f 02.03 During Employment
 
 **ID**: 1501.02f1Organizational.123-02.f
 **Ownership**: Shared
@@ -5800,7 +5800,7 @@ This built-in initiative is deployed as part of the
 |[Notify personnel upon sanctions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6228396e-2ace-7ca5-3247-45767dbf52f4) |CMA_0380 - Notify personnel upon sanctions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0380.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 02.03 During Employment
+### 1503.02f2Organizational.12-02.f 02.03 During Employment
 
 **ID**: 1503.02f2Organizational.12-02.f
 **Ownership**: Shared
@@ -5819,7 +5819,7 @@ This built-in initiative is deployed as part of the
 |[Notify personnel upon sanctions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6228396e-2ace-7ca5-3247-45767dbf52f4) |CMA_0380 - Notify personnel upon sanctions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0380.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 1504.06e1Organizational.34-06.e 06.01 Compliance with Legal Requirements
 
 **ID**: 1504.06e1Organizational.34-06.e
 **Ownership**: Shared
@@ -5843,7 +5843,7 @@ This built-in initiative is deployed as part of the
 |[Review user groups and applications with access to sensitive data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb1c944e-0e94-647b-9b7e-fdb8d2af0838) |CMA_0481 - Review user groups and applications with access to sensitive data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0481.json) |
 |[Set automated notifications for new and trending cloud applications in your organization](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf38215f-70c4-0cd6-40c2-c52d86690a45) |CMA_0495 - Set automated notifications for new and trending cloud applications in your organization |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0495.json) |
 
-### 11.01 Reporting Information Security Incidents and Weaknesses
+### 1505.11a1Organizational.13-11.a 11.01 Reporting Information Security Incidents and Weaknesses
 
 **ID**: 1505.11a1Organizational.13-11.a
 **Ownership**: Shared
@@ -5870,7 +5870,7 @@ This built-in initiative is deployed as part of the
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 11.01 Reporting Information Security Incidents and Weaknesses
+### 1506.11a1Organizational.2-11.a 11.01 Reporting Information Security Incidents and Weaknesses
 
 **ID**: 1506.11a1Organizational.2-11.a
 **Ownership**: Shared
@@ -5888,7 +5888,7 @@ This built-in initiative is deployed as part of the
 |[Manage contacts for authorities and special interest groups](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5269d7e4-3768-501d-7e46-66c56c15622c) |CMA_0359 - Manage contacts for authorities and special interest groups |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0359.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 11.01 Reporting Information Security Incidents and Weaknesses
+### 1507.11a1Organizational.4-11.a 11.01 Reporting Information Security Incidents and Weaknesses
 
 **ID**: 1507.11a1Organizational.4-11.a
 **Ownership**: Shared
@@ -5899,7 +5899,7 @@ This built-in initiative is deployed as part of the
 |[Implement Incident handling capability](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98e33927-8d7f-6d5f-44f5-2469b40b7215) |CMA_C1367 - Implement Incident handling capability |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1367.json) |
 |[Provide security awareness training for insider threats](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b8b05ec-3d21-215e-5d98-0f7cf0998202) |CMA_0417 - Provide security awareness training for insider threats |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0417.json) |
 
-### 11.01 Reporting Information Security Incidents and Weaknesses
+### 1508.11a2Organizational.1-11.a 11.01 Reporting Information Security Incidents and Weaknesses
 
 **ID**: 1508.11a2Organizational.1-11.a
 **Ownership**: Shared
@@ -5915,7 +5915,7 @@ This built-in initiative is deployed as part of the
 |[Provide information spillage training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d4d0e90-32d9-4deb-2166-a00d51ed57c0) |CMA_0413 - Provide information spillage training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0413.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 11.01 Reporting Information Security Incidents and Weaknesses
+### 1509.11a2Organizational.236-11.a 11.01 Reporting Information Security Incidents and Weaknesses
 
 **ID**: 1509.11a2Organizational.236-11.a
 **Ownership**: Shared
@@ -5940,7 +5940,7 @@ This built-in initiative is deployed as part of the
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 11.01 Reporting Information Security Incidents and Weaknesses
+### 1510.11a2Organizational.47-11.a 11.01 Reporting Information Security Incidents and Weaknesses
 
 **ID**: 1510.11a2Organizational.47-11.a
 **Ownership**: Shared
@@ -5959,7 +5959,7 @@ This built-in initiative is deployed as part of the
 |[Provide information spillage training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d4d0e90-32d9-4deb-2166-a00d51ed57c0) |CMA_0413 - Provide information spillage training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0413.json) |
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 
-### 11.01 Reporting Information Security Incidents and Weaknesses
+### 1511.11a2Organizational.5-11.a 11.01 Reporting Information Security Incidents and Weaknesses
 
 **ID**: 1511.11a2Organizational.5-11.a
 **Ownership**: Shared
@@ -5980,7 +5980,7 @@ This built-in initiative is deployed as part of the
 |[Provide information spillage training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d4d0e90-32d9-4deb-2166-a00d51ed57c0) |CMA_0413 - Provide information spillage training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0413.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 11.01 Reporting Information Security Incidents and Weaknesses
+### 1512.11a2Organizational.8-11.a 11.01 Reporting Information Security Incidents and Weaknesses
 
 **ID**: 1512.11a2Organizational.8-11.a
 **Ownership**: Shared
@@ -6005,7 +6005,7 @@ This built-in initiative is deployed as part of the
 |[Set automated notifications for new and trending cloud applications in your organization](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf38215f-70c4-0cd6-40c2-c52d86690a45) |CMA_0495 - Set automated notifications for new and trending cloud applications in your organization |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0495.json) |
 |[Turn on sensors for endpoint security solution](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5fc24b95-53f7-0ed1-2330-701b539b97fe) |CMA_0514 - Turn on sensors for endpoint security solution |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0514.json) |
 
-### 11.01 Reporting Information Security Incidents and Weaknesses
+### 1515.11a3Organizational.3-11.a 11.01 Reporting Information Security Incidents and Weaknesses
 
 **ID**: 1515.11a3Organizational.3-11.a
 **Ownership**: Shared
@@ -6024,7 +6024,7 @@ This built-in initiative is deployed as part of the
 |[Maintain incident response plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F37546841-8ea1-5be0-214d-8ac599588332) |CMA_0352 - Maintain incident response plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0352.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1516.11c1Organizational.12-11.c 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1516.11c1Organizational.12-11.c
 **Ownership**: Shared
@@ -6042,7 +6042,7 @@ This built-in initiative is deployed as part of the
 |[Provide information spillage training](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d4d0e90-32d9-4deb-2166-a00d51ed57c0) |CMA_0413 - Provide information spillage training |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0413.json) |
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1517.11c1Organizational.3-11.c 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1517.11c1Organizational.3-11.c
 **Ownership**: Shared
@@ -6056,7 +6056,7 @@ This built-in initiative is deployed as part of the
 |[Maintain incident response plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F37546841-8ea1-5be0-214d-8ac599588332) |CMA_0352 - Maintain incident response plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0352.json) |
 |[Protect incident response plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2401b496-7f23-79b2-9f80-89bb5abf3d4a) |CMA_0405 - Protect incident response plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0405.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1518.11c2Organizational.13-11.c 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1518.11c2Organizational.13-11.c
 **Ownership**: Shared
@@ -6065,7 +6065,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Review and update incident response policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb28c8687-4bbd-8614-0b96-cdffa1ac6d9c) |CMA_C1352 - Review and update incident response policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1352.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1519.11c2Organizational.2-11.c 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1519.11c2Organizational.2-11.c
 **Ownership**: Shared
@@ -6087,7 +6087,7 @@ This built-in initiative is deployed as part of the
 |[Review file and folder activity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef718fe4-7ceb-9ddf-3198-0ee8f6fe9cba) |CMA_0473 - Review file and folder activity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0473.json) |
 |[Review role group changes weekly](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70fe686f-1f91-7dab-11bf-bca4201e183b) |CMA_0476 - Review role group changes weekly |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0476.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1520.11c2Organizational.4-11.c 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1520.11c2Organizational.4-11.c
 **Ownership**: Shared
@@ -6103,7 +6103,7 @@ This built-in initiative is deployed as part of the
 |[Protect incident response plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2401b496-7f23-79b2-9f80-89bb5abf3d4a) |CMA_0405 - Protect incident response plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0405.json) |
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1521.11c2Organizational.56-11.c 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1521.11c2Organizational.56-11.c
 **Ownership**: Shared
@@ -6127,7 +6127,7 @@ This built-in initiative is deployed as part of the
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1522.11c3Organizational.13-11.c 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1522.11c3Organizational.13-11.c
 **Ownership**: Shared
@@ -6141,7 +6141,7 @@ This built-in initiative is deployed as part of the
 |[Implement incident handling](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F433de59e-7a53-a766-02c2-f80f8421469a) |CMA_0318 - Implement incident handling |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0318.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1523.11c3Organizational.24-11.c 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1523.11c3Organizational.24-11.c
 **Ownership**: Shared
@@ -6153,7 +6153,7 @@ This built-in initiative is deployed as part of the
 |[Identify incident response personnel](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F037c0089-6606-2dab-49ad-437005b5035f) |CMA_0301 - Identify incident response personnel |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0301.json) |
 |[Use automated mechanisms for security alerts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb8689b2e-4308-a58b-a0b4-6f3343a000df) |CMA_C1707 - Use automated mechanisms for security alerts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1707.json) |
 
-### 11.01 Reporting Information Security Incidents and Weaknesses
+### 1524.11a1Organizational.5-11.a 11.01 Reporting Information Security Incidents and Weaknesses
 
 **ID**: 1524.11a1Organizational.5-11.a
 **Ownership**: Shared
@@ -6164,7 +6164,7 @@ This built-in initiative is deployed as part of the
 |[Obtain legal opinion for monitoring system activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd9af7f88-686a-5a8b-704b-eafdab278977) |CMA_C1688 - Obtain legal opinion for monitoring system activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1688.json) |
 |[Require external service providers to comply with security requirements](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4e45863d-9ea9-32b4-a204-2680bc6007a6) |CMA_C1586 - Require external service providers to comply with security requirements |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1586.json) |
 
-### 11.01 Reporting Information Security Incidents and Weaknesses
+### 1525.11a1Organizational.6-11.a 11.01 Reporting Information Security Incidents and Weaknesses
 
 **ID**: 1525.11a1Organizational.6-11.a
 **Ownership**: Shared
@@ -6178,7 +6178,7 @@ This built-in initiative is deployed as part of the
 |[Notify personnel upon sanctions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6228396e-2ace-7ca5-3247-45767dbf52f4) |CMA_0380 - Notify personnel upon sanctions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0380.json) |
 |[Provide security awareness training for insider threats](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b8b05ec-3d21-215e-5d98-0f7cf0998202) |CMA_0417 - Provide security awareness training for insider threats |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0417.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1560.11d1Organizational.1-11.d 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1560.11d1Organizational.1-11.d
 **Ownership**: Shared
@@ -6194,7 +6194,7 @@ This built-in initiative is deployed as part of the
 |[Protect incident response plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2401b496-7f23-79b2-9f80-89bb5abf3d4a) |CMA_0405 - Protect incident response plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0405.json) |
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1561.11d2Organizational.14-11.d 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1561.11d2Organizational.14-11.d
 **Ownership**: Shared
@@ -6208,7 +6208,7 @@ This built-in initiative is deployed as part of the
 |[Review and update incident response policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb28c8687-4bbd-8614-0b96-cdffa1ac6d9c) |CMA_C1352 - Review and update incident response policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1352.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1562.11d2Organizational.2-11.d 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1562.11d2Organizational.2-11.d
 **Ownership**: Shared
@@ -6228,7 +6228,7 @@ This built-in initiative is deployed as part of the
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1563.11d2Organizational.3-11.d 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1563.11d2Organizational.3-11.d
 **Ownership**: Shared
@@ -6240,7 +6240,7 @@ This built-in initiative is deployed as part of the
 |[Maintain incident response plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F37546841-8ea1-5be0-214d-8ac599588332) |CMA_0352 - Maintain incident response plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0352.json) |
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 
-### 11.01 Reporting Information Security Incidents and Weaknesses
+### 1577.11aCSPOrganizational.1-11.a 11.01 Reporting Information Security Incidents and Weaknesses
 
 **ID**: 1577.11aCSPOrganizational.1-11.a
 **Ownership**: Shared
@@ -6250,7 +6250,7 @@ This built-in initiative is deployed as part of the
 |[Ensure external providers consistently meet interests of the customers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3eabed6d-1912-2d3c-858b-f438d08d0412) |CMA_C1592 - Ensure external providers consistently meet interests of the customers |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1592.json) |
 |[Identify incident response personnel](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F037c0089-6606-2dab-49ad-437005b5035f) |CMA_0301 - Identify incident response personnel |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0301.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1587.11c2Organizational.10-11.c 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1587.11c2Organizational.10-11.c
 **Ownership**: Shared
@@ -6267,7 +6267,7 @@ This built-in initiative is deployed as part of the
 |[Protect incident response plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2401b496-7f23-79b2-9f80-89bb5abf3d4a) |CMA_0405 - Protect incident response plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0405.json) |
 |[View and investigate restricted users](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98145a9b-428a-7e81-9d14-ebb154a24f93) |CMA_0545 - View and investigate restricted users |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0545.json) |
 
-### 11.02 Management of Information Security Incidents and Improvements
+### 1589.11c1Organizational.5-11.c 11.02 Management of Information Security Incidents and Improvements
 
 **ID**: 1589.11c1Organizational.5-11.c
 **Ownership**: Shared
@@ -6281,7 +6281,7 @@ This built-in initiative is deployed as part of the
 
 ## 16 Business Continuity & Disaster Recovery
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1601.12c1Organizational.1238-12.c 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1601.12c1Organizational.1238-12.c
 **Ownership**: Shared
@@ -6292,7 +6292,7 @@ This built-in initiative is deployed as part of the
 |[Test the business continuity and disaster recovery plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58a51cde-008b-1a5d-61b5-d95849770677) |CMA_0509 - Test the business continuity and disaster recovery plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0509.json) |
 |[Update contingency plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F14a4fd0a-9100-1e12-1362-792014a28155) |CMA_C1248 - Update contingency plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1248.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1602.12c1Organizational.4567-12.c 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1602.12c1Organizational.4567-12.c
 **Ownership**: Shared
@@ -6303,7 +6303,7 @@ This built-in initiative is deployed as part of the
 |[Develop and document a business continuity and disaster recovery plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd6cbcba-4a2d-507c-53e3-296b5c238a8e) |CMA_0146 - Develop and document a business continuity and disaster recovery plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0146.json) |
 |[Develop contingency plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa305b4d-8c84-1754-0c74-dec004e66be0) |CMA_C1244 - Develop contingency plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1244.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1603.12c1Organizational.9-12.c 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1603.12c1Organizational.9-12.c
 **Ownership**: Shared
@@ -6316,7 +6316,7 @@ This built-in initiative is deployed as part of the
 |[Distribute policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feff6e4a5-3efe-94dd-2ed1-25d56a019a82) |CMA_0185 - Distribute policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0185.json) |
 |[Review and update contingency planning policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe9c60c37-65b0-2d72-6c3c-af66036203ae) |CMA_C1243 - Review and update contingency planning policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1243.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1604.12c2Organizational.16789-12.c 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1604.12c2Organizational.16789-12.c
 **Ownership**: Shared
@@ -6330,7 +6330,7 @@ This built-in initiative is deployed as part of the
 |[Establish an alternate processing site](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf5ff768-a34b-720e-1224-e6b3214f3ba6) |CMA_0262 - Establish an alternate processing site |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0262.json) |
 |[Establish requirements for internet service providers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f2e834d-7e40-a4d5-a216-e49b16955ccf) |CMA_0278 - Establish requirements for internet service providers |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0278.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1607.12c2Organizational.4-12.c 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1607.12c2Organizational.4-12.c
 **Ownership**: Shared
@@ -6340,7 +6340,7 @@ This built-in initiative is deployed as part of the
 |[Develop contingency plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa305b4d-8c84-1754-0c74-dec004e66be0) |CMA_C1244 - Develop contingency plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1244.json) |
 |[Review and update contingency planning policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe9c60c37-65b0-2d72-6c3c-af66036203ae) |CMA_C1243 - Review and update contingency planning policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1243.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1608.12c2Organizational.5-12.c 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1608.12c2Organizational.5-12.c
 **Ownership**: Shared
@@ -6351,7 +6351,7 @@ This built-in initiative is deployed as part of the
 |[Separately store backup information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc26e2fd-3149-74b4-5988-d64bb90f8ef7) |CMA_C1293 - Separately store backup information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1293.json) |
 |[Transfer backup information to an alternate storage site](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7bdb79ea-16b8-453e-4ca4-ad5b16012414) |CMA_C1294 - Transfer backup information to an alternate storage site |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1294.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1609.12c3Organizational.12-12.c 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1609.12c3Organizational.12-12.c
 **Ownership**: Shared
@@ -6360,7 +6360,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Establish requirements for internet service providers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f2e834d-7e40-a4d5-a216-e49b16955ccf) |CMA_0278 - Establish requirements for internet service providers |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0278.json) |
 
-### 09.05 Information Back-Up
+### 1616.09l1Organizational.16-09.l 09.05 Information Back-Up
 
 **ID**: 1616.09l1Organizational.16-09.l
 **Ownership**: Shared
@@ -6370,7 +6370,7 @@ This built-in initiative is deployed as part of the
 |[Conduct backup of information system documentation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb269a749-705e-8bff-055a-147744675cdf) |CMA_C1289 - Conduct backup of information system documentation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1289.json) |
 |[Long-term geo-redundant backup should be enabled for Azure SQL Databases](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd38fc420-0735-4ef3-ac11-c806f651a570) |This policy audits any Azure SQL Database with long-term geo-redundant backup not enabled. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_SQLDatabase_AuditIfNotExists.json) |
 
-### 09.05 Information Back-Up
+### 1617.09l1Organizational.23-09.l 09.05 Information Back-Up
 
 **ID**: 1617.09l1Organizational.23-09.l
 **Ownership**: Shared
@@ -6381,7 +6381,7 @@ This built-in initiative is deployed as part of the
 |[Develop contingency plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa305b4d-8c84-1754-0c74-dec004e66be0) |CMA_C1244 - Develop contingency plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1244.json) |
 |[Geo-redundant backup should be enabled for Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |Azure Database for MySQL allows you to choose the redundancy option for your database server. It can be set to a geo-redundant backup storage in which the data is not only stored within the region in which your server is hosted, but is also replicated to a paired region to provide recovery option in case of a region failure. Configuring geo-redundant storage for backup is only allowed during server create. |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
 
-### 09.05 Information Back-Up
+### 1618.09l1Organizational.45-09.l 09.05 Information Back-Up
 
 **ID**: 1618.09l1Organizational.45-09.l
 **Ownership**: Shared
@@ -6396,7 +6396,7 @@ This built-in initiative is deployed as part of the
 |[Geo-redundant backup should be enabled for Azure Database for PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F48af4db5-9b8b-401c-8e74-076be876a430) |Azure Database for PostgreSQL allows you to choose the redundancy option for your database server. It can be set to a geo-redundant backup storage in which the data is not only stored within the region in which your server is hosted, but is also replicated to a paired region to provide recovery option in case of a region failure. Configuring geo-redundant storage for backup is only allowed during server create. |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForPostgreSQL_Audit.json) |
 |[Separately store backup information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc26e2fd-3149-74b4-5988-d64bb90f8ef7) |CMA_C1293 - Separately store backup information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1293.json) |
 
-### 09.05 Information Back-Up
+### 1619.09l1Organizational.7-09.l 09.05 Information Back-Up
 
 **ID**: 1619.09l1Organizational.7-09.l
 **Ownership**: Shared
@@ -6406,7 +6406,7 @@ This built-in initiative is deployed as part of the
 |[Establish requirements for internet service providers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f2e834d-7e40-a4d5-a216-e49b16955ccf) |CMA_0278 - Establish requirements for internet service providers |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0278.json) |
 |[Geo-redundant backup should be enabled for Azure Database for MariaDB](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ec47710-77ff-4a3d-9181-6aa50af424d0) |Azure Database for MariaDB allows you to choose the redundancy option for your database server. It can be set to a geo-redundant backup storage in which the data is not only stored within the region in which your server is hosted, but is also replicated to a paired region to provide recovery option in case of a region failure. Configuring geo-redundant storage for backup is only allowed during server create. |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMariaDB_Audit.json) |
 
-### 09.05 Information Back-Up
+### 1620.09l1Organizational.8-09.l 09.05 Information Back-Up
 
 **ID**: 1620.09l1Organizational.8-09.l
 **Ownership**: Shared
@@ -6419,7 +6419,7 @@ This built-in initiative is deployed as part of the
 |[Separately store backup information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc26e2fd-3149-74b4-5988-d64bb90f8ef7) |CMA_C1293 - Separately store backup information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1293.json) |
 |[Transfer backup information to an alternate storage site](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7bdb79ea-16b8-453e-4ca4-ad5b16012414) |CMA_C1294 - Transfer backup information to an alternate storage site |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1294.json) |
 
-### 09.05 Information Back-Up
+### 1621.09l2Organizational.1-09.l 09.05 Information Back-Up
 
 **ID**: 1621.09l2Organizational.1-09.l
 **Ownership**: Shared
@@ -6430,7 +6430,7 @@ This built-in initiative is deployed as part of the
 |[Long-term geo-redundant backup should be enabled for Azure SQL Databases](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd38fc420-0735-4ef3-ac11-c806f651a570) |This policy audits any Azure SQL Database with long-term geo-redundant backup not enabled. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_SQLDatabase_AuditIfNotExists.json) |
 |[Maintain records of processing of personal data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F92ede480-154e-0e22-4dca-8b46a74a3a51) |CMA_0353 - Maintain records of processing of personal data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0353.json) |
 
-### 09.05 Information Back-Up
+### 1622.09l2Organizational.23-09.l 09.05 Information Back-Up
 
 **ID**: 1622.09l2Organizational.23-09.l
 **Ownership**: Shared
@@ -6442,7 +6442,7 @@ This built-in initiative is deployed as part of the
 |[Identify and mitigate potential issues at alternate storage site](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F13939f8c-4cd5-a6db-9af4-9dfec35e3722) |CMA_C1271 - Identify and mitigate potential issues at alternate storage site |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1271.json) |
 |[Separately store backup information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc26e2fd-3149-74b4-5988-d64bb90f8ef7) |CMA_C1293 - Separately store backup information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1293.json) |
 
-### 09.05 Information Back-Up
+### 1623.09l2Organizational.4-09.l 09.05 Information Back-Up
 
 **ID**: 1623.09l2Organizational.4-09.l
 **Ownership**: Shared
@@ -6453,7 +6453,7 @@ This built-in initiative is deployed as part of the
 |[Establish backup policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f23967c-a74b-9a09-9dc2-f566f61a87b9) |CMA_0268 - Establish backup policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0268.json) |
 |[Geo-redundant backup should be enabled for Azure Database for PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F48af4db5-9b8b-401c-8e74-076be876a430) |Azure Database for PostgreSQL allows you to choose the redundancy option for your database server. It can be set to a geo-redundant backup storage in which the data is not only stored within the region in which your server is hosted, but is also replicated to a paired region to provide recovery option in case of a region failure. Configuring geo-redundant storage for backup is only allowed during server create. |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForPostgreSQL_Audit.json) |
 
-### 09.05 Information Back-Up
+### 1624.09l3Organizational.12-09.l 09.05 Information Back-Up
 
 **ID**: 1624.09l3Organizational.12-09.l
 **Ownership**: Shared
@@ -6464,7 +6464,7 @@ This built-in initiative is deployed as part of the
 |[Establish backup policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f23967c-a74b-9a09-9dc2-f566f61a87b9) |CMA_0268 - Establish backup policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0268.json) |
 |[Geo-redundant backup should be enabled for Azure Database for MariaDB](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ec47710-77ff-4a3d-9181-6aa50af424d0) |Azure Database for MariaDB allows you to choose the redundancy option for your database server. It can be set to a geo-redundant backup storage in which the data is not only stored within the region in which your server is hosted, but is also replicated to a paired region to provide recovery option in case of a region failure. Configuring geo-redundant storage for backup is only allowed during server create. |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMariaDB_Audit.json) |
 
-### 09.05 Information Back-Up
+### 1625.09l3Organizational.34-09.l 09.05 Information Back-Up
 
 **ID**: 1625.09l3Organizational.34-09.l
 **Ownership**: Shared
@@ -6474,7 +6474,7 @@ This built-in initiative is deployed as part of the
 |[Azure Backup should be enabled for Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F013e242c-8828-4970-87b3-ab247555486d) |Ensure protection of your Azure Virtual Machines by enabling Azure Backup. Azure Backup is a secure and cost effective data protection solution for Azure. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Backup/VirtualMachines_EnableAzureBackup_Audit.json) |
 |[Conduct backup of information system documentation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb269a749-705e-8bff-055a-147744675cdf) |CMA_C1289 - Conduct backup of information system documentation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1289.json) |
 
-### 09.05 Information Back-Up
+### 1626.09l3Organizational.5-09.l 09.05 Information Back-Up
 
 **ID**: 1626.09l3Organizational.5-09.l
 **Ownership**: Shared
@@ -6484,7 +6484,7 @@ This built-in initiative is deployed as part of the
 |[Conduct backup of information system documentation](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb269a749-705e-8bff-055a-147744675cdf) |CMA_C1289 - Conduct backup of information system documentation |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1289.json) |
 |[Geo-redundant backup should be enabled for Azure Database for PostgreSQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F48af4db5-9b8b-401c-8e74-076be876a430) |Azure Database for PostgreSQL allows you to choose the redundancy option for your database server. It can be set to a geo-redundant backup storage in which the data is not only stored within the region in which your server is hosted, but is also replicated to a paired region to provide recovery option in case of a region failure. Configuring geo-redundant storage for backup is only allowed during server create. |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForPostgreSQL_Audit.json) |
 
-### 09.05 Information Back-Up
+### 1627.09l3Organizational.6-09.l 09.05 Information Back-Up
 
 **ID**: 1627.09l3Organizational.6-09.l
 **Ownership**: Shared
@@ -6494,7 +6494,7 @@ This built-in initiative is deployed as part of the
 |[Geo-redundant backup should be enabled for Azure Database for MariaDB](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ec47710-77ff-4a3d-9181-6aa50af424d0) |Azure Database for MariaDB allows you to choose the redundancy option for your database server. It can be set to a geo-redundant backup storage in which the data is not only stored within the region in which your server is hosted, but is also replicated to a paired region to provide recovery option in case of a region failure. Configuring geo-redundant storage for backup is only allowed during server create. |Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMariaDB_Audit.json) |
 |[Separately store backup information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc26e2fd-3149-74b4-5988-d64bb90f8ef7) |CMA_C1293 - Separately store backup information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1293.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1634.12b1Organizational.1-12.b 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1634.12b1Organizational.1-12.b
 **Ownership**: Shared
@@ -6507,7 +6507,7 @@ This built-in initiative is deployed as part of the
 |[Develop contingency planning policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F75b42dcf-7840-1271-260b-852273d7906e) |CMA_0156 - Develop contingency planning policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0156.json) |
 |[Distribute policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feff6e4a5-3efe-94dd-2ed1-25d56a019a82) |CMA_0185 - Distribute policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0185.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1635.12b1Organizational.2-12.b 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1635.12b1Organizational.2-12.b
 **Ownership**: Shared
@@ -6521,7 +6521,7 @@ This built-in initiative is deployed as part of the
 |[Perform a risk assessment](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8c5d3d8d-5cba-0def-257c-5ab9ea9644dc) |CMA_0388 - Perform a risk assessment |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0388.json) |
 |[Plan for resumption of essential business functions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ded6497-815d-6506-242b-e043e0273928) |CMA_C1253 - Plan for resumption of essential business functions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1253.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1636.12b2Organizational.1-12.b 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1636.12b2Organizational.1-12.b
 **Ownership**: Shared
@@ -6532,7 +6532,7 @@ This built-in initiative is deployed as part of the
 |[Develop contingency plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa305b4d-8c84-1754-0c74-dec004e66be0) |CMA_C1244 - Develop contingency plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1244.json) |
 |[Perform a business impact assessment and application criticality assessment](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcb8841d4-9d13-7292-1d06-ba4d68384681) |CMA_0386 - Perform a business impact assessment and application criticality assessment |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0386.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1637.12b2Organizational.2-12.b 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1637.12b2Organizational.2-12.b
 **Ownership**: Shared
@@ -6548,7 +6548,7 @@ This built-in initiative is deployed as part of the
 |[Update contingency plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F14a4fd0a-9100-1e12-1362-792014a28155) |CMA_C1248 - Update contingency plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1248.json) |
 |[Windows machines should meet requirements for 'Security Options - Recovery console'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff71be03e-e25b-4d0f-b8bc-9b3e309b66c0) |Windows machines should have the specified Group Policy settings in the category 'Security Options - Recovery console' for allowing floppy copy and access to all drives and folders. This policy requires that the Guest Configuration prerequisites have been deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsRecoveryconsole_AINE.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1638.12b2Organizational.345-12.b 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1638.12b2Organizational.345-12.b
 **Ownership**: Shared
@@ -6561,7 +6561,7 @@ This built-in initiative is deployed as part of the
 |[Perform a risk assessment](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8c5d3d8d-5cba-0def-257c-5ab9ea9644dc) |CMA_0388 - Perform a risk assessment |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0388.json) |
 |[Plan for resumption of essential business functions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ded6497-815d-6506-242b-e043e0273928) |CMA_C1253 - Plan for resumption of essential business functions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1253.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1666.12d1Organizational.1235-12.d 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1666.12d1Organizational.1235-12.d
 **Ownership**: Shared
@@ -6573,7 +6573,7 @@ This built-in initiative is deployed as part of the
 |[Develop contingency plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa305b4d-8c84-1754-0c74-dec004e66be0) |CMA_C1244 - Develop contingency plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1244.json) |
 |[Plan for resumption of essential business functions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ded6497-815d-6506-242b-e043e0273928) |CMA_C1253 - Plan for resumption of essential business functions |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1253.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1667.12d1Organizational.4-12.d 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1667.12d1Organizational.4-12.d
 **Ownership**: Shared
@@ -6585,7 +6585,7 @@ This built-in initiative is deployed as part of the
 |[Develop and document a business continuity and disaster recovery plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd6cbcba-4a2d-507c-53e3-296b5c238a8e) |CMA_0146 - Develop and document a business continuity and disaster recovery plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0146.json) |
 |[Update contingency plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F14a4fd0a-9100-1e12-1362-792014a28155) |CMA_C1248 - Update contingency plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1248.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1668.12d1Organizational.67-12.d 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1668.12d1Organizational.67-12.d
 **Ownership**: Shared
@@ -6597,7 +6597,7 @@ This built-in initiative is deployed as part of the
 |[Establish an alternate processing site](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf5ff768-a34b-720e-1224-e6b3214f3ba6) |CMA_0262 - Establish an alternate processing site |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0262.json) |
 |[Review and update contingency planning policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe9c60c37-65b0-2d72-6c3c-af66036203ae) |CMA_C1243 - Review and update contingency planning policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1243.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1669.12d1Organizational.8-12.d 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1669.12d1Organizational.8-12.d
 **Ownership**: Shared
@@ -6611,7 +6611,7 @@ This built-in initiative is deployed as part of the
 |[Test the business continuity and disaster recovery plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F58a51cde-008b-1a5d-61b5-d95849770677) |CMA_0509 - Test the business continuity and disaster recovery plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0509.json) |
 |[Update contingency plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F14a4fd0a-9100-1e12-1362-792014a28155) |CMA_C1248 - Update contingency plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1248.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1670.12d2Organizational.1-12.d 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1670.12d2Organizational.1-12.d
 **Ownership**: Shared
@@ -6620,7 +6620,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Develop contingency plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa305b4d-8c84-1754-0c74-dec004e66be0) |CMA_C1244 - Develop contingency plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1244.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1671.12d2Organizational.2-12.d 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1671.12d2Organizational.2-12.d
 **Ownership**: Shared
@@ -6631,7 +6631,7 @@ This built-in initiative is deployed as part of the
 |[Review contingency plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53fc1282-0ee3-2764-1319-e20143bb0ea5) |CMA_C1247 - Review contingency plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1247.json) |
 |[Update contingency plan](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F14a4fd0a-9100-1e12-1362-792014a28155) |CMA_C1248 - Update contingency plan |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1248.json) |
 
-### 12.01 Information Security Aspects of Business Continuity Management
+### 1672.12d2Organizational.3-12.d 12.01 Information Security Aspects of Business Continuity Management
 
 **ID**: 1672.12d2Organizational.3-12.d
 **Ownership**: Shared
@@ -6646,7 +6646,7 @@ This built-in initiative is deployed as part of the
 
 ## 17 Risk Management
 
-### 03.01 Risk Management Program
+### 1704.03b1Organizational.12-03.b 03.01 Risk Management Program
 
 **ID**: 1704.03b1Organizational.12-03.b
 **Ownership**: Shared
@@ -6656,7 +6656,7 @@ This built-in initiative is deployed as part of the
 |[Conduct Risk Assessment](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F677e1da4-00c3-287a-563d-f4a1cf9b99a0) |CMA_C1543 - Conduct Risk Assessment |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1543.json) |
 |[Perform a risk assessment](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8c5d3d8d-5cba-0def-257c-5ab9ea9644dc) |CMA_0388 - Perform a risk assessment |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0388.json) |
 
-### 03.01 Risk Management Program
+### 1705.03b2Organizational.12-03.b 03.01 Risk Management Program
 
 **ID**: 1705.03b2Organizational.12-03.b
 **Ownership**: Shared
@@ -6666,7 +6666,7 @@ This built-in initiative is deployed as part of the
 |[Conduct Risk Assessment](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F677e1da4-00c3-287a-563d-f4a1cf9b99a0) |CMA_C1543 - Conduct Risk Assessment |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1543.json) |
 |[Conduct risk assessment and distribute its results](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd7c1ecc3-2980-a079-1569-91aec8ac4a77) |CMA_C1544 - Conduct risk assessment and distribute its results |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1544.json) |
 
-### 03.01 Risk Management Program
+### 1707.03c1Organizational.12-03.c 03.01 Risk Management Program
 
 **ID**: 1707.03c1Organizational.12-03.c
 **Ownership**: Shared
@@ -6675,7 +6675,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Develop POA&M](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F477bd136-7dd9-55f8-48ac-bae096b86a07) |CMA_C1156 - Develop POA&M |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1156.json) |
 
-### 03.01 Risk Management Program
+### 1708.03c2Organizational.12-03.c 03.01 Risk Management Program
 
 **ID**: 1708.03c2Organizational.12-03.c
 **Ownership**: Shared
@@ -6685,7 +6685,7 @@ This built-in initiative is deployed as part of the
 |[Develop POA&M](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F477bd136-7dd9-55f8-48ac-bae096b86a07) |CMA_C1156 - Develop POA&M |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1156.json) |
 |[Update POA&M items](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcc057769-01d9-95ad-a36f-1e62a7f9540b) |CMA_C1157 - Update POA&M items |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1157.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 17100.10a3Organizational.5 10.01 Security Requirements of Information Systems
 
 **ID**: 17100.10a3Organizational.5
 **Ownership**: Shared
@@ -6701,7 +6701,7 @@ This built-in initiative is deployed as part of the
 |[Document security functional requirements in acquisition contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F57927290-8000-59bf-3776-90c468ac5b4b) |CMA_0201 - Document security functional requirements in acquisition contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0201.json) |
 |[Document the protection of cardholder data in third party contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77acc53d-0f67-6e06-7d04-5750653d4629) |CMA_0207 - Document the protection of cardholder data in third party contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0207.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 17101.10a3Organizational.6-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 17101.10a3Organizational.6-10.a
 **Ownership**: Shared
@@ -6716,7 +6716,7 @@ This built-in initiative is deployed as part of the
 |[Require developers to implement only approved changes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F085467a6-9679-5c65-584a-f55acefd0d43) |CMA_C1596 - Require developers to implement only approved changes |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1596.json) |
 |[Require developers to manage change integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb33d61c1-7463-7025-0ec0-a47585b59147) |CMA_C1595 - Require developers to manage change integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1595.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 17120.10a3Organizational.5-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 17120.10a3Organizational.5-10.a
 **Ownership**: Shared
@@ -6734,7 +6734,7 @@ This built-in initiative is deployed as part of the
 |[Document the protection of cardholder data in third party contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77acc53d-0f67-6e06-7d04-5750653d4629) |CMA_0207 - Document the protection of cardholder data in third party contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0207.json) |
 |[Obtain approvals for acquisitions and outsourcing](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F92b94485-1c49-3350-9ada-dffe94f08e87) |CMA_C1590 - Obtain approvals for acquisitions and outsourcing |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1590.json) |
 
-### 03.01 Risk Management Program
+### 17126.03c1System.6-03.c 03.01 Risk Management Program
 
 **ID**: 17126.03c1System.6-03.c
 **Ownership**: Shared
@@ -6745,7 +6745,7 @@ This built-in initiative is deployed as part of the
 |[Establish a risk management strategy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd36700f2-2f0d-7c2a-059c-bdadd1d79f70) |CMA_0258 - Establish a risk management strategy |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0258.json) |
 |[Implement the risk management strategy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6fe3856-4635-36b6-983c-070da12a953b) |CMA_C1744 - Implement the risk management strategy |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1744.json) |
 
-### 03.01 Risk Management Program
+### 1713.03c1Organizational.3-03.c 03.01 Risk Management Program
 
 **ID**: 1713.03c1Organizational.3-03.c
 **Ownership**: Shared
@@ -6762,7 +6762,7 @@ This built-in initiative is deployed as part of the
 |[Train staff on PII sharing and its consequences](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8019d788-713d-90a1-5570-dac5052f517d) |CMA_C1871 - Train staff on PII sharing and its consequences |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1871.json) |
 |[Verify personal data is deleted at the end of processing](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6b877a6-5d6d-1862-4b7f-3ccc30b25b63) |CMA_0540 - Verify personal data is deleted at the end of processing |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0540.json) |
 
-### 03.01 Risk Management Program
+### 1733.03d1Organizational.1-03.d 03.01 Risk Management Program
 
 **ID**: 1733.03d1Organizational.1-03.d
 **Ownership**: Shared
@@ -6773,7 +6773,7 @@ This built-in initiative is deployed as part of the
 |[Conduct risk assessment and document its results](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1dbd51c2-2bd1-5e26-75ba-ed075d8f0d68) |CMA_C1542 - Conduct risk assessment and document its results |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1542.json) |
 |[Establish a risk management strategy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd36700f2-2f0d-7c2a-059c-bdadd1d79f70) |CMA_0258 - Establish a risk management strategy |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0258.json) |
 
-### 03.01 Risk Management Program
+### 1734.03d2Organizational.1-03.d 03.01 Risk Management Program
 
 **ID**: 1734.03d2Organizational.1-03.d
 **Ownership**: Shared
@@ -6789,7 +6789,7 @@ This built-in initiative is deployed as part of the
 |[Perform a privacy impact assessment](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd18af1ac-0086-4762-6dc8-87cdded90e39) |CMA_0387 - Perform a privacy impact assessment |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0387.json) |
 |[Perform audit for configuration change control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1282809c-9001-176b-4a81-260a085f4872) |CMA_0390 - Perform audit for configuration change control |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0390.json) |
 
-### 03.01 Risk Management Program
+### 1735.03d2Organizational.23-03.d 03.01 Risk Management Program
 
 **ID**: 1735.03d2Organizational.23-03.d
 **Ownership**: Shared
@@ -6805,7 +6805,7 @@ This built-in initiative is deployed as part of the
 |[Perform a privacy impact assessment](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd18af1ac-0086-4762-6dc8-87cdded90e39) |CMA_0387 - Perform a privacy impact assessment |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0387.json) |
 |[Perform audit for configuration change control](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1282809c-9001-176b-4a81-260a085f4872) |CMA_0390 - Perform audit for configuration change control |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0390.json) |
 
-### 03.01 Risk Management Program
+### 1736.03d2Organizational.4-03.d 03.01 Risk Management Program
 
 **ID**: 1736.03d2Organizational.4-03.d
 **Ownership**: Shared
@@ -6814,7 +6814,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Conduct risk assessment and document its results](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1dbd51c2-2bd1-5e26-75ba-ed075d8f0d68) |CMA_C1542 - Conduct risk assessment and document its results |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1542.json) |
 
-### 03.01 Risk Management Program
+### 1737.03d2Organizational.5-03.d 03.01 Risk Management Program
 
 **ID**: 1737.03d2Organizational.5-03.d
 **Ownership**: Shared
@@ -6826,7 +6826,7 @@ This built-in initiative is deployed as part of the
 |[Conduct risk assessment and document its results](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1dbd51c2-2bd1-5e26-75ba-ed075d8f0d68) |CMA_C1542 - Conduct risk assessment and document its results |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1542.json) |
 |[Establish a risk management strategy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd36700f2-2f0d-7c2a-059c-bdadd1d79f70) |CMA_0258 - Establish a risk management strategy |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0258.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1780.10a1Organizational.1-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1780.10a1Organizational.1-10.a
 **Ownership**: Shared
@@ -6837,7 +6837,7 @@ This built-in initiative is deployed as part of the
 |[Develop access control policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F59f7feff-02aa-6539-2cf7-bea75b762140) |CMA_0144 - Develop access control policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0144.json) |
 |[Govern policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a2a03a4-9992-5788-5953-d8f6615306de) |CMA_0292 - Govern policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0292.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1781.10a1Organizational.23-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1781.10a1Organizational.23-10.a
 **Ownership**: Shared
@@ -6849,7 +6849,7 @@ This built-in initiative is deployed as part of the
 |[Develop SSP that meets criteria](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6b957f60-54cd-5752-44d5-ff5a64366c93) |CMA_C1492 - Develop SSP that meets criteria |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1492.json) |
 |[Integrate risk management process into SDLC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F00f12b6f-10d7-8117-9577-0f2b76488385) |CMA_C1567 - Integrate risk management process into SDLC |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1567.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1782.10a1Organizational.4-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1782.10a1Organizational.4-10.a
 **Ownership**: Shared
@@ -6863,7 +6863,7 @@ This built-in initiative is deployed as part of the
 |[Establish security requirements for the manufacturing of connected devices](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fafbecd30-37ee-a27b-8e09-6ac49951a0ee) |CMA_0279 - Establish security requirements for the manufacturing of connected devices |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0279.json) |
 |[Implement security engineering principles of information systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf2e9507-169b-4114-3a52-877561ee3198) |CMA_0325 - Implement security engineering principles of information systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0325.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1783.10a1Organizational.56-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1783.10a1Organizational.56-10.a
 **Ownership**: Shared
@@ -6879,7 +6879,7 @@ This built-in initiative is deployed as part of the
 |[Document security functional requirements in acquisition contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F57927290-8000-59bf-3776-90c468ac5b4b) |CMA_0201 - Document security functional requirements in acquisition contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0201.json) |
 |[Document the protection of cardholder data in third party contracts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77acc53d-0f67-6e06-7d04-5750653d4629) |CMA_0207 - Document the protection of cardholder data in third party contracts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0207.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1784.10a1Organizational.7-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1784.10a1Organizational.7-10.a
 **Ownership**: Shared
@@ -6888,7 +6888,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Employ FIPS 201-approved technology for PIV](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8b333332-6efd-7c0d-5a9f-d1eb95105214) |CMA_C1579 - Employ FIPS 201-approved technology for PIV |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1579.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1785.10a1Organizational.8-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1785.10a1Organizational.8-10.a
 **Ownership**: Shared
@@ -6901,7 +6901,7 @@ This built-in initiative is deployed as part of the
 |[Separate user and information system management functionality](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8a703eb5-4e53-701b-67e4-05ba2f7930c8) |CMA_0493 - Separate user and information system management functionality |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0493.json) |
 |[Use dedicated machines for administrative tasks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb8972f60-8d77-1cb8-686f-9c9f4cdd8a59) |CMA_0527 - Use dedicated machines for administrative tasks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0527.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1786.10a1Organizational.9-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1786.10a1Organizational.9-10.a
 **Ownership**: Shared
@@ -6913,7 +6913,7 @@ This built-in initiative is deployed as part of the
 |[Identify individuals with security roles and responsibilities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0dcbaf2f-075e-947b-8f4c-74ecc5cd302c) |CMA_C1566 - Identify individuals with security roles and responsibilities |Manual, Disabled |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1566.json) |
 |[Require developer to identify SDLC ports, protocols, and services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6da5cca-5795-60ff-49e1-4972567815fe) |CMA_C1578 - Require developer to identify SDLC ports, protocols, and services |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1578.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1787.10a2Organizational.1-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1787.10a2Organizational.1-10.a
 **Ownership**: Shared
@@ -6926,7 +6926,7 @@ This built-in initiative is deployed as part of the
 |[Information security and personal data protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34738025-5925-51f9-1081-f2d0060133ed) |CMA_0332 - Information security and personal data protection |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0332.json) |
 |[Perform a privacy impact assessment](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd18af1ac-0086-4762-6dc8-87cdded90e39) |CMA_0387 - Perform a privacy impact assessment |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0387.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1788.10a2Organizational.2-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1788.10a2Organizational.2-10.a
 **Ownership**: Shared
@@ -6943,7 +6943,7 @@ This built-in initiative is deployed as part of the
 |[Require developers to implement only approved changes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F085467a6-9679-5c65-584a-f55acefd0d43) |CMA_C1596 - Require developers to implement only approved changes |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1596.json) |
 |[Require developers to manage change integrity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb33d61c1-7463-7025-0ec0-a47585b59147) |CMA_C1595 - Require developers to manage change integrity |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1595.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1789.10a2Organizational.3-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1789.10a2Organizational.3-10.a
 **Ownership**: Shared
@@ -6955,7 +6955,7 @@ This built-in initiative is deployed as part of the
 |[Identify individuals with security roles and responsibilities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0dcbaf2f-075e-947b-8f4c-74ecc5cd302c) |CMA_C1566 - Identify individuals with security roles and responsibilities |Manual, Disabled |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1566.json) |
 |[Integrate risk management process into SDLC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F00f12b6f-10d7-8117-9577-0f2b76488385) |CMA_C1567 - Integrate risk management process into SDLC |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1567.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1790.10a2Organizational.45-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1790.10a2Organizational.45-10.a
 **Ownership**: Shared
@@ -6969,7 +6969,7 @@ This built-in initiative is deployed as part of the
 |[Review and update the information security architecture](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fced291b8-1d3d-7e27-40cf-829e9dd523c8) |CMA_C1504 - Review and update the information security architecture |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1504.json) |
 |[Review development process, standards and tools](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e876c5c-0f2a-8eb6-69f7-5f91e7918ed6) |CMA_C1610 - Review development process, standards and tools |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1610.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1791.10a2Organizational.6-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1791.10a2Organizational.6-10.a
 **Ownership**: Shared
@@ -6982,7 +6982,7 @@ This built-in initiative is deployed as part of the
 |[Integrate risk management process into SDLC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F00f12b6f-10d7-8117-9577-0f2b76488385) |CMA_C1567 - Integrate risk management process into SDLC |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1567.json) |
 |[View and configure system diagnostic data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0123edae-3567-a05a-9b05-b53ebe9d3e7e) |CMA_0544 - View and configure system diagnostic data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0544.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1792.10a2Organizational.7814-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1792.10a2Organizational.7814-10.a
 **Ownership**: Shared
@@ -6994,7 +6994,7 @@ This built-in initiative is deployed as part of the
 |[Implement the risk management strategy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6fe3856-4635-36b6-983c-070da12a953b) |CMA_C1744 - Implement the risk management strategy |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1744.json) |
 |[Integrate risk management process into SDLC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F00f12b6f-10d7-8117-9577-0f2b76488385) |CMA_C1567 - Integrate risk management process into SDLC |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1567.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1793.10a2Organizational.91011-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1793.10a2Organizational.91011-10.a
 **Ownership**: Shared
@@ -7008,7 +7008,7 @@ This built-in initiative is deployed as part of the
 |[Establish security requirements for the manufacturing of connected devices](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fafbecd30-37ee-a27b-8e09-6ac49951a0ee) |CMA_0279 - Establish security requirements for the manufacturing of connected devices |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0279.json) |
 |[Implement security engineering principles of information systems](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf2e9507-169b-4114-3a52-877561ee3198) |CMA_0325 - Implement security engineering principles of information systems |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0325.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1794.10a2Organizational.12-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1794.10a2Organizational.12-10.a
 **Ownership**: Shared
@@ -7017,7 +7017,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Require developers to produce evidence of security assessment plan execution](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8a63511-66f1-503f-196d-d6217ee0823a) |CMA_C1602 - Require developers to produce evidence of security assessment plan execution |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1602.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1795.10a2Organizational.13-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1795.10a2Organizational.13-10.a
 **Ownership**: Shared
@@ -7030,7 +7030,7 @@ This built-in initiative is deployed as part of the
 |[Require developers to document approved changes and potential impact](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a868d0c-538f-968b-0191-bddb44da5b75) |CMA_C1597 - Require developers to document approved changes and potential impact |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1597.json) |
 |[Require developers to produce evidence of security assessment plan execution](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8a63511-66f1-503f-196d-d6217ee0823a) |CMA_C1602 - Require developers to produce evidence of security assessment plan execution |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1602.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1796.10a2Organizational.15-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1796.10a2Organizational.15-10.a
 **Ownership**: Shared
@@ -7044,7 +7044,7 @@ This built-in initiative is deployed as part of the
 |[Employ independent assessors to conduct security control assessments](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb65c5d8e-9043-9612-2c17-65f231d763bb) |CMA_C1148 - Employ independent assessors to conduct security control assessments |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1148.json) |
 |[Produce Security Assessment report](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F70a7a065-a060-85f8-7863-eb7850ed2af9) |CMA_C1146 - Produce Security Assessment report |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1146.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1797.10a3Organizational.1-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1797.10a3Organizational.1-10.a
 **Ownership**: Shared
@@ -7057,7 +7057,7 @@ This built-in initiative is deployed as part of the
 |[Require developers to describe accurate security functionality](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3e37c891-840c-3eb4-78d2-e2e0bb5063e0) |CMA_C1613 - Require developers to describe accurate security functionality |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1613.json) |
 |[Require developers to provide unified security protection approach](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7a114735-a420-057d-a651-9a73cd0416ef) |CMA_C1614 - Require developers to provide unified security protection approach |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1614.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1798.10a3Organizational.2-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1798.10a3Organizational.2-10.a
 **Ownership**: Shared
@@ -7069,7 +7069,7 @@ This built-in initiative is deployed as part of the
 |[Require developers to build security architecture](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff131c8c5-a54a-4888-1efc-158928924bc1) |CMA_C1612 - Require developers to build security architecture |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1612.json) |
 |[Review and update the information security architecture](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fced291b8-1d3d-7e27-40cf-829e9dd523c8) |CMA_C1504 - Review and update the information security architecture |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1504.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 1799.10a3Organizational.34-10.a 10.01 Security Requirements of Information Systems
 
 **ID**: 1799.10a3Organizational.34-10.a
 **Ownership**: Shared
@@ -7085,7 +7085,7 @@ This built-in initiative is deployed as part of the
 
 ## 18 Physical & Environmental Security
 
-### 08.01 Secure Areas
+### 1801.08b1Organizational.124-08.b 08.01 Secure Areas
 
 **ID**: 1801.08b1Organizational.124-08.b
 **Ownership**: Shared
@@ -7096,7 +7096,7 @@ This built-in initiative is deployed as part of the
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 |[Monitor third-party provider compliance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8ded0c6-a668-9371-6bb6-661d58787198) |CMA_C1533 - Monitor third-party provider compliance |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1533.json) |
 
-### 08.01 Secure Areas
+### 1802.08b1Organizational.3-08.b 08.01 Secure Areas
 
 **ID**: 1802.08b1Organizational.3-08.b
 **Ownership**: Shared
@@ -7105,7 +7105,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Control physical access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55a7f9a0-6397-7589-05ef-5ed59a8149e7) |CMA_0081 - Control physical access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0081.json) |
 
-### 08.01 Secure Areas
+### 1803.08b1Organizational.5-08.b 08.01 Secure Areas
 
 **ID**: 1803.08b1Organizational.5-08.b
 **Ownership**: Shared
@@ -7116,7 +7116,7 @@ This built-in initiative is deployed as part of the
 |[Control maintenance and repair activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6ad009f-5c24-1dc0-a25e-74b60e4da45f) |CMA_0080 - Control maintenance and repair activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0080.json) |
 |[Produce complete records of remote maintenance activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74041cfe-3f87-1d17-79ec-34ca5f895542) |CMA_C1403 - Produce complete records of remote maintenance activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1403.json) |
 
-### 08.01 Secure Areas
+### 1804.08b2Organizational.12-08.b 08.01 Secure Areas
 
 **ID**: 1804.08b2Organizational.12-08.b
 **Ownership**: Shared
@@ -7126,7 +7126,7 @@ This built-in initiative is deployed as part of the
 |[Control physical access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55a7f9a0-6397-7589-05ef-5ed59a8149e7) |CMA_0081 - Control physical access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0081.json) |
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 
-### 08.01 Secure Areas
+### 1805.08b2Organizational.3-08.b 08.01 Secure Areas
 
 **ID**: 1805.08b2Organizational.3-08.b
 **Ownership**: Shared
@@ -7135,7 +7135,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Control physical access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55a7f9a0-6397-7589-05ef-5ed59a8149e7) |CMA_0081 - Control physical access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0081.json) |
 
-### 08.01 Secure Areas
+### 1806.08b2Organizational.4-08.b 08.01 Secure Areas
 
 **ID**: 1806.08b2Organizational.4-08.b
 **Ownership**: Shared
@@ -7144,7 +7144,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Control physical access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55a7f9a0-6397-7589-05ef-5ed59a8149e7) |CMA_0081 - Control physical access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0081.json) |
 
-### 08.01 Secure Areas
+### 1807.08b2Organizational.56-08.b 08.01 Secure Areas
 
 **ID**: 1807.08b2Organizational.56-08.b
 **Ownership**: Shared
@@ -7153,7 +7153,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Control physical access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55a7f9a0-6397-7589-05ef-5ed59a8149e7) |CMA_0081 - Control physical access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0081.json) |
 
-### 08.01 Secure Areas
+### 1808.08b2Organizational.7-08.b 08.01 Secure Areas
 
 **ID**: 1808.08b2Organizational.7-08.b
 **Ownership**: Shared
@@ -7168,7 +7168,7 @@ This built-in initiative is deployed as part of the
 |[Review user accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F79f081c7-1634-01a1-708e-376197999289) |CMA_0480 - Review user accounts |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0480.json) |
 |[Separate duties of individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60ee1260-97f0-61bb-8155-5d8b75743655) |CMA_0492 - Separate duties of individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0492.json) |
 
-### 08.01 Secure Areas
+### 1810.08b3Organizational.2-08.b 08.01 Secure Areas
 
 **ID**: 1810.08b3Organizational.2-08.b
 **Ownership**: Shared
@@ -7177,7 +7177,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Control physical access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55a7f9a0-6397-7589-05ef-5ed59a8149e7) |CMA_0081 - Control physical access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0081.json) |
 
-### 08.02 Equipment Security
+### 18108.08j1Organizational.1-08.j 08.02 Equipment Security
 
 **ID**: 18108.08j1Organizational.1-08.j
 **Ownership**: Shared
@@ -7187,7 +7187,7 @@ This built-in initiative is deployed as part of the
 |[Review and update media protection policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4e19d22-8c0e-7cad-3219-c84c62dc250f) |CMA_C1427 - Review and update media protection policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1427.json) |
 |[Review and update system maintenance policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2067b904-9552-3259-0cdd-84468e284b7c) |CMA_C1395 - Review and update system maintenance policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1395.json) |
 
-### 08.02 Equipment Security
+### 18109.08j1Organizational.4-08.j 08.02 Equipment Security
 
 **ID**: 18109.08j1Organizational.4-08.j
 **Ownership**: Shared
@@ -7199,7 +7199,7 @@ This built-in initiative is deployed as part of the
 |[Maintain list of authorized remote maintenance personnel](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4ce91e4e-6dab-3c46-011a-aa14ae1561bf) |CMA_C1420 - Maintain list of authorized remote maintenance personnel |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1420.json) |
 |[Manage maintenance personnel](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb273f1e3-79e7-13ee-5b5d-dca6c66c3d5d) |CMA_C1421 - Manage maintenance personnel |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1421.json) |
 
-### 08.01 Secure Areas
+### 1811.08b3Organizational.3-08.b 08.01 Secure Areas
 
 **ID**: 1811.08b3Organizational.3-08.b
 **Ownership**: Shared
@@ -7211,7 +7211,7 @@ This built-in initiative is deployed as part of the
 |[Establish and maintain an asset inventory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27965e62-141f-8cca-426f-d09514ee5216) |CMA_0266 - Establish and maintain an asset inventory |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0266.json) |
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 
-### 08.02 Equipment Security
+### 18110.08j1Organizational.5-08.j 08.02 Equipment Security
 
 **ID**: 18110.08j1Organizational.5-08.j
 **Ownership**: Shared
@@ -7223,7 +7223,7 @@ This built-in initiative is deployed as part of the
 |[Manage nonlocal maintenance and diagnostic activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1fb1cb0e-1936-6f32-42fd-89970b535855) |CMA_0364 - Manage nonlocal maintenance and diagnostic activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0364.json) |
 |[Perform all non-local maintenance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5bac5fb7-7735-357b-767d-02264bfe5c3b) |CMA_C1417 - Perform all non-local maintenance |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1417.json) |
 
-### 08.02 Equipment Security
+### 18111.08j1Organizational.6-08.j 08.02 Equipment Security
 
 **ID**: 18111.08j1Organizational.6-08.j
 **Ownership**: Shared
@@ -7232,7 +7232,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Provide timely maintenance support](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb598832-4bcc-658d-4381-3ecbe17b9866) |CMA_C1425 - Provide timely maintenance support |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1425.json) |
 
-### 08.02 Equipment Security
+### 18112.08j3Organizational.4-08.j 08.02 Equipment Security
 
 **ID**: 18112.08j3Organizational.4-08.j
 **Ownership**: Shared
@@ -7243,7 +7243,7 @@ This built-in initiative is deployed as part of the
 |[Review and update information integrity policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6bededc0-2985-54d5-4158-eb8bad8070a0) |CMA_C1667 - Review and update information integrity policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1667.json) |
 |[Review and update system maintenance policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2067b904-9552-3259-0cdd-84468e284b7c) |CMA_C1395 - Review and update system maintenance policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1395.json) |
 
-### 08.01 Secure Areas
+### 1812.08b3Organizational.46-08.b 08.01 Secure Areas
 
 **ID**: 1812.08b3Organizational.46-08.b
 **Ownership**: Shared
@@ -7254,7 +7254,7 @@ This built-in initiative is deployed as part of the
 |[Install an alarm system](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa0ddd99-43eb-302d-3f8f-42b499182960) |CMA_0338 - Install an alarm system |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0338.json) |
 |[Manage a secure surveillance camera system](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff2222056-062d-1060-6dc2-0107a68c34b2) |CMA_0354 - Manage a secure surveillance camera system |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0354.json) |
 
-### 08.02 Equipment Security
+### 18127.08l1Organizational.3-08.l 08.02 Equipment Security
 
 **ID**: 18127.08l1Organizational.3-08.l
 **Ownership**: Shared
@@ -7263,7 +7263,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Employ a media sanitization mechanism](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feaaae23f-92c9-4460-51cf-913feaea4d52) |CMA_0208 - Employ a media sanitization mechanism |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0208.json) |
 
-### 08.01 Secure Areas
+### 1813.08b3Organizational.56-08.b 08.01 Secure Areas
 
 **ID**: 1813.08b3Organizational.56-08.b
 **Ownership**: Shared
@@ -7275,7 +7275,7 @@ This built-in initiative is deployed as part of the
 |[Install an alarm system](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa0ddd99-43eb-302d-3f8f-42b499182960) |CMA_0338 - Install an alarm system |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0338.json) |
 |[Manage a secure surveillance camera system](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff2222056-062d-1060-6dc2-0107a68c34b2) |CMA_0354 - Manage a secure surveillance camera system |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0354.json) |
 
-### 09.07 Media Handling
+### 18130.09p1Organizational.24-09.p 09.07 Media Handling
 
 **ID**: 18130.09p1Organizational.24-09.p
 **Ownership**: Shared
@@ -7284,7 +7284,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Employ a media sanitization mechanism](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feaaae23f-92c9-4460-51cf-913feaea4d52) |CMA_0208 - Employ a media sanitization mechanism |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0208.json) |
 
-### 08.01 Secure Areas
+### 1814.08d1Organizational.12-08.d 08.01 Secure Areas
 
 **ID**: 1814.08d1Organizational.12-08.d
 **Ownership**: Shared
@@ -7295,7 +7295,7 @@ This built-in initiative is deployed as part of the
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 
-### 08.01 Secure Areas
+### 18145.08b3Organizational.7-08.b 08.01 Secure Areas
 
 **ID**: 18145.08b3Organizational.7-08.b
 **Ownership**: Shared
@@ -7305,7 +7305,7 @@ This built-in initiative is deployed as part of the
 |[Install an alarm system](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa0ddd99-43eb-302d-3f8f-42b499182960) |CMA_0338 - Install an alarm system |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0338.json) |
 |[Manage a secure surveillance camera system](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff2222056-062d-1060-6dc2-0107a68c34b2) |CMA_0354 - Manage a secure surveillance camera system |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0354.json) |
 
-### 08.01 Secure Areas
+### 18146.08b3Organizational.8-08.b 08.01 Secure Areas
 
 **ID**: 18146.08b3Organizational.8-08.b
 **Ownership**: Shared
@@ -7317,7 +7317,7 @@ This built-in initiative is deployed as part of the
 |[Install an alarm system](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa0ddd99-43eb-302d-3f8f-42b499182960) |CMA_0338 - Install an alarm system |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0338.json) |
 |[Manage a secure surveillance camera system](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff2222056-062d-1060-6dc2-0107a68c34b2) |CMA_0354 - Manage a secure surveillance camera system |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0354.json) |
 
-### 08.01 Secure Areas
+### 1815.08d2Organizational.123-08.d 08.01 Secure Areas
 
 **ID**: 1815.08d2Organizational.123-08.d
 **Ownership**: Shared
@@ -7328,7 +7328,7 @@ This built-in initiative is deployed as part of the
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 
-### 08.01 Secure Areas
+### 1816.08d2Organizational.4-08.d 08.01 Secure Areas
 
 **ID**: 1816.08d2Organizational.4-08.d
 **Ownership**: Shared
@@ -7340,7 +7340,7 @@ This built-in initiative is deployed as part of the
 |[Manage a secure surveillance camera system](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff2222056-062d-1060-6dc2-0107a68c34b2) |CMA_0354 - Manage a secure surveillance camera system |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0354.json) |
 |[Manage the transportation of assets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4ac81669-00e2-9790-8648-71bc11bc91eb) |CMA_0370 - Manage the transportation of assets |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0370.json) |
 
-### 08.01 Secure Areas
+### 1817.08d3Organizational.12-08.d 08.01 Secure Areas
 
 **ID**: 1817.08d3Organizational.12-08.d
 **Ownership**: Shared
@@ -7349,7 +7349,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 
-### 08.01 Secure Areas
+### 1818.08d3Organizational.3-08.d 08.01 Secure Areas
 
 **ID**: 1818.08d3Organizational.3-08.d
 **Ownership**: Shared
@@ -7360,7 +7360,7 @@ This built-in initiative is deployed as part of the
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 
-### 08.02 Equipment Security
+### 1819.08j1Organizational.23-08.j 08.02 Equipment Security
 
 **ID**: 1819.08j1Organizational.23-08.j
 **Ownership**: Shared
@@ -7375,7 +7375,7 @@ This built-in initiative is deployed as part of the
 |[Manage nonlocal maintenance and diagnostic activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1fb1cb0e-1936-6f32-42fd-89970b535855) |CMA_0364 - Manage nonlocal maintenance and diagnostic activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0364.json) |
 |[Produce complete records of remote maintenance activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74041cfe-3f87-1d17-79ec-34ca5f895542) |CMA_C1403 - Produce complete records of remote maintenance activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1403.json) |
 
-### 08.02 Equipment Security
+### 1820.08j2Organizational.1-08.j 08.02 Equipment Security
 
 **ID**: 1820.08j2Organizational.1-08.j
 **Ownership**: Shared
@@ -7385,7 +7385,7 @@ This built-in initiative is deployed as part of the
 |[Control maintenance and repair activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6ad009f-5c24-1dc0-a25e-74b60e4da45f) |CMA_0080 - Control maintenance and repair activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0080.json) |
 |[Manage nonlocal maintenance and diagnostic activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1fb1cb0e-1936-6f32-42fd-89970b535855) |CMA_0364 - Manage nonlocal maintenance and diagnostic activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0364.json) |
 
-### 08.02 Equipment Security
+### 1821.08j2Organizational.3-08.j 08.02 Equipment Security
 
 **ID**: 1821.08j2Organizational.3-08.j
 **Ownership**: Shared
@@ -7397,7 +7397,7 @@ This built-in initiative is deployed as part of the
 |[Manage nonlocal maintenance and diagnostic activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1fb1cb0e-1936-6f32-42fd-89970b535855) |CMA_0364 - Manage nonlocal maintenance and diagnostic activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0364.json) |
 |[Produce complete records of remote maintenance activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74041cfe-3f87-1d17-79ec-34ca5f895542) |CMA_C1403 - Produce complete records of remote maintenance activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1403.json) |
 
-### 08.02 Equipment Security
+### 1822.08j2Organizational.2-08.j 08.02 Equipment Security
 
 **ID**: 1822.08j2Organizational.2-08.j
 **Ownership**: Shared
@@ -7409,7 +7409,7 @@ This built-in initiative is deployed as part of the
 |[Manage nonlocal maintenance and diagnostic activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1fb1cb0e-1936-6f32-42fd-89970b535855) |CMA_0364 - Manage nonlocal maintenance and diagnostic activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0364.json) |
 |[Produce complete records of remote maintenance activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74041cfe-3f87-1d17-79ec-34ca5f895542) |CMA_C1403 - Produce complete records of remote maintenance activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1403.json) |
 
-### 08.02 Equipment Security
+### 1823.08j3Organizational.12-08.j 08.02 Equipment Security
 
 **ID**: 1823.08j3Organizational.12-08.j
 **Ownership**: Shared
@@ -7419,7 +7419,7 @@ This built-in initiative is deployed as part of the
 |[Control maintenance and repair activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6ad009f-5c24-1dc0-a25e-74b60e4da45f) |CMA_0080 - Control maintenance and repair activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0080.json) |
 |[Manage nonlocal maintenance and diagnostic activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1fb1cb0e-1936-6f32-42fd-89970b535855) |CMA_0364 - Manage nonlocal maintenance and diagnostic activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0364.json) |
 
-### 08.02 Equipment Security
+### 1824.08j3Organizational.3-08.j 08.02 Equipment Security
 
 **ID**: 1824.08j3Organizational.3-08.j
 **Ownership**: Shared
@@ -7429,7 +7429,7 @@ This built-in initiative is deployed as part of the
 |[Control maintenance and repair activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6ad009f-5c24-1dc0-a25e-74b60e4da45f) |CMA_0080 - Control maintenance and repair activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0080.json) |
 |[Manage nonlocal maintenance and diagnostic activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1fb1cb0e-1936-6f32-42fd-89970b535855) |CMA_0364 - Manage nonlocal maintenance and diagnostic activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0364.json) |
 
-### 09.07 Media Handling
+### 1826.09p1Organizational.1-09.p 09.07 Media Handling
 
 **ID**: 1826.09p1Organizational.1-09.p
 **Ownership**: Shared
@@ -7440,7 +7440,7 @@ This built-in initiative is deployed as part of the
 |[Perform disposition review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb5a4be05-3997-1731-3260-98be653610f6) |CMA_0391 - Perform disposition review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0391.json) |
 |[Verify personal data is deleted at the end of processing](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6b877a6-5d6d-1862-4b7f-3ccc30b25b63) |CMA_0540 - Verify personal data is deleted at the end of processing |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0540.json) |
 
-### 08.01 Secure Areas
+### 1844.08b1Organizational.6-08.b 08.01 Secure Areas
 
 **ID**: 1844.08b1Organizational.6-08.b
 **Ownership**: Shared
@@ -7449,7 +7449,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Control physical access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55a7f9a0-6397-7589-05ef-5ed59a8149e7) |CMA_0081 - Control physical access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0081.json) |
 
-### 08.01 Secure Areas
+### 1845.08b1Organizational.7-08.b 08.01 Secure Areas
 
 **ID**: 1845.08b1Organizational.7-08.b
 **Ownership**: Shared
@@ -7461,7 +7461,7 @@ This built-in initiative is deployed as part of the
 |[Establish and maintain an asset inventory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27965e62-141f-8cca-426f-d09514ee5216) |CMA_0266 - Establish and maintain an asset inventory |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0266.json) |
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 
-### 08.01 Secure Areas
+### 1846.08b2Organizational.8-08.b 08.01 Secure Areas
 
 **ID**: 1846.08b2Organizational.8-08.b
 **Ownership**: Shared
@@ -7470,7 +7470,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Implement physical security for offices, working areas, and secure areas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05ec66a2-137c-14b8-8e75-3d7a2bef07f8) |CMA_0323 - Implement physical security for offices, working areas, and secure areas |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0323.json) |
 
-### 08.01 Secure Areas
+### 1847.08b2Organizational.910-08.b 08.01 Secure Areas
 
 **ID**: 1847.08b2Organizational.910-08.b
 **Ownership**: Shared
@@ -7480,7 +7480,7 @@ This built-in initiative is deployed as part of the
 |[Define a physical key management process](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F51e4b233-8ee3-8bdc-8f5f-f33bd0d229b7) |CMA_0115 - Define a physical key management process |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0115.json) |
 |[Establish and maintain an asset inventory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27965e62-141f-8cca-426f-d09514ee5216) |CMA_0266 - Establish and maintain an asset inventory |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0266.json) |
 
-### 08.01 Secure Areas
+### 1848.08b2Organizational.11-08.b 08.01 Secure Areas
 
 **ID**: 1848.08b2Organizational.11-08.b
 **Ownership**: Shared
@@ -7489,7 +7489,7 @@ This built-in initiative is deployed as part of the
 |---|---|---|---|
 |[Define a physical key management process](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F51e4b233-8ee3-8bdc-8f5f-f33bd0d229b7) |CMA_0115 - Define a physical key management process |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0115.json) |
 
-### 08.01 Secure Areas
+### 1862.08d1Organizational.3-08.d 08.01 Secure Areas
 
 **ID**: 1862.08d1Organizational.3-08.d
 **Ownership**: Shared
@@ -7499,7 +7499,7 @@ This built-in initiative is deployed as part of the
 |[Implement a penetration testing methodology](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc2eabc28-1e5c-78a2-a712-7cc176c44c07) |CMA_0306 - Implement a penetration testing methodology |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0306.json) |
 |[Run simulation attacks](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8f9c283-9a66-3eb3-9e10-bdba95b85884) |CMA_0486 - Run simulation attacks |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0486.json) |
 
-### 08.01 Secure Areas
+### 1862.08d3Organizational.3 08.01 Secure Areas
 
 **ID**: 1862.08d3Organizational.3
 **Ownership**: Shared
@@ -7509,7 +7509,7 @@ This built-in initiative is deployed as part of the
 |[Implement a penetration testing methodology](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc2eabc28-1e5c-78a2-a712-7cc176c44c07) |CMA_0306 - Implement a penetration testing methodology |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0306.json) |
 |[Review and update physical and environmental policies and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F91cf132e-0c9f-37a8-a523-dc6a92cd2fb2) |CMA_C1446 - Review and update physical and environmental policies and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1446.json) |
 
-### 01.04 Network Access Control
+### 1892.01l1Organizational.1 01.04 Network Access Control
 
 **ID**: 1892.01l1Organizational.1
 **Ownership**: Shared
@@ -7521,7 +7521,7 @@ This built-in initiative is deployed as part of the
 
 ## 19 Data Protection & Privacy
 
-### 06.01 Compliance with Legal Requirements
+### 1901.06d1Organizational.1-06.d 06.01 Compliance with Legal Requirements
 
 **ID**: 1901.06d1Organizational.1-06.d
 **Ownership**: Shared
@@ -7532,7 +7532,7 @@ This built-in initiative is deployed as part of the
 |[Establish a privacy program](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F39eb03c1-97cc-11ab-0960-6209ed2869f7) |CMA_0257 - Establish a privacy program |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0257.json) |
 |[Manage compliance activities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4e400494-53a5-5147-6f4d-718b539c7394) |CMA_0358 - Manage compliance activities |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0358.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 1902.06d1Organizational.2-06.d 06.01 Compliance with Legal Requirements
 
 **ID**: 1902.06d1Organizational.2-06.d
 **Ownership**: Shared
@@ -7551,7 +7551,7 @@ This built-in initiative is deployed as part of the
 |[Retain accounting of disclosures of information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F75b9db50-7906-2351-98ae-0458218609e5) |CMA_C1819 - Retain accounting of disclosures of information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1819.json) |
 |[Train staff on PII sharing and its consequences](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8019d788-713d-90a1-5570-dac5052f517d) |CMA_C1871 - Train staff on PII sharing and its consequences |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1871.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 1903.06d1Organizational.3456711-06.d 06.01 Compliance with Legal Requirements
 
 **ID**: 1903.06d1Organizational.3456711-06.d
 **Ownership**: Shared
@@ -7564,7 +7564,7 @@ This built-in initiative is deployed as part of the
 |[Notify users of system logon or access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffe2dff43-0a8c-95df-0432-cb1c794b17d0) |CMA_0382 - Notify users of system logon or access |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0382.json) |
 |[Protect special information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa315c657-4a00-8eba-15ac-44692ad24423) |CMA_0409 - Protect special information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0409.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 1904.06.d2Organizational.1-06.d 06.01 Compliance with Legal Requirements
 
 **ID**: 1904.06.d2Organizational.1-06.d
 **Ownership**: Shared
@@ -7575,7 +7575,7 @@ This built-in initiative is deployed as part of the
 |[Perform disposition review](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb5a4be05-3997-1731-3260-98be653610f6) |CMA_0391 - Perform disposition review |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0391.json) |
 |[Verify personal data is deleted at the end of processing](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6b877a6-5d6d-1862-4b7f-3ccc30b25b63) |CMA_0540 - Verify personal data is deleted at the end of processing |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0540.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 1906.06.c1Organizational.2-06.c 06.01 Compliance with Legal Requirements
 
 **ID**: 1906.06.c1Organizational.2-06.c
 **Ownership**: Shared
@@ -7587,7 +7587,7 @@ This built-in initiative is deployed as part of the
 |[Provide privacy notice to the public and to individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5023a9e7-8e64-2db6-31dc-7bce27f796af) |CMA_C1861 - Provide privacy notice to the public and to individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1861.json) |
 |[Publish SORNs for systems containing PII](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F898a5781-2254-5a37-34c7-d78ea7c20d55) |CMA_C1862 - Publish SORNs for systems containing PII |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1862.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 1907.06.c1Organizational.3-06.c 06.01 Compliance with Legal Requirements
 
 **ID**: 1907.06.c1Organizational.3-06.c
 **Ownership**: Shared
@@ -7599,7 +7599,7 @@ This built-in initiative is deployed as part of the
 |[Provide formal notice to individuals](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95eb7d09-9937-5df9-11d9-20317e3f60df) |CMA_C1864 - Provide formal notice to individuals |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1864.json) |
 |[Publish SORNs for systems containing PII](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F898a5781-2254-5a37-34c7-d78ea7c20d55) |CMA_C1862 - Publish SORNs for systems containing PII |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1862.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 1908.06.c1Organizational.4-06.c 06.01 Compliance with Legal Requirements
 
 **ID**: 1908.06.c1Organizational.4-06.c
 **Ownership**: Shared
@@ -7618,7 +7618,7 @@ This built-in initiative is deployed as part of the
 |[Retain terminated user data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c7032fe-9ce6-9092-5890-87a1a3755db1) |CMA_0455 - Retain terminated user data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0455.json) |
 |[Review label activity and analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe23444b9-9662-40f3-289e-6d25c02b48fa) |CMA_0474 - Review label activity and analytics |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0474.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 1911.06d1Organizational.13-06.d 06.01 Compliance with Legal Requirements
 
 **ID**: 1911.06d1Organizational.13-06.d
 **Ownership**: Shared
@@ -7631,7 +7631,7 @@ This built-in initiative is deployed as part of the
 |[Obtain consent prior to collection or processing of personal data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F069101ac-4578-31da-0cd4-ff083edd3eb4) |CMA_0385 - Obtain consent prior to collection or processing of personal data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0385.json) |
 |[Remove or redact any PII](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94c842e3-8098-38f9-6d3f-8872b790527d) |CMA_C1833 - Remove or redact any PII |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1833.json) |
 
-### 05.02 External Parties
+### 19134.05j1Organizational.5-05.j 05.02 External Parties
 
 **ID**: 19134.05j1Organizational.5-05.j
 **Ownership**: Shared
@@ -7651,7 +7651,7 @@ This built-in initiative is deployed as part of the
 |[Train personnel on disclosure of nonpublic information](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F97f0d974-1486-01e2-2088-b888f46c0589) |CMA_C1084 - Train personnel on disclosure of nonpublic information |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1084.json) |
 |[Update privacy plan, policies, and procedures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F96333008-988d-4add-549b-92b3a8c42063) |CMA_C1807 - Update privacy plan, policies, and procedures |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1807.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 19141.06c1Organizational.7-06.c 06.01 Compliance with Legal Requirements
 
 **ID**: 19141.06c1Organizational.7-06.c
 **Ownership**: Shared
@@ -7669,7 +7669,7 @@ This built-in initiative is deployed as part of the
 |[Review label activity and analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe23444b9-9662-40f3-289e-6d25c02b48fa) |CMA_0474 - Review label activity and analytics |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0474.json) |
 |[Review user groups and applications with access to sensitive data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb1c944e-0e94-647b-9b7e-fdb8d2af0838) |CMA_0481 - Review user groups and applications with access to sensitive data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0481.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 19142.06c1Organizational.8-06.c 06.01 Compliance with Legal Requirements
 
 **ID**: 19142.06c1Organizational.8-06.c
 **Ownership**: Shared
@@ -7686,7 +7686,7 @@ This built-in initiative is deployed as part of the
 |[Review label activity and analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe23444b9-9662-40f3-289e-6d25c02b48fa) |CMA_0474 - Review label activity and analytics |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0474.json) |
 |[Verify personal data is deleted at the end of processing](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6b877a6-5d6d-1862-4b7f-3ccc30b25b63) |CMA_0540 - Verify personal data is deleted at the end of processing |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0540.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 19143.06c1Organizational.9-06.c 06.01 Compliance with Legal Requirements
 
 **ID**: 19143.06c1Organizational.9-06.c
 **Ownership**: Shared
@@ -7700,7 +7700,7 @@ This built-in initiative is deployed as part of the
 |[Ensure security categorization is approved](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6c79c3e5-5f7b-a48a-5c7b-8c158bc01115) |CMA_C1540 - Ensure security categorization is approved |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1540.json) |
 |[Review label activity and analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe23444b9-9662-40f3-289e-6d25c02b48fa) |CMA_0474 - Review label activity and analytics |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0474.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 19144.06c2Organizational.1-06.c 06.01 Compliance with Legal Requirements
 
 **ID**: 19144.06c2Organizational.1-06.c
 **Ownership**: Shared
@@ -7715,7 +7715,7 @@ This built-in initiative is deployed as part of the
 |[Review label activity and analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe23444b9-9662-40f3-289e-6d25c02b48fa) |CMA_0474 - Review label activity and analytics |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0474.json) |
 |[Verify personal data is deleted at the end of processing](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6b877a6-5d6d-1862-4b7f-3ccc30b25b63) |CMA_0540 - Verify personal data is deleted at the end of processing |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0540.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 19145.06c2Organizational.2-06.c 06.01 Compliance with Legal Requirements
 
 **ID**: 19145.06c2Organizational.2-06.c
 **Ownership**: Shared
@@ -7731,7 +7731,7 @@ This built-in initiative is deployed as part of the
 |[Review label activity and analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe23444b9-9662-40f3-289e-6d25c02b48fa) |CMA_0474 - Review label activity and analytics |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0474.json) |
 |[Verify personal data is deleted at the end of processing](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc6b877a6-5d6d-1862-4b7f-3ccc30b25b63) |CMA_0540 - Verify personal data is deleted at the end of processing |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0540.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 19242.06d1Organizational.14-06.d 06.01 Compliance with Legal Requirements
 
 **ID**: 19242.06d1Organizational.14-06.d
 **Ownership**: Shared
@@ -7743,7 +7743,7 @@ This built-in initiative is deployed as part of the
 |[Obtain consent prior to collection or processing of personal data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F069101ac-4578-31da-0cd4-ff083edd3eb4) |CMA_0385 - Obtain consent prior to collection or processing of personal data |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0385.json) |
 |[Remove or redact any PII](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94c842e3-8098-38f9-6d3f-8872b790527d) |CMA_C1833 - Remove or redact any PII |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1833.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 19243.06d1Organizational.15-06.d 06.01 Compliance with Legal Requirements
 
 **ID**: 19243.06d1Organizational.15-06.d
 **Ownership**: Shared
@@ -7760,7 +7760,7 @@ This built-in initiative is deployed as part of the
 |[Remove or redact any PII](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94c842e3-8098-38f9-6d3f-8872b790527d) |CMA_C1833 - Remove or redact any PII |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1833.json) |
 |[Restrict communications](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5020f3f4-a579-2f28-72a8-283c5a0b15f9) |CMA_0449 - Restrict communications |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0449.json) |
 
-### 06.01 Compliance with Legal Requirements
+### 19245.06d2Organizational.2-06.d 06.01 Compliance with Legal Requirements
 
 **ID**: 19245.06d2Organizational.2-06.d
 **Ownership**: Shared

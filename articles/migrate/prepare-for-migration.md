@@ -1,17 +1,17 @@
 ---
 title: Prepare machines for migration with Azure Migrate
 description: Learn how to prepare on-premises machines for migration with Azure Migrate.
-author: anvar-ms
-ms.author: anvar
-ms.manager: bsiva
+author: sunishvohra-ms 
+ms.author: sunishvohra
+ms.manager: vijain
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 12/12/2022
 ms.custom: engagement-fy23
 ---
 
 # Prepare on-premises machines for migration to Azure
 
-This article describes how to prepare on-premises machines before you migrate them to Azure using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
+This article describes how to prepare on-premises machines before you migrate them to Azure using the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool.
 
 In this article, you:
 > [!div class="checklist"]
@@ -198,7 +198,7 @@ Decide which method you want to use to [migrate VMware vSphere VMs](server-migra
 
 ## See what's supported
 
-For VMware vSphere VMs, Server Migration supports [agentless or agent-based migration](server-migrate-overview.md).
+For VMware vSphere VMs, Migration and modernization supports [agentless or agent-based migration](server-migrate-overview.md).
 
 - **VMware vSphere VMs**: Verify [migration requirements and support](migrate-support-matrix-vmware-migration.md) for VMware vSphere VMs.
 - **Hyper-V VMs**: Verify [migration requirements and support](migrate-support-matrix-hyper-v-migration.md) for Hyper-V VMs.

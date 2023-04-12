@@ -2,7 +2,6 @@
 title: Best practices for scheduler features
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for using advanced scheduler features such as taints and tolerations, node selectors and affinity, or inter-pod affinity and anti-affinity in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
 ms.date: 11/11/2022
  
@@ -18,9 +17,11 @@ As you manage clusters in Azure Kubernetes Service (AKS), you often need to isol
 This best practices article focuses on advanced Kubernetes scheduling features for cluster operators. In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Use taints and tolerations to limit what pods can be scheduled on nodes.
 > * Give preference to pods to run on certain nodes with node selectors or node affinity.
 > * Split apart or group together pods with inter-pod affinity or anti-affinity.
+> * Restrict scheduling of workloads that require GPUs only on nodes with schedulable GPUs.
 
 ## Provide dedicated nodes using taints and tolerations
 
@@ -28,7 +29,7 @@ This best practices article focuses on advanced Kubernetes scheduling features f
 >
 > Limit access for resource-intensive applications, such as ingress controllers, to specific nodes. Keep node resources available for workloads that require them, and don't allow scheduling of other workloads on the nodes.
 
-When you create your AKS cluster, you can deploy nodes with GPU support or a large number of powerful CPUs. You can use these nodes for large data processing workloads such as machine learning (ML) or artificial intelligence (AI).
+When you create your AKS cluster, you can deploy nodes with GPU support or a large number of powerful CPUs. For more information, see [Use GPUs on AKS][use-gpus-aks]. You can use these nodes for large data processing workloads such as machine learning (ML) or artificial intelligence (AI).
 
 Because this node resource hardware is typically expensive to deploy, limit the workloads that can be scheduled on these nodes. Instead, dedicate some nodes in the cluster to run ingress services and prevent other workloads.
 
@@ -231,7 +232,7 @@ For a complete example of this web application with Azure Cache for Redis exampl
 
 This article focused on advanced Kubernetes scheduler features. For more information about cluster operations in AKS, see the following best practices:
 
-* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler]
+* [Multi-tenancy and cluster isolation][aks-best-practices-isolation]
 * [Basic Kubernetes scheduler features][aks-best-practices-scheduler]
 * [Authentication and authorization][aks-best-practices-identity]
 
@@ -243,5 +244,7 @@ This article focused on advanced Kubernetes scheduler features. For more informa
 <!-- INTERNAL LINKS -->
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[aks-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
+[use-gpus-aks]: gpu-cluster.md

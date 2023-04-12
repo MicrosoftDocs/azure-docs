@@ -9,7 +9,6 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 05/20/2021
 ms.author: allensu
-
 ---
 
 # Public IP address prefix
@@ -65,7 +64,6 @@ Resource|Scenario|Steps|
 - IPv6 is supported on basic public IPs with **dynamic** allocation only. Dynamic allocation means the IPv6 address will change if you delete and redeploy your resource in Azure. 
 - Standard IPv6 public IPs support static (reserved) allocation. 
 - Standard internal load balancers support dynamic allocation from within the subnet to which they're assigned.
-- Routing preference Internet IPs are not supported in a public IP address prefix.
 
 ## Pricing
  

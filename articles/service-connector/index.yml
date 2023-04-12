@@ -26,6 +26,8 @@ landingContent:
             url: overview.md
           - text: Key concepts in Service Connector
             url: concept-service-connector-internals.md
+          - text: Frequently asked questions
+            url: faq.yml
 
   # Card
   - title: Get started
@@ -57,6 +59,8 @@ landingContent:
             
       - linkListType: how-to-guide
         links:
+          - text: Manage authentication
+            url: how-to-manage-authentication.md
           - text: Troubleshooting guide
             url: how-to-troubleshoot-front-end-error.md
           - text: Region support

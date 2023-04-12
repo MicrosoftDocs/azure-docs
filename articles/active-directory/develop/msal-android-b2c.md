@@ -2,7 +2,7 @@
 title: Azure AD B2C (MSAL Android)
 description: Learn about specific considerations when using Azure AD B2C with the Microsoft Authentication Library for Android (MSAL.Android)
 services: active-directory
-author: iambmelt
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 9/18/2019
-ms.author: brianmel 
-ms.reviewer: rapong
+ms.author: henrymbugua
+ms.reviewer: rapong, iambmelt
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about specific considerations when using Azure AD B2C and MSAL.Android so I can decide if this platform meets my application development needs and requirements.
 ---

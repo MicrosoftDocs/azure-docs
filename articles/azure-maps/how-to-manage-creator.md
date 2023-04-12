@@ -1,8 +1,8 @@
 ---
 title: Manage Microsoft Azure Maps Creator
 description: In this article, you'll learn how to manage Microsoft Azure Maps Creator.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 01/20/2022
 ms.topic: how-to
 ms.service: azure-maps

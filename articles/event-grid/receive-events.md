@@ -69,11 +69,11 @@ namespace Function1
                     {
                         log.LogInformation($"Got SubscriptionValidation event data, validation code: {subscriptionValidationEventData.ValidationCode}, topic: {eventGridEvent.Topic}");
                         // Do any additional validation (as required) and then return back the below response
-
-                        var responseData = new SubscriptionValidationResponse()
+                        var responseData = new
                         {
                             ValidationResponse = subscriptionValidationEventData.ValidationCode
                         };
+
                         return new OkObjectResult(responseData);
                     }
                 }
@@ -171,7 +171,7 @@ namespace Function1
                         log.LogInformation($"Got SubscriptionValidation event data, validation code: {subscriptionValidationEventData.ValidationCode}, topic: {eventGridEvent.Topic}");
                         // Do any additional validation (as required) and then return back the below response
 
-                        var responseData = new SubscriptionValidationResponse()
+                        var responseData = new
                         {
                             ValidationResponse = subscriptionValidationEventData.ValidationCode
                         };
@@ -305,7 +305,7 @@ namespace Function1
                         log.LogInformation($"Got SubscriptionValidation event data, validation code: {subscriptionValidationEventData.ValidationCode}, topic: {eventGridEvent.Topic}");
                         // Do any additional validation (as required) and then return back the below response
 
-                        var responseData = new SubscriptionValidationResponse()
+                        var responseData = new
                         {
                             ValidationResponse = subscriptionValidationEventData.ValidationCode
                         };
@@ -382,7 +382,7 @@ Finally, test that your function can now handle your custom event type:
 
 You can also test this functionality live by [sending a custom event with CURL from the Portal](./custom-event-quickstart-portal.md) or by [posting to a custom topic](./post-to-custom-topic.md)  using any service or application that can POST to an endpoint such as [Postman](https://www.getpostman.com/). Create a custom topic and an event subscription with the endpoint set as the Function URL.
 
-[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
+[!INCLUDE [message-headers](./includes/message-headers.md)]
 
 ## Next steps
 

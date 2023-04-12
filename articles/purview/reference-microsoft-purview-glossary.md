@@ -4,6 +4,7 @@ description: A glossary defining the terminology used throughout the Microsoft P
 author: evangelinew
 ms.author: evwhite
 ms.service: purview
+ms.subservice: purview-data-catalog
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 06/17/2022
@@ -27,7 +28,7 @@ A cloud solution that supports labeling of documents and emails to classify and 
 ## Business glossary
 A searchable list of specialized terms that an organization uses to describe key business words and their definitions. Using a business glossary can provide consistent data usage across the organization.
 ## Capacity unit
-A measure of data map usage. All Microsoft Purview Data Maps include one capacity unit by default, which provides up to 2 GB of metadata storage and has a throughput of 25 data map operations/second.
+A measure of data map usage. All Microsoft Purview Data Maps include one capacity unit by default, which provides up to 10 GB of metadata storage and has a throughput of 25 data map operations/second.
 ## Classification report
 A report that shows key classification details about the scanned data.  
 ## Classification

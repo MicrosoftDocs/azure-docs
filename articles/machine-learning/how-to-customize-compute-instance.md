@@ -1,5 +1,5 @@
 ---
-title: Customize compute instance with a script (preview)
+title: Customize compute instance with a script
 titleSuffix: Azure Machine Learning
 description: Create a customized compute instance, using a startup script. Use the compute instance as your development environment, or as compute target for dev/test purposes.
 services: machine-learning
@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-author: swatig007
-ms.author: swatig
+ms.author: jcioffi
+author: jesscioffi
 ms.reviewer: sgilley
 ms.date: 05/04/2022
 ---

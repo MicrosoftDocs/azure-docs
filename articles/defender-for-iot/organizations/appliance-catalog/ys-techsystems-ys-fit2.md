@@ -12,7 +12,7 @@ This article describes the **YS-techsystems YS-FIT2** appliance deployment and i
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L100|
-|**Performance** | 	Max bandwidth: 10Mbp/s<br>Max devices: 100|
+|**Performance** |  Max bandwidth: 10 Mbps<br>Max devices: 100|
 |**Physical specifications** | Mounting: DIN/VESA<br>Ports: 2x RJ45|
 |**Status** | Supported; Available as pre-configured |
 
@@ -39,7 +39,7 @@ The following image shows a view of the YS-FIT2 back panel:
 | Power Adapter |7V-20V (Optional 9V-36V) DC / 5W-15W Power AdapterVehicle DC cable for YS-FIT2 (Optional)|
 |UPS|Fit-uptime Miniature 12 V UPS for miniPCs (Optional)|
 |Mounting |VESA / wall or Din Rail mounting kit |
-| Temperature |0°C ~ 70°C |
+| Temperature |0°C ~ 60°C |
 | Humidity |5% ~ 95%, non-condensing |
 | Vibration  |IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-64 (up to 2 KHz, 3 axis)|
 |Shock|IEC TR 60721-4-7:2001+A1:03, Class 7M1, test method IEC 60068-2-27 (15 g , 6 directions)|
@@ -50,7 +50,7 @@ The following image shows a view of the YS-FIT2 back panel:
 This section describes how to install OT sensor software on the YS-FIT2 appliance. Before you install the OT sensor software, you must adjust the appliance's BIOS configuration.
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install software on a pre-configured device, or if you buy your own hardware and configure the appliance yourself.
 >
 
 ### Configure the YS-FIT2 BIOS
@@ -89,7 +89,7 @@ This procedure describes how to update the YS-FIT2 BIOS configuration for your O
 
 1. Press **+/-** to select **Enabled**.
 
-1. Go to **Advanced** > **Boot option filter [Legacy only]** and change the setting in the following fields to **Legacy**:
+1. Go to **Advanced** > **CSM Configuration** and change the setting in the following fields to **Legacy**:
 
     - Network
     - Storage
@@ -114,7 +114,7 @@ This procedure describes how to update the YS-FIT2 BIOS configuration for your O
 
 ### Install OT sensor software on the YS-FIT2
 
-This procedure describes how to install OT sensor software on the YS-FIT2. 
+This procedure describes how to install OT sensor software on the YS-FIT2.
 
 The installation takes approximately 20 minutes. After the installation is complete, the system restarts several times.
 
@@ -138,12 +138,10 @@ The installation takes approximately 20 minutes. After the installation is compl
     | **Management subnet mask** | **IP address provided by the customer** |
     | **DNS** | **IP address provided by the customer** |
     | **Default gateway IP address** | **0.0.0.0** |
-    | **Input interface** | The list of input interfaces is generated for you by the system. <br />To mirror the input interfaces, copy all the items presented in the list with a comma separator. |
+    | **Input interface** | The list of input interfaces is generated for you by the system. <br> To mirror the input interfaces, copy all the items presented in the list with a comma separator. |
     | **Bridge interface** | - |
 
-    For example:
-
-    :::image type="content" source="../media/tutorial-install-components/nuvo-profile-appliance.png" alt-text="Define the Nuvo's architecture and network properties.":::
+    For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
 1. Accept the settings and continue by entering `Y`.
 
@@ -155,6 +153,5 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](../how-to-install-software.md)
+- [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

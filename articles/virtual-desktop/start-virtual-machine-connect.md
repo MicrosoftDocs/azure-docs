@@ -3,14 +3,14 @@ title: Set up Start VM on Connect for Azure Virtual Desktop
 description: How to set up the Start VM on Connect feature for Azure Virtual Desktop to turn on session host virtual machines only when they're needed.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/18/2022
+ms.date: 03/14/2023
 ms.author: helohr
 manager: femila
 ms.custom: subject-rbac-steps
 ---
 # Set up Start VM on Connect
 
-Start VM On Connect lets you reduce costs by enabling end users to turn on their session host virtual machines (VMs) only when they need them. You can them turn off VMs when they're not needed.
+Start VM On Connect lets you reduce costs by enabling end users to turn on their session host virtual machines (VMs) only when they need them. You can then turn off VMs when they're not needed.
 
 You can configure Start VM on Connect for personal or pooled host pools using the Azure portal or PowerShell. Start VM on Connect is a host pool setting.
 
@@ -36,6 +36,7 @@ To use Start VM on Connect, make sure you follow these guidelines:
     - Thin clients listed in [Thin client support](./users/connect-thin-clients.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - If you want to configure Start VM on Connect using PowerShell, you'll need to have [the Az.DesktopVirtualization PowerShell module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization) (version 2.1.0 or later) installed on the device you use to run the commands.
 - You must grant Azure Virtual Desktop access to power on session host VMs, check their status, and report diagnostic information. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
+- If you enable Start VM on Connect on a host pool, you must make sure that the host pool name, the names of the session hosts in that host pool, and the resource group name don't have non-ANSI characters. If their names contain non-ANSI characters, then Start VM on Connect won't work as expected.
 
 ## Assign the Desktop Virtualization Power On Contributor role with the Azure portal
 
@@ -154,3 +155,7 @@ If you run into any issues with Start VM On Connect, we recommend you use the Az
 If the session host VM doesn't turn on, you'll need to check the health of the VM you tried to turn on as a first step.
 
 For other questions, check out the [Start VM on Connect FAQ](start-virtual-machine-connect-faq.md).
+
+## Next steps
+
+For more information about Start VM on Connect, see our [Start VM on Connect FAQ](start-virtual-machine-connect-faq.md).

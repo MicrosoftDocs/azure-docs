@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 06/28/2022
+ms.date: 12/27/2022
 ms.custom: "seodec18"
 ---
 
@@ -16,7 +16,7 @@ ms.custom: "seodec18"
 
 This article demonstrates how to call the Image Analysis API to return information about an image's visual features. It also shows you how to parse the returned information using the client SDKs or REST API.
 
-This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL. If you're using a client SDK, you'll also need to authenticate a client object. If you haven't done these steps, follow the [quickstart](../quickstarts-sdk/image-analysis-client-library.md) to get started.
+This guide assumes you've already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL. If you're using a client SDK, you'll also need to authenticate a client object. If you haven't done these steps, follow the [quickstart](../quickstarts-sdk/image-analysis-client-library.md) to get started.
   
 ## Submit data to the service
 
@@ -36,7 +36,6 @@ In your main class, save a reference to the URL of the image you want to analyze
 
 > [!TIP]
 > You can also analyze a local image. See the [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) methods, such as **AnalyzeImageInStreamAsync**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ImageAnalysisQuickstart.cs) for scenarios involving local images.
-
 
 #### [Java](#tab/java)
 
@@ -72,7 +71,7 @@ Save a reference to the URL of the image you want to analyze.
 
 ### Select visual features
 
-The Analyze API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The examples below add all of the available visual features, but for practical usage you'll likely only need one or two.
+The Analyze API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](../overview.md) for a description of each feature. The examples in the sections below add all of the available visual features, but for practical usage you'll likely only need one or two.
 
 #### [REST](#tab/rest)
 
@@ -88,7 +87,7 @@ You can specify which features you want to use by setting the URL query paramete
 
 A populated URL might look like this:
 
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2022-10-12-preview&features=Tags`
+`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=Tags`
 
 #### [C#](#tab/csharp)
 
@@ -137,7 +136,7 @@ The following URL query parameter specifies the language. The default value is `
 
 A populated URL might look like this:
 
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2022-10-12-preview&features=Tags&language=en`
+`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=Tags&language=en`
 
 #### [C#](#tab/csharp)
 

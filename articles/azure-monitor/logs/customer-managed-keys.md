@@ -2,8 +2,7 @@
 title: Azure Monitor customer-managed key
 description: Information and steps to configure Customer-managed key to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
 ms.topic: conceptual
-author: yossi-y
-ms.author: yossiy
+ms.reviewer: yossiy
 ms.date: 05/01/2022 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
@@ -29,7 +28,12 @@ Log Analytics Dedicated Clusters [pricing model](./logs-dedicated-clusters.md#cl
 
 ## How Customer-managed key works in Azure Monitor
 
-Azure Monitor uses managed identity to grant access to your Azure Key Vault. The identity of the Log Analytics cluster is supported at the cluster level. To allow Customer-managed key on multiple workspaces, a Log Analytics *Cluster* resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The cluster's storage uses the managed identity that\'s associated with the *Cluster* resource to authenticate to your Azure Key Vault via Azure Active Directory. 
+Azure Monitor uses managed identity to grant access to your Azure Key Vault. The identity of the Log Analytics cluster is supported at the cluster level. To allow Customer-managed key on multiple workspaces, a Log Analytics Cluster resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The cluster's storage uses the managed identity that\'s associated with the Cluster resource to authenticate to your Azure Key Vault via Azure Active Directory. 
+
+Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): System-assigned and User-assigned, while a single identity can be defined in a cluster depending on your scenario. 
+
+- System-assigned managed identity is simpler and being generated automatically with the cluster creation when identity `type` is set to "*SystemAssigned*". This identity can be used later to grant storage access to your Key Vault for wrap and unwrap operations.
+- User-assigned managed identity lets you configure Customer-managed key at cluster creation, when granting it permissions in your Key Vault before cluster creation.
 
 You can apply Customer-managed key configuration to a new cluster, or existing cluster that has linked workspaces with data ingested to them. New data ingested to linked workspaces gets encrypted with your key, and older data ingested before the configuration, remains encrypted with Microsoft key. Your queries aren't affected by Customer-managed key configuration and query is performed across old and new data seamlessly. You can unlink workspaces from your cluster at any time, and new data ingested after the unlink gets encrypted with Microsoft key, and query is performed across old and new data seamlessly.
 
@@ -99,7 +103,7 @@ Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicate
 
 ## Grant Key Vault permissions
 
-There are two permission models in Key Vault to grants permissions to your cluster and underlay storage——Vault access policy, and Azure role-based access control.
+There are two permission models in Key Vault to grant permissions to your cluster and underlay storage——Vault access policy, and Azure role-based access control.
 
 1. Vault access policy
 
@@ -414,7 +418,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
   - If you create a cluster and get an error—"region-name doesn’t support Double Encryption for clusters", you can still create the cluster without Double encryption, by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption settings can not be changed after the cluster has been created.
 
-Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, it returns to previous state and remains linked to cluster.
+Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, it returns to previous state and remains linked to cluster.
 
 - Customer-managed key encryption applies to newly ingested data after the configuration time. Data that was ingested prior to the configuration, remains encrypted with Microsoft key. You can query data ingested before and after the Customer-managed key configuration seamlessly.
 
@@ -457,18 +461,6 @@ Deleting a linked workspace is permitted while linked to cluster. If you decide 
 
 - Error messages
   
-  **Cluster Create**
-  -  400 — Cluster name is not valid. Cluster name can contain characters a-z, A-Z, 0-9 and length of 3-63.
-  -  400 — The body of the request is null or in bad format.
-  -  400 — "SKU" name is invalid. Set "SKU" name to capacityReservation.
-  -  400 — Capacity was provided but "SKU" is not capacityReservation. Set "SKU" name to capacityReservation.
-  -  400 — Missing Capacity in "SKU". Set Capacity value to 500, 1000, 2000 or 5000 GB/day.
-  -  400 — Capacity is locked for 30 days. Decreasing capacity is permitted 30 days after update.
-  -  400 — No "SKU" was set. Set the "SKU" name to capacityReservation and Capacity value to 500, 1000, 2000 or 5000 GB/day.
-  -  400 — Identity is null or empty. Set Identity with systemAssigned type.
-  -  400 — KeyVaultProperties are set on creation. Update KeyVaultProperties after cluster creation.
-  -  400 — Operation cannot be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.
-
   **Cluster Update**
   -  400 — Cluster is in deleting state. Async operation is in progress. Cluster must complete its operation before any update operation is performed.
   -  400 — KeyVaultProperties is not empty but has a bad format. See [key identifier update](#update-cluster-with-key-identifier-details).
@@ -478,19 +470,8 @@ Deleting a linked workspace is permitted while linked to cluster. If you decide 
   -  400 — Cluster is in deleting state. Wait for the Async operation to complete and try again.
 
   **Cluster Get**
-    -  404 — Cluster not found, the cluster may have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it, or use another name to create a new cluster. 
+  -  404--Cluster not found, the cluster might have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in deletion process. 
 
-  **Cluster Delete**
-    -  409 — Can't delete a cluster while in provisioning state. Wait for the Async operation to complete and try again.
-
-  **Workspace link**
-  -  404 — Workspace not found. The workspace you specified doesn’t exist or was deleted.
-  -  409 — Workspace link or unlink operation in process.
-  -  400 — Cluster not found, the cluster you specified doesn’t exist or was deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it.
-
-  **Workspace unlink**
-  -  404 — Workspace not found. The workspace you specified doesn’t exist or was deleted.
-  -  409 — Workspace link or unlink operation in process.
 ## Next steps
 
 - Learn about [Log Analytics dedicated cluster billing](cost-logs.md#dedicated-clusters)

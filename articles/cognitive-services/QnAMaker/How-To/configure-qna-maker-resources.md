@@ -101,7 +101,7 @@ The high-level idea as represented above is as follows:
 
 1. Keep the primary and secondary Azure search indexes in sync. Use the GitHub sample [here](https://github.com/pchoudhari/QnAMakerBackupRestore) to see how to backup-restore Azure indexes.
 
-1. Back up the Application Insights using [continuous export](../../../azure-monitor/app/export-telemetry.md).
+1. Back up the Application Insights using [continuous export](/previous-versions/azure/azure-monitor/app/export-telemetry).
 
 1. Once the primary and secondary stacks have been set up, use [traffic manager](../../../traffic-manager/traffic-manager-overview.md) to configure the two endpoints and set up a routing method.
 

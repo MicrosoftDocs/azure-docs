@@ -2,7 +2,7 @@
 title: Configure a web app that calls web APIs
 description: Learn how to configure the code of a web app that calls web APIs
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/25/2020
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -91,7 +92,7 @@ Instead of a client secret, you can provide a client certificate. The following 
 
 ## Startup.cs
 
-Your web app will need to acquire a token for the downstream API. You specify it by adding the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApp(Configuration)`. This line exposes the `ITokenAcquisition` service that you can use in your controller and page actions. However, as you'll see in the following two options, it can be done more simply. You'll also need to choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
+Your web app needs to acquire a token for the downstream API. You specify it by adding the `.EnableTokenAcquisitionToCallDownstreamApi()` line after `.AddMicrosoftIdentityWebApp(Configuration)`. This line exposes the `ITokenAcquisition` service that you can use in your controller and page actions. However, as you'll see in the following two options, it can be done more simply. You'll also need to choose a token cache implementation, for example `.AddInMemoryTokenCaches()`, in *Startup.cs*:
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -112,7 +113,7 @@ Your web app will need to acquire a token for the downstream API. You specify it
    }
    ```
 
-The scopes passed to `EnableTokenAcquisitionToCallDownstreamApi` are optional, and enable your web app to request the scopes and the user's consent to those scopes when they log in. If you don't specify the scopes, *Microsoft.Identity.Web* will enable an incremental consent experience.
+The scopes passed to `EnableTokenAcquisitionToCallDownstreamApi` are optional, and enable your web app to request the scopes and the user's consent to those scopes when they sign in. If you don't specify the scopes, *Microsoft.Identity.Web* enables an incremental consent experience.
 
 If you don't want to acquire the token yourself, *Microsoft.Identity.Web* provides two mechanisms for calling a web API from a web app. The option you choose depends on whether you want to call Microsoft Graph or another API.
 
@@ -171,7 +172,7 @@ To call a web API other than Microsoft Graph, *Microsoft.Identity.Web* provides 
 
 As with web APIs, you can choose various token cache implementations. For details, see [Microsoft.Identity.Web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
 
-The following image shows the various possibilities of *Microsoft.Identity.Web* and their impact on the *Startup.cs* file:
+The following image shows the various possibilities of *Microsoft.Identity.Web* and their effect on the *Startup.cs* file:
 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Block diagram showing service configuration options in startup dot C S for calling a web API and specifying a token cache implementation":::
 
@@ -186,7 +187,7 @@ For ASP.NET, you'll subscribe to middleware OIDC events:
 
 - You'll let ASP.NET Core request an authorization code by means of the Open ID Connect middleware. ASP.NET or ASP.NET Core will let the user sign in and consent.
 - You'll subscribe the web app to receive the authorization code. This subscription is done by using a C# delegate.
-- When the authorization code is received, you'll use MSAL libraries to redeem it. The resulting access tokens and refresh tokens are stored in the token cache. The cache can be used in other parts of the application, such as controllers, to acquire other tokens silently.
+- When the authorization code is received, the code uses MSAL libraries to redeem it. The resulting access tokens and refresh tokens are stored in the token cache. The cache can be used in other parts of the application, such as controllers, to acquire other tokens silently.
 
 Code examples in this article and the following one are extracted from the [ASP.NET Web app sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect). You might want to refer to that sample for full implementation details.
 
@@ -197,8 +198,9 @@ The sample currently lets MSAL for Java produce the authorization-code URL and h
 
 # [Python](#tab/python)
 
-Code examples in this article and the following one are extracted from the [Python web application calling Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-webapp), a web-app sample that uses MSAL.Python.
-The sample currently lets MSAL.Python produce the authorization-code URL and handles the navigation to the authorization endpoint for the Microsoft identity platform. You might want to refer to the sample for full implementation details.
+Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample using the [identity package](https://pypi.org/project/identity/) (a wrapper around MSAL Python).
+
+The sample uses the identity package to produce the authorization-code URL and handles the navigation to the authorization endpoint for the Microsoft identity platform. You might want to refer to the sample for full implementation details.
 
 ---
 
@@ -210,7 +212,7 @@ Microsoft.Identity.Web simplifies your code by setting the correct OpenID Connec
 
 # [ASP.NET](#tab/aspnet)
 
-ASP.NET handles things similarly to ASP.NET Core, except that the configuration of OpenID Connect and the subscription to the `OnAuthorizationCodeReceived` event happen in the [App_Start\Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) file. The concepts are also similar to those in ASP.NET Core, except that in ASP.NET you must specify the `RedirectUri` in [Web.config#L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). This configuration is a bit less robust than the one in ASP.NET Core, because you'll need to change it when you deploy your application.
+ASP.NET handles things similarly to ASP.NET Core, except that the configuration of OpenID Connect and the subscription to the `OnAuthorizationCodeReceived` event happen in the [App_Start\Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) file. The concepts are also similar to those in ASP.NET Core, except that in ASP.NET you must specify the `RedirectUri` in [Web.config#L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). This configuration is a bit less robust than the one in ASP.NET Core, because you need to change it when you deploy your application.
 
 Here's the code for Startup.Auth.cs:
 
@@ -350,29 +352,17 @@ The `getAuthResultByAuthCode` method is defined in [AuthHelper.java#L176](https:
 
 # [Python](#tab/python)
 
-The authorization code flow is requested as shown in [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=python#initialization-code). The code is then received on the `authorized` function, which Flask routes from the `/getAToken` URL. See [app.py#L30-L44](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L30-L44) for the full context of this code:
+See [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=python#initialization-code) to understand how the Python sample gets the authorization code. 
 
-```python
- @app.route("/getAToken")  # Its absolute URL must match your app's redirect_uri set in AAD.
-def authorized():
-    if request.args['state'] != session.get("state"):
-        return redirect(url_for("login"))
-    cache = _load_cache()
-    result = _build_msal_app(cache).acquire_token_by_authorization_code(
-        request.args['code'],
-        scopes=app_config.SCOPE,  # Misspelled scope would cause an HTTP 400 error here.
-        redirect_uri=url_for("authorized", _external=True))
-    if "error" in result:
-        return "Login failure: %s, %s" % (
-            result["error"], result.get("error_description"))
-    session["user"] = result.get("id_token_claims")
-    _save_cache(cache)
-    return redirect(url_for("index"))
-```
+The Microsoft sign-in screen sends the authorization code to the `/getAToken` URL that was specified in the app registration. The `auth_response` route handles that URL, calling `auth.complete_login` to process the authorization code, and then either returning an error or redirecting to the home page.
+
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="36-41":::
+
+See [app.py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.5.0/app.py#L36-41) for the full context of that code.
 
 ---
 
-Instead of a client secret, the confidential client application can also prove its identity by using a client certificate, or a client assertion.
+Instead of a client secret, the confidential client application can also prove its identity by using a client certificate or a client assertion.
 The use of client assertions is an advanced scenario, detailed in [Client assertions](msal-net-client-assertions.md).
 
 ## Token cache
@@ -383,7 +373,7 @@ The use of client assertions is an advanced scenario, detailed in [Client assert
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-The ASP.NET core tutorial uses dependency injection to let you decide the token cache implementation in the Startup.cs file for your application. Microsoft.Identity.Web comes with pre-built token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
+The ASP.NET core tutorial uses dependency injection to let you decide the token cache implementation in the Startup.cs file for your application. Microsoft.Identity.Web comes with prebuilt token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 
 ```csharp
 // Use a distributed token cache by adding:
@@ -422,7 +412,7 @@ The web-app implementation can use the ASP.NET session or the server memory. For
 
 
 First, to use these implementations:
-- add the Microsoft.Identity.Web NuGet package. These token cache serializers are not brought in MSAL.NET directly to avoid unwanted dependencies. In addition to a higher level for ASP.NET Core, Microsoft.Identity.Web brings classes that are helpers for MSAL.NET, 
+- add the Microsoft.Identity.Web NuGet package. These token cache serializers aren't brought in MSAL.NET directly to avoid unwanted dependencies. In addition to a higher level for ASP.NET Core, Microsoft.Identity.Web brings classes that are helpers for MSAL.NET, 
 - In your code, use the Microsoft.Identity.Web namespace:
 
   ```csharp
@@ -452,7 +442,7 @@ public static class MsalAppBuilder
   }
 ```
 
-Instead of `clientapp.AddInMemoryTokenCache()`, you can also use more advanced cache serialization implementations like Redis, SQL, CosmosDB, or distributed memory. Here's an example for Redis:
+Instead of `clientapp.AddInMemoryTokenCache()`, you can also use more advanced cache serialization implementations like Redis, SQL, Cosmos DB, or distributed memory. Here's an example for Redis:
 
 ```csharp
   clientapp.AddDistributedTokenCache(services =>
@@ -502,36 +492,15 @@ The detail of the `SessionManagementHelper` class is provided in the [MSAL sampl
 
 # [Python](#tab/python)
 
-In the Python sample, one cache per account is ensured by recreating a confidential client application for each request and then serializing it in the Flask session cache:
+In the Python sample, the identity package takes care of the token cache, using the global `session` object for storage. 
 
-```python
-from flask import Flask, render_template, session, request, redirect, url_for
-from flask_session import Session  # https://pythonhosted.org/Flask-Session
-import msal
-import app_config
+Flask has built-in support for sessions stored in a cookie, but due to the length of the identity cookies, the sample uses the [Flask-session](https://flask-session.readthedocs.io/) package instead. Everything is initialized in *app.py*:
 
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="1-11,19-25" highlight="5,11":::
 
-app = Flask(__name__)
-app.config.from_object(app_config)
-Session(app)
+Due to the `SESSION_TYPE="filesystem"` setting in `app_config.py`, the Flask-session package stores sessions using the local file system.
 
-# Code omitted here for simplicity
-
-def _load_cache():
-    cache = msal.SerializableTokenCache()
-    if session.get("token_cache"):
-        cache.deserialize(session["token_cache"])
-    return cache
-
-def _save_cache(cache):
-    if cache.has_state_changed:
-        session["token_cache"] = cache.serialize()
-
-def _build_msal_app(cache=None):
-    return msal.ConfidentialClientApplication(
-        app_config.CLIENT_ID, authority=app_config.AUTHORITY,
-        client_credential=app_config.CLIENT_SECRET, token_cache=cache)
-```
+For production, you should use [a setting](https://flask-session.readthedocs.io/en/latest/#configuration) that persists across multiple instances and deploys of your app, such as "sqlachemy" or "redis".
 
 ---
 
@@ -539,4 +508,24 @@ def _build_msal_app(cache=None):
 
 At this point, when the user signs in, a token is stored in the token cache. Let's see how it's then used in other parts of the web app.
 
-[Remove accounts from the cache on global sign-out](scenario-web-app-call-api-sign-in.md)
+# [ASP.NET Core](#tab/aspnetcore)
+
+Move on to the next article in this scenario,
+[Remove accounts from the cache on global sign out](scenario-web-app-call-api-sign-in.md?tabs=aspnetcore).
+
+# [ASP.NET](#tab/aspnet)
+
+Move on to the next article in this scenario,
+[Remove accounts from the cache on global sign out](scenario-web-app-call-api-sign-in.md?tabs=aspnet).
+
+# [Java](#tab/java)
+
+Move on to the next article in this scenario,
+[Remove accounts from the cache on global sign out](scenario-web-app-call-api-sign-in.md?tabs=java).
+
+# [Python](#tab/python)
+
+Move on to the next article in this scenario,
+[Remove accounts from the cache on global sign out](scenario-web-app-call-api-sign-in.md?tabs=python).
+
+---

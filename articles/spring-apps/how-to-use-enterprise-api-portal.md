@@ -19,7 +19,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article shows you how to use API portal for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
 
-[API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.0/api-portal/GUID-index.html) is one of the commercial VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway for VMware Tanzu®](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling single sign-on (SSO) authentication via configuration.
+[API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.1/api-portal/GUID-index.html) is one of the commercial VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway for VMware Tanzu®](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling single sign-on (SSO) authentication via configuration.
 
 ## Prerequisites
 
@@ -158,6 +158,37 @@ Use the following steps to try out APIs:
 1. Select **EXECUTE**, and the response will be shown.
 
    :::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of API portal.":::
+
+## Enable/disable API portal after service creation
+
+You can enable and disable API portal after service creation using the Azure portal or Azure CLI. Before disabling API portal, you're required to unassign its endpoint.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to enable or disable API portal using the Azure portal:
+
+1. Navigate to your service resource, and then select **API portal**.
+1. Select **Manage**.
+1. Select or unselect the **Enable API portal**, and then select **Save**.
+1. You can now view the state of API portal on the **API portal** page.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following Azure CLI commands to enable or disable API portal:
+
+```azurecli
+az spring api-portal create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+```azurecli
+az spring api-portal delete \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+---
 
 ## Next steps
 

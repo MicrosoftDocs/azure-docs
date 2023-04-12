@@ -165,7 +165,7 @@ sampleApp/
 In the next steps, you'll create a new folder for the JavaScript SPA and set up the user interface (UI).
 
 > [!TIP]
-> When you set up an Azure Active Directory (Azure AD) account, you create a tenant. This is a digital representation of your organization. It's primarily associated with a domain, like Microsoft.com. If you want to learn how applications can work with multiple tenants, refer to the [application model](/azure/active-directory/develop/application-model).
+> When you set up an Azure Active Directory (Azure AD) account, you create a tenant. This is a digital representation of your organization. It's primarily associated with a domain, like Microsoft.com. If you want to learn how applications can work with multiple tenants, refer to the [application model](./application-model.md).
 
 ## Create the SPA UI
 
@@ -185,11 +185,11 @@ In the next steps, you'll create a new folder for the JavaScript SPA and set up 
 
        <!-- msal.js with a fallback to backup CDN -->
          <script src="https://alcdn.msauth.net/browser/2.30.0/js/msal-browser.js"
-    integrity="sha384-L8LyrNcolaRZ4U+N06atid1fo+kBo8hdlduw0yx+gXuACcdZjjquuGZTA5uMmUdS"
+    integrity="sha384-o4ufwq3oKqc7IoCcR08YtZXmgOljhTggRwxP2CLbSqeXGtitAxwYaUln/05nJjit"
     crossorigin="anonymous"></script> 
 
        <!-- adding Bootstrap 4 for UI components  -->
-       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-o4ufwq3oKqc7IoCcR08YtZXmgOljhTggRwxP2CLbSqeXGtitAxwYaUln/05nJjit" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
      </head>
      <body>
        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">

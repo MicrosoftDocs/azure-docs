@@ -2,6 +2,7 @@
 title: Delete image resources
 description: Details on how to effectively manage registry size by deleting container image data using Azure CLI commands.
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
@@ -177,7 +178,7 @@ As mentioned in the [Manifest digest](container-registry-concepts.md#manifest-di
 1. Check manifests for repository *acr-helloworld*:
 
    ```azurecli
-   az acr manifest list-metadata --name myregistry --repository acr-helloworld
+   az acr manifest list-metadata --name acr-helloworld --registry myregistry
    ```
    
    ```output

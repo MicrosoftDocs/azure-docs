@@ -4,11 +4,11 @@ description: Deploy the Log Analytics agent on Linux virtual machine using a vir
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: linux
 ms.date: 06/15/2022
-
 ---
 # Log Analytics virtual machine extension for Linux
 
@@ -31,6 +31,7 @@ The following table provides a mapping of the version of the Log Analytics VM ex
 
 | Log Analytics Linux VM extension version | Log Analytics Agent bundle version | 
 |--------------------------------|--------------------------|
+| 1.14.23 | [1.14.23](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.23-0) |
 | 1.14.20 | [1.14.20](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.20-0) |
 | 1.14.19 | [1.14.19](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.19-0) |
 | 1.14.16 | [1.14.16](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.14.16-0) |
@@ -73,7 +74,7 @@ The Log Analytics agent extension for Linux requires that the target virtual mac
 
 The following JSON shows the schema for the Log Analytics agent extension. The extension requires the workspace ID and workspace key from the target Log Analytics workspace; these values can be [found in your Log Analytics workspace](../../azure-monitor/vm/monitor-virtual-machine.md) in the Azure portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
 > [!NOTE]
-> Because the [Container Monitoring solution](../../azure-monitor/containers/containers.md) is being retired, the following documentation uses the optional setting "skipDockerProviderInstall": true.
+> Because the [Container Monitoring solution](/previous-versions/azure/azure-monitor/containers/containers) is being retired, the following documentation uses the optional setting "skipDockerProviderInstall": true.
 
 
 ```json

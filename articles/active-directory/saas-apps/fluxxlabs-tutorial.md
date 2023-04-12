@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Fluxx Labs | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Fluxx Labs'
 description: Learn how to configure single sign-on between Azure Active Directory and Fluxx Labs.
 services: active-directory
 author: jeevansd

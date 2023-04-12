@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with LinkedIn Sales Navigator | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with LinkedIn Sales Navigator'
 description: Learn how to configure single sign-on between Azure Active Directory and LinkedIn Sales Navigator.
 services: active-directory
 author: jeevansd

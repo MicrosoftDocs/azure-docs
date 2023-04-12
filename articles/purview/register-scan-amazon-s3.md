@@ -1,12 +1,12 @@
 ---
 title: Amazon S3 multi-cloud scanning connector for Microsoft Purview
 description: This how-to guide describes details of how to scan Amazon S3 buckets in Microsoft Purview.
-author: batamig
-ms.author: bagol
+author: aashishr
+ms.author: aashishr
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 02/15/2023
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Microsoft Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -16,7 +16,7 @@ ms.custom: references_regions
 
 The Multi-Cloud Scanning Connector for Microsoft Purview allows you to explore your organizational data across cloud providers, including Amazon Web Services in addition to Azure storage services.
 
-This article describes how to use Microsoft Purview to scan your unstructured data currently stored in Amazon S3 standard buckets, and discover what types of sensitive information exists in your data. This how-to guide also describes how to identify the Amazon S3 Buckets where the data is currently stored for easy information protection and data compliance.
+This article describes how to use Microsoft Purview to scan your unstructured data currently stored in Amazon S3 standard buckets, and discover what types of sensitive information exist in your data. This how-to guide also describes how to identify the Amazon S3 Buckets where the data is currently stored for easy information protection and data compliance.
 
 For this service, use Microsoft Purview to provide a Microsoft account with secure access to AWS, where the Multi-Cloud Scanning Connector for Microsoft Purview will run. The Multi-Cloud Scanning Connector for Microsoft Purview uses this access to your Amazon S3 buckets to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Microsoft Purview classification and labeling reports to analyze and review your data scan results.
 
@@ -110,7 +110,7 @@ This procedure describes how to create the AWS role, with the required Microsoft
 
 1. Select **New** to create a new credential.
 
-    In the **New credential** pane that appears on the right, in the **Authentication method** dropdown, select **Role ARN**.
+    In the **New credential** pane that appears, in the **Authentication method** dropdown, select **Role ARN**.
 
     Then copy the **Microsoft account ID** and **External ID** values that appear to a separate file, or have them handy for pasting into the relevant field in AWS. For example:
 
@@ -322,7 +322,7 @@ You'll need the name of your Amazon S3 bucket to copy it in to Microsoft Purview
 
 You'll need your AWS account ID to register your AWS account as a Microsoft Purview data source, together with all of its buckets.
 
-Your AWS account ID is the ID you use to log in to the AWS console. You can also find it once you're logged in on the IAM dashboard, on the left under the navigation options, and at the top, as the numerical part of your sign-in URL:
+Your AWS account ID is the ID you use to sign in to the AWS console. You can also find it once you're logged in on the IAM dashboard, on the left under the navigation options, and at the top, as the numerical part of your sign-in URL:
 
 For example:
 

@@ -1,11 +1,11 @@
 ---
 title: Redirect URI (reply URL) restrictions
 description: A description of the restrictions and limitations on redirect URI (reply URL) format enforced by the Microsoft identity platform.
-author: madansr7
+author: henrymbuguakiarie
 manager: CelesteDG
-ms.author: saumadan
+ms.author: henrymbugua
 ms.date: 08/25/2022
-ms.reviewer: marsma
+ms.reviewer: madansr7
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -116,7 +116,7 @@ To add a redirect URI that uses the `http` scheme with the `127.0.0.1` loopback 
 
 ## Restrictions on wildcards in redirect URIs
 
-Wildcard URIs like `https://*.contoso.com` may seem convenient, but should be avoided due to security implications. According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), a redirection endpoint URI must be an absolute URI.
+Wildcard URIs like `https://*.contoso.com` may seem convenient, but should be avoided due to security implications. According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), a redirection endpoint URI must be an absolute URI. As such, when a configured wildcard URI matches a redirect URI, query strings and fragments in the redirect URI are stripped.
 
 Wildcard URIs are currently unsupported in app registrations configured to sign in personal Microsoft accounts and work or school accounts. Wildcard URIs are allowed, however, for apps that are configured to sign in only work or school accounts in an organization's Azure AD tenant.
 

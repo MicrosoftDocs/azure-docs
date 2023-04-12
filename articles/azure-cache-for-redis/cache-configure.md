@@ -203,7 +203,7 @@ The **maxfragmentationmemory-reserved** setting configures the amount of memory 
 When choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**), consider how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data, then change the reservation value to 8 GB, this change drops the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system will have to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Create your own metrics](cache-how-to-monitor.md#create-your-own-metrics).
 
 > [!IMPORTANT]
-> The **maxmemory-reserved** and **maxfragmentationmemory-reserved** settings are available only for Standard and Premium caches.
+> The **maxmemory-reserved** and **maxfragmentationmemory-reserved** settings are available for Basic,Standard and Premium caches.
 >
 
 #### Keyspace notifications (advanced settings)
@@ -545,6 +545,11 @@ Configuration and management of Azure Cache for Redis instances is managed by Mi
 - SHUTDOWN
 - SLAVEOF
 - SYNC
+
+For cache instances using active geo-replication, the following commands are also blocked to prevent accidental data loss:
+
+- FLUSHALL
+- FLUSHDB
 
 > [!IMPORTANT]
 > Because configuration and management of Azure Cache for Redis instances is managed by Microsoft, some commands are disabled. The commands are listed above. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.

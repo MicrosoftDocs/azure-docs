@@ -6,11 +6,17 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 03/13/2023
 ---
 # How to get lineage from Azure Synapse Analytics into Microsoft Purview
 
-This document explains the steps required for connecting an Azure Synapse workspace with a Microsoft Purview account to track data lineage. The document also gets into the details of the coverage scope and supported lineage capabilities.
+This document explains the steps required for connecting an Azure Synapse workspace with a Microsoft Purview account to track [data lineage](concept-data-lineage.md) and [ingest data sources](concept-scans-and-ingestion.md#ingestion). The document also gets into the details of the activity coverage scope and supported lineage capabilities.
+
+When you connect Azure Synapse Analytics to Microsoft Purview, whenever a [supported pipeline activity](#supported-azure-synapse-capabilities) is run, metadata about the activity's source data, output data, and the activity will be automatically [ingested](concept-scans-and-ingestion.md#ingestion) into the Microsoft Purview Data Map.
+
+If a data source has already been scanned and exists in the data map, the ingestion process will add the lineage information from Azure Synapse Analytics to that existing source. If the source or output doesn't exist in the data map and is [supported by Azure Synapse Analytics lineage](#supported-azure-synapse-capabilities) Microsoft Purview will automatically add their metadata from Synapse Analytics into the data map under the root collection.
+
+This can be an excellent way to monitor your data estate as users move and transform information using Azure Synapse Analytics.
 
 ## Supported Azure Synapse capabilities
 
@@ -25,7 +31,7 @@ Currently, Microsoft Purview captures runtime lineage from the following Azure S
 [!INCLUDE[azure-synapse-supported-activity-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
 ## Access secured Microsoft Purview account
-      
+
 If your Microsoft Purview account is protected by firewall, learn how to let Azure Synapse [access a secured Microsoft Purview account](../synapse-analytics/catalog-and-governance/how-to-access-secured-purview-account.md) through Microsoft Purview private endpoints.
 
 ## Bring Azure Synapse lineage into Microsoft Purview
@@ -36,7 +42,7 @@ You can connect an Azure Synapse workspace to Microsoft Purview, and the connect
 
 ### Step 2: Run pipeline in Azure Synapse workspace
 
-You can create pipelines with Copy activity in Azure Synapse workspace. You don't need any additional configuration for lineage data capture. The lineage data will automatically be captured during the activities execution.
+You can create pipelines with Copy activity in Azure Synapse workspace. You don't need any other configuration for lineage data capture. The lineage data will automatically be captured during the activities execution.
 
 ### Step 3: Monitor lineage reporting status
 
@@ -53,6 +59,10 @@ In your Microsoft Purview account, you can browse assets and choose type "Azure 
 Select the Synapse account -> pipeline -> activity, you can view the lineage information.
 
 :::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png" alt-text="Browse the Azure Synapse pipeline lineage in Microsoft Purview." lightbox="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png":::
+
+## Monitor the Azure Synapse Analytics links
+
+In Microsoft Purview governance portal, you can [monitor the Azure Synapse Analytics links](how-to-monitor-data-map-population.md#monitor-links).
 
 ## Next steps
 

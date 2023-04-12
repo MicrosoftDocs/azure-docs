@@ -1,9 +1,10 @@
 ---
 title: Azure Blob Storage monitoring data reference
+titleSuffix: Azure Storage
 description: Log and metrics reference for monitoring data from Azure Blob Storage.
 recommendations: false
 author: normesta
-services: storage
+
 ms.service: storage
 ms.topic: reference
 ms.date: 10/02/2020

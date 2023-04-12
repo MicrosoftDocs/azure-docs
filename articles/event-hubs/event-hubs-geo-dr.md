@@ -157,6 +157,10 @@ Note the following considerations to keep in mind:
 
 5. Synchronizing entities can take some time, approximately 50-100 entities per minute.
 
+6. Some aspects of the management plane for the secondary namespace become read-only while geo-recovery pairing is active.
+
+7. The data plane of the secondary namespace will be read-only while geo-recovery pairing is active. The data plane of the secondary namespace will accept GET requests to enable validation of client connectivity and access controls.
+
 ## Availability Zones 
 Event Hubs supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. The Availability Zones support is only available in [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones). Both metadata and data (events) are replicated across data centers in the availability zone. 
 

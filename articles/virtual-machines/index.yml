@@ -55,6 +55,8 @@ landingContent:
             url: ./windows/quick-create-portal.md
           - text: Azure PowerShell
             url: ./windows/quick-create-powershell.md
+          - text: Terraform
+            url: ./windows/quick-create-terraform.md
           - text: Azure CLI
             url: ./windows/quick-create-cli.md
 

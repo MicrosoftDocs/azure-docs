@@ -7,7 +7,7 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 10/27/2022
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Import a GraphQL API
@@ -28,7 +28,7 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - A GraphQL API. 
 - Azure CLI
-    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 - Azure PowerShell

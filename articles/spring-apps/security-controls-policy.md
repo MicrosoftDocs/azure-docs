@@ -1,12 +1,12 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Spring Apps
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Spring Apps. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 11/04/2022
+ms.date: 02/14/2023
 ms.topic: sample
 author: karlerickson
 ms.author: karler
 ms.service: spring-apps
-ms.custom: subject-policy-compliancecontrols, event-tier1-build-2022
+ms.custom: subject-policy-compliancecontrols, event-tier1-build-2022, devx-track-java
 ---
 # Azure Policy Regulatory Compliance controls for Azure Spring Apps
 

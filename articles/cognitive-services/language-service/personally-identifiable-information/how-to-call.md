@@ -18,6 +18,11 @@ ms.custom: language-service-pii, ignite-fall-2021
 
 The PII feature can evaluate unstructured text, extract and redact sensitive information (PII) and health information (PHI) in text across several [pre-defined categories](concepts/entity-categories.md).
 
+
+## Development options
+
+[!INCLUDE [development options](./includes/development-options.md)]
+
 ## Determine how to process the data (optional)
 
 ### Specify the PII detection model
