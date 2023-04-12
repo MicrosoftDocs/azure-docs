@@ -49,7 +49,7 @@ MicrosoftTeamsUserIdentifier teamsUser = new MicrosoftTeamsUserIdentifier(<USER_
 spotLightFeature.stopParticipantsSpotLight([acsUser, teamsUser]);
 ```
 
-### stop spotlight for all  participants
+### Remove all spotlights
 All pinned participants can be unpinned using this API. Only MicrosoftTeamsUserIdentifier users who have an organizer, coorganizer or presenter role can unpin all participants.
 ```js
 spotLightFeature.stopAllSpotLight();
