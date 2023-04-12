@@ -147,6 +147,32 @@ az identity federated-credential create --name myfederatedIdentity --identity-na
 kubectl apply -f <your application>
 ```
 
+When deploying your application pods, it should reference the service account created in the Create Kubernetes service account step. The following manifest demonstrates how to reference the account, specifically `metadata\namespace` and `spec\serviceAccountName`:
+
+```yml
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quick-start
+  namespace: SERVICE_ACCOUNT_NAMESPACE
+  labels:
+    azure.workload.identity/use: "true"
+spec:
+  serviceAccountName: workload-identity-sa
+  containers:
+    - image: ghcr.io/azure/azure-workload-identity/msal-go
+      name: oidc
+      env:
+      - name: KEYVAULT_URL
+        value: KEYVAULT_URL
+      - name: SECRET_NAME
+        value: KEYVAULT_SECRET_NAME
+  nodeSelector:
+    kubernetes.io/os: linux
+EOF
+```
+
 ## Optional - Grant permissions to access Azure Key Vault
 
 This step is necessary if you need to access secrets, keys, and certificates that are mounted in Azure Key Vault from a pod. Perform the following steps to configure access with a managed identity. These steps assume you have an Azure Key Vault already created and configured in your subscription. If you don't have one, see [Create an Azure Key Vault using the Azure CLI][create-key-vault-azure-cli].
