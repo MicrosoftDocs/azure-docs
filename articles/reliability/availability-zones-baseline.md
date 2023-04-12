@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Azure availability zone migration baseline
 
-This article shows you how to assess the availability-zone readiness of your application for the purposes of migrating from non-availability zone to availability zone support. We'll take you through the steps you'll need to determine how you can take advantage of availability zone support in alignment with your application and regional requirements. For more detailed information on availability zones and the regions that support them, see [What are Azure regions and availability zones?](availability-zones-overview.md).
+This article shows you how to assess the availability-zone readiness of your application for the purposes of migrating from non-availability zone to availability zone support. We'll take you through the steps you'll need to determine how you can take advantage of availability zone support in alignment with your application and regional requirements. For more detailed information on availability zones and the regions that support them, see [What are Azure regions and availability zones](availability-zones-overview.md).
 
 When creating reliable workloads, you can choose at least one of the following availability zone configurations: 
 
@@ -52,7 +52,7 @@ To list the available VM SKUs by Azure region and zone, see [Check VM SKU availa
 
 If your region doesn't support the services and SKUs that your application requires, you'll need to go back to [Step 1: Check the product availability in the Azure region](#step-1-check-if-the-azure-region-supports-availability-zones) to find a new region.  
 
- the services and SKUs that your application requires, we highly recommended that you configure your workload with zone-redundancy. For zonal high availability of Azure IaaS Virtual Machines, use [VMSS Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) to spread VMs across multiple availability zones.
+ the services and SKUs that your application requires, we highly recommended that you configure your workload with zone-redundancy. For zonal high availability of Azure IaaS Virtual Machines, use [Virtual Machine Scale Sets Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) to spread VMs across multiple availability zones.
 
 
 ### Step 3: Consider your application requirements
@@ -67,7 +67,7 @@ Azure availability zones within the same Azure region are connected by a high-pe
 
 The recommended approach to achieving high availability, if low latency isn't a strict requirement, is to configure your workload with a zone redundant deployment.
 
-For critical application components that require physical proximity and low latency, such as gaming, engineering simulation, and high-frequency trading (HFT), we recommend that you configure a zonal deployment. [VMSS Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) provides zone aligned compute along with attached storage disks. 
+For critical application components that require physical proximity and low latency, such as gaming, engineering simulation, and high-frequency trading (HFT), we recommend that you configure a zonal deployment. [Virtual Machine Scale Sets Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) provides zone aligned compute along with attached storage disks. 
 
 
 #### Does your application code have the readiness to handle a distributed model?
