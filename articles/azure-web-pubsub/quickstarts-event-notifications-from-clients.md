@@ -1,5 +1,6 @@
 ---
-title: Event notifications from clients
+title: Azure Web PubSub event notifications from clients
+titleSuffix: Azure Web PubSub
 description: A quickstarts guide that shows how to handle system and client events on an upstream application server
 author: vicancy
 ms.author: lianwei
@@ -9,9 +10,6 @@ ms.date: 04/12/2023
 ---
 
 # Event notifications from clients
-
-## Intro
-
 In the first three articles of "quickstarts", we learned two useful communication patterns using Web PubSub for real-time messaging at scale ***(million+)***.
 - **Pub/Sub** among clients that free your application server from the complexity of managing persistent connections
 - **Push messages** to clients from your application server as soon as new data is available
@@ -21,7 +19,7 @@ In this quickstart guide, we learn about the event system of Web PubSub so that 
 > * a client is `connected`
 > * a client sends a `message`, which requires further processing 
 
-:::image type="content" source="media/quickstart-live-demo/notification.gif" alt-text="GIF of application server receiving client events":::
+:::image type="content" source="media/quickstarts-push-messages-from-server/notification.gif" alt-text="GIF of application server receiving client events.":::
 
 ## Prerequisites
 - A Web PubSub resource. If you haven't created one, you can follow the guidance: [Create a Web PubSub resource](./howto-develop-create-instance.md)
@@ -52,7 +50,7 @@ A client, be it a browser, a mobile app, or an IoT device, uses a **Client Acces
 This URL follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. 
 A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown in the following diagram.
 
-![The diagram shows how to get **Client Access Url**.](./media/howto-websocket-connect/generate-client-url_no-group.png)
+![The diagram shows how to get **Client Access Url**.](./media/quickstarts-push-messages-from-server/generate-client-url-no-group.png)
 
 Create a file with name `client.js` and add the following code
 
@@ -157,15 +155,15 @@ Now, we need to let your Web PubSub resource know about this Webhook URL. You ca
 
 # [Azure portal](#tab/portal)
 1. Select **"Settings"** from the menu and select **"Add"**
-:::image type="content" source="media/howto-develop-eventhandler/configure-event-handler_menu.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - menu":::
+:::image type="content" source="media/howto-develop-eventhandler/configure-event-handler-menu.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - menu.":::
 
 1. Enter a hub name. For our purposes, enter "**myHub1**" and select "**Add**"
 
 1. In the event handler page, configure the following fields
-:::image type="content" source="media/howto-develop-eventhandler/configure-event-handler_details.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - details":::
+:::image type="content" source="media/quickstarts-push-messages-from-server/configure-event-handler-details.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - details.":::
 
 1. Save configuration
-:::image type="content" source="media/howto-develop-eventhandler/configure-event-handler_save.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - save":::
+:::image type="content" source="media/quickstarts-push-messages-from-server/configure-event-handler-save.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - save.":::
 
 # [Azure CLI](#tab/cli)
 > [!Important]

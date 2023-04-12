@@ -1,5 +1,6 @@
 ---
 title: PubSub among clients
+titleSuffix: Azure Web PubSub
 description: A quickstarts guide that shows to how to subscribe to messages in a group and send messages to a group without the involvement of a typical application server
 author: kevinguo-ed
 ms.author: kevinguo
@@ -10,9 +11,8 @@ ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ---
 # Publish/subscribe among clients
-:::image type="content" source="media/quickstart-live-demo/among-clients.gif" alt-text="GIF of pub/sub among clients without an application server":::
+:::image type="content" source="media/quickstarts-push-messages-from-server/among-clients.gif" alt-text="GIF of pub/sub among clients without an application server.":::
 
-## Intro
 This quickstart guide demonstrates how to
 > [!div class="checklist"]
 > * **connect** to your Web PubSub resource

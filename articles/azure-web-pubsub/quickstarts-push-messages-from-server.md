@@ -1,5 +1,6 @@
 ---
-title: Push messages from server
+title: Azure Web PubSub push messages from server
+titleSuffix: Azure Web PubSub
 description: A quickstarts guide that shows how to proactively push messages from an upstream application server to connected clients
 author: vicancy
 ms.author: lianwei
@@ -10,11 +11,9 @@ ms.date: 04/12/2023
 
 # Push messages from server
 
-## Intro
-
 The familiar HTTP request/response model was designed to be easy to work with and scalable. However, nowadays end users demand a lot more from the web than it was originally designed for. The HTTP protocol requires users to **initiate** the request in order to receive a response. But developers need a way to send data from server to clients without them asking for it; in other words, they need to **"push"** data to clients, like pushing the latest bidding price of a product on an auction site or fast-moving stock prices in a financial application.
 
-:::image type="content" source="media/quickstart-live-demo/server-push.gif" alt-text="GIF of application server pushing data to connected client":::
+:::image type="content" source="media/quickstarts-push-messages-from-server/server-push.gif" alt-text="GIF of application server pushing data to connected client.":::
 
 This quickstart guide demonstrates how to
 > [!div class="checklist"]
@@ -66,7 +65,7 @@ npm install @azure/web-pubsub-client
 A client uses a ***Client Access URL*** to connect and authenticate with your resource. 
 This URL follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown in the following diagram.
 
-![The diagram shows how to get client access url.](./media/quickstart-live-demo/push_messages_from_server.png)
+![The diagram shows how to get client access url.](./media/quickstarts-push-messages-from-server/push-messages-from-server.png)
 
 As shown in the diagram above, the client joins the hub named `myHub1`.
 
@@ -353,7 +352,7 @@ The `server.sendToAll()` call sends a message to all connected clients in a hub.
 > A connection string includes authorization information required for your application to access Web PubSub service. The access key inside the connection string is similar to a root password for your service. 
 
 For this quickstart guide, we'll get it from Azure portal as shown below.
-![A diagram shows how to get client access url.](./media/quickstart-live-demo/get_connection_string.png)
+![A diagram shows how to get client access url.](./media/quickstarts-push-messages-from-server/get-connection-string.png)
 
 #### Run the server program
 Run the following commands in a ***new*** command shell.
@@ -367,7 +366,7 @@ node publish.js "Hello World"
 
 #### Observe the received messages on the client side
 
-:::image type="content" source="media/quickstart-live-demo/push_messages_from_server.gif" alt-text="GIF of demonstrating an app server pushing data to connected client":::
+:::image type="content" source="media/quickstarts-push-messages-from-server/push-messages-from-server.gif" alt-text="GIF of demonstrating an app server pushing data to connected client.":::
 
 Try running the same "subscribe" program in multiple command shells to stimulate more than clients. As soon as the "publish" program is run, you should see messages being delivered in real-time to all these clients.   
 

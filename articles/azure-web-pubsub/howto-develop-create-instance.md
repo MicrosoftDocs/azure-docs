@@ -1,5 +1,6 @@
 ---
-title: Create a Web PubSub resource
+title: Create an Azure Web PubSub resource
+titleSuffix: Azure Web PubSub
 description: Quickstart showing how to create a Web PubSub resource from Azure portal, using Azure CLI and a Bicep template 
 author: kevinguo-ed
 ms.author: kevinguo
