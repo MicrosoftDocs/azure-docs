@@ -150,6 +150,22 @@ If you have content expressed in a less frequently used language, you can try La
 | Yucatec Maya        | `yua`         |                              |  
 | Zulu                | `zu`          | 2021-01-05                   |
 
+## Romanized Indic Languages supported by Language Detection
+
+| Language            | Language Code | Starting with model version: |
+|---------------------|---------------|------------------------------|
+| Assamese            | `as`          | 2022-10-01                   |
+| Bengali             | `bn`          | 2022-10-01                   |
+| Gujarati            | `Gu`          | 2022-10-01                   |
+| Hindi               | `hi`          | 2022-10-01                   |
+| Kannada             | `kn`          | 2022-10-01                   |
+| Malayalam           | `ml`          | 2022-10-01                   |
+| Oriya               | `or`          | 2022-10-01                   |
+| Punjabi             | `pa`          | 2022-10-01                   |
+| Tamil               | `ta`          | 2022-10-01                   |
+| Telugu              | `te`          | 2022-10-01                   |
+| Urdu                | `ur`          | 2022-10-01                   |
+
 ## Next steps
 
 [Language detection overview](overview.md)
