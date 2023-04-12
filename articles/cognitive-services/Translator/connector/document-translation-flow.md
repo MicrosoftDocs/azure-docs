@@ -29,8 +29,8 @@ In this tutorial, you learn how to:
 >
 > * [Create a blob storage account with containers](#setup-azure-storage) for your source and target files.
 > * [Set-up a managed identity](#create-a-managed-identity-with-rbac) with role-based access control (RBAC).
-> * [Translate documents from your Azure storage account](#use-azure-blob-storage).
-> * [Translate documents from your SharePoint site](#use-microsoft-sharepoint).
+> * [Translate documents from your Azure storage account](#azure-blob-storage).
+> * [Translate documents from your SharePoint site](#microsoft-sharepoint).
 
 ## Prerequisites
 
