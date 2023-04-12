@@ -64,4 +64,4 @@ Make sure to enable **Custom text classification / Custom Named Entity Recogniti
 Make sure to allow (**GET, PUT, DELETE**) methods when enabling Cross-Origin Resource Sharing (CORS). 
 Set allowed origins field to `https://language.cognitive.azure.com`. Allow all header by adding `*` to the allowed header values, and set the maximum age to `500`.
 
-:::image type="content" source="../media/cors.png" alt-text="A screenshot showing how to use CORS for storage accounts." lightbox="../media/cors.png":::
+:::image type="content" source="../media/resource-sharing.png" alt-text="A screenshot showing how to use CORS for storage accounts." lightbox="../media/resource-sharing.png":::
