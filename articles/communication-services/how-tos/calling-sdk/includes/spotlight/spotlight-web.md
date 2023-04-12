@@ -32,7 +32,7 @@ spotLightFeature.stopSpotlight();
 ```
 
 ### Spotlight specific participants
-Any participant in the call or meeting can be pinned. Only Microsoft 365 users who have an organizer or presenter role can start spotlight for other participants. This action is idempotent, trying to start spotlight on a pinned participant does nothing
+Any participant in the call or meeting can be pinned. Only Microsoft 365 users who have an organizer, coorganizer or presenter role can start spotlight for other participants. This action is idempotent, trying to start spotlight on a pinned participant does nothing
 ```js
 // Specify list of participants to be spotlighted
 CommunicationUserIdentifier acsUser = new CommunicationUserIdentifier(<USER_ID>);
