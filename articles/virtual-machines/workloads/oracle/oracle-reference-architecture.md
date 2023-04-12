@@ -91,7 +91,7 @@ You might set up other observers or standby databases in a different availabilit
 
 In regions where availability zones aren't supported, you might use availability sets to deploy your Oracle Database in a highly available manner. Availability sets allow you to achieve a VM uptime of 99.95%. The following diagram is a reference architecture of this use:
 
-:::image type="content" source="./media/oracle-reference-architecture/oracledb_dg_fsfo_as.png" alt-text="Diagram that shows Oracle Database using availability sets with Data Guard Broker - FSFO" lightbox="./media/oracle-reference-architecture/oracledb_dg_fsfo_as.png":::
+:::image type="content" source="./media/oracle-reference-architecture/oracledb_dg_fsfo_as.png" alt-text="Diagram that shows Oracle Database using availability sets with Data Guard Broker - FSFO." lightbox="./media/oracle-reference-architecture/oracledb_dg_fsfo_as.png":::
 
 > [!NOTE]
 >
@@ -106,13 +106,13 @@ For zero data loss protection, there must be synchronous communication between y
 
 The following diagram is a high availability architecture using Oracle Data Guard Far Sync:
 
-:::image type="content" source="./media/oracle-reference-architecture/oracledb_dg_fs_az.png" alt-text="Diagram that shows Oracle database using availability zones with Data Guard Far Sync & Broker - FSFO" lightbox="./media/oracle-reference-architecture/oracledb_dg_fs_az.png":::
+:::image type="content" source="./media/oracle-reference-architecture/oracledb_dg_fs_az.png" alt-text="Diagram that shows Oracle database using availability zones with Data Guard Far Sync & Broker - FSFO." lightbox="./media/oracle-reference-architecture/oracledb_dg_fs_az.png":::
 
 In the preceding architecture, there's a Far Sync instance deployed in the same availability zone as the database instance to reduce the latency between the two. In cases where the application is latency sensitive, consider deploying your database and Far Sync instance or instances in a [proximity placement group](../../../virtual-machines/linux/proximity-placement-groups.md).
 
 The following diagram is an architecture that uses Oracle Data Guard FSFO and Far Sync to achieve high availability and disaster recovery:
 
-:::image type="content" source="./media/oracle-reference-architecture/oracledb_dg_fs_az_dr.png" alt-text="Diagram that shows Oracle Database using availability zones for disaster recovery with Data Guard Far Sync and Broker - FSFO" lightbox="./media/oracle-reference-architecture/oracledb_dg_fs_az_dr.png":::
+:::image type="content" source="./media/oracle-reference-architecture/oracledb_dg_fs_az_dr.png" alt-text="Diagram that shows Oracle Database using availability zones for disaster recovery with Data Guard Far Sync and Broker - FSFO." lightbox="./media/oracle-reference-architecture/oracledb_dg_fs_az_dr.png":::
 
 ### Oracle GoldenGate
 
@@ -120,7 +120,7 @@ GoldenGate enables the exchange and manipulation of data at the transaction leve
 
 Oracle GoldenGate allows you to configure your database for high availability by providing bidirectional replication. This approach allows you to set up a *multi-master* or *active-active configuration*. The following diagram is a recommended architecture for Oracle GoldenGate active-active setup on Azure. In the following architecture, the Oracle database has been configured using a hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/constrained-vcpu.md) to save on licensing costs and maximize performance. The architecture uses multiple premium or ultra disks (managed disks) for performance and availability.
 
-:::image type="content" source="./media/oracle-reference-architecture/oracledb_gg_az.png" alt-text="Diagram that shows Oracle Database using availability zones with Data Guard Broker - FSFO" lightbox="./media/oracle-reference-architecture/oracledb_gg_az.png":::
+:::image type="content" source="./media/oracle-reference-architecture/oracledb_gg_az.png" alt-text="Diagram that shows Oracle Database using availability zones with Data Guard Broker - FSFO." lightbox="./media/oracle-reference-architecture/oracledb_gg_az.png":::
 
 > [!NOTE]
 > A similar architecture can be set up using availability sets in regions where availability zones aren't currently available.
@@ -186,7 +186,7 @@ Oracle Data Guard can be used for sharding with system-managed, user-defined, an
 
 The following diagram is a reference architecture for Oracle Sharding with Oracle Data Guard used for high availability of each shard. The architecture diagram shows a _composite sharding method_. The architecture diagram likely differs for applications with different requirements for data locality, load balancing, high availability, and disaster recovery. Applications might use different method for sharding. Oracle Sharding allows you to meet these requirements and scale horizontally and efficiently by providing these options. A similar architecture can even be deployed using Oracle GoldenGate.
 
-:::image type="content" source="./media/oracle-reference-architecture/oracledb_dg_sh_az.png" alt-text="Diagram that shows Oracle Database Sharding using availability zones with Data Guard Broker - FSFO" lightbox="./media/oracle-reference-architecture/oracledb_dg_sh_az.png":::
+:::image type="content" source="./media/oracle-reference-architecture/oracledb_dg_sh_az.png" alt-text="Diagram that shows Oracle Database Sharding using availability zones with Data Guard Broker - FSFO." lightbox="./media/oracle-reference-architecture/oracledb_dg_sh_az.png":::
 
 System-managed sharding is the easiest to configure and manage. User-defined sharding or composite sharding is well suited for scenarios where your data and application are geo-distributed or in scenarios where you need to have control over the replication of each shard.
 
@@ -204,7 +204,7 @@ During the initial request, the application server connects to the shard directo
 
 The following diagram is a reference architecture for Oracle Sharding with Oracle GoldenGate for in-region high availability of each shard. As opposed to the preceding architecture, this architecture only portrays high availability within a single Azure region, with multiple availability zones. You can deploy a multi-region high availability sharded database, similar to the preceding example, by using Oracle GoldenGate.
 
-:::image type="content" source="./media/oracle-reference-architecture/oracledb_gg_sh_az.png" alt-text="Diagram that shows Oracle Database Sharding using availability zones with GoldenGate" lightbox="./media/oracle-reference-architecture/oracledb_gg_sh_az.png":::
+:::image type="content" source="./media/oracle-reference-architecture/oracledb_gg_sh_az.png" alt-text="Diagram that shows Oracle Database Sharding using availability zones with GoldenGate." lightbox="./media/oracle-reference-architecture/oracledb_gg_sh_az.png":::
 
 The preceding reference architecture uses the _system-managed_ sharding method to shard the data. Since Oracle GoldenGate replication is done at a chunk level, half the data replicated to one shard can be replicated to another shard. The other half can be replicated to a different shard.
 
