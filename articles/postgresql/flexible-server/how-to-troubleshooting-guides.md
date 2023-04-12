@@ -60,6 +60,28 @@ To use troubleshooting guides, follow these steps:
 
 5. Follow the step-by-step instructions provided by the guide. Pay close attention to the charts and data visualizations plotted within the troubleshooting steps, as they can help you identify any inaccuracies or anomalies. Use this information to effectively diagnose and resolve the problem at hand.
 
+### Retrieving the Query Text
+
+Due to privacy considerations, certain information such as query text and usernames may not be displayed within the Azure portal. 
+To retrieve the query text, you will need to log in to your Azure Database for PostgreSQL - Flexible Server instance. 
+Access the `azure_sys` database using the PostgreSQL client of your choice, where query store data is stored. 
+Once connected, query the `query_store.query_texts_view view` to retrieve the desired query text.
+
+In the example shown below, we utilize Azure Cloud Shell and the `psql` tool to accomplish this task:
+
+    :::image type="content" source="./media/how-to-troubleshooting-guides/retrieve-query-text.png" alt-text="Retrieving the Query Text":::
+
+### Retrieving the Username
+
+For privacy reasons, the Azure portal displays the role ID from the PostgreSQL metadata (pg_catalog) rather than the actual username. 
+To retrieve the username, you can query the `pg_roles` view or use the query shown below in your PostgreSQL client of choice, such as Azure Cloud Shell and the `psql` tool:
+
+```sql
+SELECT 'UserID'::regrole;
+```
+
+    :::image type="content" source="./media/how-to-troubleshooting-guides/retrieve-username.png" alt-text="Retrieving the Username":::
+
 
 ## Next steps
 
