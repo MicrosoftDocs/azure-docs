@@ -53,7 +53,7 @@ You can use the VMAccess extension on your Linux VMs in two ways:
 * Use the Azure CLI and the required parameters.
 * [Use raw JSON files that the VMAccess extension process](#use-json-files-and-the-vmaccess-extension).
 
-The following examples use [az vm user](/cli/azure/vm/user) commands. To perform these steps, you need to [install the latest Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account by using `az account`. For more information, see [az account](/cli/azure/reference-index).
+The following examples use [az vm user](/cli/azure/vm/user) commands. To perform these steps, you need to [install the latest Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account by using [az login](/cli/azure/reference-index).
 
 ## Update SSH key
 
@@ -117,7 +117,7 @@ az vm user delete \
 
 ## Use JSON files and the VMAccess extension
 
-The following examples use raw JSON files. Use an [az vm extension](/cli/azure/vm/extension) command to then call your JSON files. Azure templates can also call these JSON files.
+The following examples use raw JSON files. Use the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command to then call your JSON files. Azure templates can also call these JSON files.
 
 ### Reset user access
 
