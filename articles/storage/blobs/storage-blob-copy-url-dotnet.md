@@ -54,7 +54,7 @@ The following methods wrap the [Put Blob From URL](/rest/api/storageservices/put
 
 These methods are preferred for scenarios where you want to move data into a storage account and have a URL for the source object.
 
-For larger objects, you may choose to work with individual blocks. The following methods wrap the [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operation. These methods create a new block to be committed as part of a blob where the contents are read from a source URL:
+For large objects, you may choose to work with individual blocks. The following methods wrap the [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operation. These methods create a new block to be committed as part of a blob where the contents are read from a source URL:
 
 - [StageBlockFromUri](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.stageblockfromuri)
 - [StageBlockFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.stageblockfromuriasync)
@@ -63,7 +63,7 @@ For larger objects, you may choose to work with individual blocks. The following
 
 If you're copying a blob within the same storage account, access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key. 
 
-The following example shows a scenario for copying a source blob within the same storage account. The [SyncUploadFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.syncuploadfromuriasync) method can optionally accept a Boolean parameter to indicate whether an existing blob should be overwritten, as shown in the example.
+The following example shows a scenario for copying a source blob within the same storage account. The [SyncUploadFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.syncuploadfromuriasync) method can optionally accept a Boolean parameter to indicate whether an existing blob should be overwritten, as shown in the example. The `overwrite` parameter defaults to false.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/PutBlobFromURL.cs" id="Snippet_CopyWithinAccount_PutBlobFromURL":::
 
@@ -73,7 +73,7 @@ The [SyncUploadFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blockbl
 
 If the source is a blob in another storage account, the source blob must either be public, or authorized via Azure AD or SAS token. The SAS token needs to include the **Read ('r')** permission. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
 
-The following example shows a scenario for copying a blob from another storage account. In this example, we create a source blob URI with an appended SAS token by calling [GenerateSasUri](/dotnet/api/azure.storage.blobs.blobcontainerclient.generatesasuri) on the blob client. To use this method, the source blob client needs to be authorized via account key. 
+The following example shows a scenario for copying a blob from another storage account. In this example, we create a source blob URI with an appended service SAS token by calling [GenerateSasUri](/dotnet/api/azure.storage.blobs.blobcontainerclient.generatesasuri) on the blob client. To use this method, the source blob client needs to be authorized via account key. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/PutBlobFromURL.cs" id="Snippet_CopyAcrossAccounts_PutBlobFromURL":::
 
@@ -95,14 +95,14 @@ You can perform a copy operation on any source object that can be retrieved via 
 
 To learn more about copying blobs using the Azure Blob Storage client library for .NET, see the following resources.
 
-#### REST API operations
+### REST API operations
 
 The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods covered in this article use the following REST API operations:
 
 - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
 - [Put Block From URL](/rest/api/storageservices/put-block-from-url) (REST API)
 
-#### Code samples
+### Code samples
 
 - [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/PutBlobFromURL.cs)
 

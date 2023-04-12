@@ -10,7 +10,7 @@ ms.author: pauljewell
 ms.custom: include file
 ---
 
-#### Client library resources
+### Client library resources
 
 - [Client library reference documentation](/dotnet/api/azure.storage.blobs)
 - [Client library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)

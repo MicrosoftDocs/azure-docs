@@ -21,7 +21,8 @@ Copy operations can be used to move data within a storage account, between stora
 
 | REST API operation | When to use | Client library guidance |
 | --- | --- | --- |
-| [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) | This operation is preferred for scenarios where you want to move data into a storage account and have a URL for the source object. For large objects, you can use [Put Block From URL](/rest/api/storageservices/put-block-from-url) to write individual blocks to Blob Storage, and then call [Put Block List](/rest/api/storageservices/put-block-list) to commit those blocks to a block blob. These copy operations complete synchronously. | [Copy a blob from a source object URL with .NET](storage-blob-copy-url-dotnet.md) |
+| [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) | This operation is preferred for scenarios where you want to move data into a storage account and have a URL for the source object. This operation completes synchronously. | [Copy a blob from a source object URL with .NET](storage-blob-copy-url-dotnet.md) |
+| [Put Block From URL](/rest/api/storageservices/put-block-from-url) | For large objects, you can use [Put Block From URL](/rest/api/storageservices/put-block-from-url) to write individual blocks to Blob Storage, and then call [Put Block List](/rest/api/storageservices/put-block-list) to commit those blocks to a block blob. This operation completes synchronously. | [Copy a blob from a source object URL with .NET](storage-blob-copy-url-dotnet.md) |
 | [Copy Blob](/rest/api/storageservices/copy-blob) | This operation can be used when you want asynchronous scheduling for a copy operation. | [Copy a blob with asynchronous scheduling using .NET](storage-blob-copy-async-dotnet.md) |
 
 For append blobs, you can use the [Append Block From URL](/rest/api/storageservices/append-block-from-url) operation to commit a new block of data to the end of an existing append blob. The following client library methods wrap this operation:
@@ -36,4 +37,6 @@ For page blobs, you can use the [Put Page From URL](/rest/api/storageservices/pu
 
 ## Client library resources
 
-[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+- [Client library reference documentation](/dotnet/api/azure.storage.blobs)
+- [Client library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+- [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
