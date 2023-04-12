@@ -19,9 +19,9 @@ This article provides a guide for troubleshooting common scenarios in Durable Fu
 ![Screenshot of support request page in Azure Portal.](./media/durable-functions-troubleshooting-guide/durable-function-support-request.png)
 
 > [!TIP]
-> When debugging and diagnosing issues, it's recommended that you start by ensuring your app is using the latest Durable Functions extension version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the **Durable Function Best Practice and Diagnostic Tools** article for instructions on how to upgrade your extension version. 
+> When debugging and diagnosing issues, it's recommended that you start by ensuring your app is using the latest Durable Functions extension version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the [Upgrade Durable Functions extension version](./durable-functions-extension-upgrade.md) article for instructions on how to upgrade your extension version. 
 
-The **Diagnose and solve problems** tab in the Azure portal is a useful resource to monitor and diagnose possible issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. See [the Durable Functions Diagnostics guide](./durable-functions-diagnostics.md) for more details. 
+The **Diagnose and solve problems** tab in the Azure portal is a useful resource to monitor and diagnose possible issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. See [Azure Function app diagnostics](./function-app-diagnostics.md) for more details. 
 
 If the resources above didn't solve your problem, the following sections provide advice for specific application symptoms:
 
@@ -58,7 +58,7 @@ Use the following steps to troubleshoot stuck orchestrations:
 
 3. Use the Application Insights query in the [Azure Storage Messaging section](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) to filter on that queue name as the Partition ID and look for any problems related to that control queue partition.
 
-4. Check the guidance in **Durable Functions Best Practice and Diagnostic Tools**. Some problems may be caused by known Durable Functions anti-patterns.
+4. Check the guidance in [Durable Functions Best Practice and Diagnostic Tools](./durable-functions-best-practice-reference.md). Some problems may be caused by known Durable Functions anti-patterns.
 
 5. Check the [Durable Functions Versioning documentation](durable-functions-versioning.md). Some problems may be caused by breaking changes to in-flight orchestration instances.
 
