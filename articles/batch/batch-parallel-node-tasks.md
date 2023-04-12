@@ -30,10 +30,10 @@ You configure compute nodes for parallel task execution at the pool level. With 
 > [!NOTE]
 > You can set the `taskSlotsPerNode` element and [TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) property only at pool creation time. They can't be modified after a pool has already been created.
 
-Azure Batch allows you to set task slots per node up to (4x) the number of node cores. For example, if the pool is configured with nodes of size "Large" (four cores), then `taskSlotsPerNode` may be set to 16. However, regardless of how many cores the node has, you can't have more than 256 task slots per node. For details on the number of cores for each of the node sizes, see [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md). For more information on service limits, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md).
+Azure Batch allows you to set task slots per node up to (4x) the number of node cores. For example, if the pool is configured with nodes of size "Large" (four cores), then `taskSlotsPerNode` may be set to 16. However, regardless of how many cores the node has, you can't have more than 256 task slots per node. For details on the number of cores for each of the node sizes, see [Sizes for Cloud Services (classic)](../cloud-services/cloud-services-sizes-specs.md). For more information on service limits, see [Batch service quotas and limits](batch-quota-limit.md).
 
 > [!TIP]
-> Be sure to take into account the `taskSlotsPerNode` value when you construct an [autoscale formula](/rest/api/batchservice/pool/enableautoscale) for your pool. For example, a formula that evaluates `$RunningTasks` could be dramatically affected by an increase in tasks per node. For more information, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
+> Be sure to take into account the `taskSlotsPerNode` value when you construct an [autoscale formula](/rest/api/batchservice/pool/enableautoscale) for your pool. For example, a formula that evaluates `$RunningTasks` could be dramatically affected by an increase in tasks per node. For more information, see [Create an automatic formula for scaling compute nodes in a Batch pool](batch-automatic-scaling.md).
 
 ## Specify task distribution
 
@@ -45,11 +45,11 @@ As an example, consider the pool of [Standard\_D14](../cloud-services/cloud-serv
 
 ## Define variable slots per task
 
-A task can be defined with [CloudTask.RequiredSlots](/dotnet/api/microsoft.azure.batch.cloudtask.requiredslots) property, specifying how many slots it requires to run on a compute node. The default value is 1. You can set variable task slots if your tasks have different weights associated with their resource usage on the compute node. Variable task slots let each compute node have a reasonable number of concurrent running tasks without overwhelming system resources like CPU or memory.
+A task can be defined with the [CloudTask.RequiredSlots](/dotnet/api/microsoft.azure.batch.cloudtask.requiredslots) property, specifying how many slots it requires to run on a compute node. The default value is 1. You can set variable task slots if your tasks have different weights associated with their resource usage on the compute node. Variable task slots let each compute node have a reasonable number of concurrent running tasks without overwhelming system resources like CPU or memory.
 
 For example, for a pool with property `taskSlotsPerNode = 8`, you can submit multi-core required CPU-intensive tasks with `requiredSlots = 8`, while other tasks can be set to `requiredSlots = 1`. When this mixed workload is scheduled, the CPU-intensive tasks run exclusively on their compute nodes, while other tasks can run concurrently (up to eight tasks at once) on other nodes. The mixed workload helps you balance your workload across compute nodes and improve resource usage efficiency.
 
-Be sure you don't specify a task's `requiredSlots` to be greater than the pool's `taskSlotsPerNode`, or the task never runs.  The Batch Service doesn't currently validate this conflict when you submit tasks. It doesn't validate because a job may not have a pool bound at submission time, or it could change to a different pool by disabling/re-enabling.
+Be sure you don't specify a task's `requiredSlots` to be greater than the pool's `taskSlotsPerNode`, or the task never runs.  The Batch Service doesn't currently validate this conflict when you submit tasks. It doesn't validate the conflict, because a job may not have a pool bound at submission time, or it could change to a different pool by disabling/re-enabling.
 
 > [!TIP]
 > When using variable task slots, it's possible that large tasks with more required slots can temporarily fail to be scheduled because not enough slots are available on any compute node, even when there are still idle slots on some nodes. You can raise the job priority for these tasks to increase their chance to compete for available slots on nodes.
@@ -179,7 +179,7 @@ This C# console application uses the [Batch .NET](/dotnet/api/microsoft.azure.ba
 
 The following example shows the summary portion of the output from two different runs of the ParallelTasks sample application. Job durations shown here don't include pool creation time, since each job was submitted to a previously created pool whose compute nodes were in the *Idle* state at submission time.
 
-The first execution of the sample application shows that with a single node in the pool and the default setting of one task per node. The job duration is over 30 minutes.
+The first execution of the sample application shows that with a single node in the pool and the default setting of one task per node, the job duration is over 30 minutes.
 
 ```console
 Nodes: 1
@@ -203,6 +203,6 @@ Duration: 00:08:48.2423500
 
 ## Next steps
 
-- Try the [Batch Explorer](https://azure.github.io/BatchExplorer/) Heat Map. Batch Explorer is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. When you're executing the [ParallelTasks](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ParallelTasks) sample application, the Batch Explorer Heat Map feature lets you easily visualize the execution of parallel tasks on each node.
-- Explore [Azure Batch samples on GitHub](https://github.com/Azure/azure-batch-samples).
-- Learn more about [Batch task dependencies](batch-task-dependencies.md).
+- [Batch Explorer](https://azure.github.io/BatchExplorer/)
+- [Azure Batch samples on GitHub](https://github.com/Azure/azure-batch-samples).
+- [Create task dependencies to run tasks that depend on other tasks](batch-task-dependencies.md).
