@@ -144,12 +144,9 @@ The following example shows how to create a virtual network by using Resource Ma
     $apimRule4 = New-AzNetworkSecurityRuleConfig -Name AllowKeyVault -Description "Allows outbound traffic to Azure Key Vault" `
         -Access Allow -Protocol Tcp -Direction Outbound -Priority 100 -SourceAddressPrefix "10.0.1.0/24" `
         -SourcePortRange * -DestinationAddressPrefix AzureKeyVault -DestinationPortRange 443
-    $apimRule5 = New-AzNetworkSecurityRuleConfig -Name DenyAll -Description "Denies all inbound traffic" `
-        -Access Deny -Protocol * -Direction Inbound -Priority 4096 -SourceAddressPrefix "10.0.1.0/24" `
-        -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange *
     
     $apimNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-        "NSG-APIM" -SecurityRules $apimRule1, $apimRule2, $apimRule3, $apimRule4, $apimRule5
+        "NSG-APIM" -SecurityRules $apimRule1, $apimRule2, $apimRule3, $apimRule4
     ```
 
 1. Assign the address range 10.0.0.0/24 to the subnet variable to be used for Application Gateway while you create a virtual network.
