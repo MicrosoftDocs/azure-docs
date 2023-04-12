@@ -35,7 +35,7 @@ The following regions support workload profiles during preview:
 
 1. Create a new container app and environment.
 
-    :::image type="content" source="media/workload-profiles/azure-container-apps-new-environment.png" alt-text="Create a container apps environment.":::
+    :::image type="content" source="media/workload-profiles/azure-container-apps-new-environment.png" alt-text="Screenshot of the create a container apps environment window.":::
 
     Enter the following values to create your new container app.
 
@@ -49,7 +49,7 @@ The following regions support workload profiles during preview:
 
 1. Configure the new environment.
 
-    :::image type="content" source="media/workload-profiles/azure-container-apps-dedicated-environment.png" alt-text="Create an Azure Container Apps Consumption + Dedicated plan environment.":::
+    :::image type="content" source="media/workload-profiles/azure-container-apps-dedicated-environment.png" alt-text="Screenshot of create an Azure Container Apps Consumption + Dedicated plan environment window.":::
 
     Enter the following values to create your environment.
 
@@ -62,13 +62,13 @@ The following regions support workload profiles during preview:
 
 1. Select the **Add workload profile** button.
 
-    :::image type="content" source="media/workload-profiles/azure-container-apps-add-workload-profile.png" alt-text="Add a workload profile to the container apps environment.":::
+    :::image type="content" source="media/workload-profiles/azure-container-apps-add-workload-profile.png" alt-text="Screenshot of the add a workload profile to the container apps environment window.":::
 
 1. For *Workload profile name*, enter a name.
 
 1. Next to *Workload profile size*, select **Choose size**.
 
-    :::image type="content" source="media/workload-profiles/azure-container-apps-add-workload-profile-details.png" alt-text="Select a workload profile for your container apps environment.":::
+    :::image type="content" source="media/workload-profiles/azure-container-apps-add-workload-profile-details.png" alt-text="Screenshot of the window to select a workload profile for your container apps environment.":::
 
 1. In the *Select a workload profile size* window, select a profile from the list.
 
@@ -80,7 +80,7 @@ The following regions support workload profiles during preview:
 
 1. For the *Autoscaling instance count range*, select the minimum and maximum number of instances you want available to this workload profile.
 
-    :::image type="content" source="media/workload-profiles/azure-container-apps-workload-profile-slider.png" alt-text="Select the min and max instances for a workload profile.":::
+    :::image type="content" source="media/workload-profiles/azure-container-apps-workload-profile-slider.png" alt-text="Screenshot of the window to select the min and max instances for a workload profile.":::
 
 1. Select **Add**.
 
@@ -112,7 +112,7 @@ Add a new workload profile to an existing environment.
 
 1. For the *Autoscaling instance count range*, select the minimum and maximum number of instances you want available to this workload profile.
 
-    :::image type="content" source="media/workload-profiles/azure-container-apps-workload-profile-slider.png" alt-text="Select the minimum and maximum instances for a workload profile.":::
+    :::image type="content" source="media/workload-profiles/azure-container-apps-workload-profile-slider.png" alt-text="Screenshot of the window to select the minimum and maximum instances for a workload profile.":::
 
 1. Select **Add**.
 
