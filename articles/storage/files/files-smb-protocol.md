@@ -297,7 +297,7 @@ QUERY="${QUERY}}"
 
 # Get protocol settings from the Azure Files FileService object
 PROTOCOLSETTINGS=$(az storage account file-service-properties show \
-    --resource-group $ \
+    --resource-group $RESOURCE_GROUP_NAME \
     --account-name $STORAGE_ACCOUNT_NAME \
     --query "${QUERY}")
 
