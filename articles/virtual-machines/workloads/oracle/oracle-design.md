@@ -163,14 +163,14 @@ After you configure your storage on a VM, you might want to load test the disks 
 
 Run the load test again after you've deployed an Oracle database. Start your regular and peak workloads, and the results show you the baseline of your environment. Be realistic in the workload test. It doesn't make sense to run a workload that is nothing like what you run on the VM in reality.
 
-Because Oracle can be an I/O intensive database, it's important to size the storage based on the IOPS rate rather than the storage size. For example, if the required IOPS is 5,000, but you only need 200 GB, you might still get the P30 class premium disk even though it comes with more than 200 GB of storage.
+Because Oracle can be an I/O intensive database, it's important to size the storage based on the IOPS rate rather than the storage size. For example, if the required IOPS value is 5,000, but you only need 200 GB, you might still get the P30 class premium disk even though it comes with more than 200 GB of storage.
 
 You can get the IOPS rate from the AWR report. The redo log, physical reads, and writes rate determine the IOPS rate. Always verify that the VM series you choose has the ability to handle the I/O demand of the workload. If the VM has a lower I/O limit than the storage, the VM sets the limit maximum.
 
 :::image type="content" source="./media/oracle-design/awr_report.png" alt-text="Screenshot of the AWR report page.":::
 
 For example, the redo size is 12,200,000 bytes per second, which is equal to 11.63 MBPs.
-The IOPS is 12,200,000 / 2,358 = 5,174.
+The IOPS value is 12,200,000 / 2,358 = 5,174.
 
 After you have a clear picture of the I/O requirements, you can choose a combination of drives that are best suited to meet those requirements.
 
@@ -213,7 +213,7 @@ After you set up and configure your Azure environment, you need to secure your n
 
 - **Private network (subnets):** It's a good idea to have the application service and database on separate subnets, so that NSG policy can set better control.
 
-## Additional reading
+## Resources
 
 - [Configure Oracle ASM](configure-oracle-asm.md)
 - [Configure Oracle Data Guard](configure-oracle-dataguard.md)
