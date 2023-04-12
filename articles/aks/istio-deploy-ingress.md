@@ -45,29 +45,29 @@ kubectl apply -f - <<EOF
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-name: bookinfo-gateway-external
+  name: bookinfo-gateway-external
 spec:
-selector:
+  selector:
     istio: aks-istio-ingressgateway-external
-servers:
-- port:
-    number: 80
-    name: http
-    protocol: HTTP
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
     hosts:
     - "*"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-name: bookinfo-vs-external
+  name: bookinfo-vs-external
 spec:
-hosts:
-- "*"
-gateways:
-- bookinfo-gateway-external
-http:
-- match:
+  hosts:
+  - "*"
+  gateways:
+  - bookinfo-gateway-external
+  http:
+  - match:
     - uri:
         exact: /productpage
     - uri:
@@ -82,7 +82,7 @@ http:
     - destination:
         host: productpage
         port:
-        number: 9080
+          number: 9080
 EOF
 ```
 
@@ -139,29 +139,29 @@ kubectl apply -f - <<EOF
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-name: bookinfo-internal-gateway
+  name: bookinfo-internal-gateway
 spec:
-selector:
+  selector:
     istio: aks-istio-ingressgateway-internal
-servers:
-- port:
-    number: 80
-    name: http
-    protocol: HTTP
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
     hosts:
     - "*"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-name: bookinfo-vs-internal
+  name: bookinfo-vs-internal
 spec:
-hosts:
-- "*"
-gateways:
-- bookinfo-internal-gateway
-http:
-- match:
+  hosts:
+  - "*"
+  gateways:
+  - bookinfo-internal-gateway
+  http:
+  - match:
     - uri:
         exact: /productpage
     - uri:
@@ -176,7 +176,7 @@ http:
     - destination:
         host: productpage
         port:
-        number: 9080
+          number: 9080
 EOF
 ```
 
@@ -211,8 +211,8 @@ kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.
 
 Confirm you see the sample application's product page is accessible. For example:
 
-```
-Simple Bookstore App
+```html
+<title>Simple Bookstore App</title>
 ```
 
 ## Delete resources
