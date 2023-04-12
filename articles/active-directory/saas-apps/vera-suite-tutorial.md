@@ -76,7 +76,7 @@ In this section, a user called B.Simon is created in Vera Suite. Vera Suite supp
 
 ## Test SSO 
 
-Click on Test this application in Azure portal and you should be automatically signed in to the Vera Suite for which you set up the SSO.
+Click on **Test this application** in Azure portal and you should be automatically signed in to the Vera Suite for which you set up the SSO.
 
 ## Additional resources
 
