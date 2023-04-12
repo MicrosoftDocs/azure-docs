@@ -1,17 +1,17 @@
 ---
-title: Deploy Istio based service mesh add-on for Azure Kubernetes Service (preview)
-description: Deploy Istio based service mesh add-on for Azure Kubernetes Service (preview)
+title: Deploy Istio-based service mesh add-on for Azure Kubernetes Service (preview)
+description: Deploy Istio-based service mesh add-on for Azure Kubernetes Service (preview)
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 04/09/2023
 ms.author: shasb
 ---
 
-# Deploy Istio based service mesh add-on for Azure Kubernetes Service (preview)
+# Deploy Istio-based service mesh add-on for Azure Kubernetes Service (preview)
 
 This article shows you how to install the Istio-based service mesh add-on for Azure Kubernetes Service (AKS) cluster.
 
-For more information on Istio and the service mesh add-on, see [Istio based service mesh add-on for Azure Kubernetes Service][istio-about].
+For more information on Istio and the service mesh add-on, see [Istio-based service mesh add-on for Azure Kubernetes Service][istio-about].
 
 ## Before you begin
 

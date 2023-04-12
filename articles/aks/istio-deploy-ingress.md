@@ -15,7 +15,7 @@ This article shows you how to deploy external or internal ingresses for Istio se
 
 ## Prerequisites
 
-This guide assumes an existing AKS cluster with the Istio add-on enabled and an application deployed. For more information on enabling the Istio add-on in your cluster and deploying a sample application, see [Deploy Istio based service mesh add-on for AKS][istio-deploy-addon].
+This guide assumes an existing AKS cluster with the Istio add-on enabled and an application deployed. For more information on enabling the Istio add-on in your cluster and deploying a sample application, see [Deploy Istio-based service mesh add-on for AKS][istio-deploy-addon].
 
 ## Enable external ingress gateway
 
@@ -207,7 +207,7 @@ Use `kubectl exec` to confirm application is accessible from inside the cluster'
 
 ```bash
 kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}')" -c ratings -- curl -sS  "http://$GATEWAY_URL_INTERNAL/productpage"  | grep -o "<title>.*</title>"
-    ```
+```
 
 Confirm you see the sample application's product page is accessible. For example:
 

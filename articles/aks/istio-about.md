@@ -1,12 +1,12 @@
 ---
-title: Istio based service mesh add-on for Azure Kubernetes Service (preview)
-description: Istio based service mesh add-on for Azure Kubernetes Service.
+title: Istio-based service mesh add-on for Azure Kubernetes Service (preview)
+description: Istio-based service mesh add-on for Azure Kubernetes Service.
 ms.topic: article
 ms.date: 04/09/2023
 ms.author: shasb
 ---
 
-# Istio based service mesh add-on for Azure Kubernetes Service (preview)
+# Istio-based service mesh add-on for Azure Kubernetes Service (preview)
 
 [Istio][istio-overview] addresses the challenges developers and operators face with a distributed or microservices architecture. The Istio-based service mesh add-on provides an officially supported and tested integration for Azure Kubernetes Service (AKS).
 
@@ -43,7 +43,7 @@ This service mesh add-on uses and builds on top of open source Istio. The add-on
 
 ## Limitations
 
-Istio based service mesh add-on for AKS has the following limitations:
+Istio-based service mesh add-on for AKS has the following limitations:
 
 * The add-on currently doesn't work on AKS clusters using [Azure CNI Powered by Cilium][azure-cni-cilium].
 * The add-on doesn't work on AKS clusters that are using [Open Service Mesh addon for AKS][open-service-mesh-about].
@@ -52,7 +52,7 @@ Istio based service mesh add-on for AKS has the following limitations:
 
 ## Next steps
 
-* [Deploy Istio based service mesh add-on][istio-deploy-addon]
+* [Deploy Istio-based service mesh add-on][istio-deploy-addon]
 
 [istio-overview]: https://istio.io/latest/
 [managed-prometheus-overview]: ../azure-monitor/essentials/prometheus-metrics-overview.md
