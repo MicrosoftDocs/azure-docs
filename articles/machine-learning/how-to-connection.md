@@ -240,4 +240,4 @@ ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ## Next steps
 
-- [Import data assets](how-to-import-data-assets.md#import-data-assets)
+- [Import data assets](how-to-import-data-assets.md)
