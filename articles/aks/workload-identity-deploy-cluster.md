@@ -147,7 +147,7 @@ az identity federated-credential create --name myfederatedIdentity --identity-na
 kubectl apply -f <your application>
 ```
 
-When deploying your application pods, it should reference the service account created in the Create Kubernetes service account step. The following manifest demonstrates how to reference the account, specifically `metadata\namespace` and `spec\serviceAccountName`:
+When deploying your application pods, it should reference the service account created in the Create Kubernetes service account step. The following manifest demonstrates how to reference the account, specifically `metadata\namespace` and `spec\serviceAccountName` properties:
 
 ```yml
 cat <<EOF | kubectl apply -f -
