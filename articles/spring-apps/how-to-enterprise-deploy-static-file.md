@@ -15,7 +15,7 @@ ms.custom: event-tier1-build-2022, devx-track-java
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
 This article shows you how to deploy your static files to Azure Spring Apps Enterprise tier using the Tanzu Web Servers buildpack. This approach is useful if you have applications that are purely for holding static files like HTML, CSS, or front-end applications built with the JavaScript framework of your choice. You can directly deploy these applications with an automatically configured web server (HTTPD and NGINX) to serve those assets.
 
