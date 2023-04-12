@@ -61,7 +61,7 @@ The required folder structure for a JavaScript project looks like the following 
 The main project folder, *<project_root>*, can contain the following files:
 
 - **.vscode/**: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
-- **myFirstFunction/function.json**: Contains configuration for the function's inputs and outputs. The name of the directory determines the name of your function.
+- **myFirstFunction/function.json**: Contains configuration for the function's trigger, inputs, and outputs. The name of the directory determines the name of your function.
 - **myFirstFunction/index.js**: Stores your function code. To change this default file path, see [using scriptFile](#using-scriptfile).
 - **.funcignore**: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *test/* to ignore test cases, and *local.settings.json* to prevent local app settings being published.
 - **host.json**: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
@@ -114,6 +114,8 @@ The main project folder, *<project_root>*, can contain the following files:
 The v3 model registers a function based on the existence of two files. First, you need a `function.json` file located in a folder one level down from the root of your app. The name of the folder determines the function's name and the file contains configuration for your function's inputs/outputs. Second, you need a JavaScript file containing your code. By default, the model looks for an `index.js` file in the same folder as your `function.json`. Your code must export a function using [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). To customize the file location or export name of your function, see [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point).
 
 The function you export should always be declared as an [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) in the v3 model. You can export a synchronous function, but then you must call [`context.done()`](#contextdone) to signal that your function is completed, which is deprecated and not recommended.
+
+Your function is passed an [invocation `context`](#invocation-context) as the first argument and your [inputs](#inputs) as the remaining arguments.
 
 The following example is a simple function that logs that it was triggered and responds with `Hello, world!`:
 
@@ -288,7 +290,7 @@ You can use the `dataType` property on an input binding to change the type of yo
 - In Node.js, only `string` and `binary` are supported (`stream` isn't)
 - For HTTP inputs, the `dataType` property is ignored. Instead, use properties on the `request` object to get the body in your desired format. For more information, see [HTTP request](#http-request).
 
-In the following example of a [storage queue trigger](./functions-bindings-storage-queue-trigger.md), the default type of `myQueueItem` is a `string`, but if you set `dataType` to `binary` the type changes to a Node.js `Buffer`.
+In the following example of a [storage queue trigger](./functions-bindings-storage-queue-trigger.md), the default type of `myQueueItem` is a `string`, but if you set `dataType` to `binary`, the type changes to a Node.js `Buffer`.
 
 ```json
 {
@@ -338,7 +340,7 @@ app.http('helloWorld1', {
 
 The return output is optional, and in some cases configured by default. For example, an HTTP trigger registered with `app.http` is configured to return an HTTP response output automatically. For most output types, you specify the return configuration on the `options` argument with the help of the `output` object exported from the `@azure/functions` module. During execution, you set this output by returning it from your handler.
 
-The following examples uses a [timer trigger](./functions-bindings-timer.md) and a [storage queue output](./functions-bindings-storage-queue-output.md):
+The following example uses a [timer trigger](./functions-bindings-timer.md) and a [storage queue output](./functions-bindings-storage-queue-output.md):
 
 ```javascript
 const { app, output } = require('@azure/functions');
@@ -693,8 +695,8 @@ The `HttpRequest` object has the following properties:
 | **`query`**      | `Record<string, string>` | Query string parameter keys and values from the URL. |
 | **`params`**     | `Record<string, string>` | Route parameter keys and values. |
 | **`user`**       | `HttpRequestUser | null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
-| **`body`**       | `Buffer | string | any` | If the media type is "application/octet-stream" or "multipart/*", the body is a Buffer. If the value is a JSON parse-able string, the body is the parsed object. Otherwise, the body is a string. |
-| **`rawBody`**    | `Buffer | string` | If the media type is "application/octet-stream" or "multipart/*", the body is a Buffer. Otherwise, the body is a string. The only difference between `body` and `rawBody` is that `rawBody` doesn't JSON parse a string body. |
+| **`body`**       | `Buffer | string | any` | If the media type is "application/octet-stream" or "multipart/*", `body` is a Buffer. If the value is a JSON parse-able string, `body` is the parsed object. Otherwise, `body` is a string. |
+| **`rawBody`**    | `Buffer | string` | If the media type is "application/octet-stream" or "multipart/*", `rawBody` is a Buffer. Otherwise, `rawBody` is a string. The only difference between `body` and `rawBody` is that `rawBody` doesn't JSON parse a string body. |
 | **`bufferBody`** | `Buffer` | The body as a buffer. |
 
 ::: zone-end
@@ -759,11 +761,26 @@ The response can be set in several ways:
       "direction": "out",
       "name": "$return"
     }
-    ``` 
+    ```
 
     ```javascript
     module.exports = async function (context, request) {
         return { body: `Hello, world!` };
+    ```
+
+- **Set the named output binding:** This option works the same as any non HTTP binding. The binding name in `function.json` must match the key on `context.bindings`, or "response1" in the following example:
+
+    ```json
+    {
+        "type": "http",
+        "direction": "out",
+        "name": "response1"
+    }
+    ```
+
+    ```javascript
+    module.exports = async function (context, request) {
+        context.bindings.response1 = { body: `Hello, world!` };
     ```
 
 - **Call `context.res.send()`:** This option is deprecated. It implicitly calls `context.done()` and can't be used in an async function.
