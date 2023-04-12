@@ -1,6 +1,6 @@
 ---
-title: SAP LaMa connector for Azure | Microsoft Docs
-description: Managing SAP Systems on Azure using SAP LaMa
+title: SAP LaMa connector for Azure
+description: Learn how to manage SAP systems on Azure by using SAP LaMa.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
