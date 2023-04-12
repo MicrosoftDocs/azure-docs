@@ -41,7 +41,7 @@ Communication Services or Microsoft 365 users can call the spotlight APIs based 
 | stopAllSpotlight |  ✔️ | ✔️ | ✔️ |
 | getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
 
-##### For meeting scenerio the following APIs are supported for both Communication Services and Microsoft 365 users
+**For meeting scenerio the following APIs are supported for both Communication Services and Microsoft 365 users**
 |                                    | Organizer | Presenter | Attendee |
 |----------------------------------------------|--------|--------|--------|
 | startSpotlight | ✔️ | ✔️  |  |
