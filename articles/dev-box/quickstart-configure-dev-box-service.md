@@ -224,7 +224,7 @@ Dev box definitions define the image and SKU (compute + storage) that's used in 
    |**Compute**|Select the compute combination for your dev box definition.||
    |**Storage**|Select the amount of storage for your dev box definition.||
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/recommended-test-image.png" alt-text="Screenshot that shows the page for creating a dev box definition.":::
+![2023-04-12_10h00_22](https://user-images.githubusercontent.com/39198071/231485052-151ba49c-4384-480d-b094-e150234415e2.png)
 
 1. Select **Create**.
 
