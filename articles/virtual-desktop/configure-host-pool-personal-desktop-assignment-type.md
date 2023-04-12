@@ -3,7 +3,7 @@ title: Azure Virtual Desktop personal desktop assignment type - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 04/13/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -95,7 +95,7 @@ To directly assign a user to a session host in the Azure portal:
 1. Select the user you want to assign the session host to from the list of available users.
 1. When you're done, select **Select**.
 
-#### [PowerShell](#tab/azure)
+#### [PowerShell](#tab/powershell)
 
 To assign a user to a specific session host, run the following PowerShell cmdlet:
 
