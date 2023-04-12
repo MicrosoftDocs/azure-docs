@@ -15,7 +15,7 @@ ms.custom: language-service-custom-ta4h
 
 # Evaluation metrics for custom Text Analytics for health models
 
-Your [dataset is split](../how-to/train-model.md#data-splitting) into two parts: a set for training, and a set for testing. The training set is used to train the model, while the testing set is used as a test for model after training to calculate the model performance and evaluation. The testing set is not introduced to the model through the training process, to make sure that the model is tested on new data.
+<!--Your [dataset is split](../how-to/train-model.md#data-splitting) into two parts: a set for training, and a set for testing. The training set is used to train the model, while the testing set is used as a test for model after training to calculate the model performance and evaluation. The testing set is not introduced to the model through the training process, to make sure that the model is tested on new data.-->
 
 Model evaluation is triggered automatically after training is completed successfully. The evaluation process starts by using the trained model to predict user defined entities for documents in the test set, and compares them with the provided data labels (which establishes a baseline of truth). The results are returned so you can review the model’s performance. User defined entities are **included** in the evaluation factoring in Learned and List components; Text Analytics for health prebuilt entities are **not** factored in the model evaluation. For evaluation, custom Text Analytics for health uses the following metrics:
 
@@ -148,5 +148,8 @@ Similarly,
 
 ## Next steps
 
+* [Custom text analytics for health overview](../overview.md)
+<!--
 * [View a model's performance in Language Studio](../how-to/view-model-evaluation.md)
 * [Train a model](../how-to/train-model.md)
+-->

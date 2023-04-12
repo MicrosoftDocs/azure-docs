@@ -15,11 +15,13 @@ ms.custom: language-service-custom-ta4h
 
 # Accepted custom Text Analytics for health data formats
 
-If you are trying to [import your data](../how-to/create-project.md#import-project) into custom Text Analytics for health, it has to follow a specific format. If you don't have data to import, you can [create your project](../how-to/create-project.md) and use the Language Studio to [label your documents](../how-to/tag-data.md).
+Use this article to learn about formatting your data to be imported into custom text analytics for health.
+
+<!--If you are trying to [import your data](../how-to/create-project.md#import-project) into custom Text Analytics for health, it has to follow a specific format. If you don't have data to import, you can [create your project](../how-to/create-project.md) and use the Language Studio to [label your documents](../how-to/tag-data.md).-->
 
 ## Labels file format
 
-Your Labels file should be in the `json` format below to be used in [importing](../how-to/create-project.md#import-project) your labels into a project.
+Your Labels file should be in the `json` format below to be used when importing your labels into a project.
 
 ```json
 {
@@ -130,7 +132,7 @@ Your Labels file should be in the `json` format below to be used in [importing](
 
 ```
 
-|Key  |Placeholder  |Value  | Example |
+<!--|Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
 | `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents). See [language support](../language-support.md#) to learn more about multilingual support. | `true`|
 |`projectName`|`{PROJECT-NAME}`|Project name|`myproject`|
@@ -166,3 +168,4 @@ Your Labels file should be in the `json` format below to be used in [importing](
 ## Next steps
 * You can import your labeled data into your project directly. Learn how to [import project](../how-to/create-project.md#import-project)
 * See the [how-to article](../how-to/tag-data.md)  more information about labeling your data. When you're done labeling your data, you can [train your model](../how-to/train-model.md).  
+-->

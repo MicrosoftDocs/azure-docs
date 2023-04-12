@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-custom-ta4h
 ---
 
-# Entity components
+# Entity components in custom text analytics for health
 
 In custom Text Analytics for health, entities are relevant pieces of information that are extracted from your unstructured input text. An entity can be extracted by different methods. They can be learned through context, matched from a list, or detected by a prebuilt recognized entity. Every entity in your project is composed of one or more of these methods, which are defined as your entity's components. When an entity is defined by more than one component, their predictions can overlap. You can determine the behavior of an entity prediction when its components overlap by using a fixed set of options in the **Entity options**.
 
@@ -104,4 +104,4 @@ When you do not combine components, you allow every component to act as an indep
 
 ## Next steps
 
-[Entities with prebuilt components](../../text-analytics-for-health/concepts/health-entity-categories.md)
+* [Entities with prebuilt components](../../text-analytics-for-health/concepts/health-entity-categories.md)
