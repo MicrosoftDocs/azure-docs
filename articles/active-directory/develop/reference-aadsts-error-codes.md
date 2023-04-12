@@ -165,6 +165,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS50143 | Session mismatch - Session is invalid because user tenant doesn't match the domain hint due to different resource. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details. |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword - User's Active Directory password has expired. Generate a new password for the user or have the user use the self-service reset tool to reset their password. |
 | AADSTS50146 | MissingCustomSigningKey - This app is required to be configured with an app-specific signing key. It is either not configured with one, or the key has expired or isn't yet valid. Please contact the owner of the application. |
+| AADSTS501461 | AcceptMappedClaims is only supported for a token audience matching the application GUID or an audience within the tenant's verified domains. Either change the resource identifier, or use an application-specific signing key. |
 | AADSTS50147 | MissingCodeChallenge - The size of the code challenge parameter isn't valid. |
 | AADSTS501481 | The Code_Verifier doesn't match the code_challenge supplied in the authorization request.|
 | AADSTS501491 |  InvalidCodeChallengeMethodInvalidSize - Invalid size of Code_Challenge parameter.|
