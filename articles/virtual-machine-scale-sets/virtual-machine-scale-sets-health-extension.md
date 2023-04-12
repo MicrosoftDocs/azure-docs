@@ -318,10 +318,6 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -Name $vmScaleSetName `
   -VirtualMachineScaleSet $vmScaleSet
   
-# Upgrade instances to install the extension
-Update-AzVmssInstances -ResourceGroupName $vmScaleSetResourceGroup `
-  -VMScaleSetName $vmScaleSetName `
-  -InstanceId '*'
 ```
 
 # [Azure CLI 2.0](#tab/azure-cli)
@@ -346,7 +342,7 @@ The extension.json file content.
 ```json
 {
   "protocol": "<protocol>",
-  "port": "<port>",
+  "port": <port>,
   "requestPath": "</requestPath>"
 }
 ```
@@ -444,10 +440,6 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -Name $vmScaleSetName `
   -VirtualMachineScaleSet $vmScaleSet
 
-# Upgrade instances to install the extension
-Update-AzVmssInstances -ResourceGroupName $vmScaleSetResourceGroup `
-  -VMScaleSetName $vmScaleSetName `
-  -InstanceId '*'
 ```
 
 # [Azure CLI 2.0](#tab/azure-cli)
