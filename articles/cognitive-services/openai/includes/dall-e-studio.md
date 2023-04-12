@@ -26,16 +26,16 @@ From the Azure OpenAI Studio landing page navigate further to explore examples f
 
 :::image type="content" source="../media/quickstarts/studio-start.png" alt-text="Screenshot of the Azure OpenAI Studio landing page." lightbox="../media/quickstarts/studio-start.png":::
 
-Go to the **DALL-E 2 playground** to use the image generation APIs.
+Go to the **DALL·E 2 playground** to use the image generation APIs.
 
 ## Try image generation
 
-Start exploring Azure OpenAI capabilities with a no-code approach through the DALL-E 2 Playground. From this page, you can quickly iterate and experiment with the capabilities. Enter your image prompt into the text box and click **Generate**. When the AI-generated image is ready, it will appear on the page.
+Start exploring Azure OpenAI capabilities with a no-code approach through the DALL-E 2 playground. Enter your image prompt into the text box and click **Generate**. When the AI-generated image is ready, it will appear on the page.
 
 > [!NOTE]
-> The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) article.
+> The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) guide.
 
-In the DALL-E 2 playground you can also view Python and cURL code samples pre-filled according to your settings. Just select **View code**. You can write an application to complete the same task using the REST APIs.
+In the DALL-E 2 playground you can also view Python and cURL code samples, pre-filled according to your settings. Select **View code** nea the top of the page. You can use this code to write an application that completes the same task.
 
 ## Clean up resources
 
