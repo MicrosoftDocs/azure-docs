@@ -1,40 +1,28 @@
-- name: Azure Web PubSub service documentation
+- name: Web PubSub documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-    - name: About the Azure Web PubSub service
+    - name: About Web PubSub
       href: overview.md
     - name: About hubs, groups, and connections
       href: key-concepts.md
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create an instance
-      expanded: true
-      items:
-        - name: The Azure portal
-          href: howto-develop-create-instance.md
-        - name: The Azure CLI
-          href: quickstart-cli-create.md
-        - name: By using a Bicep template
-          href: quickstart-bicep-template.md
-    - name: Connect to the instance
-      expanded: true
-      items:
-        - name: PubSub with client SDK
-          href: quickstart-use-client-sdk.md
-        - name: PubSub from the browser
-          href: quickstart-live-demo.md
-        - name: PubSub from the Azure CLI
-          href: quickstart-cli-try.md
-        - name: PubSub by using the Service SDK
-          href: quickstart-use-sdk.md
+    - name: Create a resource
+      href: howto-develop-create-instance.md
+    - name: PubSub among clients
+      href: quickstarts-pubsub-among-clients.md
+    - name: Push message from server
+      href: quickstarts-push-messages-from-server.md
+    - name: Event notifications from clients
+      href: quickstarts-event-notifications-from-clients.md
 - name: Tutorials
-  expanded: true
+  expanded: false
   items:
     - name: Serverless development
-      expanded: true
+      expanded: false
       items:
         - name: Build a notification app by using Azure Functions
           href: tutorial-serverless-notification.md
@@ -53,7 +41,7 @@
     - name: Authentication and permissions
       href: tutorial-permission.md
 - name: How-to guides
-  expanded: true
+  expanded: false
   items:
     - name: Develop
       items:
@@ -118,7 +106,7 @@
         - name: Autoscale
           href: howto-scale-autoscale.md
 - name: Concepts
-  expanded: true
+  expanded: false
   items:
     - name: Service internals
       href: concept-service-internals.md
@@ -145,7 +133,7 @@
 - name: Reference
   items:
     - name: WebSocket subprotocols
-      expanded: true
+      expanded: false
       items:
         - name: JSON WebSocket subprotocol
           href: reference-json-webpubsub-subprotocol.md
