@@ -7,7 +7,7 @@ ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
-ms.date: 04/11/2023
+ms.date: 04/12/2023
 ms.custom: GGAL-freshness822, devx-track-azurecli
 ---
 
@@ -20,31 +20,31 @@ This article shows you how to:
 * Use the Azure VMAccess extension to check or repair a disk.
 * Reset user access.
 * Manage administrative user accounts
-* Update the SSH configuration on Linux when they're running as Azure Resource Manager virtual machines.
+* Update the SSH configuration on Linux computers that run as Azure Resource Manager virtual machines.
 
-If you need to manage Classic virtual machines, see [How to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency using the VMAccess extension](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic).
+If you need to manage Classic virtual machines, see [Using the VMAccess extension](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic).
 
 > [!NOTE]
-> If you use the VMAccess extension to reset the password of your VM after installing the AAD Login extension, rerun the AAD Login extension to re-enable AAD Login for your machine.
+> If you use the VMAccess extension to reset the password of your VM after you install the Azure Active Directory (AAD) Login extension, rerun the Azure AD (AAD) Login extension to re-enable AAD Login for your VM.
 
 ## Prerequisites
 
-The VMAccess extension can be run against these Linux distributions:
+The VMAccess extension can be run on these Linux distributions:
 
 ### Linux Distro’s Supported
 
 | **Linux Distro** | **x64** | **ARM64** |
 |:-----|:-----:|:-----:|
-| Alma Linux |	9.x+ |	9.x+ |
-| CentOS |	7.x+,  8.x+ |	7.x+ |
-| Debian |	10+ |	11.x+ |
-| Flatcar Linux |	3374.2.x+ |	3374.2.x+ |
-| openSUSE |	12.3+ |	Not Supported |
-| Oracle Linux |	6.4+, 7.x+, 8.x+ |	Not Supported |
-| Red Hat Enterprise Linux |	6.7+, 7.x+,  8.x+ |	8.6+, 9.0+ |
-| Rocky Linux |	9.x+ |	9.x+ |
-| SLES |	12.x+, 15.x+ |	15.x SP4+ |
-| Ubuntu |	18.04+, 20.04+, 22.04+ |	20.04+, 22.04+ |
+| Alma Linux |9.x+ |9.x+ |
+| CentOS |7.x+, 8.x+ |7.x+ |
+| Debian |10+ |11.x+ |
+| Flatcar Linux |3374.2.x+ |3374.2.x+ |
+| openSUSE |12.3+ |Not Supported |
+| Oracle Linux |6.4+, 7.x+, 8.x+ |Not Supported |
+| Red Hat Enterprise Linux |6.7+, 7.x+, 8.x+ |8.6+, 9.0+ |
+| Rocky Linux |9.x+ |9.x+ |
+| SLES |12.x+, 15.x+ |15.x SP4+ |
+| Ubuntu |18.04+, 20.04+, 22.04+ |20.04+, 22.04+ |
 
 ## Ways to use the VMAccess extension
 
@@ -53,7 +53,7 @@ You can use the VMAccess extension on your Linux VMs in two ways:
 * Use the Azure CLI and the required parameters.
 * [Use raw JSON files that the VMAccess extension process](#use-json-files-and-the-vmaccess-extension).
 
-The following examples use [az vm user](/cli/azure/vm/user) commands. To perform these steps, you need to [install the latest Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account by using az. For more information, see [az](/cli/azure/reference-index).
+The following examples use [az vm user](/cli/azure/vm/user) commands. To perform these steps, you need to [install the latest Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account by using `az account`. For more information, see [az account](/cli/azure/reference-index).
 
 ## Update SSH key
 
@@ -68,7 +68,7 @@ az vm user update \
 ```
 
 > [!NOTE]
-> The `az vm user update` command appends the new public key text to the `~/.ssh/authorized_keys` file for the admin user on the VM. This doesn't replace or remove any existing SSH keys. This doesn't remove prior keys set at deployment time or subsequent updates via the VMAccess extension.
+> The [`az vm user update` command](/cli/azure/vm) appends the new public key text to the `~/.ssh/authorized_keys` file for the admin user on the VM. This command doesn't replace or remove any existing SSH keys. This command doesn't remove prior keys set at deployment time or subsequent updates by using the VMAccess extension.
 
 ## Reset password
 
@@ -94,7 +94,7 @@ az vm user reset-ssh \
 
 ## Create an administrative/sudo user
 
-The following example creates a user named `myNewUser` with **sudo** permissions. The account uses an SSH key for authentication on the VM named `myVM`. This method helps you regain access to a VM when current credentials are lost or forgotten. As a best practice, accounts with **sudo** permissions should be limited.
+The following example creates a user named `myNewUser` with sudo permissions. The account uses an SSH key for authentication on the VM named `myVM`. This method helps you regain access to a VM when current credentials are lost or forgotten. As a best practice, accounts with sudo permissions should be limited.
 
 ```azurecli-interactive
 az vm user update \
@@ -117,7 +117,7 @@ az vm user delete \
 
 ## Use JSON files and the VMAccess extension
 
-The following examples use raw JSON files. Use an [az vm extension](/cli/azure/vm/extension) to then call your JSON files. Azure templates can also call these JSON files.
+The following examples use raw JSON files. Use an [az vm extension](/cli/azure/vm/extension) command to then call your JSON files. Azure templates can also call these JSON files.
 
 ### Reset user access
 
@@ -132,7 +132,7 @@ To update the SSH public key of a user, create a file named `update_ssh_key.json
 }
 ```
 
-Execute the VMAccess script with:
+Execute the VMAccess script by running this command:
 
 ```azurecli-interactive
 az vm extension set \
@@ -153,7 +153,7 @@ To reset a user password, create a file named `reset_user_password.json` and add
 }
 ```
 
-Execute the VMAccess script with:
+Execute the VMAccess script by running this command:
 
 ```azurecli-interactive
 az vm extension set \
@@ -189,7 +189,7 @@ az vm extension set \
 
 ### Manage administrative users
 
-To create a user with **sudo** permissions that uses an SSH key for authentication, create a file named `create_new_user.json` and add settings in the following format. Substitute your own values for the `username` and `ssh_key` parameters. This method helps you regain access to a VM when current credentials are lost or forgotten. As a best practice, limit accounts with **sudo** permissions.
+To create a user with sudo permissions that uses an SSH key for authentication, create a file named `create_new_user.json` and add settings in the following format. Substitute your own values for the `username` and `ssh_key` parameters. This method helps you regain access to a VM when current credentials are lost or forgotten. As a best practice, limit accounts with sudo permissions.
 
 ```json
 {
@@ -258,7 +258,7 @@ az vm extension set \
 
 ## Troubleshoot and support
 
-Data about the state of extension deployments is retrieved from the Azure portal and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command by using the Azure CLI.
+Get data about the state of extension deployments from the Azure portal and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command by using the Azure CLI.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
