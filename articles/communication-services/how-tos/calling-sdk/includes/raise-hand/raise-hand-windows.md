@@ -93,5 +93,4 @@ foreach (RaiseHand rh in raiseHandCallFeature.RaisedHands.ToList())
 The `RaisedHands` variable will contain an array of participant objects, where each object has the following properties:
 `identifier`: the communication identifier of the participant
 `order`: the order in which the participant raised their hand
-You can use this information to display a list of participants with the Raise Hand state and their order in the queue.```
-```
+You can use this information to display a list of participants with the Raise Hand state and their order in the queue.
