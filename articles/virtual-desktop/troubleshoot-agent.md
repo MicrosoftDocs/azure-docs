@@ -121,7 +121,7 @@ On your session host VM, go to **Event Viewer** > **Windows Logs** > **Applicati
 
 To resolve this issue:
 1. Check to see if [the stack listener is working](#error-stack-listener-isnt-working-on-a-windows-10-2004-session-host-vm)
-1. If the stack listener isn't working, [manually uninstall and reinstall the stack component](#error-session-host-vms-are-stuck-in-unavailable-or-upgrading-state).
+1. If the stack listener isn't working, [manually uninstall and reinstall the stack component](#error-session-host-vms-are-stuck-in-upgrading-state).
 
 ## Error: ENDPOINT_NOT_FOUND
 
