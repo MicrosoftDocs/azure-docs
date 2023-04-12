@@ -32,7 +32,7 @@ The following video describes how to manage secrets using Azure Key Vault.
 
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 * [Install the Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli)
-* [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
+* [Install Maven 3.0 or higher](https://maven.apache.org/download.cgi)
 
 ## Create a resource group
 
@@ -97,7 +97,7 @@ export SERVICE_IDENTITY=$(az spring app show \
 
 ### [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
-First, create a user-assigned managed identity in advance with its resource ID set to `$USER_IDENTITY_RESOURCE_ID`. Save the client ID for the property configuration below.
+First, create a user-assigned managed identity in advance with its resource ID set to `$USER_IDENTITY_RESOURCE_ID`. Save the client ID for the property configuration.
 
 :::image type="content" source="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png" alt-text="Screenshot of Azure portal showing the Managed Identity Properties screen with 'Resource ID', 'Principle ID' and 'Client ID' highlighted." lightbox="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png":::
 
@@ -176,7 +176,7 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Cli
 ---
 
    > [!NOTE]
-   > You must add the key vault URL in the *application.properties* file as shown above. Otherwise, the key vault URL may not be captured during runtime.
+   > You must add the key vault URL in the *application.properties* file as shown previously. Otherwise, the key vault URL may not be captured during runtime.
 
 1. Add the following code example to *src/main/java/com/example/demo/DemoApplication.java*. This code retrieves the connection string from the key vault.
 
