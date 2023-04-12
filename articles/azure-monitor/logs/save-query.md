@@ -49,6 +49,20 @@ We don't recommend saving as a legacy query because of the advantages of query p
 
 To save a legacy query, select **Save as Log Analytics Query** from the **Save** dropdown in Log Analytics. Choose the **Save as Legacy query** option. The only option available will be the legacy category.
 
+## Troubleshooting
+
+### Can't select the option to save to the default query pack
+
+This error occurs when you you're saving a query and you clear the option to **Save to the default query pack**, select a Subscription that doesn't have a default query pack, and then select a Subscription that has a default query pack.
+
+To resolve this error, close the **Save as query** dialog box and follow the steps to save the query again.
+
+### Fix the "You need permissions to create resource groups in subscription 'xxxx'" error message
+
+If the default query pack doesn't exist and you try to save a query in it when you don't have the permissions to create resource groups, you'll receive an error message *You need permissions to create resource groups in subscription 'xxxx'*. 
+
+To resolve this error, a user with the permissions to create resource groups must save the query, because a resource group for the default query pack is automatically created when the first query is saved in the default query pack. For more information, see [Default query pack](query-packs.md#default-query-pack).
+
 ## Next steps
 
 [Get started with KQL queries](get-started-queries.md)
