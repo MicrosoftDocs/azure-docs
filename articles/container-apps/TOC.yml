@@ -79,7 +79,7 @@
       items:
       - name: Dapr integration
         href: dapr-overview.md
-      - name: Scale Dapr components with KEDA
+      - name: Scale Dapr apps with KEDA using Bicep
         href: dapr-keda-scaling.md
     - name: Azure Arc-enabled Kubernetes clusters
       href: azure-arc-overview.md
