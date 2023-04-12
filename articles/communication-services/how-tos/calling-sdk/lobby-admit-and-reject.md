@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 # Manage Teams meeting Lobby
 
-Lobby admit and reject are the apis on `Call` or `TeamsCall`. It allows user to admit and reject participants from Teams meeting lobby.
+APIs lobby admit and reject on `Call` or `TeamsCall` class allow users to admit and reject participants from Teams meeting lobby.
 
 In this article, you will learn how to admit and reject participants from Microsoft Teams meetings lobby by using Azure Communication Service calling SDKs.
 
@@ -32,7 +32,7 @@ Microsoft 365 or Azure Communication Services users can admit or reject users fr
 [Learn more about meeting roles](https://support.microsoft.com/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019)
 
 To update or check current meeting join & lobby policies in Teams admin center:
-[Learn more about Teams policies ](https://learn.microsoft.com/en-us/microsoftteams/settings-policies-reference#automatically-admit-people)
+[Learn more about Teams policies](/microsoftteams/settings-policies-reference#automatically-admit-people)
 
 
 ### Get remote participant properties
