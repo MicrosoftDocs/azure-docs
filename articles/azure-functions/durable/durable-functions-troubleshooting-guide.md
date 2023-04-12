@@ -21,7 +21,7 @@ This article provides a guide for troubleshooting common scenarios in Durable Fu
 > [!TIP]
 > When debugging and diagnosing issues, it's recommended that you start by ensuring your app is using the latest Durable Functions extension version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the [Upgrade Durable Functions extension version](./durable-functions-extension-upgrade.md) article for instructions on how to upgrade your extension version. 
 
-The **Diagnose and solve problems** tab in the Azure portal is a useful resource to monitor and diagnose possible issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. See [Azure Function app diagnostics](./function-app-diagnostics.md) for more details. 
+The **Diagnose and solve problems** tab in the Azure portal is a useful resource to monitor and diagnose possible issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. See [Azure Function app iagnostics](./function-app-diagnostics.md) for more details. 
 
 If the resources above didn't solve your problem, the following sections provide advice for specific application symptoms:
 
@@ -83,11 +83,11 @@ When using the default storage provider, all Durable Functions behavior is drive
 
 Starting in v2.3.0 of the Durable Functions extension, you can have these Durable Task Framework logs published to your Application Insights instance by updating your logging configuration in the host.json file. See the [Durable Task Framework logging article](./durable-functions-diagnostics.md) for information and instructions on how to do this.
 
-The following query is for inspecting end-to-end Azure Storage interactions for a specific orchestration instance. Edit `start` and `targetInstanceId` to filter by time range and instance ID.
+The following query is for inspecting end-to-end Azure Storage interactions for a specific orchestration instance. Edit `start` and `queryInstanceId` to filter by time range and instance ID.
 
 ```kusto
 let start = datetime(XXXX-XX-XXTXX:XX:XX); // edit this 
-let targetInstanceId = "XXXXXXX"; //edit this
+let queryInstanceId = "XXXXXXX"; //edit this
 traces  
 | where timestamp > start and timestamp < start + 1h 
 | where customDimensions.Category == "DurableTask.AzureStorage" 
@@ -108,17 +108,17 @@ traces
 | extend pid = customDimensions["ProcessId"]
 | extend appName = cloud_RoleName
 | extend newEvents = customDimensions["prop__NewEvents"]
-| where instanceId == targetInstanceId
+| where instanceId == queryInstanceId
 | sort by timestamp asc
 | project timestamp, appName, severityLevel, pid, taskName, eventType, message, details, messageId, partitionId, instanceId, executionId, age, latencyMs, dequeueCount, eventCount, newEvents, taskHub, account, extendedSession, sdkVersion
 ```
 
 ### Trace Errors/Warnings
 
-The following query searches for errors and warnings for a given orchestration instance. You'll need to provide a value for `targetInstanceId`.
+The following query searches for errors and warnings for a given orchestration instance. You'll need to provide a value for `queryInstanceId`.
 
 ```kusto
-let targetInstanceId = "XXXXXX"; // edit this
+let queryInstanceId = "XXXXXX"; // edit this
 let start = datetime(XXXX-XX-XXTXX:XX:XX); 
 traces  
 | where timestamp > start and timestamp < start + 1h
@@ -129,22 +129,22 @@ traces
 | extend details = customDimensions["prop__Details"] 
 | extend reason = customDimensions["prop__reason"]
 | where severityLevel > 1 // to see all logs of  severity level "Information" or greater.
-| where instanceId == targetInstanceId
+| where instanceId == queryInstanceId
 | sort by timestamp asc 
 ```
 
 ### Control queue / Partition ID logs
-The following query searches for activity associated with an instanceId's control queue. You'll need to provide the value for the instanceID in `targetInstanceId` as well as the query's start time in `start`.
+The following query searches for activity associated with an instanceId's control queue. You'll need to provide the value for the instanceID in `queryInstanceId` as well as the query's start time in `start`.
 
 ```kusto
-let targetInstanceId = "XXXXXX"; // edit this
+let queryInstanceId = "XXXXXX"; // edit this
 let start = datetime(XXXX-XX-XXTXX:XX:XX); // edit this
 traces  // determine control queue for this orchestrator
 | where timestamp > start and timestamp < start + 1h 
 | extend instanceId = customDimensions["prop__TargetInstanceId"] 
 | extend partitionId = tostring(customDimensions["prop__PartitionId"])
 | where partitionId contains "control" 
-| where instanceId == targetInstanceId
+| where instanceId == queryInstanceId
 | join (
 traces  
 | where timestamp > start and timestamp < start + 1h 
