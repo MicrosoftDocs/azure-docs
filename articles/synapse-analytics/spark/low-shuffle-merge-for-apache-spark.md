@@ -10,11 +10,11 @@ ms.author: eunjinsong
 ms.reviewer: dacoelho
 ---
 
-# Introduction
+# Low Shuffle Merge Optimization on Delta tables
 
 Delta Lake [MERGE command](https://docs.delta.io/latest/delta-update.html#upsert-into-a-table-using-merge) allows users to update a delta table with advanced conditions. It can update data from a source table, view or DataFrame into a target table by using MERGE command. However, the current algorithm of MERGE command is not optimized for handling *unmodified* rows. With Low Shuffle Merge optimization, unmodified rows are excluded from expensive shuffling execution and written separately.
 
-To execute MERGE, 2 join operations are required. The first one is joining whole target table and source data, to find *touched* files including any matched row. The other one is for actual MERGE operation only with *touched* files of the target table. The first join is lighter as it only reads columns in matching condition. Although Delta performs the first join to reduce the amount of data for the actual merge process, huge amount of *unmodified* rows in *touched* files goes through the second join process. With Low Shuffle Merge, Delta retreives "matched" rows result from the first join and utilizes it for classifying *matched* rows. Based on that, there are 2 separate write jobs for *matched* rows and *unmodified* rows, so it could result in 2x number of output files compared to default MERGE operation. The expected performance gain outweighs the possible small files problem. 
+To execute MERGE, 2 join operations are required. The first one is joining the whole target table and source data, to find *touched* files including any matched row. The other one is for actual MERGE operation only with *touched* files of the target table. The first join is lighter as it only reads columns in matching condition. Although Delta performs the first join to reduce the amount of data for the actual merge process, a huge amount of *unmodified* rows in *touched* files goes through the second join process. With Low Shuffle Merge, Delta retrieves "matched" rows result from the first join and utilizes it for classifying *matched* rows. Based on that, there are 2 separate write jobs for *matched* rows and *unmodified* rows, so it could result in 2x number of output files compared to the default MERGE operation. The expected performance gain outweighs the possible small files problem. 
 
 ## Availability
 
