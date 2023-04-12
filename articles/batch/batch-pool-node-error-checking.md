@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Some Azure Batch pool creation and management operations happen immediately. Detecting failures for these operations is straightforward, because errors usually return immediately from the API, command line, or user interface. However, some operations are asynchronous, run in the background, and take several minutes to complete. This article describes ways to detect and avoid failures that can occur in the background operations for pools and nodes.
 
-Make sure that you've set your applications to implement comprehensive error checking, especially for asynchronous operations. Comprehensive error checking can help you promptly identify and diagnose issues.
+Make sure to set your applications to implement comprehensive error checking, especially for asynchronous operations. Comprehensive error checking can help you promptly identify and diagnose issues.
 
 ## Pool errors
 
@@ -19,7 +19,7 @@ Pool errors might be related to resize timeout or failure, automatic scaling fai
 
 When you create a new pool or resize an existing pool, you specify the target number of nodes. The create or resize operation completes immediately, but the actual allocation of new nodes or removal of existing nodes might take several minutes. You can specify the resize timeout in the [Pool - Add](/rest/api/batchservice/pool/add) or [Pool - Resize](/rest/api/batchservice/pool/resize) APIs. If Batch can't allocate the target number of nodes during the resize timeout period, the pool goes into a steady state, and reports resize errors.
 
-The [ResizeError](/rest/api/batchservice/pool/get#resizeerror) property lists the errors that occurred for the most recent evaluation.
+The [resizeError](/rest/api/batchservice/pool/get#resizeerror) property lists the errors that occurred for the most recent evaluation.
 
 Common causes for resize errors include:
 
@@ -35,7 +35,7 @@ Common causes for resize errors include:
 
 ### Automatic scaling failures
 
-You can set Azure Batch to automatically scale the number of nodes in a pool, and define the parameters for the automatic scaling formula for the pool. The Batch service then uses the formula to periodically evaluate the number of nodes in the pool and set new target numbers. For more information, see [Create an automatic formula for scaling compute nodes in a Batch pool](batch-automatic-scaling.md).
+You can set Azure Batch to automatically scale the number of nodes in a pool, and you define the parameters for the automatic scaling formula for the pool. The Batch service then uses the formula to periodically evaluate the number of nodes in the pool and set new target numbers. For more information, see [Create an automatic formula for scaling compute nodes in a Batch pool](batch-automatic-scaling.md).
 
 The following issues can occur when you use automatic scaling:
 
@@ -57,7 +57,7 @@ If the pool deletion is taking longer than expected, Batch retries periodically 
 
 - Resource locks might be placed on Batch-created resources, or on network resources that Batch uses.
 
-- Resources that you created might depend on a Batch-created resource. For instance, if you [create a pool in a virtual network](batch-virtual-network.md), Batch creates an NSG, a public IP address, and a load balancer. If you use these resources outside the pool, you must remove that dependency to delete the pool.
+- Resources that you created might depend on a Batch-created resource. For instance, if you [create a pool in a virtual network](batch-virtual-network.md), Batch creates an NSG, a public IP address, and a load balancer. If you're using these resources outside the pool, you can't delete the pool.
 
 - The `Microsoft.Batch` resource provider might be unregistered from the subscription that contains your pool.
 
@@ -77,21 +77,21 @@ A failed start task also causes Batch to set the [computeNodeState](/rest/api/ba
 
 As with any task, there can be many causes for a start task failure. To troubleshoot, check the *stdout*, *stderr*, and any other task-specific log files.
 
-Start tasks must be re-entrant, because the start task can run multiple times on the same node, for example when the node is reimaged or rebooted. In rare cases, when a start task runs after an event causes a node reboot, one operating system (OS) or ephemeral disk reimages while the other doesn't. Since Batch start tasks and all Batch tasks run from the ephemeral disk, this situation isn't usually a problem. However, in some cases where the start task installs an application to the OS disk and keeps other data on the ephemeral disk, there can be sync problems. Protect your application accordingly if you use both disks.
+Start tasks must be re-entrant, because the start task can run multiple times on the same node, for example when the node is reimaged or rebooted. In rare cases, when a start task runs after an event causes a node reboot, one operating system (OS) or ephemeral disk reimages while the other doesn't. Since Batch start tasks and all Batch tasks run from the ephemeral disk, this situation isn't usually a problem. However, in cases where the start task installs an application to the OS disk and keeps other data on the ephemeral disk, there can be sync problems. Protect your application accordingly if you use both disks.
 
 ### Application package download failure
 
-You can specify one or more application packages for a pool. Batch downloads the specified package files to each node and uncompresses the files after the node starts, but before it schedules tasks. It's common to use a start task command line with application packages, for example to copy files to a different location or to run setup.
+You can specify one or more application packages for a pool. Batch downloads the specified package files to each node and uncompresses the files after the node starts, but before it schedules tasks. It's common to use a start task command with application packages, for example to copy files to a different location or to run setup.
 
-The [computeNodeError](/rest/api/batchservice/computenode/get#computenodeerror) property reports a failure to download and uncompress an application package, and sets the node state to `unusable`.
+If an application package fails to download and uncompress, the [computeNodeError](/rest/api/batchservice/computenode/get#computenodeerror) property reports the failure, and sets the node state to `unusable`.
 
 ### Container download failure
 
-You can specify one or more container references on a pool. Batch downloads the specified containers to each node. The [computeNodeError](/rest/api/batchservice/computenode/get#computenodeerror) property reports a failure to download a container, and sets the node state to `unusable`.
+You can specify one or more container references on a pool. Batch downloads the specified containers to each node. If the container fails to download, the [computeNodeError](/rest/api/batchservice/computenode/get#computenodeerror) property reports the failure, and sets the node state to `unusable`.
 
 ### Node OS updates
 
-For Windows pools, `enableAutomaticUpdates` is set to `true` by default. Allowing automatic updates is recommended, but updates can interrupt task progress, especially if the tasks are long-running. You can set this value to `false` if you need to ensure that an OS update doesn't happen unexpectedly.
+For Windows pools, `enableAutomaticUpdates` is set to `true` by default. Although allowing automatic updates is recommended, updates can interrupt task progress, especially if the tasks are long-running. You can set this value to `false` if you need to ensure that an OS update doesn't happen unexpectedly.
 
 ### Node in unusable state
 
@@ -110,7 +110,7 @@ Other reasons for `unusable` nodes might include the following causes:
 
 ### Node agent log files
 
-The Batch agent process that runs on each pool node provides log files that might help if you need to contact support about a pool node issue. You can upload log files for a node via the Azure portal, Batch Explorer, or the [Compute Node - Upload Batch Service Logs](/rest/api/batchservice/computenode/uploadbatchservicelogs) API. Upload and save the log files and then delete the node or pool to save the cost of running the nodes.
+The Batch agent process that runs on each pool node provides log files that might help if you need to contact support about a pool node issue. You can upload log files for a node via the Azure portal, Batch Explorer, or the [Compute Node - Upload Batch Service Logs](/rest/api/batchservice/computenode/uploadbatchservicelogs) API. After you upload and save the log files, you can delete the node or pool to save the cost of running the nodes.
 
 ### Node disk full
 
