@@ -17,7 +17,7 @@ You can use an existing Language resource to get started with custom NER as long
 |Requirement  |Description  |
 |---------|---------|
 |Regions     | Make sure your existing resource is provisioned in one of the [supported regions](../service-limits.md#regional-availability). If not, you will need to create a new resource in one of these regions.        |
-|Pricing tier     | Learn more about [supported pricing tiers](../service-limits.md#language-resource-limits).        |
+|Pricing tier     | The pricing tier for your resource. <!--Learn more about [supported pricing tiers](../service-limits.md#language-resource-limits).-->        |
 |Managed identity     | Make sure that the resource's managed identity setting is enabled. Otherwise, read the next section. |
 
 To use custom named entity recognition, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
@@ -57,7 +57,7 @@ Make sure to enable **Custom text classification / Custom Named Entity Recogniti
 
 ### Add required roles
 
-[!INCLUDE [required roles](../includes/roles-for-resource-and-storage.md)]
+[!INCLUDE [required roles](../../includes/custom/roles-for-resource-and-storage.md)]
 
 ### Enable CORS for your storage account
 

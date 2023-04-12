@@ -57,7 +57,7 @@ You can create a resource in the following ways:
 
 ## Using a pre-existing Language resource
 
-[!INCLUDE [use an existing resource](../../includes/custom/use-pre-existing-resource.md)]
+[!INCLUDE [use an existing resource](../includes/use-pre-existing-resource.md)]
 
 ## Create a custom Text Analytics for health project
 
@@ -65,11 +65,11 @@ Once your resource and storage container are configured, create a new custom TA4
 
 ### [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Language Studio project creation](../../includes/custom/language-studio/create-project.md)]
+[!INCLUDE [Language Studio project creation](../includes/language-studio/create-project.md)]
 
 ### [REST APIs](#tab/rest-api)
 
-[!INCLUDE [REST APIs project creation](../../includes/custom/rest-api/create-project.md)]
+[!INCLUDE [REST APIs project creation](../includes/rest-api/create-project.md)]
 
 ---
 
@@ -79,11 +79,11 @@ If you have already labeled data, you can use it to get started with the service
 
 ### [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Import project](../../includes/custom/language-studio/import-project.md)]
+[!INCLUDE [Import project](../includes/language-studio/import-project.md)]
 
 ### [REST APIs](#tab/rest-api)
 
-[!INCLUDE [Import project](../../includes/custom/rest-api/import-project.md)]
+[!INCLUDE [Import project](../includes/rest-api/import-project.md)]
 
 ---
 
@@ -91,11 +91,11 @@ If you have already labeled data, you can use it to get started with the service
 
 ### [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Language Studio project details](../../includes/custom/language-studio/project-details.md)]
+[!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
 
 ### [REST APIs](#tab/rest-api)
 
-[!INCLUDE [REST APIs project details](../../includes/custom/rest-api/project-details.md)]
+[!INCLUDE [REST APIs project details](../includes/rest-api/project-details.md)]
 
 ---
 
@@ -103,11 +103,11 @@ If you have already labeled data, you can use it to get started with the service
 
 ### [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Delete project using Language studio](../../includes/custom/language-studio/delete-project.md)]
+[!INCLUDE [Delete project using Language studio](../includes/language-studio/delete-project.md)]
 
 ### [REST APIs](#tab/rest-api)
 
-[!INCLUDE [Delete project using the REST API](../../includes/custom/rest-api/delete-project.md)]
+[!INCLUDE [Delete project using the REST API](../includes/rest-api/delete-project.md)]
 
 ---
 
@@ -115,4 +115,4 @@ If you have already labeled data, you can use it to get started with the service
 
 <!--* You should have an idea of the [project schema](design-schema.md) you will use to label your data.-->
 
-* After you define your schema, you can start [labeling your data](tag-data.md), which will be used for model training, evaluation, and finally making predictions.
+* After you define your schema, you can start [labeling your data](label-data.md), which will be used for model training, evaluation, and finally making predictions.

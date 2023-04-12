@@ -15,12 +15,12 @@ ms.author: aahi
 
 2. Under the **Extract information** section of Language Studio, select **Custom named entity recognition**.
 
-    :::image type="content" source="../../media/select-custom-ner.png" alt-text="A screenshot showing the location of the custom NER feature in the Language Studio landing page." lightbox="../../media/select-custom-ner.png":::
+    <!--:::image type="content" source="../../media/select-custom-ner.png" alt-text="A screenshot showing the location of the custom NER feature in the Language Studio landing page." lightbox="../../media/select-custom-ner.png":::-->
         
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-    :::image type="content" source="../../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../../media/create-project.png":::
+    <!--:::image type="content" source="../../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../../media/create-project.png":::-->
 
 
 4.  After you select **Create new project**, a screen will appear to let you connect your storage account. If you can’t find your storage account, make sure you created a resource using the recommended steps. If you've already connected a storage account to your Language resource, you will see your storage account connected.
