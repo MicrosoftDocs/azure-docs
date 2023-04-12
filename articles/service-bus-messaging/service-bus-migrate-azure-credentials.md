@@ -29,14 +29,14 @@ The following code example demonstrates how to connect to Azure Service Bus usin
 ## [.NET](#tab/dotnet)
 
 ```csharp
-await using var client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>");
+await using var client = new ServiceBusClient("<CONNECTION-STRING>");
 ```
 
 ## [Java](#tab/java)
 
 ```java
 ServiceBusSenderClient client = new ServiceBusClientBuilder()
-    .connectionString("<NAMESPACE-CONNECTION-STRING>")
+    .connectionString("<CONNECTION-STRING>")
     .sender()
     .queueName("<QUEUE-NAME>")
     .buildClient();
@@ -46,21 +46,21 @@ ServiceBusSenderClient client = new ServiceBusClientBuilder()
 
 ```java
 ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
-    "<NAMESPACE-CONNECTION-STRING>", 
+    "<CONNECTION-STRING>", 
     new ServiceBusJmsConnectionFactorySettings());
 ```
 
 ## [Node.js](#tab/nodejs)
 
 ```nodejs
-const client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>");
+const client = new ServiceBusClient("<CONNECTION-STRING>");
 ```
 
 ## [Python](#tab/python)
 
 ```python
 client = ServiceBusClient(
-    fully_qualified_namespace = "<NAMESPACE-CONNECTION-STRING>"
+    fully_qualified_namespace = "<CONNECTION-STRING>"
 )
 ```
 
@@ -129,9 +129,9 @@ Next, update your code to use passwordless connections.
     DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
         .build();
 
-    // TODO: Update the <NAMESPACE-CONNECTION-STRING> placeholder.
+    // TODO: Update the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
     ServiceBusSenderClient client = new ServiceBusClientBuilder()
-        .credential("<NAMESPACE-CONNECTION-STRING>", credential)
+        .credential("<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net", credential)
         .sender()
         .queueName("<QUEUE-NAME>")
         .buildClient();
@@ -162,10 +162,10 @@ Next, update your code to use passwordless connections.
     DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
         .build();
 
-    //TODO: Replace the "<NAMESPACE-CONNECTION-STRING>" placeholder.
+    //TODO: Replace the "<SERVICE-BUS-NAMESPACE-NAME>" placeholder.
     ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
         credential,
-        "<NAMESPACE-CONNECTION-STRING>",
+        "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
         new ServiceBusJmsConnectionFactorySettings());
    ```
 
@@ -188,9 +188,9 @@ Next, update your code to use passwordless connections.
     ```nodejs
     const credential = new DefaultAzureCredential();
     
-    // TODO: Update the <NAMESPACE-CONNECTION-STRING> placeholder.
+    // TODO: Update the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
     const client = new ServiceBusClient(
-      "<NAMESPACE-CONNECTION-STRING>",
+      "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
       credential
     );
     ```
@@ -214,9 +214,9 @@ Next, update your code to use passwordless connections.
     ```python
     credential = DefaultAzureCredential()
 
-    # TODO: Update the <NAMESPACE-CONNECTION-STRING> placeholder.
+    # TODO: Update the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
     client = ServiceBusClient(
-        fully_qualified_namespace = "<NAMESPACE-CONNECTION-STRING>",
+        fully_qualified_namespace = "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
         credential = credential
     )
     ```
