@@ -16,7 +16,7 @@ You can use an existing Language resource to get started with custom NER as long
 
 |Requirement  |Description  |
 |---------|---------|
-|Regions     | Make sure your existing resource is provisioned in one of the [supported regions](../service-limits.md#regional-availability). If not, you will need to create a new resource in one of these regions.        |
+|Regions     | Make sure your existing resource is provisioned in one of the supported regions. If not, you will need to create a new resource in one of these regions.        |
 |Pricing tier     | The pricing tier for your resource. <!--Learn more about [supported pricing tiers](../service-limits.md#language-resource-limits).-->        |
 |Managed identity     | Make sure that the resource's managed identity setting is enabled. Otherwise, read the next section. |
 

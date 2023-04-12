@@ -46,7 +46,7 @@ You can create a resource in the following ways:
 
 [!INCLUDE [create a new resource from the Azure portal](../../includes/custom/resource-creation-azure-portal.md)]
 
-[!INCLUDE [create a new resource from Language Studio](../../includes/custom/language-studio/resource-creation-language-studio.md)]
+[!INCLUDE [create a new resource from Language Studio](../../includes/custom/resource-creation-language-studio.md)]
 
 [!INCLUDE [create a new resource with Azure PowerShell](../../includes/custom/resource-creation-powershell.md)]
 
@@ -91,7 +91,7 @@ If you have already labeled data, you can use it to get started with the service
 
 ### [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Language Studio project details](../includes/language-studio/project-details.md)]
+[!INCLUDE [Language Studio project details](../../includes/custom/project-details.md)]
 
 ### [REST APIs](#tab/rest-api)
 
