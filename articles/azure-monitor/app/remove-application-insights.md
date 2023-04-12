@@ -23,11 +23,11 @@ The following sections show two ways to remove NuGet packages and what was autom
     ![Screenshot that shows selecting Tools > NuGet Package Manager > Package Manager Console.](./media/remove-application-insights/package-manager.png)
 
     > [!NOTE]
-    > If trace collection is enabled, you need to first uninstall Microsoft.ApplicationInsights.TraceListener. Enter `Uninstall-package Microsoft.ApplicationInsights.TraceListener`. Then follow the next steps to remove Microsoft.ApplicationInsights.Web.
+    > If trace collection is enabled, you need to first uninstall Microsoft.ApplicationInsights.TraceListener. Enter `Uninstall-package Microsoft.ApplicationInsights.TraceListener`. Then follow the next step to remove Microsoft.ApplicationInsights.Web.
 
-1. Enter the following command: `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
+1. Enter the following command:<br> `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
 
-    After you enter the command, the Application Insights package and all its dependencies are uninstalled from the project.
+    After you enter the command, the Application Insights package and all its dependencies are uninstalled from the project.
     
     ![Screenshot that shows entering the command in the console.](./media/remove-application-insights/package-management-console.png)
 
@@ -37,9 +37,9 @@ The following sections show two ways to remove NuGet packages and what was autom
 
     ![Screenshot that shows Tools > NuGet Package Manager > Package Manager Console.](./media/remove-application-insights/package-manager.png)
 
-1. Enter the following command: `Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
+1. Enter the following command:<br> `Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
 
-    After you enter the command, the Application Insights package and all its dependencies are uninstalled from the project.
+    After you enter the command, the Application Insights package and all its dependencies are uninstalled from the project.
 
 ---
 
@@ -47,18 +47,18 @@ The following sections show two ways to remove NuGet packages and what was autom
 
 # [.NET](#tab/net)
 
-1. In the Solution Explorer on the right,right-click **Solution** and select **Manage NuGet Packages for Solution**.
+1. In the Solution Explorer on the right, right-click **Solution** and select **Manage NuGet Packages for Solution**.
 
-    On the screen that appears, you can edit all the NuGet packages that are part of the project.
+    A screen appears where you can edit all the NuGet packages that are part of the project.
     
      ![Screenshot that shows right-clicking Solution in the Solution Explorer, and then selecting Manage NuGet Packages for Solution.](./media/remove-application-insights/manage-nuget-framework.png)
 
     > [!NOTE]
-    > If trace collection is enabled, you need to first uninstall Microsoft.ApplicationInsights.TraceListener without removing the dependencies selected. Then follow the next steps to uninstall Microsoft.ApplicationInsights.Web with remove dependencies selected.
+    > If trace collection is enabled, you need to first uninstall Microsoft.ApplicationInsights.TraceListener without removing the dependencies selected. Then follow the next steps to uninstall Microsoft.ApplicationInsights.Web with **Remove dependencies** selected.
 
-1. Select the **Microsoft.ApplicationInsights.Web** package. On the right, select the **Project** checkbox to select all projects.
+1. Select the **Microsoft.ApplicationInsights.Web** package. On the right, select the **Project** checkbox to select all projects.
 
-1. To remove all dependencies when you uninstall, select the **Options** dropdown under the section where you selected a project.
+1. To remove all dependencies when you uninstall, select the **Options** dropdown under the section where you selected a project.
 
     Under **Uninstall Options**, select the **Remove dependencies** checkbox.
 
@@ -66,21 +66,21 @@ The following sections show two ways to remove NuGet packages and what was autom
     
     ![Screenshot that shows the Microsoft.ApplicationInsights.Web window with Remove dependencies checked and Uninstall highlighted.](./media/remove-application-insights/uninstall-framework.png)
 
-1. A dialog appears that shows all the dependencies to be removed from the application. Select **OK** to uninstall.
+1. A dialog appears that shows all the dependencies to be removed from the application. Select **OK** to uninstall.
     
     ![Screenshot that shows a dialog with the dependencies to be removed.](./media/remove-application-insights/preview-uninstall-framework.png)
     
-1.  After everything is uninstalled, you might still see **ApplicationInsights.config** and **AiHandleErrorAttribute.cs** in the Solution Explorer. You can delete the two files manually.
+1. After everything is uninstalled, you might still see **ApplicationInsights.config** and **AiHandleErrorAttrobute.cs** in the Solution Explorer. You can delete the two files manually.
 
 # [.NET Core](#tab/netcore)
 
-1. In the Solution Explorer on the right, right-click **Solution** and select **Manage NuGet Packages for Solution**.
+1. In the Solution Explorer on the right, right-click **Solution** and select **Manage NuGet Packages for Solution**.
 
    A screen appears where you can edit all the NuGet packages that are part of the project.
 
     ![Screenshot that shows right-clicking Solution in the Solution Explorer and then select Manage NuGet Packages for Solution.](./media/remove-application-insights/manage-nuget-core.png)
 
-1. Select the **Microsoft.ApplicationInsights.AspNetCore** package. On the right, select the **Project** checkbox to select all projects and then select **Uninstall**.
+1. Select the **Microsoft.ApplicationInsights.AspNetCore** package. On the right, select the **Project** checkbox to select all projects and then select **Uninstall**.
 
     ![Screenshot that shows Check remove dependencies, then Uninstall.](./media/remove-application-insights/uninstall-core.png)
 
