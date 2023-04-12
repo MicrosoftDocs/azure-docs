@@ -317,7 +317,7 @@ Add-AzVmssExtension -VirtualMachineScaleSet $vmScaleSet `
 Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -Name $vmScaleSetName `
   -VirtualMachineScaleSet $vmScaleSet
-  
+
 ```
 
 # [Azure CLI 2.0](#tab/azure-cli)
