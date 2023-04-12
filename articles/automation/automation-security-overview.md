@@ -118,7 +118,7 @@ Azure Classic Run As Account consists of the following components:
 - An Automation certificate asset named `AzureClassicRunAsCertificate` in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
 - An Automation connection asset named `AzureClassicRunAsConnection` in the specified Automation account. The connection asset holds the subscription name, subscription ID, and certificate asset name.
 
-> [NOTE]
+> [!NOTE]
 > You must be a co-administrator on the subscription to renew this type of Run As account.
 
 ## Service principal for Run As account
