@@ -88,7 +88,11 @@ df.head()
 > 1. Find the file/folder you want to read into pandas, select the elipsis (**...**) next to it. Select from the menu **Copy URI**. You can select the **Datastore URI** to copy into your notebook/script.
 > :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
-You can also instantiate an Azure Machine Learning filesystem and do filesystem-like commands like `ls`, `glob`, `exists`, `open`, etc. The `open()` method will return a file-like object, which can be passed to any other library that expects to work with python files, or used by your own code as you would a normal python file object. These file-like objects respect the use of `with` contexts, for example:
+You can also instantiate an Azure Machine Learning filesystem and do filesystem-like commands like `ls`, `glob`, `exists`, `open`.
+- The `ls()` method can be used to list files in the corresponding directory. You can use ls(), ls(.), ls (<<folder_level_1>/<folder_level_2>) to list files. We support both '.' and '..' in relative paths.
+- The `glob()` method supports '*' and '**' globbing.
+- The `exists()` method returns a Boolean value that indicates whether a specified file exists in current root directory. 
+- The `open()` method will return a file-like object, which can be passed to any other library that expects to work with python files, or used by your own code as you would a normal python file object. These file-like objects respect the use of `with` contexts, for example:
 
 ```python
 from azureml.fsspec import AzureMachineLearningFileSystem
