@@ -31,7 +31,9 @@ export mysub="******"
 export mynfid='******'
 export myplatcustloc='******'
 export myhakscustloc='******'
+export myHybridAksPluginType='****'
 ```
+Note: hybrid-aks-plugin-type: valid values are `OSDevice`, `SR-IOV`, `DPDK`. Default: `SR-IOV`
 
 ## Initialization
 
@@ -68,7 +70,7 @@ az networkcloud l3network create --name "$myl3n-mgmt" \
 --extended-location name="$myplatcustloc" type="CustomLocation" \
 --location "$myloc" \
 --hybrid-aks-ipam-enabled "False" \
---hybrid-aks-plugin-type "HostDevice" \
+--hybrid-aks-plugin-type "$myHybridAksPluginType" \
 --ip-allocation-type "$myalloctype" \
 --ipv4-connected-prefix "$myipv4sub" \
 --l3-isolation-domain-id "$myl3isdarm" \
@@ -92,7 +94,7 @@ az networkcloud l3network create --name "$myl3n-trust" \
 --extended-location name="$myplatcustloc" type="CustomLocation" \
 --location "$myloc" \
 --hybrid-aks-ipam-enabled "False" \
---hybrid-aks-plugin-type "HostDevice" \
+--hybrid-aks-plugin-type "$myHybridAksPluginType" \
 --ip-allocation-type "$myalloctype" \
 --ipv4-connected-prefix "$myipv4sub" \
 --l3-isolation-domain-id "$myl3isdarm" \
@@ -116,7 +118,7 @@ az networkcloud l3network create --name "$myl3n-untrust" \
 --extended-location name="$myplatcustloc" type="CustomLocation" \
 --location "$myloc" \
 --hybrid-aks-ipam-enabled "False" \
---hybrid-aks-plugin-type "HostDevice" \
+--hybrid-aks-plugin-type "$myHybridAksPluginType" \
 --ip-allocation-type "$myalloctype" \
 --ipv4-connected-prefix "$myipv4sub" \
 --l3-isolation-domain-id "$myl3isdarm" \
@@ -139,7 +141,7 @@ az networkcloud l2network create --name "$myl2n" \
 --subscription "$mysub" \
 --extended-location name="$myplatcustloc" type="CustomLocation" \
 --location "$myloc" \
---hybrid-aks-plugin-type "HostDevice" \
+--hybrid-aks-plugin-type "$myHybridAksPluginType" \
 --l2-isolation-domain-id "$myl2isdarm" \
 --debug
 ```

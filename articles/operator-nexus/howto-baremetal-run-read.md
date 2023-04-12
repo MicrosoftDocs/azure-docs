@@ -86,8 +86,7 @@ Each `--commands` option specifies `command` and `arguments`. For a command with
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "bareMetalMachineName" \
     --limit-time-seconds 60 \
-    --commands command="hostname" \
-    --commands arguments="192.168.0.99" arguments="-c" arguments="3" command="ping" \
+    --commands '[{"command":"hostname"},{"command":"ping", "arguments":["192.168.0.99","-c","3"]}]'
     --resource-group "resourceGroupName" \
     --subscription "<subscription>" \
     --debug

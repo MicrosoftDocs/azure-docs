@@ -23,9 +23,23 @@ Users can't control the behavior (enable or disable) for collection of these inc
 
 ## How to manage cluster metrics configuration
 
-To support the lifecycle of cluster metrics configurations, the following `az rest` interactions allow for the creation and management of a cluster's metrics configurations.
+To support the lifecycle of cluster metrics configurations, the following interactions allow for the creation and management of a cluster's metrics configurations.
 
-### Creating a metrics configuration
+### Creating a metrics configuration using `az networkcloud`
+
+Use the `az network cluster metricsconfiguration create` command to create metrics configuration for cluster. If you have multiple Azure subscriptions, select the appropriate subscription ID using the [az account set](/cli/azure/account#az-account-set) command.
+
+```azurecli
+az networkcloud cluster metricsconfiguration create \
+ --cluster-name "<CLUSTER>" \
+ --extended-location name="<CLUSTER_EXTENDED_LOCATION_ID>" type="CustomLocation" \
+ --location "location" --collection-interval 15 \
+ --enabled-metrics "<METRIC_TO_ENABLE_1>" "<METRIC_TO_ENABLE_2>" \
+ --tags <TAG_KEY1="<TAG_VALUE1" <TAG_KEY2>="<TAG_VALUE2>" \
+ --resource-group "<RESOURCE_GROUP>"
+```
+
+### Creating a metrics configuration using `az rest`
 
 Use of the `az rest` command requires that the request input is defined, and then a `PUT` request is made to the `Microsoft.NetworkCloud` resource provider.
 
@@ -41,23 +55,20 @@ Example filename: create_metrics_configuration.json
 {
     "location": "<REGION (example: eastus)>",
     "extendedLocation": {
-        "name": "<CLUSTER-EXTENDED-LOCATION-ID>",
+        "name": "<CLUSTER_EXTENDED_LOCATION_ID>",
         "type": "CustomLocation"
     },
     "properties": {
-        "collectionInterval": <COLLECTION-INTERVAL (1-1440)>,
+        "collectionInterval": <COLLECTION_INTERVAL (1-1440)>,
         "enabledMetrics": [
-            "<METRIC-TO-ENABLE-1>",
-            "<METRIC-TO-ENABLE-2>"
+            "<METRIC_TO_ENABLE_1>",
+            "<METRIC_TO_ENABLE_2>"
         ]
     }
 }
 ```
 
-> [!NOTE] 
-> * The default metrics collection interval for standard set of metrics is set to every 5 minutes. Changing the `collectionInterval` will also impact the collection frequency for default standard metrics.
-
-The following commands will create the metrics configuration. The only name allowed for the metricsConfiguration is `default`.
+The following commands will create the metrics configuration. 
 
 ```sh
 export SUBSCRIPTION=<the subscription id for the cluster>
@@ -69,7 +80,21 @@ az rest -m put -u "https://management.azure.com/subscriptions/${SUBSCRIPTION}/re
 
 Specifying `--debug` in REST API will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to track asynchronous operations](howto-track-async-operations-cli.md).
 
+> [!NOTE] 
+> * The default metrics collection interval for standard set of metrics is set to every 5 minutes. Changing the `collectionInterval` will also impact the collection frequency for default standard metrics.
+> * The only name allowed for the metricsConfiguration is `default`.
+
 ## Retrieving a metrics configuration
+
+### Retrieving a metrics configuration using `az networkcloud`
+
+```azurecli
+az networkcloud cluster metricsconfiguration show \
+ --cluster-name "<CLUSTER>" \
+ --resource-group "<RESOURCE_GROUP>"
+```
+
+### Retrieving a metrics configuration using `az rest`
 
 After a metrics configuration is created, it can be retrieved using a `az rest` command:
 
@@ -85,6 +110,19 @@ This command will return a JSON representation of the metrics configuration.
 
 ## Updating a metrics configuration
 
+### Updating metrics configuration using `az networkcloud`
+
+This command is used to patch properties of the provided metrics configuration of cluster, or update the tags assigned to the metrics configuration.Properties and tag updates can be done independently.
+
+```azurecli
+az networkcloud cluster metricsconfiguration update \
+ --cluster-name "<CLUSTER>" \
+ --collection-interval 15 \
+ --enabled-metrics "<METRIC_TO_ENABLE_1>" "<METRIC_TO_ENABLE_2>" \
+ --tags <TAG_KEY1>=<TAG_VALUE1 <TAG_KEY2>=><TAG_VALUE2> \
+ --resource-group "<RESOURCE_GROUP>"
+```
+### Updating metrics configuration using `az rest`
 Much like the creation of a metrics configuration, an update can be performed to change the configuration. A file, containing the metrics to be updated, is consumed as an input.
 
 Example filename: update_metrics_configuration.json
@@ -92,10 +130,10 @@ Example filename: update_metrics_configuration.json
 ```json
 {
     "properties": {
-        "collectionInterval": <COLLECTION-INTERVAL (1-1440)>,
+        "collectionInterval": <COLLECTION_INTERVAL (1-1440)>,
         "enabledMetrics": [
-            "<METRIC-TO-ENABLE-1>",
-            "<METRIC-TO-ENABLE-2>"
+            "<METRIC_TO_ENABLE_1>",
+            "<METRIC_TO_ENABLE_2>"
         ]
     }
 }
@@ -115,6 +153,16 @@ Specifying `--debug` in REST API will result in the tracking operation status in
 
 ## Deleting a metrics configuration
 
+### Deleting metrics configuration using `az networkcloud`
+
+```azurecli
+az networkcloud cluster metricsconfiguration delete \
+ --cluster-name "<CLUSTER>" \
+ --resource-group "<RESOURCE_GROUP>"
+```
+
+### Deleting metrics configuration using `az rest`
+
 Deletion of the metrics configuration will return the cluster to an unaltered configuration. To delete a metrics configuration, `az rest` API is used.
 
 ```sh
@@ -126,3 +174,18 @@ az rest -m delete -u "https://management.azure.com/subscriptions/${SUBSCRIPTION}
 ```
 
 Specifying `--debug` in REST API will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to track asynchronous operations](howto-track-async-operations-cli.md).
+
+### Parameters for cluster metrics configuration operations
+
+| Parameter name                        | Description                                                                                                           |
+| --------------------------------------| --------------------------------------------------------------------------------------------------------------------- |
+| CLUSTER                               | Resource Name of the Cluster                                                                                          |
+| LOCATION                              | The Azure Region where the Cluster will be deployed                                                                   |
+| CLUSTER_EXTENDED_LOCATION_ID          | The Cluster extended Location from Azure portal                                                                       |
+| RESOURCE_GROUP                        | The cluster resource group name                                                                                       |
+| TAG_KEY1                              | Optional tag1 to pass to Cluster Create                                                                               |
+| TAG_VALUE1                            | Optional tag1 value to pass to Cluster Create                                                                         |
+| TAG_KEY2                              | Optional tag2 to pass to Cluster Create                                                                               |
+| TAG_VALUE2                            | Optional tag2 value to pass to Cluster Create                                                                         |
+| METRIC_TO_ENABLE_1                    | Optional metric1 that have been chosen to be enabled in addition to the default metrics                               |
+| METRIC_TO_ENABLE_2                    | Optional metric2 that have been chosen to be enabled in addition to the default metrics                               |
