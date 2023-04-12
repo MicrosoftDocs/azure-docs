@@ -19,9 +19,9 @@ ms.author: lajanuar
 
 # Tutorial: Configure a Document Translation V3 Connector flow
 
-Document Translation is a cloud-based REST API feature of the Azure Translator service. The document translation API enables multiple and complex document translations while preserving original document structure and data format.
+This tutorial, details how to configure a Translator V3 connector cloud flow that supports document translation. The V3 connector creates a connection between your Translator instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
 
-This tutorial, details how to configure a Translator V3 connector that supports document translation. The V3 connector creates a connection between your Translator instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
+Document Translation is a cloud-based REST API feature of the Azure Translator service. The document translation API enables multiple and complex document translations while preserving original document structure and data format.
 
 In this tutorial, you learn how to:
 
@@ -143,15 +143,15 @@ Now that completed the prerequisites and initial setup, let's get started using 
 
 1. In the popup window, name your flow, choose **Manually trigger a flow**, and select **Create**.
 
-      :::image type="content" source="../media/connectors/select-manual-flow.png" alt-text="Screenshot showing how to manually trigger a flow.":::
+   :::image type="content" source="../media/connectors/select-manual-flow.png" alt-text="Screenshot showing how to manually trigger a flow.":::
 
 1. The first step for your instant flow—**Manually trigger a flow**—appears on screen. Select **New step**.
 
-  :::image type="content" source="../media/connectors/add-new-step.png" alt-text="Screenshot of add new flow step page.":::
+   :::image type="content" source="../media/connectors/add-new-step.png" alt-text="Screenshot of add new flow step page.":::
 
 ## Start Document Translation
 
-Now, we're ready to select an action. Here, you learn to translate documents and get the status of the operation using your [**Azure blob storage**](#azure-blob-storage) or [**Microsoft SharePoint**](#microsoft-sharepoint) account.
+We're ready to select an action. Here, you learn to translate documents and get the status of the operation using your [**Azure blob storage**](#azure-blob-storage) or [**Microsoft SharePoint**](#microsoft-sharepoint) account.
 
 ### [Use Azure blob storage](#tab/blob-storage)
 
@@ -195,7 +195,7 @@ Now, we're ready to select an action. Here, you learn to translate documents and
          | Navigate to your Power automate flow and paste the source URL in the **Location of the source documents** field.|Navigate to your Power automate flow and paste the target URL in the **Location of the translated documents** field.|
    * Choose a **Target Language** from the dropdown menu.
 
-   :::image type="content" source="../media/connectors/start-document-translation-window.png" alt-text="Screenshot of the Start document translation dialog window.":::
+      :::image type="content" source="../media/connectors/start-document-translation-window.png" alt-text="Screenshot of the Start document translation dialog window.":::
 
 1. Select **New step**.
 
@@ -228,15 +228,15 @@ Time to check our flow and document translation results. A green bar appears at 
 
 1. Select Test from the upper-right corner of the page.
 
-      :::image type="content" source="../media/connectors/test-flow.png" alt-text="Screenshot showing the test icon/button.":::
+   :::image type="content" source="../media/connectors/test-flow.png" alt-text="Screenshot showing the test icon/button.":::
 
 1. Select **Manually** from the **Test Flow** side window and select **Save & Test**
 
-      :::image type="content" source="../media/connectors/manually-test-flow.png" alt-text="Screenshot showing the manual test flow button.":::
+   :::image type="content" source="../media/connectors/manually-test-flow.png" alt-text="Screenshot showing the manual test flow button.":::
 
 1. The **Run flow** side window appears next. Select **Continue**, select **Run flow**. and then select **Done**.
 
-      :::image type="content" source="../media/connectors/run-flow.gif" alt-text="Screenshot showing the run-flow side window.":::
+   :::image type="content" source="../media/connectors/run-flow.gif" alt-text="Screenshot showing the run-flow side window.":::
 
 1. The **Your flow ran successfully** message appears and a green checkmark appears next to each successful step.
 
@@ -253,7 +253,7 @@ Time to check our flow and document translation results. A green bar appears at 
 
 ### Microsoft SharePoint
 
-Here are the steps that will be covered in this section:
+Here are the steps covered in this section:
 
 > [!div class="checklist"]
 >
@@ -279,7 +279,7 @@ Here are the steps that will be covered in this section:
 
 1. Select the **Create blob (V2)** action and complete the authentication fields.
 
-    :::image type="content" source="../media/connectors/blob-storage-auth.png" alt-text="Screenshot of Azure Blob Storage authentication window.":::
+   :::image type="content" source="../media/connectors/blob-storage-auth.png" alt-text="Screenshot of Azure Blob Storage authentication window.":::
 
 1. If you're using the Azure storage step for the first time, you need to enter your resource credentials:
 
@@ -310,7 +310,7 @@ Here are the steps that will be covered in this section:
 
 1. After you have completed the **Azure Blob Storage** fields, select **Create**
 
-      :::image type="content" source="../media/connectors/complete-storage-auth.png" alt-text="Screenshot of the authenticate blob storage window.":::
+   :::image type="content" source="../media/connectors/complete-storage-auth.png" alt-text="Screenshot of the authenticate blob storage window.":::
 
 1. The **Create blob** step now appears. Complete the fields as follows:
 
@@ -334,7 +334,7 @@ Here are the steps that will be covered in this section:
    * **Connection name**. Enter a name for your connection.
    * **Subscription Key**. Your Translator resource keys are found under the  **Resource Management** section of the resource sidebar in the Azure portal. Enter one of your keys. The Translator V3 connector requires managed identity for authentication. Managed identity isn't supported the global region. **Make certain that your Translator resource is assigned to a geographical region such as West US**.
 
-    :::image type="content" source="../media/connectors/keys-endpoint-sidebar.png" alt-text="Screenshot showing keys and endpoint listed in the resource sidebar.":::
+      :::image type="content" source="../media/connectors/keys-endpoint-sidebar.png" alt-text="Screenshot showing keys and endpoint listed in the resource sidebar.":::
 
    * **Translator resource name**. Enter the name of your Translator resource found at the top of your resource page in the Azure portal. Select **Create**.
 
@@ -397,7 +397,7 @@ In this step, you retrieve the translated document from Azure blob storage to st
 1. Select the input field to show the **Dynamic content** window and select **value**.
 1. Select **Add an action**.
 
-    :::image type="content" source="../media/connectors/apply-to-each.png" alt-text="Screenshot showing the 'Apply to each' control step.":::
+   :::image type="content" source="../media/connectors/apply-to-each.png" alt-text="Screenshot showing the 'Apply to each' control step.":::
 1. Enter **Control** in the search box and select **Do until** from the **Actions** list.
 1. Select the **Choose a value** field to show the **Dynamic content** window and select **progress**.
 1. Complete the three fields as follows: **progress** → **is equal to** → **1**:
@@ -437,15 +437,15 @@ Time to check our flow and document translation results. A green bar appears at 
 
 1. Select Test from the upper-right corner of the page.
 
-      :::image type="content" source="../media/connectors/test-flow.png" alt-text="Screenshot showing the test icon/button.":::
+   :::image type="content" source="../media/connectors/test-flow.png" alt-text="Screenshot showing the test icon/button.":::
 
 1. Select **Manually** from the **Test Flow** side window and select **Save & Test**
 
-      :::image type="content" source="../media/connectors/manually-test-flow.png" alt-text="Screenshot showing the manual test flow button.":::
+   :::image type="content" source="../media/connectors/manually-test-flow.png" alt-text="Screenshot showing the manual test flow button.":::
 
 1. The **Run flow** side window appears next. Select **Continue**, select **Run flow**. and then select **Done**.
 
-      :::image type="content" source="../media/connectors/run-flow.gif" alt-text="Screenshot showing the run-flow side window.":::
+   :::image type="content" source="../media/connectors/run-flow.gif" alt-text="Screenshot showing the run-flow side window.":::
 
 1. The "Your flow ran successfully" message appears and there's a green checkmark next to each successful step.
 
@@ -455,7 +455,7 @@ Time to check our flow and document translation results. A green bar appears at 
 
 ---
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Explore the Document Translation reference guide](../document-translation/reference/rest-api-guide.md)

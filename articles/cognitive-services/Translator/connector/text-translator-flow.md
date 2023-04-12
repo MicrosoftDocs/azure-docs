@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 04/12/2023
 ms.author: lajanuar
 ---
 
@@ -17,9 +17,11 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
 
-# Build text translator V3 connector flow
+# Create a text translation  flow with the Translator V3 connector
 
-Text translation is cloud-based REST API feature of the Azure Translator service. The text translation API enables quick and accurate source-to-target text translations in real time. This tutorial, details how to configure a Translator V3 connector flow that supports text translation and transliteration. The V3 connector creates a connection between your Translator instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
+This how-to guide details how to configure a Translator V3 connector cloud flow that supports text translation and transliteration. The V3 connector creates a connection between your Translator instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
+
+Text translation is a cloud-based REST API feature of the Azure Translator service. The text translation API enables quick and accurate source-to-target text translations in real time. 
 
 ## Prerequisites
 
@@ -31,7 +33,7 @@ To get started, you need  an active Azure subscription. If you don't have an Azu
 
    :::image type="content" source="../media/keys-and-endpoint-resource.png" alt-text="Get key and endpoint.":::
 
-Now that completed the prerequisites, let's get started using the V3 connector to create a text translation flow:
+Now that completed the prerequisites, let's get started.
 
 1. Sign in to [Power Automate](https://powerautomate.microsoft.com/).
 
@@ -43,17 +45,19 @@ Now that completed the prerequisites, let's get started using the V3 connector t
 
 1. In the popup window, name your flow, choose **Manually trigger a flow**, and select **Create**.
 
-  :::image type="content" source="../media/connectors/select-manual-flow.png" alt-text="Screenshot showing how to manually trigger a flow.":::
+   :::image type="content" source="../media/connectors/select-manual-flow.png" alt-text="Screenshot showing how to manually trigger a flow.":::
 
 1. The first step for your instant flow—**Manually trigger a flow**—appears on screen. Select **New step**.
 
-  :::image type="content" source="../media/connectors/add-new-step.png" alt-text="Screenshot of add new flow step page.":::
+   :::image type="content" source="../media/connectors/add-new-step.png" alt-text="Screenshot of add new flow step page.":::
 
-1. A **choose an operation** pop-up window appears. Enter Translator V3 in the **Search connectors and actions** search bar and select the **Microsoft Translator V3** icon.
+1. A **choose an operation** pop-up window appears. Enter Translator V3 in the **Search connectors and actions** search bar then select the **Microsoft Translator V3** icon.
 
    :::image type="content" source="../media/connectors/choose-operation.png" alt-text="Screenshot showing the selection of Translator V3 as the next flow step.":::
 
-Now, we're ready to select a [**text translation**](#translate) or [**text transliteration**](#transliterate) action.
+## Configure your cloud flow
+
+Now, we're ready to select an action.
 
 #### [Translate text](#tab/translate)
 
@@ -64,17 +68,14 @@ Now, we're ready to select a [**text translation**](#translate) or [**text trans
 
    * **Connection name**. Enter a name for your connection.
    * **Subscription Key**. Your Translator resource keys are found under the  **Resource Management** section of the resource sidebar in the Azure portal. Enter one of your keys.
-
-    :::image type="content" source="../media/connectors/keys-endpoint-sidebar.png" alt-text="Screenshot showing keys and endpoint listed in the resource sidebar.":::
-
    * **Translator resource name**. Enter the name of your Translator resource found at the top of your resource page in the Azure portal. Select **Create**.
 
       :::image type="content" source="../media/connectors/add-connection.png" alt-text="Screenshot showing the add connection window.":::
 
-> [!NOTE]
-> After you've setup your connection, you won't be required to reenter your credentials for subsequent flows.
+      > [!NOTE]
+      > After you've setup your connection, you won't be required to reenter your credentials for subsequent flows.
 
-1. Next, the **Translate text** action window appears.
+1. The **Translate text** action window appears next.
 1. Select a **Source Language** from the dropdown menu or keep the default **Auto-detect** option.
 1. Select a **Target Language** from the dropdown window.
 1. Enter the **Body Text**.
@@ -110,11 +111,12 @@ Now, we're ready to select a [**text translation**](#translate) or [**text trans
 
 ## Test your connector flow
 
-Now, it's time to check your flow and view the translated text.
+Let's test the cloud flow and view the translated text.
 
-1. You should see a green bar at the top of the page indicating that **Your flow is ready to go.**.
+1. There is a green bar at the top of the page indicating that **Your flow is ready to go.**.
 1. Select Test from the upper-right corner of the page.
-      :::image type="content" source="../media/connectors/test-flow.png" alt-text="Screenshot showing the test icon/button.":::
+
+   :::image type="content" source="../media/connectors/test-flow.png" alt-text="Screenshot showing the test icon/button.":::
 
 1. Select **Manually** from the **Test Flow** side window and select **Test**
 
@@ -127,6 +129,8 @@ Now, it's time to check your flow and view the translated text.
 1. You should receive a "Your flow ran successfully" message and there's a green checkmark next to each successful step.
 
    :::image type="content" source="../media/connectors/successful-text-translation-flow.png" alt-text="Screenshot of successful flow.":::
+
+1. If you don't receive the success message, a 
 
 #### [Translate text](#tab/translate)
 
