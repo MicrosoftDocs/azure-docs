@@ -18,7 +18,7 @@ Using an ARM template takes fewer steps comparing to other deployment methods.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fload-balancer-cross-region%2Fazuredeploy.json)
 
@@ -33,12 +33,12 @@ In this tutorial, you learn how to:
 
 -  An Azure account with an active subscription. [Create an account for free]
   (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Access to Azure Portal 
+- Access to Azure portal 
 - An Azure Resource Group 
 - An Azure Virtual Network and Subnet configured  
 
 ## Review the template
-In this section, you will review the template and the parameters that are used to deploy the cross-region load balancer. 
+In this section, you review the template and the parameters that are used to deploy the cross-region load balancer. 
 The template used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/load-balancer-cross-region/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/2-vms-internal-load-balancer/azuredeploy.json":::
@@ -77,17 +77,17 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
     | --- | --- |
     | Subscription | Select your subscription |
     | Resource group | Select your resource group or create a new resource group |
-    | Region | Select the region where the resources will be deployed |
-    | Project Name | Enter a project name that will be used to create unique resource names |
-    | LocationCR | Select the location where the cross-region load balancer will be deployed |
-    | Location-r1 | Select the region where the regional load balancer and VMs will be deployed |
-    | Location-r2 | Select the region where the regional load balancer and VMs will be deployed |
+    | Region | Select the deployment region for resources |
+    | Project Name | Enter a project name used to create unique resource names |
+    | LocationCR | Select the deployment region for the cross-region load balancer |
+    | Location-r1 | Select the deployment region for the regional load balancer and VMs |
+    | Location-r2 | Select the deployment region where the regional load balancer and VMs  |
     | Admin Username | Enter a username for the virtual machines |
     | Admin Password | Enter a password for the virtual machines |
 
 
 1. Select **Review + create** to run template validation.
-1. If no errors are present, Review the terms of the template and click **Create**.
+1. If no errors are present, Review the terms of the template and select **Create**.
 
 ## Verify the deployment
 
@@ -95,7 +95,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 1. Select **Resource groups** from the left pane.
 1. Select the resource group used in the deployment. The default resource group name is the **project name** with **-rg** appended. For example, **crlb-learn-arm-rg**.
 1. Select the cross-region load balancer. Its default name is the project name with **-cr** appended. For example, **crlb-learn-arm-cr**.
-1. Copy only the IP address part of the public IP address, and then paste it into the address bar of your browser. The page will resolve to a default IIS Windows Server web page.
+1. Copy only the IP address part of the public IP address, and then paste it into the address bar of your browser. The page resolves to a default IIS Windows Server web page.
 
     :::image type="content" source="media/tutorial-deploy-cross-region-load-balancer-template/default-web-page.png" alt-text="Screenshot of default IIS Windows Server web page in web browser.":::
 
@@ -115,7 +115,7 @@ When you no longer need them, delete the:
 In this tutorial, you:
 - Created a cross region load balancer\
 - Created a regional load balancer
-- Created 3 virtual machines and linked them to the regional load balancer
+- Created three virtual machines and linked them to the regional load balancer
 - Configured the cross-region load balancer to work with the regional load balancer
 - Tested the cross-region load balancer. 
 
