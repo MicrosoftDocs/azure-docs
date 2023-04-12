@@ -15,7 +15,7 @@ ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 
 # Label your data using the Language Studio
 
-Data labeling is a crucial step in development lifecycle. In this step, you  label your documents with the new entities you defined in your schema to populate their learned components. This data will be used in the next step when training your model so that your model can learn from the labeled data to to know which entities to extract. If you already have labeled data, you can directly [import](create-project.md#import-project) it into your project but you need to make sure that your data follows the [accepted data format](../concepts/data-formats.md). See [create project](create-project.md#import-project) to learn more about importing labeled data into your project. If your data isn't labeled already, you can label it in the [Language Studio](https://aka.ms/languageStudio).
+Data labeling is a crucial step in development lifecycle. In this step, you  label your documents with the new entities you defined in your schema to populate their learned components. This data will be used in the next step when training your model so that your model can learn from the labeled data to know which entities to extract. If you already have labeled data, you can directly [import](create-project.md#import-project) it into your project, but you need to make sure that your data follows the [accepted data format](../concepts/data-formats.md). See [create project](create-project.md#import-project) to learn more about importing labeled data into your project. If your data isn't labeled already, you can label it in the [Language Studio](https://aka.ms/languageStudio).
 
 ## Prerequisites
 
@@ -28,11 +28,11 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 
 ## Data labeling guidelines
 
-After preparing your data, designing your schema and creating your project, you will need to label your data. Labeling your data is important so your model knows which words will be associated with the entity types you need to extract. When you label your data in [Language Studio](https://aka.ms/languageStudio) (or import labeled data), these labels will be stored in the JSON document in your storage container that you have connected to this project. 
+After preparing your data, designing your schema and creating your project, you will need to label your data. Labeling your data is important so your model knows which words will be associated with the entity types you need to extract. When you label your data in [Language Studio](https://aka.ms/languageStudio) (or import labeled data), these labels are stored in the JSON document in your storage container that you have connected to this project. 
 
 As you label your data, keep in mind:
 
-* You cannot add labels for Text Analytics for health entities as they are pretrained prebuilt entities. You can only add labels to new entity categories that you defined during schema definition. 
+* You can't add labels for Text Analytics for health entities as they're pretrained prebuilt entities. You can only add labels to new entity categories that you defined during schema definition. 
 
 <!--If you want to improve the recall for a prebuilt entity, you can extend it by adding a list component while you are [defining your schema](design-schema.md).-->
 
@@ -81,7 +81,7 @@ Use the following steps to label your data:
     
     :::image type="content" source="../media/tag-options.png" alt-text="A screenshot showing the labeling options offered in Custom NER." lightbox="../media/tag-options.png":::
     
-6. In the right side pane under the **Labels** pivot you can find all the entity types in your project and the count of labeled instances per each. Note that the prebuilt entities will be showing for reference but you will not be able to label for these prebuilt entities as they are pretrained.
+6. In the right side pane under the **Labels** pivot you can find all the entity types in your project and the count of labeled instances per each. The prebuilt entities will be shown for reference but you will not be able to label for these prebuilt entities as they are pretrained.
 
 7. In the bottom section of the right side pane you can add the current document you are viewing to the training set or the testing set. By default all the documents are added to your training set. <!--Learn more about [training and testing sets](train-model.md#data-splitting) and how they are used for model training and evaluation.-->
 

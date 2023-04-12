@@ -1,7 +1,7 @@
 ---
 title: Using Azure resources in custom Text Analytics for health
 titleSuffix: Azure Cognitive Services
-description: Learn about the steps for using Azure resources with custom TA4H.
+description: Learn about the steps for using Azure resources with custom text analytics for health.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -15,17 +15,17 @@ ms.custom: language-service-custom-ta4h, references_regions, ignite-fall-2021, e
 
 # How to create custom Text Analytics for health project
 
-Use this article to learn how to set up the requirements for starting with custom TA4H and create a project.
+Use this article to learn how to set up the requirements for starting with custom text analytics for health and create a project.
 
 ## Prerequisites
 
-Before you start using custom TA4H, you will need:
+Before you start using custom text analytics for health, you need:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
 ## Create a Language resource 
 
-Before you start using custom TA4H, you will need an Azure Language resource. It is recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom named entity recognition.
+Before you start using custom text analytics for health, you'll need an Azure Language resource. It's recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions preconfigured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom named entity recognition.
 
 You also will need an Azure storage account where you will upload your `.txt` documents that will be used to train a model to extract entities.
 
@@ -61,7 +61,7 @@ You can create a resource in the following ways:
 
 ## Create a custom Text Analytics for health project
 
-Once your resource and storage container are configured, create a new custom TA4H project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have access to the Azure resource being used. If you have labeled data, you can use it to get started by [importing a project](#import-project).
+Once your resource and storage container are configured, create a new custom text analytics for health project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have access to the Azure resource being used. If you have labeled data, you can use it to get started by [importing a project](#import-project).
 
 ### [Language Studio](#tab/language-studio)
 
