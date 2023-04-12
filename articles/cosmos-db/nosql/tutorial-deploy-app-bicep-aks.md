@@ -114,16 +114,16 @@ Create a *param.json* file by using the JSON in the following example. Replace t
 Set shell variables by using the following commands. Replace the `{deployment name}` and `{location}` placeholders with your own values.
 
 ```bash
-deploymentName='{deployment name}'  # Name of the deployment
-location='{location}' # Location for deploying the resources
+DEPLOYMENT_NAME='{deployment name}'  # Name of the deployment
+LOCATION='{location}' # Location for deploying the resources
 ```
 
 Within the *Bicep* folder, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create) to deploy the template to the current subscription scope:
 
 ```azurecli
 az deployment sub create \
-  --name $deploymentName \
-  --location $location \
+  --name $DEPLOYMENT_NAME \
+  --location $LOCATION \
   --template-file main.bicep \
   --parameters @param.json
 ```
@@ -162,18 +162,18 @@ You can also see the deployment status in the resource group:
 Use the following commands to link your Azure Container Registry instance with AKS. Replace the `{Azure Container Registry instance name}` and `{resource group name}` placeholders with your own values.
 
 ```bash
-acrName='{Azure Container Registry instance name}'
-rgName='{resource group name}'
-aksName=$rgName'aks'
+ACR_NAME='{Azure Container Registry instance name}'
+RG_NAME='{resource group name}'
+AKS_NAME=$RG_NAME'aks'
 ```
 
 Run [az aks update](/cli/azure/aks#az-aks-update) to attach the existing Azure Container Registry resource with the AKS cluster:
 
 ```azurecli
 az aks update \
-  --resource-group $rgName \
-  --name $aksName \
-  --attach-acr $acrName
+  --resource-group $RG_NAME \
+  --name $AKS_NAME \
+  --attach-acr $ACR_NAME
 ```
 
 ## Connect to the AKS cluster
@@ -188,8 +188,8 @@ To configure `kubectl` to connect to your Kubernetes cluster, use [az aks get-cr
 
 ```azurecli
 az aks get-credentials \
-  --resource-group $rgName \
-  --name $aksName
+  --resource-group $RG_NAME \
+  --name $AKS_NAME
 ```
 
 ## Connect the AKS pods to Azure Key Vault
@@ -341,11 +341,11 @@ To avoid Azure charges, clean up unneeded resources when you no longer need the 
 
 ```azurecli
 az group delete \
-  --resource-group $rgName 
+  --resource-group $RG_NAME 
   --yes
 
 az deployment sub delete \
-  --name $deploymentName
+  --name $DEPLOYMENT_NAME
 ```
 
 ## Next steps
