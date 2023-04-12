@@ -26,7 +26,7 @@ After you add a guest user to the directory, you can either send the guest user 
 
 The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Instructions for the legacy create user process can be found in the [Add or delete users](add-users-azure-active-directory.md) article.
+Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users-azure-active-directory.md) article.
 
 ## Before you begin
 
@@ -99,7 +99,7 @@ The final tab captures several key details from the user creation process. Revie
  ![Screenshot showing the user list including the new Guest user.](media/add-users-administrator//guest-user-type.png)
 
 ### External user invitations
-<a name="resend-invitations"></a>
+<a name="resend-invitations-to-guest-users"></a>
 
 When you invite an external guest user by sending an email invitation, you can check the status of the invitation from the user's details. If they haven't redeemed their invitation, you can resend the invitation email.
 
