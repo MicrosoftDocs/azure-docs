@@ -95,7 +95,7 @@ When you do not combine components, the entity will return twice:
 
 Components give you the flexibility to define your entity in more than one way. When you combine components, you make sure that each component is represented and you reduce the number of entities returned in your predictions. 
 
-A common practice is to extend a prebuilt component with a list of values that the prebuilt might not support. For example, if you have a **Medication Name** entity, which has a _Medication.Name_ prebuilt component added to it, the entity may not predict all the medication names specific to your domain. You can use a list component to extend the values of the Medication Name entity and thereby extending the prebuilt with your own values of Medication Names.
+A common practice is to extend a prebuilt component with a list of values that the prebuilt might not support. For example, if you have a **Medication Name** entity, which has a `Medication.Name` prebuilt component added to it, the entity may not predict all the medication names specific to your domain. You can use a list component to extend the values of the Medication Name entity and thereby extending the prebuilt with your own values of Medication Names.
 
 Other times you may be interested in extracting an entity through context such as a **medical device**. You would label for the learned component of the medical device to learn _where_ a medical device is based on its position within the sentence. You may also have a list of medical devices that you already know before hand that you'd like to always extract. Combining both components in one entity allows you to get both options for the entity.
 
