@@ -114,8 +114,6 @@ kind: ServiceAccount
 metadata:
   annotations:
     azure.workload.identity/client-id: "${USER_ASSIGNED_CLIENT_ID}"
-  labels:
-    azure.workload.identity/use: "true"
   name: "${SERVICE_ACCOUNT_NAME}"
   namespace: "${SERVICE_ACCOUNT_NAMESPACE}"
 EOF
