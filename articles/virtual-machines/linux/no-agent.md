@@ -8,9 +8,9 @@ ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.custom: devx-track-azurecli
-ms.date: 09/01/2020
+ms.date: 04/11/2023
 ms.author: danis
-ms.reviewer: cynthn
+ms.reviewer: mattmcinnes
 ---
 
 
