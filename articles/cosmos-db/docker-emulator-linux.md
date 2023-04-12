@@ -63,13 +63,13 @@ To get started, visit the Docker Hub and install [Docker Desktop for macOS](http
 1. After the emulator is running, using a different terminal, load the IP address of your local machine into a variable.
 
     ```bash
-    ipaddr="`ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' | head -n 1`"
+    IPADDR="`ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' | head -n 1`"
     ```
 
 1. Next, download the certificate for the emulator.
 
     ```bash
-    curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
+    curl -k https://$IPADDR:8081/_explorer/emulator.pem > emulatorcert.crt
     ```
 
 
@@ -80,7 +80,7 @@ The emulator is using a self-signed certificate to secure the connectivity to it
 1. Make sure you've downloaded the emulator self-signed certificate
 
    ```bash
-   curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
+   curl -k https://$IPADDR:8081/_explorer/emulator.pem > emulatorcert.crt
    ```
 
 1. Open the **Keychain Access** app on your Mac to import the emulator certificate.
@@ -115,13 +115,13 @@ Use the following steps to run the emulator on Linux:
 4. After the emulator is running, using a different terminal, load the IP address of your local machine into a variable.
 
     ```bash
-    ipaddr="`ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' | head -n 1`"
+    IPADDR="`ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}' | head -n 1`"
     ```
 
 5. Next, download the certificate for the emulator. Alternatively, the endpoint below which downloads the self-signed emulator certificate, can also be used for signaling when the emulator endpoint is ready to receive requests from another application.
 
     ```bash
-    curl -k https://$ipaddr:8081/_explorer/emulator.pem > ~/emulatorcert.crt
+    curl -k https://$IPADDR:8081/_explorer/emulator.pem > ~/emulatorcert.crt
     ```
 
 6. Copy the CRT file to the folder that contains custom certificates in your Linux distribution. Commonly on Debian distributions, it's located on `/usr/local/share/ca-certificates/`.
