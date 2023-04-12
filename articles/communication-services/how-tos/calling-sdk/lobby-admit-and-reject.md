@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 ---
 
-# Manage Teams meeting Lobby
+# Manage Teams meeting lobby
 
 APIs lobby admit and reject on `Call` or `TeamsCall` class allow users to admit and reject participants from Teams meeting lobby.
 
