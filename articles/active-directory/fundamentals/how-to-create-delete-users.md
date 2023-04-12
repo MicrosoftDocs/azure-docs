@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 04/12/2023
 ms.author: sarahlipsey
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
@@ -21,7 +21,7 @@ This article explains how to create a new user, invite an external guest, and de
 
 The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Instructions for the legacy create user process can be found in the **[Add or delete users](add-users-azure-active-directory.md)** article.
+Instructions for the legacy create user process can be found in the [Add or delete users](add-users-azure-active-directory.md) article.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -49,7 +49,6 @@ The required role of least privilege varies based on the type of user you're add
 | Create a new user | User Administrator |
 | Invite an external guest | Guest Inviter | 
 | Assign Azure AD roles | Privileged Role Administrator |
-
 
 ## Create a new user
 
@@ -127,7 +126,7 @@ The final tab captures several key details from the user creation process. Revie
 
 ## Invite an external user
 
-The overall process for inviting an external guest user is similar, except for a few details on the **Basics** tab. 
+The overall process for inviting an external guest user is similar, except for a few details on the **Basics** tab and the email invitation process. You can't assign external users to administrative units. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
 

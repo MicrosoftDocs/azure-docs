@@ -5,7 +5,7 @@ services: active-directory
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
-ms.date: 04/11/2023
+ms.date: 04/12/2023
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
@@ -21,6 +21,10 @@ With Azure AD [B2B collaboration](what-is-b2b.md), you can invite anyone to coll
 In this quickstart, you'll learn how to add a new guest user to your Azure AD directory in the Azure portal. You'll also send an invitation and see what the guest user's invitation redemption process looks like. 
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Instructions for the legacy create user process can be found in the [Add or delete users](add-users-azure-active-directory.md) article.
 
 ## Prerequisites
 
