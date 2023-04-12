@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 04/12/2023
 ms.author: jeedes
 
 ---
@@ -60,20 +60,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
    ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, perform the following steps:
-
-	a. In the **Identifier** textbox, type the URL:
-	`https://logon.mykpa.com/identity/Saml2/`
-
-	b. In the **Reply URL** textbox, type the URL:
-	`https://logon.mykpa.com/identity/Saml2/Acs`
-
-	c. In the **Sign on URL** textbox, type one of the following URLs:
-	
-	| **Sign on URL** |
-	|-------------|
-	| `https://www.verasuite.com` |
-	| `https://logon.mykpa.com` |
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -89,13 +76,7 @@ In this section, a user called B.Simon is created in Vera Suite. Vera Suite supp
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
-
-* Click on **Test this application** in Azure portal. This will redirect to Vera Suite Sign-on URL where you can initiate the login flow. 
-
-* Go to Vera Suite Sign-on URL directly and initiate the login flow from there.
-
-* You can use Microsoft My Apps. When you click the Vera Suite tile in the My Apps, this will redirect to Vera Suite Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+Click on Test this application in Azure portal and you should be automatically signed in to the Vera Suite for which you set up the SSO.
 
 ## Additional resources
 
