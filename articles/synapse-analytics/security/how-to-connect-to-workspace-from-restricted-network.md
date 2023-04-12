@@ -125,9 +125,9 @@ Required for auth:
  
 Required for workspace/pool management: 
  - `management.azure.com`
+ - `graph.windows.net`
  - `{workspaceName}.[dev|sql].azuresynapse.net`
  - `{workspaceName}-ondemand.sql.azuresynapse.net`
-
 
 ## Appendix: DNS registration for private endpoint
 
