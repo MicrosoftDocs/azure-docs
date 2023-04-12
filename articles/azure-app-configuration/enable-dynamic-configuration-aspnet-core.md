@@ -267,7 +267,10 @@ Logs are output upon configuration refresh and contain detailed information on k
 Using `ILogger` is the preferred method in ASP.NET applications and is prioritized as the logging source if an instance of `ILoggerFactory` is present. However, if `ILoggerFactory` is not available, logs can alternatively be enabled and configured through the [instructions for .NET Core apps](./enable-dynamic-configuration-dotnet-core.md#logging-and-monitoring-v600-and-later). For more information, see [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging).
 
 > [!NOTE]
-> Logging is available if you use version **6.0.0** or later of the `Microsoft.Extensions.Configuration.AzureAppConfiguration` package.
+> Logging is available if you use version **6.0.0** or later of any of the following packages.
+> - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
+> - `Microsoft.Azure.AppConfiguration.AspNetCore`
+> - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
 ## Clean up resources
 
