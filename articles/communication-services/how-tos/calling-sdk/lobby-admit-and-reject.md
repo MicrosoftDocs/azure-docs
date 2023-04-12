@@ -53,9 +53,37 @@ const state = remoteParticipant.state;
 ```
 
 You could check remote participant state in subscription method:
+[Learn more about events and subscription ](../../how-tos/calling-sdk/includes/events/events-web.md)
 
 ```js
-const subscribeToRemoteParticipant = (remoteParticipant: RemoteParticipant) => {
+// Subscribe to a call obj.
+// Listen for property changes and collection updates.
+subscribeToCall = (call) => {
+    try {
+        // Inspect the call's current remote participants and subscribe to them.
+        call.remoteParticipants.forEach(remoteParticipant => {
+            subscribeToRemoteParticipant(remoteParticipant);
+        })
+        // Subscribe to the call's 'remoteParticipantsUpdated' event to be
+        // notified when new participants are added to the call or removed from the call.
+        call.on('remoteParticipantsUpdated', e => {
+            // Subscribe to new remote participants that are added to the call.
+            e.added.forEach(remoteParticipant => {
+                subscribeToRemoteParticipant(remoteParticipant)
+            });
+            // Unsubscribe from participants that are removed from the call
+            e.removed.forEach(remoteParticipant => {
+                console.log('Remote participant removed from the call.');
+            })
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// Subscribe to a remote participant obj.
+// Listen for property changes and collection updates.
+subscribeToRemoteParticipant = (remoteParticipant) => {
     try {
         // Inspect the initial remoteParticipant.state value.
         console.log(`Remote participant state: ${remoteParticipant.state}`);
@@ -76,19 +104,6 @@ const subscribeToRemoteParticipant = (remoteParticipant: RemoteParticipant) => {
         console.error(error);
     }
 }
-
-call.on('remoteParticipantsUpdated', args => {
-    args.added.forEach(p => {
-        subscribeToRemoteParticipant(p);
-    });                                             
-    args.removed.forEach(p => {
-        console.log(`${p._displayName} leave the meeting`);
-    });
-});
-
-call.remoteParticipants.forEach(p => {
-    subscribeToRemoteParticipant(p);
-});
 ```
 
 Before admit or reject `remoteParticipant` with `InLobby` state, you could get the identifier for a remote participant:
