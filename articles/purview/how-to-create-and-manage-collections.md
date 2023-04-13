@@ -24,7 +24,7 @@ Collections in the Microsoft Purview Data Map can be used to organize assets and
 
 ### Check permissions
 
-In order to create and manage collections in the Microsoft Purview Data Map, you'll need to be a **Collection Admin** within the Microsoft Purview governance portal. We can check these permissions in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). You can find Studio in the overview page of the account in the [Azure portal](https://portal.azure.com).
+In order to create and manage collections in the Microsoft Purview Data Map, you'll need to be a **Collection Admin** within the Microsoft Purview governance portal. We can check these permissions in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). You can find the governance portal in the overview page of the account in the [Azure portal](https://portal.azure.com) or you can browse directly to [https://web.purview.azure.com](https://web.purview.azure.com) and select your Microsoft Purview account.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 

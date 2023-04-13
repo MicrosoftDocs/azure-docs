@@ -123,9 +123,12 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 
 ### Steps to register
 
-1. Navigate to your [Microsoft Purview governance portal](https://web.purview.azure.com/resource/)
+1. Open the Microsoft Purview governance portal by:
 
-1. Select **Data Map** on the left navigation.
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Select the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
+
+1. Navigate to the **Data Map**.
 
 1. Select **Register**
 
