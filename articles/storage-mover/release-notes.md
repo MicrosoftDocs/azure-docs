@@ -23,9 +23,9 @@ The following Azure Storage Mover agent versions are supported:
 ### Azure Storage Mover update policy
 
 Preview agents are not automatically updated.
-Starting with the general availability release of service and agent, all GA Azure Storage Mover agents are automatically updated to future versions. GA and newer agents will automatically download and apply new functionality and fixes to any issues. If you need to [deploy another Storage Mover agent](agent-deploy.md), you can find the latest available agent version on [Microsoft Download Center](https://aka.ms/StorageMover/agent). Be sure to [register](agent-register.md) your newly deployed agent before you can utilize them for your migrations.
+Beginning with the general availability release of service and agent, all GA Azure Storage Mover agents are automatically updated to future versions. GA and newer agents automatically download and apply new functionality and bug fixes. If you need to [deploy another Storage Mover agent](agent-deploy.md), you can find the latest available agent version on [Microsoft Download Center](https://aka.ms/StorageMover/agent). Be sure to [register](agent-register.md) your newly deployed agent before you can utilize them for your migrations.
 
-The automatic agent update will not affect running migration jobs. Running jobs are allowed to complete before the update is locally applied on the agent. Any update errors will result in allowing you to continue the use of the previous agent version. A new update attempt will be started automatically. This behavior ensures an uninterrupted migration experience.
+The automatic agent update doesn't affect running migration jobs. Running jobs are allowed to complete before the update is locally applied on the agent. Any errors during the update process result in the automatic use of the previous agent version. In parallel, a new update attempt is started automatically. This behavior ensures an uninterrupted migration experience.
 
 > [!TIP]
 > Always download the latest agent version from Microsoft Download Center. [https://aka.ms/StorageMover/agent](https://aka.ms/StorageMover/agent). Redistributing previously downloaded images may no longer be supported (check the [Supported agent versions](#supported-agent-versions) table), or they need to update themselves prior to being ready for use. Speed up your deployments by always obtaining a the latest image from Microsoft Download Center.
@@ -37,11 +37,14 @@ The automatic agent update will not affect running migration jobs. Running jobs 
 
 #### Lifecycle and change management guarantees
 
-Azure Storage Mover is a hybrid service, which continuously introduces new features and improvements. Azure Storage Mover agent versions can only be supported for a limited time. Agents will update themselves. There is no need to manage any part of the self-update process. However, agents need to be running and connected to the internet to check for updates. To facilitate updates, the following rules a meant to ensure that agents that haven't been running for a bit, can still be used for migrations and also update themselves:
+Azure Storage Mover is a hybrid service, which continuously introduces new features and improvements. Azure Storage Mover agent versions can only be supported for a limited time. Agents automatically update themselves to the latest version. There is no need to manage any part of the self-update process. However, agents need to be running and connected to the internet to check for updates. To facilitate updates to agents that haven't been running for a while:
 
 - Major versions are supported for at least six months from the date of initial release.
 - We guarantee there's an overlap of at least three months between the support of major agent versions.
-- The [Supported agent versions](#supported-agent-versions) table will list expiration dates. Agents versions that have expired, might still be able to update themselves to a supported version but there are no guarantees. (Preview versions do not self-update and have to be replaced by manually by deploying a generally available agent VM.) 
+- The [Supported agent versions](#supported-agent-versions) table lists expiration dates. Agent versions that have expired, might still be able to update themselves to a supported version but there are no guarantees. 
+
+> [!IMPORTANT]
+> Preview versions of the Storage Mover agent cannot update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
 
 ## 2023 April 17
 
@@ -56,17 +59,17 @@ Support for a migration from an NFS (v3 / v4) source share to an Azure blob cont
 
 ### Migration options
 
-In addition to merging content from the source to the target (public preview), the service now supports an additional migration option: Mirror content from source to target.
+In addition to merging content from the source to the target (public preview), the service now supports another migration option: Mirror content from source to target.
 
 - Files in the target will be deleted if they don’t exist in the source.
 - Files and folders in the target will be updated to match the source.
-- Folder renames between copies will lead to the deletion of the cloud content and re-upload of anything contained in the renamed folder on the source.
+- Folder renames between copies will lead to the deletion of the cloud content and reupload of anything contained in the renamed folder on the source.
 
 ### Service
 
-The service now supports viewing copy logs and job logs in the Azure portal. An Azure Log Analytics workspace must be configured to receive the logs. This configuration is done once for a Storage Mover resource and will apply to all agents and migration jobs in that Storage Mover resource. To configure an existing Storage Mover resource or learn how to create a new Storage Mover resource with this configuration, follow the steps in the article: [How to enable Azure Storage Mover copy and job logs](log-monitoring.md).
+The service now supports viewing copy logs and job logs in the Azure portal. An Azure Log Analytics workspace must be configured to receive the logs. This configuration is done once for a Storage Mover resource and applies to all agents and migration jobs in that Storage Mover resource. To configure an existing Storage Mover resource or learn how to create a new Storage Mover resource with this configuration, follow the steps in the article: [How to enable Azure Storage Mover copy and job logs](log-monitoring.md).
 
-It is possible to send the logs to a 3rd party monitoring solution and even into a raw file in a storage account. However, the Storage Mover migration job run blade in the Azure portal can only query a Log Analytics workspace for the logs. To get an integrated experience, be sure to select a Log Analytics workspace as a target.
+It is possible to send the logs to a third party monitoring solution and even into a raw file in a storage account. However, the Storage Mover migration job run blade in the Azure portal can only query a Log Analytics workspace for the logs. To get an integrated experience, be sure to select a Log Analytics workspace as a target.
 
 ### Agent
 
