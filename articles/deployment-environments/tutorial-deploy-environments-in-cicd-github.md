@@ -1,89 +1,34 @@
 ---
 title: 'Tutorial: Deploy environments in CI/CD with GitHub'
 description: Learn how to integrate Azure Deployment Environments into your CI/CD pipeline by using GitHub Actions.
-author: colbylwilliams
-ms.author: colbyw
+author: RoseHJM
+ms.author: rosemaloclm
 ms.service: deployment-environments
 ms.topic: tutorial
-ms.date: 03/28/2023
+ms.date: 04/13/2023
 ---
 
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Make the first word following "Tutorial:" a verb. Pick an H1 that clearly conveys the task the user
-will complete.
-
--->
-
-
 # Tutorial: Deploy environments in CI/CD with GitHub
-TODO: Add your heading
+Continuous integration and continuous delivery (CI/CD) is a software development approach that helps teams to automate the process of building, testing, and deploying software changes. CI/CD enables you to release software changes more frequently and with greater confidence. 
 
-- The repo's _main_ branch is always considered production
-- Feature branches are created from the _main_ branch
-- Pull requests are created to merge feature branches into _main_
+In this tutorial you will Learn how to integrate Azure Deployment Environments into your CI/CD pipeline by using GitHub Actions. You'll use a workflow that features three branches: main, dev, and test.
 
-Note: your real workflow may be more complex...
+- The  _main_ branch is always considered production.
+- You create feature branches from the _main_ branch.
+- You create pull requests to merge feature branches into _main_.
 
-A dev center and project will be created with three environment types; Dev, Test and Prod
-
-- The Prod environment type contains the single production environment
-- A new environment is created in Dev for each feature branch
-- A new environment is created in Test for each pull request
-
-
-<!-- 2. Introductory paragraph ----------------------------------------------------------
-
-Required: Lead with a light intro that describes, in customer-friendly language, what the
-customer will do. Answer the fundamental “why would I want to do this?” question. Keep it
-short.
-Readers should have a clear idea of what they will do in this article after reading the
-introduction.
-Include a sentence that says, "In this tutorial you will do X..."
-
--->
-
-[Add your introductory paragraph]
-TODO: Add your introductory paragraph
-
-<!-- 3. Outline --------------------------------------------------------------------------
-
-Required: Before your first H2, use the green checkmark format for the bullets that outline what
-you'll cover in the tutorial.
-
---->
+This workflow is a small example for the purposes of this tutorial. Real world workflows may be more complex.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * [All tutorials include a list summarizing the steps to completion]
-> * [Each of these bullet points align to a key H2]
-> * [Use these green checkboxes in a tutorial]
-TODO: Complete your outline
-
-<!-- 4. Free account links ----------------------------------------------------------------
-
-Required, if a free trial account exists
-Because tutorials are intended to help new customers use the product or
-service to complete a top task, include a link to a free trial before the
-first H2. You can find listed examples in the
-[tutorials pattern](article-tutorial.md)
-
--->
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over
-them. Better to put that info directly into the article text.--->
-
-<!-- 5. Prerequisites --------------------------------------------------------------------
-
-Optional: If there are prerequisites for the task covered by the tutorial, make **Prerequisites**
-your first H2 in the guide. The prerequisites H2 is never numbered. Use clear and unambiguous
-language and use a unordered list format. If there are specific versions of software a user needs,
-call out those versions (for example: Visual Studio 2019 or later).
-
--->
+> * Create and configure a dev center
+> * Create a key vault
+> * Create and configure a GitHub repository
+> * Connect the catalog to your dev center
+> * Configure deployment identities
+> * Configure GitHub environments
+> * Test the CI/CD pipeline
 
 ## Prerequisites
 
@@ -95,7 +40,15 @@ call out those versions (for example: Visual Studio 2019 or later).
 - Install [Git](https://github.com/git-guides/install-git).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
-## Setup the Azure CLI
+
+## 1. Create and configure a dev center
+
+In this section, you'll create a dev center and project with three environment types; Dev, Test and Prod
+
+- The Prod environment type contains the single production environment
+- A new environment is created in Dev for each feature branch
+- A new environment is created in Test for each pull request
+### 1.1 Setup the Azure CLI
 
 To begin, sign in to Azure. Run the following command, and follow the prompts to complete the authentication process.
 
@@ -140,9 +93,9 @@ AZURE_PROJECT="my-project"
 AZURE_KEYVAULT="myuniquekeyvaultname"
 ```
 
-## Create a dev center
+### 1.2 Create a dev center
 
-> TODO: briefly explain dev center or link to explanation
+A dev center is a collection of projects and environments that have similar settings. Dev centers provide access to a catalog of templates and artifacts that can be used to create environments. Dev centers also provide a way to manage access to environments and projects. 
 
 Create a Resource Group
 
@@ -169,9 +122,11 @@ AZURE_DEVCENTER_ID=<id>
 AZURE_DEVCENTER_PRINCIPAL_ID=<identity.principalId>
 ```
 
-## Assign dev center identity owner role on subscription
+### 1.3 Assign dev center identity owner role on subscription
 
-> TODO: Explain dev center needs permissions to assign roles on subs associated with environment types so that it can manage user access to environment resources. To reduce unnecessary complexity, in this tutorial we'll use a single subscription for the dev center and all environment types. In practice, these would likely be separate subscriptions with different policies applied.
+A dev center needs permissions to assign roles on subscriptions associated with environment types. 
+
+To reduce unnecessary complexity, in this tutorial, you'll use a single subscription for the dev center and all environment types. In practice, the dev center and target deployment subscriptions would likely be separate subscriptions with different policies applied.
 
 ```azurecli
 az role assignment create \
@@ -181,9 +136,9 @@ az role assignment create \
   --assignee-principal-type ServicePrincipal
 ```
 
-## Create the environment types
+### 1.4 Create the environment types
 
-> TODO: briefly explain dev center environment types or link to explanation
+ At the dev center level, environment types define the environments that development teams can create, like dev, test, sandbox, pre-production, or production. 
 
 Create three new Environment types: **Dev**, **Test**, and **Prod**.
 
@@ -208,9 +163,9 @@ az devcenter admin environment-type create \
   --dev-center $AZURE_DEVCENTER
 ```
 
-## Create a project
+### 1.5 Create a project
 
-> TODO: briefly explain project or link to explanation
+A project is the point of access for the development team. Each project is associated with a dev center. 
 
 Create a new Project
 
@@ -238,9 +193,9 @@ az role assignment create \
   --assignee-principal-type User
 ```
 
-## Create project environment types
+### 1.6 Create project environment types
 
-> TODO: briefly explain project environment types or link to explanation
+At the project level, dev infra admins specify which environment types are appropriate for the development team.
 
 Create a new Project Environment Type for each of the Environment Types we created on the dev center
 
@@ -280,9 +235,9 @@ az devcenter admin project-environment-type create \
   --status Enabled
 ```
 
-## Create a key vault
+## 2. Create a key vault
 
-Next, create a new key vault. You use this key vault later in the tutorial to save a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#fine-grained-personal-access-tokens) from GitHub.
+In this section, you'll create a new key vault. You use this key vault later in the tutorial to save a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#fine-grained-personal-access-tokens) from GitHub.
 
 ```azurecli
 az keyvault create \
@@ -318,17 +273,23 @@ az role assignment create \
   --assignee-principal-type ServicePrincipal
 ```
 
-## Create a new GitHub repository
+## 3. Create and configure a GitHub repository
+
+In this section, you'll create a new GitHub repository to store a catalog. Azure Deployment Environments supports both GitHub and Azure DevOps repositories. In this tutorial, you'll use GitHub. 
+### 3.1 Create a new GitHub repository
+
+<!--- Update after moving template repo from Colby's account --->
+
+In this step, you create a new repository in your GitHub account that has a pre-defined directory structure, branches, and files. These are generated from a sample template repository.
 
 [Create](https://github.com/colbylwilliams/ade-cicd-sample/generate) a new GitHub repository from the sample [template](https://github.com/colbylwilliams/ade-cicd-sample).
 
-> TODO: Explain they are creating a new GitHub repository in their account using a template.
 > 1. [This link](https://github.com/colbylwilliams/ade-cicd-sample/generate) will automatically initiate the flow to create.
 > 2. They may need to select **Public** if they don't have a paid GitHub account.
 > 3. Select **Create repository from template**.
 > 4. When the repo is first created, the Create Environment action will fail.  This is okay, the user should proceed.
 
-## Protect the repository's _main_ branch
+### 3.2 Protect the repository's _main_ branch
 
 You can protect important branches by setting branch protection rules. Protection rules define whether collaborators can delete or force push to the branch. They also set requirements for any pushes to the branch, such as passing status checks or a linear commit history.
 
@@ -337,21 +298,31 @@ You can protect important branches by setting branch protection rules. Protectio
 
 1. If it's not already open, navigate to the main page of your newly created repository on GitHub.com.
 
-2. Under your repository name, select **Settings**. If you can't see the "Settings" tab, select the **...** dropdown menu, then select **Settings**.
+1. Under your repository name, select **Settings**. If you can't see the "Settings" tab, select the **...** dropdown menu, then select **Settings**.
+ 
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-repo-settings.png" alt-text="Screenshot showing the GitHub repository page with settings highlighted.":::
 
-    TODO: Screenshots of this can be found [here](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)
+1. In the **Code and automation** section of the sidebar, select **Branches**.
 
-3. In the **Code and automation** section of the sidebar, select **Branches**.
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-branches-protect.png" alt-text="Screenshot showing the settings page, with branches highlighted.":::
 
-4. Under **Branch protection rules**, select **Add branch protection rule**, then enter _main_ under **Branch name pattern**.
+1. Under **Branch protection rules**, select **Add branch protection rule**. 
+ 
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-protect-rule.png" alt-text="Screenshot showing the branch protection rule page, with Add branch protection rule highlighted. ":::
 
-5. Under **Protect matching branches**, select **Require a pull request before merging**.
+1. Under **Branch name pattern**, enter <_main_>.
+ 
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-branch-name-pattern.png" alt-text="Screenshot showing the branch name pattern text box, with main highlighted.":::
+ 
+1. Under **Protect matching branches**, select **Require a pull request before merging**.
 
-6. Optionally, you can enable [additional protection rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule).
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-require-pr.png" alt-text="Screenshot showing protect matching branches with Require a pull request before merging selected and highlighted.":::
 
-7. Select **Create**.
+1. Optionally, you can enable [additional protection rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule).
 
-## Configure repository variables
+1. Select **Create**.
+
+### 3.3 Configure repository variables
 
 > [!NOTE]
 > Configuration variables for GitHub Actions are in beta and subject to change.
@@ -380,7 +351,7 @@ You can protect important branches by setting branch protection rules. Protectio
 
 > TODO: Screenshot would probably be good here.
 
-## Create a GitHub personal access token
+### 3.4 Create a GitHub personal access token
 
 Next, create a [fine-grained personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#fine-grained-personal-access-tokens) to enable your dev center to connect to your repository and consume the environment catalog.
 
@@ -412,7 +383,7 @@ Next, create a [fine-grained personal access token](https://docs.github.com/en/a
     > [!IMPORTANT]
     > Make sure to copy your personal access token now as you will not be able to see this again.
 
-## Save personal access token to key vault
+### 3.5 Save personal access token to key vault
 
 Next, save the PAT token as a key vault secret named _pat_.
 
@@ -423,9 +394,9 @@ az keyvault secret set \
     --value "github_pat_..."
 ```
 
-## Connect the catalog to your dev center
+## 4. Connect the catalog to your dev center
 
-> TODO: briefly explain catalogs or link to explanation
+A catalog is a repository that contains a set of catalog items. Catalog items consist of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Development teams use catalog items from the catalog to create environments.
 
 The template you used to create your GitHub repository contains a catalog in the _Environments_ folder.
 
@@ -439,11 +410,12 @@ az devcenter admin catalog create \
     --git-hub path="/Environments" branch="main" secret-identifier="https://$AZURE_KEYVAULT.vault.azure.net/secrets/pat" uri="https://github.com/< Organization/Repository >.git"
 ```
 
-## Generate deployment identities
+## 5. Configure deployment identities
 
 [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is an authentication method that uses short-lived tokens to offer hardened security. It's the recommended way to authenticate GitHub Actions to Azure.
 
 You can also authenticate a service principal directly using a secret, but that is out of scope for this tutorial.
+### 5.1 Generate deployment identities
 
 1. Register [new Active Directory applications and service principals](../active-directory/develop/howto-create-service-principal-portal.md) for each of the three environment types.
 
@@ -548,7 +520,7 @@ You can also authenticate a service principal directly using a secret, but that 
         --body '{"name":"ADEProd","issuer":"https://token.actions.githubusercontent.com","subject":"repo:< Organization/Repository >:environment:Prod","description":"Prod","audiences":["api://AzureADTokenExchange"]}'
     ```
 
-## Assign roles to deployment identities
+### 5.2 Assign roles to deployment identities
 
 1. Assign each deployment identity the Reader role on the project.
 
@@ -602,7 +574,7 @@ You can also authenticate a service principal directly using a secret, but that 
         --assignee-principal-type ServicePrincipal
     ```
 
-## Configure GitHub environments
+## 6. Configure GitHub environments
 
 With GitHub environments, you can configure environments with protection rules and secrets. A workflow job that references an environment must follow any protection rules for the environment before running or accessing the environment's secrets.
 
@@ -619,7 +591,7 @@ Create three environments: Dev, Test, and Prod to map to the project's environme
 
 3. In the left sidebar, select **Environments**.
 
-### Create the Dev environment
+### 6.1 Create the Dev environment
 
 1. Select **New environment** and enter _Dev_ for the environment name, then select **Configure environment**.
 
@@ -629,7 +601,7 @@ Create three environments: Dev, Test, and Prod to map to the project's environme
 
 4. Select **Add secret**.
 
-### Create the Test environment
+### 6.2 Create the Test environment
 
 Return to the main environments page by selecting **Environments** in the left sidebar.
 
@@ -641,7 +613,7 @@ Return to the main environments page by selecting **Environments** in the left s
 
 4. Select **Add secret**.
 
-### Create the Prod environment
+### 6.3 Create the Prod environment
 
 Once more, return to the main environments page by selecting **Environments** in the left sidebar
 
@@ -671,7 +643,10 @@ Finally configure _main_ as the deployment branch:
 
 3. Select **Add rule**.
 
-## Clone the repository
+## 7. Test the CI/CD pipeline
+
+In this section, you'll make some changes to the repository and test the CI/CD pipeline.
+### 7.1 Clone the repository
 
 1. In your terminal, cd into a folder where you'd like to clone your repository locally.
 
@@ -705,11 +680,11 @@ Finally configure _main_ as the deployment branch:
 
    You should see a new Create Environment workflow running.
 
-## Make a change to the code
+### 7.2 Make a change to the code
 
 TODO: Open the locally cloned repo in VS Code `code .`, and make a change to some file (Under the ADE.Tutorial folder)
 
-## Push your changes to update the environment
+### 7.3 Push your changes to update the environment
 
 Stage your changes and push to the `feature1` branch.
 
@@ -721,27 +696,19 @@ git push
 
 Back on your repositories **Actions** page, you should see a new Update Environment workflow running.
 
-## Create a pull request
+### 7.4 Create a pull request
 
 Create a pull request on GitHub.com `main <- feature1`.
 
 A new workflow is started to create an environment specific to the PR using the Test environment type.
 
-## Merge the PR
+### 7.5 Merge the PR
 
 1. On Github.com, navigate to the pull request you created.
 
 2. Merge it.
 
     Your changes are published into the production environment, and delete the branch and pull request environments.
-
-
-<!-- 8. Clean up resources ------------------------------------------------------------------------
-
-Required: To avoid any costs associated with following the tutorial procedure, a
-Clean up resources (H2) should come just before Next steps (H2)
-
--->
 
 ## Clean up resources
 
