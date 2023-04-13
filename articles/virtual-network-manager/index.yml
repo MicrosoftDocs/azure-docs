@@ -104,5 +104,5 @@ landingContent:
             url: concept-event-logs.md
       - linkListType: how-to-guide
         links:
-          - text: View Event Logs for Azure Virtual Network Manager
-            url: how-to-view-event-logs.md
+          - text: Configure Event Logs for Azure Virtual Network Manager
+            url: how-to-configure-event-logs.md

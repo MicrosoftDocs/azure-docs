@@ -47,8 +47,8 @@
         href: concept-enforcement.md
     - name: Monitoring
       items:
-    - name: Monitoring Overview
-      href: concept-monitoring.md
+    - name: Event Log Options for Azure Virtual Network Manager
+      href: concept-event-logs.md
   - name: Deployments
     href: concept-deployments.md
   - name: Remove or update components
@@ -89,8 +89,8 @@
       href: how-to-configure-cross-tenant-cli.md
   - name: Monitoring
     items:
-    - name: Monitoring for virtual network changes
-      href: how-to-monitor-virtual-network-changes.md
+    - name: configure Event Logs for Azure Virtual Network Manager
+      href: how-to-configure-event-logs.md
   - name: View applied configurations
     href: how-to-view-applied-configurations.md
   - name: Define dynamic network group membership with Azure Policy
