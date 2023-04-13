@@ -118,7 +118,7 @@ If you want to set the authenticated user context:
     > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
 3. The tag `parentDataTag` indicates whether the plug-in should search for parent element info when there is no parent info directly linked to the clicked HTML element. If the clicked HTML element already has valid parentid/name attributes, the plug-in uses those attributes directly. Declaring this tag is useful when you need to use the plug-in with customized options.
 
-    - If you declare the tag `parentDataTag`, specify the path for identifying the parent node when traversing up the Document Object Model (DOM). It must be declared alongside the `parentid` data attribute.
+    - If you declare the tag `parentDataTag`, specify the path for identifying the parent node when traversing up the Document Object Model (DOM).
      
       If `parentDataTag` is declared, `useDefaultContentNameOrId` is set to true, and parentid/name attributes aren't set for the clicked HTML element, the plug-in fetches the attributes and values from its closest parent element. First, it fetches the closest `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id`. If no such attribute exists, it fetches the closest `data-*-id` or `customDataPrefix-*-id`. If no such attribute exists, it fetches the closest `element.id` or `element.contentName`. If no such attribute exists, the value `"not_specified"` is used.
      
