@@ -18,34 +18,7 @@ In this article, we'll take you through the different options for availability z
 
 ## Prerequisites
 
-* To configure API Management for zone redundancy, your instance must be in one of the following regions:
-    
-    * Australia East
-    * Brazil South
-    * Canada Central
-    * Central India
-    * Central US
-    * East Asia
-    * East US
-    * East US 2
-    * France Central
-    * Germany West Central
-    * Japan East
-    * Korea Central (*)
-    * North Europe
-    * Norway East
-    * South Africa North (*)
-    * South Central US
-    * Southeast Asia
-    * Switzerland North
-    * UAE North
-    * UK South
-    * West Europe
-    * West US 2
-    * West US 3
-
-    > [!IMPORTANT]
-    > The regions with * against them have restrictive access in an Azure subscription to enable availability zone support. Please work with your Microsoft sales or customer representative.
+* To configure API Management for zone redundancy, your instance must be in one of the Azure regions with [availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 * If you haven't yet created an API Management service instance, see [Create an API Management service instance](../api-management/get-started-create-service-instance.md). Select the Premium service tier.
 
