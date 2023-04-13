@@ -28,7 +28,7 @@ There are special requirements for sizing Azure Files premium SMB shares. This a
 High-availability (HA) SAP solutions need a highly available file share for hosting *sapmnt*, *transport*, and *interface* directories. Azure Files premium SMB is a simple Azure platform as a service (PaaS) solution for shared file systems for SAP on Windows environments. You can use Azure Files premium SMB with availability sets and availability zones. You can also use Azure Files premium SMB for disaster recovery (DR) scenarios to another region.  
 
 > [!NOTE]
-> Clustering SAP ASCS/SCS instances by using a file share is supported for SAP systems with SAP Kernel 7.22 (and later). For details, see [SAP Note 2698948](https://launchpad.support.sap.com/#/notes/2698948).
+> Clustering SAP ASCS/SCS instances by using a file share is supported for SAP systems with SAP Kernel 7.22 (and later). For details, see SAP Note [2698948](https://launchpad.support.sap.com/#/notes/2698948).
 
 ## Sizing and distribution of Azure Files premium SMB for SAP systems
 
@@ -36,7 +36,7 @@ Evaluate the following points when you're planning the deployment of Azure Files
 
 * The file share name *sapmnt* can be created once per storage account.  It's possible to create additional storage IDs (SIDs) as directories on the same */sapmnt* share, such as */sapmnt/\<SID1\>* and */sapmnt/\<SID2\>*.
 * Choose an appropriate size, IOPS, and throughput. A suggested size for the share is 256 GB per SID. The maximum size for a share is 5,120 GB.
-* Azure Files premium SMB might not perform well for very large *sapmnt* shares with more than 1 million files per storage account.  Customers who have millions of batch jobs that create millions of job log files should regularly reorganize them, as described in [SAP Note 16083][16083]. If needed, you can move or archive old job logs to another Azure Files premium SMB file share. If you expect *sapmnt* to be very large, consider other options (such as Azure NetApp Files).
+* Azure Files premium SMB might not perform well for very large *sapmnt* shares with more than 1 million files per storage account.  Customers who have millions of batch jobs that create millions of job log files should regularly reorganize them, as described in SAP Note [16083][16083]. If needed, you can move or archive old job logs to another Azure Files premium SMB file share. If you expect *sapmnt* to be very large, consider other options (such as Azure NetApp Files).
 * We recommend that you use a private network endpoint.
 * Avoid putting too many SIDs in a single storage account and its file share.
 * As general guidance, don't put together more than four nonproduction SIDs.

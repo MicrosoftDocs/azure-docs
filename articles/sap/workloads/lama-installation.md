@@ -63,17 +63,17 @@ You can find more information in the [SAP Help Portal for SAP LaMa](https://help
 
 * Use a separate subnet, and don't use dynamic IP addresses to prevent IP address "stealing" when you're deploying new VMs and SAP instances are unprepared.
   
-  If you use dynamic IP address allocation in the subnet that's also used by SAP LaMa, preparing an SAP system with SAP LaMa might fail. If an SAP system is unprepared, the IP addresses are not reserved and might get allocated to other virtual machines.
+  If you use dynamic IP address allocation in the subnet that SAP LaMa also uses, preparing an SAP system with SAP LaMa might fail. If an SAP system is unprepared, the IP addresses are not reserved and might get allocated to other virtual machines.
 
 * If you sign in to managed hosts, don't block file systems from being unmounted.
   
   If you sign in to a Linux virtual machine and change the working directory to a directory in a mount point (for example, */usr/sap/AH1/ASCS00/exe*), the volume can't be unmounted and a relocate or unprepare operation fails.
 
-* Be sure to disable CLOUD_NETCONFIG_MANAGE on SUSE SLES Linux virtual machines. For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
+* Be sure to disable `CLOUD_NETCONFIG_MANAGE` on SUSE SLES Linux virtual machines. For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
 
 ## Set up the SAP LaMa connector for Azure
 
-The connector for Azure is shipped as of SAP LaMa 3.0 SP05. We recommend always installing the latest support package and patch for SAP LaMa 3.0.
+The connector for Azure is included in SAP LaMa as of version 3.0 SP05. We recommend always installing the latest support package and patch for SAP LaMa 3.0.
 
 The connector for Azure uses the Azure Resource Manager API to manage your Azure resources. SAP LaMa can use a service principal or a managed identity to authenticate against this API. If your SAP LaMa instance is running on an Azure VM, we recommend using a managed identity.
 
@@ -103,7 +103,7 @@ By default, the managed identity doesn't have permissions to access your Azure r
 
 For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-In your configuration of the SAP LaMa connector for Azure, select **Use Managed Identity** to enable the use of the managed identity. If you want to use a system-assigned identity, leave the **User Name** field empty. If you want to use a user-assigned identity, enter the user-assigned identity ID in the **User Name** field.
+In your configuration of the SAP LaMa connector for Azure, select **Use Managed Identity** to enable the use of the managed identity. If you want to use a system-assigned identity, leave the **User Name** field empty. If you want to use a user-assigned identity, enter its ID in the **User Name** field.
 
 ### Create a new connector in SAP LaMa
 
@@ -138,7 +138,7 @@ We recommend using a separate subnet for all virtual machines that you want to m
 > [!NOTE]
 > If possible, remove all virtual machine extensions. They might cause long runtimes for detaching disks from a virtual machine.
 
-Make sure that the user *\<hanasid\>adm*, the user *\<sapsid\>adm* and the group *sapsys* exist on the target machine with the same ID and group ID, or use LDAP. Enable and start the Network File Sharing (NFS) server on the virtual machines that should be used to run SAP NetWeaver ABAP Central Services (ASCS) or SAP Central Services (SCS).
+Make sure that the user *\<hanasid\>adm*, the user *\<sapsid\>adm*, and the group *sapsys* exist on the target machine with the same ID and group ID, or use LDAP. Enable and start the Network File Sharing (NFS) server on the virtual machines that should be used to run SAP NetWeaver ABAP Central Services (ASCS) or SAP Central Services (SCS).
 
 ### Manual deployment
 
@@ -203,13 +203,13 @@ The templates have the following parameters:
 
 * `dbtype`: The type of the database. This parameter is used to determine how many extra IP configurations need to be added and how the disk layout should look.
 
-* `sapSystemSize`: The size of the SAP System that you want to deploy. It's used to determine the virtual machine instance type and size.
+* `sapSystemSize`: The size of the SAP system that you want to deploy. It's used to determine the type and size of the virtual machine instance.
 
 * `adminUsername`: The username for the virtual machine.
 
 * `adminPassword`: The password for the virtual machine. You can also provide a public key for SSH.
 
-* `sshKeyData`: The public SSH key for the virtual machines. It's supported only for Linux operating systems.
+* `sshKeyData`: The public SSH key for the virtual machine. It's supported only for Linux operating systems.
 
 * `subnetId`: The ID of the subnet that you want to use.
 
@@ -231,7 +231,7 @@ The templates have the following parameters:
 
 * `sapsysGid`: The Linux group ID of the *sapsys* group. It's not required for Windows.
 
-* `_artifactsLocation`: The base URI, where artifacts that this template requires are located. When you deploy the template by using the accompanying scripts, a private location in the subscription is used and this value is automatically generated. You need this URI only if you don't deploy the template from GitHub.
+* `_artifactsLocation`: The base URI, which contains artifacts that this template requires. When you deploy the template by using the accompanying scripts, a private location in the subscription is used and this value is automatically generated. You need this URI only if you don't deploy the template from GitHub.
 
 * `_artifactsLocationSasToken`: The SAS token required to access `_artifactsLocation`. When you deploy the template by using the accompanying scripts, an SAS token is automatically generated. You need this token only if you don't deploy the template from GitHub.
 
@@ -246,7 +246,7 @@ The following examples assume that you install SAP HANA with system ID HN1 and t
 
 #### Install SAP NetWeaver ASCS for SAP HANA by using Azure managed disks
 
-Before you start the SAP Software Provisioning Manager (SWPM), you need to mount the IP address of virtual host name of ASCS. The recommended way is to use SAPACEXT. If you mount the IP address by using SAPACEXT, be sure to remount the IP address after a reboot.
+Before you start the SAP Software Provisioning Manager (SWPM), you need to mount the IP address of the virtual host name of ASCS. The recommended way is to use SAPACEXT. If you mount the IP address by using SAPACEXT, be sure to remount the IP address after a reboot.
 
 ![Linux logo.][Logo_Linux] Linux
 
@@ -268,7 +268,7 @@ Run SWPM. For **ASCS Instance Host Name**, use **ah1-ascs**.
 
 Add the following profile parameter to the SAP Host Agent profile, which is located at */usr/sap/hostctrl/exe/host_profile*. For more information, see SAP Note [2628497].
 
-```
+```bash
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 ```
 
@@ -278,7 +278,7 @@ Azure NetApp Files provides NFS for Azure. In the context of SAP LaMa, this simp
 
 #### Network requirements
 
-Azure NetApp Files requires a delegated subnet, which must be part of the same virtual network as the SAP servers. Here's an example for such a configuration.
+Azure NetApp Files requires a delegated subnet, which must be part of the same virtual network as the SAP servers. Here's an example for such a configuration:
 
 1. Create the virtual network and the first subnet.
 
