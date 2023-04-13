@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 
 # Other safeguard guidance 
 
-Azure Active Directory meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, it's the responsibility of companies to implement the safeguards using this guidance along with any other configurations or processes needed. This article contains guidance for achieving HIPAA compliance for the following three controls:
+Azure Active Directory (Azure AD) meets identity-related practice requirements for implementing Health Insurance Portability and Accountability Act of 1996 (HIPAA) safeguards. To be HIPAA compliant, it's the responsibility of companies to implement the safeguards using this guidance along with any other configurations or processes needed. This article contains guidance for achieving HIPAA compliance for the following three controls:
 
 * Integrity Safeguard
 * Person or Entity Authentication Safeguard
 * Transmission Security Safeguard
 
-## Integrity Safeguard guidance
+## Integrity safeguard guidance
 
 Azure Active Directory meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, implement the safeguards using this guidance along with any other configurations or processes needed.
 
@@ -37,7 +37,7 @@ For the **Data Modification Safeguard**:
 
 The following content provides the guidance from HIPAA followed by a table with Microsoft's recommendations and guidance.
 
-**HIPAA - Integrity**
+**HIPAA - integrity**
 
 ```Implement security measures to ensure that electronically transmitted electronic protected health information isn't improperly modified without detection until disposed of.```
 
@@ -48,7 +48,7 @@ The following content provides the guidance from HIPAA followed by a table with 
 | Configure Secure/Multipurpose Internet Mail extension on Exchange Online | [S/MIME](/microsoft-365/compliance/email-encryption) is a protocol that is used for sending digitally signed and encrypted messages. It's based on asymmetric key pairing, a public and private key.</br>[Exchange Online](/exchange/security-and-compliance/smime-exo/configure-smime-exo) provides encryption and protection of the content of the email and signatures that verify the identity of the sender. |
 | Enable monitoring and logging. | [Logging and monitoring](/security/benchmark/azure/security-control-logging-monitoring) are essential to securing an environment. The information is used to support investigations and help detect potential threats by identifying unusual patterns. Enable logging and monitoring of services to reduce the risk of unauthorized access.</br>[Microsoft Purview](/microsoft-365/compliance/audit-solutions-overview) auditing provides visibility into audited activities across services in Microsoft 365. It helps investigations by increasing audit log retention. |
 
-## Person or Entity Authentication Safeguard guidance
+## Person or entity authentication safeguard guidance
 
 Azure Active Directory meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, implement the safeguards using this guidance along with any other configurations or processes needed.
 
@@ -60,7 +60,7 @@ For the Audit and Person and Entity Safeguard:
 
 The following content provides the guidance from HIPAA followed by a table with Microsoft's recommendations and guidance.
 
-**HIPAA - Person or Entity Authentication**
+**HIPAA - person or entity authentication**
 
 ```Implement procedures to verify that a person or entity seeking access to electronic protected health information is the one claimed.```
 
@@ -73,7 +73,7 @@ Ensure that users and devices that access ePHI data are authorized. You must ens
 | Set-up device based Conditional Access Policy | [Conditional Access with Microsoft Intune](/mem/intune/protect/conditional-access) for device management and Azure AD policies can use device status to either grant deny access to your services and data. By deploying device compliance policies, it determines if it meets security requirements to make decisions to either allow access to the resources or deny them. |
 | Provision role-based access control (RBAC) | [Role-based access control in Azure AD](../roles/custom-overview.md) provides security on an enterprise level, with the concept of separation of duties. The separation enables you to adjust and review permissions to protect confidentiality, privacy and access management to resources and sensitive data along with the systems.</br>Azure AD provides support for [built-in roles](../roles/permissions-reference.md), which is a fixed set of permissions that can't be modified. You can also create your own [custom roles](../roles/custom-create.md) where you can add a preset list. |
 
-## Transmission Security Safeguard guidance
+## Transmission security safeguard guidance
 
 Azure Active Directory meets identity-related practice requirements for implementing HIPAA safeguards. To be HIPAA compliant, implement the safeguards using this guidance along with any other configurations or processes needed.
 
@@ -97,7 +97,7 @@ To protect transmission of PHI data:
 
 The following content provides a list of the Audit and Transmission Security Safeguard guidance from the HIPAA guidance and Microsoft’s recommendations to enable you to meet the safeguard implementation requirements with Azure AD.
 
-**HIPAA - Encryption**
+**HIPAA - encryption**
 
 ```Implement a mechanism to encrypt and decrypt electronic protected health information.```
 
@@ -110,7 +110,7 @@ Ensure that ePHI data is encrypted and decrypted with the compliant encryption k
 | Review Azure Encryption points | [Azure encryption capability](../../security/fundamentals/encryption-overview.md) covers major areas from data at rest, encryption models, and key management using Azure Key Vault. Review the different encryption levels and how they match to scenarios within your organization. |
 | Assess data collection and retention governance | [Microsoft Purview Data Lifecycle Management](/microsoft-365/compliance/data-lifecycle-management) enables you to apply retention policies. [Microsoft Purview Records Management](/microsoft-365/compliance/get-started-with-records-management) enables you to apply retention labels. This strategy helps you gain visibility into assets across the entire data estate. This strategy also helps you safeguard and manage sensitive data across clouds, apps, and endpoints.</br>**Important:** As noted in [45 CFR 164.316](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.316): **Time limit (Required)**. Retain the documentation required by [paragraph (b)(1)](https://www.ecfr.gov/current/title-45/section-164.316) of this section for six years from the date of its creation or the date when it last was in effect, whichever is later. |
 
-**HIPAA - Protect transmission of PHI data**
+**HIPAA - protect transmission of PHI data**
 
 ```Implement technical security measures to guard against unauthorized access to electronic protected health information that is being transmitted over an electronic communications network.```
 
