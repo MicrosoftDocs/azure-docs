@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Virtual Desktop (classic) documentation
-summary: Securely deliver virtual desktops and remote apps with maximum control to any device from a flexible cloud virtual desktop infrastructure (VDI) platform. Azure Virtual Desktop (classic) has been superseded by Azure Virtual Desktop using Azure Resource Manager. For documentation, see [Azure Virtual Desktop documentation](../index.yml)
+summary: Securely deliver virtual desktops and remote apps with maximum control to any device from a flexible cloud virtual desktop infrastructure (VDI) platform. Azure Virtual Desktop (classic) has been superseded by Azure Virtual Desktop using Azure Resource Manager.
 
 metadata:
   title: Azure Virtual Desktop (classic) documentation
@@ -23,9 +23,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Virtual Desktop?
-            url: overview.md?toc=%2Fazure%2Fvirtual-desktop%2Fvirtual-desktop-fall-2019%2Ftoc.json
+            url: ../overview.md?toc=%2Fazure%2Fvirtual-desktop%2Fvirtual-desktop-fall-2019%2Ftoc.json
           - text: Terminology
-            url: terminology.md?toc=%2Fazure%2Fvirtual-desktop%2Fvirtual-desktop-fall-2019%2Ftoc.json
+            url: ../terminology.md?toc=%2Fazure%2Fvirtual-desktop%2Fvirtual-desktop-fall-2019%2Ftoc.json
           - text: Azure Virtual Desktop using Azure Resource Manager 
             url: ../index.yml
 
@@ -53,7 +53,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure Virtual Desktop for users
-            url: ./users/index.yml
+            url: ../users/index.yml
       - linkListType: how-to-guide
         links:
           - text: Connect with the Windows Desktop client
