@@ -59,8 +59,7 @@ For scale-down, Autoscale issues a request to remove some nodes. The scale-down 
 
 ### Ambari DB sizing considerations for autoscaling
 
-It is recommended that Ambari DB is sized correctly to reap the benefits of autoscale. Customers should use the correct DB tier and use the custom Ambari DB for large size clusters. Please read the [Database and Headnode sizing recomandations](https://learn.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db#database-and-headnode-sizing).
-
+It is recommended that Ambari DB is sized correctly to reap the benefits of autoscale. Customers should use the correct DB tier and use the custom Ambari DB for large size clusters. Please read the [Database and Headnode sizing recomandations](./hdinsight-custom-ambari-db.md#database-and-headnode-sizing).
 
 ### Cluster compatibility
 
