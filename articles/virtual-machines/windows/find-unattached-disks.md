@@ -82,6 +82,8 @@ foreach($storageAccount in $storageAccounts){
     }
 }
 ```
+>[!NOTE]
+>we cannot get the billing details of unattached managed disks from the Azure Portal. This can be acheived by adding tags to the unattached disks and filterring with the tag in the subscriptions,cost analysis tab.
 
 ## Next steps
 
