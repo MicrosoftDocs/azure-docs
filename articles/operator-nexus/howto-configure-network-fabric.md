@@ -6,7 +6,7 @@ ms.author: jdasari #Required
 ms.service: azure-operator-nexus  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 03/26/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Create and Provision a Network Fabric using Azure CLI

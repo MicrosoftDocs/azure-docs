@@ -204,6 +204,8 @@ items:
         href: how-tos/calling-sdk/manage-video.md
       - name: Manage Teams calling
         href: how-tos/cte-calling-sdk/manage-calls.md
+      - name: Manage Teams meeting Lobby
+        href: how-tos/calling-sdk/lobby-admit-and-reject.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
       - name: Show transcription state
