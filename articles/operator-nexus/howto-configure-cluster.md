@@ -6,7 +6,7 @@ ms.author: jacobsmith
 ms.service: azure-operator-nexus #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 03/03/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Create and provision a Cluster using Azure CLI

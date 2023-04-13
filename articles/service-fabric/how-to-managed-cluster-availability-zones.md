@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
 ms.date: 11/09/2022
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-arm-template
 ---
 # Deploy a Service Fabric managed cluster across availability zones
 Availability Zones in Azure are a high-availability offering that protects your applications and data from datacenter failures. An Availability Zone is a unique physical location equipped with independent power, cooling, and networking within an Azure region.

@@ -106,17 +106,25 @@ When you install the extension, you need the *Tenant ID* and admin credentials f
 
 The NPS server must be able to communicate with the following URLs over TCP port 443:
 
-* `https:\//login.microsoftonline.com`
-* `https:\//credentials.azure.com`
+* `https://login.microsoftonline.com`
+* `https://login.microsoftonline.us (Azure Government)`
+* `https://login.chinacloudapi.cn (Azure China 21Vianet)`
+* `https://credentials.azure.com`
+* `https://strongauthenticationservice.auth.microsoft.com`
+* `https://strongauthenticationservice.auth.microsoft.us (Azure Government)`
+* `https://strongauthenticationservice.auth.microsoft.cn (Azure China 21Vianet)`
+* `https://adnotifications.windowsazure.com`
+* `https://adnotifications.windowsazure.us (Azure Government)`
+* `https://adnotifications.windowsazure.cn (Azure China 21Vianet)`
 
 Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script):
 
-* `https:\//login.microsoftonline.com`
-* `https:\//provisioningapi.microsoftonline.com`
-* `https:\//aadcdn.msauth.net`
-* `https:\//www.powershellgallery.com`
-* `https:\//go.microsoft.com`
-* `https:\//aadcdn.msftauthimages.net`
+* `https://login.microsoftonline.com`
+* `https://provisioningapi.microsoftonline.com`
+* `https://aadcdn.msauth.net`
+* `https://www.powershellgallery.com`
+* `https://go.microsoft.com`
+* `https://aadcdn.msftauthimages.net`
 
 ## Prepare your environment
 

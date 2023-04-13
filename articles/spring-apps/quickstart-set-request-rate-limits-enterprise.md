@@ -25,7 +25,7 @@ Rate limiting enables you to avoid problems that arise with spikes in traffic. W
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise Tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
-- [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
+- [The Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
@@ -33,7 +33,7 @@ Rate limiting enables you to avoid problems that arise with spikes in traffic. W
 
 ## Set request rate limits
 
-Spring Cloud Gateway includes route filters from the Open Source version and several more route filters. One of these filters is the [RateLimit: Limiting user requests filter](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.1/scg-k8s/GUID-route-filters.html#ratelimit-limiting-user-requests-filter). The RateLimit filter limits the number of requests allowed per route during a time window.
+Spring Cloud Gateway includes route filters from the Open Source version and several more route filters. One of these filters is the [RateLimit: Limiting user requests filter](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-route-filters.html#ratelimit-limiting-user-requests-filter). The RateLimit filter limits the number of requests allowed per route during a time window.
 
 When defining a route, you can add the RateLimit filter by including it in the list of filters for the route. The filter accepts four options:
 

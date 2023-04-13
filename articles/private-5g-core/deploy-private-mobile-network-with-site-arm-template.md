@@ -7,7 +7,7 @@ author: djrmetaswitch
 ms.author: drichards
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-arm-template
 ms.date: 03/23/2022
 ---
 
