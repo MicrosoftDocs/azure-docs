@@ -20,7 +20,7 @@ Audit Logs provide auditing trails for data plane APIs on Azure Data Manager for
 
 For example, when you “Add a new member” to the users.datalake.admins entitlement group using entitlements API, you're able to see this information in Audit logs. 
 
-[![Screenshot of audit logs for entitlement](media/how-to-manage-auditlogs-1-audit-event-diagnosticlogs.png)](media/how-to-manage-auditlogs-1-audit-event-diagnosticlogs.png#lightbox)
+[![Screenshot of audit logs for entitlement](media/how-to-manage-auditlogs/how-to-manage-auditlogs-4-entilements.png)](media/how-to-manage-auditlogs/how-to-manage-auditlogs-4-entilements#lightbox)
  
 # Enable audit logs
 To enable audit logs in diagnostic logging, select your Azure Data Manager for Energy instance in the Azure portal.
@@ -29,7 +29,7 @@ To enable audit logs in diagnostic logging, select your Azure Data Manager for E
 * Enter the Diagnostic settings name.
 * Select “Audit Events” as the Category. 
 
-[![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-data-security-and-encryption/customer-managed-key-3-enable-cmk.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3-enable-cmk.png#lightbox)
+[![Screenshot of audit events option in diagnostic settings](media/how-to-manage-auditlogs/how-to-manage-auditlogs-1-audit-event-diagnosticlogs.png)](media/how-to-manage-auditlogs/how-to-manage-auditlogs-1-audit-event-diagnosticlogs.png#lightbox)
 
 * Select appropriate Destination details for accessing the diagnostic logs. 
  
@@ -68,7 +68,7 @@ OEPAuditLogs
 | summarize count() by ServiceName
 ```
 
-[![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-data-security-and-encryption/customer-managed-key-3-enable-cmk.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3-enable-cmk.png#lightbox)
+[![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-auditlogs/how-to-manage-auditlogs-3-allservices.png)](media/how-to-manage-auditlogs/how-to-manage-auditlogs-3-allservices.png#lightbox)
  
 2. Run the following query to see the 100 most recent logs:
 
