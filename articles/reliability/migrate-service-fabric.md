@@ -329,7 +329,7 @@ The Service Fabric node type must be enabled to support multiple Availability Zo
 For all migration scenarios, you need to add a new node type that supports multiple Availability Zones. An existing node type can't be migrated to support multiple zones.
 The [Scale up a Service Fabric cluster primary node type](../service-fabric/service-fabric-scale-up-primary-node-type.md) article includes detailed steps to add a new node type and the other resources required for the new node type, such as IP and load balancer resources. That article also describes how to retire the existing node type after a new node type with multiple Availability Zones is added to the cluster.
 
-* Migration from a node type that uses basic load balancer and IP resources: This process is already described in [a sub-section below](#migrate-to-availability-zones-from-a-cluster-by-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per Availability Zone.
+* Migration from a node type that uses basic load balancer and IP resources: This process is already described in [a sub-section below](#how-to-migrate-your-service-fabric-non-managed-cluster-with-basic-sku-load-balancer-and-ip-resources) for the solution with one node type per Availability Zone.
 
   For the new node type, the only difference is that there's only one virtual machine scale set and one node type for all Availability Zones instead of one each per Availability Zone.
 * Migration from a node type that uses the Standard SKU load balancer and IP resources with an NSG: Follow the same procedure described previously. However, there's no need to add new load balancer, IP, and NSG resources. The same resources can be reused in the new node type.
@@ -563,4 +563,4 @@ If you run into any problems reach out to support for assistance.
 
 - [Scale up a Service Fabric non-managed cluster primary node type](../service-fabric/service-fabric-scale-up-primary-node-type.md)
 
-- [Add, remove, or scale Service Fabric managed cluster node types](../service-fabric/how-to-managed-cluster-modify-node.type.md)
+- [Add, remove, or scale Service Fabric managed cluster node types](../service-fabric/how-to-managed-cluster-modify-node-type.md)
