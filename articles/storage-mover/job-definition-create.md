@@ -74,6 +74,7 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the New Source Endpoint fields." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::
 
+   <a name="sub-path"></a>
    By default, migration jobs will start from the root of your share. However, if your use case involves copying data from a specific path within your source share, you can provide the path in the **Sub-path** field. Supplying this value will start the data migration from the location you've specified. If the sub path you've specified isn't found, no data will be copied.
 
    Prior to creating an endpoint and a job resource, it's important to verify that the path you've provided is correct and that the data is accessible. You're unable to modify endpoints or job resources after they're created. If the specified path is wrong, you'll need to delete the resources and re-create them.
@@ -98,11 +99,18 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
 1. Within the **Settings** tab, take note of the settings associated with the **Copy mode** and **Migration outcomes**. The service's **copy mode** will affect the behavior of the migration engine when files or folders change between copy iterations.
 
-   The current release of Azure Storage Mover only supports **merge** mode.
+   <a name="copy-modes"></a>
+   **Merge source into target:**
 
    - Files will be kept in the target, even if they don’t exist in the source.
    - Files with matching names and paths will be updated to match the source.
-   - Folder renames between copies may lead to duplicate content in the target.
+   - File or folder renames between copies lead to duplicate content in the target.
+   
+   **Mirror source to target:**
+
+   - Files in the target will be deleted if they don’t exist in the source.
+   - Files and folders in the target will be updated to match the source.   
+   - File or folder renames between copies won't lead to duplicate content. A renamed item on the source side leads to the deletion of the item with the original name in the target and a new upload of the renamed item to the target. In case of folders this applies to all files and folders contained in it.
 
    **Migration outcomes** are based upon the specific storage types of the source and target endpoints. For example, because blob storage only supports "virtual" folders, source files in folders will have their paths prepended to their names and placed in a flat list within a blob container. Empty folders will be represented as an empty blob in the target. Source folder metadata will be persisted in the custom metadata field of a blob, as they are with files.
 
@@ -170,7 +178,8 @@ New-AzStorageMoverAzStorageContainerEndpoint `
 $projectName        = "Your project name"
 $jobDefName         = "Your job definition name"
 $JobDefDescription  = "Optional, up to 1024 characters"
-$jobDefCopyMode     = "Additive"
+$jobDefCopyMode     = "Additive" # Merges source into target. See description in portal tab.
+#$jobDefCopyMode    = "Mirror" # Mirrors source into target. See description in portal tab.
 $agentName          = "The name of an agent previously registered to the same storage mover resource"
 
 
