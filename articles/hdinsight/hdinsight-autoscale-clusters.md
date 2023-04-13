@@ -4,7 +4,7 @@ description: Use the Autoscale feature to automatically scale Azure HDInsight cl
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
-ms.date: 11/30/2022
+ms.date: 04/13/2023
 ---
 
 # Automatically scale Azure HDInsight clusters
@@ -50,8 +50,8 @@ When the following conditions are detected, Autoscale will issue a scale request
 
 |Scale-up|Scale-down|
 |---|---|
-|Total pending CPU is greater than total free CPU for more than 3-5 minutes.|Total pending CPU is less than total free CPU for more than 5-10 minutes.|
-|Total pending memory is greater than total free memory for more than 3-5 minutes.|Total pending memory is less than total free memory for more than 5-10 minutes.|
+|Total pending CPU is greater than total free CPU for more than 3-5 minutes.|Total pending CPU is less than total free CPU for more than 3-5 minutes.|
+|Total pending memory is greater than total free memory for more than 3-5 minutes.|Total pending memory is less than total free memory for more than 3-5 minutes.|
 
 For scale-up, Autoscale issues a scale-up request to add the required number of nodes. The scale-up is based on how many new worker nodes are needed to meet the current CPU and memory requirements.
 
@@ -68,10 +68,10 @@ The following table describes the cluster types and versions that are compatible
 
 | Version | Spark | Hive | Interactive Query | HBase | Kafka |
 |---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes | Yes | Yes* | No | No |
 | HDInsight 4.0 without ESP | Yes | Yes | Yes* | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | Yes* | No | No |
 | HDInsight 4.0 with ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 5.0 without ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 5.0 with ESP | Yes | Yes | Yes* | No | No |
 
 \* Interactive Query clusters can only be configured for schedule-based scaling, not load-based.
 
