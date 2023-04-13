@@ -38,9 +38,9 @@ Azure Disks and Azure Files are the supported volume types, and are accessed as 
 
 The master nodes (the control plane) in an AKS cluster are hosted by the AKS service. You won't be exposed to the operating system of the nodes hosting the master components. All AKS clusters are created with a default first node pool, which is Linux-based. This node pool contains system services that are needed for the cluster to function. We recommend that you run at least two nodes in the first node pool to ensure the reliability of your cluster and the ability to do cluster operations. The first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
 
-In some cases, customers running Windows workloads on AKS might want to also deploy Linux node pools:
-- When running Windows and Linux workloads side-by-side, you can deploy a Windows and a Linux node pool on the same AKS cluster and their respective workloads.
-- When deploying infrastructure related components that are Linux dependent, such as Nginx and others. These infrastructure workloads will require a Linux node pool alongside the Windows ones. For development and test scenarios, customers can leverage the control plane nodes. For production workloads, a separate Linux node pool might be required for performance and reliability.
+In some cases, if you are planning to run Windows-based workloads on an AKS cluster, you should consider deploying a Linux node pool for the following reasons:
+- If you are planning to run Windows and Linux workloads, you can deploy a Windows and Linux node pool on the same AKS cluster to run the workloads side by side.
+- When deploying infrastructure-related components based on Linux, such as Ngix and others, these workloads require a Linux node pool alongside your Windows node pools. For development and test scenarios, you can use control plane nodes. For production workloads, we recommend deploying separate Linux node pools for performance and reliability.
 
 ## How do I patch my Windows nodes?
 
