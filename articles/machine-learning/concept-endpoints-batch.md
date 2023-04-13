@@ -18,9 +18,9 @@ ms.date: 04/01/2023
 
 After you train a machine learning model, you need to deploy it so that others can consume its predictions. Such execution mode of a model is called *inference*. Azure Machine Learning uses the concept of [endpoints and deployments](concept-endpoints.md) for machine learning models inference.
 
-**Batch endpoints** are endpoints that are used to do batch inferencing on large volumes of data over in ansyncronous way.  Batch endpoints receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
+**Batch endpoints** are endpoints that are used to do batch inferencing on large volumes of data over in asynchronous way.  Batch endpoints receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
 
-We recommend to use them when:
+We recommend using them when:
 
 > [!div class="checklist"]
 > * You have expensive models or pipelines that requires a longer time to run.
@@ -43,7 +43,7 @@ There are two types of deployments in batch endpoints:
 
 ### Model deployments
 
-Model deployment allow to operationalize model inference at scale, processing big amounts of data in a low latency and asynchronous way. Scalability is automatically instrumented by Azure Machine Learning by providing parallelization of the inferencing processes across multiple nodes in a compute cluster. 
+Model deployment allows operationalizing model inference at scale, processing big amounts of data in a low latency and asynchronous way. Scalability is automatically instrumented by Azure Machine Learning by providing parallelization of the inferencing processes across multiple nodes in a compute cluster. 
 
 Use __Model deployments__ when:
 
@@ -53,7 +53,7 @@ Use __Model deployments__ when:
 > * You don't have low latency requirements.
 > * You can take advantage of parallelization.
 
-The main benefit of this kind of deployments is that you can use the very same assets deployed in the online world (Online Endpoints) but now to run at scale in batch. If you model requires simple pre or pos processing, you can [author an scoring script](how-to-batch-scoring-script.md) that performs the data transformations required. 
+The main benefit of this kind of deployments is that you can use the very same assets deployed in the online world (Online Endpoints) but now to run at scale in batch. If your model requires simple pre or pos processing, you can [author an scoring script](how-to-batch-scoring-script.md) that performs the data transformations required. 
 
 Create your first [model deployment with batch endpoints](how-to-use-batch-model-deployments.md) to perform inference at scale.
 
@@ -70,7 +70,7 @@ If you're deploying [MLFlow models in batch deployments](how-to-mlflow-batch.md)
 
 ### Pipeline component deployment
 
-Pipeline component deployments allow to operationalize entire processing graphs (pipelines) to perform batch inference in a low latency and asynchronous way.
+Pipeline component deployments allows operationalizing entire processing graphs (pipelines) to perform batch inference in a low latency and asynchronous way.
 
 Use __Pipeline component deployments__ when:
 
@@ -90,13 +90,13 @@ To create a pipeline component deployment in a batch endpoint, you need to speci
 - Pipeline component
 - Compute cluster configuration
 
-Batch endpoints also allow you to [create Pipeline component deployments from an existing pipeline job](how-to-use-batch-pipeline-from-job.md). When doing that, Azure Machine Learning automatically creates a Pipeline component out of the job. This simplifies the use of these kind of deployments. However, it is a best practice to always [create pipeline components explicitly to streamline your MLOps practice](how-to-use-batch-pipeline-deployments.md).
+Batch endpoints also allow you to [create Pipeline component deployments from an existing pipeline job](how-to-use-batch-pipeline-from-job.md). When doing that, Azure Machine Learning automatically creates a Pipeline component out of the job. This simplifies the use of these kinds of deployments. However, it is a best practice to always [create pipeline components explicitly to streamline your MLOps practice](how-to-use-batch-pipeline-deployments.md).
 
 ## Managed cost
 
 Invoking a batch endpoint triggers an asynchronous batch inference job. Compute resources are automatically provisioned when the job starts, and automatically de-allocated as the job completes. So you only pay for compute when you use it.
 
-Batch endpoints also can run on low-priority VMs. When deploying models, batch endpoints can automatically recover from deallocated VMs and resume the work from where it was left. See [Use low-priority VMs in batch endpoints](how-to-use-low-priority-batch.md).
+Batch endpoints also can run on low-priority VMs. Batch endpoints can automatically recover from deallocated VMs and resume the work from where it was left when deploying models for inference. See [Use low-priority VMs in batch endpoints](how-to-use-low-priority-batch.md).
 
 > [!TIP]
 > When deploying models, you can [override compute resource settings](how-to-use-batch-endpoint.md#overwrite-deployment-configuration-per-each-job) (like instance count) and advanced settings (like mini batch size, error threshold, and so on) for each individual batch inference job to speed up execution and reduce cost if you know that you can take advantage of specific configurations.
@@ -107,7 +107,7 @@ Batch endpoints reads and write data directly from storage. You can indicate Azu
 
 ## Security
 
-Batch endpoints provide all the capabilities required to operate production level workloads in an enterprise settings. Some of these features include: [Private networking support](how-to-secure-batch-endpoint.md). In terms of authorization and authentication, batch endpoints support [Azure Active Directory authentication](how-to-authenticate-batch-endpoint.md), either using a user principal (like a user account) or a service principal (like a managed or unmanaged identity). See [How to authenticate to batch endpoints](how-to-authenticate-batch-endpoint.md) for details.
+Batch endpoints provide all the capabilities required to operate production level workloads in an enterprise setting. Some of these features include: [Private networking support](how-to-secure-batch-endpoint.md). In terms of authorization and authentication, batch endpoints support [Azure Active Directory authentication](how-to-authenticate-batch-endpoint.md), either using a user principal (like a user account) or a service principal (like a managed or unmanaged identity). See [How to authenticate to batch endpoints](how-to-authenticate-batch-endpoint.md) for details.
 
 ## Next steps
 

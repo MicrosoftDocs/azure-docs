@@ -24,24 +24,24 @@ Endpoints and deployments are two constructs that allow you to decouple the inte
 
 ## Intuition
 
-Let's imagine you are working on an application that needs to predict the type and color of a car given its photo. The application only needs to know that they will make an HTTP request to an URL using some sort of credentials, provide a picture of a car, and they will get the type and color of the car back as string values. This thing we have just descrived is __an endpoint__.
+Let's imagine you are working on an application that needs to predict the type and color of a car given its photo. The application only needs to know that they make an HTTP request to a URL using some sort of credentials, provide a picture of a car, and they get the type and color of the car back as string values. This thing we have just described is __an endpoint__.
 
-Now, let's imagine that one of our data scientist, Alice, is working on the implementation of this. Alice is very well versed on TensorFlow so she decided to implement the model using a Keras sequential classifier using a RestNet architecture she consumed from TensorFlow Hub. She tested the model and she is happy with the results. She decides to use that model to solve the car prediction problem . This thing we have just descrived is __a deployment__.
+Now, let's imagine that one data scientists, Alice, is working on its implementation. Alice is  well versed on TensorFlow so she decided to implement the model using a Keras sequential classifier using a RestNet architecture she consumed from TensorFlow Hub. She tested the model and she is happy with the results. She decides to use that model to solve the car prediction problem. This thing we have just described is __a deployment__.
 
-Finally, let's imagine that after running for a couple of months, the organization discovers that the application is not that great on predicting the type of cars when the ilumination conditions are not ideal. Bob, another data scientist, knows a lot about data aumentation techniques that can be used to help the model build robustness on that factor. However, he feels more confortable using Torch rather than TensorFlow. He trained another model then using those techniques and he is happy with the results. He would like to try this model on production gradually until the organization is ready to retire the old one. We have just descrived __another deployment under the same endpoint__.
+Finally, let's imagine that after running for a couple of months, the organization discovers that the application performs poorly on images with no ideal illumination conditions. Bob, another data scientist, knows a lot about data argumentation techniques that can be used to help the model build robustness on that factor. However, he feels more comfortable using Torch rather than TensorFlow. He trained another model then using those techniques and he is happy with the results. He would like to try this model on production gradually until the organization is ready to retire the old one. We have just described __another deployment under the same endpoint__.
 
 ## Endpoints and deployments
 
-An **endpoint**, is an stable and durable URL that can be used to request or invoke the model, provide the required inputs, and get the outputs back. An endpoint provides:
+An **endpoint**, is a stable and durable URL that can be used to request or invoke the model, provide the required inputs, and get the outputs back. An endpoint provides:
 
-- An stable and durable URL (like endpoint-name.region.inference.ml.azure.com).
+- a stable and durable URL (like endpoint-name.region.inference.ml.azure.com).
 - An authentication and authentication mechanism.
 
 A **deployment** is a set of resources required for hosting the model or component that does the actual inferencing. A single endpoint can contain multiple deployments which can host independent assets and consume different resources based on what the actual assets require. Endpoints have a routing mechanism that can route the request generated for the clients to specific deployments under the endpoint.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments.":::
 
-To function properly, __each endpoint needs ot have at least one deployment__. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
+To function properly, __each endpoint needs to have at least one deployment__. Endpoints and deployments are independent Azure Resource Manager resources that appear in the Azure portal.
 
 ## Online and batch endpoints
 
@@ -49,7 +49,7 @@ Azure Machine Learning allows you to implement [online endpoints](concept-endpoi
 
 ### When to use what
 
-Use [online endpoints](concept-endpoints-online.md) to operationalize models for real-time inference in synchronous low-latency requests. We recommend to use them when:
+Use [online endpoints](concept-endpoints-online.md) to operationalize models for real-time inference in synchronous low-latency requests. We recommend using them when:
 
 > [!div class="checklist"]
 > * You have low-latency requirements.
@@ -57,7 +57,7 @@ Use [online endpoints](concept-endpoints-online.md) to operationalize models for
 > * Your model's inputs fit on the HTTP payload of the request.
 > * You need to scale up in term of number of request.
 
-Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pipelines for long-running asynchronous inference. We recommend to use them when:
+Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pipelines for long-running asynchronous inference. We recommend using them when:
 
 > [!div class="checklist"]
 > * You have expensive models or pipelines that requires a longer time to run.
@@ -69,7 +69,7 @@ Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pi
 
 ### Comparison
 
-Both of online and batch endpoints use the same constructs, which helps you transition easily from one to the other. However, there are some differences that are important to take into account. Some of this differences are due to the nature of the work:
+Both of online and batch endpoints use the same constructs, which help you transition easily from one to the other. However, there are some differences that are important to take into account. Some of these differences are due to the nature of the work:
 
 #### Endpoints
 
