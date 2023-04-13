@@ -9,66 +9,78 @@ ms.custom: seo-python-october2019, mvc, devx-track-python, mode-api
 
 # Quickstart: Use Python API to run an Azure Batch job
 
-Get started with Azure Batch by using the Python API to run an Azure Batch job from an app. The app uploads input data files to Azure Storage and creates a pool of Batch compute nodes (virtual machines). It then creates a job that runs tasks to process each input file in the pool using a basic command.
+This quickstart shows you how to get started with Azure Batch by using the [Azure Batch libraries for Python](/python/api/overview/azure/batch). The quickstart uses a Python app to do the following actions:
 
-After completing this quickstart, you'll understand key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+> [!div class="checklist"]
+> - Upload three text files to a blob container in Azure Storage as inputs for Batch task processing.
+> - Create a *pool* of two compute *nodes* running Ubuntu 20.04 LTS OS.
+> - Create a *job* and three *tasks* to run on the nodes. Each task processes one of the input files by using a Bash shell command line.
+> - Display the output files that the tasks return.
 
-![Overview of the Azure Batch workflow](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
+After you complete this quickstart, you understand the [key concepts of the Batch service](batch-service-workflow-features.md) and are ready to use Batch with more realistic, larger scale workloads.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
+- A Batch account with a linked Azure Storage account. You can create the accounts by using any of the following methods:<br>[Azure CLI](quick-create-cli.md) | [Azure portal](quick-create-portal.md) | [Bicep](quick-create-bicep.md) | [ARM template](quick-create-template.md) | [Terraform](quick-create-terraform.md)
 
-- [Python](https://python.org/downloads) version 3.6 or later, including the [pip](https://pip.pypa.io/en/stable/installing/) package manager.
-
-## Sign in to Azure
-
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-
-[!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
-
-## Download the sample
-
-[Download or clone the sample app](https://github.com/Azure-Samples/batch-python-quickstart) from GitHub. To clone the sample app repo with a Git client, use the following command:
-
-```bash
-git clone https://github.com/Azure-Samples/batch-python-quickstart.git
-```
-
-Go to the directory that contains the Python script `python_quickstart_client.py`.
-
-In your Python development environment, install the required packages using `pip`.
-
-```bash
-pip install -r requirements.txt
-```
-
-Open the file `config.py`. Update the Batch and storage account credential strings with the values you obtained for your accounts. For example:
-
-```Python
-BATCH_ACCOUNT_NAME = 'mybatchaccount'
-BATCH_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxE+yXrRvJAqT9BlXwwo1CwF+SwAYOxxxxxxxxxxxxxxxx43pXi/gdiATkvbpLRl3x14pcEQ=='
-BATCH_ACCOUNT_URL = 'https://mybatchaccount.mybatchregion.batch.azure.com'
-STORAGE_ACCOUNT_NAME = 'mystorageaccount'
-STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
-```
+- [Python](https://python.org/downloads) version 3.6 or later, which includes the [pip](https://pip.pypa.io/en/stable/installing) package manager.
 
 ## Run the app
 
-To see the Batch workflow in action, run the script:
+To run the Python app, you need to provide your Batch and Storage account names, account keys, and Batch account endpoint. You can get this information from the Azure portal, Azure APIs, or command-line tools. To get these values from the Azure portal:
+  
+  1. From the Azure search bar, search for and select your Batch account name.
+  1. On your Batch account page, select **Keys** from the left navigation.
+  1. On the **Keys** page, copy the following values:
+  
+   - **Batch account**
+   - **Account endpoint**
+   - **Primary access key**
+   - **Storage account name**
+   - **Key1**
 
-```bash
-python python_quickstart_client.py
-```
+To run the app:
 
-After running the script, review the code to learn what each part of the application does.
+1. Download or clone the [Azure Batch Python Quickstart](https://github.com/Azure-Samples/batch-python-quickstart) app from GitHub. Use the following command to clone the app repo with a Git client:
 
-When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks in your Batch account.
+   ```bash
+   git clone https://github.com/Azure-Samples/batch-python-quickstart.git
+   ```
+
+1. Switch to the directory that contains the Python script file *python_quickstart_client.py*, and install the required packages by using `pip`.
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+1. Open the file *config.py*, and update the following strings, replacing the placeholders with the values you copied from your accounts.:
+
+   ```python
+   BATCH_ACCOUNT_NAME = '<batch account name>'
+   BATCH_ACCOUNT_KEY = '<primary access key>'
+   BATCH_ACCOUNT_URL = '<account endpoint>'
+   STORAGE_ACCOUNT_NAME = '<storage account name>'
+   STORAGE_ACCOUNT_KEY = '<key1>'
+   ```
+
+1. Run the script to see the Batch workflow in action.
+
+   ```bash
+   python python_quickstart_client.py
+   ```
+
+Typical execution time is approximately three minutes. Initial pool node setup takes the most time.
+
+### App output
+
+During app execution, there's a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. You can monitor node, task, and job status from your Batch account page in the Azure portal.
+
+The sample application returns output similar to the following example:
 
 ```output
-Sample start: 11/26/2018 4:02:54 PM
+Sample start: 11/26/2012 4:02:54 PM
 
 Uploading file taskdata0.txt to container [input]...
 Uploading file taskdata1.txt to container [input]...
@@ -79,7 +91,7 @@ Adding 3 tasks to job [PythonQuickstartJob]...
 Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 ```
 
-After tasks complete, you see output similar to the following for each task:
+After each task completes, you see output similar to the following example:
 
 ```output
 Printing task output...
@@ -90,58 +102,49 @@ Batch processing began with mainframe computers and punch cards. Today it still 
 ...
 ```
 
-Typical execution time is approximately 3 minutes when you run the application in its default configuration. Initial pool setup takes the most time.
-
 ## Review the code
 
-The Python app in this quickstart does the following:
+The Python app in this quickstart takes the following steps:
 
-- Uploads three small text files to a blob container in your Azure storage account. These files are inputs for processing by Batch tasks.
-- Creates a pool of two compute nodes running Ubuntu 20.04 LTS.
-- Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Bash shell command line.
-- Displays files returned by the tasks.
+### Upload resource files
 
-See the file `python_quickstart_client.py` and the following sections for details.
+1. To interact with the Storage account, the app creates a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object.
 
-### Preliminaries
+   ```python
+   blob_service_client = BlobServiceClient(
+           account_url=f"https://{config.STORAGE_ACCOUNT_NAME}.{config.STORAGE_ACCOUNT_DOMAIN}/",
+           credential=config.STORAGE_ACCOUNT_KEY
+       )
+   ```
 
-To interact with a storage account, the app creates a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object.
+1. The app uses the `blob_service_client` reference to create a container in the Storage account and upload data files to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
 
-```python
-blob_service_client = BlobServiceClient(
-        account_url=f"https://{config.STORAGE_ACCOUNT_NAME}.{config.STORAGE_ACCOUNT_DOMAIN}/",
-        credential=config.STORAGE_ACCOUNT_KEY
-    )
-```
+   ```python
+   input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
+                       os.path.join(sys.path[0], 'taskdata1.txt'),
+                       os.path.join(sys.path[0], 'taskdata2.txt')]
+   
+   input_files = [
+       upload_file_to_container(blob_service_client, input_container_name, file_path)
+       for file_path in input_file_paths]
+   ```
 
-The app uses the `blob_service_client` reference to create a container in the storage account and to upload data files to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
+1. The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch account. The Batch client uses shared key authentication. Batch also supports Azure Active Directory (Azure AD) authentication.
 
-```python
-input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
-                    os.path.join(sys.path[0], 'taskdata1.txt'),
-                    os.path.join(sys.path[0], 'taskdata2.txt')]
-
-input_files = [
-    upload_file_to_container(blob_service_client, input_container_name, file_path)
-    for file_path in input_file_paths]
-```
-
-The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports Azure Active Directory authentication.
-
-```python
-credentials = SharedKeyCredentials(config.BATCH_ACCOUNT_NAME,
-        config.BATCH_ACCOUNT_KEY)
-
-    batch_client = BatchServiceClient(
-        credentials,
-        batch_url=config.BATCH_ACCOUNT_URL)
-```
+   ```python
+   credentials = SharedKeyCredentials(config.BATCH_ACCOUNT_NAME,
+           config.BATCH_ACCOUNT_KEY)
+   
+       batch_client = BatchServiceClient(
+           credentials,
+           batch_url=config.BATCH_ACCOUNT_URL)
+   ```
 
 ### Create a pool of compute nodes
 
-To create a Batch pool, the app uses the [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 20.04 LTS image published in the Azure Marketplace. Batch supports a wide range of Linux and Windows Server images in the Azure Marketplace, as well as custom VM images.
+To create a Batch pool, the app uses the [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, virtual machine (VM) size, and pool configuration. The following [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 20.04 LTS Azure Marketplace image. Batch supports a wide range of Linux and Windows Server Marketplace images as well as custom VM images.
 
-The number of nodes (`POOL_NODE_COUNT`) and VM size (`POOL_VM_SIZE`) are defined constants. The sample by default creates a pool of 2 size *Standard_DS1_v2* nodes. The size suggested offers a good balance of performance versus cost for this quick example.
+The number of nodes (`POOL_NODE_COUNT`) and VM size (`POOL_VM_SIZE`) are defined constants. The app by default creates a pool of two size *Standard_DS1_v2* nodes. This size offers a good balance of performance versus cost for this quickstart.
 
 The [pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations) method submits the pool to the Batch service.
 
@@ -164,7 +167,9 @@ new_pool = batchmodels.PoolAddParameter(
 
 ### Create a Batch job
 
-A Batch job is a logical grouping of one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. The app uses the [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) class to create a job on your pool. The [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) method adds a job to the specified Batch account. Initially the job has no tasks.
+A Batch job is a logical grouping of one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on.
+
+The app uses the [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) class to create a job on the pool. The [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) method adds a job to the specified Batch account. Initially the job has no tasks.
 
 ```python
 job = batchmodels.JobAddParameter(
@@ -176,9 +181,9 @@ batch_service_client.job.add(job)
 
 ### Create tasks
 
-The app creates a list of task objects using the [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) class. Each task processes an input `resource_files` object using a `command_line` parameter. In the sample, the command line runs the Bash shell `cat` command to display the text file. This command is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+The app creates a list of task objects by using the [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) class. Each task uses a `command_line` parameter to process an input `resource_files` object. The command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
-Then, the app adds tasks to the job with the [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations) method, which queues them to run on the compute nodes.
+In the current example, the command line runs the Bash shell `cat` command to display the text file. Then, the app adds tasks to the job with the [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations) method, which queues the tasks to run on the compute nodes.
 
 ```python
 tasks = []
@@ -197,7 +202,7 @@ batch_service_client.task.add_collection(job_id, tasks)
 
 ### View task output
 
-The app monitors task state to make sure the tasks complete. Then, the app displays the `stdout.txt` file generated by each completed task. When the task runs successfully, the output of the task command is written to `stdout.txt`:
+The app monitors task state to make sure the tasks complete. When the task runs successfully, the output of the task command writes to the *stdout.txt* file. The app then displays the *stdout.txt* file each completed task generates.
 
 ```python
 tasks = batch_service_client.task.list(job_id)
@@ -233,7 +238,7 @@ When no longer needed, delete the resource group, Batch account, and storage acc
 
 ## Next steps
 
-In this quickstart, you ran a small app built using the Batch Python API to create a Batch pool and a Batch job. The job ran sample tasks, and downloaded output created on the nodes. Now that you understand the key concepts of the Batch service, you are ready to try Batch with more realistic workloads at larger scale. To learn more about Azure Batch, and walk through a parallel workload with a real-world application, continue to the Batch Python tutorial.
+In this quickstart, you ran an app that uses the Batch Python API to create a Batch pool, nodes, job, and tasks. The job uploaded resource files to an storage container, ran tasks on the nodes, and downloaded output created on the nodes. Now that you understand the key concepts of the Batch service, you're ready to use Batch with more realistic, larger-scale workloads. To learn more about Azure Batch and walk through a parallel workload with a real-world application, continue to the Batch Python tutorial.
 
 > [!div class="nextstepaction"]
 > [Process a parallel workload with Python](tutorial-parallel-python.md)
