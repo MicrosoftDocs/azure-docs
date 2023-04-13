@@ -7,6 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 04/07/2023
+ms.custom: devx-track-arm-template
 ms.author: jasteppe
 ---
 

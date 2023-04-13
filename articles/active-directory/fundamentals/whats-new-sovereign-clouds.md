@@ -19,7 +19,76 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 - [Azure Government](../../azure-government/documentation-government-welcome.md)
 
-This page is updated monthly, so revisit it regularly.
+This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Sovereign Clouds](whats-new-archive.md).
+
+## March 2023 
+
+### General Availability - Provisioning Insights Workbook
+
+**Type:** New feature   
+**Service category:** Provisioning                     
+**Product capability:** Monitoring & Reporting            
+
+This new workbook makes it easier to investigate and gain insights into your provisioning workflows in a given tenant. This includes HR-driven provisioning, cloud sync, app provisioning, and cross-tenant sync.
+
+Some key questions this workbook can help answer are:
+
+- How many identities have been synced in a given time range?
+- How many create, delete, update, or other operations were performed?
+- How many operations were successful, skipped, or failed?
+- What specific identities failed? And what step did they fail on?
+- For any given user, what tenants / applications were they provisioned or deprovisioned to?
+
+For more information, see: [Provisioning insights workbook](../app-provisioning/provisioning-workbook.md).
+
+---
+
+### General Availability - Follow Azure Active Directory best practices with recommendations
+
+**Type:** New feature   
+**Service category:** Reporting                       
+**Product capability:** Monitoring & Reporting            
+
+Azure Active Directory recommendations help you improve your tenant posture by surfacing opportunities to implement best practices. On a daily basis, Azure AD analyzes the configuration of your tenant. During this analysis, Azure Active Directory compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the Recommendations section of the Azure Active Directory Overview. 
+
+This release includes our first three recommendations:
+
+- Convert from per-user MFA to Conditional Access MFA
+- Migration applications from AD FS to Azure Active Directory
+- Minimize MFA prompts from known devices.
+
+We're developing more recommendations, so stay tuned!
+
+For more information, see: 
+
+- [What are Azure Active Directory recommendations?](../reports-monitoring/overview-recommendations.md).
+- [Use the Azure AD recommendations API to implement Azure AD best practices for your tenant](/graph/api/resources/recommendations-api-overview)
+
+---
+
+### General Availability - Improvements to Azure Active Directory Smart Lockout
+
+**Type:** Changed feature   
+**Service category:** Other                          
+**Product capability:** User Management             
+
+With a recent improvement, Smart Lockout now synchronizes the lockout state across Azure Active Directory data centers, so the total number of failed sign-in attempts allowed before an account is locked will match the configured lockout threshold.
+
+For more information, see: [Protect user accounts from attacks with Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md).
+
+---
+
+### General Availability- MFA events from ADFS and NPS adapter available in Sign-in logs
+
+**Type:** Changed feature   
+**Service category:** MFA                            
+**Product capability:** Identity Security & Protection              
+
+Customers with Cloud MFA activity from ADFS adapter, or NPS Extension, can now see these events in the Sign-in logs, rather than the legacy multi-factor authentication activity report.  Not all attributes in the sign-in logs are populated for these events due to limited data from the on-premises components. Customers with ADFS using AD Health Connect and customers using NPS with the latest NPS extension installed will have a richer set of data in the events.
+
+For more information, see: [Protect user accounts from attacks with Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md).
+
+---
 
 ## February 2023
 
@@ -39,7 +108,7 @@ Filter and transform group names in token claims configuration using regular exp
 **Service category:** Enterprise Apps             
 **Product capability:** SSO          
 
-Azure AD now has the capability to filter the groups included in the token using substring match on the display name or **onPremisesSAMAccountName** attributes of the group object.  Only Groups the user is a member of will be included in the token.This was a blocker for some of our customers to migrate their apps from ADFS to Azure AD. This feature will unblock those challenges. 
+Azure AD now has the capability to filter the groups included in the token using substring match on the display name or **onPremisesSAMAccountName** attributes of the group object.  Only Groups the user is a member of will be included in the token. This was a blocker for some of our customers to migrate their apps from ADFS to Azure AD. This feature will unblock those challenges. 
 
 For more information, see: 
 - [Group Filter](../develop/reference-claims-mapping-policy-type.md#group-filter).
@@ -80,7 +149,7 @@ Microsoft cloud settings let you collaborate with organizations from different M
 - Microsoft Azure commercial and Microsoft Azure Government
 - Microsoft Azure commercial and Microsoft Azure China 21Vianet
 
-For more information about Microsoft cloud settings for B2B collaboration., see: [Microsoft cloud settings](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
+For more information about Microsoft cloud settings for B2B collaboration, see: [Microsoft cloud settings](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
 
 ---
 
@@ -212,7 +281,7 @@ We're excited to announce the general availability of hybrid cloud Kerberos trus
 **Product capability:** Outbound to SaaS Applications  
  
 
-Accidental deletion of users in your apps or in your on-premises directory could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability. When a provisioning job would cause a spike in deletions, it will first pause and provide you visibility into the potential deletions. You can then accept or reject the deletions and have time to update the job’s scope if necessary. For more information, see [Understand how expression builder in Application Provisioning works](../app-provisioning/expression-builder.md).
+Accidental deletion of users in your apps or in your on-premises directory could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability. When a provisioning job would cause a spike in deletions, it will first pause and provide you with visibility into the potential deletions. You can then accept or reject the deletions and have time to update the job’s scope if necessary. For more information, see [Understand how expression builder in Application Provisioning works](../app-provisioning/expression-builder.md).
  
 
 ---
@@ -239,7 +308,7 @@ Azure AD Connect Cloud Sync Password writeback now provides customers the abilit
 
 
 
-Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Azure AD provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold, the Azure AD provisioning service will pause, provide you visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Azure AD Connect, and Azure AD Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
+Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Azure AD provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold, the Azure AD provisioning service will pause, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Azure AD Connect, and Azure AD Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
 
 For more information, see: [Enable accidental deletions prevention in the Azure AD provisioning service](../app-provisioning/accidental-deletions.md)
 
@@ -337,165 +406,6 @@ You can now create or update dynamic device groups using the following propertie
 For more information on how to use this feature, see: [Dynamic membership rule for device groups](../enterprise-users/groups-dynamic-membership.md#rules-for-devices) 
  
 ---
-
-## September 2022
-
-
-### General Availability - No more waiting, provision groups on demand into your SaaS applications.
-
-**Type:** New feature  
-**Service category:** Provisioning  
-**Product capability:** Identity Lifecycle Management  
- 
-
-Pick a group of up to five members and provision them into your third-party applications in seconds. Get started testing, troubleshooting, and provisioning to non-Microsoft applications such as ServiceNow, ZScaler, and Adobe. For more information, see: [On-demand provisioning in Azure Active Directory](../app-provisioning/provision-on-demand.md).
- 
----
-
-### General Availability - Devices Overview 
-
-**Type:** New feature  
-**Service category:** Device Registration and Management     
-**Product capability:** Device Lifecycle Management 
-
- 
-
-The new Device Overview in the Azure portal provides meaningful and actionable insights about devices in your tenant.
-
-In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. You'll also find links to Intune, Conditional Access, BitLocker keys, and basic monitoring. For more information, see: [Manage device identities by using the Azure portal](../devices/device-management-azure-portal.md).
- 
----
-
-### General Availability - Support for Linux as Device Platform in Azure AD Conditional Access
-
-**Type:** New feature  
-**Service category:** Conditional Access     
-**Product capability:** User Authentication     
-
- 
-
-Added support for “Linux” device platform in Azure AD Conditional Access.
-
-An admin can now require a user is on a compliant Linux device, managed by Intune, to sign-in to a selected service (for example ‘all cloud apps’ or ‘Office 365’). For more information, see: [Device platforms](../conditional-access/concept-conditional-access-conditions.md#device-platforms)
- 
----
-
-### General Availability - Cross-tenant access settings for B2B collaboration
-
-**Type:** Changed feature  
-**Service category:** B2B  
-**Product capability:** B2B/B2C  
-
- 
-
-Cross-tenant access settings enable you to control how users in your organization collaborate with members of external Azure AD organizations. Now you’ll have granular inbound and outbound access control settings that work on a per org, user, group, and application basis. These settings also make it possible for you to trust security claims from external Azure AD organizations like multi-factor authentication (MFA), device compliance, and hybrid Azure AD joined devices. For more information, see: [Cross-tenant access with Azure AD External Identities](../external-identities/cross-tenant-access-overview.md).
- 
----
-
-### General Availability - Location Aware Authentication using GPS from Authenticator App
-
-**Type:** New feature  
-**Service category:** Conditional Access     
-**Product capability:** Identity Security & Protection     
-
- 
-
-Admins can now enforce Conditional Access policies based off of GPS location from Authenticator. For more information, see: [Named locations](../conditional-access/location-condition.md#named-locations).
- 
----
-
-### General Availability - My Sign-ins now supports org switching and improved navigation
-
-**Type:** Changed feature  
-**Service category:** MFA      
-**Product capability:** End User Experiences     
-
- 
-
-We've improved the My Sign-ins experience to now support organization switching. Now users who are guests in other tenants can easily switch and sign-in to manage their security info and view activity. More improvements were made to make it easier to switch from My Sign-ins directly to other end user portals such as My Account, My Apps, My Groups, and My Access. For more information, see: [Sign-in logs in Azure Active Directory - preview](../reports-monitoring/concept-all-sign-ins.md)
- 
----
-
-### General Availability - Temporary Access Pass is now available
-
-**Type:** New feature  
-**Service category:** MFA  
-**Product capability:** User Authentication  
-
- 
-
-Temporary Access Pass (TAP) is now generally available. TAP can be used to securely register password-less methods such as Phone Sign-in, phishing resistant methods such as FIDO2, and even help Windows onboarding (AADJ and WHFB). TAP also makes recovery easier when a user has lost or forgotten their strong authentication methods and needs to sign in to register new authentication methods. For more information, see: [Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods](../authentication/howto-authentication-temporary-access-pass.md).
- 
----
-
-### General Availability - Ability to force reauthentication on Intune enrollment, risky sign-ins, and risky users
-
-**Type:** New feature      
-**Service category:** Conditional Access     
-**Product capability:** Identity Security & Protection     
-
- 
-
-In some scenarios customers may want to require a fresh authentication, every time before a user performs specific actions. Sign-in frequency Every time support requiring a user to reauthenticate during Intune device enrollment, password change for risky users and risky sign-ins.
-
-More information: [Configure authentication session management](../conditional-access/howto-conditional-access-session-lifetime.md#require-reauthentication-every-time).
- 
----
-
-### General Availability - Non-interactive risky sign-ins
-
-**Type:** Changed feature  
-**Service category:** Identity Protection     
-**Product capability:** Identity Security & Protection    
-
- 
-
-Identity Protection now emits risk (such as unfamiliar sign-in properties) on non-interactive sign-ins. Admins can now find these non-interactive risky sign-ins using the "sign-in type" filter in the Risky sign-ins report. For more information, see: [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md).
-
----
-
- 
-### General Availability - Workload Identity Federation with App Registrations are available now
-
-**Type:** New feature     
-**Service category:** Other      
-**Product capability:** Developer Experience      
-
- 
-
-Entra Workload Identity Federation allows developers to exchange tokens issued by another identity provider with Azure AD tokens, without needing secrets. It eliminates the need to store, and manage, credentials inside the code or secret stores to access Azure AD protected resources such as Azure and Microsoft Graph. By removing the secrets required to access Azure AD protected resources, workload identity federation can improve the security posture of your organization. This feature also reduces the burden of secret management and minimizes the risk of service downtime due to expired credentials.
-
-For more information on this capability and supported scenarios, see: [Workload identity federation](../develop/workload-identity-federation.md).
- 
-
----
-
-### General Availability - Continuous Access Evaluation
-
-**Type:** New feature  
-**Service category:** Other      
-**Product capability:** Access Control    
-
- 
-
-With Continuous access evaluation (CAE), critical security events and policies are evaluated in real time. This includes account disable, password reset, and location change. For more information, see: [Continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md)
- 
----
-
-
-###  Public Preview – Protect against by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD
-
-**Type:** New feature  
-**Service category:** MS Graph  
-**Product capability:** Identity Security & Protection  
-
-
-We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true). 
-
-We highly recommend enabling this new protection when using Azure AD Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad).
- 
----
-
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

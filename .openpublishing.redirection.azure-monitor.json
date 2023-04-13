@@ -46,6 +46,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-runtime-exceptions.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-runtime-exceptions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-performance.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-users.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/custom-data-correlation.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/custom-data-correlation",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/correlation.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
             "redirect_document_id": false

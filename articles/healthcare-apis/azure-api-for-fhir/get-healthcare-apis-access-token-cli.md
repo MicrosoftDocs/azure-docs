@@ -5,6 +5,7 @@ services: healthcare-apis
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 06/03/2022
 ms.author: kesheth

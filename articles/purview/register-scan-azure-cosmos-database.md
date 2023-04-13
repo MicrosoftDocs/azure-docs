@@ -1,5 +1,5 @@
 ---
-title: 'Connect to Azure Cosmos DB Database (SQL API)'
+title: 'Connect to Azure Cosmos DB for NoSQL'
 description: This article outlines the process to register an Azure Cosmos DB instance in Microsoft Purview including instructions to authenticate and interact with the Azure Cosmos DB database
 author: athenads
 ms.author: athenadsouza
@@ -15,9 +15,9 @@ This article outlines the process to register and scan Azure Cosmos DB for NoSQL
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[No](#scan) | [Yes](#scan)|[Yes](#scan)|No|No** | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)|[No](#scan) | [Yes](#scan)|[Yes](#scan)|[Yes](create-sensitivity-label.md)|No|No** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
