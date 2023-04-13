@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Audit controls safeguard guidance
 
-Azure Active Directory (Azure AD) meets identity-related practice requirements for implementing Health Insurance Portability and Accountability Act (HIPAA) safeguards. To be HIPAA compliant, implement the safeguards using this guidance, with other needed configurations or processes.
+Azure Active Directory (Azure AD) meets identity-related practice requirements for implementing Health Insurance Portability and Accountability Act of 1996 (HIPAA) safeguards. To be HIPAA compliant, implement the safeguards using this guidance, with other needed configurations or processes.
 
 For the audit controls:
 
