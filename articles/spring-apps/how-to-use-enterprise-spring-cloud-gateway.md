@@ -144,7 +144,7 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
    Save the following content to a *test-api.json* file. This configuration includes a RateLimit filter, which allows 20 requests every 10 seconds, and a RewritePath filter, which allows the request endpoint to reach the standard Spring Boot health check endpoint.
 
    ```json
-   [
+   {
      "protocol": "HTTP",
      "routes": [
        {
@@ -163,7 +163,7 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
          ]
        }
      ]
-   ]
+   }
    ```
 
    Then, use the following command to apply the rule to the app `test-app`:
