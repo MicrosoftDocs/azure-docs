@@ -277,7 +277,7 @@
       href: workflow-automation.md
     - name: Disable a recommendation
       displayName: recommendation, disable, security, policy, 
-      href: tutorial-security-policy.md#disable-security-policies-and-disable-recommendations
+      href: tutorial-security-policy.md#disable-a-security-recommendation
     - name: Exempt recommendations per resource, subscription, or management group
       displayName: disable, resource, exempt, recommendation
       href: exempt-resource.md

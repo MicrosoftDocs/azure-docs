@@ -125,7 +125,7 @@ If you want to set a **default** ACL entry, then add the string `default:` to th
 
 This example sets the ACL of a directory named `my-parent-directory`.
 
-This method accepts a boolean parameter named `is_default_scope` that specifies whether to set the default ACL. If that parameter is `True`, the list of ACL entries are preceded with the string `default:`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` read and execute permissions.
+This method accepts a boolean parameter named `is_default_scope` that specifies whether to set the default ACL. If that parameter is `True`, the list of ACL entries are preceded with the string `default:`. The entries in this example grant the following permissions: read, write, and execute permissions for the owning user, read and execute permissions for the owning group, and read permissions for all others. The last ACL entry in this example gives a specific user with the object ID `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` read permissions.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/ACL_datalake.py" id="Snippet_SetACLRecursively":::
 

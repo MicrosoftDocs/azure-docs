@@ -57,12 +57,12 @@ items:
       displayName: stt
     - name: Speech-to-text quickstart
       href: get-started-speech-to-text.md
-    - name: How to recognize speech
-      href: how-to-recognize-speech.md
-    - name: Get speech recognition results
-      href: get-speech-recognition-results.md
-    - name: Display text formatting
-      href: display-text-format.md
+    - name: Real-time speech-to-text
+      items:
+      - name: How to recognize speech
+        href: how-to-recognize-speech.md
+      - name: Get speech recognition results
+        href: get-speech-recognition-results.md
     - name: Batch transcription
       items:
       - name: What is batch transcription?
@@ -107,8 +107,10 @@ items:
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
+    - name: Display text formatting
+      href: display-text-format.md
     - name: Speech-to-text FAQ
-      displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
+      displayName: FAQ,STT,frequently asked questions
       href: faq-stt.yml
 - name: Text-to-speech
   items:
@@ -169,6 +171,9 @@ items:
     - name: Audio Content Creation
       href: how-to-audio-content-creation.md
       displayName: acc
+    - name: Text-to-speech FAQ
+      displayName: FAQ,TTS,frequently asked questions
+      href: faq-tts.yml
 - name: Speech translation
   items:
     - name: Speech translation overview
@@ -256,8 +261,6 @@ items:
           href: quickstarts/multi-device-conversation.md
     - name: Voice assistants
       items:
-        - name: Voice assistants documentation
-          href: index-voice-assistants.yml
         - name: Voice assistants overview
           href: voice-assistants.md
         - name: Voice assistants FAQ
@@ -367,6 +370,8 @@ items:
       items:
         - name: Enable logs in SDK
           href: how-to-use-logging.md
+        - name: Log audio and transcriptions
+          href: logging-audio-transcription.md
         - name: Troubleshoot the Speech SDK
           href: troubleshooting.md
           displayName: help, faq, tsg, error

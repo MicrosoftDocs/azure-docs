@@ -3,7 +3,7 @@ title: Integrating Azure with SAP RISE managed workloads| Microsoft Docs
 description: Describes integrating SAP RISE managed virtual network with customer's own Azure environment
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
-author: robiro
+author: msftrobiro
 manager: juergent
 editor: ''
 tags: azure-resource-manager
@@ -13,7 +13,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/21/2022
+ms.date: 04/07/2022
 ms.author: robiro
 
 ---
@@ -228,6 +228,10 @@ For more information on Microsoft Sentinel and SAP, including a deployment guide
 > SAP RISE/ECS is a fully managed service for your SAP landscape and thus Azure Monitoring for SAP is not intended to be utilized for such managed environment.
 
 SAP RISE/ECS doesn't support any integration with Azure Monitoring for SAP. RISE/ECS’s own monitoring and reporting is provided to the customer as defined by your service description with SAP.
+
+## Azure Center for SAP Solutions
+
+Just as with Azure Monitoring for SAP, SAP RISE/ECS doesn't support any integration with [Azure Center for SAP Solutions](../center-sap-solutions/overview.md) in any capability. All SAP RISE workloads are deployed by SAP and running in SAP's Azure tenant and subscription, without any access by customer to the Azure resources.
 
 ## Next steps
 Check out the documentation:

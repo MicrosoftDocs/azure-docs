@@ -244,6 +244,6 @@ Now when you select that unit in the map, the pop-up menu will have the new laye
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [manifest]: drawing-requirements.md#manifest-file-requirements
 [unitProperties]: drawing-requirements.md#unitproperties
-[categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json
+[categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json
 [Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
 [map configuration]: creator-indoor-maps.md#map-configuration

@@ -7,7 +7,7 @@ ms.author: jgao
 ms.date: 10/11/2022
 ms.topic: quickstart
 ms.service: azure-resource-manager
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-bicep
 ---
 
 # Quickstart: Create a container registry by using a Bicep file

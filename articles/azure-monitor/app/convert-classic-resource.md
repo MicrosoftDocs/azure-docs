@@ -81,22 +81,22 @@ To migrate a classic Application Insights resource to a workspace-based resource
 
 1. From your Application Insights resource, select **Properties** under the **Configure** heading in the menu on the left.
 
-   ![Screenshot that shows Properties under the Configure heading.](./media/convert-classic-resource/properties.png)
+   :::image type="content" source="./media/convert-classic-resource/properties.png" lightbox="./media/convert-classic-resource/properties.png" alt-text="Screenshot that shows Properties under the Configure heading.":::
 
 1. Select **Migrate to Workspace-based**.
 
-   ![Screenshot that shows the Migrate to Workspace-based button.](./media/convert-classic-resource/migrate.png)
+   :::image type="content" source="./media/convert-classic-resource/migrate.png" lightbox="./media/convert-classic-resource/migrate.png" alt-text="Screenshot that shows the Migrate to Workspace-based button.":::
 
 1. Select the Log Analytics workspace where you want all future ingested Application Insights telemetry to be stored. It can either be a Log Analytics workspace in the same subscription or a different subscription that shares the same Azure Active Directory tenant. The Log Analytics workspace doesn't have to be in the same resource group as the Application Insights resource.
 
    > [!NOTE]
    > Migrating to a workspace-based resource can take up to 24 hours, but the process is usually faster. Rely on accessing data through your Application Insights resource while you wait for the migration process to finish. After it's finished, you'll see new data stored in the Log Analytics workspace tables.
 
-   ![Screenshot that shows the Migration wizard UI with the option to select target workspace.](./media/convert-classic-resource/migration.png)
+   :::image type="content" source="./media/convert-classic-resource/migration.png" lightbox="./media/convert-classic-resource/migration.png" alt-text="Screenshot that shows the Migration wizard UI with the option to select target workspace.":::
 
    After your resource is migrated, you'll see the corresponding workspace information in the **Overview** pane.
 
-   ![Screenshot that shows the Workspace name.](./media/create-workspace-resource/workspace-name.png)
+   :::image type="content" source="./media/create-workspace-resource/workspace-name.png" lightbox="./media/create-workspace-resource/workspace-name.png" alt-text="Screenshot that shows the Workspace name.":::
 
    Selecting the blue link text takes you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
@@ -311,11 +311,11 @@ The legacy **Continuous export** functionality isn't supported for workspace-bas
 
 1. From your Application Insights resource view, under the **Configure** heading, select **Continuous export**.
 
-    ![Screenshot that shows the Continuous export menu item.](./media/convert-classic-resource/continuous-export.png)
+    :::image type="content" source="./media/convert-classic-resource/continuous-export.png" lightbox="./media/convert-classic-resource/continuous-export.png" alt-text="Screenshot that shows the Continuous export menu item.":::
 
 1. Select **Disable**.
 
-    ![Screenshot that shows the Continuous export Disable button.](./media/convert-classic-resource/disable.png)
+    :::image type="content" source="./media/convert-classic-resource/disable.png" lightbox="./media/convert-classic-resource/disable.png" alt-text="Screenshot that shows the Continuous export Disable button.":::
 
    - After you select **Disable**, you can go back to the migration UI. If the **Edit continuous export** page prompts you that your settings aren't saved, select **OK**. This prompt doesn't pertain to disabling or enabling continuous export.
 
@@ -340,7 +340,7 @@ The structure of a Log Analytics workspace is described in [Log Analytics worksp
 > [!NOTE]
 > The classic Application Insights experience includes backward compatibility for your resource queries, workbooks, and log-based alerts. To query or view against the [new workspace-based table structure or schema](#table-structure), first go to your Log Analytics workspace. During the preview, selecting **Logs** in the Application Insights pane gives you access to the classic Application Insights query experience. For more information, see [Query scope](../logs/scope.md).
 
-[![Diagram that shows the Azure Monitor Logs structure for Application Insights.](../logs/media/data-platform-logs/logs-structure-ai.png)](../logs/media/data-platform-logs/logs-structure-ai.png#lightbox)
+[:::image type="content" source="../logs/media/data-platform-logs/logs-structure-ai.png" lightbox="../logs/media/data-platform-logs/logs-structure-ai.png" alt-text="Diagram that shows the Azure Monitor Logs structure for Application Insights.":::
 
 ### Table structure
 
