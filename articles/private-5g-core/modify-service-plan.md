@@ -2,8 +2,8 @@
 title: Modify a service plan
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to modify a service plan using the Azure portal. 
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 10/13/2022
@@ -17,14 +17,11 @@ The *service plan* determines an allowance for the throughput and the number of 
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Verify pricing and charges associated with the service plan to which you want to move. See the [Azure Private 5G Core Pricing page](https://azure.microsoft.com/pricing/details/private-5g-core/) for pricing information.
+- Verify pricing and charges associated with your chosen service plan. See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/).
 
 ## Choose a new service plan
 
-Choose the new service plan that will best fit your requirements. Refer to the following resources:
-
-- [Azure Private 5G Core pricing](https://azure.microsoft.com/en-us/pricing/details/private-5g-core/)
-- [Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=private-5g-core)
+Choose the new service plan that will best fit your requirements. See [Azure Private 5G Core pricing](https://azure.microsoft.com/en-us/pricing/details/private-5g-core/).
 
 ## View the current service plan
 
