@@ -183,7 +183,7 @@ Enter the Username and Password and click the Connect button.
 
 This will open a new tab with a secure connection to your virtual machine where the Oracle software is already installed from an Azure Marketplace image.
 
-![Screenshot of connect via Bastion on browser.](./media/configure-oracle-dataguard/configure-connect-bastion-browser-tab.png)
+![Screenshot of connect via Bastion on browser.](./media/configure-oracle-dataguard/connect-bastion-browser-tab.png)
    
 ### Configure OracleVM1 (primary)
 ```bash
