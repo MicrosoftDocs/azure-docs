@@ -103,7 +103,7 @@ Compute targets are attached to your [Azure Machine Learning workspace](concept-
 
 ## Deploy
 
-To perform real-time inferencing, you must deploy a pipeline as an [online endpoint](concept-endpoints.md#what-are-online-endpoints). The online endpoint creates an interface between an external application and your scoring model. A call to an online endpoint returns prediction results to the application in real time. To make a call to an online endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
+To perform real-time inferencing, you must deploy a pipeline as an [online endpoint](concept-endpoints-online.md). The online endpoint creates an interface between an external application and your scoring model. A call to an online endpoint returns prediction results to the application in real time. To make a call to an online endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
 
 Online endpoints must be deployed to an Azure Kubernetes Service cluster.
 

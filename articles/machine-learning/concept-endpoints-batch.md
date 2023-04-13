@@ -20,6 +20,16 @@ After you train a machine learning model, you need to deploy it so that others c
 
 **Batch endpoints** are endpoints that are used to do batch inferencing on large volumes of data over in ansyncronous way.  Batch endpoints receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
 
+We recommend to use them when:
+
+> [!div class="checklist"]
+> * You have expensive models or pipelines that requires a longer time to run.
+> * You want to operationalize machine learning pipelines and reuse components.
+> * You need to perform inference over large amounts of data, distributed in multiple files.
+> * You don't have low latency requirements.
+> * Your model's inputs are stored in an Storage Account or in an Azure Machine learning data asset.
+> * You can take advantage of parallelization.
+
 ## Batch deployments
 
 A deployment is a set of resources and compute required to implement the functionality the endpoint provides. Each endpoint can host multiple deployments with different configuration, which helps *decouple the interface* indicated by the endpoint, from *the implementation details* indicated by the deployment. Batch endpoints automatically route the client to the default deployment which can be configured and changed at any time.

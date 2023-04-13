@@ -1,5 +1,5 @@
 ---
-title: What are endpoints?
+title: Use endpoints for inference
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning endpoints to simplify machine learning deployments.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.date: 02/07/2023
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
-# What are Azure Machine Learning endpoints?
+# Use endpoints for inference
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -60,7 +60,8 @@ Use [online endpoints](concept-endpoints-online.md) to operationalize models for
 Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pipelines for long-running asynchronous inference. We recommend to use them when:
 
 > [!div class="checklist"]
-> * You have expensive models that requires a longer time to run inference.
+> * You have expensive models or pipelines that requires a longer time to run.
+> * You want to operationalize machine learning pipelines and reuse components.
 > * You need to perform inference over large amounts of data, distributed in multiple files.
 > * You don't have low latency requirements.
 > * Your model's inputs are stored in an Storage Account or in an Azure Machine learning data asset.

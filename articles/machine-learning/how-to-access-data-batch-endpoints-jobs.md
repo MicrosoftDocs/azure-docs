@@ -25,14 +25,14 @@ Batch endpoints can be used to perform long batch operations over large amounts 
 
 ## Understanding inputs and outputs
 
-Batch endpoints provide a durable API that consumers can use to create batch jobs. The same interface can be used to indicate the inputs and the outputs your deployment expects. Use inputs to pass any information your endpoint needs to perform the job. As a best practice, try to treat these inputs are the public contract of your endpoint, thinking about how your consumers will indicate values, and how you are thinking on evolving the interface on the future.
+Batch endpoints provide a durable API that consumers can use to create batch jobs. The same interface can be used to indicate the inputs and the outputs your deployment expects. Use inputs to pass any information your endpoint needs to perform the job. 
 
-Depending on the [type of batch deployment](how-to-use-batch-endpoints.md#batch-deployments), the inputs and outputs you are indicating:
+Depending on the [type of batch deployment](concept-endpoints-batch.md#batch-deployments), the inputs and outputs you are indicating:
 
-| Deployment type        | Input's number | Input's types              | Output's number | Output's types              |
+| Deployment type        | Input's number | Suported input's types              | Output's number | Suported output's types              |
 | ---------------------- | -------------- | -------------------------- | --------------- | --------------------------- |
-| [Model deployment](how-to-use-batch-model-deployments.md)  | 1              | [Data input](#data-inputs) | 1               | [Data outputs](#data-inputs) |
-| [Pipeline component deployment](how-to-use-batch-pipeline-deployments.md)  | [0..N]         | [Data inputs](#data-inputs) and/or [literal inputs](#literal-inputs)  | [0..N]   | [Data outputs](#data-inputs) and/or [literal outputs](#literal-inputs)
+| [Model deployment](concept-endpoints-batch.md#model-deployments)  | 1              | [Data input](#data-inputs) | 1               | [Data outputs](#data-inputs) |
+| [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment)  | [0..N]         | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs)  | [0..N]   | [Data outputs](#data-outputs) |
 
 Model deployments always require 1 input and produce 1 output. Input and outputs should be a data asset. However, pipeline component deployments provide a more general construct to build endpoints. You can indicate any number of inputs and outputs in a pipeline and deploy them as an endpoint.
 
@@ -65,7 +65,7 @@ Batch endpoints support reading files located in the following storage options:
 > __Deprecation notice__: Datasets of type `FileDataset` (V1) are deprecated and will be retired in the future. Existing batch endpoints relying on this functionality will continue to work but batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 dataset.
 
 
-### Input data from a data asset
+#### Input data from a data asset
 
 Azure Machine Learning data assets (formerly known as datasets) are supported as inputs for jobs. Follow these steps to run a batch endpoint job using data stored in a registered data asset in Azure Machine Learning:
 
@@ -200,7 +200,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     Content-Type: application/json
     ```
 
-### Input data from data stores
+#### Input data from data stores
 
 Data from Azure Machine Learning registered data stores can be directly referenced by batch deployments jobs. In this example, we're going to first upload some data to the default data store in the Azure Machine Learning workspace and then run a batch deployment on it. Follow these steps to run a batch endpoint job using data stored in a data store:
 
@@ -314,7 +314,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     Content-Type: application/json
     ```
 
-### Input data from Azure Storage Accounts
+#### Input data from Azure Storage Accounts
 
 Azure Machine Learning batch endpoints can read data from cloud locations in Azure Storage Accounts, both public and private. Use the following steps to run a batch endpoint job using data stored in a storage account:
 
@@ -522,6 +522,127 @@ Authorization: Bearer <TOKEN>
 Content-Type: application/json
 ```
 ---
+
+## Data outputs
+
+Data outputs refer to the location where the results of a batch job should be placed. Outputs are indentified by name and Azure Machine Learning automatically assign a unique path to each named output. However, you can indicate another path if required. Batch Endpoints only support writing outputs in blob Azure Machine learning data stores. 
+
+The following example shows how to change the location where an output named `score` is placed. For completeness, this examples also configure an input named `heart_dataset`.
+
+1. Let's use the default data store in the Azure Machine Learning workspace to save the outputs. You can use any other data store in your workspace as long as it's an blob storage account. 
+
+    # [Azure CLI](#tab/cli)
+
+    ```azurecli
+    DATASTORE_ID=$(az ml datastore show -n workspaceblobstore | jq -r '.id')
+    ```
+    
+    > [!NOTE]
+    > Data stores ID would look like `/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>`.
+
+    # [Python](#tab/sdk)
+
+    ```python
+    default_ds = ml_client.datastores.get_default()
+    ```
+
+    # [REST](#tab/rest)
+
+    Use the Azure Machine Learning CLI, Azure Machine Learning SDK for Python, or Studio to get the data store information.
+    
+    ---
+    
+    > [!TIP]
+    > The default blob data store in a workspace is called __workspaceblobstore__. You can skip this step if you already know the resource ID of the default data store in your workspace.
+
+1. Create a data output:
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    DATA_PATH="batch-jobs/my-unique-path"
+    OUTPUT_PATH="$DATASTORE_ID/paths/$DATA_PATH"
+    ```
+
+    For completeness, let's also create a data input:
+
+    ```azurecli
+    INPUT_PATH="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+    ```
+
+    # [Python](#tab/sdk)
+
+    ```python
+    data_path = "batch-jobs/my-unique-path"
+    output = Output(type=AssetTypes.URI_FOLDER, path=f"{default_ds.id}/paths/{data_path})
+    ```
+
+    For completeness, let's also create a data input:
+
+    ```python
+    input="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+    ```
+
+    # [REST](#tab/rest)
+
+    __Body__
+
+    ```json
+    {
+        "properties": {
+            "InputData": {
+               "heart_dataset": {
+                   "JobInputType" : "UriFolder",
+                   "Uri": "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+               }
+            },
+            "OutputData": {
+                "score": {
+                    "JobOutputType" : "UriFolder",
+                    "Uri": "azureml:/subscriptions/<subscription>/resourceGroups/<resource-group/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>/paths/<data-path>"
+                }
+            }
+        }
+    }
+    ```
+    ---
+    
+    > [!NOTE]
+    > See how the path `paths` is appended to the resource id of the data store to indicate that what follows is a path inside of it.
+
+1. Run the deployment:
+
+    # [Azure CLI](#tab/cli)
+   
+    Use the argument `--set` to indicate the input:
+
+    ```azurecli
+    az ml batch-endpoint invoke --name $ENDPOINT_NAME \
+        --set inputs.heart_dataset.path $INPUT_PATH \
+        --set outputs.score.path $OUTPUT_PATH
+    ```
+   
+    # [Python](#tab/sdk)
+   
+    ```python
+    job = ml_client.batch_endpoints.invoke(
+       endpoint_name=endpoint.name,
+       inputs={ "heart_dataset": input },
+       outputs={ "score": output }
+    )
+    ```
+
+    # [REST](#tab/rest)
+
+    __Request__
+    
+    ```http
+    POST jobs HTTP/1.1
+    Host: <ENDPOINT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-Type: application/json
+    ```
+
 
 ## Next steps
 

@@ -103,7 +103,7 @@ Model deployments can only deploy registered models so we need to register it. Y
     
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="download_model" :::
     
-    # [Python](#tab/sdk)
+    # [Python](#tab/python)
 
     ```python
     import os
@@ -126,7 +126,7 @@ Model deployments can only deploy registered models so we need to register it. Y
     az ml model create --name $MODEL_NAME --path "model"
     ```
 
-    # [Python](#tab/sdk)
+    # [Python](#tab/python)
 
     ```python
     model_name = 'imagenet-classifier'
@@ -171,7 +171,7 @@ One the scoring script is created, it's time to create a batch deployment for it
    
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deployment-by-file.yml" range="7-10":::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    Let's get a reference to the environment:
    
@@ -195,7 +195,7 @@ One the scoring script is created, it's time to create a batch deployment for it
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_batch_deployment_set_default" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    To create a new deployment with the indicated environment and scoring script use the following code:
    
@@ -235,7 +235,7 @@ One the scoring script is created, it's time to create a batch deployment for it
    az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
    ```
    
-   # [Azure Machine Learning SDK for Python](#tab/sdk)
+   # [Azure Machine Learning SDK for Python](#tab/python)
    
    ```python
    endpoint.defaults.deployment_name = deployment.name
@@ -254,7 +254,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="download_sample_data" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    !wget https://azuremlexampledata.blob.core.windows.net/data/imagenet-1000.zip
@@ -275,7 +275,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_sample_data_asset" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    data_path = "data"
@@ -310,7 +310,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    input = Input(type=AssetTypes.URI_FOLDER, path=imagenet_sample.id)
@@ -330,7 +330,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="show_job_in_studio" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    ml_client.jobs.get(job.name)
@@ -344,7 +344,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="download_scores" :::
 
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
 
    ```python
    ml_client.jobs.download(name=job.name, output_name='score', download_path='./')
@@ -400,7 +400,7 @@ On those cases, we may want to perform inference on the entire batch of data. Th
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_batch_deployment_ht" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    To create a new deployment with the indicated environment and scoring script use the following code:
    

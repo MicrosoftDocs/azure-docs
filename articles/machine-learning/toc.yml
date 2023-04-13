@@ -895,7 +895,7 @@
               href: how-to-troubleshoot-online-endpoints.md
         - name: Batch endpoints
           items:
-            - name: How to work with batch endpoints
+            - name: Work with batch endpoints and deployments
               href: how-to-use-batch-endpoints.md
             - name: Create jobs and input data to batch endpoints
               href: how-to-access-data-batch-endpoints-jobs.md
@@ -903,12 +903,12 @@
               items:
                 - name: Deploy models for scoring in batch endpoints
                   href: how-to-use-batch-model-deployments.md
+                - name: Deploy MLflow models in batch deployments
+                  href: how-to-mlflow-batch.md
                 - name: Author scoring scripts
                   href: how-to-batch-scoring-script.md
-                - name: Customize outputs in batch jobs
+                - name: Customize outputs in model's batch jobs
                   href: how-to-deploy-model-custom-output.md
-                - name: Use MLflow models in batch deployments
-                  href: how-to-mlflow-batch.md
                 - name: Image processing with batch model deployments
                   href: how-to-image-processing-batch.md
                 - name: Text processing with batch model deployments

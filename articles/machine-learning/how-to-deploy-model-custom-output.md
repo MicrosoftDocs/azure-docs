@@ -63,7 +63,7 @@ MODEL_NAME='heart-classifier-sklpipe'
 az ml model create --name $MODEL_NAME --type "custom_model" --path "model"
 ```
 
-# [Python](#tab/sdk)
+# [Python](#tab/python)
 
 ```python
 model_name = 'heart-classifier'
@@ -159,7 +159,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml" range="6-9":::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    Let's get a reference to the environment:
    
@@ -186,7 +186,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_batch_deployment_set_default" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    To create a new deployment under the created endpoint, use the following script:
    
@@ -249,7 +249,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    az ml data create -f heart-dataset-unlabeled.yml
    ```
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    data_path = "resources/heart-dataset/"
@@ -286,7 +286,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    input = Input(type=AssetTypes.URI_FOLDER, path=heart_dataset_unlabeled.id)
@@ -305,7 +305,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    az ml job show --name $JOB_NAME
    ```
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    ml_client.jobs.get(job.name)
@@ -328,7 +328,7 @@ To download the predictions, use the following command:
 az ml job download --name $JOB_NAME --output-name score --download-path ./
 ```
 
-# [Python](#tab/sdk)
+# [Python](#tab/python)
 
 ```python
 ml_client.jobs.download(name=job.name, output_name='score', download_path='./')
