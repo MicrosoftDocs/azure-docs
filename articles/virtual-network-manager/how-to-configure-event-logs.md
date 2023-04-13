@@ -21,6 +21,10 @@ In this article, you learn how to monitor Azure Virtual Network Manager for virt
 
 ## Configuring Diagnostic Settings
 
+Depending on how you consume event logs, you need to set up a Log Analytics workspace or a storage account for storing your log events. These are as storage targets when configuring diagnostic settings for Azure Virtual Network Manager. Once you have configured your diagnostic settings, you can view the event logs in the Log Analytics workspace or storage account.
+
+> [!NOTE]
+> At least one virtual network must be added or removed from a network group in order to generate logs. A log will generate for this event a couple minutes after network group membership change occurs. 
 ### Configure event logs with Log Analytics
 
 Log analytics is one option for storing event logs. In this task, you configure your Azure Virtual Network Manager Instance to use a Log Analytics workspace. This task assumes you have already deployed a Log Analytics workspace. If you haven't, see [Create a Log Analytics workspace](../azure-monitor/essentials/tutorial-resource-logs.md#create-a-log-analytics-workspace).

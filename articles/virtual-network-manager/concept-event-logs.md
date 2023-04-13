@@ -34,7 +34,7 @@ This category emits one log per network group membership change. So, when a virt
 | level | Always Info. |
 | properties | Collection of properties of the log. |
 
-Within the properties attribute are several nested attributes:
+Within the `properties` attribute are several nested attributes:
 
 | properties attributes | Description |
 |--------------------|-------------|
@@ -50,7 +50,7 @@ Within the `GroupMemberships` attribute are several nested attributes:
 | NetworkGroupId | ID of a network group the virtual network belongs to. |
 | Sources | Collection of how the virtual network is a member of the network group. |
 
-Within the Sources attribute are several nested attributes:
+Within the `Sources` attribute are several nested attributes:
 
 | Sources attributes | Description |
 |-------------------|-------------|
@@ -73,6 +73,6 @@ The network manager accessing the events isn't required to be in the same subscr
 > At least one virtual network must be added or removed from a network group in order to generate logs. A log will generate for this event a couple minutes after network group membership change occurs. 
 
 ## Next steps
-- Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
+- Learn to Configure Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
 - Learn more about [network groups](concept-network-groups.md) in Azure Virtual Network Manager.
 
