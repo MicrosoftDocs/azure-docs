@@ -23,7 +23,7 @@ The following Azure Storage Mover agent versions are supported:
 
 ### Azure Storage Mover update policy
 
-Preview agents are not automatically updated.
+Preview agents aren't automatically updated.
 Beginning with the general availability release of service and agent, all GA Azure Storage Mover agents are automatically updated to future versions. GA and newer agents automatically download and apply new functionality and bug fixes. If you need to [deploy another Storage Mover agent](agent-deploy.md), you can find the latest available agent version on [Microsoft Download Center](https://aka.ms/StorageMover/agent). Be sure to [register](agent-register.md) your newly deployed agent before you can utilize them for your migrations.
 
 The automatic agent update doesn't affect running migration jobs. Running jobs are allowed to complete before the update is locally applied on the agent. Any errors during the update process result in the automatic use of the previous agent version. In parallel, a new update attempt is started automatically. This behavior ensures an uninterrupted migration experience.
@@ -38,7 +38,7 @@ The automatic agent update doesn't affect running migration jobs. Running jobs a
 
 #### Lifecycle and change management guarantees
 
-Azure Storage Mover is a hybrid service, which continuously introduces new features and improvements. Azure Storage Mover agent versions can only be supported for a limited time. Agents automatically update themselves to the latest version. There is no need to manage any part of the self-update process. However, agents need to be running and connected to the internet to check for updates. To facilitate updates to agents that haven't been running for a while:
+Azure Storage Mover is a hybrid service, which continuously introduces new features and improvements. Azure Storage Mover agent versions can only be supported for a limited time. Agents automatically update themselves to the latest version. There's no need to manage any part of the self-update process. However, agents need to be running and connected to the internet to check for updates. To facilitate updates to agents that haven't been running for a while:
 
 - Major versions are supported for at least six months from the date of initial release.
 - We guarantee there's an overlap of at least three months between the support of major agent versions.
@@ -70,11 +70,11 @@ In addition to merging content from the source to the target (public preview), t
 
 The service now supports viewing copy logs and job logs in the Azure portal. An Azure Log Analytics workspace must be configured to receive the logs. This configuration is done once for a Storage Mover resource and applies to all agents and migration jobs in that Storage Mover resource. To configure an existing Storage Mover resource or learn how to create a new Storage Mover resource with this configuration, follow the steps in the article: [How to enable Azure Storage Mover copy and job logs](log-monitoring.md).
 
-It is possible to send the logs to a third party monitoring solution and even into a raw file in a storage account. However, the Storage Mover migration job-run blade in the Azure portal can only query a Log Analytics workspace for the logs. To get an integrated experience, be sure to select a Log Analytics workspace as a target.
+It's possible to send the logs to a third party monitoring solution and even into a raw file in a storage account. However, the Storage Mover migration job blade in the Azure portal can only query a Log Analytics workspace for the logs. To get an integrated experience, be sure to select a Log Analytics workspace as a target.
 
 ### Agent
 
-Private link connections from the agent into Azure are supported. Data that is migrated can travel from the agent over a private link connection to the target storage account in Azure. Agent registration can also be accomplished over a private link connection. Agent control messages (jobs, logs) can only be sent over the public endpoint of the Storage Mover agent gateway. If using a firewall or proxy server to restrict public access, make sure the following URL is not blocked: *.agentgateway.prd.azsm.azure.com. The concrete URL is determined by the Azure region of the Storage Mover resource the agent is registered with.
+Private link connections from the agent into Azure are supported. Data that is migrated can travel from the agent over a private link connection to the target storage account in Azure. Agent registration can also be accomplished over a private link connection. Agent control messages (jobs, logs) can only be sent over the public endpoint of the Storage Mover agent gateway. If using a firewall or proxy server to restrict public access, make sure the following URL isn't blocked: *.agentgateway.prd.azsm.azure.com. The concrete URL is determined by the Azure region of the Storage Mover resource the agent is registered with.
 
 ## 2022 September 15
 
