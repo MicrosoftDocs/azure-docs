@@ -111,7 +111,8 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     static String queueName = "<QUEUE NAME>";    
     ```
 
-    Replace `<QUEUE NAME>` with the name of the queue.
+    > [!IMPORTANT]
+    > Replace `<QUEUE NAME>` with the name of the queue.
 
     ### [Connection String](#tab/connection-string)
 
@@ -120,7 +121,8 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     static String queueName = "<QUEUE NAME>";    
     ```
 
-    Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of the queue.
+    > [!IMPORTANT]
+    > Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace, and `<QUEUE NAME>` with the name of the queue.
 
     ---
 3. Add a method named `sendMessage` in the class to send one message to the queue. 

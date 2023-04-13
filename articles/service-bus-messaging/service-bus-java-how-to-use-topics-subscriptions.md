@@ -112,7 +112,8 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     static String subName = "<SUBSCRIPTION NAME>";
     ```
 
-    Replace `<TOPIC NAME>` with the name of the topic, and replace `<SUBSCRIPTION NAME>` with the name of the topic's subscription.
+    > [!IMPORTANT]
+    > Replace `<TOPIC NAME>` with the name of the topic, and `<SUBSCRIPTION NAME>` with the name of the topic's subscription.
 
     ### [Connection String](#tab/connection-string)
 
@@ -122,16 +123,9 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     static String subName = "<SUBSCRIPTION NAME>";
     ```
 
-    Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. Replace `<TOPIC NAME>` with the name of the topic, and replace `<SUBSCRIPTION NAME>` with the name of the topic's subscription.
+    > [!IMPORTANT]
+    > Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. Replace `<TOPIC NAME>` with the name of the topic, and `<SUBSCRIPTION NAME>` with the name of the topic's subscription.
     ---
-1. In the class, define variables to hold connection string, topic name, and subscription name. 
-
-    ```java
-    static String topicName = "<TOPIC NAME>";    
-    static String subName = "<SUBSCRIPTION NAME>";
-    ```
-
-    Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. Replace `<TOPIC NAME>` with the name of the topic, and replace `<SUBSCRIPTION NAME>` with the name of the topic's subscription.
 3. Add a method named `sendMessage` in the class to send one message to the topic. 
 
     ### [Passwordless (Recommended)](#tab/passwordless)
