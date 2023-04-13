@@ -89,7 +89,7 @@
       href: how-to-configure-cross-tenant-cli.md
   - name: Monitoring
     items:
-    - name: configure Event Logs for Azure Virtual Network Manager
+    - name: Configure Event Logs for Azure Virtual Network Manager
       href: how-to-configure-event-logs.md
   - name: View applied configurations
     href: how-to-view-applied-configurations.md
