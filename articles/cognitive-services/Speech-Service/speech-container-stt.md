@@ -76,6 +76,8 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. 
 
+# [Container run](#tab/container)
+
 The following table represents the various `docker run` parameters and their corresponding descriptions:
 
 | Parameter | Description |
@@ -101,92 +103,70 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-For more information about `docker run` with Speech containers, see [Install and run Speech containers with Docker](speech-container-howto.md#run-the-container).
+# [Disconnected container run](#tab/disconnected)
 
-#### Diarization on the speech-to-text output
+To run disconnected containers (not connected to the internet), you must submit [this request form](https://aka.ms/csdisconnectedcontainers) and wait for approval. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
 
-Diarization is enabled by default. To get diarization in your response, use `diarize_speech_config.set_service_property`.
+If you have been approved to run the container disconnected from the internet, the following example shows the formatting of the `docker run` command to use, with placeholder values. Replace these placeholder values with your own values.
 
-1. Set the phrase output format to `Detailed`.
-2. Set the mode of diarization. The supported modes are `Identity` and `Anonymous`.
-    
-    ```python
-    diarize_speech_config.set_service_property(
-        name='speechcontext-PhraseOutput.Format',
-        value='Detailed',
-        channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-    )
-    
-    diarize_speech_config.set_service_property(
-        name='speechcontext-phraseDetection.speakerDiarization.mode',
-        value='Identity',
-        channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-    )
-    ```
+The `DownloadLicense=True` parameter in your `docker run` command will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use a license file with the appropriate container that you've been approved for. For example, you can't use a license file for a `speech-to-text` container with a `neural-text-to-speech` container.
 
-    > [!NOTE]
-    > "Identity" mode returns `"SpeakerId": "Customer"` or `"SpeakerId": "Agent"`.
-    > "Anonymous" mode returns `"SpeakerId": "Speaker 1"` or `"SpeakerId": "Speaker 2"`.
-    
-#### Analyze sentiment on the speech-to-text output
-
-Starting in v2.6.0 of the speech-to-text container, you should use Language service 3.0 API endpoint instead of the preview one. For example:
-
-* `https://eastus.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
-* `https://localhost:5000/text/analytics/v3.0/sentiment`
-
-> [!NOTE]
-> The Language service `v3.0` API isn't backward compatible with `v3.0-preview.1`. To get the latest sentiment feature support, use `v2.6.0` of the speech-to-text container image and Language service `v3.0`.
-
-Starting in v2.2.0 of the speech-to-text container, you can call the [sentiment analysis v3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) on the output. To call sentiment analysis, you'll need a Language service API resource endpoint. For example:
-
-* `https://eastus.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
-* `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
-
-If you're accessing a Language service endpoint in the cloud, you'll need a key. If you're running Language service features locally, you might not need to provide this.
-
-The key and endpoint are passed to the Speech container as arguments, as in the following example:
+| Placeholder | Description | 
+|-------------|-------|
+| `{IMAGE}` | The container image you want to use.<br/><br/>For example: `mcr.microsoft.com/azure-cognitive-services/speech-to-text` |
+| `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.<br/><br/>For example: `/host/license:/path/to/license/directory` |
+| `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal.<br/><br/>For example: `https://<your-resource-name>.cognitiveservices.azure.com` |
+| `{API_KEY}` | The key for your Speech resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |
+| `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.<br/><br/>For example: `/path/to/license/directory` |
 
 ```bash
-docker run -it --rm -p 5000:5000 \
-mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY} \
-CloudAI:SentimentAnalysisSettings:TextAnalyticsHost={TEXT_ANALYTICS_HOST} \
-CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
+docker run --rm -it -p 5000:5000 \ 
+-v {LICENSE_MOUNT} \
+{IMAGE} \
+eula=accept \
+billing={ENDPOINT_URI} \
+apikey={API_KEY} \
+DownloadLicense=True \
+Mounts:License={CONTAINER_LICENSE_DIRECTORY} 
 ```
 
-This command:
+Once the license file has been downloaded, you can run the container in a disconnected environment. The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
 
-* Performs the same steps as the preceding command.
-* Stores a Language service API endpoint and key, for sending sentiment analysis requests.
+Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with `Mounts:License=`. An output mount must also be specified so that billing usage records can be written.
 
-#### Phraselist v2 on the speech-to-text output
+Placeholder | Value | Format or example |
+|-------------|-------|---|
+| `{IMAGE}` | The container image you want to use.<br/><br/>For example: `mcr.microsoft.com/azure-cognitive-services/speech-to-text` |
+ `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container.<br/><br/>For example: `4g` |
+| `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container.<br/><br/>For example: `4` |
+| `{LICENSE_MOUNT}` | The path where the license will be located and mounted.<br/><br/>For example: `/host/license:/path/to/license/directory` |
+| `{OUTPUT_PATH}` | The output path for logging [usage records](../containers/disconnected-containers.md#usage-records).<br/><br/>For example: `/host/output:/path/to/output/directory` |
+| `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.<br/><br/>For example: `/path/to/license/directory` |
+| `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.<br/><br/>For example: `/path/to/output/directory` |
 
-Starting in v2.6.0 of the speech-to-text container, you can get the output with your own phrases, either the whole sentence or phrases in the middle. For example, *the tall man* in the following sentence:
-
-* "This is a sentence **the tall man** this is another sentence."
-
-To configure a phrase list, you need to add your own phrases when you make the call. For example:
-
-```python
-phrase="the tall man"
-recognizer = speechsdk.SpeechRecognizer(
-    speech_config=dict_speech_config,
-    audio_config=audio_config)
-phrase_list_grammer = speechsdk.PhraseListGrammar.from_recognizer(recognizer)
-phrase_list_grammer.addPhrase(phrase)
-
-dict_speech_config.set_service_property(
-    name='setflight',
-    value='xonlineinterp',
-    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-)
+```bash
+docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
+-v {LICENSE_MOUNT} \ 
+-v {OUTPUT_PATH} \
+{IMAGE} \
+eula=accept \
+Mounts:License={CONTAINER_LICENSE_DIRECTORY}
+Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
 ```
 
-If you have multiple phrases to add, call `.addPhrase()` for each phrase to add it to the phrase list.
+Speech containers provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
 
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
+---
+
+For more information about `docker run` with Speech containers, see [Install and run Speech containers with Docker](speech-container-howto.md#run-the-container).
 
 
 ## Use the container
@@ -195,125 +175,6 @@ If you have multiple phrases to add, call `.addPhrase()` for each phrase to add 
 ### Host authentication
 
 [!INCLUDE [Speech container authentication](includes/containers-speech-config.md)]
-
-
-
-### Speech-to-text (standard and custom)
-
-#### Analyze sentiment
-
-If you provided your Language service API credentials [to the container](#analyze-sentiment-on-the-speech-to-text-output), you can use the Speech SDK to send speech recognition requests with sentiment analysis. You can configure the API responses to use either a *simple* or *detailed* format.
-
-
-# [Simple format](#tab/simple-format)
-
-To configure the Speech client to use a simple format, add `"Sentiment"` as a value for `Simple.Extensions`. If you want to choose a specific Language service model version, replace `'latest'` in the `speechcontext-phraseDetection.sentimentAnalysis.modelversion` property configuration.
-
-```python
-speech_config.set_service_property(
-    name='speechcontext-PhraseOutput.Simple.Extensions',
-    value='["Sentiment"]',
-    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-)
-speech_config.set_service_property(
-    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
-    value='latest',
-    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-)
-```
-
-`Simple.Extensions` returns the sentiment result in the root layer of the response.
-
-```json
-{
-   "DisplayText":"What's the weather like?",
-   "Duration":13000000,
-   "Id":"6098574b79434bd4849fee7e0a50f22e",
-   "Offset":4700000,
-   "RecognitionStatus":"Success",
-   "Sentiment":{
-      "Negative":0.03,
-      "Neutral":0.79,
-      "Positive":0.18
-   }
-}
-```
-
-# [Detailed format](#tab/detailed-format)
-
-To configure the Speech client to use a detailed format, add `"Sentiment"` as a value for `Detailed.Extensions`, `Detailed.Options`, or both. If you want to choose a specific sentiment analysis model version, replace `'latest'` in the `speechcontext-phraseDetection.sentimentAnalysis.modelversion` property configuration.
-
-```python
-speech_config.set_service_property(
-    name='speechcontext-PhraseOutput.Detailed.Options',
-    value='["Sentiment"]',
-    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-)
-speech_config.set_service_property(
-    name='speechcontext-PhraseOutput.Detailed.Extensions',
-    value='["Sentiment"]',
-    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-)
-speech_config.set_service_property(
-    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
-    value='latest',
-    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-)
-```
-
-`Detailed.Extensions` provides the sentiment result in the root layer of the response. `Detailed.Options` provides the result in the `NBest` layer of the response. They can be used separately or together.
-
-```json
-{
-   "DisplayText":"What's the weather like?",
-   "Duration":13000000,
-   "Id":"6a2aac009b9743d8a47794f3e81f7963",
-   "NBest":[
-      {
-         "Confidence":0.973695,
-         "Display":"What's the weather like?",
-         "ITN":"what's the weather like",
-         "Lexical":"what's the weather like",
-         "MaskedITN":"What's the weather like",
-         "Sentiment":{
-            "Negative":0.03,
-            "Neutral":0.79,
-            "Positive":0.18
-         }
-      },
-      {
-         "Confidence":0.9164971,
-         "Display":"What is the weather like?",
-         "ITN":"what is the weather like",
-         "Lexical":"what is the weather like",
-         "MaskedITN":"What is the weather like",
-         "Sentiment":{
-            "Negative":0.02,
-            "Neutral":0.88,
-            "Positive":0.1
-         }
-      }
-   ],
-   "Offset":4700000,
-   "RecognitionStatus":"Success",
-   "Sentiment":{
-      "Negative":0.03,
-      "Neutral":0.79,
-      "Positive":0.18
-   }
-}
-```
-
----
-If you want to completely disable sentiment analysis, add a `false` value to `sentimentanalysis.enabled`.
-
-```python
-speech_config.set_service_property(
-    name='speechcontext-phraseDetection.sentimentanalysis.enabled',
-    value='false',
-    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-)
-```
 
 
 

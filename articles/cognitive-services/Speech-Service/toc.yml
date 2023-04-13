@@ -391,14 +391,11 @@ items:
       items:
         - name: Speech containers overview
           href: speech-container-overview.md
-        - name: How to use Speech containers
-          displayName: 'containers,install container,run container'
-          href: speech-container-howto.md
-        - name: Configure speech containers
-          displayName: 'containers,configure containers,container config,configuration'
-          href: speech-container-configuration.md
-        - name: Install and run Speech containers
+        - name: Get started with speech containers
           items:
+          - name: Install and run speech containers
+            displayName: 'containers,install container,run container'
+            href: speech-container-howto.md
           - name: Speech-to-text containers
             href: speech-container-stt.md
           - name: Custom speech-to-text containers
@@ -407,6 +404,9 @@ items:
             href: speech-container-ntts.md
           - name: Language identification containers
             href: speech-container-lid.md
+        - name: Configure speech containers
+          displayName: 'containers,configure containers,container config,configuration'
+          href: speech-container-configuration.md
         - name: Batch processing with speech containers
           href: speech-container-batch-processing.md
         - name: Speech containers with Kubernetes and Helm
@@ -415,8 +415,6 @@ items:
         - name: Speech containers on Azure container instances
           href: ../containers/azure-container-instance-recipe.md
           displayName: 'ACI,azure container instances,container instances,containers'
-        - name: Use containers in disconnected environments
-          href: ../containers/disconnected-containers.md
         - name: Containers FAQ
           href: speech-container-faq.yml
     - name: Migration
