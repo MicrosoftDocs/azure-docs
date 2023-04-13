@@ -174,7 +174,7 @@
     items:
     - name: Upgrade Durable Functions extension version
       href: durable-functions-extension-upgrade.md
-    - name: Durable Function Troubleshooting Guide
+    - name: Durable Functions Troubleshooting Guide
       href: durable-functions-troubleshooting-guide.md
 - name: Resources
   items:

@@ -68,7 +68,7 @@ Heavy data processing, internal errors, and insufficient compute resources can c
 
 1. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errorswarnings).
 
-2. If your app is .NET in-process, consider enabling [extended sessions](./durable-functions-azure-storage-provider.md#extended-sessions).  
+2. If your app utilizes the .NET in-process model, consider enabling [extended sessions](./durable-functions-azure-storage-provider.md#extended-sessions). 
    Excessive history load can result in slow orchestrator processing.
 
 3. Check for performance and scalability bottlenecks. 
@@ -170,6 +170,8 @@ traces
 | sort by timestamp asc
 | project timestamp, appName, severityLevel, pid, taskName, eventType, message, details, messageId, partitionId, instanceId, executionId, age, latencyMs, dequeueCount, eventCount, newEvents, taskHub, account, extendedSession, sdkVersion
 ```
+
+Below is a list of the columns projected by the queries above and their respective descriptions.
 
 |Column |Description |
 |-------|------------|
