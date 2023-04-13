@@ -122,7 +122,7 @@ let queryInstanceId = "XXXXXX"; // edit this
 let start = datetime(XXXX-XX-XXTXX:XX:XX); 
 traces  
 | where timestamp > start and timestamp < start + 1h
-| extend instanceId = customDimensions["prop__InstanceId"] 
+| extend instanceId = iif(isnull(customDimensions["prop__InstanceId"] ) , customDimensions["prop__instanceId"], customDimensions["prop__InstanceId"] ) 
 | extend logLevel = customDimensions["LogLevel"]
 | extend functionName = customDimensions["prop__functionName"]
 | extend status = customDimensions["prop__status"]
