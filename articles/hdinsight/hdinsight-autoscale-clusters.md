@@ -57,6 +57,11 @@ For scale-up, Autoscale issues a scale-up request to add the required number of 
 
 For scale-down, Autoscale issues a request to remove some nodes. The scale-down is based on the number of Application Master (AM) containers per node. And the current CPU and memory requirements. The service also detects which nodes are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
 
+### Ambari DB sizing considerations for autoscaling
+
+It is recommended that Ambari DB is sized correctly to reap the benefits of autoscale. Customers should use the correct DB tier and use the custom Ambari DB for large size clusters. Please read the [Database and Headnode sizing recomandations](https://learn.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db#database-and-headnode-sizing).
+
+
 ### Cluster compatibility
 
 > [!Important]
