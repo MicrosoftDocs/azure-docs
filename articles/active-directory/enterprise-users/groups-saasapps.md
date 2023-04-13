@@ -1,5 +1,5 @@
 ---
-title: Use a group to manage access to SaaS apps - Azure AD
+title: Use a group to manage access to SaaS apps
 description: How to use groups in Azure Active Directory to assign access to SaaS applications that are integrated with Azure Active Directory.
 services: active-directory
 documentationcenter: ''

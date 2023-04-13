@@ -187,7 +187,7 @@ You can configure a geo-filtering policy for your Front Door by using [Azure Pow
 | TG | Togo|
 | TH | Thailand|
 | TN | Tunisia|
-| TR | Turkey|
+| TR | Türkiye|
 | TT | Trinidad and Tobago|
 | TW | Taiwan|
 | TZ | Tanzania, United Republic of|

@@ -1,5 +1,5 @@
 ---
-title: PowerShell for Azure AD roles in PIM - Azure AD
+title: PowerShell for Azure AD roles in PIM
 description: Manage Azure AD roles using PowerShell cmdlets in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

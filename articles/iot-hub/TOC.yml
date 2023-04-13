@@ -44,9 +44,6 @@
       href: iot-hub-live-data-visualization-in-power-bi.md
     - name: Use X.509 certificates
       items:
-        - name: Introduction
-          displayName: X.509 certificates
-          href: tutorial-x509-introduction.md
         - name: Use OpenSSL to create test certificates
           displayName: X.509 certificates, root CA
           href: tutorial-x509-openssl.md
@@ -228,9 +225,9 @@
           displayName: regulatory, compliance, standards, Azure Security Benchmark, Azure Foundations Benchmark, CMMC, FedRAMP, HIPAA
           href: ./security-controls-policy.md
         - name: IoT security best practices
-          href: ../iot-fundamentals/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
+          href: ../iot/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: IoT security architecture
-          href: ../iot-fundamentals/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
+          href: ../iot/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
 
 - name: How-to guides
   items:
@@ -342,39 +339,39 @@
           items:
             - name: CLI
               displayName: device twins
-              href: twin-get-started-cli.md
+              href: device-twins-cli.md
             - name: .NET
               displayName: device twins
-              href: iot-hub-csharp-csharp-twin-getstarted.md
+              href: device-twins-dotnet.md
             - name: Python
               displayName: device twins
-              href: iot-hub-python-twin-getstarted.md
+              href: device-twins-python.md
             - name: Node.js
               displayName: device twins
-              href: iot-hub-node-node-twin-getstarted.md
+              href: device-twins-node.md
             - name: Java
               displayName: device twins
-              href: iot-hub-java-java-twin-getstarted.md
+              href: device-twins-java.md
         - name: Get started with module twins
           items:
             - name: Portal
               displayName: module twins, module identity
-              href: iot-hub-portal-csharp-module-twin-getstarted.md
+              href: module-twins-portal-dotnet.md
             - name: CLI
               displayName: module twins, module identity
-              href: module-twin-getstarted-cli.md
+              href: module-twins-cli.md
             - name: .NET
               displayName: module twins, module identity
-              href: iot-hub-csharp-csharp-module-twin-getstarted.md
+              href: module-twins-dotnet.md
             - name: Python
               displayName: module twins, module identity
-              href: iot-hub-python-python-module-twin-getstarted.md
+              href: module-twins-python.md
             - name: Node.js
               displayName: module twins, module identity
-              href: iot-hub-node-node-module-twin-getstarted.md
+              href: module-twins-node.md
             - name: C
               displayName: module twins, module identity
-              href: iot-hub-c-c-module-twin-getstarted.md
+              href: module-twins-c.md
         - name: Get started with device management
           items:
             - name: CLI
@@ -553,10 +550,10 @@
 - name: Resources
   items:
     - name: Support and help options
-      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      href: ../iot/iot-support-help.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: IoT Glossary
       displayName: common terms, definitions
-      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      href: ../iot/iot-glossary.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Azure IoT services
       items: 
       - name: IoT Hub

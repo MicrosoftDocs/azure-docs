@@ -1,5 +1,5 @@
 ---
-title: Change subdomain authentication type using PowerShell and Graph - Azure Active Directory
+title: Change subdomain authentication type using PowerShell and Graph
 description: Change default subdomain authentication settings inherited from root domain settings in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -66,7 +66,7 @@ Because subdomains inherit the authentication type of the root domain by default
 Use the following command to promote the subdomain:
 
 ```http
-POST https://graph.microsoft.com/{tenant-id}/domains/foo.contoso.com/promote
+POST https://graph.microsoft.com/v1.0/{tenant-id}/domains/foo.contoso.com/promote
 ```
 
 ### Promote command error conditions

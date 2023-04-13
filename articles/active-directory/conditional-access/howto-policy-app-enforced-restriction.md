@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Use application enforced restrictions for unmanaged devices - Azure Active Directory
+title: Conditional Access - Use application enforced restrictions for unmanaged devices
 description: Create a custom Conditional Access policy for unmanaged devices
 
 services: active-directory

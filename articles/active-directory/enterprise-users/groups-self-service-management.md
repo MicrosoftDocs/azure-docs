@@ -1,5 +1,5 @@
 ---
-title: Set up self-service group management - Azure Active Directory
+title: Set up self-service group management
 description: Create and manage security groups or Microsoft 365 groups in Azure Active Directory and request security group or Microsoft 365 group memberships
 services: active-directory
 documentationcenter: ''

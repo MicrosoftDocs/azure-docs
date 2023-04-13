@@ -22,7 +22,7 @@ Before following the steps in this article, make sure you have the following pre
     * To install the Python SDK v2, use the following command:
 
         ```bash
-        pip install azure-ai-ml
+        pip install azure-ai-ml azure-identity
         ```
 
         For more information, see [Install the Python SDK v2 for Azure Machine Learning](https://aka.ms/sdk-v2-install).

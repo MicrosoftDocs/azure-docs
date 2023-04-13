@@ -221,7 +221,10 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
 ### Configure ADP to support multiple instances in the same tenant
 
-1. Go to **Basic SAML Configuration** section and configure another test value in **Identifier (Entity ID)** textbox.
+1. Go to **Basic SAML Configuration** section and enter any instance specific URL in the **Identifier (Entity ID)** textbox. 
+
+    > [!NOTE]
+    > Please note that this can be any random value which you feel relevant for your instance.
 
     ![Screenshot shows how to configure another test instance value.](./media/adpfederatedsso-tutorial/append.png "Test")
 
@@ -235,7 +238,7 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 
     1. Enable **Override audience claim** checkbox.
 
-    1. In the **Audience claim value** textbox, enter **Identifier (Entity ID)** value, which you've copied from **Basic SAML Configuration** section and click **Save**.
+    1. In the **Audience claim value** textbox, enter `https://fed.adp.com` and click **Save**.
 
 1. Navigate to **Properties** tab under Manage section and copy **Application ID** from the Azure portal.
 

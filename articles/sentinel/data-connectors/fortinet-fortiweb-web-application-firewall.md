@@ -3,7 +3,7 @@ title: "Fortinet FortiWeb Web Application Firewall connector for Microsoft Senti
 description: "Learn how to install the connector Fortinet FortiWeb Web Application Firewall to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -17,14 +17,14 @@ The [fortiweb](https://www.fortinet.com/products/web-application-firewall/fortiw
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (Fortiweb)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples
 
 **Top 10 Threats**
    ```kusto
-Fortiweb
+CommonSecurityLog
  
    | where isnotempty(EventType)
     

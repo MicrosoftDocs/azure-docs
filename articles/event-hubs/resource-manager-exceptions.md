@@ -2,6 +2,7 @@
 title: Azure Event Hubs - Resource Manager exceptions | Microsoft Docs
 description: List of Azure Event Hubs exceptions surfaced by Azure Resource Manager and suggested actions.
 ms.topic: article
+ms.custom: devx-track-arm-template
 ms.date: 05/10/2021
 ---
 

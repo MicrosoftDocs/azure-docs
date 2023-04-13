@@ -8,7 +8,7 @@ ms.custom: enterprise-iot
 
 # Microsoft Defender for IoT alerts
 
-Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are messages that a Defender for IoT engine triggers when OT or Enterprise IoT network sensors detect changes or suspicious activity in network traffic that needs your attention.
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are triggered when OT or Enterprise IoT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
 For example:
 
@@ -111,13 +111,21 @@ Use the following table to learn more about each alert status and triage option.
 |**Active**     |    - Azure portal only     |   Set an alert to *Active* to indicate that an investigation is underway, but that the alert can't yet be closed or otherwise triaged. <br><br>This status has no effect elsewhere in Defender for IoT.      |
 |**Closed**     | - Azure portal <br><br>- OT network sensors <br><br>- On-premises management console        | Close an alert to indicate that it's fully investigated, and you want to be alerted again the next time the same traffic is detected.<br><br>Closing an alert adds it to the sensor event timeline.<br><br>On the on-premises management console, *New* alerts are called *Acknowledged*.   |
 |**Learn**     | - Azure portal <br><br>- OT network sensors <br><br>- On-premises management console <br><br>*Unlearning* an alert is available only on the OT sensor.       |   Learn an alert when you want to close it and add it as allowed traffic, so that you aren't alerted again the next time the same traffic is detected. <br><br>For example, when the sensor detects firmware version changes following standard maintenance procedures, or when a new, expected device is added to the network. <br><br>Learning an alert closes the alert and adds an item to the sensor event timeline. Detected traffic is included in data mining reports, but not when calculating other OT sensor reports. <br><br>Learning alerts is available for selected alerts only, mostly those triggered by *Policy* and *Anomaly* engine alerts. |
-|**Mute**     |  - OT network sensors <br><br>- On-premises management console      <br><br>*Unmuting* an alert is available only on the OT sensor.  |  Mute an alert when you want to close it and not see again for the same traffic, but without adding the alert allowed traffic. <br><br>For example, when the Operational engine triggers an alert indicating that the PLC Mode was changed on a device. The new mode may indicate that the PLC isn't secure, but after investigation, it's determined that the new mode is acceptable. <br><br>Muting an alert closes it, but doesn't add an item to the sensor event timeline. Detected traffic is included in data mining reports, but not when when calculating data for other sensor reports. <br><br>Muting an alert is available for selected alerts only, mostly those triggered by the *Anomaly*, *Protocol Violation*, or *Operational* engines.  |
+|**Mute**     |  - OT network sensors <br><br>- On-premises management console      <br><br>*Unmuting* an alert is available only on the OT sensor.  |  Mute an alert when you want to close it and not see again for the same traffic, but without adding the alert allowed traffic. <br><br>For example, when the Operational engine triggers an alert indicating that the PLC Mode was changed on a device. The new mode may indicate that the PLC isn't secure, but after investigation, it's determined that the new mode is acceptable. <br><br>Muting an alert closes it, but doesn't add an item to the sensor event timeline. Detected traffic is included in data mining reports, but not when calculating data for other sensor reports. <br><br>Muting an alert is available for selected alerts only, mostly those triggered by the *Anomaly*, *Protocol Violation*, or *Operational* engines.  |
 
 > [!TIP]
 > If you know ahead of time which events are irrelevant for you, such as during a maintenance window, or if you don't want to track the event in the event timeline, create an alert exclusion rule on an on-premises management console instead.
 >
 > For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
 >
+
+### Triage OT alerts during learning mode
+
+*Learning mode* refers to the initial period after an OT sensor is deployed, when your OT sensor learns your network's baseline activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices.
+
+Use learning mode to perform an initial triage on the alerts in your network, *learning* those you want to mark as authorized, expected activity. Learned traffic doesn't generate new alerts the next time the same traffic is detected.
+
+For more information, see [Create a learned baseline of OT alerts](ot-deploy/create-learned-baseline.md).
 
 ## Next steps
 

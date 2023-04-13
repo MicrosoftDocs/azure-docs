@@ -1,5 +1,5 @@
 ---
-title: Restore a deleted Microsoft 365 group - Azure AD
+title: Restore a deleted Microsoft 365 group
 description: How to restore a deleted group, view restorable groups, and permanently delete a group in Azure Active Directory
 services: active-directory
 author: barclayn

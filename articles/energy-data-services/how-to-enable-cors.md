@@ -21,7 +21,7 @@ You can set CORS rules for each Azure Data Manager for Energy Preview instance. 
 
 1.	Create an **Azure Data Manager for Energy Preview** instance.
 2.	Select the **Resource Sharing(CORS)** tab.
-   [![Screenshot of Resource Sharing(CORS) tab while creating Microsoft Energy Data Services.](media/how-to-enable-cors/enable-cors-1.png)](media/how-to-enable-cors/enable-cors-1.png#lightbox)
+   [![Screenshot of Resource Sharing(CORS) tab while creating Azure Data Manager for Energy.](media/how-to-enable-cors/enable-cors-1.png)](media/how-to-enable-cors/enable-cors-1.png#lightbox)
  
 3.	In the Resource Sharing(CORS) tab, select **Allowed Origins**. 
 4.	There can be upto 5 **Allowed Origins** added for a given instance.

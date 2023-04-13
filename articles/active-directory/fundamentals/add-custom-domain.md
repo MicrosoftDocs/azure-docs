@@ -1,5 +1,5 @@
 ---
-title: Add your custom domain - Azure Active Directory
+title: Add your custom domain
 description: Instructions about how to add a custom domain using Azure Active Directory.
 services: active-directory
 author: barclayn

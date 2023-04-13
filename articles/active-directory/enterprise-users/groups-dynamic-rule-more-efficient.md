@@ -1,5 +1,5 @@
 ---
-title: Create simpler and faster rules for dynamic groups - Azure AD
+title: Create simpler and faster rules for dynamic groups
 description: How to optimize your membership rules to automatically populate groups.
 services: active-directory
 documentationcenter: ''

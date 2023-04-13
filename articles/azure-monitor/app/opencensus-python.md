@@ -2,7 +2,7 @@
 title: Monitor Python applications with Azure Monitor | Microsoft Docs
 description: This article provides instructions on how to wire up OpenCensus Python with Azure Monitor.
 ms.topic: conceptual
-ms.date: 03/04/2023
+ms.date: 03/22/2023
 ms.devlang: python
 ms.custom: devx-track-python
 ms.reviewer: mmcc
@@ -96,7 +96,7 @@ OpenCensus maps the following exporters to the types of telemetry that you see i
    logger.addHandler(AzureLogHandler())
 
    # Alternatively manually pass in the connection_string
-   # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+   # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
 
    """Generate random log data."""
    for num in range(5):
@@ -122,7 +122,7 @@ OpenCensus maps the following exporters to the types of telemetry that you see i
     logger = logging.getLogger(__name__)
     logger.addHandler(AzureLogHandler())
     # Alternatively manually pass in the connection_string
-    # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+    # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
 
     properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
 
@@ -184,7 +184,7 @@ from opencensus.ext.azure.log_exporter import AzureLogHandler
 logger = logging.getLogger(__name__)
 logger.addHandler(AzureLogHandler())
 # Alternatively, manually pass in the connection_string
-# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
 
 properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
 
@@ -208,7 +208,7 @@ from opencensus.ext.azure.log_exporter import AzureEventHandler
 logger = logging.getLogger(__name__)
 logger.addHandler(AzureLogHandler())
 # Alternatively manually pass in the connection_string
-# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
 
 logger.setLevel(logging.INFO)
 logger.info('Hello, World!')
@@ -519,7 +519,7 @@ Each of the Azure Monitor exporters supports configuration of securely sending t
 
 You can view the telemetry data that was sent from your application through the **Logs (Analytics)** tab.
 
-![Screenshot of the Overview pane with the Logs (Analytics) tab selected.](./media/opencensus-python/0010-logs-query.png)
+:::image type="content" source="./media/opencensus-python/0010-logs-query.png" lightbox="./media/opencensus-python/0010-logs-query.png" alt-text="Screenshot of the Overview pane with the Logs (Analytics) tab selected.":::
 
 In the list under **Active**:
 

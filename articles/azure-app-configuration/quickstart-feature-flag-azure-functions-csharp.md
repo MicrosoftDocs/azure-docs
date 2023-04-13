@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 8/26/2020
+ms.date: 3/20/2023
 ms.author: malev
 ---
 # Quickstart: Add feature flags to an Azure Functions app
@@ -18,22 +18,17 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the **Azure development** workload.
 - [Azure Functions tools](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
-## Create an App Configuration store
+## Add a feature flag
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
 
-7. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
-
-    > [!div class="mx-imgBorder"]
-    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
-
-    Leave `label` and `Description` undefined for now.
-
-8. Select **Apply** to save the new feature flag.
+> [!div class="mx-imgBorder"]
+> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
 ## Create a Functions app
 

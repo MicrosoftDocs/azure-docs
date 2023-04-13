@@ -34,7 +34,7 @@ Within each of these five stages, there are several device operator requirements
 * **Plan**: Enable operators to create a device metadata scheme that enables them to easily and accurately query for, and target a group of devices for bulk management operations. You can use the device twin to store this device metadata in the form of tags and properties.
   
     *Further reading*: 
-  * [Get started with device twins](iot-hub-node-node-twin-getstarted.md)
+  * [Get started with device twins](device-twins-node.md)
   * [Understand device twins](iot-hub-devguide-device-twins.md)
   * [How to use device twin properties](tutorial-device-twins.md)
   * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)

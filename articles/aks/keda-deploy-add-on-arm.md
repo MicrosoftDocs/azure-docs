@@ -3,7 +3,7 @@ title: Install the Kubernetes Event-driven Autoscaling (KEDA) add-on by using an
 description: Use an ARM template to deploy the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS).
 author: jahabibi
 ms.topic: article
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.date: 10/10/2022
 ms.author: jahabibi
 ---
@@ -15,9 +15,6 @@ This article shows you how to deploy the Kubernetes Event-driven Autoscaling (KE
 [!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
 
 ## Prerequisites
-
->[!WARNING]
-> The managed KEDA addon will not be supported in K8s version 1.26 at GA. Please follow the [release notes](https://github.com/Azure/AKS/releases) to be notified when it will be supported.
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
