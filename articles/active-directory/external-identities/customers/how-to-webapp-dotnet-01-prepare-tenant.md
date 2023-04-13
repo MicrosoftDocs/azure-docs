@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Prepare-tenant
+description: Prepare tenant
 services: active-directory
 author: cilwerner
 ms.author: cwerner
@@ -14,3 +14,4 @@ ms.custom: it-pro
 #Customer intent
 ---
 
+# Prepare your tenant

@@ -26,16 +26,18 @@ After registering an application and created a user flow in a CIAM tenant, an AS
 
 ## Create an ASP.NET Core project
 
-1. Open a terminal in your IDE and navigate to and select the location in which to create your project.
-1. 
+1. Open a terminal in your IDE and navigate to the location in which to create your project.
+1. Enter the following code snippet to make the project folder and create your project
 
-```powershell
-mkdir ASPNET_CIAMWebApp
-cd ASPNET_CIAMWebApp
-dotnet new webapp
-```
+    ```powershell
+    mkdir ASPNET_CIAMWebApp
+    cd ASPNET_CIAMWebApp
+    dotnet new webapp
+    ```
 
 ## Create a client secret/certificate <--- ??
+
+TBD
 
 ## Configure the application for authentication
 
@@ -61,7 +63,7 @@ dotnet new webapp
   	}
     ```
 
-    * `Instance` - The authentication endpoint. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
+    * `Instance` - The authentication endpoint. Check with the different available endpoints in [National clouds](../../develop/authentication-national-cloud.md#azure-ad-authentication-endpoints).
     * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application.
@@ -79,7 +81,7 @@ dotnet new webapp
     <!--:::image type="content" source="./media/web-app-tutorial-02-prepare-application/select-platform-inline.png" alt-text="Screenshot on how to select the platform for the application." lightbox="./media/web-app-tutorial-02-prepare-application/select-platform-expanded.png":::-->
 
 1. Under **Redirect URIs**, enter the `applicationURL` and the `CallbackPath`, `/signin-oidc`, in the form of `https://localhost:{port}/signin-oidc`.
-1. Under **Front-channel logout URL**, enter the following URL for signing out, `https://localhost:{port}/signout-oidc`.
+1. Under **Front-channel logout URL**, enter the following URL for signing out, `https://localhost:{port}/signout-callback-oidc`.
 1. Under **Implicit grant abd hybrid flows**, select the **ID tokens** checkbox.
 1. Select **Configure**.
 
@@ -91,3 +93,7 @@ dotnet new webapp
 1. Under the **OpenId permissions** dropdown, select the checkboxes for **openid** and **offline_access**.
 1. Select **Grant admin consent for <CIAM_tenant>**, and select **Yes** in the **Grant admin consent conformation** dialog box.
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Sign-in and sign-out](how-to-webapp-dotnet-03-sign-in-out.md)

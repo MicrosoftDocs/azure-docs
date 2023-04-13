@@ -1,6 +1,6 @@
 ---
 title: Sign in and sign out from an ASP.NET Core application with CIAM
-description: 
+description: Add sign in to an ASP.NET Core application and sign-in, sign-out of application
 services: active-directory
 author: cilwerner
 ms.author: cwerner
@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 # Sign in and sign out from an ASP.NET Core application with CIAM
 
-In the [previous article](./how-to-webapp-dotnet-02-prepare-app.md), an ASP.NET Core project was created and configured for authentication. This tutorial will install the required packages and add code that implements authentication to the sign in and sign out experience.
+In the [previous article](./how-to-webapp-dotnet-02-prepare-app.md), an ASP.NET Core project was created and configured for authentication. This how-to will install the required packages, add code that implements authentication to the sign in and sign out experience. Finally, you will sign-in and sign-out of the application.
 
 ## Prerequisites
 
@@ -33,58 +33,6 @@ Identity related NuGet packages must be installed in the project for authenticat
     ```powershell
     dotnet add package Microsoft.Identity.Web.UI
     dotnet add package Microsoft.Identity.Web.MicrosoftGraph
-    ```
-
-## Implement authentication and acquire tokens
-
-1. Open *Program.cs* and replace the entire contents of the file with the following snippet:
-
-    ```csharp
-    using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-    using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Mvc.Authorization;
-    using Microsoft.Identity.Web;
-    using Microsoft.Identity.Web.UI;
-
-    var builder = WebApplication.CreateBuilder(args);
-
-    // Add services to the container.
-    builder.Services.AddControllersWithViews();
-
-    // Sign-in users with the Microsoft identity platform
-    builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-        .AddMicrosoftIdentityWebApp(builder.Configuration);
-
-    builder.Services.AddControllersWithViews(options =>
-    {
-        var policy = new AuthorizationPolicyBuilder()
-            .RequireAuthenticatedUser()
-            .Build();
-        options.Filters.Add(new AuthorizeFilter(policy));
-    }).AddMicrosoftIdentityUI();
-
-    var app = builder.Build();
-
-    // Configure the HTTP request pipeline.
-    if (!app.Environment.IsDevelopment())
-    {
-        app.UseExceptionHandler("/Home/Error");
-        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-        app.UseHsts();
-    }
-
-    app.UseHttpsRedirection();
-    app.UseStaticFiles();
-
-    app.UseRouting();
-
-    app.UseAuthorization();
-
-    app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-
-    app.Run();
     ```
 
 ## Add the sign in and sign out experience
@@ -125,23 +73,50 @@ After installing the NuGet packages and adding necessary code for authentication
         <partial name="_LoginPartial" />
     ```
 
-## Add the API and enable results to be displayed
+## Edit Program.cs
 
-1. 
+1. Open Program.cs and add the following snippet to the top of the file:
+
+    ```csharp
+    using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc.Authorization;
+    using Microsoft.Identity.Web;
+    using Microsoft.Identity.Web.UI;
+    ```
+
+1. Next we need to add the services to the container and sign users in with the the Microsoft identity platform. After `builder.Services.AddRazorPages();` add the following snippet:
+
+    ```csharp
+    builder.Services.AddRazorPages();
+
+    // Sign-in users with the Microsoft identity platform
+    builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApp(builder.Configuration);
+
+    builder.Services.AddRazorPages().AddMvcOptions(options =>
+    {
+        var policy = new AuthorizationPolicyBuilder()
+            .RequireAuthenticatedUser()
+            .Build();
+        options.Filters.Add(new AuthorizeFilter(policy));
+    }).AddMicrosoftIdentityUI();
+    ```
 
 ## Test the application
 
 1. Start the application by typing the following in the terminal:
 
-### [.NET 6.0](#tab/dotnet6)
+    ### [.NET 6.0](#tab/dotnet6)
 
     ```powershell
     dotnet run
     ```
 
-### [.NET 7.0](#tab/dotnet7)
+    ### [.NET 7.0](#tab/dotnet7)
 
     ```powershell
     dotnet run --launch-profile https
     ```
 
+1. You may need to enter the application URI into the browser, for example `https://localhost:{port}`. After the sign in window appears, select the account in which to sign in with.
