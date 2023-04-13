@@ -19,26 +19,22 @@ ms.custom: template-concept
 Lifecycle Workflows allow you to create workflows that can be triggered based on joiner, mover, or leaver scenarios. While Lifecycle Workflows provide several built-in tasks to automate common scenarios throughout the lifecycle of users, eventually you may reach the limits of these built-in tasks. With the extensibility feature, you're able to utilize the concept of custom task extensions to call-out to external systems as part of a workflow. By calling out to the external systems, you're able to accomplish things, which can extend the purpose of your workflows. When a user joins your organization you can have a workflow with a custom task extension that assigns a Teams number, or have a separate workflow that grants access to an email account for a manager when a user leaves. With the extensibility feature, Lifecycle Workflows currently support creating custom tasks extensions to call-out to [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 
-## Prerequisite Logic App roles required for integration with the custom task extension
+## Logic Apps prerequisites
 
-When you link your Azure Logic App with the custom task extension task, there are certain prerequisites that must be completed before the link can be established. 
+To link a Azure Logic App with a custom task extension, the following prerequisites must be available:
 
-To create a Logic App, you must have:
+- An Azure subscription
+- A resource group
+- Permissions to create a new consumption based Logic App or access to an existing consumption based Logic App
 
-- A valid Azure subscription
-- A compatible resource group where the Logic App is located
-
-> [!NOTE]
-> The resource group needs permissions to create, update, and read the Logic App while the custom extension is being created. 
-
-The roles on the Azure Logic App required with the custom task extension, are as follows:
+One of the following Azure role assignments is required either on the Logic App itself or on a higher scope such as the resource group, subscription or management group:
 
 - **Logic App contributor**
 - **Contributor**
 - **Owner**
 
 > [!NOTE]
-> The **Logic App Operator** role alone will not work with the custom task extension. For more information on the required **Logic App contributor** role, see: [Logic App Contributor](../../role-based-access-control/built-in-roles.md#logic-app-contributor).
+> The **Logic App Operator** role is not sufficient.
 
 ## Custom task extension deployment scenarios
 
