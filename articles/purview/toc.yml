@@ -122,6 +122,8 @@ items:
       href: insights-permissions.md
 - name: How-to guides
   items:
+  - name: Use the governance portal
+    href: use-microsoft-purview-governance-portal.md
   - name: Sources
     items:
     - name: Azure Multiple Source
