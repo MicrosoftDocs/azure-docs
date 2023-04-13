@@ -16,7 +16,7 @@ The CPU and memory usage is correlated with the number of bytes of each sample a
 
 The upper volume limit per pod is currently about 3-3.5 million samples per minute, depending on the number of bytes per sample. This limitation will be eliminated when sharding is added to the feature.
 
-The Container insights agent consists of a deployment with one replica and daemonset for scraping metrics. The daemonset scrapes any node-level targets such as cAdvisor, kubelet, and node exporter. You can also configure it to scrape any custom targets at the node level with static configs. The replicaset scrapes everything else such as kube-state-metrics or custom scrape jobs that utilize service discovery.
+The agent consists of a deployment with one replica and daemonset for scraping metrics. The daemonset scrapes any node-level targets such as cAdvisor, kubelet, and node exporter. You can also configure it to scrape any custom targets at the node level with static configs. The replicaset scrapes everything else such as kube-state-metrics or custom scrape jobs that utilize service discovery.
 
 ## Comparison between small and large cluster for replicaset
 
