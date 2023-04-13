@@ -621,7 +621,7 @@ items:
             href: storage-blob-download.md
           - name: Copy blobs
             items:
-            - name: Overview
+            - name: Overview of copy operations
               href: storage-blob-copy.md
             - name: Copy from a source object URL
               href: storage-blob-copy-url-dotnet.md
