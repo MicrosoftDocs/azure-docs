@@ -20,7 +20,7 @@ content meets their needs. H1 format is # What is <product/service>?
 
 Learn how to edit a branch office location for Global Secure Access.
 
-# Pre-requisites 
+## Pre-requisites 
 - Global Secure Access license for your Microsoft Entra Identity tenant.  
 - Entra Network Access Administrator role in Microsoft Entra Identity.
 - Microsoft Graph module when using PowerShell.
