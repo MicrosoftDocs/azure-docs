@@ -49,6 +49,7 @@ If you're using Eclipse and created a Java console application, convert your Jav
 Update the `pom.xml` file to add dependencies to Azure Service Bus and Azure Identity packages. 
 
 ```xml
+    <dependencies>
 		<dependency>
     		<groupId>com.azure</groupId>
     		<artifactId>azure-messaging-servicebus</artifactId>
@@ -60,6 +61,7 @@ Update the `pom.xml` file to add dependencies to Azure Service Bus and Azure Ide
 		    <version>1.8.0</version>
 		    <scope>compile</scope>
 		</dependency>
+    </dependencies>
 ```
 
 ### [Connection String](#tab/connection-string)
@@ -75,8 +77,6 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
 ---
 
 ### Add code to send messages to the queue
-
-### Add import statements
 
 1. Add the following `import` statements at the topic of the Java file. 
 
@@ -105,12 +105,24 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     ---
 2. In the class, define variables to hold connection string and queue name. 
 
+    ### [Passwordless (Recommended)](#tab/passwordless)
+    
+    ```java
+    static String queueName = "<QUEUE NAME>";    
+    ```
+
+    Replace `<QUEUE NAME>` with the name of the queue.
+
+    ### [Connection String](#tab/connection-string)
+
     ```java
     static String connectionString = "<NAMESPACE CONNECTION STRING>";
     static String queueName = "<QUEUE NAME>";    
     ```
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of the queue.
+
+    ---
 3. Add a method named `sendMessage` in the class to send one message to the queue. 
 
     ### [Passwordless (Recommended)](#tab/passwordless)
@@ -304,7 +316,6 @@ In this section, you add code to retrieve messages from the queue.
 	{
 	    CountDownLatch countdownLatch = new CountDownLatch(1);
 
-        // create a token using the default Azure credential        
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
                 .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                 .build();
@@ -314,7 +325,7 @@ In this section, you add code to retrieve messages from the queue.
 	            .credential(credential)            
 		        .processor()
 		        .queueName(queueName)
-		        .processMessage(main::processMessage)
+		        .processMessage(QueueTest::processMessage)
 		        .processError(context -> processError(context, countdownLatch))
 		        .buildProcessorClient();
 
