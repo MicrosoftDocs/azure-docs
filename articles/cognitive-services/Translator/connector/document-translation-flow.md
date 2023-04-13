@@ -259,14 +259,14 @@ Here are the steps to upload a file from your SharePoint site to Azure blob stor
 
 > [!div class="checklist"]
 >
-> * [Get the source file content from your SharePoint site](#get-file-content)
-> * [Create an Azure storage blob from the source file](#create-a-storage-blob)
+> * [Retrieve the source file content from your SharePoint site](#get-file-content).
+> * [Create an Azure storage blob from the source file](#create-a-storage-blob).
 and upload it to your Azure storage account.
-> * [Translate the source file](#start-document-translation)
-> * [Get documents status](#get-documents-status)
-> * [Get blob content and metadata](#get-blob-content-and-metadata)
-> * [Create a new SharePoint folder](#create-new-folder)
-> * [Create your translated file in Sharepoint](#create-sharepoint-file)
+> * [Translate the source file](#start-document-translation).
+> * [Get documents status](#get-documents-status).
+> * [Get blob content and metadata](#get-blob-content-and-metadata).
+> * [Create a new SharePoint folder](#create-new-folder).
+> * [Create your translated file in Sharepoint](#create-sharepoint-file).
 
 ##### Get file content
 
