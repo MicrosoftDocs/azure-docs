@@ -16,7 +16,7 @@ In recent years, advancements in AI have led to the rise of large foundation mod
 
 ###  Key user advantages 
 Here’s a summary of key user benefits, as compared to what is available prior -
-![image](https://user-images.githubusercontent.com/36742198/208785135-253c8b19-489a-4ffb-b2be-48100401bf90.png)
+![image](./media/concept-foundation-models/foundation_models_overview.png)
 
 ### Finetuning foundation models using your own training data
 In order to improve model performance in your workload, you might want to fine tune a foundation model using your own training data. You can easily finetune these foundation models using either code based notebook samples or by using the Finetune UI wizard linked from the model card.
