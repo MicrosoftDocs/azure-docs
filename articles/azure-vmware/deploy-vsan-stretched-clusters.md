@@ -103,7 +103,7 @@ The following SPBM policies are supported with a PFTT of "Dual Site Mirroring" a
 
 ### Are any other regions planned?
 
-Currently, there are [four regions supported](#Stretched-clusters-region-availability) for stretched clusters.
+Currently, there are [four regions supported](#stretched-clusters-region-availability) for stretched clusters.
 
 ### What kind of SLA does Azure VMware Solution provide with the stretched clusters?
 
