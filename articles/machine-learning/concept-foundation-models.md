@@ -10,7 +10,7 @@ In recent years, advancements in AI have led to the rise of large foundation mod
 
 * A comprehensive repository of top 30+ language models from Hugging Face, made available in the model catalog via AzureML built-in registry
 * Support for base model inferencing using pretrained models
-* Ability to finetune the models using your own training data. Finetuning is supported for the following language tasks - Single label and Multi-label Text Classification, Token Classification, Question Answering, Summarization and Translation
+* Ability to finetune the models using your own training data. Finetuning is supported for the following language tasks - Text Classification, Token Classification, Question Answering, Summarization and Translation
 * Ability to evaluate the models using your own test data
 * State of the art performance and throughput in Azure hardware
 
