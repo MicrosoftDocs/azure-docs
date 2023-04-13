@@ -23,7 +23,7 @@ For cluster cost optimization, go to the [Azure pricing calculator](https://azur
 > - **Cluster architecture:** Use appropriate VM SKU per node pool and reserved instances where long-term capacity is expected.
 > - **Cluster and workload architectures:** Use appropriate managed disk tier and size.
 > - **Cluster architecture:** Review performance metrics, starting with CPU, memory, storage, and network, to identify cost optimization opportunities by cluster, nodes, and namespace.
-> - **Cluster architecture:** Use cluster autoscaler to scale in when workloads are less active.
+> - **Cluster and workload architecture:** Use autoscale features to scale in when workloads are less active.
 
 ## Recommendations
 
@@ -41,8 +41,6 @@ Explore the following table of recommendations to optimize your AKS configuratio
 |**Cluster architecture:** Configure monitoring of cluster with [Container insights](../azure-monitor/containers/container-insights-overview.md). | Container insights help provides actionable insights into your clusters idle and unallocated resources. Container insights also supports collecting Prometheus metrics and integrates with Azure Managed Grafana to get a holistic view of your application and infrastructure.|
 |**Cluster architecture:** Sign up for [Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md). | If you properly planned for capacity, your workload is predictable and exists for an extended period of time, sign up for [Azure Reserved Instances]() to further reduce your resource costs.|
 |**Cluster architecture:** Use Kubernetes [Resource Quotas](operator-best-practices-scheduler.md#enforce-resource-quotas). | Resource quotas can be used to limit resource consumption for each namespace in your cluster, and by extension resource utilization for the Azure service.|
-
-For more suggestions, see [Principles of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 ## Next steps
 
