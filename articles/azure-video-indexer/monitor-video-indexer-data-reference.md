@@ -1,12 +1,12 @@
 ---
-title: Monitoring Azure Video Indexer data reference #Required; *your official service name*  
+title: Monitoring Azure Video Indexer data reference
 description: Important reference material needed when you monitor Azure Video Indexer 
-author: itnorman #Required; your GitHub user alias, with correct capitalization.
+author: itnorman
 ms.topic: reference
-ms.author: itnorman #Required; Microsoft alias of author; optional team alias.
-ms.service: azure-video-indexer #Required; service you are monitoring
+ms.author: itnorman
+ms.service: azure-video-indexer
 ms.custom: subject-monitoring
-ms.date: 05/10/2022 #Required; mm/dd/yyyy format.
+ms.date: 05/10/2022
 ---
 <!-- VERSION 2.3
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->

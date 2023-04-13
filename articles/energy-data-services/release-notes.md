@@ -1,12 +1,12 @@
 ---
-title: Release notes for Microsoft Azure Data Manager for Energy Preview #Required; page title is displayed in search results. Include the brand.
-description: This article provides release notes of Azure Data Manager for Energy Preview releases, improvements, bug fixes, and known issues. #Required; article description that is displayed in search results. 
-author: nitinnms #Required; your GitHub user alias, with correct capitalization.
-ms.author: nitindwivedi #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 09/20/2022 #Required; mm/dd/yyyy format.
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+title: Release notes for Microsoft Azure Data Manager for Energy Preview
+description: This article provides release notes of Azure Data Manager for Energy Preview releases, improvements, bug fixes, and known issues.
+author: nitinnms
+ms.author: nitindwivedi
+ms.service: energy-data-services
+ms.topic: conceptual
+ms.date: 09/20/2022
+ms.custom: template-concept
 ---
 
 # Release Notes for Azure Data Manager for Energy Preview 
