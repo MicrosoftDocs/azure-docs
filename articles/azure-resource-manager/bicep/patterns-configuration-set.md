@@ -4,6 +4,7 @@ description: Describes the configuration set pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 11/30/2021
 ---
 # Configuration set pattern

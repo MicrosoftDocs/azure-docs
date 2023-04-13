@@ -77,6 +77,8 @@
       href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure?toc=/azure/storage/files/toc.json
     - name: Purchase storage reservations
       href: files-reserve-capacity.md
+    - name: Use Azure independent clouds
+      href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/files/toc.json
   - name: Mount
     items:
     - name: Mount SMB file share to Windows
@@ -121,12 +123,6 @@
       href: storage-files-identity-auth-active-directory-domain-service-enable.md
     - name: Enable Azure AD Kerberos authentication for hybrid accounts
       href: storage-files-identity-auth-azure-active-directory-enable.md
-  - name: Manage
-    items:
-    - name: Manage storage in Azure independent clouds
-      href: ../common/storage-powershell-independent-clouds.md?toc=/azure/storage/files/toc.json
-    - name: Initiate an account failover
-      href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/files/toc.json
   - name: Data protection
     items:
     - name: Enable soft delete
@@ -141,7 +137,6 @@
           href: ../common/geo-redundant-design.md?toc=/azure/storage/files/toc.json
         - name: .NET (v11 SDK)
           href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/files/toc.json
-        
     - name: Manage disaster recovery
       items:
       - name: Check the Last Sync Time property
@@ -168,7 +163,7 @@
         href: ../../backup/restore-afs-powershell.md?toc=/azure/storage/files/toc.json
       - name: REST API
         href: ../../backup/restore-azure-file-share-rest-api.md?toc=/azure/storage/files/toc.json
-    - name: Manage file shares
+    - name: Manage file share backups
       items:
       - name: Portal
         href: ../../backup/manage-afs-backup.md?toc=/azure/storage/files/toc.json

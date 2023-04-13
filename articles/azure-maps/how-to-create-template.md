@@ -6,6 +6,7 @@ ms.author: philmea
 ms.date: 04/27/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.custom: devx-track-arm-template
 ---
 # Create your Azure Maps account using an ARM template
 

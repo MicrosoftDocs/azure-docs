@@ -4,7 +4,7 @@ description: Learn how to manage Azure Cosmos DB resources by using the Azure po
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-arm-template
 ms.topic: how-to
 ms.date: 03/08/2023
 ms.author: sidandrews
