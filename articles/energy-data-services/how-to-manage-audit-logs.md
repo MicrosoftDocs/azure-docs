@@ -69,7 +69,7 @@ OEPAuditLogs
 | summarize count() by ServiceName
 ```
 
-[![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-audit-logs/how-to-manage-audit-logs-3-allservices.png)](media/how-to-manage-audit-logs/how-to-manage-auditlogs-3-allservices.png#lightbox)
+[![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-audit-logs/how-to-manage-audit-logs-3-allservices.png)](media/how-to-manage-audit-logs/how-to-manage-audit-logs-3-allservices.png#lightbox)
  
 2. Run the following query to see the 100 most recent logs:
 
