@@ -24,17 +24,17 @@ The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure
 
 ## Initial set-up
 
-1. Register the Service Connector resource provider by running the following command:
+1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
 
     ```azurecli
     az provider register -n Microsoft.ServiceLinker
     ```
     
     > [!TIP]
-    > You can check if you've already registered the resource provider with the command `az provider show -n "Microsoft.ServiceLinker" --query registrationState`. If the output is `Registered`, then Service Connector has already been registered.
+    > You can check if the resource provider has already been registered by running the command  `az provider show -n "Microsoft.ServiceLinker" --query registrationState`. If the output is `Registered`, then Service Connector has already been registered.
 
 
-1. Optionally, use the Azure CLI [az webapp connection list](/cli/azure/webapp/connection#az-webapp-connection-list) command to get a list of supported target services for App Service.
+1. Optionally, use the Azure CLI [az webapp connection list-support-types](/cli/azure/webapp/connection#az-webapp-connection-list-support-types) command to get a list of supported target services for App Service.
 
     ```azurecli
     az webapp connection list-support-types --output table
