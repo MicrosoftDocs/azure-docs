@@ -3828,7 +3828,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-batch-with-rest.md",
         "redirect_url": "/azure/machine-learning/how-to-access-data-batch-endpoints-jobs?tabs=rest",
-        "redirect_document_id": true
+        "redirect_document_id": false
     }
 ]
 }

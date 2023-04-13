@@ -120,9 +120,9 @@ The resulting DataFrame or array is appended to the output file indicated. There
 
 Any library that your scoring script requires to run needs to be indicated in the environment where your batch deployment runs. As for scoring scripts, environments are indicated per deployment. Usually, you indicate your requirements using a `conda.yml` dependencies file, which may look as follows:
 
-__mnist/environment/conda.yml__
+__mnist/environment/conda.yaml__
         
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yaml":::
 
 Refer to [Create a batch deployment](how-to-use-batch-endpoint.md#create-a-batch-deployment) for more details about how to indicate the environment for your model.
 

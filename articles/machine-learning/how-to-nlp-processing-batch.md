@@ -166,11 +166,12 @@ Let's create the deployment that will host the model:
    > [!TIP]
    > Although files are provided in mini-batches by the deployment, this scoring script processes one row at a time. This is a common pattern when dealing with expensive models (like transformers) as trying to load the entire batch and send it to the model at once may result in high-memory pressure on the batch executor (OOM exeptions).
 
-1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `Torch` and it requires the libraries `transformers`, `accelerate`, and `optimum` from HuggingFace. Azure Machine Learning already has an environment with Torch and GPU support available. We are just going to add a couple of dependencies in a `conda.yml` file.
+1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `Torch` and it requires the libraries `transformers`, `accelerate`, and `optimum` from HuggingFace. Azure Machine Learning already has an environment with Torch and GPU support available. We are just going to add a couple of dependencies in a `conda.yaml` file.
 
-   __environment/conda.yml__
+   __environment/torch200-conda.yaml__
 
-   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/environment/torch200-conda.yml" :::
+   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/environment/torch200-conda.yaml" :::
+
    
 1. We can use the conda file mentioned before as follows:
 
@@ -189,14 +190,14 @@ Let's create the deployment that will host the model:
    ```python
    environment = Environment(
        name="torch200-transformers-gpu",
-       conda_file="environment/torch200-conda.yml",
+       conda_file="environment/torch200-conda.yaml",
        image="mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.8-cudnn8-ubuntu22.04:latest",
    )
    ```
    ---
    
    > [!IMPORTANT]
-   > The environment `torch200-transformers-gpu` we've created requires a CUDA 11.8 compatible hardware device to run Torch 2.0 and Ubuntu 20.04. If your GPU device doesn't support this version of CUDA, you can check the alternative `torch113-conda.yml` conda environment (also available on the repository), which runs Torch 1.3 over Ubuntu 18.04 with CUDA 10.1. However, acceleration using the `optimum` and `accelerate` libraries won't be supported on this configuration.
+   > The environment `torch200-transformers-gpu` we've created requires a CUDA 11.8 compatible hardware device to run Torch 2.0 and Ubuntu 20.04. If your GPU device doesn't support this version of CUDA, you can check the alternative `torch113-conda.yaml` conda environment (also available on the repository), which runs Torch 1.3 over Ubuntu 18.04 with CUDA 10.1. However, acceleration using the `optimum` and `accelerate` libraries won't be supported on this configuration.
    
 1. Each deployment runs on compute clusters. They support both [Azure Machine Learning Compute clusters (AmlCompute)](./how-to-create-attach-compute-cluster.md) or [Kubernetes clusters](./how-to-attach-kubernetes-anywhere.md). In this example, our model can benefit from GPU acceleration, which is why we will use a GPU cluster.
 
