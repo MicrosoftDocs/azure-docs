@@ -23,13 +23,13 @@ This article provides architectural best practices for Azure Monitor Logs. The g
 ## Reliability
 In the cloud, we acknowledge that failures happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Use the following information to minimize failure of your Log Analytics workspaces and to protect the data they collect.
 
-[!INCLUDE [wag-logs-reliability](includes/wag-logs-reliability.md)]
+[!INCLUDE [waf-logs-reliability](includes/waf-logs-reliability.md)]
 
 
 ## Security
 Security is one of the most important aspects of any architecture. Azure Monitor provides features to employ both the principle of least privilege and defense-in-depth. Use the following information to maximize the security of your Log Analytics workspaces and ensure that only authorized users access collected data.
 
-[!INCLUDE [wag-logs-security](includes/wag-logs-security.md)]
+[!INCLUDE [waf-logs-security](includes/waf-logs-security.md)]
 
 
 ## Cost optimization
@@ -38,19 +38,19 @@ Cost optimization refers to ways to reduce unnecessary expenses and improve oper
 > [!NOTE]
 > See [Optimize costs in Azure Monitor](../best-practices-cost.md) for cost optimization recommendations across all features of Azure Monitor.
 
-[!INCLUDE [wag-logs-cost](includes/wag-logs-cost.md)]
+[!INCLUDE [waf-logs-cost](includes/waf-logs-cost.md)]
 
 
 ## Operational excellence
 Operational excellence refers to operations processes required keep a service running reliably in production. Use the following information to minimize the operational requirements for supporting Log Analytics workspaces.
 
-[!INCLUDE [wag-logs-operation](includes/wag-logs-operation.md)]
+[!INCLUDE [waf-logs-operation](includes/waf-logs-operation.md)]
 
 
 ## Performance efficiency
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. Use the following information to ensure that your Log Analytics workspaces and log queries are configured for maximum performance.
 
-[!INCLUDE [wag-logs-performance](includes/wag-logs-performance.md)]
+[!INCLUDE [waf-logs-performance](includes/waf-logs-performance.md)]
 
 ## Next step
 
