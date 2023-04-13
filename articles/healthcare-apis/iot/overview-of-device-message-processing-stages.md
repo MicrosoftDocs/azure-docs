@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 04/04/2023
+ms.date: 04/07/2023
 ms.author: jasteppe
 ---
 
@@ -57,7 +57,7 @@ Group is the next *optional* stage where the normalized messages available from 
 Device identity and measurement type grouping are optional and enabled by the use of the [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) measurement type. The SampledData measurement type provides a concise way to represent a time-based series of measurements from a device message into FHIR Observations. When you use the SampledData measurement type, measurements can be grouped into a single FHIR Observation that represents a 1-hour period or a 24-hour period.
 
 ## Transform
-Transform is the next stage where normalized messages are processed using the user-selected/user-created conforming and valid [FHIR destination mapping](how-to-configure-fhir-mappings.md). Normalized messages get transformed into FHIR Observation resources if a matching FHIR destination mapping has been authored. At this point, the [Device](https://www.hl7.org/fhir/device.html) resource, along with its associated [Patient](https://www.hl7.org/fhir/patient.html) resource, is also retrieved from the FHIR service using the device identifier present in the device message. These resources are added as a reference to the FHIR Observation being created.
+Transform is the next stage where normalized messages are processed using the user-selected/user-created conforming and valid [FHIR destination mapping](how-to-configure-fhir-mappings.md). Normalized messages get transformed into FHIR Observations if a matching FHIR destination mapping has been authored. At this point, the [Device](https://www.hl7.org/fhir/device.html) resource, along with its associated [Patient](https://www.hl7.org/fhir/patient.html) resource, is also retrieved from the FHIR service using the device identifier present in the device message. These resources are added as a reference to the FHIR Observation being created.
 
 > [!NOTE]
 > All identity look ups are cached once resolved to decrease load on the FHIR service. If you plan on reusing devices with multiple patients, it is advised you create a virtual device resource that is specific to the patient and send the virtual device identifier in the device message payload. The virtual device can be linked to the actual device resource as a parent.
@@ -67,10 +67,10 @@ If no Device resource for a given device identifier exists in the FHIR service, 
 > [!NOTE]
 > The **Resolution type** can also be adjusted post deployment of the MedTech service if a different **Resolution type** is later required.
 
-The MedTech service provides near real-time processing and also attempts to reduce the number of requests made to the FHIR service by grouping requests into batches of 300 [normalized messages](#normalize). If there's a low volume of data, and 300 normalized messages haven't been added to the group, then the corresponding FHIR Observations in that group are persisted to the FHIR service after ~five minutes. This means that when there's fewer than 300 normalized messages to be processed, there may be a delay of ~five minutes before FHIR Observations are created or updated in the FHIR service.
+The MedTech service provides near real-time processing and also attempts to reduce the number of requests made to the FHIR service by grouping requests into batches of 300 [normalized messages](#normalize). If there's a low volume of data, and 300 normalized messages haven't been added to the group, then the corresponding FHIR Observations in that group are persisted to the FHIR service after approximately five minutes. When there's fewer than 300 normalized messages to be processed, there may be a delay of approximately five minutes before FHIR Observations are created or updated in the FHIR service.
 
 > [!NOTE]
-> When multiple device messages contain data for the same FHIR Observation, have the same timestamp, and are sent within the same device message batch (for example, within the ~five minute window or in groups of 300 normalized messages), only the data corresponding to the latest device message for that FHIR Observation is persisted.
+> When multiple device messages contain data for the same FHIR Observation, have the same timestamp, and are sent within the same device message batch (for example, within the five minute window or in groups of 300 normalized messages), only the data corresponding to the latest device message for that FHIR Observation is persisted.
 >
 > For example:
 >
@@ -96,10 +96,10 @@ The MedTech service provides near real-time processing and also attempts to redu
 > }
 > ```
 >
-> Assuming these device messages were ingested within the same ~five minute window or in the same group of 300 normalized messages, and since the `measurementdatetime` is the same for both device messages (indicating these contain data for the same FHIR Observation), only device message 2 is persisted to represent the latest/most recent data.
+> Assuming these device messages were ingested within the same five minute window or in the same group of 300 normalized messages, and since the `measurementdatetime` is the same for both device messages (indicating these contain data for the same FHIR Observation), only device message 2 is persisted to represent the latest/most recent data.
 
 ## Persist
-Persist is the final stage where the FHIR Observation resources from the transform stage are persisted in the [FHIR service](../fhir/overview.md). If the FHIR Observation is new, it's created in the FHIR service. If the FHIR Observation already existed, it gets updated in the FHIR service. The FHIR service uses the MedTech service's [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for secure access to the FHIR service.
+Persist is the final stage where the FHIR Observations from the transform stage are persisted in the [FHIR service](../fhir/overview.md). If the FHIR Observation is new, it's created in the FHIR service. If the FHIR Observation already existed, it gets updated in the FHIR service. The FHIR service uses the MedTech service's [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for secure access to the FHIR service.
 
 ## Next steps
 
