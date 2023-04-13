@@ -42,7 +42,7 @@ Administrative Units can be used to separate [user, groups and device objects](.
 By using Privileged Identity Management (PIM) you can define who in your organization is the best person to approve the request for highly privileged roles. For example, admins requiring global administrator access to make tenant-wide changes.
 
 >[!NOTE]
->Using PIM requires an Azure AD Premium P2 license per human.
+>Using PIM requires and Azure AD P2 license per human.
 
 If you must ensure that global administrators are unable to manage a specific resource, you must isolate that resource in a separate tenant with separate global administrators. This can be especially important for backups, see [multi-user authorization guidance](../../backup/multi-user-authorization.md) for examples of this.
 
