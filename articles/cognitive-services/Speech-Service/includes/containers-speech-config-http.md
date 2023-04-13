@@ -9,7 +9,7 @@ ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
-Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK. By default, the Speech SDK uses the Speech service in the cloud. To use the container, you need to change the initialization method.
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK. By default, the Speech SDK uses the public Speech service. To use the container, you need to change the initialization method.
 
 > [!IMPORTANT]
 > When you use the Speech service with containers, be sure to use host authentication. If you configure the key and region, requests will go to the public Speech service. Results from the Speech service might not be what you expect. Requests from disconnected containers will fail.
