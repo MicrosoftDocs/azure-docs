@@ -234,7 +234,7 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
 Logs are output upon configuration refresh and contain detailed information on key-values retrieved from your App Configuration store and configuration changes made to your application.
 
-- A default `ILoggerFactory` is added automatically when `services.AddAzureAppConfiguration()` is invoked in your `ConfigureServices` method. The App Configuration provider uses this `ILoggerFactory` to create an instance of `ILogger`, which outputs these logs. No code changes are needed.
+- ASP.NET Core uses `ILogger` for logging by default, so you don't need to make any additional code changes to enable logging for the App Configuration provider.
 - Logs are output at different log levels. The default level is `Information`.
 
     | Log Level | Description |
