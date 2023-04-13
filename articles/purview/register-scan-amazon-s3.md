@@ -26,8 +26,8 @@ For this service, use Microsoft Purview to provide a Microsoft account with secu
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling****Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|--|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
 | Yes | Yes | Yes | Yes | Yes | [Yes](create-sensitivity-label.md)| No | Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
