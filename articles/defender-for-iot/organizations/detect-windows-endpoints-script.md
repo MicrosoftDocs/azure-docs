@@ -51,7 +51,7 @@ In order to run the script, you first need to download it from the OT sensor con
 
 1. Select **Download script**.
 
-    :::image type="content" source="media/detect-windows-endpoints-script/download-wmi-script.png" alt-text="Screenshot of where to download WMI script." lightbox="media/detect-windows-endpoint-script/download-wmi-script.png":::
+    :::image type="content" source="media/detect-windows-endpoints-script/download-wmi-script.png" alt-text="Screenshot of where to download WMI script." lightbox="media/detect-windows-endpoints-script/download-wmi-script.png":::
 
 ## Run the script
 
@@ -94,7 +94,7 @@ After having run the script as described [earlier](#run-the-script), import the 
 
 1. Select **Import File**, and then select all the files (Ctrl+A).
 
-    :::image type="content" source="media/detect-windows-endpoints-script/import-wmi-script.png" alt-text="Screenshot of where to import WMI script." lightbox="media/detect-windows-endpoint-script/import-wmi-script.png":::
+    :::image type="content" source="media/detect-windows-endpoints-script/import-wmi-script.png" alt-text="Screenshot of where to import WMI script." lightbox="media/detect-windows-endpoints-script/import-wmi-script.png":::
 
 1. Select **Close**. The device registry information is imported and a successful confirmation message is shown.
 
@@ -118,7 +118,7 @@ To preform offline WMI:
 
 1. Select **+ Create report** to [create a custom report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report). In the **Choose Category** field, select **Devices Applications**. For example:
 
-    :::image type="content" source="media/detect-windows-endpoints-script/devices-applications-report.png" alt-text="Screenshot of where to import WMI script." lightbox="media/detect-windows-endpoint-script/devices-applications-report.png":::
+    :::image type="content" source="media/detect-windows-endpoints-script/devices-applications-report.png" alt-text="Screenshot of creating devices applications custom report." lightbox="media/detect-windows-endpoints-script/devices-applications-report.png":::
 
 Based on this information, the Windows device CVE list will be displayed in Azure if the sensor is cloud-connected.
 
