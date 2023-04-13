@@ -18,21 +18,28 @@ ms.date: 04/17/2023
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-To exchange messages that have different XML or JSON formats in an Azure Logic Apps workflow, you have to transform the data from one format to another, especially if you have gaps between the source and target schema structures. Data transformation helps you bridge those gaps. For this task, you need to create an XSLT map that defines the relationships between the source schema and target schema.
+To exchange messages that have different XML or JSON formats in an Azure Logic Apps workflow, you have to transform the data from one format to another, especially if you have gaps between the source and target schema structures. Data transformation helps you bridge those gaps. For this task, you need to create a map that defines the relationships between the source schema and target schema.
 
-To visually create and edit such maps, you can use Visual Studio Code with the Data Mapper extension within the context of a Standard logic app project. You can then directly call these maps from workflows in your logic app project by using the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. Or, you can use these maps in any operation that require such maps to transform from XML to XML, JSON to JSON, XML to JSON, and JSON to XML.
+To visually create and edit a map, you can use Visual Studio Code with the Data Mapper extension within the context of a Standard logic app project. The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
 
-The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
+After you create your map, you can directly call that map from workflows in your logic app project. For this task, add the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** to your workflow. This action is also available in the Azure portal, but you have to add the map to either of the following resources:
+
+- An integration account for a Consumption or Standard logic app resource
+- The Standard logic app resource itself
 
 ## Limitations
 
-- Although you can use the maps that you create anywhere in Azure Logic Apps operations that require maps, the Data Mapper tool is currently available only from within Standard logic app projects, not Consumption logic app projects, and in Visual Studio Code, not the Azure portal.
+- The Data Mapper extension currently works only in Visual Studio Code running on Windows operating systems.
 
-- The map's **Show code** pane is currently read only.
+- The Data Mapper tool is currently available only in Visual Studio Code, not the Azure portal, and only from within Standard logic app projects, not Consumption logic app projects.
+
+- Unless your map transforms XML to XML, you can use maps created in Data Mapper only with the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**, not the **XML Operations** action named **Transform XML**. Specifically, this limitation applies to maps that transform XML to JSON, JSON to XML, or JSON to JSON. For maps that transform XML to XML, you can use the **Transform XML** action.
+
+- The Data Mapper tool's **Code view** pane is currently read only.
 
 ## Known issues
 
-The Data Mapper extension currently supports only schemas in flat folder-structured projects.
+The Data Mapper extension currently works only with schemas in flat folder-structured projects.
 
 ## Prerequisites
 
@@ -89,15 +96,15 @@ The Data Mapper extension currently supports only schemas in flat folder-structu
 
 To move around the map, you have the following options:
 
-- To pan around, drag your pointer around the map surface.
+- To pan around, drag your pointer around the map surface. Or, press the mouse wheel.
 - In the lower left map corner, on the navigation bar, select the option you want:
 
   | Option | Alternative gesture |
   |--------|---------------------|
-  | **Zoom in** | On the map surface: double select. |
+  | **Zoom in** | On the map surface, double select. |
   | **Zoom out** | On the map surface, press SHIFT + double select. |
-  | **Zoom to fit** | ? |
-  | **Show (Hide) mini-map** | ? |
+  | **Zoom to fit** | |
+  | **Show (Hide) mini-map** | |
 
 - To move up one level on the map, on the breadcrumb path, select a previous level.
 
@@ -180,5 +187,5 @@ To confirm that the transformation works as you expect, you'll need sample input
 
 ## Next steps
 
-- To transform data with maps in the Azure portal, see [Transform XML in workflows with Azure Logic Apps](logic-apps-enterprise-integration-transform.md)
-- To transform data with maps for B2B operations in Azure Logic Apps, see [Add maps for transformations in workflows with Azure Logic Apps](logic-apps-enterprise-integration-maps.md)
+- For maps that transform XML to XML, see [Transform XML in workflows with Azure Logic Apps](logic-apps-enterprise-integration-transform.md)
+- For data transformations using B2B operations in Azure Logic Apps, see [Add maps for transformations in workflows with Azure Logic Apps](logic-apps-enterprise-integration-maps.md)
