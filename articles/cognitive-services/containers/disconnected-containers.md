@@ -73,9 +73,9 @@ Access is limited to customers that meet the following requirements:
 
     **Speech service**
 
-    * [Speech-to-Text](../speech-service/speech-container-howto.md#run-disconnected-containers)
-    * [Custom Speech-to-Text](../speech-service/speech-container-howto.md#run-disconnected-containers)
-    * [Neural Text-to-Speech](../speech-service/speech-container-howto.md#run-disconnected-containers)
+    * [Speech-to-Text](../speech-service/speech-container-stt.md?tabs=disconnected#run-the-container-with-docker-run)
+    * [Custom Speech-to-Text](../speech-service/speech-container-cstt.md?tabs=disconnected#run-the-container-with-docker-run)
+    * [Neural Text-to-Speech](../speech-service/speech-container-ntts.md?tabs=disconnected#run-the-container-with-docker-run)
 
     **Language service**
 
