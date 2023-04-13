@@ -38,6 +38,7 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **22.3** | | | |
+| 22.3.8 | 04/2023 | Patch | 03/2024 |
 | 22.3.7 | 03/2023 | Patch | 02/2024 |
 | 22.3.6 | 03/2023 | Patch | 02/2024 |
 | 22.3.5 | 01/2023 | Patch | 12/2023 |
@@ -102,7 +103,7 @@ To understand whether a feature is supported in your sensor version, check the r
 **Supported until**: 03/2024
 
 - [Download WMI script from OT sensor console](detect-windows-endpoints-script.md#download-the-script)
-- [Automatically resolved notifications for operating system changes and device type changes](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
+- [Automatically resolved notifications for operating system changes](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
 - [UI enhancements when uploading SSL/TLS certificates](how-to-deploy-certificates.md#deploy-a-certificate-on-an-ot-sensor)
 
 ### 22.3.6 / 22.3.7
