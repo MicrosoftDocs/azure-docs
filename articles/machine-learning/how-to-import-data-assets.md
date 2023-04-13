@@ -43,7 +43,7 @@ To create and work with data assets, you need:
 
 * [Workspace connections created](how-to-connection.md)
 
-## Importing from external database sources / import from external sources to create a meltable data asset
+## Importing from external database sources / import from external sources to create a mltable data asset
 
 > [!NOTE] 
 > The external databases can have Snowflake, Azure SQL, etc. formats.
