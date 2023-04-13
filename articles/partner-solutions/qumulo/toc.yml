@@ -25,8 +25,7 @@ items:
 #  - name: JavaScript
 #    href: /javascript/api/overview/azure/qumulo
   - name: .NET
-    href: /dotnet/api/overview/azure/qumulo?view=azure-dotnet-preview&branch=main&viewFallbackFrom=azure-dotnet
-#  - name: Java
+    href: /dotnet/api/overview/azure/qumulo
 #    href: /java/api/overview/azure/qumulo
 #  - name: REST API
 #    href: /rest/api/qumulo
