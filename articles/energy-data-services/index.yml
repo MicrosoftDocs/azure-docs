@@ -113,4 +113,4 @@ landingContent:
           - text: Enable resource sharing (CORS)
             url: how-to-enable-cors.md
           - text: Set up audit logs
-            url: how-to-manage-auditlogs.md
+            url: how-to-manage-audit-logs.md

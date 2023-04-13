@@ -87,7 +87,7 @@
     - name: Generate a refresh token
       href: how-to-generate-refresh-token.md
     - name: Set up audit logs
-      href: how-to-manage-auditlogs.md
+      href: how-to-manage-audit-logs.md
 - name: References
   items:
   - name: REST API
