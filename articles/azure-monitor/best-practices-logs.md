@@ -9,15 +9,8 @@ ms.reviewer: bwren
 ---
 
 # Best practices for Azure Monitor Logs
-This article provides architectural best practices for Azure Monitor Logs. The guidance is based on the five pillars of architecture excellence described in [Azure Well-Architected Framework](/azure/architecture/framework/):
+This article provides architectural best practices for Azure Monitor Logs. The guidance is based on the five pillars of architecture excellence described in [Azure Well-Architected Framework](/azure/architecture/framework/).
 
-- [Best practices for Azure Monitor Logs](#best-practices-for-azure-monitor-logs)
-  - [Reliability](#reliability)
-  - [Security](#security)
-  - [Cost optimization](#cost-optimization)
-  - [Operational excellence](#operational-excellence)
-  - [Performance efficiency](#performance-efficiency)
-  - [Next step](#next-step)
 
 
 ## Reliability
@@ -33,10 +26,10 @@ Security is one of the most important aspects of any architecture. Azure Monitor
 
 
 ## Cost optimization
-Cost optimization refers to ways to reduce unnecessary expenses and improve operational efficiencies. You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. See [Azure Monitor cost and usage](../usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
+Cost optimization refers to ways to reduce unnecessary expenses and improve operational efficiencies. You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. See [Azure Monitor cost and usage](usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
 
 > [!NOTE]
-> See [Optimize costs in Azure Monitor](../best-practices-cost.md) for cost optimization recommendations across all features of Azure Monitor.
+> See [Optimize costs in Azure Monitor](best-practices-cost.md) for cost optimization recommendations across all features of Azure Monitor.
 
 [!INCLUDE [waf-logs-cost](includes/waf-logs-cost.md)]
 
@@ -54,4 +47,4 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 ## Next step
 
-- [Get best practices for a complete deployment of Azure Monitor](../best-practices.md).
+- [Get best practices for a complete deployment of Azure Monitor](best-practices.md).
