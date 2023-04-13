@@ -25,6 +25,9 @@ This article gives an overview of some of the main features of Microsoft Purview
 
   :::image type="content" source="./media/use-purview-studio/open-purview-studio.png" alt-text="Screenshot of Microsoft Purview window in Azure portal, with the Microsoft Purview governance portal button highlighted." border="true":::
 
+>[!TIP]
+>If you are unable to access the portal, [confirm you have the necessary permissions](catalog-permissions.md#permissions-to-access-the-microsoft-purview-governance-portal).
+
 ## Home page
 
 **Home** is the starting page for the Microsoft Purview client.
