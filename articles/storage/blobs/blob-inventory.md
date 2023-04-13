@@ -389,7 +389,7 @@ For more information about pricing for Azure Storage blob inventory, see [Azure 
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
-## Known issues
+## Known issues and limitations
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
 
