@@ -28,8 +28,8 @@ Use the `authentication-basic` policy to authenticate with a backend service usi
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-|username|Specifies the username of the Basic credential.|Yes|N/A|
-|password|Specifies the password of the Basic credential.|Yes|N/A|
+|username|Specifies the username of the Basic credential. Policy expressions are allowed. |Yes|N/A|
+|password|Specifies the password of the Basic credential. Policy expressions are allowed. |Yes|N/A|
 
 
 ## Usage

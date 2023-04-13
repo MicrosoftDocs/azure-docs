@@ -469,7 +469,7 @@
     items:
     - name: Pay your Azure bill
       href: understand/pay-bill.md
-    - name: Set up pay by check or wire transfer
+    - name: Set up pay by wire transfer
       href: manage/pay-by-invoice.md
     - name: Resolve pay-as-you-go past due balance
       href: manage/resolve-past-due-balance.md
@@ -503,8 +503,8 @@
       href: manage/troubleshoot-azure-sign-up.md
     - name: Subscription sign-in issues
       href: manage/troubleshoot-sign-in-issue.md
-    - name: Can't create multiple subscriptions
-      href: manage/create-multiple-subscriptions-error.md
+    - name: Create multiple subscriptions message
+      href: manage/create-subscriptions-deploy-resources.md
     - name: Not available due to conflict error
       href: manage/troubleshoot-not-available-conflict.md
     - name: Enterprise cost view disabled

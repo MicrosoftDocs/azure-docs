@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Saba Cloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Saba Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and Saba Cloud.
 services: active-directory
 author: jeevansd

@@ -18,14 +18,14 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article shows you how to use Application Live View for VMware Tanzu® with Azure Spring Apps Enterprise tier.
 
-[Application Live View for VMware Tanzu](https://docs.vmware.com/en/Application-Live-View-for-VMware-Tanzu/1.2/docs/GUID-index.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators look inside running apps.
+[Application Live View for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/app-live-view-about-app-live-view.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators look inside running apps.
 
 Application Live View only supports Spring Boot applications.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- To provision an Azure Marketplace offer purchase, see the [Prerequisites](how-to-enterprise-marketplace-offer.md#prerequisites) section of [View Azure Spring Apps Enterprise tier offering from Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- Understand and fulfill the [Requirements](how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise Tier in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. Use the following command to remove previous versions and install the latest extension. If you previously installed the `spring-cloud` extension, uninstall it to avoid configuration and version mismatches.
 
   ```azurecli

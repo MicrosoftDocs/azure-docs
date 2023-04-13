@@ -5,10 +5,10 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 04/12/2023
 author: chugugrace
 ms.author: chugu
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, devx-track-azurepowershell
 ---
 # How to start and stop Azure-SSIS Integration Runtime on a schedule
 

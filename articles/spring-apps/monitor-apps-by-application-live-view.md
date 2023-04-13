@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-[Application Live View for VMware Tanzu](https://docs.vmware.com/en/Application-Live-View-for-VMware-Tanzu/1.2/docs/GUID-index.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators look inside running apps.
+[Application Live View for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/app-live-view-about-app-live-view.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators look inside running apps.
 
 Application Live View provides visual insights into running apps by inspecting Spring Boot Actuator information. It provides a live view of the data from inside the app only. Application Live View doesn't store any of the app data for further analysis or historical views. The easy-to-use interface lets you troubleshoot, learn, and maintain an overview of certain aspects of the apps. It provides a certain level of control to users to let them change some parameters such as log levels and environment properties of running apps.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Pass-through Authentication: Version release history | Microsoft Docs'
+title: 'Azure AD Pass-through Authentication: Version release history'
 description: This article lists all releases of the Azure AD Pass-through Authentication agent
 services: active-directory
 author: billmath

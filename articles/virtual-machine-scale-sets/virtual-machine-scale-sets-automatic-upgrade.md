@@ -8,10 +8,11 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: devx-track-azurepowershell
-
 ---
 # Azure Virtual Machine Scale Set automatic OS image upgrades
+
+> [!NOTE]
+> Many of the steps listed in this document apply to Virtual Machine Scale Sets using Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 Enabling automatic OS image upgrades on your scale set helps ease update management by safely and automatically upgrading the OS disk for all instances in the scale set.
 
@@ -184,6 +185,57 @@ az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradeP
 
 > [!NOTE]
 >After configuring automatic OS image upgrades for your scale set, you must also bring the scale set VMs to the latest scale set model if your scale set uses the 'Manual' [upgrade policy](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+
+### ARM templates
+The following example describes how to set automatic OS upgrades on a scale set model via Azure Resource Manager templates (ARM templates):
+
+```json
+"properties": { 
+   "upgradePolicy": { 
+     "mode": "Automatic", 
+     "RollingUpgradePolicy": {
+         "BatchInstancePercent": 20,
+         "MaxUnhealthyInstancePercent": 25,
+         "MaxUnhealthyUpgradedInstancePercent": 25,
+         "PauseTimeBetweenBatches": "PT0S"
+      "automaticOSUpgradePolicy": { 
+        "enableAutomaticOSUpgrade": true,
+         "useRollingUpgradePolicy": true,
+         "disableAutomaticRollback": false 
+      } 
+    } 
+"imagePublisher": {
+   "type": "string",
+   "defaultValue": "MicrosoftWindowsServer"
+ },
+ "imageOffer": {
+   "type": "string",
+   "defaultValue": "WindowsServer"
+ },
+ "imageSku": {
+   "type": "string",
+   "defaultValue": "2022-datacenter"
+ },
+ "imageOSVersion": {
+   "type": "string",
+   "defaultValue": "latest"
+ } 
+}
+```
+
+### Bicep
+The following example describes how to set automatic OS upgrades on a scale set model via Bicep:
+
+```json
+properties: { 
+    overprovision: overProvision 
+    upgradePolicy: { 
+      mode: 'Automatic' 
+      automaticOSUpgradePolicy: { 
+        enableAutomaticOSUpgrade: true 
+      } 
+    } 
+```
 
 ## Using Application Health Probes
 

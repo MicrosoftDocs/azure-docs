@@ -30,7 +30,7 @@ It's helpful to understand some key terms relating to identity-based authenticat
 
 -  **Server Message Block (SMB) protocol**
 
-    SMB is an industry-standard network file-sharing protocol. SMB is also known as Common Internet File System (CIFS). For more information on SMB, see [Microsoft SMB Protocol and CIFS Protocol Overview](/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
+    SMB is an industry-standard network file-sharing protocol. For more information on SMB, see [Microsoft SMB Protocol and CIFS Protocol Overview](/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
 
 -   **Azure Active Directory (Azure AD)**
 
@@ -108,7 +108,7 @@ The following diagram depicts on-premises AD DS authentication to Azure file sha
 
 :::image type="content" source="media/storage-files-active-directory-overview/files-ad-ds-auth-diagram.png" alt-text="Diagram that depicts on-premises AD DS authentication to Azure file shares over SMB.":::
 
-To learn how to enable AD DS authentication, first read [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md) and then see [Enable on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md).
+To learn how to enable AD DS authentication, first read [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md) and then see [Enable AD DS authentication for Azure file shares](storage-files-identity-ad-ds-enable.md).
 
 ### Azure AD DS
 

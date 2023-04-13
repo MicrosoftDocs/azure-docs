@@ -8,7 +8,7 @@ ms.date: 09/22/2022
 ms.topic: quickstart
 ms.service: payment-hsm
 tags: azure-resource-manager
-ms.custom: mvc, devx-track-azurecli, mode-other
+ms.custom: mvc, mode-other, devx-track-arm-template, devx-track-azurepowershell
 #Customer intent: As a security admin who is new to Azure, I want to create a payment HSM using an Azure Resource Manager template.
 ---
 
@@ -27,6 +27,9 @@ This article describes how to create a payment HSM with the host and management 
 [!INCLUDE [Create a resource group with the Azure CLI](../../includes/payment-hsm/specialized-service.md)]
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
+
+  > [!WARNING]
+  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more details, see [Fastpathenabled](fastpathenabled.md).
 
   To quickly ascertain if the resource providers and features are already registered, use the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (You will find the output of this command more readable if you display it in table-format.)
 

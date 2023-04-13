@@ -10,7 +10,7 @@ author: swatig007
 ms.author: swatig
 ms.reviewer: ssalgado
 ms.date: 05/26/2022
-ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022, devx-track-azurecli
 ---
 
 # Tutorial: Train an object detection model with AutoML and Python
@@ -18,7 +18,7 @@ ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](v1/tutorial-auto-train-image-models-v1.md)
+> * [v1](v1/tutorial-auto-train-image-models-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](tutorial-auto-train-image-models.md)
 
 
@@ -40,7 +40,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
+* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
 
 * Python 3.6 or 3.7 are supported for this feature
 
@@ -63,14 +63,14 @@ This tutorial is also available in the [azureml-examples repository on GitHub](h
 
 This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
 
-* Use the following commands to install Azure ML Python SDK v2:
+* Use the following commands to install Azure Machine Learning Python SDK v2:
    * Uninstall previous preview version:
    ```python
    pip uninstall azure-ai-ml
    ```
-   * Install the Azure ML Python SDK v2:
+   * Install the Azure Machine Learning Python SDK v2:
    ```python
-   pip install azure-ai-ml
+   pip install azure-ai-ml azure-identity
    ```
 
     > [!NOTE]
@@ -236,7 +236,7 @@ plot_ground_truth_boxes_jsonl(image_file, jsonl_file)
 ```
 
 ## Upload data and create MLTable
-In order to use the data for training, upload data to default Blob Storage of your Azure ML Workspace and register it as an asset. The benefits of registering data are:
+In order to use the data for training, upload data to default Blob Storage of your Azure Machine Learning Workspace and register it as an asset. The benefits of registering data are:
 - Easy to share with other members of the team
 - Versioning of the metadata (location, description, etc.)
 - Lineage tracking

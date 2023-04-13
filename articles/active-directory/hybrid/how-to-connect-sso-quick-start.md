@@ -80,7 +80,7 @@ When you complete the wizard, Seamless SSO is enabled on your tenant.
 
 To verify that you have enabled Seamless SSO correctly:
 
-1. Sign in to the [Azure Active Directory administrative center](https://aad.portal.azure.com) with the Hybrid Identity Administrator account credentials for your tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) with the Hybrid Identity Administrator account credentials for your tenant.
 1. In the left menu, select **Azure Active Directory**.
 1. Select **Azure AD Connect**.
 1. Verify that **Seamless single sign-on** is set to **Enabled**.

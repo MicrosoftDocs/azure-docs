@@ -4,6 +4,7 @@ description: This article outlines the process to register an Azure Data Lake St
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/14/2022
 ms.custom: template-how-to, ignite-fall-2021
@@ -17,9 +18,9 @@ This article outlines the process to register an Azure Data Lake Storage Gen1 da
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| No |Limited** | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)|[Yes](create-sensitivity-label.md)| No |Limited** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 

@@ -10,7 +10,7 @@ ms.author: bozhlin
 author: bozhong68
 ms.reviewer: larryfr
 ms.date: 11/04/2022
-ms.custom: deploy, cliv1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1, event-tier1-build-2022
 ---
 
 # Update a deployed web service (v1)

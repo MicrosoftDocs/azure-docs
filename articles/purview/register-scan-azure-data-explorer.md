@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/03/2021
+ms.date: 02/27/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -17,9 +17,9 @@ This article outlines how to register Azure Data Explorer, and how to authentica
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No | Limited* | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| [Yes](create-sensitivity-label.md)| No | Limited* | No |
 
 \* *Lineage is supported if dataset is used as a sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 

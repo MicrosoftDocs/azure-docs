@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 03/15/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -16,9 +16,9 @@ This article outlines how to register Oracle, and how to authenticate and intera
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | [Yes](#scan) | No| [Yes*](#lineage)| No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | [Yes](#scan) | No |No| [Yes*](#lineage)| No |
 
 \* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
@@ -66,7 +66,12 @@ Currently, the Oracle service name isn't captured in the metadata or hierarchy.
 
 ### Required permissions for scan
 
-Microsoft Purview supports basic authentication (username and password) for scanning Oracle. The Oracle user must have read access to system tables in order to access advanced metadata. For classification, user also needs to have read permission on the tables/views to retrieve sample data.
+Microsoft Purview supports basic authentication (username and password) for scanning Oracle. The Oracle user must have read access to system tables in order to access advanced metadata. 
+
+For classification, user also needs to be the owner of the table.
+
+>[!IMPORTANT]
+>If the user is not the owner of the table, the scan will run successfully and ingest metadata, but will not identify any classifications.
 
 The user should have permission to create a session and role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
 

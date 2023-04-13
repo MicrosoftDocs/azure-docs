@@ -112,10 +112,10 @@ You can create a data asset using the CLI:
 az ml data create --name iris-from-https --version 1 --type mltable --path ./iris
 ```
 
-The folder containing the `MLTable` will automatically upload to cloud storage (the default Azure ML datastore).
+The folder containing the `MLTable` will automatically upload to cloud storage (the default Azure Machine Learning datastore).
 
 > [!TIP]
-> An Azure ML data asset is similar to web browser bookmarks (favorites). Instead of remembering long URIs (storage paths) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
+> An Azure Machine Learning data asset is similar to web browser bookmarks (favorites). Instead of remembering long URIs (storage paths) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
 
 ### Delimited text files
 

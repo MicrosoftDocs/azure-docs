@@ -10,7 +10,6 @@ ms.service: api-management
 ms.topic: article
 ms.date: 10/28/2022
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Overview of the developer portal

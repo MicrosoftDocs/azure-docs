@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with DigiCert | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with DigiCert'
 description: Learn how to configure single sign-on between Azure Active Directory and DigiCert.
 services: active-directory
 author: jeevansd

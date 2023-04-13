@@ -114,6 +114,8 @@ Traffic started by the user will travel to the closest participating region thro
 
 Cross-region load balancer routes the traffic to the appropriate regional load balancer.
 
+:::image type="content" source="./media/cross-region-overview/multiple-region-global-traffic.png" alt-text="Diagram of multiple region global traffic.":::
+
 ### Participating regions
 * East US 
 * West Europe 
@@ -137,6 +139,9 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * US Gov Arizona
 * US Gov Texas
 * US Gov Virginia
+
+> [!NOTE]
+> The backend regional load balancers can be deployed in any publicly available Azure Region and is not limited to just participating regions.
 
 ## Limitations
 

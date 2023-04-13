@@ -1,5 +1,5 @@
 ---
-title: Upgrading Azure MFA Server - Azure Active Directory
+title: Upgrading Azure MFA Server
 description: Steps and guidance to upgrade the Azure AD Multi-Factor Authentication Server to a newer version. 
 
 services: multi-factor-authentication

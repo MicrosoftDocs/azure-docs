@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Pexip | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Pexip'
 description: Learn how to configure single sign-on between Azure Active Directory and Pexip.
 services: active-directory
 author: jeevansd

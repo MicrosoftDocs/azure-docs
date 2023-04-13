@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with OnTrack | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with OnTrack'
 description: Learn how to configure single sign-on between Azure Active Directory and OnTrack.
 services: active-directory
 author: jeevansd

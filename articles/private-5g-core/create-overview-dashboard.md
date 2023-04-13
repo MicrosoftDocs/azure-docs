@@ -7,7 +7,7 @@ ms.author: drichards
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 03/20/2022
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-arm-template
 ---
 
 # Create an overview Log Analytics dashboard using an ARM template

@@ -16,11 +16,11 @@ This article outlines how to register and Azure SQL Managed Instance, as well as
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | Limited** | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|--|
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](create-sensitivity-label.md)| No | Limited** | No |
 
-\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md)
 
 ## Prerequisites
 
@@ -170,6 +170,8 @@ To create and run a new scan, complete the following steps:
    :::image type="content" source="media/register-scan-azure-sql-managed-instance/trigger-scan.png" alt-text="Screenshot of the set scan trigger window, with the recurring tab selected.":::
 
 1. Review your scan and select **Save and run**.
+
+If you're having trouble connecting to your data source, or running your scan, you scan see our [troubleshooting guide for scans and connections.](troubleshoot-connections.md)
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
