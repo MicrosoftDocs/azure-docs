@@ -1,5 +1,5 @@
 ---
-title: Durable Function Troubleshooting Guide
+title: Durable Functions Troubleshooting Guide
 description: Guide to troubleshoot common issues with durable functions.
 author: nytiannn
 ms.topic: conceptual
@@ -54,7 +54,7 @@ Use the following steps to troubleshoot stuck orchestrations:
 
 1. Try restarting the function app. This step can help if the orchestration gets stuck due to a transient bug or deadlock in either the app or the extension code.
 
-2. Check the Azure Storage account control queues to see if any queues are growing continuously. This query could indicate a problem with dequeuing orchestration messages. If the problem impacts only a single control queue, it might indicate a problem that exists only on a specific app instance, in which case scaling up or down to move off the unhealthy VM instance could help.
+2. Check the Azure Storage account control queues to see if any queues are growing continuously. [This query](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) could indicate a problem with dequeuing orchestration messages. If the problem impacts only a single control queue, it might indicate a problem that exists only on a specific app instance, in which case scaling up or down to move off the unhealthy VM instance could help.
 
 3. Use the Application Insights query in the [Azure Storage Messaging section](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) to filter on that queue name as the Partition ID and look for any problems related to that control queue partition.
 
@@ -72,14 +72,14 @@ Heavy data processing, internal errors, and insufficient compute resources can c
    Excessive history load can result in slow orchestrator processing.
 
 3. Check for performance and scalability bottlenecks. 
-   Application performance depends on many factors. For example, high CPU usage, or large memory consumption can result in delays. Read [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md) for detailed guidance.
+   Application performance depends on many factors. For example, high CPU usage or large memory consumption can result in delays. Read [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md) for detailed guidance.
 
 ## Sample Queries
 
 This section shows how to troubleshoot issues by writing custom [KQL queries](/azure/data-explorer/kusto/query/) in the Azure Application Insights instance configured for your Azure Functions app.
 
 ### Azure Storage Messaging
-When using the default storage provider, all Durable Functions behavior is driven by Azure Storage queue messages and all state related to an orchestration is stored in table Storage and blob storage. All Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems.
+When using the default storage provider, all Durable Functions behavior is driven by Azure Storage queue messages and all state related to an orchestration is stored in table storage and blob storage. All Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems.
 
 Starting in v2.3.0 of the Durable Functions extension, you can have these Durable Task Framework logs published to your Application Insights instance by updating your logging configuration in the host.json file. See the [Durable Task Framework logging article](./durable-functions-diagnostics.md) for information and instructions on how to do this.
 
