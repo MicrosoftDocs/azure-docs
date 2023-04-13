@@ -220,7 +220,7 @@ At each stage of your deployment ensure that you’re testing that results are a
 
 ### Plan testing
 
-Once you have configured automatic user provisioning for the application, you'll run test cases to verify this solution meets your organization’s requirements.
+First, configure automatic user provisioning for the application. Then run test cases to verify the solution meets your organization’s requirements.
 
 | Scenarios| Expected results |
 | - | - |
