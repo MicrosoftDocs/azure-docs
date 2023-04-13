@@ -53,8 +53,6 @@ items:
       - name: Create branch office location
         href: how-to-create-branch-office-location.md
       - name: Create device link on branch office location
-        href: how-to-create-branch-office-location.md
-      - name: Create device link on branch office location
         href: how-to-create-device-link-on-branch-location.md
       - name: Assign traffic profile to branch office location
         href: how-to-assign-traffic-profile-to-branch-office-location.md
