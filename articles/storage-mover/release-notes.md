@@ -3,10 +3,10 @@ title: Release notes for the Azure Storage Mover service | Microsoft Docs
 description: Read the release notes for the Azure Storage Mover service, which allows you to migrate your on-premises unstructured data to the Azure Storage service.
 services: storage-mover
 author: stevenmatthew
+ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
 ms.date: 4/14/2022
-ms.author: stevenmatthew
 ---
 
 # Release notes for the Azure Storage Mover service
