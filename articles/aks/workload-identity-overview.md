@@ -9,7 +9,7 @@ ms.date: 03/28/2023
 # Use Azure AD workload identity with Azure Kubernetes Service (AKS)
 
 Azure AD Workload Identity leverages [Service Account Token Volume Projection](Configure Service Accounts for Pods | Kubernetes) giving pods the ability to use a Kubernetes identity (service account), to which a Kubernetes token is issued and [OIDC federation](Authenticating | Kubernetes) which enables Kubernetes applications to access Azure cloud resources securely with Azure Active Directory based on annotated service accounts.
- 
+
 Azure AD workload identity works especially well with the Azure Identity client library using the [Azure SDK][azure-sdk-download] and the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL) if you're using [application registration][azure-ad-application-registration]. Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
 
 This article helps you understand this new authentication feature, and reviews the options available to plan your project strategy and potential migration from Pod Identity.
