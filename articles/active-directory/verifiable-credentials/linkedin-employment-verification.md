@@ -32,13 +32,13 @@ There are two reasons to deploy the custom webapp for the Linked Employment veri
 1. You need control over who can get verified on LinkedIn. The initial preview of myaccount will not allow an administrator to assign permissions. The webapp allows you to use user assignments to grant access.
 1. You want more control over the issuance of the Verified Employee ID. By default, the Employee Verified ID contains a few claims:
 
-   - firstname
-   - lastname
-   - displayname
-   - jobtitle
-   - upn
-   - email
-   - photo
+   - ```firstname```
+   - ```lastname```
+   - ```displayname```
+   - ```jobtitle```
+   - ```upn```
+   - ```email```
+   - ```photo```
 
 >[!NOTE]
 >The web app can be modified to remove claims, for example, you may choose to remove the photo claim.
@@ -63,7 +63,7 @@ The LinkedIn mobile app will be updated and will have a digital wallet for emplo
  
 The diagram below shows the dataflow of the entire solution.
 
-![Diagram showing a high-level flow.](media/linkedin-employment-verification/linkedin-employee-verification.png)
+   ![Diagram showing a high-level flow.](media/linkedin-employment-verification/linkedin-employee-verification.png)
 
 
 ## Frequently asked questions
