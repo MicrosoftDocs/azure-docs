@@ -139,7 +139,7 @@ Support | Details
 **Windows servers** | Windows Server 2008 and later are supported.
 **Linux servers** | Currently not supported.
 **Authentication mechanism** | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.
-**SQL Server access** | To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role. [Learn more](#configure-the-custom-login-for-assessment) about the required permissions.
+**SQL Server access** | To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](migrate-support-matrix-physical.md#configure-the-custom-login-for-assessment) for each SQL Server instance.
 **SQL Server versions** | SQL Server 2008 and later are supported.
 **SQL Server editions** | Enterprise, Standard, Developer, and Express editions are supported.
 **Supported SQL configuration** | Discovery of standalone, highly available, and disaster protected SQL deployments is supported. Discovery of HADR SQL deployments powered by Always On Failover Cluster Instances and Always On Availability Groups is also supported.
