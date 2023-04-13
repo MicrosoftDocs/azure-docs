@@ -186,6 +186,7 @@ $file.ACL
 
 > [!NOTE]
 > To set the ACL of a specific group or user, service principal, or managed identity, use their respective object IDs. For example, to set the ACL of a **group**, use `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. To set the ACL of a **user**, use `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+
 The following image shows the output after setting the ACL of a file.
 
 ![Get ACL output for file](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
