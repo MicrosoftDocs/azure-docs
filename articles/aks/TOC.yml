@@ -361,9 +361,9 @@
                   href: workload-identity-deploy-cluster.md
                 - name: Modernize your app with workload identity
                   href: workload-identity-migrate-from-pod-identity.md
-            - name: Use Azure AD pod identity
+            - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
-            - name: Use Pod Sandboxing
+            - name: Use Pod Sandboxing (preview)
               href: use-pod-sandboxing.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md
@@ -544,6 +544,8 @@
               href: dapr-settings.md
             - name: Migrate from Dapr OSS to the Dapr extension
               href: dapr-migration.md
+            - name: Deploy and run workflows with the Dapr extension
+              href: dapr-workflow.md
             - name: Troubleshoot the Dapr extension
               href: dapr-troubleshooting.md
         - name: Use GitOps
