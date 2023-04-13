@@ -100,7 +100,7 @@ gcch_bot_identifier = MicrosoftBotIdentifier(
 
 #### API reference
 
-[MicrosoftTeamsUserIdentifier](/python/api/azure-communication-identity/azure.communication.identity.microsoftbotidentifier?view=azure-python-preview)
+[MicrosoftBotIdentifier](/python/api/azure-communication-identity/azure.communication.identity.microsoftbotidentifier?view=azure-python-preview)
 
 ### Unknown
 
