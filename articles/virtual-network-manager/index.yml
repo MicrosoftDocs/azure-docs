@@ -100,9 +100,9 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Monitoring Azure Virtual Network Manager
-            url: concept-monitoring.md
+          - text: Event Log Options for Azure Virtual Network Manager
+            url: concept-event-logs.md
       - linkListType: how-to-guide
         links:
-          - text: Monitoring Azure Virtual Network Manager for virtual network changes
-            url: how-to-monitor-virtual-network-changes.md
+          - text: View Event Logs for Azure Virtual Network Manager
+            url: how-to-view-event-logs.md
