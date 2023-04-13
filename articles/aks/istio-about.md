@@ -35,8 +35,8 @@ Istio is an open-source service mesh that layers transparently onto existing dis
 This service mesh add-on uses and builds on top of open-source Istio. The add-on flavor provides the following extra benefits:
 
 * Istio versions are tested and verified to be compatible with supported versions of Azure Kubernetes Service.
-* Scaling of Istio control plane configured and handled by Microsoft.
-* Adjust scaling of AKS components like `coredns` when Istio is enabled.
+* Microsoft handles scaling and configuration of Istio control plane
+* Microsoft adjusts scaling of AKS components like `coredns` when Istio is enabled.
 * Verified external and internal ingress set-up.
 * Verified to work with [Azure Monitor managed service for Prometheus][managed-prometheus-overview] and [Azure Managed Grafana][managed-grafana-overview].
 * Official Azure support provided for the add-on.
