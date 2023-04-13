@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Sensor version 22.3.8**: <br>- [Download WMI script from OT sensor console](#download-wmi-script-from-ot-sensor-console) <br>- [Automatically resolved OS and device type notifications](#automatically-resolved-os-and-device-type-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
+| **OT networks** | **Sensor version 22.3.8**: <br>- [Download WMI script from OT sensor console](#download-wmi-script-from-ot-sensor-console) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
 
 ### Download WMI script from OT sensor console
 
@@ -28,11 +28,9 @@ The WMI script can now be downloaded from the OT sensor console.
 
 For more information, see [Download the script](detect-windows-endpoints-script.md#download-the-script)
 
-### Automatically resolved OS and device type notifications
+### Automatically resolved notifications for operating system changes
 
-Starting in version 22.3.8, selected notifications on the OT sensor's **Device map** page are now automatically resolved if they aren't dismissed or otherwise handled within 14 days.
-
-After updating your sensor version, the **Operating system changes** and **Device type changes** notifications no longer appear.
+After updating your OT sensor to version 22.3.8, no new device notifications for **Operating system changes** are generated. Existing **Operating system changes** notifications are automatically resolved if they aren't dismissed or otherwise handled within 14 days.
 
 For more information, see [Device notification responses](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
 
