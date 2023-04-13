@@ -135,6 +135,9 @@ switch (communicationIdentifier)
     case PhoneNumberIdentifier phoneNumber:
         Console.WriteLine($"Phone number: {phoneNumber.PhoneNumber}");
         break;
+    case MicrosoftBotIdentifier bot:
+        Console.WriteLine($"Microsoft bot: {bot.BotId}");
+        break;
     case UnknownIdentifier unknown:
         Console.WriteLine($"Unknown: {unknown.Id}");
         break;

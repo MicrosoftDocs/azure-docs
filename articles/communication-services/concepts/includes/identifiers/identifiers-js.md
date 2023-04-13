@@ -137,6 +137,10 @@ switch (communicationIdentifier.kind)
          // narrowed to UnknownIdentifierKind
         console.log(`Unknown: ${communicationIdentifier.id}`);
         break;
+    case "microsoftBot":
+        // narrowed to MicrosoftBotIdentifier
+        console.log(`Microsoft bot: ${communicationIdentifier.botId}`);
+        break;
     default:
         // be careful here whether you want to throw because a new SDK version
         // can introduce new identifier types

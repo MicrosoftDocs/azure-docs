@@ -133,6 +133,9 @@ else if (communicationIdentifier instanceof MicrosoftTeamsUserIdentifier) {
 else if (communicationIdentifier instanceof PhoneNumberIdentifier) {
     System.out.println("Phone number: " + ((PhoneNumberIdentifier)communicationIdentifier).getPhoneNumber());
 }
+else if (communicationIdentifier instanceof MicrosoftBotIdentifier) {
+    Log.i(tag, "Microsoft bot: " + ((MicrosoftBotIdentifier)communicationIdentifier).getBotId());
+}
 else if (communicationIdentifier instanceof UnknownIdentifier) {
     System.out.println("Unkown user: " + ((UnknownIdentifier)communicationIdentifier).getId());
 }
