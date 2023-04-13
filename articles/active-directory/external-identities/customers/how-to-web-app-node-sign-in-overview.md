@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users in your own Node.js web application by using Microsoft Entra 
 
-In this article, you learn how to sign in users in your own Node.js web application that you build. This article uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication to your node web application. You authenticate your web application against your Azure Active Directory (Azure AD) for customers tenant. 
+In this article, you learn how to sign in users in your own Node.js web application that you build. You add authentication to your web application against your Azure Active Directory (Azure AD) for customers tenant. 
 
 We've broken down this article into three separate articles so it's easy for you to follow: 
 
@@ -27,6 +27,22 @@ We've broken down this article into three separate articles so it's easy for you
 - [Prepare your web application](how-to-web-app-node-sign-in-prepare-app.md) guides you how to set up your Node.js app structure.
 
 - [Add sign-in and sign-out](how-to-web-app-node-sign-in-sign-in-out.md) guides you how to add authentication to your application by using MSAL.
+
+## Overview
+
+OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use OIDC to securely sign users in to an application. The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication to your node web application.
+
+The sign-in flow involves the following steps:
+
+1. Users go to the web app and initiate a sign-in flow.
+
+1. The app initiates an authentication request and redirects users to Azure AD for customers.
+
+1. Users sign up, sign in or reset the password. Users cal also sign in with a social account it's configured.
+
+1. After users sign in successfully, Azure AD for customers returns an ID token to the web app.
+
+1. The web app reads the ID token claims, and then displays a secure page to users.
 
 ## Prerequisites
 
