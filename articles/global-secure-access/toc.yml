@@ -46,7 +46,24 @@ items:
     - name: Configure devices
       href: how-to-configure-devices.md
     - name: Configure branch Office locations
-      href: how-to-configure-branch-office-locations.md
+      expanded: false
+      items:
+      - name: List all branch office locations
+        href: how-to-list-branch-locations.md
+      - name: Create branch office location
+        href: how-to-create-branch-office-location.md
+      - name: Create device link on branch office location
+        href: how-to-create-branch-office-location.md
+      - name: Create device link on branch office location
+        href: how-to-create-device-link-on-branch-location.md
+      - name: Assign traffic profile to branch office location
+        href: how-to-assign-traffic-profile-to-branch-office-location.md
+      - name: Edit branch office location
+        href: how-to-edit-branch-office-location.md
+      - name: Test branch connectivity
+        href: how-to-test-branch-connectivity.md
+      - name: Delete device link or branch office location
+        href: how-to-delete-device-link-or-branch-location.md
   - name: Create
     expanded: false
     items:
