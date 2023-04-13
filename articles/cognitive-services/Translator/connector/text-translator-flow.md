@@ -29,9 +29,9 @@ To get started, you need  an active Azure subscription. If you don't have an Azu
 
 * Once you have your Azure subscription, create a [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
 
-* You need the key and name from your resource to connect your application to Power Automate. Your Translator resource keys are found under the Resource Management section in the Azure portal and your resource name is located at the top of the page. Copy and paste your key and endpoint URL in a convenient location, such as *Microsoft Notepad*.
+* You need the key and name from your resource to connect your application to Power Automate. Your Translator resource keys are found under the Resource Management section in the Azure portal and your resource name is located at the top of the page. Copy and paste your key and resource name in a convenient location, such as *Microsoft Notepad*.
 
-   :::image type="content" source="../media/connectors/keys-and-endpoint-resource.png" alt-text="Get key and endpoint.":::
+   :::image type="content" source="../media/connectors/keys-resource-details.png" alt-text="Get key and endpoint.":::
 
 ## Configure the Translator V3 connector
 
@@ -120,7 +120,7 @@ Let's test the cloud flow and view the translated text.
 1. Select **Test Flow** → **Manually** → **Test** from the right-side window.
 1. In the next window, select the  **Run flow** button. 
 1. Finally, select  the **Done** button.
-1. You should receive a "Your flow ran successfully" message and green checkmarks align with each successful step.
+1. You should receive a "Your flow ran successfully" message and green check marks align with each successful step.
 
    :::image type="content" source="../media/connectors/successful-text-translation-flow.png" alt-text="Screenshot of successful flow.":::
 
