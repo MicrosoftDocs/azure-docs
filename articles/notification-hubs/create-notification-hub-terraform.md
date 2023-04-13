@@ -45,19 +45,19 @@ In this article, you learn how to:
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/../terraform/quickstart/101-notification-hub/main.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/terraform/quickstart/101-notification-hub/main.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/../terraform/quickstart/101-notification-hub/outputs.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/terraform/quickstart/101-notification-hub/outputs.tf)]
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/../terraform/quickstart/101-notification-hub/providers.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/terraform/quickstart/101-notification-hub/providers.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/../terraform/quickstart/101-notification-hub/variables.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/terraform/quickstart/101-notification-hub/variables.tf)]
 
 ## Initialize Terraform
 
@@ -129,4 +129,4 @@ In this article, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Set up push notifications in Azure Notification Hubs](configure-notification-hub-portal-pns-settings)
+> [Set up push notifications in Azure Notification Hubs](configure-notification-hub-portal-pns-settings.md)
