@@ -1,5 +1,5 @@
 ---
-title: Configure Event Logs for Azure Virtual Network Manager
+title: Configure event logs for Azure Virtual Network Manager
 description: This article describes how to configure and view event logs for Azure Virtual Network Manager. This includes how to access event logs in a Log Analytics workspace and a storage account.
 author: mbender-ms
 ms.author: mbender
@@ -8,18 +8,18 @@ ms.service: virtual-network-manager
 ms.date: 04/13/2023
 ---
 
-# Configure Event Logs for Azure Virtual Network Manager
+# Configure event logs for Azure Virtual Network Manager
 
 When configurations are changed in Azure Virtual Network Manager, this can affect virtual networks that are associated with network groups in your instance. With Azure Monitor, you can monitor Azure Virtual Network Manager for virtual network changes. 
 
 In this article, you learn how to monitor Azure Virtual Network Manager for virtual network changes with Log Analytics or a storage account. 
 
 ## Prerequisites
-- * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed instance of [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md) in your subscription, with managed virtual networks.
 -  You deployed either a [Log Analytics workspace](../azure-monitor/essentials/tutorial-resource-logs.md#create-a-log-analytics-workspace) or a [storage account](../storage/common/storage-account-create.md) to store event logs and observe data related to Azure Virtual Network Manager.
 
-## Configuring Diagnostic Settings
+## Configure Diagnostic Settings
 
 Depending on how you consume event logs, you need to set up a Log Analytics workspace or a storage account for storing your log events. These are as storage targets when configuring diagnostic settings for Azure Virtual Network Manager. Once you have configured your diagnostic settings, you can view the event logs in the Log Analytics workspace or storage account.
 
@@ -53,7 +53,7 @@ A storage account is another option for storing event logs. In this task, you co
 
 1. Select **Save** and close the window.
 
-## Viewing Azure Virtual Network Manager event logs
+## View Azure Virtual Network Manager event logs
 
 In this task, you access the event logs for your Azure Virtual Network Manager instance.
 
@@ -63,10 +63,11 @@ In this task, you access the event logs for your Azure Virtual Network Manager i
     :::image type="content" source="media/how-to-configure-event-logging/run-query.png" alt-text="Screenshot of Run and Load to editor buttons in the diagnostics window.":::
 
 1. If you choose **Run**, the **Results** tab displays the event logs, and you can expand each log to view the details.
-1. When completed reviewing the logs, close the window and select **ok** to discard changes.
 
     :::image type="content" source="media/how-to-configure-event-logging/workspace-log-details.png" alt-text="Screenshot of the event log details from the defined query.":::
 
+1. When completed reviewing the logs, close the window and select **ok** to discard changes.
+ 
     > [!NOTE]
     > When you close the **Query editor** window, you will be be returned to the **Azure Home** page. If you need to return to the **Logs** page, browse to your virtual network manager instance, and select **Logs** under the **Monitoring** in the left pane.
 
