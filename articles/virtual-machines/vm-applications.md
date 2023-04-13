@@ -45,7 +45,7 @@ The VM application packages use multiple resource types:
 
 ## Limitations
 
-- **No more than 3 replicas per region**: When you are creating a VM Application version, the maximum number of replicas per region is three.
+- **No more than 3 replicas per region**: When you're creating a VM Application version, the maximum number of replicas per region is three.
 
 - **Public access on storage**: Only public level access to storage accounts work, as other restriction levels fail deployments.
 
@@ -67,7 +67,7 @@ The VM application packages use multiple resource types:
 
 ## Cost
 
-There's no extra charge for using VM Application Packages, but you are charged for the following resources:
+There's no extra charge for using VM Application Packages, but you're charged for the following resources:
 
 - Storage costs of storing each package and any replicas. 
 - Network egress charges for replication of the first image version from the source region to the replicated regions. Subsequent replicas are handled within the region, so there are no extra charges.
@@ -95,7 +95,7 @@ VM application versions are the deployable resource. Versions are defined with t
 - Configuration file name to be used to configure the app on the VM
 - A link to the configuration file for the VM application, which you can include license files
 - Update string for how to update the VM application to a newer version
-- End-of-life date. End-of-life dates are informational; you are still able to deploy VM application versions past the end-of-life date.
+- End-of-life date. End-of-life dates are informational; you're still able to deploy VM application versions past the end-of-life date.
 - Exclude from latest. You can keep a version from being used as the latest version of the application. 
 - Target regions for replication
 - Replica count per region
@@ -138,7 +138,7 @@ Third party applications for Linux can be packaged in a few ways. Let's explore 
 
 ### .tar and .gz files
 
-These files are compressed archives and can be extracted to a desired location. Check the installation instructions for the original package to in case they need to be extracted to a specific location. If .tar.gz file contains source code, refer to the instructions for the package for how to install from source.
+These files are compressed archives and can be extracted to a desired location. Check the installation instructions for the original package to in case they need to be extracted to a specific location. If .tar.gz file contains source code, see the instructions for the package for how to install from source.
 
 Example to install command to install `golang` on a Linux machine:
 
@@ -152,7 +152,7 @@ Example remove command:
 sudo rm -rf /usr/local/go
 ```
 
-### Creating application packages using .deb, .rpm, and other platform specific packages for VMs with restricted internet access
+### Creating application packages using `.deb`, `.rpm`, and other platform specific packages for VMs with restricted internet access
 
 You can download individual packages for platform specific package managers, but they usually don't contain all the dependencies. For these files, you must also include all dependencies in the application package, or have the system package manager download the dependencies through the repositories that are available to the VM. If you're working with a VM with restricted internet access, you must package all the dependencies yourself.
 
@@ -499,7 +499,7 @@ $resultSummary | convertto-json -depth 5
 | More than one VM Application was specified with the same packageReferenceId. | The same application was specified more than once. |
 | Subscription not authorized to access this image. | The subscription doesn't have access to this application version. |
 | Storage account in the arguments doesn't exist. | There are no applications for this subscription. |
-| The platform image {image} isn't available. Verify that all fields in the storage profile are correct. For more details about storage profile information, refer to https://aka.ms/storageprofile. | The application doesn't exist. |
+| The platform image {image} isn't available. Verify that all fields in the storage profile are correct. For more details about storage profile information, see https://aka.ms/storageprofile. | The application doesn't exist. |
 | The gallery image {image} isn't available in {region} region. Contact image owner to replicate to this region, or change your requested region. | The gallery application version exists, but it wasn't replicated to this region. |
 | The SAS isn't valid for source uri {uri}. | A `Forbidden` error was received from storage when attempting to retrieve information about the url (either mediaLink or defaultConfigurationLink). |
 | The blob referenced by source uri {uri} doesn't exist. | The blob provided for the mediaLink or defaultConfigurationLink properties doesn't exist. |
@@ -516,9 +516,9 @@ $resultSummary | convertto-json -depth 5
 | Can't specify {region} in target regions because the subscription is missing required feature {featureName}. Either register your subscription with the required feature or remove the region from the target region list. | To use VmApplications in certain restricted regions, one must have the feature flag registered for that subscription. |
 | Gallery image version publishing profile regions {regions} must contain the location of image version {location}. | The list of regions for replication must contain the location where the application version is. |
 | Duplicate regions aren't allowed in target publishing regions. | The publishing regions may not have duplicates. |
-| Gallery application version resources currently do not support encryption. | The encryption property for target regions isn't supported for VM Applications |
+| Gallery application version resources currently don't support encryption. | The encryption property for target regions isn't supported for VM Applications |
 | Entity name doesn't match the name in the request URL. | The gallery application version specified in the request url doesn't match the one specified in the request body. |
-| The gallery application version name is invalid. The application version name should follow Major(int32).Minor(int32).Patch(int32) format, where `int` is between 0 and 2,147,483,647 (inclusive). for example, 1.0.0, 2018.12.1 etc. | The gallery application version must follow the format specified. |
+| The gallery application version name is invalid. The application version name should follow Major(int32). Minor(int32). Patch(int32) format, where `int` is between 0 and 2,147,483,647 (inclusive). for example, 1.0.0, 2018.12.1 etc. | The gallery application version must follow the format specified. |
 
 ## Next steps
 
