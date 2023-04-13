@@ -76,7 +76,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. 
 
-# [Container run](#tab/container)
+# [Speech to text](#tab/container)
 
 The following table represents the various `docker run` parameters and their corresponding descriptions:
 
@@ -103,7 +103,7 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-# [Disconnected container run](#tab/disconnected)
+# [Disconnected speech to text](#tab/disconnected)
 
 To run disconnected containers (not connected to the internet), you must submit [this request form](https://aka.ms/csdisconnectedcontainers) and wait for approval. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md) in the Azure Cognitive Services documentation.
 
@@ -113,7 +113,7 @@ The `DownloadLicense=True` parameter in your `docker run` command will download 
 
 | Placeholder | Description | 
 |-------------|-------|
-| `{IMAGE}` | The container image you want to use.<br/><br/>For example: `mcr.microsoft.com/azure-cognitive-services/speech-to-text` |
+| `{IMAGE}` | The container image you want to use.<br/><br/>For example: `mcr.microsoft.com/azure-cognitive-services/speech-to-text:latest` |
 | `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.<br/><br/>For example: `/host/license:/path/to/license/directory` |
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal.<br/><br/>For example: `https://<your-resource-name>.cognitiveservices.azure.com` |
 | `{API_KEY}` | The key for your Speech resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |
@@ -136,7 +136,7 @@ Wherever the container is run, the license file must be mounted to the container
 
 Placeholder | Value | Format or example |
 |-------------|-------|---|
-| `{IMAGE}` | The container image you want to use.<br/><br/>For example: `mcr.microsoft.com/azure-cognitive-services/speech-to-text` |
+| `{IMAGE}` | The container image you want to use.<br/><br/>For example: `mcr.microsoft.com/azure-cognitive-services/speech-to-text:latest` |
  `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container.<br/><br/>For example: `4g` |
 | `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container.<br/><br/>For example: `4` |
 | `{LICENSE_MOUNT}` | The path where the license will be located and mounted.<br/><br/>For example: `/host/license:/path/to/license/directory` |

@@ -91,7 +91,7 @@ Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. 
 
-# [Container run](#tab/container)
+# [Custom speech to text](#tab/container)
 
 The following table represents the various `docker run` parameters and their corresponding descriptions:
 
@@ -211,7 +211,7 @@ ApiKey={API_KEY}
 > [!NOTE]
 > If you set more than one query or download parameter, the command will prioritize in this order: `BaseModelLocale`, model ID, and then `DisplayLocale` (only applicable for display models).
 
-# [Disconnected container run](#tab/disconnected)
+# [Disconnected custom speech to text](#tab/disconnected)
 
 To run disconnected containers (not connected to the internet), you must submit [this request form](https://aka.ms/csdisconnectedcontainers) and wait for approval. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md) in the Azure Cognitive Services documentation.
 
@@ -224,7 +224,7 @@ In order to prepare and configure the Custom Speech-to-Text container you will n
 
 Download the docker container and run it to get the required speech model as [described above](#get-the-container-image-with-docker-pull) using the regular Azure Speech resource. Next, you will need to download your disconnected license file.
 
-The `DownloadLicense=True` parameter in your `docker run` command will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use a license file with the appropriate container that you've been approved for. For example, you can't use a license file for a speech-to-text container with a form recognizer container.
+The `DownloadLicense=True` parameter in your `docker run` command will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use a license file with the appropriate container that you've been approved for. For example, you can't use a license file for a `speech-to-text` container with a `neural-text-to-speech` container.
 
 | Placeholder | Description | 
 |-------------|-------|
@@ -249,16 +249,18 @@ Once the license file has been downloaded, you can run the container in a discon
 
 Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with `Mounts:License=`. An output mount must also be specified so that billing usage records can be written.
 
-Placeholder | Value | Format or example |
-|-------------|-------|---|
-| `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
- `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `4g` |
-| `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
-| `{LICENSE_MOUNT}` | The path where the license will be located and mounted.  | `/host/license:/path/to/license/directory` |
+| Placeholder | Description | 
+|-------------|-------|
+| `{IMAGE}` | The container image you want to use.<br/><br/>For example: `mcr.microsoft.com/azure-cognitive-services/custom-speech-to-text:latest` |
+| `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container.<br/><br/>For example: `4g` |
+| `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container.<br/><br/>For example: `4` |
+| `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.<br/><br/>For example: `/host/license:/path/to/license/directory` |
+| `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal.<br/><br/>For example: `https://<your-resource-name>.cognitiveservices.azure.com` |
+| `{API_KEY}` | The key for your Speech resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |
+| `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.<br/><br/>For example: `/path/to/license/directory` |
+| `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.<br/><br/>For example: `/path/to/output/directory` |
 | `{OUTPUT_PATH}` | The output path for logging.<br/><br/>For example: `/host/output:/path/to/output/directory`<br/><br/>For more information, see [usage records](../containers/disconnected-containers.md#usage-records) in the Azure Cognitive Services documentation. |
-| `{MODEL_PATH}` | The path where the model is located. | `/path/to/model/` |
-| `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
-| `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.  | `/path/to/output/directory` |
+| `{MODEL_PATH}` | The path where the model is located.<br/><br/>For example: `/path/to/model/` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
