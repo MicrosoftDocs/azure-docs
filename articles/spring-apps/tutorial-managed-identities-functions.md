@@ -176,7 +176,7 @@ This sample invokes the HTTP triggered function by first requesting an access to
        --resource-group "myResourceGroup" \
        --service "mymsispringcloud" \
        --name "msiapp" \
-       --jar-path target/sc-managed-identity-function-sample-0.1.0.jar
+       --jar-path target/asc-managed-identity-function-sample-0.1.0.jar
    ```
 
 1. Access the public endpoint or test endpoint to test your app.

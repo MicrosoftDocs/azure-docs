@@ -132,6 +132,8 @@ items:
       href: quickstarts/telephony/pstn-call.md
     - name: Handle an inbound phone call
       href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
+    - name: Configure direct routing
+      href: quickstarts/telephony/voice-routing-sdk-config.md
   - name: Email
     items:
     - name: Create an email resource
@@ -322,14 +324,16 @@ items:
         href: concepts/analytics/insights/chat-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
-  - name: Phone calling
-    items:
-    - name: Add emergency calling to your app
-      href: quickstarts/telephony/emergency-calling.md
-    - name: Phone numbers
+    - name: Phone calling
       items:
-      - name: Port a phone number into Azure
-        href: quickstarts/telephony/port-phone-number.md
+      - name: Add emergency calling to your app
+        href: quickstarts/telephony/emergency-calling.md
+      - name: Validate a domain for direct routing
+        href: how-tos/telephony/domain-validation.md
+      - name: Phone numbers
+        items:
+        - name: Port a phone number into Azure
+          href: quickstarts/telephony/port-phone-number.md
     - name: Call Automation
       items:
       - name: Build a workflow for customer interactions 

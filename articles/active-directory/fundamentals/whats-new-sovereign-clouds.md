@@ -21,6 +21,75 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+## March 2023 
+
+### General Availability - Provisioning Insights Workbook
+
+**Type:** New feature   
+**Service category:** Provisioning                     
+**Product capability:** Monitoring & Reporting            
+
+This new workbook makes it easier to investigate and gain insights into your provisioning workflows in a given tenant. This includes HR-driven provisioning, cloud sync, app provisioning, and cross-tenant sync.
+
+Some key questions this workbook can help answer are:
+
+- How many identities have been synced in a given time range?
+- How many create, delete, update, or other operations were performed?
+- How many operations were successful, skipped, or failed?
+- What specific identities failed? And what step did they fail on?
+- For any given user, what tenants / applications were they provisioned or deprovisioned to?
+
+For more information, see: [Provisioning insights workbook](../app-provisioning/provisioning-workbook.md).
+
+---
+
+### General Availability - Follow Azure Active Directory best practices with recommendations
+
+**Type:** New feature   
+**Service category:** Reporting                       
+**Product capability:** Monitoring & Reporting            
+
+Azure Active Directory recommendations help you improve your tenant posture by surfacing opportunities to implement best practices. On a daily basis, Azure AD analyzes the configuration of your tenant. During this analysis, Azure Active Directory compares the data of a recommendation with the actual configuration of your tenant. If a recommendation is flagged as applicable to your tenant, the recommendation appears in the Recommendations section of the Azure Active Directory Overview. 
+
+This release includes our first three recommendations:
+
+- Convert from per-user MFA to Conditional Access MFA
+- Migration applications from AD FS to Azure Active Directory
+- Minimize MFA prompts from known devices.
+
+We're developing more recommendations, so stay tuned!
+
+For more information, see: 
+
+- [What are Azure Active Directory recommendations?](../reports-monitoring/overview-recommendations.md).
+- [Use the Azure AD recommendations API to implement Azure AD best practices for your tenant](/graph/api/resources/recommendations-api-overview)
+
+---
+
+### General Availability - Improvements to Azure Active Directory Smart Lockout
+
+**Type:** Changed feature   
+**Service category:** Other                          
+**Product capability:** User Management             
+
+With a recent improvement, Smart Lockout now synchronizes the lockout state across Azure Active Directory data centers, so the total number of failed sign-in attempts allowed before an account is locked will match the configured lockout threshold.
+
+For more information, see: [Protect user accounts from attacks with Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md).
+
+---
+
+### General Availability- MFA events from ADFS and NPS adapter available in Sign-in logs
+
+**Type:** Changed feature   
+**Service category:** MFA                            
+**Product capability:** Identity Security & Protection              
+
+Customers with Cloud MFA activity from ADFS adapter, or NPS Extension, can now see these events in the Sign-in logs, rather than the legacy multi-factor authentication activity report.  Not all attributes in the sign-in logs are populated for these events due to limited data from the on-premises components. Customers with ADFS using AD Health Connect and customers using NPS with the latest NPS extension installed will have a richer set of data in the events.
+
+For more information, see: [Protect user accounts from attacks with Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md).
+
+---
+
 ## February 2023
 
 ### General Availability - Filter and transform group names in token claims configuration using regular expression
