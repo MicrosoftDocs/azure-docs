@@ -46,7 +46,7 @@ The validation process validates the FHIR destination mapping before allowing th
 |typeName|True|
 
 > [!NOTE]
-> The 'typeName' element is used to link a FHIR destination mapping template to one or more Device mapping templates. Device mapping templates with the same 'typeName' element generate normalized data that will be evaluated with a FHIR destination mapping template that has the same 'typeName'.
+> The 'typeName' element is used to link a FHIR destination mapping template to one or more device mapping templates. Device mapping templates with the same 'typeName' element generate normalized data that will be evaluated with a FHIR destination mapping template that has the same 'typeName'.
 
 ## CollectionFhir
 
