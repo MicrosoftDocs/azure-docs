@@ -16,9 +16,9 @@ This article outlines how to register Snowflake, and how to authenticate and int
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | [Yes](#scan) | No| [Yes](#lineage) | No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | [Yes](#scan) | No| No| [Yes](#lineage) | No|
 
 When scanning Snowflake source, Microsoft Purview supports:
 

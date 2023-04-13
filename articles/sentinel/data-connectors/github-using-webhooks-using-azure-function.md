@@ -45,7 +45,7 @@ To integrate with GitHub (using Webhooks) (using Azure Function) make sure you h
 
 
 > [!NOTE]
-   >  This connector has been built on http trigger based Azure Function. And it provides an endpoint to which github will be connected through it's webhook capability and posts the subscribed events into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
+   >  This connector has been built on http trigger based Azure Function. And it provides an endpoint to which GitHub will be connected through it's webhook capability and posts the subscribed events into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
 >**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](../../app-service/app-service-key-vault-references.md) to use Azure Key Vault with an Azure Function App.
@@ -136,7 +136,7 @@ If you're already signed in, go to the next step.
  5. Subscribe for events and Click on "Add Webhook"
 
 
-*Now we are done with the github Webhook configuration. Once the github events triggered and after the delay of 20 to 30 mins (As there will be a dealy for LogAnalytics to spin up the resources for the first time), you should be able to see all the transactional events from the GitHub into LogAnalytics workspace table called "githubscanaudit_CL".*
+*Now we are done with the GitHub Webhook configuration. Once the GitHub events triggered and after the delay of 20 to 30 mins (As there will be a dealy for LogAnalytics to spin up the resources for the first time), you should be able to see all the transactional events from the GitHub into LogAnalytics workspace table called "githubscanaudit_CL".*
 
  For more details, Click [here](https://aka.ms/sentinel-gitHubwebhooksteps)
 

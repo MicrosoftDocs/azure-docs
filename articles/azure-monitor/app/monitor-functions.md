@@ -36,12 +36,12 @@ For more advanced use cases, you can modify telemetry by adding spans, updating 
 1. **Option 1**: On the function app **Overview** pane, go to **Application Insights**. Under **Collection Level**, select **Recommended**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows the how to enable the AppInsights Java Agent.](./media//functions/collection-level.jpg)
+    > :::image type="content" source="./media//functions/collection-level.jpg" lightbox="./media//functions/collection-level.jpg" alt-text="Screenshot that shows the how to enable the AppInsights Java Agent.":::
 
 2. **Option 2**: On the function app **Overview** pane, go to **Configuration**. Under **Application settings**, select **New application setting**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows the New application setting option.](./media//functions/create-new-setting.png)
+    > :::image type="content" source="./media//functions/create-new-setting.png" lightbox="./media//functions/create-new-setting.png" alt-text="Screenshot that shows the New application setting option.":::
 
     Add an application setting with the following values and select **Save**.
 

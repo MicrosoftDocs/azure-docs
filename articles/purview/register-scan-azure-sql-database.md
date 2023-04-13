@@ -6,7 +6,7 @@ ms.author: athenadsouza
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/17/2023
+ms.date: 04/04/2023
 ms.custom: template-how-to
 ---
 # Discover and govern Azure SQL Database in Microsoft Purview
@@ -15,12 +15,12 @@ This article outlines the process to register an Azure SQL database source in Mi
 
 ## Supported capabilities
 
-|Metadata extraction| Full scan |Incremental scan|Scoped scan|Classification|Access policy|Lineage|Data sharing|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register-the-data-source) | [Yes](#scope-and-run-the-scan)|[Yes](#scope-and-run-the-scan) | [Yes](#scope-and-run-the-scan)|[Yes](#scope-and-run-the-scan)| [Yes (preview)](#set-up-access-policies) | [Yes (preview)](#extract-lineage-preview) | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register-the-data-source) | [Yes](#scope-and-run-the-scan)|[Yes](#scope-and-run-the-scan) | [Yes](#scope-and-run-the-scan)|[Yes](#scope-and-run-the-scan)| [Yes](create-sensitivity-label.md)| [Yes](#set-up-access-policies) | [Yes (preview)](#extract-lineage-preview) | No |
 
 > [!NOTE]
-> Data lineage extraction is currently supported only for stored procedure runs. Lineage is also supported if Azure SQL tables or views are used as a source/sink in [Azure Data Factory Copy and Data Flow activities](how-to-link-azure-data-factory.md). 
+> Data lineage extraction is currently supported only for stored procedure runs. Lineage is also supported if Azure SQL tables or views are used as a source/sink in [Azure Data Factory Copy and Data Flow activities](how-to-link-azure-data-factory.md).
 
 When you're scanning Azure SQL Database, Microsoft Purview supports extracting technical metadata from these sources:
 
