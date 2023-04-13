@@ -252,15 +252,6 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |RequestResponse |Request and Response Logs |No |
 |Trace |Trace Logs |No |
 
-## Microsoft.CognitiveServices/accounts  
-<!-- Data source : naam-->
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|Audit |Audit Logs |No |
-|RequestResponse |Request and Response Logs |No |
-|Trace |Trace Logs |No |
-
 ## Microsoft.Communication/CommunicationServices  
 <!-- Data source : naam-->
 
