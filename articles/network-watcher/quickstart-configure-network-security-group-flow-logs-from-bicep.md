@@ -7,7 +7,7 @@ ms.author: halkazwini
 ms.date: 08/26/2022
 ms.topic: quickstart
 ms.service: network-watcher
-ms.custom: devx-track-azurepowershell, subject-bicepqs, mode-arm
+ms.custom: devx-track-azurepowershell, subject-bicepqs, mode-arm, devx-track-bicep
 #Customer intent: I need to enable the network security group flow logs by using a Bicep file.
 ---
 

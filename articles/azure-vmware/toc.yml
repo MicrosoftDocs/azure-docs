@@ -234,6 +234,8 @@
       href: enable-vmware-cds-with-azure.md
     - name: Upgrade HCX on Azure VMware Solution
       href: upgrade-hcx-azure-vmware-solutions.md
+    - name: Use HCX Run Commands 
+      href: use-hcx-run-commands.md
 - name: Resources
   items:
   - name: Learning paths

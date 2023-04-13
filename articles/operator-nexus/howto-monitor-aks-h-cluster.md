@@ -6,7 +6,7 @@ ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
 ms.service: azure-operator-nexus  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Monitor AKS-hybrid cluster
