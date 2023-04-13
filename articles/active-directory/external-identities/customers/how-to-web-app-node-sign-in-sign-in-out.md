@@ -204,7 +204,9 @@ This file has the following routes:
     - This endpoint implements the second leg of auth code flow uses. It uses the authorization code to request an ID token by using MSAL's [acquireTokenByCode](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbycode) method.
     
         ```javascript
+            ...
             const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
+            ...
         ``` 
     
     - After you receive a response, you can create an Express session and store whatever information you want in it. You need to include `isAuthenticated` and set it to `true`:
