@@ -25,7 +25,7 @@ To link a Azure Logic App with a custom task extension, the following prerequisi
 
 - An Azure subscription
 - A resource group
-- Permissions to create a new consumption based Logic App or access to an existing consumption based Logic App
+- Permissions to create a new consumption-based Logic App or access to an existing consumption-based Logic App
 
 One of the following Azure role assignments is required either on the Logic App itself or on a higher scope such as the resource group, subscription or management group:
 
@@ -56,21 +56,21 @@ When you create a custom task extension that waits for a response from the Logic
 
 :::image type="content" source="media/lifecycle-workflow-extensibility/launch-wait-options.png" alt-text="Screenshot of custom task extension launch and wait options.":::
 
-Response authorization can be utilized in one of the following ways:
+The response can be authorized in one of the following ways:
 
-- **System-assigned managed identity (Default)** - With this choice you Enable and utilize the Logic Apps system-assigned managed identity. For more information, see: [Authenticate access to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
-- **No authorization** -  With this choice you assign a Logic App or third party application an application permission (LifecycleWorkflows.ReadWrite.All), or role assignment (Lifecycle Workflows Administrator). This choice doesn't follow least privilege access as outlined in Azure Active Directory best practices. For more information on best practices for roles, see: [Best Practices for Azure AD roles](/azure/active-directory/roles/best-practices).
-- **Existing application** - With this choice you're able to choose an existing application to respond. You are able to choose applications that are user-assigned or regular applications. For more information on managed identity types, see: [Managed identity types](../managed-identities-azure-resources/overview.md#managed-identity-types).
+- **System-assigned managed identity (Default)** - With this choice you enable and utilize the Logic Apps system-assigned managed identity. For more information, see: [Authenticate access to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
+- **No authorization** -  With this choice no authorization will be granted, and you separately have to assign an application permission (LifecycleWorkflows.ReadWrite.All), or role assignment (Lifecycle Workflows Administrator). If an application is responding we do not recommend this option, as it is not following the principle of least privilege. This option may also be used if responses are only provided on behalf of a user (LifecycleWorkflows.ReadWrite.All delegated permission AND Lifecycle Workflows Administrator role assignment)
+- **Existing application** - With this choice you're able to choose an existing application to respond. This can be a regular application as well as a system or user-assigned managed identity. For more information on managed identity types, see: [Managed identity types](../managed-identities-azure-resources/overview.md#managed-identity-types).
 
 ## Custom task extension integration with Azure Logic Apps high-level steps
 
 The high-level steps for the Azure Logic Apps integration are as follows:
 
 > [!NOTE]
-> Creating a custom task extension and logic app through the workflows page in the Azure portal will automate most of these steps. For a guide on creating a custom task extension this way, see: [Trigger Logic Apps based on custom task extensions (Preview)](trigger-custom-task.md).
+> Creating a custom task extension and logic app through the Azure portal will automate most of these steps. For a guide on creating a custom task extension this way, see: [Trigger Logic Apps based on custom task extensions (Preview)](trigger-custom-task.md).
 
 - **Create a consumption-based Azure Logic App**: A consumption-based Azure Logic App that is used to be called to from the custom task extension.
-- **Configure the Azure Logic App so its compatible with Lifecycle workflows**: Configuring the consumption-based Azure Logic App so that it can be used with the custom task extension.
+- **Configure the Azure Logic App so its compatible with Lifecycle workflows**: Configuring the consumption-based Azure Logic App so that it can be used with the custom task extension. For more information, see: [Configure a Logic App for Lifecycle Workflow use (Preview)](configure-logic-app-lifecycle-workflows.md)
 - **Build your custom business logic within your Azure Logic App**: Set up your business logic within the Azure Logic App using Logic App designer.
 - **Create a lifecycle workflow customTaskExtension which holds necessary information about the Azure Logic App**: Creating a custom task extension that references the configured Azure Logic App.
 - **Update or create a Lifecycle workflow with the “Run a custom task extension” task, referencing your created customTaskExtension**: Adding the newly created custom task extension to a new workflow, or updating the information to an existing workflow.
