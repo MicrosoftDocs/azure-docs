@@ -67,7 +67,7 @@ You can use pipeline component as a step like other components in pipeline job.
 
 ## Pipeline job with pipeline component in studio
 
-You can use `az ml component create` or ml_client.components.create_or_update to register pipeline component as a registered component. After that you can view the component in asset library and component list page.
+You can use `az ml component create` or `ml_client.components.create_or_update` to register pipeline component as a registered component. After that you can view the component in asset library and component list page.
 
 ### Using pipeline component to build pipeline job
 
