@@ -43,21 +43,21 @@ In this article, you learn how to:
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
-1. Create a file named `main.tf` and insert the following code:
-
-    [!code-terraform[master](~/terraform_samples/quickstart/terraform/quickstart/101-notification-hub/main.tf)]
-
-1. Create a file named `outputs.tf` and insert the following code:
-
-    [!code-terraform[master](~/terraform_samples/quickstart/terraform/quickstart/101-notification-hub/outputs.tf)]
-
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/terraform/quickstart/101-notification-hub/providers.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-notification-hub/providers.tf)]
+
+1. Create a file named `main.tf` and insert the following code:
+
+    [!code-terraform[master](~/terraform_samples/quickstart/101-notification-hub/main.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/terraform/quickstart/101-notification-hub/variables.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-notification-hub/variables.tf)]
+
+1. Create a file named `outputs.tf` and insert the following code:
+
+    [!code-terraform[master](~/terraform_samples/quickstart/101-notification-hub/outputs.tf)]
 
 ## Initialize Terraform
 
