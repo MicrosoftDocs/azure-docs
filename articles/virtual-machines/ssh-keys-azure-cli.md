@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli
 ms.topic: article
-ms.date: 04/11/2023
+ms.date: 04/13/2023
 ms.author: cynthn
 ---
 
@@ -19,9 +19,9 @@ You can create SSH keys before creating a VM and store them in Azure. Each newly
 
 If you have existing SSH keys, you can upload and store them in Azure for reuse.
 
-For a more detailed overview of SSH, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](./linux/create-ssh-keys-detailed.md).
+For more information, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](./linux/create-ssh-keys-detailed.md).
 
-For more detailed information on how to create and use SSH keys with Linux VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
+For more information on how to create and use SSH keys with Linux VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
 
 ## Generate new keys
 
