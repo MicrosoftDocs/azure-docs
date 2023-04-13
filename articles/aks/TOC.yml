@@ -14,7 +14,7 @@
     - name: Getting started
       items:
         - name: Architecture design recommendations
-          href: /azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service
+          href: /azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service?bc=/azure/aks/breadcrumb/toc.json&toc=/azure/aks/toc.json?WT.mc_id=AKSDOCSTOC
         - name: Plan your implementation
           href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=/azure/aks/breadcrumb/toc.json&toc=/azure/aks/toc.json?WT.mc_id=AKSDOCSTOC
         - name: Optimize costs
