@@ -82,7 +82,7 @@ var sourceBlobSASURI = new Uri(
     $"https://{srcAccountName}.blob.core.windows.net/{srcContainerName}/{srcBlobName}?{sasToken}");
 ```
 
-You can also [create a user delegation SAS token with .NET](storage-blob-user-delegation-sas-create-dotnet.md). User delegation SAS tokens offer a more secure option, as they are signed with Azure AD credentials instead of an account key.
+You can also [create a user delegation SAS token with .NET](storage-blob-user-delegation-sas-create-dotnet.md). User delegation SAS tokens offer greater security, as they are signed with Azure AD credentials instead of an account key.
 
 ## Copy a blob from a source outside of Azure
 
