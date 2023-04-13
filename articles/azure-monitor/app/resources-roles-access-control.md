@@ -2,9 +2,9 @@
 title: Resources, roles, and access control in Application Insights | Microsoft Docs
 description: Owners, contributors and readers of your organization's insights.
 ms.topic: conceptual
-ms.date: 02/14/2019 
+ms.date: 04/13/2023
 ms.custom: devx-track-azurepowershell   
-ms.reviewer: jogrima
+ms.reviewer: cogoodson
 ---
 
 # Resources, roles, and access control in Application Insights
