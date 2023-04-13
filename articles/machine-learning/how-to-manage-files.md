@@ -56,7 +56,7 @@ In the Azure Machine Learning studio file editor, you can customize your editing
 
 :::image type="content" source="media/how-to-manage-files/command-palette.png" alt-text="Screenshot shows command palette in file editor.":::
 
-To invoke the Command Palette on a file, either use **F1** or right-select anywhere in the editing space and select Command Palette from the menu.
+To invoke the Command Palette on a file, either use **F1** or right-select anywhere in the editing space and select **Command Palette** from the menu.
 
 For example, choose "Indent using spaces" if you want your editor to auto-indent with spaces instead of tabs. Take a few moments to explore the different options you have in the Command Palette.
 
