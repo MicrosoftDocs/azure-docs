@@ -18,15 +18,15 @@ ms.date: 04/17/2023
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-To transform data between formats in an Azure Logic Apps workflow, you need to create and use a map that describes the relationships between a source schema and a target schema. For this task, you can visually create and edit such maps in Visual Studio Code by using the Data Mapper extension within the context of a Standard logic app project. You can then directly call these maps from workflows in your logic app project by using the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. You can use maps for XML to XML, JSON to JSON, XML to JSON, and JSON to XML transformations.
+To exchange messages that have different XML or JSON formats in an Azure Logic Apps workflow, you have to transform the data from one format to another, especially if you have gaps between the source and target schema structures. Data transformation helps you bridge those gaps. For this task, you need to create an XSLT map that defines the relationships between the source schema and target schema.
+
+To visually create and edit such maps, you can use Visual Studio Code with the Data Mapper extension within the context of a Standard logic app project. You can then directly call these maps from workflows in your logic app project by using the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. Or, you can use these maps in any operation that require such maps to transform from XML to XML, JSON to JSON, XML to JSON, and JSON to XML.
 
 The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
 
 ## Limitations
 
-- The Data Mapper tool currently applies only to Standard logic app projects, not Consumption.
-
-- The Data Mapper tool is currently available only in Visual Studio Code, not the Azure portal.
+- Although you can use the maps that you create anywhere in Azure Logic Apps operations that require maps, the Data Mapper tool is currently available only from within Standard logic app projects, not Consumption logic app projects, and in Visual Studio Code, not the Azure portal.
 
 - The map's **Show code** pane is currently read only.
 
@@ -75,7 +75,7 @@ The Data Mapper extension currently supports only schemas in flat folder-structu
    1. On the **Configure** pane that opens, select **Select existing**, if not already selected.
    1. From the source schema list, select your source schema, and then select **Add**.
 
-   The map surface now shows data elements from the source schema.
+   The map surface now shows the data fields from the source schema.
 
 1. Specify your target schema:
 
@@ -83,7 +83,7 @@ The Data Mapper extension currently supports only schemas in flat folder-structu
    1. On the **Configure** pane that opens, select **Select existing**, if not already selected.
    1. From the target schema list, select your target schema, and then select **Add**.
 
-   The map surface now shows data elements from the target schema.
+   The map surface now shows data fields from the target schema.
 
 ## Navigate the map 
 
