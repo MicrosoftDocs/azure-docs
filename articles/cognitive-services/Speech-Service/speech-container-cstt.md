@@ -289,13 +289,7 @@ sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PA
 
 You can get custom pronunciation results in the output. All you need to do is have your own custom pronunciation rules set up in your custom model and mount the model to a custom-speech-to-text container.
 
-
-
-
 ## Use the container
-
-
-### Host authentication
 
 [!INCLUDE [Speech container authentication](includes/containers-speech-config-ws.md)]
 
