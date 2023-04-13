@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Use a Resource Manager template to create an Ubuntu Linux VM'
-description: Learn how to use an Azure Resource Manager template to create and deploy an Ubuntu Linux virtual machine.
+description: Learn how to use an Azure Resource Manager template to create and deploy an Ubuntu Linux virtual machine with this quickstart.
 author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 04/10/2023
+ms.date: 04/13/2023
 ms.author: cynthn
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
@@ -29,19 +29,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-For more information on this template, see [Deploy a Ubuntu Linux VM 18.04-LTS](https://azure.microsoft.com/resources/templates/vm-simple-linux/).
+For more information on this template, see [Deploy a simple Ubuntu Linux VM 18.04-LTS](https://azure.microsoft.com/resources/templates/vm-simple-linux/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json":::
 
 Several resources are defined in the template:
 
-- [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/Microsoft.Network/virtualNetworks/subnets): create a subnet.
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts): create a storage account.
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/Microsoft.Network/networkInterfaces): create a NIC.
-- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/Microsoft.Network/networkSecurityGroups): create a network security group.
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/Microsoft.Network/virtualNetworks): create a virtual network.
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/Microsoft.Network/publicIPAddresses): create a public IP address.
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/Microsoft.Compute/virtualMachines): create a virtual machine.
+- [Microsoft.Network/virtualNetworks/subnets](/azure/templates/Microsoft.Network/virtualNetworks/subnets): create a subnet.
+- [Microsoft.Storage/storageAccounts](/azure/templates/Microsoft.Storage/storageAccounts): create a storage account.
+- [Microsoft.Network/networkInterfaces](/azure/templates/Microsoft.Network/networkInterfaces): create a NIC.
+- [Microsoft.Network/networkSecurityGroups](/azure/templates/Microsoft.Network/networkSecurityGroups): create a network security group.
+- [Microsoft.Network/virtualNetworks](/azure/templates/Microsoft.Network/virtualNetworks): create a virtual network.
+- [Microsoft.Network/publicIPAddresses](/azure/templates/Microsoft.Network/publicIPAddresses): create a public IP address.
+- [Microsoft.Compute/virtualMachines](/azure/templates/Microsoft.Compute/virtualMachines): create a virtual machine.
 
 ## Deploy the template
 
@@ -87,4 +87,4 @@ When no longer needed, delete the resource group, which deletes the VM and all o
 In this quickstart, you deployed a virtual machine by using an ARM template. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
 > [!div class="nextstepaction"]
-> [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
+> [Create and Manage Linux VMs with the Azure CLI](./tutorial-manage-vm.md)
