@@ -2888,7 +2888,7 @@
         href: alertmedia-provisioning-tutorial.md
       - name: AlexisHR
         href: alexishr-provisioning-tutorial.md
-      - name: Alinto Protect
+      - name: Alinto Protect (renamed Cleanmail)
         href: alinto-protect-provisioning-tutorial.md
       - name: ALVAO
         href: alvao-provisioning-tutorial.md

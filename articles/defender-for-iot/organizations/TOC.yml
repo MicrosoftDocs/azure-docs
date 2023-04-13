@@ -457,6 +457,8 @@
       href: faqs-ot.md
     - name: Enterprise IoT networks FAQ
       href: faqs-eiot.md
+  - name: Architecture icons
+    href: /azure/architecture/icons/
   - name: Custom columns sample script
     href: custom-columns-sample-script.md
   - name: Regional availability

@@ -174,7 +174,7 @@ For each clinical document within a patient:
 To get better insights into the request and responses, you can read more on following pages:
 
 >[!div class="nextstepaction"]
-> [Model Configuration](model-configuration.md) 
+> [Model configuration](model-configuration.md) 
 
 >[!div class="nextstepaction"]
-> [Inferences](inferences.md) 
+> [Inference information](inferences.md) 

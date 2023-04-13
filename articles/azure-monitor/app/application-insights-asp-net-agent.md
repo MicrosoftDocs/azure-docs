@@ -21,7 +21,7 @@ For a complete list of supported auto-instrumentation scenarios, see [Supported 
 
 Application Insights Agent is located in the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 
-![PowerShell Gallery icon.](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
+:::image type="content" source="https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge" lightbox="https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge" alt-text="PowerShell Gallery icon.":::
 
 ## Instructions
 - To get started with concise code samples, see the **Getting started** tab.

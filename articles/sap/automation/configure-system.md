@@ -8,6 +8,7 @@ ms.date: 05/03/2022
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-terraform
 ---
 
 # Configure SAP system parameters
@@ -431,4 +432,3 @@ az keyvault secret set --name "<prefix>-fencing-spn-tenant" --vault-name "<workl
 
 > [!div class="nextstepaction"]
 > [Deploy SAP system](deploy-system.md)
-
