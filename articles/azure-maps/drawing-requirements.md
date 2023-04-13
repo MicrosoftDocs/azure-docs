@@ -59,7 +59,7 @@ The [Conversion service] does the following on each DWG file:
   - Walls
   - Vertical penetrations
 - Produces a *Facility* feature.  
-- Produces a minimal set of default Category features to be referenced by other features:
+- Produces a minimal set of default Category features referenced by other features:
   - room
   - structure
   - wall
@@ -69,7 +69,7 @@ The [Conversion service] does the following on each DWG file:
 
 ## DWG file requirements
 
-A single DWG file is required for each level of the facility. All data of a single level must be contained in a single DWG file.  Any external references (_xrefs_) must be bound to the parent drawing. For example, a facility with three levels will have three DWG files in the drawing package.
+A single DWG file is required for each level of the facility. All data of a single level must be contained in a single DWG file.  Any external references (_xrefs_) must be bound to the parent drawing. For example, a facility with three levels has three DWG files in the drawing package.
 
 Each DWG file must adhere to the following requirements:
 
@@ -87,7 +87,7 @@ Each DWG layer must adhere to the following rules:
 - Self-intersecting polygons are permitted, but are automatically repaired. When they repaired, the [Conversion service] raises a warning. It's advisable to manually inspect the repaired results, because they might not match the expected results.
 - Each layer has a supported list of entity types. Any other entity types in a layer will be ignored. For example, text entities aren't supported on the wall layer.
 
-The table below outlines the supported entity types and converted map features for each layer. If a layer contains unsupported entity types, then the [Conversion service] ignores those entities.  
+The following table outlines the supported entity types and converted map features for each layer. If a layer contains unsupported entity types, then the [Conversion service] ignores those entities.  
 
 | Layer | Entity types | Converted Features |
 | :----- | :-------------------| :-------
@@ -99,13 +99,13 @@ The table below outlines the supported entity types and converted map features f
 | [UnitLabel](#unitlabel-layer) | Text (single line) | Not applicable. This layer can only add properties to the unit features from the Units layer. For more information, see the [UnitLabel layer](#unitlabel-layer).
 | [ZoneLabel](#zonelabel-layer) | Text (single line) | Not applicable. This layer can only add properties to zone features from the ZonesLayer. For more information, see the [ZoneLabel layer](#zonelabel-layer).
 
-The sections below describe the requirements for each layer.
+The following sections describe the requirements for each layer.
 
 ### Exterior layer
 
 The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred to as the *exterior* layer. For example, if a facility contains two levels, then it needs to have two DWG files, with an exterior layer for each file.
 
-No matter how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-feature-stateset.md) will contain only one level feature for each DWG file. Additionally:
+No matter how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-feature-stateset.md) contains only one level feature for each DWG file. Additionally:
 
 - Exteriors must be drawn as POLYGON, POLYLINE (closed), CIRCLE, or ELLIPSE (closed).
 - Exteriors may overlap, but are dissolved into one geometry.
@@ -270,7 +270,7 @@ The `unitProperties` object contains a JSON array of unit properties.
 |`verticalPenetrationDirection`|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are: `lowToHigh`, `highToLow`, `both`, and `closed`. The default value is `both`. The value is case-sensitive.|
 | `nonPublic` | bool | false | Indicates if the unit is open to the public. |
 | `isRoutable` | bool | false | When this property is set to `false`, you can't go to or through the unit. The default value is `true`. |
-| `isOpenArea` | bool | false | Allows the navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` for units with no openings, and `false` for units with openings. Manually setting `isOpenArea` to `false` on a unit with no openings results in a warning, because the resulting unit won't be reachable by a navigating agent.|
+| `isOpenArea` | bool | false | Allows the navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` for units with no openings, and `false` for units with openings. Manually setting `isOpenArea` to `false` on a unit with no openings results in a warning, because the resulting unit isn't reachable by a navigating agent.|
 
 ### `zoneProperties`
 
@@ -286,7 +286,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 
 ### Sample drawing package manifest
 
-Below is the manifest file for the sample drawing package. Go to the [Sample drawing package] for Azure Maps Creator on GitHub to download the entire package.
+The following is the manifest file for the sample drawing package. Go to the [Sample drawing package] for Azure Maps Creator on GitHub to download the entire package.
 
 #### Manifest file
 
@@ -494,9 +494,9 @@ One or more DWG layer(s) can be mapped to a user defined feature class. One inst
 
 Text entities that fall within the bounds of a closed shape can be associated to that feature as a property. For example, a room feature class might have text that describes the room name and another the room type [sample drawing package v2]. Additionally:
 
-- Only TEXT and MTEXT entities will be associated to the feature as a property. All other entity types will be ignored.
+- Only TEXT and MTEXT entities are associated to the feature as a property. All other entity types are ignored.
 - The TEXT and MTEXT justification point must fall within the bounds of the closed shape.
-- If more than one TEXT property is within the bounds of the closed shape and both are mapped to one property, one will be randomly selected.
+- If more than one TEXT property is within the bounds of the closed shape and both are mapped to one property, one is randomly selected.
 
 ### Facility level
 

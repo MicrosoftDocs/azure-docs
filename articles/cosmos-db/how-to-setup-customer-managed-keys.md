@@ -554,7 +554,7 @@ Use the Azure CLI to restore a continuous account that is already configured usi
         --resource-group $resourceGroupName \
         --account-name $sourceAccountName \
         --target-database-account-name $targetAccountName \
-        --locations regionName=$location \
+        --location $location \
         --restore-timestamp $timestamp \
         --assign-identity $identityId \
         --default-identity "UserAssignedIdentity=$identityId" \
