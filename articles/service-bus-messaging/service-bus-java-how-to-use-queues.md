@@ -24,8 +24,13 @@ In this quickstart, you'll create a Java app to send messages to and receive mes
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created.
 - Install [Azure SDK for Java][Azure SDK for Java]. If you're using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project. If you're using IntelliJ, see [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
+
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
+
+[!INCLUDE [service-bus-create-queue-portal](./includes/service-bus-create-queue-portal.md)]
+
+[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
 
 
 ## Send messages to a queue
@@ -403,6 +408,35 @@ In this section, you'll add code to retrieve messages from the queue.
     ```
 
 ## Run the app
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+1. If you are using Eclipse, right-click the project, select **Export**, expand **Java**, select **Runnable JAR file**, and follow the steps to create a runnable JAR file. 
+1. [Install Azure CLI](/cli/azure/install-azure-cli-windows) on your machine. 
+1. Run the following CLI command to sign in to Azure. Use the same user account that you added to the **Azure Service Bus Data Owner** role. 
+
+    ```azurecli
+    az login
+    ```
+1. Run the Jar file using the following command.
+
+    ```java
+    java -jar <JAR FILE NAME>
+    ```
+1. You see the following output in the console window. 
+
+    ```console
+    Sent a single message to the queue: myqueue
+    Sent a batch of messages to the queue: myqueue
+    Starting the processor
+    Processing message. Session: 88d961dd801f449e9c3e0f8a5393a527, Sequence #: 1. Contents: Hello, World!
+    Processing message. Session: e90c8d9039ce403bbe1d0ec7038033a0, Sequence #: 2. Contents: First message
+    Processing message. Session: 311a216a560c47d184f9831984e6ac1d, Sequence #: 3. Contents: Second message
+    Processing message. Session: f9a871be07414baf9505f2c3d466c4ab, Sequence #: 4. Contents: Third message
+    Stopping and closing the processor
+    ```
+
+### [Connection String](#tab/connection-string)
 When you run the application, you see the following messages in the console window. 
 
 ```console
@@ -415,6 +449,7 @@ Processing message. Session: 311a216a560c47d184f9831984e6ac1d, Sequence #: 3. Co
 Processing message. Session: f9a871be07414baf9505f2c3d466c4ab, Sequence #: 4. Contents: Third message
 Stopping and closing the processor
 ```
+---
 
 On the **Overview** page for the Service Bus namespace in the Azure portal, you can see **incoming** and **outgoing** message count. You may need to wait for a minute or so and then refresh the page to see the latest values. 
 
