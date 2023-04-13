@@ -174,14 +174,12 @@ For more information about `docker run` with Speech containers, see [Install and
 
 ## Use the container
 
+[!INCLUDE [Speech container authentication](includes/containers-speech-config-http.md)]
+
+[Try the text-to-speech quickstart](get-started-text-to-speech.md) using host authentication instead of key and region.
+
 > [!IMPORTANT]
 > When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container [locale and voice](language-support.md?tabs=tts). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
-
-### Host authentication
-
-[!INCLUDE [Speech container authentication](includes/containers-speech-config.md)]
-
-
 
 ## Next steps
 

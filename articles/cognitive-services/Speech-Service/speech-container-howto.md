@@ -49,10 +49,9 @@ The <a href="https://docs.docker.com/engine/reference/commandline/run/" target="
 > [!IMPORTANT]
 > These subscription keys are used to access your Cognitive Services API. Don't share your keys. Store them securely. For example, use Azure Key Vault. We also recommend that you regenerate these keys regularly. Only one key is necessary to make an API call. When you regenerate the first key, you can use the second key for continued access to the service.
 
-The container needs the billing argument values to run. These values allow the container to connect to the billing endpoint. The container reports usage about every 10 to 15 minutes. If the container doesn't connect to Azure within the allowed time window, the container continues to run but doesn't serve queries until the billing endpoint is restored. The connection is attempted 10 times at the same time interval of 10 to 15 minutes. If it can't connect to the billing endpoint within the 10 tries, the container stops serving requests. See the [Cognitive Services container FAQ](../containers/container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
+The container needs the billing argument values to run. These values allow the container to connect to the billing endpoint. The container reports usage about every 10 to 15 minutes. If the container doesn't connect to Azure within the allowed time window, the container continues to run but doesn't serve queries until the billing endpoint is restored. The connection is attempted 10 times at the same time interval of 10 to 15 minutes. If it can't connect to the billing endpoint within the 10 tries, the container stops serving requests. For an example of the information sent to Microsoft for billing, see the [Cognitive Services container FAQ](../containers/container-faq.yml#how-does-billing-work) in the Azure Cognitive Services documentation.
 
 For more information about these options, see [Configure containers](speech-container-configuration.md).
-
 
 ### Container requirements and recommendations
 
@@ -141,29 +140,29 @@ If you intend to run multiple containers with exposed ports, make sure to run ea
 
 You can have this container and a different Cognitive Services container running on the HOST together. You also can have multiple containers of the same Cognitive Services container running.
 
-## Use the Speech service
+## Host URLs
 
 > [!NOTE]
 > Use a unique port number if you're running multiple containers.
 
-| Containers | SDK Host URL | Protocol |
+| Protocol | Host URL | Containers |
 |--|--|--|
-| [Speech-to-text](speech-container-stt.md)<br/><br/>[Custom speech-to-text](speech-container-cstt.md) | `ws://localhost:5000` | WS |
-| [Neural text-to-speech](speech-container-ntts.md)<br/><br/>[Speech language identification](speech-container-lid.md) | `http://localhost:5000` | HTTP |
+| WS | `ws://localhost:5000` | [Speech-to-text](speech-container-stt.md)<br/><br/>[Custom speech-to-text](speech-container-cstt.md)  |
+| HTTP | `http://localhost:5000` | [Neural text-to-speech](speech-container-ntts.md)<br/><br/>[Speech language identification](speech-container-lid.md) |
 
-For more information on using WSS and HTTPS protocols, see [Container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
+For more information on using WSS and HTTPS protocols, see [Container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security) in the Azure Cognitive Services documentation.
 
 ## Troubleshooting
 
 When you start or run the container, you might experience issues. Use an output [mount](speech-container-configuration.md#mount-settings) and enable logging. Doing so allows the container to generate log files that are helpful when you troubleshoot issues.
 
 > [!TIP]
-> For more troubleshooting information and guidance, see [Cognitive Services containers frequently asked questions (FAQ)](../containers/container-faq.yml).
+> For more troubleshooting information and guidance, see [Cognitive Services containers frequently asked questions (FAQ)](../containers/container-faq.yml) in the Azure Cognitive Services documentation.
 
 
 ### Logging settings
 
-Speech containers come with ASP.NET Core logging support. Here's an example of the `neural-text-to-speech container` started with defaut logging to the console:
+Speech containers come with ASP.NET Core logging support. Here's an example of the `neural-text-to-speech container` started with default logging to the console:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
@@ -174,7 +173,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-For more information about logging, see [Configure Speech containers](speech-container-configuration.md#logging-settings).
+For more information about logging, see [Configure Speech containers](speech-container-configuration.md#logging-settings) and [usage records](../containers/disconnected-containers.md#usage-records) in the Azure Cognitive Services documentation.
 
 ## Microsoft diagnostics container
 

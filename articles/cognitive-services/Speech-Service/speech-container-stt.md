@@ -174,9 +174,9 @@ For more information about `docker run` with Speech containers, see [Install and
 
 ### Host authentication
 
-[!INCLUDE [Speech container authentication](includes/containers-speech-config.md)]
+[!INCLUDE [Speech container authentication](includes/containers-speech-config-ws.md)]
 
-
+[Try the speech-to-text quickstart](get-started-speech-to-text.md) using host authentication instead of key and region.
 
 ## Next steps
 

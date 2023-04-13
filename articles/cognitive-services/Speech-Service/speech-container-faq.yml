@@ -126,7 +126,7 @@ sections:
       - question: |
           What API protocols are supported, REST or WS?
         answer: |
-          For speech-to-text and custom speech-to-text containers, we currently only support the websocket based protocol. The SDK only supports calling in WS but not REST. For more information, see [host URLs](speech-container-howto.md#use-the-speech-service).
+          For speech-to-text and custom speech-to-text containers, we currently only support the websocket based protocol. The SDK only supports calling in WS but not REST. For more information, see [host URLs](speech-container-howto.md#host-urls).
           
       - question: |
           Why am I getting errors when attempting to call LUIS prediction endpoints?
@@ -238,7 +238,7 @@ sections:
       - question: |
           Why am I getting 404 errors when attempting to POST data to speech-to-text container?
         answer: |        
-          Speech-to-text containers do not support REST API. The Speech SDK uses WebSockets. For more information, see [host URLs](speech-container-howto.md#use-the-speech-service).
+          Speech-to-text containers do not support REST API. The Speech SDK uses WebSockets. For more information, see [host URLs](speech-container-howto.md#host-urls).
           
           
       - question:  Why is the container running as a non-root user? What issues might occur because of this?

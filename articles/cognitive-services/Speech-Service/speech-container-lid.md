@@ -186,12 +186,9 @@ Increasing the number of concurrent calls can affect reliability and latency. Fo
 
 ## Use the container
 
+[!INCLUDE [Speech container authentication](includes/containers-speech-config-http.md)]
 
-### Host authentication
-
-[!INCLUDE [Speech container authentication](includes/containers-speech-config.md)]
-
-
+[Try language identification](language-identification.md) using host authentication instead of key and region. Use the `SourceLanguageRecognizer` object instead of `SpeechRecognizer`.
 
 ## Next steps
 
