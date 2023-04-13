@@ -548,7 +548,7 @@
           displayName: automl, auto ml, risks
           href: concept-manage-ml-pitfalls.md
     - name: How-to
-    items:
+      items:
       - name: Use automated ML (Python)
         displayName: SDK, automl
         href: how-to-configure-auto-train.md
@@ -618,6 +618,33 @@
         - name: Troubleshoot automated ML
           href: ./v1/how-to-troubleshoot-auto-ml.md
           # end v1
+- name: Training
+  items:
+  - name: Overview
+  - name: Training with CLI and SDK
+  - name: Training with UI
+  - name: Using secrets in training
+  - name: Custom Training
+    items:
+    - name: scikit-learn
+    -name: TensorFlow
+    -name: Keras
+    -name: PyTorch
+    -name: Tune Hyperperameters
+  - name: Distributed Training and deep learning
+    items:
+    - name: Distributed training
+    -name: Distributed GPU training
+    -name: Optimize Checkpoint performance for large models
+    -name: Deep learning
+  - name: Track and monitor
+    items:
+    - name: Monitor and analyze jobs in studio
+    - name: Log and track jobs using MLFlow
+    -name: Query and compare runs
+  - name: Debug jobs
+  -name: Schedule jobs
+  -name: Common issues and FAQ
 - name: How-to guides
   items:
     - name: Share components, environments, and models
