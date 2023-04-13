@@ -69,6 +69,39 @@ phone_number = PhoneNumberIdentifier("+112345556789")
 
 [PhoneNumberIdentifier](/python/api/azure-communication-chat/azure.communication.chat.phonenumberidentifier)
 
+### Microsoft Bot Identifier
+
+> [!NOTE]
+> The Microsoft Bot Identifier is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+The `MicrosoftBotIdentifier` interface represents a Microsoft bot with its Azure AD bot object ID. In the preview version the interface represents a bot of the Teams Voice applications such as Call Queue and Auto Attendant, and the application should be configured with a resource account. You can retrieve the Azure AD bot object ID via the [Microsoft Graph REST API /users](/graph/api/user-list) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview).
+
+#### Basic usage
+
+```python
+# get the Microsoft bot's ID from Graph APIs
+users = graph_client.get("/users").json()
+
+# here we assume that you have a function get_bot_from_users that gets the bot from the returned response
+bot = get_bot_from_users(users);
+
+# create an identifier
+bot_identifier = MicrosoftBotIdentifier(bot_id=bot.get("id"))
+
+# If you're not operating in the public cloud, you must also pass the right Cloud type.
+# You can also specify tenantized bots by setting the is_resource_account_configured flag to true.
+# The flag is false if the bot is global and no resource account is configured.
+gcch_bot_identifier = MicrosoftBotIdentifier(
+            bot_id=bot.get("id"),
+            is_resource_account_configured=True,
+            cloud=CommunicationCloudEnvironment.GCCH
+        )
+```
+
+#### API reference
+
+[MicrosoftTeamsUserIdentifier](/python/api/azure-communication-identity/azure.communication.identity.microsoftbotidentifier?view=azure-python-preview)
+
 ### Unknown
 
 The `UnknownIdentifier` exists for future-proofing and you might encounter it when you are on an old version of the SDK and a new identifier type has been introduced recently. Any unknown identifier from the service will be deserialized to the `UnknownIdentifier` in the SDK.
