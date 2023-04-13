@@ -5,13 +5,16 @@ ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 03/03/2023
+ms.date: 04/13/2023
 ms.custom: mvc, engagement-fy23
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (April 2023)
+- Genaral availability: Support for discovery and assessment of SQL server instances. [Learn more](tutorial-discover-vmware.md).
 
 ## Update (March 2023)
 - Support for discovery and assessment of web apps for Azure app service for Hyper-V and Physical servers. [Learn more](how-to-create-azure-app-service-assessment.md).
