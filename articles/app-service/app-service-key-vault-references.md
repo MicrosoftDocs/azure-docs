@@ -53,6 +53,9 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 > [!NOTE]
 > Windows container currently does not support Key Vault references over VNet Integration.
 
+> [!NOTE]
+> Please note that in case of keyvault references the origin IP might not be one of the outbound IPs, that is why it is highly recommended that if you wish to restrict your Key Vault behind an IP Firewall, to use vnet integration either at the app level or through an ASE.
+
 ### Access vaults with a user-assigned identity
 
 Some apps need to reference secrets at creation time, when a system-assigned identity would not yet be available. In these cases, a user-assigned identity can be created and given access to the vault in advance.
