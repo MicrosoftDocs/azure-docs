@@ -207,7 +207,7 @@ This file has the following routes:
             const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
         ``` 
     
-    - After you receive a response, you can create an Express session and store whatever information you want in it:
+    - After you receive a response, you can create an Express session and store whatever information you want in it. You need to include `isAuthenticated` and set it to `true`:
     
         ```javascript
             ...        
