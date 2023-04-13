@@ -144,6 +144,15 @@ In order to access the cluster, follow the steps in [access an Azure AD enabled 
 
 There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with `kubectl`. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to connect to the cluster with a non-interactive service principal credential.
 
+Starting with Kubernetes 1.24, the default format of clusterUser credential for AAD enabled clusters will be ‘exec’, which requires [kubelogin](https://github.com/Azure/kubelogin) binary in the execution PATH. If you are using Azure CLI, it will prompt users to download kubelogin. There will be no behavior change for non-AAD clusters, or AAD clusters whose version is older than 1.24. Existing downloaded kubeconfig will still work. We provide an optional query parameter ‘format’ when getting clusterUser credential to overwrite the default behavior change, you can explicitly specify format to ‘azure’ to get old format kubeconfig.
+
+For AAD clusters whose version is newer than 1.24, it will return to kubelogin format automatically and no convert needed. For AAD clusters whose version is plder than 1.24, you need to run the below commands to convert kubelogin format manually. 
+
+```azurecli-interactive
+export KUBECONFIG=/path/to/kubeconfig
+kubelogin convert-kubeconfig
+```
+
 ## Disable local accounts
 
 When you deploy an AKS cluster, local accounts are enabled by default. Even when enabling RBAC or Azure AD integration, `--admin` access still exists as a non-auditable backdoor option. You can disable local accounts using the parameter `disable-local-accounts`. The `properties.disableLocalAccounts` field has been added to the managed cluster API to indicate whether the feature is enabled or not on the cluster.
@@ -354,6 +363,7 @@ Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a
 ```
 
 Make sure the admin of the security group has given your account an *Active* assignment.
+
 
 ## Next steps
 
