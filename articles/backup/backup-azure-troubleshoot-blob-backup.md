@@ -9,7 +9,7 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Troubleshoot backup of Blob on Azure Backup
+# Troubleshoot Azure Blob backup
 
 This article provides troubleshooting information to address issues you encounter while configuring backup or restoring Azure Blob using the Azure Backup Service.
 
