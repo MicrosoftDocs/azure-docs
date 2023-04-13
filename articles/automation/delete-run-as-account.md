@@ -30,5 +30,5 @@ Run As accounts in Azure Automation provide authentication for managing resource
 
 ## Next steps
 
-* [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
-* [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
+- [Use system-assigned managed identity](enable-managed-identity-for-automation.md).
+- [Use user-assigned managed identity](add-user-assigned-identity.md).
