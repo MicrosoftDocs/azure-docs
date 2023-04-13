@@ -29,6 +29,7 @@ You can evaluate a foundation model against your test dataset, using either the 
 You can invoke the Evaluate UI wizard by clicking on the 'Evaluate' button on the model card for any foundation model. 
 
 <b>Evaluation Settings</b>
+
 ![image](./media/how-to-use-foundation-models/evaluate_quick_wizard.png)
 
 
@@ -58,6 +59,7 @@ In order to improve model performance in your workload, you might want to fine t
 You can invoke the Finetune UI wizard by clicking on the 'Finetune' button on the model card for any foundation model. 
 
 <b>Finetuning Settings</b>
+
 ![image](./media/how-to-use-foundation-models/finetune_quick_wizard.png)
 
 
