@@ -61,11 +61,11 @@ To check the status of the routeset creation process and retrieve the routesetId
     > [!NOTE]
     > Get the `operationId` from the Operation-Location key in the response header when creating a new routeset.
 
-1. Copy the value of the **Resource-Location** key from the responses header, it's the resource location URL and contains the `routesetId`:
+1. Copy the value of the **Resource-Location** key from the responses header. It's the resource location URL and contains the `routesetId`:
 
    > https://us.atlas.microsoft.com/routesets/**675ce646-f405-03be-302e-0d22bcfe17e8**?api-version=2022-09-01-preview
 
-Make a note of the `routesetId`, it's required parameter in all [wayfinding](#get-a-wayfinding-path) requests, and when your [Get the facility ID].
+Make a note of the `routesetId`. It's required in all [wayfinding](#get-a-wayfinding-path) requests and when you [Get the facility ID].
 
 ### Get the facility ID
 
