@@ -90,7 +90,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
        --target-resource-group $COSMOSDB_RESOURCE_GROUP \
        --account $COSMOSDB_ACCOUNT_NAME \
        --database $DATABASE_NAME \
-       --system-assigned-identity
+       --secret
    ```
 
    > [!NOTE]
