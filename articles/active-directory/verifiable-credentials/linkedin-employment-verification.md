@@ -63,6 +63,8 @@ The LinkedIn mobile app will be updated and will have a digital wallet for emplo
  
 The diagram below shows the dataflow of the entire solution.
 
+![Diagram showing a high-level flow.](media/linkedin-employment-verification/linkedin-employee-verification.png)
+
 
 ## Frequently asked questions
 
@@ -80,7 +82,7 @@ No, your verified users are still verified. Employees who go through the verific
 
 ### How do users sign-in?
 
-The Webapp and the myaccount page are protected with Microsoft Entra AAD. They sign-in according to the administrator's policy, either with passwordless, regular username and password, with or without MFA, etc. This is proof a user is allowed to get issued a verified employee ID.
+The Webapp and the myaccount page are protected using Microsoft Entra Azure Active directory. Users sign-in according to the administrator's policy, either with passwordless, regular username and password, with or without MFA, etc. This is proof a user is allowed to get issued a verified employee ID.
 
 ### What happens when an employee leaves the organization?
 
