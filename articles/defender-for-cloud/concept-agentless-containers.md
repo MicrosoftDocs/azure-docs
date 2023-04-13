@@ -1,6 +1,6 @@
 ---
-title: Agentless discovery and visibility for Containers using Microsoft Defender for Cloud
-description: Learn how Defender for Cloud can gather information about your Containers without installing an agent on your machines.
+title: Agentless Container Posture for Microsoft Defender for Cloud
+description: Learn how Agentless Container Posture offers discovery and visibility for Containers without installing an agent on your machines.
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 04/03/2023
