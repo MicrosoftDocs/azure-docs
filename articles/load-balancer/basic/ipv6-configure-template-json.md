@@ -9,6 +9,7 @@ manager: mtillman
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-arm-template
 ms.date: 03/31/2020
 ms.author: mbender
 ---

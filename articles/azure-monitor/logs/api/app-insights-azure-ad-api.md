@@ -8,59 +8,7 @@ ms.topic: article
 ---
 # Application Insights API Access with Microsoft Azure Active Directory (Azure AD) Authentication
 
-You can submit a query request to a workspace by using the Azure Monitor Log Analytics endpoint `https://api.loganalytics.azure.com`. To access the endpoint, you must authenticate through Azure Active Directory (Azure AD).
-
->[!Note]
-> The `api.loganalytics.io` endpoint is being replaced by `api.loganalytics.azure.com`. The `api.loganalytics.io` endpoint will continue to be supported for the forseeable future.
-
-## Authenticate with a demo API key
-
-To quickly explore the API without Azure AD authentication, use the demonstration workspace with sample data, which supports API key authentication.
-
-To authenticate and run queries against the sample workspace, use `DEMO_WORKSPACE` as the {workspace-id} and pass in the API key `DEMO_KEY`.
-
-If either the Application ID or the API key is incorrect, the API service returns a [403](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_Client_Error) (Forbidden) error.
-
-The API key `DEMO_KEY` can be passed in three different ways, depending on whether you want to use a header, the URL, or basic authentication:
-
-- **Custom header**: Provide the API key in the custom header `X-Api-Key`.
-- **Query parameter**: Provide the API key in the URL parameter `api_key`.
-- **Basic authentication**: Provide the API key as either username or password. If you provide both, the API key must be in the username.
-
-This example uses the workspace ID and API key in the header:
-
-```
-    POST https://api.loganalytics.azure.com/v1/workspaces/DEMO_WORKSPACE/query
-    X-Api-Key: DEMO_KEY
-    Content-Type: application/json
-    
-    {
-        "query": "AzureActivity | summarize count() by Category"
-    }
-```
-
-## Public API endpoint
-
-The public API endpoint is:
-
-```
-    https://api.loganalytics.azure.com/{api-version}/workspaces/{workspaceId}
-```
-where:
- - **api-version**: The API version. The current version is "v1."
- - **workspaceId**: Your workspace ID.
- 
-The query is passed in the request body.
- 
-For example:
- ```
-    https://api.loganalytics.azure.com/v1/workspaces/1234abcd-def89-765a-9abc-def1234abcde
-    
-    Body:
-    {
-        "query": "Usage"
-    }
-```
+You can submit a query request by using the Azure Monitor Application Insights endpoint `https://api.applicationinsights.io`. To access the endpoint, you must authenticate through Azure Active Directory (Azure AD).
 
 ## Set up authentication
 
@@ -70,57 +18,47 @@ To access the API, you register a client app with Azure AD and request a token.
 
 1. On the app's overview page, select **API permissions**.
 1. Select **Add a permission**.
-1. On the **APIs my organization uses** tab, search for **Log Analytics** and select **Log Analytics API** from the list.
-
-   :::image type="content" source="../media/api-register-app/request-api-permissions.png" alt-text="A screenshot that shows the Request API permissions page.":::
+1. On the **APIs my organization uses** tab, search for **Application Insights** and select **Application Insights API** from the list.
 
 1. Select **Delegated permissions**.
 1. Select the **Data.Read** checkbox.
 1. Select **Add permissions**.
 
-   :::image type="content" source="../media/api-register-app/add-requested-permissions.png" alt-text="A screenshot that shows the continuation of the Request API permissions page.":::
+Now that your app is registered and has permissions to use the API, grant your app access to your Application Insights resource.
 
-Now that your app is registered and has permissions to use the API, grant your app access to your Log Analytics workspace.
-
-1. From your **Log Analytics workspace** overview page, select **Access control (IAM)**.
+1. From your **Application Insights resource** overview page, select **Access control (IAM)**.
 1. Select **Add role assignment**.
 
-    :::image type="content" source="../media/api-register-app/workspace-access-control.png" alt-text="A screenshot that shows the Access control page for a Log Analytics workspace.":::
-
 1. Select the **Reader** role and then select **Members**.
-
-    :::image type="content" source="../media/api-register-app/add-role-assignment.png" alt-text="A screenshot that shows the Add role assignment page for a Log Analytics workspace.":::
 
 1. On the **Members** tab, choose **Select members**.
 1. Enter the name of your app in the **Select** box.
 1. Select your app and choose **Select**.
 1. Select **Review + assign**.
 
-    :::image type="content" source="../media/api-register-app/select-members.png" alt-text="A screenshot that shows the Select members pane on the Add role assignment page for a Log Analytics workspace.":::
-
-1. After you finish the Active Directory setup and workspace permissions, request an authorization token.
+1. After you finish the Active Directory setup and permissions, request an authorization token.
 
 >[!Note]
-> For this example, we applied the Reader role. This role is one of many built-in roles and might include more permissions than you require. More granular roles and permissions can be created. For more information, see [Manage access to Log Analytics workspaces](../../logs/manage-access.md).
+> For this example, we applied the Reader role. This role is one of many built-in roles and might include more permissions than you require. More granular roles and permissions can be created. 
 
 ## Request an authorization token
 
 Before you begin, make sure you have all the values required to make the request successfully. All requests require:
 - Your Azure AD tenant ID.
-- Your workspace ID.
+- Your App Insights App ID - If you are currently using API Keys, this is the same app id.
 - Your Azure AD client ID for the app.
 - An Azure AD client secret for the app.
 
-The Log Analytics API supports Azure AD authentication with three different [Azure AD OAuth2](/azure/active-directory/develop/active-directory-protocols-oauth-code) flows:
+The Application Insights API supports Azure AD authentication with three different [Azure AD OAuth2](/azure/active-directory/develop/active-directory-protocols-oauth-code) flows:
 - Client credentials
 - Authorization code
 - Implicit
 
 ### Client credentials flow
 
-In the client credentials flow, the token is used with the Log Analytics endpoint. A single request is made to receive a token by using the credentials provided for your app in the previous step when you [register an app in Azure AD](./register-app-for-token.md).
+In the client credentials flow, the token is used with the Application Insights endpoint. A single request is made to receive a token by using the credentials provided for your app in the previous step when you [register an app in Azure AD](./register-app-for-token.md).
 
-Use the `https://api.loganalytics.azure.com` endpoint.
+Use the `https://api.applicationinsights.io` endpoint.
 
 #### Client credentials token URL (POST request)
 
@@ -131,7 +69,7 @@ Use the `https://api.loganalytics.azure.com` endpoint.
     
     grant_type=client_credentials
     &client_id=<app-client-id>
-    &resource=https://api.loganalytics.io
+    &resource=https://api.applicationinsights.io
     &client_secret=<app-client-secret>
 ```
 
@@ -146,59 +84,264 @@ A successful request receives an access token in the response:
     }
 ```
 
-Use the token in requests to the Log Analytics endpoint:
+Use the token in requests to the Application Insights endpoint:
 
 ```http
-    POST /v1/workspaces/your workspace id/query?timespan=P1D
-    Host: https://api.loganalytics.azure.com
+    POST /v1/apps/yous_app_id/query?timespan=P1D
+    Host: https://api.applicationinsights.io
     Content-Type: application/json
     Authorization: bearer <your access token>
 
     Body:
     {
-    "query": "AzureActivity |summarize count() by Category"
+    "query": "requests | take 10"
     }
 ```
 
 Example response:
 
-```http
+```{
+  "tables": [
     {
-        "tables": [
-            {
-                "name": "PrimaryResult",
-                "columns": [
-                    {
-                        "name": "OperationName",
-                        "type": "string"
-                    },
-                    {
-                        "name": "Level",
-                        "type": "string"
-                    },
-                    {
-                        "name": "ActivityStatus",
-                        "type": "string"
-                    }
-                ],
-                "rows": [
-                    [
-                        "Metric Alert",
-                        "Informational",
-                        "Resolved",
-                        ...
-                    ],
-                    ...
-                ]
-            },
-            ...
+      "name": "PrimaryResult",
+      "columns": [
+        {
+          "name": "timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "success",
+          "type": "string"
+        },
+        {
+          "name": "resultCode",
+          "type": "string"
+        },
+        {
+          "name": "duration",
+          "type": "real"
+        },
+        {
+          "name": "performanceBucket",
+          "type": "string"
+        },
+        {
+          "name": "customDimensions",
+          "type": "dynamic"
+        },
+        {
+          "name": "customMeasurements",
+          "type": "dynamic"
+        },
+        {
+          "name": "operation_Name",
+          "type": "string"
+        },
+        {
+          "name": "operation_Id",
+          "type": "string"
+        },
+        {
+          "name": "operation_ParentId",
+          "type": "string"
+        },
+        {
+          "name": "operation_SyntheticSource",
+          "type": "string"
+        },
+        {
+          "name": "session_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_Id",
+          "type": "string"
+        },
+        {
+          "name": "user_AuthenticatedId",
+          "type": "string"
+        },
+        {
+          "name": "user_AccountId",
+          "type": "string"
+        },
+        {
+          "name": "application_Version",
+          "type": "string"
+        },
+        {
+          "name": "client_Type",
+          "type": "string"
+        },
+        {
+          "name": "client_Model",
+          "type": "string"
+        },
+        {
+          "name": "client_OS",
+          "type": "string"
+        },
+        {
+          "name": "client_IP",
+          "type": "string"
+        },
+        {
+          "name": "client_City",
+          "type": "string"
+        },
+        {
+          "name": "client_StateOrProvince",
+          "type": "string"
+        },
+        {
+          "name": "client_CountryOrRegion",
+          "type": "string"
+        },
+        {
+          "name": "client_Browser",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleName",
+          "type": "string"
+        },
+        {
+          "name": "cloud_RoleInstance",
+          "type": "string"
+        },
+        {
+          "name": "appId",
+          "type": "string"
+        },
+        {
+          "name": "appName",
+          "type": "string"
+        },
+        {
+          "name": "iKey",
+          "type": "string"
+        },
+        {
+          "name": "sdkVersion",
+          "type": "string"
+        },
+        {
+          "name": "itemId",
+          "type": "string"
+        },
+        {
+          "name": "itemType",
+          "type": "string"
+        },
+        {
+          "name": "itemCount",
+          "type": "int"
+        }
+      ],
+      "rows": [
+        [
+          "2018-02-01T17:33:09.788Z",
+          "|0qRud6jz3k0=.c32c2659_",
+          null,
+          "GET Reports/Index",
+          "http://fabrikamfiberapp.azurewebsites.net/Reports",
+          "True",
+          "200",
+          "3.3833",
+          "<250ms",
+          "{\"_MS.ProcessedByMetricExtractors\":\"(Name:'Requests', Ver:'1.0')\"}",
+          null,
+          "GET Reports/Index",
+          "0qRud6jz3k0=",
+          "0qRud6jz3k0=",
+          "Application Insights Availability Monitoring",
+          "9fc6738d-7e26-44f0-b88e-6fae8ccb6b26",
+          "us-va-ash-azr_9fc6738d-7e26-44f0-b88e-6fae8ccb6b26",
+          null,
+          null,
+          "AutoGen_49c3aea0-4641-4675-93b5-55f7a62d22d3",
+          "PC",
+          null,
+          null,
+          "52.168.8.0",
+          "Boydton",
+          "Virginia",
+          "United States",
+          null,
+          "fabrikamfiberapp",
+          "RD00155D5053D1",
+          "cf58dcfd-0683-487c-bc84-048789bca8e5",
+          "fabrikamprod",
+          "5a2e4e0c-e136-4a15-9824-90ba859b0a89",
+          "web:2.5.0-33031",
+          "051ad4ef-0776-11e8-ac6e-e30599af6943",
+          "request",
+          "1"
+        ],
+        [
+          "2018-02-01T17:33:15.786Z",
+          "|x/Ysh+M1TfU=.c32c265a_",
+          null,
+          "GET Home/Index",
+          "http://fabrikamfiberapp.azurewebsites.net/",
+          "True",
+          "200",
+          "716.2912",
+          "500ms-1sec",
+          "{\"_MS.ProcessedByMetricExtractors\":\"(Name:'Requests', Ver:'1.0')\"}",
+          null,
+          "GET Home/Index",
+          "x/Ysh+M1TfU=",
+          "x/Ysh+M1TfU=",
+          "Application Insights Availability Monitoring",
+          "58b15be6-d1e6-4d89-9919-52f63b840913",
+          "emea-se-sto-edge_58b15be6-d1e6-4d89-9919-52f63b840913",
+          null,
+          null,
+          "AutoGen_49c3aea0-4641-4675-93b5-55f7a62d22d3",
+          "PC",
+          null,
+          null,
+          "51.141.32.0",
+          "Cardiff",
+          "Cardiff",
+          "United Kingdom",
+          null,
+          "fabrikamfiberapp",
+          "RD00155D5053D1",
+          "cf58dcfd-0683-487c-bc84-048789bca8e5",
+          "fabrikamprod",
+          "5a2e4e0c-e136-4a15-9824-90ba859b0a89",
+          "web:2.5.0-33031",
+          "051ad4f0-0776-11e8-ac6e-e30599af6943",
+          "request",
+          "1"
         ]
+      ]
     }
+  ]
+}
 ```
 
 ### Authorization code flow
 
-The main OAuth2 flow supported is through [authorization codes](/azure/active-directory/develop/active-directory-protocols-oauth-code). This method requires two HTTP requests to acquire a token with which to call the Azure Monitor Log Analytics API. There are two URLs, with one endpoint per request. Their formats are described in the following sections.
+The main OAuth2 flow supported is through [authorization codes](/azure/active-directory/develop/active-directory-protocols-oauth-code). This method requires two HTTP requests to acquire a token with which to call the Azure Monitor Application Insights API. There are two URLs, with one endpoint per request. Their formats are described in the following sections.
 
 #### Authorization code URL (GET request)
 
@@ -207,7 +350,7 @@ The main OAuth2 flow supported is through [authorization codes](/azure/active-di
     client_id=<app-client-id>
     &response_type=code
     &redirect_uri=<app-redirect-uri>
-    &resource=https://api.loganalytics.io
+    &resource=https://api.applicationinsights.io
 ```
 
 When a request is made to the authorize URL, the client\_id is the application ID from your Azure AD app, copied from the app's properties menu. The redirect\_uri is the homepage/login URL from the same Azure AD app. When a request is successful, this endpoint redirects you to the sign-in page you provided at sign-up with the authorization code appended to the URL. See the following example:
@@ -229,7 +372,7 @@ At this point, you've obtained an authorization code, which you need now to requ
     &client_id=<app client id>
     &code=<auth code fom GET request>
     &redirect_uri=<app-client-id>
-    &resource=https://api.loganalytics.io
+    &resource=https://api.applicationinsights.io
     &client_secret=<app-client-secret>
 ```
 
@@ -242,16 +385,16 @@ Response example:
         "access_token": "eyJ0eXAiOiJKV1QiLCJ.....Ax",
         "expires_in": "3600",
         "ext_expires_in": "1503641912",
-        "id_token": "not_needed_for_log_analytics",
+        "id_token": "not_needed_for_app_insights",
         "not_before": "1503638012",
         "refresh_token": "eyJ0esdfiJKV1ljhgYF.....Az",
-        "resource": "https://api.loganalytics.io",
+        "resource": "https://api.applicationinsights.io",
         "scope": "Data.Read",
         "token_type": "bearer"
     }
 ```
 
-The access token portion of this response is what you present to the Log Analytics API in the `Authorization: Bearer` header. You can also use the refresh token in the future to acquire a new access\_token and refresh\_token when yours have gone stale. For this request, the format and endpoint are:
+The access token portion of this response is what you present to the Application Insights API in the `Authorization: Bearer` header. You can also use the refresh token in the future to acquire a new access\_token and refresh\_token when yours have gone stale. For this request, the format and endpoint are:
 
 ```http
     POST /YOUR_AAD_TENANT/oauth2/token HTTP/1.1
@@ -261,7 +404,7 @@ The access token portion of this response is what you present to the Log Analyti
     client_id=<app-client-id>
     &refresh_token=<refresh-token>
     &grant_type=refresh_token
-    &resource=https://api.loganalytics.io
+    &resource=https://api.applicationinsights.io
     &client_secret=<app-client-secret>
 ```
 
@@ -272,7 +415,7 @@ Response example:
       "token_type": "Bearer",
       "expires_in": "3600",
       "expires_on": "1460404526",
-      "resource": "https://api.loganalytics.io",
+      "resource": "https://api.applicationinsights.io",
       "access_token": "eyJ0eXAiOiJKV1QiLCJ.....Ax",
       "refresh_token": "eyJ0esdfiJKV1ljhgYF.....Az"
     }
@@ -280,7 +423,7 @@ Response example:
 
 ### Implicit code flow
 
-The Log Analytics API supports the OAuth2 [implicit flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant). For this flow, only a single request is required, but no refresh token can be acquired.
+The Application Insights API supports the OAuth2 [implicit flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant). For this flow, only a single request is required, but no refresh token can be acquired.
 
 #### Implicit code authorize URL
 
@@ -289,7 +432,7 @@ The Log Analytics API supports the OAuth2 [implicit flow](/azure/active-director
     client_id=<app-client-id>
     &response_type=token
     &redirect_uri=<app-redirect-uri>
-    &resource=https://api.loganalytics.io
+    &resource=https://api.applicationinsights.io
 ```
 
 A successful request produces a redirect to your redirect URI with the token in the URL:
@@ -298,18 +441,4 @@ A successful request produces a redirect to your redirect URI with the token in 
     http://YOUR_REDIRECT_URI/#access_token=YOUR_ACCESS_TOKEN&token_type=Bearer&expires_in=3600&session_state=STATE_GUID
 ```
 
-This access\_token can be used as the `Authorization: Bearer` header value when it's passed to the Log Analytics API to authorize requests.
-
-## More information
-
-You can find documentation about OAuth2 with Azure AD here:
- - [Azure AD authorization code flow](/azure/active-directory/develop/active-directory-protocols-oauth-code)
- - [Azure AD implicit grant flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant)
- - [Azure AD S2S client credentials flow](/azure/active-directory/develop/active-directory-protocols-oauth-service-to-service)
-
-## Next steps
-
-- [Request format](./request-format.md)
-- [Response format](./response-format.md)
-- [Querying logs for Azure resources](./azure-resource-queries.md)
-- [Batch queries](./batch-queries.md)
+This access\_token can be used as the `Authorization: Bearer` header value when it's passed to the Application Insights API to authorize requests.

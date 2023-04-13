@@ -57,12 +57,12 @@ items:
       displayName: stt
     - name: Speech-to-text quickstart
       href: get-started-speech-to-text.md
-    - name: How to recognize speech
-      href: how-to-recognize-speech.md
-    - name: Get speech recognition results
-      href: get-speech-recognition-results.md
-    - name: Display text formatting
-      href: display-text-format.md
+    - name: Real-time speech-to-text
+      items:
+      - name: How to recognize speech
+        href: how-to-recognize-speech.md
+      - name: Get speech recognition results
+        href: get-speech-recognition-results.md
     - name: Batch transcription
       items:
       - name: What is batch transcription?
@@ -107,6 +107,8 @@ items:
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
+    - name: Display text formatting
+      href: display-text-format.md
     - name: Speech-to-text FAQ
       displayName: FAQ,STT,frequently asked questions
       href: faq-stt.yml

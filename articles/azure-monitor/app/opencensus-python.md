@@ -519,7 +519,7 @@ Each of the Azure Monitor exporters supports configuration of securely sending t
 
 You can view the telemetry data that was sent from your application through the **Logs (Analytics)** tab.
 
-![Screenshot of the Overview pane with the Logs (Analytics) tab selected.](./media/opencensus-python/0010-logs-query.png)
+:::image type="content" source="./media/opencensus-python/0010-logs-query.png" lightbox="./media/opencensus-python/0010-logs-query.png" alt-text="Screenshot of the Overview pane with the Logs (Analytics) tab selected.":::
 
 In the list under **Active**:
 

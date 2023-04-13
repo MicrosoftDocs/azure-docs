@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to create a managed identity for an Azure Spring Apps app and use it to access Azure Key Vault.
 
@@ -32,14 +32,14 @@ The following video describes how to manage secrets using Azure Key Vault.
 
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 * [Install the Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli)
-* [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
+* [Install Maven 3.0 or higher](https://maven.apache.org/download.cgi)
 
 ## Create a resource group
 
 A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Key Vault and Spring Cloud using the command [az group create](/cli/azure/group#az-group-create):
 
 ```azurecli
-az group create --name "myResourceGroup" -l "EastUS"
+az group create --name "myResourceGroup" --location "EastUS"
 ```
 
 ## Set up your Key Vault
@@ -55,7 +55,7 @@ az keyvault create \
     --name "<your-keyvault-name>" 
 ```
 
-Make a note of the returned `vaultUri`, which will be in the format `https://<your-keyvault-name>.vault.azure.net`. It will be used in the following step.
+Make a note of the returned `vaultUri`, which is in the format `https://<your-keyvault-name>.vault.azure.net`. You use this value in the following step.
 
 You can now place a secret in your Key Vault with the command [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set):
 
@@ -84,22 +84,26 @@ The following example creates an app named `springapp` with a system-assigned ma
 ```azurecli
 az spring app create \
     --resource-group <your-resource-group-name> \
-    --name "springapp" \
     --service <your-Azure-Spring-Apps-instance-name> \
+    --name "springapp" \
     --assign-endpoint true \
     --system-assigned
-export SERVICE_IDENTITY=$(az spring app show --name "springapp" -s "myspringcloud" -g "myResourceGroup" | jq -r '.identity.principalId')
+export SERVICE_IDENTITY=$(az spring app show \
+    --resource-group "<your-resource-group-name>" \
+    --service "<your-Azure-Spring-Apps-instance-name>" \
+    --name "springapp" \
+    | jq -r '.identity.principalId')
 ```
 
 ### [User-assigned managed identity](#tab/user-assigned-managed-identity)
 
-First, create a user-assigned managed identity in advance with its resource ID set to `$USER_IDENTITY_RESOURCE_ID`. Save the client ID for the property configuration below.
+First, create a user-assigned managed identity in advance with its resource ID set to `$USER_IDENTITY_RESOURCE_ID`. Save the client ID for the property configuration.
 
 :::image type="content" source="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png" alt-text="Screenshot of Azure portal showing the Managed Identity Properties screen with 'Resource ID', 'Principle ID' and 'Client ID' highlighted." lightbox="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png":::
 
-```azurecli
-export SERVICE_IDENTITY={principal ID of user-assigned managed identity}
-export USER_IDENTITY_RESOURCE_ID={resource ID of user-assigned managed identity}
+```bash
+export SERVICE_IDENTITY=<principal-ID-of-user-assigned-managed-identity>
+export USER_IDENTITY_RESOURCE_ID=<resource-ID-of-user-assigned-managed-identity>
 ```
 
 The following example creates an app named `springapp` with a user-assigned managed identity, as requested by the `--user-assigned` parameter.
@@ -107,19 +111,19 @@ The following example creates an app named `springapp` with a user-assigned mana
 ```azurecli
 az spring app create \
     --resource-group <your-resource-group-name> \
-    --name "springapp" \
     --service <your-Azure-Spring-Apps-instance-name> \
-    --assign-endpoint true \
-    --user-assigned $USER_IDENTITY_RESOURCE_ID
+    --name "springapp" \
+    --user-assigned $USER_IDENTITY_RESOURCE_ID \
+    --assign-endpoint true
 az spring app show \
     --resource-group <your-resource-group-name> \
-    --name "springapp" \
-    --service <your-Azure-Spring-Apps-instance-name>
+    --service <your-Azure-Spring-Apps-instance-name> \
+    --name "springapp"
 ```
 
 ---
 
-Make a note of the returned URL, which will be in the format `https://<your-app-name>.azuremicroservices.io`. This URL will be used in the following step.
+Make a note of the returned URL, which is in the format `https://<your-app-name>.azuremicroservices.io`. You use this value in the following step.
 
 ## Grant your app access to Key Vault
 
@@ -137,17 +141,17 @@ az keyvault set-policy \
 
 ## Build a sample Spring Boot app with Spring Boot starter
 
-This app will have access to get secrets from Azure Key Vault. Use the Azure Key Vault Secrets Spring boot starter.  Azure Key Vault is added as an instance of Spring **PropertySource**.  Secrets stored in Azure Key Vault can be conveniently accessed and used like any externalized configuration property, such as properties in files.
+This app has access to get secrets from Azure Key Vault. Use the Azure Key Vault Secrets Spring boot starter.  Azure Key Vault is added as an instance of Spring **PropertySource**.  Secrets stored in Azure Key Vault can be conveniently accessed and used like any externalized configuration property, such as properties in files.
 
 1. Use the following command to generate a sample project from `start.spring.io` with Azure Key Vault Spring Starter.
 
-   ```azurecli
+   ```bash
    curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault -d baseDir=springapp -d bootVersion=2.7.2 -d javaVersion=1.8 | tar -xzvf -
    ```
 
 1. Specify your Key Vault in your app.
 
-   ```azurecli
+   ```bash
    cd springapp
    vim src/main/resources/application.properties
    ```
@@ -172,7 +176,7 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Cli
 ---
 
    > [!NOTE]
-   > You must add the key vault URL in the *application.properties* file as shown above. Otherwise, the key vault URL may not be captured during runtime.
+   > You must add the key vault URL in the *application.properties* file as shown previously. Otherwise, the key vault URL may not be captured during runtime.
 
 1. Add the following code example to *src/main/java/com/example/demo/DemoApplication.java*. This code retrieves the connection string from the key vault.
 
@@ -208,7 +212,7 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Cli
    }
    ```
 
-   If you open the *pom.xml* file, you'll see the dependency of `spring-cloud-azure-starter-keyvault`.
+   If you open the *pom.xml* file, you can see the `spring-cloud-azure-starter-keyvault` dependency, as shown in the following example:
 
    ```xml
    <dependency>
@@ -219,7 +223,7 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Cli
 
 1. Use the following command to package your sample app.
 
-   ```azurecli
+   ```bash
    ./mvnw clean package -DskipTests
    ```
 
@@ -228,18 +232,18 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Cli
    ```azurecli
    az spring app deploy \
        --resource-group <your-resource-group-name> \
-       --name "springapp" \
        --service <your-Azure-Spring-Apps-instance-name> \
+       --name "springapp" \
        --artifact-path target/demo-0.0.1-SNAPSHOT.jar
    ```
 
 1. To test your app, access the public endpoint or test endpoint by using the following command:
 
-   ```azurecli
+   ```bash
    curl https://myspringcloud-springapp.azuremicroservices.io/get
    ```
 
-   You'll see the message `Successfully got the value of secret connectionString from Key Vault https://<your-keyvault-name>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
+   You're shown the message `Successfully got the value of secret connectionString from Key Vault https://<your-keyvault-name>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
 
 ## Next steps
 
