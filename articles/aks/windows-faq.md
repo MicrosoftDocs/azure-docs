@@ -38,6 +38,10 @@ Azure Disks and Azure Files are the supported volume types, and are accessed as 
 
 The master nodes (the control plane) in an AKS cluster are hosted by the AKS service. You won't be exposed to the operating system of the nodes hosting the master components. All AKS clusters are created with a default first node pool, which is Linux-based. This node pool contains system services that are needed for the cluster to function. We recommend that you run at least two nodes in the first node pool to ensure the reliability of your cluster and the ability to do cluster operations. The first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
 
+In some cases, customers running Windows workloads on AKS might want to also deploy Linux node pools:
+- When running Windows and Linux workloads side-by-side, you can deploy a Windows and a Linux node pool on the same AKS cluster and their respective workloads.
+- When deploying infrastructure related components that are Linux dependent, such as Nginx and others. These infrastructure workloads will require a Linux node pool alongside the Windows ones. For development and test scenarios, customers can leverage the control plane nodes. For production workloads, a separate Linux node pool might be required for performance and reliability.
+
 ## How do I patch my Windows nodes?
 
 To get the latest patches for Windows nodes, you can either [upgrade the node pool][nodepool-upgrade] or [upgrade the node image][upgrade-node-image]. Windows Updates are not enabled on nodes in AKS. AKS releases new node pool images as soon as patches are available, and it's the user's responsibility to upgrade node pools to stay current on patches and hotfixes. This patch process is also true for the Kubernetes version being used. [AKS release notes][aks-release-notes] indicate when new versions are available. For more information on upgrading the Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade]. If you're only interested in updating the node image, see [AKS node image upgrades][upgrade-node-image].
