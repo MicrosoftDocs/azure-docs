@@ -50,7 +50,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 Key Vault Uri can be copied from key properties **Key Identifier** field  in Azure Key Vault Portal UI, as shown in image below:
 :::image type="content" source="./media/how-to-create-server-customer-managed-key-azure-api/keyuri-portal.png" alt-text =" Key properties and URI on Azure Key Vault Portal page." :::
-You can also programmatically fetch Key Vault Uri using [Azure REST API](https://learn.microsoft.com/en-us/rest/api/keyvault/keyvault/vaults/get?tabs=HTTP)
+You can also programmatically fetch Key Vault Uri using [Azure REST API](https://learn.microsoft.com/rest/api/keyvault/keyvault/vaults/get?tabs=HTTP)
 
 ## Next steps
 
