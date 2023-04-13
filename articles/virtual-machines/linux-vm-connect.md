@@ -98,7 +98,7 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
     ```
 2. Validate the returned fingerprint.
     
-    If you've never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
+    If you've never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
     
     ```bash
     ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
@@ -121,7 +121,7 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
 
 2. Validate the returned fingerprint.
 
-    If you've never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
+    If you've never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
     ```bash
     ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
     ```
@@ -142,7 +142,7 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
     ```
 3. Validate the returned fingerprint.
 
-    If you've never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
+    If you've never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
     
     ```azurepowershell-interactive
     Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -CommandId 'RunPowerShellScript' -ScriptString 
@@ -166,7 +166,7 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
 
 2. Validate the returned fingerprint.
     
-    If you've never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
+    If you've never connected to the desired VM from your current SSH client before you're asked to verify the host's fingerprint. While the default option is to accept the fingerprint presented, you're exposed to a possible "person in the middle attack". You should always validate the host's fingerprint, which only needs to be done the first time your client connects. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
     
     ```bash
     ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
