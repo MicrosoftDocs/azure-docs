@@ -25,7 +25,7 @@ You can configure the Azure AD Connect Health service to send email notification
 ![Screenshot of Azure AD Connect Health email notification settings](./media/how-to-connect-health-operations/email_noti_discover.png)
 
 > [!NOTE]
-> Email notifications are enabled by default.
+> Email notifications to all GLobal Administrators are enabled by default.
 >
 
 ### To enable Azure AD Connect Health email notifications
@@ -33,7 +33,7 @@ You can configure the Azure AD Connect Health service to send email notification
 2. Select **Sync errors**
 3. Select **Notification Settings**.
 5. At the email notification switch, select **ON**.
-6. Select the check box if you want all Hybrid Identity Administrators to receive email notifications.
+6. Select the check box if you want all Global Administrators to receive email notifications.
 7. If you want to receive email notifications at any other email addresses, specify them in the **Additional Email Recipients** box. To remove an email address from this list, right-click the entry and select **Delete**.
 8. To finalize the changes, click **Save**. Changes take effect only after you save.
 
