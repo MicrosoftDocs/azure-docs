@@ -1,6 +1,6 @@
 ---
-title: 'How to configure JMX metrics: Azure Monitor Application Insights for Java'
-description: Configure extra JMX metrics collection for Azure Monitor Application Insights Java agent.
+title: How to configure JMX metrics - Azure Monitor application insights for Java
+description: Configure extra JMX metrics collection for Azure Monitor Application Insights Java agent
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.devlang: java
@@ -8,19 +8,19 @@ ms.custom: devx-track-java
 ms.reviewer: mmcc
 ---
 
-# Configure JMX metrics
+# Configuring JMX metrics
 
-Application Insights Java 3.x collects some JMX metrics by default. In many cases, the default option doesn't collect enough. This article describes JMX configuration in detail.
+Application Insights Java 3.x collects some of the JMX metrics by default, but in many cases it isn't enough. This document describes the JMX configuration option in details.
 
-## How do I collect more JMX metrics?
+## How do I collect extra JMX metrics?
 
-JMX metrics collection can be configured by adding a `jmxMetrics` section to the `applicationinsights.json` file. You can specify the name of the metric the way you want it to appear in the Azure portal in the Application Insights resource. The object name and attribute are required for each of the metrics you want collected.
+JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource. Object name and attribute are required for each of the metrics you want collected.
 
 ## How do I know what metrics are available to configure?
 
-You must know the object names and attributes. Those properties are different for various libraries, frameworks, and application servers and are often not well documented. Luckily, it's easy to find exactly what JMX metrics are supported for your particular environment.
+You nailed it - you must know the object names and the attributes, those properties are different for various libraries, frameworks, and application servers, and are often not well documented. Luckily, it's easy to find exactly what JMX metrics are supported for your particular environment.
 
-To view available metrics, set the self-diagnostics level to `DEBUG` in your `applicationinsights.json` configuration file. For example:
+To view the available metrics, set the self-diagnostics level to `DEBUG` in your `applicationinsights.json` configuration file, for example:
 
 ```json
 {
@@ -30,15 +30,16 @@ To view available metrics, set the self-diagnostics level to `DEBUG` in your `ap
 }
 ```
 
-The available JMX metrics with the object names and attribute names appear in the Application Insights log file.
+Available JMX metrics, with object names and attribute names, appear in your Application Insights log file.
 
-The output in the log file looks similar to the following example. In some cases, the list can be extensive.
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows available JMX metrics in the log file.](media/java-ipa/jmx/available-mbeans.png)
+Log file output looks similar to these examples. In some cases, it can be extensive.
+
+> :::image type="content" source="media/java-ipa/jmx/available-mbeans.png" lightbox="media/java-ipa/jmx/available-mbeans.png" alt-text="Screenshot of available JMX metrics in the log file.":::
+
 
 ## Configuration example
 
-You can configure the agent to collect the metrics that are available. The first one is an example of a nested metric, `LastGcInfo`, which has several properties. You want to capture `GcThreadCount`.
+Knowing what metrics are available, you can configure the agent to collect them. The first one is an example of a nested metric - `LastGcInfo` that has several properties, and we want to capture the `GcThreadCount`.
 
 ```json
 "jmxMetrics": [
@@ -60,15 +61,15 @@ You can configure the agent to collect the metrics that are available. The first
 ],
 ```
 
-## Types of collected metrics and available configuration options
+## Types of collected metrics and available configuration options?
 
-We support numeric and Boolean JMX metrics while other types aren't supported and are ignored.
+We support numeric and boolean JMX metrics, while other types aren't supported and is ignored. 
 
-Currently, the wildcards and aggregated attributes aren't supported. For this reason, every attribute `object name`/`attribute` pair must be configured separately.
+Currently, the wildcards and aggregated attributes aren't supported, that's why every attribute 'object name'/'attribute' pair must be configured separately. 
 
-## Where do I find the JMX metrics in Application Insights?
 
-While your application is running and JMX metrics are collected, you can view them by going to the Azure portal and going to your Application Insights resource. Under the **Metrics** tab, select the dropdown to view the metrics.
+## Where do I find the JMX Metrics in application insights?
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the Metrics tab in the portal.](media/java-ipa/jmx/jmx-portal.png)
+You can view the JMX metrics collected while your application is running by navigating to your application insights resource in the Azure portal. Under Metrics tab, select the dropdown as shown to view the metrics.
+
+> :::image type="content" source="media/java-ipa/jmx/jmx-portal.png" lightbox="media/java-ipa/jmx/jmx-portal.png" alt-text="Screenshot of metrics in portal":::
