@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Use the Azure CLI to create a Batch account and run a job
-description: Follow this quickstart to use the Azure CLI to create a Batch account and run a Batch job.
+title: 'Quickstart: Use the Azure CLI to create a Batch account and run a job'
+description: Follow this quickstart to use the Azure CLI to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
 ms.topic: quickstart
 ms.date: 04/12/2023
 ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
-# Quickstart: Run your first Batch job with the Azure CLI
+# Quickstart: Use the Azure CLI to create an Azure Batch account and run a job
 
-This quickstart shows you how to get started with Azure Batch by using Azure CLI commands. You create a Batch account that has a *pool* of virtual machines, or compute *nodes*. You then create and run a *job* with *tasks* that run commands on the pool nodes.
+This quickstart shows you how to get started with Azure Batch by using Azure CLI commands. You create a Batch account that has a *pool* of virtual machines, or compute *nodes*. You then create and run a *job* with *tasks* that run on the pool nodes.
 
-This quickstart uses the Azure CLI to create and manage Azure resources from the command line and in a script. After you complete this quickstart, you understand the key concepts of the Batch service and are ready to use Batch with more realistic, larger scale workloads.
+This quickstart uses the Azure CLI to create and manage Azure resources from the command line and in a script. After you complete this quickstart, you understand the [key concepts of the Batch service](batch-service-workflow-features.md) and are ready to use Batch with more realistic, larger scale workloads.
 
 ## Prerequisites
 
@@ -121,7 +121,7 @@ The command output shows the settings for each task. Batch distributes the tasks
 
 ## View task status
 
-After you create the task, Batch queues the task to run on the pool. Once a node is available, the task runs.
+After you create the task, Batch queues the task to run on the pool. Once a node is available, the task runs on the node.
 
 Use the [az batch task show](/cli/azure/batch/task#az-batch-task-show) command to view the status of Batch tasks. The following example shows details about the status of `myTask1`:
 
@@ -166,7 +166,7 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-You can view the contents of the *stdout.txt* output file in a text editor. The contents show the Azure Batch environment variables that are set on the node. You can reference these environment variables in your Batch job task command lines, and in the apps and scripts the command lines run. The following example shows a typical *stdout.txt* file:
+You can view the contents of the *stdout.txt* output file in a text editor. The following example shows a typical *stdout.txt* file. The standard output from this task shows the Azure Batch environment variables that are set on the node. You can reference these environment variables in your Batch job task command lines, and in the apps and scripts the command lines run. 
 
 ```text
 AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myJob/job-1/myTask1
@@ -190,13 +190,13 @@ AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 
 If you want to continue with Batch tutorials and samples, you can use the Batch account and linked storage account you created in this quickstart. There's no charge for the Batch account itself.
 
-Pools and nodes incur charges while the nodes are running, even if they aren't running jobs. When you no longer need a pool, use the [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete) command to delete it. Deleting a pool deletes all task output on the nodes and the nodes themselves.
+Pools and nodes incur charges while the nodes are running, even if they aren't running jobs. When you no longer need a pool, use the [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete) command to delete it. Deleting a pool deletes all task output on the nodes, and the nodes themselves.
 
 ```azurecli-interactive
 az batch pool delete --pool-id myPool
 ```
 
-When you no longer need the resources you created for this quickstart, you can use the [az group delete](/cli/azure/group#az-group-delete) command to delete the resource group and all its resources, including the storage account, Batch account, node pools, and all related resources. Run the following command:
+When you no longer need any of the resources you created for this quickstart, you can use the [az group delete](/cli/azure/group#az-group-delete) command to delete the resource group and all its resources. To delete the resource group and the storage account, Batch account, node pools, and all related resources, run the following command:
 
 ```azurecli-interactive
 az group delete --name qsBatch
@@ -204,7 +204,7 @@ az group delete --name qsBatch
 
 ## Next steps
 
-In this quickstart, you created a Batch account, a Batch pool, and a Batch job. The job ran sample tasks, and you viewed output created on one of the nodes. Now that you understand the key concepts of the Batch service, you are ready to try Batch with more realistic workloads at larger scale. To learn more about Azure Batch, continue to the Azure Batch tutorials.
+In this quickstart, you created a Batch account and a Batch pool, and created and ran a Batch job. The job ran sample tasks, and you viewed output from one of the nodes. Now that you understand the key concepts of the Batch service, you're ready to use Batch with more realistic workloads at larger scale. To learn more about Azure Batch, continue to the Azure Batch tutorials.
 
 > [!div class="nextstepaction"]
 > [Azure Batch tutorials](./tutorial-parallel-dotnet.md)
