@@ -145,7 +145,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 // ...
 ```
 
-Please do note that, in the above code snippets `.EnableTokenAcquisitionToCallDownstreamApi` is called without any parameter which means, access token will be acquired just in time as the controller requests the token by specifying the scope.  
+Note that`.EnableTokenAcquisitionToCallDownstreamApi` is called without any parameter, which means that the access token will be acquired just in time as the controller requests the token by specifying the scope.  
 
 You could also pass-in the scope when calling the `.EnableTokenAcquisitionToCallDownstreamApi` which would make the web app to acquire the token during the initial user login itself and then the token will be served from the cache when controller requests it.  
 
