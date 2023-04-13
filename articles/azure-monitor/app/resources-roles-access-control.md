@@ -2,9 +2,9 @@
 title: Resources, roles, and access control in Application Insights | Microsoft Docs
 description: Owners, contributors and readers of your organization's insights.
 ms.topic: conceptual
-ms.date: 02/14/2019 
+ms.date: 04/13/2023
 ms.custom: devx-track-azurepowershell   
-ms.reviewer: jogrima
+ms.reviewer: cogoodson
 ---
 
 # Resources, roles, and access control in Application Insights
@@ -24,7 +24,7 @@ First, let's define some terms:
   
     To see your resources, open the [Azure portal][portal], sign in, and select **All resources**. To find a resource, enter part of its name in the filter field.
   
-    ![Screenshot that shows a list of Azure resources.](./media/resources-roles-access-control/10-browse.png)
+    :::image type="content" source="./media/resources-roles-access-control/10-browse.png" lightbox="./media/resources-roles-access-control/10-browse.png" alt-text="Screenshot that shows a list of Azure resources.":::
 
 <a name="resource-group"></a>
 

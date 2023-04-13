@@ -10,7 +10,7 @@ ms.author: jukullam
 ms.reviewer: larryfr
 ms.date: 11/11/2022
 ms.topic: how-to
-ms.custom: devops-pipelines-deploy
+ms.custom: devops-pipelines-deploy, devx-track-arm-template
 ---
 
 # Use Azure Pipelines with Azure Machine Learning

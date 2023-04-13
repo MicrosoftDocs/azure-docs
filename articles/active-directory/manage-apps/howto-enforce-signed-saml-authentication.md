@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 --- 
 
 
-# SAML Request Signature Verification (Preview)  
+# SAML Request Signature Verification  
 
 SAML Request Signature Verification is a functionality that validates the signature of signed authentication requests. An App Admin now can enable and disable the enforcement of signed requests and upload the public keys that should be used to do the validation.  
 

@@ -200,7 +200,7 @@ If you want to set the authenticated user context:
   
     In HTML, the `data-*` global attributes are called custom data attributes that allow proprietary information to be exchanged between the HTML and its DOM representation by scripts. Older browsers like Internet Explorer and Safari drop attributes they don't understand, unless they start with `data-`.
 
-    The asterisk (`*`) in `data-*` can be replaced by any name following the [production rule of XML names](https://www.w3.org/TR/REC-xml/#NT-Name) with the following restrictions:
+    You can replace the asterisk (`*`) in `data-*` with any name following the [production rule of XML names](https://www.w3.org/TR/REC-xml/#NT-Name) with the following restrictions.
     - The name must not start with "xml," whatever case is used for the letters.
     - The name must not contain a semicolon (U+003A).
     - The name must not contain capital letters.
@@ -263,7 +263,7 @@ The following key properties are captured by default when the plug-in is enabled
 | metaDataPrefix            | String  | Null      | N/A  | Automatic capture HTML Head's meta element name and content with provided prefix when captured. For example, `custom-` can be used in the HTML meta tag. |
 | captureAllMetaDataContent | Boolean | False     | N/A   | Automatic capture all HTML Head's meta element names and content. Default is false. If enabled, it overrides provided `metaDataPrefix`. |
 | parentDataTag             | String  | Null      |  N/A  | Stops traversing up the DOM to capture content name and value of elements when encountered with this tag. For example, `data-<yourparentDataTag>` can be used in the HTML tags.|
-| dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| HTML elements with this attribute are ignored by the plug-in for capturing telemetry data.|
+| dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| The plug-in for capturing telemetry data ignores HTML elements with this attribute.|
 
 ### behaviorValidator
 

@@ -248,7 +248,7 @@ Verify virtual network and firewall rules are configured properly on the storage
 
 ### Cause
 
-Some Linux distributions don't yet support encryption features in SMB 3.x. Users might receive a "115" error message if they try to mount Azure Files by using SMB 3.x because of a missing feature. SMB 3.x with full encryption is supported only when you're using Ubuntu 16.04 or later.
+Some Linux distributions don't yet support encryption features in SMB 3.x. Users might receive a "115" error message if they try to mount Azure Files by using SMB 3.x because of a missing feature. SMB 3.x with full encryption is supported only on latest version of a Linux Distro.
 
 ### Solution
 
