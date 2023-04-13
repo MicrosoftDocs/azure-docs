@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.date: 12/13/2022
 ms.author: mbender
-ms.custom: mvc, subject-armqs, mode-arm, template-quickstart, engagement-fy23
+ms.custom: mvc, subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-track-arm-template
 #Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ---
 
