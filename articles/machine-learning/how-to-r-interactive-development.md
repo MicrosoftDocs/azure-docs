@@ -123,7 +123,10 @@ Alternatively, you can use a Datastore URI to access different files on a regist
    
    > [!TIP]
    > Rather than remember the datastore URI format, you can copy-and-paste the datastore URI from the Studio UI:
-> If you know the datastore where your file is located, navigate to the file/folder you want to read into R, select the elipsis (**...**) next to it. Select from the menu **Copy URI**. Then select the **Datastore URI** to copy into your notebook/script. 
+    > 1. Navigate to the file/folder you want to read into R
+    > 1. Select the elipsis (**...**) next to it. 
+    > 1. Select from the menu **Copy URI**. 
+    > 1. Select the **Datastore URI** to copy into your notebook/script. 
 Please note, you will still need to create a variable for `<path>` in the code.
    > :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
