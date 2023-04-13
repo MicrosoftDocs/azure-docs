@@ -38,7 +38,7 @@ You must have an **Owner**, **Contributor**, or **Support Request Contributor** 
 1. Select your **Subscription** from the drop-down menu. Choose the subscription where you're noticing the problem or need a change. The support engineer assigned to your case will only be able to access resources in the subscription you specify. If the issue applies to multiple subscriptions, you can mention other subscriptions in your description, or by sending a message later. However, the support engineer will only be able to work on subscriptions to which you have access.
 
     > [!NOTE]
-> The remaining steps will vary depending on which options you select. For example, you won't be prompted to select a resource for a billing enquiry.
+    > The remaining steps will vary depending on which options you select. For example, you won't be prompted to select a resource for a billing enquiry.
 
 1. A new **Service** option will appear giving you the option to select either **My services** or **All services**. Select **My services**.
 1. In **Service type** select **Azure Private 5G Core** from the drop-down menu.
