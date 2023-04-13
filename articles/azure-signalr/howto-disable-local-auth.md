@@ -30,7 +30,7 @@ In this section, you will learn how to use the Azure portal to disable local aut
 
 4. Click **Save** button.
 
-![Screenshot of disabling local auth](./media/howto-azure-active-directory/disable-local-auth.png)
+![Screenshot of disabling local auth](./media/howto-disable-local-auth/disable-local-auth.png)
 
 ## Use Azure Resource Manager template
 
@@ -110,7 +110,7 @@ You can disable local authentication by setting `disableLocalAuth` property to t
 
 You can assign the [Azure SignalR Service should have local authentication methods disabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff70eecba-335d-4bbc-81d5-5b17b03d498f) Azure policy to an Azure subscription or a resource group to enforce disabling of local authentication for all SignalR resources in the subscription or the resource group.
 
-![Screenshot of disabling local auth policy](./media/howto-azure-active-directory/disable-local-auth-policy.png)
+![Screenshot of disabling local auth policy](./media/howto-disable-local-auth/disable-local-auth-policy.png)
 
 ## Next steps
 

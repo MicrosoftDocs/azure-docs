@@ -31,7 +31,7 @@ In this section, you will learn how to use the Azure portal to disable local aut
 
 4. Click **Save** button.
 
-![Screenshot of disabling local auth](./media/howto-azure-active-directory/disable-local-auth.png)
+![Screenshot of disabling local auth](./media/howto-disable-local-auth/disable-local-auth.png)
 
 ## Use Azure Resource Manager template
 
@@ -89,7 +89,7 @@ You can disable local authentication by setting `disableLocalAuth` property to t
 
 You can assign the [Azure Web PubSub Service should have local authentication methods disabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb66ab71c-582d-4330-adfd-ac162e78691e) Azure policy to an Azure subscription or a resource group to enforce disabling of local authentication for all Web PubSub resources in the subscription or the resource group.
 
-![Screenshot of disabling local auth policy](./media/howto-azure-active-directory/disable-local-auth-policy.png)
+![Screenshot of disabling local auth policy](./media/howto-disable-local-auth/disable-local-auth-policy.png)
 
 ## Next steps
 
