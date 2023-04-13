@@ -7,7 +7,7 @@ ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
-ms.date: 04/12/2023
+ms.date: 04/13/2023
 ms.custom: GGAL-freshness822, devx-track-azurecli
 ---
 
