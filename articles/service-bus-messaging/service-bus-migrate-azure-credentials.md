@@ -169,6 +169,7 @@ Next, update your code to use passwordless connections.
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
             .build();
     
+        // TODO: Update the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
         ServiceBusReceiverClient receiver = new ServiceBusClientBuilder()
             .credential("<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net", credential)
             .receiver()
