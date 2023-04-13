@@ -92,7 +92,7 @@ az network nsg create \
 ```
 
 ### Create an availability set
-	@@ -57,118 +105,108 @@ Creating an availability set is optional, but we recommend it. For more informat
+Creating an availability set is optional, but we recommend it. For more information, see [Azure availability sets guidelines](/previous-versions/azure/virtual-machines/windows/infrastructure-example).
 
 ```azurecli
 az vm availability-set create \
@@ -104,7 +104,7 @@ az vm availability-set create \
 
 ### Create two virtual machines
 
-Create 2 VMs by using the [az vm create](/cli/azure/vm) command. 
+Create two VMs by using the [az vm create](/cli/azure/vm) command. 
 
 The following example creates two VMs named `OracleVM1` and `OracleVM2`. 
 
@@ -171,19 +171,19 @@ https://portal.azure.com
 
 In the search textbox at the top of the window, search for OracleVM1 and click it from the list to launch.
 
-![Screenshot of the search window.](./media/oracle-dataguard/search-oraclevm1.png)
+![Screenshot of the search window.](./media/configure-oracle-dataguard/search-oraclevm1.png)
 
 At the top of the screen, click Connect and select Bastion.
 
-![Screenshot of connect via Bastion.](./media/oracle-dataguard/connect-bastion.png)
+![Screenshot of connect via Bastion.](./media/configure-oracle-dataguard/connect-bastion.png)
 
 Enter the Username and Password and click the Connect button.
 
-![Screenshot of connect via Bastion with credentials.](./media/oracle-dataguard/connect-bastion-credentials.png)
+![Screenshot of connect via Bastion with credentials.](./media/configure-oracle-dataguard/connect-bastion-credentials.png)
 
 This will open a new tab with a secure connection to your virtual machine where the Oracle software is already installed from an Azure Marketplace image.
 
-![Screenshot of connect via Bastion on browser.](./media/oracle-dataguard/connect-bastion-browser-tab.png)
+![Screenshot of connect via Bastion on browser.](./media/configure-oracle-dataguard/configure-connect-bastion-browser-tab.png)
    
 ### Configure OracleVM1 (primary)
 ```bash
@@ -381,15 +381,15 @@ Start the listener:
 
 Return to the tab with the Azure portal.  Search for OracleVM2 and click it.
 
-![Screenshot of search for OracleVM2.](./media/oracle-dataguard/search-oraclevm2.png)
+![Screenshot of search for OracleVM2.](./media/configure-oracle-dataguard/search-oraclevm2.png)
 
 At the top of the screen, click Connect and select Bastion.
 
-![Screenshot of connecting to VM via Bastion.](./media/oracle-dataguard/connect-bastion.png)
+![Screenshot of connecting to VM via Bastion.](./media/configure-oracle-dataguard/connect-bastion.png)
 
 Enter the Username and Password and click the Connect button.
 
-![Screenshot of connecting via Bastion with credentials.](./media/oracle-dataguard/connect-bastion-credentials.png)
+![Screenshot of connecting via Bastion with credentials.](./media/configure-oracle-dataguard/connect-bastion-credentials.png)
 
 ### Disable the Firewall on OracleVM2 (standby)
 ```bash
