@@ -122,7 +122,7 @@ Alternatively, you can use a Datastore URI to access different files on a regist
    ```
    
    > [!TIP]
-   > Rather than remember the datastore URI format, you can copy-and-paste the datastore URI from the Studio UI by following these steps:
+   > Rather than remember the datastore URI format, you can copy-and-paste the datastore URI from the Studio UI:
 > If you know the datastore where your file is located, navigate to the file/folder you want to read into R, select the elipsis (**...**) next to it. Select from the menu **Copy URI**. Then select the **Datastore URI** to copy into your notebook/script. 
 Please note, you will still need to create a variable for `<path>` in the code.
    > 1. Find the file/folder you want to read into R, select the elipsis (**...**) next to it. Select from the menu **Copy URI**. You can select the **Datastore URI** to copy into your notebook/script. Please note, you will still need too create a variable for "<path>".
