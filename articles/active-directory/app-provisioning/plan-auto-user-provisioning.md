@@ -194,7 +194,7 @@ Before implementing automatic user provisioning, you must determine the users an
 
 * Use [scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) to define attribute-based rules that determine which users are provisioned to an application.
 
-* Next, use [user and group assignments](../manage-apps/assign-user-or-group-access-portal.md) as needed for additional filtering.
+* Next, use [user and group assignments](../manage-apps/assign-user-or-group-access-portal.md) as needed for more filtering.
 
 ### Define user and group attribute mapping
 
