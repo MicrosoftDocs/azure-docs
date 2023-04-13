@@ -32,17 +32,14 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 -  An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Access to Azure portal 
-- An Azure Resource Group 
-- An Azure Virtual Network and Subnet configured  
+  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
 
 ## Review the template
 In this section, you review the template and the parameters that are used to deploy the cross-region load balancer. 
 The template used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/load-balancer-cross-region/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/2-vms-internal-load-balancer/azuredeploy.json":::
-1. Sign in to the [<service> portal](url).
+
 > [!NOTE] 
 > When you create a standard load balancer, you must also create a new standard public IP address that is configured as the frontend for the standard load balancer. Also, the Load balancers and public IP SKUs must match. In our case, we will create two standard public IP addresses, one for the regional level load balancer and another for the cross-region load balancer.  
 
@@ -65,7 +62,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
 ## Deploy the template
 
-1. Sign in to the Azure portal.
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. Enter and select **Deploy a custom template** in the search bar
 1. In the **Custom deployment** page, enter **load-balancer-cross-region** in the **Quickstart template** textbox and select **quickstarts/microsoft.network/load-balancer-cross-region**.
 
