@@ -45,7 +45,7 @@ The Evaluate UI wizard described above, allows you to perform basic evaluation b
 
 
 #### Evaluating using code based samples
-To enable users to quickly get started with model evaluation, we have published samples (both Python notebooks as well as CLI examples) in this git repo at [https://github.com/Azure/azureml-foundation-models/tree/main/finetune/sample_pipelines](https://github.com/Azure/azureml-foundation-models/tree/main/finetune/sample_pipelines). Each model card also links to Evaluation samples for corresponding tasks
+To enable users to quickly get started with model evaluation, we have published samples (both Python notebooks as well as CLI examples) in this git repo at [https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system). Each model card also links to Evaluation samples for corresponding tasks
 
 
 ### How to finetune foundation models using your own training data
@@ -81,7 +81,7 @@ Currently, AzureML supports finetuning models for the following language tasks -
 * Summarization
 * Translation
 
-To enable users to quickly get started with fine tuning, we have published samples (both Python notebooks as well as CLI examples) for each task in this git repo at [https://github.com/Azure/azureml-foundation-models/tree/main/finetune/sample_pipelines](https://github.com/Azure/azureml-foundation-models/tree/main/finetune/sample_pipelines). Each model card links to Finetuning samples for supported finetuning tasks.
+To enable users to quickly get started with fine tuning, we have published samples (both Python notebooks as well as CLI examples) for each task in this git repo at [https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system). Each model card links to Finetuning samples for supported finetuning tasks.
 
 ### Deploying foundation models to endpoints for inferencing
 
