@@ -20,7 +20,7 @@ Audit Logs provide auditing trails for data plane APIs on Azure Data Manager for
 
 For example, when you “Add a new member” to the users.datalake.admins entitlement group using entitlements API, you're able to see this information in Audit logs. 
 
-Here, you can see that a new user was added as a MEMBER to users.datalake.admins group for Bugbash3 instance on bugbash3-dp1 data partition.
+[![Screenshot of audit logs for entitlement](media/how-to-manage-auditlogs-1-audit-event-diagnosticlogs.png)](media/how-to-manage-auditlogs-1-audit-event-diagnosticlogs.png#lightbox)
  
 # Enable audit logs
 To enable audit logs in diagnostic logging, select your Azure Data Manager for Energy instance in the Azure portal.
@@ -28,11 +28,14 @@ To enable audit logs in diagnostic logging, select your Azure Data Manager for E
 * Select + Add diagnostic setting.
 * Enter the Diagnostic settings name.
 * Select “Audit Events” as the Category. 
+
+[![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-data-security-and-encryption/customer-managed-key-3-enable-cmk.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3-enable-cmk.png#lightbox)
+
 * Select appropriate Destination details for accessing the diagnostic logs. 
  
 > [!NOTE]
 > It might take up to 15 minutes for the first Logs to show in Log Analytics. 
-For information on how to work with diagnostic logs, see [Azure Resource Log documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/platform-logs-overview)
+For information on how to work with diagnostic logs, see [Azure Resource Log documentation](../azure-monitor/essentials/platform-logs-overview.md)
 
 ## Audit log details
 The audit logs for Azure Data Manager for Energy service returns the following fields in the audit log:
@@ -64,6 +67,8 @@ Basic Application Insights queries you can use to explore your log data.
 OEPAuditLogs
 | summarize count() by ServiceName
 ```
+
+[![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-data-security-and-encryption/customer-managed-key-3-enable-cmk.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3-enable-cmk.png#lightbox)
  
 2. Run the following query to see the 100 most recent logs:
 
