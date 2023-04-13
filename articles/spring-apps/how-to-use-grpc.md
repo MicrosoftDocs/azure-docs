@@ -11,9 +11,9 @@ ms.custom: devx-track-java
 
 # How to use gRPC in Azure Spring Apps
 
-This article shows you how to use gRPC in Azure Spring Apps by demonstrating its usage in a deployment of the [spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) sample application.
+This article shows you how to use gRPC in Azure Spring Apps by demonstrating its usage in a modified deployment of the [spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) sample application.
 
-This example modifies the customer's service to be a gRPC service, and shows you how to call a gRPC service using grpc curl from  the developer’s environment.
+This example modifies the `customers-service` to be a gRPC service, and shows you how to call a gRPC service using grpc curl commands from your environment.
 
 ## Prerequisites
 
@@ -22,41 +22,31 @@ This example modifies the customer's service to be a gRPC service, and shows you
 
 ## Deploy Spring Petclinic Microservices
 
-This article uses the Spring Petclinic sample to walk through the required steps. Use the following steps to deploy the sample application:
+To begin, deploy the Spring Petclinic microservices project.
 
-1. Follow the steps in [Deploy Spring Boot apps using Azure Spring Apps and MySQL](https://github.com/Azure-Samples/spring-petclinic-microservices#readme) until you reach the [Deploy Spring Boot applications and set environment variables](https://github.com/Azure-Samples/spring-petclinic-microservices#deploy-spring-boot-applications-and-set-environment-variables) section.
-
-1. Use the following command to create an application to run in Azure Spring Apps:
-
-   ```azurecli
-   az spring app create \
-      --resource-group <your-resource-group-name> \
-      --service <your-Azure-Spring-Apps-instance-name> \
-      --name <your-app-name> \
-      --is-public true
-   ```
+- Follow the steps in [Deploy Spring Boot apps using Azure Spring Apps and MySQL](https://github.com/Azure-Samples/spring-petclinic-microservices#readme) until you reach the [Deploy Spring Boot applications and set environment variables](https://github.com/Azure-Samples/spring-petclinic-microservices#deploy-spring-boot-applications-and-set-environment-variables) section.
 
 ## Assign a public endpoint
 
-For customers-service, to facilitate testing, we assign a public endpoint temporarily. The public endpoint is used in the [grpcurl](https://github.com/fullstorydev/grpcurl) command as the hostname.
+To facilitate testing, assign a public endpoint. The public endpoint is used in the [grpcurl](https://github.com/fullstorydev/grpcurl) command as the hostname.
 
-Use the following command to assign a public endpoint to your app. Be sure to replace the placeholders with your actual values.
+- Use the following command to assign a public endpoint to your app. Be sure to replace the placeholders with your actual values.
 
-```azurecli
-az spring app update \
-    --resource-group <resource-group-name> \
-    --name <app-name> \
-    --service <service-instance-name> \
-    --assign-public-endpoint true
-```
+  ```azurecli
+  az spring app update \
+      --resource-group <resource-group-name> \
+      --name <app-name> \
+      --service <Azure-Spring-Apps-instance-name> \
+      --assign-public-endpoint true
+  ```
 
 ## Change the customers service to be a gRPC service
 
 Before changing the customers service into a gRPC server, examine the current response to list all owners by adding `/owners` to the URL path.  
 
-To change customers-service into gRPC, make the following modifications to the application's `pom.xml` file for customers service.
+To change customers-service into gRPC, make the following modifications to the application's `pom.xml` file for the customers service.
 
-1. To prevent gRPC from being routed incorrectly using a static server address, delete the dependency for `spring-boot-starter-web` as shown in the following code block:
+1. To prevent gRPC from being routed incorrectly by using a static server address, delete the dependency for `spring-boot-starter-web` as shown in the following code:
 
    ```xml
    <dependency>
@@ -67,7 +57,7 @@ To change customers-service into gRPC, make the following modifications to the a
 
    If not removed, the application starts both a web server and a gRPC server and Azure Spring Apps rewrites the server port to 1025.
 
-1. The following code shows the dependency and the build plugins required for gRPC.
+1. Use the following code for the dependency and build plugins required for gRPC.
 
    ```xml
    <dependencies>
@@ -143,9 +133,9 @@ To change customers-service into gRPC, make the following modifications to the a
 
 ## Create and run the proto file
 
-Use the following steps to create and run the proto file to define message types and RPC methods.
+Use the following steps to create and run the proto file that defines the message types and RPC methods.
 
-1. Create a new file with the `.proto` extension that has the following content.
+1. Create a new file with the `.proto` extension that has the following content:
 
    ```JSON
    syntax = "proto3";
@@ -204,7 +194,7 @@ Use the following steps to create and run the proto file to define message types
    }
    ```
 
-1. Use the following command to autogenerate the gRPC files, which creates the `CustomersServiceGrpc` service.
+1. Use the following command to autogenerate the gRPC files and creates the `CustomersServiceGrpc` service.
 
    ```azurecli
    mvn package
@@ -212,7 +202,7 @@ Use the following steps to create and run the proto file to define message types
 
 ## Implement the gRPC service
 
-Use the following class to implement the RPC methods defined in the proto file. Use the annotation `@GrpcService` to extend the autogenerated gRPC service base class and implement all the methods.
+Use the following class to implement the RPC methods defined in the proto file. Use the annotation `@GrpcService` to extend the autogenerated gRPC service base class and implement all its methods.
 
 ```java
 @GrpcService
@@ -233,8 +223,6 @@ public class CustomersServiceImpl extends CustomersServiceGrpc.CustomersServiceI
         responseObserver.onNext(request);
         responseObserver.onCompleted();
     }
-
-    ......
 }
 ```
 
@@ -262,7 +250,7 @@ You can now configure the server and deploy the application.
             MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
    ```
 
-Now that the app is redeployed, call a gRPC service from outside the Azure Spring Apps service instance. Test the endpoint to attempt list all owners by adding `/owners` to the URL path, which fails as expected because a gRPC service can't be visited with the HTTP protocol.
+Now that the app is redeployed, call a gRPC service from outside the Azure Spring Apps service instance. Test the endpoint to attempt list all owners by adding `/owners` to the URL path, which fails as expected because a gRPC service can't be accessed with the HTTP protocol.
 
 ## Test the gRPC server with grpcurl commands
 
@@ -270,7 +258,7 @@ Use the following steps to test the gRPC server from your local environment.
 
 1. Setting the backend protocol to use gRPC. For more information, see [Customize the ingress configuration in Azure Spring Apps](how-to-configure-ingress.md).  
 
-1. You can use the following commands to check the gRPC server. The only port supported for gRPC calls from outside Azure Spring Apps is port `443`. If you're curious, the traffic is automatically routed to port 1025 on the backend as previously configured.
+1. You can use the following commands to check the gRPC server. The only port supported for gRPC calls from outside Azure Spring Apps is port `443`. (The traffic is automatically routed to port 1025 on the backend.)
 
    ```bash
    grpcurl <SERVICE-NAME>-customers-service.azuremicroservices.io:443 list
