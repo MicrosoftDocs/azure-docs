@@ -593,31 +593,31 @@
       # end v1
       - name: Time series forecasting
         items:
-          - name: Auto-train a forecasting model (Python)
-            displayName: forecasting, time series, auto ML, automl, SDK
-            href: how-to-auto-train-forecast.md
-          # v1
-          - name: Auto-train a forecast model
-            displayName: time series
-            href: ./v1/how-to-auto-train-forecast-v1.md
-          # end v1
-          - name: Frequently asked questions
-            displayName: auto ML, time series, forecasting, FAQ
-            href: how-to-automl-forecasting-faq.md
-        - name: Understand charts and metrics
-          href: how-to-understand-automated-ml.md
-        - name: Use ONNX model in .NET application
-          href: how-to-use-automl-onnx-model-dotnet.md
-        - name: Inference image models with ONNX model
-          displayName: automl, image, image model, computer vision
-          href: how-to-inference-onnx-automl-image-models.md
+        - name: Auto-train a forecasting model (Python)
+          displayName: forecasting, time series, auto ML, automl, SDK
+          href: how-to-auto-train-forecast.md
         # v1
-        - name: Local inference using ONNX
-          displayName: SDK, automl
-          href: ./v1/how-to-inference-onnx-automl-image-models-v1.md
-        - name: Troubleshoot automated ML
-          href: ./v1/how-to-troubleshoot-auto-ml.md
-          # end v1
+        - name: Auto-train a forecast model
+          displayName: time series
+          href: ./v1/how-to-auto-train-forecast-v1.md
+        # end v1
+        - name: Frequently asked questions
+          displayName: auto ML, time series, forecasting, FAQ
+          href: how-to-automl-forecasting-faq.md
+      - name: Understand charts and metrics
+        href: how-to-understand-automated-ml.md
+      - name: Use ONNX model in .NET application
+        href: how-to-use-automl-onnx-model-dotnet.md
+      - name: Inference image models with ONNX model
+        displayName: automl, image, image model, computer vision
+        href: how-to-inference-onnx-automl-image-models.md
+      # v1
+      - name: Local inference using ONNX
+        displayName: SDK, automl
+        href: ./v1/how-to-inference-onnx-automl-image-models-v1.md
+      - name: Troubleshoot automated ML
+        href: ./v1/how-to-troubleshoot-auto-ml.md
+      # end v1
 - name: Training
   items:
   - name: Overview
