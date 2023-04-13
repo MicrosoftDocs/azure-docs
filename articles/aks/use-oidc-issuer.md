@@ -72,7 +72,7 @@ az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuer
 
 ### Get the JWK Set document
 
-To get the JWK Set document, retrieve URL https://<OIDC issuer URL>.well-known/openid-configuration
+To get the JWK Set document, copy the URL https://<OIDC issuer URL>.well-known/openid-configuration and open it in browser. 
 
 The output should resemble the following:
 
@@ -95,7 +95,7 @@ The output should resemble the following:
 
 ### Get the discovery document
   
-To get the discovery document, retrieve JWK Set document.
+To get the discovery document, copy the JWK Set document and open it in browser.
 
 The output should resemble the following:
 ```output
