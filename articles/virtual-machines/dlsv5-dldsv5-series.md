@@ -1,6 +1,6 @@
 ---
-title: 'Dlsv5 and Dldsv5 (preview)' #Required; page title is displayed in search results. 60 characters max.
-description: Specifications for the Dlsv5 and Dldsv5-series VMs. #Required; this appears in search as the short description
+title: 'Dlsv5 and Dldsv5 (preview)'
+description: Specifications for the Dlsv5 and Dldsv5-series VMs.
 author: iamwilliew 
 ms.author: wwilliams 
 ms.service: virtual-machines 

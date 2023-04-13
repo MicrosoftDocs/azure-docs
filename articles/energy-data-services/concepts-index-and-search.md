@@ -1,12 +1,12 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview - index and search workflow concepts #Required; page title is displayed in search results. Include the brand.
-description: Learn how to use indexing and search workflows #Required; article description that is displayed in search results. 
-author: vivekkalra #Required; your GitHub user alias, with correct capitalization.
-ms.author: vivekkalra #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview - index and search workflow concepts
+description: Learn how to use indexing and search workflows
+author: vivekkalra
+ms.author: vivekkalra
+ms.service: energy-data-services
+ms.topic: conceptual
 ms.date: 02/10/2023
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 
 #Customer intent: As a developer, I want to understand indexing and search workflows so that I could search for ingested data in the platform.
 ---

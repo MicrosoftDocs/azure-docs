@@ -4,7 +4,7 @@ description: In this article, learn about which Azure services support Private L
 author: asudbring
 ms.author: allensu
 ms.service: private-link
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: conceptual
 ms.date: 10/28/2022
 ms.custom: template-concept, references_regions, ignite-2022
 ---

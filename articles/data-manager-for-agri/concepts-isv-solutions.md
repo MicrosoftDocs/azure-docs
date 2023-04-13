@@ -1,12 +1,12 @@
 ---
 title: ISV solution framework in Azure Data Manager for Agriculture
 description: Provides information on using solutions from ISVs 
-author: gourdsay #Required; your GitHub user alias, with correct capitalization.
+author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: conceptual
 ms.date: 02/14/2023
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # What is our Solution Framework?
