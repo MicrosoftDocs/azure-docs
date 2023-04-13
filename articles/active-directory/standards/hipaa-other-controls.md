@@ -127,8 +127,17 @@ Establish policies and procedures to protect data exchange that contains PHI dat
 | Assess VPN requirements | [VPN Gateway documentation](../../vpn-gateway/vpn-gateway-about-vpngateways.md) connects an on-premises network to Azure through site-to-site, point-to-site, VNet-to-VNet and multisite VPN connection.</br>The service supports hybrid work environments by providing secure data transit.
  |
 
-## Next steps
+## Learn more
 
 * [Zero Trust Pillar: Data](/security/zero-trust/zero-trust-overview)
 
 * [Zero Trust Pillar: Identity, Networks, Infrastructure, Data, Applications](/security/zero-trust/zero-trust-overview)
+
+## Next steps
+
+* [Access Controls Safeguard guidance](hipaa-access-controls.md)
+
+* [Audit Controls Safeguard guidance](hipaa-audit-controls.md)
+
+* [Other Safeguard guidance](hipaa-other-controls.md)
+
