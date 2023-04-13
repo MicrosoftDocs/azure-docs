@@ -6,7 +6,7 @@ author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 08/18/2022
 ROBOTS: NOINDEX
 ms.author: owenrichards
@@ -37,8 +37,8 @@ ms.custom: mode-api
 > 
 > #### Step 1: Configure the application in Azure portal
 > For the code sample for this quickstart to work, you need to add a reply URL as **msal://redirect**.
-> > [!div class="nextstepaction"]
-> > [Make this change for me]()
+> 
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.

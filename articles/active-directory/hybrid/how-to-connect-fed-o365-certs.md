@@ -1,5 +1,5 @@
 ---
-title: Certificate renewal for Microsoft 365 and Azure AD users | Microsoft Docs
+title: Certificate renewal for Microsoft 365 and Azure AD users
 description: This article explains to Microsoft 365 users how to resolve issues with emails that notify them about renewing a certificate.
 services: active-directory
 documentationcenter: ''

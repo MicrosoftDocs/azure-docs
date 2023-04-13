@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Add a guest user and send an invitation - Azure AD'
+title: 'Quickstart: Add a guest user and send an invitation'
 description: Use this quickstart to learn how Azure AD admins can add B2B guest users in the Azure portal and walk through the B2B invitation workflow.
 services: active-directory
 ms.author: cmulligan

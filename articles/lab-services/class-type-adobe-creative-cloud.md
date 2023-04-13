@@ -12,6 +12,8 @@ ms.date: 02/17/2023
 
 # Set up a lab for Adobe Creative Cloud in Azure Lab Services
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 In this article, you learn how to set up a class that uses Adobe Creative Cloud. [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) is a collection of desktop applications and web services used for photography, design, video, web, user experience (UX), and more.  Universities and K-12 schools use Creative Cloud in digital arts and media classes.  Some of Creative Cloud’s media processes might require more computational and visualization (GPU) power than a typical tablet, laptop, or workstation support.  With Azure Lab Services, you have flexibility to choose from various virtual machine (VM) sizes, including GPU sizes.
 
 ## Create Cloud licensing in a lab VM
@@ -28,7 +30,7 @@ Read [Adobe’s article on licensing](https://helpx.adobe.com/enterprise/using/l
 
 ### Lab plan settings
 
-[!INCLUDE [must have lab plan](./includes/lab-services-class-type-lab-plan.md)]
+Once you have an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the quickstart on [how to set up a lab plan](./quick-create-resources.md). You can also use an existing lab plan.
 
 This lab uses a Windows 10 Azure Marketplace images as the base VM image. You first need to enable this image in your lab plan. This lets lab creators then select the image as a base image for their lab.
 

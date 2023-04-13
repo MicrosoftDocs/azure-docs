@@ -35,12 +35,12 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
  
 1. For **Select a .NET runtime**, choose from one of the following options: 
 
-    | .NET runtime | Process model | Description |
-    | --- | --- |  --- |
-    | **.NET 6.0 (LTS)** | [In-process](functions-dotnet-class-library.md) | _In-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions. Function code runs in the same process as the Functions host.  |
-    | **.NET 6.0 Isolated (LTS)** |  [Isolated worker process](dotnet-isolated-process-guide.md) | Functions run on .NET 6, but in a separate process from the Functions host. |
-    | **.NET 7.0 Isolated** | [Isolated worker process](dotnet-isolated-process-guide.md) | Because .NET 7 isn't an LTS version of .NET, your functions must run in an isolated process on .NET 7. |
-    | **.NET Framework Isolated** | [Isolated worker process](dotnet-isolated-process-guide.md) | Choose this option when your functions need to use libraries only supported on the .NET Framework. |
+    | Option | .NET version | Process model | Description |
+    | --- | --- | --- |  --- |
+    | **.NET 6.0 (LTS)** | .NET 6 | [In-process](functions-dotnet-class-library.md) | _In-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions. Function code runs in the same process as the Functions host.  |
+    | **.NET 6.0 Isolated (LTS)** | .NET 6 | [Isolated worker process](dotnet-isolated-process-guide.md) | Functions run on .NET 6, but in a separate process from the Functions host. |
+    | **.NET 7.0 Isolated** | .NET 7 | [Isolated worker process](dotnet-isolated-process-guide.md) | Because .NET 7 isn't an LTS version of .NET, your functions must run in an isolated process on .NET 7. |
+    | **.NET Framework Isolated** | .NET 7 | [Isolated worker process](dotnet-isolated-process-guide.md) | Choose this option when your functions need to use libraries only supported on the .NET Framework. |
 
     The two process models use different APIs, and each process model uses a different template when generating the function project code. If you don't see these options, press F1 and type `Preferences: Open user settings`, then search for `Azure Functions: Project Runtime` and make sure that the default runtime version is set to `~4`.
 
@@ -52,7 +52,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Provide a function name**|Type `HttpExample`.|
     |**Provide a namespace** | Type `My.Functions`. |
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**|Select `Add to workspace`.|
+    |**Select how you would like to open your project**|Select `Open in current window`.|
 
 1. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=csharp#generated-project-files).
 
@@ -79,6 +79,7 @@ The next article depends on your chosen process model.
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=in-process)
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=in-process)
+> [Connect to Azure SQL](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-csharp&tabs=in-process)
 
 # [Isolated process](#tab/isolated-process)
 

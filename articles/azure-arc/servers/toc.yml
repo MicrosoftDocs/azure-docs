@@ -111,6 +111,8 @@
       href: scenario-onboard-azure-sentinel.md
     - name: Migrate to Azure Monitor Agent using Ansible
       href: migrate-azure-monitor-agent-ansible.md
+    - name: Organize and inventory servers
+      href: organize-inventory-servers.md
     - name: Onboard to Microsoft Defender for Cloud
       href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
     - name: Manage with Windows Admin Center

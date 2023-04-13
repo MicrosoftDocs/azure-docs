@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Appraisd | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Appraisd'
 description: Learn how to configure single sign-on between Azure Active Directory and Appraisd.
 services: active-directory
 author: jeevansd

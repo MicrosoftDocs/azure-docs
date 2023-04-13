@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: quickstart
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.workload: infrastructure-services
 ms.date: 10/12/2022
 ms.author: abell

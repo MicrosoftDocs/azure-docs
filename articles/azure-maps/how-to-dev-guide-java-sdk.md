@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the Java REST SDK (preview)
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the Java REST SDK Developers Guide.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 01/25/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -12,7 +12,7 @@ services: azure-maps
 
 # Java REST SDK Developers Guide (preview)
 
-The Azure Maps Java SDK can be integrated with Java applications and libraries to build maps-related and location-aware applications. The Azure Maps Java SDK contains APIs for Search, Route, Render, Elevation, Geolocation, Traffic, Timezone, and Weather. These APIs support operations such as searching for an address, routing between different coordinates, obtaining the geo-location of a specific IP address etc.
+The Azure Maps Java SDK can be integrated with Java applications and libraries to build maps-related and location-aware applications. The Azure Maps Java SDK contains APIs for Search, Route, Render, Geolocation, Traffic, Timezone, and Weather. These APIs support operations such as searching for an address, routing between different coordinates, obtaining the geo-location of a specific IP address etc.
 
 > [!NOTE]
 > Azure Maps Java SDK is baselined on Java 8, with testing and forward support up until the latest Java long-term support release (currently Java 18). For the list of Java versions for download, see [Java Standard Versions].
@@ -102,14 +102,14 @@ New-Item demo.java
 
 ### Azure Maps services
 
-| Service Name  | Maven package           |  Samples     |
+| Service name  | Maven package           |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][java search readme] | [azure-maps-search][java search package] | [search samples][java search sample] |
 | [Routing][java routing readme] | [azure-maps-routing][java routing package] | [routing samples][java routing sample] |
 | [Rendering][java rendering readme]| [azure-maps-rendering][java rendering package]|[rendering sample][java rendering sample] |
 | [Geolocation][java geolocation readme]|[azure-maps-geolocation][java geolocation package]|[geolocation sample][java geolocation sample] |
 | [Timezone][java timezone readme] | [azure-maps-timezone][java timezone package] | [timezone samples][java timezone sample] |
-| [Elevation][java elevation readme] | [azure-maps-elevation][java elevation package] | [elevation samples][java elevation sample] |
+| [Elevation][java elevation readme] ([deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023))| [azure-maps-elevation][java elevation package] | [elevation samples][java elevation sample] |
 
 ## Create and authenticate a MapsSearchClient
 
@@ -393,7 +393,7 @@ public class Demo{
 ```
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [authentication]: azure-maps-authentication.md
 
 [Java Standard Versions]: https://www.oracle.com/java/technologies/downloads/

@@ -10,7 +10,7 @@ author: ynpandey
 ms.reviewer: ssalgado
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
 ---
 
@@ -18,7 +18,7 @@ ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](how-to-train-with-datasets.md)
-> * [v2 (current version)](../how-to-read-write-data-v2.md)
+> * [v2 (current version)](../how-to-read-write-data-v2.md?view=azureml-api-2&preserve-view=true)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -67,7 +67,7 @@ TabularDataset objects provide the ability to load the data in your TabularDatas
 
 ### Access dataset in training script
 
-The following code configures a script argument `--input-data` that you'll specify when you configure your training run (see next section). When the tabular dataset is passed in as the argument value, Azure ML will resolve that to ID of the dataset, which you can then use to access the dataset in your training script (without having to hardcode the name or ID of the dataset in your script). It then uses the [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) method to load that dataset into a pandas dataframe for further data exploration and preparation prior to training.
+The following code configures a script argument `--input-data` that you'll specify when you configure your training run (see next section). When the tabular dataset is passed in as the argument value, Azure Machine Learning will resolve that to ID of the dataset, which you can then use to access the dataset in your training script (without having to hardcode the name or ID of the dataset in your script). It then uses the [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) method to load that dataset into a pandas dataframe for further data exploration and preparation prior to training.
 
 > [!Note]
 > If your original data source contains NaN, empty strings or blank values, when you use `to_pandas_dataframe()`, then those values are replaced as a *Null* value.
@@ -102,7 +102,7 @@ This code creates a ScriptRunConfig object, `src`, that specifies:
 
 * A script directory for your scripts. All the files in this directory are uploaded into the cluster nodes for execution.
 * The training script, *train_titanic.py*.
-* The input dataset for training, `titanic_ds`, as a script argument. Azure ML will resolve this to corresponding ID of the dataset when it's passed to your script.
+* The input dataset for training, `titanic_ds`, as a script argument. Azure Machine Learning will resolve this to corresponding ID of the dataset when it's passed to your script.
 * The compute target for the run.
 * The environment for the run.
 
@@ -216,7 +216,7 @@ import sys
 import os
 
 print("*********************************************************")
-print("Hello Azure ML!")
+print("Hello Azure Machine Learning!")
 
 mounted_input_path = sys.argv[1]
 mounted_output_path = sys.argv[2]

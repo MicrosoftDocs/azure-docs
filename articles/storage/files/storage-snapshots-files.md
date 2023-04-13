@@ -63,11 +63,11 @@ To conserve space, you can delete the share snapshot for the period when the chu
 
 Even though share snapshots are saved incrementally, you need to retain only the most recent share snapshot in order to restore the share. When you delete a share snapshot, only the data unique to that share snapshot is removed. Active snapshots contain all the information that you need to browse and restore your data (from the time the share snapshot was taken) to the original location or an alternate location. You can restore at the item level.
 
-Snapshots don't count towards the share size limit. There is no limit to how much space share snapshots occupy in total. Storage account limits still apply.
+Snapshots don't count towards the maximum share size limit, which is 100 TiB for premium file shares and standard file shares with large file shares enabled. There's no limit to how much space share snapshots occupy in total. Storage account limits still apply (5 PiB for standard storage accounts, 100 TiB for premium FileStorage accounts).
 
 ## Limits
 
-The maximum number of share snapshots that Azure Files allows today is 200. After 200 share snapshots, you have to delete older share snapshots in order to create new ones. 
+The maximum number of share snapshots that Azure Files allows today is 200 per share. After 200 share snapshots, you have to delete older share snapshots in order to create new ones. 
 
 There is no limit to the simultaneous calls for creating share snapshots. There is no limit to amount of space that share snapshots of a particular file share can consume. 
 

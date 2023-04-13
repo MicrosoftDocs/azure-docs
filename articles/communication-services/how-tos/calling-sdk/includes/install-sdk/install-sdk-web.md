@@ -20,7 +20,7 @@ A CallClient, instance is required for most call operations. Let's create a new 
 
 When you have a `CallClient` instance, you can create a `CallAgent` instance by calling the `createCallAgent` method on the `CallClient` instance. This method asynchronously returns a `CallAgent` instance object.
 
-The `createCallAgent` method uses `CommunicationTokenCredential` as an argument. It accepts a [user access token](../../../../quickstarts/access-tokens.md).
+The `createCallAgent` method uses `CommunicationTokenCredential` as an argument. It accepts a [user access token](../../../../quickstarts/identity/access-tokens.md).
 
 You can use the `getDeviceManager` method on the `CallClient` instance to access `deviceManager`.
 

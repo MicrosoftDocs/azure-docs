@@ -28,7 +28,7 @@ This tutorial uses Postman and Azure Cognitive Search's [REST APIs](/rest/api/se
 
 The following services and tools are required for this tutorial.
 
-+ [Postman desktop app](https://www.getpostman.com/)
++ [Postman app](https://www.postman.com/downloads/)
 + [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 
 ## Download files

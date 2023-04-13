@@ -37,8 +37,9 @@ This article helps you prepare your Azure VMware Solution environment to back up
 
 ## Limitations
 
-- •	If you're using *Azure Backup Server V3*, then you must install [Update Rollup 2](https://support.microsoft.com/topic/update-rollup-2-for-microsoft-azure-backup-server-v3-350de164-0ae4-459a-8acf-7777dbb7fd73). New installations from the Azure portal now use *Azure Backup Server V4* that supports vSphere, version *6.5* to *8.0*.
+- If you're using *Azure Backup Server V3*, then you must install [Update Rollup 2](https://support.microsoft.com/topic/update-rollup-2-for-microsoft-azure-backup-server-v3-350de164-0ae4-459a-8acf-7777dbb7fd73). New installations from the Azure portal now use *Azure Backup Server V4* that supports vSphere, version *6.5* to *8.0*.
 - You can't back up user snapshots before the first Azure Backup Server backup. After Azure Backup Server finishes the first backup, then you can back up user snapshots.
+- Update Rollup 2 for Azure Backup Server v3 must be installed.
 - Azure Backup Server can't protect VMware vSphere VMs with pass-through disks and physical raw device mappings (pRDMs).
 - Azure Backup Server can't detect or protect VMware vSphere vApps.
 
@@ -316,6 +317,10 @@ If you downloaded the software package to a different server, copy the files to 
 
 1. After the installation step finishes, select **Close**.
 
+### Install Update Rollup 2 for Microsoft Azure Backup Server (MABS) version 3
+
+Installing the Update Rollup 2 for Microsoft Azure Backup Server (MABS) version 3 is mandatory for protecting the workloads.  You can find the bug fixes and installation instructions in the [knowledge base article](https://support.microsoft.com/help/5004579/).
+
 ## Add storage to Azure Backup Server
 
 Azure Backup Server v3 supports Modern Backup Storage that offers:
@@ -353,3 +358,5 @@ Now that you've covered how to set up Azure Backup Server for Azure VMware Solut
 
 - [Configuring backups for your Azure VMware Solution VMs](backup-azure-vmware-solution-virtual-machines.md).
 - [Protecting your Azure VMware Solution VMs with Microsoft Defender for Cloud integration](azure-security-integration.md).
+
+

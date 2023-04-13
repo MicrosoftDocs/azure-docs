@@ -4,11 +4,11 @@ description: This article will help you point your company domain name to a Traf
 services: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: greglin
+ms.custom: template-how-to
 ---
 
 # Point a company Internet domain to an Azure Traffic Manager domain

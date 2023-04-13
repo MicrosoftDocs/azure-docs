@@ -7,7 +7,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: synapse
 ms.date: 07/04/2022
 ---
 

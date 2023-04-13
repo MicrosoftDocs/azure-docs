@@ -9,23 +9,18 @@ ms.date: 10/26/2022
 ms.author: aahi
 ---
 
+To test your deployed models from within the [Language Studio](https://aka.ms/LanguageStudio):
+1. Select **Testing deployments** from the left side menu.
 
-## Test the model
+1. For multilingual projects, from the **Select text language** dropdown, select the language of the utterance you're testing.
 
-To test your model from Language studio
+1. From the **Deployment name** dropdown, select the deployment name corresponding to the model that you want to test. You can only test models that are assigned to deployments.
 
-1. Select **Test model** from the left side menu.
+1. In the text box, enter an utterance to test. For example, if you created an application for email-related utterances you could enter *Delete this email*. 
 
-3. Select the model you want to test. You can only test models that are assigned to deployments.
+1. Towards the top of the page, select **Run the test**.
 
-4. For multilingual projects, from the language dropdown, select the language of the utterance you are testing.
-
-5. From deployment name dropdown, select your deployment name.
-
-6. In the text box, enter an utterance to test. For example, if you created an application for email-related utterances you could type *Delete this email*. 
-
-7. From the top menu, click on **Run the test**.
-
-8. After you run the test, you should see the response of the model in the result. You can view the results in entities cards view, or view it in JSON format.
+1. After you run the test, you should see the response of the model in the result. You can view the results in entities cards view or view it in JSON format.
 
     <!--:::image type="content" source="../../media/test-model.png" alt-text="A screenshot showing testing the model." lightbox="../../media/test-model.png":::-->
+

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 2/17/2022
+ms.date: 04/12/2023
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -56,6 +56,7 @@ Azure NetApp Files Standard network features are supported for the following reg
 *   North Europe
 *   Norway East
 *   Norway West 
+*   Qatar Central
 *   South Africa North
 *	South Central US
 *   South India 
@@ -136,6 +137,8 @@ If you use a new VNet, you can create a subnet and delegate the subnet to Azure 
 
 If the VNet is peered with another VNet, you can't expand the VNet address space. For that reason, the new delegated subnet needs to be created within the VNet address space. If you need to extend the address space, you must delete the VNet peering before expanding the address space.
 
+Ensure that the address space size of the Azure NetApp Files delegated subnet is smaller than the address space of the virtual network to avoid unforeseen issues.
+
 ### UDRs and NSGs
 
 If the subnet has a combination of volumes with the Standard and Basic network features, user-defined routes (UDRs) and network security groups (NSGs) applied on the delegated subnets will only apply to the volumes with the Standard network features.
@@ -204,3 +207,4 @@ In the topology illustrated above, the on-premises network is connected to a hub
 * [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 * [Configure network features for an Azure NetApp Files volume](configure-network-features.md) 
 * [Virtual network peering](../virtual-network/virtual-network-peering-overview.md)
+* [Configure Virtual WAN for Azure NetApp Files](configure-virtual-wan.md)

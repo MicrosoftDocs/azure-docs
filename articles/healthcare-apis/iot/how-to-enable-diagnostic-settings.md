@@ -6,11 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 1/26/2023
+ms.date: 02/27/2023
 ms.author: jasteppe
 ---
 
 # How to enable diagnostic settings for the MedTech service
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 In this article, you'll learn how to enable diagnostic settings for the MedTech service to:
 

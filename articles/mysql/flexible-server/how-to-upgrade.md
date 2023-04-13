@@ -3,7 +3,7 @@ title: Azure Database for MySQL - flexible server - major version upgrade
 description: Learn how to upgrade major version for an Azure Database for MySQL - Flexible server.
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: how-to
 author: code-sidd
 ms.author: sisawant
@@ -148,5 +148,5 @@ To perform a major version upgrade of an Azure Database for MySQL 5.7 server to 
 
 
 ## Next steps
-- Learn more about [how to configure scheduled maintenance](./how-to-maintenance-portal.md) for your Azure Database for MySQL flexible server.
+- Learn more about [how to configure scheduled maintenance](./how-to-maintenance-portal.md) for your Azure Database for MySQL - Flexible Server.
 - Learn about what's new in [MySQL version 8.0](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html).

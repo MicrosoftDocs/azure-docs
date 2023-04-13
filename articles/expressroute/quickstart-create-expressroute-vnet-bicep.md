@@ -7,7 +7,7 @@ ms.author: duau
 ms.date: 03/24/2022
 ms.topic: quickstart
 ms.service: expressroute
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create an ExpressRoute circuit with private peering using Bicep

@@ -141,7 +141,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 - `az ml job`
   - For all job types, flattened the `code` section of the YAML schema. Instead of `code.local_path` to specify the path to the source code directory, it is now just `code`
-  - For all job types, changed the schema for defining data inputs to the job in the job YAML. Instead of specifying the data path using either the `file` or `folder` fields, use the `path` field to specify either a local path, a URI to a cloud path containing the data, or a reference to an existing registered Azure ML data asset via `path: azureml:<data_name>:<data_version>`. Also specify the `type` field to clarify whether the data source is a single file (`uri_file`) or a folder (`uri_folder`). If `type` field is omitted, it defaults to `type: uri_folder`. For more information, see the section of any of the [job YAML references](reference-yaml-job-command.md) that discuss the schema for specifying input data.
+  - For all job types, changed the schema for defining data inputs to the job in the job YAML. Instead of specifying the data path using either the `file` or `folder` fields, use the `path` field to specify either a local path, a URI to a cloud path containing the data, or a reference to an existing registered Azure Machine Learning data asset via `path: azureml:<data_name>:<data_version>`. Also specify the `type` field to clarify whether the data source is a single file (`uri_file`) or a folder (`uri_folder`). If `type` field is omitted, it defaults to `type: uri_folder`. For more information, see the section of any of the [job YAML references](reference-yaml-job-command.md) that discuss the schema for specifying input data.
   - In the [sweep job YAML schema](reference-yaml-job-sweep.md), changed the `sampling_algorithm` field from a string to an object in order to support additional configurations for the random sampling algorithm type
   - Removed the component job YAML schema. With this release, if you want to run a command job inside a pipeline that uses a component, just specify the component to the `component` field of the command job YAML definition. 
   - For all job types, added support for referencing the latest version of a nested asset in the job YAML configuration. When referencing a registered environment or data asset to use as input in a job, you can alias by latest version rather than having to explicitly specify the version. For example: `environment: azureml:AzureML-Minimal@latest`
@@ -186,7 +186,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Added support for running pipeline jobs ([pipeline job YAML schema](reference-yaml-job-pipeline.md))
   - Added support for job input literals and input data URIs for all job types
   - Added support for job outputs for all job types
-  - Changed the expression syntax from `{ <expression> }` to `${{ <expression> }}`. For more information, see [Expression syntax for configuring Azure ML jobs](reference-yaml-core-syntax.md#expression-syntax-for-configuring-azure-ml-jobs-and-components)
+  - Changed the expression syntax from `{ <expression> }` to `${{ <expression> }}`. For more information, see [Expression syntax for configuring Azure Machine Learning jobs](reference-yaml-core-syntax.md#expression-syntax-for-configuring-azure-machine-learning-jobs-and-components)
 - `az ml environment`
   - Updated [environment YAML schema](reference-yaml-environment.md)
   - Added support for creating environments from Docker build context
@@ -197,7 +197,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   - Renamed `az ml data` subgroup to `az ml dataset`
   - Updated dataset YAML schema
 - `az ml component`
-  - Added the `az ml component` commands for managing Azure ML components
+  - Added the `az ml component` commands for managing Azure Machine Learning components
   - Added support for command components ([command component YAML schema](reference-yaml-component-command.md))
 - `az ml online-endpoint`
   - `az ml endpoint` subgroup split into two separate groups: `az ml online-endpoint` and `az ml batch-endpoint`

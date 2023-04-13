@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 03/29/2023
 ms.author: jeedes
 ---
 
@@ -144,11 +144,11 @@ You can set up one SAML configuration for team members and a second SAML configu
 
 1. In the **Zendesk Admin Center**, go to **Account -> Security -> Single sign-on**, then click **Create SSO configuration** and select **SAML**.
 
-	![Screenshot shows the Zendesk Admin Center with Security settings selected.](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zendesk_create_sso_configuration.png "Security")
+	![Screenshot shows the Zendesk Admin Center with Security settings selected.](./media/zendesk-tutorial/zendesk-create-sso-configuration.png "Security")
 
 1. Perform the following steps in the **Single sign-on** page.
 
-	![Single sign-on](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zendesk_saml_configuration_settings.png "Single sign-on")
+	![Single sign-on](./media/zendesk-tutorial/zendesk-saml-configuration-settings.png "Single sign-on")
 
     a. In **Configuration name**, enter a name for your configuration. Up to two SAML and two JWT configurations are possible.
 
