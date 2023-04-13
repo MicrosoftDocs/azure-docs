@@ -14,7 +14,7 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-
 > * [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 > * [Python](service-bus-python-how-to-use-queues.md)
 
-In this quickstart, you'll create a Java app to send messages to and receive messages from an Azure Service Bus queue. 
+In this quickstart, you create a Java app to send messages to and receive messages from an Azure Service Bus queue. 
 
 > [!NOTE]
 > This quick start provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You can find pre-built Java samples for Azure Service Bus in the [Azure SDK for Java repository on GitHub](https://github.com/azure/azure-sdk-for-java/tree/main/sdk/servicebus/azure-messaging-servicebus/src/samples). 
@@ -34,7 +34,7 @@ In this quickstart, you'll create a Java app to send messages to and receive mes
 
 
 ## Send messages to a queue
-In this section, you'll create a Java console project, and add code to send messages to the queue that you created earlier. 
+In this section, you create a Java console project, and add code to send messages to the queue that you created earlier. 
 
 ### Create a Java console project
 Create a Java project using Eclipse or a tool of your choice. 
@@ -42,7 +42,7 @@ Create a Java project using Eclipse or a tool of your choice.
 ### Configure your application to use Service Bus
 Add references to Azure Core and Azure Service Bus libraries. 
 
-If you are using Eclipse and created a Java console application, convert your Java project to a Maven: right-click the project in the **Package Explorer** window, select **Configure** -> **Convert to Maven project**. Then, add dependencies to these two libraries as shown in the following example.
+If you're using Eclipse and created a Java console application, convert your Java project to a Maven: right-click the project in the **Package Explorer** window, select **Configure** -> **Convert to Maven project**. Then, add dependencies to these two libraries as shown in the following example.
 
 
 ### [Passwordless (Recommended)](#tab/passwordless)
@@ -103,7 +103,7 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     import java.util.List;
     ```    
     ---
-2. In the class, define variables to hold connection string and queue name as shown below: 
+2. In the class, define variables to hold connection string and queue name. 
 
     ```java
     static String connectionString = "<NAMESPACE CONNECTION STRING>";
@@ -116,7 +116,8 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     ### [Passwordless (Recommended)](#tab/passwordless)
 
     > [!IMPORTANT]
-    > Replace `NAMESPACENAME` with the name of your Service Bus namespace.
+    > - Replace `NAMESPACENAME` with the name of your Service Bus namespace.
+    > - This sample uses `AZURE_PUBLIC_CLOUD` as the authority host. For supported authority hosts, see [`AzureAuthorityHosts`](/dotnet/api/azure.identity.azureauthorityhosts)
 
     ```java
 	static void sendMessage()
@@ -177,7 +178,9 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     ### [Passwordless (Recommended)](#tab/passwordless)
 
     > [!IMPORTANT]
-    > Replace `NAMESPACENAME` with the name of your Service Bus namespace.
+    > - Replace `NAMESPACENAME` with the name of your Service Bus namespace.
+    > - This sample uses `AZURE_PUBLIC_CLOUD` as the authority host. For supported authority hosts, see [`AzureAuthorityHosts`](/dotnet/api/azure.identity.azureauthorityhosts)
+
 
     ```java
 	static void sendMessageBatch()
@@ -283,7 +286,7 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     ---
 
 ## Receive messages from a queue
-In this section, you'll add code to retrieve messages from the queue. 
+In this section, you add code to retrieve messages from the queue. 
 
 1. Add a method named `receiveMessages` to receive messages from the queue. This method creates a `ServiceBusProcessorClient` for the queue by specifying a handler for processing messages and another one for handling errors. Then, it starts the processor, waits for few seconds, prints the messages that are received, and then stops and closes the processor.
 
@@ -292,6 +295,8 @@ In this section, you'll add code to retrieve messages from the queue.
     > [!IMPORTANT]
     > - Replace `NAMESPACENAME` with the name of your Service Bus namespace.
     > - Replace `QueueTest` in `QueueTest::processMessage` in the code with the name of your class.
+    > - This sample uses `AZURE_PUBLIC_CLOUD` as the authority host. For supported authority hosts, see [`AzureAuthorityHosts`](/dotnet/api/azure.identity.azureauthorityhosts)
+
 
     ```java
 	// handles received messages
@@ -411,7 +416,7 @@ In this section, you'll add code to retrieve messages from the queue.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-1. If you are using Eclipse, right-click the project, select **Export**, expand **Java**, select **Runnable JAR file**, and follow the steps to create a runnable JAR file. 
+1. If you're using Eclipse, right-click the project, select **Export**, expand **Java**, select **Runnable JAR file**, and follow the steps to create a runnable JAR file. 
 1. [Install Azure CLI](/cli/azure/install-azure-cli-windows) on your machine. 
 1. Run the following CLI command to sign in to Azure. Use the same user account that you added to the **Azure Service Bus Data Owner** role. 
 
