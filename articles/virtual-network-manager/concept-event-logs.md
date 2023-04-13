@@ -4,8 +4,8 @@ description: This article covers the event log  options for Azure Virtual Networ
 author: mbender-ms
 ms.author: mbender
 ms.topic: conceptual
-ms.service: azure-virtual-network-manager
-ms.date: 04/12/2023
+ms.service: virtual-network-manager
+ms.date: 04/13/2023
 ---
 
 # Event Log Options for Azure Virtual Network Manager
