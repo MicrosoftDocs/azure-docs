@@ -275,7 +275,7 @@ This table shows the maximum number of app instances Azure Spring Apps supports 
 
 For subnets, five IP addresses are reserved by Azure, and at least three IP addresses are required by Azure Spring Apps. At least eight IP addresses are required, so /29 and /30 are nonoperational.
 
-For a service runtime subnet, the minimum size is /28. This size has no bearing on the number of app instances.
+For a service runtime subnet, the minimum size is /28.
 
 ## Bring your own route table
 
