@@ -4,8 +4,8 @@ title: Azure Container Instances documentation # < 60 chars
 summary: Run Docker containers on-demand in a managed, serverless Azure environment. Azure Container Instances is a solution for any scenario that can operate in isolated containers, without orchestration. Run event-driven applications, quickly deploy from your container development pipelines, and run data processing and build jobs.   
 
 metadata:
-  title: Azure Container Instances documentation - serverless containers, on demand # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Container Instances (ACI) allows you to run Docker containers in a managed, serverless cloud environment, without having to set up VMs, clusters, or orchestrators.  # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Container Instances documentation - serverless containers, on demand
+  description: Azure Container Instances (ACI) allows you to run Docker containers in a managed, serverless cloud environment, without having to set up VMs, clusters, or orchestrators.
   services: 
   ms.service: container-instances 
   ms.topic: landing-page 

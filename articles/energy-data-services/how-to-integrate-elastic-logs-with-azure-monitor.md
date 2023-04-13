@@ -6,7 +6,7 @@ ms.author: nitindwivedi
 ms.service: energy-data-services
 ms.topic: how-to 
 ms.date: 08/18/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Integrate elastic logs with Azure Monitor

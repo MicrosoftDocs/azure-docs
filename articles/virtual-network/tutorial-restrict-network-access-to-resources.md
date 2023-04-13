@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 06/29/2022
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 # Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ---
 
