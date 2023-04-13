@@ -130,7 +130,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddInMemoryTokenCaches();
 // ...
 ```
-If the web app needs to call another APIAPI resource, you could repeat the `.AddDownstreamWebApi()` method with the relavent scope as below.
+If the web app needs to call another API resource, repeat the `.AddDownstreamWebApi()` method with the relevant scope as shown in the following snippet:
 
 ```csharp
 using Microsoft.Identity.Web;
