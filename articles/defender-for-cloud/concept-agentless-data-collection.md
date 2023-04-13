@@ -70,13 +70,13 @@ The roles and permissions used by Defender for Cloud to perform agentless scanni
     - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read`
     - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/instanceView/read`
 
-- AWS permissions - The role “VmScanner” is assigned to the scanner when you enable agentless scanning. This role has the minimal permission set to create and clean up snapshots (scoped by tag) and to verify the current state of the VM. The detailed table of permissions is:
+- AWS permissions - The role “VmScanner” is assigned to the scanner when you enable agentless scanning. This role has the minimal permission set to create and clean up snapshots (scoped by tag) and to verify the current state of the VM. The detailed permissions are:
 
     | Attribute | Value |
     |---------|---------|
     | SID | **VmScannerDeleteSnapshotAccess** |
     | Actions | ec2:DeleteSnapshot |
-    | Conditions | "StringEquals":{"ec2:ResourceTag/CreatedBy”:"Microsoft Defender for Cloud"} |
+    | Conditions | "StringEquals":{"ec2:ResourceTag/CreatedBy”:<br>"Microsoft Defender for Cloud"} |
     | Resources | arn:aws:ec2:::snapshot/ |
     | Effect | Allow |
 
