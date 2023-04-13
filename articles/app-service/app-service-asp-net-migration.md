@@ -4,7 +4,7 @@ description: A collection of .NET migration resources available to Azure App Ser
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 06/28/2022
+ms.date: 04/14/2023
 ms.author: msangapu
 ms.devlang: csharp
 ms.custom: seodec18
@@ -41,6 +41,25 @@ Bulk migration provides the following key capabilities:
 - Bulk edit migration settings\attributes 
 - Download CSV with details of target web app and app service plan name 
 - Track progress of migration using ARM template deployment experience 
+
+### Move .NET apps to Azure App Services
+
+| Resources |
+|----------------|
+| **Video** |
+| [.NET on Azure for Beginners](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVSBX3Lde8owu6dSgZLIXfu) |
+| [Start Your Cloud Journey with Azure App Service](https://aka.ms/cloudjourney/start/video) |
+| **Blog** |
+| [Reliable web app pattern for .NET](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/announcing-the-reliable-web-app-pattern-for-net/ba-p/3745270) |
+| [Start your cloud journey with Azure App Service](https://aka.ms/cloudjourney/start/part1) |
+| [Start your cloud journey with Azure App Service - Move your code](https://aka.ms/cloudjourney/start/part2) |
+| [Learn how to modernize your .NET apps from the pros](https://devblogs.microsoft.com/dotnet/learn-how-to-modernize-your-dotnet-apps/) |
+| **On-demand event** |
+| [Azure Developers - .NET Day](/events/learn-events/azuredeveloper-dotnetday/)
+| **Learning path** |
+| [Migrate ASP.NET Apps to Azure](/training/paths/migrate-dotnet-apps-azure/) |
+| [Host a web application with Azure App Service](/training/modules/host-a-web-app-with-azure-app-service/) |
+| [Publish a web app to Azure with Visual Studio](/training/modules/publish-azure-web-app-with-visual-studio/) |
 
 ### At-scale migration resources
 
