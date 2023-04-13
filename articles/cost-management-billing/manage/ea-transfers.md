@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 04/13/2023
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -95,7 +95,7 @@ Other points to keep in mind before an enrollment transfer:
 - Cost view settings for department administrators or account owners don't carry over.
   - If previously enabled, settings must be enabled for the target enrollment.
 - Any API keys used in the source enrollment must be regenerated for the target enrollment.
-- If the source and destination enrollments are on different cloud instances, the transfer fails. Support personnel can transfer only within the same cloud instance.
+- If the source and destination enrollments are on different cloud instances, the transfer fails. Support personnel can transfer only within the same cloud instance. Cloud instances are the global Azure cloud and individual national clouds. For more information about national clouds, see [National clouds](../../active-directory/develop/authentication-national-cloud.md).
 - For reservations (reserved instances):
   - The enrollment or account transfer between different currencies affects monthly reservation purchases. The following image illustrates the effects.  
         :::image type="content" source="./media/ea-transfers/cross-currency-reservation-transfer-effects.png" alt-text="Diagram illustrating the effects  of cross currency reservation transfers." border="false" lightbox="./media/ea-transfers/cross-currency-reservation-transfer-effects.png":::
