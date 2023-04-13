@@ -9,7 +9,6 @@ ms.date: 03/30/2023
 ### Design checklist
 
 > [!div class="checklist"]
-> - Link workspaces to a dedicated cluster to improve query performance.
 > - Configure log query auditing and use Log Analytics workspace insights to identify slow and inefficient queries.
 
 ### Configuration recommendations
