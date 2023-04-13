@@ -415,9 +415,8 @@ spec:
   volumeClaimTemplates:
     - metadata:
         name: persistent-storage
-        annotations:
-          volume.beta.kubernetes.io/storage-class: azurefile-csi-nfs
       spec:
+        storageClassName: azurefile-csi-nfs
         accessModes: ["ReadWriteMany"]
         resources:
           requests:
