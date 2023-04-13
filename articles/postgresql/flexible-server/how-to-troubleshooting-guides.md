@@ -31,16 +31,16 @@ The table below provides information on the required log categories for each tro
 
 | Troubleshooting guide | Diagnostic settings log categories                                                                                  | Query Store                                  | Enhanced Metrics                    | Server Parameters |
 |:----------------------|:--------------------------------------------------------------------------------------------------------------------|----------------------------------------------|-------------------------------------|-------------------|
-| Autovacuum Blockers   | PostgreSQL Sessions, PostgreSQL Database Remaining Transactions                                                     | :x:                                          | :x:                                 | :x:               |
-| Autovacuum Monitoring | PostgreSQL Server Logs, PostgreSQL Tables Statistics, PostgreSQL Database Remaining Transactions                    | :x:                                          | :x:                                 | log_autovacuum_min_duration |
-| High CPU Usage        | PostgreSQL Server Logs, PostgreSQL Sessions, AllMetrics                                                             | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity | :x:               |
-| High IOPS Usage       | PostgreSQL Query Store Runtime, PostgreSQL Server Logs, PostgreSQL Sessions, PostgreSQL Query Store Wait Statistics | pgms_wait_sampling.query_capture_mode to ALL | metrics.collector_database_activity | :x:               |
-| High Memory Usage     | PostgreSQL Server Logs, PostgreSQL Sessions, PostgreSQL Query Store Runtime                                         | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity | :x:               |
-| High Temporary Files  | PostgreSQL Sessions, PostgreSQL Query Store Runtime, PostgreSQL Query Store Wait Statistics                         | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity | :x:               |
+| Autovacuum Blockers   | PostgreSQL Sessions, PostgreSQL Database Remaining Transactions                                                     | N/A                                          | N/A                                 | N/A               |
+| Autovacuum Monitoring | PostgreSQL Server Logs, PostgreSQL Tables Statistics, PostgreSQL Database Remaining Transactions                    | N/A                                          | N/A                                 | log_autovacuum_min_duration |
+| High CPU Usage        | PostgreSQL Server Logs, PostgreSQL Sessions, AllMetrics                                                             | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity | N/A               |
+| High IOPS Usage       | PostgreSQL Query Store Runtime, PostgreSQL Server Logs, PostgreSQL Sessions, PostgreSQL Query Store Wait Statistics | pgms_wait_sampling.query_capture_mode to ALL | metrics.collector_database_activity | N/A               |
+| High Memory Usage     | PostgreSQL Server Logs, PostgreSQL Sessions, PostgreSQL Query Store Runtime                                         | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity | N/A               |
+| High Temporary Files  | PostgreSQL Sessions, PostgreSQL Query Store Runtime, PostgreSQL Query Store Wait Statistics                         | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity | N/A               |
 
 
 > [!NOTE]
-> Please note that if you have recently enabled diagnostic settings, query store, or enhanced metrics, it may take some time for the data to be populated. Additionally, if there has been no activity on the database within a certain time frame, the charts might appear empty. In such cases, try changing the time range to capture relevant data. Be patient and allow the system to collect and display the necessary data before proceeding with your troubleshooting efforts.
+> Please note that if you have recently enabled diagnostic settings, query store, enhanced metrics or server parameters, it may take some time for the data to be populated. Additionally, if there has been no activity on the database within a certain time frame, the charts might appear empty. In such cases, try changing the time range to capture relevant data. Be patient and allow the system to collect and display the necessary data before proceeding with your troubleshooting efforts.
 
 ## Using Troubleshooting guides
 
