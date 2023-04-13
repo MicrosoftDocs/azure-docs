@@ -88,7 +88,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
                     "code" : "errorCode",
                     "requestId": "requestId",
                     "userMessage" : "The access code you entered is incorrect. Please try again.",
-                    "developerMessage" : `The The provided code ${req.body.accessCode} does not match the expected code for user.`,
+                    "developerMessage" : `The provided code ${req.body.accessCode} does not match the expected code for user.`,
                     "moreInfo" :"https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
                 };
                 res.status(409).send(errorResponse);                
@@ -133,7 +133,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
             "code": "errorCode",
             "requestId": "requestId",
             "userMessage": "The access code you entered is incorrect. Please try again.",
-            "developerMessage": "The The provided code 54321 does not match the expected code for user.",
+            "developerMessage": "The provided code 54321 does not match the expected code for user.",
             "moreInfo": "https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
         }
     ```
