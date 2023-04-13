@@ -147,7 +147,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 Note that`.EnableTokenAcquisitionToCallDownstreamApi` is called without any parameter, which means that the access token will be acquired just in time as the controller requests the token by specifying the scope.  
 
-You could also pass-in the scope when calling the `.EnableTokenAcquisitionToCallDownstreamApi` which would make the web app to acquire the token during the initial user login itself and then the token will be served from the cache when controller requests it.  
+The scope can also be passed in when calling the `.EnableTokenAcquisitionToCallDownstreamApi` which would make the web app to acquire the token during the initial user login itself and then the token will be served from the cache when controller requests it.  
 
 Similar to web apps, various token cache implementations can be chosen. For details, see [Microsoft identity web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
         
