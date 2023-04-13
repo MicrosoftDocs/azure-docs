@@ -10,9 +10,9 @@ ms.service: data-manager-for-agri
 ---
 
 # Supplemental Terms of Use for Microsoft Azure Previews
-Azure may include preview, beta, or other prerelease features, services, software, or regions offered by Microsoft for optional evaluation ("Previews"). Previews are licensed to you as part of  [**your agreement**](https://azure.microsoft.com/en-us/support/legal/) governing use of Azure, and subject to terms applicable to "Previews" . 
+Azure may include preview, beta, or other prerelease features, services, software, or regions offered by Microsoft for optional evaluation ("Previews"). Previews are licensed to you as part of  [**your agreement**](https://azure.microsoft.com/support/legal/) governing use of Azure, and subject to terms applicable to "Previews" . 
 
-Certain named Previews are subject to additional terms set forth below, if any. These Previews are made available to you pursuant to these additional terms, which supplement your agreement governing use of Azure. Capitalized terms not defined herein shall have the meaning set forth in  [**your agreement**](https://azure.microsoft.com/en-us/support/legal/). If you do not agree to these terms, do not use the Preview(s). 
+Certain named Previews are subject to additional terms set forth below, if any. These Previews are made available to you pursuant to these additional terms, which supplement your agreement governing use of Azure. Capitalized terms not defined herein shall have the meaning set forth in  [**your agreement**](https://azure.microsoft.com/support/legal/). If you do not agree to these terms, do not use the Preview(s). 
 
 ## Azure Data Manager for Agriculture (Preview) 
 
