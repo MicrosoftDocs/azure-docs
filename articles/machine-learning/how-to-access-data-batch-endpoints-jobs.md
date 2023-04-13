@@ -27,17 +27,19 @@ Batch endpoints can be used to perform long batch operations over large amounts 
 
 Batch endpoints provide a durable API that consumers can use to create batch jobs. The same interface can be used to indicate the inputs and the outputs your deployment expects. Use inputs to pass any information your endpoint needs to perform the job. 
 
-Depending on the [type of batch deployment](concept-endpoints-batch.md#batch-deployments), the inputs and outputs you are indicating:
+The number and type of inputs and outputs depend on the [type of batch deployment](concept-endpoints-batch.md#batch-deployments). Model deployments always require 1 data input and produce 1 data output. However, pipeline component deployments provide a more general construct to build endpoints. You can indicate any number of inputs and outputs.
+
+The following table summarizes it:
 
 | Deployment type        | Input's number | Suported input's types              | Output's number | Suported output's types              |
 | ---------------------- | -------------- | -------------------------- | --------------- | --------------------------- |
-| [Model deployment](concept-endpoints-batch.md#model-deployments)  | 1              | [Data input](#data-inputs) | 1               | [Data outputs](#data-inputs) |
+| [Model deployment](concept-endpoints-batch.md#model-deployments)  | 1              | [Data inputs](#data-inputs) | 1               | [Data outputs](#data-inputs) |
 | [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment)  | [0..N]         | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs)  | [0..N]   | [Data outputs](#data-outputs) |
 
-Model deployments always require 1 input and produce 1 output. Input and outputs should be a data asset. However, pipeline component deployments provide a more general construct to build endpoints. You can indicate any number of inputs and outputs in a pipeline and deploy them as an endpoint.
+
 
 > [!TIP]
-> Inputs and outputs are always named. Those names serve as keys to indentify the input or output and pass the actual value during invocation. For model deployments, since they always require 1 input and output, the name is ignored during invocation. You can assign the name its best describe your use case, like "salest_estimations".
+> Inputs and outputs are always named. Those names serve as keys to indentify them and pass the actual value during invocation. For model deployments, since they always require 1 input and output, the name is ignored during invocation. You can assign the name its best describe your use case, like "salest_estimations".
 
 ## Data inputs
 
@@ -230,7 +232,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     > [!TIP]
     > The default blob data store in a workspace is called __workspaceblobstore__. You can skip this step if you already know the resource ID of the default data store in your workspace.
 
-1. We'll need to upload some sample data to it. This example assumes you've uploaded the sample data included in the repo in the folder `sdk/python/endpoints/batch/heart-classifier/data` in the folder `heart-classifier/data` in the blob storage account. Ensure you have done that before moving forward.
+1. We'll need to upload some sample data to it. This example assumes you've uploaded the sample data included in the repo in the folder `sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/data` in the folder `heart-disease-uci-unlabeled` in the blob storage account. Ensure you have done that before moving forward.
 
 1. Create a data input:
 
@@ -246,7 +248,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     # [Python](#tab/sdk)
 
     ```python
-    data_path = "heart-classifier/data"
+    data_path = "heart-disease-uci-unlabeled"
     input = Input(type=AssetTypes.URI_FOLDER, path=f"{default_ds.id}/paths/{data_path})
     ```
 
@@ -291,8 +293,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_PATH --input-type uri_folder
     ```
     
-    > [!TIP]
-    > If your data is a file, use `uri_file` as type instead.
+    If your data is a file, use `uri_file` as type instead.
    
     # [Python](#tab/sdk)
    
@@ -404,8 +405,7 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_DATA --input-type uri_folder
     ```
     
-    > [!TIP]
-    > If your data is a file, use `uri_file` as type instead.
+    If your data is a file, use `uri_file` as type instead.
 
     # [Python](#tab/sdk)
    
@@ -550,10 +550,6 @@ The following example shows how to change the location where an output named `sc
 
     Use the Azure Machine Learning CLI, Azure Machine Learning SDK for Python, or Studio to get the data store information.
     
-    ---
-    
-    > [!TIP]
-    > The default blob data store in a workspace is called __workspaceblobstore__. You can skip this step if you already know the resource ID of the default data store in your workspace.
 
 1. Create a data output:
 
