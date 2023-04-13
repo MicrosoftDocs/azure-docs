@@ -14,12 +14,14 @@ ms.reviewer: dacoelho
 
 Delta Lake [MERGE command](https://docs.delta.io/latest/delta-update.html#upsert-into-a-table-using-merge) allows users to update a delta table with advanced conditions. It can update data from a source table, view or DataFrame into a target table by using MERGE command. However, the current algorithm of MERGE command is not optimized for handling *unmodified* rows. With Low Shuffle Merge optimization, unmodified rows are excluded from expensive shuffling execution and written separately.
 
-To execute MERGE, 2 join operations are required. The first one is joining the whole target table and source data, to find *touched* files including any matched row. The other one is for actual MERGE operation only with *touched* files of the target table. The first join is lighter as it only reads columns in matching condition. Although Delta performs the first join to reduce the amount of data for the actual merge process, a huge amount of *unmodified* rows in *touched* files goes through the second join process. With Low Shuffle Merge, Delta retrieves "matched" rows result from the first join and utilizes it for classifying *matched* rows. Based on that, there are 2 separate write jobs for *matched* rows and *unmodified* rows, so it could result in 2x number of output files compared to the default MERGE operation. The expected performance gain outweighs the possible small files problem. 
+To run MERGE operation, 2 join queries are required. The first one is joining the whole target table and source data, to find *touched* files including any matched row. The other one is for actual MERGE operation only with *touched* files of the target table. The first join query is lighter as it only reads columns in the matching condition. Although Delta performs the first join to reduce the amount of data for the actual merge process, still a huge number of *unmodified* rows in *touched* files could go through the second join process which includes heavy shuffling process. 
+
+With Low Shuffle Merge optimization, Delta retrieves "matched" rows result from the first join result and utilizes it for classifying *matched* rows. Based on the information, Delta runs 2 separate write jobs for *matched* rows and *unmodified* rows, thus it could result in 2x number of output files compared to the default MERGE operation. The expected performance gain outweighs the possible small files problem. 
 
 ## Availability
 
 > [!NOTE]
-> - Low shuffle merge is available as a Preview feature. 
+> - Low Shuffle Merge is available as a Preview feature. 
 
 It is available on Synapse Pools for Apache Spark versions 3.2 and 3.3.
 
@@ -34,7 +36,7 @@ It is available on Synapse Pools for Apache Spark versions 3.2 and 3.3.
 
 * Unmodified rows in *touched* files are handled separately and not going through the actual MERGE operation. It can save the overall MERGE execution time and resources.
 * Row orderings are preserved for unmodified rows. Therefore, the output files of unmodified rows are still efficient for data skipping if the file was sorted or Z-ORDERED.
-* Not much overhead even for the worst cast which is matching all rows.
+* Very little overhead even for the worst case which is matching all rows.
 
 
 ## How to enable and disable Low Shuffle Merge
