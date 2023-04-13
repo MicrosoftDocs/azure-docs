@@ -161,6 +161,20 @@ This message indicates that either the application user closed the dialog that d
    ```powershell
    if (-not (Get-AppxPackage Microsoft.AccountsControl)) { Add-AppxPackage -Register "$env:windir\SystemApps\Microsoft.AccountsControl_cw5n1h2txyewy\AppxManifest.xml" -DisableDevelopmentMode -ForceApplicationShutdown } Get-AppxPackage Microsoft.AccountsControl
    ```
+### "MsalClientException: ErrorCode: wam_runtime_init_failed" error message during Single-file deployment 
+
+You may see the following error when packaging your application into a [single file bundle](/dotnet/core/deploying/single-file/overview). 
+
+```
+MsalClientException: wam_runtime_init_failed: The type initializer for 'Microsoft.Identity.Client.NativeInterop.API' threw an exception. See https://aka.ms/msal-net-wam#troubleshooting
+```
+
+This error indicates that the native binaries from the [Microsoft.Identity.Client.NativeInterop](https://www.nuget.org/packages/Microsoft.Identity.Client.NativeInterop/) were not packaged into the single file bundle. To embed those files for extraction and get one output file, set the property IncludeNativeLibrariesForSelfExtract to true. Read more about [how to package native binaries into a single file](/dotnet/core/deploying/single-file/overview?tabs=cli#native-libraries).
+
+### Connection issues
+
+The application user sees an error message similar to "Please check your connection and try again." If this issue occurs regularly, see the [troubleshooting guide for Office](/microsoft-365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016), which also uses the broker.
+
 
 ## Sample
 
