@@ -118,7 +118,7 @@ Next, update your code to use passwordless connections.
 1. Identify the code that creates a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
 
    ```csharp
-    //TODO: Replace the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
+    // TODO: Replace the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
     var client = new ServiceBusClient(
         "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
         new DefaultAzureCredential());
@@ -154,7 +154,7 @@ Next, update your code to use passwordless connections.
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
             .build();
     
-        //TODO: Replace the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
+        // TODO: Replace the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
         ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
             credential,
             "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
