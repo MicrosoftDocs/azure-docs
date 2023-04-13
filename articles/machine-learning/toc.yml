@@ -600,7 +600,13 @@
 - name: Training
   items:
   - name: Overview
+    displayName: run config, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
+  # v1
+  - name: Model training
+    displayName: run config, machine learning pipeline, ml pipeline, train model
+    href: ./v1/concept-train-machine-learning-model-v1.md
+  # end v1
   - name: Training with CLI and SDK
     href: how-to-train-model.md
   - name: Training with UI
