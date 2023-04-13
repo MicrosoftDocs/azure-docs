@@ -17,7 +17,7 @@ ms.custom:
 
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing, and global distribution of applications for your virtual machines.
 
-While you can create an image of a VM with apps pre-installed, you would need to update your image each time you have application changes. Separating your application installation from your VM images means there’s no need to publish a new image for every line of code change.
+While you can create an image of a VM with apps preinstalled, you would need to update your image each time you have application changes. Separating your application installation from your VM images means there’s no need to publish a new image for every line of code change.
 
 Application packages provide benefits over other deployment and packaging methods:
 
@@ -39,13 +39,13 @@ The VM application packages use multiple resource types:
 
 | Resource | Description|
 |----------|------------|
-| **Azure compute gallery** | A gallery is a repository for managing and sharing application packages. Users can share the gallery resource and all the child resources will be shared automatically. The gallery name must be unique per subscription. For example, you may have one gallery to store all your OS images and another gallery to store all your VM applications.|
+| **Azure compute gallery** | A gallery is a repository for managing and sharing application packages. Users can share the gallery resource and all the child resources are shared automatically. The gallery name must be unique per subscription. For example, you may have one gallery to store all your OS images and another gallery to store all your VM applications.|
 | **VM application** | The definition of your VM application. It's a *logical* resource that stores the common metadata for all the versions under it. For example, you may have an application definition for Apache Tomcat and have multiple versions within it. |
 | **VM Application version** | The deployable resource. You can globally replicate your VM application versions to target regions closer to your VM infrastructure. The VM Application Version must be replicated to a region before it may be deployed on a VM in that region. |
 
 ## Limitations
 
-- **No more than 3 replicas per region**: When creating a VM Application version, the maximum number of replicas per region is three.
+- **No more than 3 replicas per region**: When you are creating a VM Application version, the maximum number of replicas per region is three.
 
 - **Public access on storage**: Only public level access to storage accounts work, as other restriction levels fail deployments.
 
@@ -60,14 +60,14 @@ The VM application packages use multiple resource types:
 - **Requires a VM Agent**: The VM agent must exist on the VM and be able to receive goal states.
 
 - **Multiple versions of same application on the same VM**: You can't have multiple versions of the same application on a VM.
-- **Move operations currently not supported**: Moving VMs with VM Apps to other resource groups are not supported at this time.
+- **Move operations currently not supported**: Moving VMs with VM Apps to other resource groups aren't supported at this time.
 
 > [!NOTE]
 > For Azure Compute Gallery and VM Applications, Storage SAS can be deleted after replication.
 
 ## Cost
 
-There's no extra charge for using VM Application Packages, but you'll be charged for the following resources:
+There's no extra charge for using VM Application Packages, but you are charged for the following resources:
 
 - Storage costs of storing each package and any replicas. 
 - Network egress charges for replication of the first image version from the source region to the replicated regions. Subsequent replicas are handled within the region, so there are no extra charges.
@@ -95,7 +95,7 @@ VM application versions are the deployable resource. Versions are defined with t
 - Configuration file name to be used to configure the app on the VM
 - A link to the configuration file for the VM application, which you can include license files
 - Update string for how to update the VM application to a newer version
-- End-of-life date. End-of-life dates are informational; you'll still be able to deploy VM application versions past the end-of-life date.
+- End-of-life date. End-of-life dates are informational; you are still able to deploy VM application versions past the end-of-life date.
 - Exclude from latest. You can keep a version from being used as the latest version of the application. 
 - Target regions for replication
 - Replica count per region
@@ -111,11 +111,11 @@ The install/update/remove commands should be written assuming the application pa
 
 ## File naming
 
-When the application file gets downloaded to the VM, the file name is the same as the name you use when you create the VM application. For example, if I name my VM application `myApp`, the file that will be downloaded to the VM will also be named `myApp`, regardless of what the file name is used in the storage account. If your VM application also has a configuration file, that file is the name of the application with `_config` appended. If `myApp` has a configuration file, it will be named `myApp_config`.
+When the application file gets downloaded to the VM, the file name is the same as the name you use when you create the VM application. For example, if I name my VM application `myApp`, the file that is downloaded to the VM is also named `myApp`, regardless of what the file name is used in the storage account. If your VM application also has a configuration file, that file is the name of the application with `_config` appended. If `myApp` has a configuration file, it's named `myApp_config`.
 
-For example, if I name my VM application `myApp` when I create it in the Gallery, but it's stored as `myApplication.exe` in the storage account, when it gets downloaded to the VM the file name will be `myApp`. My install string should start by renaming the file to be whatever it needs to be to run on the VM (like `myApp.exe`).
+For example, if I name my VM application `myApp` when I create it in the Gallery, but it's stored as `myApplication.exe` in the storage account, when it gets downloaded to the VM the file name is `myApp`. My install string should start by renaming the file to be whatever it needs to be to run on the VM (like `myApp.exe`).
 
-The install, update, and remove commands must be written with file naming in mind. The `configFileName` is assigned to the config file for the VM and `packageFileName` is the name assigned downloaded package on the VM. For more information regarding these additional VM settings, refer to [UserArtifactSettings](/rest/api/compute/gallery-application-versions/create-or-update?tabs=HTTP#userartifactsettings) in our API docs.
+The install, update, and remove commands must be written with file naming in mind. The `configFileName` is assigned to the config file for the VM and `packageFileName` is the name assigned downloaded package on the VM. For more information regarding these other VM settings, see [UserArtifactSettings](/rest/api/compute/gallery-application-versions/create-or-update?tabs=HTTP#userartifactsettings) in our API docs.
 
 ## Command interpreter  
 
@@ -128,7 +128,7 @@ It's possible to use a different interpreter like Chocolatey or PowerShell, as l
 
 ## How updates are handled
 
-When you update an application version on a VM or VMSS, the update command you provided during deployment will be used. If the updated version doesn't have an update command, then the current version will be removed and the new version will be installed.
+When you update an application version on a VM or Virtual Machine Scale Sets, the update command you provided during deployment is used. If the updated version doesn't have an update command, then the current version is removed and the new version is installed.
 
 Update commands should be written with the expectation that it could be updating from any older version of the VM application.
 
@@ -138,7 +138,7 @@ Third party applications for Linux can be packaged in a few ways. Let's explore 
 
 ### .tar and .gz files
 
-These are compressed archives and can be extracted to a desired location. Check the installation instructions for the original package to in case they need to be extracted to a specific location. If .tar.gz file contains source code, refer to the instructions for the package for how to install from source.
+These files are compressed archives and can be extracted to a desired location. Check the installation instructions for the original package to in case they need to be extracted to a specific location. If .tar.gz file contains source code, refer to the instructions for the package for how to install from source.
 
 Example to install command to install `golang` on a Linux machine:
 
@@ -152,7 +152,7 @@ Example remove command:
 sudo rm -rf /usr/local/go
 ```
 
-### Creating aplication packages using .deb, .rpm, and other platform specific packages for VMs with restricted internet access
+### Creating application packages using .deb, .rpm, and other platform specific packages for VMs with restricted internet access
 
 You can download individual packages for platform specific package managers, but they usually don't contain all the dependencies. For these files, you must also include all dependencies in the application package, or have the system package manager download the dependencies through the repositories that are available to the VM. If you're working with a VM with restricted internet access, you must package all the dependencies yourself.
 
@@ -160,7 +160,7 @@ Figuring out the dependencies can be a bit tricky. There are third party tools t
 
 # [Ubuntu](#tab/ubuntu)
 
-In Ubuntu, you can run `sudo apt show <package_name> | grep Depends` to show all the packages that will be installed when executing the `sudo apt-get install <packge_name>` command. Then you can use that output to download all .deb files to create an archive that can be used as the application package.
+In Ubuntu, you can run `sudo apt show <package_name> | grep Depends` to show all the packages that are installed when executing the `sudo apt-get install <packge_name>` command. Then you can use that output to download all `.deb` files to create an archive that can be used as the application package.
 
 1. Example, to create a VM application package to install PowerShell for Ubuntu, first run the following commands to enable the repository where PowerShell can be downloaded from and also to identify the package dependencies on a new Ubuntu VM.
 
@@ -182,7 +182,7 @@ Depends: libc6, libgcc1, libgssapi-krb5-2, libstdc++6, zlib1g, libicu72|libicu71
 
 3. Download each of these files using `sudo apt-get download <package_name>` and create a tar compressed archive with all files.
 
-- In the case of Ubuntu 18.04:
+- Ubuntu 18.04:
 
 ```bash
 mkdir /tmp/powershell
@@ -198,7 +198,7 @@ sudo apt-get download powershell
 sudo tar -cvzf powershell.tar.gz *.deb
 ```
 
-- In the case of Ubuntu 20.04:
+- Ubuntu 20.04:
 
 ```bash
 mkdir /tmp/powershell
@@ -214,7 +214,7 @@ sudo apt-get download powershell
 sudo tar -cvzf powershell.tar.gz *.deb
 ```
 
-- In the case of Ubuntu 22.04:
+- Ubuntu 22.04:
 
 ```bash
 mkdir /tmp/powershell
@@ -230,7 +230,7 @@ sudo apt-get download powershell
 sudo tar -cvzf powershell.tar.gz *.deb
 ```
 
-4. This tar archive will be the application package file. 
+4. This tar archive is the application package file.
 
 - The install command in this case is:
 
@@ -246,7 +246,7 @@ sudo apt remove powershell
 
 Use `sudo apt autoremove` instead of explicitly trying to remove all the dependencies. You may have installed other applications with overlapping dependencies, and in that case, an explicit remove command would fail.
 
-In case you don't want to resolve the dependencies yourself and apt is able to connect to the repositories, you can install an application with just one .deb file and let apt handle the dependencies.
+In case you don't want to resolve the dependencies yourself, and `apt` is able to connect to the repositories, you can install an application with just one `.deb` file and let `apt` handle the dependencies.
 
 Example install command:
 
@@ -256,7 +256,7 @@ dpkg -i <package_name> || apt --fix-broken install -y
 
 # [Red Hat](#tab/rhel)
 
-In Red Hat, you can run `sudo yum deplist <package_name>` to show all the packages that will be installed when executing the `sudo yum install <package_name>` command. Then you can use that output to download all .rpm files to create an archive that can be used as the application package.
+In Red Hat, you can run `sudo yum deplist <package_name>` to show all the packages that are installed when executing the `sudo yum install <package_name>` command. Then you can use that output to download all `.rpm` files to create an archive that can be used as the application package.
 
 1. Example, to create a VM application package to install PowerShell for Red Hat, first run the following commands to enable the repository where PowerShell can be downloaded from and also to identify the package dependencies on a new RHEL VM.
 
@@ -278,7 +278,7 @@ curl https://packages.microsoft.com/config/rhel/8/prod.repo | sudo tee /etc/yum.
 sudo dnf deplist powershell
 ```
 
-2. Check the output of each of the dependency lines which lists the dependency packages as `provider`:
+2. Check the output of each of the dependency entries, the dependencies are named after `provider:`:
 
 ```output
   dependency: /bin/sh
@@ -291,7 +291,7 @@ sudo dnf deplist powershell
    provider: openssl-libs.i686 1:1.0.2k-26.el7_9
 ```
 
-3. Download each of these files using `sudo yum install --downloadonly <package_name>`, to download a package when is not yet installed in the system, or `sudo yum reinstall --downloadonly <package_name>`, to download a package that's already installed in the system, and create a tar compressed archive with all files.
+3. Download each of these files using `sudo yum install --downloadonly <package_name>`, to download a package when isn't yet installed in the system, or `sudo yum reinstall --downloadonly <package_name>`, to download a package that's already installed in the system, and create a tar compressed archive with all files.
 
 
 ```bash
@@ -304,7 +304,7 @@ sudo yum install --downloadonly --downloaddir=/tmp/powershell powershell
 sudo tar -cvzf powershell.tar.gz *.rpm
 ```
 
-4. This tar archive will be the application package file. 
+4. This tar archive is the application package file. 
 
 - The install command in this case is:
 
@@ -318,7 +318,7 @@ sudo tar -xvzf powershell.tar.gz && sudo yum install *.rpm -y
 sudo yum remove powershell
 ```
 
-In case you don't want to resolve the dependencies yourself and yum/dnf is able to connect to the repositories, you can install an application with just one .rpm file and let yum/dnf handle the dependencies.
+In case you don't want to resolve the dependencies yourself and yum/dnf is able to connect to the repositories, you can install an application with just one `.rpm` file and let yum/dnf handle the dependencies.
 
 Example install command:
 
@@ -328,7 +328,7 @@ yum install <package.rpm> -y
 
 # [SUSE](#tab/sles)
 
-In SUSE, you can run `sudo zypper info --requires <package_name>` to show all the packages that will be installed when executing the `sudo zypper install <package_name>` command. Then you can use that output to download all .rpm files to create an archive that can be used as the application package.
+In SUSE, you can run `sudo zypper info --requires <package_name>` to show all the packages that are installed when executing the `sudo zypper install <package_name>` command. Then you can use that output to download all `.rpm` files to create an archive that can be used as the application package.
 
 1. Example, to create a VM application package to install `azure-cli` for SUSE, first run the following commands to enable the repository where Azure CLI can be downloaded from and also to identify the package dependencies on a new SUSE VM.
 
@@ -391,7 +391,7 @@ for i in $(sudo find /tmp/azurecli -name "*.rpm") ; do sudo cp $i /tmp/azurecli;
 sudo tar -cvzf azurecli.tar.gz *.rpm
 ```
 
-4. This tar archive will be the application package file.
+4. This tar archive is the application package file.
 
 - The install command in this case is:
 
@@ -415,9 +415,9 @@ Most third party applications in Windows are available as .exe or .msi installer
 
 Installer executables typically launch a user interface (UI) and require someone to select through the UI. If the installer supports a silent mode parameter, it should be included in your installation string.
 
-Cmd.exe also expects executable files to have the extension .exe, so you need to rename the file to have the .exe extension.  
+Cmd.exe also expects executable files to have the extension `.exe`, so you need to rename the file to have the `.exe` extension.  
 
-If I wanted to create a VM application package for myApp.exe, which ships as an executable, my VM Application is called 'myApp', so I write the command assuming that the application package is in the current directory:
+If I want to create a VM application package for `myApp.exe`, which ships as an executable, my VM Application is called 'myApp', so I write the command assuming the application package is in the current directory:
 
 ```terminal
 "move .\\myApp .\\myApp.exe & myApp.exe /S -config myApp_config" 
@@ -463,7 +463,7 @@ rmdir /S /Q C:\\myapp
 
 ## Treat failure as deployment failure
 
-The VM application extension always returns a *success* regardless of whether any VM app failed while being installed/updated/removed. The VM Application extension will only report the extension status as failure when there's a problem with the extension or the underlying infrastructure. This is triggered by the "treat failure as deployment failure" flag which is set to `$false` by default and can be changed to `$true`. The failure flag can be configured in [PowerShell](/powershell/module/az.compute/add-azvmgalleryapplication#parameters) or [CLI](/cli/azure/vm/application#az-vm-application-set).
+The VM application extension always returns a *success* regardless of whether any VM app failed while being installed/updated/removed. The VM Application extension only reports the extension status as failure when there's a problem with the extension or the underlying infrastructure. This behavior is triggered by the "treat failure as deployment failure" flag, which is set to `$false` by default and can be changed to `$true`. The failure flag can be configured in [PowerShell](/powershell/module/az.compute/add-azvmgalleryapplication#parameters) or [CLI](/cli/azure/vm/application#az-vm-application-set).
 
 ## Troubleshooting VM Applications
 
@@ -499,26 +499,26 @@ $resultSummary | convertto-json -depth 5
 | More than one VM Application was specified with the same packageReferenceId. | The same application was specified more than once. |
 | Subscription not authorized to access this image. | The subscription doesn't have access to this application version. |
 | Storage account in the arguments doesn't exist. | There are no applications for this subscription. |
-| The platform image {image} isn't available. Verify that all fields in the storage profile are correct. For more details about storage profile information, please refer to https://aka.ms/storageprofile. | The application doesn't exist. |
-| The gallery image {image} is not available in {region} region. Please contact image owner to replicate to this region, or change your requested region. | The gallery application version exists, but it was not replicated to this region. |
-| The SAS is not valid for source uri {uri}. | A `Forbidden` error was received from storage when attempting to retrieve information about the url (either mediaLink or defaultConfigurationLink). |
+| The platform image {image} isn't available. Verify that all fields in the storage profile are correct. For more details about storage profile information, refer to https://aka.ms/storageprofile. | The application doesn't exist. |
+| The gallery image {image} isn't available in {region} region. Contact image owner to replicate to this region, or change your requested region. | The gallery application version exists, but it wasn't replicated to this region. |
+| The SAS isn't valid for source uri {uri}. | A `Forbidden` error was received from storage when attempting to retrieve information about the url (either mediaLink or defaultConfigurationLink). |
 | The blob referenced by source uri {uri} doesn't exist. | The blob provided for the mediaLink or defaultConfigurationLink properties doesn't exist. |
-| The gallery application version url {url} cannot be accessed due to the following error: remote name not found. Ensure that the blob exists and that it's either publicly accessible or is a SAS url with read privileges. | The most likely case is that a SAS uri with read privileges was not provided. |
-| The gallery application version url {url} cannot be accessed due to the following error: {error description}. Ensure that the blob exists and that it's either publicly accessible or is a SAS url with read privileges. | There was an issue with the storage blob provided. The error description will provide more information. |
-| Operation {operationName} is not allowed on {application} since it is marked for deletion. You can only retry the Delete operation (or wait for an ongoing one to complete). | Attempt to update an application that's currently being deleted. |
-| The value {value} of parameter 'galleryApplicationVersion.properties.publishingProfile.replicaCount' is out of range. The value must be between 1 and 3, inclusive. | Only between 1 and 3 replicas are allowed for VM Application versions. |
-| Changing property 'galleryApplicationVersion.properties.publishingProfile.manageActions.install' is not allowed. (or update, delete) | It is not possible to change any of the manage actions on an existing VmApplication. A new VmApplication version must be created. |
-| Changing property ' galleryApplicationVersion.properties.publishingProfile.settings.packageFileName ' is not allowed. (or configFileName) | It is not possible to change any of the settings, such as the package file name or config file name. A new VmApplication version must be created. |
-| The blob referenced by source uri {uri} is too big: size = {size}. The maximum blob size allowed is '1 GB'. | The maximum size for a blob referred to by mediaLink or defaultConfigurationLink is currently 1 GB. |
+| The gallery application version url {url} can't be accessed due to the following error: remote name not found. Ensure that the blob exists and that it's either publicly accessible or is a SAS url with read privileges. | The most likely case is that a SAS uri with read privileges wasn't provided. |
+| The gallery application version url {url} can't be accessed due to the following error: {error description}. Ensure that the blob exists and that it's either publicly accessible or is a SAS url with read privileges. | There was an issue with the storage blob provided. The error description provides more information. |
+| Operation {operationName} isn't allowed on {application} since it's marked for deletion. You can only retry the Delete operation (or wait for an ongoing one to complete). | Attempt to update an application that's currently being deleted. |
+| The value {value} of parameter 'galleryApplicationVersion.properties.publishingProfile.replicaCount' is out of range. The value must be between one and three, inclusive. | Only between 1 and 3 replicas are allowed for VM Application versions. |
+| Changing property 'galleryApplicationVersion.properties.publishingProfile.manageActions.install' isn't allowed. (or update, delete) | It isn't possible to change any of the manage actions on an existing VmApplication. A new VmApplication version must be created. |
+| Changing property ' galleryApplicationVersion.properties.publishingProfile.settings.packageFileName ' isn't allowed. (or configFileName) | It isn't possible to change any of the settings, such as the package file name or config file name. A new VmApplication version must be created. |
+| The blob referenced by source uri {uri} is too large: size = {size}. The maximum blob size allowed is '1 GB'. | The maximum size for a blob referred to by mediaLink or defaultConfigurationLink is currently 1 GB. |
 | The blob referenced by source uri {uri} is empty. | An empty blob was referenced. |
-| {type} blob type is not supported for {operation} operation. Only page blobs and block blobs are supported. | VmApplications only supports page blobs and block blobs. |
-| The SAS is not valid for source uri {uri}. | The SAS uri supplied for mediaLink or defaultConfigurationLink is not a valid SAS uri. |
-| Cannot specify {region} in target regions because the subscription is missing required feature {featureName}. Either register your subscription with the required feature or remove the region from the target region list. | To use VmApplications in certain restricted regions, one must have the feature flag registered for that subscription. |
+| {type} blob type isn't supported for {operation} operation. Only page blobs and block blobs are supported. | VmApplications only supports page blobs and block blobs. |
+| The SAS isn't valid for source uri {uri}. | The SAS uri supplied for mediaLink or defaultConfigurationLink isn't a valid SAS uri. |
+| Can't specify {region} in target regions because the subscription is missing required feature {featureName}. Either register your subscription with the required feature or remove the region from the target region list. | To use VmApplications in certain restricted regions, one must have the feature flag registered for that subscription. |
 | Gallery image version publishing profile regions {regions} must contain the location of image version {location}. | The list of regions for replication must contain the location where the application version is. |
-| Duplicate regions are not allowed in target publishing regions. | The publishing regions may not have duplicates. |
-| Gallery application version resources currently do not support encryption. | The encryption property for target regions is not supported for VM Applications |
+| Duplicate regions aren't allowed in target publishing regions. | The publishing regions may not have duplicates. |
+| Gallery application version resources currently do not support encryption. | The encryption property for target regions isn't supported for VM Applications |
 | Entity name doesn't match the name in the request URL. | The gallery application version specified in the request url doesn't match the one specified in the request body. |
-| The gallery application version name is invalid. The application version name should follow Major(int32).Minor(int32).Patch(int32) format, where int is between 0 and 2,147,483,647 (inclusive). e.g. 1.0.0, 2018.12.1 etc. | The gallery application version must follow the format specified. |
+| The gallery application version name is invalid. The application version name should follow Major(int32).Minor(int32).Patch(int32) format, where `int` is between 0 and 2,147,483,647 (inclusive). for example, 1.0.0, 2018.12.1 etc. | The gallery application version must follow the format specified. |
 
 ## Next steps
 
