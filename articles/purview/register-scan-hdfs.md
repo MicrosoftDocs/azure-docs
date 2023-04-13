@@ -16,9 +16,9 @@ This article outlines how to register Hadoop Distributed File System (HDFS), and
 
 ## Supported capabilities
 
-|**Metadata Extraction**|**Full Scan**|**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No| No | No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No| No | No | No|
 
 When scanning HDFS source, Microsoft Purview supports extracting technical metadata including HDFS:
 
