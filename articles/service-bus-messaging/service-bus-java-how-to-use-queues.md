@@ -429,7 +429,7 @@ In this section, you add code to retrieve messages from the queue.
 
 1. If you're using Eclipse, right-click the project, select **Export**, expand **Java**, select **Runnable JAR file**, and follow the steps to create a runnable JAR file. 
 1. [Install Azure CLI](/cli/azure/install-azure-cli-windows) on your machine. 
-1. If you are signed into the machine on which you are testing using a user account that's different from the user account added to the **Azure Service Bus Data Owner** role, follow these steps. Otherwise, skip this step and move on to run the Jar file in the next step. 
+1. If you are signed into the machine using a user account that's different from the user account added to the **Azure Service Bus Data Owner** role, follow these steps. Otherwise, skip this step and move on to run the Jar file in the next step. 
 
     1. [Install Azure CLI](/cli/azure/install-azure-cli-windows) on your machine. 
     1. Run the following CLI command to sign in to Azure. Use the same user account that you added to the **Azure Service Bus Data Owner** role. 

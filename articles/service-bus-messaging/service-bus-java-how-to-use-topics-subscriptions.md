@@ -103,10 +103,30 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     import java.util.List;
     ```    
     --- 
-5. In the class, define variables to hold connection string, topic name, and subscription name. 
+2. In the class, define variables to hold connection string (not needed for passwordless scenario), topic name, and subscription name.
+
+    ### [Passwordless (Recommended)](#tab/passwordless)
+    
+    ```java
+    static String topicName = "<TOPIC NAME>";    
+    static String subName = "<SUBSCRIPTION NAME>";
+    ```
+
+    Replace `<TOPIC NAME>` with the name of the topic, and replace `<SUBSCRIPTION NAME>` with the name of the topic's subscription.
+
+    ### [Connection String](#tab/connection-string)
 
     ```java
     static String connectionString = "<NAMESPACE CONNECTION STRING>";
+    static String topicName = "<TOPIC NAME>";    
+    static String subName = "<SUBSCRIPTION NAME>";
+    ```
+
+    Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. Replace `<TOPIC NAME>` with the name of the topic, and replace `<SUBSCRIPTION NAME>` with the name of the topic's subscription.
+    ---
+1. In the class, define variables to hold connection string, topic name, and subscription name. 
+
+    ```java
     static String topicName = "<TOPIC NAME>";    
     static String subName = "<SUBSCRIPTION NAME>";
     ```
@@ -135,9 +155,9 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
 	            .topicName(topicName)
 	            .buildClient();
 
-	    // send one message to the queue
+	    // send one message to the topic
 	    senderClient.sendMessage(new ServiceBusMessage("Hello, World!"));
-	    System.out.println("Sent a single message to the queue: " + queueName);        
+	    System.out.println("Sent a single message to the topic: " + topicName);        
 	}
     
     ```
@@ -146,7 +166,7 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     ```java
     static void sendMessage()
     {
-        // create a Service Bus Sender client for the queue 
+        // create a Service Bus Sender client for the topic 
         ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
                 .connectionString(connectionString)
                 .sender()
@@ -213,7 +233,7 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
 
 	        // The batch is full, so we create a new batch and send the batch.
 	        senderClient.sendMessages(messageBatch);
-	        System.out.println("Sent a batch of messages to the queue: " + queueName);
+	        System.out.println("Sent a batch of messages to the topic: " + topicName);
 
 	        // create a new batch
 	        messageBatch = senderClient.createMessageBatch();
@@ -226,7 +246,7 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
 
 	    if (messageBatch.getCount() > 0) {
 	        senderClient.sendMessages(messageBatch);
-	        System.out.println("Sent a batch of messages to the queue: " + queueName);
+	        System.out.println("Sent a batch of messages to the topic: " + topicName);
 	    }
 
 	    //close the client
@@ -418,7 +438,7 @@ Run the program to see the output similar to the following output:
 ### [Passwordless (Recommended)](#tab/passwordless)
 
 1. If you're using Eclipse, right-click the project, select **Export**, expand **Java**, select **Runnable JAR file**, and follow the steps to create a runnable JAR file. 
-1. If you are signed into the machine on which you are testing using a user account that's different from the user account added to the **Azure Service Bus Data Owner** role, follow these steps. Otherwise, skip this step and move on to run the Jar file in the next step. 
+1. If you are signed into the machine using a user account that's different from the user account added to the **Azure Service Bus Data Owner** role, follow these steps. Otherwise, skip this step and move on to run the Jar file in the next step. 
 
     1. [Install Azure CLI](/cli/azure/install-azure-cli-windows) on your machine. 
     1. Run the following CLI command to sign in to Azure. Use the same user account that you added to the **Azure Service Bus Data Owner** role. 
