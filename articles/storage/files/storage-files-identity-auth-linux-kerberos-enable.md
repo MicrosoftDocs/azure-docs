@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2023
+ms.date: 04/13/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -43,20 +43,24 @@ Before you enable AD authentication over SMB for Azure file shares, make sure yo
 Installing the samba package isn't strictly necessary, but it gives you some useful tools and brings in other packages automatically, such as `samba-common` and `smbclient`. Run the following commands to install it. If you're asked for any input values during installation, leave them blank.
 
 ```bash
-localadmin@contosovm:~$ sudo apt update -y
-localadmin@contosovm:~$ sudo apt install samba winbind libpam-winbind libnss-winbind krb5-config krb5-user keyutils cifs-utils
+sudo apt update -y
+sudo apt install samba winbind libpam-winbind libnss-winbind krb5-config krb5-user keyutils cifs-utils
 ```
 
 The `wbinfo` tool is part of the samba suite. It can be useful for authentication and debugging purposes, such as checking if the domain controller is reachable, checking what domain a machine is joined to, and finding information about users.
 
-Make sure that the Linux host keeps the time synchronized with the domain server. Refer to the documentation for your Linux distribution. For some distros, you can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). Here's a sample configuration.
+Make sure that the Linux host keeps the time synchronized with the domain server. Refer to the documentation for your Linux distribution. For some distros, you can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). Edit `/etc/systemd/timesyncd.conf` with your favorite text editor to include the following:
 
-```bash
-localadmin@contosovm:~$ cat /etc/systemd/timesyncd.conf
+```plaintext
 [Time]
 NTP=onpremaadint.com
 FallbackNTP=ntp.ubuntu.com
-localadmin@contosovm:~$ sudo systemctl restart systemd-timesyncd.service
+```
+
+Then restart the service:
+
+```bash
+sudo systemctl restart systemd-timesyncd.service
 ```
 
 ## Enable AD Kerberos authentication
@@ -68,8 +72,10 @@ Follow these steps to enable AD Kerberos authentication. [This Samba documentati
 1. Make sure that the DNS servers supplied contain the domain server IP addresses.
 
 ```bash
-localadmin@contosovm:~$ systemd-resolve --status 
+systemd-resolve --status
+```
 
+```output
 Global 
           DNSSEC NTA: 10.in-addr.arpa
                       16.172.in-addr.arpa
@@ -116,7 +122,10 @@ MulticastDNS setting: no
 3. If it didn't work, make sure that the domain server IP addresses are pinging.
 
 ```bash
-localadmin@contosovm:~$ ping 10.0.2.5
+ping 10.0.2.5
+```
+
+```output
 PING 10.0.2.5 (10.0.2.5) 56(84) bytes of data.
 64 bytes from 10.0.2.5: icmp_seq=1 ttl=128 time=0.898 ms
 64 bytes from 10.0.2.5: icmp_seq=2 ttl=128 time=0.946 ms
@@ -130,10 +139,9 @@ rtt min/avg/max/mdev = 0.898/0.922/0.946/0.024 ms
 
 4. If the ping doesn't work, go back to [prerequisites](#prerequisites), and make sure that your VM is on a VNET that has access to the Azure AD tenant.
 
-5. If the IP addresses are pinging but the DNS servers aren't automatically discovered, you can add the DNS servers manually.
+5. If the IP addresses are pinging but the DNS servers aren't automatically discovered, you can add the DNS servers manually. Edit `/etc/netplan/50-cloud-init.yaml` with your favorite text editor.
 
-```bash
-localadmin@contosovm:~$ cat /etc/netplan/50-cloud-init.yaml
+```plaintext
 # This file is generated from information provided by the datasource.  Changes
 # to it will not persist across an instance reboot.  To disable cloud-init's
 # network configuration capabilities, write a file
@@ -152,13 +160,17 @@ network:
             nameservers:
                 addresses: [10.0.2.5, 10.0.2.4]
     version: 2
-localadmin@contosovm:~$ sudo netplan --debug apply 
 ```
 
-6. Winbind assumes that the DHCP server keeps the domain DNS records up-to-date. However, this isn't true for Azure DHCP. In order to set up the client to make DDNS updates, use [this guide](../../virtual-network/virtual-networks-name-resolution-ddns.md#linux-clients) to create a network script. Here's a sample script.
+Then apply the changes:
 
 ```bash
-localadmin@contosovm:~$ cat /etc/dhcp/dhclient-exit-hooks.d/ddns-update
+sudo netplan --debug apply 
+```
+
+6. Winbind assumes that the DHCP server keeps the domain DNS records up-to-date. However, this isn't true for Azure DHCP. In order to set up the client to make DDNS updates, use [this guide](../../virtual-network/virtual-networks-name-resolution-ddns.md#linux-clients) to create a network script. Here's a sample script that lives at `/etc/dhcp/dhclient-exit-hooks.d/ddns-update`.
+
+```plaintext
 #!/bin/sh 
 
 # only execute on the primary nic
@@ -186,7 +198,10 @@ fi
 1. Make sure that you're able to ping the domain server by the domain name.
 
 ```bash
-localadmin@contosovm:~$ ping contosodomain.contoso.com
+ping contosodomain.contoso.com
+```
+
+```output
 PING contosodomain.contoso.com (10.0.2.4) 56(84) bytes of data.
 64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=1 ttl=128 time=1.41 ms
 64 bytes from pwe-oqarc11l568.internal.cloudapp.net (10.0.2.4): icmp_seq=2 ttl=128 time=1.02 ms
@@ -203,9 +218,12 @@ rtt min/avg/max/mdev = 0.740/1.026/1.419/0.248 ms
 2. Make sure you can discover the Azure AD services on the network.
 
 ```bash
-localadmin@contosovm:~$ nslookup
+nslookup
 > set type=SRV
 > _ldap._tcp.contosodomain.contoso.com.
+```
+
+```output
 Server:         127.0.0.53
 Address:        127.0.0.53#53
 
@@ -217,9 +235,9 @@ _ldap._tcp.contosodomain.contoso.com service = 0 100 389 hxt4yo--jb9q529.contoso
 
 ### Set up hostname and fully qualified domain name (FQDN)
 
-1. Update the `/etc/hosts` file with the final FQDN (after joining the domain) and the alias for the host. The IP address doesn't matter for now because this line will mainly be used to translate short hostname to FQDN. For more details, see [Setting up Samba as a Domain Member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member).
+1. Using your text editor, update the `/etc/hosts` file with the final FQDN (after joining the domain) and the alias for the host. The IP address doesn't matter for now because this line will mainly be used to translate short hostname to FQDN. For more details, see [Setting up Samba as a Domain Member](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member).
 
-```bash
+```plaintext
 127.0.0.1       contosovm.contosodomain.contoso.com contosovm
 #cmd=sudo vim /etc/hosts   
 #then enter this value instead of localhost "ubuntvm.contosodomain.contoso.com UbuntuVM" 
@@ -228,11 +246,26 @@ _ldap._tcp.contosodomain.contoso.com service = 0 100 389 hxt4yo--jb9q529.contoso
 2. Now, your hostname should resolve. You can ignore the IP address it resolves to for now. The short hostname should resolve to the FQDN.
 
 ```bash
-localadmin@contosovm:~$ getent hosts contosovm
+getent hosts contosovm
+```
+
+```output
 127.0.0.1       contosovm.contosodomain.contoso.com contosovm
-localadmin@contosovm:~$ dnsdomainname
+```
+
+```bash
+dnsdomainname
+```
+
+```output
 contosodomain.contoso.com
-localadmin@contosovm:~$ hostname -f
+```
+
+```bash
+hostname -f
+```
+
+```output
 contosovm.contosodomain.contoso.com 
 ```
 
@@ -243,12 +276,9 @@ contosovm.contosodomain.contoso.com
 
 ### Set up krb5.conf
 
-1. Configure `krb5.conf` so that the Kerberos key distribution center (KDC) with the domain server can be contacted for authentication. For more information, see [MIT Kerberos Documentation](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html). Here's a sample `krb5.conf` file.
+1. Configure `/etc/krb5.conf` so that the Kerberos key distribution center (KDC) with the domain server can be contacted for authentication. For more information, see [MIT Kerberos Documentation](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html). Here's a sample `/etc/krb5.conf` file.
 
-```bash
-#sudo vim /etc/krb5.conf 
-
-localadmin@contosovm:~$ cat /etc/krb5.conf
+```plaintext
 [libdefaults]
         default_realm = CONTOSODOMAIN.CONTOSO.COM
         dns_lookup_realm = false
@@ -260,7 +290,10 @@ localadmin@contosovm:~$ cat /etc/krb5.conf
 1. Identify the path to `smb.conf`.
 
 ```bash
-localadmin@contosovm:~$ sudo smbd -b | grep "CONFIGFILE"
+sudo smbd -b | grep "CONFIGFILE"
+```
+
+```output
    CONFIGFILE: /etc/samba/smb.conf
 ```
 
@@ -269,8 +302,7 @@ localadmin@contosovm:~$ sudo smbd -b | grep "CONFIGFILE"
 > [!Note]
 > This example is for Azure AD DS, for which we recommend setting `backend = rid` when configuring idmap. On-premises AD DS users might prefer to [choose a different idmap backend](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member#Choosing_an_idmap_backend).
 
-```bash
-localadmin@contosovm:~$ cat /etc/samba/smb.conf
+```plaintext
 [global]
    workgroup = CONTOSODOMAIN
    security = ADS
@@ -307,7 +339,7 @@ localadmin@contosovm:~$ cat /etc/samba/smb.conf
 3. Force winbind to reload the changed config file.
 
 ```bash
-localadmin@contosovm:~$ sudo smbcontrol all reload-config
+sudo smbcontrol all reload-config
 ```
 
 ### Join the domain
@@ -315,9 +347,12 @@ localadmin@contosovm:~$ sudo smbcontrol all reload-config
 1. Use the `net ads join` command to join the host to the Azure AD DS domain. If the command throws an error, see [Troubleshooting samba domain members](https://wiki.samba.org/index.php/Troubleshooting_Samba_Domain_Members) to resolve the issue.
 
 ```bash
-localadmin@contosovm:~$ sudo net ads join -U contososmbadmin    # user  - garead
+sudo net ads join -U contososmbadmin    # user  - garead
 
 Enter contososmbadmin's password:
+```
+
+```output
 Using short domain name -- CONTOSODOMAIN
 Joined 'CONTOSOVM' to dns domain 'contosodomain.contoso.com' 
 ```
@@ -325,7 +360,10 @@ Joined 'CONTOSOVM' to dns domain 'contosodomain.contoso.com'
 2. Make sure that the DNS record exists for this host on the domain server.
 
 ```bash
-localadmin@contosovm:~$ nslookup contosovm.contosodomain.contoso.com 10.0.2.5
+nslookup contosovm.contosodomain.contoso.com 10.0.2.5
+```
+
+```output
 Server:         10.0.2.5
 Address:        10.0.2.5#53
 
@@ -337,21 +375,32 @@ If users will be actively logging into client machines or VMs and accessing the 
 
 ### Set up nsswitch.conf
 
-1. Now that the host is joined to the domain, you need to put winbind libraries in the places to look for when looking for users and groups. Do this by updating the passwd and group entries in `nsswitch.conf`. Run the command `sudo vim /etc/nsswitch.conf` and add the following entries to `nsswitch.conf`:
+1. Now that the host is joined to the domain, you need to put winbind libraries in the places to look for when looking for users and groups. Do this by updating the passwd and group entries in `nsswitch.conf`. Use your text editor to edit `/etc/nsswitch.conf` and add the following entries:
 
-```bash
+```plaintext
 passwd:         compat systemd winbind
 group:          compat systemd winbind
 ```
 
-2. Enable the winbind service to start automatically on reboot, and then restart the service.
+2. Enable the winbind service to start automatically on reboot.
 
 ```bash
-localadmin@contosovm:~$ sudo systemctl enable winbind
+sudo systemctl enable winbind
+```
+
+```output
 Synchronizing state of winbind.service with SysV service script with /lib/systemd/systemd-sysv-install.
 Executing: /lib/systemd/systemd-sysv-install enable winbind
-localadmin@contosovm:~$ sudo systemctl restart winbind
-localadmin@contosovm:~$ sudo systemctl status winbind
+```
+
+3. Then, restart the service.
+
+```bash
+sudo systemctl restart winbind
+sudo systemctl status winbind
+```
+
+```output
 winbind.service - Samba Winbind Daemon
    Loaded: loaded (/lib/systemd/system/winbind.service; enabled; vendor preset: enabled)
    Active: active (running) since Fri 2020-04-24 09:34:31 UTC; 10s ago
@@ -373,19 +422,28 @@ Apr 24 09:34:31 contosovm systemd[1]: Started Samba Winbind Daemon.
 Apr 24 09:34:31 contosovm winbindd[27349]:   STATUS=daemon 'winbindd' finished starting up and ready to serve connections 
 ```
 
-3. Make sure that the domain users and groups are discovered.
+4. Make sure that the domain users and groups are discovered.
 
 ```bash
-localadmin@contosovm:~$ getent passwd contososmbadmin
+getent passwd contososmbadmin
+```
+
+```output
 contososmbadmin:*:12604:10513::/home/contososmbadmin:/bin/bash
-localadmin@contosovm:~$ getent group 'domain users'
+```
+
+```bash
+getent group 'domain users'
+```
+
+```output
 domain users:x:10513: 
 ```
 
 If the above doesn't work, check if the domain controller is reachable using the wbinfo tool:
 
 ```bash
-localadmin@contosovm:~$ wbinfo --ping-dc
+wbinfo --ping-dc
 ```
 
 ### Configure PAM for winbind
@@ -393,22 +451,28 @@ localadmin@contosovm:~$ wbinfo --ping-dc
 1. You need to place winbind in the authentication stack so that domain users are authenticated through winbind by configuring PAM (Pluggable Authentication Module) for winbind. The second command ensures that the homedir gets created for a domain user upon first login to this system.
 
 ```bash
-localadmin@contosovm:~$ sudo pam-auth-update --enable winbind
-localadmin@contosovm:~$ sudo pam-auth-update --enable mkhomedir 
+sudo pam-auth-update --enable winbind
+sudo pam-auth-update --enable mkhomedir 
 ```
 
 2. Ensure that the PAM authentication config has the following arguments in `/etc/pam.d/common-auth`:
 
 ```bash
-localadmin@contosovm:~$ grep pam_winbind.so /etc/pam.d/common-auth
+grep pam_winbind.so /etc/pam.d/common-auth
+```
+
+```output
 auth    [success=1 default=ignore]      pam_winbind.so krb5_auth krb5_ccache_type=FILE cached_login try_first_pass 
 ```
 
 3. You should now be able to log in to this system as the domain user, either through ssh, su, or any other means of authentication.
 
 ```bash
-localadmin@contosovm:~$ su - contososmbadmin
+su - contososmbadmin
 Password:
+```
+
+```output
 Creating directory '/home/contososmbadmin'.
 contososmbadmin@contosovm:~$ pwd
 /home/contososmbadmin
@@ -426,7 +490,7 @@ nslookup <clientname> <dnsserver>
 
 Next, use the `klist` command to view the tickets in the Kerberos cache. There should be an entry beginning with `krbtgt` that looks similar to:
 
-```bash
+```plaintext
 krbtgt/CONTOSODOMAIN.CONTOSO.COM@CONTOSODOMAIN.CONTOSO.COM
 ```
 
