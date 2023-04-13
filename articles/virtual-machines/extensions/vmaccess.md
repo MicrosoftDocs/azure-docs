@@ -51,7 +51,7 @@ The VMAccess extension can be run on these Linux distributions:
 You can use the VMAccess extension on your Linux VMs in two ways:
 
 * Use the Azure CLI and the required parameters.
-* [Use raw JSON files that the VMAccess extension process](#use-json-files-and-the-vmaccess-extension).
+* [Use JSON files with the VMAccess extension](#use-json-files-and-the-vmaccess-extension).
 
 The following examples use [az vm user](/cli/azure/vm/user) commands. To perform these steps, you need to [install the latest Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account by using [az login](/cli/azure/reference-index).
 
