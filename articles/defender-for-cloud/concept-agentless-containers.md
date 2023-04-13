@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 Identify security risks in containers and Kubernetes realms with an agentless discovery and visibility capability across SDLC and runtime.
 
-With container vulnerability assessment insights as part of [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md) and Kubernetes [Attack Path](attack-path-reference.md#attack-paths) analysis, you can maximize coverage on container posture issues and extend beyond the reach of agent-based assessments, providing a holistic approach to your posture improvement.
+With container vulnerability assessment insights as part of [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md) and Kubernetes [Attack Path](attack-path-reference.md#azure-containers) analysis, you can maximize coverage on container posture issues and extend beyond the reach of agent-based assessments, providing a holistic approach to your posture improvement.
 
 Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
 
@@ -76,13 +76,13 @@ Verify that the settings were saved successfully - a notification message pops u
 
 Agentless information in Defender CSPM is updated once an hour via snapshotting mechanism. It can take up to **24 hours** to see results in Cloud Security Explorer and Attack Path.
 
-Recommendations are available based on vulnerability assessment timeline. Learn more about [agentless scanning](concept-agentless-data-collection.md).
+Recommendations are available based on vulnerability assessment timeline. Learn more about [image scanning](defender-for-containers-vulnerability-assessment-azure.md).
 
 ## How agentless containers works
 
 The system’s architecture is based on a snapshot mechanism at intervals.
 
-<!--- :::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png"::: --->
+:::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png":::
 
 By enabling the Agentless discovery for Kubernetes extension, the following process occurs:
 
@@ -103,10 +103,6 @@ By enabling the Agentless discovery for Kubernetes extension, the following proc
 
 1. **Bind**: Upon discovery of an AKS cluster, MDC performs an AKS bind operation between the created identity and the Kubernetes role “Microsoft.Security/pricings/microsoft-defender-operator”. The role is visible via API and gives MDC data plane read permission inside the cluster.
 
-Agentless information in Defender CSPM is updated once an hour via snapshotting mechanism.
-
 ## Next steps
-
-This article explains how agentless container posture works.
 
 Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
