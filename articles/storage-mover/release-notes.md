@@ -2,9 +2,10 @@
 title: Release notes for the Azure Storage Mover service | Microsoft Docs
 description: Read the release notes for the Azure Storage Mover service, which allows you to migrate your on-premises unstructured data to the Azure Storage service.
 services: storage-mover
+author: stevenmatthew
 ms.topic: conceptual
 ms.date: 4/14/2022
-ms.author: shaas
+ms.author: stevenmatthew
 ---
 
 # Release notes for the Azure Storage Mover service
@@ -69,7 +70,7 @@ In addition to merging content from the source to the target (public preview), t
 
 The service now supports viewing copy logs and job logs in the Azure portal. An Azure Log Analytics workspace must be configured to receive the logs. This configuration is done once for a Storage Mover resource and applies to all agents and migration jobs in that Storage Mover resource. To configure an existing Storage Mover resource or learn how to create a new Storage Mover resource with this configuration, follow the steps in the article: [How to enable Azure Storage Mover copy and job logs](log-monitoring.md).
 
-It is possible to send the logs to a third party monitoring solution and even into a raw file in a storage account. However, the Storage Mover migration job run blade in the Azure portal can only query a Log Analytics workspace for the logs. To get an integrated experience, be sure to select a Log Analytics workspace as a target.
+It is possible to send the logs to a third party monitoring solution and even into a raw file in a storage account. However, the Storage Mover migration job-run blade in the Azure portal can only query a Log Analytics workspace for the logs. To get an integrated experience, be sure to select a Log Analytics workspace as a target.
 
 ### Agent
 
