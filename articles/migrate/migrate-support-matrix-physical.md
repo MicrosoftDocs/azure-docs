@@ -150,7 +150,7 @@ Support | Details
 >
 > However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
-### Configure the custom login for Assessment
+### Configure the custom login for SQL Server discovery
 
 The following are sample scripts for creating a login and provisioning it with the necessary permissions.
 
