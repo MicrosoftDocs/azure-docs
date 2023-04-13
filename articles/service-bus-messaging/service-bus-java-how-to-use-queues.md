@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Service Bus queues (Java)
 description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the Java programming language.
-ms.date: 03/24/2022
+ms.date: 04/12/2023
 ms.topic: quickstart
 ms.devlang: java
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
@@ -39,37 +39,56 @@ Add references to Azure Core and Azure Service Bus libraries.
 
 If you are using Eclipse and created a Java console application, convert your Java project to a Maven: right-click the project in the **Package Explorer** window, select **Configure** -> **Convert to Maven project**. Then, add dependencies to these two libraries as shown in the following example.
 
+
+### [Passwordless (Recommended)](#tab/passwordless)
+Update the `pom.xml` file to add dependencies to Azure Service Bus and Azure Identity packages. 
+
 ```xml
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.myorg.sbusquickstarts</groupId>
-	<artifactId>sbustopicqs</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<build>
-    	<sourceDirectory>src</sourceDirectory>
-    	<plugins>
-      		<plugin>
-        		<artifactId>maven-compiler-plugin</artifactId>
-        		<version>3.8.1</version>
-        		<configuration>
-          			<release>15</release>
-        		</configuration>
-      		</plugin>
-		</plugins>
-	</build>
-	<dependencies>
 		<dependency>
     		<groupId>com.azure</groupId>
     		<artifactId>azure-messaging-servicebus</artifactId>
-    		<version>7.7.0</version>
+    		<version>7.13.3</version>
 		</dependency>
-	</dependencies>
-</project>
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-identity</artifactId>
+		    <version>1.8.0</version>
+		    <scope>compile</scope>
+		</dependency>
 ```
 
+### [Connection String](#tab/connection-string)
+Update the `pom.xml` file to add a dependency to the Azure Service Bus package. 
+
+```xml
+		<dependency>
+    		<groupId>com.azure</groupId>
+    		<artifactId>azure-messaging-servicebus</artifactId>
+    		<version>7.13.3</version>
+		</dependency>
+```
+---
+
 ### Add code to send messages to the queue
+
+### Add import statements
+
 1. Add the following `import` statements at the topic of the Java file. 
 
+    ### [Passwordless (Recommended)](#tab/passwordless)
+    
+    ```java
+    import com.azure.messaging.servicebus.*;
+    import com.azure.identity.*;
+    
+    import java.util.concurrent.CountDownLatch;
+    import java.util.concurrent.TimeUnit;
+    import java.util.Arrays;
+    import java.util.List;
+    ```
+    
+    ### [Connection String](#tab/connection-string)
+    
     ```java
     import com.azure.messaging.servicebus.*;
     
@@ -78,7 +97,8 @@ If you are using Eclipse and created a Java console application, convert your Ja
     import java.util.Arrays;
     import java.util.List;
     ```    
-5. In the class, define variables to hold connection string and queue name as shown below: 
+    ---
+2. In the class, define variables to hold connection string and queue name as shown below: 
 
     ```java
     static String connectionString = "<NAMESPACE CONNECTION STRING>";
@@ -87,6 +107,35 @@ If you are using Eclipse and created a Java console application, convert your Ja
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of the queue.
 3. Add a method named `sendMessage` in the class to send one message to the queue. 
+
+    ### [Passwordless (Recommended)](#tab/passwordless)
+
+    > [!IMPORTANT]
+    > Replace `NAMESPACENAME` with the name of your Service Bus namespace.
+
+    ```java
+	static void sendMessage()
+	{
+        // create a token using the default Azure credential        
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+                .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
+                .build();
+        
+	    ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
+	            .fullyQualifiedNamespace("NAMESPACENAME.servicebus.windows.net")
+	            .credential(credential)
+	            .sender()
+	            .queueName(queueName)
+	            .buildClient();
+
+	    // send one message to the queue
+	    senderClient.sendMessage(new ServiceBusMessage("Hello, World!"));
+	    System.out.println("Sent a single message to the queue: " + queueName);        
+	}
+    
+    ```
+
+    ### [Connection String](#tab/connection-string)
 
     ```java
     static void sendMessage()
@@ -103,7 +152,8 @@ If you are using Eclipse and created a Java console application, convert your Ja
         System.out.println("Sent a single message to the queue: " + queueName);        
     }
     ```
-1. Add a method named `createMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
+    ---
+4. Add a method named `createMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
 
     ```java
     static List<ServiceBusMessage> createMessages()
@@ -117,8 +167,67 @@ If you are using Eclipse and created a Java console application, convert your Ja
         return Arrays.asList(messages);
     }
     ```
-1. Add a method named `sendMessageBatch` method to send messages to the queue you created. This method creates a `ServiceBusSenderClient` for the queue, invokes the `createMessages` method to get the list of messages, prepares one or more batches, and sends the batches to the queue. 
+5. Add a method named `sendMessageBatch` method to send messages to the queue you created. This method creates a `ServiceBusSenderClient` for the queue, invokes the `createMessages` method to get the list of messages, prepares one or more batches, and sends the batches to the queue. 
 
+    ### [Passwordless (Recommended)](#tab/passwordless)
+
+    > [!IMPORTANT]
+    > Replace `NAMESPACENAME` with the name of your Service Bus namespace.
+
+    ```java
+	static void sendMessageBatch()
+	{
+        // create a token using the default Azure credential        
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+                .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
+                .build();
+        
+	    ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
+	            .fullyQualifiedNamespace("NAMESPACENAME.servicebus.windows.net")
+	            .credential(credential)
+	            .sender()
+	            .queueName(queueName)
+	            .buildClient();
+
+	    // Creates an ServiceBusMessageBatch where the ServiceBus.
+	    ServiceBusMessageBatch messageBatch = senderClient.createMessageBatch();        
+
+		// create a list of messages
+	    List<ServiceBusMessage> listOfMessages = createMessages();
+
+	    // We try to add as many messages as a batch can fit based on the maximum size and send to Service Bus when
+	    // the batch can hold no more messages. Create a new batch for next set of messages and repeat until all
+	    // messages are sent.        
+	    for (ServiceBusMessage message : listOfMessages) {
+	        if (messageBatch.tryAddMessage(message)) {
+	            continue;
+	        }
+
+	        // The batch is full, so we create a new batch and send the batch.
+	        senderClient.sendMessages(messageBatch);
+	        System.out.println("Sent a batch of messages to the queue: " + queueName);
+
+	        // create a new batch
+	        messageBatch = senderClient.createMessageBatch();
+
+	        // Add that message that we couldn't before.
+	        if (!messageBatch.tryAddMessage(message)) {
+	            System.err.printf("Message is too large for an empty batch. Skipping. Max size: %s.", messageBatch.getMaxSizeInBytes());
+	        }
+	    }
+
+	    if (messageBatch.getCount() > 0) {
+	        senderClient.sendMessages(messageBatch);
+	        System.out.println("Sent a batch of messages to the queue: " + queueName);
+	    }
+
+	    //close the client
+	    senderClient.close();
+	} 
+    ```
+
+    ### [Connection String](#tab/connection-string)
+    
     ```java
     static void sendMessageBatch()
     {
@@ -166,10 +275,49 @@ If you are using Eclipse and created a Java console application, convert your Ja
     }
     ```
 
+    ---
+
 ## Receive messages from a queue
 In this section, you'll add code to retrieve messages from the queue. 
 
 1. Add a method named `receiveMessages` to receive messages from the queue. This method creates a `ServiceBusProcessorClient` for the queue by specifying a handler for processing messages and another one for handling errors. Then, it starts the processor, waits for few seconds, prints the messages that are received, and then stops and closes the processor.
+
+    ### [Passwordless (Recommended)](#tab/passwordless)
+
+    > [!IMPORTANT]
+    > - Replace `NAMESPACENAME` with the name of your Service Bus namespace.
+    > - Replace `QueueTest` in `QueueTest::processMessage` in the code with the name of your class.
+
+    ```java
+	// handles received messages
+	static void receiveMessages() throws InterruptedException
+	{
+	    CountDownLatch countdownLatch = new CountDownLatch(1);
+
+        // create a token using the default Azure credential        
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+                .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
+                .build();
+        
+	    ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
+	            .fullyQualifiedNamespace("NAMESPACENAME.servicebus.windows.net")
+	            .credential(credential)            
+		        .processor()
+		        .queueName(queueName)
+		        .processMessage(main::processMessage)
+		        .processError(context -> processError(context, countdownLatch))
+		        .buildProcessorClient();
+
+	    System.out.println("Starting the processor");
+	    processorClient.start();
+
+	    TimeUnit.SECONDS.sleep(10);
+	    System.out.println("Stopping and closing the processor");
+	    processorClient.close();    	
+	}   
+    ```
+
+    ### [Connection String](#tab/connection-string)
 
     > [!IMPORTANT]
     > Replace `QueueTest` in `QueueTest::processMessage` in the code with the name of your class. 
@@ -197,6 +345,7 @@ In this section, you'll add code to retrieve messages from the queue.
         processorClient.close();    	
     }   
     ```
+    ---
 2. Add the `processMessage` method to process a message received from the Service Bus subscription. 
 
     ```java
