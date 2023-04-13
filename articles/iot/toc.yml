@@ -48,8 +48,12 @@
       href: ../time-series-insights/index.yml
   - name: IoT device developer
     href: ../iot-develop/index.yml
-  - name: Azure IoT device SDKs and samples
-    href: iot-sdks.md
+  - name: Azure IoT SDKs
+    items:
+    - name: Device and Service SDKs
+      href: iot-sdks.md
+    - name: Device SDKs lifecycle and support
+      href: iot-device-sdks-lifecycle-and-support.md
   - name: Azure Certified for IoT device catalog
     href: https://catalog.azureiotsolutions.com/
   - name: Azure IoT Tools for VS Code
