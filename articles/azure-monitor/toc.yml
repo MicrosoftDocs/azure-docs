@@ -1482,10 +1482,6 @@ items:
     items:
     - name: Azure Functions
       href: ../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json
-    - name: Release notes
-      items:
-      - name: Snapshot Debugger
-        href: snapshot-debugger/snapshot-collector-release-notes.md
   - name: Azure PowerShell
     items:
     - name: Azure Monitor
