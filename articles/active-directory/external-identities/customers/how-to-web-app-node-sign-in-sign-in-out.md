@@ -110,13 +110,13 @@ In your code editor, open `routes/index.js` file, then add the following code:
     module.exports = router;
 ```
 
-The `/` route is the entry point to the application. It renders the `views/index.js` that you created earlier in [Build app UI components](how-to-web-app-node-sign-in-prepare-app.md#build-app-ui-components). `isAuthenticated` is a boolean variable that determines what you see in the view.   
+The `/` route is the entry point to the application. It renders the `views/index.hbs` that you created earlier in [Build app UI components](how-to-web-app-node-sign-in-prepare-app.md#build-app-ui-components). `isAuthenticated` is a boolean variable that determines what you see in the view.   
 
 ### Sign in and sign out
 
 In your code editor, open `routes/auth.js` file, then add the code from [authConfig.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/1-Authentication/5-sign-in-express/App/routes/auth.js) to it.
 
-This file has three routes: 
+This file has the following routes: 
 
 - `/signin`:
     
@@ -179,7 +179,7 @@ This file has three routes:
             };  
         ```
 
-        Notice how we use to [getAuthCodeUrl](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-getauthcodeurl) method to generate authorization code URL:
+        Notice how we use MSALs [getAuthCodeUrl](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-getauthcodeurl) method to generate authorization code URL:
 
         ```javascript
             ...
@@ -206,23 +206,77 @@ This file has three routes:
         ```javascript
             const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
         ``` 
+    
+    - After you receive a response, you can create an Express session and store whatever information you want in it:
+    
+        ```javascript
+            ...        
+            req.session.idToken = tokenResponse.idToken;
+            req.session.account = tokenResponse.account;
+            req.session.isAuthenticated = true;
+            ...
+        ```
 
+- `/signout`: 
+    
+    - It initiates sign out process. 
+    
+    - When you want to sign the user out of the application, it isn't enough to end the user's session. You must redirect the user to the *logout URI*. Otherwise, the user might be able to re-authenticate to your applications without re-entering their credentials. If the name of your tenant is *contoso*, then the *logout URI* looks similar to `https://contoso.ciamlogin.com/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`.
+    
+    ```javascript
+        ...
+        const logoutUri = `${msalConfig.auth.authority}/oauth2/v2.0/logout?post_logout_redirect_uri=${POST_LOGOUT_REDIRECT_URI}`;
+        req.session.destroy(() => {
+            //on successfully destroying a user's session, redirect to the logout URI 
+            res.redirect(logoutUri);
+        });
+        ...
+    ```
+    
 ### View ID token claims
 
+In your code editor, open `routes/users.js` file, then add the following code:
 
+```javascript
+        const express = require('express');
+        const router = express.Router();
+        
+        // custom middleware to check auth state
+        function isAuthenticated(req, res, next) {
+            if (!req.session.isAuthenticated) {
+                return res.redirect('/auth/signin'); // redirect to sign-in route
+            }
+        
+            next();
+        };
+        
+        router.get('/id',
+            isAuthenticated, // check if user is authenticated
+            async function (req, res, next) {
+                res.render('id', { idTokenClaims: req.session.account.idTokenClaims });
+            }
+        );
+        
+        module.exports = router;
+```
 
+If the user is authenticated, the `/id` route displays ID token claims by using the `views/id.hbs` view. You added this view earlier in [Build app UI components](how-to-web-app-node-sign-in-prepare-app.md#build-app-ui-components).
 
+To extract a specific ID token claim, such as *given name*: 
 
+```javascript
+    const givenName = req.session.account.idTokenClaims.given_name
+``` 
 
+## Finalize your web app 
 
+app.js
+server.js
+package.json;   "scripts": {    "start": "node server.js"  },
 
+## Run and test the web app
 
-
-
-
-
-
-
+Use the steps in [Run and test the web app](how-to-web-app-node-sample-sign-in.md#run-and-test-sample-web-app) article to test your web app.
 
 ## Next steps 
 
