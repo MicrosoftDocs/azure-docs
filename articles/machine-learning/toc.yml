@@ -124,27 +124,6 @@
         - name: "Train and deploy models"
           href: ./v1/tutorial-power-bi-custom-model.md
     # end v1
-- name: Samples
-  items:
-    - name: Jupyter Notebooks
-      displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
-      href: samples-notebooks.md
-    # v1
-    - name: Jupyter Notebooks
-      displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
-      href: ./v1/samples-notebooks-v1.md
-    # end v1
-    - name: Examples repository (v2)
-      displayName: example, examples, jupyter, python, notebook, github
-      href: https://github.com/Azure/azureml-examples
-    - name: Examples repository (v1)
-      displayName: example, examples, jupyter, python, notebook, github
-      href: https://github.com/azure/machinelearningnotebooks
-    - name: Designer examples & datasets
-      displayName: example, examples, studio, pipelines, data sets, modules, components
-      href: samples-designer.md
-    - name: End-to-end MLOps examples
-      href: https://github.com/Azure/mlops-v2
 - name: Concepts
   items:
     - name: What is v2?
@@ -627,24 +606,24 @@
   - name: Custom Training
     items:
     - name: scikit-learn
-    -name: TensorFlow
-    -name: Keras
-    -name: PyTorch
-    -name: Tune Hyperperameters
+    - name: TensorFlow
+    - name: Keras
+    - name: PyTorch
+    - name: Tune Hyperperameters
   - name: Distributed Training and deep learning
     items:
     - name: Distributed training
-    -name: Distributed GPU training
-    -name: Optimize Checkpoint performance for large models
-    -name: Deep learning
+    - name: Distributed GPU training
+    - name: Optimize Checkpoint performance for large models
+    - name: Deep learning
   - name: Track and monitor
     items:
     - name: Monitor and analyze jobs in studio
     - name: Log and track jobs using MLFlow
-    -name: Query and compare runs
+    - name: Query and compare runs
   - name: Debug jobs
-  -name: Schedule jobs
-  -name: Common issues and FAQ
+  - name: Schedule jobs
+  - name: Common issues and FAQ
 - name: How-to guides
   items:
     - name: Share components, environments, and models
@@ -1325,6 +1304,27 @@
           displayName: vscode,remote,debug,pipelines,deployments,ssh
           href: how-to-debug-visual-studio-code.md
     # end v1
+- name: Samples
+  items:
+    - name: Jupyter Notebooks
+      displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
+      href: samples-notebooks.md
+    # v1
+    - name: Jupyter Notebooks
+      displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
+      href: ./v1/samples-notebooks-v1.md
+    # end v1
+    - name: Examples repository (v2)
+      displayName: example, examples, jupyter, python, notebook, github
+      href: https://github.com/Azure/azureml-examples
+    - name: Examples repository (v1)
+      displayName: example, examples, jupyter, python, notebook, github
+      href: https://github.com/azure/machinelearningnotebooks
+    - name: Designer examples & datasets
+      displayName: example, examples, studio, pipelines, data sets, modules, components
+      href: samples-designer.md
+    - name: End-to-end MLOps examples
+      href: https://github.com/Azure/mlops-v2
 - name: Reference
   items:
     - name: Python SDK v1
