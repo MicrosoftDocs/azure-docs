@@ -54,17 +54,13 @@ Learn more about [trusted versions that AKS supports](/azure/aks/supported-kuber
 
 ## Onboarding Agentless Containers for CSPM
 
+Before starting the onboarding process, make sure you have [a subscription onboarded to the Defender CSPM plan](enable-enhanced-security.md#enable-enhanced-security-features-on-a-subscription).
+
 1. In the Azure portal, navigate to the Defender for Cloud's **Environment Settings** page.
 
-1. Select the subscription to onboard to the Defender CSPM plan.
+1. Select the subscription that's onboarded to the Defender CSPM plan, then select **Settings**.
 
-    :::image type="content" source="media/concept-agentless-containers/environment-settings.png" alt-text="Screenshot of selecting Environment settings and subscription." lightbox="media/concept-agentless-containers/environment-settings.png":::
-
-1. Toggle on the status for the Defender CSPM plan, then select **Settings**.
-
-    :::image type="content" source="media/concept-agentless-containers/enable-toggle-settings.png" alt-text="Screenshot of selecting the enable toggle for Defender CSPM." lightbox="media/concept-agentless-containers/enable-toggle-settings.png":::
-
-1. Toggle on the **Agentless discovery for Kubernetes** and **Container registries vulnerability assessments** extensions, then select **Continue**.
+1. Toggle on the **Agentless discovery for Kubernetes** and **Container registries vulnerability assessments** extensions, then select **Continue**. For example:
 
     :::image type="content" source="media/concept-agentless-containers/settings-continue.png" alt-text="Screenshot of selecting agentless discovery for Kubernetes and Container registries vulnerability assessments." lightbox="media/concept-agentless-containers/settings-continue.png":::
 
