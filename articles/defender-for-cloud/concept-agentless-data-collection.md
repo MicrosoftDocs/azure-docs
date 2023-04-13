@@ -74,12 +74,12 @@ The roles and permissions used by Defender for Cloud to perform agentless scanni
 
     | SID | Actions | Conditions | Resources | Effect |
     |---------|---------|---------|---------|---------|
-    | **VmScannerDeleteSnapshotAccess** | `ec2:DeleteSnapshot` | "StringEquals":{"ec2:ResourceTag/CreatedBy”:"Microsoft Defender for Cloud"} | `arn:aws:ec2:::snapshot/` | Allow |
-    | **VmScannerAccess** | `ec2:ModifySnapshotAttribute` <br> `ec2:DeleteTags` <br> `ec2:CreateTags` <br> `ec2:CreateSnapshots` <br> `ec2:CopySnapshots` <br> `ec2:CreateSnapshot` | None | `arn:aws:ec2:::instance/` <br> `arn:aws:ec2:::snapshot/` <br> `arn:aws:ec2:::volume/` | Allow |
-    | **VmScannerVerificationAccess** | `ec2:DescribeSnapshots` <br> `ec2:DescribeInstanceStatus` | None | * | Allow |
-    | **VmScannerEncryptionKeyCreation** | `kms:CreateKey` | None | * | Allow |
-    | **VmScannerEncryptionKeyManagement** | `kms:TagResource` <br> `kms:GetKeyRotationStatus` <br> `kms:PutKeyPolicy` <br> `kms:GetKeyPolicy` <br> `kms:CreateAlias` <br> `kms:ListResourceTags` | None | `arn:aws:kms::${AWS::AccountId}:key/` <br> `arn:aws:kms:*:${AWS::AccountId}:alias/DefenderForCloudKey` | Allow |
-    | **VmScannerEncryptionKeyUsage** | `kms:GenerateDataKeyWithoutPlaintext` <br> `kms:DescribeKey` <br> `kms:RetireGrant` <br> `kms:CreateGrant` <br> `kms:ReEncryptFrom` | None | `arn:aws:kms::${AWS::AccountId}:key/` | Allow |
+    | **VmScannerDeleteSnapshotAccess** | ec2:DeleteSnapshot | "StringEquals":{"ec2:ResourceTag/CreatedBy”:"Microsoft Defender for Cloud"} | arn:aws:ec2:::snapshot/ | Allow |
+    | **VmScannerAccess** | ec2:ModifySnapshotAttribute <br> ec2:DeleteTags <br> ec2:CreateTags <br> ec2:CreateSnapshots <br> ec2:CopySnapshots <br> ec2:CreateSnapshot | None | arn:aws:ec2:::instance/ <br> arn:aws:ec2:::snapshot/ <br> arn:aws:ec2:::volume/ | Allow |
+    | **VmScannerVerificationAccess** | ec2:DescribeSnapshots <br> ec2:DescribeInstanceStatus | None | * | Allow |
+    | **VmScannerEncryptionKeyCreation** | kms:CreateKey | None | * | Allow |
+    | **VmScannerEncryptionKeyManagement** | kms:TagResource <br> kms:GetKeyRotationStatus <br> kms:PutKeyPolicy <br> kms:GetKeyPolicy <br> kms:CreateAlias <br> kms:ListResourceTags | None | arn:aws:kms::${AWS::AccountId}:key/ <br> arn:aws:kms:*:${AWS::AccountId}:alias/DefenderForCloudKey | Allow |
+    | **VmScannerEncryptionKeyUsage** | kms:GenerateDataKeyWithoutPlaintext <br> kms:DescribeKey <br> kms:RetireGrant <br> kms:CreateGrant <br> kms:ReEncryptFrom | None | arn:aws:kms::${AWS::AccountId}:key/ | Allow |
 
 
 ### Which data is collected from snapshots?
