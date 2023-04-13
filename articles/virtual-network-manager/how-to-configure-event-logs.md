@@ -17,7 +17,7 @@ In this article, you learn how to monitor Azure Virtual Network Manager for virt
 ## Prerequisites
 - * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed instance of [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md) in your subscription, with managed virtual networks.
--  You deployed either a [Log Analytics workspace](../azure-monitor/essentials/tutorial-resource-logs.md#create-a-log-analytics-workspace) or a [storage account](../storage/common/storage-account-create.md) to store event logs.
+-  You deployed either a [Log Analytics workspace](../azure-monitor/essentials/tutorial-resource-logs.md#create-a-log-analytics-workspace) or a [storage account](../storage/common/storage-account-create.md) to store event logs and observe data related to Azure Virtual Network Manager.
 
 ## Configuring Diagnostic Settings
 
