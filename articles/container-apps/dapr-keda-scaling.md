@@ -10,12 +10,12 @@ ms.date: 04/13/2023
 
 # Scale Dapr applications with KEDA scalers
 
-Using [KEDA scalers](https://keda.sh/), you can scale your application and its [Dapr](https://docs.dapr.io/) sidecar when it has scaled to zero with inbound events and messages. This guide demonstrates how to configure the scale rules of a Dapr pub/sub application with a KEDA messaging scaler. The scaler watches for incoming messages and scales the application in and out as needed. 
+[Azure Container Apps automatically scales HTTP traffic to zero.](./scale-app.md) Since Dapr pub/sub and bindings are not HTTP traffic, you can use [KEDA scalers](https://keda.sh/) to scale out your application and its [Dapr](https://docs.dapr.io/) sidecar when it has scaled to zero with inbound events and messages. This guide demonstrates how to configure the scale rules of a Dapr pub/sub application with a KEDA messaging scaler. The scaler watches for incoming messages and scales the application in and out as needed. 
 
 In this scenario, the application includes the following elements:
-1. A `checkout` publisher container app that continuously publishes messages via the Dapr pub/sub API to the `orders` topic in Azure Service Bus.
-1. The Dapr Azure Service Bus component.
-1. An `order-processor` subscriber container app subscribed to the `orders` topic that receives and processes messages as they arrive.
+1. A `checkout` publisher container app that continuously publishes messages to the `orders` Azure Service Bus.
+1. The Dapr Azure Service Bus pub/sub component.
+1. An `order-processor` subscriber container app picks up messages received via the `orders` topic and processed as they arrive.
 1. The scale rule for Azure Service Bus, which is responsible for scaling up the `order-processor` service and its Dapr sidecar when messages start to arrive to the `orders` topic.
 
 ## Publisher container app
@@ -163,7 +163,7 @@ Notice the `messageCount` property on the scaler's configuration:
 }
 ```
 
-This property tells KEDA how many messages each instance of the application to process at the same time. In this example, the value is set to `30`, making KEDA scale out the application to match the number of messages waiting in the queue.
+This property tells KEDA how many messages each instance of the application to process at the same time. In this example, the value is set to `30`, making KEDA scale out the application to match the number of messages waiting in the topic.
 
 For example, if five messages are waiting, KEDA scales the app out to five instances. In this scenario, `maxReplicas` is set to `10`, so KEDA scales up the `order-processor` container app to a max of 10 replicas.
 
