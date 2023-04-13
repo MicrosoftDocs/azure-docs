@@ -391,7 +391,7 @@ The following example demonstrates how to deploy an infrastructure and applicati
    |**batchAccountApplicationName**|Name for the application in the Batch account.|
    |**batchAccountName**|Name for the Batch account.|
    |**batchAccountPoolName**|Name for the pool of virtual machines (VMs) to do the processing.|
-   |**batchApplicationId**|Unique ID for the Batch application, of the form: */subscriptions/\<subscriptionId>/resourceGroups/\<resourceGroupName>/providers/Microsoft.Batch/batchAccounts/\<batchAccountName>/applications/\<batchAccountApplicationName>*. Replace the `<subscriptionId>` placeholder with your Azure subscription ID, and the other placeholders with the values you set for the other variables in this list.|
+   |**batchApplicationId**|Unique ID for the Batch application, of the form:<br>`/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>^`<br>`/providers/Microsoft.Batch/batchAccounts/<batchAccountName>^`<br>`/applications/<batchAccountApplicationName>`.<br><br>Replace the `<subscriptionId>` placeholder with your Azure subscription ID, and the other placeholders with the values you set for the other variables in this list.|
    |**batchApplicationVersion**|Semantic version of your Batch application, in this case *4.3.1*.|
    |**location**|Azure region for the resources to be deployed.|
    |**resourceGroupName**|Name for the resource group to deploy resources in.|
