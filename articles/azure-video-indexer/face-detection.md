@@ -95,6 +95,9 @@ To see face detection insight in the JSON file, do the following:
 
 To download the JSON file via the API, [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
+> [!IMPORTANT]
+> When reviewing face detections in the UI you may not see all faces, we expose only face groups with a confidence of more than 0.5 and the face must appear for a minimum of 4 seconds or 10% * video_duration. Only when these conditions are met we will show the face in the UI and the Insights.json. You can always retrieve all face instances from the Face Artifact file using the api `https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/ArtifactUrl[?Faces][&accessToken]`
+
 ## Face detection components 
 
 During the Faces Detection procedure, images in a media file are processed, as follows: 

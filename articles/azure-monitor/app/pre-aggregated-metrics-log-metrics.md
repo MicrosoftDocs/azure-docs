@@ -2,7 +2,7 @@
 title: Log-based and pre-aggregated metrics in Application Insights | Microsoft Docs
 description: This article explains when to use log-based versus pre-aggregated metrics in Application Insights.
 ms.topic: conceptual
-ms.date: 01/06/2023
+ms.date: 04/05/2023
 ms.reviewer: vitalyg
 ---
 
@@ -23,7 +23,7 @@ At the same time, collecting a complete set of events might be impractical or ev
 
 ## Pre-aggregated metrics
 
-In addition to log-based metrics, in late 2018, the Application Insights team shipped a public preview of metrics that are stored in a specialized repository that's optimized for time series. The new metrics are no longer kept as individual events with lots of properties. Instead, they're stored as pre-aggregated time series, and only with key dimensions. This change makes the new metrics superior at query time. Retrieving data happens much faster and requires less compute power. As a result, new scenarios are enabled, such as [near real time alerting on dimensions of metrics](../alerts/alerts-metric-near-real-time.md) and more responsive [dashboards](./overview-dashboard.md).
+In addition to log-based metrics, in late 2018, the Application Insights team shipped a public preview of metrics that are stored in a specialized repository that's optimized for time series. The new metrics are no longer kept as individual events with lots of properties. Instead, they're stored as pre-aggregated time series, and only with key dimensions. This change makes the new metrics superior at query time. Retrieving data happens faster and requires less compute power. As a result, new scenarios are enabled, such as [near real time alerting on dimensions of metrics](../alerts/alerts-metric-near-real-time.md) and more responsive [dashboards](./overview-dashboard.md).
 
 > [!IMPORTANT]
 > Both log-based and pre-aggregated metrics coexist in Application Insights. To differentiate the two, in the Application Insights user experience the pre-aggregated metrics are now called Standard metrics (preview). The traditional metrics from the events were renamed to Log-based metrics.
@@ -68,7 +68,7 @@ There are several [ways of sending custom metrics from the Application Insights 
 
 All metrics that you send by using [trackMetric](./api-custom-events-metrics.md#trackmetric) or [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric) API calls are automatically stored in both logs and metrics stores. Although the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. You can turn on collection of dimensions of custom metrics on the [usage and estimated cost](../usage-estimated-costs.md#usage-and-estimated-costs) tab by selecting the **Enable alerting on custom metric dimensions** checkbox.
 
-![Screenshot that shows usage and estimated costs.](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
+:::image type="content" source="./media/pre-aggregated-metrics-log-metrics/001-cost.png" lightbox="./media/pre-aggregated-metrics-log-metrics/001-cost.png" alt-text="Screenshot that shows usage and estimated costs.":::
 
 ## Quotas
 
@@ -79,13 +79,13 @@ Pre-aggregated metrics are stored as time series in Azure Monitor. [Azure Monito
 
 ## Why is collection of custom metrics dimensions turned off by default?
 
-The collection of custom metrics dimensions is turned off by default because in the future storing custom metrics with dimensions will be billed separately from Application Insights. Storing the non-dimensional custom metrics will remain free (up to a quota). You can learn about the upcoming pricing model changes on our official [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+The collection of custom metrics dimensions is turned off by default because in the future storing custom metrics with dimensions will be billed separately from Application Insights. Storing the nondimensional custom metrics remain free (up to a quota). You can learn about the upcoming pricing model changes on our official [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Create charts and explore log-based and standard pre-aggregated metrics
 
 Use [Azure Monitor metrics explorer](../essentials/metrics-getting-started.md) to plot charts from pre-aggregated and log-based metrics and to author dashboards with charts. After you select the Application Insights resource you want, use the namespace picker to switch between standard (preview) and log-based metrics. You can also select a custom metric namespace.
 
-![Screenshot that shows Metric namespace.](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
+:::image type="content" source="./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png" lightbox="./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png" alt-text="Screenshot that shows Metric namespace.":::
 
 ## Pricing models for Application Insights metrics
 
@@ -95,5 +95,7 @@ Selecting the [Enable alerting on custom metric dimensions](#custom-metrics-dime
 
 ## Next steps
 
+* [Metrics - Get - REST API](https://learn.microsoft.com/rest/api/application-insights/metrics/get)
+* [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * [Near real time alerting](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric)

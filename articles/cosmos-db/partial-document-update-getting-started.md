@@ -1,16 +1,18 @@
 ---
-title: Get started with Azure Cosmos DB Partial Document Update
-description: Learn how to use Partial Document Update with .NET, Java, and Node SDKs for Azure Cosmos DB with these examples.
+title: Get started with partial document update
+titleSuffix: Azure Cosmos DB for NoSQL
+description: Learn how to use the partial document update feature with the .NET, Java, and Node SDKs for Azure Cosmos DB for NoSQL.
+ms.author: sidandrews
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 03/06/2023
-ms.author: sidandrews
+ms.date: 04/03/2023
 ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Get started with Azure Cosmos DB Partial Document Update
+
 [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 This article provides examples that illustrate how to use Partial Document Update with .NET, Java, and Node SDKs. It also describes common errors that you might encounter.
@@ -21,6 +23,13 @@ This article links to code samples for the following scenarios:
 - Combine multiple patch operations
 - Use conditional patch syntax based on filter predicate
 - Run patch operation as part of a transaction
+
+## Prerequisites
+
+- An existing Azure Cosmos DB account.
+  - If you have an Azure subscription, [create a new account](nosql/how-to-create-account.md?tabs=azure-portal).
+  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+  - Alternatively, you can [try Azure Cosmos DB free](try-free.md) before you commit.
 
 ## [.NET](#tab/dotnet)
 
@@ -48,9 +57,10 @@ Support for Partial Document Update (Patch API) in the [Azure Cosmos DB .NET v3 
     ```csharp
     List<PatchOperation> operations = new ()
     {
-        PatchOperation.Add($"/color", "silver"),
+        PatchOperation.Add("/color", "silver"),
         PatchOperation.Remove("/used"),
-        PatchOperation.Increment("/price", 50.00)
+        PatchOperation.Increment("/price", 50.00),
+        PatchOperation.Add("/tags/-", "featured-bikes")
     };
     
     ItemResponse<Product> response = await container.PatchItemAsync<Product>(
@@ -375,5 +385,4 @@ Here's some common errors that you might encounter while using this feature:
 
 ## Next steps
 
-- [Partial Document Update in Azure Cosmos DB](partial-document-update.md)
 - [Frequently asked questions about Partial Document Update in Azure Cosmos DB](partial-document-update-faq.yml)

@@ -11,9 +11,9 @@ ms.author: hrshelar
 
 # Prepare the network for Azure Orbital Ground Station integration
 
-The Azure Orbital Ground Station platform interfaces with your resources using VNET injection, which is used in both uplink and downlink directions. This page describes how to ensure your Subnet and Orbital ground station objects are configured correctly.
+The Azure Orbital Ground Station platform interfaces with your resources using VNET injection, which is used in both uplink and downlink directions. This page describes how to ensure your Subnet and Azure Orbital Ground Station objects are configured correctly.
 
-Ensure the objects comply with the recommendations in this article. Note, these steps don't have to be followed in order.
+Ensure the objects comply with the recommendations in this article. Note that these steps do not have to be followed in order.
 
 ## Prepare subnet for VNET injection
 
@@ -24,9 +24,9 @@ Steps:
 1. Delegate a subnet to service named: Microsoft.Orbital/orbitalGateways. Follow instructions here: [Add or remove a subnet delegation in an Azure virtual network](../virtual-network/manage-subnet-delegation.md).
 
 > [!NOTE]
->  Address range needs to be at least /24 (example 10.0.0.0/23)
+>  Address range needs to be at least /24 (e.g., 10.0.0.0/23)
 
-Here is an example of a typical VNET setup with a subnet delegated to Azure Orbital Ground Station.
+The following is an example of a typical VNET setup with a subnet delegated to Azure Orbital Ground Station.
 
 :::image type="content" source="media/azure-ground-station-subnet-example.png" alt-text="Screenshot of subnet configuration with Orbital delegated subnet." lightbox="media/azure-ground-station-subnet-example.png":::
 
@@ -37,21 +37,22 @@ Set the MTU of all desired endpoints to at least 3650.
 ## Setting up the contact profile
 
 Prerequisites:
-- The subnet/vnet is in the same region as the contact profile
+- The subnet/vnet is in the same region as the contact profile.
 
-Make sure the contact profile properties are set as follows:
+Ensure the contact profile properties are set as follows:
 
-1. subnetId (under networkConfiguration): The full ID to the delegated subnet, which can be found inside the VNET's JSON view
-1. For each link
-    1. ipAddress: Enter an IP here for TCP/UDP server mode. Leave blank for TCP/UDP client mode. See section below for a detailed explanation on configuring this property.
-    1. port: Needs to be within 49152 and 65535 range and need to be unique across all links in the contact profile.
+| Property | Setting |
+|----------|---------|
+| subnetId | Enter the full ID to the delegated subnet, which can be found inside the VNET's JSON view. subnetID is found under networkConfiguration. |
+| ipAddress | For each link, enter an IP for TCP/UDP server mode. Leave blank for TCP/UDP client mode. See section below for a detailed explanation on configuring this property. |
+| port | For each link, post must be within 49152 and 65535 range and must be unique across all links in the contact profile.|
 
 > [!NOTE]
-> You can have multiple links/channels in a contact profile, and you can have multiple IPs. But the combination of port/protocol needs to be unique. You can't have two identical ports, even if you have two different destination IPs. 
+> You can have multiple links/channels in a contact profile, and you can have multiple IPs. But the combination of port/protocol must be unique. You cannot have two identical ports, even if you have two different destination IPs. 
 
 ## Scheduling the contact
 
-The platform pre-reserves IPs in the subnet when the contact is scheduled. These IPs represent the platform side endpoints for each link. IPs will be unique between contacts, and if multiple concurrent contacts are using the same subnet, we guarantee those IPs to be distinct. The service will fail to schedule the contact and an error will be returned if the service runs out of IPs or can't allocate an IP.
+The platform pre-reserves IPs in the subnet when the contact is scheduled. These IPs represent the platform side endpoints for each link. IPs will be unique between contacts, and if multiple concurrent contacts are using the same subnet, Microsoft guarantees those IPs to be distinct. The service will fail to schedule the contact and an error will be returned if the service runs out of IPs or cannot allocate an IP.
 
 When you create a contact, you can find these IPs by viewing the contact properties. Select JSON view in the portal or use the GET contact API call to view the contact properties. Make sure to use the current API version of 2022-03-01. The parameters of interest are below:
 
@@ -72,7 +73,7 @@ You can use this information to set up network policies or to distinguish betwee
 
 ## Client/Server, TCP/UDP, and link direction
 
-Here's how to set up the link flows based on direction on tcp or udp preference. 
+The following sections describe how to set up the link flows based on direction on tcp or udp preference. 
 
 ### Uplink
 

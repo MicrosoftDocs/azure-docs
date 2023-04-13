@@ -73,7 +73,7 @@ Azure file share scale targets apply at the file share level.
 <sup>3</sup> Azure Files enforces certain [naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) for directory and file names.
 
 ### File scale targets
-File scale targets apply to individual files stored in Azure file shares. Soft limits and throttling can occur beyond these limits.
+File scale targets apply to individual files stored in Azure file shares.
 
 | Attribute | Files in standard file shares  | Files in premium file shares  |
 |-|-|-|
@@ -83,7 +83,7 @@ File scale targets apply to individual files stored in Azure file shares. Soft l
 | Maximum egress for a file | 60 MiB/sec | 300 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
 | Maximum concurrent handles per file, directory, and share root<sup>3</sup> | 2,000 handles | 2,000 handles  |
 
-<sup>1 Applies to read and write I/Os (typically smaller I/O sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower.</sup>
+<sup>1 Applies to read and write I/Os (typically smaller I/O sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower. These are soft limits, and throttling can occur beyond these limits.</sup>
 
 <sup>2 Subject to machine network limits, available bandwidth, I/O sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).</sup>
 
