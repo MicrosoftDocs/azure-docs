@@ -413,7 +413,7 @@ items:
           displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
           href: speech-container-howto-on-premises.md
         - name: Speech containers on Azure container instances
-          href: ../containers/azure-container-instance-recipe.md
+          href: ../containers/azure-container-instance-recipe.md?context=/azure/cognitive-services/speech-service/context/context
           displayName: 'ACI,azure container instances,container instances,containers'
         - name: Containers FAQ
           href: speech-container-faq.yml
