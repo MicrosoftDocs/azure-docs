@@ -47,7 +47,7 @@ When creating custom task extensions, the scenarios for how it interacts with Li
  :::image type="content" source="media/lifecycle-workflow-extensibility/custom-task-launch-wait.png" alt-text="Screenshot of custom task launch and wait task choice." lightbox="media/lifecycle-workflow-extensibility/custom-task-launch-wait.png":::
 
 > [!NOTE]
-> The response does not have to come from the Logic App, a third party system is able to respond if the Logic App only acts as an intermediary. To learn more about this, see: [taskProcessingResult: resume](/graph/api/identitygovernance-taskprocessingresult-resume).
+> The response does not necessarily have to be provided by the Logic App, a third party system is able to respond if the Logic App only acts as an intermediary. To learn more about this, see: [taskProcessingResult: resume](/graph/api/identitygovernance-taskprocessingresult-resume).
 
 
 ## Response authorization
