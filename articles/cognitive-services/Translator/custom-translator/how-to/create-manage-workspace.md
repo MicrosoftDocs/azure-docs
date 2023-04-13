@@ -93,11 +93,10 @@ The person who created the workspace is the owner. Within **Workspace settings**
 
 ### Restrict access to workspace models 
 
-| :warning: WARNING          |
-|:---------------------------|
-| **Restrict access** blocks runtime translation requests to all published models in the workspace if the requests do not include the same Translator resouce that was used to create the workspace.   |
+> [!WARNING]
+> **Restrict access** blocks runtime translation requests to all published models in the workspace if the requests don't include the same Translator resource that was used to create the workspace.
 
-1. Select **Yes checkbox**. Within few minutes, all published models are secured from unauthorized access.
+* Select the **Yes** checkbox. Within few minutes, all published models are secured from unauthorized access.
 
 :::image type="content" source="../media/how-to/manage-workspace-settings-4.png" alt-text="Screenshot illustrating how to secure a workspace.":::
 
