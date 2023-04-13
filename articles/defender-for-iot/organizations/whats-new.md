@@ -24,9 +24,9 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Download WMI script from OT sensor console
 
-The WMI script can now be downloaded from the OT sensor console.
+The script used to configure OT sensors to detect Microsoft Windows workstations and servers is now available for download from the OT sensor itself. 
 
-For more information, see [Download the script](detect-windows-endpoints-script.md#download-the-script)
+For more information, see [Download the script](detect-windows-endpoints-script.md#download-the-script).
 
 ### Automatically resolved notifications for operating system changes
 
