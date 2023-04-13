@@ -81,8 +81,6 @@
   items:
     - name: Core concepts
       href: concepts-clusters-workloads.md
-    - name: Optimize costs
-      href: best-practices-cost.md
     - name: Security
       items:
         - name: Vulnerability management
