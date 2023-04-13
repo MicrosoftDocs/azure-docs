@@ -11,7 +11,7 @@ ms.custom: template-how-to
 ---
 
 
-# AuditLogs
+# Manage Audit Logs  
 Audit Logs provide auditing trails for data plane APIs on Azure Data Manager for Energy. With audit logs, you can tell:
 * Who performed an action
 * What was the action
@@ -20,9 +20,9 @@ Audit Logs provide auditing trails for data plane APIs on Azure Data Manager for
 
 For example, when you “Add a new member” to the users.datalake.admins entitlement group using entitlements API, you're able to see this information in Audit logs. 
 
-[![Screenshot of audit logs for entitlement](media/how-to-manage-auditlogs/how-to-manage-auditlogs-4-entilements.png)](media/how-to-manage-auditlogs/how-to-manage-auditlogs-4-entilements#lightbox)
+[![Screenshot of audit logs for entitlement](media/how-to-manage-auditlogs/how-to-manage-auditlogs-4-entilements.png)](media/how-to-manage-auditlogs/how-to-manage-auditlogs-4-entilements.png#lightbox)
  
-# Enable audit logs
+## Enable audit logs
 To enable audit logs in diagnostic logging, select your Azure Data Manager for Energy instance in the Azure portal.
 * Select the Activity log screen, and then select Diagnostic settings.
 * Select + Add diagnostic setting.
@@ -38,24 +38,25 @@ To enable audit logs in diagnostic logging, select your Azure Data Manager for E
 For information on how to work with diagnostic logs, see [Azure Resource Log documentation](../azure-monitor/essentials/platform-logs-overview.md)
 
 ## Audit log details
-The audit logs for Azure Data Manager for Energy service returns the following fields in the audit log:
+The audit logs for Azure Data Manager for Energy service returns the following fields.
+
 |Field Name| 	  Type| 	Description|
 |----------|----------|----------------| 
-|tenantId |	String |	The tenant of your Azure Data Manager for Energy instance.|
+| TenantId |	String |	The tenant of your Azure Data Manager for Energy instance.|
 | TimeGenerated | UTC format |	The time of the audit log. |
-| category 	| String | The diagnostic settings category to which the logs belong.|
-| location | 	string | 	Location of the Azure Data Manager for Energy resource.  |
+| Category 	| String | The diagnostic settings category to which the logs belong.|
+| Location | 	string | 	Location of the Azure Data Manager for Energy resource.  |
 | ServiceName 	| String |  	Name of OSDU service running in Azure Data Manager for Energy. For example: Partition, Search, Indexer, Legal, Entitlements, Workflow, Register, Unit, Crs-catalog, File, Schema, and Dataset |
-| operationName | 	String  |Operation ID or operation name associated to data plane APIs, which emits audit logs for example "Add member" |
-| data-partition-id | 	String |  	Data partition ID on which operation is performed. |
-| action  |	String | 	Action refers to the type of operation that is, whether it's create, delete, update etc.|
-| actionId | 	String 	| ID associated with operation (OSDU field) |
-| Puid |	String	| ObjectId of the user in Azure AD|
+| OperationName | 	String  |Operation ID or operation name associated to data plane APIs, which emits audit logs for example "Add member" |
+| Data-partition-id | 	String |  	Data partition ID on which operation is performed. |
+| Action  |	String | 	Action refers to the type of operation that is, whether it's create, delete, update etc.|
+| ActionID | 	String 	| ID associated with operation. |
+| PuID |	String	| ObjectId of the user in Azure AD|
 | ResultType |	String 	| Define success or failure of operation | 
 | Operation Description	| String |	Provides specific details of the response. These details can include tracing information, such as the symptoms, of the result that are used for further analysis. |
-| requestId | 	 String 	| This is the unique ID associated to the request, which triggered the operation on data plane. |
-| Message |	String |	Provides message associated with the success or failure of the operation, for example,  Create group  <group name> or Add entity <user pid> to group <group name> as OWNER. |
-| resourceId | 	String | 	The Azure Data Manager for Energy resource ID of the customer under which the audit log belongs. |
+| RequestId | 	 String 	| This is the unique ID associated to the request, which triggered the operation on data plane. |
+| Message |	String |	Provides message associated with the success or failure of the operation.|
+| ResourceID | 	String | 	The Azure Data Manager for Energy resource ID of the customer under which the audit log belongs. |
 
 ## Sample queries
 
