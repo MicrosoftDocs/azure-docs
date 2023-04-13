@@ -69,7 +69,7 @@ For step-by-step instructions, see [How to migrate your classic storage accounts
 
 For step-by-step instructions for migrating your classic storage accounts, see [How to migrate your classic storage accounts to Azure Resource Manager](classic-account-migrate.md). For an in-depth overview of the migration process, see [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md).
 
-## Can I create new classic accounts?
+### Can I create new classic accounts?
 
 Depending on when your subscription was created, you may no longer be able to create classic storage accounts:
 
