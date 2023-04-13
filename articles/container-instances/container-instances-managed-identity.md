@@ -87,13 +87,13 @@ To use the identity in the following steps, use the [az identity show](/cli/azur
 
 ```azurecli-interactive
 # Get service principal ID of the user-assigned identity
-spID=$(az identity show \
+SP_ID=$(az identity show \
   --resource-group myResourceGroup \
   --name myACIId \
   --query principalId --output tsv)
 
 # Get resource ID of the user-assigned identity
-resourceID=$(az identity show \
+RESOURCE_ID=$(az identity show \
   --resource-group myResourceGroup \
   --name myACIId \
   --query id --output tsv)
@@ -107,7 +107,7 @@ Run the following [az keyvault set-policy](/cli/azure/keyvault) command to set a
  az keyvault set-policy \
     --name mykeyvault \
     --resource-group myResourceGroup \
-    --object-id $spID \
+    --object-id $SP_ID \
     --secret-permissions get
 ```
 
@@ -122,7 +122,7 @@ az container create \
   --resource-group myResourceGroup \
   --name mycontainer \
   --image mcr.microsoft.com/azure-cli \
-  --assign-identity $resourceID \
+  --assign-identity $RESOURCE_ID \
   --command-line "tail -f /dev/null"
 ```
 
@@ -179,14 +179,14 @@ Output:
 To store the access token in a variable to use in subsequent commands to authenticate, run the following command:
 
 ```bash
-token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true | jq -r '.access_token')
+TOKEN=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true | jq -r '.access_token')
 
 ```
 
 Now use the access token to authenticate to key vault and read a secret. Be sure to substitute the name of your key vault in the URL (*https:\//mykeyvault.vault.azure.net/...*):
 
 ```bash
-curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
+curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $TOKEN"
 ```
 
 The response looks similar to the following, showing the secret. In your code, you would parse this output to obtain the secret. Then, use the secret in a subsequent operation to access another Azure resource.
@@ -205,14 +205,14 @@ The `--assign-identity` parameter with no additional value enables a system-assi
 
 ```azurecli-interactive
 # Get the resource ID of the resource group
-rgID=$(az group show --name myResourceGroup --query id --output tsv)
+RG_ID=$(az group show --name myResourceGroup --query id --output tsv)
 
 # Create container group with system-managed identity
 az container create \
   --resource-group myResourceGroup \
   --name mycontainer \
   --image mcr.microsoft.com/azure-cli \
-  --assign-identity --scope $rgID \
+  --assign-identity --scope $RG_ID \
   --command-line "tail -f /dev/null"
 ```
 
@@ -240,7 +240,7 @@ The `identity` section in the output looks similar to the following, showing tha
 Set a variable to the value of `principalId` (the service principal ID) of the identity, to use in later steps.
 
 ```azurecli-interactive
-spID=$(az container show \
+SP_ID=$(az container show \
   --resource-group myResourceGroup \
   --name mycontainer \
   --query identity.principalId --out tsv)
@@ -254,7 +254,7 @@ Run the following [az keyvault set-policy](/cli/azure/keyvault) command to set a
  az keyvault set-policy \
    --name mykeyvault \
    --resource-group myResourceGroup \
-   --object-id $spID \
+   --object-id $SP_ID \
    --secret-permissions get
 ```
 

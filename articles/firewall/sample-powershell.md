@@ -7,7 +7,7 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Azure Firewall PowerShell samples
 
@@ -17,8 +17,3 @@ The following table includes links to Azure PowerShell script samples that creat
 | Sample | Description |
 | ------ | ----------- |
 |[Create an Azure Firewall and test infrastructure](scripts/sample-create-firewall-test.md)|Creates an Azure Firewall and a test network infrastructure.|
-
-
-
-
-

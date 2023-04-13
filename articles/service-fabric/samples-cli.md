@@ -5,6 +5,7 @@ ms.topic: sample
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-azurecli
 services: service-fabric
 ms.date: 07/14/2022
 ---
