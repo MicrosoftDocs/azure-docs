@@ -331,7 +331,7 @@ For Microsoft Graph the parameters for the **Add user to teams** task are as fol
 
 ### Enable user account
 
-Allows cloud-only user accounts to be enabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be enabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. Users created from an on-premise Azure Active Directory HR connected system are not able to have this task run for them, but you are able to enable a user account by mapping the relevant attribute from your HR system. For more information, see: [What is HR driven provisioning?](../app-provisioning/what-is-hr-driven-provisioning.md). You're able to customize the task name and description for this task in the Azure portal.
 
 :::image type="content" source="media/lifecycle-workflow-task/enable-task.png" alt-text="Screenshot of Workflows task: enable user account.":::
 
@@ -405,7 +405,7 @@ For more information on setting up a Logic app to run with Lifecycle Workflows, 
 
 ### Disable user account
 
-Allows cloud-only user accounts to be disabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be disabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. Users created from an on-premise Azure Active Directory HR connected system are not able to have this task run for them, but you are able to disable a user account by mapping the relevant attribute from your HR system. For more information, see: [What is HR driven provisioning?](../app-provisioning/what-is-hr-driven-provisioning.md). You're able to customize the task name and description for this task in the Azure portal.
 
 :::image type="content" source="media/lifecycle-workflow-task/disable-task.png" alt-text="Screenshot of Workflows task: disable user account.":::
 
@@ -604,7 +604,7 @@ For Microsoft Graph the parameters for the **Remove all license assignment from 
 
 ### Delete User
 
-Allows cloud-only user accounts to be deleted. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be deleted. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups.  Users created from an on-premise Azure Active Directory HR connected system are not able to have this task run for them, but you are able to delete a user account by mapping the relevant attribute from your HR system. For more information, see: [What is HR driven provisioning?](../app-provisioning/what-is-hr-driven-provisioning.md). You're able to customize the task name and description for this task in the Azure portal.
 :::image type="content" source="media/lifecycle-workflow-task/delete-user-task.png" alt-text="Screenshot of Workflows task: Delete user account.":::
 
 
