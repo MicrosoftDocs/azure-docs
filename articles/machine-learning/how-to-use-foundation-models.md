@@ -10,6 +10,7 @@
 'Model catalog' (preview) provides a catalog view of all models that you have access to via system registries. You can view the complete list of supported foundation models in the [Model catalog](https://ml.azure.com/model/catalog), under the 'azureml' registry.
 ![image](./media/how-to-use-foundation-models/model_catalog.png)
 
+
 You can filter the list of models in the Model catalog by Task, or by license. Clicking on a specific model name will take you to the model card for that model, which lists detailed information about that specific model. For e.g. -
 ![image](./media/how-to-use-foundation-models/model_card.png)
 
@@ -30,11 +31,13 @@ You can invoke the Evaluate UI wizard by clicking on the 'Evaluate' button on th
 <b>Evaluation Settings</b>
 ![image](./media/how-to-use-foundation-models/evaluate_quick_wizard.png)
 
+
 Each model can be evaluated for the specific inference task that the model can be used for.
 * <b>Test Data</b> Pass in the test data you would like to use to evaluate your model. You can choose to either upload a local file (in JSONL format) or select an existing regsistered dataset from your workspace. 
 
 	Once you've selected the dataset, you will need to map the columns from your input data, based on the schema needed for the task. For e.g. map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
 ![image](./media/how-to-use-foundation-models/evaluate_map_data_columns.png)
+
 
 * <b>Compute</b> Provide the AzureML Compute cluster you would like to use for finetuning the model. Evaluation needs to run on GPU compute. Please ensure that you have sufficient compute quota for the compute SKUs you wish to use.
 
@@ -57,11 +60,13 @@ You can invoke the Finetune UI wizard by clicking on the 'Finetune' button on th
 <b>Finetuning Settings</b>
 ![image](./media/how-to-use-foundation-models/finetune_quick_wizard.png)
 
+
 * <b>Finetuning task type</b> Every pre-trained model from the model catalog can be finetuned for a specific set of tasks (e.g. Text classification, Token classification, Question answering, etc). Select the task you would like to use from the drop down.
 * <b>Training Data</b> Pass in the training data you would like to use to finetune your model. You can choose to either upload a local file (in JSONL, CSV or TSV format) or select an existing regsistered dataset from your workspace. 
 
 	Once you've selected the dataset, you will need to map the columns from your input data, based on the schema needed for the task. For e.g. map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
 ![image](./media/how-to-use-foundation-models/finetune_map_data_columns.png)
+
 
 * <b>Validation data</b> Pass in the data you would like to use to validate your model. Selecting 'Automatic split' will reserve an automatic split of training data for validation. Alternatively, you can provide a different validation dataset.
 * <b>Test data</b> Pass in the test data you would like to use to evaluate your finetuned model. Selecting 'Automatic split' will reserve an automatic split of training data for test. 
