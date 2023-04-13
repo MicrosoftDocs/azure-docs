@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/05/2023
+ms.date: 04/13/2023
 ms.author: jasteppe
 ---
 
@@ -16,7 +16,7 @@ ms.author: jasteppe
 
 This article provides an overview of the MedTech service FHIR destination mapping.
 
-The MedTech service requires two types of [JSON](https://www.json.org/) mappings that are added to your MedTech service through the Azure portal or Azure Resource Manager API. The [device mapping](overview-of-device-mapping.md) is the first type and controls mapping values in the device message data sent to the MedTech service to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and measurement value(s). The FHIR destination mapping is the second type and controls how the normalized data is mapped to [FHIR Observations](https://www.hl7.org/fhir/observation.html).
+The MedTech service requires two types of [JSON](https://www.json.org/) mappings that are added to your MedTech service through the Azure portal or Azure Resource Manager API. The [device mapping](overview-of-device-mapping.md) is the first type and controls mapping values in the device data sent to the MedTech service to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and measurement value(s). The FHIR destination mapping is the second type and controls how the normalized data is mapped to [FHIR Observations](https://www.hl7.org/fhir/observation.html).
 
 > [!NOTE]
 > The device and FHIR destination mappings are re-evaluated each time a message is processed. Any updates to either mapping will take effect immediately.
@@ -56,10 +56,13 @@ CollectionFhir is the root template type used by the MedTech service FHIR destin
 
 CodeValueFhir is currently the only template supported in FHIR destination mapping at this time.  It allows you to define codes, the effective period, and the value of the observation. Multiple value types are supported: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept), [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), and [String](https://www.hl7.org/fhir/datatypes.html#primitive). Along with these configurable values, the identifier for the Observation resource and linking to the proper Device and Patient resources are handled automatically.
 
+> [!NOTE]
+> 
+
 |Property|Description| 
 |:-------|-----------|
 |**typeName**| The type of measurement this template should bind to. There should be at least one Device mapping template that outputs this type.
-|**periodInterval**|The period of time the observation created should represent. Supported values are 0 (an instance), 60 (an hour), 1440 (a day).
+|**periodInterval**|The period of time the observation created should represent. Supported values are 0 (an instance), 60 (an hour), 1440 (a day). Note: `periodInterval` is required when the Observation type is "SampledData" and is ignored for any other Observation types.
 |**category**|Any number of [CodeableConcepts](http://hl7.org/fhir/datatypes-definitions.html#codeableconcept) to classify the type of observation created.
 |**codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the observation created.
 |**codes[].code**|The code for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
@@ -169,9 +172,6 @@ The resulting FHIR Observation will look like this after the transformation stag
 ```json
 [
   {
-    "status": {
-      "value": "final"
-    },
     "code": {
       "coding": [
         {
@@ -183,17 +183,6 @@ The resulting FHIR Observation will look like this after the transformation stag
           },
           "display": {
             "value": "Heart rate"
-          }
-        },
-        {
-          "system": {
-            "value": "https://azure.microsoft.com/en-us/services/iomt-fhir-connector/"
-          },
-          "code": {
-            "value": "heartrate"
-          },
-          "display": {
-            "value": "heartrate"
           }
         }
       ],
