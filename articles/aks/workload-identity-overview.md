@@ -6,29 +6,19 @@ ms.date: 03/28/2023
 
 ---
 
-# Use Azure AD workload identity (preview) with Azure Kubernetes Service (AKS)
+# Use Azure AD workload identity with Azure Kubernetes Service (AKS)
 
-Today with Azure Kubernetes Service (AKS), you can assign [managed identities at the pod-level][use-azure-ad-pod-identity], which has been a preview feature. This pod-managed identity allows the hosted workload or application access to resources through Azure Active Directory (Azure AD). For example, a workload stores files in Azure Storage, and when it needs to access those files, the pod authenticates itself against the resource as an Azure managed identity. This authentication method has been replaced with [Azure Active Directory (Azure AD) workload identities][azure-ad-workload-identity] (preview), which integrate with the Kubernetes native capabilities to federate with any external identity providers. This approach is simpler to use and deploy, and overcomes several limitations in Azure AD pod-managed identity:
-
-- Removes the scale and performance issues that existed for identity assignment
-- Supports Kubernetes clusters hosted in any cloud or on-premises
-- Supports both Linux and Windows workloads
-- Removes the need for Custom Resource Definitions and pods that intercept [Azure Instance Metadata Service][azure-instance-metadata-service] (IMDS) traffic
-- Avoids the complicated and error-prone installation steps such as cluster role assignment from the previous iteration
-
+Azure AD Workload Identity leverages [Service Account Token Volume Projection](Configure Service Accounts for Pods | Kubernetes) giving pods the ability to use a Kubernetes identity (service account), to which a Kubernetes token is issued and [OIDC federation](Authenticating | Kubernetes) which enables Kubernetes applications to access Azure cloud resources securely with Azure Active Directory based on annotated service accounts.
+ 
 Azure AD workload identity works especially well with the Azure Identity client library using the [Azure SDK][azure-sdk-download] and the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL) if you're using [application registration][azure-ad-application-registration]. Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
 
-This article helps you understand this new authentication feature, and reviews the options available to plan your migration phases and project strategy.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+This article helps you understand this new authentication feature, and reviews the options available to plan your project strategy and potential migration from Pod Identity.
 
 ## Dependencies
 
 - AKS supports Azure AD workload identities on version 1.22 and higher.
 
-- The Azure CLI version 2.40.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-- The `aks-preview` extension version 0.5.102 or later.
+- The Azure CLI version 2.47.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Azure Identity SDK
 
