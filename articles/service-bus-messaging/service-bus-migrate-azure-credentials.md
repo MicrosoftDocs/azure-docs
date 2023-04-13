@@ -34,6 +34,14 @@ await using var client = new ServiceBusClient("<CONNECTION-STRING>");
 
 ## [Java](#tab/java)
 
+**JMS:**
+
+```java
+ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
+    "<CONNECTION-STRING>", 
+    new ServiceBusJmsConnectionFactorySettings());
+```
+
 **Receiver client:**
 
 ```java
@@ -53,14 +61,6 @@ ServiceBusSenderClient client = new ServiceBusClientBuilder()
     .sender()
     .queueName("<QUEUE-NAME>")
     .buildClient();
-```
-
-## [Java - JMS](#tab/java-jms)
-
-```java
-ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
-    "<CONNECTION-STRING>", 
-    new ServiceBusJmsConnectionFactorySettings());
 ```
 
 ## [Node.js](#tab/nodejs)
@@ -115,7 +115,7 @@ Next, update your code to use passwordless connections.
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that create a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
+1. Identify the code that creates a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
 
    ```csharp
     //TODO: Replace the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
@@ -126,77 +126,70 @@ Next, update your code to use passwordless connections.
 
 ## [Java](#tab/java)
 
-1. To use `DefaultAzureCredential` in a Java application, install the `azure-identity` package via one of the following approaches:
-    1. [Include the BOM file](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-the-bom-file).
-    1. [Include a direct dependency](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-direct-dependency).
+1. To use `DefaultAzureCredential`:
+    - In a JMS application, add at least version 1.0.0 of the `azure-servicebus-jms` package to your application:
 
-1. At the top of your file, add the following code:
+        ```xml
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-servicebus-jms</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        ```
 
-    ```java
-    import com.azure.identity.DefaultAzureCredentialBuilder;
-    ```
-
-1. Identify the locations in your code that create a Service Bus sender or receiver client object to connect to Azure Service Bus. Update your code to match one of the following examples:
-
-    **Receiver client:**
+    - In a Java application, install the `azure-identity` package via one of the following approaches:
+        1. [Include the BOM file](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-the-bom-file).
+        1. [Include a direct dependency](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#include-direct-dependency).
     
-    ```java
-    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-        .build();
-
-    ServiceBusReceiverClient receiver = new ServiceBusClientBuilder()
-        .credential("<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net", credential)
-        .receiver()
-        .topicName("<TOPIC-NAME>")
-        .subscriptionName("<SUBSCRIPTION-NAME>")
-        .buildClient();
-    ```
-
-    **Sender client:**
-
-    ```java
-    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-        .build();
-
-    // TODO: Update the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
-    ServiceBusSenderClient client = new ServiceBusClientBuilder()
-        .credential("<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net", credential)
-        .sender()
-        .queueName("<QUEUE-NAME>")
-        .buildClient();
-    ```
-
-## [Java - JMS](#tab/java-jms)
-
-1. To use `DefaultAzureCredential` in a JMS application, add at least version 1.0.0 of the `azure-servicebus-jms` package to your application:
-
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-servicebus-jms</artifactId>
-        <version>1.0.0</version>
-    </dependency>
-    ```
-
 1. At the top of your file, add the following code:
 
     ```java
-    import com.azure.core.credential.TokenCredential;
     import com.azure.identity.DefaultAzureCredentialBuilder;
     ```
 
-1. Identify the locations in your code that currently create a `ServiceBusJmsConnectionFactory` object to connect to Azure Service Bus. Update your code to match the following example:
+1. Update the code that connects to Azure Service Bus:
+    - In a JMS application, identify the code that creates a `ServiceBusJmsConnectionFactory` object to connect to Azure Service Bus. Update your code to match the following example:
 
-   ```java
-    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-        .build();
+       ```java
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+            .build();
+    
+        //TODO: Replace the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
+        ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
+            credential,
+            "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
+            new ServiceBusJmsConnectionFactorySettings());
+       ```
 
-    //TODO: Replace the "<SERVICE-BUS-NAMESPACE-NAME>" placeholder.
-    ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
-        credential,
-        "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net",
-        new ServiceBusJmsConnectionFactorySettings());
-   ```
+    - In a Java application, identify the code that creates a Service Bus sender or receiver client object to connect to Azure Service Bus. Update your code to match one of the following examples:
+
+        **Receiver client:**
+        
+        ```java
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+            .build();
+    
+        ServiceBusReceiverClient receiver = new ServiceBusClientBuilder()
+            .credential("<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net", credential)
+            .receiver()
+            .topicName("<TOPIC-NAME>")
+            .subscriptionName("<SUBSCRIPTION-NAME>")
+            .buildClient();
+        ```
+    
+        **Sender client:**
+    
+        ```java
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+            .build();
+    
+        // TODO: Update the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
+        ServiceBusSenderClient client = new ServiceBusClientBuilder()
+            .credential("<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net", credential)
+            .sender()
+            .queueName("<QUEUE-NAME>")
+            .buildClient();
+        ```
 
 ## [Node.js](#tab/nodejs)
 
@@ -212,7 +205,7 @@ Next, update your code to use passwordless connections.
     const { DefaultAzureCredential } = require("@azure/identity");
     ```
 
-1. Identify the locations in your code that create a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
+1. Identify the code that creates a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
 
     ```nodejs
     const credential = new DefaultAzureCredential();
@@ -238,7 +231,7 @@ Next, update your code to use passwordless connections.
     from azure.identity import DefaultAzureCredential
     ```
 
-1. Identify the locations in your code that create a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
+1. Identify the code that creates a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
 
     ```python
     credential = DefaultAzureCredential()
@@ -391,7 +384,7 @@ If you connected your services using the Service Connector you don't need to com
 
 ### [Azure CLI](#tab/assign-role-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az servicebus show` command. You can filter the output properties using the --query parameter.
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az servicebus show` command. You can filter the output properties using the `--query` parameter.
 
 ```azurecli
 az servicebus show \
