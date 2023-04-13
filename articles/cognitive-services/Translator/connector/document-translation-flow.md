@@ -153,6 +153,15 @@ We're ready to select an action. You can translate documents located in your [**
 
 ### Azure blob storage
 
+Here are the steps to translate a file in Azure blob storage using the Translator V3 connector:
+> [!div class="checklist"]
+>
+> * Choose the Translator V3 connector.
+> * Select document translation.
+> * Enter your Azure blob storage credentials and container locations.
+> * Translate the document(s) choosing source and targe languages.
+> * Get the status of the translation operation.
+
 1. In the **Choose an operation** pop-up window, enter Translator V3 in the **Search connectors and actions** search bar and select the **Microsoft Translator V3** icon.
 
    :::image type="content" source="../media/connectors/choose-operation.png" alt-text="Screenshot showing the selection of Translator V3 as the next flow step.":::
@@ -208,9 +217,9 @@ We're ready to select an action. You can translate documents located in your [**
 1. Select the **Expression** tab and enter the following expression into the function field:
 
    ```powerappsfl
-   
+
       body('Start_document_translation').operationID
-   
+
    ```
 
    :::image type="content" source="../media/connectors/create-function-expression.png" alt-text="Screenshot showing function creation window.":::
@@ -246,7 +255,7 @@ Time to check our flow and document translation results.
 
 ### Microsoft SharePoint
 
-Here are the steps to fetch a file from your SharePoint site, translate it, and upload the translated file back to SharePoint:
+Here are the steps to upload a file from your SharePoint site to Azure blob storage, translate the file, and return the translated file to SharePoint:
 
 > [!div class="checklist"]
 >
