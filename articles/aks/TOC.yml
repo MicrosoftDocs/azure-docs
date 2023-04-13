@@ -11,8 +11,14 @@
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
       displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul, github, actions
-    - name: Solution architectures
-      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=/azure/aks/breadcrumb/toc.json&toc=/azure/aks/toc.json?WT.mc_id=AKSDOCSTOC
+    - name: Getting started
+      items:
+        - name: Architecture design recommendations
+          href: /azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service
+        - name: Plan your implementation
+          href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=/azure/aks/breadcrumb/toc.json&toc=/azure/aks/toc.json?WT.mc_id=AKSDOCSTOC
+        - name: Optimize costs
+          href: best-practices-cost.md
 - name: Quickstarts
   expanded: true
   items:
