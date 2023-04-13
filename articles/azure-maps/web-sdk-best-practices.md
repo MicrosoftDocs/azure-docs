@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn tips & tricks to optimize your use of the Azure Maps Web SDK. 
 author: sinnypan
 ms.author: sipa
-ms.date: 11/29/2021
+ms.date: 04/13/2023
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -20,7 +20,7 @@ Generally, when looking to improve performance of the map, look for ways to redu
 
 ## Security best practices
 
-For more information on security best practices, see [Authentication and authorization best practices](authentication-best-practices.md).
+For more information on security best practices, see [Authentication and authorization best practices].
 
 ### Use the latest versions of Azure Maps
 
@@ -30,9 +30,12 @@ If self-hosting the Azure Maps Web SDK via the npm module, be sure to use the ca
 
 ```json
 "dependencies": {
-  "azure-maps-control": "^2.0.30"
+  "azure-maps-control": "^2.2.6"
 }
 ```
+
+> [!TIP]
+> Always use the latest version of the npm Azure Maps Control. For more information, see [azure-maps-control] in the npm documentation.
 
 ## Optimize initial map load
 
@@ -60,7 +63,7 @@ If the map takes a while to load due to network limitations or other priorities 
 
 ### Set initial map style and camera options on initialization
 
-Often apps want to load the map to a specific location or style. Sometimes developers wait until the map has loaded (or wait for the `ready` event), and then use the `setCemer` or `setStyle` functions of the map. This often takes longer to get to the desired initial map view since many resources end up being loaded by default before the resources needed for the desired map view are loaded. A better approach is to pass in the desired map camera and style options into the map when initializing it.
+Often apps want to load the map to a specific location or style. Sometimes developers wait until the map has loaded (or wait for the `ready` event), and then use the `setCamera` or `setStyle` functions of the map. This often takes longer to get to the desired initial map view since many resources end up being loaded by default before the resources needed for the desired map view are loaded. A better approach is to pass in the desired map camera and style options into the map when initializing it.
 
 ## Optimize data sources
 
@@ -74,17 +77,17 @@ The Web SDK has two data sources,
 If working with larger datasets containing millions of features, the recommended way to achieve optimal performance is to expose the data using a server-side solution such as vector or raster image tile service.  
 Vector tiles are optimized to load only the data that is in view with the geometries clipped to the focus area of the tile and generalized to match the resolution of the map for the zoom level of the tile.
 
-The [Azure Maps Creator platform](creator-indoor-maps.md) retrieves data in vector tile format. Other data formats can be using tools such as [Tippecanoe](https://github.com/mapbox/tippecanoe). For more information on working with vector tiles, see the Mapbox [awesome-vector-tiles](https://github.com/mapbox/awesome-vector-tiles#awesome-vector-tiles-) readme in GitHub.
+The [Azure Maps Creator platform] retrieves data in vector tile format. Other data formats can be using tools such as [Tippecanoe]. For more information on working with vector tiles, see the Mapbox [awesome-vector-tiles] readme in GitHub.
 
 It's also possible to create a custom service that renders datasets as raster image tiles on the server-side and load the data using the TileLayer class in the map SDK. This provides exceptional performance as the map only needs to load and manage a few dozen images at most. However, there are some limitations with using raster tiles since the raw data isn't available locally. A secondary service is often required to power any type of interaction experience, for example, find out what shape a user clicked on. Additionally, the file size of a raster tile is often larger than a compressed vector tile that contains generalized and zoom level optimized geometries.
 
-For more information about data sources, see [Create a data source](create-data-source-web-sdk.md).
+For more information about data sources, see [Create a data source].
 
 ### Combine multiple datasets into a single vector tile source
 
 The less data sources the map has to manage, the faster it can process all features to be displayed. In particular, when it comes to tile sources, combining two vector tile sources together cuts the number of HTTP requests to retrieve the tiles in half, and the total amount of data would be slightly smaller since there's only one file header.
 
-Combining multiple data sets in a single vector tile source can be achieved using a tool such as [Tippecanoe](https://github.com/mapbox/tippecanoe). Data sets can be combined into a single feature collection or separated into separate layers within the vector tile known as source-layers. When connecting a vector tile source to a rendering layer, you would specify the source-layer that contains the data that you want to render with the layer.
+Combining multiple data sets in a single vector tile source can be achieved using a tool such as [Tippecanoe]. Data sets can be combined into a single feature collection or separated into separate layers within the vector tile known as source-layers. When connecting a vector tile source to a rendering layer, you would specify the source-layer that contains the data that you want to render with the layer.
 
 ### Reduce the number of canvas refreshes due to data updates
 
@@ -116,7 +119,7 @@ When features have numerous properties or content, it's much more performant to 
 
 Additionally, reducing the number of significant digits in the coordinates of features can also significantly reduce the data size. It isn't uncommon for coordinates to contain 12 or more decimal places; however, six decimal places have an accuracy of about 0.1 meter, which is often more precise than the location the coordinate represents (six decimal places is recommended when working with small location data such as indoor building layouts). Having any more than six decimal places will likely make no difference in how the data is rendered and requires the user to download more data for no added benefit.
 
-Here's a list of [useful tools for working with GeoJSON data](https://github.com/tmcw/awesome-geojson).
+Here's a list of [useful tools for working with GeoJSON data].
 
 ### Use a separate data source for rapidly changing data
 
@@ -167,7 +170,7 @@ That said, if you only have a few points to render on the map, the simplicity of
 
 ### Combine layers
 
-The map is capable of rendering hundreds of layers, however, the more layers there are, the more time it takes to render a scene. One strategy to reduce the number of layers is to combine layers that have similar styles or can be styled using a [data-driven styles](data-driven-style-expressions-web-sdk.md).
+The map is capable of rendering hundreds of layers, however, the more layers there are, the more time it takes to render a scene. One strategy to reduce the number of layers is to combine layers that have similar styles or can be styled using a [data-driven styles].
 
 For example, consider a data set where all features have a `isHealthy` property that can have a value of `true` or `false`. If creating a bubble layer that renders different colored bubbles based on this property, there are several ways to do this as shown in the following list, from least performant to most performant.
 
@@ -261,7 +264,7 @@ The symbol layer has two options that exist for both icon and text called `allow
 When working with large sets of data points you may find that when rendered at certain zoom levels, many of the points overlap and are only partial visible, if at all. Clustering is process of grouping points that are close together and representing them as a single clustered point. As the user zooms in the map, clusters break apart into their individual points. This can significantly reduce the amount of data that needs to be rendered, make the map feel less cluttered, and improve performance. The `DataSource` class has options for clustering data locally. Additionally, many tools that generate vector tiles also have clustering options.
 
 Additionally, increase the size of the cluster radius to improve performance. The larger the cluster radius, the less clustered points there's to keep track of and render.
-For more information, see [Clustering point data in the Web SDK](clustering-point-data-web-sdk.md)
+For more information, see [Clustering point data in the Web SDK].
 
 ### Use weighted clustered heat maps
 
@@ -273,7 +276,7 @@ var layer = new atlas.layer.HeatMapLayer(source, null, {
 });
 ```
 
-For more information, see [Clustering and the heat maps layer](clustering-point-data-web-sdk.md#clustering-and-the-heat-maps-layer)
+For more information, see [Clustering and the heat maps layer].
 
 ### Keep image resources small
 
@@ -281,7 +284,7 @@ Images can be added to the maps image sprite for rendering icons in a symbol lay
 
 ## Optimize expressions
 
-[Data-driven style expressions](data-driven-style-expressions-web-sdk.md) provide flexibility and power for filtering and styling data on the map. There are many ways in which expressions can be optimized. Here are a few tips.
+[Data-driven style expressions] provide flexibility and power for filtering and styling data on the map. There are many ways in which expressions can be optimized. Here are a few tips.
 
 ### Reduce the complexity of filters
 
@@ -341,7 +344,7 @@ Things to check:
 * Ensure that you complete your authentication options in the map. Without authentication, the map loads a blank canvas and returns a 401 error in the network tab of the browser's developer tools.
 * Ensure that you have an internet connection.
 * Check the console for errors of the browser's developer tools. Some errors may cause the map not to render. Debug your application.
-* Ensure you're using a [supported browser](supported-browsers.md).
+* Ensure you're using a [supported browser].
 
 **All my data is showing up on the other side of the world, what's going on?**
 
@@ -376,7 +379,7 @@ Things to check:
 Yes.
 
 > [!TIP]
-> Safari has a [bug](https://bugs.webkit.org/show_bug.cgi?id=170075) that prevents sandboxed iframes from running web workers, a requirement of the Azure Maps Web SDK. The solution is to add the `"allow-same-origin"` tag to the sandbox property of the iframe.
+> Safari has a [bug] that prevents sandboxed iframes from running web workers, a requirement of the Azure Maps Web SDK. The solution is to add the `"allow-same-origin"` tag to the sandbox property of the iframe.
 
 ## Get support
 
@@ -384,31 +387,53 @@ The following are the different ways to get support for Azure Maps depending on 
 
 **How do I report a data issue or an issue with an address?**
 
-Report issues using the [Azure Maps feedback tool](https://feedback.azuremaps.com). Detailed instructions on reporting data issues are provided in the [Provide data feedback to Azure Maps](how-to-use-feedback-tool.md) article.
+Report issues using the [Azure Maps feedback] site. Detailed instructions on reporting data issues are provided in the [Provide data feedback to Azure Maps] article.
 
 > [!NOTE]
 > Each issue submitted generates a unique URL to track it. Resolution times vary depending on issue type and the time required to verify the change is correct. The changes will appear in the render services weekly update, while other services such as geocoding and routing are updated monthly.
 
 **How do I report a bug in a service or API?**
 
-Report issues on Azure's [Help + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) page by selecting the **Create a support request** button.
+Report issues on Azure's [Help + support] page by selecting the **Create a support request** button.
 
 **Where do I get technical help for Azure Maps?**
 
-* For questions related to the Azure Maps Power BI visual, contact [Power BI support](https://powerbi.microsoft.com/support/).
+* For questions related to the Azure Maps Power BI visual, contact [Power BI support].
 
-* For all other Azure Maps services, contact [Azure support](https://azure.com/support).
+* For all other Azure Maps services, contact [Azure support].
 
-* For question or comments on specific Azure Maps Features, use the [Azure Maps developer forums](/answers/topics/azure-maps.html).
+* For question or comments on specific Azure Maps Features, use the [Azure Maps developer forums].
 
 ## Next steps
 
 See the following articles for more tips on improving the user experience in your application.
 
 > [!div class="nextstepaction"]
-> [Make your application accessible](map-accessibility.md)
+> [Make your application accessible]
 
 Learn more about the terminology used by Azure Maps and the geospatial industry.
 
 > [!div class="nextstepaction"]
-> [Azure Maps glossary](glossary.md)
+> [Azure Maps glossary]
+
+[Authentication and authorization best practices]: authentication-best-practices.md
+[awesome-vector-tiles]: https://github.com/mapbox/awesome-vector-tiles#awesome-vector-tiles-
+[Azure Maps Creator platform]: creator-indoor-maps.md
+[Azure Maps developer forums]: /answers/topics/azure-maps.html
+[Azure Maps feedback]: https://feedback.azuremaps.com
+[Azure Maps glossary]: glossary.md
+[Azure support]: https://azure.com/support
+[azure-maps-control]: https://www.npmjs.com/package/azure-maps-control?activeTab=versions
+[bug]: https://bugs.webkit.org/show_bug.cgi?id=170075
+[Clustering and the heat maps layer]: clustering-point-data-web-sdk.md#clustering-and-the-heat-maps-layer
+[Clustering point data in the Web SDK]: clustering-point-data-web-sdk.md
+[Create a data source]: create-data-source-web-sdk.md
+[Data-driven style expressions]: data-driven-style-expressions-web-sdk.md
+[data-driven styles]: data-driven-style-expressions-web-sdk.md
+[Help + support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
+[Make your application accessible]: map-accessibility.md
+[Power BI support]: https://powerbi.microsoft.com/support
+[Provide data feedback to Azure Maps]: how-to-use-feedback-tool.md
+[supported browser]: supported-browsers.md
+[Tippecanoe]: https://github.com/mapbox/tippecanoe
+[useful tools for working with GeoJSON data]: https://github.com/tmcw/awesome-geojson
