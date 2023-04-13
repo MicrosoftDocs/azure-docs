@@ -59,4 +59,14 @@
     href: memo-22-09-authorization.md
   - name: Other areas of Zero Trust
     href: memo-22-09-other-areas-zero-trust.md
-   
+- name: Configure Azure Active Directory for HIPAA
+  expanded: true
+  items:
+  - name: Overview
+    href: hipaa-configure-azure-active-directory-for-compliance.md
+  - name: Access Controls Safeguard compliance
+    href: hipaa-access-controls.md
+  - name: Audit Controls Safeguard compliance
+    href: hipaa-audit-controls.md
+  - name: Additional Controls Safeguard compliance
+    href: hipaa-other-controls.md
