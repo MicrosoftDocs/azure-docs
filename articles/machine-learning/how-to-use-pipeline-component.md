@@ -84,7 +84,7 @@ After submitted pipeline job, you can go to pipeline job detail page to change p
 ## Sample notebooks
 
 - [Build pipeline with sweep node](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb)
-- [Run hyperparameter sweep on a command job](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb)
+- [pipeline_with_train_eval_pipeline_component](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1j_pipeline_with_pipeline_component/pipeline_with_train_eval_pipeline_component/pipeline_with_train_eval_pipeline_component.ipynb)
 
 ## Next steps
 - [YAML reference for pipeline component](reference-yaml-component-pipeline.md)
