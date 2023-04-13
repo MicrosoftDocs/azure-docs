@@ -1,6 +1,6 @@
 ---
 title: Disable local (access key) authentication with Azure Web PubSub Service
-description: This article provides information about how to disable access key authentication and use only Azure AD authentication.
+description: This article provides information about how to disable access key authentication and use only Azure AD authentication with Azure Web PubSub Service.
 author: terencefan
 
 ms.author: tefa
