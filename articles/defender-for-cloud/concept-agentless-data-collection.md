@@ -72,14 +72,53 @@ The roles and permissions used by Defender for Cloud to perform agentless scanni
 
 - AWS permissions - The role “VmScanner” is assigned to the scanner when you enable agentless scanning. This role has the minimal permission set to create and clean up snapshots (scoped by tag) and to verify the current state of the VM. The detailed table of permissions is:
 
-    | SID | Actions | Conditions | Resources | Effect |
-    |---------|---------|---------|---------|---------|
-    | **VmScannerDeleteSnapshotAccess** | ec2:DeleteSnapshot | "StringEquals":{"ec2:ResourceTag/CreatedBy”:"Microsoft Defender for Cloud"} | arn:aws:ec2:::snapshot/ | Allow |
-    | **VmScannerAccess** | ec2:ModifySnapshotAttribute <br> ec2:DeleteTags <br> ec2:CreateTags <br> ec2:CreateSnapshots <br> ec2:CopySnapshots <br> ec2:CreateSnapshot | None | arn:aws:ec2:::instance/ <br> arn:aws:ec2:::snapshot/ <br> arn:aws:ec2:::volume/ | Allow |
-    | **VmScannerVerificationAccess** | ec2:DescribeSnapshots <br> ec2:DescribeInstanceStatus | None | * | Allow |
-    | **VmScannerEncryptionKeyCreation** | kms:CreateKey | None | * | Allow |
-    | **VmScannerEncryptionKeyManagement** | kms:TagResource <br> kms:GetKeyRotationStatus <br> kms:PutKeyPolicy <br> kms:GetKeyPolicy <br> kms:CreateAlias <br> kms:ListResourceTags | None | arn:aws:kms::${AWS::AccountId}:key/ <br> arn:aws:kms:*:${AWS::AccountId}:alias/DefenderForCloudKey | Allow |
-    | **VmScannerEncryptionKeyUsage** | kms:GenerateDataKeyWithoutPlaintext <br> kms:DescribeKey <br> kms:RetireGrant <br> kms:CreateGrant <br> kms:ReEncryptFrom | None | arn:aws:kms::${AWS::AccountId}:key/ | Allow |
+    | Attribute | Value |
+    |---------|---------|
+    | SID | **VmScannerDeleteSnapshotAccess** |
+    | Actions | ec2:DeleteSnapshot |
+    | Conditions | "StringEquals":{"ec2:ResourceTag/CreatedBy”:"Microsoft Defender for Cloud"} |
+    | Resources | arn:aws:ec2:::snapshot/ |
+    | Effect | Allow |
+
+    | Attribute | Value |
+    |---------|---------|
+    | SID | **VmScannerAccess** |
+    | Actions | ec2:ModifySnapshotAttribute <br> ec2:DeleteTags <br> ec2:CreateTags <br> ec2:CreateSnapshots <br> ec2:CopySnapshots <br> ec2:CreateSnapshot |
+    | Conditions | None |
+    | Resources | arn:aws:ec2:::instance/ <br> arn:aws:ec2:::snapshot/ <br> arn:aws:ec2:::volume/ |
+    | Effect | Allow |
+    
+    | Attribute | Value |
+    |---------|---------|
+    | SID | **VmScannerVerificationAccess** |
+    | Actions | ec2:DescribeSnapshots <br> ec2:DescribeInstanceStatus |
+    | Conditions | None |
+    | Resources | * |
+    | Effect | Allow |
+       
+    | Attribute | Value |
+    |---------|---------|
+    | SID | **VmScannerEncryptionKeyCreation** |
+    | Actions | kms:CreateKey |
+    | Conditions | None |
+    | Resources | * |
+    | Effect | Allow |
+    
+    | Attribute | Value |
+    |---------|---------|
+    | SID | **VmScannerEncryptionKeyManagement** |
+    | Actions | kms:TagResource <br> kms:GetKeyRotationStatus <br> kms:PutKeyPolicy <br> kms:GetKeyPolicy <br> kms:CreateAlias <br> kms:ListResourceTags |
+    | Conditions | None |
+    | Resources | arn:aws:kms::${AWS::AccountId}:key/ <br> arn:aws:kms:*:${AWS::AccountId}:alias/DefenderForCloudKey |
+    | Effect | Allow |
+    
+    | Attribute | Value |
+    |---------|---------|
+    | SID | **VmScannerEncryptionKeyUsage** |
+    | Actions | kms:GenerateDataKeyWithoutPlaintext <br> kms:DescribeKey <br> kms:RetireGrant <br> kms:CreateGrant <br> kms:ReEncryptFrom |
+    | Conditions | None |
+    | Resources | arn:aws:kms::${AWS::AccountId}:key/ |
+    | Effect | Allow |
 
 
 ### Which data is collected from snapshots?
