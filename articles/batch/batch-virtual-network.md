@@ -134,7 +134,7 @@ Requirements:
 - Supported Virtual Networks: Classic Virtual Networks only.
 - Subnet ID: when specifying the subnet using the Batch APIs, use the *resource identifier* of the subnet. The subnet identifier is of the form:
 
-`/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork/virtualNetworks/{network}/subnets/{subnet}`
+    `/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork/virtualNetworks/{network}/subnets/{subnet}`
 
 - Permissions: the `Microsoft Azure Batch` service principal must have the `Classic Virtual Machine Contributor` Azure role for the specified Virtual Network.
 
@@ -163,12 +163,14 @@ Any <br /><br />Although this rule effectively requires "allow all", the Batch s
 
 After you've created your Virtual Network and assigned a subnet to it, you can create a Batch pool with that Virtual Network. Follow these steps to create a pool from the Azure portal: 
 
-1. Navigate to your Batch account in the Azure portal. This account must be in the same subscription and region as the resource group containing the Virtual Network you intend to use.
-1. In the **Settings** window on the left, select the **Pools** menu item.
-1. In the **Pools** window, select **Add**.
-1. On the **Add Pool** window, select the option you intend to use from the **Image Type** dropdown.
-1. Select the correct **Publisher/Offer/Sku** for your custom image.
-1. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Target Spot/low-priority nodes**, and any desired optional settings.
+1. Search for and select **Batch accounts** in the search bar at the top of the Azure portal. Select your Batch account. This account must be in the same subscription and region as the resource group containing the Virtual Network you intend to use.
+1. Select **Pools** from the left navigation.
+1. On the **Pools** window, select **Add**.
+
+    :::image type="content" source="./media/batch-virtual-network/batch-add-pool.png" alt-text="Screenshot of the Pools page in a Batch account that highlights the Pools option in the left side navigation and add button on the Pools page.":::
+
+1. On the **Add Pool** page, select the options and enter the information for your pool. For more information on creating pools for your Batch account, see [Quickstart: Use the Azure portal to create a Batch account and run a job].
+**Node size**, **Target dedicated nodes**, and **Target Spot/low-priority nodes**, and any desired optional settings.
 1. In **Virtual Network**, select the virtual network and subnet you wish to use.
 1. Select **OK** to create your pool.
 
