@@ -251,7 +251,7 @@ The following considerations apply to using a warmup function in C#:
 
 # [Isolated process](#tab/isolated-process)
 
-- Your function must be named `warmup` (case-insensitive) using the `FunctionName` attribute.
+- Your function must be named `warmup` (case-insensitive) using the `Function` attribute.
 - A return value attribute isn't required.
 - You can pass an object instance to the function.
 
