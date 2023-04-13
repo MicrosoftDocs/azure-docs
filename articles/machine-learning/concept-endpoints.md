@@ -83,15 +83,16 @@ Both of online and batch endpoints use the same constructs, which help you trans
 
 #### Deployments
 
-| Feature                   | Online endpoints                 | Batch endpoints                |
-|---------------------------|----------------------------------|--------------------------------|
-| Deployment's types        | Models                           | Models and pipeline components |
-| Deployment's routing      | Traffic split and mirror         | Switch to default              |
-| MLflow model's deployment | Yes (requires public networking) | Yes                            |
-| Compute resource          | Instances or granular resources  | Clusters                       |
-| Compute type              | AzureML and Kubernetes           | AzureML and Kubernetes         |
-| Scale to zero             | No                               | Yes                            |
-| Test deployments locally  | Yes                              | No                             |
+| Feature                   | Online endpoints                 | Batch endpoints                 |
+|---------------------------|----------------------------------|---------------------------------|
+| Deployment's types        | Models                           | Models and pipeline components  |
+| Deployment's routing      | Traffic split and mirror         | Switch to default               |
+| MLflow model's deployment | Yes (requires public networking) | Yes                             |
+| Compute resource consumed | Instances or granular resources  | Cluster instances               |
+| Compute type              | AzureML and Kubernetes           | AzureML and Kubernetes          |
+| Scale to zero             | No                               | Yes                             |
+| Low-priority compute      | No                               | Yes                             |
+| Test deployments locally  | Yes                              | No                              |
 
 
 ## Developer interfaces

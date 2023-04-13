@@ -226,12 +226,12 @@
               href: algorithm-cheat-sheet.md
             - name: How to select algorithms
               href: how-to-select-algorithms.md
-    - name: Deploy models
+    - name: Deploy to production
       items:
-        - name: Endpoints for inference
-          href: concept-endpoints.md
         - name: Endpoints
           items:
+            - name: Endpoints for inference
+              href: concept-endpoints.md
             - name: Online endpoints
               href: concept-endpoints-online.md
             - name: Batch endpoints
@@ -847,7 +847,7 @@
           displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
           href: ./v1/how-to-machine-learning-interpretability-automl.md
         # end v1  
-    - name: Deploy models
+    - name: Deploy to production
       items:
         - name: Online endpoints (real-time)
           items:
