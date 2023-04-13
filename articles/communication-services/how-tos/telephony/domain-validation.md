@@ -37,27 +37,27 @@ Make sure to add and verify domain name portion of the FQDN and keep in mind tha
 1. Reenter the domain name.
 1. Select Confirm and then select Add.
 
-[ ![Screenshot of adding a custom domain.](./media/direct-routing-add-domain.png)](./media/direct-routing-add-domain.png#lightbox)
+[![Screenshot of adding a custom domain.](./media/direct-routing-add-domain.png)](./media/direct-routing-add-domain.png#lightbox)
 
 #### Verify domain ownership
 
 1. Select Verify next to new domain that is now visible in Domain’s list.
 1. Azure portal generates a value for a TXT record, you need to add that record to
 
-[ ![Screenshot of verifying a custom domain.](./media/direct-routing-verify-domain-2.png)](./media/direct-routing-verify-domain-2.png#lightbox)
+[![Screenshot of verifying a custom domain.](./media/direct-routing-verify-domain-2.png)](./media/direct-routing-verify-domain-2.png#lightbox)
 
 >[!Note] 
 >It might take up to 30 minutes for new DNS record to propagate on the Internet
 
 3. Select Next. If everything is set up correctly, you should see Domain status changed to *Verified* next to the added domain.
 
-[ ![Screenshot of a verified domain.](./media/direct-routing-domain-verified.png)](./media/direct-routing-domain-verified.png#lightbox)
+[![Screenshot of a verified domain.](./media/direct-routing-domain-verified.png)](./media/direct-routing-domain-verified.png#lightbox)
 
 #### Remove domain from Azure Communication Services
 
 If you want to remove a domain from your Azure Communication Services direct routing configuration, select the checkbox fir a corresponding domain name, and select *Remove*.
 
-[ ![Screenshot of removing a custom domain.](./media/direct-routing-remove-domain.png)](./media/direct-routing-remove-domain.png#lightbox)
+[![Screenshot of removing a custom domain.](./media/direct-routing-remove-domain.png)](./media/direct-routing-remove-domain.png#lightbox)
 
 ## Next steps:
 
