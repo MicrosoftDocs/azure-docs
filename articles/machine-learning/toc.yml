@@ -600,29 +600,46 @@
 - name: Training
   items:
   - name: Overview
+    href: concept-train-machine-learning-model.md
   - name: Training with CLI and SDK
+    href: how-to-train-model.md
   - name: Training with UI
-  - name: Using secrets in training
+    href: how-to-train-with-ui.md
+  - name: Using secrets in training 
+    href: how-to-use-secrets-in-runs.md
   - name: Custom Training
     items:
     - name: scikit-learn
+      href: how-to-train-scikit-learn.md
     - name: TensorFlow
+      href: how-to-train-tensorflow.md
     - name: Keras
+      href: how-to-train-keras.md
     - name: PyTorch
+      href: how-to-train-pytorch
     - name: Tune Hyperperameters
+      href: how-to-tune-hyperperameters.md
   - name: Distributed Training and deep learning
     items:
     - name: Distributed training
+      href: concept-distributed-training.md
     - name: Distributed GPU training
+      href: how-to-train-distributed-gpu.md
     - name: Optimize Checkpoint performance for large models
+      href: reference-checkpoint-performance-for large-models.md
     - name: Deep learning
+      href: concept-deep-learning-vs-machine-learning.md
   - name: Track and monitor
     items:
     - name: Monitor and analyze jobs in studio
+      href: how-to-track-monitor-analyze-runs.md
     - name: Log and track jobs using MLFlow
     - name: Query and compare runs
+      href: how-to-track-experiments-mlflow.md
   - name: Debug jobs
+    href: how-to-interactive-jobs.md
   - name: Schedule jobs
+    href: how-to-schedule-pipeline-job.md
   - name: Common issues and FAQ
 - name: How-to guides
   items:
