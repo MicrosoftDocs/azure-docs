@@ -1,11 +1,11 @@
 - name: Azure Virtual Desktop (classic)
+  href: index.yml
+- name: Azure Virtual Desktop documentation
   href: ../index.yml
 - name: Overview
   items:
   - name: What is Azure Virtual Desktop?
-    href: ../overview.md
-  - name: Azure Virtual Desktop documentation
-    href: ../create-host-pools-azure-marketplace.md
+    href: ../overview.md?toc=%2Fazure%2Fvirtual-desktop%2Fvirtual-desktop-fall-2019%2Ftoc.json
 - name: Tutorials
   items:
   - name: 1. Create a tenant

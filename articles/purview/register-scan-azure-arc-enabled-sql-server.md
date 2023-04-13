@@ -16,9 +16,9 @@ This article shows how to register an Azure Arc-enabled SQL Server instance. It 
 
 ## Supported capabilities
 
-|Metadata extraction|Full scan|Incremental scan|Scoped scan|Classification|Access policy|Lineage|Data sharing|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)(GA) | [Yes](#scan)(preview) | [Yes](#scan)(preview) | [Yes](#scan)(preview) | [Yes](#scan)(preview) | [Yes](#access-policy)(GA) | Limited** | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)(GA) | [Yes](#scan)(preview) | [Yes](#scan)(preview) | [Yes](#scan)(preview) | [Yes](#scan)(preview) | No | [Yes](#access-policy)(GA) | Limited** | No |
 
 \** Lineage is supported if the dataset is used as a source/sink in the [Azure Data Factory copy activity](how-to-link-azure-data-factory.md). 
 

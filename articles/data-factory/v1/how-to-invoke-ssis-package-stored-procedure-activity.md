@@ -7,7 +7,7 @@ ms.subservice: v1
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ms.author: jianleishen
 ---
 # Invoke an SSIS package using stored procedure activity in Azure Data Factory
