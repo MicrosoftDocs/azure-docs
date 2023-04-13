@@ -164,7 +164,7 @@ This message indicates that either the application user closed the dialog that d
 
 ### Connection issues
 
-The application user sees an error message similar to "Please check your connection and try again". If this issue occurs regularly, see the [troubleshooting guide for Office](https://learn.microsoft.com/microsoft-365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016), which also uses the broker.
+The application user sees an error message similar to "Please check your connection and try again." If this issue occurs regularly, see the [troubleshooting guide for Office](/microsoft-365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016), which also uses the broker.
 
 
 ## Sample
