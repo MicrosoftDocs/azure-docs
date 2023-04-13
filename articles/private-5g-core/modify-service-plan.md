@@ -17,11 +17,10 @@ The *service plan* determines an allowance for the throughput and the number of 
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
-- Verify pricing and charges associated with your chosen service plan. See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/).
 
 ## Choose a new service plan
 
-Choose the new service plan that will best fit your requirements. See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/).
+Choose the service plan that will best fit your requirements and verify pricing and charges. See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/).
 
 ## View the current service plan
 
@@ -53,7 +52,7 @@ To modify your service plan:
 
     :::image type="content" source="media/modify-service-plan/service-plan.png" alt-text="Screenshot of the Azure portal showing a packet core control plane resource. The Service Plan field is highlighted.":::
 
-3. In **Service Plan** on the right, select the new service plan you collected in [Choose a new service plan](#choose-a-new-service-plan). Save your change with **Select**.
+3. In **Service Plan** on the right, select the new service plan you identified in [Choose a new service plan](#choose-a-new-service-plan). Save your change with **Select**.
 
     :::image type="content" source="media/modify-service-plan/service-plan-selection-tab.png" alt-text="Screenshot of the Azure portal showing the Service Plan screen.":::
 
