@@ -89,7 +89,7 @@ You export `msalConfig`, `REDIRECT_URI`, and `POST_LOGOUT_REDIRECT_URI` variable
 
 ## Add express routes
 
-The Express routes provides the endpoints that enable us the execute operations such as sign in, sign out and view ID token claims.
+The Express routes provide the endpoints that enable us the execute operations such as sign in, sign out and view ID token claims.
 
 ### App entry point 
 
@@ -270,16 +270,34 @@ To extract a specific ID token claim, such as *given name*:
 
 ## Finalize your web app 
 
-app.js
-server.js
-package.json;   "scripts": {    "start": "node server.js"  },
+1. In your code editor, open `app.js` file, then add the code from [app.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/1-Authentication/5-sign-in-express/App/app.js) to it.
+
+1. In your code editor, open `server.js` file, then add the code from [server.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/1-Authentication/5-sign-in-express/App/Server.js) to it.
+
+1. In your code editor, open `package.json` file, then:
+    
+    1. Update the `script` property to:
+    
+    ```json
+      "scripts": {
+        "start": "node server.js"
+      }
+    ```
+    
+    1. Remove the `main` property.
 
 ## Run and test the web app
 
-Use the steps in [Run and test the web app](how-to-web-app-node-sample-sign-in.md#run-and-test-sample-web-app) article to test your web app.
+1. In your terminal, make sure you're in the project folder such as `ciam-sign-in-node-express-web-app`.
+
+1. Use the steps in [Run and test the web app](how-to-web-app-node-sample-sign-in.md#run-and-test-sample-web-app) article to test your web app.
 
 ## Next steps 
 
-add sGoogle anf FB IdPs
-branding 
-extensions - customization. s
+Learn how to: 
+
+- [Enable password reset](how-to-enable-password-reset-customers.md).
+
+- [Customize the default branding](how-to-customize-branding-customers.md).
+ 
+- [Configure sign-in with Google](how-to-google-federation-customers.md). 
