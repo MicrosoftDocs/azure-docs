@@ -11,4 +11,4 @@ ms.author: larryfr
 >
 > :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_update":::
 >
-> For more information, see [Install, set up, and use the CLI (v2)](../articles/machine-learning/how-to-configure-cli.md).
+> For more information, see [Install, set up, and use the CLI (v2)](../how-to-configure-cli.md).
