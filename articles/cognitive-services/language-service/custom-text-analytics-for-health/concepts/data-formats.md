@@ -166,4 +166,4 @@ Your Labels file should be in the `json` format below to be used when importing 
 ## Next steps
 * You can import your labeled data into your project directly. Learn how to [import project](../how-to/create-project.md#import-project)
 * See the [how-to article](../how-to/label-data.md)  more information about labeling your data. 
-* <!--When you're done labeling your data, you can [train your model](../how-to/train-model.md).-->  
+ <!--* When you're done labeling your data, you can [train your model](../how-to/train-model.md).-->  
