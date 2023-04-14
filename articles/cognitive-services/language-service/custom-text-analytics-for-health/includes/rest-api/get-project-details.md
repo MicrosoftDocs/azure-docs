@@ -9,7 +9,7 @@ ms.date: 05/09/2022
 ms.author: aahi
 ---
 
-Use the following **GET** request to get your project details. Replace the placeholder values below with your own values. 
+Use the following **GET** request to get your project details. Replace the placeholder values with your own values. 
 
 ```rest
 {ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}?api-version={API-VERSION}
@@ -19,7 +19,7 @@ Use the following **GET** request to get your project details. Replace the place
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. See [Model lifecycle](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) to learn more about other available API versions.  | `2022-05-01` |
+|`{API-VERSION}`     | The version of the API you're calling. The value referenced here is for the latest version released. See [Model lifecycle](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) to learn more about other available API versions.  | `2022-05-01` |
 
 #### Headers
 

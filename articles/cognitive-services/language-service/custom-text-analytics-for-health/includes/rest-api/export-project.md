@@ -14,7 +14,7 @@ Create a **POST** request using the following URL, headers, and JSON body to exp
 
 ### Request URL
 
-Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
+Use the following URL when creating your API request. Replace the placeholder values with your own values. 
 
 ```rest
 {ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/:export?stringIndexType=Utf16CodeUnit&api-version={API-VERSION}
@@ -44,7 +44,7 @@ Use the following JSON in your request body specifying that you want to export a
 }
 ```
 
-Once you send your API request, you’ll receive a `202` response indicating that the job was submitted correctly. In the response headers, extract the `operation-location` value. It will be formatted like this: 
+Once you send your API request, you’ll receive a `202` response indicating that the job was submitted correctly. In the response headers, extract the `operation-location` value. It's formatted like this: 
 
 ```rest
 {ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/export/jobs/{JOB-ID}?api-version={API-VERSION}
