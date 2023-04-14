@@ -20,7 +20,7 @@ You can use an existing Language resource to get started with custom NER as long
 |Pricing tier     | The pricing tier for your resource. <!--Learn more about [supported pricing tiers](../service-limits.md#language-resource-limits).-->        |
 |Managed identity     | Make sure that the resource's managed identity setting is enabled. Otherwise, read the next section. |
 
-To use custom named entity recognition, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
+To use custom text analytics for health, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
 
 ## Enable identity management for your resource
 
@@ -42,13 +42,13 @@ Your Language resource must have identity management, to enable it using [Langua
 
 ---
 
-### Enable custom named entity recognition feature
+### Enable custom text analytics for health
 
-Make sure to enable **Custom text classification / Custom Named Entity Recognition** feature from Azure portal.
+Make sure to enable **Custom text classification / Custom Named Entity Recognition / Custom text analytics for health** feature from Azure portal.
 
 1. Go to your Language resource in [Azure portal](https://portal.azure.com/)
 2. From the left side menu, under **Resource Management** section, select **Features**
-3. Enable **Custom text classification / Custom Named Entity Recognition** feature
+3. Enable the **Custom text classification / Custom Named Entity Recognition / Custom text analytics** feature
 4. Connect your storage account
 5. Click **Apply**
 
