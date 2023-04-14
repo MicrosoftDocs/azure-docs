@@ -54,8 +54,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Select either **Azure Active Directory (Multi-Tenant)** or **Azure Active Directory** based on your organization's Azure AD topology.
 
-   ![Screenshot of the Azure Active Directory (Multi-Tenant) dialog.](media/howspace-provisioning-tutorial/settings-aad-multi-tenant.png)
-   ![Screenshot of the Azure Active Directory dialog.](media/howspace-provisioning-tutorial/settings-aad-single-tenant.png)
+   ![Screenshot of the Azure Active Directory (Multi-Tenant) dialog.](media/howspace-provisioning-tutorial/settings-azure-ad-multi-tenant.png)
+   ![Screenshot of the Azure Active Directory dialog.](media/howspace-provisioning-tutorial/settings-azure-ad-single-tenant.png)
 
 1. Enter your Azure AD Tenant ID, and click **OK** to save the configuration.
 
