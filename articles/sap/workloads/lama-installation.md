@@ -91,17 +91,13 @@ Follow these steps to create a service principal for the SAP LaMa connector for 
 1. Write down the value. You'll use it as the password for the service principal.
 1. Write down the application ID. You'll use it as the username of the service principal.
 
-By default, the service principal doesn't have permissions to access your Azure resources. Assign the Contributor role to the service principal at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage.
-
-For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+By default, the service principal doesn't have permissions to access your Azure resources. Assign the Contributor role to the service principal at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Use a managed identity to get access to the Azure API
 
 To be able to use a managed identity, your SAP LaMa instance has to run on an Azure VM that has a system-assigned or user-assigned identity. For more information about managed identities, read [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md) and [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
-By default, the managed identity doesn't have permissions to access your Azure resources. Assign the Contributor role to the VM identity at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage.
-
-For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+By default, the managed identity doesn't have permissions to access your Azure resources. Assign the Contributor role to the VM identity at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 In your configuration of the SAP LaMa connector for Azure, select **Use Managed Identity** to enable the use of the managed identity. If you want to use a system-assigned identity, leave the **User Name** field empty. If you want to use a user-assigned identity, enter its ID in the **User Name** field.
 
@@ -195,7 +191,7 @@ The components are required for template deployment. The easiest way to make the
 
 The templates have the following parameters:
 
-* `sapSystemId`: The SAP system ID. It's used to create the disk layout (for example, */usr/sap/\<sapsid\>*).
+* `sapSystemId`: The SAP system ID (SID). It's used to create the disk layout (for example, */usr/sap/\<sapsid\>*).
 
 * `computerName`: The computer name of the new virtual machine. SAP LaMa also uses this parameter. When you use this template to provision a new virtual machine as part of a system copy, SAP LaMa waits until the host with this computer name can be reached.
 
@@ -237,7 +233,7 @@ The templates have the following parameters:
 
 ### SAP HANA
 
-The following examples assume that you install SAP HANA with system ID HN1 and the SAP NetWeaver system with system ID AH1. The virtual host names are:
+The following examples assume that you install the SAP HANA system with SID *HN1* and the SAP NetWeaver system with SID *AH1*. The virtual host names are:
 
 * *hn1-db* for the HANA instance
 * *ah1-db* for the HANA tenant that the SAP NetWeaver system uses
@@ -320,7 +316,7 @@ Azure NetApp Files requires a delegated subnet, which must be part of the same v
 
 1. Mount the volumes to the systems where the initial installation with SAP SWPM is performed:
 
-   1. Create the mount points. In this case, the SID is `AN1`, so you run the following commands:
+   1. Create the mount points. In this case, the SID is *AN1*, so you run the following commands:
 
       ```bash
       mkdir -p /home/an1adm
@@ -371,7 +367,7 @@ Run the database instance installation of SWPM on the application server VM, not
 
 #### Install SAP NetWeaver Application Server for SAP HANA
 
-Before you start SWPM, you need to mount the IP address of virtual host name of the application server. The recommended way is to use SAPACEXT. If you mount the IP address by using SAPACEXT, be sure to remount the IP address after a reboot.
+Before you start SWPM, you need to mount the IP address of the virtual host name of the application server. The recommended way is to use SAPACEXT. If you mount the IP address by using SAPACEXT, be sure to remount the IP address after a reboot.
 
 ![Linux logo.][Logo_Linux] Linux
 
@@ -411,7 +407,7 @@ Back up SYSTEMDB and all tenant databases before you try to copy a tenant, move 
 
 ### Microsoft SQL Server
 
-The following examples assume that you install SAP NetWeaver with system ID AS1. The virtual host names are:
+The following examples assume that you install the SAP NetWeaver system with SID *AS1*. The virtual host names are:
 
 * *as1-db* for the SQL Server instance that the SAP NetWeaver system uses
 * *as1-ascs* for SAP NetWeaver ASCS
@@ -487,7 +483,7 @@ In the **Primary Application Server Instance** dialog, for **PAS Instance Host N
     `Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r`
   * **Solution**: Back up all databases in the source HANA system.
 
-* An error occurred in the system copy step **Start** of the database instance.
+* An error occurred in the system copy **Start** step of the database instance.
   * **Error**:
 
     `Host Agent Operation '000D3A282BC91EE8A1D76CF1F92E2944' failed (OperationException. FaultCode: '127', Message: 'Command execution failed. : [Microsoft][ODBC SQL Server Driver][SQL Server]User does not have permission to alter database 'AS2', the database does not exist, or the database is not in a state that allows access checks.')`
@@ -495,13 +491,13 @@ In the **Primary Application Server Instance** dialog, for **PAS Instance Host N
 
 ### Errors and warnings during a system clone
 
-* An error occurred in trying to register an instance agent in the step **Forced Register and Start Instance Agent** of the application server or ASCS.
+* An error occurred in trying to register an instance agent in the **Forced Register and Start Instance Agent** step of the application server or ASCS.
   * **Error**:
 
     `Error occurred when trying to register instance agent. (RemoteException: 'Failed to load instance data from profile '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0':  Cannot access profile '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': No such file or directory.')`
   * **Solution**: Make sure that the *sapmnt* share on ASCS/SCS has full access for *SAP_AS1_GlobalAdmin*.
 
-* An error occurred in the step **Enable Startup Protection for Clone**.
+* An error occurred in the **Enable Startup Protection for Clone** step.
   * **Error**:
 
     `Failed to open file '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' Cause: No such file or directory`
@@ -509,7 +505,7 @@ In the **Primary Application Server Instance** dialog, for **PAS Instance Host N
 
 ### Errors and warnings during creation of system replication
 
-* Exception in selecting **Create System Replication**.
+* An exception was raised in selecting **Create System Replication**.
   * **Caused by**: `com.sap.nw.lm.aci.engine.base.api.util.exception`
   * **Error**:
 
@@ -530,18 +526,20 @@ In the **Primary Application Server Instance** dialog, for **PAS Instance Host N
   * **Solution**: Add ASCS exports to the ASCS Host Agent profile. See SAP Note [2628497].
 
 * A function is not implemented in relocating ASCS.
-  * **Command output**: `exportfs: host:/usr/sap/AX1: Function not implemented`
+  * **Command output**:
+
+    `exportfs: host:/usr/sap/AX1: Function not implemented`
   * **Solution**: Make sure that the NFS server service is enabled on the target virtual machine for relocation.
 
 ### Errors and warnings during application server installation
 
-* An error occurred in executing the SAPinst step `getProfileDir`.
+* An error occurred in executing the SAPinst `getProfileDir` step.
   * **Error**:
 
     `Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' reported an error: Node \\\as1-ascs\sapmnt\AS1\SYS\profile does not exist. Start SAPinst in interactive mode to solve this problem`
   * **Solution**: Make sure that SWPM is running with a user who has access to the profile. You can configure this user in the Application Server Installation wizard.
 
-* An error occurred in executing the SAPinst step `askUnicode`.
+* An error occurred in executing the SAPinst `askUnicode` step.
   * **Error**:
 
     `Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' reported an error: Start SAPinst in interactive mode to solve this problem`
@@ -549,19 +547,19 @@ In the **Primary Application Server Instance** dialog, for **PAS Instance Host N
 
     Until this issue is fixed in a new support package/patch of SAP LaMa, work around it by setting the profile parameter `OS_UNICODE=uc` in the default profile of your SAP system.
 
-* An error occurred in executing the SAPinst step `dCheckGivenServer" version="1.0"`.
+* An error occurred in executing the SAPinst `dCheckGivenServer" version="1.0"` step.
   * **Error**:
 
     `Last error reported by the step: Installation was canceled by user.`
   * **Solution**: Make sure that SWPM is running with a user who has access to the profile. You can configure this user in the Application Server Installation wizard.
 
-* An error occurred in executing the SAPinst step `checkClient" version="1.0"`.
+* An error occurred in executing the SAPinst `checkClient" version="1.0"` step.
   * **Error**:
 
     `Last error reported by the step: Installation was canceled by user.`
   * **Solution**: Make sure that the Microsoft ODBC driver for SQL Server is installed on the virtual machine on which you want to install the application server.
 
-* An error occurred in executing the SAPinst step `copyScripts`.
+* An error occurred in executing the SAPinst `copyScripts` step.
   * **Error**:
 
     `Last error reported by the step: System call failed. DETAILS: Error 13 (0x0000000d) (Permission denied) in execution of system call 'fopenU' with parameter (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), line (494) in file (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), stack trace:  
@@ -580,7 +578,7 @@ In the **Primary Application Server Instance** dialog, for **PAS Instance Host N
     syxxcfstrm2.cpp: 456: CSyFileStream2Impl::open()`
   * **Solution**: Make sure that SWPM is running with a user who has access to the profile. You can configure this user in the Application Server Installation wizard.
 
-* An error occurred in executing the SAPinst step `askPasswords`.
+* An error occurred in executing the SAPinst `askPasswords` step.
   * **Error**:
 
     `Last error reported by the step: System call failed. DETAILS: Error 5 (0x00000005) (Access is denied.) in execution of system call 'NetValidatePasswordPolicy' with parameter (...), line (359) in file (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), stack trace:  

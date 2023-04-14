@@ -41,9 +41,9 @@ Evaluate the following points when you're planning the deployment of Azure Files
 * Avoid putting too many SIDs in a single storage account and its file share.
 * As general guidance, don't put together more than four nonproduction SIDs.
 * Don't put the entire development, production, and quality assurance server landscape in one storage account or file share. Failure of the share leads to downtime of the entire SAP landscape.
-* We recommend that you put the *sapmnt* and *transport* directories on different storage accounts, except in smaller systems. During the installation of the SAP primary application server, SAPInst will request the *transport* host name. Enter the FQDN of a different storage account as *<storage_account>.file.core.windows.net*.
+* We recommend that you put the *sapmnt* and *transport* directories on different storage accounts, except in smaller systems. During the installation of the SAP primary application server, SAPinst will request the *transport* host name. Enter the FQDN of a different storage account as *<storage_account>.file.core.windows.net*.
 * Don't put the file system used for interfaces onto the same storage account as */sapmnt/\<SID>*.
-* You must add the SAP users and groups to the *sapmnt* share. Set this permission for them in the Azure portal: **Storage File Data SMB Share Elevated Contributor**.
+* You must add the SAP users and groups to the *sapmnt* share. Set the Storage File Data SMB Share Elevated Contributor permission for them in the Azure portal.
 
 Distributing *transport*, *interface*, and *sapmnt* among separate storage accounts improves throughput and resiliency. It also simplifies performance analysis. If you put many SIDs and other file systems in a single Azure Files storage account, and the storage account's performance is poor because you're hitting the throughput limits, it's difficult to identify which SID or application is causing the problem.
 
@@ -63,7 +63,7 @@ Here are prerequisites for the installation of SAP NetWeaver HA systems on Azure
 * Make sure that at least one Active Directory domain controller is in the Azure landscape, to avoid traversing Azure ExpressRoute to contact domain controllers on-premises.
 * Make sure that the Azure support team reviews the documentation for Azure Files SMB with [Active Directory integration](../../storage/files/storage-files-identity-auth-active-directory-enable.md#videos). The video shows extra configuration options, which were modified (DNS) and skipped (DFS-N) for simplification reasons. But these are valid configuration options.
 * Make sure that the user who's running the Azure Files PowerShell script has permission to create objects in Active Directory.
-* Install SWPM version 1.0 SP32 and SWPM 2.0 SP09 or later. The SAPInst patch must be 749.0.91 or later.
+* Install SWPM version 1.0 SP32 and SWPM 2.0 SP09 or later. The SAPinst patch must be 749.0.91 or later.
 * Install an up-to-date release of PowerShell on the Windows Server instance where the script is run.
 
 ## Installation sequence
@@ -72,10 +72,10 @@ Here are prerequisites for the installation of SAP NetWeaver HA systems on Azure
 
 The Active Directory administrator should create, in advance, three domain users with Local Administrator rights and one global group in the local Windows Server Active Directory instance.
 
-*SAPCONT_ADMIN@SAPCONTOSO.local* has Domain Administrator rights and is used to run *SAPInst*, *\<sid>adm*, and *SAPService\<SID>* as SAP system users and the *SAP_\<SAPSID>_GlobalAdmin* group. The SAP Installation Guide contains the specific details required for these accounts.  
+*SAPCONT_ADMIN@SAPCONTOSO.local* has Domain Administrator rights and is used to run *SAPinst*, *\<sid>adm*, and *SAPService\<SID>* as SAP system users and the *SAP_\<SAPSID>_GlobalAdmin* group. The SAP Installation Guide contains the specific details required for these accounts.  
 
 > [!NOTE]
-> SAP user accounts should not be Domain Administrator. We generally recommend that you don't use *\<sid>adm* to run SAPInst.
+> SAP user accounts should not be Domain Administrator. We generally recommend that you don't use *\<sid>adm* to run SAPinst.
 
 ### Check Synchronization Service Manager
 
@@ -121,7 +121,7 @@ The Azure administrator should complete the following tasks:
    * Grant the Contributor role-based access control (RBAC) role to this Azure AD user account for the resource group that contains the storage account that holds the file share. In this example, the user *SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com* is granted the Contributor role to the respective resource group.
    * The user should run the script while logged on to a Windows Server instance by using an Active Directory domain user account with the permission as specified earlier.
   
-   In this example scenario, the Active Directory administrator would log on to the Windows Server instance as *SAPCONT_ADMIN@SAPCONTOSO.local*. When the administrator is using the Powershell command `Connect-AzAccount`, the administrator connects as user *SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com*. Ideally, the Active Directory administrator and the Azure administrator should work together on this task.
+   In this example scenario, the Active Directory administrator would log on to the Windows Server instance as *SAPCONT_ADMIN@SAPCONTOSO.local*. When the administrator is using the PowerShell command `Connect-AzAccount`, the administrator connects as user *SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com*. Ideally, the Active Directory administrator and the Azure administrator should work together on this task.
   
    ![Screenshot of the PowerShell script that creates a local Active Directory account.](media/virtual-machines-shared-sap-high-availability-guide/ps-script-1.png)
 
@@ -136,7 +136,7 @@ The Azure administrator should complete the following tasks:
 1. Check the ACL on the *sapmnt* file share after the installation. Then add the *DOMAIN\CLUSTER_NAME$* account, *DOMAIN\\\<sid>adm* account, *DOMAIN\SAPService\<SID>* account, and *SAP_\<SID>_GlobalAdmin* group. These accounts and group should have full control of the *sapmnt* directory.
 
    > [!IMPORTANT]
-   > Complete this step before the SAPInst installation. It will be difficult or impossible to change ACLs after SAPInst has created directories and files on the file share.
+   > Complete this step before the SAPinst installation. It will be difficult or impossible to change ACLs after SAPinst has created directories and files on the file share.
 
    The following screenshots show how to add computer machine accounts.
 
@@ -163,8 +163,8 @@ The Azure administrator should complete the following tasks:
 
 An SAP Basis administrator should complete these tasks:
 
-1. [Install the Windows Cluster on ASCS/ERS nodes and add the cloud witness](sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab).
-2. The first cluster node installation asks for the Azure Files SMB storage account name. Enter the FQDN *<storage_account_name>.file.core.windows.net*. If SAPInst doesn't accept more than 13 characters, the SWPM version is too old.
+1. [Install the Windows cluster on ASCS/ERS nodes and add the cloud witness](sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab).
+2. The first cluster node installation asks for the Azure Files SMB storage account name. Enter the FQDN *<storage_account_name>.file.core.windows.net*. If SAPinst doesn't accept more than 13 characters, the SWPM version is too old.
 3. [Modify the SAP profile of the ASCS/SCS instance](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761).
 4. [Update the probe port for the SAP \<SID> role in Windows Server Failover Cluster (WSFC)](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761).
 5. Continue with SWPM installation for the second ASCS/ERS node. SWPM requires only the path of the profile directory. Enter the full UNC path to the profile directory.
@@ -174,7 +174,7 @@ An SAP Basis administrator should complete these tasks:
 
 ## Disaster recovery setup
 
-Azure Files premium SMB supports disaster recovery scenarios and cross-region replication scenarios. All data in Azure Files premium SMB directories can be continuously synchronized to a DR region storage account. For more information, see the procedure for synchronizing files in [Transfer data with AzCopy and file storage](../../storage/common/storage-use-azcopy-files.md#synchronize-files).
+Azure Files premium SMB supports disaster recovery scenarios and cross-region replication scenarios. All data in Azure Files premium SMB directories can be continuously synchronized to a DR region's storage account. For more information, see the procedure for synchronizing files in [Transfer data with AzCopy and file storage](../../storage/common/storage-use-azcopy-files.md#synchronize-files).
 
 After a DR event and failover of the ASCS instance to the DR region, change the `SAPGLOBALHOST` profile parameter to point to Azure Files SMB in the DR region. Perform the same preparation steps on the DR storage account to join the storage account to Active Directory and assign RBAC roles for SAP users and groups.
 
