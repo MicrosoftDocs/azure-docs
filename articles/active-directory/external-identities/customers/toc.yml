@@ -82,7 +82,7 @@ items:
                           href: how-to-web-app-node-sign-in-overview.md
                         - name: Prepare tenant 
                           href: how-to-web-app-node-sign-in-prepare-tenant.md
-                        - name: Prepare apps  
+                        - name: Prepare app 
                           href: how-to-web-app-node-sign-in-prepare-app.md
                         - name: Add sign-in and sign-out
                           href: how-to-web-app-node-sign-in-sign-in-out.md
