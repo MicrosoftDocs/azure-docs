@@ -67,7 +67,7 @@ az functionapp create \
 
 Make a note of the returned `hostNames` value, which is in the format *https://\<your-functionapp-name>.azurewebsites.net*. Use this value in the Function app's root URL for testing the Function app.
 
-## Enable Azure Active Directory Authentication
+## Enable Azure Active Directory authentication
 
 Use the following steps to enable Azure Active Directory authentication to access your Function app.
 
@@ -87,16 +87,16 @@ Use the following steps to enable Azure Active Directory authentication to acces
 
 After you add the settings, the Function app restarts and all subsequent requests are prompted to sign in through Azure AD. You can test that unauthenticated requests are currently being rejected with the Function app's root URL (returned in the `hostNames` output of the `az functionapp create` command). You should then be redirected to your organization's Azure Active Directory sign-in screen.
 
-## Create an HTTP Triggered Function
+## Create an HTTP triggered function
 
-In an empty local directory, use the following commands to create a new function and add an HTTP triggered function.
+In an empty local directory, use the following commands to create a new function app and add an HTTP triggered function.
 
 ```console
 func init --worker-runtime node
 func new --template HttpTrigger --name HttpTrigger
 ```
 
-By default, Functions use key-based authentication to secure HTTP endpoints. To enable Azure AD authentication to secure access to the Functions, set the `authLevel` key to `anonymous`in the *function.json* file.
+By default, functions use key-based authentication to secure HTTP endpoints. To enable Azure AD authentication to secure access to the functions, set the `authLevel` key to `anonymous`in the *function.json* file as shown in the following code:
 
 ```json
 {
@@ -115,20 +115,20 @@ For more information, see the [Secure an HTTP endpoint in production](../azure-f
 Use the following command to publish the app to the instance created in the previous step:
 
 ```console
-func azure functionapp publish <your-functionapp-name>
+func azure functionapp publish <function-app-name>
 ```
 
-The output from the publish command should list the URL to your newly created function.
+The output from the publish command should list the URL to your newly created function, as shown in the following output:
 
 ```output
 Deployment completed successfully.
 Syncing triggers...
 Functions in <your-functionapp-name>:
     HttpTrigger - [httpTrigger]
-        Invoke url: https://<your-functionapp-name>.azurewebsites.net/api/httptrigger
+        Invoke url: https://<function-app-name>.azurewebsites.net/api/httptrigger
 ```
 
-## Create Azure Spring Apps service and app
+## Create an Azure Spring Apps service instance and application
 
 Use the following commands to add the spring extension and to create a new instance of Azure Spring Apps.
 
@@ -136,11 +136,11 @@ Use the following commands to add the spring extension and to create a new insta
 az extension add --upgrade --name spring
 az spring create \
     --resource-group <resource-group-name> \
-    --name <Azure-Spring-Instance-name> \
+    --name <Azure-Spring-Apps-instance-name> \
     --location <location>
 ```
 
-Use the following command to create an app named `msiapp` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
+Use the following command to create an application named `msiapp` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
 
 ```azurecli
 az spring app create \
@@ -153,7 +153,7 @@ az spring app create \
 
 ## Build sample Spring Boot app to invoke the Function
 
-This sample invokes the HTTP triggered function by first requesting an access token from the [MSI endpoint](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) and using that token to authenticate the Function http request.
+This sample invokes the HTTP triggered function by first requesting an access token from the MSI endpoint and using that token to authenticate the function HTTP request. For more information, see the [Get a token using HTTP](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) section of [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 1. Use the following command clone the sample project.
 
@@ -168,7 +168,7 @@ This sample invokes the HTTP triggered function by first requesting an access to
    vim src/main/resources/application.properties
    ```
 
-   To use managed identity for Azure Spring Apps apps, add properties with the following content to *src/main/resources/application.properties*.
+   To use managed identity for Azure Spring Apps apps, add the following properties with these values to *src/main/resources/application.properties*.
 
    ```text
    azure.function.uri=https://<function-app-name>.azurewebsites.net
@@ -181,12 +181,12 @@ This sample invokes the HTTP triggered function by first requesting an access to
    mvn clean package
    ```
 
-1. Use the following command to deploy the app to Azure.
+1. Use the following command to deploy the app to Azure Spring Apps.
 
    ```azurecli
    az spring app deploy \
-       --resource-group "myResourceGroup" \
-       --service "mymsispringcloud" \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
        --name "msiapp" \
        --jar-path target/asc-managed-identity-function-sample-0.1.0.jar
    ```
@@ -194,7 +194,7 @@ This sample invokes the HTTP triggered function by first requesting an access to
 1. Use the following command to access the public endpoint or test endpoint to test your app.
 
    ```bash
-   curl https://mymsispringcloud-msiapp.azuremicroservices.io/func/springcloud
+   curl https://<Azure-Spring-Apps-instance-name>-msiapp.azuremicroservices.io/func/springcloud
    ```
 
    The following message is returned in the response body.
