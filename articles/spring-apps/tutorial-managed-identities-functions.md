@@ -22,14 +22,14 @@ Both Azure Functions and App Services have built in support for Azure Active Dir
 
 ## Prerequisites
 
-* [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* [Install the Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli)
-* [Install Maven 3.0 or higher](https://maven.apache.org/download.cgi)
-* [Install the Azure Functions Core Tools version 3.0.2009 or higher](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
+- [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or higher.
+- [Install the Azure Functions Core Tools](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 3.0.2009 or higher.
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Use the following command to create a resource group to contain a Function app. For more information, see the [az group create](/cli/azure/group#az-group-create) command.
+A resource group is a logical container into which Azure resources are deployed and managed. Use the following command to create a resource group to contain a Function app. For more information, see the [az group create](/cli/azure/group.md#az-group-create) command.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
@@ -168,7 +168,7 @@ This sample invokes the HTTP triggered function by first requesting an access to
    vim src/main/resources/application.properties
    ```
 
-   To use managed identity for Azure Spring Apps apps, add the following properties with these values to *src/main/resources/application.properties*.
+1. To use managed identity for Azure Spring Apps apps, add the following properties with these values to *src/main/resources/application.properties*.
 
    ```text
    azure.function.uri=https://<function-app-name>.azurewebsites.net
@@ -205,6 +205,6 @@ This sample invokes the HTTP triggered function by first requesting an access to
 
 ## Next steps
 
-* [How to enable system-assigned managed identity for applications in Azure Spring Apps](./how-to-enable-system-assigned-managed-identity.md)
-* [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
-* [Configure client apps to access your App Service](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)
+- [How to enable system-assigned managed identity for applications in Azure Spring Apps](./how-to-enable-system-assigned-managed-identity.md)
+- [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+- [Configure client apps to access your App Service](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)
