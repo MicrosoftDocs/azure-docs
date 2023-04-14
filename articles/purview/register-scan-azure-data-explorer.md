@@ -95,7 +95,7 @@ To register using either of these managed identities, follow these steps:
 
 To register a new Azure Data Explorer (Kusto) account in your data catalog, follow these steps:
 
-1. Open thew the Microsoft Purview governance portal by:
+1. Open the Microsoft Purview governance portal by:
 
    - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
    - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
