@@ -20,10 +20,10 @@ The token is unique for each app, app revision, and Dapr version. When this toke
 
 1. The `daprd` container reads and injects it into each call made from Dapr to your application.
 1. Your application can then use that token to validate that the request is coming from Dapr. 
-   - If using an SDK: The Dapr SDKs do this automatically if they detect the environment variable.
-   - If not using an SDK: This requires the user to take action, but 
+   - If using an SDK: The Dapr SDKs validates automatically if they detect the environment variable.
+   - If not using an SDK: You'll need to check the HTTP header or gRPC metadata property. 
 
-In addition, the token is not persisted anywhere and is rotated automatically every time a new pod is created.
+In addition, the token isn't persisted anywhere and is rotated automatically every time a new pod is created.
 
 ## Prerequisites
 
