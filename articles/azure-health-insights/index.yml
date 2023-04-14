@@ -35,8 +35,6 @@ landingContent:
         links:
           - text: Model configuration
             url: oncophenotype/model-configuration.md
-          - text: Patient information
-            url: oncophenotype/patient-info.md
           - text: Inference information
             url: oncophenotype/inferences.md    
       - linkListType: quickstart
