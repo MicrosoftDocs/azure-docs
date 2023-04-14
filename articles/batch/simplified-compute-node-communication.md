@@ -116,15 +116,15 @@ The following are examples of how to create a Batch pool with simplified compute
 
 ### Azure portal
 
-Navigate to the Pools blade of your Batch account and select the **Add** button. Under **OPTIONAL SETTINGS**, you can select **Simplified** as an option from the pull-down of **Node communication mode** as shown:
+First, sign in to the [Azure Portal](https://portal.azure.com). Then, navigate to the **Pools** blade of your Batch account and select the **Add** button. Under **OPTIONAL SETTINGS**, you can select **Simplified** as an option from the pull-down of **Node communication mode** as shown:
 
    :::image type="content" source="media/simplified-compute-node-communication/add-pool-simplified-mode.png" alt-text="Screenshot that shows creating a pool with simplified mode.":::
 
-To update an existing pool to simplified communication mode, navigate to the Pools blade of your Batch account and select the pool to update. On the left-side navigation, select **Node communication mode**. There you can select a new target node communication mode as shown below. After selecting the appropriate communication mode, select the **Save** button to update. You need to scale the pool down to zero nodes first, and then back out for the change to take effect, if conditions allow.
+To update an existing pool to simplified communication mode, navigate to the **Pools** blade of your Batch account and select the pool to update. On the left-side navigation, select **Node communication mode**. There you can select a new target node communication mode as shown below. After selecting the appropriate communication mode, select the **Save** button to update. You need to scale the pool down to zero nodes first, and then back out for the change to take effect, if conditions allow.
 
    :::image type="content" source="media/simplified-compute-node-communication/update-pool-simplified-mode.png" alt-text="Screenshot that shows updating a pool to simplified mode.":::
 
-To display the current node communication mode for a pool, navigate to the Pools blade of your Batch account, and select the pool to view. Select **Properties** on the left-side navigation and the pool node communication mode appears under the **General** section.
+To display the current node communication mode for a pool, navigate to the **Pools** blade of your Batch account, and select the pool to view. Select **Properties** on the left-side navigation and the pool node communication mode appears under the **General** section.
 
    :::image type="content" source="media/simplified-compute-node-communication/get-pool-simplified-mode.png" alt-text="Screenshot that shows properties with a pool with simplified mode.":::
 
