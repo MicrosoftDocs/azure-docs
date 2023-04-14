@@ -147,7 +147,7 @@
             - name: Export and delete data
               displayName: GDPR
               href: how-to-export-delete-data.md
-    - name: Train models
+#    - name: Train models
       items:
         - name: Model training
           displayName: run config, machine learning pipeline, ml pipeline, train model
@@ -640,6 +640,7 @@
     - name: Monitor and analyze jobs in studio
       href: how-to-track-monitor-analyze-runs.md
     - name: Log and track jobs using MLFlow
+      href: 
     - name: Query and compare runs
       href: how-to-track-experiments-mlflow.md
   - name: Debug jobs
@@ -806,7 +807,7 @@
               displayName: designer, data, import, dataset, datastore
               href: ./v1/how-to-designer-import-data.md
         # end v1
-    - name: Train models
+#    - name: Train models
       items:
         - name: Train a model (SDK, CLI, REST)
           href: how-to-train-model.md
