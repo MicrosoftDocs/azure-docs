@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    - **Source Attribute**: PortalID, value provided by FCM
 
 1. In the **SAML Signing Certificate** section, use the edit option to select or enter the following settings, and then select **Save**:
-   - **Signing Option**: Sign SAML response
+   - **Signing Option**: Sign SAML response and Assertion
    - **Signing Algorithm**: SHA-256
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
