@@ -1,23 +1,23 @@
 ---
-title: Overview of the MedTech service device message processing stages - Azure Health Data Services
-description: This article provides an overview of the MedTech service device message processing stages. The MedTech service ingests, normalizes, groups, transforms, and persists device message data in the FHIR service.
+title: Overview of the MedTech service device data processing stages - Azure Health Data Services
+description: This article provides an overview of the MedTech service device data processing stages. The MedTech service ingests, normalizes, groups, transforms, and persists device message data in the FHIR service.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 04/07/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ---
 
-# Overview of the MedTech service device message processing stages 
+# Overview of the MedTech service device data processing stages 
 
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-This article provides an overview of the device message processing stages within the [MedTech service](overview.md). The MedTech service transforms device message data into [FHIR Observations](https://www.hl7.org/fhir/observation.html) for persistence in the [FHIR service](../fhir/overview.md).
+This article provides an overview of the device data processing stages within the [MedTech service](overview.md). The MedTech service transforms device data into [FHIR Observations](https://www.hl7.org/fhir/observation.html) for persistence in the [FHIR service](../fhir/overview.md).
 
-The MedTech service device message processing follows these stages and in this order:
+The MedTech service device data processing follows these stages and in this order:
 
 * Ingest
 * Normalize - Device mapping applied.
@@ -25,10 +25,10 @@ The MedTech service device message processing follows these stages and in this o
 * Transform - FHIR destination mapping applied.
 * Persist
 
-:::image type="content" source="media/overview-of-device-message-processing-stages/overview-of-device-message-processing-stages.png" alt-text="Screenshot of a device message as it processed by the MedTech service." lightbox="media/overview-of-device-message-processing-stages/overview-of-device-message-processing-stages.png":::
+:::image type="content" source="media/overview-of-device-data-processing-stages/overview-of-device-data-processing-stages.png" alt-text="Screenshot of a device data as it processed by the MedTech service." lightbox="media/overview-of-device-data-processing-stages/overview-of-device-data-processing-stages.png":::
 
 ## Ingest
-Ingest is the first stage where device messages are received from an [Azure Event Hubs](../../event-hubs/index.yml) event hub and immediately pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume messages asynchronously, removing the need for devices to wait while device messages are processed. The MedTech service's [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](../../role-based-access-control/overview.md) are used for secure access to the event hub.
+Ingest is the first stage where device messages are received from an [Azure Event Hubs](../../event-hubs/index.yml) event hub and immediately pulled into the MedTech service. The Event Hubs service supports high scale and throughput with the ability to receive and process millions of device messages per second. It also enables the MedTech service to consume device messages asynchronously, removing the need for devices to wait while device messages are processed. The MedTech service's [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and [Azure resource-based access control (Azure RBAC)](../../role-based-access-control/overview.md) are used for secure access to the event hub.
 
 > [!NOTE]
 > JSON is the only supported format at this time for device message data.
@@ -45,7 +45,7 @@ Ingest is the first stage where device messages are received from an [Azure Even
 > - A MedTech service and a storage writer application accessing the same event hub.
 
 ## Normalize
-Normalize is the next stage where device message data is processed using the user-selected/user-created conforming and valid [device mapping](how-to-configure-device-mappings.md). This mapping process results in transforming device message data into a normalized schema. The normalization process not only simplifies data processing at later stages, but also provides the capability to project one device message into multiple normalized messages. For instance, a device could send multiple vital signs for body temperature, pulse rate, blood pressure, and respiration rate in a single device message. This device message would create four separate FHIR Observation resources. Each resource would represent a different vital sign, with the device message projected into four different normalized messages.
+Normalize is the next stage where device data is processed using the user-selected/user-created conforming and valid [device mapping](overview-of-device-mapping.md). This mapping process results in transforming device data into a normalized schema. The normalization process not only simplifies device data processing at later stages, but also provides the capability to project one device message into multiple normalized messages. For instance, a device could send multiple vital signs for body temperature, pulse rate, blood pressure, and respiration rate in a single device message. This device message would create four separate FHIR Observations. Each FHIR Observation would represent a different vital sign, with the device message projected into four different normalized messages.
 
 ## Group - (Optional)
 Group is the next *optional* stage where the normalized messages available from the MedTech service normalization stage are grouped using three different parameters:

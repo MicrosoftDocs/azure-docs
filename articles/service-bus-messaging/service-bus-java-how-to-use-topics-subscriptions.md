@@ -124,23 +124,23 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     ```
     
     > [!IMPORTANT]
-    > Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. Replace `<TOPIC NAME>` with the name of the topic, and `<SUBSCRIPTION NAME>` with the name of the topic's subscription. 
+    > Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. Replace `<TOPIC NAME>` with the name of the topic, and `<SUBSCRIPTION NAME>` with the name of the
 
+    > [!IMPORTANT]
+    > Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. Replace `<TOPIC NAME>` with the name of the topic, and `<SUBSCRIPTION NAME>` with the name of the topic's subscription.
     ---
 3. Add a method named `sendMessage` in the class to send one message to the topic. 
 
     ### [Passwordless (Recommended)](#tab/passwordless)
 
     > [!IMPORTANT]
-    > - Replace `NAMESPACENAME` with the name of your Service Bus namespace.
-    > - This sample uses `AZURE_PUBLIC_CLOUD` as the authority host. For supported authority hosts, see [`AzureAuthorityHosts`](/dotnet/api/azure.identity.azureauthorityhosts)
+    > Replace `NAMESPACENAME` with the name of your Service Bus namespace.
 
     ```java
 	static void sendMessage()
 	{
         // create a token using the default Azure credential        
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-                .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                 .build();
         
 	    ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
@@ -193,16 +193,13 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     ### [Passwordless (Recommended)](#tab/passwordless)
 
     > [!IMPORTANT]
-    > - Replace `NAMESPACENAME` with the name of your Service Bus namespace.
-    > - This sample uses `AZURE_PUBLIC_CLOUD` as the authority host. For supported authority hosts, see [`AzureAuthorityHosts`](/dotnet/api/azure.identity.azureauthorityhosts)
-
+    > Replace `NAMESPACENAME` with the name of your Service Bus namespace.
 
     ```java
 	static void sendMessageBatch()
 	{
         // create a token using the default Azure credential        
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-                .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                 .build();
         
 	    ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
@@ -309,7 +306,6 @@ In this section, you add code to retrieve messages from a subscription to the to
     > [!IMPORTANT]
     > - Replace `NAMESPACENAME` with the name of your Service Bus namespace.
     > - Replace `ServiceBusTopicTest` in `ServiceBusTopicTest::processMessage` in the code with the name of your class. 
-    > - This sample uses `AZURE_PUBLIC_CLOUD` as the authority host. For supported authority hosts, see [`AzureAuthorityHosts`](/dotnet/api/azure.identity.azureauthorityhosts)
 
     ```java
     // handles received messages
@@ -318,7 +314,6 @@ In this section, you add code to retrieve messages from a subscription to the to
         CountDownLatch countdownLatch = new CountDownLatch(1);
 
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-                .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                 .build();
 
         // Create an instance of the processor through the ServiceBusClientBuilder
