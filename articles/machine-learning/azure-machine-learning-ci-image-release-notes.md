@@ -26,10 +26,10 @@ Version: `23.04.07`
 Main changes:
 
 - `Azure Machine Learning SDK` to version `1.49.0`
-- `Certifi` updated to 2022.9.24
-- `.Net` updated from 3.1 (EOL) to 6.0
-- `Pyspark` update to 3.3.1 (mitigating log4j 1.2.17 and common-text-1.6 vulnerabilities)
-- Default `intellisense` to Python 3.10 on the CI
+- `Certifi` updated to `2022.9.24`
+- `.Net` updated from `3.1` (EOL) to `6.0`
+- `Pyspark` update to `3.3.1` (mitigating log4j 1.2.17 and common-text-1.6 vulnerabilities)
+- Default `intellisense` to Python `3.10` on the CI
 - Bug fixes and stability improvements
 
 Main environment specific updates:
