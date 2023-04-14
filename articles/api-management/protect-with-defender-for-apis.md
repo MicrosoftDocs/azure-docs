@@ -33,7 +33,7 @@ To learn more, see:
 
 * At least one API Management instance in an Azure subscription. Defender for APIs is enabled at the level of a subscription. 
 * One or more supported APIs must be imported to the API Management instance.
-* Permissions to [enable the Defender for APIs plan](azure/defender-for-cloud/permissions).
+* Permissions to [enable the Defender for APIs plan](/azure/defender-for-cloud/permissions).
 * Owner or Contributor permissions on the API Management instance. 
 
 ## Onboard to Defender for APIs
