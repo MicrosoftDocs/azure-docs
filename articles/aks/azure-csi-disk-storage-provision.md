@@ -156,7 +156,7 @@ Once the persistent volume claim has been created and the disk successfully prov
         - name: volume
           persistentVolumeClaim:
             claimName: azure-managed-disk
-     ```
+    ```
 
 2. Create the pod with the [kubectl apply][kubectl-apply] command, as shown in the following example:
 
