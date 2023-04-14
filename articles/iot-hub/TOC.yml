@@ -484,7 +484,7 @@
     - name: Azure PowerShell
       displayName: Az.IotHub
       href: /powershell/module/az.iothub#iothub
-    - name: .NET
+    - name: .NET SDKs
       items:
         - name: Device
           displayName: .NET, Microsoft.Azure.Devices.Client
@@ -494,30 +494,8 @@
           href: /dotnet/api/microsoft.azure.devices
         - name: Management
           displayName: .NET, Microsoft.Azure.Management.DeviceUpdate, Microsoft.Azure.Management.DeviceUpdate.Models, Microsoft.Azure.Management.IotHub, Microsoft.Azure.Management.IotHub.Models
-          href: /dotnet/api/microsoft.azure.management.iothub.models
-    - name: Java
-      items:
-        - name: Device
-          displayName: Java, com.microsoft.azure.sdk.iot.device
-          href: /java/api/com.microsoft.azure.sdk.iot.device
-        - name: Service
-          displayName: Java, com.microsoft.azure.sdk.iot.service
-          href: /java/api/com.microsoft.azure.sdk.iot.service
-        - name: Management
-          displayName: Java, Java Development Kit, JDK
-          href: /java/api/overview/azure/resourcemanager-iothub-readme
-    - name: Node.js
-      items:
-        - name: Device
-          displayName: Node.js, azure-iot-device, JavaScript
-          href: /javascript/api/azure-iot-device/
-        - name: Service
-          displayName: Node.js, azure-iothub, JavaScript
-          href: /javascript/api/azure-iothub/
-        - name: Management
-          displayName: Node.js, JavaScript
-          href: /javascript/api/overview/azure/iot-hub
-    - name: Python
+          href: /dotnet/api/overview/azure/resourcemanager.iothub-readme?view=azure-dotnet
+    - name: Python SDKs
       items:
         - name: Device
           displayName: Python, azure-iot-device
@@ -528,12 +506,32 @@
         - name: Management
           displayName: Puthon, azure-mgmt-iothub
           href: /python/api/azure-mgmt-iothub
-    - name: C
+    - name: Node.js SDKs
       items:
-        - name: C SDKs and Libraries
-          displayName: C, Device Client SDK, Provisioning Client SDK
-          href: https://github.com/Azure/azure-iot-sdk-c/
-    - name: REST
+        - name: Device
+          displayName: Node.js, azure-iot-device, JavaScript
+          href: /javascript/api/azure-iot-device/
+        - name: Service
+          displayName: Node.js, azure-iothub, JavaScript
+          href: /javascript/api/azure-iothub/
+        - name: Management
+          displayName: Node.js, JavaScript
+          href: /javascript/api/overview/azure/iot-hub
+    - name: Java SDKs
+      items:
+        - name: Device
+          displayName: Java, com.microsoft.azure.sdk.iot.device
+          href: /java/api/com.microsoft.azure.sdk.iot.device
+        - name: Service
+          displayName: Java, com.microsoft.azure.sdk.iot.service
+          href: /java/api/com.microsoft.azure.sdk.iot.service
+        - name: Management
+          displayName: Java, Java Development Kit, JDK
+          href: /java/api/overview/azure/resourcemanager-iothub-readme
+    - name: C SDKs and libraries
+      displayName: C, Device Client SDK, Provisioning Client SDK
+      href: https://github.com/Azure/azure-iot-sdk-c/
+    - name: REST APIs
       items:
         - name: Device
           displayName: REST, /rest/api/iothub/device
