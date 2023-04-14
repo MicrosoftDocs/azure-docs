@@ -172,7 +172,7 @@ Deployments should be planned and provisioned to support the maximum number of p
 In most cases, there is sufficient disk space as default deployments are optimized for IOPS, which leads to low utilization of the disk. Nevertheless, we advise occasionally reviewing disk space metrics. Cassandra accumulates a lot of disk and then reduces it when compaction is triggered. Hence it is important to review disk usage over longer periods to establish trends - like compaction unable to recoup space.
 
 > [!NOTE]
-> In order to ensure available space for compaction, disk utilization should be kept to less than 70%.
+> In order to ensure available space for compaction, disk utilization should be kept to around 50%.
 
 If you only see this behavior for a few nodes, you might have a hot partition and need to review your data distribution and/or access patterns for a potential skew.
 
