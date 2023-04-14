@@ -378,9 +378,6 @@ Things to check:
 
 Yes.
 
-> [!TIP]
-> Safari has a [bug] that prevents sandboxed iframes from running web workers, a requirement of the Azure Maps Web SDK. The solution is to add the `"allow-same-origin"` tag to the sandbox property of the iframe.
-
 ## Get support
 
 The following are the different ways to get support for Azure Maps depending on your issue.
