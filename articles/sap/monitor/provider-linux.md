@@ -55,6 +55,20 @@ cd node_exporter-*.*-amd64
 nohup ./node_exporter --web.listen-address=":9100" &
 ```
 
+### Setting up cron job to start Node exporter on VM restart
+
+1. If the target virtual machine is restarted/stopped, node exporter is also stopped, and needs to be manually started again to continue monitoring.
+1. Run `sudo crontab -e` command to open cron file.
+1. Add the command `@reboot cd /path/to/node/exporter && nohup ./node_exporter &` at the end of cron file. This will start node exporter on VM reboot.
+
+```shell
+# if you do not have a crontab file already, create one by running the command: sudo crontab -e
+sudo crontab -l > crontab_new
+echo "@reboot cd /path/to/node/exporter && nohup ./node_exporter &" >> crontab_new
+sudo crontab crontab_new
+sudo rm crontab_new
+```
+
 ## Prerequisites to enable secure communication
 
 To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps [mentioned here](https://prometheus.io/docs/guides/tls-encryption/)
@@ -103,19 +117,6 @@ When the provider settings validation operation fails with the code ‘Prometheu
 
 1. Run `nohup ./node_exporter &` command to enable node_exporter.
 1. Adding nohup and & to above command decouples the node_exporter from linux machine commandline. If not included node_exporter would stop when the commandline is closed.
-
-### Setting up cron job to start Node exporter on VM restart
-
-1. If the target virtual machine is restarted/stopped, node exporter is also stopped, and needs to be manually started again to continue monitoring.
-1. Run `sudo crontab -e` command to open cron file.
-1. Add the command `@reboot cd /path/to/node/exporter && nohup ./node_exporter &` at the end of cron file. This will start node exporter on VM reboot.
-
-```shell
-sudo crontab -l > crontab_new
-echo "@reboot cd /path/to/node/exporter && nohup ./node_exporter &" >> crontab_new
-sudo crontab crontab_new
-sudo rm crontab_new
-```
 
 ## Next steps
 
