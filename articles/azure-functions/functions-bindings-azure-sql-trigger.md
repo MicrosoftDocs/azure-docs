@@ -42,6 +42,7 @@ For more information on change tracking and how it's used by applications such a
 ::: zone pivot="programming-language-csharp"
 
 ## Example usage
+<a id="example"></a>
 
 
 # [In-process](#tab/in-process)
@@ -228,6 +229,7 @@ public static void Run(IReadOnlyList<SqlChange<ToDoItem>> todoChanges, ILogger l
 
 ::: zone pivot="programming-language-java"
 ## Example usage
+<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/release/trigger/samples/samples-java).
 
@@ -346,6 +348,7 @@ public class ProductsTrigger {
 
 ::: zone pivot="programming-language-powershell"
 ## Example usage
+<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/release/trigger/samples/samples-powershell).
 
@@ -407,6 +410,7 @@ Write-Host "SQL Changes: $changesJson"
 
 ::: zone pivot="programming-language-javascript"
 ## Example usage
+<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/release/trigger/samples/samples-js).
 
@@ -463,6 +467,7 @@ module.exports = async function (context, todoChanges) {
 
 ::: zone pivot="programming-language-python"
 ## Example usage
+<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/release/trigger/samples/samples-python).
 
