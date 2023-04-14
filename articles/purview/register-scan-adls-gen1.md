@@ -40,9 +40,12 @@ This section will enable you to register the ADLS Gen1 data source and set up an
 
 It is important to register the data source in Microsoft Purview prior to setting up a scan for the data source.
 
-1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Microsoft Purview accounts** page and select your _Purview account_
+1. Open the Microsoft Purview governance portal by:
 
-1. **Open Microsoft Purview governance portal** and navigate to the **Data Map --> Sources**
+    - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+    - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
+
+1. Navigate to the **Data Map --> Sources**
 
     :::image type="content" source="media/register-scan-adls-gen1/register-adls-gen1-open-purview-studio.png" alt-text="Screenshot that shows the link to open Microsoft Purview governance portal":::
 
