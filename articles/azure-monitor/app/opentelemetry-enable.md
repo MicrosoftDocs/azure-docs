@@ -79,7 +79,11 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://
 
 #### [Java](#tab/java)
 
-Download the [applicationinsights-agent-3.4.11.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.11/applicationinsights-agent-3.4.11.jar) file.
+To download the agent, please go to https://github.com/microsoft/ApplicationInsights-Java/releases/, copy the .jar file link for the desired releas (right-click -> copy link, eg: https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.11/applicationinsights-agent-3.4.11.jar)
+
+Then use:
+- curl (for linux environment): curl -L -o applicationinsights-agent-3.4.11.jar https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.11/applicationinsights-agent-3.4.11.jar)
+- wget (for powershell): wget -O applicationinsights-agent-3.4.11.jar https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.11/applicationinsights-agent-3.4.11.jar
 
 > [!WARNING]
 >
