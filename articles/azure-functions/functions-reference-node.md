@@ -691,7 +691,7 @@ The `HttpRequest` object has the following properties:
 | ---------------- | ------------------------ | ----------- |
 | **`method`**     | `string` | HTTP request method used to invoke this function. |
 | **`url`**        | `string` | Request URL. |
-| **`headers`**    | `Record<string, string>` | HTTP request headers. This object is case sensitive. It's recommended to use `request.get('header-name')` instead, which is case insensitive. |
+| **`headers`**    | `Record<string, string>` | HTTP request headers. This object is case sensitive. It's recommended to use `request.getHeader('header-name')` instead, which is case insensitive. |
 | **`query`**      | `Record<string, string>` | Query string parameter keys and values from the URL. |
 | **`params`**     | `Record<string, string>` | Route parameter keys and values. |
 | **`user`**       | `HttpRequestUser | null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
