@@ -171,7 +171,6 @@ Let's create the deployment that will host the model:
    __environment/torch200-conda.yaml__
 
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/environment/torch200-conda.yaml" :::
-
    
 1. We can use the conda file mentioned before as follows:
 
