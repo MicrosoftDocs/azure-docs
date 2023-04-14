@@ -54,7 +54,7 @@ items:
       - name: Use CalculatedContent
         href: how-to-use-calculatedcontent-mappings.md
       - name: Use IotJsonPathContent
-        href: how-to-use-iotjsonpathcontenttemplate-mappings.md
+        href: how-to-use-iotjsonpathcontent-mappings.md
       - name: Use custom functions
         href: how-to-use-custom-functions.md 
     - name: Destination
