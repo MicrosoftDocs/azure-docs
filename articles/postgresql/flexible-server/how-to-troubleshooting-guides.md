@@ -9,7 +9,7 @@ author: AwdotiaRomanowna
 ms.date: 03/21/2023
 ---
 
-# Troubleshooting guides - Azure portal - Azure Database for PostgreSQL - Flexible Server Preview
+# Use the Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server Preview
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
