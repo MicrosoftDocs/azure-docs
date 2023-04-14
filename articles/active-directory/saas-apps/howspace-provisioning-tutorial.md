@@ -33,7 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* A Howspace subscription with Single Sign-On and SCIM features enabled.
+* A Howspace subscription with single sign-on and SCIM features enabled.
 * A user account in Howspace with Main User Dashboard privileges.
 
 ## Step 1. Plan your provisioning deployment
@@ -42,15 +42,15 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Howspace](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Howspace to support provisioning with Azure AD
-### Single Sign-On configuration
+### Single sign-on configuration
 1. Sign in to the Howspace Main User Dashboard, then select **Settings** from the menu.
-1. In the settings list, select **Single Sign-On**.
+1. In the settings list, select **single sign-on**.
 
-   ![Screenshot of the Single Sign-On section in the settings list.](media/howspace-provisioning-tutorial/settings-sso.png)
+   ![Screenshot of the single sign-on section in the settings list.](media/howspace-provisioning-tutorial/settings-sso.png)
 
 1. Click the **Add SSO configuration** button.
 
-   ![Screenshot of the Add SSO configuration menu in the Single Sign-On section.](media/howspace-provisioning-tutorial/settings-sso-2.png)
+   ![Screenshot of the Add SSO configuration menu in the single sign-on section.](media/howspace-provisioning-tutorial/settings-sso-2.png)
 
 1. Select either **Azure Active Directory (Multi-Tenant)** or **Azure Active Directory** based on your organization's Azure AD topology.
 
@@ -73,7 +73,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
    ![Screenshot of the Main User Dashboard Access Control section in the settings list.](media/howspace-provisioning-tutorial/settings-access-control.png)
 
-1. Check the **Enable Single Sign-On for main users** checkbox.
+1. Check the **Enable single sign-on for main users** checkbox.
 1. Select the SSO configuration you created in the previous step.
 1. Enter the object IDs of the Azure AD user groups that should have access to the Main User Dashboard to the **Limit to following user groups** field. You can specify multiple groups by separating the object IDs with a comma.
 1. Click **Save** to save the configuration.
@@ -87,7 +87,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
    ![Screenshot of the Login, registration and SSO section in the Workspace default settings list.](media/howspace-provisioning-tutorial/settings-workspace-sso.png)
 
-1. Check the **Users can login using Single Sign-On** checkbox.
+1. Check the **Users can login using single sign-on** checkbox.
 1. Select the SSO configuration you created in the previous step.
 1. Enter the object IDs of the Azure AD user groups that should have access to workspaces to the **Limit to following user groups** field. You can specify multiple groups by separating the object IDs with a comma.
 1. You can modify the user groups for each workspace individually after creating the workspace.
