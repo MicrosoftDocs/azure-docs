@@ -88,7 +88,7 @@ To update this code sample to target ASP.NET Core 6.0, follow these steps:
 1. Add the following line in its place:
 
    ```xml
-   <TargetFramework>netcoreapp6.0</TargetFramework>
+   <TargetFramework>net6.0</TargetFramework>
    ```
 
 This step will ensure that the sample is targeting the .NET Core 6.0 framework.
