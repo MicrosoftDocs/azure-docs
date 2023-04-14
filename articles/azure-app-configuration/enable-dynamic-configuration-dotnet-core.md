@@ -142,7 +142,7 @@ Calling the `ConfigureRefresh` method alone won't cause the configuration to ref
 
 ## Logging and Monitoring
 
-Logs are output upon configuration refresh and contain detailed information on key-values retrieved from your App Configuration store and configuration changes made to your application. You can enable these logs using the instructions for [logging with the Azure SDK for .NET](/dotnet/azure/sdk/logging).
+Logs are output upon configuration refresh and contain detailed information on key-values retrieved from your App Configuration store and configuration changes made to your application. If you have an ASP.NET Core application, see these instructions for [Logging and Monitoring in ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md#logging-and-monitoring). Otherwise, you can enable logging using the instructions for [logging with the Azure SDK](/dotnet/azure/sdk/logging).
 
 - Logs are output at different event levels. The default level is `Informational`.
 
