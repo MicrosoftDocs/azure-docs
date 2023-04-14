@@ -66,7 +66,7 @@ Use this **POST** request to start a Custom Text Analytics for health extraction
 | `displayName` | `{JOB-NAME}` | Your job name. | `MyJobName` |
 | `documents` | [{},{}] | List of documents to run tasks on. | `[{},{}]` |
 | `id` | `{DOC-ID}` | Document name or ID. | `doc1`|
-| `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the document. If this key isn't specified, the service will assume the default language of the project that was selected during project creation. <!--See [language support](../../language-support.md) for a list of supported language codes.--> |`en-us`|
+| `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the document. If this key isn't specified, the service will assume the default language of the project that was selected during project creation. See [language support](../../language-support.md) for a list of supported language codes. |`en-us`|
 | `text` | `{DOC-TEXT}` | Document task to run the tasks on. | `Lorem ipsum dolor sit amet` |
 |`tasks`| | List of tasks we want to perform.|`[]`|
 | `taskName`|`Custom Text Analytics for Health Test`|The task name|`Custom Text Analytics for Health Test`|

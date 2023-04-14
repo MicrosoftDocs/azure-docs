@@ -24,8 +24,8 @@ Before you can use custom Text Analytics for health, you'll need to create an Az
 > [!IMPORTANT]
 > To quickly get started, we recommend creating a new Azure Language resource using the steps provided in this article. Using the steps in this article will let you create the Language resource and storage account at the same time, which is easier than doing it later.
 >
-<!-- If you have a pre-existing resource that you'd like to use, you will need to connect it to storage account. See [guidance to using a pre-existing resource](../../how-to/create-project.md#using-a-pre-existing-language-resource) for information.
--->
+> If you have a pre-existing resource that you'd like to use, you will need to connect it to storage account. See [guidance to using a pre-existing resource](../../how-to/create-project.md#using-a-pre-existing-language-resource) for more information.
+
 [!INCLUDE [create a new resource from the Azure portal](../resource-creation-azure-portal.md)]
 
 > [!div class="nextstepaction"]

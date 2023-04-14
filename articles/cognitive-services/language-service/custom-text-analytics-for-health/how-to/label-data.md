@@ -22,7 +22,7 @@ Data labeling is a crucial step in development lifecycle. In this step, you  lab
 Before you can label your data, you need:
 
 * A successfully [created project](create-project.md) with a configured Azure blob storage account
-<!--* Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.-->
+* Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
 
 See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
@@ -34,7 +34,7 @@ As you label your data, keep in mind:
 
 * You can't add labels for Text Analytics for health entities as they're pretrained prebuilt entities. You can only add labels to new entity categories that you defined during schema definition. 
 
-<!--If you want to improve the recall for a prebuilt entity, you can extend it by adding a list component while you are [defining your schema](design-schema.md).-->
+If you want to improve the recall for a prebuilt entity, you can extend it by adding a list component while you are [defining your schema](design-schema.md).
 
 * In general, more labeled data leads to better results, provided the data is labeled accurately.
 
@@ -83,7 +83,7 @@ Use the following steps to label your data:
     
 6. In the right side pane under the **Labels** pivot you can find all the entity types in your project and the count of labeled instances per each. The prebuilt entities will be shown for reference but you will not be able to label for these prebuilt entities as they are pretrained.
 
-7. In the bottom section of the right side pane you can add the current document you are viewing to the training set or the testing set. By default all the documents are added to your training set. <!--Learn more about [training and testing sets](train-model.md#data-splitting) and how they are used for model training and evaluation.-->
+7. In the bottom section of the right side pane you can add the current document you are viewing to the training set or the testing set. By default all the documents are added to your training set. See [training and testing sets](train-model.md#data-splitting) for information on how they are used for model training and evaluation.
 
     > [!TIP]
     > If you are planning on using **Automatic** data splitting, use the default option of assigning all the documents into your training set.
@@ -107,6 +107,4 @@ You cannot delete any of the Text Analytics for health pretrained entities becau
 
 ## Next steps
 
-[Custom text analytics for health overview](../overview.md)
-
-<!--After you've labeled your data, you can begin [training a model](train-model.md) that will learn based on your data.-->
+After you've labeled your data, you can begin [training a model](train-model.md) that will learn based on your data.

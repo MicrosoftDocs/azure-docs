@@ -28,7 +28,7 @@ Before viewing model evaluation, you need:
 * A successfully [created project](create-project.md) with a configured Azure blob storage account.
 * Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
 * [Labeled data](label-data.md)
-<!--* A [successfully trained model](train-model.md)-->
+* A [successfully trained model](train-model.md)
 
 
 ## Model details
@@ -72,5 +72,5 @@ There are several metrics you can use to evaluate your mode. See the [performanc
 
 ## Next steps
 
-<!--* [Deploy your model](deploy-model.md)-->
+* [Deploy your model](deploy-model.md)
 * Learn about the [metrics used in evaluation](../concepts/evaluation-metrics.md). 

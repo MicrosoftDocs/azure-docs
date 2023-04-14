@@ -270,7 +270,7 @@ The response is a JSON document with the following parameters
 }
 
 ```
-<!--
+
 |Key|Sample Value|Description|
 |--|--|--|
 |entities|[]|An array containing all the extracted entities.|
@@ -288,4 +288,3 @@ The response is a JSON document with the following parameters
 |relations| [] | Array containing all the extracted relationships. [Relationship extraction](../../../text-analytics-for-health/concepts/relation-extraction.md) is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
 |relationType| `DosageOfMedication` | The category of the extracted [relationship](../../../text-analytics-for-health/concepts/relation-extraction.md). Relationship extraction is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
 |entities| `"Dosage", "Medication"` | The entities associated with the extracted relationship. Relationship extraction is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
--->
