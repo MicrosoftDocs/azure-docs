@@ -108,7 +108,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | South India | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :x: $  | :heavy_check_mark: | :heavy_check_mark: |
-| Sweden Central | :heavy_check_mark: | :x: | :heavy_check_mark: | :x: |
+| Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland West | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |

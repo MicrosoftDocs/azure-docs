@@ -151,9 +151,11 @@ After receiving the error message, you have two options to mitigate the issue:
 
 To remove usage of deprecated APIs, follow these steps:
 
-1. Remove the deprecated API, which is listed in the error message. Check the past usage by enabling [container insights][container-insights] and exploring kube audit logs.
+1. Remove the deprecated API, which is listed in the error message. In the Azure portal, navigate to your cluster's overview page, and select **Diagnose and solve problems**. You can find recent usages detected under the **Known Issues, Availability and Performance** category by navigating to **Selected Kubernetes API deprecations** on the left-hand side. You can also check past API usage by enabling [container insights][container-insights] and exploring kube audit logs.
 
-2. Wait 12 hours from the time the last deprecated api usage was seen.
+    :::image type="content" source="./media/upgrade-cluster/applens-api-detection-inline.png" lightbox="./media/upgrade-cluster/applens-api-detection-full.png" alt-text="A screenshot of the Azure portal showing the 'Selected Kubernetes API deprecations' section.":::
+
+2. Wait 12 hours from the time the last deprecated API usage was seen.
 
 3. Retry your cluster upgrade.
 

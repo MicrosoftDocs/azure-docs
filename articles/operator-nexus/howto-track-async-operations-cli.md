@@ -3,7 +3,7 @@ title: Tracking Asynchronous Operations Using Azure CLI
 description: Instructions for how an asynchronous operation status may be discovered, tracked, and used to determine completion.
 author: bryan-strassner
 ms.author: bstrassner
-ms.service: azure
+ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 02/09/2023
 ms.custom: template-how-to
