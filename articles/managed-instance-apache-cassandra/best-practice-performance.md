@@ -1,5 +1,5 @@
 ---
-title: Best Practices for Optimal Performance | Microsoft Docs
+title: Best practices for optimal performance in Azure Managed Instance for Apache Cassandra
 description: Learn about best practices to ensure optimal performance from Azure Managed Instance for Apache Cassandra
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
@@ -23,7 +23,7 @@ Because Azure supports *three* availability zones in most regions, and Cassandra
 
 We use a RAID 0 over the number of disks you provision. So to get the optimal IOPS you need to check for the maximum IOPS on the SKU you have chosen together with the IOPS of a P30 disk. For example, the `Standard_DS14_v2` SKU supports 51,200 uncached IOPS, whereas a single P30 disk has a base performance of 5,000 IOPS. So, four disks would lead to 20,000 IOPS, which is well below the limits of the machine.
 
-We strongly recommend extensive benchmarking of your worklaod against the SKU and number of disks. Benchmarking is especially important in the case of SKUs with only eight cores. Our research shows that eight core CPUs only work for the least demanding workloads, and most workloads need a minimum of 16 cores to be performant.
+We strongly recommend extensive benchmarking of your workload against the SKU and number of disks. Benchmarking is especially important in the case of SKUs with only eight cores. Our research shows that eight core CPUs only work for the least demanding workloads, and most workloads need a minimum of 16 cores to be performant.
 
 
 ## Analytical vs. Transactional workloads
@@ -90,7 +90,7 @@ Our default settings are already suitable for low latency workloads. To ensure b
 
 Like every database system, Cassandra works best if the CPU utilization is around 50% and never gets above 80%. You can view CPU metrics in the Metrics tab within Monitoring from the portal:
 
-   :::image type="content" source="./media/best-practice-performance/metrics.png" alt-text="Azure Monitor Insights CPU" lightbox="./media/best-practice-performance/metrics.png" border="true"::: 
+   :::image type="content" source="./media/best-practice-performance/metrics.png" alt-text="Screenshot of CPU metrics." lightbox="./media/best-practice-performance/metrics.png" border="true"::: 
 
 
 If the CPU is permanently above 80% for most nodes the database will become overloaded manifesting in multiple client timeouts. In this scenario, we recommend taking the following actions:
@@ -121,7 +121,7 @@ If the CPU is only high for a few nodes, but low for the others, it indicates a 
 
 The service runs on Azure P30 managed disks, which allow for "burst IOPS". Careful monitoring is required when it comes to disk related performance bottlenecks. In this case it's important to review the IOPS metrics:
 
-   :::image type="content" source="./media/best-practice-performance/metrics-disk.png" alt-text="Azure Monitor Insights disk I/O" lightbox="./media/best-practice-performance/metrics-disk.png" border="true"::: 
+   :::image type="content" source="./media/best-practice-performance/metrics-disk.png" alt-text="Screenshot of disk I/O metrics." lightbox="./media/best-practice-performance/metrics-disk.png" border="true"::: 
 
 If metrics show one or all of the following characteristics, it can indicate that you need to scale up.
 
@@ -150,7 +150,7 @@ If your IOPS max out what your SKU supports, you can:
 In most cases network performance is sufficient. However, if you are frequently streaming data (such as frequent horizontal scale-up/scale down) or there are huge ingress/egress data movements, this can become a problem. You may need to evaluate the network performance of your SKU. For example, the `Standard_DS14_v2` SKU supports 12,000 Mb/s, compare this to the byte-in/out in the metrics:
 
 
-   :::image type="content" source="./media/best-practice-performance/metrics-network.png" alt-text="Azure Monitor Insights network" lightbox="./media/best-practice-performance/metrics-network.png" border="true"::: 
+   :::image type="content" source="./media/best-practice-performance/metrics-network.png" alt-text="Screenshot of network metrics." lightbox="./media/best-practice-performance/metrics-network.png" border="true"::: 
 
 
 If you only see the network elevated for a small number of nodes, you might have a hot partition and need to review your data distribution and/or access patterns for a potential skew.
@@ -164,7 +164,7 @@ If you only see the network elevated for a small number of nodes, you might have
 
 Deployments should be planned and provisioned to support the maximum number of parallel requests required for the desired latency of an application. For a given deployment, introducing more load to the system above a minimum threshold increases overall latency. Monitor the number of connected clients to ensure this does not exceed tolerable limits. 
 
-   :::image type="content" source="./media/best-practice-performance/metrics-connections.png" alt-text="Azure Monitor Insights connections" lightbox="./media/best-practice-performance/metrics-connections.png" border="true"::: 
+   :::image type="content" source="./media/best-practice-performance/metrics-connections.png" alt-text="Screenshot of connected client metrics." lightbox="./media/best-practice-performance/metrics-connections.png" border="true"::: 
 
 
 ### Disk space
@@ -188,7 +188,7 @@ Our default formula assigns half the VM's memory to the JVM with an upper limit 
 
 In most cases memory gets reclaimed effectively by the Java garbage collector, but especially if the CPU is often above 80% there aren't enough CPU cycles for the garbage collector left. So any CPU performance problems should be addresses before memory problems.
 
-If the CPU hovers below 70%, and the garbage collection isn't able to reclaim memory, you might need more JVM memory. This is especially tha case if you are on a SKU with limited memory. In most cases, you will need to review your queries and client settings and reduce `fetch_size` along with what is chosen in `limit` within your CQL query.
+If the CPU hovers below 70%, and the garbage collection isn't able to reclaim memory, you might need more JVM memory. This is especially the case if you are on a SKU with limited memory. In most cases, you will need to review your queries and client settings and reduce `fetch_size` along with what is chosen in `limit` within your CQL query.
 
 If you indeed need more memory, you can:
 
@@ -203,7 +203,7 @@ We run repairs every seven days with reaper which removes rows whose TTL has exp
 A short term mitigation if queries don't get fulfilled is to increase the `tombstone_failure_threshold` in the [Cassandra config](create-cluster-portal.md#update-cassandra-configuration) from the default 100,000 to a higher value. 
 
 
-In addition to this, we recommend to review the TTL on the keyspace and potentially run repairs daily to clear out more tombstones. If the TTLs are short, for example less than two days, and data flows in and gets deleted quickly, we recommend reviewing the [compaction strategy](https://cassandra.apache.org/doc/4.1/cassandra/operating/compaction/index.html#types-of-compaction) and favoring `Leveled Compaction Strategy`. In some cases, such actions may be an indication that a review of the data model is required.
+In addition to this, we recommend reviewing the TTL on the keyspace and potentially run repairs daily to clear out more tombstones. If the TTLs are short, for example less than two days, and data flows in and gets deleted quickly, we recommend reviewing the [compaction strategy](https://cassandra.apache.org/doc/4.1/cassandra/operating/compaction/index.html#types-of-compaction) and favoring `Leveled Compaction Strategy`. In some cases, such actions may be an indication that a review of the data model is required.
 
 ### Batch warnings
 
