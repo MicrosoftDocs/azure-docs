@@ -31,7 +31,7 @@ To work with the code examples in this article, make sure you have:
 
 ## About copying blobs with asynchronous scheduling
 
-The `Copy Blob` operation can finish asynchronously, and is performed on a best-effort basis. The operation is performed when server resources aren't being utilized by other tasks, which means the copy isn't guaranteed to start immediately or complete within a specified time frame. The operation can complete synchronously if the copy occurs within the same storage account. 
+The `Copy Blob` operation can finish asynchronously and is performed on a best-effort basis, which means that the operation isn't guaranteed to start immediately or complete within a specified time frame. The copy operation is scheduled in the background and performed as the server has available resources.  The operation can complete synchronously if the copy occurs within the same storage account. 
 
 A `Copy Blob` operation can perform any of the following actions:
 
@@ -82,7 +82,7 @@ var sourceBlobSASURI = new Uri(
     $"https://{srcAccountName}.blob.core.windows.net/{srcContainerName}/{srcBlobName}?{sasToken}");
 ```
 
-You can also [create a user delegation SAS token with .NET](storage-blob-user-delegation-sas-create-dotnet.md). User delegation SAS tokens offer greater security, as they are signed with Azure AD credentials instead of an account key.
+You can also [create a user delegation SAS token with .NET](storage-blob-user-delegation-sas-create-dotnet.md). User delegation SAS tokens offer greater security, as they're signed with Azure AD credentials instead of an account key.
 
 ## Copy a blob from a source outside of Azure
 
