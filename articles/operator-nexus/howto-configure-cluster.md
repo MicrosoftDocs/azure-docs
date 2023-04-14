@@ -121,7 +121,7 @@ az networkcloud cluster show --resource-group "$CLUSTER_RG" \
   --resource-name "$CLUSTER_RESOURCE_NAME"
 ```
 
-The Cluster deployment is complete when the `provisioningState` of the resource
+The Cluster creation is complete when the `provisioningState` of the resource
 shows: `"provisioningState": "Succeeded"`
 
 ### Cluster logging
@@ -133,9 +133,8 @@ Cluster create Logs can be viewed in the following locations:
 
 ## Deploy Cluster
 
-Once a Cluster has been created and the Rack Manifests have been added, the
-deploy cluster action can be triggered. The deploy Cluster action creates the
-bootstrap image and deploys the Cluster.
+Once a Cluster has been created, the deploy cluster action can be triggered.
+The deploy Cluster action creates the bootstrap image and deploys the Cluster.
 
 Deploy Cluster will initiate a sequence of events to occur in the Cluster Manager
 
@@ -152,7 +151,8 @@ Deploy the on-premises Cluster:
 az networkcloud cluster deploy \
   --name "$CLUSTER_NAME" \
   --resource-group "$CLUSTER_RESOURCE_GROUP" \
-  --subscription "$SUBSCRIPTION_ID"
+  --subscription "$SUBSCRIPTION_ID" \
+  --no-wait
 ```
 
 ## Cluster deployment validation
@@ -160,12 +160,11 @@ az networkcloud cluster deploy \
 View the status of the cluster:
 
 ```azurecli
-az networkcloud Cluster show --resource-group "$CLUSTER_RG" \
+az networkcloud cluster show --resource-group "$CLUSTER_RG" \
   --resource-name "$CLUSTER_RESOURCE_NAME"
 ```
 
-The Cluster deployment is complete when the `provisioningState` of the resource
-shows: `"provisioningState": "Succeeded"`
+The Cluster deployment is complete when detailedStatus is set to `Running` and detailedStatusMessage shows message `Cluster is up and running`.
 
 ## Cluster deployment Logging
 
