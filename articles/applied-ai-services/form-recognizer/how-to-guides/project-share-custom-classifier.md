@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/13/2023
+ms.date: 04/14/2023
 ms.author: jppark
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
@@ -32,7 +32,7 @@ For more information, *see*, [Enable a system-assigned managed identity](../mana
 
 ### Role-based access control (RBAC)
 
-Grant your Form Recognizer managed identity access to your storage account using Azure role-based access control (Azure RBAC). The [Storage Blob Data Reader](../../..//role-based-access-control/built-in-roles.md#storage-blob-data-reader) role grants read, write, and delete permissions to Azure Storage containers and blobs.
+Grant your Form Recognizer managed identity access to your storage account using Azure role-based access control (Azure RBAC). The [Storage Blob Data Reader](../../..//role-based-access-control/built-in-roles.md#storage-blob-data-reader) role grants read and list permissions to Azure Storage containers and blobs.
 
 For more information, *see*, [Grant access to your storage account](../managed-identities.md#grant-access-to-your-storage-account)
 
@@ -73,7 +73,6 @@ Follow the steps below to share your project using Form Recognizer studio.
 1. On the share project dialog, copy the project token for the selected project.
 
 :::image type="content" source="../media/how-to/studio-project-token.png" alt-text="Screenshot showing how to copy the project token.":::
-
 
 ## Import custom extraction model with Form Recognizer studio
 
