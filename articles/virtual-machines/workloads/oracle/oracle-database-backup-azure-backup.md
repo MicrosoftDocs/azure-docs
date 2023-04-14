@@ -439,8 +439,8 @@ To use Azure Backup to back up the database, complete these steps:
 	
 There are two main choices when restoring a VM:
 	
-	1. restore the VM from which the backups were originally taken
-	1. restore (clone) a new VM without affecting the VM from which the backups were originally taken
+1. restore the VM from which the backups were originally taken
+1. restore (clone) a new VM without affecting the VM from which the backups were originally taken
 
 The first steps in this exercise, stopping, deleting, and then recovering the VM, are intended to simulate the first use-case, where we are restoring the VM from which the backups were originally taken.  Please be aware that you also have the ability to clone the VM without interrupting or affecting the original VM, if you wish?
 
