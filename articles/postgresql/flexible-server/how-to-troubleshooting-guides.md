@@ -25,7 +25,7 @@ Each troubleshooting guide requires a specific set of data, which is sourced fro
 All troubleshooting guides require logs to be sent to the Log Analytics workspace, but the specific category of logs to be captured may vary depending on the particular guide. 
 
 Please follow the steps described in the [Configure and Access Logs in Azure Database for PostgreSQL - Flexible Server](howto-configure-and-access-logs.md) article to configure diagnostic settings and send the logs to the Log Analytics workspace.
-Query Store, and Enhanced Metrics are configured via the Server Parameters. Please follow the steps described in the "Configure server parameters in Azure Database for PostgreSQL - Flexible Server" articles for [Azure Portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).  
+Query Store, and Enhanced Metrics are configured via the Server Parameters. Please follow the steps described in the "Configure server parameters in Azure Database for PostgreSQL - Flexible Server" articles for [Azure portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).  
 
 The table below provides information on the required log categories for each troubleshooting guide, as well as the necessary Query Store, Enhanced Metrics and Server Parameters prerequisites.
 
@@ -52,11 +52,11 @@ To use troubleshooting guides, follow these steps:
 
 3. Navigate to the top of the page where you will find a series of tabs, each representing one of the six problems you may wish to resolve. Click on the relevant tab.
 
-   :::image type="content" source="./media/how-to-troubleshooting-guides/portal-blade-overview.png" alt-text="Troubleshooting guides - tabular view":::
+   :::image type="content" source="./media/how-to-troubleshooting-guides/portal-blade-overview.png" alt-text="Screenshot of Troubleshooting guides - tabular view":::
 
 4. Select the time range during which the problem occurred.
 
-    :::image type="content" source="./media/how-to-troubleshooting-guides/time-range.png" alt-text="Choose the time range of interest":::
+    :::image type="content" source="./media/how-to-troubleshooting-guides/time-range.png" alt-text="Screenshot of time range picker":::
 
 5. Follow the step-by-step instructions provided by the guide. Pay close attention to the charts and data visualizations plotted within the troubleshooting steps, as they can help you identify any inaccuracies or anomalies. Use this information to effectively diagnose and resolve the problem at hand.
 
@@ -69,7 +69,7 @@ Once connected, query the `query_store.query_texts_view view` to retrieve the de
 
 In the example shown below, we utilize Azure Cloud Shell and the `psql` tool to accomplish this task:
 
-:::image type="content" source="./media/how-to-troubleshooting-guides/retrieve-query-text.png" alt-text="Retrieving the Query Text":::
+:::image type="content" source="./media/how-to-troubleshooting-guides/retrieve-query-text.png" alt-text="Screenshot of retrieving the Query Text":::
 
 ### Retrieving the Username
 
@@ -80,7 +80,7 @@ To retrieve the username, you can query the `pg_roles` view or use the query sho
 SELECT 'UserID'::regrole;
 ```
 
-:::image type="content" source="./media/how-to-troubleshooting-guides/retrieve-username.png" alt-text="Retrieving the Username":::
+:::image type="content" source="./media/how-to-troubleshooting-guides/retrieve-username.png" alt-text="Screenshot of retrieving the Username":::
 
 
 ## Next steps
