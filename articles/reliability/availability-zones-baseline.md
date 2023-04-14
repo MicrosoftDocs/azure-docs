@@ -92,7 +92,7 @@ With a zonal deployment, you must:
 If the Azure service supports availability zones, we highly recommend that you use zone-redundancy by spreading nodes across the zones to get higher uptime SLA and protection against zonal outages.  
 
 
-For a 3-tier application it is important to understand the application, business, and data tiers; as well as their their state (stateful or stateless) to architect in alignment with the best practices and guidance according to the type of workload. 
+For a 3-tier application it is important to understand the application, business, and data tiers; as well as their state (stateful or stateless) to architect in alignment with the best practices and guidance according to the type of workload. 
 
 For specialized workloads on Azure as below examples, please refer to the respective landing zone architecture guidance and best practices. 
 
