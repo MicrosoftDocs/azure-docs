@@ -760,6 +760,7 @@ In your workspace in Azure Machine Learning studio, select Compute, then select 
 
 ```python
 from azure.ai.ml.entities import ComputeInstance, AmlCompute
+
 # Display operating system version
 instance = ml_client.compute.get("myci")
 print instance.os_image_metadata
