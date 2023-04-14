@@ -22,7 +22,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 
 | Feature | Azure OpenAI |
 | --- | --- |
-| Models available | **NEW GPT-4 series (preview)** <br> GPT-3 base series <br>**NEW ChatGPT (gpt-35-turbo) (preview)**<br> **NEW DALL-E 2 (preveiw)** <br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
+| Models available | **NEW GPT-4 series (preview)** <br> GPT-3 base series <br>**NEW ChatGPT (gpt-35-turbo) (preview)**<br> **NEW DALL-E 2 (preview)** <br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
 | Fine-tuning | Ada <br> Babbage <br> Curie <br> Cushman* <br> Davinci* <br> \* Currently unavailable. \*\*East US and West Europe Fine-tuning is currently unavailable to new customers. Please use US South Central for US based training|
 | Price | [Available here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
 | Virtual network support & private link support | Yes | 
@@ -55,7 +55,7 @@ With Azure OpenAI, customers get the security capabilities of Microsoft Azure wh
 
 ## Key concepts
 
-### Prompts & Completions
+### Prompts & completions
 
 The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-out interface. Users simply need to provide an input  **prompt** containing the English text command, and the model will generate a text **completion**.
 
@@ -129,6 +129,8 @@ GPT-4 models are the latest available models. These models are currently in prev
 The GPT-3 base models are known as Davinci, Curie, Babbage, and Ada in decreasing order of capability and increasing order of speed.
 
 The Codex series of models is a descendant of GPT-3 and has been trained on both natural language and code to power natural language to code use cases. Learn more about each model on our [models concept page](./concepts/models.md).
+
+The DALL-E models, currently in preview, generate images from text prompts that the user provides.
 
 ## Next steps
 

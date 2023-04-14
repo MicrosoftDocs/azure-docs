@@ -112,7 +112,7 @@ To learn more about the ChatGPT model and how to interact with the Chat API chec
 
 ### DALL-E models
 
-text in and image out. tbd
+The DALL-E models, currently in preview, generate images from text prompts that the user provides.
 
 ## Codex models
 
@@ -217,9 +217,9 @@ These models can only be used with the Chat Completion API.
 
 ### Dall-E Models
 
-|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
+|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (characters) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
-| tbd | tbd | tbd | tbd | |
+| dalle2 | East US | N/A | 400 | N/A |
 
 
 ### Codex Models
