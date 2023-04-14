@@ -659,7 +659,7 @@ items:
     - name: Analytics
       items:
       - name: Call logs
-        href: concepts/analytics/voice-and-video-logs.md
+        href: concepts/analytics/logs/voice-and-video-logs.md
       - name: Call Automation logs
         href: concepts/analytics/logs/call-automation-logs.md
       - name: Recording logs

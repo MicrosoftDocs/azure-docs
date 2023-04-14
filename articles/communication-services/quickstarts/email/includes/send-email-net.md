@@ -217,7 +217,7 @@ You can also now subscribe to Email Operational logs that provide information re
 - Email Send Mail operational logs - provides detailed information related to the Email service send mail requests.
 - Email Status Update operational logs - provides message and recipient level delivery status updates related to the Email service send mail requests.
 
-Access logs for [Email Communication Service](./analytics/logs/email-logs.md).
+Access logs for [Email Communication Service](../../../concepts/analytics/logs/email-logs.md).
 
 ### Run the code
 

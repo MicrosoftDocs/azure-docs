@@ -42,7 +42,7 @@ You can now subscribe to Email User Engagement operational logs - provides infor
 
 ## Next steps
 
-- Access logs for [Email Communication Service](./analytics/logs/email-logs.md).
+- Access logs for [Email Communication Service](../../concepts/analytics/logs/email-logs.md).
 
 The following documents may be interesting to you:
 
