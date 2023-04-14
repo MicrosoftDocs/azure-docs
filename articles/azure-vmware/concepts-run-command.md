@@ -21,7 +21,7 @@ Azure VMware Solution supports the following operations:
 
 - [Deploy disaster recovery using JetStream](deploy-disaster-recovery-using-jetstream.md)
 
-- .[Use HCX Run commands](https://learn.microsoft.com/en-us/azure/azure-vmware/use-hcx-run-commands)
+- [Use HCX Run commands](use-hcx-run-commands.md)
 
 >[!NOTE]
 >Run commands are executed one at a time in the order submitted.
