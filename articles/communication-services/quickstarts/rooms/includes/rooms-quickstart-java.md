@@ -37,7 +37,7 @@ mvn archetype:generate -DgroupId=com.contoso.app -DartifactId=rooms-quickstart -
 
 ### Include the package
 
-You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.2/jar) or above. 
+You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.3/jar) or above. 
 
 #### Include the BOM file
 
@@ -102,19 +102,18 @@ Create a new `room` with default properties using the code snippet below:
 ```java
 OffsetDateTime validFrom = OffsetDateTime.now();
 OffsetDateTime validUntil = validFrom.plusDays(30);
-RoomJoinPolicy roomJoinPolicy = RoomJoinPolicy.INVITE_ONLY;
 
 List<RoomParticipant> roomParticipants = new ArrayList<RoomParticipant>();
 
-roomParticipants.add(new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_1)).setRole(RoleType.CONSUMER));
-roomParticipants.add(new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_2)).setRole(RoleType.ATTENDEE));
+roomParticipants.add(new RoomParticipant(new CommunicationUserIdentifier("<ACS User MRI identity 1>"))); // Default role is ATTENDEE
+roomParticipants.add(new RoomParticipant(new CommunicationUserIdentifier("<ACS User MRI identity 2>"), ParticipantRole.CONSUMER));
 
-return roomsClient.createRoom(
-    validFrom,
-    validUntil,
-    roomJoinPolicy,
-    roomParticipants
-);
+CreateRoomOptions roomOptions = new CreateRoomOptions()
+            .setValidFrom(validFrom)
+            .setValidUntil(validUntil)
+            .setParticipants(participants);
+
+return roomsClient.createRoom(roomOptions);
 ```
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
@@ -135,14 +134,36 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 OffsetDateTime validFrom = OffsetDateTime.now().plusDays(1);
 OffsetDateTime validUntil = validFrom.plusDays(1);
 
-CommunicationRoom roomResult = roomsClient.updateRoom(roomId, validFrom, validUntil);
+UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
+            .setValidFrom(validFrom)
+            .setValidUntil(validUntil);
+
+CommunicationRoom roomResult = roomsClient.updateRoom(roomId, updateRoomOptions);
 ```
 
 ### Add new participants
 
-To add new participants to a `room`, use the `addParticipants` method exposed on the client.
+To add new participants to a `room`, use the `upsertParticipants` method exposed on the client.
 
 ```java
+ List<RoomParticipant> participantsToUpsert = new ArrayList<>();
+
+    // New participant to add
+    RoomParticipant participantToAdd = new RoomParticipant(new CommunicationUserIdentifier("<ACS User MRI identity 3>"), ParticipantRole.ATTENDEE);
+
+    // Existing participant to update, assume participant2 is part of the room as a
+    // consumer
+    participant2 = new RoomParticipant(new CommunicationUserIdentifier("<ACS User MRI identity 2>"), ParticipantRole.ATTENDEE);
+
+    participantsToUpsert.add(participantToAdd); // Adding new participant to room
+    participantsToUpsert.add(participant2); // Update participant from Consumer -> Attendee
+
+    RoomsClient roomsClient = createRoomsClientWithConnectionString();
+
+    try {
+        UpsertParticipantsResult upsertResult = roomsClient.upsertParticipants("<Room Id>", participantsToUpsert);
+
+
 RoomParticipant newParticipant = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_3)).setRole(RoleType.CONSUMER);
 ParticipantsCollection updatedParticipants = roomsClient.addParticipants(roomId, List.of(newParticipant));
 ```
