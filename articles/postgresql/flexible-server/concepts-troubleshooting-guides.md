@@ -16,8 +16,6 @@ ms.date: 03/21/2023
 > [!NOTE]
 > Troubleshooting guides for PostgreSQL Flexible Server are currently in preview.
 
-## Overview
-
 The troubleshooting guides available in Azure Database for PostgreSQL - Flexible Server provide you with the necessary tools to analyze and troubleshoot prevalent performance issues, 
 including:
 * High CPU Usage, 
@@ -27,7 +25,7 @@ including:
 * Autovacuum Monitoring,
 * Autovacuum Blockers. 
 
-:::image type="content" source="./media/concepts-troubleshooting-guides/overview-troubleshooting-guides.jpg" alt-text="Troubleshooting Guides":::
+:::image type="content" source="./media/concepts-troubleshooting-guides/overview-troubleshooting-guides.jpg" alt-text="Screenshot of multiple Troubleshooting Guides combined" lightbox="./media/concepts-troubleshooting-guides/overview-troubleshooting-guides.jpg":::
 
 Each guide is packed with multiple charts, guidelines, recommendations tailored to the specific problem you may encounter, which can help expedite the troubleshooting process.
 The troubleshooting guides are directly integrated into the Azure portal and your Azure Database for PostgreSQL - Flexible Server, making them convenient and easy to use. 
