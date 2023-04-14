@@ -176,7 +176,7 @@ The Azure Virtual Desktop app can make your local clipboard and local devices av
 
 Updates for the Azure Virtual Desktop app are available in the Microsoft Store. You can also check for updates through the app directly.
 
-To check for updates through the the app:
+To check for updates through the app:
 
 1. Open the **Azure Virtual Desktop** app on your device.
 
@@ -215,7 +215,7 @@ If you want to help us test new builds before they're released, you should downl
 > [!NOTE]
 > Insider releases shouldn't be used in production.
 
-Insider releases are made available in the Azure Virtual Desktop app once you've configured the it to use Insider releases. To configure the app to use Insider releases:
+Insider releases are made available in the Azure Virtual Desktop app once you've configured it to use Insider releases. To configure the app to use Insider releases:
 
 1. Open the **Azure Virtual Desktop** app on your device.
 

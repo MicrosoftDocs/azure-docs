@@ -9,7 +9,7 @@ ms.author: daknappe
 
 # Connect to Azure Virtual Desktop with the Remote Desktop app for Windows
 
-The Microsoft Remote Desktop app is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop app for Windows. If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Remote Desktop app for Windows](connect-microsoft-store.md).
+The Microsoft Remote Desktop app is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop app for Windows.
 
 > [!IMPORTANT]
 > We're no longer updating the Remote Desktop app for Windows with new features.

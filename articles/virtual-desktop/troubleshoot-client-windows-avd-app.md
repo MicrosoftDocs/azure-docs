@@ -19,7 +19,7 @@ You can also manually search for new updates for the app. For more information, 
 
 ## General
 
-In this section you'll find troubleshooting guidance for general issues with the Remote Desktop client.
+In this section you'll find troubleshooting guidance for general issues with the Azure Virtual Desktop app.
 
 [!INCLUDE [troubleshoot-remote-desktop-client-doesnt-show-resources](includes/include-troubleshoot-remote-desktop-client-doesnt-show-resources.md)]
 
