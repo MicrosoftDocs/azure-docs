@@ -84,7 +84,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. In the target tenant, use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true) API to create a new partner configuration in a cross-tenant access policy between the target tenant and the source tenant. Use the source tenant ID in the request.
 
-    If you get an Request_MultipleObjectsWithSameKeyValue error, you might already have an existing configuration. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
+    If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing configuration. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
 
     **Request**
 
@@ -128,7 +128,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. Use the [Create identitySynchronization](/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-beta&preserve-view=true) API to enable user synchronization in the target tenant.
 
-    If you get an Request_MultipleObjectsWithSameKeyValue error, you might already have an existing policy. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
+    If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing policy. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
 
     **Request**
     
@@ -184,7 +184,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. In the source tenant, use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true) API to create a new partner configuration in a cross-tenant access policy between the source tenant and the target tenant. Use the target tenant ID in the request.
 
-    If you get an Request_MultipleObjectsWithSameKeyValue error, you might already have an existing configuration. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
+    If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing configuration. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
 
     **Request**
 
@@ -781,9 +781,9 @@ You are likely trying to create a configuration or object that already exists, p
 
 1. Verify your request syntax and that you are using the correct tenant ID.
 
-1. Make a `GET` call to list the existing object.
+1. Make a `GET` request to list the existing object.
 
-1. If you have an existing object, instead of making a create call using `POST` or `PUT`, you might need to make an update call using `PATCH`, such as:
+1. If you have an existing object, instead of making a create request using `POST` or `PUT`, you might need to make an update request using `PATCH`, such as:
 
     - [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true)
     - [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true)
@@ -805,9 +805,9 @@ You are likely trying to update an object that doesn't exist using `PATCH`.
 
 1. Verify your request syntax and that you are using the correct tenant ID.
 
-1. Make a `GET` call to verify the object doesn't exist.
+1. Make a `GET` request to verify the object doesn't exist.
 
-1. If object doesn't exist, instead of making an update call using `PATCH`, you might need to make a create call using `POST` or `PUT`, such as:
+1. If object doesn't exist, instead of making an update request using `PATCH`, you might need to make a create request using `POST` or `PUT`, such as:
 
     - [Create identitySynchronization](/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-beta&preserve-view=true)
 
