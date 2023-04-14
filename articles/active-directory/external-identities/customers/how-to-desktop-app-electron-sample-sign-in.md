@@ -54,15 +54,25 @@ Overview here
 ## Clone or download sample web application
 
 
+
 ## Install project dependencies
+
 
 
 ## Configure the sample web app
 
 
+
 ## Run and test sample web app
+
 
 
 ## Next steps
 
-Share About the code
+- [Enable password reset](how-to-enable-password-reset-customers.md).
+
+- [Customize the default branding](how-to-customize-branding-customers.md).
+
+- [Configure sign-in with Google](how-to-google-federation-customers.md).
+- 
+- Learn [About the Electron desktop app sample code](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/tree/main/1-Authentication/3-sign-in-electron#about-the-code).
