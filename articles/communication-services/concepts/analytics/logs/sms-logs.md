@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services SMS Logs
 titleSuffix: An Azure Communication Services concept document
-description: Learn about logging in Azure Communication Services
+description: Learn about logging for Azure Communication Services SMS.
 author: mkhribech
 services: azure-communication-services
 

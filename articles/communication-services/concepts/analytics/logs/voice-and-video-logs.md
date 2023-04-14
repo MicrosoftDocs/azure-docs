@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services - Voice and Video Logs 
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Call Summary and Call Diagnostic Logs in Azure Monitor
+description: Learn about logging for Azure Communication Services Voice and Video.
 author:  timmitchell
 services: azure-communication-services
 
