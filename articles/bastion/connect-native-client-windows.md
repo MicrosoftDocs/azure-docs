@@ -222,7 +222,13 @@ This connection supports file upload from the local computer to the target VM. F
 
 ## <a name="connect-IP"></a>Connect to VM - IP Address
 
-This section helps you connect to your on-premises, non-Azure, and Azure virtual machines via Azure Bastion using a specified private IP address from native client. You can replace --target-resource-id with --target-ip-address in any of the above commands with the specified IP address to connect to your VM. Note that this feature does not support support AAD authentication or custom port and protocol at the moment. For more information on IP-based connection, see [Connect to a VM - IP address](connect-ip-address.md). Use the following commands as examples:
+This section helps you connect to your on-premises, non-Azure, and Azure virtual machines via Azure Bastion using a specified private IP address from native client. You can replace `--target-resource-id` with `--target-ip-address` in any of the above commands with the specified IP address to connect to your VM. 
+
+> [!Note]
+> This feature does not support support Azure AD authentication or custom port and protocol at the moment. For more information on IP-based connection, see [Connect to a VM - IP address](connect-ip-address.md). 
+
+Use the following commands as examples:
+
 
    **RDP:**
    
