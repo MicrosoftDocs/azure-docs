@@ -67,7 +67,7 @@ az group create \
 ```
 
 ### Create a virtual network (VNet) with 2 subnets
-Creating a virtual network where we will connect all compute services.  One subnet will host Bastion, an Azure service that protects your databases from public access.  The second subnet will host the 2 Oracle database VMs.  You will also create a network security group that all services will reference to determine what ports are publicly exposed -note, only port 443 will be exposed. The Bastion service will open this port automatically when that service is created.
+Creating a virtual network where we will connect all compute services.  One subnet will host Bastion, an Azure service that protects your databases from public access.  The second subnet will host the 2 Oracle database VMs.  You will also create a network security group that all services will reference to determine what ports are publicly exposed. Only port 443 will be exposed. The Bastion service will open this port automatically when that service is created.
 
 ```azurecli
 az network vnet create \
