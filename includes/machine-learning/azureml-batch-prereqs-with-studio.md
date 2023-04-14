@@ -9,8 +9,6 @@ ms.author: fasantia
 Before following the steps in this article, make sure you have the following prerequisites:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-
-* The [Azure CLI](/cli/azure/) and the `ml` [extension for Azure Machine Learning](../../articles/machine-learning/how-to-configure-cli.md) or the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
  
 * An Azure Machine Learning workspace. If you don't have one, use the steps in the [How to manage workspaces](../../articles/machine-learning/how-to-manage-workspace.md) to create one.
 
@@ -19,6 +17,31 @@ Before following the steps in this article, make sure you have the following pre
     * Create/manage batch endpoints and deployments: Use roles Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/batchEndpoints/*`.
 
     * Create ARM deployments in the workspace resource group: Use roles Owner, contributor, or custom role allowing `Microsoft.Resources/deployments/write` in the resource group where the workspace is deployed.
+
+### Prepare your system
+
+You will need to install the following software to work with Azure Machine Learning:
+
+# [Azure CLI](#tab/cli)
+
+The [Azure CLI](/cli/azure/) and the `ml` [extension for Azure Machine Learning](../../articles/machine-learning/how-to-configure-cli.md).
+
+```azurecli
+az extension add -n ml
+```
+
+# [Python](#tab/python)
+
+Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
+
+```python
+pip install azure-ai-ml
+```
+
+# [Studio](#tab/studio)
+
+There are no further requirements if you plan to use Azure Machine Learning studio.
+---
 
 ### Connect to your workspace
 
