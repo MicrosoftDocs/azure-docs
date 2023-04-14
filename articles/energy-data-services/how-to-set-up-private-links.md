@@ -21,6 +21,9 @@ This article describes how to set up a private endpoint for Azure Data Manager f
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
+> [!NOTE]
+> Terraform currently does not support private endpoint creation for ADME.
+
 ## Prerequisites
 
 [Create a virtual network](../virtual-network/quick-create-portal.md) in the same subscription as the Azure Data Manager for Energy Preview instance. This virtual network will allow automatic approval of the Private Link endpoint.
@@ -62,7 +65,7 @@ Use the following steps to create a private endpoint for an existing Azure Data 
     |**Subscription**| Your subscription|
     |**Resource type**|	**Microsoft.OpenEnergyPlatform/energyServices**|
     |**Resource**| Your Azure Data Manager for Energy Preview instance|
-    |**Target sub-resource**| **MEDS** (for Azure Data Manager for Energy Preview) by default|
+    |**Target sub-resource**| **Azure Data Manager for Energy** (for Azure Data Manager for Energy Preview) by default|
 	
     [![Screenshot of resource information for a private endpoint.](media/how-to-manage-private-links/private-links-4-resource.png)](media/how-to-manage-private-links/private-links-4-resource.png#lightbox)
  
