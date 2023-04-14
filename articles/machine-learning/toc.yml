@@ -815,8 +815,8 @@
         - name: Train with the job creation UI
           href: how-to-train-with-ui.md
         - name: Debug jobs and monitor training progress
-         displayName: automl
-         href: how-to-interactive-jobs.md
+          displayName: automl
+          href: how-to-interactive-jobs.md
         - name: Optimize Checkpoint Performance for Large Models
           displayName: Optimize Checkpoint Performance for Large Models
           href: reference-checkpoint-performance-for-large-models.md
