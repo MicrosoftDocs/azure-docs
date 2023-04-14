@@ -70,7 +70,7 @@ Before following the steps in this article, make sure you have the following pre
     To install the Python SDK v2, use the following command:
 
     ```bash
-    pip install --pre azure-ai-ml
+    pip install --pre --upgrade azure-ai-ml azure-identity
     ```
 
     ---
