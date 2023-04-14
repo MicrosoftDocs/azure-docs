@@ -2,8 +2,8 @@
 title: include file
 ms.service: azure-app-configuration
 ms.topic: include
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.date: 01/24/2023
 ---
 
