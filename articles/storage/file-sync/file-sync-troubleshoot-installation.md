@@ -58,7 +58,18 @@ This issue occurs if the [PowerShell execution policy](/powershell/module/micros
 To resolve this issue, temporarily disable the [Turn on Script Execution](/powershell/module/microsoft.powershell.core/about/about_execution_policies#use-group-policy-to-manage-execution-policy) group policy setting on the server. Once the agent installation completes, the group policy setting can be re-enabled.
 
 <a id="agent-installation-on-DC"></a>**Agent installation fails on Active Directory Domain Controller**  
-If you try to install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008 R2 or below OS version, you may hit the issue where the sync agent will fail to install.
+
+In the agent installation log, the following error is logged:
+
+```
+CAQuietExec64:  Error 0x80070001: Command line returned an error.
+CAQuietExec64:  Error 0x80070001: CAQuietExec64 Failed
+CustomAction InstallHFSRequiredWindowsFeatures returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)
+Action ended 8:51:12: InstallExecute. Return value 3.
+MSI (s) (EC:B4) [08:51:12:439]: Note: 1: 2265 2:  3: -2147287035
+```
+
+This issue occurs if you try to install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008 R2 or below OS version.
 
 To resolve, transfer the PDC role to another domain controller running Windows Server 2012 R2 or more recent, then install sync.
 
