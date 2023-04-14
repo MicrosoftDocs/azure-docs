@@ -3,9 +3,9 @@ title: "Azure Operator Nexus: How to configure the Cluster deployment"
 description: Learn the steps for deploying the Operator Nexus Cluster.
 author: JAC0BSMITH
 ms.author: jacobsmith
-ms.service: azure-operator-nexus #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 03/03/2023 #Required; mm/dd/yyyy format.
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 03/03/2023
 ms.custom: template-how-to, devx-track-azurecli
 ---
 

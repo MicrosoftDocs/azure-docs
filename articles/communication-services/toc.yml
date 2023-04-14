@@ -132,6 +132,8 @@ items:
       href: quickstarts/telephony/pstn-call.md
     - name: Handle an inbound phone call
       href: quickstarts/call-automation/redirect-inbound-telephony-calls.md
+    - name: Configure direct routing
+      href: quickstarts/telephony/voice-routing-sdk-config.md
   - name: Email
     items:
     - name: Create an email resource
@@ -208,6 +210,8 @@ items:
         href: how-tos/calling-sdk/lobby-admit-and-reject.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
+      - name: Raise Hand
+        href: how-tos/calling-sdk/raise-hand.md
       - name: Show transcription state
         href: how-tos/calling-sdk/call-transcription.md
       - name: Manage role assignment
