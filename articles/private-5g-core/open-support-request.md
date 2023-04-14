@@ -1,6 +1,7 @@
 ---
 title: How to open a support request 
-description: This article guides you through how to submit support a request if you have a problem with your AP5GC service. 
+titleSuffix: Azure Private 5G Core
+description: This article guides you through how to submit a support request if you have a problem with your AP5GC service. 
 author: robswain
 ms.author: robswain
 ms.service: private-5g-core
