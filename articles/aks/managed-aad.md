@@ -2,7 +2,7 @@
 title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 03/02/2023
+ms.date: 04/14/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
@@ -144,7 +144,15 @@ In order to access the cluster, follow the steps in [access an Azure AD enabled 
 
 There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with `kubectl`. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to connect to the cluster with a non-interactive service principal credential.
 
-Starting with Kubernetes 1.24, the default format of clusterUser credential for AAD enabled clusters will be ‘exec’, which requires [kubelogin](https://github.com/Azure/kubelogin) binary in the execution PATH. If you are using Azure CLI, it will prompt users to download kubelogin. There will be no behavior change for non-AAD clusters, or AAD clusters whose version is older than 1.24. Existing downloaded kubeconfig will still work. We provide an optional query parameter ‘format’ when getting clusterUser credential to overwrite the default behavior change, you can explicitly specify format to ‘azure’ to get old format kubeconfig.
+Starting with Kubernetes 1.24, the default format of clusterUser credential for AAD enabled clusters will be ‘exec’, which requires [kubelogin](https://github.com/Azure/kubelogin) binary in the execution PATH. If you are using Azure CLI, it will prompt users to download kubelogin. There will be no behavior change for non-AAD clusters, or AAD clusters whose version is older than 1.24. Existing downloaded kubeconfig will still work. 
+
+We provide an optional query parameter ‘format’ when getting clusterUser credential to overwrite the default behavior change, you can explicitly specify format to ‘azure’ to get old format kubeconfig.
+
+Example:
+
+```azurecli-interactive
+az aks get-credentials --format azure
+```
 
 For AAD clusters whose version is newer than 1.24, it will return to kubelogin format automatically and no convert needed. For AAD clusters whose version is plder than 1.24, you need to run the below commands to convert kubelogin format manually. 
 
