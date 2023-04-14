@@ -18,7 +18,7 @@ ms.date: 03/30/2023
 
 ### Configuration recommendations
 
-| Recommendation | Description |
+| Recommendation | Benefit |
 |:---|:---|
 | Configure pricing tier for the amount of data that each Log Analytics workspace typically collects. | By default, Log Analytics workspaces will use pay-as-you-go pricing with no minimum data volume. If you collect enough data, you can significantly decrease your cost by using a [commitment tier](../logs/cost-logs.md#commitment-tiers), which allows you to commit to a daily minimum of data collected in exchange for a lower rate. If you collect enough data across workspaces in a single region, you can link them to a [dedicated cluster](../logs/logs-dedicated-clusters.md) and combine their collected volume using [cluster pricing](../logs/cost-logs.md#dedicated-clusters).<br><br>See [Azure Monitor Logs cost calculations and options](../logs/cost-logs.md) for details on commitment tiers and guidance on determining which is most appropriate for your level of usage. See [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs) to view estimated costs for your usage at different pricing tiers.  |
 | Configure tables used for debugging, troubleshooting, and auditing as Basic Logs. | Tables in a Log Analytics workspace configured for [Basic Logs](../logs/basic-logs-configure.md) have a lower ingestion cost in exchange for limited features and a charge for log queries. If you query these tables infrequently and don't use them for alerting, this query cost can be more than offset by the reduced ingestion cost. |
