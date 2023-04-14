@@ -5,9 +5,9 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 08/03/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Connect to and manage HDFS in Microsoft Purview
@@ -16,9 +16,9 @@ This article outlines how to register Hadoop Distributed File System (HDFS), and
 
 ## Supported capabilities
 
-|**Metadata Extraction**|**Full Scan**|**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No| No | No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No| No | No | No|
 
 When scanning HDFS source, Microsoft Purview supports extracting technical metadata including HDFS:
 

@@ -72,6 +72,10 @@ items:
       href: complete-private-mobile-network-prerequisites.md
     - name: Commission the AKS cluster
       href: commission-cluster.md
+  - name: Request support
+    items:
+    - name: How to open a support request 
+      href: open-support-request.md
   - name: Private mobile networks
     items:
     - name: Collect the required information to deploy a private mobile network

@@ -95,4 +95,4 @@ echo "Press [ENTER] to continue ..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy an event-driven application to Azure Spring Apps with the Standard consumption plan](./quickstart-deploy-event-driven-app-standard-consumption.md)
+> [Quickstart: Set up autoscale for applications in Azure Spring Apps Standard consumption plan](./quickstart-apps-autoscale-standard-consumption.md)

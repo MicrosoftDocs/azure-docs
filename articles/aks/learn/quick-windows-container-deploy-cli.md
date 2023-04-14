@@ -282,7 +282,7 @@ A Kubernetes manifest file defines a desired state for the cluster, such as what
 
 The ASP.NET sample application is provided as part of the [.NET Framework Samples][dotnet-samples] and runs in a Windows Server container. AKS requires Windows Server containers to be based on images of *Windows Server 2019* or greater. The Kubernetes manifest file must also define a [node selector][node-selector] to tell your AKS cluster to run your ASP.NET sample application's pod on a node that can run Windows Server containers.
 
-Create a file named `sample.yaml` and copy in the following YAML definition. If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system:
+Create a file named `sample.yaml` and copy in the following YAML definition.
 
 ```yaml
 apiVersion: apps/v1

@@ -174,6 +174,7 @@ The merged device that is now listed in the grid retains the details of the devi
 
 For more information, see:
 
+- [Defender for IoT device inventory](device-inventory.md)
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
 - [Device data retention periods](references-data-retention.md#device-data-retention-periods).

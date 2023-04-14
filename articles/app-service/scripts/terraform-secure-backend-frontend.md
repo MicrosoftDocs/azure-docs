@@ -8,6 +8,7 @@ ms.date: 12/06/2022
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
+ms.custom: devx-track-terraform
 ---
 
 # Create two web apps connected securely with Private Endpoint and VNet integration

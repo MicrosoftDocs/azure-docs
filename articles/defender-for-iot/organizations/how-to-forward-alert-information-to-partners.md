@@ -312,16 +312,3 @@ If your forwarding alert rules aren't working as expected, check the following d
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)
-
-> [!div class="nextstepaction"]
-> [View and manage alerts on your OT sensor](how-to-view-alerts.md)
-
-> [!div class="nextstepaction"]
-> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-
-> [!div class="nextstepaction"]
-> [OT monitoring alert types and descriptions](alert-engine-messages.md)
-
-
-> [!div class="nextstepaction"]
-> [Microsoft Defender for IoT alerts](alerts.md)
