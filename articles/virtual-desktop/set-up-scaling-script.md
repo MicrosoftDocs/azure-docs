@@ -236,8 +236,6 @@ When you report an issue, you'll need to provide the following information to he
     - OMSIngestionAPI
     - Az.DesktopVirtualization
 
-- The expiration date for your [Run As account](#create-an-azure-automation-run-as-account). To find this, open your Azure Automation account, then select **Run As accounts** under **Account Settings** in the pane on the left side of the window. The expiration date should be under **Azure Run As account**.
-
 ### Log Analytics
 
 If you decided to use Log Analytics, you can view all the log data in a custom log named **WVDTenantScale_CL** under **Custom Logs** in the **Logs** view of your Log Analytics Workspace. We've listed some sample queries you might find helpful.
