@@ -13,7 +13,7 @@ Microsoft will regularly apply important updates to the Azure VMware Solution fo
 
 ## April 2023
 
-Introducing Run commands for HCX on Azure VMware solutions. You can use these Run commands to restart HCX cloud manager in your Azure VMware solution private cloud. Additionally, you can also scale HCX cloud manager using Run command. Learn how to use Run commands for HCX [Use HCX Run commands](use-hcx-run-commands.md).
+Introducing run commands for HCX on Azure VMware solutions. You can use these run commands to restart HCX cloud manager in your Azure VMware solution private cloud. Additionally, you can also scale HCX cloud manager using run commands. To learn how to use run commands for HCX, see [Use HCX Run commands](use-hcx-run-commands.md).
 
 ## February 2023
 
