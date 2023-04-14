@@ -274,7 +274,7 @@ ORDER BY t_s_secyear.customer_id
 OPTION ( LABEL = 'Query04-af359846-253-3');
 ```
 
-Check the query's [estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan.md). There are 18 shuffles and 17 joins operations, which take more time to execute. 
+Check the query's [estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan). There are 18 shuffles and 17 joins operations, which take more time to execute. 
 
 Now, let's create one materialized view for each of the three sub-SELECT statements.
 
