@@ -18,7 +18,7 @@ This overview introduces the key concepts around the options to extend an Azure 
 
 The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the areas relevant to extending an IoT solution.
 
-:::image type="content" source="media/iot-overview-solution-extensibility/iot-architecture.svg" lightbox="media/iot-overview-solution-extensibility/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution extensibility areas." border="false":::
+:::image type="content" source="media/iot-overview-solution-extensibility/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution extensibility areas." border="false":::
 
 In Azure IoT, solution extensibility refers to the ways you can add to the built-in functionality of the IoT cloud services and build integrations with other services.
 

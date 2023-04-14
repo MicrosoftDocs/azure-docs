@@ -18,7 +18,7 @@ This overview introduces the key concepts around processing messages sent from y
 
 The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the message processing components of an IoT solution.
 
-:::image type="content" source="media/iot-overview-message-processing/iot-architecture.svg" lightbox="media/iot-overview-message-processing/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting message processing areas." border="false":::
+:::image type="content" source="media/iot-overview-message-processing/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting message processing areas." border="false":::
 
 In Azure IoT, message processing refers to processes such as routing and enriching telemetry messages sent by devices. These processes are used to control the flow of messages through the IoT solution and to add additional information to the messages.
 

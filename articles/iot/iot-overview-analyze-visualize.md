@@ -18,7 +18,7 @@ This overview introduces the key concepts around the options to analyze and visu
 
 The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the areas relevant to analyzing and visualizing your IoT data.
 
-:::image type="content" source="media/iot-overview-analyze-visualize/iot-architecture.svg" lightbox="media/iot-overview-analyze-visualize/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting analysis and visualization areas." border="false":::
+:::image type="content" source="media/iot-overview-analyze-visualize/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting analysis and visualization areas." border="false":::
 
 In Azure IoT, analysis and visualization services are used to identify and display business insights derived from your IoT data. For example, you can use a machine learning model to analyze device telemetry and predict when maintenance should be carried out on an industrial asset. You can also use a visualization tool to display a map of the location of your devices.
 
