@@ -10,9 +10,7 @@ ms.custom: references_regions, subject-reliability
 CustomerIntent: As a cloud architect/engineer, I need general guidance on migrating HDInsight to using availability zones.
 ---
 
-
 # Reliability in Azure HDInsight 
- 
 
 This article describes reliability support in Azure HDInsight and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
@@ -121,16 +119,10 @@ Azure HDInsight clusters currently doesn't support in-place migration of existin
 
 When an availability zone goes down:
 
- - You can't ssh to this cluster
- - You can't delete or scale up or scale down this cluster
- - You can't submit jobs or see job history
- - You still can submit new cluster creation request in a different region
-
-
-### Low-latency design
-
-{Any more info here?}
-
+ - You can't ssh to this cluster.
+ - You can't delete or scale up or scale down this cluster.
+ - You can't submit jobs or see job history.
+ - You still can submit new cluster creation request in a different region.
 
 ## Disaster recovery: cross region failover
 
