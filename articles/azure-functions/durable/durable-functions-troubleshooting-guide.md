@@ -80,7 +80,7 @@ This section shows how to troubleshoot issues by writing custom [KQL queries](/a
 
 ### Azure Storage Messaging
 
-When using the default storage provider, all Durable Functions behavior is driven by Azure Storage queue messages and all state related to an orchestration is stored in table storage and blob storage. All Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems.
+When using the default Azure Storage provider, all Durable Functions behavior is driven by Azure Storage queue messages and all state related to an orchestration is stored in table storage and blob storage. When Durable Task Framework tracing is enabled, all Azure Storage interactions are logged to Application Insights, and this data is critically important for debugging execution and performance problems.
 
 Starting in v2.3.0 of the Durable Functions extension, you can have these Durable Task Framework logs published to your Application Insights instance by updating your logging configuration in the host.json file. See the [Durable Task Framework logging article](./durable-functions-diagnostics.md) for information and instructions on how to do this.
 
