@@ -1096,7 +1096,7 @@ items:
       - name: View model evaluation
         href: custom-text-analytics-for-health/how-to/view-model-evaluation.md
       - name: Deploy a model
-        href: custom-text-analytics-for-health/how-to/deploy-model
+        href: custom-text-analytics-for-health/how-to/deploy-model.md
       - name: Call the API
         href: custom-text-analytics-for-health/how-to/call-api.md
       - name: Back up and recover your models

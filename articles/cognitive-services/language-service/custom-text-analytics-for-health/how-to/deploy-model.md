@@ -21,7 +21,7 @@ Once you're satisfied with how your model performs, it's ready to be deployed an
 
 * A successfully [created project](create-project.md) with a configured Azure storage account.
 * Text data that has [been uploaded](design-schema.md#data-preparation) to your storage account.
-* [Labeled data](tag-data.md) and successfully [trained model](train-model.md)
+* [Labeled data](label-data.md) and a successfully [trained model](train-model.md).
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
 
 For more information, see [project development lifecycle](../overview.md#project-development-lifecycle).
@@ -79,7 +79,7 @@ You can [deploy your project to multiple regions](../../concepts/custom-features
 
 # [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Assign resource](../../includes/custom/conversational-language-understanding/includes/language-studio/assign-resources.md)]
+[!INCLUDE [Assign resource](../../conversational-language-understanding/includes/language-studio/assign-resources.md)]
 
 # [REST APIs](#tab/rest-api)
 

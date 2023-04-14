@@ -15,7 +15,7 @@ ms.custom: language-service-custom-ta4h
 
 # Train your custom Text Analytics for health model
 
-Training is the process where the model learns from your [labeled data](tag-data.md). After training is completed, you'll be able to view the [model's performance](view-model-evaluation.md) to determine if you need to improve your model.
+Training is the process where the model learns from your [labeled data](label-data.md). After training is completed, you'll be able to view the [model's performance](view-model-evaluation.md) to determine if you need to improve your model.
 
 To train a model, you start a training job and only successfully completed jobs create a model. Training jobs expire after seven days, which means you won't be able to retrieve the job details after this time. If your training job completed successfully and a model was created, the model won't be affected. You can only have one training job running at a time, and you can't start other jobs in the same project. 
 
@@ -26,7 +26,7 @@ The training times can be anywhere from a few minutes when dealing with few docu
 
 * A successfully [created project](create-project.md) with a configured Azure blob storage account
 * Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
-* [Labeled data](tag-data.md)
+* [Labeled data](label-data.md)
 
 See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
@@ -44,7 +44,7 @@ Custom Text Analytics for health supports two methods for data splitting:
  > [!NOTE]
  > If you choose the **Automatically splitting the testing set from training data** option, only the data assigned to training set will be split according to the percentages provided.
 
-* **Use a manual split of training and testing data**: This method enables users to define which labeled documents should belong to which set. This step is only enabled if you have added documents to your testing set during [data labeling](tag-data.md).
+* **Use a manual split of training and testing data**: This method enables users to define which labeled documents should belong to which set. This step is only enabled if you have added documents to your testing set during [data labeling](label-data.md).
 
 ## Train model
 
