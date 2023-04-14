@@ -175,6 +175,8 @@ When Teams external users leave the meeting, or the meeting ends, they can no lo
 
 **Inline image support is currently in public preview and is available in the Chat SDK for JavaScript only. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
+**If the Teams external user sends a message with images uploaded via "Upload from this device" menu or via drag-and-drop (such as dragging images directly to the send box) in the Teams, then these scenarios would be covered under the file sharing capability, which is currently not supported.
+
 ## Server capabilities
 
 The following table shows supported server-side capabilities available in Azure Communication Services:
