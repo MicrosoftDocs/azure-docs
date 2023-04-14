@@ -18,8 +18,9 @@ ms.date: 04/12/2023
 > In this quickstart, you download and run a code sample that demonstrates how a React single-page application (SPA) can sign in users with Azure AD CIAM.
 
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
-> 1. Make sure you've [Node.js](https://nodejs.org/en/download/) installed in your computer, unzip the sample app, `cd` to the folder that contains the `package.json` file, then run the following commands:
+> 1. Make sure you've installed [Node.js](https://nodejs.org/en/download/).
 >
+> 1. Unzip the sample, `cd` into the folder that contains `package.json`, then run the following commands:
 >     ```console
 >     npm install && npm start
 >     ```
