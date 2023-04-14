@@ -37,7 +37,7 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
-1. Replace the contents of quickstart.py with the following code.
+1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields.
 
     ```python
     import requests
@@ -76,7 +76,7 @@ Create a new Python file called quickstart.py. Then open it up in your preferred
 
 ## Output
 
-The output from a successful image generation API call will look like this.
+The output from a successful image generation API call will look like this. The `"contentUrl"` field contains a URL where you can download the generated image. The URL stays active for 24 hours.
 
 ```json
 {
@@ -116,5 +116,5 @@ If you want to clean up and remove an OpenAI resource, you can delete the resour
 
 ## Next steps
 
-* tbd
+* [Azure OpenAI Overview](../overview.md)
 * For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).
