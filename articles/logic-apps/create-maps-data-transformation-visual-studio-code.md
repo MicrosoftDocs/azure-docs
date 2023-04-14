@@ -45,9 +45,9 @@ The Data Mapper extension currently works only with schemas in flat folder-struc
 
 - [Same prerequisites for using Visual Studio Code and the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites) to create Standard logic app workflows.
 
-- The latest Data Mapper extension for Visual Studio Code
+- The latest **Azure Logic Apps - Data Mapper** extension. You can download and install this extension from inside Visual Studio Code through the Marketplace, or you can find this extension externally on the [Marketplace website](https://marketplace.visualstudio.com/vscode).
 
-- The source and target schema files that describe the data to transform. These files can have either the following formats:
+- The source and target schema files that describe the data types to transform. These files can have either the following formats:
 
   - An XML schema definition file with the .xsd file extension
   - A JavaScript Object Notation file with the .json file extension
@@ -60,14 +60,6 @@ The Data Mapper extension currently works only with schemas in flat folder-struc
 
 - Sample input data if you want to test the map and check that the transformation works as you expect.
 
-## Add source and target schemas to your project folder
-
-1. Go to your local project folder, and expand the **Artifacts** > **Schemas** folder.
-
-1. Add your source and target schema files to the **Schemas** folder.
-
-   In Visual Studio Code, these schema files now also appear in your logic app project.
-
 ## Create a data map
 
 1. On the Visual Studio Code left menu, select the **Azure** icon.
@@ -76,21 +68,59 @@ The Data Mapper extension currently works only with schemas in flat folder-struc
 
 1. Provide a name for your data map.
 
-1. Specify your source schema:
+1. Specify your source and target schemas by following these steps:
 
    1. On the map surface, select **Add a source schema**.
-   1. On the **Configure** pane that opens, select **Select existing**, if not already selected.
-   1. From the source schema list, select your source schema, and then select **Add**.
 
-   The map surface now shows the data fields from the source schema.
+   1. On the **Configure** pane that opens, select **Add new** > **Browse**.
 
-1. Specify your target schema:
+   1. Find and select your source schema file, and then select **Add**.
+
+      [!NOTE]
+      >
+      > If your source schema doesn't appear in the **Open** window, 
+      > from the file type list, change **XSD File (\*.xsd)** to **All Files (\*.\*)**.
+
+      The map surface now shows the data types from the source schema.
 
    1. On the map surface, select **Add a target schema**.
-   1. On the **Configure** pane that opens, select **Select existing**, if not already selected.
-   1. From the target schema list, select your target schema, and then select **Add**.
 
-   The map surface now shows data fields from the target schema.
+   1. On the **Configure** pane that opens, select **Add new** > **Browse**.
+
+   1. Find and select your target schema file, and then select **Add**.
+
+      [!NOTE]
+      >
+      > If your target schema doesn't appear in the **Open** window, 
+      > from the file type list, change **XSD File (\*.xsd)** to **All Files (\*.\*)**.
+
+      The map surface now shows data types from the target schema.
+
+   > [!NOTE]
+   > 
+   > You can also add your source and target schema files locally to your 
+   > logic app project in the **Artifacts** > **Schemas** folder, so that 
+   > they appear in Visual Studio Code. In this case, you can specify your 
+   > source and target schema in the Data Mapper tool on the **Configure** 
+   > pane by selecting **Select existing**, rather than **Add new**.
+
+The following table describes the possible data types that might appear in a schema:
+
+| Symbol | Type | Notes |
+|--------|------|-------|
+| ![Icon representing an Array data type.](media/create-maps-data-transformation-visual-studio-code/array-icon.png) | Array | Contains items or repeating item nodes |
+| ![Icon representing a Binary data type.](media/create-maps-data-transformation-visual-studio-code/binary-icon.png) | Binary | |
+| ![Icon representing a Bool data type.](media/create-maps-data-transformation-visual-studio-code/bool-icon.png) | Bool | True or false only |
+| ![Icon representing a Complex data type.](media/create-maps-data-transformation-visual-studio-code/complex-icon.png) | Complex | An XML object with children properties, similar to the Object JSON type |
+| ![Icon representing a DateTime data type.](media/create-maps-data-transformation-visual-studio-code/datetime-icon.png) | DateTime | |
+| ![Icon representing a Decimal data type.](media/create-maps-data-transformation-visual-studio-code/decimal-icon.png) | Decimal | |
+| ![Icon representing an Integer data type.](media/create-maps-data-transformation-visual-studio-code/integer-icon.png) | Integer | Whole numbers only |
+| ![Icon representing the NULL symbol.](media/create-maps-data-transformation-visual-studio-code/null-icon.png) | Null | Not a data type, but appears when an error or an invalid type exists |
+| ![Icon representing a Number data type.](media/create-maps-data-transformation-visual-studio-code/number-icon.png) | Number | A JSON integer or decimal |
+| ![Icon representing an Object data type.](media/create-maps-data-transformation-visual-studio-code/object-icon.png) | Object | A JSON object with children properties, similar to the Complex XML type |
+| ![Icon representing a String data type.](media/create-maps-data-transformation-visual-studio-code/string-icon.png) | String | |
+
+<a name="navigate-map"></a>
 
 ## Navigate the map 
 
@@ -103,26 +133,40 @@ To move around the map, you have the following options:
   |--------|---------------------|
   | **Zoom in** | On the map surface, double select. |
   | **Zoom out** | On the map surface, press SHIFT + double select. |
-  | **Zoom to fit** | |
-  | **Show (Hide) mini-map** | |
+  | **Zoom to fit** | None |
+  | **Show (Hide) mini-map** | None |
 
 - To move up one level on the map, on the breadcrumb path, select a previous level.
+
+<a name="select-elements"></a>
+
+## Select the elements that you want to map
+
+1. On the map surface, from the target schema list, select the target element that you want to map. If that element is a child of a parent element, find and expand the parent first.
+
+   The source schema area on the map now shows the option to select a source element.
+
+1. From the source schema area, select **Select element**.
+
+1. From the **Source schema** window that appears, select one or more source elements to display on the map.
+
+   - To include the immediate children of a parent, open the parent's shortcut menu, and select **Add children**.
+
+   - To include all the children of a parent, including any subsequent parents, open the top-level parent's shortcut menu, and select **Add children (recursive)**.
+
+1. When you're done, close the source schema window. You can always add more source elements later. On the map, in the upper left corner, select **Show source schema** (node tree).
 
 <a name="create-basic-mapping"></a>
 
 ## Create a basic mapping relationship
 
-For a direct and simple mapping between visible child elements, follow these steps:
+For a direct and simple mapping between elements with the same type, follow these steps:
 
-1. On the map surface, in the target schema area, expand the element that you want to map.
-
-1. In the source schema area, select **Select element**. From the element list, select one or more source elements to show them on the map. When you're done, close the source schema window.
-
-   To add more source elements later, on the map, in the upper left corner, select **Show source schema** (node tree).
+1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
 
 1. Move your pointer over the source element so that both a circle and a plus sign (**+**) appear.
 
-1. Drag a line to the target element and connect the circle that appears.
+1. Drag a line to the target element so that the line connects to the circle that appears.
 
    You now have a basic mapping between both elements.
 
@@ -130,9 +174,11 @@ For a direct and simple mapping between visible child elements, follow these ste
 
 ## Create a complex mapping relationship
 
-For a more complex transformation, you can create a mapping that uses a function.
+| | Any | |
 
-1. [Follow the steps to create a basic mapping relationship](#create-basic-mapping).
+For a more complex transformation, you can create a mapping that uses a function to perform a task or make a decision.
+
+1. [Create a basic mapping relationship](#create-basic-mapping).
 
 1. Select the line for the mapping that you created.
 
@@ -153,6 +199,16 @@ For a more complex transformation, you can create a mapping that uses a function
 1. After the function appears on the map, select the function so that the information window appears. 
 
 1. On the function's **Properties** tab, select the data fields to use as the input and scope for the transformation.
+
+<a name="iterate-through-array"></a>
+
+## Create a loop mapping between arrays
+
+If your source and target schemas include arrays, you can create a loop mapping between the items in those arrays.
+
+1. Add the arrays and their Expand the items 
+
+1. [Follow the steps to create a basic mapping relationship](#create-basic-mapping) between a pair of matching elements in the source and target schema.
 
 ## Save your map
 
