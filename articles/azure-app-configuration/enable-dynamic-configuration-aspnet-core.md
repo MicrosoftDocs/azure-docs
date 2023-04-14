@@ -234,7 +234,7 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
 Logs are output upon configuration refresh and contain detailed information on key-values retrieved from your App Configuration store and configuration changes made to your application.
 
-- ASP.NET Core uses `ILogger` for logging by default, so you don't need to make any additional code changes to enable logging for the App Configuration provider.
+- A default `ILoggerFactory` is added automatically when `services.AddAzureAppConfiguration()` is invoked. The App Configuration provider uses this `ILoggerFactory` to create an instance of `ILogger`, which outputs these logs. ASP.NET Core uses `ILogger` for logging by default, so you don't need to make additional code changes to enable logging for the App Configuration provider.
 - Logs are output at different log levels. The default level is `Information`.
 
     | Log Level | Description |
@@ -264,7 +264,7 @@ Logs are output upon configuration refresh and contain detailed information on k
     Key vault error. ErrorCode:'SecretNotFound' Key:'ExampleKey' Label:'ExampleLabel' Etag:'6LaqgBQM9C_Do2XyZa2gAIfj_ArpT52-xWwDSLb2hDo' SecretIdentifier:'https://examplevault.vault.azure.net/secrets/ExampleSecret'
     ```
 
-Using `ILogger` is the preferred method in ASP.NET applications and is prioritized as the logging source if an instance of `ILoggerFactory` is present. However, if `ILoggerFactory` is not available, logs can alternatively be enabled and configured through the [instructions for .NET Core apps](./enable-dynamic-configuration-dotnet-core.md#logging-and-monitoring-v600-and-later). For more information, see [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging).
+Using `ILogger` is the preferred method in ASP.NET applications and is prioritized as the logging source if an instance of `ILoggerFactory` is present. However, if `ILoggerFactory` is not available, logs can alternatively be enabled and configured through the [instructions for .NET Core apps](./enable-dynamic-configuration-dotnet-core.md#logging-and-monitoring). For more information, see [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging).
 
 > [!NOTE]
 > Logging is available if you use version **6.0.0** or later of any of the following packages.
