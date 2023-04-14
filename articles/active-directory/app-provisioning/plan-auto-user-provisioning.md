@@ -273,7 +273,7 @@ After a successful [initial cycle](../app-provisioning/user-provisioning.md), th
 
 * A new initial cycle triggers a change in attribute mappings or scoping filters.
 
-* The provisioning process goes into quarantine due to a high error rate and stays in quarantine for more than four weeks then it is automatically disabled.
+* The provisioning process goes into quarantine due to a high error rate and stays in quarantine for more than four weeks then it's automatically disabled.
 
 To review these events, and all other activities performed by the provisioning service, refer to Azure AD [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
