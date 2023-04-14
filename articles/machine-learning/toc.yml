@@ -147,7 +147,7 @@
             - name: Export and delete data
               displayName: GDPR
               href: how-to-export-delete-data.md
-#    - name: Train models
+    - name: Train models
       items:
         - name: Model training
           displayName: run config, machine learning pipeline, ml pipeline, train model
@@ -974,8 +974,7 @@
         - name: Explain automated ML models
           displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
           href: ./v1/how-to-machine-learning-interpretability-automl.md
-        # end v1 
-  # end v1 
+        # end v1  
     - name: Deploy models
       items:
         - name: Online endpoints (real-time)
