@@ -6,8 +6,8 @@ items:
   items:
   - name: What is the MedTech service?
     href: overview.md
-  - name: Overview of the device message processing stages
-    href: overview-of-device-message-processing-stages.md
+  - name: Overview of the device data processing stages
+    href: overview-of-device-data-processing-stages.md
 - name: Quickstarts
   expanded: true
   items:

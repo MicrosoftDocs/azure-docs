@@ -100,9 +100,9 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Event Log Options for Azure Virtual Network Manager
+          - text: Event log 0ptions for Azure Virtual Network Manager
             url: concept-event-logs.md
       - linkListType: how-to-guide
         links:
-          - text: Configure Event Logs for Azure Virtual Network Manager
+          - text: Configure event logs for Azure Virtual Network Manager
             url: how-to-configure-event-logs.md
