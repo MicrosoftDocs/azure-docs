@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/04/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -144,7 +144,7 @@ For more information on the MedTech service device data transformation, see [Ove
 
 ## Step 6: Verify the processed device data
 
-You can verify that the device data was processed correctly by checking to see if there's now a new Observation resource in the FHIR service. If the device data isn't mapped or if the mapping isn't authored properly, the device data will be skipped. If there are any problems, check the [device mapping](overview-of-device-mapping.md) or the [FHIR destination mapping](how-to-configure-fhir-mappings.md).
+You can verify that the device data was processed correctly by checking to see if there's now a new Observation resource in the FHIR service. If the device data isn't mapped or if the mapping isn't authored properly, the device data will be skipped. If there are any problems, check the [device mapping](overview-of-device-mapping.md) or the [FHIR destination mapping](overview-of-fhir-destination-mapping.md).
 
 ### Metrics
 
