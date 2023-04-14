@@ -31,7 +31,7 @@ In this article, you'll learn how to:
 
 ## Scenario overview 
 
-In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP 200 (OK) response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 409 (Conflict) response, and the use must re-enter an access code. 
+In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP 200 (OK) response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 409 (Conflict) response, and the user must re-enter an access code. 
 
 :::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-of-call-rest-api-call.png" alt-text="A flowchart of calling a R E S T  A P I.":::
 
@@ -88,7 +88,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
                     "code" : "errorCode",
                     "requestId": "requestId",
                     "userMessage" : "The access code you entered is incorrect. Please try again.",
-                    "developerMessage" : `The The provided code ${req.body.accessCode} does not match the expected code for user.`,
+                    "developerMessage" : `The provided code ${req.body.accessCode} does not match the expected code for user.`,
                     "moreInfo" :"https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
                 };
                 res.status(409).send(errorResponse);                
@@ -133,7 +133,7 @@ You need to deploy an app, which will serve as your external app. Your custom po
             "code": "errorCode",
             "requestId": "requestId",
             "userMessage": "The access code you entered is incorrect. Please try again.",
-            "developerMessage": "The The provided code 54321 does not match the expected code for user.",
+            "developerMessage": "The provided code 54321 does not match the expected code for user.",
             "moreInfo": "https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
         }
     ```

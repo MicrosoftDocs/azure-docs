@@ -5,7 +5,7 @@ ms.topic: how-to
 author: bmansheim
 ms.author: benmansheim
 ms.custom: ignite-2022
-ms.date: 09/21/2022
+ms.date: 04/05/2023
 ---
 # Automate responses to Microsoft Defender for Cloud triggers
 
@@ -164,15 +164,14 @@ Unfortunately, this change came with an unavoidable breaking change. The breakin
 1. Navigate to the logic app that is connected to the policy.
 1. Select **Logic app designer**.
 1. Select the **three dot** > **Rename**.
-1. Rename the Defender for cloud connector as follows:
+1. Rename the Defender for Cloud connector as follows:
     
     | Original name | New name|
     |--|--|
-    |Deploy Workflow Automation for Microsoft Defender for Cloud alerts | When a Microsoft Defender for Cloud dAlert is created or triggered <sup>[1](#footnote1)</sup>|
+    |Deploy Workflow Automation for Microsoft Defender for Cloud alerts | When a Microsoft Defender for Cloud Alert is created or triggered.|
     | Deploy Workflow Automation for Microsoft Defender for Cloud recommendations | When a Microsoft Defender for Cloud Recommendation is created or triggered |
     | Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance | When a Microsoft Defender for Cloud Regulatory Compliance Assessment is created or triggered |
 
-    <sup><a name="footnote1"></a>1</sup> The typo `Clou dAlert` is intentional.
 
 ## Next steps
 

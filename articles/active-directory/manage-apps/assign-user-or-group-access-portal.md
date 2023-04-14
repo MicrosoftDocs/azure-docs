@@ -243,7 +243,7 @@ $assignments | ForEach-Object {
 1. Get the enterprise application. Filter by DisplayName.
 
     ```http
-    GET servicePrincipal?$filter=DisplayName eq '{appDisplayName}'
+    GET https://graph.microsoft.com/v1.0/servicePrincipals?$filter=displayName eq '{appDisplayName}'
     ```
     Record the following values from the response body:
 
@@ -253,11 +253,11 @@ $assignments | ForEach-Object {
 1. Get the user by filtering by the user's principal name. Record the object ID of the user.
 
     ```http
-    GET /users/{userPrincipalName}
+    GET https://graph.microsoft.com/v1.0/users/{userPrincipalName}
     ```
 1. Assign the user to the application.
     ```http
-    POST /servicePrincipals/resource-servicePrincipal-id/appRoleAssignedTo
+    POST https://graph.microsoft.com/v1.0/servicePrincipals/{resource-servicePrincipal-id}/appRoleAssignedTo
 
     {
     "principalId": "33ad69f9-da99-4bed-acd0-3f24235cb296",
@@ -270,20 +270,20 @@ $assignments | ForEach-Object {
 ## Unassign users, and groups, from an application
 To unassign user and groups from the application, run the following query.
 
-1. Get the enterprise application. Filter by DisplayName.
+1. Get the enterprise application. Filter by displayName.
 
     ```http
-    GET servicePrincipal?$filter=DisplayName eq '{appDisplayName}'
+    GET https://graph.microsoft.com/v1.0/servicePrincipals?$filter=displayName eq '{appDisplayName}'
     ```
 1. Get the list of appRoleAssignments for the application.
 
-   ```http
-      GET /servicePrincipals/{id}/appRoleAssignedTo
-   ```
+    ```http
+    GET https://graph.microsoft.com/v1.0/servicePrincipals/{id}/appRoleAssignedTo
+    ```
 1. Remove the appRoleAssignments by specifying the appRoleAssignment ID.
 
     ```http
-    DELETE /servicePrincipals/{resource-servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
+    DELETE https://graph.microsoft.com/v1.0/servicePrincipals/{resource-servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
     ```
 :::zone-end
 

@@ -35,7 +35,7 @@ To install the node exporter on Linux:
 
 1. The node exporter now starts collecting data. You can export the data at `http://IP:9100/metrics`.
 
-## Script to setup Node Exporter
+## Script to set up Node Exporter
 
 ```shell
 # To get the latest node exporter version from: https://prometheus.io/download/#node_exporter
@@ -52,7 +52,7 @@ else
 fi
 
 cd node_exporter-*.*-amd64
-nohup ./node_expoprter --web.listen-address=":9100" &
+nohup ./node_exporter --web.listen-address=":9100" &
 ```
 
 ## Prerequisites to enable secure communication
@@ -94,7 +94,7 @@ When the provider settings validation operation fails with the code ‘Prometheu
 1. Try to restart the node exporter agent:
     1. Go to the folder where you installed the node exporter (the file name resembles `node_exporter-*.*-amd64`).
     1. Run `./node_exporter`.
-    1. Adding nohup and & to aboe command decouples the node_exporter from linux machine commandline. If not included node_exporter would stop when the commandline is closed.
+    1. Adding nohup and & to above command decouples the node_exporter from linux machine commandline. If not included node_exporter would stop when the commandline is closed.
 1. Verify that the Prometheus endpoint is reachable from the subnet that you provided while creating the Azure Monitor for SAP solutions resource.
 
 ## Suggestions
@@ -102,7 +102,7 @@ When the provider settings validation operation fails with the code ‘Prometheu
 ### Enabling Node Exporter
 
 1. Run `nohup ./node_exporter &` command to enable node_exporter.
-1. Adding nohup and & to aboe command decouples the node_exporter from linux machine commandline. If not included node_exporter would stop when the commandline is closed.
+1. Adding nohup and & to above command decouples the node_exporter from linux machine commandline. If not included node_exporter would stop when the commandline is closed.
 
 ### Setting up cron job to start Node exporter on VM restart
 

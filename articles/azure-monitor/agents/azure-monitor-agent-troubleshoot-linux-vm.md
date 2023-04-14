@@ -2,8 +2,6 @@
 title: Troubleshoot the Azure Monitor agent on Linux virtual machines and scale sets
 description: Guidance for troubleshooting issues on Linux virtual machines, scale sets with Azure Monitor agent and Data Collection Rules.
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
 ms.date: 5/3/2022
 ms.custom: references_region
 ms.reviewer: shseth
@@ -32,7 +30,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 3. **Verify that the agent is running**:  
 	1. Check if the agent is emitting heartbeat logs to Log Analytics workspace using the query below. Skip if 'Custom Metrics' is the only destination in the DCR:
 		```Kusto
-		Heartbeat | where Category == "Azure Monitor Agent" and 'Computer' == "<computer-name>" | take 10
+		Heartbeat | where Category == "Azure Monitor Agent" and Computer == "<computer-name>" | take 10
 		```	 
 	2. Check if the agent service is running
 		```

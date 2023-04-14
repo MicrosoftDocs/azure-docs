@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/13/2022
+ms.date: 03/29/2023
 ms.author: banders
 ms.custom:
 ---
@@ -15,6 +15,8 @@ ms.custom:
 # Transfer an Azure subscription to an Enterprise Agreement (EA)
 
 This article helps you understand the steps needed to transfer an individual Microsoft Customer Agreement subscription (Azure offer MS-AZR-0017G pay-as-you-go) or a MOSP (pay-as-you-go) subscription (Azure offer MS-AZR-003P) to an EA. The transfer has no downtime, however there are many steps to follow to enable the transfer.
+
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 
 If you want to transfer a different subscription type to EA, see [Azure subscription and reservation transfer hub](subscription-transfer.md) for supported transfer options.
 

@@ -1,6 +1,6 @@
 ---
-title: "Imperva Cloud WAF (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Imperva Cloud WAF (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Imperva Cloud WAF (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Imperva Cloud WAF (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Imperva Cloud WAF (using Azure Function) connector for Microsoft Sentinel
+# Imperva Cloud WAF (using Azure Functions) connector for Microsoft Sentinel
 
 The [Imperva Cloud WAF](https://www.imperva.com/resources/resource-library/datasheets/imperva-cloud-waf/) data connector provides the capability to integrate and ingest Web Application Firewall events into Microsoft Sentinel through the REST API. Refer to Log integration [documentation](https://docs.imperva.com/bundle/cloud-application-security/page/settings/log-integration.htm#Download) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
@@ -17,7 +17,7 @@ The [Imperva Cloud WAF](https://www.imperva.com/resources/resource-library/datas
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | ImpervaAPIID<br/>ImpervaAPIKey<br/>ImpervaLogServerURI<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-impervawafcloud-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-impervawafcloud-functionapp |
 | **Log Analytics table(s)** | ImpervaWAFCloud_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -35,7 +35,7 @@ ImpervaWAFCloud
 
 ## Prerequisites
 
-To integrate with Imperva Cloud WAF (using Azure Function) make sure you have: 
+To integrate with Imperva Cloud WAF (using Azure Functions make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **REST API Credentials/permissions**: **ImpervaAPIID**, **ImpervaAPIKey**, **ImpervaLogServerURI** are required for the API. [See the documentation to learn more about Setup Log Integration process](https://docs.imperva.com/bundle/cloud-application-security/page/settings/log-integration.htm#Setuplogintegration). Check all [requirements and follow  the instructions](https://docs.imperva.com/bundle/cloud-application-security/page/settings/log-integration.htm#Setuplogintegration) for obtaining credentials. Please note that this connector uses CEF log event format. [More information](https://docs.imperva.com/bundle/cloud-application-security/page/more/log-file-structure.htm#Logfilestructure) about log format.

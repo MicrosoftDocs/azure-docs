@@ -1,6 +1,6 @@
 ---
-title: "Lookout Cloud Security (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Lookout Cloud Security (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Lookout Cloud Security (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Lookout Cloud Security (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/28/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Lookout Cloud Security (using Azure Function) connector for Microsoft Sentinel
+# Lookout Cloud Security (using Azure Functions) connector for Microsoft Sentinel
 
 This connector uses a Agari REST API connection to push data into Microsoft Sentinel Log Analytics.
 
@@ -16,7 +16,7 @@ This connector uses a Agari REST API connection to push data into Microsoft Sent
 
 | Connector attribute | Description |
 | --- | --- |
-| **Azure function app code** | https://aka.ms/sentinel-Lookout-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-Lookout-functionapp |
 | **Log Analytics table(s)** | LookoutCloudSecurity_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Lookout](https://www.lookout.com/support) |
@@ -35,7 +35,7 @@ LookoutCloudSecurity_CL
 
 ## Prerequisites
 
-To integrate with Lookout Cloud Security for Microsoft Sentinel (using Azure Function) make sure you have: 
+To integrate with Lookout Cloud Security for Microsoft Sentinel (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 

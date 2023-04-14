@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 2/24/2023
+ms.date: 3/28/2023
 ms.author: jomondi
 ms.reviewer: arvindh, luleon, phsignor, jawoods
 ms.custom: contperf-fy21q2
@@ -57,7 +57,7 @@ You can use the latest [Azure AD PowerShell](/powershell/module/azuread/?preserv
 Run the following command to connect to Azure AD PowerShell. To consent to the required scopes, sign in with one of the roles listed in the prerequisite section of this article.
 
 ```powershell
-Connect-AzureAD -Scopes "Policy.ReadWrite.PermissionGrant".
+Connect-AzureAD -Scopes
 ```
 
 ### List the current permission classifications
