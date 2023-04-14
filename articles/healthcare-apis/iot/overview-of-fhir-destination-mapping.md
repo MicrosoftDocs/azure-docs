@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/13/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ---
 
@@ -109,6 +109,10 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 |**Codes[].Code**|The code for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
 |**Codes[].System**|The system for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
 |**Codes[].Display**|The display for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
+
+### String
+
+Represents the [string](https://www.hl7.org/fhir/datatypes.html#string) FHIR data type. If more than one value is present in the grouping, only the first value is used. If new value arrives that maps to the same observation, it overwrites the old value.
 
 ### Example
 
