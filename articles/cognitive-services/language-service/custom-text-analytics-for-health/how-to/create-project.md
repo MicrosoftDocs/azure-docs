@@ -25,7 +25,7 @@ Before you start using custom text analytics for health, you need:
 
 ## Create a Language resource 
 
-Before you start using custom text analytics for health, you'll need an Azure Language resource. It's recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions preconfigured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom named entity recognition.
+Before you start using custom text analytics for health, you'll need an Azure Language resource. It's recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions preconfigured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text analytics for health.
 
 You also will need an Azure storage account where you will upload your `.txt` documents that will be used to train a model to extract entities.
 
@@ -113,6 +113,6 @@ If you have already labeled data, you can use it to get started with the service
 
 ## Next steps
 
-<!--* You should have an idea of the [project schema](design-schema.md) you will use to label your data.-->
+* You should have an idea of the [project schema](design-schema.md) you will use to label your data.
 
 * After you define your schema, you can start [labeling your data](label-data.md), which will be used for model training, evaluation, and finally making predictions.

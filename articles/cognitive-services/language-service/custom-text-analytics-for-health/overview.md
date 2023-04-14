@@ -15,17 +15,16 @@ ms.custom: language-service-custom-ta4h, ignite-fall-2021, event-tier1-build-202
 
 # What is custom Text Analytics for health? 
 
-Custom Text Analytics for health is one of the custom features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build custom models on top of [Text Analytics for health)(../text-analytics-for-health/overview.md) for custom healthcare entity recognition tasks.
+Custom Text Analytics for health is one of the custom features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build custom models on top of [Text Analytics for health](../text-analytics-for-health/overview.md) for custom healthcare entity recognition tasks.
 
-Custom Text Analytics for health enables users to build custom AI models to extract healthcare specific entities from unstructured text, such as clinical notes and reports. By creating a custom Text Analytics for health project, developers can iteratively define new vocabulary, label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
+Custom Text Analytics for health enables users to build custom AI models to extract healthcare specific entities from unstructured text, such as clinical notes and reports. By creating a custom Text Analytics for health project, developers can iteratively define new vocabulary, label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
  
 This documentation contains the following article types:
 
 * [Quickstarts](quickstart.md) are getting-started instructions to guide you through creating making requests to the service.
-<!--
 * [Concepts](concepts/evaluation-metrics.md) provide explanations of the service functionality and features.
-* [How-to guides](how-to/tag-data.md) contain instructions for using the service in more specific or customized ways.
--->
+* [How-to guides](how-to/label-data.md) contain instructions for using the service in more specific or customized ways.
+
 ## Example usage scenarios
 
 Similarly to Text Analytics for health, custom Text Analytics for health can be used in multiple [scenarios](../text-analytics-for-health/overview.md#example-use-cases) across a variety of healthcare industries. However, the main usage of this feature is to provide a layer of customization on top of Text Analytics for health to extend its existing entity map.
@@ -48,7 +47,7 @@ Using custom Text Analytics for health typically involves several different step
 
 * **View the model's performance**: After training is completed, view the model's evaluation details, its performance and guidance on how to improve it. 
 
-* **Deploy the model**: Deploying a model makes it available for use via the [Analyze API](https://aka.ms/ct-runtime-swagger).
+* **Deploy the model**: Deploying a model makes it available for use via the an API.
 
 * **Extract entities**: Use your custom models for entity extraction tasks.
 
@@ -74,6 +73,5 @@ An AI system includes not only the technology, but also the people who will use 
 * Use the [quickstart article](quickstart.md) to start using custom Text Analytics for health.  
 
 * As you go through the project development lifecycle, review the glossary to learn more about the terms used throughout the documentation for this feature. 
-<!--
+
 * Remember to view the [service limits](reference/service-limits.md) for information such as [regional availability](reference/service-limits.md#regional-availability).
--->

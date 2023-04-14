@@ -36,14 +36,14 @@ In this article, we use Language Studio to demonstrate key concepts of custom Te
 
 * [Text analytics for health overview](./overview.md)
 
-<!--After you've created entity extraction model, you can:
+After you've created entity extraction model, you can:
 
 * [Use the runtime API to extract entities](how-to/call-api.md)
 
 When you start to create your own custom Text Analytics for health projects, use the how-to articles to learn more about data labeling, training and consuming your model in greater detail:
 
 * [Data selection and schema design](how-to/design-schema.md)
-* [Tag data](how-to/tag-data.md)
+* [Tag data](how-to/label-data.md)
 * [Train a model](how-to/train-model.md)
 * [Model evaluation](how-to/view-model-evaluation.md)
--->
+

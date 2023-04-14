@@ -13,7 +13,7 @@ ms.author: aahi
 
 1. Sign into the [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select your Language resource. 
 
-2. Under the **Extract information** section of Language Studio, select **Custom named entity recognition**.
+2. Under the **Extract information** section of Language Studio, select **Custom text analytics for health**.
 
     <!--:::image type="content" source="../../media/select-custom-ner.png" alt-text="A screenshot showing the location of the custom NER feature in the Language Studio landing page." lightbox="../../media/select-custom-ner.png":::-->
         
