@@ -28,7 +28,7 @@ Each part of this article helps you form a basic building block for configuring 
 
 ### <a name="diagram"></a>Diagram 1
 
-:::image type="content" source="./media/nat-overview/vpn-nat.png" alt-text="Diagram showing NAT." lightbox="./media/nat-overview/vpn-nat.png":::
+:::image type="content" source="./media/nat-overview/vpn-nat.png" alt-text="Diagram showing NAT configuration and rules." lightbox="./media/nat-overview/vpn-nat.png":::
 
 ### Prerequisites
 
