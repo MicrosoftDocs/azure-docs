@@ -25,6 +25,13 @@ ms.topic: conceptual
 
 * <a id="afs-conflict-resolution"></a>
   **If the same file is changed on two servers at approximately the same time, what happens?**  
+    File conflicts are generated when the file in the Azure file share doesn't match the file in the server endpoint location (size and/or last modified time is different). 
+    
+    The following scenarios can cause file conflicts:
+    - A file is created or modified in an endpoint (for example, Server A). If the same file is modified on a different endpoint before the change on Server A is synced to that endpoint, a file conflict will occur.  
+    - The file existed in the Azure file share and server endpoint location prior to the server endpoint creation. If the file size and/or last modified time is different between the files on the server and Azure files share when the server endpoint is created, a file conflict is generated.  
+    - Sync database was recreated due to corruption or knowledge limit reached. Once the database is recreated, sync enters a mode called reconciliation. If the file size and/or last modified time is different between the files on the server and Azure files share when reconciliation occurs, a file conflict is generated. 
+  
     Azure File Sync uses a simple conflict-resolution strategy: we keep both changes to files that are changed in two endpoints at the same time. The most recently written change keeps the original file name. The older file (determined by LastWriteTime) has the endpoint name and the conflict number appended to the file name. For server endpoints, the endpoint name is the name of the server. For cloud endpoints, the endpoint name is **Cloud**. The name follows this taxonomy:
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
