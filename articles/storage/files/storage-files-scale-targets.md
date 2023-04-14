@@ -109,7 +109,7 @@ The following table indicates which target are soft, representing the Microsoft 
 > [!Note]  
 > An Azure File Sync endpoint can scale up to the size of an Azure file share. If the Azure file share size limit is reached, sync will not be able to operate.
 
-### Azure File Sync performance metrics
+## Azure File Sync performance metrics
 Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon a number of factors in your infrastructure: Windows Server and the underlying disk configuration, network bandwidth between the server and the Azure storage, file size, total dataset size, and the activity on the dataset. Since Azure File Sync works on the file level, the performance characteristics of an Azure File Sync-based solution should be measured by the number of objects (files and directories) processed per second.
 
 For Azure File Sync, performance is critical in two stages:
@@ -119,7 +119,8 @@ For Azure File Sync, performance is critical in two stages:
 > [!Note]  
 > When many server endpoints in the same sync group are syncing at the same time, they are contending for cloud service resources. As a result, upload performance will be impacted. In extreme cases, some sync sessions will fail to access the resources, and will fail. However, those sync sessions will resume shortly and eventually succeed once the congestion is reduced. 
 
-To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
+## Internal test results
+To help you plan your deployment for each of the stages (initial one-time provisioning and ongoing sync), below are the results observed during the internal testing on a system with the following configuration:
 
 | System configuration | Details |
 |-|-|
