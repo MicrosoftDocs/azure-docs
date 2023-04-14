@@ -41,7 +41,10 @@ Only a user with at least a *Reader* role on the Azure Synapse workspace and who
 
 ### Steps to register
 
-1. Go to your Microsoft Purview account.
+1. Open the Microsoft Purview governance portal by:
+
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 1. On the left pane, select **Sources**.
 1. Select **Register**.
 1. Under **Register sources**, select **Azure Synapse Analytics (multiple)**.
