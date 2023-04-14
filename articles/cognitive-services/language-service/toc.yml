@@ -1083,26 +1083,32 @@ items:
       href: custom-text-analytics-for-health/quickstart.md
     - name: Custom text analytics for health language support
       href: custom-text-analytics-for-health/language-support.md
-    - name: Concepts
-      items:
-      - name: Data formats
-        href: custom-text-analytics-for-health/concepts/data-formats.md
-      - name: Entity components 
-        href: custom-text-analytics-for-health/concepts/entity-components.md
-      - name: Evaluation metrics
-        href: custom-text-analytics-for-health/concepts/evaluation-metrics.md
     - name: How-to guides
       items:
-      - name: How to create projects
+      - name: Create projects
         href: custom-text-analytics-for-health/how-to/create-project.md
-      - name: How to design a schema
+      - name: Data selection and schema designa
         href: custom-text-analytics-for-health/how-to/design-schema.md
-      - name: How to label data
+      - name: Label data
         href: custom-text-analytics-for-health/how-to/label-data.md
-      - name: How to view model evaluation
+      - name: Train a model
+        href: custom-text-analytics-for-health/how-to/train-model.md 
+      - name: View model evaluation
         href: custom-text-analytics-for-health/how-to/view-model-evaluation.md
-      - name: How to call the API
+      - name: Deploy a model
+        href: custom-text-analytics-for-health/how-to/deploy-model.md
+      - name: Call the API
         href: custom-text-analytics-for-health/how-to/call-api.md
+      - name: Back up and recover your models
+        href: custom-text-analytics-for-health/how-to/fail-over.md
+  - name: Concepts
+    items:
+    - name: Data formats
+      href: custom-text-analytics-for-health/concepts/data-formats.md
+    - name: Entity components 
+      href: custom-text-analytics-for-health/concepts/entity-components.md
+    - name: Evaluation metrics
+      href: custom-text-analytics-for-health/concepts/evaluation-metrics.md
     - name: Reference
       items:
       - name: Service limits
