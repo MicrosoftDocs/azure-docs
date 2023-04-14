@@ -7,7 +7,7 @@ ms.service: azure-government
 ms.topic: quickstart
 ms.custom: mode-other, kr2b-contr-experiment
 recommendations: false
-ms.date: 01/20/2023
+ms.date: 03/21/2023
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
@@ -179,3 +179,4 @@ For more information about Azure Government, see the following resources:
 - [DoD Impact Level 5 – Azure compliance](/azure/compliance/offerings/offering-dod-il5)
 - [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md)
 - [Secure Azure Computing Architecture](./compliance/secure-azure-computing-architecture.md)
+- [Security Technical Implementation Guides (STIGs)](https://public.cyber.mil/stigs/)

@@ -32,23 +32,25 @@ Before you design your control plane, consider the following questions:
 * How is outbound internet provided for the Virtual Machines?
 * Are you going to deploy Azure Firewall for outbound internet connectivity?
 * Are private endpoints required for storage accounts and the key vault?
-* Are you going to use a custom DNS zone for the Virtual Machines?
+* Are you going to use an existing Private DNS zone for the Virtual Machines or will you use the Control Plane for it?
 * Are you going to use Azure Bastion for secure remote access to the Virtual Machines?
 * Are you going to use the SDAF Configuration Web Application for performing configuration and deployment activities?
 
-### Deployment environments
+### Control Plane
 
-If you're supporting multiple workload zones in a region, use a unique identifier for your deployment environment and SAP library. Don't use the same identifier as for the workload zone. For example, use `MGMT` for management purposes.
+If you're supporting multiple workload zones in a region, use a unique identifier for your control plane. Don't use the same identifier as for the workload zone. For example, use `MGMT` for management purposes.
 
-The automation framework also supports having the deployment environment and SAP library in separate subscriptions than the workload zones.
+The automation framework also supports having the control plane in separate subscriptions than the workload zones.
 
-The deployment environment provides the following services:
+The control plane provides the following services:
 
 - Deployment VMs, which do Terraform deployments and Ansible configuration. Acts as Azure DevOps self-hosted agents.
 - A key vault, which contains the deployment credentials (service principals) used by Terraform when performing the deployments.
 - Azure Firewall for providing outbound internet connectivity.
-- Azure Bastion component for providing secure remote access to the deployed Virtual Machines.
-- An Azure Web Application for performing configuration and deployment activities.
+- Azure Bastion for providing secure remote access to the deployed Virtual Machines.
+- An SDAF Configuration Azure Web Application for performing configuration and deployment activities.
+
+The control plane is defined using two configuration files:
 
 The deployment configuration file defines the region, environment name, and virtual network information. For example:
 
@@ -58,15 +60,21 @@ environment = "MGMT"
 location = "westeurope"
 
 management_network_logical_name = "DEP01"
+
 management_network_address_space = "10.170.20.0/24"
 management_subnet_address_prefix = "10.170.20.64/28"
+
 firewall_deployment = true
 management_firewall_subnet_address_prefix = "10.170.20.0/26"
+
 bastion_deployment = true
 management_bastion_subnet_address_prefix = "10.170.20.128/26"
+
 webapp_subnet_address_prefix = "10.170.20.192/27"
 deployer_assign_subscription_permissions = true
+
 deployer_count = 2
+
 use_service_endpoint = true
 use_private_endpoint = true
 enable_firewall_for_keyvaults_and_storage = true
@@ -75,12 +83,11 @@ enable_firewall_for_keyvaults_and_storage = true
 
 ### DNS considerations
 
-When planning the DNS configuration for the deployment environment, consider the following questions:
- - Is there an existing Private DNS that the solutions needs to integrate with?   
- - Do you need to use a custom Private DNS zone for the deployment environment?
+When planning the DNS configuration for the automation framework, consider the following questions:
+ - Is there an existing Private DNS that the solutions can integrate with or do you need to use a custom Private DNS zone for the deployment environment?
  - Are you going to use predefined IP addresses for the Virtual Machines or let Azure assign them dynamically?
 
-You can integrate with exiting Private DNS Zones by providing the following values in your tfvars files:
+You can integrate with an exiting Private DNS Zone by providing the following values in your tfvars files:
 
 ```tfvars
 management_dns_subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -88,15 +95,14 @@ management_dns_subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 use_custom_dns_a_registration = false
 ```
 
-Without these values a Private DNS Zone will be created in the SAP Library resource group. 
+Without these values, a Private DNS Zone will be created in the SAP Library resource group. 
 
 For more information, see the [in-depth explanation of how to configure the deployer](configure-control-plane.md).
 
 
-
 ## SAP Library configuration
 
-The SAP library provides storage for SAP installation media, Bill of Material (BOM) files, Terraform state files and optionally a Private DNS Zone. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](configure-control-plane.md).
+The SAP library resource group provides storage for SAP installation media, Bill of Material (BOM) files, Terraform state files and optionally the Private DNS Zones. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](configure-control-plane.md).
 
 ## Workload zone planning
 
@@ -106,9 +112,9 @@ The default naming convention for workload zones is `[ENVIRONMENT]-[REGIONCODE]-
 
 The `SAP01` and `SAP02` define the logical names for the Azure virtual networks, these can be used to further partition the environments. If you need two Azure Virtual Networks for the same workload zone, for example, for a multi subscription scenario where you host development environments in two subscriptions, you can use the different logical names for each virtual network. For example, `DEV-WEEU-SAP01-INFRASTRUCTURE` and `DEV-WEEU-SAP02-INFRASTRUCTURE`.
 
-The workload zone provides the following services for the SAP Applications:
+The workload zone provides the following shared services for the SAP Applications:
 
-* Azure Virtual Network, for a virtual network, subnets and network security groups.
+* Azure Virtual Network, subnets and network security groups.
 * Azure Key Vault, for storing the virtual machine and SAP system credentials.
 * Azure Storage accounts, for Boot Diagnostics and Cloud Witness.
 * Shared storage for the SAP Systems either Azure Files or Azure NetApp Files.
@@ -116,7 +122,7 @@ The workload zone provides the following services for the SAP Applications:
 Before you design your workload zone layout, consider the following questions:
 
 * In which regions do you need to deploy workloads?
-* How many workload zones does your scenario require (development, quality assurance, production etc)?
+* How many workload zones does your scenario require (development, quality assurance, production etc.)?
 * Are you deploying into new Virtual networks or are you using existing virtual networks 
 * How is DNS configured (integrate with existing DNS or deploy a Private DNS zone in the control plane)?
 * What storage type do you need for the shared storage (Azure Files NFS, Azure NetApp Files)?
@@ -125,18 +131,24 @@ For more information, see [how to configure a workload zone deployment for autom
 
 ### Windows based deployments
 
-When doing Windows based deployments the Virtual Machines in the workload zone's Virtual Network need to be able to communicate with Active Directory in order to join the SAP Virtual Machines to the Active Directory Domain. The provided DNS name needs to be resolvable by the Active Directory.
+When doing Windows based deployments the Virtual Machines in the workload zone's Virtual Network need to be able to communicate with Active Directory in order to join the SAP Virtual Machines to the Active Directory Domain. The provided DNS name needs to be resolvable by the Active Directory. 
 
-The workload zone key vault must contain the following secrets:
+As SDAF won't create accounts in Active Directory the accounts need to be precreated and stored in the workload zone key vault.
 
-| Credential                                             | Name                                      | Example                                 |
-| ------------------------------------------------------ | ----------------------------------------- | --------------------------------------- | 
-| Account that can perform domain join activities        | [IDENTIFIER]-ad-svc-account               | DEV-WEEU-SAP01-ad-svc-account           | 
-| Password for the account that performs the domain join | [IDENTIFIER]-ad-svc-account-password      | DEV-WEEU-SAP01-ad-svc-account-password  | 
-| sidadm account password                                | [IDENTIFIER]-winsidadm_password_id        | DEV-WEEU-SAP01-winsidadm_password_id    | 
-| SID Service account password                           | [IDENTIFIER]-svc-sidadm-password          | DEV-WEEU-SAP01-svc-sidadm-password      | 
+| Credential                                             | Name                                      | Example                                   |
+| ------------------------------------------------------ | ----------------------------------------- | ----------------------------------------- | 
+| Account that can perform domain join activities        | [IDENTIFIER]-ad-svc-account               | DEV-WEEU-SAP01-ad-svc-account             | 
+| Password for the account that performs the domain join | [IDENTIFIER]-ad-svc-account-password      | DEV-WEEU-SAP01-ad-svc-account-password    | 
+| 'sidadm' account password                              | [IDENTIFIER]-[SID]-win-sidadm_password_id | DEV-WEEU-SAP01-W01-winsidadm_password_id  | 
+| SID Service account password                           | [IDENTIFIER]-[SID]-svc-sidadm-password    | DEV-WEEU-SAP01-W01-svc-sidadm-password    | 
+| SQL Server Service account                             | [IDENTIFIER]-[SID]-sql-svc-account        | DEV-WEEU-SAP01-W01-sql-svc-account        | 
+| SQL Server Service account password                    | [IDENTIFIER]-[SID]-sql-svc-password       | DEV-WEEU-SAP01-W01-sql-svc-password       | 
+| SQL Server Agent Service account                       | [IDENTIFIER]-[SID]-sql-agent-account      | DEV-WEEU-SAP01-W01-sql-agent-account      | 
+| SQL Server Agent Service account password              | [IDENTIFIER]-[SID]-sql-agent-password     | DEV-WEEU-SAP01-W01-sql-agent-password     | 
 
+#### DNS settings
 
+For High Availability scenarios a DNS record is needed in the Active Directory for the SAP Central Services cluster. The DNS record needs to be created in the Active Directory DNS zone. The DNS record name is defined as '[sid]>scs[scs instance number]cl1'. For example, `w01scs00cl1` for the cluster for the 'W01' SID using the instance number '00'.
 ## Credentials management
 
 The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. It's recommended to use different deployment credentials (service principals) for each [workload zone](#workload-zone-planning). The framework stores these credentials in the [deployer's](deployment-framework.md#deployment-components) key vault. Then, the framework retrieves these credentials dynamically during the deployment process.
@@ -145,22 +157,22 @@ The automation framework uses [Service Principals](#service-principal-creation) 
 
 The automation framework will use the workload zone key vault for storing both the automation user credentials and the SAP system credentials. The virtual machine credentials are named as follows:
 
-| Credential                   | Name                               | Example                              |
-| ---------------------------- | ---------------------------------- | ------------------------------------ | 
-| Private key                  | [IDENTIFIER]-sshkey                | DEV-WEEU-SAP01-sid-sshkey            | 
-| Public key                   | [IDENTIFIER]-sshkey-pub            | DEV-WEEU-SAP01-sid-sshkey-pub        | 
-| Username                     | [IDENTIFIER]-username              | DEV-WEEU-SAP01-sid-username          | 
-| Password                     | [IDENTIFIER]-password              | DEV-WEEU-SAP01-sid-password          | 
-| sidadm Password              | [IDENTIFIER]-[SID]-sap-password    | DEV-WEEU-SAP01-X00-sap-password      | 
-| sidadm account password      | [IDENTIFIER]-winsidadm_password_id | DEV-WEEU-SAP01-winsidadm_password_id | 
-| SID Service account password | [IDENTIFIER]-svc-sidadm-password   | DEV-WEEU-SAP01-svc-sidadm-password   | 
+| Credential                   | Name                                     | Example                                  |
+| ---------------------------- | ---------------------------------------- | ---------------------------------------- | 
+| Private key                  | [IDENTIFIER]-sshkey                      | DEV-WEEU-SAP01-sid-sshkey                | 
+| Public key                   | [IDENTIFIER]-sshkey-pub                  | DEV-WEEU-SAP01-sid-sshkey-pub            | 
+| Username                     | [IDENTIFIER]-username                    | DEV-WEEU-SAP01-sid-username              | 
+| Password                     | [IDENTIFIER]-password                    | DEV-WEEU-SAP01-sid-password              | 
+| sidadm Password              | [IDENTIFIER]-[SID]-sap-password          | DEV-WEEU-SAP01-X00-sap-password          | 
+| sidadm account password      | [IDENTIFIER]-[SID]-winsidadm_password_id | DEV-WEEU-SAP01-W01-winsidadm_password_id | 
+| SID Service account password | [IDENTIFIER]-[SID]-svc-sidadm-password   | DEV-WEEU-SAP01-W01-svc-sidadm-password   | 
 
 
 ### Service principal creation
 
 Create your service principal:
 
-1. Sign in to the [Azure CLI](/cli/azure/) with an account that has adequate privileges to create a Service Principal.
+1. Sign in to the [Azure CLI](/cli/azure/) with an account that has permissions to create a Service Principal.
 1. Create a new Service Principal by running the command `az ad sp create-for-rbac`. Make sure to use a description name for `--name`. For example:
     ```azurecli
     az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --name="DEV-Deployment-Account"
@@ -187,7 +199,7 @@ In a locked down environment, you might need to assign another permissions to th
 
 #### Required permissions
 
-The following table shows the required permissions for the service principal:
+The following table shows the required permissions for the service principals:
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Credential                                   | Area                                | Required permissions         |
@@ -195,10 +207,10 @@ The following table shows the required permissions for the service principal:
 > | Control Plane SPN                            | Control Plane subscription          | Contributor                  |
 > | Workload Zone SPN                            | Target subscription                 | Contributor                  |
 > | Workload Zone SPN                            | Control plane subscription          | Reader                       |
+> | Workload Zone SPN                            | Control Plane Virtual Network       | Network Contributor          |
 > | Workload Zone SPN                            | SAP Library tfstate storage account | Storage Account Contributor  |
 > | Workload Zone SPN                            | SAP Library sapbits storage account | Reader                       |
 > | Workload Zone SPN                            | Private DNS Zone                    | Private DNS Zone Contributor |
-> | Workload Zone SPN                            | Control Plane Virtual Network       | Network Contributor          |
 > | Web Application Identity                     | Target subscription                 | Reader                       |
 > | Cluster Virtual Machine Identity             | Resource Group                      | Fencing role                 |
 

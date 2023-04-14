@@ -19,15 +19,27 @@ This article provides a quick guide on how to share data and receive shares from
 
 ## Create a share
 
-1. Within the [Microsoft Purview governance portal](https://web.purview.azure.com/), find the Azure Storage or Azure Data Lake Storage (ADLS) Gen 2 data asset you would like to share data from using either the [data catalog search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md).
+1. You can create a share by starting from **Data Map**
+
+    Open the [Microsoft Purview governance portal](https://web.purview.azure.com/). Select the **Data Map** icon from the left navigation. Then select **Shares**.  Select **+New Share**.
+
+   :::image type="content" source="./media/how-to-share-data/create-share-datamap-new-share.png" alt-text="Screenshot that shows the Microsoft Purview governance portal Data Map with Data Map, Shares and New Share highlighted." border="true":::
+
+    Select the Storage account type and the Storage account you want to share data from. Then select **Continue**. 
+
+   :::image type="content" source="./media/how-to-share-data/create-share-datamap-select-type-account.png" alt-text="Screenshot that shows the New Share creation step with Type and Storage account options highlighted." border="true":::
+
+1. You can create a share by starting from **Data Catalog**
+ 
+    Within the [Microsoft Purview governance portal](https://web.purview.azure.com/), find the Azure Storage or Azure Data Lake Storage (ADLS) Gen 2 data asset you would like to share data from using either the [data catalog search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md).
 
    :::image type="content" source="./media/how-to-share-data/search-or-browse.png" alt-text="Screenshot that shows the Microsoft Purview governance portal homepage with the search and browse options highlighted." border="true":::
 
-1. Once you have found your data asset, select the **Data Share** button.
+    Once you have found your data asset, select the **Data Share** button.
 
    :::image type="content" source="./media/how-to-share-data/select-data-share-inline.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Data Share button highlighted." border="true" lightbox="./media/how-to-share-data/select-data-share-large.png":::
 
-1. Select **+New Share**.
+    Select **+New Share**.
 
    :::image type="content" source="./media/how-to-share-data/select-new-share-inline.png" alt-text="Screenshot of the Data Share management window with the New Share button highlighted." border="true" lightbox="./media/how-to-share-data/select-new-share-large.png":::
 

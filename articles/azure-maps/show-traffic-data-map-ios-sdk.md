@@ -2,8 +2,8 @@
 title: Show traffic data on iOS maps
 titleSuffix: Microsoft Azure Maps
 description: In this article you'll learn, how to display traffic data on a map using the Microsoft Azure Maps iOS SDK.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -118,7 +118,7 @@ The following table shows all the traffic incident categories that can be used w
 | `IncidentCategory.wind` | High winds that may make driving difficult for vehicles with a large side profile or high center of gravity. |
 | `IncidentCategory.flooding` | Flooding occurring on road. |
 | `IncidentCategory.detour` | Traffic being directed to take a detour. |
-| `IncidentCategory.cluster` | A cluster of traffic incidents of different categories. Zooming in the map will result in the cluster breaking apart into its individual incidents. |
+| `IncidentCategory.cluster` | A cluster of traffic incidents of different categories. Zooming in the map results in the cluster breaking apart into its individual incidents. |
 
 The following table shows all the traffic incident magnitudes that can be used within the `incidentMagnitudeFilter` option.
 

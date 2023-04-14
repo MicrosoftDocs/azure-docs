@@ -471,6 +471,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/common/storage-account-migrate-classic.md",
+            "redirect_url": "/azure/storage/common/classic-account-migrate",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/authorize-managed-identity.md",
             "redirect_url": "/azure/storage/blobs/authorize-access-azure-active-directory",
             "redirect_document_id": false

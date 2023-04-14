@@ -57,6 +57,12 @@ Before you begin the tutorial:
 
 - If you're using Azure Database Migration Service for the first time, make sure that the Microsoft.DataMigration [resource provider is registered in your subscription](quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
 
+> [!NOTE]
+> Make sure to migrate the database schema from source to target by using the [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio before selecting the list of tables to migrate.
+>
+> If no tables exists on the Azure SQL Database target, or no tables are selected before starting the migration. The **Next** button isn't available to select to initiate the migration task.
+>
+
 ## Open the Migrate to Azure SQL wizard in Azure Data Studio
 
 To open the Migrate to Azure SQL wizard:
@@ -165,6 +171,8 @@ To open the Migrate to Azure SQL wizard:
 
 > [!NOTE]
 > If no tables are selected or if a username and password aren't entered, the **Next** button isn't available to select.
+>
+> Make sure to migrate the database schema from source to target by using the [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio before selecting the list of tables to migrate.
 
 ## Create a Database Migration Service instance
 

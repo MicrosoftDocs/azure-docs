@@ -1,6 +1,6 @@
 ---
-title: "Okta Single Sign-On (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Okta Single Sign-On (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Okta Single Sign-On (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Okta Single Sign-On (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Okta Single Sign-On (using Azure Function) connector for Microsoft Sentinel
+# Okta Single Sign-On (using Azure Functions) connector for Microsoft Sentinel
 
 The [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) connector provides the capability to ingest audit and event logs from the Okta API into Microsoft Sentinel. The connector provides visibility into these log types in Microsoft Sentinel to view dashboards, create custom alerts, and to improve monitoring and investigation capabilities.
 
@@ -16,7 +16,7 @@ The [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) c
 
 | Connector attribute | Description |
 | --- | --- |
-| **Azure function app code** | https://aka.ms/sentineloktaazurefunctioncodev2 |
+| **Azure functions app code** | https://aka.ms/sentineloktaazurefunctioncodev2 |
 | **Log Analytics table(s)** | Okta_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |

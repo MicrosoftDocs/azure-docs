@@ -621,6 +621,9 @@ Analytical store partitioning is completely independent of partitioning in�
 
 * **Data encryption with customer-managed keys** - You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. Azure Synapse Link only supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You must configure your account's managed identity in your Azure Key Vault access policy before [enabling Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) on your account. To learn more, see how to [Configure customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) article.
 
+> [!NOTE]
+> If you change your database account from First Party to System or User Assigned Identy, and enable Azure Synapse Link in your database account, you won't be able to return to First Party identity since you can't disable Synapse Link from your database account.
+
 ## Support for multiple Azure Synapse Analytics runtimes
 
 The analytical store is optimized to provide scalability, elasticity, and performance for analytical workloads without any dependency on the compute run-times. The storage technology is self-managed to optimize your analytics workloads without manual efforts.

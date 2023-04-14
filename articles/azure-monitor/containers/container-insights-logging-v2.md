@@ -32,6 +32,10 @@ The new fields are:
  LogSource: string,
  TimeGenerated: datetime
 ```
+
+>[!NOTE]
+> [Export](../logs/logs-data-export.md) to Event Hub and Storage Account is not supported if the incoming LogMessage is not a valid JSON. For best performance, we recommend emitting container logs in JSON format.
+
 ## Enable the ContainerLogV2 schema
 Customers can enable the ContainerLogV2 schema at the cluster level. To enable the ContainerLogV2 schema, configure the cluster's ConfigMap. Learn more about ConfigMap in [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)  and in [Azure Monitor documentation](./container-insights-agent-config.md#configmap-file-settings-overview).
 Follow the instructions to configure an existing ConfigMap or to use a new one.

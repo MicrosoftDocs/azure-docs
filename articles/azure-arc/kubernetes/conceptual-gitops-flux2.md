@@ -113,151 +113,19 @@ Because Azure Resource Manager manages your configurations, you can automate cre
 
 ## Parameters
 
-For a description of all parameters that Flux supports, see the [official Flux documentation](https://fluxcd.io/docs/). Flux in Azure doesn't support all parameters yet. Let us know if a parameter you need is missing from the Azure implementation.
+To see all the parameters supported by Flux in Azure, see the [`az k8s-configuration` documentation](/cli/azure/k8s-configuration). This implementation doesn't currently support every parameter that Flux supports (see the [official Flux documentation](https://fluxcd.io/docs/)). Let us know if a parameter you need is missing from the Azure implementation.
 
-You can see the full list of parameters that the `k8s-configuration flux` Azure CLI command supports by using the `-h` parameter:
-az k8
-```azurecli
-az k8s-configuration flux -h
+You can also see the full list of parameters for the `az k8s-configuration flux` by using the `-h` parameter in Azure CLI (for example, `az k8s-configuration flux -h` or `az k8s-configuration flux create -h`).
 
-Group
-    az k8s-configuration flux : Commands to manage Flux v2 Kubernetes configurations.
-
-Subgroups:
-    deployed-object : Commands to see deployed objects associated with Flux v2 Kubernetes
-                      configurations.
-    kustomization   : Commands to manage Kustomizations associated with Flux v2 Kubernetes
-                      configurations.
-
-Commands:
-    create          : Create a Flux v2 Kubernetes configuration.
-    delete          : Delete a Flux v2 Kubernetes configuration.
-    list            : List all Flux v2 Kubernetes configurations.
-    show            : Show a Flux v2 Kubernetes configuration.
-    update          : Update a Flux v2 Kubernetes configuration.
-```
-
-Here are the parameters for the `k8s-configuration flux create` CLI command:
-
-```azurecli
-az k8s-configuration flux create -h
-
-This command is from the following extension: k8s-configuration
-
-Command
-    az k8s-configuration flux create : Create a Flux v2 Kubernetes configuration.
-
-Arguments
-    --cluster-name -c   [Required] : Name of the Kubernetes cluster.
-    --cluster-type -t   [Required] : Specify Arc connected clusters or AKS managed clusters.
-                                     Allowed values: connectedClusters, managedClusters.
-    --name -n           [Required] : Name of the flux configuration.
-    --resource-group -g [Required] : Name of resource group. You can configure the default group
-                                     using `az configure --defaults group=<name>`.
-    --url -u            [Required] : URL of the source to reconcile.
-    --bucket-insecure              : Communicate with a bucket without TLS.  Allowed values: false,
-                                     true.
-    --bucket-name                  : Name of the S3 bucket to sync.
-    --container-name               : Name of the Azure Blob Storage container to sync
-    --interval --sync-interval     : Time between reconciliations of the source on the cluster.
-    --kind                         : Source kind to reconcile.  Allowed values: bucket, git, azblob.
-                                     Default: git.
-    --kustomization -k             : Define kustomizations to sync sources with parameters ['name',
-                                     'path', 'depends_on', 'timeout', 'sync_interval',
-                                     'retry_interval', 'prune', 'force'].
-    --namespace --ns               : Namespace to deploy the configuration.  Default: default.
-    --no-wait                      : Do not wait for the long-running operation to finish.
-    --scope -s                     : Specify scope of the operator to be 'namespace' or 'cluster'.
-                                     Allowed values: cluster, namespace.  Default: cluster.
-    --suspend                      : Suspend the reconciliation of the source and kustomizations
-                                     associated with this configuration.  Allowed values: false,
-                                     true.
-    --timeout                      : Maximum time to reconcile the source before timing out.
-
-Auth Arguments
-    --local-auth-ref --local-ref   : Local reference to a kubernetes secret in the configuration
-                                     namespace to use for communication to the source.
-
-Bucket Auth Arguments
-    --bucket-access-key            : Access Key ID used to authenticate with the bucket.
-    --bucket-secret-key            : Secret Key used to authenticate with the bucket.
-
-Git Auth Arguments
-    --https-ca-cert                : Base64-encoded HTTPS CA certificate for TLS communication with
-                                     private repository sync.
-    --https-ca-cert-file           : File path to HTTPS CA certificate file for TLS communication
-                                     with private repository sync.
-    --https-key                    : HTTPS token/password for private repository sync.
-    --https-user                   : HTTPS username for private repository sync.
-    --known-hosts                  : Base64-encoded known_hosts data containing public SSH keys
-                                     required to access private Git instances.
-    --known-hosts-file             : File path to known_hosts contents containing public SSH keys
-                                     required to access private Git instances.
-    --ssh-private-key              : Base64-encoded private ssh key for private repository sync.
-    --ssh-private-key-file         : File path to private ssh key for private repository sync.
-
-Git Repo Ref Arguments
-    --branch                       : Branch within the git source to reconcile with the cluster.
-    --commit                       : Commit within the git source to reconcile with the cluster.
-    --semver                       : Semver range within the git source to reconcile with the
-                                     cluster.
-    --tag                          : Tag within the git source to reconcile with the cluster.
-
-Global Arguments
-    --debug                        : Increase logging verbosity to show all debug logs.
-    --help -h                      : Show this help message and exit.
-    --only-show-errors             : Only show errors, suppressing warnings.
-    --output -o                    : Output format.  Allowed values: json, jsonc, none, table, tsv,
-                                     yaml, yamlc.  Default: json.
-    --query                        : JMESPath query string. See http://jmespath.org/ for more
-                                     information and examples.
-    --subscription                 : Name or ID of subscription. You can configure the default
-                                     subscription using `az account set -s NAME_OR_ID`.
-    --verbose                      : Increase logging verbosity. Use --debug for full debug logs.
-    
-Azure Blob Storage Account Auth Arguments
-    --sp_client_id                 : The client ID for authenticating a service principal with Azure Blob, required for this authentication method
-    --sp_tenant_id                 : The tenant ID for authenticating a service principal with Azure Blob, required for this authentication method
-    --sp_client_secret             : The client secret for authenticating a service principal with Azure Blob
-    --sp_client_cert               : The Base64 encoded client certificate for authenticating a service principal with Azure Blob
-    --sp_client_cert_password      : The password for the client certificate used to authenticate a service principal with Azure Blob
-    --sp_client_cert_send_chain    : Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate
-    --account_key                  : The Azure Blob Shared Key for authentication
-    --sas_token                    : The Azure Blob SAS Token for authentication
-    --mi_client_id                 : The client ID of the managed identity for authentication with Azure Blob
-
-Examples
-    Create a Flux v2 Kubernetes configuration
-        az k8s-configuration flux create --resource-group my-resource-group \
-        --cluster-name mycluster --cluster-type connectedClusters \
-        --name myconfig --scope cluster --namespace my-namespace \
-        --kind git --url https://github.com/Azure/arc-k8s-demo \
-        --branch main --kustomization name=my-kustomization
-
-    Create a Kubernetes v2 Flux Configuration with Bucket Source Kind
-        az k8s-configuration flux create --resource-group my-resource-group \
-        --cluster-name mycluster --cluster-type connectedClusters \
-        --name myconfig --scope cluster --namespace my-namespace \
-        --kind bucket --url https://bucket-provider.minio.io \
-        --bucket-name my-bucket --kustomization name=my-kustomization \
-        --bucket-access-key my-access-key --bucket-secret-key my-secret-key
-        
-    Create a Kubernetes v2 Flux Configuration with Azure Blob Storage Source Kind
-        az k8s-configuration flux create --resource-group my-resource-group \
-        --cluster-name mycluster --cluster-type connectedClusters \
-        --name myconfig --scope cluster --namespace my-namespace \
-        --kind azblob --url https://mystorageaccount.blob.core.windows.net \
-        --container-name my-container --kustomization name=my-kustomization \
-        --account-key my-account-key
-```
+The following information describes some of the parameters and arguments available for the `az k8s-configuration flux create` command.
 
 ### Configuration general arguments
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
 | `--cluster-name` `-c` | String | Name of the cluster resource in Azure. |
-| `--cluster-type` `-t` | `connectedClusters`, `managedClusters` | Use `connectedClusters` for Azure Arc-enabled Kubernetes clusters and `managedClusters` for AKS clusters. |
-| `--resource-group` `-g` | String | Name of the Azure resource group that holds the Azure Arc or AKS cluster resource. |
+| `--cluster-type` `-t` | Allowed values: `connectedClusters`, `managedClusters`, `provisionedClusters` | Use `connectedClusters` for Azure Arc-enabled Kubernetes clusters, `managedClusters` for AKS clusters, or `provisionedClusters` for [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) (installing extensions on these clusters is currently in preview). |
+| `--resource-group` `-g` | String | Name of the Azure resource group that holds the cluster resource. |
 | `--name` `-n`| String | Name of the Flux configuration in Azure. |
 | `--namespace` `--ns` | String | Name of the namespace to deploy the configuration.  Default: `default`. |
 | `--scope` `-s` | String | Permission scope for the operators. Possible values are `cluster` (full access) or `namespace` (restricted access). Default: `cluster`.
@@ -420,7 +288,7 @@ For on-premises repositories, Flux uses `libgit2`.
 
 ### Kustomization
 
-By using `az k8s-configuration flux kustomization create`, you can create one or more kustomizations during the configuration.
+By using [`az k8s-configuration flux kustomization create`](/cli/azure/k8s-configuration/flux/kustomization#az-k8s-configuration-flux-kustomization-create), you can create one or more kustomizations during the configuration.
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
@@ -435,77 +303,7 @@ By using `az k8s-configuration flux kustomization create`, you can create one or
 | `validation` | String | Values: `none`, `client`, `server`. Default: `none`.  See [Flux documentation](https://fluxcd.io/docs/) for details.|
 | `force` | Boolean | Default: `false`. Set `force=true` to instruct the kustomize controller to re-create resources when patching fails because of an immutable field change. |
 
-You can also use `az k8s-configuration flux kustomization` to create, update, list, show, and delete kustomizations in a Flux configuration:
-
-```console
-az k8s-configuration flux kustomization -h
-
-Group
-    az k8s-configuration flux kustomization : Commands to manage Kustomizations associated with Flux
-    v2 Kubernetes configurations.
-
-Commands:
-    create : Create a Kustomization associated with a Flux v2 Kubernetes configuration.
-    delete : Delete a Kustomization associated with a Flux v2 Kubernetes configuration.
-    list   : List Kustomizations associated with a Flux v2 Kubernetes configuration.
-    show   : Show a Kustomization associated with a Flux v2 Kubernetes configuration.
-    update : Update a Kustomization associated with a Flux v2 Kubernetes configuration.
-```
-
-Here are the kustomization creation options:
-
-```azurecli
-az k8s-configuration flux kustomization create -h
-
-This command is from the following extension: k8s-configuration
-
-Command
-    az k8s-configuration flux kustomization create : Create a Kustomization associated with a
-    Kubernetes Flux v2 Configuration.
-
-Arguments
-    --cluster-name -c          [Required] : Name of the Kubernetes cluster.
-    --cluster-type -t          [Required] : Specify Arc connected clusters or AKS managed clusters.
-                                            Allowed values: connectedClusters, managedClusters.
-    --kustomization-name -k    [Required] : Specify the name of the kustomization to target.
-    --name -n                  [Required] : Name of the flux configuration.
-    --resource-group -g        [Required] : Name of resource group. You can configure the default
-                                            group using `az configure --defaults group=<name>`.
-    --dependencies --depends --depends-on : Comma-separated list of kustomization dependencies.
-    --force                               : Re-create resources that cannot be updated on the
-                                            cluster (i.e. jobs).  Allowed values: false, true.
-    --interval --sync-interval            : Time between reconciliations of the kustomization on the
-                                            cluster.
-    --no-wait                             : Do not wait for the long-running operation to finish.
-    --path                                : Specify the path in the source that the kustomization
-                                            should apply.
-    --prune                               : Garbage collect resources deployed by the kustomization
-                                            on the cluster.  Allowed values: false, true.
-    --retry-interval                      : Time between reconciliations of the kustomization on the
-                                            cluster on failures, defaults to --sync-interval.
-    --timeout                             : Maximum time to reconcile the kustomization before
-                                            timing out.
-
-Global Arguments
-    --debug                               : Increase logging verbosity to show all debug logs.
-    --help -h                             : Show this help message and exit.
-    --only-show-errors                    : Only show errors, suppressing warnings.
-    --output -o                           : Output format.  Allowed values: json, jsonc, none,
-                                            table, tsv, yaml, yamlc.  Default: json.
-    --query                               : JMESPath query string. See http://jmespath.org/ for more
-                                            information and examples.
-    --subscription                        : Name or ID of subscription. You can configure the
-                                            default subscription using `az account set -s
-                                            NAME_OR_ID`.
-    --verbose                             : Increase logging verbosity. Use --debug for full debug
-                                            logs.
-
-Examples
-    Create a Kustomization associated with a Kubernetes v2 Flux Configuration
-        az k8s-configuration flux kustomization create --resource-group my-resource-group \
-        --cluster-name mycluster --cluster-type connectedClusters --name myconfig \
-        --kustomization-name my-kustomization-2 --path ./my/path --prune --force
-```
+You can also use [`az k8s-configuration flux kustomization`](/cli/azure/k8s-configuration/flux/kustomization) to update, list, show, and delete kustomizations in a Flux configuration.
 
 ## Multi-tenancy
 

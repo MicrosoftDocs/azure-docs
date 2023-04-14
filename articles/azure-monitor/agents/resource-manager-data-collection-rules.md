@@ -2,10 +2,10 @@
 title: Resource Manager template samples for data collection rules
 description: Sample Azure Resource Manager templates to create associations between data collection rules and virtual machines in Azure Monitor.
 ms.topic: sample
+ms.custom: devx-track-arm-template
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2022
-
 ---
 
 # Resource Manager template samples for data collection rules in Azure Monitor

@@ -1,11 +1,10 @@
 ---
 title: Webhook actions for log alerts in Azure alerts
 description: Describes how to configure a log alert pushes with webhook action and available customizations
-author: yanivlavi
-ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
 ms.date: 2/23/2022
+ms.reviewer: yalavi
 ---
 
 # Webhook actions for log alert rules

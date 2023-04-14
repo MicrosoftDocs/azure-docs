@@ -17,6 +17,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - March 2023
+  - [Multiple backups per day for Azure VMs is now generally available](#multiple-backups-per-day-for-azure-vms-is-now-generally-available)
   - [Immutable vault for Azure Backup is now generally available](#immutable-vault-for-azure-backup-is-now-generally-available)
   - [Support for selective disk backup with enhanced policy for Azure VM (preview)](#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-preview)
   - [Azure Kubernetes Service backup (preview)](#azure-kubernetes-service-backup-preview)
@@ -54,6 +55,13 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+
+## Multiple backups per day for Azure VMs is now generally available
+
+Azure Backup now enables you to create a backup policy to take multiple backups a day. With this capability, you can also define the duration in which your backup jobs would trigger and align your backup schedule with the working hours when there are frequent updates to Azure Virtual Machines.
+
+For more information, see [Back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
 
 ## Immutable vault for Azure Backup is now generally available
 

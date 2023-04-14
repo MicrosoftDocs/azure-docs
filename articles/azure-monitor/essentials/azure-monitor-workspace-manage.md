@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: poojaa
 ms.topic: conceptual
-ms.date: 01/19/2023
+ms.date: 03/28/2023
 ---
 
 # Manage an Azure Monitor workspace
@@ -74,10 +74,11 @@ resource workspace 'microsoft.monitor/accounts@2021-06-03-preview' = {
 }
 
 ```
-
 ---
 
-To connect your  Azure Monitor managed service for Prometheus to your Azure Monitor workspace, see [Collect Prometheus metrics from AKS cluster](./prometheus-metrics-enable.md)
+When you create an Azure Monitor workspace, a new resource group is created. The resource group name has the following format: `MA_<azure monitor workspace resource name>_<location code>_managed`, where the tokenized elements are in lower case. The resource group contains a data collection endpoint, and a data collection rule with the same name as the workspace. The resource group and its resources are automatically deleted when you delete the workspace.
+ 
+To connect your Azure Monitor managed service for Prometheus to your Azure Monitor workspace, see [Collect Prometheus metrics from AKS cluster](./prometheus-metrics-enable.md)
 
 
 ## Delete an Azure Monitor workspace
@@ -158,7 +159,7 @@ To set up an Azure monitor workspace as a data source for Grafana using a Resour
 
 ---
 
-If your Grafana Instance is self managed see [Use Azure Monitor managed service for Prometheus (preview) as data source for self-managed Grafana using managed system identity](./prometheus-self-managed-grafana-azure-active-directory.md)
+If your Grafana Instance is self managed, see [Use Azure Monitor managed service for Prometheus (preview) as data source for self-managed Grafana using managed system identity](./prometheus-self-managed-grafana-azure-active-directory.md)
 
 
 

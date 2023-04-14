@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-arm-template
 # Customer intent: I want to create a NAT gateway by using an Azure Resource Manager template so that I can provide outbound connectivity for my virtual machines.
 ---
 

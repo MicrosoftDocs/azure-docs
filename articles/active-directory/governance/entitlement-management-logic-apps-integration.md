@@ -81,17 +81,85 @@ These triggers to Logic Apps are controlled in a tab within access package polic
         :::image type="content" source="media/entitlement-management-logic-apps/create-logic-app-extension-details.png" alt-text="Screenshot of creating logic app detail selections.":::
 
     > [!NOTE]    
-    > when creating a new Logic App in this modal, the length of "/subscriptions/{SubscriptionId}/resourceGroups/{RG Name}/providers/Microsoft.Logic/workflows/{Logicapp Name}" cannot exceed 150 characters.
+    > When creating a new Logic App in this modal, the length of "/subscriptions/{SubscriptionId}/resourceGroups/{RG Name}/providers/Microsoft.Logic/workflows/{Logicapp Name}" cannot exceed 150 characters.
 
 1. In **Review and Create**, review the summary of your custom extension and make sure the details for your Logic App callout are correct. Then select **Create**.
 
 1. This custom extension to the linked Logic App now appears in your Custom Extensions tab under Catalogs. You're able to call on this in access package policies.
 
+## View and Edit Existing Custom Extensions for a Catalog
+
+**Prerequisite roles:** Global administrator, Identity Governance administrator, or Catalog owner 
+
+1. Navigate to the Custom Extensions tab within a Catalog as mentioned earlier.
+
+1. Here, you can view all the custom extensions you've created, along with the associated Logic App and information about the custom extension type.
+    :::image type="content" source="media/entitlement-management-logic-apps/custom-extension-list.png" alt-text="Screenshot of a list of custom extensions." lightbox="media/entitlement-management-logic-apps/custom-extension-list.png":::
+1. Along with the Logic App name, the column Type dictates whether the custom extension was created in the new V2 auth model (after March 17, 2023), or the original model. If a custom extension was created in the new model, the Type column matches the selected type from the configuration modal that is either “*assignment request*” or “*pre-expiration*”. For older custom extensions, the type shows “*custom access package*”.    
+
+1. The Token Security column shows the associated auth security framework used when creating the custom extension. New V2 custom extensions show “*proof-of-possession*” (PoP) as the token security type. Older custom extensions show “regular”.   
+
+1. Old style custom extensions are no longer able to be created from the UI, however existing ones can be converted to new style custom extensions from the UI. 
+   :::image type="content" source="media/entitlement-management-logic-apps/convert-token-security-extension.png" alt-text="Screenshot of converting old security token to new."::: 
+
+1. Selecting the three dots at the end of the row of an old custom extension allows you to update the custom extension to a new type quickly. 
+    > [!NOTE]
+    > Custom extensions can only be converted to the new type if they are not in use, or if they are in use exclusively for policy stages of one specific extension type (assignment request stages or pre expiration stages).
+1. You can also edit any custom extension. This allows you to update the name, description, and other field values. This can be accomplished by selecting **Edit** inside the three-dot pane for any custom extension. 
+
+1. Old style custom extensions can continue to be used and edited even if not converted, even though they can no longer be created.
+
+1. If an old style custom extension can't be updated to the new type because it's being used for policy stages, of **BOTH** assignment request and pre expiration types, then in order to update it you must either remove it from all linked policies or ensure it's only used for policy stages associated with **ONE** type (assignment request, or pre expiration).   
+
+
+## Add custom extension to a policy in an access package
+
+**Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner, or Access package manager 
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**. 
+
+1. In the left menu, select **Access packages**. 
+
+1. Select the access package you want to add a custom extension (logic app) to from the list of access packages that have already been created.  
+
+    > [!NOTE]  
+    > Select **New access package** if you want to create a new access package.
+    > For more information about how to create an access package, see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
+
+1. Change to the policy tab, select the policy and select **Edit**.
+
+1. In the policy settings, go to the **Custom Extensions (Preview)** tab.
+
+1. In the menu below **Stage**, select the access package event you wish to use as trigger for this custom extension (Logic App). For example, if you only want to trigger the custom extension Logic App workflow when a user requests the access package, select **Request is created**. 
+
+1. In the menu below **Custom Extension**, select the custom extension (Logic App) you want to add to the access package. The action you select executes when the event selected in the *when* field occurs.  
+
+1. Select **Update** to add it to an existing access package's policy.
+
+    ![Add a Logic App to access package](./media/entitlement-management-logic-apps/add-logic-apps-access-package.png)
+
+## Edit a linked Logic App's workflow definition 
+
+**Prerequisite roles:** Global administrator, Identity Governance administrator, or Catalog owner 
+
+For newly created Logic Apps linked to custom extensions, these Logic Apps begin blank. To create the workflows in the Logic Apps that will be triggered by the extension when the linked access package policy condition is triggered, you need to edit the definition of the Logic App workflow in Logic App designer.  To accomplish this, you'd follow these steps:
+
+1. Navigate to the Custom Extensions tab within a Catalog as mentioned in the above section. 
+
+1. Select the custom extension for whom you want to edit the Logic App. 
+
+1. Select the Logic App under the Logic app column for the associated custom extension row. This allows you to edit or create the workflow in Logic App designer.  
+
+For more information on creating logic app workflows, see [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps with the Azure portal](../../logic-apps/quickstart-create-example-consumption-workflow.md).
+
+
 ## Configuring custom extensions that pause entitlement management processes
 
 A new update to the custom extensions feature is the ability to pause the access package policy process associated with a custom extension until after that Logic App completes, and a resume request payload is sent back to entitlement management. For example, if a custom extension for a Logic App is triggered from an access package grant policy, and “launch and wait” is enabled, once the Logic App is triggered the grant process won't resume until after the Logic App completes, and a resume request is sent back to entitlement management. 
 
-This pause process allows admins to have control of workflows they’d like to run before continuing with access lifecycle tasks in entitlement management. The only exception to this is if a timeout occurs. Launch and wait processes require a timeout of up to 14 days noted in minutes, hours, or days. If a resume response isn't sent back to entitlement management by the time the “timeout” period elapses, the entitlement management process automatically continues. 
+This pause process allows admins to have control of workflows they’d like to run before continuing with access lifecycle tasks in entitlement management. The only exception to this is if a timeout occurs. Launch and wait processes require a timeout of up to 14 days noted in minutes, hours, or days. If a resume response isn't sent back to entitlement management by the time the “timeout” period elapses, the entitlement management request workflow process pauses. 
 
 The admin is responsible for configuring an automated process that is able to send the API **resume request** payload back to entitlement management, once the Logic App workflow has completed. To send back the resume request payload, follow the instructions here in the graph API documents. See information here on the [resume request](/graph/api/accesspackageassignmentrequest-resume)
 
@@ -105,6 +173,9 @@ microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestApproved
 microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestGranted 
 Microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestRemoved
 ``
+
+The following flow diagram shows the entitlement management callout to Logic Apps workflow:
+:::image type="content" source="media/entitlement-management-logic-apps/extensibility-diagram-flow.png" alt-text="A screenshot of the extensibility user diagram." lightbox="media/entitlement-management-logic-apps/extensibility-diagram-flow.png":::
  
 An example of a resume request payload is:
 
@@ -154,71 +225,28 @@ Content-Type: application/json
 }
 ```
 
-## Edit a linked Logic App's workflow definition 
+## Extension end-user experience
 
-**Prerequisite roles:** Global administrator, Identity Governance administrator, or Catalog owner 
+### Approver experience
 
-For newly created Logic Apps linked to custom extensions, these Logic Apps begin blank. To create the workflows in the Logic Apps that will be triggered by the extension when the linked access package policy condition is triggered, you need to edit the definition of the Logic App workflow in Logic App designer.  To accomplish this, you'd follow these steps:
+An approver sees the string specified in the resume request payload under `customExtensionStageInstanceDetail` as shown in the payload located in [Configuring custom extensions that pause entitlement management processes](entitlement-management-logic-apps-integration.md#configuring-custom-extensions-that-pause-entitlement-management-processes).
+:::image type="content" source="media/entitlement-management-logic-apps/extensibility-approver-experience.png" alt-text="Screenshot of the approver screen." lightbox="media/entitlement-management-logic-apps/extensibility-approver-experience.png":::
 
-1. Navigate to the Custom Extensions tab within a Catalog as mentioned in the above section. 
+### Requestor experience
 
-1. Select the custom extension for whom you want to edit the Logic App. 
+When an access package has a custom extension with launch and wait functionality, and the Logic App is triggered when the access package request is created, requestors can see their request status within request history in MyAccess. 
 
-1. Select the Logic App under the Logic app column for the associated custom extension row. This allows you to edit or create the workflow in Logic App designer.  
+The following status updates are displayed to users based on their custom extension stage:
 
-For more information on creating logic app workflows, see [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps with the Azure portal](../../logic-apps/quickstart-create-example-consumption-workflow.md).
+|Custom Extension stage  |Message displayed to requestor in MyAccess request history  |
+|---------|---------|
+|When the extension is being processed     | Waiting for information before proceeding         |
+|When the extension fails     | Process expired         |
+|When the extension resumes      | Process continues         |
 
-## View and Edit Existing Custom Extensions for a Catalog
+This is an example of a MyAccess request history from a requestor after the extension resumes:
 
-**Prerequisite roles:** Global administrator, Identity Governance administrator, or Catalog owner 
-
-1. Navigate to the Custom Extensions tab within a Catalog as mentioned earlier.
-
-1. Here, you can view all the custom extensions you've created, along with the associated Logic App and information about the custom extension type.
-    :::image type="content" source="media/entitlement-management-logic-apps/custom-extension-list.png" alt-text="Screenshot of a list of custom extensions.":::
-1. Along with the Logic App name, the column Type dictates whether the custom extension was created in the new V2 auth model (after March 17, 2023), or the original model. If a custom extension was created in the new model, the Type column matches the selected type from the configuration modal that is either “*assignment request*” or “*pre-expiration*”. For older custom extensions, the type shows “*custom access package*”.    
-
-1. The Token Security column shows the associated auth security framework used when creating the custom extension. New V2 custom extensions show “*proof-of-possession*” (PoP) as the token security type. Older custom extensions show “regular”.   
-
-1. Old style custom extensions are no longer able to be created from the UI, however existing ones can be converted to new style custom extensions from the UI. 
-   :::image type="content" source="media/entitlement-management-logic-apps/convert-token-security-extension.png" alt-text="Screenshot of converting old security token to new."::: 
-
-1. Selecting the three dots at the end of the row of an old custom extension allows you to update the custom extension to a new type quickly. 
-    > [!NOTE]
-    > Custom extensions can only be converted to the new type if they are not in use, or if they are in use exclusively for policy stages of one specific extension type (assignment request stages or pre expiration stages).
-1. You can also edit any custom extension. This allows you to update the name, description, and other field values. This can be accomplished by selecting **Edit** inside the three-dot pane for any custom extension. 
-
-1. Old style custom extensions can continue to be used and edited even if not converted, even though they can no longer be created.
-
-1. If an old style custom extension cannot be updated to the new type because it is being used for policy stages, of **BOTH** assignment request and pre expiration types, then in order to update it you must either remove it from all linked policies or ensure it is only used for policy stages associated with **ONE** type (assignment request, or pre expiration).   
-
-## Add custom extension to a policy in an access package
-
-**Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner, or Access package manager 
-
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**. 
-
-1. In the left menu, select **Access packages**. 
-
-1. Select the access package you want to add a custom extension (logic app) to from the list of access packages that have already been created.  
-
-    > [!NOTE]  
-    > Select **New access package** if you want to create a new access package.
-    > For more information about how to create an access package, see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
-
-1. Change to the policy tab, select the policy and select **Edit**.
-
-1. In the policy settings, go to the **Custom Extensions (Preview)** tab.
-
-1. In the menu below **Stage**, select the access package event you wish to use as trigger for this custom extension (Logic App). For example, if you only want to trigger the custom extension Logic App workflow when a user requests the access package, select **Request is created**. 
-
-1. In the menu below **Custom Extension**, select the custom extension (Logic App) you want to add to the access package. The action you select executes when the event selected in the *when* field occurs.  
-
-1. Select **Update** to add it to an existing access package's policy.
-
-    ![Add a Logic App to access package](./media/entitlement-management-logic-apps/add-logic-apps-access-package.png)
+ :::image type="content" source="media/entitlement-management-logic-apps/extensibility-requestor-experience.png" alt-text="Screenshot of the requestor screen." lightbox="media/entitlement-management-logic-apps/extensibility-requestor-experience.png":::
 
 ## Troubleshooting and Validation 
 

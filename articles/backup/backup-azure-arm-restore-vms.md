@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 04/06/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -195,6 +195,9 @@ As one of the [restore options](#restore-options), Cross Region Restore (CRR) al
 To begin using the feature, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
 
 To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore).
+
+>[!Note]
+>Cross-region restore is currently not supported for machines running on Ultra disks. [Learn more about Ultra disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
 
 ### View backup items in secondary region
 

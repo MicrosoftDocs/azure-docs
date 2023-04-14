@@ -7,7 +7,7 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 03/27/2023
 ---
 
 # Changes to the Azure reservation exchange policy
@@ -20,7 +20,9 @@ You can continue to exchange VM sizes (with instance size flexibility). However,
 
 The current cancellation policy for reserved instances isn't changing. The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment.
 
-You may [trade in](../savings-plan/reservation-trade-in.md) your Azure reserved instances for compute for a savings plan. You can continue to use and purchase reservations for those predictable, stable workloads where you know the specific configuration and need or want more savings.
+A compute reservation exchange for another compute reservation exchange is similar to, but not the same as a reservation [trade-in](../savings-plan/reservation-trade-in.md) for a savings plan. The difference is that you can always trade in your Azure reserved instances for compute for a savings plan. There's no time limit for trade-ins.
+
+You can continue to use and purchase reservations for those predictable, stable workloads where you know the specific configuration and need or want more savings.
 
 Learn more about [Azure savings plan for compute](../savings-plan/index.yml) and how it works with reservations.
 
@@ -32,19 +34,27 @@ The following examples describe scenarios that might represent your situation.
 
 ### Scenario 1
 
-You purchase a one-year compute reservation between October 2022 and January 2024. The compute reservation can be exchanged one more time through the end of its term, even after January 2024. Before January 2024, you can exchange it under current policy. However, when the reservation is exchanged after January 2024, the reservation is no longer exchangeable because exchanges are processed as a cancellation and new purchase. You can still trade in the reservation for a savings plan.
+You purchase a one-year compute reservation sometime between the month of October 2022 and the end of December 2023. You can exchange the compute reservation one more time through the end of its term, even after December 2023. Before January 2024, you can exchange it under current policy. However, if the reservation is exchanged after the end of December 2023, the reservation is no longer exchangeable because exchanges are processed as a cancellation, refund, and a new purchase.
+
+You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
 
 ### Scenario 2
 
-You purchase a three-year compute reservation before January 2024. You exchange the compute reservation after January 2024. Because an exchange is processed as a cancellation and new purchase, the reservation is no longer exchangeable. However, you can still trade in the reservation for a savings plan.
+You purchase a three-year compute reservation before January 2024. You exchange the compute reservation on or after January 1, 2024. Because an exchange is processed as a cancellation, refund, and new purchase, the reservation is no longer exchangeable.
+
+You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
 
 ### Scenario 3
 
-You purchase a one-year compute reservation after January 2024. It can’t be exchanged. However, you can trade in the reservation for a savings plan.
+You purchase a one-year compute reservation on or after January 1, 2024. It can’t be exchanged.
+
+You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
 
 ### Scenario 4
 
-You purchase a three-year compute reservation after January 2024. It can’t be exchanged. However, you can trade in the reservation for a savings plan.
+You purchase a three-year compute reservation after on or after January 1, 2024. It can’t be exchanged. 
+
+You can always trade in the reservation for a savings plan. There's no time limit for trade-ins.
 
 ## Next steps
 
