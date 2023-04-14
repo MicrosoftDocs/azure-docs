@@ -15,7 +15,9 @@ zone_pivot_groups: programming-languages-set-functions-nodejs
 >[!NOTE]
 > Version 4 of the Node.js programming model is currently in public preview. Learn more by visiting the Node [Functions developer guide](../functions-reference-node.md?pivots=nodejs-model-v4).
 
-This article provides a guide to upgrade your existing Durable Functions app to newly released version 4 of the Node.js programming model for Azure Functions from the existing version 3. If you're instead interested in creating a brand new v4 app, follow the Visual Studio Code quickstarts for [JavaScript](./quickstart-js-vscode.md?pivots=nodejs-model-v4) and [TypeScript](./quickstart-ts-vscode.md?pivots=nodejs-model-v4). This article uses "TIP" sections to highlight the most important concrete actions you should take to upgrade your app. Before following this guide, make sure you follow the general [version 4 upgrade guide](../functions-node-upgrade-v4.md). You can also learn more about the new v4 programming model through the [Node.js developer reference](../functions-reference-node.md?pivots=nodejs-model-v4).
+This article provides a guide to upgrade your existing Durable Functions app to version 4 of the Node.js programming model. Note that this article uses "TIP" banners to summarize the key steps needed to upgrade your app.
+
+If you're interested in creating a brand new v4 app instead, you can follow the Visual Studio Code quickstarts for [JavaScript](./quickstart-js-vscode.md?pivots=nodejs-model-v4) and [TypeScript](./quickstart-ts-vscode.md?pivots=nodejs-model-v4).
 
 >[!TIP]
 > Before following this guide, make sure you follow the general [version 4 upgrade guide](../functions-node-upgrade-v4.md).
@@ -28,9 +30,9 @@ Before following this guide, make sure you follow these steps first:
 - Install [TypeScript](https://www.typescriptlang.org/) version 4.x+.
 - Run your app on [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) version 4.16.5+.
 - Install [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) version 4.0.5095+.
-- Follow the general [Azure Functions Node.js programming model v4 upgrade guide](../functions-node-upgrade-v4.md).
+- Review the general [Azure Functions Node.js programming model v4 upgrade guide](../functions-node-upgrade-v4.md).
 
-## Upgrade durable-functions npm package
+## Upgrade the `durable-functions` npm package
 
 The v4 programming model is supported by the v3.x of the `durable-functions` npm package. In v3, you likely had `durable-functions` v2.x listed in your dependencies. Make sure to update to the (currently in preview) v3.x of the package.
 
@@ -41,9 +43,9 @@ The v4 programming model is supported by the v3.x of the `durable-functions` npm
 > npm install durable-functions@preview
 > ```
 
-## Register your durable functions in code
+## Register your Durable Functions Triggers
 
-In the v4 programming model, `function.json` files are a thing of the past! In v3, you would have to register your orchestration, entity, and activity triggers in a `function.json` file, and export your function implementation using `orchestrator()` or `entity()` APIs from the `durable-functions` package. With v3.x of `durable-functions`, APIs were added to the `app` namespace on the root of the package to allow you to register your durable orchestrations, entities, and activities directly in code! Find the below code snippets for examples.
+In the v4 programming model, declaring triggers and bindings in a separate `function.json` file is a thing of the past! Now you can register your Durable Functions triggers and bindings directly in code, using the new APIs found in the `app` namespace on the root of the `durable-functions` package. See the code snippets below for examples.
 
 **Migrating an orchestration**
 
@@ -367,9 +369,9 @@ export default helloActivity;
 > Remove `function.json` files from your Durable Functions app. Instead, register your durable functions using the methods on the `app` namespace: `df.app.orchestration()`, `df.app.entity()`, and `df.app.activity()`.
 
 
-## Update your Durable Client input config
+## Register your Durable Client input binding
 
-In the v4 model, registering extra inputs has been moved from `function.json` files to your own code! You can use the `input.durableClient()` method to register an extra durable client input to your preferred durable client function. You can then use `getClient()` to retrieve the client instance as before. See the example below using an HTTP trigger.
+In the v4 model, registering secondary input bindings, like durable clients, is also done in code! Use the `input.durableClient()` method to register a durable client input _binding_ to a function of your choice. In the function body, use `getClient()` to retrieve the client instance, as before. The example below shows an example using an HTTP triggered function.
 
 :::zone pivot="programming-language-javascript"
 
@@ -875,3 +877,5 @@ If you see the following error when running your orchestration code, make sure y
 Exception: The orchestrator can not execute without an OrchestratorStarted event.
 Stack: TypeError: The orchestrator can not execute without an OrchestratorStarted event.
 ```
+
+If that doesn't work, or if you encounter any other issues, you can always file a bug report in [our GitHub repo](https://github.com/Azure/azure-functions-durable-js).
