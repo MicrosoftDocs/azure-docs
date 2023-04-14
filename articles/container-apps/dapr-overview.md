@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 04/14/2023
 ---
 
 # Dapr integration with Azure Container Apps
@@ -342,7 +342,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
 - **Declarative pub/sub subscriptions**
 - **Any Dapr sidecar annotations not listed above**
-- **Alpha APIs and components**: Azure Container Apps doesn't guarantee the availability of Dapr alpha APIs and features. For more information, refer to the [Dapr integration FAQ][dapr-faq].
+- **Alpha APIs and components**: Azure Container Apps doesn't guarantee the availability of Dapr alpha APIs and features. For more information, refer to the [Dapr FAQ][dapr-faq].
 
 ### Known limitations
 
@@ -363,7 +363,7 @@ Now that you've learned about Dapr and some of the challenges it solves:
 [dapr-arm-quickstart]: ./microservices-dapr-azure-resource-manager.md
 [dapr-github-actions]: ./dapr-github-actions.md
 [dapr-bindings-tutorial]: ./microservices-dapr-bindings.md
-[dapr-faq]: ./dapr-faq.yml
+[dapr-faq]: ./faq.yml#dapr
 
 <!-- Links External -->
 
