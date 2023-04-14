@@ -459,8 +459,8 @@
       href: faqs-eiot.md
   - name: Architecture icons
     href: /azure/architecture/icons/
-  - name: Custom columns sample script
-    href: custom-columns-sample-script.md
+  - name: Compliance resources
+    href: compliance.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
@@ -469,3 +469,5 @@
     href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
   - name: Release notes archive
     href: release-notes-archive.md
+  - name: Custom columns sample script
+    href: custom-columns-sample-script.md
