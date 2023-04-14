@@ -410,7 +410,7 @@ public class Catch429Policy : HttpPipelineSynchronousPolicy
     {
         if (message.Response.Status == 429)
         {
-            throw new Exception(message.Response);
+            throw new Exception(message.Response.ToString());
         }
         else
         {

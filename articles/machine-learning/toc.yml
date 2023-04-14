@@ -1084,6 +1084,8 @@
               href: how-to-use-pipeline-ui.md
             - name: How to use parallel job in pipeline
               href: how-to-use-parallel-job-in-pipeline.md
+            - name: How to use pipeline component in pipeline
+              href: how-to-use-pipeline-component.md
             # v1
             - name: Create ML pipelines (Python)
               href: ./v1/how-to-create-machine-learning-pipelines.md
@@ -1231,6 +1233,8 @@
           href: reference-yaml-model.md
         - name: Schedule
           href: reference-yaml-schedule.md
+        - name: Pipeline component
+          href: reference-yaml-component-pipeline.md
         - name: Compute
           items:
             - name: Compute cluster (AmlCompute)

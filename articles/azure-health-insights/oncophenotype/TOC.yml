@@ -20,8 +20,6 @@ items:
   items:
      - name: Model configuration
        href: model-configuration.md
-     - name: Patient information
-       href: patient-info.md
      - name: Inference information
        href: inferences.md
 - name: Reference
