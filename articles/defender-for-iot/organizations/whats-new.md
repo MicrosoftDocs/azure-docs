@@ -26,9 +26,9 @@ Features released earlier than nine months ago are described in the [What's new 
 
 The script used to configure OT sensors to detect Microsoft Windows workstations and servers is now available for download from the OT sensor itself. 
 
-For more information, see [Download the script](detect-windows-endpoints-script.md#download-the-script).
+For more information, see [Download the script](detect-windows-endpoints-script.md#download-and-run-the-script)
 
-### Automatically resolved notifications for operating system changes
+### Automatically resolved OS notifications
 
 After updating your OT sensor to version 22.3.8, no new device notifications for **Operating system changes** are generated. Existing **Operating system changes** notifications are automatically resolved if they aren't dismissed or otherwise handled within 14 days.
 
