@@ -9,6 +9,10 @@ ms.custom: seodec18
 ---
 # Scale up an app in Azure App Service
 
+>[!IMPORTANT]
+> [App Service now offers an advanced, automatic scaling to handle varying incoming HTTP requests.](./manage-automatic-scaling.md)
+>
+
 This article shows you how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out, and this article explains the scale up workflow.
 
 * [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more CPU, memory, disk space, and extra features
