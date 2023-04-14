@@ -7,24 +7,15 @@ ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: windows
-ms.date: 04/12/2023
+ms.date: 04/14/2023
 ---
 
 # Log Analytics agent virtual machine extension for Windows
 
 Azure Monitor Logs provides monitoring capabilities across cloud and on-premises assets. Microsoft publishes and supports the Log Analytics agent virtual machine (VM) extension for Windows. The extension installs the Log Analytics agent on Azure VMs, and enrolls VMs into an existing Log Analytics workspace. This article describes the supported platforms, configurations, and deployment options for the Log Analytics agent VM extension for Windows.
 
-<!-- Reviewers: Should the article mention that the Log Analytics agent is planned for deprecation by 8/31/2024? I assume the deprecated agent means the VM extension for the agent will also be deprecated.
-
-Details are in the topic /azure/azure-monitor/agents/azure-monitor-agent-migration.md
-
 > [!IMPORTANT]
 > The Log Analytics agent is on a **deprecation path** and won't be supported after **August 31, 2024**. If you use the Log Analytics agent to ingest data to Azure Monitor, [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.
-
--->
-
-> [!NOTE]
-> You can use Azure Arc-enabled servers to deploy, remove, and update the Log Analytics agent VM extension to non-Azure Windows and Linux machines. This approach simplifyies the management of your hybrid machine through their lifecycle. For more information, see [VM extension management with Azure Arc-enabled servers](/azure/azure-arc/servers/manage-vm-extensions).
 
 ## Prerequisites
 
@@ -64,6 +55,10 @@ Microsoft Defender for Cloud automatically provisions the Log Analytics agent an
 
 > [!IMPORTANT]
 > If you're using Microsoft Defender for Cloud, don't follow the extension deployment methods described in this article. These deployment processes overwrite the configured Log Analytics workspace and break the connection with Microsoft Defender for Cloud.
+
+### Azure Arc
+
+You can use Azure Arc-enabled servers to deploy, remove, and update the Log Analytics agent VM extension to non-Azure Windows and Linux machines. This approach simplifies the management of your hybrid machine through their lifecycle. For more information, see [VM extension management with Azure Arc-enabled servers](/azure/azure-arc/servers/manage-vm-extensions).
 
 ### Internet connectivity
 
@@ -116,12 +111,6 @@ The JSON schema includes the following properties.
 | `workspaceKey (e.g)` | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 __\*__ The `workspaceId` schema property is specified as the `consumerId` property in the Log Analytics API.
-
-<!-- Reviewers: There's no information about properties in the following article.
-
-For more information about other properties, see [Install Log Analytics agent on Windows computers](/azure/azure-monitor/agents/agent-windows).
-
--->
 
 ## Template deployment
 
@@ -202,38 +191,6 @@ Set-AzVMExtension -ExtensionName "MicrosoftMonitoringAgent" `
     -ProtectedSettings $ProtectedSettings `
     -Location WestUS 
 ```
-
-<!-- Reviewers: Open issue (https://github.com/MicrosoftDocs/azure-docs/issues/79974) requests deployment steps from the Azure CLI.
-
-Should this section be added given the planned deprecation of the agent? If so, here's some draft content for review.
-
-## Azure CLI deployment
-
-The Log Analytics agent VM extension can be deployed by using the Azure CLI. Save Key Vault VM extension settings to a JSON file (settings.json). 
-
-The following example assumes the Log Analytics agent VM extension is nested inside the VM resource.
-
-```json
-   "settings": {
-      "workspaceId": "myWorkSpaceId"
-   },
-   "protectedSettings": {
-      "workspaceKey": "myWorkspaceKey"
-   }
-```
-
-Deploy the extension on a VM from the Azure CLI:
-
-```azurecli
-# Start the deployment
-az vm extension set --name "MicrosoftMonitoringAgent" `
- --publisher Microsoft.EnterpriseCloud.Monitoring `
- --resource-group "myResourceGroup" `
- --vm-name "myVM" `
- --settings "@settings.json"
-```
-
--->
 
 ## <a name="troubleshoot-and-support"></a> Troubleshoot issues
 
