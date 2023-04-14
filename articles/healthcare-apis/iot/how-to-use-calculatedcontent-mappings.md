@@ -5,11 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ---
 
 # How to use CalculatedContent mappings
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 This article describes how to use CalculatedContent mappings with MedTech service device mappings in Azure Health Data Services.
 
