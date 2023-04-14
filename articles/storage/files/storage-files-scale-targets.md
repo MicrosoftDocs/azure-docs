@@ -90,7 +90,7 @@ File scale targets apply to individual files stored in Azure file shares.
 <sup>3 Azure Files supports 2,000 open handles per share, and in practice can go higher. However, if an application keeps an open handle on the root of the share, the share root limit will be reached before the per-file or per-directory limit is reached.</sup>
 
 ## Azure File Sync scale targets
-The following table indicates which target are soft, representing the Microsoft tested boundary, and hard, indicating an enforced maximum:
+The following table indicates which targets are soft, representing the Microsoft tested boundary, and hard, indicating an enforced maximum:
 
 | Resource | Target | Hard limit |
 |----------|--------------|------------|
