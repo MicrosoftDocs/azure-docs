@@ -98,7 +98,7 @@ Represents the [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHI
 
 ### Quantity
 
-Represents the [Quantity](http://hl7.org/fhir/datatypes.html#Quantity) FHIR data type. This type will create a single, point in time, Observation. If new value arrives that contains the same device identifier, measurement type, and time period, the previous Observation will be updated to the new value.
+Represents the [Quantity](http://hl7.org/fhir/datatypes.html#Quantity) FHIR data type. This type creates a single, point in time, Observation. If a new value arrives that contains the same device identifier, measurement type, and time period, the previous Observation is updated to the new value.
 
 | Property | Description 
 | --- | --- 
@@ -108,7 +108,7 @@ Represents the [Quantity](http://hl7.org/fhir/datatypes.html#Quantity) FHIR data
 
 ### CodeableConcept
 
-Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) FHIR data type. The value in in the normalized data model is not used, and instead when this type of data is received, an Observation will be created with a specific code representing that an observation was recorded at a specific point in time.
+Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) FHIR data type. The value in the normalized data model isn't used, and instead when this type of data is received, an Observation is created with a specific code representing that an observation was recorded at a specific point in time.
 
 | Property | Description 
 | --- | --- 
@@ -120,7 +120,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 
 ### String
 
-Represents the [string](https://www.hl7.org/fhir/datatypes.html#string) FHIR data type. This type will create a single, point in time, Observation. If new value arrives that contains the same device identifier, measurement type, and time period, the previous Observation will be updated to the new value.
+Represents the [string](https://www.hl7.org/fhir/datatypes.html#string) FHIR data type. This type creates a single, point in time, Observation. If new value arrives that contains the same device identifier, measurement type, and time period, the previous Observation is updated to the new value.
 
 ### Example
 
