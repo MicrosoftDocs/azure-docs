@@ -193,6 +193,11 @@
         "source_path_from_root": "/articles/communication-services/concepts/analytics/log-analytics.md",
         "redirect_url": "/articles/communication-services/concepts/analytics/query-call-logs",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/concepts/analytics/recording-logs.md",
+        "redirect_url": "/articles/communication-services/concepts/analytics/logs/recording-logs",
+        "redirect_document_id": true
       }
     ]
 }
