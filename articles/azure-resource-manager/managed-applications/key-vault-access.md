@@ -19,7 +19,7 @@ This article describes how to configure the Key Vault to work with Managed Appli
 
    :::image type="content" source="./media/key-vault-access/open-key-vault.png" alt-text="Screenshot of the Azure home page to open a key vault using search or by selecting key vault.":::
 
-1. Select **Access policies**.
+1. Select **Access configuration**.
 
    :::image type="content" source="./media/key-vault-access/select-access-configuration.png" alt-text="Screenshot of the key vault setting to select access configuration.":::
 
