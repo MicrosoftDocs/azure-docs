@@ -55,8 +55,8 @@ landingContent:
             url: how-to-configure-traffic-forwarding.md
           - text: Configure devices
             url: how-to-configure-devices.md
-          - text: Configure branch Office locations
-            url: how-to-configure-branch-office-locations.md
+          - text: Create branch Office locations
+            url: how-to-create-branch-office-location.md
 
   - title: Create
     linkLists:
