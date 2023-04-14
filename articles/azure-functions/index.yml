@@ -7,7 +7,7 @@ metadata:
   title: Azure Functions documentation 
   description: Azure Functions is a cloud service available on-demand that provides all the continually updated infrastructure and resources needed to run your applications. You focus on the code that matters most to you, in the most productive language for you, and Functions handles the rest. Functions provides serverless compute for Azure. You can use Azure Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.
   ms.service: azure-functions 
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   author: ggailey777 
   ms.author: azfundocs 
   ms.date: 12/27/2021 
