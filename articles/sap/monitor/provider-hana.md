@@ -55,7 +55,7 @@ grant monitoring to <ams_user_name>;
 
 If the user has just been created and the 'force_first_password_change' policy is enabled, ensure that the password is changed by logging on to the database via SAP HANA Cockpit or SAP HANA Studio.
 
-### Configure use_defaukt_route parameter
+### Configure use_default_route parameter
 
 The configuration parameter global.ini > public_hostname_resolution > use_default_route should be set to 'ip'. 
 The following query should list IP addresses
