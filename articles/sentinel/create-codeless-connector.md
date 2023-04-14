@@ -69,7 +69,7 @@ Here's the `connectorUiConfig` sections and syntax needed to configure the user 
 |**availability**     | `{`<br>`"status": 1,`<br>`"isPreview":` Boolean<br>`}` | <br> **status**: **1** Indicates connector is generally available to customers. <br>**isPreview** Indicates whether to include (Preview) suffix to connector name. |
 |**connectivityCriteria**     |   `{`<br>`"type": SentinelKindsV2,`<br>`"value": APIPolling`<br>`}` | An object that defines how to verify if the connector is correctly defined. Use the values indicated here.|
 |**dataTypes**     | [dataTypes[]](#datatypes) | A list of all data types for your connector, and a query to fetch the time of the last event for each data type. |
-|**descriptionMarkdown**     |  String, allows markdown       |   A description for the connector.      |
+|**descriptionMarkdown**     |  String     |   A description for the connector with the ability to add markdown language to enhance it.      |
 |**graphQueries**     |   [graphQueries[]](#graphqueries)      |   Queries that present data ingestion over the last two weeks in the **Data charts** pane.<br><br>Provide either one query for all of the data connector's data types, or a different query for each data type.     |
 |**graphQueriesTableName** | String | Defines the name of the Log Analytics table from which data for your queries is pulled. <br><br>The table name can be any string, but must end in `_CL`. For example: `TableName_CL`|
 |**instructionsSteps**     | [instructionSteps[]](#instructionsteps)        |     An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab.    |
@@ -86,7 +86,7 @@ Putting all these pieces together is complicated. Use the [connector page user e
 |Array Value  |Type  |Description  |
 |---------|---------|---------|
 | **name** | String | A meaningful description for the`lastDataReceivedQuery`, including support for a variable. <br><br>Example: `{{graphQueriesTableName}}` |
-| **lastDataReceivedQuery** | String | A query that returns one row, and indicates the last time data was received, or no data if there is no relevant data. <br><br>Example: `{{graphQueriesTableName}}\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)` |
+| **lastDataReceivedQuery** | String | A KQL query that returns one row, and indicates the last time data was received, or no data if there is no relevant data. <br><br>Example: `{{graphQueriesTableName}}\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)` |
 
 ### graphQueries
 
@@ -123,7 +123,7 @@ Displays a group of instructions, with various options as parameters and the abi
 | **CopyableLabel** | [CopyableLabel](#copyablelabel) | Shows a text field with a copy button at the end. When the button is selected, the field's value is copied.|
 | **InfoMessage** | [InfoMessage](#infomessage) | Defines an inline information message.
 | **InstructionStepsGroup** | [InstructionStepsGroup](#instructionstepsgroup) | Displays a group of instructions, optionally expanded or collapsible, in a separate instructions section.|
-| **InstallAgent** | [InstallAgent](#InstallAgent) | Displays a link to other portions of Azure to accomplish various installation requirements. |
+| **InstallAgent** | [InstallAgent](#installAgent) | Displays a link to other portions of Azure to accomplish various installation requirements. |
 
 #### APIKey
 
@@ -575,7 +575,7 @@ After creating your [JSON configuration file](#create-a-connector-json-configura
 
     In your Microsoft Sentinel data connector page, follow the instructions you've provided to connect to your data connector.
 
-    The data connector page in Microsoft Sentinel is controlled by the [InstructionStep](#instructionstep) configuration in the `connectorUiConfig` element of the [CCP JSON configuration](#create-a-connector-json-configuration-file) file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
+    The data connector page in Microsoft Sentinel is controlled by the [InstructionSteps](#instructionsteps) configuration in the `connectorUiConfig` element of the [CCP JSON configuration](#create-a-connector-json-configuration-file) file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
 
     # [Connect via API](#tab/connect-via-api)
 
@@ -589,7 +589,7 @@ After creating your [JSON configuration file](#create-a-connector-json-configura
     |**APIKey**     |Define: <br>- `kind` as `APIKey` <br>- `APIKey` as your full API key string, in quotes|
 
 
-    If you're using a [template configuration file with placeholder data](#add-placeholders-to-your-connectors-json-configuration-file), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
+    If you're using a [placeholder data in your template](#apikey), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
 
     ```json
     "requestConfigUserInputValues": [
@@ -626,5 +626,6 @@ Use one of the following methods:
 
 If you haven't yet, share your new codeless data connector with the Microsoft Sentinel community! Create a solution for your data connector and share it in the Microsoft Sentinel Marketplace.
 
-For more information, see [About Microsoft Sentinel solutions](sentinel-solutions.md).
-https://learn.microsoft.com/en-us/azure/templates/microsoft.securityinsights/dataconnectors?pivots=deployment-language-arm-template#dataconnectors-objects-1
+For more information, see 
+- [About Microsoft Sentinel solutions](sentinel-solutions.md).
+- [Data connector ARM template reference](templates)[https://learn.microsoft.com/azure/templates/microsoft.securityinsights/dataconnectors?pivots=deployment-language-arm-template#dataconnectors-objects-1]
