@@ -18,14 +18,28 @@ ms.date: 04/17/2023
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-To exchange messages that have different XML or JSON formats in an Azure Logic Apps workflow, you have to transform the data from one format to another, especially if you have gaps between the source and target schema structures. Data transformation helps you bridge those gaps. For this task, you need to create a map that defines the relationships between the source schema and target schema.
+To exchange messages that have different XML or JSON formats in an Azure Logic Apps workflow, you have to transform the data from one format to another, especially if you have gaps between the source and target schema structures. Data transformation helps you bridge those gaps. For this task, you need to create a map that defines the transformation between data elements in the source and target schemas.
 
 To visually create and edit a map, you can use Visual Studio Code with the Data Mapper extension within the context of a Standard logic app project. The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
 
-After you create your map, you can directly call that map from workflows in your logic app project. For this task, add the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** to your workflow. This action is also available in the Azure portal, but you have to add the map to either of the following resources:
+After you create your map, you can directly call that map from a workflow in your logic app project or from a workflow in the Azure portal. For this task, add the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** to your workflow. However, to use this action in the Azure portal, you have to add the map to either of the following resources:
 
 - An integration account for a Consumption or Standard logic app resource
 - The Standard logic app resource itself
+
+This how-to guide shows how to complete the following tasks:
+
+- Create a new data map.
+- Specify the source and target schemas to use for the map.
+- Navigate the map.
+- Add schema elements to the map.
+- Create a direct mapping between elements.
+- Create a complex mapping between elements.
+- Create a loop between arrays.
+- Crete an if condition between elements.
+- Save the map.
+- Test the map.
+- Call the map from a workflow in your logic app project.
 
 ## Limitations
 
@@ -66,22 +80,23 @@ The Data Mapper extension currently works only with schemas in flat folder-struc
 
 1. In the **Azure** pane, under the **Data Mapper** section, select **Create new data map**.
 
+   ![Screenshot showing Visual Studio Code with Data Mapper extension installed, Azure window open, and selected button for Create new data map.](media/create-maps-data-transformation-visual-studio-code/create-new-data-map.png)
+
 1. Provide a name for your data map.
 
 1. Specify your source and target schemas by following these steps:
 
    1. On the map surface, select **Add a source schema**.
 
+      ![Screenshot showing Visual Studio Code with Data Mapper open, new data map, and selected option for Add a source schema.](media/create-maps-data-transformation-visual-studio-code/select-source-schema.png)
+
    1. On the **Configure** pane that opens, select **Add new** > **Browse**.
 
    1. Find and select your source schema file, and then select **Add**.
 
-      [!NOTE]
-      >
-      > If your source schema doesn't appear in the **Open** window, 
-      > from the file type list, change **XSD File (\*.xsd)** to **All Files (\*.\*)**.
+      If your source schema doesn't appear in the **Open** window, from the file type list, change **XSD File (\*.xsd)** to **All Files (\*.\*)**.
 
-      The map surface now shows the data types from the source schema.
+      The map surface now shows the data types from the source schema. For the examples in this guide, 
 
    1. On the map surface, select **Add a target schema**.
 
@@ -89,20 +104,11 @@ The Data Mapper extension currently works only with schemas in flat folder-struc
 
    1. Find and select your target schema file, and then select **Add**.
 
-      [!NOTE]
-      >
-      > If your target schema doesn't appear in the **Open** window, 
-      > from the file type list, change **XSD File (\*.xsd)** to **All Files (\*.\*)**.
+      If your target schema doesn't appear in the **Open** window, from the file type list, change **XSD File (\*.xsd)** to **All Files (\*.\*)**.
 
       The map surface now shows data types from the target schema.
 
-   > [!NOTE]
-   > 
-   > You can also add your source and target schema files locally to your 
-   > logic app project in the **Artifacts** > **Schemas** folder, so that 
-   > they appear in Visual Studio Code. In this case, you can specify your 
-   > source and target schema in the Data Mapper tool on the **Configure** 
-   > pane by selecting **Select existing**, rather than **Add new**.
+   Alternatively, you can also add your source and target schema files locally to your logic app project in the **Artifacts** **Schemas** folder, so that they appear in Visual Studio Code. In this case, you can specify your source and target schema in the Data Mapper tool on the **Configure** pane by selecting **Select existing**, rather than **Add new**.
 
 The following table describes the possible data types that might appear in a schema:
 
@@ -126,67 +132,93 @@ The following table describes the possible data types that might appear in a sch
 
 To move around the map, you have the following options:
 
-- To pan around, drag your pointer around the map surface. Or, press the mouse wheel.
+- To pan around, drag your pointer around the map surface. Or, press and hold the mouse wheel, while you move the mouse or trackball.
+
 - In the lower left map corner, on the navigation bar, select the option you want:
 
   | Option | Alternative gesture |
   |--------|---------------------|
-  | **Zoom in** | On the map surface, double select. |
-  | **Zoom out** | On the map surface, press SHIFT + double select. |
+  | **Zoom in** | On the map surface, double select. <br>-or- <br>Scroll up with the mouse wheel. |
+  | **Zoom out** | On the map surface, press SHIFT + double select. <br>-or- <br>Scroll down with the mouse wheel. |
   | **Zoom to fit** | None |
   | **Show (Hide) mini-map** | None |
 
-- To move up one level on the map, on the breadcrumb path, select a previous level.
+- To move up one level on the map, on the breadcrumb path at the top of the map, select a previous level.
 
 <a name="select-elements"></a>
 
-## Select the elements that you want to map
+## Add elements to the map
 
-1. On the map surface, from the target schema list, select the target element that you want to map. If that element is a child of a parent element, find and expand the parent first.
+1. On the map surface, from the target schema's data element list, select the target element that you want to map. If that element is a child of a parent element, find and expand the parent first.
 
-   The source schema area on the map now shows the option to select a source element.
+1. In the source schema area, select **Select element**.
 
-1. From the source schema area, select **Select element**.
+1. From the **Source schema** window that appears, select one or more source elements to show on the map.
 
-1. From the **Source schema** window that appears, select one or more source elements to display on the map.
+   - To include the parent and direct children, open the parent's shortcut menu, and select **Add children**.
 
-   - To include the immediate children of a parent, open the parent's shortcut menu, and select **Add children**.
-
-   - To include all the children of a parent, including any subsequent parents, open the top-level parent's shortcut menu, and select **Add children (recursive)**.
+   - To include a parent and all the children of a parent, including any subsequent parents, open the top-level parent's shortcut menu, and select **Add children (recursive)**.
 
 1. When you're done, close the source schema window. You can always add more source elements later. On the map, in the upper left corner, select **Show source schema** (node tree).
 
-<a name="create-basic-mapping"></a>
+<a name="create-direct-mapping"></a>
 
-## Create a basic mapping relationship
+## Create a direct mapping between source and target elements
 
-For a direct and simple mapping between elements with the same type, follow these steps:
+For a straightforward transformation between elements with the same type in the source and targe schemas, follow these steps:
 
 1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
 
 1. Move your pointer over the source element so that both a circle and a plus sign (**+**) appear.
 
+   ![Screenshot showing the data map and starting a mapping between EmployeeID and ID in the source and target schema, respectively.](media/create-maps-data-transformation-visual-studio-code/direct-mapping-start-source-element.png)
+
 1. Drag a line to the target element so that the line connects to the circle that appears.
 
-   You now have a basic mapping between both elements.
+   ![Screenshot showing the data map and ending a mapping between EmployeeID and ID in the source and target schema, respectively.](media/create-maps-data-transformation-visual-studio-code/direct-mapping-target-element.png)
+
+   You've now created a direct mapping between both elements.
+
+   ![Screenshot showing the data map and a finished mapping between EmployeeID and ID in the source and target schema, respectively.](media/create-maps-data-transformation-visual-studio-code/direct-mapping-complete.png)
+
+   The code view window reflects the direct mapping that you created:
+
+   ![Screenshot showing code view with direct mapping between EmployeeID and ID in the source and target schema, respectively.](media/create-maps-data-transformation-visual-studio-code/direct-mapping-example-code-view.png)
 
 <a name="create-complex-mapping"></a>
 
-## Create a complex mapping relationship
+## Create a complex mapping between elements
 
-| | Any | |
+For a more complex transformation between elements in the source and target schemas, such as elements that you want to combine or that have different data types, you can use one or more functions to perform tasks for that transformation. The following table lists the available function groups and example functions that you can use:
 
-For a more complex transformation, you can create a mapping that uses a function to perform a task or make a decision.
+| Group | Example functions |
+|-------|-----------|
+| Collection | Average, Count, Direct Access, Index, Join, Maximum, Minimum, Sum |
+| Conversion | To date, To integer, To number, To string |
+| Date and time | Add days |
+| Logical comparison | Equal, Exists, Greater, Greater or equal, If, If else, Is nil, Is null, Is number, Is string, Less, Less or equal, Logical AND, Logical NOT, Logical OR, Not equal |
+| Math | Absolute, Add, Arctangent, Ceiling, Cosine, Divide, Exponential, Exponential (base 10), Floor, Integer divide, Log, Log (base 10), Module, Multiply, Power, Round, Sine, Square root, Subtract, Tangent |
+| String | Code points to string, Concat, Contains, Ends with, Length, Lowercase, Name, Regular expression matches, Regular expression replace, Replace, Starts with, String to code-points, Substring, Substring after, Substring before, Trim, Trim left, Trim right, Uppercase |
+| Utility | Copy, Error, Format date-time, Format number |
 
-1. [Create a basic mapping relationship](#create-basic-mapping).
+### Add a function without an existing mapping
 
-1. Select the line for the mapping that you created.
+1. Connect the function to the source and target elements.
 
-1. On the map, in the upper left corner, select **Show functions** (function sign).
+   1. Drag and draw a line between the source elements and the function's left edge. You can start either from the source elements or from the function.
 
-1. Move your pointer over the selected connection, and select **Insert function** when the plus sign (**+**) appears.
+   1. Drag and draw a line between the function's right edge and the target element. You can start either from the target element or from the function.
 
-1. From the **Function** list, select the function that you want to use.
+1. On the function's **Properties** tab, confirm or edit the input to use.
+
+   For some data types, such as arrays, the scope for the transformation might also appear available. This scope is usually the immediate element, such as an array, but in some scenarios, the scope might exist beyond the immediate element.
+
+
+### Add a function to an existing mapping
+
+1. [Create a direct mapping between the source and target elements](#create-direct-mapping).
+
+   The created mapping might show an error because the source and target data types don't match. This example transforms the source element value to a DateTime value
 
    The function now appears connected to the selected mapping relationship.
 
@@ -198,17 +230,72 @@ For a more complex transformation, you can create a mapping that uses a function
 
 1. After the function appears on the map, select the function so that the information window appears. 
 
-1. On the function's **Properties** tab, select the data fields to use as the input and scope for the transformation.
+1. Select the line for the mapping that you created.
 
-<a name="iterate-through-array"></a>
+1. Move your pointer over the selected connection, and select **Insert function** when the plus sign (**+**) appears.
 
-## Create a loop mapping between arrays
 
-If your source and target schemas include arrays, you can create a loop mapping between the items in those arrays.
+For example, to iterate through array items, see [Create a loop between arrays](#loop-through-array). To perform a task when an element's value meets a condition, see [Create an if condition between items](#create-if-condition).
 
-1. Add the arrays and their Expand the items 
+### Add a function with multiple inputs
 
-1. [Follow the steps to create a basic mapping relationship](#create-basic-mapping) between a pair of matching elements in the source and target schema.
+The example in this section concatenates two source elements so that you can map the results to the target element.
+
+1. Make sure that map shows the source and target elements that you want.
+
+1. In the map's upper left corner, select **Show functions**.
+
+   ![Screenshot showing source and target schema elements and the selected option for Show functions.](media/create-maps-data-transformation-visual-studio-code/show-functions.png)
+
+1. From the functions list that opens, find and select the function that you want to use, which adds the function to the map. If the function doesn't appear visible on the map, try zooming out on the map surface.
+
+   ![Screenshot showing the selected function named Concat.](media/create-maps-data-transformation-visual-studio-code/select-function.png)
+
+   > [!NOTE]
+   >
+   > If no mapping line exists or is selected when you add a function to the map, the function 
+   > appears on the map, but disconnected from any elements or other functions. A red dot appears 
+   > in the function's upper right corner to show that the function isn't correctly configured, for example:
+   >
+   > ![Screenshot showing a disconnected function.](media/create-maps-data-transformation-visual-studio-code/function-disconnected.png)
+
+1. Expand the function shape to display the function's details and connection points. To expand the function shape, select inside the shape.
+
+1. In the function information pane, on the **Properties** tab, under **Inputs**, select the source data elements to use as the inputs.
+
+   This example selects the **FirstName** and **LastName** source elements as the function inputs, which automatically adds the connections on the map.
+
+   ![Screenshot showing multiple source data elements selected as function inputs.](media/create-maps-data-transformation-visual-studio-code/function-multiple-inputs.png)
+
+1. To complete the mapping drag and draw a line between the function's right edge and the target element. You can start either from the target element or from the function.
+
+   ![Screenshot showing finished mapping from function with multiple inputs to target element.](media/create-maps-data-transformation-visual-studio-code/function-multiple-inputs-single-output.png)
+
+<a name="loop-through-array"></a>
+
+## Create a loop between arrays
+
+If your source and target schemas include arrays, you can create a loop mapping that iterates through the items in those arrays.
+
+1. On the map, in the target schema area, expand the array and array items.
+
+1. In the source schema area, add the array and items to the map.
+
+1. [Create a direct mapping between the source and target elements](#create-direct-mapping).
+
+   ![Screenshot showing the data map and drawing a connection between Name array items in the source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-map-array-items.png)
+
+   When you first create a mapping relationship between a matching pair of array items, a mapping relationship is automatically created at the parent array level.
+
+   ![Screenshot showing loop mapping between the Name array items plus the source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-automap-arrays.png)
+
+   The code view window reflects the looping relationship that you created:
+
+   ![Screenshot showing code view with looping relationship between source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-code-view.png)
+
+<a name="create-if-condition"></a>
+
+## Create an if condition between items
 
 ## Save your map
 
@@ -229,7 +316,7 @@ To confirm that the transformation works as you expect, you'll need sample input
 
    The test pane switches to the **Output** tab and shows the test's status code and response body.
 
-## Call your map from your workflow
+## Call your map from a workflow in your project
 
 1. On the Visual Studio Code left menu, select **Explorer** (files icon) to view your logic app project structure.
 
@@ -240,6 +327,11 @@ To confirm that the transformation works as you expect, you'll need sample input
 1. On the **Add an action** pane, in the search box, enter **data mapper**. Select the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**.
 
 1. In the action information box, specify the **Content** value, and leave **Map Source** set to **Logic App**. From the **Map Name** list, select the map file (.xslt) that you want to use.
+
+To use the same **Transform using Data Mapper XSLT** action in the Azure portal, add the map to either of the following resources:
+
+- An integration account for a Consumption or Standard logic app resource
+- The Standard logic app resource itself
 
 ## Next steps
 
