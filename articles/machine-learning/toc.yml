@@ -811,15 +811,15 @@
     - name: Train models
       items:
         #- name: Train a model (SDK, CLI, REST)
-          href: how-to-train-model.md
+        #  href: how-to-train-model.md
         #- name: Train with the job creation UI
-          href: how-to-train-with-ui.md
+        #  href: how-to-train-with-ui.md
         #- name: Debug jobs and monitor training progress
-          displayName: automl
-          href: how-to-interactive-jobs.md
+        # displayName: automl
+        # href: how-to-interactive-jobs.md
         #- name: Optimize Checkpoint Performance for Large Models
-          displayName: Optimize Checkpoint Performance for Large Models
-          href: reference-checkpoint-performance-for-large-models.md
+        #  displayName: Optimize Checkpoint Performance for Large Models
+        #  href: reference-checkpoint-performance-for-large-models.md
         # v1
         - name: Configure & submit training run
           displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
@@ -828,21 +828,21 @@
         - name: Train with the Python SDK
           items:
             #- name: Tune hyperparameters
-              displayName: parameter, hyperparameter, hyperdrive
-              href: how-to-tune-hyperparameters.md
+            #  displayName: parameter, hyperparameter, hyperdrive
+            #  href: how-to-tune-hyperparameters.md
             #- name: Distributed GPU guide
-              href: how-to-train-distributed-gpu.md
+            #  href: how-to-train-distributed-gpu.md
             #- name: Scikit-learn
-              href: how-to-train-scikit-learn.md
+            #  href: how-to-train-scikit-learn.md
             #- name: TensorFlow
               href: how-to-train-tensorflow.md
             #- name: Keras
-              href: how-to-train-keras.md
+            #  href: how-to-train-keras.md
             #- name: PyTorch
-              href: how-to-train-pytorch.md
+            #  href: how-to-train-pytorch.md
             #- name: Use Key Vault when training
-              displayName: secrets keyvault job
-              href: how-to-use-secrets-in-runs.md
+            #  displayName: secrets keyvault job
+            #  href: how-to-use-secrets-in-runs.md
             # v1
             - name: Train with SDK v1
               href: ./v1/how-to-attach-compute-targets.md
@@ -883,19 +883,19 @@
           displayName: automl, auto ml
           items:
             #- name: Use automated ML (Python)
-              displayName: SDK, automl
-              href: how-to-configure-auto-train.md
+            #  displayName: SDK, automl
+            #  href: how-to-configure-auto-train.md
             #- name: Use automated ML (interface)
-              href: how-to-use-automated-ml-for-ml-models.md
+            #  href: how-to-use-automated-ml-for-ml-models.md
             #- name: Prep image data for computer vision models (Python)
-              displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
-              href: how-to-prepare-datasets-for-automl-images.md
+            #  displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
+            #  href: how-to-prepare-datasets-for-automl-images.md
             #- name: Auto-train computer vision models (Python)
-              displayName: SDK, automl, image, image model
-              href: how-to-auto-train-image-models.md
+            #  displayName: SDK, automl, image, image model
+            #  href: how-to-auto-train-image-models.md
             #- name: Auto-train a small object detection model
-              displayName: computer vision, image, image model
-              href: how-to-use-automl-small-object-detect.md
+            #  displayName: computer vision, image, image model
+            #  href: how-to-use-automl-small-object-detect.md
             #- name: Auto-train a natural language processing model
               displayName: nlp, auto ML, automl, SDK
               href: how-to-auto-train-nlp-models.md
@@ -927,8 +927,8 @@
             - name: Time series forecasting
               items:
                 #- name: Auto-train a forecasting model (Python)
-                  displayName: forecasting, time series, auto ML, automl, SDK
-                  href: how-to-auto-train-forecast.md
+                #  displayName: forecasting, time series, auto ML, automl, SDK
+                #  href: how-to-auto-train-forecast.md
                 # v1
                 - name: Auto-train a forecast model
                   displayName: time series
@@ -938,12 +938,12 @@
                   displayName: auto ML, time series, forecasting, FAQ
                   href: how-to-automl-forecasting-faq.md
             #- name: Understand charts and metrics
-              href: how-to-understand-automated-ml.md
+            #  href: how-to-understand-automated-ml.md
             #- name: Use ONNX model in .NET application
-              href: how-to-use-automl-onnx-model-dotnet.md
+            #  href: how-to-use-automl-onnx-model-dotnet.md
             #- name: Inference image models with ONNX model
-              displayName: automl, image, image model, computer vision
-              href: how-to-inference-onnx-automl-image-models.md
+            #  displayName: automl, image, image model, computer vision
+            #  href: how-to-inference-onnx-automl-image-models.md
             # v1
             - name: Local inference using ONNX
               displayName: SDK, automl
