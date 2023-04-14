@@ -29,7 +29,7 @@ Both Azure Functions and App Services have built in support for Azure Active Dir
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Use the following command to create a resource group to contain a Function app. For more information, see the [az group create](/cli/azure/group.md#az-group-create) command.
+A resource group is a logical container into which Azure resources are deployed and managed. Use the following command to create a resource group to contain a Function app. For more information, see the [az group create](/cli/azure/group#az-group-create) command.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
