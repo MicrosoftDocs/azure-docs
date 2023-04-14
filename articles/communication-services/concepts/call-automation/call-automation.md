@@ -140,7 +140,7 @@ The Call Automation events are sent to the web hook callback URI specified when 
 
 To understand which events are published for different actions, refer to [this guide](../../how-tos/call-automation/actions-for-call-control.md) that provides code samples as well as sequence diagrams for various call control flows. 
 
-To learn how to secure the callback event delivery, refer to [this guide](../../how-tos/call-automation/secure-webhook-endpoint).
+To learn how to secure the callback event delivery, refer to [this guide](../../how-tos/call-automation/secure-webhook-endpoint.md).
 
 ## Known issues
 
