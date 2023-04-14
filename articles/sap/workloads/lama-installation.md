@@ -296,7 +296,7 @@ Azure NetApp Files requires a delegated subnet, which must be part of the same v
 
    ![Screenshot that shows a created LaMa NetApp account.](media/lama/sap-lama-netappaccount.png)
 
-   Within the NetApp account, the capacity pool specifies the size and type of disks for each pool:
+   Within the NetApp account, the capacity pool specifies the size and type of disks for each pool.
 
    ![Screenshot that shows selections for creating a NetApp capacity pool.](media/lama/sap-lama-capacitypool-50.png)
 
@@ -304,7 +304,7 @@ Azure NetApp Files requires a delegated subnet, which must be part of the same v
 
 1. Define the NFS volumes.
 
-   Because there might be volumes for multiple systems in one pool, choose a self-explaining naming scheme. Adding the SID helps to group related volumes together. 
+   Because one pool might contain volumes for multiple systems, choose a self-explaining naming scheme. Adding the SID helps to group related volumes together.
 
    For the ASCS and AS instances, you need the following mounts: */sapmnt/\<SID\>*, */usr/sap/\<SID\>*, and */home/\<sid\>adm*. Optionally, you need */usr/sap/trans* for the central transport directory, which is at least used by all systems of one landscape.
 
@@ -367,7 +367,7 @@ Add another virtual host name and IP address for the name that the application s
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-db -n 255.255.255.128
 ```
 
-Run the database instance installation of SWPM on the application server virtual machine, not on the HANA virtual machine. In the **Database for SAP System** dialog, for **Database Host**, use **ah1-db**.
+Run the database instance installation of SWPM on the application server VM, not on the HANA VM. In the **Database for SAP System** dialog, for **Database Host**, use **ah1-db**.
 
 #### Install SAP NetWeaver Application Server for SAP HANA
 
@@ -419,7 +419,7 @@ The following examples assume that you install SAP NetWeaver with system ID AS1.
 
 #### Install SAP NetWeaver ASCS for SQL Server
 
-Before you start SWPM, you need to mount the IP address of the virtual host name of the ASCS. The recommended way is to use SAPACEXT. If you mount the IP address by using SAPACEXT, be sure to remount the IP address after a reboot.
+Before you start SWPM, you need to mount the IP address of the virtual host name of ASCS. The recommended way is to use SAPACEXT. If you mount the IP address by using SAPACEXT, be sure to remount the IP address after a reboot.
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -437,7 +437,7 @@ Before you start SWPM, you need to add the IP address of the virtual host name o
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Run the database instance installation of SWPM on the SQL server virtual machine. Use `SAPINST_USE_HOSTNAME=as1-db` to override the host name that's used to connect to SQL Server. If you deployed the virtual machine by using the Azure Resource Manager template, set the directory that's used for the database data files to *C:\sql\data*, and set the database log file to *C:\sql\log*.
+Run the database instance installation of SWPM on the SQL Server virtual machine. Use `SAPINST_USE_HOSTNAME=as1-db` to override the host name that's used to connect to SQL Server. If you deployed the virtual machine by using the Azure Resource Manager template, set the directory that's used for the database data files to *C:\sql\data*, and set the database log file to *C:\sql\log*.
 
 Make sure that the user *NT AUTHORITY\SYSTEM* has access to the SQL Server instance and has the server role *sysadmin*. For more information, see SAP Notes [1877727] and [2562184].
 
@@ -456,7 +456,7 @@ In the **Primary Application Server Instance** dialog, for **PAS Instance Host N
 
 ### Errors and warnings during discovery
 
-* The SELECT permission was denied.
+* The *SELECT* permission was denied.
   * **Error**:
 
     `[Microsoft][ODBC SQL Server Driver][SQL Server]The SELECT permission was denied on the object 'log_shipping_primary_databases', database 'msdb', schema 'dbo'. [SOAPFaultException]`
@@ -485,7 +485,7 @@ In the **Primary Application Server Instance** dialog, for **PAS Instance Host N
     `HAOperationException`
 
     `Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r`
-  * **Solution**: Back up all databases in source HANA system.
+  * **Solution**: Back up all databases in the source HANA system.
 
 * An error occurred in the system copy step **Start** of the database instance.
   * **Error**:
@@ -495,7 +495,7 @@ In the **Primary Application Server Instance** dialog, for **PAS Instance Host N
 
 ### Errors and warnings during a system clone
 
-* An error occurred in trying to register an instance agent in the step *Forced Register and Start Instance Agent* of the application server or ASCS.
+* An error occurred in trying to register an instance agent in the step **Forced Register and Start Instance Agent** of the application server or ASCS.
   * **Error**:
 
     `Error occurred when trying to register instance agent. (RemoteException: 'Failed to load instance data from profile '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0':  Cannot access profile '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': No such file or directory.')`
