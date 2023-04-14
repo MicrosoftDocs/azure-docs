@@ -40,8 +40,7 @@ Identity related NuGet packages must be installed in the project for authenticat
 After installing the NuGet packages and adding necessary code for authentication, add the sign in and sign out experiences.
 
 
-<!--Assuming VSCode experience-->
-1. In the Explorer bar, select **Pages**, right-click **Shared**, and select **New File**. Give it the name *_LoginPartial.cshtml*.
+1. In your IDE, create a new file called *_LoginPartial.cshtml*. 
 1. Open *_LoginPartial.cshtml* and add the following code for adding the sign in and sign out experience:
 
     ```csharp
@@ -85,16 +84,14 @@ After installing the NuGet packages and adding necessary code for authentication
     using Microsoft.Identity.Web.UI;
     ```
 
-1. Next we need to add the services to the container and sign users in with the the Microsoft identity platform. After `builder.Services.AddRazorPages();` add the following snippet:
+1. Next we need to add the services to the container and sign users in with the the Microsoft identity platform. After `Services.AddControllersWithViews();` add the following snippet:
 
     ```csharp
-    builder.Services.AddRazorPages();
-
     // Sign-in users with the Microsoft identity platform
     builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-        .AddMicrosoftIdentityWebApp(builder.Configuration);
+    .AddMicrosoftIdentityWebApp(builder.Configuration);
 
-    builder.Services.AddRazorPages().AddMvcOptions(options =>
+    builder.Services.AddControllersWithViews(options =>
     {
         var policy = new AuthorizationPolicyBuilder()
             .RequireAuthenticatedUser()

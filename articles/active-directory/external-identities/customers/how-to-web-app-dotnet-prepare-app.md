@@ -16,28 +16,23 @@ ms.custom: it-pro
 
 # Prepare an ASP.NET Core application for authentication
 
-After registering an application and created a user flow in a CIAM tenant, an ASP.NET web application can be created using an integrated development environment (IDE). This how-to guide demonstrates how to create an ASP.NET Core Web App using an IDE. <!--You'll also create and upload a self-signed certificate to the Azure portal and configure the application for authentication.>
+After registering an application and created a user flow in a CIAM tenant, an ASP.NET web application can be created using an integrated development environment (IDE). This how-to guide demonstrates how to create an ASP.NET Core Web App using an IDE. 
 
 ## Prerequisites
 
 - Completion of the prerequisites and steps in [Register an application in a CIAM tenant](./how-to-dotnet-web-app-01-prepare-tenant.md).
-- 
 - A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet).
 
 ## Create an ASP.NET Core project
 
 1. Open a terminal in your IDE and navigate to the location in which to create your project.
-1. Enter the following code snippet to make the project folder and create your project
+1. Enter the following code snippet to make the project folder and create your project.
 
     ```powershell
-    mkdir ASPNET_CIAMWebApp
-    cd ASPNET_CIAMWebApp
-    dotnet new webapp
+    mkdir aspnet_ciam_webapp
+    cd aspnet_ciam_webapp
+    dotnet new mvc
     ```
-
-## Create a client secret/certificate <--- ??
-
-TBD
 
 ## Configure the application for authentication
 
@@ -96,4 +91,4 @@ TBD
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign-in and sign-out](how-to-webapp-dotnet-03-sign-in-out.md)
+> [Sign-in and sign-out](how-to-web-app-dotnet-sign-in-out.md)
