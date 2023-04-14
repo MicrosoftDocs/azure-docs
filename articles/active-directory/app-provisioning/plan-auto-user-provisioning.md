@@ -53,7 +53,7 @@ This article uses the following terms:
 
 * Single sign-on (SSO) - The ability for a user to sign-on once and access all SSO enabled applications. In the context of user provisioning, SSO is a result of users having a single account to access all systems that use automatic user provisioning.
 
-* Source system - The repository of users that the Azure AD provisions from. Azure AD is the source system for most pre-integrated provisioning connectors. However, there are some exceptions for cloud applications such as SAP, Workday, and AWS. For example, see [User provisioning from Workday to AD](../saas-apps/workday-inbound-tutorial.md).
+* Source system - The repository of users that the Azure AD provisions from. Azure AD is the source system for most preintegrated provisioning connectors. However, there are some exceptions for cloud applications such as SAP, Workday, and AWS. For example, see [User provisioning from Workday to AD](../saas-apps/workday-inbound-tutorial.md).
 
 * Target system - The repository of users that the Azure AD provisions to. The Target system is typically a SaaS application such as ServiceNow, Zscaler, and Slack. The target system can also be an on-premises system such as AD.
 
@@ -148,13 +148,13 @@ Use the Azure portal to view and manage all the applications that support provis
 
 ### Determine the type of connector to use
 
-The actual steps required to enable and configure automatic provisioning vary depending on the application. If the application you wish to automatically provision is listed in the [Azure AD SaaS app gallery](../saas-apps/tutorial-list.md), then you should select the [app-specific integration tutorial](../saas-apps/tutorial-list.md) to configure its pre-integrated user provisioning connector.
+The actual steps required to enable and configure automatic provisioning vary depending on the application. If the application you wish to automatically provision is listed in the [Azure AD SaaS app gallery](../saas-apps/tutorial-list.md), then you should select the [app-specific integration tutorial](../saas-apps/tutorial-list.md) to configure its preintegrated user provisioning connector.
 
 If not, follow the steps:
 
-1. [Create a request](../manage-apps/v2-howto-app-gallery-listing.md) for a pre-integrated user provisioning connector. Our team works with you and the application developer to onboard your application to our platform if it supports SCIM.
+1. [Create a request](../manage-apps/v2-howto-app-gallery-listing.md) for a preintegrated user provisioning connector. Our team works with you and the application developer to onboard your application to our platform if it supports SCIM.
 
-1. Use the [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) generic user provisioning support for the app. Using SCIM is a requirement for Azure AD to provision users to the app without a pre-integrated provisioning connector.
+1. Use the [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) generic user provisioning support for the app. Using SCIM is a requirement for Azure AD to provision users to the app without a preintegrated provisioning connector.
 
 1. If the application is able to utilize the BYOA SCIM connector, then refer to [BYOA SCIM integration tutorial](../app-provisioning/use-scim-to-provision-users-and-groups.md) to configure the BYOA SCIM connector for the application.
 
