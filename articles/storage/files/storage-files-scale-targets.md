@@ -129,6 +129,8 @@ To help you plan your deployment for each of the stages, below are the results o
 | Network | 1 Gbps Network |
 | Workload | General Purpose File Server|
 
+### Initial one-time provisioning
+
 | Initial one-time provisioning  | Details |
 |-|-|
 | Number of objects | 25 million objects |
@@ -137,8 +139,6 @@ To help you plan your deployment for each of the stages, below are the results o
 | Initial cloud change enumeration | 80 objects per second  |
 | Upload Throughput | 20 objects per second per sync group |
 | Namespace Download Throughput | 400 objects per second |
-
-### Initial one-time provisioning
 
 **Initial cloud change enumeration**: When a new sync group is created, initial cloud change enumeration is the first step that will execute. In this process, the system will enumerate all the items in the Azure File Share. During this process, there will be no sync activity i.e. no items will be downloaded from cloud endpoint to server endpoint and no items will be uploaded from server endpoint to cloud endpoint. Sync activity will resume once initial cloud change enumeration completes.
 The rate of performance is 80 objects per second. Customers can estimate the time it will take to complete initial cloud change enumeration by determining the number of items in the cloud share and using the following formulae to get the time in days. 
@@ -156,6 +156,8 @@ Initial sync is typically limited by the initial upload rate of 20 files per sec
 Splitting your data into multiple server endpoints and sync groups can speed up this initial data upload, because the upload can be done in parallel for multiple sync groups at a rate of 20 items per second each. So, two sync groups would be running at a combined rate of 40 items per second. The total time to complete would be the time estimate for the sync group with the most files to sync.
 
 **Namespace download throughput** When a new server endpoint is added to an existing sync group, the Azure File Sync agent does not download any of the file content from the cloud endpoint. It first syncs the full namespace and then triggers background recall to download the files, either in their entirety or, if cloud tiering is enabled, to the cloud tiering policy set on the server endpoint.
+
+### Ongoing sync
 
 | Ongoing sync  | Details  |
 |-|--|
