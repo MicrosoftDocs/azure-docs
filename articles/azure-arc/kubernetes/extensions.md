@@ -1,7 +1,7 @@
 ---
 title: "Deploy and manage Azure Arc-enabled Kubernetes cluster extensions"
 ms.custom: event-tier1-build-2022, ignite-2022
-ms.date: 04/13/2023
+ms.date: 04/14/2023
 ms.topic: how-to
 description: "Create and manage extension instances on Azure Arc-enabled Kubernetes clusters."
 ---
@@ -122,7 +122,7 @@ Use one or more of these optional parameters as needed for your scenarios, along
 | `--configuration-protected-settings` | Settings that aren't retrievable using `GET` API calls or `az k8s-extension show` commands. Typically used to pass in sensitive settings. These are passed in as space-separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-protected-settings-file` can't be used in the same command. |
 | `--configuration-protected-settings-file` | Path to a JSON file with `key=value` pairs to be used for passing sensitive settings into the extension. If this parameter is used in the command, then `--configuration-protected-settings` can't be used in the same command. |
 | `--release-namespace` | This parameter indicates the namespace within which the release will be created. Only relevant if `scope` is set to `cluster`. |
-| `--release-train` |  Extension authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default. If `--auto-upgrade-minor-version` is set to `true`, the latest version for the specified release train is used when the extension instance is created (unless a different version is specified in the `--version` parameter) and for future automatic upgrades. If `--auto-upgrade-minor-version` parameter is set to `false`, this parameter will only apply to the newly created extension (unless a different version is specified in the `--version` parameter). |
+| `--release-train` |  Extension authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default.  |
 | `--target-namespace` | Indicates the namespace within which the release will be created. Permission of the system account created for this extension instance will be restricted to this namespace. Only relevant if `scope` is set to `namespace`. |
 
 ## Show extension details
@@ -266,7 +266,7 @@ az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubern
 | `--configuration-protected-settings` | Settings that aren't retrievable using `GET` API calls or `az k8s-extension show` commands. Typically used to pass in sensitive settings. These are passed in as space-separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-protected-settings-file` can't be used in the same command. When you update a protected setting, all of the protected settings are expected to be specified. If any of these settings are omitted, those settings will be considered obsolete and deleted.  |
 | `--configuration-protected-settings-file` | Path to a JSON file with `key=value` pairs to be used for passing in sensitive settings to the extension. If this parameter is used in the command, then `--configuration-protected-settings` can't be used in the same command. |
 | `--scope` | Scope of installation for the extension - `cluster` or `namespace`. |
-| `--release-train` | Extension authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default. If `--auto-upgrade-minor-version` is set to `true`, the latest version for the specified release train is used for automatic upgrades. If `--auto-upgrade-minor-version` parameter is set to `false`, and you specify a specific version for an upgrade, this parameter should not be used. |
+| `--release-train` | Extension authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default.  |
 
 ## Upgrade extension instance
 
