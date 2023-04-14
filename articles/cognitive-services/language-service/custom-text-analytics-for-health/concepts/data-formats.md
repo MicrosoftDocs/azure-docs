@@ -13,11 +13,11 @@ ms.author: aahi
 ms.custom: language-service-custom-ta4h
 ---
 
-# Accepted custom Text Analytics for health data formats
+# Accepted data formats in custom text analytics for health
 
 Use this article to learn about formatting your data to be imported into custom text analytics for health.
 
-<!--If you are trying to [import your data](../how-to/create-project.md#import-project) into custom Text Analytics for health, it has to follow a specific format. If you don't have data to import, you can [create your project](../how-to/create-project.md) and use the Language Studio to [label your documents](../how-to/tag-data.md).-->
+If you are trying to [import your data](../how-to/create-project.md#import-project) into custom Text Analytics for health, it has to follow a specific format. If you don't have data to import, you can [create your project](../how-to/create-project.md) and use the Language Studio to [label your documents](../how-to/label-data.md).
 
 Your Labels file should be in the `json` format below to be used when importing your labels into a project.
 
@@ -130,13 +130,13 @@ Your Labels file should be in the `json` format below to be used when importing 
 
 ```
 
-<!--|Key  |Placeholder  |Value  | Example |
+|Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
 | `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents). See [language support](../language-support.md#) to learn more about multilingual support. | `true`|
 |`projectName`|`{PROJECT-NAME}`|Project name|`myproject`|
 | `storageInputContainerName` |`{CONTAINER-NAME}`|Container name|`mycontainer`|
 | `entities` | | Array containing all the entity types you have in the project. These are the entity types that will be extracted from your documents into.|  |
-| `category` | | The name of the entity type, which can be user defined in the case of a new entity definition or predefined in the case of prebuilt entities. For more information, see the entity naming rules below.|  |
+| `category` | | The name of the entity type, which can be user defined for new entity definitions, or predefined for prebuilt entities. For more information, see the entity naming rules below.|  |
 |`compositionSetting`|`{COMPOSITION-SETTING}`|Rule that defines how to manage multiple components in your entity. Options are `combineComponents` or `separateComponents`. |`combineComponents`|
 | `list` | | Array containing all the sublists you have in the project for a specific entity. Lists can be added to prebuilt entities or new entities with learned components.|  |
 |`sublists`|`[]`|Array containing sublists. Each sublist is a key and its associated values.|`[]`|
@@ -147,7 +147,7 @@ Your Labels file should be in the `json` format below to be used when importing 
 | `prebuilts` | `MedicationName` | The name of the prebuilt component populating the prebuilt entity. [Prebuilt entities](../../text-analytics-for-health/concepts/health-entity-categories.md) are automatically loaded into your project by default but you can extend them with list components in your labels file.  | `MedicationName` |
 | `documents` | | Array containing all the documents in your project and list of the entities labeled within each document. | [] |
 | `location` | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
-| `dataset` | `{DATASET}` |  The test set to which this file goes to when split before training. Learn more about data splitting [here](../how-to/train-model.md#data-splitting) . Possible values for this field are `Train` and `Test`.      |`Train`|
+| `dataset` | `{DATASET}` |  The test set to which this file goes to when split before training. <!--Learn more about data splitting [here](../how-to/train-model.md#data-splitting).--> Possible values for this field are `Train` and `Test`.      |`Train`|
 | `regionOffset` |  |  The inclusive character position of the start of the text.      |`0`|
 | `regionLength` |  |  The length of the bounding box in terms of UTF16 characters. Training only considers the data in this region.      |`500`|
 | `category` |  |  The type of entity associated with the span of text specified. | `Entity1`|
@@ -165,5 +165,5 @@ Your Labels file should be in the `json` format below to be used when importing 
 
 ## Next steps
 * You can import your labeled data into your project directly. Learn how to [import project](../how-to/create-project.md#import-project)
-* See the [how-to article](../how-to/tag-data.md)  more information about labeling your data. When you're done labeling your data, you can [train your model](../how-to/train-model.md).  
--->
+* See the [how-to article](../how-to/label-data.md)  more information about labeling your data. 
+* <!--When you're done labeling your data, you can [train your model](../how-to/train-model.md).-->  
