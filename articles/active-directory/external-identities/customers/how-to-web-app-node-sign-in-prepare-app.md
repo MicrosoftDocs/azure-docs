@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users in your own Node.js web application by using Microsoft Entra - Prepare your web app
 
-In this article, you create a Node.js(Express) project and organize all the folders and files you require. You add authentication to the application you build here. This Node.js(Express) web application views uses [Handlebars](https://handlebarsjs.com).
+In this article, you create a Node.js(Express) project and organize all the folders and files you require. You add authentication to the application you build here. This Node.js(Express) web application's views use [Handlebars](https://handlebarsjs.com).
 
 ## Create the Node.js project
 
