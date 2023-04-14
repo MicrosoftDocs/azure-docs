@@ -257,7 +257,7 @@ The provisioning service stores the state of both systems after the initial cycl
 
 ### Configure automatic user provisioning
 
-Use the [Azure portal](https://portal.azure.com/) to manage automatic user account provisioning and de-provisioning for applications that support it. Follow the steps in [How do I set up automatic provisioning to an application?](../app-provisioning/user-provisioning.md)
+Use the [Azure portal](https://portal.azure.com/) to manage automatic user account provisioning and deprovisioning for applications that support it. Follow the steps in [How do I set up automatic provisioning to an application?](../app-provisioning/user-provisioning.md)
 
 The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](/graph/api/resources/synchronization-overview).
 
