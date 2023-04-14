@@ -39,7 +39,7 @@ Overview here
 
 [!INCLUDE [active-directory-b2c-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)] 
 
-## Configure Optional Claims
+## Configure optional claims
 
 [!INCLUDE [active-directory-configure-optional-claims](./includes/register-app/add-optional-claims-id.md)] 
  
