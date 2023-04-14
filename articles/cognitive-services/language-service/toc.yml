@@ -1093,8 +1093,14 @@ items:
       items:
       - name: How to create projects
         href: custom-text-analytics-for-health/how-to/create-project.md
+      - name: How to design a schema
+        href: custom-text-analytics-for-health/how-to/design-schema.md
       - name: How to label data
         href: custom-text-analytics-for-health/how-to/label-data.md
+      - name: How to view model evaluation
+        href: custom-text-analytics-for-health/how-to/view-model-evaluation.md
+      - name: How to call the API
+        href: custom-text-analytics-for-health/how-to/call-api.md
 - name: Summarization (preview)
   items:
   - name: Summarization overview
