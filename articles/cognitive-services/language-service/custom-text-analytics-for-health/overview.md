@@ -47,7 +47,7 @@ Using custom Text Analytics for health typically involves several different step
 
 * **View the model's performance**: After training is completed, view the model's evaluation details, its performance and guidance on how to improve it. 
 
-* **Deploy the model**: Deploying a model makes it available for use via the an API.
+* **Deploy the model**: Deploying a model makes it available for use via an API.
 
 * **Extract entities**: Use your custom models for entity extraction tasks.
 
