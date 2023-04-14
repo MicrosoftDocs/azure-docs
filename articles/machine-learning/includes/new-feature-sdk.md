@@ -6,7 +6,7 @@ ms.date: 04/14/2023
 ms.author: larryfr
 ---
 
-> [!IMPORTANT]
+> [!TIP]
 > If you are using an older version of the Azure Machine Learning SDK, you may need to update it to the latest version before working with this feature. To update the latest version, use the following command:
 >
 > ```bash
