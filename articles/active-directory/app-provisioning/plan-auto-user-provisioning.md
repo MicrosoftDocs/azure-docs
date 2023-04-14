@@ -271,7 +271,7 @@ After a successful [initial cycle](../app-provisioning/user-provisioning.md), th
 
 * The service is manually stopped, and a new initial cycle is triggered using the [Azure portal](https://portal.azure.com/), or using the appropriate [Microsoft Graph API](/graph/api/resources/synchronization-overview) command.
 
-* A new initial cycle is triggered by a change in attribute mappings or scoping filters.
+* A new initial cycle triggers a change in attribute mappings or scoping filters.
 
 * The provisioning process goes into quarantine due to a high error rate and stays in quarantine for more than four weeks then it is automatically disabled.
 
