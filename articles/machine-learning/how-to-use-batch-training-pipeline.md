@@ -132,7 +132,7 @@ We are going to use a data asset for our training dataset. We're going to regist
 
 # [Azure CLI](#tab/cli)
 
-:::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="data_asset_registration":::
 
 # [Python](#tab/python)
 
@@ -159,6 +159,7 @@ Let's get a reference to the new data asset:
 ```python
 heart_dataset_train = ml_client.data.get(name=dataset_name, label="latest")
 ```
+
 ---
 
 ### Create the pipeline
@@ -212,6 +213,7 @@ def uci_heart_classifier_trainer(input_data: Input(type=AssetTypes.URI_FOLDER)):
 
 > [!NOTE]
 > In the pipeline, the `transformations` input is missing; therefore, the script will learn the parameters from the input data.
+
 ---
 
 A visualization of the pipeline is as follows:
@@ -403,7 +405,7 @@ Once the deployment is created, it's ready to receive jobs. Follow this steps to
     
     __inputs.yml__
     
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/inputs.yml :::
+    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/inputs.yml" :::
     
     # [Python](#tab/python)
     
@@ -603,6 +605,8 @@ ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
 ### Delete the old deployment
 
 Once you're done, you can delete the old deployment if you don't need it anymore:
+
+# [Azure CLI](#tab/cli)
 
 :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="delete_deployment" :::
 
