@@ -74,7 +74,7 @@ items:
                   href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-react
             - name: Web app
               items: 
-                - name: Node/Express.Js
+                - name: Node/Express.js
                   items:
                     - name: Sign in users
                       items:
