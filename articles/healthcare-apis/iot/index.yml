@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 04/04/2023
+  ms.date: 04/14/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,8 +25,8 @@ landingContent:
         links:
           - text: What is the MedTech service?
             url: overview.md
-          - text: Overview of the MedTech service device message processing stages
-            url: overview-of-device-message-processing-stages.md
+          - text: Overview of the MedTech service device data processing stages
+            url: overview-of-device-data-processing-stages.md
       - linkListType: quickstart
         links:
           - text: Get started with the MedTech service
@@ -64,7 +64,7 @@ landingContent:
           - text: CalculatedContent
             url: how-to-use-calculatedcontent-mappings.md
           - text: IotJsonPathContent
-            url: how-to-use-iotjsonpathcontenttemplate-mappings.md
+            url: how-to-use-iotjsonpathcontent-mappings.md
           - text: Custom functions
             url: how-to-use-custom-functions.md
           
