@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
 ms.devlang: javascript
+ms.custom: devx-track-arm-template
 ---
 
 # Configure Cross-Origin Resource Sharing (CORS)

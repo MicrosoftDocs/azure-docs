@@ -1916,6 +1916,15 @@ groups:
   - id: aca-arm
     title: Azure Resource Manager (ARM) template
 # Owner: cshoe
+- id: container-apps-vnet-types
+  title: Virtual network
+  prompt: Select a virtual network configuration
+  pivots:
+  - id: aca-vnet-managed
+    title: Managed
+  - id: aca-vnet-custom
+    title: Custom
+# Owner: cshoe
 - id: container-apps-registry-types
   title: Registry types
   prompt: Select the type of container registry

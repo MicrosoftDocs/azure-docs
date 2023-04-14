@@ -112,25 +112,25 @@ For more information about assigning roles to the FHIR services, see [Configure 
 
 For more information about application roles, see [Authentication and Authorization for Azure Health Data Services](../authentication-authorization.md).
 
-## Step 5: Send the data for processing
+## Step 5: Send the device data for processing
 
-When the MedTech service is deployed and connected to the Event Hubs and FHIR services, it's ready to process data from a device and translate it into a FHIR service Observation. There are three parts of the sending process.
+When the MedTech service is deployed and connected to the Event Hubs and FHIR services, it's ready to process device data and transform it into FHIR Observations. There are three parts of the sending process.
 
-### Data sent from Device to Event Hubs
+### Device data sent to Event Hubs
 
-The data is sent to an Event Hubs instance so that it can wait until the MedTech service is ready to receive it. The data transfer needs to be asynchronous because it's sent over the Internet and delivery times can't be precisely measured. Normally the data won't sit on an event hub longer than 24 hours.
+The device data is sent to an Event Hubs instance so that it can wait until the MedTech service is ready to receive it. The device data transfer needs to be asynchronous because it's sent over the Internet and delivery times can't be precisely measured. Normally the data won't sit on an event hub longer than 24 hours.
 
 For more information about Event Hubs, see [Event Hubs](../../event-hubs/event-hubs-about.md).
 
 For more information on Event Hubs data retention, see [Event Hubs quotas](../../event-hubs/event-hubs-quotas.md)
 
-### Data Sent from Event Hubs to the MedTech service
+### Device data sent from Event Hubs to the MedTech service
 
-MedTech requests the data from the Event Hubs instance and the data is sent from the event hub to the MedTech service. This procedure is called ingestion.
+MedTech requests the device data from the Event Hubs instance and the device data is sent from the event hub to the MedTech service. This procedure is called ingestion.
 
-### The MedTech service processes the data
+### The MedTech service processes the device data
 
-The MedTech service processes the data in five steps: 
+The MedTech service processes the device data in five steps: 
 
 - Ingest
 - Normalize
@@ -140,15 +140,15 @@ The MedTech service processes the data in five steps:
 
 If the processing was successful and you didn't get any error messages, your device data is now a FHIR service [Observation](http://hl7.org/fhir/observation.html) resource.
 
-For more information on the MedTech service device message data transformation, see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md).
+For more information on the MedTech service device data transformation, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
 
-## Step 6: Verify the processed data
+## Step 6: Verify the processed device data
 
-You can verify that the data was processed correctly by checking to see if there's now a new Observation resource in the FHIR service. If the data isn't mapped or if the mapping isn't authored properly, the data will be skipped. If there are any problems, check the [device mapping](overview-of-device-mapping.md) or the [FHIR destination mapping](how-to-configure-fhir-mappings.md).
+You can verify that the device data was processed correctly by checking to see if there's now a new Observation resource in the FHIR service. If the device data isn't mapped or if the mapping isn't authored properly, the device data will be skipped. If there are any problems, check the [device mapping](overview-of-device-mapping.md) or the [FHIR destination mapping](how-to-configure-fhir-mappings.md).
 
 ### Metrics
 
-You can verify that the data is correctly persisted into the FHIR service by using the [MedTech service metrics](how-to-configure-metrics.md) in the Azure portal.
+You can verify that the device data is correctly persisted in the FHIR service by using the [MedTech service metrics](how-to-configure-metrics.md) in the Azure portal.
 
 ## Next steps
 

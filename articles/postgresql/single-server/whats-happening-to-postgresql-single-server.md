@@ -62,7 +62,7 @@ Learn how to migrate from Azure Database for PostgreSQL - Single Server to Azure
 
 **Q. After the Single Server retirement announcement, what if I still need to create a new single server to meet my business needs?**
 
-**A.** We aren't stopping the ability to create new single servers immediately, so you can continue to create new single servers through CLI to meet your business needs for all PostgresSQL versions supported on Azure Database for PostgreSQL – Single Server. We strongly encourage you to explore Flexible Server and see if that will meet your needs. Don't hesitate to contact us if necessary so we can guide you and suggest the best path forward for you.
+**A.** We aren't stopping the ability to create new single servers immediately, so you can continue to create new single servers through CLI to meet your business needs for all PostgreSQL versions supported on Azure Database for PostgreSQL – Single Server. We strongly encourage you to explore Flexible Server and see if that will meet your needs. Don't hesitate to contact us if necessary so we can guide you and suggest the best path forward for you.
 
 **Q. Are there any additional costs associated with performing the migration?**
 
@@ -243,5 +243,3 @@ We know migrating services can be a frustrating experience, and we apologize in 
 
 - [Migration tool](../migrate/concepts-single-to-flexible.md)
 - [What is flexible server?](../flexible-server/overview.md)
-
-
