@@ -223,7 +223,7 @@ This file has the following routes:
     
     - It initiates sign out process. 
     
-    - When you want to sign the user out of the application, it isn't enough to end the user's session. You must redirect the user to the *logout URI*. Otherwise, the user might be able to re-authenticate to your applications without re-entering their credentials. If the name of your tenant is *contoso*, then the *logout URI* looks similar to `https://contoso.ciamlogin.com/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`.
+    - When you want to sign the user out of the application, it isn't enough to end the user's session. You must redirect the user to the *logout URI*. Otherwise, the user might be able to reauthenticate to your applications without reentering their credentials. If the name of your tenant is *contoso*, then the *logout URI* looks similar to `https://contoso.ciamlogin.com/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`.
     
     ```javascript
         //...
