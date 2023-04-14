@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 04/05/2023
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -83,7 +83,7 @@ Customers in the following countries or regions can add their Tax IDs.
 |Ghana     | Greece        |
 |Guatemala     |   Hungary      |
 |Iceland     |  Italy       |
-|  India <sup>1</sup>   | Indonesia        |
+|  India ¹   | Indonesia        |
 |Ireland     |  Isle of Man        |
 |Kenya     |   Korea      |
 |  Latvia   |  Liechtenstein      |
@@ -100,7 +100,7 @@ Customers in the following countries or regions can add their Tax IDs.
 |Spain    |   Sweden   |
 |Switzerland    |   Taiwan  |
 |Tajikistan   |   Thailand  |
-|Turkey    |   Ukraine   |
+|Türkiye    |   Ukraine   |
 |United Arab Emirates    |   United Kingdom     |
 |Uzbekistan    |  Vietnam    |
 |Zimbabwe    |   |
@@ -115,7 +115,7 @@ Customers in the following countries or regions can add their Tax IDs.
     > [!NOTE]
     > If you don't see the Tax IDs section, Tax IDs are not yet collected for your region. Or,  updating Tax IDs in the Azure portal isn't supported for your account.
 
-<sup>1</sup> Follow the instructions in the next section to add your Goods and Services Taxpayer Identification Number (GSTIN).
+¹ Follow the instructions in the next section to add your Goods and Services Taxpayer Identification Number (GSTIN).
 
 ## Add your GSTIN for billing accounts in India 
 

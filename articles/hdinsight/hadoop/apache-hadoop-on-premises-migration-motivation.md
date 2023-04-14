@@ -4,7 +4,7 @@ description: Learn the motivation and benefits for migrating on-premises Hadoop 
 ms.service: hdinsight
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 04/28/2022
+ms.date: 11/30/2022
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - motivation and benefits
@@ -19,9 +19,7 @@ Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight ma
 - Apache Spark
 - Apache Hive with LLAP
 - Apache Kafka
-- Apache Storm
 - Apache HBase
-- R
 
 ## Azure HDInsight advantages over on-premises Hadoop
 
@@ -84,7 +82,7 @@ This section provides template questionnaires to help gather important informati
 |**Topic**: **Environment**|||
 |Cluster Distribution version|HDP 2.6.5, CDH 5.7|
 |Big Data eco-system components|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
-|Cluster types|Hadoop, Spark, Confluent Kafka, Storm, Solr|
+|Cluster types|Hadoop, Spark, Confluent Kafka, Solr|
 |Number of clusters|4|
 |Number of master nodes|2|
 |Number of worker nodes|100|
@@ -119,7 +117,6 @@ This section provides template questionnaires to help gather important informati
 |Spark batch jobs|50 jobs -- every 15 minutes||
 |Spark Streaming jobs|5 jobs -- every 3 minutes||
 |Structured Streaming jobs|5 jobs -- every minute||
-|ML Model training jobs|2 jobs -- once in a week||
 |Programming Languages|Python, Scala, Java||
 |Scripting|Shell, Python||
 |**Topic**: **Data**|||

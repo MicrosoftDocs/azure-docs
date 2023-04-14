@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: The article explains how you can use the Cost Details API to get raw, unaggregated cost data that corresponds to your Azure bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/08/2022
+ms.date: 01/30/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -89,6 +89,8 @@ An example request for an ActualCost dataset for a specified date range is provi
 }
 
 ```
+
+Available *{scope}* options to build the proper URI are documented at [Identify the resource ID for a scope](../costs/understand-work-scopes.md#identify-the-resource-id-for-a-scope).
 
 The available fields you can provide in the report request body are summarized below.
 

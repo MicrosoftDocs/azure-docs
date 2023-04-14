@@ -23,6 +23,8 @@ items:
 - name: Tutorials
   expanded: true
   items:
+  - name: SMART on FHIR
+    href: smart-on-fhir.md
   - name: Interoperability and Patient Access
     expanded: false
     items:

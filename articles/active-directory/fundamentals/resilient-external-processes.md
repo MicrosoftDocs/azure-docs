@@ -1,5 +1,5 @@
 ---
-title: Resilient interfaces with external processes using Azure AD B2C | Microsoft Docs
+title: Resilient interfaces with external processes using Azure AD B2C
 description: Methods to build resilient interfaces with external processes
 services: active-directory 
 ms.service: active-directory
@@ -9,8 +9,7 @@ ms.topic: how-to
 author: gargi-sinha
 ms.author: gasinh
 manager: martinco
-ms.reviewer: 
-ms.date: 09/13/2022
+ms.date: 12/01/2022
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
@@ -23,7 +22,7 @@ In this article, we provide you guidance on how to plan for and implement the RE
 
 ## Ensure correct placement of the APIs
 
-Identity experience framework (IEF) policies allow you to call an external system using a [RESTful API technical profile](../../active-directory-b2c/restful-technical-profile.md). External systems are not controlled by the IEF runtime environment and are a potential failure point.
+Identity experience framework (IEF) policies allow you to call an external system using a [RESTful API technical profile](../../active-directory-b2c/restful-technical-profile.md). External systems aren't controlled by the IEF runtime environment and are a potential failure point.
 
 ### How to manage external systems using APIs
 
@@ -33,11 +32,11 @@ Identity experience framework (IEF) policies allow you to call an external syste
 
 - Remove API calls from the pre-authenticated path whenever possible. If you can't, then you must place strict protections for Denial of Service (DoS) and Distributed Denial of Service (DDoS) attacks in front of your APIs. Attackers can load the sign-in page and try to flood your API with DoS attacks and cripple your application. For example, using CAPTCHA in your sign in, sign up flow can help.
 
-- Use [API connectors of built-in sign-up user flow](../../active-directory-b2c/api-connectors-overview.md) wherever possible to integrate with web APIs either After federating with an identity provider during sign-up or before creating the user. Since the user flows are already extensively tested, it’s likely that you don’t have to perform user flow-level functional, performance, or scale testing. You still need to test your applications for functionality, performance, and scale.
+- Use [API connectors of built-in sign-up user flow](../../active-directory-b2c/api-connectors-overview.md) wherever possible to integrate with web APIs either After federating with an identity provider during sign-up or before creating the user. Since the user flows are already extensively tested, it's likely that you don't have to perform user flow-level functional, performance, or scale testing. You still need to test your applications for functionality, performance, and scale.
 
 - Azure AD RESTful API [technical profiles](../../active-directory-b2c/restful-technical-profile.md) don't provide any caching behavior. Instead, RESTful API profile implements a retry logic and a timeout that is built into the policy.
 
-- For APIs that need writing data, queue up a task to have such tasks executed by a background worker. Services like [Azure queues](../../storage/queues/storage-queues-introduction.md) can be used. This will make the API return efficiently increasing the policy execution performance.  
+- For APIs that need writing data, queue up a task to have such tasks executed by a background worker. Services like [Azure queues](../../storage/queues/storage-queues-introduction.md) can be used. This practice will make the API return efficiently and increase the policy execution performance.  
 
 ## API error handling
 

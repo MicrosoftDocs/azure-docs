@@ -4,6 +4,8 @@ description: Azure Instant Restore Capability and FAQs for VM backup stack, Reso
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Get improved backup and restore performance with Azure Backup Instant Restore capability

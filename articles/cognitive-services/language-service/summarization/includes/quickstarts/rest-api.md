@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 09/19/2022
+ms.date: 02/17/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
@@ -27,7 +27,7 @@ Use this quickstart to send text summarization requests using the REST API. In t
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -289,6 +289,8 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 }
 '
 ```
+Only the `resolution` aspect supports sentenceCount. If you do not specify the `sentenceCount` parameter, the model will determine the summary's length. Note that `sentenceCount` is just the approximation of sentence count of output summary, range 1 to 7.
+
 2. Make the following changes in the command where needed:
 - Replace the value `your-language-resource-key` with your key.
 - Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.

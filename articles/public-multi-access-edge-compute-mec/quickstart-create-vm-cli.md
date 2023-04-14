@@ -1,17 +1,17 @@
 ---
-title: 'Quickstart: Deploy a virtual machine in Azure public MEC Preview using Azure CLI'
+title: 'Quickstart: Deploy a virtual machine in Azure public MEC using Azure CLI'
 description: In this quickstart, learn how to deploy a virtual machine in Azure public multi-access edge (MEC) compute by using the Azure CLI.
 author: reemas-new
 ms.author: reemas
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: quickstart
-ms.date: 02/24/2022
+ms.date: 11/22/2022
 ms.custom: template-quickstart, devx-track-azurecli
 ---
 
-# Quickstart: Deploy a virtual machine in Azure public MEC Preview using Azure CLI
+# Quickstart: Deploy a virtual machine in Azure public MEC using Azure CLI
 
-In this quickstart, you learn how to use Azure CLI to deploy a Linux virtual machine (VM) in Azure public multi-access edge compute (MEC) Preview.
+In this quickstart, you learn how to use Azure CLI to deploy a Linux virtual machine (VM) in Azure public multi-access edge compute (MEC).
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ In this quickstart, you learn how to use Azure CLI to deploy a Linux virtual mac
 
 - Add an allowlisted subscription to your Azure account, which allows you to deploy resources in Azure public MEC. If you don't have an active allowed subscription, contact the [Azure public MEC product team](https://aka.ms/azurepublicmec).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
    > [!NOTE]
    > Azure public MEC deployments are supported in Azure CLI versions 2.26 and later.

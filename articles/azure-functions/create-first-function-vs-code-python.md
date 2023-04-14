@@ -40,13 +40,15 @@ Before you begin, make sure that you have the following requirements in place:
 + The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 
 ::: zone pivot="python-mode-configuration" 
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code, version 1.8.3 or a later version.
 ::: zone-end
 ::: zone pivot="python-mode-decorators" 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code, version 1.8.1 or later.
 
 + The [Azurite V3 extension](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) local storage emulator. While you can also use an actual Azure storage account, this article assumes you're using the Azurite emulator.
 ::: zone-end
+
+[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
@@ -67,7 +69,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select a template for your project's first function**| Choose `HTTP trigger`.|
     |**Provide a function name**| Enter `HttpExample`.|
     |**Authorization level**| Choose `Anonymous`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**| Choose `Add to workspace`.|
+    |**Select how you would like to open your project**| Choose `Open in current window`.|
 
 4. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=python#generated-project-files).
 ::: zone-end
@@ -78,7 +80,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |--|--|
     |**Select a language**| Choose `Python (Programming Model V2)`.|
     |**Select a Python interpreter to create a virtual environment**| Choose your preferred Python interpreter. If an option isn't shown, type in the full path to your Python binary.|
-    |**Select how you would like to open your project**| Choose `Add to workspace`.|
+    |**Select how you would like to open your project**| Choose `Open in current window`.|
 
 4. Visual Studio Code uses the provided information and generates an Azure Functions project.   
 
@@ -97,6 +99,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     Your function code should now look like the following example:
 
     ```python
+    app = func.FunctionApp()
     @app.function_name(name="HttpTrigger1")
     @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
     def test_function(req: func.HttpRequest) -> func.HttpResponse:
@@ -205,6 +208,7 @@ You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=python) to 
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)
+> [Connect to Azure SQL](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python)
 
 [Having issues? Let us know.](https://aka.ms/python-functions-qs-survey)
 

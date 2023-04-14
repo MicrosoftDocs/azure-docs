@@ -6,7 +6,7 @@ ms.author: terrylan
 ms.service: security
 ms.custom: ignite-2022
 ms.topic: reference
-ms.date: 12/30/2021
+ms.date: 01/13/2023
 ---
 
 # Cloud feature availability for commercial and US Government customers
@@ -216,7 +216,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Entity insights](../../sentinel/enable-entity-behavior-analytics.md) | GA | Public Preview |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
 | - [Incident advanced search](../../sentinel/investigate-cases.md#search-for-incidents) |GA |GA |
-| - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md) |Public Preview |Public Preview|
+| - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md) | GA | GA |
 | - [Microsoft Teams integrations](../../sentinel/collaborate-in-microsoft-teams.md) |Public Preview |Not Available |
 |- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
 |- [Search large datasets](../../sentinel/investigate-large-datasets.md) | Public Preview | Not Available |
@@ -249,7 +249,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Fusion detection for ransomware](../../sentinel/fusion.md#fusion-for-ransomware) | Public Preview | Not Available |
 | - [Fusion for emerging threats](../../sentinel/fusion.md#fusion-for-emerging-threats) | Public Preview |Not Available |
 | - [Anomalous Windows File Share Access Detection](../../sentinel/fusion.md)  | Public Preview | Not Available |
-| - [Anomalous RDP Login Detection](../../sentinel/data-connectors-reference.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
+| - [Anomalous RDP Login Detection](../../sentinel/configure-connector-login-detection.md)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | **Domain solution content** | | |
 | - [Apache Log4j Vulnerability Detection](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
@@ -260,24 +260,23 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Microsoft Sentinel Deception](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview  |
 | - [Zero Trust (TIC3.0)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview  |
 | **Azure service connectors** |  |  |
-| - [Azure Activity Logs](../../sentinel/data-connectors-reference.md#azure-activity) | GA | GA |
+| - [Azure Activity Logs](../../sentinel/data-connectors/azure-activity.md) | GA | GA |
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
-| - [Azure ADIP](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) | GA | GA |
-| - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
-| - [Microsoft Purview](../../sentinel/data-connectors-reference.md#microsoft-purview) | Public Preview | Not Available |
+| - [Azure ADIP](../../sentinel/data-connectors/azure-active-directory-identity-protection.md) | GA | GA |
+| - [Azure DDoS Protection](../../sentinel/data-connectors/azure-ddos-protection.md) | GA | GA |
+| - [Microsoft Purview](../../sentinel/data-connectors/microsoft-purview.md) | Public Preview | Not Available |
 | - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
-| - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | GA | GA |
+| - [Microsoft Defender for IoT](../../sentinel/data-connectors/microsoft-defender-for-iot.md) | GA | GA |
 | - [Microsoft Insider Risk Management](../../sentinel/sentinel-solutions-catalog.md#domain-solutions) | Public Preview | Not Available |
-| - [Azure Firewall](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
-| - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection-preview) | Public Preview | Not Available |
-| - [Azure Key Vault](../../sentinel/data-connectors-reference.md#azure-key-vault) | Public Preview | Not Available |
-| - [Azure Kubernetes Services (AKS)](../../sentinel/data-connectors-reference.md#azure-kubernetes-service-aks) | Public Preview | Not Available |
-| - [Azure SQL Databases](../../sentinel/data-connectors-reference.md#azure-sql-databases) | GA | GA |
-| - [Azure WAF](../../sentinel/data-connectors-reference.md#azure-web-application-firewall-waf) | GA | GA |
+| - [Azure Firewall](../../sentinel/data-connectors/azure-firewall.md) | GA | GA |
+| - [Azure Information Protection](../../sentinel/data-connectors/azure-information-protection.md) | Public Preview | Not Available |
+| - [Azure Key Vault](../../sentinel/data-connectors/azure-key-vault.md) | Public Preview | Not Available |
+| - [Azure Kubernetes Services (AKS)](../../sentinel/data-connectors/azure-kubernetes-service-aks.md) | Public Preview | Not Available |
+| - [Azure WAF](../../sentinel/data-connectors/azure-web-application-firewall-waf.md) | GA | GA |
 | - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
 | - [Microsoft Insider Risk Management](../../sentinel/sentinel-solutions-catalog.md#domain-solutions) | Public Preview | Not Available |
 | **Windows connectors** |  |  |
-| - [Windows Firewall](../../sentinel/data-connectors-reference.md#windows-firewall) | GA | GA |
+| - [Windows Firewall](../../sentinel/data-connectors/windows-firewall.md) | GA | GA |
 | - [Windows Security Events](/azure/sentinel/connect-windows-security-events) | GA | GA |
 | **[External connectors](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel)** |  |  |
 | - Agari Phishing Defense and Brand Protection | Public Preview | Public Preview |
@@ -403,11 +402,11 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 
 | Connector | Azure | Azure Government |
 |--|--|--|
-| **[Office IRM](../../sentinel/data-connectors-reference.md#microsoft-365-insider-risk-management-irm-preview)**  |  |  |
+| **[Office IRM](../../sentinel/data-connectors/microsoft-365-insider-risk-management.md)**  |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| **[Dynamics365](../../sentinel/data-connectors-reference.md#dynamics-365)** |  |  |
+| **[Dynamics 365](../../sentinel/data-connectors-reference.md)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
@@ -415,39 +414,39 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |
-| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)** |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)** <br>Shadow IT logs |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md)** <br>Shadow IT logs |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |
-| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)**                  <br>Alerts |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md)**                  <br>Alerts |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |
-| **[Microsoft Defender for Endpoint](../../sentinel/data-connectors-reference.md#microsoft-defender-for-endpoint)** |  |  |
+| **[Microsoft Defender for Endpoint](../../sentinel/data-connectors/microsoft-defender-for-endpoint.md)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Microsoft Defender for Identity](../../sentinel/data-connectors-reference.md#microsoft-defender-for-identity)** |  |  |
+| **[Microsoft Defender for Identity](../../sentinel/data-connectors/microsoft-defender-for-identity.md)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| **[Microsoft Defender for Office 365](../../sentinel/data-connectors-reference.md#microsoft-defender-for-office-365)** |  |  |
+| **[Microsoft Defender for Office 365](../../sentinel/data-connectors/microsoft-defender-for-office-365.md)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| - **[Microsoft Power BI](../../sentinel/data-connectors-reference.md#microsoft-power-bi-preview)** | |  |
+| - **[Microsoft Power BI](../../sentinel/data-connectors/microsoft-powerbi.md)** | |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| - **[Microsoft Project](../../sentinel/data-connectors-reference.md#microsoft-project-preview)** |  |  |
+| - **[Microsoft Project](../../sentinel/data-connectors/microsoft-project.md)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| **[Office 365](../../sentinel/data-connectors-reference.md#microsoft-office-365)** |  |  |
+| **[Office 365](../../sentinel/data-connectors/office-365.md)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
@@ -475,7 +474,7 @@ The following table displays the current Microsoft Defender for IoT feature avai
 | [Manual and automatic threat intelligence updates](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
 | **Unify IT, and OT security with SIEM, SOAR and XDR** |  |  |
 | [Active Directory](../../defender-for-iot/organizations/integrate-with-active-directory.md) | GA | GA |
-| [ArcSight](../../defender-for-iot/organizations/how-to-accelerate-alert-incident-response.md#accelerate-incident-workflows-by-using-alert-groups) | GA | GA |
+| [ArcSight](../../defender-for-iot/organizations/integrate-overview.md#micro-focus-arcsight) | GA | GA |
 | [ClearPass (Alerts & Inventory)](../../defender-for-iot/organizations/tutorial-clearpass.md) | GA | GA |
 | [CyberArk PSM](../../defender-for-iot/organizations/tutorial-cyberark.md) | GA | GA |
 | [Email](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
@@ -505,11 +504,11 @@ The following table displays the current Microsoft Defender for IoT feature avai
 
 ## Azure Attestation
 
-Microsoft Azure Attestation is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service receives evidence from the platform, validates it with security standards, evaluates it against configurable policies, and produces an attestation token for claims-based applications (e.g., relying parties, auditing authorities). 
+Microsoft Azure Attestation is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service receives evidence from the platform, validates it with security standards, evaluates it against configurable policies, and produces an attestation token for claims-based applications (e.g., relying parties, auditing authorities).
 
 Azure Attestation is currently available in multiple regions across Azure public and Government clouds. In Azure Government, the service is available in preview status across US Gov Virginia and US Gov Arizona. 
 
-For more information, see Azure Attestation [public documentation](../../attestation/overview.md). 
+For more information, see Azure Attestation [public documentation](../../attestation/overview.md).
 
 | Feature | Azure | Azure Government |
 |--|--|--|

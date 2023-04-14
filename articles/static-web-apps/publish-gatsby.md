@@ -55,7 +55,11 @@ Create a Gatsby app using the Gatsby Command Line Interface (CLI):
    git add -A
    git commit -m "initial commit"
    ```
-
+> [!NOTE]
+> If you are using the latest version of Gatsby you may need to modify the package.json to include
+> "engines": {
+> "node": ">=18.0.0"
+> },
 ## Push your application to GitHub
 
 You need to have a repository on GitHub to create a new Azure Static Web Apps resource.

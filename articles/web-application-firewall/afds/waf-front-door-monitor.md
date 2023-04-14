@@ -5,28 +5,38 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 08/16/2022
+ms.date: 02/07/2023
 ms.author: victorh
 zone_pivot_groups: front-door-tiers
 ---
 
 # Azure Web Application Firewall monitoring and logging
 
-Azure Web Application Firewall (WAF) monitoring and logging are provided through logging and integration with Azure Monitor and Azure Monitor logs.
-
-## Azure Monitor
+Azure Front Door's Web Application Firewall (WAF) provides extensive logging and telemetry to help you to understand how your WAF is performing and the actions it takes.
 
 Front Door's WAF log is integrated with [Azure Monitor](../../azure-monitor/overview.md). Azure Monitor enables you to track diagnostic information including WAF alerts and logs. You can configure WAF monitoring within the Front Door resource in the portal under the **Diagnostics** tab, through infrastructure as code approaches, or by using the Azure Monitor service directly.
 
-From Azure portal, go to Front Door resource type. From **Monitoring**/**Metrics** tab on the left, you can add **WebApplicationFirewallRequestCount** to track number of requests that match WAF rules. Custom filters can be created based on action types and rule names.
+## Metrics
 
-:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics ":::
+Azure Front Door automatically records metrics to help you to understand the behavior of your WAF.
+
+To access your WAF's metrics:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Front Door profile.
+1. Select the **Monitoring**/**Metrics** tab on the left.
+1. Add the **WebApplicationFirewallRequestCount** to track number of requests that match WAF rules.
+
+Custom filters can be created based on action types and rule names. Metrics include requests with all actions except *Log*.
+
+:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="Screenshot of the Azure portal showing the metrics for an Azure Front Door WAF.":::
 
 ## Logs and diagnostics
 
-WAF with Front Door provides detailed reporting on each request, and each threat that it detects. Logging is integrated with Azure's diagnostics logs and alerts. These logs can be integrated with [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
+Azure Front Door's WAF provides detailed reporting on each request, and each threat that it detects. Logging is integrated with Azure's diagnostics logs and alerts by using [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
 
-![WAFDiag](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
+Logs aren't enabled by default. You need to explicitly enable logs. You can configure logs in the Azure portal by using the **Diagnostic settings** tab.
+
+![Screenshot of the Azure portal showing how to enable the WAF logs.](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
 
 If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to help you analyze and debug the WAF policy behavior. You can use exclusions to fine tune rules and exclude any data that you want to be excluded from the logs.  For more information, see [Web application firewall exclusion lists in Azure Front Door](../afds/waf-front-door-exclusion.md). 
 
@@ -36,13 +46,13 @@ Front Door provides two types of logs: access logs and WAF logs.
 
 ::: zone pivot="front-door-standard-premium"
 
-The **FrontDoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Azure Front Door logs](../../frontdoor/standard-premium/how-to-logs.md#access-log).
+The **FrontDoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Monitor metrics and logs in Azure Front Door](../../frontdoor/front-door-diagnostics.md?pivot=front-door-standard-premium#access-log).
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-The **FrontdoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Monitoring metrics and logs in Azure Front Door (classic)](../../frontdoor/front-door-diagnostics.md).
+The **FrontdoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Monitoring metrics and logs in Azure Front Door (classic)](../../frontdoor/front-door-diagnostics.md?pivot=front-door-classic#diagnostic-logging).
 
 ::: zone-end
 
@@ -154,7 +164,7 @@ The following table shows the values logged for each request:
 
 | Property  | Description |
 | ------------- | ------------- |
-| Action |Action taken on the request. Logs include requests with all actions. Metrics include requests with all actions except *Log*.|
+| Action |Action taken on the request. Logs include requests with all actions. Actions are:<ul> <li>**Allow** and **allow**: The request was allowed to continue processing.</li> <li>**Block** and **block**: The request matched a WAF rule configured to block the request. Alternatively, the [anomaly scoring](waf-front-door-drs.md#anomaly-scoring-mode) threshold was reached and the request was blocked.</li> <li>**Log** and **log**: The request matched a WAF rule configured to use the *Log* action.</li> <li>**AnomalyScoring** and **logandscore**: The request matched a WAF rule. The rule contributes to the [anomaly score](waf-front-door-drs.md#anomaly-scoring-mode). The request might or might not be blocked depending on other rules that run on the same request.</li> </ul> |
 | ClientIP | The IP address of the client that made the request. If there was an `X-Forwarded-For` header in the request, the client IP address is taken from that header field instead. |
 | ClientPort | The IP port of the client that made the request. |
 | Details | Additional details on the request, including any threats that were detected. <br />matchVariableName:   HTTP parameter name of the request matched, for example, header names (up to 100 characters maximum).<br /> matchVariableValue:  Values that triggered the match (up to 100 characters maximum). |

@@ -32,7 +32,7 @@ samples and the [Use Apache Kafka MirrorMaker with Event Hubs](event-hubs-kafka-
 
 ### Streams and order preservation
 
-Replication, either through Azure Functions or Azure Stream Analytics, does not
+Replication, either through Azure Functions or Azure Stream Analytics, doesn't
 aim to assure the creation of exact 1:1 clones of a source Event Hub into a
 target Event Hub, but focuses on preserving the relative order of events where
 the application requires it. The application communicates this by grouping
@@ -89,13 +89,13 @@ existing properties, with values separated by semicolons.
 
 ### Failover
 
-If you are using replication for disaster recovery purposes, to protect against
+If you're using replication for disaster recovery purposes, to protect against
 regional availability events in the Event Hubs service, or against network
 interruptions, any such failure scenario will require performing a failover from
 one Event Hub to the next, telling producers and/or consumers to use the
 secondary endpoint.
 
-For all failover scenarios, it is assumed that the required elements of the
+For all failover scenarios, it's assumed that the required elements of the
 namespaces are structurally identical, meaning that Event Hubs and Consumer
 Groups are identically named and that shared access signature rules and/or
 role-based access control rules are set up in the same way. You can create (and
@@ -116,13 +116,13 @@ One candidate approach is to hold the information in DNS SRV records in a DNS
 you control and point to the respective Event Hub endpoints. 
 
 > [!IMPORTANT] 
-> Mind that Event Hubs does not allow for its endpoints to be
-> directly aliased with CNAME records, which means you will use DNS as a
+> Mind that Event Hubs doesn't allow for its endpoints to be
+> directly aliased with CNAME records, which means you'll use DNS as a
 > resilient lookup mechanism for endpoint addresses and not to directly resolve
 > IP address information.
 
 Assume you own the domain `example.com` and, for your application, a zone
-`test.example.com`. For two alternate Event Hubs, you will now create two
+`test.example.com`. For two alternate Event Hubs, you'll now create two
 further nested zones, and an SRV record in each.
 
 The SRV records are, following common convention, prefixed with
@@ -204,7 +204,7 @@ from about the same position where processing was interrupted.
 
 To realize either scenario and using the event processor of your respective
 Azure SDK,
-[you will create a new checkpoint store](event-processor-balance-partition-load.md#checkpointing)
+[you will create a new checkpoint store](event-processor-balance-partition-load.md#checkpoint)
 and provide an initial partition position, based on the _timestamp_ that you
 want to resume processing from.
 
@@ -229,7 +229,7 @@ Variations of these patters are:
   those Event Hubs containing the same streams, no matter where events are
   produced.
 
-The first two pattern variations are trivial and do not differ from plain
+The first two pattern variations are trivial and don't differ from plain
 replication tasks.
 
 The last scenario requires excluding already replicated events from being
@@ -262,7 +262,7 @@ Examples for such modifications are:
   input event transfer or aggregate a set of events that are then transferred
   together.
 - **_Validation_** - Event data from external sources often need to be checked
-  for whether they are in compliance with a set of rules before they may be
+  for whether they're in compliance with a set of rules before they may be
   forwarded. The rules may be expressed using schemas or code. Events that are
   found not to be in compliance may be dropped, with the issue noted in logs, or
   may be forwarded to a special target destination to handle them further.
@@ -273,7 +273,7 @@ Examples for such modifications are:
   contained in the events.
 - **_Filtering_** - Some events arriving from a source might have to be withheld
   from the target based on some rule. A filter tests the event against a rule
-  and drops the event if the event does not match the rule. Filtering out
+  and drops the event if the event doesn't match the rule. Filtering out
   duplicate events by observing certain criteria and dropping subsequent events
   with the same values is a form of filtering.
 - **_Cryptography_** - A replication task may have to decrypt content arriving
@@ -341,7 +341,7 @@ select * into dest2Output from inputSource where Info = 2
 The log projection pattern flattens the event stream onto an indexed database,
 with events becoming records in the database. Typically, events are added to the
 same collection or table, and the Event Hub partition key becomes part of the
-the primary key looking for making the record unique.
+primary key looking for making the record unique.
 
 Log projection can produce a time-series historian of your event data or a
 compacted view, whereby only the latest event is retained for each partition

@@ -8,8 +8,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 7/5/2022
-ms.author: gasinh
+ms.date: 3/23/2023
+ms.author: justinha
 ms.reviewer: ajburnle
 ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
@@ -66,7 +66,7 @@ Subscriptions that enable [delegated resource management](../../lighthouse/conce
 
 It's worth noting that Azure Lighthouse itself is modeled as an Azure resource provider, which means that aspects of the delegation across a tenant can be targeted through Azure Policies.
 
-**Microsoft 365 Lighthouse** - [Microsoft 365 Lighthouse](/microsoft-365/lighthouse/m365-lighthouse-overview?view=o365-worldwide) is an admin portal that helps Managed Service Providers (MSPs) secure and manage devices, data, and users at scale for small- and medium-sized business (SMB) customers who are using Microsoft 365 Business Premium, Microsoft 365 E3, or Windows 365 Business.
+**Microsoft 365 Lighthouse** - [Microsoft 365 Lighthouse](/microsoft-365/lighthouse/m365-lighthouse-overview?view=o365-worldwide&preserve-view=true) is an admin portal that helps Managed Service Providers (MSPs) secure and manage devices, data, and users at scale for small- and medium-sized business (SMB) customers who are using Microsoft 365 Business Premium, Microsoft 365 E3, or Windows 365 Business.
 
 ## Azure resource management with Azure AD
 
@@ -91,7 +91,7 @@ When an Account Owner creates an Azure subscription within an enterprise agreeme
 
 * The Azure subscription is associated with the same Azure AD tenant of the Account Owner.
 
-* The account owner who created the subscription will be assigned the Service Administrator and Account Administrator roles. (The Azure EA Portal assigns Azure Service Manager (ASM) or "classic" roles to manage subscriptions. To learn more, see [Azure Resource Manager vs. classic deployment]../../azure-resource-manager/management/deployment-models.md).)
+* The account owner who created the subscription will be assigned the Service Administrator and Account Administrator roles. (The Azure EA Portal assigns Azure Service Manager (ASM) or "classic" roles to manage subscriptions. To learn more, see [Azure Resource Manager vs. classic deployment](../../azure-resource-manager/management/deployment-models.md).)
 
 An enterprise agreement can be configured to support multiple tenants by setting the authentication type of "Work or school account cross-tenant" in the Azure EA Portal. Given the above, organizations can set multiple accounts for each tenant, and multiple subscriptions for each account, as shown in the diagram below.
 
@@ -101,7 +101,7 @@ It's important to note that the default configuration described above grants the
 
  To further decouple and prevent the account owner from regaining service administrator access to the subscription, the subscription’s tenant can be [changed](../fundamentals/active-directory-how-subscriptions-associated-directory.md) after creation. If the account owner doesn't have a user object in the Azure AD tenant the subscription is moved to, they can't regain the service owner role.
 
-To learn more, visit [Classic subscription administrator roles, Azure RBAC roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).  
+To learn more, visit [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).  
 
 ### Microsoft Customer Agreement
 
@@ -115,7 +115,7 @@ In a Microsoft Customer Agreement, billing roles come from a single Azure AD ten
 
 ## RBAC and role assignments in Azure
 
-In the Azure AD Fundamentals section, you learned Azure RBAC is the authorization system that provides fine-grained access management to Azure resources, and includes many [built-in roles]../../role-based-access-control/built-in-roles.md). You can create [custom roles](../../role-based-access-control/custom-roles.md), and assign roles at different scopes. Permissions are enforced by assigning RBAC roles to objects requesting access to Azure resources.
+In the Azure AD Fundamentals section, you learned Azure RBAC is the authorization system that provides fine-grained access management to Azure resources, and includes many [built-in roles](../../role-based-access-control/built-in-roles.md). You can create [custom roles](../../role-based-access-control/custom-roles.md), and assign roles at different scopes. Permissions are enforced by assigning RBAC roles to objects requesting access to Azure resources.
 
 Azure AD roles operate on concepts like [Azure role-based access control](../../role-based-access-control/overview.md). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is that Azure RBAC uses Azure Resource Management to control access to Azure resources such as virtual machines or storage, and Azure AD roles control access to Azure AD, applications, and Microsoft services such as Office 365.
 
@@ -250,17 +250,11 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 
 **Azure AD DS managed domain** - Only one Azure AD DS managed domain can be deployed per Azure AD tenant and this is bound to a single VNet. It's recommended that this VNet forms the "hub" for Azure AD DS authentication. From this hub, "spokes" can be created and linked to allow legacy authentication for servers and applications. The spokes are additional VNets on which Azure AD DS joined servers are located and are linked to the hub using Azure network gateways or VNet peering.
 
-**User forest vs. resource forest** - Azure AD DS provides two options for forest configuration of the Azure AD DS managed domain. For the purposes of this section we focus on user forest, as the resource forest relies on a trust being configured with an AD DS forest and this goes against the isolation principle we're addressing here.
-
-* **User forest** - By default, an Azure AD DS managed domain is created as a user forest. This type of forest synchronizes all objects from Azure AD, including any user accounts synchronized from an on-premises AD DS environment.
-
-* **Resource forest** - Resource forests only synchronize users and groups created directly in Azure AD and requires a trust be configured with an AD DS forest for user authentication. For more information, see [Resource forest concepts and features for Azure Active Directory Domain Services](../../active-directory-domain-services/concepts-resource-forest.md).
-
 **Managed domain location** - A location must be set when deploying an Azure AD DS managed domain. The location is a physical region (data center) where the managed domain is deployed. It's recommended you:
 
 * Consider a location that is geographically closed to the servers and applications that require Azure AD DS services.
 
-* Consider regions that provide Availability Zones capabilities for high availability requirements. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).
+* Consider regions that provide Availability Zones capabilities for high availability requirements. For more information, see [Regions and Availability Zones in Azure](../../reliability/availability-zones-service-support.md).
 
 **Object provisioning** - Azure AD DS synchronizes identities from the Azure AD that is associated with the subscription that Azure AD DS is deployed into. It's also worth noting that if the associated Azure AD has synchronization set up with Azure AD Connect (user forest scenario) then the life cycle of these identities can also be reflected in Azure AD DS. This service has two modes that can be used for provisioning user and group objects from Azure AD.
 
@@ -310,16 +304,16 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 
 ![Diagram that shows Azure AD authentication to Azure VMs.](media/secure-with-azure-ad-resource-management/sign-into-vm.png)
 
-**Supported operating systems**: Signing into virtual machines in Azure using Azure AD authentication is currently supported in Windows and Linux. For more specifics on supported operating systems, refer to the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux).
+**Supported operating systems**: Signing into virtual machines in Azure using Azure AD authentication is currently supported in Windows and Linux. For more specifics on supported operating systems, refer to the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](../devices/howto-vm-sign-in-azure-ad-linux.md).
 
 **Credentials**: One of the key benefits of signing into virtual machines in Azure using Azure AD authentication is the ability to use the same federated or managed Azure AD credentials that you normally use for access to Azure AD services for sign-in to the virtual machine.
 
 >[!NOTE]
 >The Azure AD tenant that is used for sign-in in this scenario is the Azure AD tenant that is associated with the subscription that the virtual machine has been provisioned into. This Azure AD tenant can be one that has identities synchronized from on-premises AD DS. Organizations should make an informed choice that aligns with their isolation principals when choosing which subscription and Azure AD tenant they wish to use for sign-in to these servers.
 
-**Network Requirements**: These virtual machines will need to access Azure AD for authentication so you must ensure that the virtual machines network configuration permits outbound access to Azure AD endpoints on 443. See the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux) for more information.
+**Network Requirements**: These virtual machines will need to access Azure AD for authentication so you must ensure that the virtual machines network configuration permits outbound access to Azure AD endpoints on 443. See the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](../devices/howto-vm-sign-in-azure-ad-linux.md) for more information.
 
-**Role-based Access Control (RBAC)**: Two RBAC roles are available to provide the appropriate level of access to these virtual machines. These RBAC roles can be configured via the Azure AD Portal or via the Azure Cloud Shell Experience. For more information, see [Configure role assignments for the VM](../devices/howto-vm-sign-in-azure-ad-windows.md).
+**Role-based Access Control (RBAC)**: Two RBAC roles are available to provide the appropriate level of access to these virtual machines. These RBAC roles can be configured via the Azure portal or via the Azure Cloud Shell Experience. For more information, see [Configure role assignments for the VM](../devices/howto-vm-sign-in-azure-ad-windows.md).
 
 * **Virtual machine administrator logon**: Users with this role assigned to them can log into an Azure virtual machine with administrator privileges.
 

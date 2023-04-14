@@ -1,14 +1,17 @@
 ---
 title: Access control lists in Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Understand how POSIX-like ACLs access control lists work in Azure Data Lake Storage Gen2.
-author: jimmart-dev
+author: normesta
+
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/07/2022
-ms.author: jammart
+ms.date: 03/09/2023
+ms.author: normesta
 ms.reviewer: jamesbak
 ms.devlang: python
+ms.custom: engagement-fy23
 ---
 
 # Access control lists (ACLs) in Azure Data Lake Storage Gen2
@@ -19,7 +22,7 @@ Azure Data Lake Storage Gen2 implements an access control model that supports bo
 
 ## About ACLs
 
-You can associate a [security principal](../../role-based-access-control/overview.md#security-principal) with an access level for files and directories. Each association is captured as an entry in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, An ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
+You can associate a [security principal](../../role-based-access-control/overview.md#security-principal) with an access level for files and directories. Each association is captured as an entry in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, an ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
 
 > [!NOTE]
 > ACLs apply only to security principals in the same tenant, and they don't apply to users who use Shared Key or shared access signature (SAS) token authentication. That's because no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
@@ -93,7 +96,7 @@ The following table shows you the ACL entries required to enable a security prin
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**.
 
 > [!IMPORTANT]
-> This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
+> This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC, ABAC, and ACLs](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-abac-and-acls).
 
 |    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -256,7 +259,7 @@ The umask for Azure Data Lake Storage Gen2 a constant value that is set to 007. 
 
 No. Access control via ACLs is enabled for a storage account as long as the Hierarchical Namespace (HNS) feature is turned ON.
 
-If HNS is turned OFF, the Azure Azure RBAC authorization rules still apply.
+If HNS is turned OFF, the Azure RBAC authorization rules still apply.
 
 ### What is the best way to apply ACLs?
 
@@ -306,13 +309,13 @@ The owning user can change the permissions of the file to give themselves any RW
 
 ### Why do I sometimes see GUIDs in ACLs?
 
-A GUID is shown if the entry represents a user and that user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Additionally, service principals and security groups do not have a User Principal Name (UPN) to identify them and so they are represented by their OID attribute (a guid).
+A GUID is shown if the entry represents a user and that user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Additionally, service principals and security groups do not have a User Principal Name (UPN) to identify them and so they are represented by their OID attribute (a guid). To clean up the ACLs, manually delete these GUID entries. 
 
 ### How do I set ACLs correctly for a service principal?
 
 When you define ACLs for service principals, it's important to use the Object ID (OID) of the *service principal* for the app registration that you created. It's important to note that registered apps have a separate service principal in the specific Azure AD tenant. Registered apps have an OID that's visible in the Azure portal, but the *service principal* has another (different) OID.
 Article	
-To get the OID for the service principal that corresponds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example on obtaining the OID for the service principal that corresponds to an app registration with App ID = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Run the following command in the Azure CLI:
+To get the OID for the service principal that corresponds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example of obtaining the OID for the service principal that corresponds to an app registration with App ID = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Run the following command in the Azure CLI:
 
 ```azurecli
 az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
@@ -326,7 +329,7 @@ When you have the correct OID for the service principal, go to the Storage Explo
 
 No. A container does not have an ACL. However, you can set the ACL of the container's root directory. Every container has a root directory, and it shares the same name as the container. For example, if the container is named `my-container`, then the root directory is named `my-container/`.
 
-The Azure Storage REST API does contain an operation named [Set Container ACL](/rest/api/storageservices/set-container-acl), but that operation cannot be used to set the ACL of a container or the root directory of a container. Instead, that operation is used to indicate whether blobs in a container [may be accessed publicly](anonymous-read-access-configure.md).
+The Azure Storage REST API does contain an operation named [Set Container ACL](/rest/api/storageservices/set-container-acl), but that operation cannot be used to set the ACL of a container or the root directory of a container. Instead, that operation is used to indicate whether blobs in a container may be accessed with an anonymous request. We recommend requiring authorization for all requests to blob data. For more information, see [Overview: Remediating anonymous public read access for blob data](anonymous-read-access-overview.md).
 
 ### Where can I learn more about POSIX access control model?
 

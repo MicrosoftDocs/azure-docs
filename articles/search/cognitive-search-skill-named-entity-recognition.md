@@ -28,7 +28,7 @@ The **Named Entity Recognition** skill (v2) extracts named entities from text. A
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md). If you do use a text split skill, set the page length to 5000 for the best performance.
 
 ## Skill parameters
 

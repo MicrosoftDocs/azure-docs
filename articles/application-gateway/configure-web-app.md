@@ -5,8 +5,9 @@ description: This article provides guidance on how to configure Application Gate
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 02/17/2022
+ms.date: 12/05/2022
 ms.author: greglin
 ---
 
@@ -134,7 +135,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### [Azure portal](#tab/azure-portal/customdomain)
 
-An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **custom domain name**.  The HTTP Setting will by default use the [default health probe](./application-gateway-probe-overview.md#default-health-probe) which relies on the hostname as is configured in the Backend Pool (suffixed "azurewebsites.net").  For this reason, it is good to first configure a [custom health probe](./application-gateway-probe-overview.md#custom-health-probe) that is configured with the correct custom domain name as its host name.
+An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **custom domain name**.  The HTTP Setting will by default use the [default health probe](./application-gateway-probe-overview.md#default-health-probe).  While default health probes will forward requests with the hostname in which traffic is received, the health probes will utilize 127.0.0.1 as the hostname to the Backend Pool since no hostname has explicitly been defined.  For this reason, we need to create a [custom health probe](./application-gateway-probe-overview.md#custom-health-probe) that is configured with the correct custom domain name as its host name.
 
 We will connect to the backend using HTTPS.
 
@@ -143,9 +144,7 @@ We will connect to the backend using HTTPS.
 3. Select HTTPS as the desired backend protocol using port 443
 4. If the certificate is signed by a well known authority, select "Yes" for "User well known CA certificate".  Alternatively [Add authentication/trusted root certificates of backend servers](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-backend-servers)
 5. Make sure to set "Override with new host name" to "No"
-6. Select the custom HTTPS health probe in the dropdown for "Custom probe".  
-   > [!Note] 
-   > It will work with the default probe but for correctness we recommend using a custom probe with the correct domain name.)
+6. Select the custom HTTPS health probe in the dropdown for "Custom probe".
 
 :::image type="content" source="./media/configure-web-app/http-settings-custom-domain.png" alt-text="Configure H T T P Settings to use custom domain towards App Service backend using No Override":::
 

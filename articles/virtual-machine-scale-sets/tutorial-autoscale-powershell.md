@@ -6,17 +6,15 @@ ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 03/27/2018
-ms.reviewer: avverma
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
 ms.custom: avverma, devx-track-azurepowershell
 
 ---
-# Tutorial: Automatically scale a virtual machine scale set with Azure PowerShell
+# Tutorial: Automatically scale a Virtual Machine Scale Set with Azure PowerShell
 
 > [!NOTE]
-> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchestration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchestration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this tutorial you learn how to:
 
@@ -41,7 +39,7 @@ $myScaleSet = "myScaleSet"
 $myLocation = "East US"
 ```
 
-Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
+Now create a Virtual Machine Scale Set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -188,8 +186,8 @@ mstsc /v 52.168.121.216:50001
 Once logged in, open Internet Explorer from the taskbar.
 
 - Select **OK** to accept the prompt to *Use recommended security, privacy, and compatibility settings*
-- Type *http://download.sysinternals.com/files/CPUSTRES.zip* in the address bar.
-- As Internet Explorer Enhanced Security Configuration is enabled, choose to **Add** the *http://download.sysinternals.com* domain to your list of trusted sites.
+- Type `http://download.sysinternals.com/files/CPUSTRES.zip` in the address bar.
+- As Internet Explorer Enhanced Security Configuration is enabled, choose to **Add** the `http://download.sysinternals.com` domain to your list of trusted sites.
 - When prompted for the file download, select **Open**, then select and **Run** the *CPUSTRES.EXE* tool.
 
 To generate some CPU load, check two boxes for **Active** threads. From the **Activity** drop-down menu for both threads, select *Maximum*. You can open Task Manager to confirm that the CPU load on the VM is at 100%.
@@ -243,7 +241,6 @@ To remove your scale set and additional resources, delete the resource group and
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
-
 
 ## Next steps
 In this tutorial, you learned how to automatically scale in or out a scale set with Azure PowerShell:

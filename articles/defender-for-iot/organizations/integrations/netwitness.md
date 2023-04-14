@@ -1,7 +1,7 @@
 ---
 title: Integrate RSA NetWitness with Microsoft Defender for IoT
 description: Learn how to send Microsoft Defender for IoT alerts to RSA NetWitness.
-ms.topic: how-to
+ms.topic: integration
 ms.date: 08/02/2022
 ---
 
@@ -20,6 +20,8 @@ Before you begin, make sure that you have the following prerequisites:
 ## Create a Defender for IoT forwarding rule
 
 This procedure describes how to create a forwarding rule from your OT sensor to send Defender for IoT alerts from that sensor to NetWitness.
+
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
 
 For more information, see [Forward alert information](../how-to-forward-alert-information-to-partners.md).
 

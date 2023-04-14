@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 12/06/2022
 ms.author: aahi
 ---
 
@@ -51,8 +51,6 @@ After you add the environment variables, run `source ~/.bashrc` from your consol
 #### [macOS](#tab/macos)
 
 ##### Bash
-
-Edit your `.bash_profile`, and add the environment variables:
 
 ```bash
 export LANGUAGE_KEY=your-key

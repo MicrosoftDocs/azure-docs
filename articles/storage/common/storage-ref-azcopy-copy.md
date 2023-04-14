@@ -1,10 +1,10 @@
 ---
-title: azcopy copy| Microsoft Docs
+title: azcopy copy
 description: This article provides reference information for the azcopy copy command.
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/22/2022
+ms.date: 11/08/2022
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -23,6 +23,7 @@ Copies source data to a destination location. The supported directions are:
 - local <-> Azure Files (Share/directory SAS authentication)
 - local <-> Azure Data Lake Storage Gen2 (SAS, OAuth, or SharedKey authentication)
 - Azure Blob (SAS or public) -> Azure Blob (SAS or OAuth authentication)
+- Azure Blob (SAS or OAuth authentication) -> Azure Blob (SAS or OAuth authentication) - See [Guidelines](./storage-use-azcopy-blobs-copy.md#guidelines).
 - Azure Blob (SAS or public) -> Azure Files (SAS)
 - Azure Files (SAS) -> Azure Files (SAS)
 - Azure Files (SAS) -> Azure Blob (SAS or OAuth authentication)

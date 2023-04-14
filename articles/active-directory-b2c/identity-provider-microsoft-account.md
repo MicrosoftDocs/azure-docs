@@ -3,15 +3,15 @@ title: Set up sign-up and sign-in with a Microsoft Account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Microsoft Accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 02/13/2023
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -51,7 +51,7 @@ To enable sign-in for users with a Microsoft account in Azure Active Directory B
 1. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
 
    For more information on the different account type selections, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
-1. Under **Redirect URI (optional)**, select **Web** and enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain.
+1. Under **Redirect URI (optional)**, select **Web** and enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant, and `your-domain-name` with your custom domain.
 1. Select **Register**
 1. Record the **Application (client) ID** shown on the application Overview page. You need the client ID when you configure the identity provider in the next section.
 1. Select **Certificates & secrets**

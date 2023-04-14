@@ -1,12 +1,11 @@
 ---
 title: Restrict IoT Hub outbound network access and data loss prevention
-description: Developer guide - how to configure IoT Hub to egress to trusted locations only.
+description: This article describes how to configure IoT Hub to egress to trusted locations only.
 author: kgremban
-manager: briz
+
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/24/2021
 ms.custom: ['Role: Cloud Development']
 ---

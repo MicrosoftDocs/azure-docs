@@ -16,30 +16,46 @@ ms.reviewer: larryfr
 
 # Migrate logging from SDK v1 to SDK v2
 
-The Azure Machine Learning Python SDK v2 does not provide native logging APIs. Instead, we recommend that you use [MLflow Tracking](https://www.mlflow.org/docs/latest/tracking.html). If you're migrating from SDK v1 to SDK v2, use the information in this section to understand the MLflow equivalents of SDK v1 logging APIs.
+Azure Machine Learning uses MLflow Tracking for metric logging and artifact storage for your experiments, whether you created the experiments via the Azure Machine Learning Python SDK, the Azure Machine Learning CLI, or Azure Machine Learning studio. We recommend using MLflow for tracking experiments. 
 
-## Setup
+If you're migrating from SDK v1 to SDK v2, use the information in this section to understand the MLflow equivalents of SDK v1 logging APIs.
 
-To use MLflow tracking, import `mlflow` and optionally set the tracking URI for your workspace. If you're training on an Azure Machine Learning compute resource, such as a compute instance or compute cluster, the tracking URI is set automatically. If you're using a different compute resource, such as your laptop or desktop, you need to set the tracking URI.
+## Why MLflow?
 
-```python
-import mlflow
+MLflow, with over 13 million monthly downloads, has become the standard platform for end-to-end MLOps, enabling teams of all sizes to track, share, package and deploy any model for batch or real-time inference. By integrating with MLflow, your training code will not need to hold any specific code related to Azure Machine Learning, achieving true portability and seamless integration with other open-source platforms.
 
-# The rest of this is only needed if you are not using an Azure ML compute
-## Construct AzureML MLFLOW TRACKING URI
-def get_azureml_mlflow_tracking_uri(region, subscription_id, resource_group, workspace):
-return "azureml://{}.api.azureml.ms/mlflow/v1.0/subscriptions/{}/resourceGroups/{}/providers/Microsoft.MachineLearningServices/workspaces/{}".format(region, subscription_id, resource_group, workspace)
+## Prepare for migrating to MLflow
 
-region='<REGION>' ## example: westus
-subscription_id = '<SUBSCRIPTION_ID>' ## example: 11111111-1111-1111-1111-111111111111
-resource_group = '<RESOURCE_GROUP>' ## example: myresourcegroup
-workspace = '<AML_WORKSPACE_NAME>' ## example: myworkspacename
+To use MLflow tracking, you will need to install `mlflow` and `azureml-mlflow` Python packages. All Azure Machine Learning environments have these packages already available for you but you will need to include them if creating your own environment.
 
-MLFLOW_TRACKING_URI = get_azureml_mlflow_tracking_uri(region, subscription_id, resource_group, workspace)
-
-## Set the MLFLOW TRACKING URI
-mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
+```bash
+pip install mlflow azureml-mlflow
 ```
+
+> [!TIP]
+> You can use the [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst) which is a lightweight MLflow package without SQL storage, server, UI, or data science dependencies. This is recommended for users who primarily need the tracking and logging capabilities without importing the full suite of MLflow features including deployments.
+
+## Connect to your workspace
+
+Azure Machine Learning allows users to perform tracking in training jobs running on your workspace or running remotely (tracking experiments running outside Azure Machine Learning). If performing remote tracking, you will need to indicate the workspace you want to connect MLflow to.
+
+# [Azure Machine Learning compute](#tab/aml)
+
+You are already connected to your workspace when running on Azure Machine Learning compute.
+
+# [Remote compute](#tab/remote)
+
+**Configure tracking URI**
+
+[!INCLUDE [configure-mlflow-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
+
+**Configure authentication**
+
+Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow will perform interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) for more ways to configure authentication for MLflow in Azure Machine Learning workspaces.
+
+[!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
+
+---
 
 ## Experiments and runs
 
@@ -48,7 +64,7 @@ __SDK v1__
 ```python
 from azureml.core import Experiment
 
-# create an AzureML experiment and start a run
+# create an Azure Machine Learning experiment and start a run
 experiment = Experiment(ws, "create-experiment-sdk-v1")
 azureml_run = experiment.start_logging()
 ```

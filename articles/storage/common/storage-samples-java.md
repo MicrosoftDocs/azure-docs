@@ -1,5 +1,5 @@
 ---
-title: Azure Storage samples using Java | Microsoft Docs
+title: Azure Storage samples using Java
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the Java storage client libraries.
 
 ms.custom: devx-track-java

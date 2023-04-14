@@ -1,17 +1,18 @@
 ---
-title: Automatic OS image upgrades with Azure virtual machine scale sets
+title: Automatic OS image upgrades with Azure Virtual Machine Scale Sets
 description: Learn how to automatically upgrade the OS image on VM instances in a scale set
 author: ju-shim
 ms.author: jushiman
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
-ms.date: 08/24/2022
-ms.reviewer: jushiman
-ms.custom: devx-track-azurepowershell
-
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
 ---
-# Azure virtual machine scale set automatic OS image upgrades
+# Azure Virtual Machine Scale Set automatic OS image upgrades
+
+> [!NOTE]
+> Many of the steps listed in this document apply to Virtual Machine Scale Sets using Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 Enabling automatic OS image upgrades on your scale set helps ease update management by safely and automatically upgrading the OS disk for all instances in the scale set.
 
@@ -49,7 +50,7 @@ The availability-first model for platform orchestrated updates described below e
 
 **Within a 'set':**
 - All VMs in a common scale set are not updated concurrently.  
-- VMs in a common virtual machine scale set are grouped in batches and updated within Update Domain boundaries as described below.
+- VMs in a common Virtual Machine Scale Set are grouped in batches and updated within Update Domain boundaries as described below.
 
 The platform orchestrated updates process is followed for rolling out supported OS platform image upgrades every month. For custom images through Azure Compute Gallery, an image upgrade is only kicked off for a particular Azure region when the new image is published and [replicated](../virtual-machines/azure-compute-gallery.md#replication) to the region of that scale set.
 
@@ -185,6 +186,57 @@ az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradeP
 > [!NOTE]
 >After configuring automatic OS image upgrades for your scale set, you must also bring the scale set VMs to the latest scale set model if your scale set uses the 'Manual' [upgrade policy](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
+### ARM templates
+The following example describes how to set automatic OS upgrades on a scale set model via Azure Resource Manager templates (ARM templates):
+
+```json
+"properties": { 
+   "upgradePolicy": { 
+     "mode": "Automatic", 
+     "RollingUpgradePolicy": {
+         "BatchInstancePercent": 20,
+         "MaxUnhealthyInstancePercent": 25,
+         "MaxUnhealthyUpgradedInstancePercent": 25,
+         "PauseTimeBetweenBatches": "PT0S"
+      "automaticOSUpgradePolicy": { 
+        "enableAutomaticOSUpgrade": true,
+         "useRollingUpgradePolicy": true,
+         "disableAutomaticRollback": false 
+      } 
+    } 
+"imagePublisher": {
+   "type": "string",
+   "defaultValue": "MicrosoftWindowsServer"
+ },
+ "imageOffer": {
+   "type": "string",
+   "defaultValue": "WindowsServer"
+ },
+ "imageSku": {
+   "type": "string",
+   "defaultValue": "2022-datacenter"
+ },
+ "imageOSVersion": {
+   "type": "string",
+   "defaultValue": "latest"
+ } 
+}
+```
+
+### Bicep
+The following example describes how to set automatic OS upgrades on a scale set model via Bicep:
+
+```json
+properties: { 
+    overprovision: overProvision 
+    upgradePolicy: { 
+      mode: 'Automatic' 
+      automaticOSUpgradePolicy: { 
+        enableAutomaticOSUpgrade: true 
+      } 
+    } 
+```
+
 ## Using Application Health Probes
 
 During an OS Upgrade, VM instances in a scale set are upgraded one batch at a time. The upgrade should continue only if the customer application is healthy on the upgraded VM instances. We recommend that the application provides health signals to the scale set OS Upgrade engine. By default, during OS Upgrades the platform considers VM power state and extension provisioning state to determine if a VM instance is healthy after an upgrade. During the OS Upgrade of a VM instance, the OS disk on a VM instance is replaced with a new disk based on latest image version. After the OS Upgrade has completed, the configured extensions are run on these VMs. The application is considered healthy only when all the extensions on the instance are successfully provisioned.
@@ -222,7 +274,7 @@ The recommended steps to recover VMs and re-enable automatic OS upgrade if there
 * Deploy the updated scale set, which will update all VM instances including the failed ones.
 
 ## Using Application Health extension
-The Application Health extension is deployed inside a virtual machine scale set instance and reports on VM health from inside the scale set instance. You can configure the extension to probe on an application endpoint and update the status of the application on that instance. This instance status is checked by Azure to determine whether an instance is eligible for upgrade operations.
+The Application Health extension is deployed inside a Virtual Machine Scale Set instance and reports on VM health from inside the scale set instance. You can configure the extension to probe on an application endpoint and update the status of the application on that instance. This instance status is checked by Azure to determine whether an instance is eligible for upgrade operations.
 
 As the extension reports health from within a VM, the extension can be used in situations where external probes such as Application Health Probes (that utilize custom Azure Load Balancer [probes](../load-balancer/load-balancer-custom-probe-overview.md)) can’t be used.
 
@@ -317,7 +369,7 @@ For specific cases where you do not want to wait for the orchestrator to apply t
 > Manual trigger of OS image upgrades does not provide automatic rollback capabilities. If an instance does not recover its health after an upgrade operation, its previous OS disk can't be restored.
 
 ### REST API
-Use the [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API call to start a rolling upgrade to move all virtual machine scale set instances to the latest available image OS version. Instances that are already running the latest available OS version are not affected. The following example details how you can start a rolling OS upgrade on a scale set named *myScaleSet* in the resource group named *myResourceGroup*:
+Use the [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API call to start a rolling upgrade to move all Virtual Machine Scale Set instances to the latest available image OS version. Instances that are already running the latest available OS version are not affected. The following example details how you can start a rolling OS upgrade on a scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2021-03-01`

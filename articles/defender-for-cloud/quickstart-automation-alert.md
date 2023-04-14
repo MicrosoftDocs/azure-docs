@@ -2,12 +2,13 @@
 title: Create a security automation for specific security alerts by using an Azure Resource Manager template (ARM template) or Bicep
 description: Learn how to create a Microsoft Defender for Cloud automation to trigger a logic app, which will be triggered by specific Defender for Cloud alerts by using an Azure Resource Manager template (ARM template) or Bicep.
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
-ms.date: 08/31/2022
+ms.custom: subject-armqs, mode-arm, devx-track-bicep, devx-track-arm-template
+ms.date: 01/09/2023
 ---
+
 # Quickstart: Create an automatic response to a specific security alert using an ARM template or Bicep
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) or a Bicep file to create a workflow automation that triggers a logic app when specific security alerts are received by Microsoft Defender for Cloud.
+In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) or a Bicep file to create a workflow automation. The workflow automation will trigger a logic app when specific security alerts are received by Microsoft Defender for Cloud.
 
 ## Prerequisites
 
@@ -64,9 +65,13 @@ For other Defender for Cloud quickstart templates, see these [community contribu
 
 Use the Azure portal to check the workflow automation has been deployed.
 
-1. From the [Azure portal](https://portal.azure.com), open **Microsoft Defender for Cloud**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
+1. Search for and select **Microsoft Defender for Cloud**.
+
+1. Select **filter**.
+
+1. Select the specific subscription on which you deployed the new workflow automation.
 
 1. From Microsoft Defender for Cloud's menu, open **workflow automation** and check for your new automation.
     :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="List of configured automations." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
@@ -78,9 +83,13 @@ Use the Azure portal to check the workflow automation has been deployed.
 
 When no longer needed, delete the workflow automation using the Azure portal.
 
-1. From the [Azure portal](https://portal.azure.com), open **Microsoft Defender for Cloud**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
+1. Search for and select **Microsoft Defender for Cloud**.
+
+1. Select **filter**.
+
+1. Select the specific subscription on which you deployed the new workflow automation.
 
 1. From Microsoft Defender for Cloud's menu, open **workflow automation** and find the automation to be deleted.
     :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Steps for removing a workflow automation." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
@@ -130,9 +139,9 @@ For other Defender for Cloud quickstart templates, see these [community contribu
 
     You're required to enter the following parameters:
 
-    - **automationName**: Replace **\<automation-name\>** with the name of the automation. It has a minimum length of 3 characters and a maximum length of 24 characters.
-    - **logicAppName**: Replace **\<logic-name\>** with the name of the logic app. It has a minimum length of 3 characters.
-    - **logicAppResourceGroupName**: Replace **\<group-name\>** with the name of the resource group in which the resources are located. It has a minimum length of 3 characters.
+    - **automationName**: Replace **\<automation-name\>** with the name of the automation. It has a minimum length of three characters and a maximum length of 24 characters.
+    - **logicAppName**: Replace **\<logic-name\>** with the name of the logic app. It has a minimum length of three characters.
+    - **logicAppResourceGroupName**: Replace **\<group-name\>** with the name of the resource group in which the resources are located. It has a minimum length of three characters.
     - **alertSettings**: Replace **\{alert-settings\}** with the alert settings object used for deploying the automation.
 
     > [!NOTE]

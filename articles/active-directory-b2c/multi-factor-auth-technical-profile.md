@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/09/2021
+ms.date: 11/08/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -18,7 +18,6 @@ ms.subservice: B2C
 
 Azure Active Directory B2C (Azure AD B2C) provides support for verifying a phone number by using a verification code, or verifying a Time-based One-time Password (TOTP) code.
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Protocol
 

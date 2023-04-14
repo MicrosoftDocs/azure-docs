@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Useful resources for working with Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article lists resources that can help you get more information about working with Microsoft Sentinel.
 
 ## Learn more about creating queries

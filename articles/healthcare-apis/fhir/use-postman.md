@@ -60,6 +60,8 @@ Open Postman, select the **workspace**, **collection**, and **environment** you 
 
 [ ![Screenshot of create a new request.](media/postman/postman-create-new-request.png) ](media/postman/postman-create-new-request.png#lightbox)
 
+To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the GET request, and select 'Send'. You should be able to see Status of FHIR service - HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is succesful.
+
 ## Get capability statement
 
 Enter `{{fhirurl}}/metadata` in the `GET`request, and select `Send`. You should see the capability statement of the FHIR service.
@@ -162,4 +164,6 @@ In this article, you learned how to access the FHIR service in Azure Health Data
 >[!div class="nextstepaction"]
 >[What is FHIR service?](overview.md)
 
+
+For a starter collection of sample Postman queries, please see our [samples repo](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/sample-postman-queries) on Github.  
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -22,6 +22,9 @@ This article shows you how to configure a managed Spring Cloud Config Server in 
 
 Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config documentation](https://spring.io/projects/spring-cloud-config).
 
+> [!NOTE]
+> The Config Server feature for the Standard consumption plan is currently under private preview. To sign up for this feature, fill in the form at [Azure Spring Apps Consumption - Fully Managed Spring Eureka & Config - Private Preview](https://aka.ms/asa-consumption-middleware-signup).
+
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

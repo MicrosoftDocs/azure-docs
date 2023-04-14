@@ -2,6 +2,7 @@
 author: rhurey
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 06/18/2021
 ms.author: rhurey
@@ -120,7 +121,7 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 This section requires the latest version of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 

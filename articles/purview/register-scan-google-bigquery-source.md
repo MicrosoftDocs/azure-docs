@@ -16,9 +16,9 @@ This article outlines how to register Google BigQuery projects, and how to authe
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)| No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| No| [Yes](#lineage)| No |
 
 
 When scanning Google BigQuery source, Microsoft Purview supports:
@@ -62,7 +62,10 @@ This section describes how to register a Google BigQuery project in Microsoft Pu
 
 ### Steps to register
 
-1. Navigate to your Microsoft Purview account.
+1. Open thew the Microsoft Purview governance portal by:
+
+    - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+    - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 1. Select **Data Map** on the left navigation.
 1. Select **Register.**
 1. On Register sources, select **Google BigQuery** . Select **Continue.**

@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/16/2022
+ms.date: 10/27/2022
 ms.author: pafarley
 ---
 
@@ -29,7 +29,8 @@ The following services are Limited Access:
 - [Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context): All features 
 - [Face API](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context): Identify and Verify features, face ID property
 - [Computer Vision](/legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context): Celebrity Recognition feature 
-- [Azure Video Indexer](../azure-video-indexer/limited-access-features.md): Celebrity Recognition and Face Identify features 
+- [Azure Video Indexer](../azure-video-indexer/limited-access-features.md): Celebrity Recognition and Face Identify features
+- [Azure OpenAI](/legal/cognitive-services/openai/limited-access): Azure OpenAI Service, modified abuse monitoring, and modified content filters
 
 Features of these services that aren't listed above are available without registration. 
 
@@ -44,6 +45,7 @@ Submit a registration form for each Limited Access service you would like to use
 - [Face API](https://aka.ms/facerecognition): Identify and Verify features
 - [Computer Vision](https://aka.ms/facerecognition): Celebrity Recognition feature 
 - [Azure Video Indexer](https://aka.ms/facerecognition): Celebrity Recognition and Face Identify features 
+- [Azure OpenAI](/legal/cognitive-services/openai/limited-access): Azure OpenAI Service, modified abuse monitoring, and modified content filters 
 
 ### How long will the registration process take? 
 
@@ -71,7 +73,8 @@ The registration forms can be found here:
 - [Speaker Recognition](https://aka.ms/azure-speaker-recognition): All features 
 - [Face API](https://aka.ms/facerecognition): Identify and Verify features
 - [Computer Vision](https://aka.ms/facerecognition): Celebrity Recognition feature 
-- [Azure Video Indexer](https://aka.ms/facerecognition): Celebrity Recognition and Face Identify features 
+- [Azure Video Indexer](https://aka.ms/facerecognition): Celebrity Recognition and Face Identify features
+- [Azure OpenAI: [Azure OpenAI service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu), modified abuse monitoring, and modified content filters
 
 ### I'm an existing customer who applied for access to Custom Neural Voice or Speaker Recognition, do I have to register to keep using these services? 
 
@@ -95,6 +98,10 @@ Detailed information about supported regions for Custom Neural Voice and Speaker
 ### What happens to my data if my application is denied? 
 
 If you're an existing customer and your application for access is denied, you will no longer be able to use Limited Access features after June 30, 2023. Your data is subject to Microsoft's data retention [policies](https://www.microsoft.com/trust-center/privacy/data-management#:~:text=If%20you%20terminate%20a%20cloud,data%20or%20renew%20your%20subscription.). 
+
+### How long will the registration process take?
+
+You'll receive communication from us about your application within 10 business days. In some cases, reviews can take longer. You'll receive an email as soon as your application is reviewed.
 
 ## Help and support 
 

@@ -4,15 +4,15 @@ title: Microsoft Defender for IoT documentation for organizations
 summary: 'Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options that include cloud-connected, fully on-premises, or hybrid.'
 
 metadata:
-   title: Microsoft Defender for IoT documentation for organizations
-   description: Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options that include cloud-connected, fully on-premises, or hybrid.
-   services: service
-   ms.service: defender-for-iot
-   ms.topic: landing-page
-   ms.collection: M365-security-compliance
-   author: batamig
-   manager: raynew
-   ms.date: 07/10/2022
+  title: Microsoft Defender for IoT documentation for organizations
+  description: Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options that include cloud-connected, fully on-premises, or hybrid.
+  services: service
+  ms.service: defender-for-iot
+  ms.topic: landing-page
+  ms.collection: M365-security-compliance
+  author: batamig
+  manager: raynew
+  ms.date: 07/10/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -25,8 +25,12 @@ landingContent:
             url: overview.md
       - linkListType: whats-new
         links:
-          - text: What's new?
+          - text: What's new in Defender for IoT?
+            url: whats-new.md
+          - text: OT monitoring software release notes
             url: release-notes.md
+          - text: Microsoft Sentinel solution release notesWhat's new our Microsoft Sentinel solution?in Defender for IoT?
+            url: release-notes-sentinel.md
       - linkListType: concept
         links:
           - text: System architecture
@@ -46,8 +50,6 @@ landingContent:
         links:
           - text: Get started with OT security monitoring
             url: tutorial-onboarding.md
-          - text: Get started with Enterprise IoT security monitoring
-            url: tutorial-getting-started-eiot-sensor.md
 
   - title: How-to
     linkLists:

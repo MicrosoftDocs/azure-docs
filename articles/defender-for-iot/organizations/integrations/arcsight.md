@@ -1,7 +1,7 @@
 ---
 title: Integrate ArcSight with Microsoft Defender for IoT
 description: Learn how to send Microsoft Defender for IoT alerts to ArcSight.
-ms.topic: how-to
+ms.topic: integration
 ms.date: 08/02/2022
 ---
 
@@ -22,11 +22,13 @@ To configure your ArcSight server settings so that it can receive Defender for I
 1. Sign in to your ArcSight server.
 1. Configure your receiver type as a **CEF UDP Receiver**.
 
-For more information, see the [ArcSight SmartConnectors Documentation](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/#gsc.tab=0).
+For more information, see the [ArcSight SmartConnectors Documentation](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors-8.4/#gsc.tab=0).
 
 ## Create a Defender for IoT forwarding rule
 
 This procedure describes how to create a forwarding rule from your OT sensor to send Defender for IoT alerts from that sensor to ArcSight.
+
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
 
 For more information, see [Forward alert information](../how-to-forward-alert-information-to-partners.md).
 

@@ -1,5 +1,5 @@
 ---
-title: How to find your tenant ID - Azure Active Directory
+title: How to find your tenant ID
 description: Instructions about how to find and Azure Active Directory tenant ID to an existing Azure subscription.
 services: active-directory
 author: barclayn
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 01/23/2023
 ms.author: barclayn
 ms.reviewer: jeffsta
-ms.custom: "it-pro, devx-track-azurepowershell"
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
 # How to find your Azure Active Directory tenant ID
 
-Azure subscriptions have a trust relationship with Azure Active Directory (Azure AD). Azure AD is trusted to authenticate users, services, and devices for the subscription. Each subscription has a tenant ID associated with it, and there are a few ways you can find the tenant ID for your subscription.
+Azure subscriptions have a trust relationship with Azure Active Directory (Azure AD). Azure AD is trusted to authenticate the subscription's users, services, and devices. Each subscription has a tenant ID associated with it, and there are a few ways you can find the tenant ID for your subscription.
 
 ## Find tenant ID through the Azure portal
 
@@ -28,7 +28,7 @@ Azure subscriptions have a trust relationship with Azure Active Directory (Azure
 
 1. Select **Properties**.
 
-1. Scroll down to the **Tenant ID** field. Your tenant ID will be in the box.
+1. Scroll down to the **Tenant ID** section and you can find your tenant ID in the box.
 
 :::image type="content" source="media/active-directory-how-to-find-tenant/portal-tenant-id.png" alt-text="Azure Active Directory - Properties - Tenant ID - Tenant ID field":::
 
@@ -41,13 +41,14 @@ Connect-AzAccount
 Get-AzTenant
 ```
    
-For more information, see this Azure PowerShell cmdlet reference for [Get-AzTenant](/powershell/module/az.accounts/get-aztenant).
+For more information, see the [Get-AzTenant](/powershell/module/az.accounts/get-aztenant) cmdlet reference.
 
 
 ## Find tenant ID with CLI
+
 The [Azure CLI](/cli/azure/install-azure-cli) or [Microsoft 365 CLI](https://pnp.github.io/cli-microsoft365/) can be used to find the tenant ID.
 
-For Azure CLI, use one of the commands **az login**, **az account list**, or **az account tenant list** as shown in the following example. Notice the **tenantId** property for each of your subscriptions in the output from each command.
+For Azure CLI, use one of the commands **az login**, **az account list**, or **az account tenant list**. All of command's included below return the **tenantId** property for each of your subscriptions.
 
 ```azurecli-interactive
 az login

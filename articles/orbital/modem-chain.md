@@ -55,9 +55,15 @@ We currently support the following named modem configurations.
 |--|--|--|
 | Aqua Direct Broadcast | aqua_direct_broadcast | This is NASA AQUA's 15-Mbps direct broadcast service |
 | Aqua Direct Playback | aqua_direct_playback | This is NASA's AQUA's 150-Mbps direct broadcast service |
+| Aura Direct Broadcast | aura_direct_broadcast | This is NASA Aura's 15-Mbps direct broadcast service |
+| Terra Direct Broadcast | terra_direct_broadcast | This is NASA Terra's 8.3-Mbps direct broadcast service |
+| SNPP Direct Broadcast | snpp_direct_broadcast | This is NASA SNPP 15-Mbps direct broadcast service |
+| JPSS-1 Direct Broadcast | jpss-1_direct_broadcast | This is NASA JPSS-1 15-Mbps direct broadcast service |
 
 > [!NOTE]
-> We recommend using the Aqua Direct Broadcast modem configuration when testing with Aqua. 
+> We recommend using the Aqua Direct Broadcast modem configuration when testing with Aqua.  
+> 
+> Orbital does not have control over the downlink schedules for these public satellites. NASA conducts their own operations which may interrupt the downlink availabilities.
 
 #### Specifying a named modem configuration using the API
 Enter the named modem string into the demodulationConfiguration parameter when using the API.

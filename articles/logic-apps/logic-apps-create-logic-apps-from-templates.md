@@ -35,7 +35,7 @@ This how-to guide shows how to use these templates as provided or edit them to f
 
 - An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Basic understanding about how to build a logic app workflow. For more information, see [Create your first Consumption logic app workflow](quickstart-create-first-logic-app-workflow.md).
+- Basic understanding about how to build a logic app workflow. For more information, see [Create an example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md).
 
 ## Create a Consumption workflow from a template
 
@@ -51,9 +51,9 @@ This how-to guide shows how to use these templates as provided or edit them to f
    | **Resource Group** | <*your-Azure-resource-group-name*> | Create or select an [Azure resource group](../azure-resource-manager/management/overview.md) for this logic app resource and its associated resources. |
    | **Logic App name** | <*your-logic-app-name*> | Provide a unique logic app resource name. |
    | **Region** | <*your-Azure-datacenter-region*> | Select the datacenter region for deploying your logic app, for example, **West US**. |
-   | **Enable log analytics** | **No** (default) or **Yes** | To set up [diagnostic logging](../logic-apps/monitor-logic-apps-log-analytics.md) for your logic app resource by using [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md), select **Yes**. This selection requires that you already have a Log Analytics workspace. |
+   | **Enable log analytics** | **No** (default) or **Yes** | To set up [diagnostic logging](monitor-workflows-collect-diagnostic-data.md) for your logic app resource by using [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md), select **Yes**. This selection requires that you already have a Log Analytics workspace. |
    | **Plan type** | **Consumption** or **Standard** | Select **Consumption** to create a Consumption logic app workflow from a template. |
-   | **Zone redundancy** | **Disabled** (default) or **Enabled** | If this option is available, select **Enabled** if you want to protect your logic app resource from a regional failure. But first [check that zone redundancy is available in your Azure region](/azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=consumption#considerations). |
+   | **Zone redundancy** | **Disabled** (default) or **Enabled** | If this option is available, select **Enabled** if you want to protect your logic app resource from a regional failure. But first [check that zone redundancy is available in your Azure region](./set-up-zone-redundancy-availability-zones.md?tabs=consumption#considerations). |
 
    :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png" alt-text="Screenshot showing the 'Create Logic App' page with example property values provided and the 'Consumption' plan type selected.":::
 

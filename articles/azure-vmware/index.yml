@@ -21,7 +21,7 @@ landingContent:
         links:
           - text: What is Azure VMware Solution?
             url: introduction.md
-          - text: Platform updates
+          - text: What's new?
             url: azure-vmware-solution-platform-updates.md
           - text: FAQ
             url: ./faq.yml
@@ -61,6 +61,8 @@ landingContent:
           url: install-vmware-hcx.md
         - text: 5 - Configure on-premises VMware HCX Connector
           url: configure-vmware-hcx.md
+        - text: 6 - Uninstall VMware HCX in Azure VMware Solution
+          url: uninstall-vmware-hcx.md
       - linkListType: tutorial
         links:
         - text: 1 - Network planning checklist
@@ -210,8 +212,8 @@ landingContent:
             url: disaster-recovery-using-vmware-site-recovery-manager.md
           - text: Deploy disaster recovery using VMware HCX
             url: deploy-disaster-recovery-using-vmware-hcx.md     
-          - text: Upgrade the VMware HCX appliance
-            url: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html           
+          - text: Upgrade HCX on Azure VMware Solution
+            url: upgrade-hcx-azure-vmware-solutions.md           
 
 # card 8
   - title: Partner solutions ecosystem

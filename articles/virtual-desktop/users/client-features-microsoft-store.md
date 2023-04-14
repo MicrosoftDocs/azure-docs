@@ -1,15 +1,15 @@
 ---
-title: Use features of the Remote Desktop client for Windows (Microsoft Store) - Azure Virtual Desktop
-description: Learn how to use features of the Remote Desktop client for Windows (Microsoft Store) when connecting to Azure Virtual Desktop.
+title: Use features of the Remote Desktop Microsoft Store client - Azure Virtual Desktop
+description: Learn how to use features of the Remote Desktop Microsoft Store client when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 10/04/2022
 ms.author: daknappe
 ---
 
-# Use features of the Remote Desktop client for Windows (Microsoft Store) when connecting to Azure Virtual Desktop
+# Use features of the Remote Desktop Microsoft Store client when connecting to Azure Virtual Desktop
 
-Once you've connected to Azure Virtual Desktop using the Remote Desktop client, it's important to know how to use the features. This article shows you how to use the features available in the Remote Desktop client for Windows (Microsoft Store). If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows (Microsoft Store)](connect-microsoft-store.md).
+Once you've connected to Azure Virtual Desktop using the Remote Desktop client, it's important to know how to use the features. This article shows you how to use the features available in the Remote Desktop Microsoft Store client. If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Remote Desktop Microsoft Store client](connect-microsoft-store.md).
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md). For more information about the differences between the clients, see [Compare the Remote Desktop clients](../compare-remote-desktop-clients.md).
 
@@ -113,7 +113,7 @@ You can use touch gestures to replicate mouse actions in your remote session. Tw
 - **Direct touch**: where you tap on the screen is the equivalent to clicking a mouse in that position. The mouse pointer isn't shown on screen.
 - **Mouse pointer**: The mouse pointer is shown on screen. When you tap the screen and move your finger, the mouse pointer will move. 
 
-If you use Windows 10 or later with Azure Virtual Desktop, native Windows touch gestures are supported in direct touch mode.
+If you connect to Windows 10 or later with Azure Virtual Desktop, native Windows touch and multi-touch gestures are supported in direct touch mode.
 
 The following table shows which mouse operations map to which gestures in specific mouse modes:
 
@@ -202,4 +202,4 @@ To best help you, we need you to give us as detailed information as possible. Al
 
 ## Next steps
 
-If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md).
+If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-microsoft-store.md).

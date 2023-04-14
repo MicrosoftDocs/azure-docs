@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/04/2022
+ms.date: 03/14/2023
 ms.author: mbullwin
 ---
 
@@ -57,7 +57,7 @@ Build succeeded.
 Within the application directory, install the Anomaly Detector client library for .NET with the following command:
 
 ```dotnetcli
-dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.5
+dotnet add package Azure.AI.AnomalyDetector --prerelease
 ```
 
 ## Retrieve key and endpoint
@@ -79,11 +79,11 @@ Create and assign persistent environment variables for your key and endpoint.
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
 ```
 
 ```CMD
-setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 ```
 
 # [PowerShell](#tab/powershell)
@@ -130,7 +130,6 @@ using System.Linq;
 using System.Text;
 using Azure;
 using Azure.AI.AnomalyDetector;
-using Azure.AI.AnomalyDetector.Models;
 using static System.Environment;
 
 namespace anomaly_detector_quickstart
@@ -150,7 +149,7 @@ namespace anomaly_detector_quickstart
 
             //read data
             //example: string datapath = @"c:\test\request-data.csv";
-            string datapath = @"REPLACE_WITH_YOUR_LOCAL_SAMPLE_REQUEST_DATA_PATH"; 
+            string datapath = @"REPLACE_WITH_YOUR_LOCAL_SAMPLE_REQUEST_DATA_PATH";
 
             List<TimeSeriesPoint> list = File.ReadAllLines(datapath, Encoding.UTF8)
                 .Where(e => e.Trim().Length != 0)
@@ -158,13 +157,13 @@ namespace anomaly_detector_quickstart
                 .Where(e => e.Length == 2)
                 .Select(e => new TimeSeriesPoint(float.Parse(e[1])) { Timestamp = DateTime.Parse(e[0]) }).ToList();
 
-            //create request
-            DetectRequest request = new DetectRequest(list)
+              //create request
+            UnivariateDetectionOptions request = new UnivariateDetectionOptions(list)
             {
                 Granularity = TimeGranularity.Daily
             };
 
-            EntireDetectResponse result = client.DetectEntireSeries(request);
+            UnivariateEntireDetectionResult result = client.DetectUnivariateEntireSeries(request);
 
             bool hasAnomaly = false;
             for (int i = 0; i < request.Series.Count; ++i)
@@ -183,10 +182,15 @@ namespace anomaly_detector_quickstart
     }
 }
 
+
 ```
 
 > [!IMPORTANT]
 > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../../security-features.md) article.
+
+```cmd
+dotnet run program.cs
+```
 
 ### Output
 
@@ -216,7 +220,7 @@ Next we call the client's `DetectEntireSeriesAsync` method with the `DetectReque
 
 ## Clean up resources
 
-If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.2#using-the-environment-provider-and-item-cmdlets&preserve-view=true) you created if you no longer intend to use them.
+If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables#using-the-environment-provider-and-item-cmdlets) you created if you no longer intend to use them.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

@@ -10,10 +10,10 @@
   items:
   - name: Peering policy
     href: policy.md
-- name: How-to guides
-  items:
   - name: Prerequisites to set up peering with Microsoft
     href: prerequisites.md
+- name: How-to guides
+  items:
   - name: Direct peering walkthrough
     href: walkthrough-direct-all.md
   - name: Exchange peering walkthrough
@@ -26,42 +26,40 @@
     items:
     - name: Portal
       href: howto-subscription-association-portal.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: howto-subscription-association-powershell.md
   - name: Enable Peering Service on a Direct peering
     items:
     - name: Portal
       href: howto-peering-service-portal.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: howto-peering-service-powershell.md
   - name: Create or modify a Direct peering
     items:
     - name: Portal
       href: howto-direct-portal.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: howto-direct-powershell.md
   - name: Convert a legacy Direct peering to Azure resource
     items:
     - name: Portal
       href: howto-legacy-direct-portal.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: howto-legacy-direct-powershell.md
   - name: Create or modify an Exchange peering
     items:
     - name: Portal
       href: howto-exchange-portal.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: howto-exchange-powershell.md
   - name: Convert a legacy Exchange peering to Azure resource
     items:
     - name: Portal
       href: howto-legacy-exchange-portal.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: howto-legacy-exchange-powershell.md
   - name: Create or modify an Exchange peering with route server
-    items:
-    - name: Portal
-      href: how-to-exchange-route-server-portal.md
+    href: how-to-exchange-route-server-portal.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -86,7 +84,7 @@
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Networking feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
-  - name: Internet peering FAQs
+  - name: Internet peering FAQ
     href: faqs.md
-  - name: Peering Service FAQs
+  - name: Peering Service FAQ
     href: service-faqs.yml

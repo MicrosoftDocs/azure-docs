@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Explorer direct link | Microsoft Docs
+title: Azure Storage Explorer direct link
 description: Documentation of Azure Storage Explorer direct link
 services: storage
 author: JasonYeMSFT

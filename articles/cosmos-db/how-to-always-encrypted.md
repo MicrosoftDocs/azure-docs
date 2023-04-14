@@ -54,11 +54,6 @@ For each property that you want to encrypt, the encryption policy defines:
 - An encryption type. It can be either randomized or deterministic.
 - The encryption algorithm to use when encrypting the property. The specified algorithm can override the algorithm defined when creating the key if they are compatible.
 
-> [!NOTE]
-> The following properties can't be encrypted:
-> - ID
-> - The container's partition key
-
 #### Randomized vs. deterministic encryption
 
 The Azure Cosmos DB service never sees the plain text of properties encrypted with Always Encrypted. However, it still supports some querying capabilities over the encrypted data, depending on the encryption type used for a property. Always Encrypted supports the following two types of encryptions:
@@ -90,7 +85,7 @@ To make sure you don't lose access to your encrypted data after accidental delet
 
 If you create a new Azure Key Vault instance, enable these properties during creation:
 
-:::image type="content" source="./media/how-to-setup-cmk/portal-akv-prop.png" alt-text="Enable soft delete and purge protection for a new Azure Key Vault instance":::
+:::image type="content" source="./media/how-to-always-encrypted/key-vault-properties.png" alt-text="Screenshot of the soft delete and purge protection properties for a new Azure Key Vault instance.":::
 
 If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the **Properties** section on the Azure portal. If any of these properties isn't enabled, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
 

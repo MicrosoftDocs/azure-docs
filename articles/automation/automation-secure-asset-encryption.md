@@ -4,6 +4,7 @@ description: This article provides concepts for configuring the Automation accou
 services: automation
 ms.service: automation
 ms.subservice: process-automation
+ms.custom: devx-track-azurepowershell
 author: snehithm
 ms.author: snmuvva
 ms.date: 07/27/2021
@@ -30,7 +31,7 @@ You can manage encryption of secure assets for your Automation account with your
 
 Use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. 
 
-Enabling the Azure Firewall on [Azure Key Vault](../key-vault/general/network-security.md) blocks access from Azure Automation runbooks for that service. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../key-vault/general/overview-vnet-service-endpoints.md).
+Enabling the Azure Firewall on [Azure Key Vault](../key-vault/general/network-security.md) blocks access from Azure Automation runbooks for that service. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../key-vault/general/overview-vnet-service-endpoints.md). However, when you enable the Private link for Key Vault, Azure Automation loses access to the Key Vault. Even if you enable a Private link for Hybrid Runbook Worker, it will allow access only to Azure Automation service and not to the Key Vault.
 
 For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 

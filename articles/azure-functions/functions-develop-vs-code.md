@@ -77,9 +77,9 @@ These prerequisites are only required to [run and debug your functions locally](
 
 * The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools include the entire Azure Functions runtime, so download and installation might take some time.
 
-* [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
+* [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 
-* Both [.NET Core 3.1 runtime](https://dotnet.microsoft.com/download) and [.NET Core 2.1 runtime](https://dotnet.microsoft.com/download/dotnet/2.1).  
+* [.NET 6.0 runtime](https://dotnet.microsoft.com/download).
 
 * The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
 
@@ -90,6 +90,8 @@ These prerequisites are only required to [run and debug your functions locally](
 * [Python](https://www.python.org/downloads/), one of the [supported versions](functions-reference-python.md#python-version).
 
 * [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
+
+[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
 
 ---
 
@@ -113,7 +115,7 @@ The Functions extension lets you create a function app project, along with your 
 
     :::image type="content" source="./media/functions-develop-vs-code/create-function-auth.png" alt-text="Screenshot for creating function authorization.":::
 
-1. From the dropdown list, select **Add to workplace**.
+1. From the dropdown list, select **Add to workspace**.
 
     :::image type="content" source="./media/functions-develop-vs-code/add-to-workplace.png" alt-text=" Screenshot for selectIng Add to workplace.":::
 
@@ -490,6 +492,27 @@ To learn more, see [Streaming logs](functions-monitoring.md#streaming-logs).
 We recommend that you monitor the execution of your functions by integrating your function app with Application Insights. When you create a function app in the Azure portal, this integration occurs by default. When you create your function app during Visual Studio publishing, you need to integrate Application Insights yourself. To learn how, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
 
 To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
+
+[!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
+
+### Enable emulation in Visual Studio Code
+
+Now that you've configured the Terminal with Rosetta to run x86 emulation for Python development, you can use the following steps to integrate this terminal emulation with Visual Studio Code:
+
+1.  Open the Command Palette by pressing Cmd+Shift+P, select **Preferences: Open Settings (JSON)**, and add the following JSON to your configuration:
+
+    ```json
+    "terminal.integrated.profiles.osx": {
+           "rosetta": {
+             "path": "arch",
+             "args": ["-x86_64", "zsh", "-l"],
+             "overrideName": true
+           }
+         }
+    ```
+1. Open a new Terminal and choose **rosetta**.
+
+    ![Screenshot of starting a new Rosetta terminal in Visual Studio Code.](./media/functions-develop-vs-code/vs-code-rosetta.png)
 
 ## C\# script projects
 

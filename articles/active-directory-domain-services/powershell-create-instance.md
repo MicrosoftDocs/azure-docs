@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 09/1/2022
+ms.date: 01/29/2023
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
 
@@ -395,7 +395,7 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [New-AzVirtualNetwork]: /powershell/module/Az.Network/New-AzVirtualNetwork
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
 [cloud-shell]: ../cloud-shell/cloud-shell-windows-users.md
-[availability-zones]: ../availability-zones/az-overview.md
+[availability-zones]: ../reliability/availability-zones-overview.md
 [New-AzNetworkSecurityRuleConfig]: /powershell/module/az.network/new-aznetworksecurityruleconfig
 [New-AzNetworkSecurityGroup]: /powershell/module/az.network/new-aznetworksecuritygroup
 [Set-AzVirtualNetworkSubnetConfig]: /powershell/module/az.network/set-azvirtualnetworksubnetconfig

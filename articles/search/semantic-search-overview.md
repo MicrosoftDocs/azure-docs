@@ -34,7 +34,7 @@ Semantic search is a collection of features that improve the quality of search r
 |---------|-------------|
 | [Semantic re-ranking](semantic-ranking.md) | Uses the context or semantic meaning of a query to compute a new relevance score over existing results. |
 | [Semantic captions and highlights](semantic-how-to-query-request.md) | Extracts sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
-| [Semantic answers](semantic-answers.md) | An optional and additional substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document have text with the characteristics of an answer. |
+| [Semantic answers](semantic-answers.md) | An optional and additional substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document has text with the characteristics of an answer. |
 
 ## How semantic ranking works
 
@@ -81,11 +81,11 @@ Although semantic search is not beneficial in every scenario, certain content ca
 Semantic search and spell check are available on services that meet the criteria in the table below. To use semantic search, your first need to [enable the capabilities](#enable-semantic-search) on your search service.
 
 | Feature | Tier | Region | Sign up | Pricing |
-|---------|------|--------|---------------------|-------------------|
+|---------|------|--------|---------|---------|
 | Semantic search | Standard tier (S1, S2, S3, S3 HD), Storage Optimized tier (L1, L2) | [Region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search)| Required | [Pricing](https://azure.microsoft.com/pricing/details/search/) <sup>1</sup>|
 | Spell check | Basic <sup>2</sup> and above  | All | None | None (free) |
 
-<sup>1</sup> At lower query volumes (under 1000 monthly), semantic search is free. To go above that limit, you can opt in to the semantic search standard pricing plan. The pricing page shows you the semantic query billing rate for different currencies and intervals.
+<sup>1</sup> On the pricing page, scroll down to view additional features that are billed separately. At lower query volumes (under 1000 monthly), semantic search is free. To go above that limit, you can opt in to the semantic search standard pricing plan. The pricing page shows you the semantic query billing rate for different currencies and intervals.
 
 <sup>2</sup> Due to the provisioning mechanisms and lifespan of shared (free) search services, a small number of services happen to have spell check on the free tier. However, spell check availability on free tier services is not guaranteed and should not be expected.
 
@@ -135,4 +135,4 @@ To re-enable semantic search, rerun the above request, setting "semanticSearch" 
 
 ## Next steps
 
-[Enable semantic search](#enable-semantic-search) for your search service and follow the documentation on how to [create a semantic query](semantic-how-to-query-request.md) so that you can test out semantic search on your content.
+[Enable semantic search](#enable-semantic-search) for your search service and follow the steps in [Configure semantic ranking](semantic-how-to-query-request.md) so that you can test out semantic search on your content.

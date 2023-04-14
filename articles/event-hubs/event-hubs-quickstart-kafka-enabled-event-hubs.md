@@ -1,14 +1,13 @@
 ---
-title: 'Quickstart: Data streaming with Azure Event Hubs using the Kafka protocol'
-description: 'Quickstart: This article provides information on how to stream into Azure Event Hubs using the Kafka protocol and APIs.'
+title: 'Quickstart: Use Apache Kafka with Azure Event Hubs'
+description: 'This quickstart shows you how to stream data into and from Azure Event Hubs using the Apache Kafka protocol.'
 ms.topic: quickstart
-ms.date: 09/26/2022
-ms.custom: mode-other
+ms.date: 02/07/2023
+ms.custom: mode-other, passwordless-java
 ---
 
-# Quickstart: Data streaming with Event Hubs using the Kafka protocol
-
-This quickstart shows how to stream into Event Hubs without changing your protocol clients or running your own clusters. You learn how to use your producers and consumers to talk to Event Hubs with just a configuration change in your applications.
+# Quickstart: Stream data with Azure Event Hubs and Apache Kafka
+This quickstart shows you how to stream data into and from Azure Event Hubs using the Apache Kafka protocol. You'll not change any code in the sample Kafka producer or consumer apps. You just update the configurations that the clients use to point to an Event Hubs namespace, which exposes a Kafka endpoint. You also don't build and use a Kafka cluster on your own. Instead, you'll  use the Event Hubs namespace with the Kafka endpoint.
 
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)
@@ -17,14 +16,14 @@ This quickstart shows how to stream into Event Hubs without changing your protoc
 
 To complete this quickstart, make sure you have the following prerequisites:
 
-* Read through the [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) article.
+* Read through the [Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md) article.
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * Create a Windows virtual machine and install the following components: 
     * [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure).
     * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
     * [Git](https://www.git-scm.com/)
 
-## Create an Event Hubs namespace
+## Create an Azure Event Hubs namespace
 
 When you create an Event Hubs namespace, the Kafka endpoint for the namespace is automatically enabled. You can stream events from your applications that use the Kafka protocol into event hubs. Follow step-by-step instructions in the [Create an event hub using Azure portal](event-hubs-create.md) to create an Event Hubs namespace. If you're using a dedicated cluster, see [Create a namespace and event hub in a dedicated cluster](event-hubs-dedicated-cluster-create-portal.md#create-a-namespace-and-event-hub-within-a-cluster).
 
@@ -138,7 +137,7 @@ Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize r
    mvn exec:java -Dexec.mainClass="TestConsumer"
    ```
 
-If your Event Hubs Kafka cluster has events, you will now start receiving them from the consumer.
+If your Event Hubs Kafka cluster has events, you'll now start receiving them from the consumer.
 
 ---
 

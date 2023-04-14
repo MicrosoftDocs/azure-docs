@@ -8,7 +8,7 @@ editor:
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
-ms.date: 08/20/2022
+ms.date: 01/26/2023
 ms.author: barclayn
 ms.reviewer: 
 ---
@@ -23,9 +23,9 @@ But identity data has too often been exposed in security breaches. These breache
 
 ## Why we need Decentralized Identity
 
-Today we use our digital identity at work, at home, and across every app, service, and device we use. It’s made up of everything we say, do, and experience in our lives—purchasing tickets for an event, checking into a hotel, or even ordering lunch. Currently, our identity and all our digital interactions are owned and controlled by other parties, some of whom we aren’t even aware of.
+Today we use our digital identity at work, at home, and across every app, service, and device we use. It’s made up of everything we say, do, and experience in our lives—purchasing tickets for an event, checking into a hotel, or even ordering lunch. Currently, our identity and all our digital interactions are owned and controlled by other parties, in some cases, even without our knowledge.
 
-Generally, users grant consent to several apps and devices. This approach requires a high degree of vigilance on the user's part to track who has access to what information. On the enterprise front, collaboration with consumers and partners requires high-touch orchestration to securely exchange data in a way that maintains privacy and security for all involved.
+Every day users grant apps and devices access to their data. A great deal of effort would be required for them to keep track of who has access to which pieces of information. On the enterprise front, collaboration with consumers and partners requires high-touch orchestration to securely exchange data in a way that maintains privacy and security for all involved.
 
 We believe a standards-based Decentralized Identity system can unlock a new set of experiences that give users and organizations greater control over their data—and deliver a higher degree of trust and security for apps, devices, and service providers.
 
@@ -47,7 +47,7 @@ Microsoft is actively collaborating with members of the Decentralized Identity F
 
 Before we can understand DIDs, it helps to compare them with current identity systems. Email addresses and social network IDs are human-friendly aliases for collaboration but are now overloaded to serve as the control points for data access across many scenarios beyond collaboration. This creates a potential problem, because access to these IDs can be removed at any time by external parties.
 
-Decentralized Identifiers (DIDs) are different. DIDs are user-generated, self-owned, globally unique identifiers rooted in decentralized systems like ION. They possess unique characteristics, like greater assurance of immutability, censorship resistance, and tamper evasiveness. These attributes are critical for any ID system that is intended to provide self-ownership and user control. 
+Decentralized Identifiers (DIDs) are different. DIDs are user-generated, self-owned, globally unique identifiers rooted in decentralized systems like ION. They possess unique characteristics, like greater assurance of immutability, censorship resistance, and tamper evasiveness. These attributes are critical for any ID system intended to provide self-ownership and user control. 
 
 Microsoft’s verifiable credential solution uses decentralized credentials (DIDs) to cryptographically sign as proof that a relying party (verifier) is attesting to information proving they are the owners of a verifiable credential. A basic understanding of DIDs is recommended for anyone creating a verifiable credential solution based on the Microsoft offering.
 
@@ -95,9 +95,9 @@ The scenario we use to explain how VCs work involves:
 
 
 
-Today, Alice provides a username and password to log onto Woodgrove’s networked environment. Woodgrove is deploying a verifiable credential solution to provide a more manageable way for Alice to prove that she is an employee of Woodgrove. Proseware accepts verifiable credentials issued by Woodgrove as proof of employment to offer corporate discounts as part of their corporate discount program.
+Today, Alice provides a username and password to sign in Woodgrove’s networked environment. Woodgrove is deploying a verifiable credential solution to provide a more manageable way for Alice to prove that she is an employee of Woodgrove. Proseware accepts verifiable credentials issued by Woodgrove as proof of employment that can give access to corporate discounts as part of their corporate discount program.
 
-Alice requests Woodgrove Inc for a proof of employment verifiable credential. Woodgrove Inc attests Alice's identity and issues a signed verifiable credential that Alice can accept and store in her digital wallet application. Alice can now present this verifiable credential as a proof of employment on the Proseware site. After a successful presentation of the credential, Proseware offers discount to Alice and the transaction is logged in Alice's wallet application so that she can track where and to whom she has presented her proof of employment verifiable credential.
+Alice requests Woodgrove Inc for a proof of employment verifiable credential. Woodgrove Inc attests Alice's identity and issues a signed verifiable credential that Alice can accept and store in her digital wallet application. Alice can now present this verifiable credential as a proof of employment on the Proseware site. After a successful presentation of the credential, Proseware offers discount to Alice and the transaction is logged in Alice's wallet application so that she can track where and to whom she presented her proof of employment verifiable credential.
 
 ![microsoft-did-overview](media/decentralized-identifier-overview/did-overview.png)
 

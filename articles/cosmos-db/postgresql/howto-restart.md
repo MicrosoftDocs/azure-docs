@@ -7,7 +7,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 02/17/2023
 ---
 
 # Restart Azure Cosmos DB for PostgreSQL
@@ -21,10 +21,7 @@ connectivity downtime while the restart happens.
 1. In the Azure portal, navigate to the cluster's **Overview** page.
 
 1. Select **Restart** on the top bar.
-   > [!NOTE]
-   > If the Restart button is not yet present for your cluster, please open
-   > an Azure support request to restart the cluster.
-
+   
 1. In the confirmation dialog, select **Restart all** to continue.
 
 **Next steps**

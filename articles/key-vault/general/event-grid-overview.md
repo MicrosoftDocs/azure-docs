@@ -1,13 +1,13 @@
 ---
-title: 'Monitoring Key Vault with Azure Event Grid'
-description: 'Use Azure Event Grid to subscribe to Key Vault events'
+title: Monitoring Key Vault with Azure Event Grid
+description: Use Azure Event Grid to subscribe to Key Vault events
 services: key-vault
 author: msmbaldwin
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 01/11/2023
 ms.author: mbaldwin
 ---
  
@@ -19,7 +19,7 @@ Applications can react to these events using modern serverless architectures, wi
 
 ## Key Vault events and schemas
 
-Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Key Vault events contain all the information you need to respond to changes in your data. You can identify a Key Vault event because the eventType property starts with "Microsoft.KeyVault".
+Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Key Vault events contain all the information you need to respond to changes in your data. You can identify a Key Vault event because the eventType property starts with "Microsoft.KeyVault".
 
 For more information, see the [Key Vault event schema](../../event-grid/event-schema-key-vault.md).
 
@@ -30,8 +30,8 @@ For more information, see the [Key Vault event schema](../../event-grid/event-sc
 
 Applications that handle Key Vault events should follow a few recommended practices:
 
-* Multiple subscriptions can be configured to route events to the same event handler. It is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the key vault you are expecting.
-* Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
+* Multiple subscriptions can be configured to route events to the same event handler. It's important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the key vault you're expecting.
+* Similarly, check that the eventType is one you're prepared to process, and do not assume that all events you receive will be the types you expect.
 * Ignore fields you don't understand.  This practice will help keep you resilient to new features that might be added in the future.
 * Use the "subject" prefix and suffix matches to limit events to a particular event.
 

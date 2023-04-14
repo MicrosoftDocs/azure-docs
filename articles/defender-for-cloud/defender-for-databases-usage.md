@@ -41,7 +41,7 @@ When Microsoft Defender for Cloud is enabled on your database, it detects anomal
 - In the inbox of whoever in your organization has been [designated to receive email alerts](configure-email-notifications.md).  
 
 > [!TIP]
-> A live tile on [Microsoft Defender for Cloud's overview dashboard](overview-page.md) tracks the status of active threats to all your resources including databases. Select the tile to launch the Defender for Cloud alerts page and get an overview of active threats detected on your databases.
+> A live tile on [Microsoft Defender for Cloud's overview dashboard](overview-page.md) tracks the status of active threats to all your resources including databases. Select the security alerts tile to go to the Defender for Cloud security alerts page and get an overview of active threats detected on your databases.
 >
 > For detailed steps and the recommended method to respond to security alerts, see [Respond to a security alert](tutorial-security-incident.md#respond-to-a-security-alert).
 
@@ -49,7 +49,7 @@ When Microsoft Defender for Cloud is enabled on your database, it detects anomal
 
 Defender for Cloud sends email notifications when it detects anomalous database activities. The email includes details of the suspicious security event such as the nature of the anomalous activities, database name, server name, application name, and event time. The email also provides information on possible causes and recommended actions to investigate and mitigate any potential threats to the database.
 
-1. From the email, select the **View the full alert** link to launch the Azure portal and show the alerts page, which provides an overview of active threats detected on the database.
+1. From the email, select the **View the full alert** link to launch the Azure portal and show the security alerts page, which provides an overview of active threats detected on the database.
     
     :::image type="content" source="media/defender-for-databases-usage/suspected-brute-force-attack-notification-email.png" alt-text="Defender for Cloud's email notification about a suspected brute force attack.":::
 

@@ -2,41 +2,39 @@
 title: Troubleshoot connectivity issues - Azure Event Hubs | Microsoft Docs
 description: This article provides information on troubleshooting connectivity issues with Azure Event Hubs. 
 ms.topic: article
-ms.date: 09/15/2021
+ms.date: 12/15/2022
 ---
 
 # Troubleshoot connectivity issues - Azure Event Hubs
-There are various reasons for client applications not able to connect to an event hub. The connectivity issues that you experience may be permanent or transient. If the issue happens all the time (permanent), you may want to check the connection string, your organization's firewall settings, IP firewall settings, network security settings (service endpoints, private endpoints, etc.), and more. For transient issues, upgrading to latest version of the SDK, running commands to check dropped packets, and obtaining network traces may help with troubleshooting the issues. 
-
-This article provides tips for troubleshooting connectivity issues with Azure Event Hubs. 
+There are various reasons for client applications not able to connect to an event hub. The connectivity issues that you experience may be permanent or transient. If the issue happens all the time (permanent), you may want to check the connection string, your organization's firewall settings, IP firewall settings, network security settings (service endpoints, private endpoints, etc.), and more. For transient issues, upgrading to latest version of the SDK, running commands to check dropped packets, and obtaining network traces may help with troubleshooting the issues. This article provides tips for troubleshooting connectivity issues with Azure Event Hubs. 
 
 ## Troubleshoot permanent connectivity issues
 If the application isn't able to connect to the event hub at all, follow steps from this section to troubleshoot the issue. 
 
-### Check if there is a service outage
+### Check if there's a service outage
 Check for the Azure Event Hubs service outage on the [Azure service status site](https://azure.microsoft.com/status/).
 
 ### Verify the connection string 
-Verify that the connection string you are using is correct. See [Get connection string](event-hubs-get-connection-string.md) to get the connection string using the Azure portal, CLI, or PowerShell. 
+Verify that the connection string you're using is correct. See [Get connection string](event-hubs-get-connection-string.md) to get the connection string using the Azure portal, CLI, or PowerShell. 
 
 For Kafka clients, verify that producer.config or consumer.config files are configured properly. For more information, see [Send and receive messages with Kafka in Event Hubs](event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs).
 
 [!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
 
-### Verify that EventHub service tag is allowed in your network security groups
-If your application is running inside a subnet and there is an associated network security group, confirm whether the internet outbound is allowed or EventHub service tag is allowed. See [Virtual network service tags](../virtual-network/service-tags-overview.md) and search for `EventHub`.
+### Verify that Event Hubs service tag is allowed in your network security groups
+If your application is running inside a subnet and there's an associated network security group, confirm whether the internet outbound is allowed or Event Hubs service tag (`EventHub`) is allowed. See [Virtual network service tags](../virtual-network/service-tags-overview.md) and search for `EventHub`.
 
 ### Check if the application needs to be running in a specific subnet of a vnet
 Confirm that your application is running in a virtual network subnet that has access to the namespace. If it's not, run the application in the subnet that has access to the namespace or add the IP address of the machine on which application is running to the [IP firewall](event-hubs-ip-filtering.md). 
 
-When you create a virtual network service endpoint for an event hub namespace, the namespace accepts traffic only from the subnet that's bound to the service endpoint. There is an exception to this behavior. You can add specific IP addresses in the IP firewall to enable access to the Event Hub public endpoint. For more information, see [Network service endpoints](event-hubs-service-endpoints.md).
+When you create a virtual network service endpoint for an event hub namespace, the namespace accepts traffic only from the subnet that's bound to the service endpoint. There's an exception to this behavior. You can add specific IP addresses in the IP firewall to enable access to the event hub's public endpoint. For more information, see [Network service endpoints](event-hubs-service-endpoints.md).
 
 ### Check the IP Firewall settings for your namespace
 Check that the public IP address of the machine on which the application is running isn't blocked by the IP firewall.  
 
 By default, Event Hubs namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
-The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
+The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that doesn't match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response doesn't mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
 For more information, see [Configure IP firewall rules for an Azure Event Hubs namespace](event-hubs-ip-filtering.md). To check whether you have IP filtering, virtual network, or certificate chain issues, see [Troubleshoot network related issues](#troubleshoot-network-related-issues).
 
@@ -70,10 +68,10 @@ An example of **failure error message**:
 ```
 
 ## Troubleshoot transient connectivity issues
-If you are experiencing intermittent connectivity issues, go through the following sections for troubleshooting tips. 
+If you're experiencing intermittent connectivity issues, go through the following sections for troubleshooting tips. 
 
 ### Use the latest version of the client SDK
-Some of the transient connectivity issues may have been fixed in the later versions of the SDK than what you are using. Ensure that you are using the latest version of client SDKs in your applications. SDKs are continuously improved with new/updated features and bug fixes, so always test with latest package. Check the release notes for issues that are fixed and features added/updated. 
+Some of the transient connectivity issues may have been fixed in the later versions of the SDK than what you are using. Ensure that you're using the latest version of client SDKs in your applications. SDKs are continuously improved with new/updated features and bug fixes, so always test with latest package. Check the release notes for issues that are fixed and features added/updated. 
 
 For information about client SDKs, see the [Azure Event Hubs - Client SDKs](sdks.md) article. 
 

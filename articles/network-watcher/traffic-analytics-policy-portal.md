@@ -1,19 +1,18 @@
 ---
-
-title: Deploy and manage Traffic Analytics using Azure Policy 
+title: Deploy and manage traffic analytics using Azure Policy 
 titleSuffix: Azure Network Watcher
-description: This article explains how to use the built-in policies to manage the deployment of Traffic Analytics 
+description: This article explains how to use Azure built-in policies to manage the deployment of traffic analytics.
 services: network-watcher
-author: moagra
+author: halkazwini
 ms.service: network-watcher
-ms.topic: article
-ms.workload:  infrastructure-services
-ms.date: 07/11/2021
-ms.author: moagra
-
+ms.topic: how-to
+ms.workload: infrastructure-services
+ms.date: 02/09/2022
+ms.author: halkazwini
+ms.custom: engagement-fy23
 ---
 
-# Deploy and manage Traffic Analytics using Azure Policy 
+# Deploy and manage Azure Network Watcher traffic analytics using Azure Policy 
 
 Azure Policy helps to enforce organizational standards and to assess compliance at-scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, we will cover three built-in policies available for [Traffic Analytics](./traffic-analytics.md) to manage your setup.
 

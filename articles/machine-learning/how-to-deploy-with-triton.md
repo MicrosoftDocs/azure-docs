@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/10/2022
 ms.topic: how-to
-author: shohei1029
-ms.author:  shnagata
+author: dem108
+ms.author: sehan
 ms.reviewer: mopeakande
 ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 ms.devlang: azurecli
@@ -27,6 +27,8 @@ In this article, you will learn how to deploy Triton and a model to a [managed o
 > [!NOTE]
 > * [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
 > * While Azure Machine Learning online endpoints are generally available, _using Triton with an online endpoint/deployment is still in preview_. 
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -110,7 +112,7 @@ cd azureml-examples/sdk/python/endpoints/online/triton/single-model/
 This section shows how you can deploy to a managed online endpoint using the Azure CLI with the Machine Learning extension (v2).
 
 > [!IMPORTANT]
-> For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
+> For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
 
 1. To avoid typing in a path for multiple commands, use the following command to set a `BASE_PATH` environment variable. This variable points to the directory where the model and associated YAML configuration files are located:
 
@@ -144,7 +146,7 @@ This section shows how you can deploy to a managed online endpoint using the Azu
 This section shows how you can define a Triton deployment to deploy to a managed online endpoint using the Azure Machine Learning Python SDK (v2).
 
 > [!IMPORTANT]
-> For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
+> For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
 
 
 1. To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. 
@@ -163,7 +165,7 @@ This section shows how you can define a Triton deployment to deploy to a managed
     endpoint_name = f"endpoint-{random.randint(0, 10000)}"
     ```
 
-1. We use these details above in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. Check the [configuration notebook](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
+1. We use these details above in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. Check the [configuration notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace.
 
     ```python 
     from azure.ai.ml import MLClient
@@ -352,7 +354,7 @@ Once your deployment completes, use the following command to make a scoring requ
     keys = ml_client.online_endpoints.list_keys(endpoint_name)
     auth_key = keys.primary_key
 
-1. The following scoring code uses the [Triton Inference Server Client](https://github.com/triton-inference-server/client) to submit the image of a peacock to the endpoint. This script is available in the companion notebook to this example - [Deploy a model to online endpoints using Triton](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/triton/single-model/online-endpoints-triton.ipynb).
+1. The following scoring code uses the [Triton Inference Server Client](https://github.com/triton-inference-server/client) to submit the image of a peacock to the endpoint. This script is available in the companion notebook to this example - [Deploy a model to online endpoints using Triton](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/triton/single-model/online-endpoints-triton.ipynb).
 
     ```python
     # Test the blue deployment with some sample data
@@ -471,7 +473,7 @@ To learn more, review these articles:
 
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [Create and use managed online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
-- [Safe rollout for online endpoints ](how-to-safely-rollout-managed-endpoints.md)
+- [Safe rollout for online endpoints ](how-to-safely-rollout-online-endpoints.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
 - [Access Azure resources with a managed online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)

@@ -1,11 +1,11 @@
 ---
-title: 'Azure AD Connect: ADSync PowerShell Reference | Microsoft Docs'
+title: 'Azure AD Connect: ADSync PowerShell Reference'
 description: This document provides reference information for the ADSync.psm1 PowerShell module.
 author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference

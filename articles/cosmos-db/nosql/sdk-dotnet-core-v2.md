@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: reference
-ms.date: 04/18/2022
+ms.date: 03/20/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.custom: devx-track-dotnet, ignite-2022
@@ -20,7 +20,7 @@ ms.custom: devx-track-dotnet, ignite-2022
 |---|---|
 |**Release notes**| [Release notes](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)|
 |**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
-|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb)|
+|**API documentation**|[.NET API reference documentation](/dotnet/api/microsoft.azure.documents)|
 |**Samples**|[.NET code samples](samples-dotnet.md)|
 |**Get started**|[Get started with the Azure Cosmos DB .NET](sdk-dotnet-v2.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](tutorial-dotnet-web-app.md)|
