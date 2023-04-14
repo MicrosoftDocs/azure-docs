@@ -7,7 +7,7 @@ ms.author: chrhoder
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 06/30/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 manager: nitinme
 keywords: 
 ---
