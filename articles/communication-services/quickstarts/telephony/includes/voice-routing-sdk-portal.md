@@ -38,7 +38,7 @@ ms.author: nikuklic
 
 ## Creating Voice Routing rules
 
-[ ![Screenshot of outgoing voice routing configuration.](../media/voice-routing/voice-routing-configuration.png)](../media/voice-routing/voice-routing-configuration.png#lightbox)
+[![Screenshot of outgoing voice routing configuration.](../media/voice-routing/voice-routing-configuration.png)](../media/voice-routing/voice-routing-configuration.png#lightbox)
 
 Give your voice route a name, specify the number pattern using regular expressions, and select SBC for that pattern. 
 Here are some examples of basic regular expressions:

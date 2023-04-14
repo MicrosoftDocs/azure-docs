@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/17/2023
+ms.date: 04/13/2023
 ms.custom: template-how-to
 ---
 
@@ -16,9 +16,9 @@ This article outlines how to register multiple Azure sources and how to authenti
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| [Yes](#access-policy) | [Source Dependant](catalog-lineage-user-guide.md)| No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| [Source dependant](create-sensitivity-label.md) | [Yes](#access-policy) | [Source Dependant](catalog-lineage-user-guide.md)| No |
 
 ## Prerequisites
 
@@ -80,7 +80,7 @@ To learn how to add permissions on each resource type within a subscription or r
 ## Scan
 
 >[!IMPORTANT]
-> Currently, scanning multiple Azure sources is only supported using Azure integration runtime. 
+> Currently, scanning multiple Azure sources is only supported using Azure integration runtime, therefore, only Microsoft Purview accounts that allow public access on the firewall can use this option.
 
 Follow the steps below to scan multiple Azure sources to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 

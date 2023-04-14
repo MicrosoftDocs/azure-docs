@@ -108,3 +108,11 @@ landingContent:
         links:
           - text: Stream apps to your customers
             url: ./remote-app-streaming/overview.md
+
+  # Card
+  - title: Azure Virtual Desktop (classic) documentation
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Virtual Desktop (classic)
+            url: ./virtual-desktop-fall-2019/index.yml
