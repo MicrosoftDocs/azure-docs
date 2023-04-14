@@ -48,7 +48,7 @@ items:
     href: statement-of-compliance.md
   - name: Policy control
     href: policy-control.md
-  - name: Default service and SIM policy
+  - name: Default service and allow-all SIM policy
     href: default-service-sim-policy.md
   - name: Monitor Azure Private 5G Core using Log Analytics
     href: monitor-private-5g-core-with-log-analytics.md
