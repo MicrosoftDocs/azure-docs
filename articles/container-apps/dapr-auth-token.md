@@ -15,7 +15,7 @@ When [Dapr][dapr] is enabled for your application in Azure Container Apps, it in
 - An HTTP header (`dapr-api-token`)
 - A gRPC metadata option (`dapr-api-token[0]`)
 
-The token is randomly-generated and unique per each app and app revision. It can also change at any time. Your application should read the token from the `APP_API_TOKEN` environmental variable when it starts up to ensure that it's using the correct token.
+The token is randomly generated and unique per each app and app revision. It can also change at any time. Your application should read the token from the `APP_API_TOKEN` environmental variable when it starts up to ensure that it's using the correct token.
 
 You can use this token to authenticate that calls coming into your application are actually coming from the Dapr sidecar, even when listening on public endpoints.
 
@@ -30,13 +30,13 @@ You can use this token to authenticate that calls coming into your application a
 
 # [With Dapr SDKs](#tab/sdk)
 
-If you're using a [Dapr SDK](https://docs.dapr.io/developing-applications/sdks/), the Dapr SDKs automatically validates the token in all incoming requests from Dapr, rejecting calls that do not include the correct token. You don't need to perform any additional action.
+If you're using a [Dapr SDK](https://docs.dapr.io/developing-applications/sdks/), the Dapr SDKs automatically validates the token in all incoming requests from Dapr, rejecting calls that don't include the correct token. You don't need to perform any other action.
 
 Incoming requests that don't include the token, or include an incorrect token, are rejected automatically.
 
 # [Without an SDK](#tab/nosdk)
 
-If you're not using a Dapr SDK, you'll need to check the HTTP header or gRPC metadata property in all incoming requests if you would like to validate that they are created by the Dapr sidecar.
+If you're not using a Dapr SDK, you need to check the HTTP header or gRPC metadata property in all incoming requests in order to validate that they're created by the Dapr sidecar.
 
 ### HTTP
 
