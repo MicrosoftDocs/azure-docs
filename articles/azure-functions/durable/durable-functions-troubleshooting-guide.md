@@ -54,7 +54,7 @@ Use the following steps to troubleshoot stuck orchestrations:
 
 1. Try restarting the function app. This step can help if the orchestration gets stuck due to a transient bug or deadlock in either the app or the extension code.
 
-2. Check the Azure Storage account control queues to see if any queues are growing continuously. [This query](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) could indicate a problem with dequeuing orchestration messages. If the problem impacts only a single control queue, it might indicate a problem that exists only on a specific app instance, in which case scaling up or down to move off the unhealthy VM instance could help.
+2. Check the Azure Storage account control queues to see if any queues are growing continuously. [This Azure Storage messaging KQL query](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) can help identify problems with dequeuing orchestration messages. If the problem impacts only a single control queue, it might indicate a problem that exists only on a specific app instance, in which case scaling up or down to move off the unhealthy VM instance could help.
 
 3. Use the Application Insights query in the [Azure Storage Messaging section](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) to filter on that queue name as the Partition ID and look for any problems related to that control queue partition.
 
@@ -83,11 +83,11 @@ When using the default storage provider, all Durable Functions behavior is drive
 
 Starting in v2.3.0 of the Durable Functions extension, you can have these Durable Task Framework logs published to your Application Insights instance by updating your logging configuration in the host.json file. See the [Durable Task Framework logging article](./durable-functions-diagnostics.md) for information and instructions on how to do this.
 
-The following query is for inspecting end-to-end Azure Storage interactions for a specific orchestration instance. Edit `start` and `queryInstanceId` to filter by time range and instance ID.
+The following query is for inspecting end-to-end Azure Storage interactions for a specific orchestration instance. Edit `start` and `orchestrationInstanceID` to filter by time range and instance ID.
 
 ```kusto
 let start = datetime(XXXX-XX-XXTXX:XX:XX); // edit this 
-let queryInstanceId = "XXXXXXX"; //edit this
+let orchestrationInstanceID = "XXXXXXX"; //edit this
 traces  
 | where timestamp > start and timestamp < start + 1h 
 | where customDimensions.Category == "DurableTask.AzureStorage" 
@@ -108,17 +108,17 @@ traces
 | extend pid = customDimensions["ProcessId"]
 | extend appName = cloud_RoleName
 | extend newEvents = customDimensions["prop__NewEvents"]
-| where instanceId == queryInstanceId
+| where instanceId == orchestrationInstanceID
 | sort by timestamp asc
 | project timestamp, appName, severityLevel, pid, taskName, eventType, message, details, messageId, partitionId, instanceId, executionId, age, latencyMs, dequeueCount, eventCount, newEvents, taskHub, account, extendedSession, sdkVersion
 ```
 
 ### Trace Errors/Warnings
 
-The following query searches for errors and warnings for a given orchestration instance. You'll need to provide a value for `queryInstanceId`.
+The following query searches for errors and warnings for a given orchestration instance. You'll need to provide a value for `orchestrationInstanceID`.
 
 ```kusto
-let queryInstanceId = "XXXXXX"; // edit this
+let orchestrationInstanceID = "XXXXXX"; // edit this
 let start = datetime(XXXX-XX-XXTXX:XX:XX); 
 traces  
 | where timestamp > start and timestamp < start + 1h
@@ -129,22 +129,22 @@ traces
 | extend details = customDimensions["prop__Details"] 
 | extend reason = customDimensions["prop__reason"]
 | where severityLevel > 1 // to see all logs of  severity level "Information" or greater.
-| where instanceId == queryInstanceId
+| where instanceId == orchestrationInstanceID
 | sort by timestamp asc 
 ```
 
 ### Control queue / Partition ID logs
-The following query searches for activity associated with an instanceId's control queue. You'll need to provide the value for the instanceID in `queryInstanceId` as well as the query's start time in `start`.
+The following query searches for activity associated with an instanceId's control queue. You'll need to provide the value for the instanceID in `orchestrationInstanceID` as well as the query's start time in `start`.
 
 ```kusto
-let queryInstanceId = "XXXXXX"; // edit this
+let orchestrationInstanceID = "XXXXXX"; // edit this
 let start = datetime(XXXX-XX-XXTXX:XX:XX); // edit this
 traces  // determine control queue for this orchestrator
 | where timestamp > start and timestamp < start + 1h 
 | extend instanceId = customDimensions["prop__TargetInstanceId"] 
 | extend partitionId = tostring(customDimensions["prop__PartitionId"])
 | where partitionId contains "control" 
-| where instanceId == queryInstanceId
+| where instanceId == orchestrationInstanceID
 | join (
 traces  
 | where timestamp > start and timestamp < start + 1h 
@@ -171,6 +171,7 @@ traces
 | project timestamp, appName, severityLevel, pid, taskName, eventType, message, details, messageId, partitionId, instanceId, executionId, age, latencyMs, dequeueCount, eventCount, newEvents, taskHub, account, extendedSession, sdkVersion
 ```
 
+### Application Insights column reference
 Below is a list of the columns projected by the queries above and their respective descriptions.
 
 |Column |Description |
@@ -178,7 +179,7 @@ Below is a list of the columns projected by the queries above and their respecti
 |pid|Process ID of the function app instance. This is useful for determining if the process was recycled while an orchestration was executing.|
 |taskName|The name of the event being logged.|
 |eventType|The type of message, which usually represents work done by an orchestrator. A full list of its possible values, and their descriptions, is [here](https://github.com/Azure/durabletask/blob/main/src/DurableTask.Core/History/EventType.cs)|
-|extendedSession|Boolean value indicating whether [ExtendedSessions](durable-functions-azure-storage-provider.md#extended-sessions) is enabled.|
+|extendedSession|Boolean value indicating whether [extended sessions](durable-functions-azure-storage-provider.md#extended-sessions) is enabled.|
 |account|The storage account used by the app.|
 |details|Additional information about a particular event, if available.|
 |instanceId|The ID for a given orchestration or entity instance.|
