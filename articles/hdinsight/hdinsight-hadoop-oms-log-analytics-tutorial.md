@@ -296,10 +296,6 @@ For management solution instructions, see [Management solutions in Azure](/previ
 
 Because the cluster is a brand new cluster, the report doesn't show any activities.
 
-## Configuring performance counters
-
-Azure monitor supports collecting and analyzing performance metrics for the nodes in your cluster. For more information, see [Linux performance data sources in Azure Monitor](../azure-monitor/agents/data-sources-performance-counters.md#linux-performance-counters).
-
 ## Cluster auditing
 
 HDInsight support cluster auditing with Azure Monitor logs, by importing the following types of logs:
