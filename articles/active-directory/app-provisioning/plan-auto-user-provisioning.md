@@ -226,7 +226,7 @@ First, configure automatic user provisioning for the application. Then run test 
 | - | - |
 | User is added to a group assigned to the target system. | User object is provisioned in target system. <br>User can sign-in to target system and perform the desired actions. |
 | User is removed from a group that is assigned to target system. | User object is deprovisioned in the target system.<br>User can't sign-in to target system. |
-| User information updates in Azure AD by any method. | Updated user attributes reflecte in the target system after an incremental cycle. |
+| User information updates in Azure AD by any method. | Updated user attributes reflect in the target system after an incremental cycle. |
 | User is out of scope. | User object is disabled or deleted. <br>Note: This behavior is overridden for [Workday provisioning](skip-out-of-scope-deletions.md). |
 
 ### Plan security
