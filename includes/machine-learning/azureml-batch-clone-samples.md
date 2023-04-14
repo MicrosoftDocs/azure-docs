@@ -6,8 +6,6 @@ ms.date: 04/22/2023
 ms.author: fasantia
 ---
 
-### Clone the code of this sample
-
 The example in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo. 
 
 ```azurecli

@@ -41,6 +41,7 @@ pip install azure-ai-ml
 # [Studio](#tab/studio)
 
 There are no further requirements if you plan to use Azure Machine Learning studio.
+
 ---
 
 ### Connect to your workspace

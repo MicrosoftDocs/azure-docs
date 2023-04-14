@@ -29,14 +29,6 @@ In this article, you'll learn how to create a batch deployment that contains a p
 
 In this example, we are going to deploy a pipeline component consisting of a simple command job that prints "hello world!", and it requires no inputs or outputs. This would be the simplest scenario.
 
-### Follow along in Jupyter notebooks
-
-You can follow along with this example in the following notebook. In the cloned repository, open the notebook: [sdk-deploy-and-test.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb).
-
-## Prerequisites
-
-[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
-
 [!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
 
 The files of this example are in:
@@ -44,6 +36,14 @@ The files of this example are in:
 ```azurecli
 cd endpoints/batch/deploy-pipelines/hello-batch
 ```
+
+### Follow along in Jupyter notebooks
+
+You can follow along with this example in the following notebook. In the cloned repository, open the notebook: [sdk-deploy-and-test.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb).
+
+## Prerequisites
+
+[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
 
 ## Create the pipeline component
 
