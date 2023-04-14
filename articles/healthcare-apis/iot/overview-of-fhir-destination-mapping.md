@@ -43,7 +43,7 @@ This diagram provides an illustration of what happens during the transformation 
 > [!NOTE]
 > The FHIR Observation in this diagram is not the complete resource. See [Example](#example) in this overview for the entire FHIR Observation.
 
-## FHIR destination mappings validation
+## FHIR destination mapping validations
 
 The validation process validates the FHIR destination mapping before allowing them to be saved for use. These elements are required in the FHIR destination mapping.
 
