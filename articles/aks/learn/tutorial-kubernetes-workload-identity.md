@@ -183,7 +183,7 @@ az identity create --name "${UAID}" --resource-group "${RESOURCE_GROUP}" --locat
 
 Next, you need to set an access policy for the managed identity to access the Key Vault secret by running the following commands:
 
-``````azurecli-interactive
+```azurecli-interactive
 export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${UAID}" --query 'clientId' -otsv)"
 ```
 
