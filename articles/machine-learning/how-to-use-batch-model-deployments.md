@@ -218,11 +218,11 @@ A model deployment is a set of resources required for hosting the model that doe
 
     :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/code/batch_driver.py" :::
 
-1. Create an environment where your batch deployment will run. Such environment needs to include the packages `azureml-core` and `azureml-dataset-runtime[fuse]`, which are required by batch endpoints, plus any dependency your code requires for running. In this case, the dependencies have been captured in a `conda.yml`:
+1. Create an environment where your batch deployment will run. Such environment needs to include the packages `azureml-core` and `azureml-dataset-runtime[fuse]`, which are required by batch endpoints, plus any dependency your code requires for running. In this case, the dependencies have been captured in a `conda.yaml`:
     
-    __deployment-torch/environment/conda.yml__
+    __deployment-torch/environment/conda.yaml__
         
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yaml":::
     
     > [!IMPORTANT]
     > The packages `azureml-core` and `azureml-dataset-runtime[fuse]` are required by batch deployments and should be included in the environment dependencies.
@@ -242,7 +242,7 @@ A model deployment is a set of resources required for hosting the model that doe
     ```python
     env = Environment(
         name="batch-torch-py38",
-        conda_file="deployment-torch/environment/conda.yml",
+        conda_file="deployment-torch/environment/conda.yaml",
         image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
     )
     ```
@@ -261,7 +261,7 @@ A model deployment is a set of resources required for hosting the model that doe
     
     1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04`.
     
-    1. On __Customize__ section copy the content of the file `deployment-torch/environment/conda.yml` included in the repository into the portal. 
+    1. On __Customize__ section copy the content of the file `deployment-torch/environment/conda.yaml` included in the repository into the portal. 
     
     1. Select __Next__ and then on __Create__.
     
@@ -713,7 +713,7 @@ In this example, you'll learn how to add a second deployment __that solves the s
     ```python
     env = Environment(
         name="batch-tensorflow-py38",
-        conda_file="deployment-keras/environment/conda.yml",
+        conda_file="deployment-keras/environment/conda.yaml",
         image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
     )
     ```
@@ -730,7 +730,7 @@ In this example, you'll learn how to add a second deployment __that solves the s
     
     1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.0`.
     
-    1. On __Customize__ section copy the content of the file `deployment-keras/environment/conda.yml` included in the repository into the portal.
+    1. On __Customize__ section copy the content of the file `deployment-keras/environment/conda.yaml` included in the repository into the portal.
     
     1. Select __Next__ and then on __Create__.
     
@@ -740,9 +740,9 @@ In this example, you'll learn how to add a second deployment __that solves the s
     
     The conda file used looks as follows:
     
-    __deployment-keras/environment/conda.yml__
+    __deployment-keras/environment/conda.yaml__
     
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/environment/conda.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/environment/conda.yaml":::
     
 1. Create a scoring script for the model:
    
