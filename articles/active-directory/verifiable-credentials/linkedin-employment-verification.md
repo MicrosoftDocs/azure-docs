@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 04/13/2023
+ms.date: 04/14/2023
 ms.author: barclayn
 ---
 
@@ -15,21 +15,17 @@ ms.author: barclayn
 
 If your organization wants its employees get verified on LinkedIn, you need to follow these few steps:
 
-1. Setup your Microsoft Entra Verified ID service by following these instructions.
-2. [Create](how-to-use-quickstart-verifiedemployee.md#create-a-verified-employee-credential) a Verified ID Employee credential.
-3. Enable the myaccount page for Verified Employee ID issuance (preview coming soon)
-4. Configure the LinkedIn company page with your organization DID (decentralized identity) and URL of the myaccount page (default) or custom website.
-5. Once the updated LinkedIn mobile app is deployed, your employees are able to get verified.
-
-The initial version of myaccount allows an administrator to switch on/off the issuance of a verified employment id. In the future, an administrator can configure which users are allowed to get verified on LinkedIn. There is an alternative for the myaccount page by deploying a custom webapp.
+1. Setup your Microsoft Entra Verified ID service by following these [instructions](verifiable-credentials-configure-tenant.md).
+1. [Create](how-to-use-quickstart-verifiedemployee.md#create-a-verified-employee-credential) a Verified ID Employee credential.
+1. Configure the LinkedIn company page  with your organization DID (decentralized identity) and URL of the custom Webapp.
+1. Once you deploy the updated LinkedIn mobile app your employees can get verified.
 
 ## Deploying custom Webapp
 
 Deploying this custom webapp from [GitHub](https://github.com/Azure-Samples/VerifiedEmployeeIssuance) allows an administrator to have control over who can get verified and change which information is shared with LinkedIn.
-There are two reasons to deploy the custom webapp for the Linked Employment verification pilot.
+There are two reasons to deploy the custom webapp for LinkedIn Employment verification.
 
-1. You do not want to wait for the myaccount preview.
-1. You need control over who can get verified on LinkedIn. The initial preview of myaccount will not allow an administrator to assign permissions. The webapp allows you to use user assignments to grant access.
+1. You need control over who can get verified on LinkedIn. The webapp allows you to use user assignments to grant access.
 1. You want more control over the issuance of the Verified Employee ID. By default, the Employee Verified ID contains a few claims:
 
    - ```firstname```
@@ -44,11 +40,10 @@ There are two reasons to deploy the custom webapp for the Linked Employment veri
 >The web app can be modified to remove claims, for example, you may choose to remove the photo claim.
 
 Installation instructions for the Webapp can be found in the [GitHub repository](https://github.com/Azure-Samples/VerifiedEmployeeIssuance/blob/main/ReadmeFiles/Deployment.md)
-Once the myaccount preview is available you can modify the LinkedIn company page information with the new URL and remove the Webapp.
 
 ## Architecture overview
 
-The LinkedIn mobile app will be updated and will have a digital wallet for employment verifiable IDs. Once the administrator configures the company page on LinkedIn, employees can get verified. Below are the high-level steps for LinkedIn integration:
+Once the administrator configures the company page on LinkedIn, employees can get verified. Below are the high-level steps for LinkedIn integration:
 
 1. User starts the LinkedIn mobile app. 
 1. The mobile app retrieves information from the LinkedIn backend and checks if the company is enabled for the pilot and it retrieves a URL to the myaccount website or the custom Webapp.
@@ -72,17 +67,9 @@ The diagram below shows the dataflow of the entire solution.
 
 Currently the solution works through the embedded webview. In the future LinkedIn will allow us to use Microsoft authenticator or any compatible custom wallet to verify employment. The myaccount page will also be updated to allow issuance of the verified employee ID to Microsoft Authenticator.
 
-### When will the myaccount page preview be released?
-
-The first preview is expected end of April, the update which allows user assignments is expected in May. Sign up through the form to get notified.
-
-### If I start with the Webapp, are my users impacted if I switch to the myaccount preview?
-
-No, your verified users are still verified. Employees who go through the verification process are redirected to the myaccount page instead of the Webapp instead, there is no difference in the verification process.
-
 ### How do users sign-in?
 
-The Webapp and the myaccount page are protected using Microsoft Entra Azure Active directory. Users sign-in according to the administrator's policy, either with passwordless, regular username and password, with or without MFA, etc. This is proof a user is allowed to get issued a verified employee ID.
+The Webapp is protected using Microsoft Entra Azure Active directory. Users sign-in according to the administrator's policy, either with passwordless, regular username and password, with or without MFA, etc. This is proof a user is allowed to get issued a verified employee ID.
 
 ### What happens when an employee leaves the organization?
 
