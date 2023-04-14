@@ -1,5 +1,5 @@
 ---
-title: Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using Azure REST API
+title: Create and manage Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using Azure REST API
 description: Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using Azure REST API
 author: gennadNY 
 ms.author: gennadyk
@@ -20,6 +20,10 @@ Prerequisites:
 - You must have an Azure subscription and be an administrator on that subscription.
 - Azure managed identity in region where Postgres Flex Server will be created. 
 - Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
+
+
+> [!NOTE]  
+> API examples below are based on 2022-12-01 API version 
 
 You can create a PostgreSQL Flexible Server encrypted with Customer Managed Key  by using the [create API](https://learn.microsoft.com/rest/api/postgresql/flexibleserver/servers/create?tabs=HTTP):
 ```rest
@@ -49,7 +53,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 Key Vault Uri can be copied from key properties **Key Identifier** field  in Azure Key Vault Portal UI, as shown in image below:
-:::image type="content" source="./media/how-to-create-server-customer-managed-key-azure-api/keyuri-portal.png" alt-text =" Key properties and URI on Azure Key Vault Portal page." :::
+:::image type="content" source="./media/how-to-create-server-customer-managed-key-azure-api/key-uri-portal.png" alt-text =" Screenshot of  key properties and URI on Azure Key Vault Portal page." :::
 You can also programmatically fetch Key Vault Uri using [Azure REST API](https://learn.microsoft.com/rest/api/keyvault/keyvault/vaults/get?tabs=HTTP)
 
 ## Next steps
