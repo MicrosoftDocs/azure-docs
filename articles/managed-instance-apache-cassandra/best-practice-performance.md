@@ -127,7 +127,7 @@ If metrics show one or all of the following characteristics, it can indicate tha
 
 - Consistently higher than or equal to the base IOPS (remember to multiply 5,000 IOPS by the number of disks per node to get the number).
 - Consistently higher than or equal to the maximum IOPS allowed for the SKU for writes.
-- Your SKU supports cached storage for the number for reads in that column.
+- Your SKU supports cached storage (write-through-cache) and this number is smaller than the IOPS from the managed disks (this will be the upper limit for your read IOPS).
 
 If you only see the IOPS elevated for a few nodes, you might have a hot partition and need to review your data for a potential skew.
 
@@ -143,7 +143,7 @@ If your IOPS max out what your SKU supports, you can:
 * [Scale up the data center(s)](create-cluster-portal.md#scale-a-datacenter) by adding more nodes.
 
 
-
+For more information refer to [Virtual Machine and disk performance](../virtual-machines/disks-performance.md).
 
 ### Network performance
 
