@@ -494,7 +494,7 @@
           href: /dotnet/api/microsoft.azure.devices
         - name: Management
           displayName: .NET, Microsoft.Azure.Management.DeviceUpdate, Microsoft.Azure.Management.DeviceUpdate.Models, Microsoft.Azure.Management.IotHub, Microsoft.Azure.Management.IotHub.Models
-          href: /dotnet/api/overview/azure/resourcemanager.iothub-readme?view=azure-dotnet
+          href: /dotnet/api/overview/azure/resourcemanager.iothub-readme
     - name: Python SDKs
       items:
         - name: Device
