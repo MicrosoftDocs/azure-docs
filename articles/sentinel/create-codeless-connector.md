@@ -123,7 +123,7 @@ Displays a group of instructions, with various options as parameters and the abi
 | **CopyableLabel** | [CopyableLabel](#copyablelabel) | Shows a text field with a copy button at the end. When the button is selected, the field's value is copied.|
 | **InfoMessage** | [InfoMessage](#infomessage) | Defines an inline information message.
 | **InstructionStepsGroup** | [InstructionStepsGroup](#instructionstepsgroup) | Displays a group of instructions, optionally expanded or collapsible, in a separate instructions section.|
-| **InstallAgent** | [InstallAgent](#installAgent) | Displays a link to other portions of Azure to accomplish various installation requirements. |
+| **InstallAgent** | [InstallAgent](#installagent) | Displays a link to other portions of Azure to accomplish various installation requirements. |
 
 #### APIKey
 
