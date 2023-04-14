@@ -56,6 +56,7 @@ Named locations defined by IPv4/IPv6 address ranges are subject to the following
 - Configure up to 2000 IP ranges per named location.
 - Both IPv4 and IPv6 ranges are supported.
 - The number of IP addresses contained in a range is limited. Only CIDR masks greater than /8 are allowed when defining an IP range. 
+- For IPv4, a global IP address, not a private IP address.
 
 #### Trusted locations
 
