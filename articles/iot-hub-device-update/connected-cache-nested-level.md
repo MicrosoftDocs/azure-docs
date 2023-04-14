@@ -2,9 +2,9 @@
 title: Deploy Microsoft Connected Cache on nested gateways
 titleSuffix:  Device Update for Azure IoT Hub
 description: Microsoft Connected Cache two level nested Azure IoT Edge Gateway with outbound unauthenticated proxy 
-author: andyriv
+author: andyrivMSFT
 ms.author: andyriv
-ms.date: 2/16/2021
+ms.date: 04/14/2023
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -16,7 +16,7 @@ The Microsoft Connected Cache module supports nested, or hierarchical gateways, 
 > [!NOTE]
 > This information relates to a preview feature that's available for early testing and use in a production environment. This feature is fully supported but it's still in active development and may receive substantial changes until it becomes generally available.
 
-The following diagram describes the scenario where one Azure IoT Edge gateway has direct access to CDN resources and is acting as the parent to another Azure IoT Edge gateway. The child IoT Edge gateway is acting as the parent to an IoT leaf device such as a Raspberry Pi. Both the IoT Edge child gateway and the IoT device are internet isolated. This example demonstrates the configuration for two levels of Azure IoT Edge gateways, but there is no limit to the depth of upstream hosts that Microsoft Connected Cache will support.
+The following diagram describes the scenario where one Azure IoT Edge gateway has direct access to CDN resources and is acting as the parent to another Azure IoT Edge gateway. The child IoT Edge gateway is acting as the parent to an IoT leaf device such as a Raspberry Pi. Both the IoT Edge child gateway and the IoT device are internet isolated. This example demonstrates the configuration for two levels of Azure IoT Edge gateways, but there's no limit to the depth of upstream hosts that Microsoft Connected Cache will support.
 
 :::image type="content" source="media/connected-cache-overview/nested-level-proxy.png" alt-text="Diagram showing Microsoft Connected Cache modules deployed to two nested IoT Edge gateways." lightbox="media/connected-cache-overview/nested-level-proxy.png":::
 
@@ -42,7 +42,7 @@ Use the following steps to configure the Microsoft Connected Cache module on the
    | CACHEABLE_CUSTOM_1_CANONICAL   | Packagerepo.com    |
    | IS_SUMMARY_ACCESS_UNRESTRICTED | true               |
 
-3. Add the container create options for the deployment. There is no difference in MCC container create options for single or nested gateways. The following example shows the container create options for the MCC module:
+3. Add the container create options for the deployment. There's no difference in MCC container create options for single or nested gateways. The following example shows the container create options for the MCC module:
 
    ```json
    {
@@ -71,7 +71,7 @@ Use the following steps to configure the Microsoft Connected Cache module on the
 Use the following steps to configure the Microsoft Connected Cache module on the child gateway device.
 
 >[!Note]
->If you have replicated containers used in your configuration in your own private registry, then there will need to be a modification to the config.toml settings and runtime settings in your module deployment. For more information, refer to [Connect downstream IoT Edge devices](../iot-edge/how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-lower-layer-devices).
+>If you have replicated containers used in your configuration in your own private registry, then there will need to be a modification to the config.toml settings and runtime settings in your module deployment. For more information, see [Connect downstream IoT Edge devices](../iot-edge/how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-lower-layer-devices).
 
 1. Modify the image path for the IoT Edge agent as demonstrated in the example below:
 
@@ -85,22 +85,22 @@ Use the following steps to configure the Microsoft Connected Cache module on the
    auth = {}
    ```
 
-2. Modify the Edge Hub and Edge agent Runtime Settings in the Azure IoT Edge deployment as demonstrated in this example:
+2. Modify the IoT Edge hub and agent runtime settings in the IoT Edge deployment as demonstrated in this example:
 
-   * Under Edge Hub, in the image field, enter `$upstream:8000/iotedge/azureiotedge-hub:1.2.0-rc2`
-   * Under Edge Agent, in the image field, enter `$upstream:8000/iotedge/azureiotedge-agent:1.2.0-rc2`
+   * For the IoT Edge hub image, enter `$upstream:8000/iotedge/azureiotedge-hub:1.2.0-rc2`
+   * For the IoT Edge agent image, enter `$upstream:8000/iotedge/azureiotedge-agent:1.2.0-rc2`
 
 3. Add the Microsoft Connected Cache module to your Azure IoT Edge gateway device deployment in Azure IoT Hub.
 
    * Choose a name for your module: `ConnectedCache`
-   * Modify the Image URI: `$upstream:8000/mcc/linux/iot/mcc-ubuntu-iot-amd64:latest`
+   * Modify the image URI: `$upstream:8000/mcc/linux/iot/mcc-ubuntu-iot-amd64:latest`
 
 4. Add the same set of environment variables and container create options used in the parent deployment.
 
    >[!Note]
    >The CACHE_NODE_ID should be unique.  The CUSTOMER_ID and CUSTOMER_KEY values will be identical to the parent. For more information, see [Module environment variables](connected-cache-disconnected-device-update.md#module-environment-variables).
 
-For a validation of properly functioning Microsoft Connected Cache, execute the following command in the terminal of the IoT Edge device hosting the module or any device on the network. Replace \<Azure IoT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. (see environment variable details for information on visibility of this report).
+For a validation of properly functioning Microsoft Connected Cache, execute the following command in the terminal of the IoT Edge device hosting the module or any device on the network. Replace \<Azure IoT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. For information on the visibility of this report, see [Microsoft Connected Cache summary report](./connected-cache-disconnected-device-update.md#microsoft-connected-cache-summary-report).
 
 ```bash
 wget http://<CHILD Azure IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com

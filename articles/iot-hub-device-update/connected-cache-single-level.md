@@ -2,9 +2,9 @@
 title: Deploy Microsoft Connected Cache on a gateway
 titleSuffix:  Device Update for Azure IoT Hub
 description: Update disconnected devices with Device Update using the Microsoft Connected Cache module on IoT Edge gateways
-author: andyriv
+author: andyrivMSFT
 ms.author: andyriv
-ms.date: 2/16/2021
+ms.date: 04/14/2023
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -20,7 +20,7 @@ If you have multiple IoT Edge gateways chained together, refer to the instructio
 
 ## Deploy to a gateway with no proxy
 
-The following diagram describes the scenario where an Azure IoT Edge gateway has direct access to CDN resources, and has the Microsoft Connected Cache module deployed on it. Behind the gateway, there is an IoT leaf device such as a Raspberry PI that is an internet isolated child device of the IoT Edge gateway.
+The following diagram describes the scenario where an Azure IoT Edge gateway has direct access to CDN resources, and has the Microsoft Connected Cache module deployed on it. Behind the gateway, there's an IoT leaf device such as a Raspberry PI that is an internet isolated child device of the IoT Edge gateway.
 
 :::image type="content" source="media/connected-cache-overview/disconnected-device-update.png" alt-text="Diagram that shows the Microsoft Connected Cache module on a gateway." lightbox="media/connected-cache-overview/disconnected-device-update.png":::
 
@@ -66,7 +66,7 @@ For a validation of properly functioning Microsoft Connected Cache, execute the 
 
 ## Deploy to a gateway with outbound unauthenticated proxy
 
-In this scenario there is an Azure IoT Edge Gateway that has access to CDN resources through an outbound unauthenticated proxy. Microsoft Connected Cache is being configured to cache content from a custom repository and the summary report has been made visible to anyone on the network. This section provides an example of the MCC environment variables to support an outbound unauthenticated proxy.
+In this scenario there's an Azure IoT Edge Gateway that has access to CDN resources through an outbound unauthenticated proxy. Microsoft Connected Cache is being configured to cache content from a custom repository and the summary report has been made visible to anyone on the network. This section provides an example of the MCC environment variables to support an outbound unauthenticated proxy.
 
 :::image type="content" source="media/connected-cache-overview/single-level-proxy.png" alt-text="Diagram that shows the Microsoft Connected Cache module on a gateway behind a proxy." lightbox="media/connected-cache-overview/single-level-proxy.png":::
 
@@ -108,7 +108,7 @@ In this scenario there is an Azure IoT Edge Gateway that has access to CDN resou
    }
    ```
 
-For a validation of properly functioning Microsoft Connected Cache, execute the following command in the terminal of the Azure IoT Edge device hosting the module or any device on the network. Replace \<Azure IoT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. (see environment variable details for information on visibility of this report).
+For a validation of properly functioning Microsoft Connected Cache, execute the following command in the terminal of the Azure IoT Edge device hosting the module or any device on the network. Replace \<Azure IoT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. For information on the visibility of this report, see [Microsoft Connected Cache summary report](./connected-cache-disconnected-device-update.md#microsoft-connected-cache-summary-report).
 
 ```bash
 wget http://<Azure IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com 
