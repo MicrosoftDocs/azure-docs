@@ -742,7 +742,7 @@ To create a compute instance, you'll need permissions for the following actions:
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
 
-### Audit and observe compute instance version
+## Audit and observe compute instance version
 
 Once a compute instance is deployed, it does not get automatically updated. Microsoft [releases](azure-machine-learning-ci-image-release-notes.md) new VM images on a monthly basis. To understand options for keeping recent with the latest version, see [vulnerability management](concept-vulnerability-management.md#compute-instance). 
 
@@ -776,6 +776,7 @@ For more information on the classes, methods, and parameters used in this exampl
 ```azurecli
 az ml compute show --name "myci"
 ```
+---
 
 IT administrators can use [Azure Policy](./../governance/policy/overview.md) to monitor the inventory instances across workspaces in Azure compliance center. Assign the built-in policy [Audit Azure Machine Learning Compute Instances with an outdated operating system](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff110a506-2dcb-422e-bcea-d533fc8c35e2) on an Azure subscription or Azure management group scope.
 
