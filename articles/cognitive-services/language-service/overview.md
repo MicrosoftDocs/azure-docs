@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 12/09/2022
+ms.date: 04/14/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -182,6 +182,17 @@ The Language service also provides several new features as well, which can eithe
    :::column-end:::
 :::row-end:::
 
+### Custom text analytics for health
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="text-analytics-for-health/media/call-api/health-named-entity-recognition.png" alt-text="A screenshot of a custom text analytics for health example." lightbox="text-analytics-for-health/media/call-api/health-named-entity-recognition.png":::
+   :::column-end:::
+   :::column span="":::
+      [Custom text analytics for health](./custom-text-analytics-for-health/overview.md) is a custom feature that extract healthcare specific entities from unstructured text, using a model you create.  
+   :::column-end:::
+:::row-end:::
+
 ## Which Language service feature should I use?
 
 This section will help you decide which Language service feature you should use for your application:
@@ -196,7 +207,8 @@ This section will help you decide which Language service feature you should use 
 | Summarize long chunks of text or conversations. | Unstructured text, <br> transcribed conversations. | [Summarization](./summarization/overview.md) | | 
 | Disambiguate entities and get links to Wikipedia. | Unstructured text | [Entity linking](./entity-linking/overview.md) | | 
 | Classify documents into one or more categories. | Unstructured text | [Custom text classification](./custom-text-classification/overview.md) | ✓|
-| Extract medical information from clinical/medical documents. | Unstructured text | [Text analytics for health](./text-analytics-for-health/overview.md) | |
+| Extract medical information from clinical/medical documents, without building a model. | Unstructured text | [Text analytics for health](./text-analytics-for-health/overview.md) | |
+| Extract medical information from clinical/medical documents using a model that's trained on your data. | Unstructured text | [Custom text analytics for health](./custom-text-analytics-for-health/overview.md) | |
 | Build an conversational application that responds to user inputs. | Unstructured user inputs | [Question answering](./question-answering/overview.md) | ✓ |
 | Detect the language that a text was written in. | Unstructured text | [Language detection](./language-detection/overview.md) | | 
 | Predict the intention of user inputs and extract information from them. | Unstructured user inputs | [Conversational language understanding](./conversational-language-understanding/overview.md) | ✓ |
