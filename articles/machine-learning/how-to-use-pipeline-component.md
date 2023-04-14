@@ -43,7 +43,7 @@ Here are some main differences you need aware when defining pipeline component:
 
 ### CLI v2
 
-The example used in this article can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to *[azureml-examples/cli/jobs/pipelines-with-components/pipeline_with_pipeline_component* to check the example.
+The example used in this article can be found in [azureml-example repo](https://github.com/Azure/azureml-examples). Navigate to *azureml-examples/cli/jobs/pipelines-with-components/pipeline_with_pipeline_component* to check the example.
 
 You can use multi-components to build a pipeline component. Similar to how you built pipeline job with component. This is two step pipeline component.
 
