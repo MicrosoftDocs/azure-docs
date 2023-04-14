@@ -220,7 +220,7 @@ The following table lists the **operationName** values and corresponding REST AP
  |Microsoft.AgFoodPlatform/deletionJobs/seasonalFieldsCascadeDeletionJobs/processed  
   
 ### ApplicationAuditLogs
-The operation names corresponding to write operations in other categories are present in this category. These common logs don't contain the request body. These common logs can be correlated using the correlationId field. Some of the control plane operations that aren't part of the rest of the categories are listed below.
+The write and delete logs present in other categories are also present in this category. The difference between the logs in this category and other categories for the same API call is that, ApplicationAuditLogs doesn't log the request-body, while in other categories the request-body is populated. Use the correlation-id to relate logs of two different categories to get more details. Some of the control plane operations that aren't part of the rest of the categories are listed below.
 
 |operationName|
 | --- |

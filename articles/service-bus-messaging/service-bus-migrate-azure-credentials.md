@@ -20,11 +20,25 @@ Application requests to Azure Service Bus must be authenticated using either acc
 
 The following code example demonstrates how to connect to Azure Service Bus using a connection string that includes an access key. When you create a Service Bus, Azure generates these keys and connection strings automatically. Many developers gravitate towards this solution because it feels familiar to options they've worked with in the past. If your application currently uses connection strings, consider migrating to passwordless connections using the steps described in this document.
 
+# [C#](#tab/csharp)
+
 ```csharp
 var serviceBusClient = new ServiceBusClient(
     "<NAMESPACE-CONNECTION-STRING>",
     clientOptions);
 ```
+
+# [Java - JMS](#tab/java-jms)
+
+```java
+ServiceBusJmsConnectionFactorySettings connFactorySettings = new ServiceBusJmsConnectionFactorySettings();
+connFactorySettings.setConnectionIdleTimeoutMS(20000);
+
+ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
+    "<NAMESPACE-CONNECTION-STRING>", 
+    new ServiceBusJmsConnectionFactorySettings());
+```
+---
 
 Connection strings should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
 
@@ -47,6 +61,8 @@ For local development, make sure you're authenticated with the same Azure AD acc
 [!INCLUDE [default-azure-credential-sign-in](../../includes/passwordless/default-azure-credential-sign-in.md)]
 
 Next you'll need to update your code to use passwordless connections.
+
+# [C#](#tab/csharp)
 
 1. To use `DefaultAzureCredential` in a .NET application, add the **Azure.Identity** NuGet package to your application.
 
@@ -76,6 +92,42 @@ Next you'll need to update your code to use passwordless connections.
    ```
 
 1. Make sure to update the Service Bus namespace in the URI of your `ServiceBusClient`. You can find the namespace on the overview page of the Azure portal.
+
+# [Java - JMS](#tab/java-jms)
+
+1. To use `DefaultAzureCredential` in a JMS application, add at least version **1.0.0** of the **azure-servicebus-jms** package to your application.
+
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-servicebus-jms</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    ```
+
+2. At the top of your file, add the following `import` statements:
+
+    ```java
+    import com.azure.core.credential.TokenCredential;
+    import com.azure.identity.DefaultAzureCredentialBuilder;
+    ```
+
+3. Identify the locations in your code that currently create a `ServiceBusJmsConnectionFactory` to connect to Azure Service Bus. Update your code to match the following example:
+
+   ```java    
+    TokenCredential tokenCredential = new DefaultAzureCredentialBuilder()
+            .build();
+
+    ServiceBusJmsConnectionFactorySettings connFactorySettings = new ServiceBusJmsConnectionFactorySettings();
+    connFactorySettings.setConnectionIdleTimeoutMS(20000);
+
+    //TODO: Replace the "<SERVICE-BUS-NAMESPACE-NAME>" placeholder.
+    ConnectionFactory factory = new ServiceBusJmsConnectionFactory(tokenCredential, "<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net", connFactorySettings);
+   ```
+
+4. Make sure to update the Service Bus namespace in the URI of your `ServiceBusJmsConnectionFactory`. You can find the namespace on the overview page of the Azure portal.
+
+---
 
 #### Run the app locally
 
