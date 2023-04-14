@@ -83,7 +83,7 @@ After submitted pipeline job, you can go to pipeline job detail page to change p
 
 ## Sample notebooks
 
-- [Build pipeline with sweep node](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb)
+- [nyc_taxi_data_regression_with_pipeline_component](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1j_pipeline_with_pipeline_component/nyc_taxi_data_regression_with_pipeline_component/nyc_taxi_data_regression_with_pipeline_component.ipynb)
 - [pipeline_with_train_eval_pipeline_component](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1j_pipeline_with_pipeline_component/pipeline_with_train_eval_pipeline_component/pipeline_with_train_eval_pipeline_component.ipynb)
 
 ## Next steps
