@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 04/15/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -775,11 +775,11 @@ message: A conflicting object with one or more of the specified property values 
 
 **Cause**
 
-You are trying to create a configuration or object that already exists, possibly from a previous configuration.
+You are likely trying to create a configuration or object that already exists, possibly from a previous configuration.
 
 **Solution**
 
-1. Verify that you are using the correct tenant ID.
+1. Verify your request syntax and that you are using the correct tenant ID.
 
 1. Make a `GET` call to list the existing object.
 
@@ -787,6 +787,29 @@ You are trying to create a configuration or object that already exists, possibly
 
     - [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true)
     - [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true)
+
+#### Symptom - Directory_ObjectNotFound error
+
+When you try to make a Graph API call, you receive an error message similar to the following:
+
+```
+code: Directory_ObjectNotFound
+message: Unable to read the company information from the directory.
+```
+
+**Cause**
+
+You are likely trying to update an object that doesn't exist using `PATCH`.
+
+**Solution**
+
+1. Verify your request syntax and that you are using the correct tenant ID.
+
+1. Make a `GET` call to verify the object doesn't exist.
+
+1. If object doesn't exist, instead of making an update call using `PATCH`, you might need to make a create call using `POST` or `PUT`, such as:
+
+    - [Create identitySynchronization](/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-beta&preserve-view=true)
 
 ## Next steps
 
