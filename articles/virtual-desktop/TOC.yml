@@ -34,8 +34,6 @@
         href: whats-new-client-android-chrome-os.md
       - name: Microsoft Store client
         href: whats-new-client-microsoft-store.md
-  - name: Azure Virtual Desktop (classic) documentation
-    href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
   expanded: true
   items:
@@ -161,6 +159,7 @@
         href: rdp-properties.md
       - name: Uniform Resource Identifier schemes
         href: uri-scheme.md
+        displayName: URI schemes
     - name: Multimedia redirection
       href: multimedia-redirection-intro.md
     - name: Printing using Universal Print
@@ -380,7 +379,7 @@
       - name: Set up diagnostics to monitor agent updates
         href: agent-updates-diagnostics.md
       - name: Use Azure Virtual Desktop Insights
-        href: azure-monitor.md
+        href: insights.md
       - name: Use diagnostics with Log Analytics
         href: diagnostics-log-analytics.md
       - name: Configure service alerts
@@ -477,3 +476,5 @@
     href: /azure/developer/terraform/configure-azure-virtual-desktop
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
+  - name: Azure Virtual Desktop (classic) documentation
+    href: ./virtual-desktop-fall-2019/index.yml
