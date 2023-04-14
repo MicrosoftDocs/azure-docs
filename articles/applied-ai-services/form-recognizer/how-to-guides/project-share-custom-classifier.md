@@ -1,5 +1,5 @@
 ---
-title: "Share custom model projects"
+title: "Share custom model projects using Form Recognizer Studio"
 titleSuffix: Azure Applied AI Services
 description: Learn how to share custom model projects using Form Recognizer Studio.
 author: laujan
@@ -13,25 +13,47 @@ monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# Project sharing capability
+# Share custom model projects using Form Recognizer Studio
 
-Form Recognizer studio now enables project sharing feature within the custom extraction model. Projects can be shared easily via a project token and this same token can be used to import the project. 
+Form Recognizer Studio is an online tool to visually explore, understand, train, and integrate features from the Form Recognizer service into your applications. Form Recognizer Studio enables project sharing feature within the custom extraction model. Projects can be shared easily via a project token. The same project token can also be used to import a project.
 
-## Prerequisite before sharing custom extraction project
+## Prerequisite
 
-In order to share and import projects seamlessly, both sides of the users (user who shares and user who imports) need to check if they have granted or have access to certain permission.
+In order to share and import your custom extraction projects seamlessly, both users (user who shares and user who imports) need to check if they have been granted or have access to certain permission.
 
  > [!IMPORTANT]
- > Custom model projects can be imported only if you have the access to the storage account that is associated with the project you are trying to import. Check your storage account permission first before sharing your project or importing project from someone else.
+ > Custom model projects can be imported only if you have the access to the storage account that is associated with the project you are trying to import. Check your storage account permission before starting to share or import projects with others.
 
-Note that by defining a custom role in [Azure RBAC](https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles), you would be able to define custom roles for managing access to your storage account. In addition to Form Recognizer specific privileges, the project also requires additional storage privileges as well. For the Studio to communicate with the storage account, CORS rules need to be configured on the storage account, that requires [specific privileges](https://learn.microsoft.com/en-us/rest/api/storageservices/set-blob-service-properties?tabs=azure-ad).
+### Managed identity
 
-If the storage account's VNet is enabled or if there are any Firewall constraints, the project cannot be shared. Please ensure that these settings are turned off. One workaround is to manually create a project using the same setting of the project being shared.
+Enable a system-assigned managed identity for your Form Recognizer resource. A system-assigned managed identity is enabled directly on a service instance. It isn't enabled by default; you must go to your resource and update the identity setting.
 
-### User sharing the project
-User who wants to share the project first needs to create a project ListAccountSAS to configure storage account's CORS as well as ListServiceSAS to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
+For more information, *see*, [Enable a system-assigned managed identity](../managed-identities.md#enable-a-system-assigned-managed-identity)
 
-### User importing the project
+### Role-based access control (RBAC)
+
+Grant your Form Recognizer managed identity access to your storage account using Azure role-based access control (Azure RBAC). The [Storage Blob Data Reader](../../..//role-based-access-control/built-in-roles.md#storage-blob-data-reader) role grants read, write, and delete permissions to Azure Storage containers and blobs.
+
+For more information, *see*, [Grant access to your storage account](../managed-identities.md#grant-access-to-your-storage-account)
+
+### Configure cross origin resource sharing (CORS)
+
+CORS needs to be configured in your Azure storage account for it to be accessible to the Form Recognizer Studio. You can update the CORS setting in the Azure portal.
+
+Form more information, *see* [Configure CORS](../quickstarts/try-form-recognizer-studio.md#configure-cors)
+
+### Virtual networks and firewalls
+
+If your storage account VNet is enabled or if there are any firewall constraints, the project cannot be shared. If you want to bypass those restrictions, ensure that those settings are turned off.
+
+A workaround is to manually create a project using the same settings as the project being shared.
+
+## User sharing requirements
+
+The user sharing the project needs to create a project **`ListAccountSAS`** to configure the storage account CORS and a `ListServiceSAS` to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
+
+### User importing requirements
+
 User who wants to import the project will need ListServiceSAS to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
 
 ## Share a custom extraction model with Form Recognizer studio
@@ -42,15 +64,15 @@ Follow the steps below to share your project using Form Recognizer studio.
 
 1. In the Studio, select the **Custom extraction models** tile, under the custom models section.
 
-:::image type="content" source="../media/how-to/studio-custom-extraction.png" alt-text="Screenshot: Select custom extraction model in the Studio.":::
+:::image type="content" source="../media/how-to/studio-custom-extraction.png" alt-text="Screenshot showing how to select a custom extraction model in the Studio.":::
 
 1. On the custom extraction models page, select the desired model to share and then select the **Share** button.
 
-:::image type="content" source="../media/how-to/studio-project-share.png" alt-text="Screenshot: Select the desired model and select share.":::
+:::image type="content" source="../media/how-to/studio-project-share.png" alt-text="Screenshot showing how to select the desired model and select the share option.":::
 
 1. On the share project dialog, copy the project token for the selected project.
 
-:::image type="content" source="../media/how-to/studio-project-token.png" alt-text="Screenshot: Copy the project token.":::
+:::image type="content" source="../media/how-to/studio-project-token.png" alt-text="Screenshot showing how to copy the project token.":::
 
 
 ## Import custom extraction model with Form Recognizer studio
