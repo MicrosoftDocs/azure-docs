@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 01/25/2023
+ms.date: 04/14/2023
 ms.author: aahi
 ms.custom: language-service-custom-TA4H, ignite-fall-2021, mode-other, event-tier1-build-2022
 zone_pivot_groups: usage-custom-language-features

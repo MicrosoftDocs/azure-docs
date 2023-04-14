@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 04/06/2022
+ms.date: 04/14/2023
 ms.author: aahi
 ---
 To start creating a custom Text Analytics for health model, you need to create a project. Creating a project will let you label data, train, evaluate, improve, and deploy your models.

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 04/14/2023
 ms.author: aahi
 ms.devlang: REST API
 ms.custom: language-service-custom-ta4h
