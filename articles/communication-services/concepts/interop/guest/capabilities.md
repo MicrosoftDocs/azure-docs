@@ -71,7 +71,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Remove a participant                                                                                                | ✔️        |
 |                   | Manage breakout rooms                                                                                               | ❌ |
 |                   | Participation in breakout rooms                                                                                     | ❌ |
-|                   | Admit participants in the lobby into the Teams meeting                                                               | ❌        |
+|                   | Admit participants in the lobby into the Teams meeting                                                               | ✔️        |
 |                   | Be admitted from the lobby into the Teams meeting                                                                   | ✔️        |
 |                   | Promote participant to a presenter or attendee                                                                        | ❌        |
 |                   | Be promoted to presenter or attendee                                                                                | ✔️        |
@@ -97,8 +97,8 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | See Large gallery view                                                                                              | ❌ |
 |                   | Receive video stream from Teams media bot                                                                           | ❌ |
 |                   | Receive adjusted stream for "content from Camera"                                                                   | ❌ |
-|                   | Add and remove video stream from spotlight                                                                          | ❌ |
-|                   | Allow video stream to be selected for spotlight                                                                     | ❌ |
+|                   | Add and remove video stream from spotlight                                                                          | ✔️ |
+|                   | Allow video stream to be selected for spotlight                                                                     | ✔️ |
 |                   | Apply Teams background effects                                                                                      | ❌ |
 | Recording & transcription | Manage Teams convenient recording                                                                           | ❌ |
 |                   | Receive information of call being recorded                                                                          |   ✔️      |
@@ -107,8 +107,8 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Manage Teams closed captions                                                                                        | ❌ |
 |                   | Support for compliance recording                                                                                    |   ✔️      |
 |                   | [Azure Communication Services recording](../../voice-video-calling/call-recording.md)                               |   ❌      |
-| Engagement        | Raise and lower hand                                                                                                | ❌ |
-|                   | Indicate other participants' raised and lowered hands | ❌ |
+| Engagement        | Raise and lower hand                                                                                                | ✔️ |
+|                   | Indicate other participants' raised and lowered hands                                                               | ✔️ |
 |                   | Trigger reactions                                                                                                   | ❌ |
 |                   | Indicate other participants' reactions                                                                              | ❌ |
 | Integrations      | Control Teams third-party applications                                                                              | ❌ |
