@@ -55,7 +55,9 @@ items:
             - name: Headless app
               href: https://learn.microsoft.com/azure/active-directory/develop/console-app-quickstart
             - name: Desktop app
-              href: https://learn.microsoft.com/azure/active-directory/develop/desktop-app-quickstart
+              items:
+                - name: Electron
+                  href: how-to-desktop-app-electron-sample-sign-in.md
             - name: Mobile app
               href: https://learn.microsoft.com/azure/active-directory/develop/mobile-app-quickstart
         - name: Build and integrate apps
