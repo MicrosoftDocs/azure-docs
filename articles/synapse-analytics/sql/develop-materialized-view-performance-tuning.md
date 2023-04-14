@@ -368,4 +368,4 @@ With materialized views, the same query runs much faster without any code change
 For more development tips, see [Synapse SQL development overview](develop-overview.md).
 
 - [Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md). 
-- [View estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan.md)
+- [View estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan)
