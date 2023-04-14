@@ -281,7 +281,7 @@ To understand how long the provisioning cycles take and monitor the progress of 
 
 ### Gain insights from reports
 
-Azure AD can provide [additional insights](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) into your organization’s user provisioning usage and operational health through audit logs and reports.
+Azure AD can provide more insights into your organization’s user provisioning usage and operational health through audit logs and reports. To learn more about user insights, see [Check the status of user provisioning](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 Admins should check the  provisioning summary report to monitor the operational health of the provisioning job. All activities performed by the provisioning service are recorded in the Azure AD audit logs. See [Tutorial: Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
