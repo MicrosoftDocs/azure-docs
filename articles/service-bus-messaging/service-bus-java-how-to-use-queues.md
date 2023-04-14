@@ -4,7 +4,7 @@ description: This tutorial shows you how to send messages to and receive message
 ms.date: 04/12/2023
 ms.topic: quickstart
 ms.devlang: java
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
+ms.custom: passwordless-java
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (Java)
@@ -130,15 +130,13 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     ### [Passwordless (Recommended)](#tab/passwordless)
 
     > [!IMPORTANT]
-    > - Replace `NAMESPACENAME` with the name of your Service Bus namespace.
-    > - This sample uses `AZURE_PUBLIC_CLOUD` as the authority host. For supported authority hosts, see [`AzureAuthorityHosts`](/dotnet/api/azure.identity.azureauthorityhosts)
+    > Replace `NAMESPACENAME` with the name of your Service Bus namespace.
 
     ```java
 	static void sendMessage()
 	{
         // create a token using the default Azure credential        
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-                .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                 .build();
         
 	    ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
@@ -192,8 +190,7 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     ### [Passwordless (Recommended)](#tab/passwordless)
 
     > [!IMPORTANT]
-    > - Replace `NAMESPACENAME` with the name of your Service Bus namespace.
-    > - This sample uses `AZURE_PUBLIC_CLOUD` as the authority host. For supported authority hosts, see [`AzureAuthorityHosts`](/dotnet/api/azure.identity.azureauthorityhosts)
+    > Replace `NAMESPACENAME` with the name of your Service Bus namespace.
 
 
     ```java
@@ -201,7 +198,6 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
 	{
         // create a token using the default Azure credential        
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-                .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                 .build();
         
 	    ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
@@ -309,8 +305,6 @@ In this section, you add code to retrieve messages from the queue.
     > [!IMPORTANT]
     > - Replace `NAMESPACENAME` with the name of your Service Bus namespace.
     > - Replace `QueueTest` in `QueueTest::processMessage` in the code with the name of your class.
-    > - This sample uses `AZURE_PUBLIC_CLOUD` as the authority host. For supported authority hosts, see [`AzureAuthorityHosts`](/dotnet/api/azure.identity.azureauthorityhosts)
-
 
     ```java
 	// handles received messages
@@ -319,7 +313,6 @@ In this section, you add code to retrieve messages from the queue.
 	    CountDownLatch countdownLatch = new CountDownLatch(1);
 
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-                .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
                 .build();
         
 	    ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
