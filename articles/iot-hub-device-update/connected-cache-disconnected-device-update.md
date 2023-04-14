@@ -25,7 +25,7 @@ Microsoft Connected Cache is an intelligent, transparent cache for content publi
 >[!Note]
 >This flow assumes that the IoT Edge gateway has internet connectivity. For the downstream IoT Edge gateway (nested edge) scenario, the content delivery network (CDN) can be considered the MCC hosted on the parent IoT Edge gateway.
 
-:::image type="content" source="media/connected-cache-overview/disconnected-device-update.png" alt-text="Diagram that demonstrates how the Microsoft Connected Cache module enables disconnected device update." lightbox="media/connected-cache-overview/disconnected-device-update.png":::
+:::image type="content" source="media/connected-cache-overview/disconnected-device-update.png" alt-text="Diagram that demonstrates how the Microsoft Connected Cache module enables disconnected device update.":::
 
 1. Microsoft Connected Cache is deployed as an IoT Edge module to the on-premises gateway server.
 2. Device Update for IoT Hub clients are configured to download content from Microsoft Connected Cache by using either the GatewayHostName attribute of the device connection string for IoT leaf devices **or** the parent_hostname set in the config.toml for IoT Edge child devices.

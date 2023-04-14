@@ -18,7 +18,7 @@ The Microsoft Connected Cache module supports nested, or hierarchical gateways, 
 
 The following diagram describes the scenario where one Azure IoT Edge gateway has direct access to CDN resources and is acting as the parent to another Azure IoT Edge gateway. The child IoT Edge gateway is acting as the parent to an IoT leaf device such as a Raspberry Pi. Both the IoT Edge child gateway and the IoT device are internet isolated. This example demonstrates the configuration for two levels of Azure IoT Edge gateways, but there's no limit to the depth of upstream hosts that Microsoft Connected Cache will support.
 
-:::image type="content" source="media/connected-cache-overview/nested-level-proxy.png" alt-text="Diagram showing Microsoft Connected Cache modules deployed to two nested IoT Edge gateways." lightbox="media/connected-cache-overview/nested-level-proxy.png":::
+:::image type="content" source="media/connected-cache-overview/nested-level-proxy.png" alt-text="Diagram showing Microsoft Connected Cache modules deployed to two nested IoT Edge gateways.":::
 
 Refer to the documentation [Connect downstream IoT Edge devices](../iot-edge/how-to-connect-downstream-iot-edge-device.md) for more details on configuring layered deployments of Azure IoT Edge gateways. Additionally note that when deploying Azure IoT Edge, Microsoft Connected Cache, and custom modules, all modules must reside in the same container registry.
 
@@ -128,7 +128,7 @@ The key to configuring Microsoft Connected Cache deployments within an ISA 95 co
 
 3. The OT proxy must add the L4 MCC FQDN/IP address to the allowlist.
 
-To validate that Microsoft Connected Cache is functioning properly, execute the following command in the terminal of the IoT Edge device hosting the module, or any device on the network. Replace \<Azure IoT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. (see environment variable details for information on visibility of this report).
+To validate that Microsoft Connected Cache is functioning properly, execute the following command in the terminal of the IoT Edge device hosting the module, or any device on the network. Replace \<Azure IoT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. For information on the visibility of this report, see [Microsoft Connected Cache summary report](./connected-cache-disconnected-device-update.md#microsoft-connected-cache-summary-report).
 
 ```bash
 wget http://<L3 IoT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
