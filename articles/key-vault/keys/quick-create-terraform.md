@@ -9,7 +9,6 @@ ms.service: key-vault
 ms.subservice: keys
 ms.author: tarcher
 ms.date: 4/13/2023
-# Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
 
 # Quickstart: Create an Azure key vault and key using Terraform
@@ -24,8 +23,8 @@ In this article, you learn how to:
 > * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a random value using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
-> * Create an Azure Key Vault using [azurerm_key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault)
-> * Create an Azure Key Vault key using [azurerm_key_vault_key](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_key)
+> * Create an Azure key vault using [azurerm_key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault)
+> * Create an Azure key vault key using [azurerm_key_vault_key](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_key)
 
 [!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
 
@@ -94,7 +93,7 @@ In this article, you learn how to:
     $azurerm_key_vault_name=$(terraform output -raw azurerm_key_vault_name)
     ```
 
-1. Run [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) to display information about the new Key Vault.
+1. Run [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) to display information about the new key vault.
 
     ```azurepowershell
     Get-AzKeyVaultKey -VaultName $azurerm_key_vault_name
