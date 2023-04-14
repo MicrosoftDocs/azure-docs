@@ -6,7 +6,7 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 04/04/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ---
 
@@ -23,7 +23,7 @@ The MedTech service is available in these Azure regions: [Products available by 
 
 ### Can I use the MedTech service with a different FHIR service other than the Azure Health Data Services FHIR service?
 
-No. The MedTech service currently only supports the Azure Health Data Services FHIR service for the persistence of transformed device message data. The open-source version of the MedTech service supports the use of different FHIR services. 
+No. The MedTech service currently only supports the Azure Health Data Services FHIR service for the persistence of transformed device data. The open-source version of the MedTech service supports the use of different FHIR services. 
 
 To learn more about the MedTech service open-source projects, see [Open-source projects](git-projects.md). 
 
@@ -33,15 +33,15 @@ The MedTech service supports the [HL7 FHIR&#174; R4](https://www.hl7.org/impleme
 
 ### Why do I have to provide device and FHIR destination mappings to the MedTech service?
 
-The MedTech service requires device and FHIR destination mappings to perform normalization and transformation processes on device message data. To learn how the MedTech service transforms device message data into [FHIR Observations](https://www.hl7.org/fhir/observation.html), see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md). 
+The MedTech service requires device and FHIR destination mappings to perform normalization and transformation processes on device message data. To learn how the MedTech service transforms device data into [FHIR Observations](https://www.hl7.org/fhir/observation.html), see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md). 
 
 ### Is JsonPathContent still supported by the MedTech service device mapping?
 
 Yes. JsonPathContent can be used as a template type within [CollectionContent](overview-of-device-mapping.md#collectioncontent). It's recommended that [CalculatedContent](how-to-use-calculatedcontent-mappings.md) is used as it supports all of the features of JsonPathContent with extra support for more advanced features.
 
-### How long does it take for device message data to show up in the FHIR service?
+### How long does it take for device data to show up in the FHIR service?
 
-The MedTech service buffers [FHIR Observations](https://www.hl7.org/fhir/observation.html) created during the transformation stage and provides near real-time processing. However, this buffer can potentially delay the persistence of FHIR Observations to the FHIR service up to ~five minutes. To learn how the MedTech service transforms device message data into FHIR Observations, see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md).
+The MedTech service buffers [FHIR Observations](https://www.hl7.org/fhir/observation.html) created during the transformation stage and provides near real-time processing. However, this buffer can potentially delay the persistence of FHIR Observations to the FHIR service up to ~five minutes. To learn how the MedTech service transforms device data into FHIR Observations, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
 
 ### Why are the device messages added to the event hub not showing up as FHIR Observations in the FHIR service?
 

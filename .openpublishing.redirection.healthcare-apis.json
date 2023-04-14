@@ -586,15 +586,19 @@
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/iot-data-flow.md",
-          "redirect_url": "/azure/healthcare-apis/iot/understand-service",
+          "redirect_url": "/azure/healthcare-apis/iot/overview-of-device-data-processing-stages",
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/data-flow.md",
-          "redirect_url": "/azure/healthcare-apis/iot/overview-of-device-message-processing-stages",
+          "redirect_url": "/azure/healthcare-apis/iot/overview-of-device-data-processing-stages",
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/understand-service.md",
-          "redirect_url": "/azure/healthcare-apis/iot/overview-of-device-message-processing-stages",
+          "redirect_url": "/azure/healthcare-apis/iot/overview-of-device-data-processing-stages",
+          "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/overview-of-device-message-processing-stages.md",
+          "redirect_url": "/azure/healthcare-apis/iot/overview-of-device-data-processing-stages",
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-device-mappings.md",

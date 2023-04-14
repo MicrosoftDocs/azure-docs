@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/13/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ---
 
@@ -94,7 +94,7 @@ In this article, you learned about the MedTech service and its capabilities.
 To learn about how the MedTech service processes device data, see
 
 > [!div class="nextstepaction"]
-> [Overview of the MedTech service device data processing stages](overview-of-device-message-processing-stages.md)
+> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
 To learn about the different deployment methods for the MedTech service, see
 
