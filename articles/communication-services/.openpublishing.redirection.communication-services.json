@@ -185,12 +185,12 @@
         "redirect_document_id": true
       },
       {
-        "source_path_from_root": "articles/communication-services/concepts/analytics/call-logs-azure-monitor.md",
+        "source_path_from_root": "/articles/communication-services/concepts/analytics/call-logs-azure-monitor.md",
         "redirect_url": "/articles/communication-services/concepts/analytics/logs/voice-and-video-logs",
         "redirect_document_id": true
       },
       {
-        "source_path_from_root": "articles/communication-services/concepts/analytics/log-analytics.md",
+        "source_path_from_root": "/articles/communication-services/concepts/analytics/log-analytics.md",
         "redirect_url": "/articles/communication-services/concepts/analytics/query-call-logs",
         "redirect_document_id": true
       }

@@ -55,7 +55,7 @@ The Call Summary Log contains data to help you identify key properties of all Ca
 > [!IMPORTANT]
 > Participant information in the call summary log will vary based on the participant tenant. The SDK and OS version will be redacted if the participant is not within the same tenant (also referred to as cross-tenant) as the ACS resource. Cross-tenants’ participants are classified as external users invited by a resource tenant to join and collaborate during a call.
 
-|     Property                  |                         |
+|     Property                  |       Description                  |
 |-------------------------------|-------------------------|
 |     `time`                      |     The timestamp (UTC) of when the log was generated.     |
 |     `operationName`             |     The operation associated with log record.                |
@@ -109,12 +109,12 @@ There are two types of Calls (represented by `callType`): P2P and Group.
 
 **P2P** calls are a connection between only two Endpoints, with no server Endpoint. P2P calls are initiated as a Call between those Endpoints and are not created as a group Call event prior to the connection.
 
-  :::image type="content" source="media\logs/voice-and-video-logsgs\p2p-diagram.png" alt-text="Screenshot displays P2P call across 2 endpoints."::: 
+  :::image type="content" source="../media/call-logs-azure-monitor/p2p-diagram.png" alt-text="Screenshot displays P2P call across 2 endpoints."::: 
 
 **Group** Calls include any Call that has more than 2 Endpoints connected. Group Calls will include a server Endpoint, and the connection between each Endpoint and the server. P2P Calls that add an additional Endpoint during the Call cease to be P2P, and they become a Group Call. By viewing the `participantStartTime` and `participantDuration`, the timeline of when each Endpoint joined the Call can be determined.
 
 
-  :::image type="content" source="media\logs/voice-and-video-logsgs\group-call-version-a.png" alt-text="Screenshot displays group call across multiple endpoints.":::
+  :::image type="content" source="../media/call-logs-azure-monitor/group-call-version-a.png" alt-text="Screenshot displays group call across multiple endpoints.":::
 
 
 ## Log Structure
@@ -129,37 +129,34 @@ Call Diagnostic Logs contain information about the Stream as well as a set of me
 
 The below diagram represents two endpoints connected directly in a P2P Call. In this example, 2 Call Summary Logs would be created (one per `participantID`) and four Call Diagnostic Logs would be created (one per media stream). Each log will contain data relating to the outbound stream of the `participantID`.
 
-:::image type="content" source="media\logs/voice-and-video-logs\example-1-p2p-call-same-tenant.png" alt-text="Screenshot displays P2P call within the same tenant.":::
+:::image type="content" source="../media/call-logs-azure-monitor/example-1-p2p-call-same-tenant.png" alt-text="Screenshot displays P2P call within the same tenant.":::
 
 
 ### Example 2: Group Call
 
 The below diagram represents a Group Call example with three `participantIDs`, which means three `participantIDs` (`endpointIds` can potentially appear in multiple Participants, e.g. when rejoining a Call from the same device) and a Server Endpoint. One Call Summary Logs would be created per `participantID`, and four Call Diagnostic Logs would be created relating to each `participantID`, one for each media stream. 
 
-:::image type="content" source="media\logs/voice-and-video-logs\example-2-group-call-same-tenant.png" alt-text="Screenshot displays group call within the same tenant.":::
+:::image type="content" source="../media/call-logs-azure-monitor/example-2-group-call-same-tenant.png" alt-text="Screenshot displays group call within the same tenant.":::
                                                                    
 ### Example 3: P2P Call cross-tenant
 The below diagram represents two participants across multiple tenants that are connected directly in a P2P Call. In this example, one Call Summary Logs would be created (one per participant) with redacted OS and SDK versioning and four Call Diagnostic Logs would be created (one per media stream). Each log will contain data relating to the outbound stream of the `participantID`.
  
-:::image type="content" source="media\logs/voice-and-video-logs\example-3-p2p-call-cross-tenant.png" alt-text="Screenshot displays P2P call cross-tenant.":::
+:::image type="content" source="../media/call-logs-azure-monitor/example-3-p2p-call-cross-tenant.png" alt-text="Screenshot displays P2P call cross-tenant.":::
 
 
 ### Example 4: Group Call cross-tenant
 The below diagram represents a Group Call example with three `participantIds` across multiple tenants. One Call Summary Logs would be created per participant with redacted OS and SDK versioning, and four Call Diagnostic Logs would be created relating to each `participantId` , one for each media stream. 
 
-:::image type="content" source="media\logs/voice-and-video-logs\example-4-group-call-cross-tenant.png" alt-text="Screenshot displays group call cross-tenant.":::
+:::image type="content" source="../media/call-logs-azure-monitor/example-4-group-call-cross-tenant.png" alt-text="Screenshot displays group call cross-tenant.":::
 
 
 > [!NOTE]
 > Only outbound diagnostic logs will be supported in this release. 
 > Please note that participants and bots identity are treated the same way, as a result OS and SDK versioning associated to the bot and the participant will be redacted 
 
-
- 
 ## Sample Data
 
 ### P2P Call
-
 
 Shared fields for all logs in the call:
 
@@ -502,4 +499,4 @@ Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 3:
     "packetLossRateAvg":    "0",
 ```
 ### Error Codes
-The `participantEndReason` will contain a value from the set of Calling SDK error codes. You can refer to these codes to troubleshoot issues during the call, per Endpoint. See [troubleshooting in Azure communication Calling SDK error codes](../troubleshooting-info.md?tabs=csharp%2cios%2cdotnet#calling-sdk-error-codes)
+The `participantEndReason` will contain a value from the set of Calling SDK error codes. You can refer to these codes to troubleshoot issues during the call, per Endpoint. See [troubleshooting in Azure communication Calling SDK error codes](../../troubleshooting-info.md?tabs=csharp%2cios%2cdotnet#calling-sdk-error-codes)

@@ -13,7 +13,9 @@ ms.subservice: data
 ---
 
 # Azure Communication Services SMS Logs
-# *Pre-requisites*
+
+## Pre-requisites
+
 Azure Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](../../../../azure-monitor/logs/data-platform-logs.md) and [Azure Monitor Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
   * Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
   * One or more destinations to send the logs. Current destinations include Log Analytics workspace, Event Hubs, and Azure Storage.
@@ -174,4 +176,4 @@ Communication Services offers the following types of logs that you can enable:
 
 ```
 
- (see also [FAQ](../../../azure-monitor/faq.yml)). 
+ (see also [FAQ](../../../../azure-monitor/faq.yml)). 
