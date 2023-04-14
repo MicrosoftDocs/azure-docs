@@ -23,7 +23,15 @@ The MedTech service requires two types of [JSON](https://www.json.org/) mappings
 
 ## FHIR destination mapping basics
 
-Once the device content is extracted into a normalized model, the data is collected and grouped according to device identifier, measurement type, and time period. The output of this grouping is sent for conversion into a [FHIR Observation](https://www.hl7.org/fhir/observation.html). The FHIR destination mapping controls how the data extracted from a device message is mapped into a FHIR observation. Should an observation be created for a point in time or over a period of an hour? What codes should be added to the observation? Should the value be represented as [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) or a [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)? These data types are all options the FHIR destination mapping configuration controls.
+The FHIR destination mapping controls how the data extracted from a device message is mapped into a FHIR observation.
+
+- Should an observation be created for a point in time or over a period of an hour?
+- What codes should be added to the observation?
+- Should the value be represented as [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) or a [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)?
+
+These data types are all options the FHIR destination mapping configuration controls.
+
+Once a device message is transformed into a normalized data model, the data is collected for transformation to a [FHIR Observation](https://www.hl7.org/fhir/observation.html). If the Observation type is [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), the data is grouped according to device identifier, measurement type, and time period (time period can be either 1 hour or 24 hours). The output of this grouping is sent for conversion into a single [FHIR Observation](https://www.hl7.org/fhir/observation.html) that represents the time period for that data type. For other Observation types ([Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept) and [string](https://www.hl7.org/fhir/datatypes.html#string)) data is no grouped, but instead each measurement is transformed into a single Observation representing a point in time.
 
 > [!TIP]
 > For more information about how the MedTech service processes device message data into FHIR Observations for persistence on the FHIR service, see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md).
@@ -90,7 +98,7 @@ Represents the [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHI
 
 ### Quantity
 
-Represents the [Quantity](http://hl7.org/fhir/datatypes.html#Quantity) FHIR data type. If more than one value is present in the grouping, only the first value is used. When new value arrives that maps to the same observation it overwrites the old value.
+Represents the [Quantity](http://hl7.org/fhir/datatypes.html#Quantity) FHIR data type. This type will create a single, point in time, Observation. If new value arrives that contains the same device identifier, measurement type, and time period, the previous Observation will be updated to the new value.
 
 | Property | Description 
 | --- | --- 
@@ -100,7 +108,7 @@ Represents the [Quantity](http://hl7.org/fhir/datatypes.html#Quantity) FHIR data
 
 ### CodeableConcept
 
-Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) FHIR data type. The actual value isn't used.
+Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) FHIR data type. The value in in the normalized data model is not used, and instead when this type of data is received, an Observation will be created with a specific code representing that an observation was recorded at a specific point in time.
 
 | Property | Description 
 | --- | --- 
@@ -112,7 +120,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 
 ### String
 
-Represents the [string](https://www.hl7.org/fhir/datatypes.html#string) FHIR data type. If more than one value is present in the grouping, only the first value is used. If new value arrives that maps to the same observation, it overwrites the old value.
+Represents the [string](https://www.hl7.org/fhir/datatypes.html#string) FHIR data type. This type will create a single, point in time, Observation. If new value arrives that contains the same device identifier, measurement type, and time period, the previous Observation will be updated to the new value.
 
 ### Example
 
