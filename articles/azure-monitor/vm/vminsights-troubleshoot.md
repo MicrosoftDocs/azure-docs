@@ -12,7 +12,7 @@ ms.custom: references_regions
 # Troubleshoot VM insights
 This article provides troubleshooting information to help you with problems you might have experienced when you tried to enable or use VM insights.
 
-## Cannot enable VM insights on a machine
+## Can't enable VM insights on a machine
 When you onboard an Azure virtual machine from the Azure portal, the following steps occur:
 
 - A default Log Analytics workspace is created if that option was selected.
@@ -74,6 +74,8 @@ If you don't see any data or if the computer hasn't sent a heartbeat recently, y
 
 ## Virtual machine doesn't appear in Map view
 
+See the following sections for issues with Map view.
+
 ### Is the Dependency agent installed?
  Use the information in the preceding sections to determine if the Dependency agent is installed and working properly.
 
@@ -83,7 +85,7 @@ The [Log Analytics free tier](https://azure.microsoft.com/pricing/details/monito
 ### Is your virtual machine sending log and performance data to Azure Monitor Logs?
 Use the log query in the [Performance view has no data](#performance-view-has-no-data) section to determine if data is being collected for the virtual machine. If no data is being collected, use the TestCloudConnectivity tool to determine if you have connectivity issues.
 
-## Virtual machine appears in map view but has missing data
+## Virtual machine appears in Map view but has missing data
 If the virtual machine is in the **Map** view, the Dependency agent is installed and running, but the kernel driver didn't load, check the log file at the following locations:
 
 | Operating system | Log | 

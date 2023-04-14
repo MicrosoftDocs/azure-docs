@@ -12,7 +12,7 @@ ms.date: 06/22/2022
 VM insights collects its data from one or more Log Analytics workspaces in Azure Monitor. Prior to onboarding agents, you must create and configure a workspace. This article describes the requirements of the workspace and how to configure it for VM insights.
 
 > [!IMPORTANT]
-> Configuration of the Log Analytics workspace is only required for using VM insights with virtual machines by using the Log Analytics agent. Virtual machines using Azure Monitor Agent don't use the VMInsights solution that's installed in this configuration. To support Azure Monitor Agent, a standard Log Analytics workspace must be created as described in [Create a Log Analytics workspace](#create-log-analytics-workspace).
+> Configuration of the Log Analytics workspace is only required for using VM insights with virtual machines by using the Log Analytics agent. Virtual machines using Azure Monitor Agent don't use the VMInsights solution that's installed in this configuration. To support Azure Monitor Agent, a standard Log Analytics workspace must be created as described in [Create a Log Analytics workspace](#create-a-log-analytics-workspace).
 
 ## Overview
 A single subscription can use any number of workspaces depending on your requirements. The only requirement of the workspace is that it must be located in a supported location and be configured with the VMInsights solution.
@@ -56,19 +56,19 @@ Before a Log Analytics workspace can be used with VM insights, it must have the 
 > When you add the VMInsights solution to the workspace, all existing virtual machines connected to the workspace start to send data to InsightsMetrics. Data for the other data types won't be collected until you add the Dependency agent to those existing virtual machines connected to the workspace.
 
 ### Azure portal
-There are three options for configuring an existing workspace by using the Azure portal. Each option is described.
+There are three options for configuring an existing workspace by using the Azure portal:
 
-To configure a single workspace, on the **Azure Monitor** menu, select **Virtual Machines**. Select **Other onboarding options** and then select **Configure a workspace**. Select a subscription and a workspace and then select **Configure**.
+- To configure a single workspace, on the **Azure Monitor** menu, select **Virtual Machines**. Select **Other onboarding options** and then select **Configure a workspace**. Select a subscription and a workspace and then select **Configure**.
 
-[![Screenshot that shows configuring a workspace.](../vm/media/vminsights-enable-policy/configure-workspace.png)](../vm/media/vminsights-enable-policy/configure-workspace.png#lightbox)
+   [![Screenshot that shows configuring a workspace.](../vm/media/vminsights-enable-policy/configure-workspace.png)](../vm/media/vminsights-enable-policy/configure-workspace.png#lightbox)
 
-To configure multiple workspaces, on the **Monitor** menu, select **Virtual Machines**. Then select the **Workspace configuration** tab. Set the filter values to display a list of existing workspaces. Select the checkbox next to each workspace to enable it and then select **Configure selected**.
+- To configure multiple workspaces, on the **Monitor** menu, select **Virtual Machines**. Then select the **Workspace configuration** tab. Set the filter values to display a list of existing workspaces. Select the checkbox next to each workspace to enable it and then select **Configure selected**.
 
-[![Screenshot that shows workspace configuration.](../vm/media/vminsights-enable-policy/workspace-configuration.png)](../vm/media/vminsights-enable-policy/workspace-configuration.png#lightbox)
+   [![Screenshot that shows workspace configuration.](../vm/media/vminsights-enable-policy/workspace-configuration.png)](../vm/media/vminsights-enable-policy/workspace-configuration.png#lightbox)
 
-When you enable VM insights on a single virtual machine or virtual machine scale set by using the Azure portal, you can select an existing workspace or create a new one. The VMInsights solution is installed in this workspace if it isn't already. You can then use this workspace for other agents.
+- When you enable VM insights on a single virtual machine or virtual machine scale set by using the Azure portal, you can select an existing workspace or create a new one. The VMInsights solution is installed in this workspace if it isn't already. You can then use this workspace for other agents.
 
-[![Screenshot that shows enabling a single VM in the portal.](../vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)](../vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png#lightbox)
+   [![Screenshot that shows enabling a single VM in the portal.](../vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)](../vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png#lightbox)
 
 ### Resource Manager template
 The Azure Resource Manager templates for VM insights are provided in an archive file (.zip) that you can [download from our GitHub repo](https://aka.ms/VmInsightsARMTemplates). A template called **ConfigureWorkspace** configures a Log Analytics workspace for VM insights. You deploy this template by using any of the standard methods, including the following sample PowerShell and CLI commands.
@@ -97,7 +97,7 @@ To remove the VMInsights solution, use the same process as [removing any other s
 1. Locate the VMInsights solution for your workspace and select it to view its detail.
 1. Select **Delete**.
 
-:::image type="content" source="media/vminsights-configure-workspace/remove-solution.png" lightbox="media/vminsights-configure-workspace/remove-solution.png" alt-text="Screenshot that shows deleting a solution dialog.":::
+   :::image type="content" source="media/vminsights-configure-workspace/remove-solution.png" lightbox="media/vminsights-configure-workspace/remove-solution.png" alt-text="Screenshot that shows deleting a solution dialog.":::
 
 ## Next steps
 - See [Onboard agents to VM insights](vminsights-enable-overview.md) to connect agents to VM insights.
