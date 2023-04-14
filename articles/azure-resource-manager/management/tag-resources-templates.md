@@ -1,6 +1,6 @@
 ---
 title: Tag resources, resource groups, and subscriptions with ARM templates
-description: Shows how to use Bicep to apply tags to Azure resources.
+description: Shows how to use ARM templates to apply tags to Azure resources.
 ms.topic: conceptual
 ms.date: 04/11/2023
 ---

@@ -138,7 +138,7 @@
       - name: Python
         href: tag-resources-python.md
       - name: ARM templates
-        href: tag-resources-temnplates.md
+        href: tag-resources-templates.md
       - name: Bicep
         href: tag-resources-bicep.md
     - name: Azure Policy definitions - compliance
