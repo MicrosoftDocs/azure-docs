@@ -85,6 +85,13 @@
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
             - name: Authentication and authorization
               href: authentication-authorization-overview.md
+            - name: API security
+              items:
+              - name: Defender for APIs (preview)
+                href: protect-with-defender-for-apis.md              
+              - name: Mitigate OWASP API threats
+                href: mitigate-owasp-api-threats.md
+                displayName: OWASP top 10, vulnerability, vulnerabilities
       - name: Observability
         href: observability.md
         displayName: monitoring
@@ -286,11 +293,6 @@
               href: api-management-howto-manage-protocols-ciphers.md
             - name: Defend against DDoS attacks
               href: protect-with-ddos-protection.md
-            - name: Mitigate OWASP API threats
-              href: mitigate-owasp-api-threats.md
-              displayName: OWASP top 10, vulnerability, vulnerabilities
-            - name: Protect APIs with Defender for APIs
-              href: protect-with-defender-for-apis.md
           - name: Manage API authorizations
             items:
             - name: Authorizations overview

@@ -76,6 +76,7 @@ The following table compares features available in the managed gateway versus th
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ |
 | **HTTP/2** (Client-to-gateway) |  ❌ | ❌ | ✔️ |
 | **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ✔️ |
+| API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ |  ❌ | ❌ | 
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
 <sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the default endpoint hostname; custom domain name is currently not supported.<br/>
