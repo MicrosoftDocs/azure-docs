@@ -1,23 +1,23 @@
 ---
-title: 'Configure NAT on Azure VPN Gateway'
+title: 'Configure NAT on VPN Gateway'
 titleSuffix: Azure VPN Gateway
-description: Learn how to configure NAT on Azure VPN Gateway.
+description: Learn how to configure NAT for Azure VPN Gateway.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/11/2022
+ms.date: 03/30/2023
 ms.author: cherylmc 
 
 ---
-# How to configure NAT on Azure VPN Gateways
+# How to configure NAT for Azure VPN Gateway
 
-This article helps you configure NAT (Network Address Translation) on Azure VPN Gateway using the Azure portal.
+This article helps you configure NAT (Network Address Translation) for Azure VPN Gateway using the Azure portal.
 
 ## <a name="about"></a>About NAT
 
 NAT defines the mechanisms to translate one IP address to another in an IP packet. It's commonly used to connect networks with overlapping IP address ranges. NAT rules or policies on the gateway devices connecting the networks specify the address mappings for the address translation on the networks.
 
-For more information about NAT support on Azure VPN gateway, see [About NAT on Azure VPN Gateways](nat-overview.md).
+For more information about NAT support for Azure VPN Gateway, see [About NAT and Azure VPN Gateway](nat-overview.md).
 
 > [!IMPORTANT]
 > * NAT is supported on the the following SKUs: VpnGw2~5, VpnGw2AZ~5AZ.
@@ -36,7 +36,7 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 ## <a name ="vnet"></a>Part 1: Create VNet and gateways
 
-In this section, you create a virtual network, VPN gateway, and the local network gateway resources to correspond to the resources shown in [Diagram 1](#diagram).
+In this section, you create a virtual network, a VPN gateway, and the local network gateway resources to correspond to the resources shown in [Diagram 1](#diagram).
 
 To create these resources, use the steps in the [Site-to-Site Tutorial](tutorial-site-to-site-portal.md) article. Complete the following sections of the article, but don't create any connections.
 
@@ -73,16 +73,16 @@ Before you create connections, you must create and save NAT rules on the VPN gat
 
 | Name     | Type   | Mode        | Internal    | External     | Connection          |
 | ---      | ---    | ---         | ---         | ---          | ---                 |
-| VNet     | Static | EgressSNAT  | 10.0.1.0/24 | 100.0.1.0/24 | Both connections    | 
+| VNet     | Static | EgressSNAT  | 10.0.1.0/24 | 100.0.1.0/24 | Both connections    |
 | Branch_1 | Static | IngressSNAT | 10.0.1.0/24 | 100.0.2.0/24 | Branch 1 connection |
 | Branch_2 | Static | IngressSNAT | 10.0.1.0/24 | 100.0.3.0/24 | Branch 2 connection |
 
 Use the following steps to create all the NAT rules on the VPN gateway.
 
 1. In the Azure portal, navigate to the **Virtual Network Gateway** resource page and select **NAT Rules**.
-1. Using the **NAT rules table** above, fill in the values.
+1. Using the **NAT rules table**, fill in the values.
 
-   :::image type="content" source="./media/nat-howto/nat-rules.png" alt-text="Screenshot showing NAT rules." lightbox="./media/nat-howto/nat-rules.png":::
+   :::image type="content" source="./media/nat-howto/disable-bgp.png" alt-text="Screenshot showing NAT rules." lightbox="./media/nat-howto/disable-bgp.png":::
 1. Click **Save** to save the NAT rules to the VPN gateway resource. This operation can take up to 10 minutes to complete.
 
 ## <a name ="connections"></a>Part 3: Create connections and link NAT rules
@@ -91,7 +91,7 @@ In this section, you create the connections, and then associate the NAT rules wi
 
 ### 1. Create connections
 
-Follow the steps in [Create a site-to-site connection](tutorial-site-to-site-portal.md) article to create the two connections as shown below:
+Follow the steps in [Create a site-to-site connection](tutorial-site-to-site-portal.md) article to create the two connections as shown in the following screenshot:
 
    :::image type="content" source="./media/nat-howto/connections.png" alt-text="Screenshot showing the Connections page." lightbox="./media/nat-howto/connections.png":::
 
@@ -109,9 +109,9 @@ In this step, you associate the NAT rules with each connection resource.
 
 1. Repeat the steps to apply the NAT rules for other connection resources.
 
-1. If BGP is used, select **Enable BGP Route Translation** in the NAT rules page and click **Save**. Note that the table now shows the connections linked with each NAT rule.
+1. If BGP is used, select **Enable BGP Route Translation** in the NAT rules page and click **Save**. Notice that the table now shows the connections linked with each NAT rule.
 
-   :::image type="content" source="./media/nat-howto/nat-rules-linked.png" alt-text="Screenshot showing Enable BGP." lightbox="./media/nat-howto/nat-rules-linked.png":::
+   :::image type="content" source="./media/nat-howto/enable-bgp.png" alt-text="Screenshot showing Enable BGP." lightbox="./media/nat-howto/enable-bgp.png":::
 
 After completing these steps, you'll have a setup that matches the topology shown in [Diagram 1](#diagram).
 

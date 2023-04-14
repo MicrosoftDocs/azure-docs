@@ -245,6 +245,9 @@ for communication to the machine configuration service. Apply tag with the name
 applied before or after machine configuration policy definitions are applied to
 the machine.
 
+> [!IMPORTANT]
+> In order to communicate over private link for custom packages, the link to the location of the package must be added to the list of allowed URLS. 
+
 Traffic is routed using the Azure
 [virtual public IP address](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 to establish a secure, authenticated channel with Azure platform resources.
@@ -329,7 +332,7 @@ For more information about troubleshooting machine configuration, see
 
 ### Multiple assignments
 
-At this time, only some built-in Guest Configuration policy definitions support multiple assignments. However, all custom policies support multiple assignments by default if you used the latest version of [the `GuestConfiguration` PowerShell module](/azure/governance/machine-configuration/machine-configuration-create-setup) to create Guest Configuration packages and policies.
+At this time, only some built-in Guest Configuration policy definitions support multiple assignments. However, all custom policies support multiple assignments by default if you used the latest version of [the `GuestConfiguration` PowerShell module](./machine-configuration-create-setup.md) to create Guest Configuration packages and policies.
 
 Following is the list of built-in Guest Configuration policy definitions that support multiple assignments:
 
@@ -413,6 +416,24 @@ view the folder locations given below.
 Windows: `c:\programdata\guestconfig\configuration`
 
 Linux: `/var/lib/GuestConfig/Configuration`
+
+
+### Open-source nxtools module functionality
+
+A new open-source [nxtools module](https://github.com/azure/nxtools#getting-started) has been released to help make managing Linux systems easier for PowerShell users.
+
+The module will help in managing common tasks such as these:
+
+-	User and group management
+-	File system operations (changing mode, owner, listing, set/replace content)
+-	Service management (start, stop, restart, remove, add)
+- Archive operations (compress, extract)
+-	Package management (list, search, install, uninstall packages)
+
+The module includes class-based DSC resources for Linux, as well as built-in machine-configuration packages.
+
+To provide feedback about this functionality, open an issue on the documentation. We currently _don't_ accept PRs for this project, and support is best effort.
+
 
 ## Machine configuration samples
 

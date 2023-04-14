@@ -23,7 +23,7 @@ This how-to guide shows how to call an Azure function from a logic app workflow.
 
 ## Limitations
 
-* You can create a function directly from inside a Consumption logic app workflow, but from not a Standard logic app workflow. However, you can create functions in other ways. For more information, see [Create functions from inside logic app workflows](#create-function-designer).
+* You can create a function directly from inside a Consumption logic app workflow, but not from a Standard logic app workflow. However, you can create functions in other ways. For more information, see [Create functions from inside logic app workflows](#create-function-designer).
 
 * Only Consumption workflows support authenticating Azure function calls using a managed identity with Azure Active Directory (Azure AD) authentication. Standard workflows aren't currently supported in the section about [how to enable authentication for function calls](#enable-authentication-functions).
 

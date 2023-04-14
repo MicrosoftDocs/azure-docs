@@ -31,11 +31,11 @@ For example, scale out your application by adding VMs when the average CPU usage
 
 When the conditions in the rules are met, one or more autoscale actions are triggered, adding or removing VMs. You can also perform other actions like sending email, notifications, or webhooks to trigger processes in other systems.
 
-## Scale out and scale up
+## Horizontal vs. vertical scaling
 
-Autoscale scales in and out, which is an increase or decrease of the number of resource instances. Scaling in and out is also called horizontal scaling. For example, for a virtual machine scale set, scaling out means adding more virtual machines. Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation because you can use it to run a large number of VMs to handle load.
+Autoscale scales in and out, or horizontally. Scaling horizontally is an increase or decrease of the number of resource instances. For example, for a virtual machine scale set, scaling out means adding more virtual machines. Scaling in means removing virtual machines. Horizontal scaling is flexible in a cloud situation because you can use it to run a large number of VMs to handle load.
 
-In contrast, scaling up and down, or vertical scaling, keeps the number of resources constant but gives those resources more capacity in terms of memory, CPU speed, disk space, and network. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling might also require a restart of the virtual machine during the scaling process.
+In contrast, scaling up and down, or vertical scaling, keeps the same number of resource instances constant but gives them more capacity in terms of memory, CPU speed, disk space, and network. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling might also require a restart of the VM during the scaling process. Autoscale does not support vertical scaling.
 
 :::image type="content" source="./media/autoscale-overview/vertical-scaling.png" alt-text="A diagram that shows scaling up by adding CPU and memory to a virtual machine.":::
 
@@ -119,12 +119,6 @@ For code examples, see:
 * [Tutorial: Automatically scale a virtual machine scale set with the Azure CLI](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md)
 * [Tutorial: Automatically scale a virtual machine scale set with an Azure template](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 
-## Horizontal vs. vertical scaling
-
-Autoscale scales horizontally, which is an increase or decrease of the number of resource instances. For example, in a virtual machine scale set, scaling out means adding more virtual machines. Scaling in means removing VMs. Horizontal scaling is flexible in a cloud situation because it allows you to run a large number of VMs to handle load.
-
-In contrast, vertical scaling keeps the same number of resources constant but gives them more capacity in terms of memory, CPU speed, disk space, and network. Adding or removing capacity in vertical scaling is known as scaling down. Vertical scaling is limited by the availability of larger hardware, which eventually reaches an upper limit. Hardware size availability varies in Azure by region. Vertical scaling might also require a restart of the VM during the scaling process.
-
 ## Supported services for autoscale
 
 Autoscale supports the following services.
@@ -136,7 +130,7 @@ Autoscale supports the following services.
 | Azure API Management service                      | [Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)                                   |
 | Azure Data Explorer clusters                      | [Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)             |
 | Azure Stream Analytics                            | [Autoscale streaming units (preview)](../../stream-analytics/stream-analytics-autoscale.md)                                                      |
-| Azure SignalR Service (Premium tier)              | [Automatically scale units of an Azure SignalR service](/azure/azure-signalr/signalr-howto-scale-autoscale)                                                      |
+| Azure SignalR Service (Premium tier)              | [Automatically scale units of an Azure SignalR service](../../azure-signalr/signalr-howto-scale-autoscale.md)                                                      |
 | Azure Machine Learning workspace                  | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md)                                                             |
 | Azure Spring Apps                                 | [Set up autoscale for applications](../../spring-apps/how-to-setup-autoscale.md)                                                                 |
 | Azure Media Services                                    | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling)                                                          |

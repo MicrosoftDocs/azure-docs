@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Connect: Troubleshoot Seamless Single Sign-On | Microsoft Docs'
+title: 'Azure Active Directory Connect: Troubleshoot Seamless Single Sign-On'
 description: This topic describes how to troubleshoot Azure Active Directory Seamless Single Sign-On
 services: active-directory
 author: billmath

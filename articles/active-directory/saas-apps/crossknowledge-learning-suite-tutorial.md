@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CrossKnowledge Learning Suite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CrossKnowledge Learning Suite'
 description: Learn how to configure single sign-on between Azure Active Directory and CrossKnowledge Learning Suite.
 services: active-directory
 author: jeevansd

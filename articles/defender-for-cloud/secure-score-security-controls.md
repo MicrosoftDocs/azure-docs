@@ -111,12 +111,12 @@ You can also [configure the Enforce and Deny options](prevent-misconfigurations.
 
 The table below lists the security controls in Microsoft Defender for Cloud. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources.
 
-The set of security recommendations provided with Defender for Cloud is tailored to the available resources in each organization's environment. You can [disable policies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) and [exempt specific resources from a recommendation](exempt-resource.md) to further customize the recommendations.
+The set of security recommendations provided with Defender for Cloud is tailored to the available resources in each organization's environment. You can [disable recommendations](tutorial-security-policy.md#disable-a-security-recommendation) and [exempt specific resources from a recommendation](exempt-resource.md) to further customize the recommendations.
 
 We recommend every organization carefully reviews their assigned Azure Policy initiatives.
 
 > [!TIP]
-> For details about reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md).
+> For details about reviewing and editing your initiatives, see [manage security policies](tutorial-security-policy.md).
 
 Even though Defender for Cloud's default security initiative, the Azure Security Benchmark, is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. It's sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
 
@@ -130,7 +130,7 @@ No. It won't change until you remediate all of the recommendations for a single 
 
 ### If a recommendation isn't applicable to me, and I disable it in the policy, will my security control be fulfilled and my secure score updated?
 
-Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security policies](./tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
+Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security recommendations](./tutorial-security-policy.md#disable-a-security-recommendation).
 
 ### If a security control offers me zero points towards my secure score, should I ignore it?
 

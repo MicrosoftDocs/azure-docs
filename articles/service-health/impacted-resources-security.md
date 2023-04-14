@@ -41,7 +41,7 @@ In the Azure portal, the **Impacted Resources** tab under **Service Health** > *
 |---------|---------|
 |**Subscription ID**|Unique ID for the subscription that contains the impacted resource|
 |**Subscription Name**|Subscription name for the subscription that contains the impacted resource|
-|**Tenant Name**|Unique ID for the tenant that contains the impacted resource|
+|**Tenant Name**|Tenant name for the tenant that contains the impacted resource|
 |**Tenant ID**|Unique ID for the tenant that contains the impacted resource|
 
 The following examples show a security incident with impacted resources from the subscription and tenant scope.

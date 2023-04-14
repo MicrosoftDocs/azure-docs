@@ -21,9 +21,7 @@ Workflows can be created and customized for common scenarios using templates, or
 
 ## Prerequisites
 
-- Azure AD Premium P2
-
-For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
+The Lifecycle Workflows preview requires Azure AD Premium P2. For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements).
 
 ## Create a Lifecycle workflow using a template in the Azure portal
 

@@ -2,6 +2,7 @@
 title: Template functions in scoped deployments
 description: Describes how template functions are resolved in scoped deployments. The scope can be a tenant, management groups, subscriptions, and resource groups.
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 10/22/2020 
 ---
 

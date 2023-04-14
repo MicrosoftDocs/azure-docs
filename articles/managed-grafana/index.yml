@@ -8,8 +8,8 @@ metadata:
   description: Learn about Azure Managed Grafana
   ms.service: managed-grafana
   ms.topic: landing-page
-  author: maud-lv
-  ms.author: malev
+  author: mcleanbyron
+  ms.author: mcleans
   ms.date: 01/18/2023
 
 landingContent:
@@ -43,13 +43,15 @@ landingContent:
             url: how-to-authentication-permissions.md
           - text: Create a dashboard
             url: how-to-create-dashboard.md
+          - text: Share a dashboard
+            url: how-to-share-dashboard.md
           - text: Configure SMTP settings
             url: how-to-smtp-settings.md
   - title: Manage Azure Managed Grafana
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Modify permissions
+          - text: Modify access to Azure Monitor
             url: how-to-permissions.md
           - text: Share an instance
             url: how-to-share-grafana-workspace.md

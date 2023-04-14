@@ -35,7 +35,8 @@ This video provides an overview of Spatial IO module in the Azure Maps Web SDK.
 
 ## Prerequisites
 
-Before you can use the Spatial IO module, you'll need to [make an Azure Maps account](./quick-demo-map-app.md#create-an-azure-maps-account) and [get the primary subscription key for your account](./quick-demo-map-app.md#get-the-primary-key-for-your-account).
+* An [Azure Maps account]
+* A [subscription key]
 
 ## Installing the Spatial IO module
 
@@ -218,7 +219,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
     </html>
     ```
 
-5. Remember to replace `<Your Azure Maps Key>` with your primary key. Open your HTML file, and you'll see results similar to the following image:
+5. Remember to replace `<Your Azure Maps Key>` with your subscription key. Open your HTML file, and you'll see results similar to the following image:
 
     <center>
 
@@ -252,3 +253,6 @@ Refer to the Azure Maps Spatial IO documentation:
 
 > [!div class="nextstepaction"]
 > [Azure Maps Spatial IO package](/javascript/api/azure-maps-spatial-io/)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

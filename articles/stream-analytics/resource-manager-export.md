@@ -5,6 +5,7 @@ services: stream-analytics
 author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 12/12/2022
 ---

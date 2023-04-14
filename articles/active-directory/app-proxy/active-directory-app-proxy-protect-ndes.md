@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 03/14/2023
 ms.author: kenwith
 ---
 
@@ -77,7 +77,7 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 
 1. As a final test, add the *mscep.dll* path to the existing URL you pasted in the previous step:
 
-   https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll
+  `https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll`
 
 1. You should see an **HTTP Error 403 – Forbidden** response.
 

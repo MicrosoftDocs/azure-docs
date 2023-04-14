@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 03/07/2023
 ms.author: mbaldwin
 
 ---
@@ -67,7 +67,6 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 |Utimaco|Manufacturer,<br/>HSM as a service|u.trust Anchor, CryptoServer| Utimaco BYOK tool and Integration guide |
 ||||
 
-
 ## Supported key types
 
 |Key name|Key type|Key size/curve|Origin|Description|
@@ -101,28 +100,61 @@ The KEK must be:
 
 Use the [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) command to create a KEK that has key operations set to `import`. Record the key identifier (`kid`) that's returned from the following command. (You will use the `kid` value in [Step 3](#generate-and-prepare-your-key-for-transfer).)
 
+### [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
 ```
-or for Managed HSM
+
+For Managed HSM:
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --hsm-name ContosoKeyVaultHSM
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'KEKforBYOK' -Destination 'HSM' -Size 4096 -KeyOps 'import'
+```
+
+For Managed HSM:
+
+```azurepowershell
+Add-AzKeyVaultKey -HsmName 'ContosoKeyVaultHSM' -Name 'KEKforBYOK' -Destination 'HSM' -Size 4096 -KeyOps 'import'
+```
+
+---
+
 ### Download the KEK public key
 
 Use [az keyvault key download](/cli/azure/keyvault/key#az-keyvault-key-download) to download the KEK public key to a .pem file. The target key you import is encrypted by using the KEK public key.
+
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
 ```
 
-or for Managed HSM
+For Managed HSM:
 
 ```azurecli
 az keyvault key download --name KEKforBYOK --hsm-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Get-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -KeyName 'KEKforBYOK' -OutFile 'KEKforBYOK.publickey.pem'
+```
+
+For Managed HSM
+
+```azurepowershell
+Get-AzKeyVaultKey -HsmName 'ContosoKeyVaultHSM' -KeyName 'KEKforBYOK' -OutFile 'KEKforBYOK.publickey.pem'
+```
+
+---
 
 Transfer the KEKforBYOK.publickey.pem file to your offline computer. You will need this file in the next step.
 
@@ -132,9 +164,9 @@ Refer to your HSM vendor's documentation to download and install the BYOK tool. 
 
 Transfer the BYOK file to your connected computer.
 
-> [!NOTE] 
+> [!NOTE]
 > Importing RSA 1,024-bit keys is not supported. Importing Elliptic Curve key with curve P-256K is not supported.
-> 
+>
 > **Known issue**: Importing an RSA 4K target key from Luna HSMs is only supported with firmware 7.4.0 or newer.
 
 ### Transfer your key to Azure Key Vault
@@ -143,27 +175,58 @@ To complete the key import, transfer the key transfer package (a BYOK file) from
 
 To import an RSA key use following command. Parameter --kty is optional and defaults to 'RSA-HSM'.
 
+### [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
-or for Managed HSM
+For Managed HSM
 
 ```azurecli
 az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
-To import an EC key, you must specify key type and the curve name.
+### [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
+```azurepowershell
+Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -KeyName 'ContosoFirstHSMkey' -KeyFilePath 'KeyTransferPackage-ContosoFirstHSMkey.byok'
+```
+For Managed HSM
+
+```azurepowershell
+Add-AzKeyVaultKey -HsmName 'ContosoKeyVaultHSM' -KeyName 'ContosoFirstHSMkey' -KeyFilePath 'KeyTransferPackage-ContosoFirstHSMkey.byok'
 ```
 
-or for Managed HSM
+---
+
+To import an EC key, you must specify key type and the curve name.
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --kty EC-HSM --curve-name "P-256" --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+```
+
+For Managed HSM
 
 ```azurecli
 az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -KeyName 'ContosoFirstHSMkey' -KeyType EC -CurveName P-256  -KeyFilePath 'KeyTransferPackage-ContosoFirstHSMkey.byok'
+```
+
+For Managed HSM
+
+```azurepowershell
+Add-AzKeyVaultKey -HsmName 'ContosoKeyVaultHSM' -KeyName 'ContosoFirstHSMkey' -KeyType EC -CurveName P-256  -KeyFilePath 'KeyTransferPackage-ContosoFirstHSMkey.byok'
+```
+
+---
 
 If the upload is successful, Azure CLI displays the properties of the imported key.
 

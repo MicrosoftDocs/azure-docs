@@ -4,7 +4,7 @@ description: Release notes and version history for Device Update for IoT Hub.
 author: chrisjlin
 ms.author: lichris
 ms.date: 02/22/2023
-ms.topic: conceptual
+ms.topic: release-notes
 ms.service: iot-hub-device-update
 ---
 

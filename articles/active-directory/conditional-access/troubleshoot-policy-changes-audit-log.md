@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Conditional Access policy changes - Azure Active Directory
+title: Troubleshoot Conditional Access policy changes
 description: Diagnose changes to Conditional Access policy with the Azure AD audit logs.
 
 services: active-directory

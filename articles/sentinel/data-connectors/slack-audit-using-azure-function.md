@@ -1,6 +1,6 @@
 ---
-title: "Slack Audit (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Slack Audit (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Slack Audit (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Slack Audit (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Slack Audit (using Azure Function) connector for Microsoft Sentinel
+# Slack Audit (using Azure Functions) connector for Microsoft Sentinel
 
 The [Slack](https://slack.com) Audit data connector provides the capability to ingest [Slack Audit Records](https://api.slack.com/admins/audit-logs) events into Microsoft Sentinel through the REST API. Refer to [API documentation](https://api.slack.com/admins/audit-logs#the_audit_event) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
@@ -17,7 +17,7 @@ The [Slack](https://slack.com) Audit data connector provides the capability to i
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | SlackAPIBearerToken<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-SlackAuditAPI-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-SlackAuditAPI-functionapp |
 | **Kusto function alias** | SlackAudit |
 | **Kusto function url** | https://aka.ms/sentinel-SlackAuditAPI-parser |
 | **Log Analytics table(s)** | SlackAudit_CL<br/> |
@@ -37,7 +37,7 @@ SlackAudit
 
 ## Prerequisites
 
-To integrate with Slack Audit (using Azure Function) make sure you have: 
+To integrate with Slack Audit (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **REST API Credentials/permissions**: **SlackAPIBearerToken** is required for REST API. [See the documentation to learn more about API](https://api.slack.com/web#authentication). Check all [requirements and follow  the instructions](https://api.slack.com/web#authentication) for obtaining credentials.

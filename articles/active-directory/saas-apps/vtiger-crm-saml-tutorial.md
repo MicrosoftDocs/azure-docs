@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Vtiger CRM (SAML) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Vtiger CRM (SAML)'
 description: Learn how to configure single sign-on between Azure Active Directory and Vtiger CRM (SAML).
 services: active-directory
 author: jeevansd

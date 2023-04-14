@@ -31,6 +31,8 @@
       href: tutorial-wellbore-ddms.md
     - name: Use Well Delivery DDMS APIs
       href: tutorial-well-delivery-ddms.md
+    - name: Use Petrel DDMS APIs
+      href: tutorial-petrel-ddms.md
 - name: Concepts
   items:
     - name: CSV parser ingestion
@@ -84,12 +86,14 @@
       href: how-to-convert-segy-to-ovds.md
     - name: Generate a refresh token
       href: how-to-generate-refresh-token.md
+    - name: Set up audit logs
+      href: how-to-manage-audit-logs.md
 - name: References
   items:
   - name: REST API
     items:
     - name: Data plane
-      href: https://microsoft.github.io/meds-samples/
+      href: https://microsoft.github.io/adme-samples/
 - name: Resources
   items:
   - name: FAQ

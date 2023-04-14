@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/04/2022
+ms.date: 03/14/2023
 ms.author: mbullwin
 ---
 
@@ -57,7 +57,7 @@ Build succeeded.
 Within the application directory, install the Anomaly Detector client library for .NET with the following command:
 
 ```dotnetcli
-dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.5
+dotnet add package Azure.AI.AnomalyDetector --prerelease
 ```
 
 ## Retrieve key and endpoint
@@ -130,7 +130,6 @@ using System.Linq;
 using System.Text;
 using Azure;
 using Azure.AI.AnomalyDetector;
-using Azure.AI.AnomalyDetector.Models;
 using static System.Environment;
 
 namespace anomaly_detector_quickstart
@@ -158,13 +157,13 @@ namespace anomaly_detector_quickstart
                 .Where(e => e.Length == 2)
                 .Select(e => new TimeSeriesPoint(float.Parse(e[1])) { Timestamp = DateTime.Parse(e[0]) }).ToList();
 
-            //create request
-            DetectRequest request = new DetectRequest(list)
+              //create request
+            UnivariateDetectionOptions request = new UnivariateDetectionOptions(list)
             {
                 Granularity = TimeGranularity.Daily
             };
 
-            EntireDetectResponse result = client.DetectEntireSeries(request);
+            UnivariateEntireDetectionResult result = client.DetectUnivariateEntireSeries(request);
 
             bool hasAnomaly = false;
             for (int i = 0; i < request.Series.Count; ++i)
@@ -183,10 +182,15 @@ namespace anomaly_detector_quickstart
     }
 }
 
+
 ```
 
 > [!IMPORTANT]
 > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information about credential security, see the Cognitive Services [security](../../../security-features.md) article.
+
+```cmd
+dotnet run program.cs
+```
 
 ### Output
 

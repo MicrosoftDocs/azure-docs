@@ -53,11 +53,12 @@ You can choose to restore any combination of provisioned throughput containers, 
 The following configurations aren't restored after the point-in-time recovery:
 
 * Firewall, VNET, Data plane RBAC or private endpoint settings. 
+* Consistency settings, by default - account is restored with session consistency.
 * Regions.
 * Stored procedures, triggers, UDFs.
 * Role-based access control assignments. These will need to be re-assigned.
 
-You can add these configurations to the restored account after the restore is completed. An ability to prevent public access to restored account is described [here-to-befilled with url]().
+You can add these configurations to the restored account after the restore is completed.
 
 ## Restorable timestamp for live accounts
 
