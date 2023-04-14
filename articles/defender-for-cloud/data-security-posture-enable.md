@@ -5,7 +5,7 @@ author: bmansheim
 ms.author: benmansheim
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 04/13/2023
 ms.custom: template-how-to-pattern
 ---
 
@@ -26,9 +26,9 @@ Follow these steps to enable data-aware security posture. Don't forget to review
 
 1. Navigate to **Microsoft Defender for Cloud** > **Environmental settings**.
 1. Select the relevant Azure subscription.
-1. For the Defender for CSPM plan, select the **On** status.
+1. For the Defender CSPM plan, select the **On** status.
 
-    If Defender for CSPM is already on, select **Settings** in the Monitoring coverage column of the Defender CSPM plan and make sure that the **Sensitive data discovery** component is set to **On** status.
+    If Defender CSPM is already on, select **Settings** in the Monitoring coverage column of the Defender CSPM plan and make sure that the **Sensitive data discovery** component is set to **On** status.
 
 ## Enable in Defender CSPM (AWS)
 

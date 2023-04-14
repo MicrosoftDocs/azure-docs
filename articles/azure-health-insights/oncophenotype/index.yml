@@ -28,8 +28,6 @@ landingContent:
         links:
           - text: Model configuration
             url: model-configuration.md
-          - text: Patient information
-            url: patient-info.md
           - text: Inference information
             url: inferences.md
   - title: Use the Onco Phenotype model
@@ -42,5 +40,5 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: support and help options
+          - text: Support and help options
             url: support-and-help.md
