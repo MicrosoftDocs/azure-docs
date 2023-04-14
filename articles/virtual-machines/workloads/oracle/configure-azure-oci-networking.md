@@ -82,7 +82,7 @@ After you create your ExpressRoute, configure direct connectivity between Expres
 
 1. Select the **Azure private** peering. You see the peering details have automatically been configured based on the information you entered when setting up your FastConnect circuit.
 
-   :::image type="content" source="media/configure-azure-oci-networking/exr-private-peering.png" alt-text="Screenshot shows private peering settings." lightbox="media/configure-azure-oci-networking/exr-private-peering.png:::
+   :::image type="content" source="media/configure-azure-oci-networking/exr-private-peering.png" alt-text="Screenshot shows private peering settings." lightbox="media/configure-azure-oci-networking/exr-private-peering.png":::
 
 ## Connect virtual network to ExpressRoute
 
