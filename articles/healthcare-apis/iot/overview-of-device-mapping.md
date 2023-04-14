@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/03/2023
+ms.date: 04/13/2023
 ms.author: jasteppe
 ---
 
@@ -66,7 +66,7 @@ You can use these template types within CollectionContent depending on your use 
 
 and/or
 
-- [IotJsonPathContent](how-to-use-iotjsonpathcontenttemplate-mappings.md) for device messages being routed through [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub. IotJsonPathContent supports [JSONPath](https://goessner.net/articles/JsonPath/). 
+- [IotJsonPathContent](how-to-use-iotjsonpathcontent-mappings.md) for device messages being routed through [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub. IotJsonPathContent supports [JSONPath](https://goessner.net/articles/JsonPath/). 
 
 :::image type="content" source="media/overview-of-device-mapping/device-mapping-templates-diagram.png" alt-text="Diagram showing MedTech service device mapping templates architecture." lightbox="media/overview-of-device-mapping/device-mapping-templates-diagram.png":::
 
@@ -147,7 +147,7 @@ To learn how to use CalculatedContent with the MedTech service device mapping, s
 To learn how to use IotJsonPathContent with the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
-> [How to use IotJsonPathContent with the MedTech service device mapping](how-to-use-iotjsonpathcontenttemplate-mappings.md)
+> [How to use IotJsonPathContent with the MedTech service device mapping](how-to-use-iotjsonpathcontent-mappings.md)
 
 To learn how to use custom functions with the MedTech service device mapping, see
 

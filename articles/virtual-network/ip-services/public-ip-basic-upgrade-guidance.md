@@ -13,6 +13,9 @@ ms.date: 09/19/2022
 
 # Upgrading a basic public IP address to Standard SKU - Guidance
 
+>[!Important]
+>On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. This article will help guide you through the upgrade process. 
+
 In this article, we'll discuss guidance for upgrading your Basic SKU public IPs to Standard SKU. Standard public IPs are recommended for all production instances and provide many [key differences](#basic-sku-vs-standard-sku) to your infrastructure.
 ## Steps to complete the upgrade 
 

@@ -4,7 +4,7 @@ description: Learn to use the Azure SQL input binding in Azure Functions.
 author: dzsquared
 ms.topic: reference
 ms.custom: event-tier1-build-2022
-ms.date: 11/10/2022
+ms.date: 4/7/2023
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -65,7 +65,7 @@ namespace AzureSQLSamples
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitem")]
             HttpRequest req,
             [Sql(commandText: "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
-                commandText: System.Data.CommandType.Text,
+                commandType: System.Data.CommandType.Text,
                 parameters: "@Id={Query.id}",
                 connectionStringSetting: "SqlConnectionString")]
             IEnumerable<ToDoItem> toDoItem)
@@ -1080,6 +1080,8 @@ The following table explains the binding configuration properties that you set i
 The attribute's constructor takes the SQL command text, the command type, parameters, and the connection string setting name. The command can be a Transact-SQL (T-SQL) query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
 
 Queries executed by the input binding are [parameterized](/dotnet/api/microsoft.data.sqlclient.sqlparameter) in Microsoft.Data.SqlClient to reduce the risk of [SQL injection](/sql/relational-databases/security/sql-injection) from the parameter values passed into the binding.
+
+If an exception occurs when a SQL input binding is executed then the function code will not execute.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
 
 
 ::: zone-end

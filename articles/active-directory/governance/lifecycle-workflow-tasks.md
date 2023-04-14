@@ -331,7 +331,7 @@ For Microsoft Graph the parameters for the **Add user to teams** task are as fol
 
 ### Enable user account
 
-Allows cloud-only user accounts to be enabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be enabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You can utilize Azure Active Directory's HR driven provisioning to on-premises Active Directory to disable and enable synchronized accounts with an attribute mapping to `accountDisabled` based on data from your HR source. For more information, see: [Workday Configure attribute mappings](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings) and [SuccessFactors Configure attribute mappings](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md#part-4-configure-attribute-mappings). You're able to customize the task name and description for this task in the Azure portal.
 
 :::image type="content" source="media/lifecycle-workflow-task/enable-task.png" alt-text="Screenshot of Workflows task: enable user account.":::
 
@@ -405,7 +405,7 @@ For more information on setting up a Logic app to run with Lifecycle Workflows, 
 
 ### Disable user account
 
-Allows cloud-only user accounts to be disabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You're able to customize the task name and description for this task in the Azure portal.
+Allows cloud-only user accounts to be disabled. Users with Azure AD role assignments are not supported, nor are users with membership or ownership of role-assignable groups. You can utilize Azure Active Directory's HR driven provisioning to on-premises Active Directory to disable and enable synchronized accounts with an attribute mapping to `accountDisabled` based on data from your HR source. For more information, see: [Workday Configure attribute mappings](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings) and [SuccessFactors Configure attribute mappings](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md#part-4-configure-attribute-mappings). You're able to customize the task name and description for this task in the Azure portal.
 
 :::image type="content" source="media/lifecycle-workflow-task/disable-task.png" alt-text="Screenshot of Workflows task: disable user account.":::
 

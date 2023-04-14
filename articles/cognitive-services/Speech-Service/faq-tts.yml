@@ -98,7 +98,7 @@ sections:
       - question: |
           Do you have any tips about contracts or negotiation with voice actors?
         answer: |
-          We have no recommendations on contracts and it's up to the customer and the voice talent to negotiate the terms. However, you should make sure the voice talent understands the TTS technology, what it can do, its potential risks, and provide explicit consent to create a synthetic version of his/her voice in both the contract and a verbal statement. See [Disclosure for voice talent](/legal/cognitive-services/speech-service/custom-neural-voice/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context). 
+          We have no recommendations on contracts and it's up to the customer and the voice talent to negotiate the terms. However, you should make sure the voice talent understands the TTS technology, what it can do, its potential risks, and provide explicit consent to create a synthetic version of his/her voice in both the contract and a verbal statement. See [Disclosure for voice talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context). 
       - question: |
           Do we need to return the written permission from the voice talent back to Microsoft?
         answer: |

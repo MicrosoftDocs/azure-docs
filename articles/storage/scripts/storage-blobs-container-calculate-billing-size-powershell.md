@@ -9,7 +9,7 @@ ms.subservice: blobs
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 ms.topic: sample
-ms.date: 12/29/2020
+ms.date: 01/19/2023
 ms.author: shaas
 ---
 
