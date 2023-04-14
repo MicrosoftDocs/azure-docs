@@ -41,6 +41,59 @@ items:
 - name: How-to guides
   expanded: true
   items:
+    - name: Developer guides
+      expanded: true
+      items: 
+        - name: Configure code samples
+          items: 
+            - name: Single-page app
+              href: https://learn.microsoft.com/azure/active-directory/develop/single-page-app-quickstart
+            - name: Web app
+              href: https://learn.microsoft.com/azure/active-directory/develop/web-app-quickstart
+            - name: Web API
+              href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+            - name: Headless app
+              href: https://learn.microsoft.com/azure/active-directory/develop/console-app-quickstart
+            - name: Desktop app
+              href: https://learn.microsoft.com/azure/active-directory/develop/desktop-app-quickstart
+            - name: Mobile app
+              href: https://learn.microsoft.com/azure/active-directory/develop/mobile-app-quickstart
+        - name: Build and integrate apps
+          items: 
+            - name: Single-page app (SPA)
+              items: 
+                - name: Vanilla JS​ - Sign in users
+                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code
+                - name: Angular JS - Sign in users and call an API
+                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-angular-auth-code
+                - name: React JS​ - Sign in users and call an API
+                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-react
+            - name: Web app
+              items: 
+                - name: Node/Express​ - Sign in users
+                  href: https://learn.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview
+                - name: ASP.NET - Sign in users and call an API
+                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+            - name: Web API
+              items: 
+                - name: ASP.NET ​- Protect an API
+                  href: https://learn.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview
+            - name: Headless app
+              items: 
+                - name: Node​ - Sign in users
+                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-console
+                - name: .NET​ - Sign in users
+                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-aspnet-daemon-web-app
+            - name: Desktop app
+              items: 
+                - name: .NET MAUI - Sign in users
+                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-ios
+                - name: Electron​ - Sign in users
+                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-desktop
+            - name: Mobile app
+              items: 
+                - name: .NET MAUI - Sign in users
+                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-ios
     - name: Configure authentication methods and IdPs
       items:
         - name: Google federation

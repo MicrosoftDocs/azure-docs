@@ -609,6 +609,8 @@ items:
             href: storage-blob-container-delete.md
           - name: List containers
             href: storage-blob-containers-list.md
+          - name: Manage container leases
+            href: storage-blob-container-lease.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata.md
         - name: Blob actions
@@ -627,8 +629,8 @@ items:
             href: storage-blob-tags.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata.md
-          - name: Create and manage leases
-            href: storage-blob-container-lease.md
+          - name: Manage blob leases
+            href: storage-blob-lease.md
           - name: Create and manage snapshots
             href: snapshots-manage-dotnet.md
           - name: Create and list blob versions

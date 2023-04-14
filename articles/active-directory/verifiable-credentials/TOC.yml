@@ -16,6 +16,8 @@
     href: verifiable-credentials-configure-issuer.md
   - name: Verify a verifiable credential
     href: verifiable-credentials-configure-verifier.md
+  - name: Using the Authenticator
+    href: using-authenticator.md
 - name: Concepts
   expanded: true
   items:
