@@ -1081,6 +1081,8 @@ items:
       href: custom-text-analytics-for-health/overview.md  
     - name: Custom text analytics for health quickstart
       href: custom-text-analytics-for-health/quickstart.md
+    - name: Custom text analytics for health language support
+      href: custom-text-analytics-for-health/language-support.md
     - name: Concepts
       items:
       - name: Data formats
@@ -1101,6 +1103,10 @@ items:
         href: custom-text-analytics-for-health/how-to/view-model-evaluation.md
       - name: How to call the API
         href: custom-text-analytics-for-health/how-to/call-api.md
+    - name: Reference
+      items:
+      - name: Service limits
+        href: custom-text-analytics-for-health/reference/service-limits.md
 - name: Summarization (preview)
   items:
   - name: Summarization overview
