@@ -5,9 +5,9 @@ author: heniot
 ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: tutorial #Required; leave this attribute/value as-is.
+ms.topic: tutorial
 ms.date: 11/03/2022
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 ---
 
 # Tutorial: Register and scan an on-premises SQL Server

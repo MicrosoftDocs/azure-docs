@@ -44,7 +44,6 @@ As you review your list, you may find you need to either assign an owner for tas
 #### Owner recommended reading
 
 - [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
-- [Governance in Azure](../../governance/index.yml)
 
 ## Credentials management
 
@@ -246,7 +245,7 @@ Conditional Access is an essential tool for improving the security posture of yo
 - Plan for [break glass](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) accounts without MFA controls
 - Ensure a consistent experience across Microsoft 365 client applications, for example, Teams, OneDrive, Outlook, etc.) by implementing the same set of controls for services such as Exchange Online and SharePoint Online
 - Assignment to policies should be implemented through groups, not individuals
-- Do regular reviews of the exception groups used in policies to limit the time users are out of the security posture. If you own Azure AD P2, then you can use access reviews to automate the process
+- Do regular reviews of the exception groups used in policies to limit the time users are out of the security posture. If you own Azure AD Premium P2, then you can use access reviews to automate the process
 
 #### Conditional Access recommended reading
 
