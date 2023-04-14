@@ -260,8 +260,8 @@ Logs are output upon configuration refresh and contain detailed information on k
         Setting updated. Key:'ExampleKey'
 
     warn: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
-        A refresh operation failed.
-    Service request failed.
+        A refresh operation failed while resolving a Key Vault reference.
+    Key vault error. ErrorCode:'SecretNotFound' Key:'ExampleKey' Label:'ExampleLabel' Etag:'6LaqgBQM9C_Do2XyZa2gAIfj_ArpT52-xWwDSLb2hDo' SecretIdentifier:'https://examplevault.vault.azure.net/secrets/ExampleSecret'
     ```
 
 Using `ILogger` is the preferred method in ASP.NET applications and is prioritized as the logging source if an instance of `ILoggerFactory` is present. However, if `ILoggerFactory` is not available, logs can alternatively be enabled and configured through the [instructions for .NET Core apps](./enable-dynamic-configuration-dotnet-core.md#logging-and-monitoring-v600-and-later). For more information, see [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging).

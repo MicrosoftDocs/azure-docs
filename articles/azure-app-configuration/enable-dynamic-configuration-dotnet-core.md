@@ -171,8 +171,8 @@ Logs are output upon configuration refresh and contain detailed information on k
     Setting updated. Key:'ExampleKey'
 
     [Warning] Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh:
-    A refresh operation failed.
-    Service request failed.
+    A refresh operation failed while resolving a Key Vault reference.
+    Key vault error. ErrorCode:'SecretNotFound' Key:'ExampleKey' Label:'ExampleLabel' Etag:'6LaqgBQM9C_Do2XyZa2gAIfj_ArpT52-xWwDSLb2hDo' SecretIdentifier:'https://examplevault.vault.azure.net/secrets/ExampleSecret'
     ```
 
 > [!NOTE]
