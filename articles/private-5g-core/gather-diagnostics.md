@@ -13,7 +13,7 @@ ms.custom: template-how-to
 # Gather diagnostics using the Azure portal
 
 > [!IMPORTANT]
-> Diagnostics packages may contain *personally identifiable information (PII)*. During this procedure, when providing the diagnostics package's *shared access signature (SAS)* URL to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any PII that it contains.
+> Diagnostics packages may contain information from your site which may, depending on use, include data such as personal data, customer data, and system-generated logs. During this procedure, when providing the diagnostics package's *shared access signature* (SAS) URL to Azure support, you are explicitly giving Azure support permission to access the diagnostics package and any information that it contains. You should confirm that this is acceptable under your company's privacy policies and agreements.
 
 In this how-to guide, you'll learn how to gather a remote diagnostics package for an Azure Private 5G Core (AP5GC) site using the Azure portal. The diagnostics package can be provided, as a shared access signature (SAS) URL, to AP5GC support to assist you with issues.
 
