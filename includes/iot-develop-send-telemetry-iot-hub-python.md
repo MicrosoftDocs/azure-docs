@@ -151,4 +151,4 @@ To view device telemetry with Azure CLI:
       origin: mydevice
       payload:
         'Message #2'
-    
+    ```
