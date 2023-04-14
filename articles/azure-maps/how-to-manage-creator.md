@@ -1,6 +1,6 @@
 ---
 title: Manage Microsoft Azure Maps Creator
-description: In this article, you'll learn how to manage Microsoft Azure Maps Creator.
+description: This article demonstrates how to manage Microsoft Azure Maps Creator.
 author: eriklindeman
 ms.author: eriklind
 ms.date: 01/20/2022
@@ -51,7 +51,7 @@ To delete the Creator resource:
 
      :::image type="content" source="./media/how-to-manage-creator/creator-delete.png" alt-text="A screenshot of the Azure Maps Creator Resource page with the delete button highlighted.":::
 
-3. You'll be asked to confirm deletion by typing in the name of your Creator resource. After the resource is deleted, you see a confirmation page that looks like the following:
+3. You're prompted to confirm deletion by typing in the name of your Creator resource. After the resource is deleted, you see a confirmation page that looks like the following example:
 
      :::image type="content" source="./media/how-to-manage-creator/creator-confirm-delete.png" alt-text="A screenshot of the Azure Maps Creator Resource deletion confirmation page.":::
 
@@ -70,7 +70,7 @@ Creator usage data is incorporated in your Azure Maps usage charts and activity 
 
 ## Access to Creator services
 
-Creator services and services that use data hosted in Creator (for example, Render service), are accessible at a geographical URL. The geographical URL is determined by the location selected during creation. For example, if Creator is created in a region in the United States geographical location, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversions`. To view mappings of region to geographical location, [see Creator service geographic scope](creator-geographic-scope.md).
+Creator services and services that use data hosted in Creator (for example, Render service), are accessible at a geographical URL. The geographical URL determines the location selected during creation. For example, if Creator is created in a region in the United States geographical location, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversions`. To view mappings of region to geographical location, [see Creator service geographic scope](creator-geographic-scope.md).
 
 Also, all data imported into Creator should be uploaded into the same geographical location as the Creator resource. For example, if Creator is provisioned in the United States, all raw data should be uploaded via `us.atlas.microsoft.com/mapData/upload`.
 
