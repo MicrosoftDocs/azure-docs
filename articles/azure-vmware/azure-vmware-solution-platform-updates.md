@@ -11,6 +11,9 @@ ms.date: 3/16/2023
 
 Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
+## April 2023
+
+Introducing Run commands for HCX on Azure VMware solutions. You can use these Run commands to restart HCX cloud manager in your Azure VMware solution private cloud. Additionally, you can also scale HCX cloud manager using Run command. Learn how to use Run commands for HCX .[Use HCX Run commands].(https://learn.microsoft.com/en-us/azure/azure-vmware/use-hcx-run-commands).
 
 ## February 2023
 
