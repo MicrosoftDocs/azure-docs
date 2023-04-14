@@ -72,7 +72,7 @@ sections:
       - question: |
           Can I create a copy of my managed disk?
         answer: |
-          You can take a snapshot of a managed disk and then use the snapshot to create another managed disk.
+          You can take a snapshot of a managed disk and then use the snapshot to create another managed disk. You can also create a new managed disk from an existing managed disk.
 
       - question: |
           Are unmanaged disks still supported?
@@ -85,19 +85,9 @@ sections:
           No.
 
       - question: |
-          If I create a 128 gibibyte (GiB) disk and then increase the size to 130 GiB, will I be charged for the next disk size (256 GiB)?
-        answer: |
-          Yes.
-
-      - question: |
           Can I shrink or downsize my managed disks?
         answer: |
           No.
-
-      - question: |
-          Can I break a lease on my disk?
-        answer: |
-          No. This is not currently supported as a lease prevents accidental deletion when the disk is being used.
 
       - question: |
           Can I change the computer name property when a specialized (not created by using the System Preparation tool or generalized) operating system disk is used to provision a VM?
