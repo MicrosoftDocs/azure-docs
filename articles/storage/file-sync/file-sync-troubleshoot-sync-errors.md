@@ -783,7 +783,7 @@ Server endpoint provisioning fails with this error code if these conditions are 
 * This server endpoint was provisioned with the initial sync mode: [server authoritative](file-sync-server-endpoint-create.md#initial-sync-section)
 * Local server path is empty or contains no items recognized as able to sync.
 
-This provisioning error protects you from deleting all content that might be available in an Azure file share. Server authoritative upload is a special mode to catch up a cloud location that was already seeded, with the updates from the server location. Review this [migration guide](../files/storage-files-migration-server-hybrid-databox.md) to understand the scenario for which this mode has been built for.
+This provisioning error protects you from deleting all content that might be available in an Azure file share. Server authoritative upload is a special mode to catch up a cloud location that was already seeded, with the updates from the server location. Review this [migration guide](../files/storage-files-migration-server-hybrid-databox.md) to understand the scenario for which this mode has been built.
 
 1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
 1. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](file-sync-server-endpoint-create.md).
