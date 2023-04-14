@@ -133,3 +133,5 @@ Learn how to:
 - [Customize the default branding](how-to-customize-branding-customers.md)
  
 - [Configure sign-in with Google](how-to-google-federation-customers.md)
+
+- [Sign in users in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-overview.md)
