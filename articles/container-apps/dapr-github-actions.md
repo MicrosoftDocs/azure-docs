@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Deploy a Dapr application with GitHub Actions for Azure Container Apps
 description: Learn about multiple revision management by deploying a Dapr application with GitHub Actions and Azure Container Apps. 
-author: cebundy
-ms.author: v-bcatherine
+author: lanceleonard
+ms.author: v-laleonard
 ms.reviewer: keroden
 ms.service: container-apps
 ms.topic: tutorial 

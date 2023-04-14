@@ -88,24 +88,60 @@ df.head()
 > 1. Find the file/folder you want to read into pandas, select the elipsis (**...**) next to it. Select from the menu **Copy URI**. You can select the **Datastore URI** to copy into your notebook/script.
 > :::image type="content" source="media/how-to-access-data-ci/datastore_uri_copy.png" alt-text="Screenshot highlighting the copy of the datastore URI.":::
 
-You can also instantiate an Azure Machine Learning filesystem and do filesystem-like commands like `ls`, `glob`, `exists`, `open`, etc. The `open()` method will return a file-like object, which can be passed to any other library that expects to work with python files, or used by your own code as you would a normal python file object. These file-like objects respect the use of `with` contexts, for example:
+You can also instantiate an Azure Machine Learning filesystem and do filesystem-like commands like `ls`, `glob`, `exists`, `open`.
+- The `ls()` method can be used to list files in the corresponding directory. You can use ls(), ls(.), ls (<<folder_level_1>/<folder_level_2>) to list files. We support both '.' and '..' in relative paths.
+- The `glob()` method supports '*' and '**' globbing.
+- The `exists()` method returns a Boolean value that indicates whether a specified file exists in current root directory. 
+- The `open()` method will return a file-like object, which can be passed to any other library that expects to work with python files, or used by your own code as you would a normal python file object. These file-like objects respect the use of `with` contexts, for example:
 
 ```python
 from azureml.fsspec import AzureMachineLearningFileSystem
 
-# instantiate file system using datastore URI
-fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>')
+# instantiate file system using following URI
+fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastore/datastorename')
 
-# list files in the path
-fs.ls()
+fs.ls() # list folders/files in datastore 'datastorename'
+
 # output example:
-# /datastore_name/folder/file1.csv
-# /datastore_name/folder/file2.csv
+# folder1
+# folder2
+# file3.csv
 
 # use an open context
-with fs.open('/datastore_name/folder/file1.csv') as f:
+with fs.open('./folder1/file1.csv') as f:
     # do some process
     process_file(f)
+```
+
+### Upload files via AzureMachineLearningFileSystem
+
+```python
+from azureml.fsspec import AzureMachineLearningFileSystem
+# instantiate file system using following URI
+fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastore/datastorename')
+
+# you can specify recursive as False to upload a file
+fs.upload(lpath='data/upload_files/crime-spring.csv', rpath='data/fsspec', recursive=False, **{'overwrite': MERGE_WITH_OVERWRITE})
+
+# you need to specify recursive as True to upload a folder
+fs.upload(lpath='data/upload_folder/', rpath='data/fsspec_folder', recursive=True, **{'overwrite': MERGE_WITH_OVERWRITE})
+```
+`lpath` is the local path, and `rpath` is the remote path.
+If the folders you specify in `rpath` do not exist yet, we will create the folders for you.
+
+We support 3 modes for 'overwrite':
+- APPEND: if there is already a file with the same name in the destination path, will keep the original file
+- FAIL_ON_FILE_CONFLICT: if there is already a file with the same name in the destination path, will throw an error
+- MERGE_WITH_OVERWRITE: if there is already a file with the same name in the destination path, will overwrite with the new file
+
+### Download files via AzureMachineLearningFileSystem
+```python
+# you can specify recursive as False to download a file
+# downloading overwrite option is determined by local system, and it is MERGE_WITH_OVERWRITE
+fs.download(rpath='data/fsspec/crime-spring.csv', lpath='data/download_files/, recursive=False)
+
+# you need to specify recursive as True to download a folder
+fs.download(rpath='data/fsspec_folder', lpath='data/download_folder/', recursive=True)
 ```
 
 ### Examples
@@ -131,14 +167,14 @@ import pandas as pd
 from azureml.fsspec import AzureMachineLearningFileSystem
 
 # define the URI - update <> placeholders
-uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>/*.csv'
+uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>'
 
 # create the filesystem
 fs = AzureMachineLearningFileSystem(uri)
 
 # append csv files in folder to a list
 dflist = []
-for path in fs.ls():
+for path in fs.glob('/<folder>/*.csv'):
     with fs.open(path) as f:
         dflist.append(pd.read_csv(f))
 
@@ -170,14 +206,14 @@ import pandas as pd
 from azureml.fsspec import AzureMachineLearningFileSystem
 
 # define the URI - update <> placeholders
-uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>/*.parquet'
+uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>'
 
 # create the filesystem
 fs = AzureMachineLearningFileSystem(uri)
 
 # append parquet files in folder to a list
 dflist = []
-for path in fs.ls():
+for path in fs.glob('/<folder>/*.parquet'):
     with fs.open(path) as f:
         dflist.append(pd.read_parquet(f))
 
@@ -225,14 +261,14 @@ from PIL import Image
 from azureml.fsspec import AzureMachineLearningFileSystem
 
 # define the URI - update <> placeholders
-uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>/<image.jpeg>'
+uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>'
 
 # create the filesystem
 fs = AzureMachineLearningFileSystem(uri)
 
-with fs.open() as f:
+with fs.open('/<folder>/<image.jpeg>') as f:
     img = Image.open(f)
-    img.show()
+    img.show(）
 ```
 
 #### PyTorch custom dataset example
@@ -306,7 +342,7 @@ from azureml.fsspec import AzureMachineLearningFileSystem
 from torch.utils.data import DataLoader
 
 # define the URI - update <> placeholders
-uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>/paths/<folder>/'
+uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastores/<datastore_name>'
 
 # create the filesystem
 fs = AzureMachineLearningFileSystem(uri)
@@ -314,8 +350,8 @@ fs = AzureMachineLearningFileSystem(uri)
 # create the dataset
 training_data = CustomImageDataset(
     filesystem=fs,
-    annotations_file='<datastore_name>/<path>/annotations.csv', 
-    img_dir='<datastore_name>/<path_to_images>/'
+    annotations_file='/annotations.csv', 
+    img_dir='/<path_to_images>/'
 )
 
 # Preparing your data for training with DataLoaders
