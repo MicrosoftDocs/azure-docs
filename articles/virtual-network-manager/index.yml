@@ -94,3 +94,15 @@ landingContent:
         links:
         - text: Hub-spoke network topology in Azure
           url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+
+  # Card
+  - title: Monitoring
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Event Log Options for Azure Virtual Network Manager
+            url: concept-event-logs.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Event Logs for Azure Virtual Network Manager
+            url: how-to-configure-event-logs.md

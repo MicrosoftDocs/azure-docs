@@ -113,19 +113,6 @@ In this article, you learn how to:
                              -Name $ddos_protection_plan_name
     ```
 
-1. Get the virtual network name.
-
-    ```console
-    $virtual_network_name=$(terraform output -raw virtual_network_name)
-    ```
-
-1. Run [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to display information about the new virtual network.
-
-    ```azurepowershell
-    Get-AzVirtualNetwork -ResourceGroupName $resource_group_name `
-                         -Name $virtual_network_name
-    ```
-
 ---
 
 ## Clean up resources
