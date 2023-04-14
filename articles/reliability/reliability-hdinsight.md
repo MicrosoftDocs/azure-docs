@@ -12,7 +12,8 @@ CustomerIntent: As a cloud architect/engineer, I need general guidance on migrat
 
 # Reliability in Azure HDInsight 
 
-This article describes reliability support in Azure HDInsight and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [cross-region resiliency with disaster recovery](#disaster-recovery-cross-region-failover). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure HDInsight and covers both intra-regional resiliency with [availability zones](#availability-zone-support) 
+(#disaster-recovery-cross-region-failover). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 
 ## Availability zone support
@@ -58,9 +59,6 @@ However, Azure HDInsight also supports both [zone-redundant and zonal deployment
     - West US 2
 
 
-### SLA improvements
-<!-- Need info -->
-
 ## Create an HDInsight cluster using availability zone
 
 You can use Azure Resource Manager (ARM) template to launch an HDInsight cluster into a specified availability zone. 
@@ -104,13 +102,6 @@ When the HDInsight cluster is ready, you can check the location to see which ava
 
 You can scale up an HDInsight cluster with more worker nodes. The newly added worker nodes will be placed in the same availability zone of this cluster. 
 
-
-### Zonal failover support
-
-{Need more info here.}
-
-Make sure to implement logic to easily route workload to the secondary cluster and regularly back up the configurations in Ambari DB.
-
 ### Availability zone redeployment
 
 Azure HDInsight clusters currently doesn't support in-place migration of existing cluster instances to availability zone support. However, you can choose to [recreate your cluster](#create-an-hdinsight-cluster-using-availability-zone), and choose availability zone support during the cluster creation.  
@@ -123,10 +114,6 @@ When an availability zone goes down:
  - You can't delete or scale up or scale down this cluster.
  - You can't submit jobs or see job history.
  - You still can submit new cluster creation request in a different region.
-
-## Disaster recovery: cross region failover
-
-<!-- Need info on this -->
 
 
 ## Next steps
