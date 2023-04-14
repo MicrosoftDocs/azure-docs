@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 04/14/2023
 ---
 
-## Microsoft Defender for IoT compliance resources
+# Microsoft Defender for IoT compliance resources
 
 Defender for IoT cloud services, formerly named *Azure Defender for IoT* or *Azure Security for IoT*, are based on Microsoft Azure’s infrastructure, which meets demanding US government and international compliance requirements that produce formal authorizations.
 
