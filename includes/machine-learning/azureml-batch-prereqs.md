@@ -20,26 +20,23 @@ Before following the steps in this article, make sure you have the following pre
 
     * Create ARM deployments in the workspace resource group: Use roles Owner, contributor, or custom role allowing `Microsoft.Resources/deployments/write` in the resource group where the workspace is deployed.
 
-### Prepare your system
+* You will need to install the following software to work with Azure Machine Learning:
 
-You will need to install the following software to work with Azure Machine Learning:
-
-# [Azure CLI](#tab/cli)
-
-The [Azure CLI](/cli/azure/) and the `ml` [extension for Azure Machine Learning](../../articles/machine-learning/how-to-configure-cli.md).
-
-```azurecli
-az extension add -n ml
-```
-
-# [Python](#tab/python)
-
-Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
-
-```python
-pip install azure-ai-ml
-```
----
+    # [Azure CLI](#tab/cli)
+    
+    The [Azure CLI](/cli/azure/) and the `ml` [extension for Azure Machine Learning](../../articles/machine-learning/how-to-configure-cli.md).
+    
+    ```azurecli
+    az extension add -n ml
+    ```
+    
+    # [Python](#tab/python)
+    
+    Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
+    
+    ```python
+    pip install azure-ai-ml
+    ```
 
 ### Connect to your workspace
 

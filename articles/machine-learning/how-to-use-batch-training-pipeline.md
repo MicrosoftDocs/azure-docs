@@ -14,19 +14,18 @@ ms.reviewer: mopeakande
 ms.custom: how-to, devplatv2, event-tier1-build-2023
 ---
 
-# How to deploy a training pipeline with batch endpoints
+# How to operationalize a training pipeline with batch endpoints
 
 [!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
-In this article, you'll learn how to deploy a training pipeline under a batch endpoint. The pipeline uses multiple components (or steps) that include model training, data preprocessing, and model evaluation.
+In this article, you'll learn how to operationalize a training pipeline under a batch endpoint. The pipeline uses multiple components (or steps) that include model training, data preprocessing, and model evaluation.
 
 You'll learn to:
 
 > [!div class="checklist"]
-> * Create and test a pipeline
-> * Deploy the pipeline to an endpoint
-> * Test the deployment
-> * Modify a component in the pipeline and create a new pipeline deployment
+> * Create and test a training pipeline
+> * Deploy the pipeline to a batch endpoint
+> * Modify the pipeline and create a new deployment in the same endpoint
 > * Test the new deployment and set it as the default deployment
 
 ## About this example
@@ -66,6 +65,8 @@ Create the environment as follows:
 1. Define the environment:
 
     # [Azure CLI](#tab/cli)
+
+    __environment/xgboost-sklearn-py38.yml__
     
     :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/environment/xgboost-sklearn-py38.yml" :::
     
@@ -423,7 +424,7 @@ Once the deployment is created, it's ready to receive jobs. Follow this steps to
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="invoke_deployment_inline" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="invoke_deployment_file" :::
     
     # [Python](#tab/python)
     
