@@ -122,7 +122,7 @@ In that code:
 
 The number of users in Azure Active Directory should be displayed as a result.
 
-This quickstart application uses a client secret to identify itself as a confidential client. The client secret is added as a plain-text file to the project files. For security reasons, it is recommended to use a certificate instead of a client secret before considering the application as a production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates).
+This quickstart application uses a client secret to identify itself as a confidential client. The client secret is added as a plain-text file to the project files. For security reasons, it's recommended to use a certificate instead of a client secret before considering the application as a production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates).
 
 ## More information
 
@@ -130,7 +130,7 @@ This section provides an overview of the code required to sign in users. The ove
 
 ### Microsoft.Identity.Web.MicrosoftGraph
 
-Microsoft Identity Web (in the [Microsoft.Identity.Web.TokenAcquisition](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenAcquisition) package) is the library that's used to request tokens for accessing an API protected by the Microsoft identity platform. This quickstart requests tokens by using the application's own identity instead of delegated permissions. The authentication flow in this case is known as a [client credentials OAuth flow](v2-oauth2-client-creds-grant-flow.md). For more information on how to use MSAL.NET with a client credentials flow, see [this article](https://aka.ms/msal-net-client-credentials). Given the daemon app in this quickstart calls Microsoft Graph, you install tje [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) package, which handles automatically authenticated requests to Microsoft Graph (and references itself Microsoft.Identity.Web.TokenAcquisition)
+Microsoft Identity Web (in the [Microsoft.Identity.Web.TokenAcquisition](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenAcquisition) package) is the library that's used to request tokens for accessing an API protected by the Microsoft identity platform. This quickstart requests tokens by using the application's own identity instead of delegated permissions. The authentication flow in this case is known as a [client credentials OAuth flow](v2-oauth2-client-creds-grant-flow.md). For more information on how to use MSAL.NET with a client credentials flow, see [this article](https://aka.ms/msal-net-client-credentials). Given the daemon app in this quickstart calls Microsoft Graph, you install the [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) package, which handles automatically authenticated requests to Microsoft Graph (and references itself Microsoft.Identity.Web.TokenAcquisition)
 
 Microsoft.Identity.Web.MicrosoftGraph can be installed by running the following command in the Visual Studio Package Manager Console:
 
@@ -150,7 +150,7 @@ using Microsoft.Identity.Abstractions;
 using Microsoft.Identity.Web;
 ```
 
-Then, initialize the app with the following:
+Then, initialize the app with the following code:
 
 ```csharp
 // Get the Token acquirer factory instance. By default it reads an appsettings.json
