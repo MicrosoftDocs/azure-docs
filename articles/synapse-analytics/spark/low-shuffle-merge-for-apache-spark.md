@@ -87,4 +87,4 @@ SET `spark.microsoft.delta.merge.lowShuffle.enabled` = false
 
 ## Future improvement
 
-With Low Shuffle Merge feature, rewriting unmodified rows still takes a long time and resources. There is ongoing work in OSS Delta Lake for deletion vector. Once it is delivered, we would be able to skip rewriting unmodified rows.
+There is ongoing work in OSS Delta Lake to support deletion vectors. Once it is delivered, rewriting unmodified rows is un-necessary and can be eliminated. This is expected to improve execution time and reduce resource utilization.
