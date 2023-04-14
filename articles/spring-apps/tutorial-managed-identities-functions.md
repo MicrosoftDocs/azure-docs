@@ -96,7 +96,7 @@ func init --worker-runtime node
 func new --template HttpTrigger --name HttpTrigger
 ```
 
-By default, functions use key-based authentication to secure HTTP endpoints. To enable Azure AD authentication to secure access to the functions, set the `authLevel` key to `anonymous`in the *function.json* file as shown in the following code:
+By default, functions use key-based authentication to secure HTTP endpoints. To enable Azure AD authentication to secure access to the functions, set the `authLevel` key to `anonymous` in the *function.json* file, as shown in the following example:
 
 ```json
 {
