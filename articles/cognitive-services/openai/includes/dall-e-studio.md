@@ -24,8 +24,6 @@ Navigate to Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_bla
 
 From the Azure OpenAI Studio landing page navigate further to explore examples for prompt completion, manage your deployments and models, and find learning resources such as documentation and community forums. 
 
-:::image type="content" source="../media/quickstarts/studio-start.png" alt-text="Screenshot of the Azure OpenAI Studio landing page." lightbox="../media/quickstarts/studio-start.png":::
-
 Go to the **DALL·E 2 playground** to use the image generation APIs.
 
 ## Try image generation
@@ -34,6 +32,9 @@ Start exploring Azure OpenAI capabilities with a no-code approach through the DA
 
 > [!NOTE]
 > The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) guide.
+
+:::image type="content" source="../media/quickstarts/dalle-studio.png" alt-text="Screenshot of the Azure OpenAI Studio landing page." lightbox="../media/quickstarts/dalle-studio.png":::
+
 
 In the DALL-E 2 playground you can also view Python and cURL code samples, pre-filled according to your settings. Select **View code** nea the top of the page. You can use this code to write an application that completes the same task.
 
