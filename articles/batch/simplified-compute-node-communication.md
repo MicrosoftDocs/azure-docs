@@ -17,7 +17,7 @@ Batch supports two types of communication modes:
 This article describes the *simplified* communication mode and the associated network configuration requirements.
 
 > [!TIP]
-> Information in this document pertaining to networking resources and rules such as NSGs doesn't apply to Batch pools with [no public IP addresses](simplified-node-communication-pool-no-public-ip.md) using the node management private endpoint without internet outbound access.
+> Information in this document pertaining to networking resources and rules such as NSGs doesn't apply to Batch pools with [no public IP addresses](simplified-node-communication-pool-no-public-ip.md) that use the node management private endpoint without internet outbound access.
 
 > [!WARNING]
 > The *classic* compute node communication mode will be retired on **31 March 2026** and replaced with the *simplified* communication mode described in this document. For more information, see the communication mode [migration guide](batch-pools-to-simplified-compute-node-communication-model-migration-guide.md).
@@ -61,7 +61,7 @@ The *simplified* mode also provides more fine-grained data exfiltration control 
 
 Even if your workloads aren't currently impacted by the changes (as described in the following section), it's recommended to move to the simplified mode. Future improvements in the Batch service might only be functional with simplified compute node communication.
 
-## Potential impact between classic and simplified modes
+## Potential impact between classic and simplified communication modes
 
 In many cases, the simplified communication mode doesn't directly affect your Batch workloads. However, simplified compute node communication has an impact for the following cases:
 
@@ -86,7 +86,7 @@ The following steps are required to migrate to the new communication mode:
 1. Use one of the following options to update your workloads to use the new communication mode.
    - Create new pools with the `targetNodeCommunicationMode` set to *simplified* and validate that the new pools are working correctly. Migrate your workload to the new pools and delete any earlier pools.
    - Update existing pools `targetNodeCommunicationMode` property to *simplified* and then resize all existing pools to zero nodes and scale back out.
-1. Use the [Get Pool](/rest/api/batchservice/pool/get), [List Pool](/rest/api/batchservice/pool/list) API or Azure Portal to confirm the `currentNodeCommunicationMode` is set to the desired communication mode of *simplified*.
+1. Use the [Get Pool](/rest/api/batchservice/pool/get) API, [List Pool](/rest/api/batchservice/pool/list) API, or the Azure Portal to confirm the `currentNodeCommunicationMode` is set to the desired communication mode of *simplified*.
 1. Modify all applicable networking configuration to the simplified communication rules, at the minimum (note any extra rules needed as discussed above):
    - Inbound:
      - None
@@ -110,7 +110,7 @@ The [targetNodeCommunicationMode](/rest/api/batchservice/pool/add) property on B
 - **Default**: allows the Batch service to select the appropriate compute node communication mode. For pools without a virtual network, the pool may be created in either classic or simplified mode. For pools with a virtual network, the pool always defaults to classic until **30 September 2024**. For more information, see the classic compute node communication mode [migration guide](batch-pools-to-simplified-compute-node-communication-model-migration-guide.md).
 
 > [!TIP]
-> Specifying the target node communication mode is a preference indication for the Batch service and not a guarantee that it will be honored. Certain configurations on the pool may prevent the Batch service from honoring the specified target node communication mode, such as interaction with no public IP address, virtual networks, and the pool configuration type.
+> Specifying the target node communication mode indicates a preference for the Batch service, but doesn't guarantee that it will be honored. Certain configurations on the pool might prevent the Batch service from honoring the specified target node communication mode, such as interaction with no public IP address, virtual networks, and the pool configuration type.
 
 The following are examples of how to create a Batch pool with simplified compute node communication.
 
