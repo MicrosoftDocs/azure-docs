@@ -25,7 +25,7 @@ Azure Communication Services relies on Event Grid subscriptions to deliver each 
 Refer [here](../../../event-grid/secure-webhook-delivery.md) to learn how to secure the delivery of `IncomingCall` by Event Grid
 
 ## Call Automation webhook events
-The Call Automation events are sent to the webhook callback URI specified when you answer or place a new outbound call. Refer [here](../../concepts/call-automation/call-automation.md#call-automation-webhook-events)
+The Call Automation events are sent to the webhook callback URI specified when you answer or place a new outbound call. Refer [here](../../concepts/call-automation/call-automation.md#call-automation-webhook-events) to learn more about it.
 
 The webhook event has Authentication header in it, Contoso is expected to validate this token before acception the event.
 
