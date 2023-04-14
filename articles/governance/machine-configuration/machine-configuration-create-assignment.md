@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.author: timwarner
 author: timwarner-msft
 ms.service: machine-configuration
+ms.custom: devx-track-terraform, devx-track-arm-template, devx-track-bicep
 ---
 # How to create a machine configuration assignment using templates
 
