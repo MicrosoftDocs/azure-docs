@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use a .NET app to create and run a Batch job'
+title: 'Quickstart: Use .NET to create a pool and run a job'
 description: Follow this quickstart to run a C# app that uses the Batch .NET client library to create and run Batch pools, nodes, jobs, and tasks.
 ms.topic: quickstart
 ms.date: 04/14/2023
@@ -7,15 +7,15 @@ ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp, mode-api
 ---
 
-# Quickstart: Run your first Azure Batch job with the .NET API
+# Quickstart: Use .NET to create a Batch pool and run a job
 
-This quickstart shows you how to get started with Azure Batch by running a C# app that uses the [Azure Batch .NET API](/dotnet/api/overview/azure/batch) to:
+This quickstart shows you how to get started with Azure Batch by running a C# app that uses the [Azure Batch .NET API](/dotnet/api/overview/azure/batch). The .NET app:
 
 > [!div class="checklist"]
-> - Upload several input data files to an Azure Storage blob container to use for Batch task processing.
-> - Create a *pool* of two virtual machines (VMs), or compute *nodes*, running Windows Server OS.
-> - Create a *job* that runs *tasks* on the nodes to process each input file by using a Windows command line.
-> - Display the output files that the tasks return.
+> - Uploads several input data files to an Azure Storage blob container to use for Batch task processing.
+> - Creates a pool of two virtual machines (VMs), or compute nodes, running Windows Server.
+> - Creates a job that runs tasks on the nodes to process each input file by using a Windows command line.
+> - Displays the output files that the tasks return.
 
 After you complete this quickstart, you understand the [key concepts of the Batch service](batch-service-workflow-features.md) and are ready to use Batch with more realistic, larger scale workloads.
 
@@ -23,13 +23,13 @@ After you complete this quickstart, you understand the [key concepts of the Batc
 
 - An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A Batch account with a linked Azure Storage account. You can create the accounts by using any of the following methods:<br>[Azure CLI](quick-create-cli.md) | [Azure portal](quick-create-portal.md) | [Bicep](quick-create-bicep.md) | [ARM template](quick-create-template.md) | [Terraform](quick-create-terraform.md)
+- A Batch account with a linked Azure Storage account. You can create the accounts by using any of the following methods: [Azure CLI](quick-create-cli.md) | [Azure portal](quick-create-portal.md) | [Bicep](quick-create-bicep.md) | [ARM template](quick-create-template.md) | [Terraform](quick-create-terraform.md).
 
-- [Visual Studio](https://www.visualstudio.com/vs) or [.NET Core 6.0](https://dotnet.microsoft.com/download/dotnet) or later, for Linux or Windows.
+- [Visual Studio 2017](https://www.visualstudio.com/vs) or later, or [.NET 6.0](https://dotnet.microsoft.com/download/dotnet) or later, for Linux or Windows.
 
 ## Run the app
 
-To complete this quickstart, you download or clone the app, provide your account values, build and run the app, and verify output.
+To complete this quickstart, you download or clone the app, provide your account values, build and run the app, and verify the output.
 
 ### Download or clone the app
 
@@ -69,17 +69,19 @@ private const string StorageAccountKey  = "<key1>
 ```
 
 >[!IMPORTANT]
->Exposing account keys in the app source isn't recommended for Production usage. You should restrict access to the credentials and refer to them in your code by using environment variables or a configuration file. It's best to store Batch and Storage account keys in Azure Key Vault.
+>Exposing account keys in the app source isn't recommended for Production usage. You should restrict access to credentials and refer to them in your code by using variables or a configuration file. It's best to store Batch and Storage account keys in Azure Key Vault.
 
 ### Build and run the app and view output
 
 To see the Batch workflow in action, build and run the application in Visual Studio or at the command line with the `dotnet build` and `dotnet run` commands.
 
-In Visual Studio, open the *BatchDotNetQuickstart.sln* file, right-click the solution in **Solution Explorer**, and select **Build**. If prompted, use [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) to update or restore NuGet packages.
+In Visual Studio:
 
-Once the build completes, select **BatchDotNetQuickstart** in the top menu bar to run the app.
+1. Open the *BatchDotNetQuickstart.sln* file, right-click the solution in **Solution Explorer**, and select **Build**. If prompted, use [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) to update or restore NuGet packages.
 
-Typical run time is approximately five minutes at the default configuration. Initial pool node setup takes the most time. To rerun the job, delete the job from the previous run, but don't delete the pool. On a preconfigured pool, the job completes in a few seconds.
+1. Once the build completes, select **BatchDotNetQuickstart** in the top menu bar to run the app.
+
+Typical run time using the default configuration is approximately five minutes. Initial pool node setup takes the most time. To rerun the job, delete the job from the previous run, but don't delete the pool. On a preconfigured pool, the job completes in a few seconds.
 
 The app returns output similar to the following example:
 
@@ -112,7 +114,7 @@ stderr:
 
 ## Review the code
 
-The [Azure Batch .NET Quickstart](https://github.com/Azure-Samples/batch-dotnet-quickstart) app does the following steps:
+Review the code to understand the steps in the [Azure Batch .NET Quickstart](https://github.com/Azure-Samples/batch-dotnet-quickstart).
 
 ### Create service clients and upload resource files
 
@@ -122,7 +124,7 @@ The [Azure Batch .NET Quickstart](https://github.com/Azure-Samples/batch-dotnet-
    CloudBlobClient blobClient = CreateCloudBlobClient(StorageAccountName, StorageAccountKey);
    ```
 
-1. The app uses the `blobClient` reference to create a container in the storage account and upload data files to the container. The files in storage are defined as Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) objects that Batch can later download to compute nodes.
+1. The app uses the `blobClient` reference to create a container in the storage account and upload data files to the container. The files in storage are defined as Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) objects that Batch can later download to the compute nodes.
 
    ```csharp
    List<string> inputFilePaths = new List<string>
@@ -138,7 +140,7 @@ The [Azure Batch .NET Quickstart](https://github.com/Azure-Samples/batch-dotnet-
    {
        inputFiles.Add(UploadFileToContainer(blobClient, inputContainerName, filePath));
    }
-```
+   ```
 
 1. The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage Batch pools, jobs, and tasks. The Batch client uses shared key authentication. Batch also supports Azure Active Directory (Azure AD) authentication.
 
@@ -151,7 +153,7 @@ The [Azure Batch .NET Quickstart](https://github.com/Azure-Samples/batch-dotnet-
 
 ### Create a pool of compute nodes
 
-To create a Batch pool, the app uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and pool configuration. The following[VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server Marketplace image. Batch supports a wide range of Windows Server and Linux Marketplace OS images, and also supports custom VM images.
+To create a Batch pool, the app uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and pool configuration. The following [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server Marketplace image. Batch supports a wide range of Windows Server and Linux Marketplace OS images, and also supports custom VM images.
 
 The `PoolNodeCount` and VM size `PoolVMSize` are defined constants. The app creates a pool of two *Standard_A1_v2* nodes. This size offers a good balance of performance versus cost for this quickstart.
 

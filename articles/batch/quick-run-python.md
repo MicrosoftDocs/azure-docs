@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use a Python app to create and run a Batch job'
+title: 'Quickstart: Use Python to create a pool and run a job'
 description: Follow this quickstart to run an app that uses the Azure Batch client library for Python to create and run Batch pools, nodes, jobs, and tasks.
 ms.date: 04/13/2023
 ms.topic: quickstart
@@ -7,14 +7,14 @@ ms.devlang: python
 ms.custom: seo-python-october2019, mvc, devx-track-python, mode-api
 ---
 
-# Quickstart: Use Python API to run an Azure Batch job
+# Quickstart: Use Python to create a Batch pool and run a job
 
-This quickstart shows you how to get started with Azure Batch by running an app that uses the [Azure Batch libraries for Python](/python/api/overview/azure/batch). The Python app does the following actions:
+This quickstart shows you how to get started with Azure Batch by running an app that uses the [Azure Batch libraries for Python](/python/api/overview/azure/batch). The Python app:
 
 > [!div class="checklist"]
 > - Uploads several input data files to an Azure Storage blob container to use for Batch task processing.
-> - Creates a *pool* of two virtual machines (VMs), or compute *nodes*, running Ubuntu 20.04 LTS OS.
-> - Creates a *job* and three *tasks* to run on the nodes. Each task processes one of the input files by using a Bash shell command line.
+> - Creates a pool of two virtual machines (VMs), or compute nodes, running Ubuntu 20.04 LTS OS.
+> - Creates a job and three tasks to run on the nodes. Each task processes one of the input files by using a Bash shell command line.
 > - Displays the output files that the tasks return.
 
 After you complete this quickstart, you understand the [key concepts of the Batch service](batch-service-workflow-features.md) and are ready to use Batch with more realistic, larger scale workloads.
@@ -23,13 +23,13 @@ After you complete this quickstart, you understand the [key concepts of the Batc
 
 - An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A Batch account with a linked Azure Storage account. You can create the accounts by using any of the following methods:<br>[Azure CLI](quick-create-cli.md) | [Azure portal](quick-create-portal.md) | [Bicep](quick-create-bicep.md) | [ARM template](quick-create-template.md) | [Terraform](quick-create-terraform.md)
+- A Batch account with a linked Azure Storage account. You can create the accounts by using any of the following methods: [Azure CLI](quick-create-cli.md) | [Azure portal](quick-create-portal.md) | [Bicep](quick-create-bicep.md) | [ARM template](quick-create-template.md) | [Terraform](quick-create-terraform.md).
 
 - [Python](https://python.org/downloads) version 3.6 or later, which includes the [pip](https://pip.pypa.io/en/stable/installing) package manager.
 
 ## Run the app
 
-To complete this quickstart, you download or clone the Python app, provide your account values, run the app, and verify output.
+To complete this quickstart, you download or clone the Python app, provide your account values, run the app, and verify the output.
 
 ### Download or clone the app
 
@@ -72,7 +72,7 @@ STORAGE_ACCOUNT_KEY = '<key1>'
 ```
 
 >[!IMPORTANT]
->Exposing account keys in the app source isn't recommended for Production usage. You should restrict access to the credentials and refer to them in your code by using environment variables or a configuration file. It's best to store Batch and Storage account keys in Azure Key Vault.
+>Exposing account keys in the app source isn't recommended for Production usage. You should restrict access to credentials and refer to them in your code by using variables or a configuration file. It's best to store Batch and Storage account keys in Azure Key Vault.
 
 ### Run the app and view output
 
@@ -112,7 +112,7 @@ Batch processing began with mainframe computers and punch cards. Today it still 
 
 ## Review the code
 
-The [Azure Batch Python Quickstart](https://github.com/Azure-Samples/batch-python-quickstart) app does the following steps.
+Review the code to understand the steps in the [Azure Batch Python Quickstart](https://github.com/Azure-Samples/batch-python-quickstart).
 
 ### Create service clients and upload resource files
 
@@ -154,7 +154,7 @@ To create a Batch pool, the app uses the [PoolAddParameter](/python/api/azure-ba
 
 The `POOL_NODE_COUNT` and `POOL_VM_SIZE` are defined constants. The app creates a pool of two size *Standard_DS1_v2* nodes. This size offers a good balance of performance versus cost for this quickstart.
 
-The [pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations) method submits the pool to the Batch service.
+The [pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations#azure-batch-operations-pooloperations-add) method submits the pool to the Batch service.
 
 ```python
 new_pool = batchmodels.PoolAddParameter(
@@ -193,7 +193,7 @@ The app creates a list of task objects by using the [TaskAddParameter](/python/a
 
 The following command line script processes the input `resource_files` objects. The script runs the Bash shell `cat` command to display the text files.
 
-The app then uses the [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations) method to add each task to the job, which queues the tasks to run on the compute nodes.
+The app then uses the [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations#azure-batch-operations-taskoperations-add-collection) method to add each task to the job, which queues the tasks to run on the compute nodes.
 
 ```python
 tasks = []
@@ -243,8 +243,6 @@ for task in tasks:
 ## Clean up resources
 
 The app automatically deletes the storage container it creates, and gives you the option to delete the Batch pool and job. Pools and nodes incur charges while the nodes are running, even if they aren't running jobs. If you no longer need the pool, delete it.
-
-To use the [Azure portal](https://portal.azure.com) to delete a pool, from your Batch account page in the portal, select **Pools** from the left navigation. Select the pool to delete on the **Pools** page, and then select **Delete** on the pool page. Deleting a pool deletes all task output on the nodes, and the nodes themselves.
 
 When you no longer need your Batch resources, you can delete the resource group that contains them. In the Azure portal, select **Delete resource group** at the top of the resource group page. On the **Delete a resource group** screen, enter the resource group name, and then select **Delete**.
 
