@@ -209,7 +209,7 @@ This section will help you decide which Language service feature you should use 
 | Classify documents into one or more categories. | Unstructured text | [Custom text classification](./custom-text-classification/overview.md) | ✓|
 | Extract medical information from clinical/medical documents, without building a model. | Unstructured text | [Text analytics for health](./text-analytics-for-health/overview.md) | |
 | Extract medical information from clinical/medical documents using a model that's trained on your data. | Unstructured text | [Custom text analytics for health](./custom-text-analytics-for-health/overview.md) | |
-| Build an conversational application that responds to user inputs. | Unstructured user inputs | [Question answering](./question-answering/overview.md) | ✓ |
+| Build a conversational application that responds to user inputs. | Unstructured user inputs | [Question answering](./question-answering/overview.md) | ✓ |
 | Detect the language that a text was written in. | Unstructured text | [Language detection](./language-detection/overview.md) | | 
 | Predict the intention of user inputs and extract information from them. | Unstructured user inputs | [Conversational language understanding](./conversational-language-understanding/overview.md) | ✓ |
 | Connect apps from conversational language understanding, LUIS, and question answering. | Unstructured user inputs | [Orchestration workflow](./orchestration-workflow/overview.md) | ✓ | 
