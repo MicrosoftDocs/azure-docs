@@ -300,7 +300,7 @@ Create the new hub using the edited template. If you have routing resources that
 
 1. Select **Load file**.
 
-   :::image type="content" source="./media/migrate-hub-arm/iot-hub-upload-file.png" alt-text="Screenshot showing the command for uploading a template file":::
+   :::image type="content" source="./media/migrate-hub-arm/iot-hub-upload-file.png" alt-text="Screenshot showing the command for uploading a template file.":::
 
 1. Browse for the new template you edited and select it, then select **Open**. It loads your template in the edit window. Select **Save**.
 
