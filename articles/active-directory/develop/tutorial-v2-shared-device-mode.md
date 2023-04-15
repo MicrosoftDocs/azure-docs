@@ -143,7 +143,7 @@ The `loadAccount` method retrieves the account of the signed in user. The `onAcc
 ```java
 private void loadAccount()
 {
-  mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback()
+  mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback())
   {
     @Overide
     public void onAccountLoaded(@Nullable IAccount activeAccount)
