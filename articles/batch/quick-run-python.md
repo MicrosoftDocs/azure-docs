@@ -189,7 +189,7 @@ batch_service_client.job.add(job)
 
 ### Create tasks
 
-The app creates a list of task objects by using the [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) class. Each task uses a `command_line` parameter to specify an app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+The app creates a list of task objects by using the [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) class. Each task uses a `command_line` parameter to specify an app or script. Batch provides several ways to deploy apps and scripts to compute nodes.
 
 The following command line script processes the input `resource_files` objects. The script runs the Bash shell `cat` command to display the text files.
 

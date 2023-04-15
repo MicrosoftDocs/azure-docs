@@ -16,6 +16,7 @@ After you complete this quickstart, you understand the [key concepts of the Batc
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+<a name="create-a-batch-account></a>
 ## Create a Batch account and Azure Storage account
 
 You need a Batch account to create pools and jobs. The following steps create an example Batch account. You also create an Azure Storage account to link to your Batch account. Although this quickstart doesn't use the storage account, most real-world Batch workloads use a linked storage account to deploy applications and store input and output data.
@@ -115,7 +116,7 @@ The standard output for this task shows the Azure Batch environment variables th
 
 ## Clean up resources
 
-If you want to continue with Batch tutorials and samples, you can use the Batch and linked storage accounts you created in this quickstart. There's no charge for the Batch account itself.
+If you want to continue with Batch tutorials and samples, you can use the Batch account and linked storage account that you created in this quickstart. There's no charge for the Batch account itself.
 
 Pools and nodes incur charges while the nodes are running, even if they aren't running jobs. When you no longer need a pool, delete it. On your Batch account page, select **Pools** from the left navigation. Select the pool to delete on the **Pools** page, and then select **Delete** on the pool page. Deleting a pool deletes all task output on the nodes, and the nodes themselves.
 
