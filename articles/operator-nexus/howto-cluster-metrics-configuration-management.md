@@ -48,8 +48,23 @@ az networkcloud cluster metricsconfiguration create \
 > * The default metrics collection interval for standard set of metrics is set to every 5 minutes. Changing the `collectionInterval` will also impact the collection frequency for default standard metrics.
 > * There can be only one set of metrics configuration defined per cluster. The resource is created with the name `default`.
 
+Specifying `--no-wait --debug` options in az cli command will result in the execution of this command asynchronously. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
 
-Specifying `--debug` in az cli command will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to track asynchronous operations](howto-track-async-operations-cli.md).
+### Metrics Configuration elements
+
+| Parameter name                        | Description                                                                                        |
+| --------------------------------------| -------------------------------------------------------------------------------------------------- |
+| CLUSTER                               | Resource Name of Cluster                                                                           |
+| LOCATION                              | The Azure Region where the Cluster will be deployed                                                | 
+| CLUSTER_EXTENDED_LOCATION_ID          | The Cluster extended Location from Azure portal                                                    |
+| COLLECTION_INTERVAL                   | The collection frequency for default standard metrics                                              |
+| RESOURCE_GROUP                        | The Cluster resource group name                                                                    |
+| TAG_KEY1                              | Optional tag1 to pass to Cluster create                                                            |
+| TAG_VALUE1                            | Optional tag1 value to pass to Cluster Create                                                      |
+| TAG_KEY2                              | Optional tag2 to pass to Cluster create                                                            |
+| TAG_VALUE2                            | Optional tag2 value to pass to Cluster create                                                      |
+| METRIC_TO_ENABLE_1                    | Optional metric1 that have been chosen to be enabled in addition to the default metrics            |
+| METRIC_TO_ENABLE_2                    | Optional metric2 that have been chosen to be enabled in addition to the default metrics            |
 
 ## Retrieving a metrics configuration
 
@@ -79,7 +94,7 @@ az networkcloud cluster metricsconfiguration update \
  --resource-group "<RESOURCE_GROUP>"
 ```
 
-The change may include either or both of the updatable fields, `collectionInterval` or `enabledMetrics`. The `collectionInterval` can be updated independently of `enabledMetrics`. Omit fields that aren't being changed.
+The `collection-interval` can be updated independently of `enabled-metrics` list. Omit fields that aren't being changed.
 
 Specifying `--debug` in az cli will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to track asynchronous operations](howto-track-async-operations-cli.md).
 
@@ -95,16 +110,3 @@ az networkcloud cluster metricsconfiguration delete \
 
 Specifying `--debug` in az cli will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to track asynchronous operations](howto-track-async-operations-cli.md).
 
-| Parameter name                        | Description                                                                                        |
-| --------------------------------------| -------------------------------------------------------------------------------------------------- |
-| CLUSTER                               | Resource Name of Cluster                                                                           |
-| LOCATION                              | The Azure Region where the Cluster will be deployed                                                | 
-| CLUSTER_EXTENDED_LOCATION_ID          | The Cluster extended Location from Azure portal                                                    |
-| COLLECTION_INTERVAL                   | The collection frequency for default standard metrics                                              |
-| RESOURCE_GROUP                        | The Cluster resource group name                                                                    |
-| TAG_KEY1                              | Optional tag1 to pass to Cluster create                                                            |
-| TAG_VALUE1                            | Optional tag1 value to pass to Cluster Create                                                      |
-| TAG_KEY2                              | Optional tag2 to pass to Cluster create                                                            |
-| TAG_VALUE2                            | Optional tag2 value to pass to Cluster create                                                      |
-| METRIC_TO_ENABLE_1                    | Optional metric1 that have been chosen to be enabled in addition to the default metrics            |
-| METRIC_TO_ENABLE_2                    | Optional metric2 that have been chosen to be enabled in addition to the default metrics            |
