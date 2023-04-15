@@ -152,8 +152,10 @@ az networkcloud cluster deploy \
   --name "$CLUSTER_NAME" \
   --resource-group "$CLUSTER_RESOURCE_GROUP" \
   --subscription "$SUBSCRIPTION_ID" \
-  --no-wait
+  --no-wait --debug 
 ```
+
+This command runs synchronously. If you wish to skip waiting for the command to complete, specify the `--no-wait --debug` options. In that case, follow the instructions on [how to track asynchronous operation](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-track-async-operations-cli).
 
 ## Cluster deployment validation
 

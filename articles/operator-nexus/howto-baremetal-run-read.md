@@ -102,7 +102,7 @@ In the response, an HTTP status code of 202 is returned as the operation is perf
 ## Checking command status and viewing output
 
 
-Sample output looks something like below. It prints the top 5K characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
+Sample output looks something like below. It prints the top 4K characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
 
 ```azurecli
   ====Action Command Output====
