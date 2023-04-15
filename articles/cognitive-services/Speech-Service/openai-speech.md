@@ -11,10 +11,13 @@ ms.topic: how-to
 ms.date: 03/07/2023
 ms.author: eur
 ms.devlang: python
+zone_pivot_groups: programming-languages-csharp-python
 keywords: speech to text, openai
 ---
 
 # Azure OpenAI speech to speech chat 
+
+[!INCLUDE [C# include](./includes/quickstarts/openai-speech/csharp.md)]
 
 [!INCLUDE [Python include](./includes/quickstarts/openai-speech/python.md)]
 
