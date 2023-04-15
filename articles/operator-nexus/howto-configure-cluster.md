@@ -155,7 +155,7 @@ az networkcloud cluster deploy \
   --no-wait --debug 
 ```
 
-This command runs synchronously. If you wish to skip waiting for the command to complete, specify the `--no-wait --debug` options. In that case, follow the instructions on [how to track asynchronous operation](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-track-async-operations-cli).
+This command runs synchronously. If you wish to skip waiting for the command to complete, specify the `--no-wait --debug` options. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
 
 ## Cluster deployment validation
 
