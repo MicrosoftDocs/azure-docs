@@ -50,7 +50,7 @@ Partnered health facilities contribute private health data sets to train an ML m
 
 ### Protecting privacy with IoT and smart-building solutions
 
-Many countries have strict privacy laws about gathering and using data on people’s presence and movements inside buildings.This may include data that is directly personally identifiable data from CCTV or security badge swipes. Or, indirectly identifiable where different sets of sensor data could be considered personally identifiable when grouped together.
+Many countries have strict privacy laws about gathering and using data on people’s presence and movements inside buildings. This may include data that is directly personally identifiable data from CCTV or security badge swipes. Or, indirectly identifiable where different sets of sensor data could be considered personally identifiable when grouped together.
 
 Privacy needs to be balanced with cost & environmental needs where organizations are keen to understand occupancy/movement in-order to provide the most efficient use of energy to heat and light a building.
 
@@ -60,9 +60,9 @@ In this use-case the primary goal is allowing analysis of occupancy data and tem
 
 Confidential compute is used here by placing the analysis application (in this example running on Confidential Container Instances) inside a trusted execution environment where the in-use data is protected by encryption.
 
-The aggregate data-sets from many types of sensor and data feed are managed in an Azure SQL Always Encrypted with Enclaves database, this protects in-use queries by encrypting them in-memory. This prevents a server administrator from being able to access the aggregate data set while it is being queried and analysed.
+The aggregate data-sets from many types of sensor and data feed are managed in an Azure SQL Always Encrypted with Enclaves database, this protects in-use queries by encrypting them in-memory. This prevents a server administrator from being able to access the aggregate data set while it is being queried and analyzed.
 
-:::image type="content" source="media/use-cases-scenarios/iot-sensors.jpg" alt-text="Diverse sensors feeding an analysis solution inside a trusted execution environment. Operators have no access to in-use data inside the TEE":::
+:::image type="content" source="media/use-cases-scenarios/iot-sensors.jpg" alt-text="Diverse sensors feeding an analysis solution inside a trusted execution environment. Operators have no access to in-use data inside the TEE.":::
 
 ## Enhanced customer data privacy
 
@@ -76,7 +76,7 @@ Confidential computing goes in this direction by allowing customers incremental 
 
 ### Data sovereignty
 
-In Government and public agencies, Azure confidential computing is a solution to raise the degree of trust towards the ability to protect data sovereignty in the public cloud. Moreover, thanks to the increasingly adoption of confidential computing capabilities into PaaS services in Azure, a higher degree of trust can be achieved with a reduced impact to the innovation ability provided by public cloud services. This combination of protecting data sovereignity with a reduced impact to the innovation ability makes Azure confidential computing a very effective response to the needs of sovereignty and digital transformation of Government services.
+In Government and public agencies, Azure confidential computing is a solution to raise the degree of trust towards the ability to protect data sovereignty in the public cloud. Moreover, thanks to the increasingly adoption of confidential computing capabilities into PaaS services in Azure, a higher degree of trust can be achieved with a reduced impact to the innovation ability provided by public cloud services. This combination of protecting data sovereignty with a reduced impact to the innovation ability makes Azure confidential computing a very effective response to the needs of sovereignty and digital transformation of Government services.
 
 ### Reduced chain of trust
 
