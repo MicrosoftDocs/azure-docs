@@ -50,7 +50,7 @@ az networkcloud cluster metricsconfiguration create \
 
 Specifying `--no-wait --debug` options in az cli command results in the execution of this command asynchronously. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
 
-### Metrics Configuration elements
+### Metrics configuration elements
 
 | Parameter name                        | Description                                                                                        |
 | --------------------------------------| -------------------------------------------------------------------------------------------------- |
