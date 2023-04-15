@@ -129,7 +129,7 @@ The following table lists request limits per 5 minute interval, per account, unl
 | Maximum Get or List database & container | 500 ¹ |
 | Maximum Update provisioned throughput | 25 |
 | Maximum regional failover | 10 (per hour) ² |
-| Maximum number of all operations (PUT, POST, PATCH, DELETE, GET) not defined above | 100 |
+| Maximum number of all operations (PUT, POST, PATCH, DELETE, GET) not defined above | 500 |
 
 ¹ Users should use [singleton client](nosql/best-practice-dotnet.md#checklist) for SDK instances and cache keys and database and container references between requests for the lifetime of that instance.
 ² Regional failovers only apply to single region writes accounts. Multi-region write accounts don't require or allow changing the write region.
