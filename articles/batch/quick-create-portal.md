@@ -8,10 +8,6 @@ ms.custom: mvc, mode-ui
 
 # Quickstart: Use the Azure portal to create an Azure Batch account and run a job
 
-Get started with Azure Batch by using the Azure portal to create a Batch account, a pool of compute nodes (virtual machines), and a job that runs tasks on the pool.
-
-After completing this quickstart, you'll understand the [key concepts of the Batch service](batch-service-workflow-features.md) and be ready to try Batch with more realistic workloads at larger scale.
-
 This quickstart shows you how to get started with Azure Batch by using the Azure portal. You create a Batch account that has a *pool* of virtual machines, or compute *nodes*. You then create and run a *job* with *tasks* that run on the pool nodes.
 
 After you complete this quickstart, you understand the [key concepts of the Batch service](batch-service-workflow-features.md) and are ready to use Batch with more realistic, larger scale workloads.
@@ -20,7 +16,7 @@ After you complete this quickstart, you understand the [key concepts of the Batc
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create a Batch account
+## Create a Batch account and Azure Storage account
 
 You need a Batch account to create pools and jobs. The following steps create an example Batch account. You also create an Azure Storage account to link to your Batch account. Although this quickstart doesn't use the storage account, most real-world Batch workloads use a linked storage account to deploy applications and store input and output data.
 
@@ -102,7 +98,7 @@ The following procedure creates and runs two identical tasks. Each task runs a c
 
 1. Repeat the preceding steps to create a second task, but enter *myTask2* for **Task ID**.
 
-After you create a task, Batch queues it to run on the pool. Once a node is available, the task runs on the node. In the preceding example, if the first task is still running on one node, Batch starts the second task on the other node in the pool.
+After you create a task, Batch queues it to run on the pool. Once a node is available, the task runs on the node. In the quickstart example, if the first task is still running on one node, Batch starts the second task on the other node in the pool.
 
 ## View task output
 
@@ -128,7 +124,7 @@ When you no longer need any of the resources you created for this quickstart, yo
 
 ## Next steps
 
-In this quickstart, you created a Batch account and a Batch pool, and created and ran a Batch job. The job ran sample tasks, and you viewed output from one of the nodes. Now that you understand the key concepts of the Batch service, you're ready to use Batch with more realistic workloads at larger scale. To learn more about Azure Batch, continue to the Azure Batch tutorials.
+In this quickstart, you created a Batch account and pool, and created and ran a Batch job and tasks. You learned how to monitor node and task status, and view task output from the nodes. Now that you understand the key concepts of the Batch service, you're ready to use Batch with more realistic, larger scale workloads. To learn more about Azure Batch, continue to the Azure Batch tutorials.
 
 > [!div class="nextstepaction"]
 > [Azure Batch tutorials](./tutorial-parallel-dotnet.md)

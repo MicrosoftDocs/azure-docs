@@ -204,7 +204,7 @@ az group delete --name qsBatch
 
 ## Next steps
 
-In this quickstart, you created a Batch account and a Batch pool, and created and ran a Batch job. The job ran sample tasks, and you viewed output from one of the nodes. Now that you understand the key concepts of the Batch service, you're ready to use Batch with more realistic workloads at larger scale. To learn more about Azure Batch, continue to the Azure Batch tutorials.
+In this quickstart, you created a Batch account and pool, and created and ran a Batch job and tasks. You learned how to view task output from the nodes. Now that you understand the key concepts of the Batch service, you're ready to use Batch with more realistic, larger scale workloads. To learn more about Azure Batch, continue to the Azure Batch tutorials.
 
 > [!div class="nextstepaction"]
 > [Azure Batch tutorials](./tutorial-parallel-dotnet.md)
