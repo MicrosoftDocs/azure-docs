@@ -116,19 +116,21 @@ If you want to set the authenticated user context:
 
     > [!TIP]
     > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
-3. To populate the `parentId` column of the `customEvent` table in the logs, declare the tag `parentDataTag` or define the `data-parentid` or `data-*-parentid` attribute. The examples that follow show which value is fetched as the `parentId` for different configurations.
+3. To populate the `parentId` column of the `customEvent` table in the logs, declare the tag `parentDataTag` or define the `data-parentid` or `data-*-parentid` attribute.
 
-     When you declare the `parentDataTag`, the plug-in fetches the value of the `id` or `data-*-id` attribute from the closest parent HTML element of the clicked element as `parentId`. `parentDataTag` behaves like a boolean, so you only need to declare it with a string value to set it to `true` and fetch the `parentId`. However, we recommend defining a `data-{parentDataTag}` or `customDataPrefix-{parentDataTag}` attribute to reduce the number of loops needed to find the `parentId`. Declaring `parentDataTag` is useful when you need to use the plug-in with customized options.
-
-     When you define a `data-parentid` or `data-*-parentid` attribute, the plug-in fetches the instance of this attribute that is closest to the clicked HTML element, including within the clicked element if applicable. 
-
-     When you declare `parentDataTag` and define the `data-parentid` or `data-*-parentid` attribute, the value of the `data-parentid` or `data-*-parentid` attribute is always fetched because this attribute takes precedence.
+     When you declare the `parentDataTag`, the plug-in fetches the value of the `id` or `data-*-id` attribute of the closest parent HTML element to the clicked element as `parentId`. `parentDataTag` behaves like a boolean, so you only need to declare it with a string value to set it to `true`. However, we recommend defining a `data-{parentDataTag}` or `customDataPrefix-{parentDataTag}` attribute to reduce the number of loops needed to find the `parentId`. Declaring `parentDataTag` is useful when you need to use the plug-in with customized options.
 
      > [!NOTE]
      > - If `parentDataTag` is defined, `useDefaultContentNameOrId` is set to `false`, and only an `id` attribute is defined within the element closest to the clicked element, the `parentId` populates as `"not_specified"`. To fetch the value of `id`, set `useDefaultContentNameOrId` to `true`.
      > - If both `data-*-id` and `id` are defined, precedence is given to `data-*-id`.
 
-    Example 1
+     When you define a `data-parentid` or `data-*-parentid` attribute, the plug-in fetches the instance of this attribute that is defined within the HTML element closest to the clicked element, including within the clicked element if applicable. 
+
+     When you declare `parentDataTag` and define the `data-parentid` or `data-*-parentid` attribute, the value of the `data-parentid` or `data-*-parentid` attribute is always fetched because this attribute takes precedence.
+
+     These examples show which value is fetched as the `parentId` for different configurations.
+
+     **Example 1**
 
     ```javascript
      export const clickPluginConfigWithUseDefaultContentNameOrId = {
@@ -143,14 +145,14 @@ If you want to set the authenticated user context:
      }; 
          <div className="test1" data-id="test1parent">
               <div>Test1</div>
-              <div><small>with id, data-id, parentid, parent data-id defined</small></div>
-              <Button id="id1" data-id="test1id" data-parentid = "parentid1" variant="info" onClick={trackEvent}>Test1</Button>
+              <div><small>with id, data-id, parent data-id defined</small></div>
+              <Button id="id1" data-id="test1id" variant="info" onClick={trackEvent}>Test1</Button>
           </div>
      ```
 
      For example 1, the value of `parentId` in the logs is `“not_specified”` because `parentDataTag` is not declared and the `data-parentid` or `data-*-parentid` is not defined in any element.
 
-     Example 2
+     **Example 2**
 
      ```javascript
      export const clickPluginConfigWithParentDataTag = {
@@ -165,16 +167,16 @@ If you want to set the authenticated user context:
      };
        <div className="test2" data-group="buttongroup1" data-id="test2parent">
             <div>Test2</div>
-            <div><small>with data-id, parentid,  parent data-id defined</small></div>
+            <div><small>with data-id, parentid, parent data-id defined</small></div>
               <Button data-id="test2id" data-parentid = "parentid2" variant="info" onClick={trackEvent}>Test2</Button>
           </div>
      ```
 
-    For example 2, the value of `parentId` in the logs is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence.
-
-    > [!NOTE] If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
-
-     Example 3
+     For example 2, the value of `parentId` in the logs is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence.
+     > [!NOTE] 
+     > If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
+       
+     **Example 3**
 
      ```javascript
      export const clickPluginConfigWithParentDataTag = {
@@ -196,9 +198,8 @@ If you want to set the authenticated user context:
      </div>
     ```
      For example 3, because `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined, the value of `parentId` in the logs is `test6parent`. `test6parent` is fetched because when parentDataTag is declared, the plug-in fetches the value of the `id` or `data-*-id` attribute from the closest parent HTML element of the clicked element rather than the grandparent. Because `data-group="buttongroup1"` is declared, less loops are required for the plug-in to find `parentId`.
-
-    > [!NOTE] If you remove the `data-group="buttongroup1"` attribute, `test6parent` still returns as the value of `parentId`, because declaring `parentDataTag` behaves as a boolean.
-
+    > [!NOTE]
+    > If you remove the `data-group="buttongroup1"` attribute, `test6parent` still returns as the value of `parentId`, because declaring `parentDataTag` behaves as a boolean.
     > [!CAUTION]
     > After `parentDataTag` is used, the SDK begins looking for parent tags across your entire application and not just the HTML element where you used it. If you're using the HEART workbook with the Click Analytics plugin, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
 1. The `customDataPrefix` provides the user the ability to configure a data attribute prefix to help identify where heart is located within the individual's codebase. The prefix should always be lowercase and start with `data-`. For example:
@@ -221,7 +222,7 @@ The following key properties are captured by default when the plug-in is enabled
 ### Custom event properties
 | Name                  | Description                            | Sample          |
 | --------------------- | ---------------------------------------|-----------------|
-| Name                  | The name of the custom event. More information on how a name gets populated is shown in the [preceding section](#use-the-plug-in).| About              |
+| Name                  | The name of the custom event. For more information on how a name gets populated, see [Use the plug-in](#use-the-plug-in).| About              |
 | itemType              | Type of event.                                      | customEvent      |
 |sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2.6.2_ClickPlugin2.6.2|
 
@@ -233,7 +234,7 @@ The following key properties are captured by default when the plug-in is enabled
 | clickCoordinates      | Coordinates where the click event is triggered.                            | 659X47          |
 | content               | Placeholder to store extra `data-*` attributes and values.            | [{sample1:value1, sample2:value2}] |
 | pageName              | Title of the page where the click event is triggered.                      | Sample Title    |
-| parentId              | ID or name of the parent element.                                           | navbarContainer |
+| parentId              | ID or name of the parent element. For more information on how a parentId is populated, see [Use the plug-in](#use-the-plug-in).        | navbarContainer |
 
 ### Custom measurements
 | Name                  | Description                            | Sample          |
@@ -271,7 +272,7 @@ The following key properties are captured by default when the plug-in is enabled
 | aiBlobAttributeTag        | String  | `ai-blob` |  `data-ai-blob`| Plug-in supports a JSON blob attribute instead of individual `data-*` attributes. |
 | metaDataPrefix            | String  | Null      | N/A  | Automatic capture HTML Head's meta element name and content with provided prefix when captured. For example, `custom-` can be used in the HTML meta tag. |
 | captureAllMetaDataContent | Boolean | False     | N/A   | Automatic capture all HTML Head's meta element names and content. Default is false. If enabled, it overrides provided `metaDataPrefix`. |
-| parentDataTag             | String  | Null      |  N/A  | Stops traversing up the DOM to capture content name and value of elements when encountered with this tag. For example, `data-<yourparentDataTag>` can be used in the HTML tags.|
+| parentDataTag             | String  | Null      |  N/A  | When declared, it fetches the parentId when `data-parentid` or `data-*-parentid` isn't encountered and regardless of whether `data-{parentDataTag}` or `customDataPrefix-{parentDataTag}` attribute is defined in the HTML tags. For efficiency, stops traversing up the DOM to capture content name and value of elements when encountered `data-{parentDataTag}` or `customDataPrefix-{parentDataTag}` attribute. |
 | dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| The plug-in for capturing telemetry data ignores HTML elements with this attribute.|
 
 ### behaviorValidator
