@@ -73,26 +73,30 @@ Both of online and batch endpoints use the same constructs, which help you trans
 
 #### Endpoints
 
-| Feature                   | Online endpoints                 | Batch endpoints                |
-|---------------------------|----------------------------------|--------------------------------|
-| Stable invocation URL     | Yes                              | Yes                            |
-| Swagger support           | Yes                              | No                             |
-| Authentication            | Key and token                    | Azure AD                       |
-| Private network support   | Yes                              | Yes                            |
-| Network egress control    | Yes                              | No                             |
+| Feature                          | Online endpoints                 | Batch endpoints                |
+|----------------------------------|----------------------------------|--------------------------------|
+| Stable invocation URL            | Yes                              | Yes                            |
+| Multiple deployments support     | Yes                              | Yes                            |
+| Deployment's routing             | Traffic split                    | Switch to default              |
+| Mirror traffic to all deployment | Yes                              | No                             |
+| Swagger support                  | Yes                              | No                             |
+| Authentication                   | Key and token                    | Azure AD                       |
+| Private network support          | Yes                              | Yes                            |
+| Network egress control           | Yes                              | No                             |
 
 #### Deployments
 
-| Feature                   | Online endpoints                 | Batch endpoints                 |
-|---------------------------|----------------------------------|---------------------------------|
-| Deployment's types        | Models                           | Models and pipeline components  |
-| Deployment's routing      | Traffic split and mirror         | Switch to default               |
-| MLflow model's deployment | Yes (requires public networking) | Yes                             |
-| Compute resource consumed | Instances or granular resources  | Cluster instances               |
-| Compute type              | AzureML and Kubernetes           | AzureML and Kubernetes          |
-| Scale to zero             | No                               | Yes                             |
-| Low-priority compute      | No                               | Yes                             |
-| Test deployments locally  | Yes                              | No                              |
+| Feature                          | Online endpoints                 | Batch endpoints                 |
+|----------------------------------|----------------------------------|---------------------------------|
+| Deployment's types               | Models                           | Models and pipeline components  |
+| Custom model's deployment        | Yes, with scoring script         | Yes, with scoring script        |
+| MLflow model's deployment        | Yes (requires public networking) | Yes                             |
+| Triton model's deployment        | Yes                              | No                              |
+| Compute resource consumed        | Instances or granular resources  | Cluster instances               |
+| Compute type                     | AzureML and Kubernetes           | AzureML and Kubernetes          |
+| Scale compute to zero            | No                               | Yes                             |
+| Low-priority compute             | No                               | Yes                             |
+| Test deployments locally         | Yes                              | No                              |
 
 
 ## Developer interfaces
