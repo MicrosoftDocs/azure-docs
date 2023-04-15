@@ -48,7 +48,7 @@ The outcome of this article is similar to [How to migrate an Azure IoT hub using
 
   If you still have the legacy **azure-cli-iot-ext** extension installed, remove that extension before adding the **azure-iot** extension.
 
-## IoT Hub state
+## IoT hub state
 
 When we talk about migrating the state of an IoT hub, we're referring to a combination of three aspects:
 
@@ -140,7 +140,7 @@ The following example imports only the devices and configurations aspects to a n
 az iot hub state import --hub-name myNewHub --state-file ./myHub-state.json --aspects devices configurations --replace
 ```
 
-### Create a new IoT Hub with state import
+### Create a new IoT hub with state import
 
 You can use the `az iot hub state import` command to create a new IoT hub or to write to an existing IoT hub.
 
