@@ -49,7 +49,7 @@ az networkcloud cluster metricsconfiguration create \
 > * There can be only one set of metrics configuration defined per cluster. The resource is created with the name `default`.
 
 
-Specifying `--debug` in az cli command will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to track asynchronous operations](howto-track-async-operations-cli.md).
+Specifying `--no-wait --debug` options in az cli command will result in the execution of this command asynchronously. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
 
 ## Retrieving a metrics configuration
 
@@ -79,7 +79,7 @@ az networkcloud cluster metricsconfiguration update \
  --resource-group "<RESOURCE_GROUP>"
 ```
 
-The change may include either or both of the updatable fields, `collectionInterval` or `enabledMetrics`. The `collectionInterval` can be updated independently of `enabledMetrics`. Omit fields that aren't being changed.
+The `collection-interval` can be updated independently of `enabled-metrics` list. Omit fields that aren't being changed.
 
 Specifying `--debug` in az cli will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to track asynchronous operations](howto-track-async-operations-cli.md).
 

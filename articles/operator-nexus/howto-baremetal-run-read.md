@@ -78,13 +78,15 @@ These commands do not require `arguments`:
 
 All other inputs are required. 
 
-Multiple commands can be provided in json format to `--commands` option.  Each `command` specifies command and the arguments.
+Multiple commands can be provided in json format to `--commands` option.
 
 For a command with multiple arguments, provide as a list to `arguments` parameter. See [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md) for instructions on constructing the `--commands` structure.
 
-These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). The `Debug` option or running multiple extracts might take longer that 10 minutes.
+These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). Running multiple extracts might take longer that 10 minutes.
 
-This command runs synchronously. If you wish to skip waiting for the command to complete, specify the `--no-wait` option.
+This command runs synchronously. If you wish to skip waiting for the command to complete, specify the `--no-wait --debug` options. In that case, follow the instructions on [how to track asynchronous operation](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-track-async-operations-cli).
+
+When an optional argument `--output-directory` is provided, the output result will be downloaded and extracted to the local directory.
 
 ### This example executes the `hostname` command and a `ping` command.
 
@@ -101,7 +103,7 @@ In the response, an HTTP status code of 202 is returned as the operation is perf
 ## Checking command status and viewing output
 
 
-Sample output looks something like this and provides a link to the zipped output file(tar.gz) from the command execution. The tar.gz file name can be used to identify the file in the Storage account of the Cluster Manager resource group.  You can also use the link to directly access the output zip file. Download the output file from storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
+Sample output looks something like below. It prints the top 5K characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
 
 ```azurecli
   ====Action Command Output====
@@ -117,7 +119,7 @@ Sample output looks something like this and provides a link to the zipped output
 
   ================================
   Script execution result can be found in storage account:
-  https://cm49vr6vnc6kst.blob.core.windows.net/bmm-run-command-output/a8e0a5fe-3279-46a8-b995-51f2f98a18dd-action-bmmrunreadcmd.tar.gz?se=2023-04-14T06%3A37%3A00Z&sig=ZlN6t%2F534OpmEE545Xie7feHupKSU4v6XYfZTKG6WVo%3D&sp=r&spr=https&sr=b&st=2023-04-14T02%3A37%3A00Z&sv=2019-12-12
+  https://<storage_account_name>.blob.core.windows.net/bmm-run-command-output/a8e0a5fe-3279-46a8-b995-51f2f98a18dd-action-bmmrunreadcmd.tar.gz?se=2023-04-14T06%3A37%3A00Z&sig=XXX&sp=r&spr=https&sr=b&st=2023-04-14T02%3A37%3A00Z&sv=2019-12-12
 ```
 
 See [How To BareMetal Review Output Run-Read](howto-baremetal-review-read-output.md) for instructions on locating the output file in the Storage Account. You can also use the link to directly access the output zip file.
