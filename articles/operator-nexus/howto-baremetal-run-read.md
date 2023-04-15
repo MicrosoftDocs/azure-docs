@@ -65,7 +65,7 @@ az networkcloud baremetalmachine run-read-command --name "<machine-name>"
     --subscription "<subscription>" 
 ```
 
-These commands do not require `arguments`:
+These commands don't require `arguments`:
 
 - `fdisk -l`
 - `hostname`
@@ -85,7 +85,7 @@ These commands can be long running so the recommendation is to set `--limit-time
 
 This command runs synchronously. If you wish to skip waiting for the command to complete, specify the `--no-wait --debug` options. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
 
-When an optional argument `--output-directory` is provided, the output result will be downloaded and extracted to the local directory.
+When an optional argument `--output-directory` is provided, the output result is downloaded and extracted to the local directory.
 
 ### This example executes the `hostname` command and a `ping` command.
 
@@ -102,7 +102,7 @@ In the response, an HTTP status code of 202 is returned as the operation is perf
 ## Checking command status and viewing output
 
 
-Sample output looks something like below. It prints the top 4K characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
+Sample output looks something as below. It prints the top 4K characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
 
 ```azurecli
   ====Action Command Output====
