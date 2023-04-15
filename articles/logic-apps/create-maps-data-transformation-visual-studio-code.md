@@ -181,9 +181,15 @@ For a straightforward transformation between elements with the same type in the 
 
    ![Screenshot showing the data map and a finished mapping between EmployeeID and ID in the source and target schema, respectively.](media/create-maps-data-transformation-visual-studio-code/direct-mapping-complete.png)
 
-   The code view window reflects the direct mapping that you created:
+   The code view window reflects the mapping relationship that you created:
 
    ![Screenshot showing code view with direct mapping between EmployeeID and ID in the source and target schema, respectively.](media/create-maps-data-transformation-visual-studio-code/direct-mapping-example-code-view.png)
+
+> [!NOTE]
+> 
+> If you create a mapping between elements where their data types don't match, a warning appears on the target element, for example:
+>
+> ![Screenshot showing direct mapping between mismatching data types.](media/create-maps-data-transformation-visual-studio-code/data-type-mismatch.png)
 
 <a name="create-complex-mapping"></a>
 
@@ -201,63 +207,88 @@ For a more complex transformation between elements in the source and target sche
 | String | Code points to string, Concat, Contains, Ends with, Length, Lowercase, Name, Regular expression matches, Regular expression replace, Replace, Starts with, String to code-points, Substring, Substring after, Substring before, Trim, Trim left, Trim right, Uppercase |
 | Utility | Copy, Error, Format date-time, Format number |
 
-### Add a function without an existing mapping
+### Add a function with a single input
 
-1. Connect the function to the source and target elements.
-
-   1. Drag and draw a line between the source elements and the function's left edge. You can start either from the source elements or from the function.
-
-   1. Drag and draw a line between the function's right edge and the target element. You can start either from the target element or from the function.
-
-1. On the function's **Properties** tab, confirm or edit the input to use.
-
-   For some data types, such as arrays, the scope for the transformation might also appear available. This scope is usually the immediate element, such as an array, but in some scenarios, the scope might exist beyond the immediate element.
-
-
-### Add a function to an existing mapping
-
-1. [Create a direct mapping between the source and target elements](#create-direct-mapping).
-
-   The created mapping might show an error because the source and target data types don't match. This example transforms the source element value to a DateTime value
-
-   The function now appears connected to the selected mapping relationship.
-
-   > [!NOTE]
-   >
-   > If no mapping line is selected when you select a function, the function appears on the map, 
-   > but disconnected from any elements or other functions. To connect the function, you can drag 
-   > and draw connections between the unmapped function and other items.
-
-1. After the function appears on the map, select the function so that the information window appears. 
-
-1. Select the line for the mapping that you created.
-
-1. Move your pointer over the selected connection, and select **Insert function** when the plus sign (**+**) appears.
-
-
-For example, to iterate through array items, see [Create a loop between arrays](#loop-through-array). To perform a task when an element's value meets a condition, see [Create an if condition between items](#create-if-condition).
-
-### Add a function with multiple inputs
-
-The example in this section concatenates two source elements so that you can map the results to the target element.
+The example in this section transforms the source element type from String type to DateTime type, which matches the target element type. The example uses the **To date** function, which takes a single input.
 
 1. Make sure that map shows the source and target elements that you want.
 
 1. In the map's upper left corner, select **Show functions**.
 
-   ![Screenshot showing source and target schema elements and the selected option for Show functions.](media/create-maps-data-transformation-visual-studio-code/show-functions.png)
+   ![Screenshot showing source and target schema elements plus the selected function, Show functions.](media/create-maps-data-transformation-visual-studio-code/no-mapping-show-functions.png)
 
 1. From the functions list that opens, find and select the function that you want to use, which adds the function to the map. If the function doesn't appear visible on the map, try zooming out on the map surface.
+
+   This example selects the **To date** function.
+
+   ![Screenshot showing the selected function named To date.](media/create-maps-data-transformation-visual-studio-code/no-mapping-select-function.png)
+
+   > [!NOTE]
+   >
+   > If no mapping line exists or is selected when you add a function to the map, the function 
+   > appears on the map, but disconnected from any elements or other functions, for example:
+   >
+   > ![Screenshot showing the disconnected function, To date.](media/create-maps-data-transformation-visual-studio-code/disconnected-function-to-date.png)
+
+1. Expand the function shape to display the function's details and connection points. To expand the function shape, select inside the shape.
+
+1. Connect the function to the source and target elements.
+
+   1. Drag and draw a line between the source elements and the function's left edge. You can start either from the source elements or from the function.
+
+      ![Screenshot showing start mapping between source element and function.](media/create-maps-data-transformation-visual-studio-code/function-connect-to-date-start.png)
+
+   1. Drag and draw a line between the function's right edge and the target element. You can start either from the target element or from the function.
+
+      ![Screenshot showing finish mapping between function and target element.](media/create-maps-data-transformation-visual-studio-code/function-connect-to-date-end.png)
+
+1. On the function's **Properties** tab, confirm or edit the input to use.
+
+   ![Screenshot showing Properties tab for the function, To date.](media/create-maps-data-transformation-visual-studio-code/function-connect-to-date-confirm-inputs.png)
+
+   For some data types, such as arrays, the scope for the transformation might also appear available. This scope is usually the immediate element, such as an array, but in some scenarios, the scope might exist beyond the immediate element.
+
+   The code view window reflects the mapping relationship that you created:
+
+   ![Screenshot showing code view with direct mapping relationship between source and target elements.](media/create-maps-data-transformation-visual-studio-code/to-date-example-code-view.png)
+
+For example, to iterate through array items, see [Create a loop between arrays](#loop-through-array). To perform a task when an element's value meets a condition, see [Create an if condition between items](#create-if-condition).
+
+### Add a function to an existing mapping relationship
+
+When a mapping relationship already exists between source and target elements, you can add the function by following these steps:
+
+1. On the map, select the line for the mapping that you created.
+
+1. Move your pointer over the selected line, and select the plus sign (**+**) that appears.
+
+1. From the functions list that opens, find and select the function that you want to use. 
+
+   The function appears on the map and is automatically connected between the source and target elements.
+
+### Add a function with multiple inputs
+
+The example in this section concatenates multiple source element types so that you can map the results to the target element type. The example uses the **Concat** function, which takes multiple inputs.
+
+1. Make sure that map shows the source and target elements that you want.
+
+1. In the map's upper left corner, select **Show functions**.
+
+   ![Screenshot showing source and target schema elements and the selected function named Show functions.](media/create-maps-data-transformation-visual-studio-code/multi-inputs-show-functions.png)
+
+1. From the functions list that opens, find and select the function that you want to use, which adds the function to the map. If the function doesn't appear visible on the map, try zooming out on the map surface.
+
+   This example selects the **Concat** function:
 
    ![Screenshot showing the selected function named Concat.](media/create-maps-data-transformation-visual-studio-code/select-function.png)
 
    > [!NOTE]
    >
    > If no mapping line exists or is selected when you add a function to the map, the function 
-   > appears on the map, but disconnected from any elements or other functions. A red dot appears 
-   > in the function's upper right corner to show that the function isn't correctly configured, for example:
+   > appears on the map, but disconnected from any elements or other functions. If the function 
+   > requires configuration, a red dot appears in the function's upper right corner, for example:
    >
-   > ![Screenshot showing a disconnected function.](media/create-maps-data-transformation-visual-studio-code/function-disconnected.png)
+   > ![Screenshot showing the disconnected function, Concat.](media/create-maps-data-transformation-visual-studio-code/disconnected-function-concat.png)
 
 1. Expand the function shape to display the function's details and connection points. To expand the function shape, select inside the shape.
 
@@ -279,7 +310,7 @@ If your source and target schemas include arrays, you can create a loop mapping 
 
 1. On the map, in the target schema area, expand the array and array items.
 
-1. In the source schema area, add the array and items to the map.
+1. In the source schema area, add the array source element and array item elements to the map.
 
 1. [Create a direct mapping between the source and target elements](#create-direct-mapping).
 
@@ -289,7 +320,7 @@ If your source and target schemas include arrays, you can create a loop mapping 
 
    ![Screenshot showing loop mapping between the Name array items plus the source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-automap-arrays.png)
 
-   The code view window reflects the looping relationship that you created:
+   The code view window reflects the mapping relationship that you created:
 
    ![Screenshot showing code view with looping relationship between source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-code-view.png)
 
