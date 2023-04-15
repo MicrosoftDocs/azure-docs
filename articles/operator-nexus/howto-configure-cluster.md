@@ -70,7 +70,7 @@ You can instead create a Cluster with ARM template/parameter files in
 | Parameter name            | Description                                                                                                           |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | CLUSTER_NAME              | Resource Name of the Cluster                                                                                          |
-| LOCATION                  | The Azure Region where the Cluster will be deployed                                                                   |
+| LOCATION                  | The Azure Region where the Cluster is deployed                                                                  |
 | CL_NAME                   | The Cluster Manager Custom Location from Azure portal                                                                 |
 | CLUSTER_RG                | The cluster resource group name                                                                                       |
 | LAW_ID                    | Log Analytics Workspace ID for the Cluster                                                                            |
@@ -110,7 +110,7 @@ You can instead create a Cluster with ARM template/parameter files in
 
 ### Cluster validation
 
-A successful Operator Nexus Cluster creation will result in the creation of an AKS cluster
+A successful Operator Nexus Cluster creation results in the creation of an AKS cluster
 inside your subscription. The cluster ID, cluster provisioning state and
 deployment state are returned as a result of a successful `cluster create`.
 
@@ -136,7 +136,7 @@ Cluster create Logs can be viewed in the following locations:
 Once a Cluster has been created, the deploy cluster action can be triggered.
 The deploy Cluster action creates the bootstrap image and deploys the Cluster.
 
-Deploy Cluster will initiate a sequence of events to occur in the Cluster Manager
+Deploy Cluster initiates a sequence of events to occur in the Cluster Manager
 
 1.  Validation of the cluster/rack properties
 2.  Generation of a bootable image for the ephemeral bootstrap cluster

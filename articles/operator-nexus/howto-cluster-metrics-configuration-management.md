@@ -14,12 +14,12 @@ ms.custom: template-how-to
 When the user deploys a Cluster, a standard set of metrics are enabled for collection. For the list of metrics, see
 [List of Metrics Collected](List-of-metrics-collected.md).
 
-Users can't control the behavior (enable or disable) for collection of these included standard metrics. Though, users can control the collection of some optional metrics that aren't part of the link to the list. To enable this experience, users will have to create and update a MetricsConfiguration resource for a cluster. By default, creation of this MetricsConfiguration resource doesn't change the collection of metrics. User will have to update the resource to enable or disable these optional metrics collection.  
+Users can't control the behavior (enable or disable) for collection of these included standard metrics. Though, users can control the collection of some optional metrics that aren't part of the link to the list. To enable this experience, users have to create and update a MetricsConfiguration resource for a cluster. By default, creation of this MetricsConfiguration resource doesn't change the collection of metrics. User has to update the resource to enable or disable these optional metrics collection.  
 
 > [!NOTE] 
 > * For a cluster, at max, only one MetricsConfiguration resource can be created.
 > * Users need to create a MetricsConfiguration resource to check a list of optional metrics that can be controlled. 
-> * Deletion of the MetricsConfiguration resource will result in the standard set of metrics being restored.
+> * Deletion of the MetricsConfiguration resource results in the standard set of metrics being restored.
 
 ## How to manage cluster metrics configuration
 
@@ -48,14 +48,14 @@ az networkcloud cluster metricsconfiguration create \
 > * The default metrics collection interval for standard set of metrics is set to every 5 minutes. Changing the `collectionInterval` will also impact the collection frequency for default standard metrics.
 > * There can be only one set of metrics configuration defined per cluster. The resource is created with the name `default`.
 
-Specifying `--no-wait --debug` options in az cli command will result in the execution of this command asynchronously. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
+Specifying `--no-wait --debug` options in az cli command results in the execution of this command asynchronously. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
 
 ### Metrics Configuration elements
 
 | Parameter name                        | Description                                                                                        |
 | --------------------------------------| -------------------------------------------------------------------------------------------------- |
 | CLUSTER                               | Resource Name of Cluster                                                                           |
-| LOCATION                              | The Azure Region where the Cluster will be deployed                                                | 
+| LOCATION                              | The Azure Region where the Cluster is deployed                                                     | 
 | CLUSTER_EXTENDED_LOCATION_ID          | The Cluster extended Location from Azure portal                                                    |
 | COLLECTION_INTERVAL                   | The collection frequency for default standard metrics                                              |
 | RESOURCE_GROUP                        | The Cluster resource group name                                                                    |
@@ -63,10 +63,10 @@ Specifying `--no-wait --debug` options in az cli command will result in the exec
 | TAG_VALUE1                            | Optional tag1 value to pass to Cluster Create                                                      |
 | TAG_KEY2                              | Optional tag2 to pass to Cluster create                                                            |
 | TAG_VALUE2                            | Optional tag2 value to pass to Cluster create                                                      |
-| METRIC_TO_ENABLE_1                    | Optional metric1 that have been chosen to be enabled in addition to the default metrics            |
-| METRIC_TO_ENABLE_2                    | Optional metric2 that have been chosen to be enabled in addition to the default metrics            |
+| METRIC_TO_ENABLE_1                    | Optional metric1 that is enabled in addition to the default metrics            |
+| METRIC_TO_ENABLE_2                    | Optional metric2 that is enabled in addition to the default metrics            |
 
-Specifying `--no-wait --debug` options in az cli command will result in the execution of this command asynchronously. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
+Specifying `--no-wait --debug` options in az cli command results in the execution of this command asynchronously. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
 
 ## Retrieving a metrics configuration
 
@@ -79,7 +79,7 @@ az networkcloud cluster metricsconfiguration show \
  --resource-group "<RESOURCE_GROUP>"
 ```
 
-This command will return a JSON representation of the metrics configuration.
+This command returns a JSON representation of the metrics configuration.
 
 ## Updating a metrics configuration
 
@@ -96,11 +96,11 @@ az networkcloud cluster metricsconfiguration update \
 
 The `collection-interval` can be updated independently of `enabled-metrics` list. Omit fields that aren't being changed.
 
-Specifying `--no-wait --debug` options in az cli command will result in the execution of this command asynchronously. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
+Specifying `--no-wait --debug` options in az cli command results in the execution of this command asynchronously. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
 
 ## Deleting a metrics configuration
 
-Deletion of the metrics configuration will return the cluster to an unaltered configuration. To delete a metrics configuration, use the below command:
+Deletion of the metrics configuration returns the cluster to an unaltered configuration. To delete a metrics configuration, use the below command:
 
 ```azurecli
 az networkcloud cluster metricsconfiguration delete \
@@ -108,6 +108,6 @@ az networkcloud cluster metricsconfiguration delete \
  --resource-group "<RESOURCE_GROUP>"
 ```
 
-Specifying `--no-wait --debug` options in az cli command will result in the execution of this command asynchronously. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
+Specifying `--no-wait --debug` options in az cli command results in the execution of this command asynchronously. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
 
 
