@@ -41,9 +41,8 @@ Typically the beginning of a machine learning project involves exploratory data 
 > pip install -U azureml-fsspec mltable
 > ```
 
-## Access data from a datastore URI, like a filesystem (preview)
+## Access data from a datastore URI, like a filesystem
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 An Azure Machine Learning datastore is a *reference* to an *existing* storage account on Azure. The benefits of creating and using a datastore include:
 
