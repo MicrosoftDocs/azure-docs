@@ -13,7 +13,7 @@ ms.author: sujaj
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-In this how-to guide, you'll learn to create a Linux OS provider for *Azure Monitor for SAP solutions* resources.
+In this how-to guide, you learn to create a Linux OS provider for *Azure Monitor for SAP solutions* resources.
 
 This content applies to both versions of the service, *Azure Monitor for SAP solutions* and *Azure Monitor for SAP solutions (classic)*.
 
@@ -59,7 +59,7 @@ nohup ./node_exporter --web.listen-address=":9100" &
 
 1. If the target virtual machine is restarted/stopped, node exporter is also stopped, and needs to be manually started again to continue monitoring.
 1. Run `sudo crontab -e` command to open cron file.
-1. Add the command `@reboot cd /path/to/node/exporter && nohup ./node_exporter &` at the end of cron file. This will start node exporter on VM reboot.
+2. Add the command `@reboot cd /path/to/node/exporter && nohup ./node_exporter &` at the end of cron file. This starts node exporter on VM reboot.
 
 ```shell
 # if you do not have a crontab file already, create one by running the command: sudo crontab -e
