@@ -188,7 +188,7 @@ AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 
 ## Clean up resources
 
-If you want to continue with Batch tutorials and samples, you can use the Batch account and linked storage account you created in this quickstart. There's no charge for the Batch account itself.
+If you want to continue with Batch tutorials and samples, you can use the Batch and linked storage accounts you created in this quickstart. There's no charge for the Batch account itself.
 
 Pools and nodes incur charges while the nodes are running, even if they aren't running jobs. When you no longer need a pool, use the [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete) command to delete it. Deleting a pool deletes all task output on the nodes, and the nodes themselves.
 

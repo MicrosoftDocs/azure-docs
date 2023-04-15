@@ -150,7 +150,7 @@ The [Azure Batch Python Quickstart](https://github.com/Azure-Samples/batch-pytho
 
 ### Create a pool of compute nodes
 
-To create a Batch pool, the app uses the [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and pool configuration. The following [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 20.04 LTS Azure Marketplace image. Batch supports a wide range of Linux and Windows Server Marketplace images as well as custom VM images.
+To create a Batch pool, the app uses the [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and pool configuration. The following [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 20.04 LTS Azure Marketplace image. Batch supports a wide range of Linux and Windows Server Marketplace images, and also supports custom VM images.
 
 The `POOL_NODE_COUNT` and `POOL_VM_SIZE` are defined constants. The app creates a pool of two size *Standard_DS1_v2* nodes. This size offers a good balance of performance versus cost for this quickstart.
 
@@ -250,7 +250,7 @@ When you no longer need your Batch resources, you can delete the resource group 
 
 ## Next steps
 
-In this quickstart, you ran an app that uses the Batch Python API to create a Batch pool, nodes, job, and tasks. The job uploaded resource files to an storage container, ran tasks on the nodes, and displayed output from the nodes.
+In this quickstart, you ran an app that uses the Batch Python API to create a Batch pool, nodes, job, and tasks. The job uploaded resource files to a storage container, ran tasks on the nodes, and displayed output from the nodes.
 
 Now that you understand the key concepts of the Batch service, you're ready to use Batch with more realistic, larger scale workloads. To learn more about Azure Batch and walk through a parallel workload with a real-world application, continue to the Batch Python tutorial.
 

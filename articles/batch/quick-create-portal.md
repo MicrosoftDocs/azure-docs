@@ -53,7 +53,6 @@ Next, create a pool of Windows compute nodes in your Batch account. The followin
 
 1. Under **Operating System**, select the following settings:
    - **Publisher**: Select **microsoftwindowsserver**.
-   - **Offer**: Select **windowsserver** if not already selected.
    - **Sku**: Select **2019-datacenter-core-smalldisk**.
 
 1. Scroll down to **Node size**, and for **VM size**, select **Standard_A1_v2**.
@@ -64,7 +63,7 @@ Next, create a pool of Windows compute nodes in your Batch account. The followin
 
 Batch creates the pool immediately, but takes a few minutes to allocate and start the compute nodes. On the **Pools** page, select **myPool** to go to the **myPool** page and see the pool status of **Resizing** under **Essentials** > **Allocation state**. You can do the following steps to create a job and tasks while the pool state is still changing.
 
-After a few minutes, the **Allocation state** changes to **Steady**, and the nodes start. To check the state of the nodes, select **Nodes** in the **myPool** page left navigation. When a node's state is **Idle**, it is ready to run tasks.
+After a few minutes, the **Allocation state** changes to **Steady**, and the nodes start. To check the state of the nodes, select **Nodes** in the **myPool** page left navigation. When a node's state is **Idle**, it's ready to run tasks.
 
 ## Create a job
 
@@ -116,7 +115,7 @@ The standard output for this task shows the Azure Batch environment variables th
 
 ## Clean up resources
 
-If you want to continue with Batch tutorials and samples, you can use the Batch account and linked storage account you created in this quickstart. There's no charge for the Batch account itself.
+If you want to continue with Batch tutorials and samples, you can use the Batch and linked storage accounts you created in this quickstart. There's no charge for the Batch account itself.
 
 Pools and nodes incur charges while the nodes are running, even if they aren't running jobs. When you no longer need a pool, delete it. On your Batch account page, select **Pools** from the left navigation. Select the pool to delete on the **Pools** page, and then select **Delete** on the pool page. Deleting a pool deletes all task output on the nodes, and the nodes themselves.
 

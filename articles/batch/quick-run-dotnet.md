@@ -1,9 +1,8 @@
 ---
 title: 'Quickstart: Use a .NET app to create and run a Batch job'
 description: Follow this quickstart to run a C# app that uses the Batch .NET client library to create and run Batch pools, nodes, jobs, and tasks.
-"In this quickstart, you run an Azure Batch sample job and tasks from a C# application with ."
 ms.topic: quickstart
-ms.date: 05/25/2021
+ms.date: 04/14/2023
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp, mode-api
 ---
@@ -152,7 +151,7 @@ The [Azure Batch .NET Quickstart](https://github.com/Azure-Samples/batch-dotnet-
 
 ### Create a pool of compute nodes
 
-To create a Batch pool, the app uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and pool configuration. The following[VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server Marketplace image. Batch supports a wide range of Windows Server and Linux Marketplace OS images, as well as custom VM images.
+To create a Batch pool, the app uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and pool configuration. The following[VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server Marketplace image. Batch supports a wide range of Windows Server and Linux Marketplace OS images, and also supports custom VM images.
 
 The `PoolNodeCount` and VM size `PoolVMSize` are defined constants. The app creates a pool of two *Standard_A1_v2* nodes. This size offers a good balance of performance versus cost for this quickstart.
 
@@ -254,7 +253,7 @@ When you no longer need your Batch account and storage account, you can delete t
 
 ## Next steps
 
-In this quickstart, you ran an app that uses the Batch .NET API to create a Batch pool, nodes, job, and tasks. The job uploaded resource files to an storage container, ran tasks on the nodes, and displayed output from the nodes.
+In this quickstart, you ran an app that uses the Batch .NET API to create a Batch pool, nodes, job, and tasks. The job uploaded resource files to a storage container, ran tasks on the nodes, and displayed output from the nodes.
 
 Now that you understand the key concepts of the Batch service, you're ready to use Batch with more realistic, larger scale workloads. To learn more about Azure Batch and walk through a parallel workload with a real-world application, continue to the Batch .NET tutorial.
 
