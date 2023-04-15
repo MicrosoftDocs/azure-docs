@@ -112,7 +112,7 @@ PublicClientApplication.create(this.getApplicationCOntext(),
   loadAccount();
   }
   @Override
-  public void onError(MsalException exception{
+  public void onError(MsalException exception){
   /*Fail to initialize PublicClientApplication */
   }
 });
