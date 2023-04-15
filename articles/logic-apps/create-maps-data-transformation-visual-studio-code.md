@@ -29,10 +29,10 @@ After you create your map, you can directly call that map from a workflow in you
 
 This how-to guide shows how to complete the following tasks:
 
-- Create a new data map.
-- Specify the source and target schemas to use for the map.
+- Create a blank data map.
+- Specify the source and target schemas to use.
 - Navigate the map.
-- Add schema elements to the map.
+- Select the target and source elements to map.
 - Create a direct mapping between elements.
 - Create a complex mapping between elements.
 - Create a loop between arrays.
@@ -112,8 +112,8 @@ The Data Mapper extension currently works only with schemas in flat folder-struc
 
 The following table describes the possible data types that might appear in a schema:
 
-| Symbol | Type | Notes |
-|--------|------|-------|
+| Symbol | Type | More info |
+|--------|------|-----------|
 | ![Icon representing an Array data type.](media/create-maps-data-transformation-visual-studio-code/array-icon.png) | Array | Contains items or repeating item nodes |
 | ![Icon representing a Binary data type.](media/create-maps-data-transformation-visual-studio-code/binary-icon.png) | Binary | |
 | ![Icon representing a Bool data type.](media/create-maps-data-transformation-visual-studio-code/bool-icon.png) | Bool | True or false only |
@@ -128,7 +128,7 @@ The following table describes the possible data types that might appear in a sch
 
 <a name="navigate-map"></a>
 
-## Navigate the map 
+## Navigate the map
 
 To move around the map, you have the following options:
 
@@ -147,7 +147,7 @@ To move around the map, you have the following options:
 
 <a name="select-elements"></a>
 
-## Add elements to the map
+## Select target and source elements to map
 
 1. On the map surface, from the target schema's data element list, select the target element that you want to map. If that element is a child of a parent element, find and expand the parent first.
 
@@ -163,11 +163,13 @@ To move around the map, you have the following options:
 
 <a name="create-direct-mapping"></a>
 
-## Create a direct mapping between source and target elements
+## Create a direct mapping between elements
 
-For a straightforward transformation between elements with the same type in the source and targe schemas, follow these steps:
+For a straightforward transformation between elements with the same type in the source and target schemas, follow these steps:
 
 1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
+
+1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#select-elements).
 
 1. Move your pointer over the source element so that both a circle and a plus sign (**+**) appear.
 
@@ -207,11 +209,13 @@ For a more complex transformation between elements in the source and target sche
 | String | Code points to string, Concat, Contains, Ends with, Length, Lowercase, Name, Regular expression matches, Regular expression replace, Replace, Starts with, String to code-points, Substring, Substring after, Substring before, Trim, Trim left, Trim right, Uppercase |
 | Utility | Copy, Error, Format date-time, Format number |
 
-### Add a function with a single input
+### Add a function without a mapping relationship
 
 The example in this section transforms the source element type from String type to DateTime type, which matches the target element type. The example uses the **To date** function, which takes a single input.
 
-1. Make sure that map shows the source and target elements that you want.
+1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
+
+1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#select-elements).
 
 1. In the map's upper left corner, select **Show functions**.
 
@@ -252,7 +256,7 @@ The example in this section transforms the source element type from String type 
 
    ![Screenshot showing code view with direct mapping relationship between source and target elements.](media/create-maps-data-transformation-visual-studio-code/to-date-example-code-view.png)
 
-For example, to iterate through array items, see [Create a loop between arrays](#loop-through-array). To perform a task when an element's value meets a condition, see [Create an if condition between items](#create-if-condition).
+For example, to iterate through array items, see [Create a loop between arrays](#loop-through-array). To perform a task when an element's value meets a condition, see [Add a condition between elements](#add-condition).
 
 ### Add a function to an existing mapping relationship
 
@@ -270,7 +274,9 @@ When a mapping relationship already exists between source and target elements, y
 
 The example in this section concatenates multiple source element types so that you can map the results to the target element type. The example uses the **Concat** function, which takes multiple inputs.
 
-1. Make sure that map shows the source and target elements that you want.
+1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
+
+1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#select-elements).
 
 1. In the map's upper left corner, select **Show functions**.
 
@@ -294,7 +300,7 @@ The example in this section concatenates multiple source element types so that y
 
 1. In the function information pane, on the **Properties** tab, under **Inputs**, select the source data elements to use as the inputs.
 
-   This example selects the **FirstName** and **LastName** source elements as the function inputs, which automatically adds the connections on the map.
+   This example selects the **FirstName** and **LastName** source elements as the function inputs, which automatically add the respective connections on the map.
 
    ![Screenshot showing multiple source data elements selected as function inputs.](media/create-maps-data-transformation-visual-studio-code/function-multiple-inputs.png)
 
@@ -302,15 +308,23 @@ The example in this section concatenates multiple source element types so that y
 
    ![Screenshot showing finished mapping from function with multiple inputs to target element.](media/create-maps-data-transformation-visual-studio-code/function-multiple-inputs-single-output.png)
 
+   The code view window reflects the mapping relationship that you created:
+
+   ![Screenshot showing code view with complex mapping relationship between source and target elements.](media/create-maps-data-transformation-visual-studio-code/concat-example-code-view.png)
+
 <a name="loop-through-array"></a>
 
 ## Create a loop between arrays
 
-If your source and target schemas include arrays, you can create a loop mapping that iterates through the items in those arrays.
+If your source and target schemas include arrays, you can create a loop mapping relationship that iterates through the items in those arrays. The example in this section loops through an Employee source array and a Person target array.
 
-1. On the map, in the target schema area, expand the array and array items.
+1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
 
-1. In the source schema area, add the array source element and array item elements to the map.
+1. On the map, in the target schema area, [select the target array element and target array item elements that you want to map](#select-elements).
+
+1. On the map, in the target schema area, expand the target array element and array items.
+
+1. In the source schema area, add the source array element and array item elements to the map.
 
 1. [Create a direct mapping between the source and target elements](#create-direct-mapping).
 
@@ -324,9 +338,43 @@ If your source and target schemas include arrays, you can create a loop mapping 
 
    ![Screenshot showing code view with looping relationship between source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-code-view.png)
 
-<a name="create-if-condition"></a>
+<a name="add-condition"></a>
 
-## Create an if condition between items
+## Set up a condition and task to perform between elements
+
+To add a mapping relationship that evaluates a condition and performs a task when the condition is met, you can use multiple functions, such as the **If** function, a comparison function such as **Greater**, and the task to perform such as **Multiply**.
+
+The example in this section calculates a discount to apply when the purchase quantity exceeds 20 items by using the following functions:
+
+- **Greater**: Check whether item quantity is greater than 20
+- **If**: Check whether the **Greater** function returns true.
+- **Multiply**: Calculate the discount by multiplying the item price by 10% and the item quantity.
+
+1. To review what happens in code while you create the mapping, in the map's upper right corner, select **Show code**.
+
+1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#select-elements).
+
+   This example selects the following elements:
+
+   ![Screenshot showing the data map and elements to map.](media/create-maps-data-transformation-visual-studio-code/if-condition-example-elements.png)
+
+1. In the map's upper left corner, select **Show functions**.
+
+1. Add the following functions to the map: **Greater**, **If**, and **Multiply**
+
+1. Expand all the function shapes to show the function details and connection points.
+
+1. Connect the source elements, functions, and target elements as follows:
+
+   * The source schema's **ItemPrice** element to the target schema's **ItemPrice** element
+   * The source schema's **ItemQuantity** element to the **Greater** function's **Value** field
+   * The **Greater** function's output to the **If** function's **Condition** field
+   * The **If** function's output to the target schema's **ItemDiscount** element
+   * The source schema's **ItemPrice** element to the **Multiply** function's **Multiplicand 0*** field
+   * The **Multiply** function's output to the **If** function's **Value** field
+
+   ![Screenshot showing finished condition example.](media/create-maps-data-transformation-visual-studio-code/if-condition-example-complete.png)
+
 
 ## Save your map
 
