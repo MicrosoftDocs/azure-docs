@@ -131,7 +131,7 @@ kubectl label namespace default istio.io/rev=asm-1-17
 >  The default `istio-injection=enabled` labeling doesn't work. Explicit versioning (`istio.io/rev=asm-1-17`) is required.
 
 
-For manual injection of sidecar using `istioctl kube-inject`, you'll need to specify additional parameters for `istioNamespace` (`-i`) and `revision` (`-r`). Example:
+For manual injection of sidecar using `istioctl kube-inject`, you need to specify extra parameters for `istioNamespace` (`-i`) and `revision` (`-r`). Example:
 
 ```bash
 kubectl apply -f <(istioctl kube-inject -f sample.yaml -i aks-istio-system -r asm-1-17) -n foo
