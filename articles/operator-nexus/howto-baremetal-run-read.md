@@ -83,7 +83,7 @@ For a command with multiple arguments, provide as a list to `arguments` paramete
 
 These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). Running multiple extracts might take longer that 10 minutes.
 
-This command runs synchronously. If you wish to skip waiting for the command to complete, specify the `--no-wait --debug` options. In that case, follow the instructions on [how to track asynchronous operation](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-track-async-operations-cli).
+This command runs synchronously. If you wish to skip waiting for the command to complete, specify the `--no-wait --debug` options. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
 
 When an optional argument `--output-directory` is provided, the output result will be downloaded and extracted to the local directory.
 
