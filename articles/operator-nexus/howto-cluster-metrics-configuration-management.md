@@ -66,6 +66,8 @@ Specifying `--no-wait --debug` options in az cli command will result in the exec
 | METRIC_TO_ENABLE_1                    | Optional metric1 that have been chosen to be enabled in addition to the default metrics            |
 | METRIC_TO_ENABLE_2                    | Optional metric2 that have been chosen to be enabled in addition to the default metrics            |
 
+Specifying `--no-wait --debug` options in az cli command will result in the execution of this command asynchronously. See [how to track asynchronous operations](howto-track-async-operations-cli.md) for more details.
+
 ## Retrieving a metrics configuration
 
 After a metrics configuration is created, it can be retrieved using a `az rest` command:
@@ -81,9 +83,7 @@ This command will return a JSON representation of the metrics configuration.
 
 ## Updating a metrics configuration
 
-Much like the creation of a metrics configuration, an update can be performed to change the configuration. 
-
-This command is used to patch properties of the provided metrics configuration of cluster, or update the tags assigned to the metrics configuration. 
+Much like the creation of a metrics configuration, an update can be performed to change the configuration or update the tags assigned to the metrics configuration. 
 
 ```azurecli
 az networkcloud cluster metricsconfiguration update \
