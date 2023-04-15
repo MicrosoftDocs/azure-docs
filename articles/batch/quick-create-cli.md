@@ -20,9 +20,7 @@ This quickstart uses Azure CLI commands and scripts to create and manage Batch r
 
   You can run the Azure CLI commands in this quickstart interactively in Azure Cloud Shell. To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also [run Cloud Shell from within the Azure portal](https://shell.azure.com). Cloud Shell always uses the latest version of the Azure CLI.
 
-  You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. The steps in this article require Azure CLI version 2.0.20 or later. Run [az version](/cli/azure/reference-index?#az-version) to see your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
-
-  If you use a local installation, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
+  You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. The steps in this article require Azure CLI version 2.0.20 or later. Run [az version](/cli/azure/reference-index?#az-version) to see your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade. If you use a local installation, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
 ## Create a resource group
 
@@ -60,7 +58,7 @@ az batch account create \
     --location eastus2
 ```
 
-Sign in to the new Batch account by running the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command. After you authenticate with Batch, the rest of the  `az batch` quickstart commands use this account context.
+Sign in to the new Batch account by running the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command. After you authenticate your account with Batch, the rest of the  `az batch` quickstart commands use this account context.
 
 ```azurecli-interactive
 az batch account login \

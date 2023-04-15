@@ -62,7 +62,7 @@ Next, create a pool of Windows compute nodes in your Batch account. The followin
 
 1. Accept the defaults for the remaining settings, and select **OK** at the bottom of the page.
 
-Batch creates the pool immediately, but takes a few minutes to allocate and start the compute nodes. On the **Pools** page, select **myPool** to go to the **myPool** page and see the pool status of **Resizing** under **Essentials** > **Allocation state**. You can do the following steps to create a job and tasks while the pool state is still resizing.
+Batch creates the pool immediately, but takes a few minutes to allocate and start the compute nodes. On the **Pools** page, select **myPool** to go to the **myPool** page and see the pool status of **Resizing** under **Essentials** > **Allocation state**. You can follow the next steps to create a job and tasks while the pool state is still resizing.
 
 After a few minutes, the **Allocation state** changes to **Steady**, and the nodes start. To check the state of the nodes, select **Nodes** in the **myPool** page left navigation. When a node's state is **Idle**, it's ready to run tasks.
 
@@ -82,7 +82,7 @@ Now create a job to run on the pool. A Batch job is a logical group of one or mo
 
 ## Create tasks
 
-Jobs can contain multiple tasks that Batch queues and distributes to run on the compute nodes. When you create a task, you specify your app or script in a command line. Batch provides several ways to deploy apps and scripts to compute nodes.
+Jobs can contain multiple tasks that Batch queues and distributes to run on the compute nodes. Batch provides several ways to deploy apps and scripts to compute nodes. When you create a task, you specify your app or script in a command line. 
 
 The following procedure creates and runs two identical tasks in your job. Each task runs a command line that displays the Batch environment variables on the compute node, and then waits 90 seconds.
 
@@ -126,7 +126,9 @@ When you no longer need any of the resources you created for this quickstart, yo
 
 ## Next steps
 
-In this quickstart, you created a Batch account and pool, and created and ran a Batch job and tasks. You monitored node and task status, and viewed task output from the nodes. Now that you understand the key concepts of the Batch service, you're ready to use Batch with more realistic, larger scale workloads. To learn more about Azure Batch, continue to the Azure Batch tutorials.
+In this quickstart, you created a Batch account and pool, and created and ran a Batch job and tasks. You monitored node and task status, and viewed task output from the nodes.
+
+Now that you understand the key concepts of the Batch service, you're ready to use Batch with more realistic, larger scale workloads. To learn more about Azure Batch, continue to the Azure Batch tutorials.
 
 > [!div class="nextstepaction"]
 > [Azure Batch tutorials](./tutorial-parallel-dotnet.md)

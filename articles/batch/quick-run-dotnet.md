@@ -81,7 +81,7 @@ In Visual Studio:
 
 1. Once the build completes, select **BatchDotNetQuickstart** in the top menu bar to run the app.
 
-Typical run time using the default configuration is approximately five minutes. Initial pool node setup takes the most time. To rerun the job, delete the job from the previous run, but don't delete the pool. On a preconfigured pool, the job completes in a few seconds.
+Typical run time with the default configuration is approximately five minutes. Initial pool node setup takes the most time. To rerun the job, delete the job from the previous run, but don't delete the pool. On a preconfigured pool, the job completes in a few seconds.
 
 The app returns output similar to the following example:
 
@@ -213,9 +213,9 @@ try
 
 ### Create tasks
 
-The app creates a list of [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) objects. Each task processes an input `ResourceFile` object by using a [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) property. The Batch command line is where you specify your app or script. Batch provides several ways to deploy apps and scripts to compute nodes.
+This app creates a list of [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) objects. Each task processes an input `ResourceFile` object by using a [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) property. Batch provides several ways to deploy apps and scripts to compute nodes. The Batch command line is where you specify your app or script.
 
-The following script runs the Windows `type` command to display the input files. Then, the app adds each task to the job with the [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) method, which queues the task to run on the compute nodes.
+The command line in the following code runs the Windows `type` command to display the input files. Then, the app adds each task to the job with the [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) method, which queues the task to run on the compute nodes.
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
