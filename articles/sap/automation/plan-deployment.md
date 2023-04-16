@@ -302,34 +302,36 @@ The automation framework also supports having the deployment environment and SAP
 
 The deployment environment provides the following services:
 
-- A deployment VM, which does Terraform deployments and Ansible configuration.
+- One or more deployment virtual machines, which perform the infrastructure deployments using Terraform and performs the system configuration and SAP installation using Ansible playbooks.
 - A key vault, which contains service principal identity information for use by Terraform deployments.
 - An Azure Firewall component, which provides outbound internet connectivity.
 
 The deployment configuration file defines the region, environment name, and virtual network information. For example:
 
-```json
-{
-	"infrastructure": {
-		"environment": "MGMT",
-		"region": "westeurope",
-		"vnets": {
-			"management": {
-				"address_space": "0.0.0.0/25",
-				"subnet_mgmt": {
-					"prefix": "0.0.0.0/28"
-				},
-				"subnet_fw": {
-					"prefix": "0.0.0.0/26"
-				}
-			}
-		}
-	},
-	"options": {
-		"enable_deployer_public_ip": true
-	},
-	"firewall_deployment": true
-}
+```terraform
+# The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
+environment = "MGMT"
+
+# The location/region value is a mandatory field, it is used to control where the resources are deployed
+location = "westeurope"
+
+# management_network_address_space is the address space for management virtual network
+management_network_address_space = "10.10.20.0/25"
+
+# management_subnet_address_prefix is the address prefix for the management subnet
+management_subnet_address_prefix = "10.10.20.64/28"
+
+# management_firewall_subnet_address_prefix is the address prefix for the firewall subnet
+management_firewall_subnet_address_prefix = "10.10.20.0/26"
+
+# management_bastion_subnet_address_prefix is a mandatory parameter if bastion is deployed and if the subnets are not defined in the workload or if existing subnets are not used
+management_bastion_subnet_address_prefix = "10.10.20.128/26"
+
+deployer_enable_public_ip = false
+
+firewall_deployment = true
+
+bastion_deployment = true
 ```
 
 For more information, see the [in-depth explanation of how to configure the deployer](configure-control-plane.md).
