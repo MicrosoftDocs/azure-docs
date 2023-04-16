@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 04/03/2023
+ms.date: 04/13/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -63,7 +63,7 @@ Updates in March include:
 
 - [A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection](#a-new-defender-for-storage-plan-is-available-including-near-real-time-malware-scanning-and-sensitive-data-threat-detection)
 - [Data-aware security posture (preview)](#data-aware-security-posture-preview)
-- [New experience for managing the Azure default security policy](#improved-experience-for-managing-the-default-azure-security-policies)
+- [Improved experience for managing the default Azure security policies](#improved-experience-for-managing-the-default-azure-security-policies)
 - [Defender CSPM (Cloud Security Posture Management) is now Generally Available (GA)](#defender-cspm-cloud-security-posture-management-is-now-generally-available-ga)
 - [Option to create custom recommendations and security standards in Microsoft Defender for Cloud](#option-to-create-custom-recommendations-and-security-standards-in-microsoft-defender-for-cloud)
 - [Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA)](#microsoft-cloud-security-benchmark-mcsb-version-10-is-now-generally-available-ga)
@@ -115,12 +115,12 @@ Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com
 
 ### Defender CSPM (Cloud Security Posture Management) is now Generally Available (GA)
 
-We are announcing that Defender for CSPM is now Generally Available (GA). Defender CSPM offers all of the services available under the Foundational CSPM capabilities and adds the following benefits:
+We are announcing that Defender CSPM is now Generally Available (GA). Defender CSPM offers all of the services available under the Foundational CSPM capabilities and adds the following benefits:
 
 - **Attack path analysis and ARG API** - Attack path analysis uses a graph-based algorithm that scans the cloud security graph to expose attack paths and suggests recommendations as to how best remediate issues that will break the attack path and prevent successful breach. You can also consume attack paths programmatically by querying Azure Resource Graph (ARG) API. Learn how to use [attack path analysis](how-to-manage-attack-path.md)
 - **Cloud Security explorer** - Use the Cloud Security Explorer to run graph-based queries on the cloud security graph, to proactively identify security risks in your multicloud environments.  Learn more about [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer). 
 
-Learn more about [Defender for CSPM](overview-page.md).
+Learn more about [Defender CSPM](overview-page.md).
 
 ### Option to create custom recommendations and security standards in Microsoft Defender for Cloud
 

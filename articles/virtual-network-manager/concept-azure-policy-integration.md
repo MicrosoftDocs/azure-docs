@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 3/22/2023
+ms.date: 04/14/2023
 ms.custom: template-concept
 ---
 
@@ -32,7 +32,7 @@ Azure Policy evaluates resources in Azure by comparing the properties of those r
 
 Creating and implementing a policy in Azure Policy begins with creating a policy definition resource. Every policy definition has conditions under which it's enforced, and a defined effect that takes place if the conditions are met.
 
-With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The `addToNetworkGroup` effect is used to accomplish this. Here's a sample of a policy rule definition with the `addToNetworkGroup` effect. 
+With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The `addToNetworkGroup` effect is used to place resources in the destination network group. Here's a sample of a policy rule definition with the `addToNetworkGroup` effect. 
 
 ```json
 
@@ -54,11 +54,16 @@ With network groups, your policy definition includes your conditional expression
 }
 
 ```
+> [!IMPORTANT]
+> When defining a policy, the `networkGroupId` must be the full resource ID of the target network group as seen in the sample definition. It does not support parameterization in the policy definition. 
+>
+>If you need to parameterize the network group, you can utilize an Azure Resource Manager template to create the policy definition and assignment.
+
 Learn more about [policy definition structure](../governance/policy/concepts/definition-structure.md).
 
 ## Policy assignments
 
-Similar to Virtual Network Manager configurations, policy definitions don't immediately take effect when you create them. To begin applying, you must create a Policy Assignment, which assigns a definition to evaluate at a given scope. Currently, all resources within the scope are evaluated against the definition. This allows you to have a single reusable definition that you can assign at multiple places for more granular group membership control. Learn more information on the [Assignment Structure](../governance/policy/concepts/assignment-structure.md) for Azure Policy.
+Similar to Virtual Network Manager configurations, policy definitions don't immediately take effect when you create them. To begin applying, you must create a policy Assignment, which assigns a definition to evaluate at a given scope. Currently, all resources within the scope are evaluated against the definition, which allows a single reusable definition that you can assign at multiple places for more granular group membership control. Learn more information on the [Assignment Structure](../governance/policy/concepts/assignment-structure.md) for Azure Policy.
   
 Policy definitions and assignment can be created through with API/PS/CLI or [Azure Policy Portal]().
 
@@ -85,7 +90,7 @@ To set register the needed providers, use [Register-AzResourceProvider](/powersh
 
 ### Type filtering
 
-When configuring your policy definitions, it's recommended to always include a **type** condition to scope it to virtual networks. This allows Policy to filter out non virtual network operations and improve the efficiency of your policy resources.
+When configuring your policy definitions, it's recommended to always include a **type** condition to scope it to virtual networks. This condition allows a policy to filter out non virtual network operations and improve the efficiency of your policy resources.
 
 ### Regional slicing
 
@@ -96,7 +101,7 @@ If you're following management group best practices using [Azure management grou
 
 ### Deleting an Azure Policy definition associated with a network group
 
-You may come across instances where you no longer need an Azure Policy definition. This could be when a network group associated with a Policy is deleted, or you have an unused Policy that you no longer need. To delete the Policy, you need to delete the Policy association object, and then delete the policy definition in [Azure Policy](../governance/policy/tutorials/create-custom-policy-definition.md#clean-up-resources). Once this has been completed, the definition can't be reused or re-referenced by name when associating a new definition to a network group.
+You may come across instances where you no longer need an Azure Policy definition. Instances include when a network group associated with a policy is deleted, or you have an unused policy that you no longer need. To delete the policy, you need to delete the policy association object, and then delete the policy definition in [Azure Policy](../governance/policy/tutorials/create-custom-policy-definition.md#clean-up-resources). Once deletion has been completed, the definition name can't be reused or re-referenced when associating a new definition to a network group.
 
 ## Next steps
 

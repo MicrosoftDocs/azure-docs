@@ -18,7 +18,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 This article shows you how to use VMware Tanzu® Service Registry with Azure Spring Apps Enterprise tier.
 
-The [Tanzu Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/2.1/spring-cloud-services/GUID-service-registry-index.html) is one of the commercial VMware Tanzu components. This component helps you apply the *service discovery* design pattern to your applications.
+Tanzu Service Registry is one of the commercial VMware Tanzu components. This component helps you apply the *service discovery* design pattern to your applications.
 
 Service discovery is one of the main ideas of the microservices architecture. Without service discovery, you'd have to hand-configure each client of a service or adopt some form of access convention. This process can be difficult, and the configurations and conventions can be brittle in production. Instead, you can use the Tanzu Service Registry to dynamically discover and invoke registered services in your application.
 
