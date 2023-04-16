@@ -2,25 +2,25 @@
 title: Configure traffic mirroring with a Remote SPAN (RSPAN) port - Microsoft Defender for IoT
 description: This article describes how to configure a remote SPAN (RSPAN) port for traffic mirroring when monitoring OT networks with Microsoft Defender for IoT.
 ms.date: 11/08/2022
-ms.topic: how-to
+ms.topic: install-set-up-deploy
 ---
 
 # Configure traffic mirroring with a Remote SPAN (RSPAN) port
 
-Configure a remote SPAN (RSPAN) session on your switch to mirror traffic from multiple, distributed source ports into a dedicated remote VLAN.
+This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT.
 
-Data in the VLAN is then delivered through trunked ports, across multiple switches to a specified switch that contains the physical destination port. Connect the destination port to your OT network sensor to monitor traffic with Defender for IoT.
+:::image type="content" source="../media/deployment-paths/progress-network-level-deployment.png" alt-text="Diagram of a progress bar with Network level deployment highlighted." border="false" lightbox="../media/deployment-paths/progress-network-level-deployment.png":::
 
-The following diagram shows an example of a remote VLAN architecture:
-
-:::image type="content" source="../media/how-to-set-up-your-network/remote-vlan.jpg" alt-text="Diagram of remote VLAN." border="false" lightbox="../media/how-to-set-up-your-network/remote-vlan.jpg":::
-
-This article describes a sample procedure for configuring RSPAN on a Cisco 2960 switch with 24 ports running IOS. The steps described are intended as high-level guidance. For more information, see the Cisco documentation.
+This article describes a sample procedure for configuring [RSPAN](../best-practices/traffic-mirroring-methods.md#remote-span-rspan-ports) on a Cisco 2960 switch with 24 ports running IOS.
 
 > [!IMPORTANT]
-> This article is intended only as guidance and not as instructions. Mirror ports on other Cisco operating systems and other switch brands are configured differently.
+> This article is intended only as guidance and not as instructions. Mirror ports on other Cisco operating systems and other switch brands are configured differently. For more information, see your switch documentation.
 
 ## Prerequisites
+
+- Before you start, make sure that you understand your plan for network monitoring with Defender for IoT, and the SPAN ports you want to configure.
+
+    For more information, see [Traffic mirroring methods for OT monitoring](../best-practices/traffic-mirroring-methods.md).
 
 - RSPAN requires a specific VLAN to carry the monitored SPAN traffic between switches. Before you start, make sure that your switch supports RSPAN.
 
@@ -60,9 +60,12 @@ On your destination switch:
 
 1. Save the configuration.
 
+[!INCLUDE [validate-traffic-mirroring](../includes/validate-traffic-mirroring.md)]
+
 ## Next steps
 
-For more information, see:
+> [!div class="step-by-step"]
+> [« Onboard OT sensors to Defender for IoT](../onboard-sensors.md)
 
-- [Traffic mirroring methods for OT monitoring](../best-practices/traffic-mirroring-methods.md)
-- [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)
+> [!div class="step-by-step"]
+> [Provision OT sensors for cloud management »](../ot-deploy/provision-cloud-management.md)

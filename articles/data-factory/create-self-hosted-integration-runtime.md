@@ -204,7 +204,7 @@ Here are details of the application's actions and arguments:
 |`-EnableLocalFolderPathValidation`||  Enable security validation to disable access to file system of the local machine. |
 |`-eesp`,<br/>`-EnableExecuteSsisPackage`|| Enable SSIS package execution on self-hosted IR node.|
 |`-desp`,<br/>`-DisableExecuteSsisPackage`|| Disable SSIS package execution on self-hosted IR node.|
-|`-gesp`,<br/>`-GetExecuteSsisPackage`|| Get the value if ExecuteSsisPackage option is enabled on self-hosted IR node.|
+|`-gesp`,<br/>`-GetExecuteSsisPackage`|| Get the value if ExecuteSsisPackage option is enabled on self-hosted IR node.<br/> If the returned value is true, then ExecuteSSISPackage is enabled; If the returned value is false or null, then ExecuteSSISPackage is disabled.|
 
 ## Install and register a self-hosted IR from Microsoft Download Center
 

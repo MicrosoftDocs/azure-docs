@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/20/2023
+ms.date: 03/28/2023
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -455,7 +455,6 @@ To list role definitions, use the [Role Definitions - List](/rest/api/authorizat
     > [!div class="mx-tableFixed"]
     > | Filter | Description |
     > | --- | --- |
-    > | `$filter=atScopeAndBelow()` | Lists role definitions for the specified scope and any subscopes. |
     > | `$filter=type+eq+'{type}'` | Lists role definitions of the specified type. Type of role can be `CustomRole` or `BuiltInRole`. |
 
     The following example lists all custom roles in a tenant:

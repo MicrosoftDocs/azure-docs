@@ -1,6 +1,6 @@
 ---
-title: "MuleSoft Cloudhub (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector MuleSoft Cloudhub (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "MuleSoft Cloudhub (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector MuleSoft Cloudhub (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# MuleSoft Cloudhub (using Azure Function) connector for Microsoft Sentinel
+# MuleSoft Cloudhub (using Azure Functions) connector for Microsoft Sentinel
 
 The [MuleSoft Cloudhub](https://www.mulesoft.com/platform/saas/cloudhub-ipaas-cloud-based-integration) data connector provides the capability to retrieve logs from Cloudhub applications using the Cloudhub API and more events into Microsoft Sentinel through the REST API. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
@@ -17,7 +17,7 @@ The [MuleSoft Cloudhub](https://www.mulesoft.com/platform/saas/cloudhub-ipaas-cl
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | MuleSoftEnvId<br/>MuleSoftAppName<br/>MuleSoftUsername<br/>MuleSoftPassword<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-MuleSoftCloudhubAPI-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-MuleSoftCloudhubAPI-functionapp |
 | **Log Analytics table(s)** | MuleSoft_Cloudhub_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -35,7 +35,7 @@ MuleSoft_Cloudhub_CL
 
 ## Prerequisites
 
-To integrate with MuleSoft Cloudhub (using Azure Function) make sure you have: 
+To integrate with MuleSoft Cloudhub (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **REST API Credentials/permissions**: **MuleSoftEnvId**, **MuleSoftAppName**, **MuleSoftUsername** and **MuleSoftPassword** are required for making API calls.

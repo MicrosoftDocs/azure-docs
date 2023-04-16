@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2023
+ms.date: 03/28/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -142,7 +142,8 @@ Sign-ins are aggregated in the non-interactive users when the following data mat
 - Status
 - Resource ID
 
-The IP address of non-interactive sign-ins doesn't match the actual source IP of where the refresh token request is coming from. Instead, it shows the original IP used for the original token issuance.
+> [!NOTE]
+> The IP address of non-interactive sign-ins performed by [confidential clients](../develop/msal-client-applications.md) doesn't match the actual source IP of where the refresh token request is coming from. Instead, it shows the original IP used for the original token issuance.
 
 ### Service principal sign-ins
 

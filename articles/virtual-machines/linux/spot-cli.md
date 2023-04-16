@@ -5,6 +5,7 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: jushiman

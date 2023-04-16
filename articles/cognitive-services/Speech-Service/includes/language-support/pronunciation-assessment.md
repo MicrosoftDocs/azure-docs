@@ -12,6 +12,7 @@ ms.author: eur
 |Arabic (Saudi Arabia)|`ar-SA`<sup>1</sup> |
 |Chinese (Mandarin, Simplified)|`zh-CN`|
 |English (Australia)|`en-AU`|
+|English (Canada)|`en-CA`<sup>1</sup> |
 |English (India)|`en-IN`<sup>1</sup> |
 |English (United Kingdom)|`en-GB`|
 |English (United States)|`en-US`|  

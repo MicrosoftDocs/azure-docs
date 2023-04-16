@@ -147,16 +147,16 @@ az aks create \
     --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id $SUBNET_ID    
 ```
-* The *--service-cidr* is optional. This address is used to assign internal services in the AKS cluster an IP address. This IP address range should be an address space that isn't in use elsewhere in your network environment, including any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
+* The *--service-cidr* is optional. This address is used to assign internal services in the AKS cluster an IP address. This IP address range should be an address space that isn't in use elsewhere in your network environment, including any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection. The default value is 10.0.0.0/16.
 
-* The *--dns-service-ip* is optional. The address should be the *.10* address of your service IP address range.
+* The *--dns-service-ip* is optional. The address should be the *.10* address of your service IP address range. The default value is 10.0.0.10.
 
-* The *--pod-cidr*  is optional. This address should be a large address space that isn't in use elsewhere in your network environment. This range includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
+* The *--pod-cidr*  is optional. This address should be a large address space that isn't in use elsewhere in your network environment. This range includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection. The default value is 10.244.0.0/16.
     * This address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed if you need more addresses for additional nodes.
     * The pod IP address range is used to assign a */24* address space to each node in the cluster. In the following example, the *--pod-cidr* of *10.244.0.0/16* assigns the first node *10.244.0.0/24*, the second node *10.244.1.0/24*, and the third node *10.244.2.0/24*.
     * As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
 
-* The *--docker-bridge-address* is optional. The address lets the AKS nodes communicate with the underlying management platform. This IP address must not be within the virtual network IP address range of your cluster, and shouldn't overlap with other address ranges in use on your network.
+* The *--docker-bridge-address* is optional. The address lets the AKS nodes communicate with the underlying management platform. This IP address must not be within the virtual network IP address range of your cluster, and shouldn't overlap with other address ranges in use on your network. The default value is 172.17.0.1/16.
 
 > [!Note]
 > If you wish to enable an AKS cluster to include a [Calico network policy][calico-network-policies] you can use the following command.
@@ -254,7 +254,6 @@ az aks create \
     --node-count 3 \
     --network-plugin kubenet \
     --vnet-subnet-id $SUBNET_ID \
-    --enable-managed-identity \
     --assign-identity <identity-resource-id>
 ```
 

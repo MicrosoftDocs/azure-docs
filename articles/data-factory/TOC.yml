@@ -388,6 +388,8 @@ items:
       displayName: timeout
     - name: Azure Cognitive Search
       href: connector-azure-search.md
+    - name: Azure Cosmos DB analytical store
+      href: connector-azure-cosmos-analytical-store.md
     - name: Azure Cosmos DB for NoSQL
       href: connector-azure-cosmos-db.md
     - name: Azure Cosmos DB for MongoDB

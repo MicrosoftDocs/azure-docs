@@ -6,6 +6,7 @@ documentationcenter: traffic-manager
 author: greg-lindsay
 manager: twooley
 tags: azure-infrastructure
+ms.custom: devx-track-azurecli
 ms.assetid:
 ms.service: traffic-manager
 ms.devlang: azurecli

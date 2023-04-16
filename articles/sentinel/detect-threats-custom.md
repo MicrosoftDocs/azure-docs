@@ -4,6 +4,7 @@ description: Learn how to create custom analytics rules to detect security threa
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
+ms.custom: devx-track-arm-template
 ms.date: 01/08/2023
 ---
 

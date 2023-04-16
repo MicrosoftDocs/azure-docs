@@ -113,6 +113,67 @@ The Azure portal also highlights all the deprecated APIs between your current ve
 
 ---
 
+## Stop cluster upgrades automatically on API breaking changes (Preview)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+To stay within a supported Kubernetes version, you usually have to upgrade your cluster at least once per year and prepare for all possible disruptions. These disruptions include ones caused by API breaking changes, deprecations, and dependencies such as Helm and CSI. It can be difficult to anticipate these disruptions and migrate critical workloads without experiencing any downtime.
+
+AKS now automatically stops upgrade operations consisting of a minor version change if deprecated APIs are detected. This feature alerts you with an error message if it detects usage of APIs that are deprecated in the targeted version.
+
+All of the following criteria must be met in order for the stop to occur:
+
+* The upgrade operation is a Kubernetes minor version change for the cluster control plane
+
+* The Kubernetes version you are upgrading to is 1.26 or later
+
+* If performed via REST, the upgrade operation uses a preview API version of `2023-01-02-preview` or later
+
+* If performed via Azure CLI, the `aks-preview` CLI extension 0.5.134 or later must be installed
+
+* The last seen usage seen of deprecated APIs for the targeted version you are upgrading to must occur within 12 hours before the upgrade operation. AKS records usage hourly, so any usage of deprecated APIs within one hour isn't guaranteed to appear in the detection.
+
+If all of these criteria are true when you attempt an upgrade, you'll receive an error message similar to the following example: 
+
+```output
+Bad Request({
+  "code": "ValidationError",
+  "message": "Control Plane upgrade is blocked due to recent usage of a Kubernetes API deprecated in the specified version. Please refer to https://kubernetes.io/docs/reference/using-api/deprecation-guide to migrate the usage. To bypass this error, set IgnoreKubernetesDeprecations in upgradeSettings.overrideSettings. Bypassing this error without migrating usage will result in the deprecated Kubernetes API calls failing. Usage details: 1 error occurred:\n\t* usage has been detected on API flowcontrol.apiserver.k8s.io.prioritylevelconfigurations.v1beta1, and was recently seen at: 2023-03-23 20:57:18 +0000 UTC, which will be removed in 1.26\n\n",
+  "subcode": "UpgradeBlockedOnDeprecatedAPIUsage"
+})
+```
+
+### Mitigating stopped upgrade operations
+
+After receiving the error message, you have two options to mitigate the issue:
+
+#### Remove usage of deprecated APIs (recommended)
+
+To remove usage of deprecated APIs, follow these steps:
+
+1. Remove the deprecated API, which is listed in the error message. In the Azure portal, navigate to your cluster's overview page, and select **Diagnose and solve problems**. You can find recent usages detected under the **Known Issues, Availability and Performance** category by navigating to **Selected Kubernetes API deprecations** on the left-hand side. You can also check past API usage by enabling [container insights][container-insights] and exploring kube audit logs.
+
+    :::image type="content" source="./media/upgrade-cluster/applens-api-detection-inline.png" lightbox="./media/upgrade-cluster/applens-api-detection-full.png" alt-text="A screenshot of the Azure portal showing the 'Selected Kubernetes API deprecations' section.":::
+
+2. Wait 12 hours from the time the last deprecated API usage was seen.
+
+3. Retry your cluster upgrade.
+
+#### Bypass validation to ignore API changes
+
+To bypass validation to ignore API breaking changes, set the property `upgrade-settings` to `IgnoreKubernetesDeprecations`. You will need to use the `aks-preview` Azure CLI extension version 0.5.134 or later. This method is not recommended, as deprecated APIs in the targeted Kubernetes version may not work at all long term. It is advised to remove them as soon as possible after the upgrade completes.
+
+```azurecli-interactive
+az aks update --name myAKSCluster --resource-group myResourceGroup --upgrade-settings IgnoreKubernetesDeprecations --upgrade-override-until 2023-04-01T13:00:00Z
+```
+
+The `upgrade-override-until` property is used to define the end of the window during which validation will be bypassed. If no value is set, it will default the window to three days from the current time. The date and time you specify must be in the future.
+
+> [!NOTE]
+> `Z` is the zone designator for the zero UTC/GMT offset, also known as 'Zulu' time. This example sets the end of the window to `13:00:00` GMT. For more information, see [Combined date and time representations](https://wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
+
+After a successful override, performing an upgrade operation will ignore any deprecated API usage for the targeted version.
+
 ## Customize node surge upgrade
 
 > [!IMPORTANT]
@@ -308,3 +369,4 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 [release-tracker]: release-tracker.md
 [specific-nodepool]: node-image-upgrade.md#upgrade-a-specific-node-pool
 [k8s-deprecation]: https://kubernetes.io/blog/2022/11/18/upcoming-changes-in-kubernetes-1-26/#:~:text=A%20deprecated%20API%20is%20one%20that%20has%20been,point%20you%20must%20migrate%20to%20using%20the%20replacement
+[container-insights]:/azure/azure-monitor/containers/container-insights-log-query#resource-logs

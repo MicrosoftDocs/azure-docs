@@ -77,6 +77,7 @@ sections:
           | `OutOfQuota` | The API key has exceeded the quota. You can either upgrade your pricing tier or wait for additional quota to become available. Find your tier in the Azure portal, in the **Pricing Tier** section of your Cognitive Service resource. |
           | `BillingEndpointBusy` | The billing endpoint is currently busy. Check the `Retry-After` value and wait for this period to end before you make more requests. |
           | `ContainerUseUnauthorized` | The provided API key is not authorized for use with this container. You're likely using a gated container, so make sure your Azure subscription ID is approved by submitting an [online request](https://aka.ms/csgate). |
+          | `[ERROR] Failed to download: context deadline exceeded` | The model file download request to our servers timed out. Please make sure you have a strong Internet connection to download all required files within one hour. Model downloads apply to Text Translation and some Speech Services containers. |
           | `Unknown` | The server is currently unable to process billing requests. |
 
       - question: How do I get support?

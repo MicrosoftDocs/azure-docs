@@ -1,6 +1,6 @@
 ---
-title: "OneLogin IAM Platform (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector OneLogin IAM Platform (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "OneLogin IAM Platform (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector OneLogin IAM Platform (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# OneLogin IAM Platform (using Azure Function) connector for Microsoft Sentinel
+# OneLogin IAM Platform (using Azure Functions) connector for Microsoft Sentinel
 
 The [OneLogin](https://www.onelogin.com/) data connector provides the capability to ingest common OneLogin IAM Platform events into Microsoft Sentinel through Webhooks. The OneLogin Event Webhook API which is also known as the Event Broadcaster will send batches of events in near real-time to an endpoint that you specify. When a change occurs in the OneLogin, an HTTPS POST request with event information is sent to a callback data connector URL.  Refer to [Webhooks documentation](https://developers.onelogin.com/api-docs/1/events/webhooks) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
@@ -17,7 +17,7 @@ The [OneLogin](https://www.onelogin.com/) data connector provides the capability
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | OneLoginBearerToken<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-OneLogin-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-OneLogin-functionapp |
 | **Log Analytics table(s)** | OneLogin_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -35,7 +35,7 @@ OneLogin
 
 ## Prerequisites
 
-To integrate with OneLogin IAM Platform (using Azure Function) make sure you have: 
+To integrate with OneLogin IAM Platform (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **Webhooks Credentials/permissions**: **OneLoginBearerToken**, **Callback URL** are required for working Webhooks. See the documentation to learn more about [configuring Webhooks](https://onelogin.service-now.com/kb_view_customer.do?sysparm_article=KB0010469).You need to generate **OneLoginBearerToken** according to your security requirements and use it in **Custom Headers** section in format: Authorization: Bearer **OneLoginBearerToken**. Logs Format: JSON Array.

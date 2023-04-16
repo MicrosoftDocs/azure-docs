@@ -21,20 +21,22 @@ This article shows you how to use the Azure VMAccess Extension to check or repai
 > If you use the VMAccess Extension to reset the password of your VM after installing the AAD Login Extension you will need to rerun the AAD Login Extension to re-enable AAD Login for your machine.
 
 ## Prerequisites
-### Operating system
 
 The VM Access extension can be run against these Linux distributions:
 
-| Distribution | Version |
-|---|---|
-| Ubuntu | 16.04 LTS, 14.04 LTS and 12.04 LTS |
-| Debian | Debian 7.9+, 8.2+ |
-| Red Hat | RHEL 6.7+, 7.1+ |
-| Oracle Linux | 6.4+, 7.0+ |
-| Suse | 11 and 12 |
-| OpenSuse | openSUSE Leap 42.2+ |
-| CentOS | CentOS 6.3+, 7.0+ |
-| CoreOS | 494.4.0+ |
+### Linux Distro’s Supported
+| **Linux Distro** | **x64** | **ARM64** |
+|:-----|:-----:|:-----:|
+| Alma Linux |	9.x+ |	9.x+ |
+| CentOS |	7.x+,  8.x+ |	7.x+ |
+| Debian |	10+ |	11.x+ |
+| Flatcar Linux |	3374.2.x+ |	3374.2.x+ |
+| openSUSE |	12.3+ |	Not Supported |
+| Oracle Linux |	6.4+, 7.x+, 8.x+ |	Not Supported |
+| Red Hat Enterprise Linux |	6.7+, 7.x+,  8.x+ |	8.6+, 9.0+ |
+| Rocky Linux |	9.x+ |	9.x+ |
+| SLES |	12.x+, 15.x+ |	15.x SP4+ |
+| Ubuntu |	18.04+, 20.04+, 22.04+ |	20.04+, 22.04+ |
 
 ## Ways to use the VMAccess Extension
 There are two ways that you can use the VMAccess Extension on your Linux VMs:
