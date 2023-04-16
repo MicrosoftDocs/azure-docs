@@ -27,7 +27,7 @@ Defender for APIs is in public preview in the Azure commercial cloud, in these r
 Review the latest cloud support information for Defender for Cloud plans and features in the [cloud support matrix](support-matrix-cloud-environment.md).
 
 > [!NOTE]
-> If an Azure API Management instance is [deployed to multiple Azure regions](/azure/api-management/api-management-howto-deploy-multi-region), Defender for API functionality is only available in the primary region.
+> If an Azure API Management instance is [deployed to multiple Azure regions](/azure/api-management/api-management-howto-deploy-multi-region), Defender for APIs functionality is only available in the primary region.
 
 ## API support
 
@@ -41,7 +41,7 @@ API types | REST API
 To explore API security risks using Cloud Security Explorer, the Defender Cloud Security Posture Management (CSPM) plan must be enabled. [Learn more](concept-cloud-security-posture-management.md).
 
 
-## Permissions
+## Account/role requirements
 
 Deployment permissions for Defender for APIs are as follows.
 

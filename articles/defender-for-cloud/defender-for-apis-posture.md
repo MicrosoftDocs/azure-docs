@@ -9,12 +9,12 @@ ms.date: 03/23/2023
 ---
 # Investigate API recommendations, alerts, and risks
 
-This article describes how to review security settings, security posture recommendations, security alerts, risk insights for APIs protected by [Microsoft Defender for APIs](defender-for-apis-introduction.md). Defender for APIs is currently in preview.
+This article describes how to review security settings, security posture recommendations, security alerts, and risk insights for APIs protected by [Microsoft Defender for APIs](defender-for-apis-introduction.md). Defender for APIs is currently in preview.
 
 ## Before you start
 
 - [Onboard your API resources](defender-for-apis-deploy.md) to Defender for APIs.
-- To explore security risks within your organizational graph using Cloud Security Explorer, the Defender Cloud Security Posture Management (CSPM) plan must be enabled. [Learn more](concept-cloud-security-posture-management.md).
+- To explore security risks within your organization using Cloud Security Explorer, the Defender Cloud Security Posture Management (CSPM) plan must be enabled. [Learn more](concept-cloud-security-posture-management.md).
 
 ## View recommendations and runtime alerts
 
@@ -28,11 +28,11 @@ This article describes how to review security settings, security posture recomme
 
 ## Create sample security alerts
 
-In Defender for Cloud you can use sample alerts to evaluate your Defender for Cloud plans, and validate your security configuration. [Follow these instructions](alert-validation.md#generate-sample-security-alerts) to set up sample alerts, and selecting the relevant APIs within your subscriptions.
+In Defender for Cloud you can use sample alerts to evaluate your Defender for Cloud plans, and validate your security configuration. [Follow these instructions](alert-validation.md#generate-sample-security-alerts) to set up sample alerts, and select the relevant APIs within your subscriptions.
 
 ## Explore risks with Cloud Security Explorer
 
-In Defender CSPM, [Cloud Security Graph](concept-attack-path.md) collects data to provide a map of assets and connections across organization, to expose security risks, vulnerabilities, and possible lateral movement paths,
+In Defender CSPM, [Cloud Security Graph](concept-attack-path.md) collects data to provide a map of assets and connections across organization, to expose security risks, vulnerabilities, and possible lateral movement paths.
 
 When the Defender CSPM plan is enabled together with Defender for APIs, you can use Cloud Security Explorer to query Cloud Security Graph, to identify, review and analyze API security risks across your organization. 
 
@@ -42,9 +42,9 @@ When the Defender CSPM plan is enabled together with Defender for APIs, you can 
         - API collections that contain one or more API endpoints.
         - API endpoints for Azure API Management operations.
     
-    The search result displays each API resources with its associated insights, so that you can review, prioritize, and fix any issues.
+    The search result display each API resources with its associated insights, so that you can review, prioritize, and fix any issues.
 
-    1. Alternatively, select the predefined query **Unauthenticated API endpoints containing sensitive data are outside the virtual network** > **Open query**. The query preturns all unauthenticated API endpoints that contain sensitive data and aren't part of the Azure API management network.
+    1. Alternatively, select the predefined query **Unauthenticated API endpoints containing sensitive data are outside the virtual network** > **Open query**. The query returns all unauthenticated API endpoints that contain sensitive data and aren't part of the Azure API management network.
     
     :::image type="content" source="media/defender-for-apis-posture/predefined-query.png" alt-text="Page showing predefined API query.":::
     

@@ -25,7 +25,7 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 - **Inventory and insights**: In a single dashboard, get an aggregated view of all managed APIs. Review security insights, identify misconfigurations, and detect threats.
 - **Security posture**: Review and implement security recommendations to improve API security posture, and harden at-risk surfaces.
 - **Real time threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP Top 10](https://owasp.org/www-project-top-ten/) critical threats.
-- **Defender for CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your security graph.
+- **Defender CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your security graph.
 
 
 ## Reviewing inventory and insights
@@ -39,9 +39,9 @@ Endpoint name | The name of API endpoint/operation as defined in Azure API Manag
 Endpoint | The URL path of the API endpoints, and the HTTPS method. 
 Last called data (UTC) | The date when API traffic was last observed going to/from API endpoints (in UTC time zone). 
 30 days unused | Shows whether API endpoints have received any API call traffic in the last 30 days. APIs that haven't received any traffic in the last 30 days are marked as Inactive. 
-Authentication | Shows when a monitored API endpoint has no authentication. <br/><br/> Defender for APIs assess the authentication state using the subscription keys, JSON web token (JWT, and client certificate configured in Azure API Management. If none of these authentication mechanisms are present or executed, the API is marked as "unauthenticated".
+Authentication | Shows when a monitored API endpoint has no authentication. <br/><br/> Defender for APIs assesses the authentication state using the subscription keys, JSON web token (JWT, and client certificate configured in Azure API Management. If none of these authentication mechanisms are present or executed, the API is marked as "unauthenticated".
 External traffic observed date | The date when external API traffic was observed going to/from the API endpoint. 
-Data classification | Classifies API request and response bodies based for supported data types. 
+Data classification | Classifies API request and response bodies based on supported data types. 
 
 > [!NOTE]
 > API endpoints that haven't received any traffic since onboarding to Defender for APIs display the status *Awaiting data* in the API dashboard.
@@ -50,12 +50,14 @@ Data classification | Classifies API request and response bodies based for suppo
 
 API recommendations include recommendations for onboarding APIs to Defender for APIs, disabling and removing unused APIs, and security, authentication, access control best practices.
 
+You can use recommendations to improve your security posture, harden API configurations, identify critical API risks, and mitigate issues by risk priority.
+
 [Review the recommendations reference](recommendations-reference.md).
 
 
 ## Hardening API configuration
 
-To identify and harden API configurations, you can apply API gateway security controls that support for monitoring controls against best practices. In addition, you can use Defender for Cloud's security recommendations to further identify critical API risks, and mitigate by risk priority.
+
 
 ## Detecting runtime threats
 
@@ -69,7 +71,7 @@ Act on recommendations and alerts to mitigate threats. Defender for Cloud alerts
 
 ## Investigating security risks
 
-[Cloud Security Graph](concept-attack-path.md) in the Defender CSPM plan collects multicloud data and presents a map (graph) of assets and connections across your organization, to expose risks, vulnerabilities, and possible lateral movement paths. 
+[Cloud Security Graph](concept-attack-path.md) in the Defender CSPM plan analyses assets and connections across your organization, to expose risks, vulnerabilities, and possible lateral movement paths. 
 
 When Defender for APIs is enabled together with the Defender CSPM plan, you can use Cloud Security Explorer to proactive and efficiently query your organizational security graph to navigate, identify, and remediate API assets, security issues, and risks.
 
