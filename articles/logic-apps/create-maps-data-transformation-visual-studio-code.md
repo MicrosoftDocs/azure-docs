@@ -197,7 +197,9 @@ For a straightforward transformation between elements with the same type in the 
 
 ## Create a complex mapping between elements
 
-For a more complex transformation between elements in the source and target schemas, such as elements that you want to combine or that have different data types, you can use one or more functions to perform tasks for that transformation. The following table lists the available function groups and example functions that you can use:
+For a more complex transformation between elements in the source and target schemas, such as elements that you want to combine or that have different data types, you can use one or more functions to perform tasks for that transformation.
+
+The following table lists the available function groups and *example* functions that you can use:
 
 | Group | Example functions |
 |-------|-------------------|
