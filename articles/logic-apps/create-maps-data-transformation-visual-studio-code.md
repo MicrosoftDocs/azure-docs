@@ -22,7 +22,7 @@ To exchange messages that have different XML or JSON formats in an Azure Logic A
 
 To visually create and edit a map, you can use Visual Studio Code with the Data Mapper extension within the context of a Standard logic app project. The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
 
-After you create your map, you can directly call that map from a workflow in your logic app project or from a workflow in the Azure portal. For this task, add the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** to your workflow. However, to use this action in the Azure portal, you have to add the map to either of the following resources:
+After you create your map, you can directly call that map from a workflow in your logic app project or from a workflow in the Azure portal. For this task, add the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** to your workflow. To use this action in the Azure portal, add the map to either of the following resources:
 
 - An integration account for a Consumption or Standard logic app resource
 - The Standard logic app resource itself
@@ -47,7 +47,7 @@ This how-to guide shows how to complete the following tasks:
 
 - The Data Mapper tool is currently available only in Visual Studio Code, not the Azure portal, and only from within Standard logic app projects, not Consumption logic app projects.
 
-- Unless your map transforms XML to XML, you can use maps created in Data Mapper only with the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**, not the **XML Operations** action named **Transform XML**. Specifically, this limitation applies to maps that transform XML to JSON, JSON to XML, or JSON to JSON. For maps that transform XML to XML, you can use the **Transform XML** action.
+- To call maps created with the Data Mapper tool, you can only use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. [For maps created by any other tool, use the **XML Operations** action named **Transform XML**](logic-apps-enterprise-integration-transform.md).
 
 - The Data Mapper tool's **Code view** pane is currently read only.
 
@@ -441,5 +441,4 @@ To use the same **Transform using Data Mapper XSLT** action in the Azure portal,
 
 ## Next steps
 
-- For maps that transform XML to XML, see [Transform XML in workflows with Azure Logic Apps](logic-apps-enterprise-integration-transform.md)
 - For data transformations using B2B operations in Azure Logic Apps, see [Add maps for transformations in workflows with Azure Logic Apps](logic-apps-enterprise-integration-maps.md)
