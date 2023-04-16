@@ -26,11 +26,11 @@ Updates in April include:
 
 ### Agentless Container Posture in Defender CSPM (Preview)
 
-The new Agentless Container Posture (Preview) capabilities are available in preview as part of the Defender CSPM (Cloud Security Posture Management) plan.
+The new Agentless Container Posture (Preview) capabilities are available as part of the Defender CSPM (Cloud Security Posture Management) plan.
 
 Agentless Container Posture allows security teams to identify security risks in containers and Kubernetes realms. An agentless approach allows security teams to gain visibility into their Kubernetes and containers registries across SDLC and runtime, removing friction and footprint from the workloads.
 
-Agentless Container Posture offer out-of-the-box container vulnerability assessments that, combined with attack path analysis, enable security teams to prioritize and zoom into specific container vulnerabilities. You can also use cloud security explorer to uncover risks and hunt for container posture insights, such as discovery of applications running vulnerable images or exposed to the internet.
+Agentless Container Posture offers container vulnerability assessments that, combined with attack path analysis, enable security teams to prioritize and zoom into specific container vulnerabilities. You can also use cloud security explorer to uncover risks and hunt for container posture insights, such as discovery of applications running vulnerable images or exposed to the internet.
 
 Learn more at [Agentless Container Posture (Preview)](concept-agentless-containers.md).
 
