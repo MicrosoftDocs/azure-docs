@@ -51,6 +51,8 @@ This how-to guide shows how to complete the following tasks:
 
 - The Data Mapper tool's **Code view** pane is currently read only.
 
+- The map layout and item position is currently automatic and read only.
+
 ## Known issues
 
 The Data Mapper extension currently works only with schemas in flat folder-structured projects.
