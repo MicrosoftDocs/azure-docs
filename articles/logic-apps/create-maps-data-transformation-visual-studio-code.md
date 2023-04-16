@@ -200,7 +200,7 @@ For a straightforward transformation between elements with the same type in the 
 For a more complex transformation between elements in the source and target schemas, such as elements that you want to combine or that have different data types, you can use one or more functions to perform tasks for that transformation. The following table lists the available function groups and example functions that you can use:
 
 | Group | Example functions |
-|-------|-----------|
+|-------|-------------------|
 | Collection | Average, Count, Direct Access, Index, Join, Maximum, Minimum, Sum |
 | Conversion | To date, To integer, To number, To string |
 | Date and time | Add days |
@@ -208,6 +208,10 @@ For a more complex transformation between elements in the source and target sche
 | Math | Absolute, Add, Arctangent, Ceiling, Cosine, Divide, Exponential, Exponential (base 10), Floor, Integer divide, Log, Log (base 10), Module, Multiply, Power, Round, Sine, Square root, Subtract, Tangent |
 | String | Code points to string, Concat, Contains, Ends with, Length, Lowercase, Name, Regular expression matches, Regular expression replace, Replace, Starts with, String to code-points, Substring, Substring after, Substring before, Trim, Trim left, Trim right, Uppercase |
 | Utility | Copy, Error, Format date-time, Format number |
+
+On the map, the function's label looks like the following example and is color-coded based on the function group. To the function name's left side, a symbol for the function appears. To the function name's right side, a symbol for the function output's data type appears.
+
+![Screenshot showing example function label.](media/create-maps-data-transformation-visual-studio-code/example-function.png)
 
 ### Add a function without a mapping relationship
 
@@ -233,6 +237,7 @@ The example in this section transforms the source element type from String type 
    > appears on the map, but disconnected from any elements or other functions, for example:
    >
    > ![Screenshot showing the disconnected function, To date.](media/create-maps-data-transformation-visual-studio-code/disconnected-function-to-date.png)
+   >
 
 1. Expand the function shape to display the function's details and connection points. To expand the function shape, select inside the shape.
 
@@ -369,16 +374,34 @@ The example in this section calculates a discount to apply when the purchase qua
    * The source schema's **ItemPrice** element to the target schema's **ItemPrice** element
    * The source schema's **ItemQuantity** element to the **Greater** function's **Value** field
    * The **Greater** function's output to the **If** function's **Condition** field
-   * The **If** function's output to the target schema's **ItemDiscount** element
    * The source schema's **ItemPrice** element to the **Multiply** function's **Multiplicand 0*** field
    * The **Multiply** function's output to the **If** function's **Value** field
+   * The **If** function's output to the target schema's **ItemDiscount** element
+
+   > [!NOTE]
+   >
+   > In the **If** function, the word **ANY** appears to the right of the function name, 
+   > indicating that you can assign the output value to anything. 
+
+1. In the following functions, on the **Properties** tab, specify the following values:
+
+   | Function | Input parameter and value |
+   |----------|---------------------------|
+   | **Greater** | - **Value** #1: The source element named **ItemQuantity** <br>- **Value** #2: **20** |
+   | **Multiply** | - **Multiplicand** #1: The source element named **ItemPrice** <br>- **Multiplicand** #2: **.10** |
+   | **If** | - **Condition**: **is-greater-than(ItemQuantity,20) <br>- **Value**: **multiply(ItemPrice, .10) |
+
+   The following maps shows the finished example:
 
    ![Screenshot showing finished condition example.](media/create-maps-data-transformation-visual-studio-code/if-condition-example-complete.png)
 
+   The code view window reflects the mapping relationship that you created:
+
+   ![Screenshot showing code view with conditional mapping between source and target elements using the functions, Greater, If, and Multiply.](media/create-maps-data-transformation-visual-studio-code/if-condition-example-code-view.png)
 
 ## Save your map
 
-On the map toolbar, select **Save**.
+When you're done, on the map toolbar, select **Save**.
 
 Visual Studio Code saves your map as the following artifacts:
 
