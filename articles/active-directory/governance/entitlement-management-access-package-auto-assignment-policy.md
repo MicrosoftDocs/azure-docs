@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 You can use rules to determine access package assignment based on user properties in Azure Active Directory (Azure AD), part of Microsoft Entra.  In Entitlement Management, an access package can have multiple policies, and each policy establishes how users get an assignment to the access package, and for how long.  As an administrator, you can establish a policy for automatic assignments by supplying a membership rule, that Entitlement Management will follow to create and remove assignments automatically.  Similar to a [dynamic group](../enterprise-users/groups-create-rule.md), when an automatic assignment policy is created, user attributes are evaluated for matches with the policy's membership rule. When an attribute changes for a user, these automatic assignment policy rules in the access packages are processed for membership changes. Assignments to users are then added or removed depending on whether they meet the rule criteria.
 
-During this preview, you can have at most one automatic assignment policy in an access package.
+You can have at most one automatic assignment policy in an access package, and the policy can only be created by an administrator.
 
 This article describes how to create an access package automatic assignment policy for an existing access package.
 
@@ -36,7 +36,7 @@ You'll need to have attributes populated on the users who will be in scope for b
 
 To create a policy for an access package, you need to start from the access package's policy tab. Follow these steps to create a new policy for an access package.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator or Identity Governance administrator
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
