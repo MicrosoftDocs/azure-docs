@@ -67,15 +67,15 @@ The backend application would run a job to do the following steps:
 
 This option is suited if the chat volume is low as conversations are happening in real time.
 
-:::image type="content" source="../../media/BYOS_work_flow.jpg" alt-text="Architecture diagram showing how you can use events and archive messages to your own storage account":::
+:::image type="content" source="../../media/BYOS_work_flow.jpg" alt-text="Architecture diagram showing how you can use events and archive messages to your own storage account.":::
 
 Follow these steps for archiving messages:
 
-- Subscribe to Event Grid events which come with Azure Event grid through web hooks. Azure Communications Chat service supports the following [events](../../concepts/chat/concepts.md#real-time-notifications) for real-time notifications. The following events are recommended: Message Received [event](../../../event-grid/communication-services-chat-events.md#microsoftcommunicationchatmessagereceived-event), Message Edited [event](../../../event-grid/communication-services-chat-events.md#microsoftcommunicationchatmessageedited-event), and Message Deleted [event](../../../event-grid/communication-services-chat-events.md#microsoftcommunicationchatmessagedeleted-event).
+- Subscribe to Event Grid events which come with Azure Event Grid through web hooks. Azure Communications Chat service supports the following [events](../../concepts/chat/concepts.md#real-time-notifications) for real-time notifications. The following events are recommended: Message Received [event](../../../event-grid/communication-services-chat-events.md#microsoftcommunicationchatmessagereceived-event), Message Edited [event](../../../event-grid/communication-services-chat-events.md#microsoftcommunicationchatmessageedited-event), and Message Deleted [event](../../../event-grid/communication-services-chat-events.md#microsoftcommunicationchatmessagedeleted-event).
 - Validate the [events](../../how-tos/event-grid/view-events-request-bin.md) by configuring your resource to receive these events
 - Test your Event Grid handler [locally](../../how-tos/event-grid/local-testing-event-grid.md) to ensure that you are receiving events that you need for archiving.
 
-Note: you would have to pay for [events](https://azure.microsoft.com/pricing/details/event-grid/). 
+[!Note]: you would have to pay for [events](https://azure.microsoft.com/pricing/details/event-grid/). 
 
 ## Next Steps
 
