@@ -40,7 +40,7 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 |Azure SQL Managed Instance|✔|✔|[Defender for Azure SQL](defender-for-sql-introduction.md)|
 |Azure Service Bus namespace|✔|-|-|
 |Azure Service Fabric account|✔|-|-|
-|Azure Storage accounts|✔|✔|-|
+|Azure Files|✔|✔|-|
 |Azure Stream Analytics|✔|-|-|
 |Azure Subscription|✔ **|✔|-|
 |Azure Virtual Network</br> (incl. subnets, NICs, and network security groups)|✔|-|-|
