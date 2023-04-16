@@ -1,4 +1,4 @@
-### Vowels
+### Vowels for cs-CZ
 
 | `ipa` | `viseme` | Example 1      | Example 2         | Example 3      |
 |-------|----------|----------------|-------------------|----------------|
@@ -17,7 +17,7 @@
 | `ɛ͡ʊ̯`| 4,4      | **eu**forie    | terap**eu**tická  |                |
 | `ə`   | 1        |                |                   |                |
 
-### Consonant
+### Consonant for cs-CZ
 
 | `ipa` | `viseme` | Example 1      | Example 2         | Example 3      |
 |-------|----------|----------------|-------------------|----------------|

@@ -16,9 +16,9 @@ This article outlines how to register Teradata, and how to authenticate and inte
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan)| [Yes](#scan)| No | [Yes*](#lineage)| No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan)| [Yes](#scan)| No| No | [Yes*](#lineage)| No |
 
 \* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
@@ -81,22 +81,25 @@ This section describes how to register Teradata in Microsoft Purview using the [
 
 ### Steps to register
 
-1.  Navigate to your Microsoft Purview account.
-1.  Select **Data Map** on the left navigation.
-1.  Select **Register**
-1.  On Register sources, select **Teradata**. Select **Continue**
+1. Open the Microsoft Purview governance portal by:
+
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
+1. Select **Data Map** on the left navigation.
+1. Select **Register**
+1. On Register sources, select **Teradata**. Select **Continue**
 
     :::image type="content" source="media/register-scan-teradata-source/register-sources.png" alt-text="register Teradata options" border="true":::
 
 On the **Register sources (Teradata)** screen, do the following:
 
-1.  Enter a **Name** that the data source will be listed with in the Catalog.
+1. Enter a **Name** that the data source will be listed with in the Catalog.
 
-1.  Enter the **Host** name to connect to a Teradata source. It can also be an IP address of the server.
+1. Enter the **Host** name to connect to a Teradata source. It can also be an IP address of the server.
 
-1.  Select a collection or create a new one (Optional)
+1. Select a collection or create a new one (Optional)
 
-1.  Finish to register the data source.
+1. Finish to register the data source.
 
     :::image type="content" source="media/register-scan-teradata-source/register-sources-2.png" alt-text="register Teradata" border="true":::
 

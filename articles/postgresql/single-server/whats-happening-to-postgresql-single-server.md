@@ -58,11 +58,11 @@ Learn how to migrate from Azure Database for PostgreSQL - Single Server to Azure
 
 **Q. Can I continue running my Azure Database for PostgreSQL - Single Server beyond the sunset date of March 28, 2025?**
 
-**A.** We plan to support Single Server at the sunset date of March 28, 2025, and we strongly advise that you start planning your migration as soon as possible. We plan to end support for single server deployments at the sunset data of March 28, 2025.
+**A.** We plan to support Single Server until the sunset date of March 28, 2025, and we strongly advise that you start planning your migration as soon as possible. We plan to end support for single server deployments at the sunset data of March 28, 2025.
 
 **Q. After the Single Server retirement announcement, what if I still need to create a new single server to meet my business needs?**
 
-**A.** We aren't stopping the ability to create new single servers immediately, so you can continue to create new single servers through CLI to meet your business needs for all PostgresSQL versions supported on Azure Database for PostgreSQL – Single Server. We strongly encourage you to explore Flexible Server and see if that will meet your needs. Don't hesitate to contact us if necessary so we can guide you and suggest the best path forward for you.
+**A.** We aren't stopping the ability to create new single servers immediately, so you can continue to create new single servers through CLI to meet your business needs for all PostgreSQL versions supported on Azure Database for PostgreSQL – Single Server. We strongly encourage you to explore Flexible Server and see if that will meet your needs. Don't hesitate to contact us if necessary so we can guide you and suggest the best path forward for you.
 
 **Q. Are there any additional costs associated with performing the migration?**
 
@@ -86,14 +86,12 @@ You can contact your account teams if downtime requirements aren't met by the Of
 
 > [!NOTE]
 > Support for online migration is coming soon.
-    
 **Q. Will there be future updates to Single Server to support the latest PostgreSQL versions?**
 
 **A.** We recommend you migrate to Flexible Server if you must run on the latest PostgreSQL engine versions. We continue to deploy minor versions released by the community for Postgres version 11 until it's retired by the community in Nov'2023.
 
 > [!NOTE]
 > We're extending support for Postgres version 11 past the community retirement date and will support PostgreSQL version 11 on both [Single Server](https://azure.microsoft.com/updates/singlepg11-retirement/) and [Flexible Server](https://azure.microsoft.com/updates/flexpg11-retirement/) to ease this transition. Consider migrating to Flexible Server to use the benefits of the latest Postgres engine versions.
-    
 **Q. How does the Flexible Server 99.99% availability SLA differ from Single Server?**
 
 **A.** Flexible Server zone-redundant deployment provides 99.99% availability with zonal-level resiliency, and Single Server delivers 99.99% availability but without zonal resiliency. Flexible Server High Availability (HA) architecture deploys a hot standby server with redundant compute and storage (with each site's data stored in 3x copies). A Single Server HA architecture doesn't have a passive hot standby to help recover from zonal failures. Flexible Server HA architecture reduces downtime during unplanned outages and planned maintenance.
@@ -107,8 +105,7 @@ You can contact your account teams if downtime requirements aren't met by the Of
 - West India
 - Sweden North
 
-We recommend migrating to CN3/CE3, Central India, and Sweden South regions.
-
+We recommend migrating to CN3/CE3, Central India, Sweden Central and Sweden South regions.
 **Q. I have a private link configured for my single server, and this feature is not currently supported in Flexible Server. How do I migrate?**
 
 **A.** Flexible Server support for private-link is our highest priority and on the roadmap. This feature is planned to launch in Q4 2023. Another option is to consider migrating to VNET injected flexible server.
