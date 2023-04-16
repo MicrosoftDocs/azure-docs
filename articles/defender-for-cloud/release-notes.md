@@ -22,6 +22,7 @@ Updates in April include:
 
 - [New preview Unified Disk Encryption recommendation](#unified-disk-encryption-recommendation-preview)
 - [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely)
+- [Three alerts in the Defender for Resource Manager plan have been deprecated](#three-alerts-in-the-defender-for-resource-manager-plan-have-been-deprecated)
 
 ### Unified Disk Encryption recommendation (preview)
 
@@ -45,6 +46,18 @@ The recommendation `Machines should be configured securely` was updated. The upd
 As part of this update, the recommendation's ID was changed from `181ac480-f7c4-544b-9865-11b8ffe87f47` to `c476dc48-8110-4139-91af-c8d940896b98`.
 
 No action is required on the customer side, and there's no expected impact on the secure score.
+
+### Three alerts in the Defender for Resource Manager plan have been deprecated
+
+**Estimated date for change: March 2023**
+
+The following three alerts for the Defender for Resource Manager plan have been deprecated:
+
+- `Activity from a risky IP address (ARM.MCAS_ActivityFromAnonymousIPAddresses)`
+- `Activity from infrequent country (ARM.MCAS_ActivityFromInfrequentCountry)`
+- `Impossible travel activity (ARM.MCAS_ImpossibleTravelActivity)`
+
+In a scenario where activity from a suspicious IP address is detected, one of the following Defenders for Resource Manager plan alerts `Azure Resource Manager operation from suspicious IP address` or `Azure Resource Manager operation from suspicious proxy IP address` will be present.
 
 ## March 2023
 
