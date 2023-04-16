@@ -68,13 +68,13 @@ Before starting the onboarding process, make sure you have [a subscription onboa
 
 Verify that the settings were saved successfully - a notification message pops up in the top right corner.
 
-### Image refresh intervals
+### Container registries vulnerability assessments recommendations
 
-Agentless information in Defender CSPM is updated once an hour via snapshotting mechanism. It can take up to **24 hours** to see results in Cloud Security Explorer and Attack Path.
+For container registries vulnerability assessments, recommendations are available based on the vulnerability assessment timeline.
 
-Recommendations are available based on vulnerability assessment timeline. Learn more about [image scanning](defender-for-containers-vulnerability-assessment-azure.md).
+Learn more about [image scanning](defender-for-containers-vulnerability-assessment-azure.md).
 
-## How agentless containers works
+## How Agentless discovery for Kubernetes works
 
 The system’s architecture is based on a snapshot mechanism at intervals.
 
@@ -98,6 +98,10 @@ By enabling the Agentless discovery for Kubernetes extension, the following proc
 1. **Discover**: Using the system assigned identity, MDC performs a discovery of the AKS clusters in your environment using API calls to the API server of AKS.
 
 1. **Bind**: Upon discovery of an AKS cluster, MDC performs an AKS bind operation between the created identity and the Kubernetes role “Microsoft.Security/pricings/microsoft-defender-operator”. The role is visible via API and gives MDC data plane read permission inside the cluster.
+
+## Refresh intervals
+
+Agentless information in Defender CSPM is updated once an hour via snapshotting mechanism. It can take up to **24 hours** to see results in Cloud Security Explorer and Attack Path.
 
 ## Next steps
 

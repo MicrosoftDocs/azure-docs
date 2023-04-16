@@ -131,8 +131,8 @@ This section  lists all of the cloud security graph components (connections and 
 | DEASM findings | Microsoft Defender External Attack Surface Management (DEASM) internet scanning findings | Public IP |
 | Privileged container | Indicates that a Kubernetes container runs in a privileged mode | Kubernetes container |
 | Uses host network | Indicates that a Kubernetes pod uses the network namespace of its host machine | Kubernetes pod |
-| Has high severity vulnerabilities | Indicates that a resource has high severity vulnerabilities | Azure VM, AWS EC2, Kubernetes image |
-| Vulnerable to remote code execution | Indicates that a resource has vulnerabilities allowing remote code execution | Azure VM, AWS EC2, Kubernetes image |
+| Has high severity vulnerabilities | Indicates that a resource has high severity vulnerabilities | Azure VM, AWS EC2, Container image |
+| Vulnerable to remote code execution | Indicates that a resource has vulnerabilities allowing remote code execution | Azure VM, AWS EC2, Container image |
 | Public IP metadata | Lists the metadata of an Public IP | Public IP |
 | Identity metadata | Lists the metadata of an identity | Azure AD Identity |
 
@@ -144,7 +144,7 @@ This section  lists all of the cloud security graph components (connections and 
 | Has permission to | Indicates that an identity has permissions to a resource or a group of resources | Azure AD user account, Managed Identity, IAM user, EC2 instance | All Azure & AWS resources|
 | Contains | Indicates that the source entity contains the target entity | Azure subscription, Azure resource group, AWS account, Kubernetes namespace, Kubernetes pod, Kubernetes cluster, GitHub owner, Azure DevOps project, Azure DevOps organization, Azure SQL server | All Azure & AWS resources, All Kubernetes entities, All DevOps entities, Azure SQL database |
 | Routes traffic to | Indicates that the source entity can route network traffic to the target entity | Public IP, Load Balancer, VNET, Subnet, VPC, Internet Gateway, Kubernetes service, Kubernetes pod| Azure VM, Azure VMSS, AWS EC2, Subnet, Load Balancer, Internet gateway, Kubernetes pod, Kubernetes service |
-| Is running | Indicates that the source entity is running the target entity as a process | Azure VM, EC2, Kubernetes container | SQL, Arc-Enabled SQL, Hosted MongoDB, Hosted MySQL, Hosted Oracle, Hosted PostgreSQL, Hosted SQL Server, Kubernetes image, Kubernetes pod |
+| Is running | Indicates that the source entity is running the target entity as a process | Azure VM, EC2, Kubernetes container | SQL, Arc-Enabled SQL, Hosted MongoDB, Hosted MySQL, Hosted Oracle, Hosted PostgreSQL, Hosted SQL Server, Container image, Kubernetes pod |
 | Member of | Indicates that the source identity is a member of the target identities group | Azure AD group, Azure AD user | Azure AD group |
 | Maintains | Indicates that the source Kubernetes entity manages the life cycle of the target Kubernetes entity | Kubernetes workload controller, Kubernetes replica set, Kubernetes stateful set, Kubernetes daemon set, Kubernetes jobs, Kubernetes cron job | Kubernetes pod |
 
