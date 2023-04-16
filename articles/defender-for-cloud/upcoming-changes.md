@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 03/20/2023
+ms.date: 04/16/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -18,7 +18,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely) | March 2023 |
 | [Three alerts in the Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-the-defender-for-resource-manager-plan-will-be-deprecated) | March 2023 |
 | [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
 | [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
@@ -27,17 +26,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2023 |
 | [New Azure Active Directory authentication-related recommendations for Azure Data Services](#new-azure-active-directory-authentication-related-recommendations-for-azure-data-services) | April 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | June 2023 |
-
-### Changes in the recommendation "Machines should be configured securely"
-
-**Estimated date for change: March 2023**
-
-The recommendation `Machines should be configured securely` will be updated. The update will improve the performance and stability of the recommendation and align its experience with the generic behavior of Defender for Cloud's recommendations.
-
-As part of this update, the recommendation's ID will be changed from `181ac480-f7c4-544b-9865-11b8ffe87f47` to `c476dc48-8110-4139-91af-c8d940896b98`.
-
-No action is required on the customer side, and there's no expected downtime nor impact on the secure score.
-
 
 ### Three alerts in the Defender for Resource Manager plan will be deprecated
 
