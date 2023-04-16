@@ -20,9 +20,19 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in April include:
 
+- [Agentless Container Posture in Defender CSPM (Preview)](#agentless-container-posture-in-defender-cspm-preview)
 - [New preview Unified Disk Encryption recommendation](#unified-disk-encryption-recommendation-preview)
 - [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely)
-- [Agentless Container Posture](#agentless-container-posture)
+
+### Agentless Container Posture in Defender CSPM (Preview)
+
+The new Agentless Container Posture (Preview) capabilities are available in preview as part of the Defender CSPM (Cloud Security Posture Management) plan.
+
+Agentless Container Posture allows security teams to identify security risks in containers and Kubernetes realms. An agentless approach allows security teams to gain visibility into their Kubernetes and containers registries across SDLC and runtime, removing friction and footprint from the workloads.
+
+Agentless Container Posture offer out-of-the-box container vulnerability assessments that, combined with attack path analysis, enable security teams to prioritize and zoom into specific container vulnerabilities. You can also use cloud security explorer to uncover risks and hunt for container posture insights, such as discovery of applications running vulnerable images or exposed to the internet.
+
+Learn more at [Agentless Container Posture (Preview)](concept-agentless-containers.md).
 
 ### Unified Disk Encryption recommendation (preview)
 
@@ -46,14 +56,6 @@ The recommendation `Machines should be configured securely` was updated. The upd
 As part of this update, the recommendation's ID was changed from `181ac480-f7c4-544b-9865-11b8ffe87f47` to `c476dc48-8110-4139-91af-c8d940896b98`.
 
 No action is required on the customer side, and there's no expected impact on the secure score.
-
-### Agentless Container Posture
-
-Agentless Container Posture allows security teams to identify security risks in containers and Kubernetes realms. An agentless approach allows security teams to have visibility into their Kubernetes and containers registries across SDLC and runtime, removing friction and footprint from the workloads.
-
-Agentless Container Posture offer out-of-the-box container vulnerability assessments that, combined with attack path analysis, enable security teams to prioritize and zoom into specific container vulnerabilities. You can also use cloud security explorer to uncover risks and hunt for container posture insights, such as discovery of applications running vulnerable images or exposed to the internet.
-
-Learn more at [Agentless Container Posture (Preview)](concept-agentless-containers.md).
 
 ## March 2023
 
