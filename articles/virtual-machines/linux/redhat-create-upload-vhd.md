@@ -289,7 +289,7 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
 
     ```bash
     if [[ -f /mnt/resource/swapfile ]]; then
-    echo "Removing swapfile" #RHEL uses a swapfile by defaul
+    echo "Removing swapfile" #RHEL uses a swapfile by default
     swapoff /mnt/resource/swapfile
     rm /mnt/resource/swapfile -f
     fi
@@ -337,7 +337,7 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
           - device: ephemeral0.2
             filesystem: swap
         mounts:
-          - ["ephemeral0.1", "/mnt"]
+          - ["ephemeral0.1", "/mnt/resource"]
           - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
         EOF
         ```
@@ -524,7 +524,7 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
           - device: ephemeral0.2
             filesystem: swap
         mounts:
-          - ["ephemeral0.1", "/mnt"]
+          - ["ephemeral0.1", "/mnt/resource"]
           - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.device-timeout=2,x-systemd.requires=cloud-init.service", "0", "0"]
         EOF
         ```
@@ -1381,7 +1381,7 @@ This section shows you how to prepare a RHEL 7 distro from an ISO using a kickst
     - device: ephemeral0.2
         filesystem: swap
     mounts:
-    - ["ephemeral0.1", "/mnt"]
+    - ["ephemeral0.1", "/mnt/resource"]
     - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.device-timeout=2,x-systemd.requires=cloud-init.service", "0", "0"]
     EOF
 

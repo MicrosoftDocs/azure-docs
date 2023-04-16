@@ -1,4 +1,4 @@
-### Vowels
+### Vowels for hu-HU
 
 | `ipa` | `viseme` | Example 1      | Example 2           | Example 3          |
 |-------|----------|----------------|---------------------|--------------------|
@@ -18,7 +18,7 @@
 | `y`   | 4        | **ü**dítõt     | áts**ü**tve         | alsóbbrend**ü**    |
 | `yː`  | 4        | **ű**rállomás  | gépjárm**ű**vek     | idej**ű**          |
 
-### Consonant
+### Consonant for hu-HU
 
 | `ipa` | `viseme` | Example 1      | Example 2           | Example 3          |
 |-------|----------|----------------|---------------------|--------------------|

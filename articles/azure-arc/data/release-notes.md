@@ -17,6 +17,27 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## April 12, 2023
+
+### Image tag
+
+`v1.18.0_2023-04-11`
+
+For complete release version information, see [Version log](version-log.md#april-11-2023).
+
+New for this release:
+
+- Azure Arc-enabled SQL Managed Instance
+  - Direct mode for failover groups is generally available az CLI
+  - Schedule the HA orchestrator replicas on different nodes when available
+
+- Arc PostgreSQL
+  - Ensure postgres extensions work per database/role
+  - Arc PostgreSQL | Upload metrics/logs to Azure Monitor
+
+- Bug fixes and optimizations in the following areas:
+  - Deploying Arc data controller using the individual create experience has been removed as it sets the auto upgrade parameter incorrectly. Use the all-in-one create experience. This experience creates the extension, custom location, and data controller. It also sets all the parameters correctly. For specific information, see [Create Azure Arc data controller in direct connectivity mode using CLI](create-data-controller-direct-cli.md).
+
 ## March 14, 2023
 
 ### Image tag
