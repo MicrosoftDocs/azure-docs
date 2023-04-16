@@ -51,7 +51,7 @@ This how-to guide shows how to complete the following tasks:
 
 - The Data Mapper tool's **Code view** pane is currently read only.
 
-- The map layout and item position is currently automatic and read only.
+- The map layout and item position are currently automatic and read only.
 
 ## Known issues
 
@@ -393,9 +393,9 @@ The example in this section calculates a discount to apply when the purchase qua
    |----------|---------------------------|
    | **Greater** | - **Value** #1: The source element named **ItemQuantity** <br>- **Value** #2: **20** |
    | **Multiply** | - **Multiplicand** #1: The source element named **ItemPrice** <br>- **Multiplicand** #2: **.10** |
-   | **If** | - **Condition**: **is-greater-than(ItemQuantity,20) <br>- **Value**: **multiply(ItemPrice, .10) |
+   | **If** | - **Condition**: **is-greater-than(ItemQuantity,20)** <br>- **Value**: **multiply(ItemPrice, .10)** |
 
-   The following maps shows the finished example:
+   The following map shows the finished example:
 
    ![Screenshot showing finished condition example.](media/create-maps-data-transformation-visual-studio-code/if-condition-example-complete.png)
 
