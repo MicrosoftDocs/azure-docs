@@ -736,7 +736,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | AKSAudit |  |
 | AKSAuditAdmin |  |
 | AKSControlPlane |  |
-| Alert | Partial support – Data ingestion for Zabbix alerts isn't supported. |
+| Alert | Partial support. Data ingestion for Zabbix alerts isn't supported. |
 | AlertEvidence |  |
 | AlertInfo |  |
 | AmlComputeClusterEvent |  |
@@ -838,7 +838,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | CommonSecurityLog |  |
 | ComputerGroup |  |
 | ConfidentialWatchlist |  |
-| ConfigurationData | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| ConfigurationData | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | ContainerAppConsoleLogs |  |
 | ContainerAppSystemLogs |  |
 | ContainerImageInventory |  |
@@ -894,7 +894,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | EmailEvents |  |
 | EmailPostDeliveryEvents |  |
 | EmailUrlInfo |  |
-| Event | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
+| Event | Partial support. Data arriving from the Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | ExchangeAssessmentRecommendation |  |
 | ExchangeOnlineAssessmentRecommendation |  |
 | FailedIngestion |  |
@@ -938,7 +938,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | IdentityInfo |  |
 | IdentityLogonEvents |  |
 | IdentityQueryEvents |  |
-| InsightsMetrics | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| InsightsMetrics | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | IntuneAuditLogs |  |
 | IntuneDevices |  |
 | IntuneOperationalLogs |  |
@@ -976,7 +976,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | OfficeActivity |  |
 | OLPSupplyChainEntityOperations |  |
 | OLPSupplyChainEvents |  |
-| Operation | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| Operation | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | Perf |  |
 | PFTitleAuditLogs |  |
 | PowerBIActivity |  |
@@ -998,7 +998,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
 | SecurityDetection |  |
-| SecurityEvent | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
+| SecurityEvent | Partial support. Data arriving from the Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
@@ -1042,7 +1042,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | SynapseSqlPoolRequestSteps |  |
 | SynapseSqlPoolSqlRequests |  |
 | SynapseSqlPoolWaits |  |
-| Syslog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
+| Syslog | Partial support. Data arriving from the Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | ThreatIntelligenceIndicator |  |
 | TSIIngress |  |
 | UCClient |  |
@@ -1051,7 +1051,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | UCDeviceAlert |  |
 | UCDOStatus |  |
 | UCServiceUpdateStatus |  |
-| Update | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| Update | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
 | UrlClickEvents |  |
@@ -1060,7 +1060,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | UserPeerAnalytics |  |
 | VIAudit |  |
 | VIIndexing |  |
-| W3CIISLog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
+| W3CIISLog | Partial support. Data arriving from the Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | WaaSDeploymentStatus |  |
 | WaaSInsiderStatus |  |
 | WaaSUpdateStatus |  |
@@ -1072,7 +1072,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | WindowsEvent |  |
 | WindowsFirewall |  |
 | WindowsServerAssessmentRecommendation |  |
-| WireData | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| WireData | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | WorkloadDiagnosticLogs |  |
 | WUDOAggregatedStatus |  |
 | WUDOStatus |  |
