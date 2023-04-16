@@ -67,7 +67,7 @@ The backend application would run a job to do the following steps:
 
 This option is suited if the chat volume is low as conversations are happening in real time.
 
-:::image type="content" source="../../media/BYOS_work_flow.jpg" alt-text="Architecture diagram showing how you can use events and archive messages to your own storage account.":::
+:::image type="content" source="../../media/storage-work-flow.jpg" alt-text="Architecture diagram showing how you can use events and archive messages to your own storage account.":::
 
 Follow these steps for archiving messages:
 
