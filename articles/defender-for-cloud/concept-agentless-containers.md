@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 You can identify security risks that exist in containers and Kubernetes realms with the agentless discovery and visibility capability across SDLC and runtime.
 
-You can maximize the coverage of your container posture issues and extend your protection beyond the reach of agent-based assessments, with container vulnerability assessment insights as part of [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md) and Kubernetes [Attack Path](attack-path-reference.md#azure-containers) analysis, to provide a holistic approach to your posture improvement.
+You can maximize the coverage of your container posture issues and extend your protection beyond the reach of agent-based assessments to provide a holistic approach to your posture improvement. This includes, for example, container vulnerability assessment insights as part of [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md) and Kubernetes [Attack Path](attack-path-reference.md#azure-containers) analysis.
 
 Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
 
@@ -37,15 +37,11 @@ All of these capabilities are available as part of the [Defender Cloud Security 
 | Aspect | Details |
 |---------|---------|
 |Release state:|Preview|
-|Pricing:|Requires [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) |
+|Pricing:|Requires [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) and is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
 | Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP accounts        |
+| Permissions | You need to have access as a Subscription Owner, or, User Access Admin as well as Security Admin permissions for the Azure subscription used for onboarding |
 
 ## Prerequisites
-
-### Permissions
-
-You need to have access as a Subscription Owner, or, User Access Admin as well as Security Admin permissions for the Azure subscription used for onboarding.
-
 
 You need to have a Defender for CSPM plan enabled. There's no dependency on Defender for Containers​.
 
@@ -53,7 +49,9 @@ Learn more about [trusted versions that AKS supports](/azure/aks/supported-kuber
 
 ## Onboard Agentless Containers for CSPM
 
-Before starting the onboarding process, make sure you have [a subscription onboarded to the Defender CSPM plan](enable-enhanced-security.md#enable-enhanced-security-features-on-a-subscription).
+Onboarding Agentless Containers for CSPM will allow you to gain wide visibility into Kubernetes and containers registries across SDLC and runtime.
+
+**To onboard Agentless Containers for CSPM:**
 
 1. In the Azure portal, navigate to the Defender for Cloud's **Environment Settings** page.
 
@@ -75,7 +73,7 @@ For container registries vulnerability assessments, recommendations are availabl
 
 Learn more about [image scanning](defender-for-containers-vulnerability-assessment-azure.md).
 
-## How Agentless discovery for Kubernetes works
+### How Agentless discovery for Kubernetes works
 
 The system’s architecture is based on a snapshot mechanism at intervals.
 
@@ -100,7 +98,7 @@ By enabling the Agentless discovery for Kubernetes extension, the following proc
 
 - **Bind**: Upon discovery of an AKS cluster, MDC performs an AKS bind operation between the created identity and the Kubernetes role “Microsoft.Security/pricings/microsoft-defender-operator”. The role is visible via API and gives MDC data plane read permission inside the cluster.
 
-## Refresh intervals
+### Refresh intervals
 
 Agentless information in Defender CSPM is updated once an hour through a snapshot mechanism. It can take up to **24 hours** to see results in Cloud Security Explorer and Attack Path.
 
