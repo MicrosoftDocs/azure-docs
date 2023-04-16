@@ -45,7 +45,7 @@ OT network sensors can detect the following protocols when identifying assets an
 |**Schneider Electric / Invensys**     |   Foxboro Evo<br> Foxboro I/A<br> Trident<br> TriGP<br> TriStation      |
 |**Schneider Electric / Modicon**     |   Modbus RTU      |
 |**Schneider Electric / Wonderware**     |    Wonderware Suitelink     |
-|**Siemens**     | CAMP<br> PCS7<br> PCS7 WinCC – Historian<br> Profinet DCP<br> Profinet Realtime<br> Siemens PHD<br> Siemens S7<br> Siemens S7-Plus<br> Siemens SICAM<br> Siemens WinCC        |
+|**Siemens**     | CAMP<br> PCS7<br> PCS7 WinCC – Historian<br> Profinet DCP<br> Profinet Realtime<br> Siemens PHD<br> Siemens S7<br> Siemens S7 - Firmware and model extraction<br> •	Siemens S7 – key state<br> Siemens S7-Plus<br> Siemens SICAM<br> Siemens WinCC        |
 |**Toshiba**     |Toshiba Computer Link         |
 |**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> FA-M3<br> Vnet/IP      |
 
