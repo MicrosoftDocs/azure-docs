@@ -795,6 +795,8 @@ If the data export rule includes an unsupported table, the configuration will su
 | ASimWebSessionLogs |  |
 | ATCExpressRouteCircuitIpfix |  |
 | AuditLogs |  |
+| AUIEventsAudit |  |
+| AUIEventsOperational |  |
 | AutoscaleEvaluationsLog |  |
 | AutoscaleScaleActionsLog |  |
 | AVNMNetworkGroupMembershipChange |  |
@@ -1006,6 +1008,8 @@ If the data export rule includes an unsupported table, the configuration will su
 | SecurityRegulatoryCompliance |  |
 | SentinelAudit |  |
 | SentinelHealth |  |
+| SfBAssessmentRecommendation |  |
+| SfBOnlineAssessmentRecommendation |  |
 | SharePointOnlineAssessmentRecommendation |  |
 | SignalRServiceDiagnosticLogs |  |
 | SigninLogs |  |
@@ -1013,6 +1017,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | SQLAssessmentRecommendation |  |
 | SQLSecurityAuditEvents |  |
 | SqlVulnerabilityAssessmentScanStatus |  |
+| StorageAntimalwareScanResults |  |
 | StorageBlobLogs |  |
 | StorageCacheOperationEvents |  |
 | StorageCacheUpgradeEvents |  |
@@ -1046,6 +1051,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | ThreatIntelligenceIndicator |  |
 | TSIIngress |  |
 | UCClient |  |
+| UCDOAggregatedStatus |  |
 | UCClientReadinessStatus |  |
 | UCClientUpdateStatus |  |
 | UCDeviceAlert |  |
