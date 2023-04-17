@@ -1,7 +1,7 @@
 ---
 title: Create and configure a project
 titleSuffix: Azure Deployment Environments
-description: Learn how to create a project in Azure Deployment Environments Preview and associate the project with a dev center.
+description: Learn how to create a project in Azure Deployment Environments and associate the project with a dev center.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments

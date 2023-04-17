@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure AD certificate-based authentication - Azure Active Directory 
+title: Overview of Azure AD certificate-based authentication 
 description: Learn about Azure AD certificate-based authentication without federation
 
 services: active-directory

@@ -14,7 +14,7 @@ Advanced detections that trigger security alerts are only available with Microso
 
 ## What are security alerts?
 
-Defender for Cloud collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, such as firewalls and endpoint agents. Defender for Cloud uses the log data to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Defender for Cloud along with the information you need to quickly investigate the problem and steps to take to remediate an attack.
+Defender for Cloud collects, analyzes, and integrates log data from your Azure, hybrid, and multicloud resources, the network, and connected partner solutions, such as firewalls and endpoint agents. Defender for Cloud uses the log data to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Defender for Cloud along with the information you need to quickly investigate the problem and the steps to take to remediate an attack.
 
 To learn about the different types of alerts, see [Security alerts - a reference guide](alerts-reference.md).
 

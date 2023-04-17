@@ -7,7 +7,6 @@ ms.author: roblescarlos
 ms.reviewer: randolphwest
 ms.date: 02/03/2023
 ms.service: dms
-ms.workload: data-services
 ms.topic: tutorial
 ---
 # Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio
@@ -167,8 +166,8 @@ To open the Migrate to Azure SQL wizard:
 
    Check the following step-by-step tutorials for more information about migrating databases online or offline to Azure SQL Managed Instance targets:
 
-   - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance online](/azure/dms/tutorial-sql-server-managed-instance-offline-ads)
-   - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline](/azure/dms/tutorial-sql-server-managed-instance-offline-ads)
+   - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance online](./tutorial-sql-server-managed-instance-offline-ads.md)
+   - [Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline](./tutorial-sql-server-managed-instance-offline-ads.md)
 
 ## Post-migration steps
 
@@ -206,7 +205,7 @@ The following table describes the current status of the TDE-enabled database mig
 
 ## Next steps
 
-- [Migrate databases with Azure SQL Migration extension for Azure Data Studio](/azure/dms/migration-using-azure-data-studio)
-- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](/azure/dms/tutorial-sql-server-azure-sql-database-offline-ads)
-- [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](/azure/dms/tutorial-sql-server-managed-instance-online-ads)
-- [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](/azure/dms/tutorial-sql-server-to-virtual-machine-online-ads)
+- [Migrate databases with Azure SQL Migration extension for Azure Data Studio](./migration-using-azure-data-studio.md)
+- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](./tutorial-sql-server-azure-sql-database-offline-ads.md)
+- [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](./tutorial-sql-server-managed-instance-online-ads.md)
+- [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](./tutorial-sql-server-to-virtual-machine-online-ads.md)

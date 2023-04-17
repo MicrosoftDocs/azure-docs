@@ -415,7 +415,7 @@ Each Application Insights operation (request or dependency) involves `Activity`.
 
 - Learn the basics of [telemetry correlation](correlation.md) in Application Insights.
 - Check out how correlated data powers [transaction diagnostics experience](./transaction-diagnostics.md) and [Application Map](./app-map.md).
-- See the [data model](./data-model.md) for Application Insights types and data model.
+- See the [data model](./data-model-complete.md) for Application Insights types and data model.
 - Report custom [events and metrics](./api-custom-events-metrics.md) to Application Insights.
 - Check out standard [configuration](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) for context properties collection.
 - Check the [System.Diagnostics.Activity User Guide](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) to see how we correlate telemetry.

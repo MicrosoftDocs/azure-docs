@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 03/28/2023
 ms.author: danlep
 ---
 
@@ -18,7 +18,7 @@ The `rewrite-uri` policy converts a request URL from its public form to the form
 
 - Request URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
-This policy can be used when a human and/or browser-friendly URL should be transformed into the URL format expected by the web service. This policy only needs to be applied when exposing an alternative URL format, such as clean URLs, RESTful URLs, user-friendly URLs or SEO-friendly URLs that are purely structural URLs that do not contain a query string and instead contain only the path of the resource (after the scheme and the authority). This is often done for aesthetic, usability, or search engine optimization (SEO) purposes.
+This policy can be used when a human and/or browser-friendly URL should be transformed into the URL format expected by the web service. This policy only needs to be applied when exposing an alternative URL format, such as clean URLs, RESTful URLs, user-friendly URLs or SEO-friendly URLs that are purely structural URLs that don't contain a query string and instead contain only the path of the resource (after the scheme and the authority). This is often done for aesthetic, usability, or search engine optimization (SEO) purposes.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -33,8 +33,8 @@ This policy can be used when a human and/or browser-friendly URL should be trans
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|template|The actual web service URL with any query string parameters. When using expressions, the whole value must be an expression.|Yes|N/A|
-|copy-unmatched-params|Specifies whether query parameters in the incoming request not present in the original URL template are added to the URL defined by the rewrite template.|No|`true`|
+|template|The actual web service URL with any query string parameters. Policy expressions are allowed. When expressions are used, the whole value must be an expression. |Yes|N/A|
+|copy-unmatched-params|Specifies whether query parameters in the incoming request not present in the original URL template are added to the URL defined by the rewrite template. Policy expressions are allowed.|No|`true`|
 
 ## Usage
 
@@ -44,7 +44,7 @@ This policy can be used when a human and/or browser-friendly URL should be trans
 
 ### Usage notes
 
-You can only add query string parameters using the policy. You cannot add extra template path parameters in the rewrite URL.
+You can only add query string parameters using the policy. You can't add extra template path parameters in the rewrite URL.
 
 ## Example
 

@@ -44,7 +44,7 @@ Fees for short code leasing are charged after provisioning is complete and then 
 ### Usage Fee
 SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent from a short code to phone numbers located within the United States. 
 
-The following prices include required communications taxes and fees:
+The following prices are exclusive of the required communications taxes and fees:
 
 |Message Type   |Usage Fee |
 |-----------|------------|

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zip | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zip'
 description: Learn how to configure single sign-on between Azure Active Directory and Zip.
 services: active-directory
 author: jeevansd

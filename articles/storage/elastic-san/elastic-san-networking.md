@@ -1,18 +1,18 @@
 ---
-title: Azure Elastic SAN networking (preview)
-description: An overview of Azure Elastic SAN (preview), a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
+title: Azure Elastic SAN networking Preview
+description: An overview of Azure Elastic SAN Preview, a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Configure Elastic SAN networking (preview)
+# Configure Elastic SAN networking Preview
 
-Azure Elastic storage area network (SAN) allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments demand, based on the type and subset of networks or resources used. When network rules are configured, only applications requesting data over the specified set of networks or through the specified set of Azure resources that can access an Elastic SAN (preview). Access to your SAN's volumes are limited to resources in subnets in the same Azure Virtual Network that your SAN's volume group is configured with.
+Azure Elastic storage area network (SAN) allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments demand, based on the type and subset of networks or resources used. When network rules are configured, only applications requesting data over the specified set of networks or through the specified set of Azure resources that can access an Elastic SAN Preview. Access to your SAN's volumes are limited to resources in subnets in the same Azure Virtual Network that your SAN's volume group is configured with.
 
 Volume groups are configured to allow access only from specific subnets. The allowed subnets may belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant.
 
@@ -65,7 +65,7 @@ By default, service endpoints work between virtual networks and service instance
 
 Service endpoints allow continuity during a regional failover. When planning for disaster recovery during a regional outage, you should create the virtual networks in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your zone-redundant SANs.
 
-## Enabling access to virtual networks in other regions (preview)
+## Enabling access to virtual networks in other regions Preview
 
 > 
 > [!IMPORTANT]
@@ -240,4 +240,4 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ## Next steps
 
-[Plan for deploying an Elastic SAN (preview)](elastic-san-planning.md)
+[Plan for deploying an Elastic SAN Preview](elastic-san-planning.md)

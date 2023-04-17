@@ -80,7 +80,7 @@ Diagnostics settings send log events only after a full scan is run, or when a ch
 
 1. Select **Save**.
 
-For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections).
+For more information, see [Connect Microsoft Sentinel to other Microsoft services by using diagnostic settings-based connections](connect-services-diagnostic-setting-based.md).
 
 **To run a Microsoft Purview scan and view data in Microsoft Sentinel**:
 

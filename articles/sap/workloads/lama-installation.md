@@ -60,11 +60,11 @@ Also read the [SAP Help Portal for SAP LaMa](https://help.sap.com/viewer/p/SAP_L
 * Make sure to enable *Automatic Mountpoint Creation* in Setup -> Settings -> Engine  
   If SAP LaMa mounts volumes using the SAP Adaptive Extensions on a virtual machine, the mount point must exist if this setting is not enabled.
 
-* Use separate subnet and don't use dynamic IP addresses to prevent IP address "stealing" when deploying new VMs and SAP instances are unprepared  
-  If you use dynamic IP address allocation in the subnet, which is also used by SAP LaMa, preparing an SAP system with SAP LaMa might fail. If an SAP system is unprepared, the IP addresses are not reserved and might get allocated to other virtual machines.
+* Use a separate subnet and don't use dynamic IP addresses to prevent IP address "stealing" when deploying new VMs and SAP instances are unprepared  
+   -  If you use dynamic IP address allocation in the subnet, which is also used by SAP LaMa, preparing an SAP system with SAP LaMa might fail. If an SAP system is unprepared, the IP addresses are not reserved and might get allocated to other virtual machines.
 
 * If you sign in to managed hosts, make sure to not block file systems from being unmounted  
-  If you sign in to a Linux virtual machines and change the working directory to a directory in a mount point, for example /usr/sap/AH1/ASCS00/exe, the volume cannot be unmounted and a relocate or unprepare fails.
+   -  If you sign in to a Linux virtual machines and change the working directory to a directory in a mount point, for example /usr/sap/AH1/ASCS00/exe, the volume cannot be unmounted and a relocate or unprepare fails.
 
 * Make sure to disable CLOUD_NETCONFIG_MANAGE on SUSE SLES Linux virtual machines. For more details, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
 
@@ -88,7 +88,7 @@ The Azure connector can use a Service Principal to authorize against Microsoft A
 1. Write down the Value. It is used as the password for the Service Principal
 1. Write down the Application ID. It is used as the username of the Service Principal
 
-The Service Principal does not have permissions to access your Azure resources by default.
+By default the Service Principal doesn't have permissions to access your Azure resources.
 Assign the Contributor role to the Service Principal at resource group scope for all resource groups that contain SAP systems that should be managed by SAP LaMa.
 
 For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
@@ -97,12 +97,12 @@ For detailed steps, see [Assign Azure roles using the Azure portal](../../role-b
 
 To be able to use a Managed Identity, your SAP LaMa instance has to run on an Azure VM that has a system or user assigned identity. For more information about Managed Identities, read [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md) and [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
-The Managed Identity does not have permissions to access your Azure resources by default.
+By default the Managed Identity doesn't have permissions to access your Azure resources.
 Assign the Contributor role to the Virtual Machine identity at resource group scope for all resource groups that contain SAP systems that should be managed by SAP LaMa.
 
 For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-In your SAP LaMa Azure connector configuration, select 'Use Managed Identity' to enable the usage of the Managed Identity. If you want to use a system assigned identity, make sure to leave the User Name field empty. If you want to use a user assigned identity, enter the user assigned identity Id into the User Name field.
+In your SAP LaMa Azure connector configuration, select 'Use Managed Identity' to enable the use of the Managed Identity. If you want to use a system assigned identity, make sure to leave the User Name field empty. If you want to use a user assigned identity, enter the user assigned identity ID into the User Name field.
 
 ### Create a new connector in SAP LaMa
 
@@ -118,7 +118,7 @@ Open the SAP LaMa website and navigate to Infrastructure. Go to tab Cloud Manage
 * Azure Active Directory Tenant ID: ID of the Active Directory tenant
 * Proxy host: Hostname of the proxy if SAP LaMa needs a proxy to connect to the internet
 * Proxy port: TCP port of the proxy
-* Change Storage Type to save costs: Enable this setting if the Azure Adapter should change the storage type of the Managed Disks to save costs when the disks are not in use. For data disks that are referenced in an SAP instance configuration, the adapter will change the disk type to Standard Storage during an instance unprepare and back to the original storage type during an instance prepare. If you stop a virtual machine in SAP LaMa, the adapter will change the storage type of all attached disks, including the OS disk to Standard Storage. If you start a virtual machine in SAP LaMa, the adapter will change the storage type back to the original storage type.
+* Change Storage Type to save costs: Enable this setting if the Azure Adapter should change the storage type of the Managed Disks to save costs when the disks are not in use. For data disks that are referenced in an SAP instance configuration, the adapter changes the disk type to Standard Storage during an instance unprepare and back to the original storage type during an instance prepare. If you stop a virtual machine in SAP LaMa, the adapter changes the storage type of all attached disks, including the OS disk to Standard Storage. If you start a virtual machine in SAP LaMa, the adapter changes the storage type back to the original storage type.
 
 Click on Test Configuration to validate your input. You should see
 
@@ -143,15 +143,15 @@ SAP LaMa communicates with the virtual machine using the SAP Host Agent. If you 
 
 #### Manual deployment of a Linux Virtual Machine
 
-Create a new virtual machine with one of the supported operation systems listed in SAP Note [2343511]. Add additional IP configurations for the SAP instances. Each instance needs at least on IP address and must be installed using a virtual hostname.
+Create a new virtual machine with one of the supported operation systems listed in SAP Note [2343511]. Add more IP configurations for the SAP instances. Each instance needs at least on IP address and must be installed using a virtual hostname.
 
-The SAP NetWeaver ASCS instance needs disks for /sapmnt/\<SAPSID>, /usr/sap/\<SAPSID>, /usr/sap/trans, and /usr/sap/\<sapsid>adm. The SAP NetWeaver application servers do not need additional disks. Everything related to the SAP instance must be stored on the ASCS and exported via NFS. Otherwise, it is currently not possible to add additional application servers using SAP LaMa.
+The SAP NetWeaver ASCS instance needs disks for /sapmnt/\<SAPSID>, /usr/sap/\<SAPSID>, /usr/sap/trans, and /usr/sap/\<sapsid>adm. The SAP NetWeaver application servers do not need more disks. Everything related to the SAP instance must be stored on the ASCS and exported via NFS. Otherwise, it is currently not possible to add more application servers using SAP LaMa.
 
 ![SAP NetWeaver ASCS on Linux](media/lama/sap-lama-ascs-app-linux.png)
 
 #### Manual deployment for SAP HANA
 
-Create a new virtual machine with one of the supported operation systems for SAP HANA as listed in SAP Note [2343511]. Add one additional IP configuration for SAP HANA and one per HANA tenant.
+Create a new virtual machine with one of the supported operation systems for SAP HANA as listed in SAP Note [2343511]. Add one extra IP configuration for SAP HANA and one per HANA tenant.
 
 SAP HANA needs disks for /hana/shared, /hana/backup, /hana/data, and /hana/log
 
@@ -159,7 +159,7 @@ SAP HANA needs disks for /hana/shared, /hana/backup, /hana/data, and /hana/log
 
 #### Manual deployment for Oracle Database on Linux
 
-Create a new virtual machine with one of the supported operation systems for Oracle databases as listed in SAP Note [2343511]. Add one additional IP configuration for the Oracle database.
+Create a new virtual machine with one of the supported operation systems for Oracle databases as listed in SAP Note [2343511]. Add one extra IP configuration for the Oracle database.
 
 The Oracle database needs disks for /oracle, /home/oraod1, and /home/oracle
 
@@ -167,7 +167,7 @@ The Oracle database needs disks for /oracle, /home/oraod1, and /home/oracle
 
 #### Manual deployment for Microsoft SQL Server
 
-Create a new virtual machine with one of the supported operation systems for Microsoft SQL Server as listed in SAP Note [2343511]. Add one additional IP configuration for the SQL Server instance.
+Create a new virtual machine with one of the supported operation systems for Microsoft SQL Server as listed in SAP Note [2343511]. Add one extra IP configuration for the SQL Server instance.
 
 The SQL Server database server needs disks for the database data and log files and disks for c:\usr\sap.
 
@@ -200,7 +200,7 @@ The templates have the following parameters:
 
 * osType: The type of the operating system you want to deploy.
 
-* dbtype: The type of the database. This parameter is used to determine how many additional IP configurations need to be added and how the disk layout should look like.
+* dbtype: The type of the database. This parameter is used to determine how many extra IP configurations need to be added and how the disk layout should look like.
 
 * sapSystemSize: The size of the SAP System you want to deploy. It is used to determine the virtual machine instance type and size.
 
@@ -230,13 +230,13 @@ The templates have the following parameters:
 
 * sapsysGid: The Linux group ID of the sapsys group. Not required for Windows.
 
-* _artifactsLocation: The base URI, where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated. Only needed if you do not deploy the template from GitHub.
+* _artifactsLocation: The base URI, where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription is used and this value is automatically generated. Only needed if you do not deploy the template from GitHub.
 
-* _artifactsLocationSasToken: The sasToken required to access _artifactsLocation. When the template is deployed using the accompanying scripts, a sasToken will be automatically generated. Only needed if you do not deploy the template from GitHub.
+* _artifactsLocationSasToken: The sasToken required to access _artifactsLocation. When the template is deployed using the accompanying scripts, a sasToken is automatically generated. Only needed if you do not deploy the template from GitHub.
 
 ### SAP HANA
 
-In the examples below, we assume that you install SAP HANA with system ID HN1 and the SAP NetWeaver system with system ID AH1. The virtual hostnames are hn1-db for the HANA instance, ah1-db for the HANA tenant used by the SAP NetWeaver system, ah1-ascs for the SAP NetWeaver ASCS and ah1-di-0 for the first SAP NetWeaver application server.
+In the following examples, we assume that you install SAP HANA with system ID HN1 and the SAP NetWeaver system with system ID AH1. The virtual hostnames are hn1-db for the HANA instance, ah1-db for the HANA tenant used by the SAP NetWeaver system, ah1-ascs for the SAP NetWeaver ASCS and ah1-di-0 for the first SAP NetWeaver application server.
 
 #### Install SAP NetWeaver ASCS for SAP HANA using Azure Managed Disks
 
@@ -264,21 +264,13 @@ Add the following profile parameter to the SAP Host Agent profile, which is loca
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 ```
 
-#### Install SAP NetWeaver ASCS for SAP HANA on Azure NetAppFiles (ANF) BETA
-
-> [!NOTE]
-> This functionality is nor GA yet. For more information refer to SAP Note [2815988] (only visible to preview customers).
-Open an SAP incident on component BC-VCM-LVM-HYPERV and request to join the LaMa storage adapter for Azure NetApp Files preview
+#### Install SAP NetWeaver ASCS for SAP HANA on Azure NetAppFiles (ANF)
 
 ANF provides NFS for Azure. In the context of SAP LaMa this simplifies the creation of the ABAP Central Services (ASCS) instances and the subsequent installation of application servers. Previously the ASCS instance had to act as NFS server as well and the parameter acosprep/nfs_paths had to be added to the host_profile of the SAP Hostagent.
 
-#### ANF is currently available in these regions:
-
-Australia East, Central US, East US, East US 2, North Europe, South Central US, West Europe and West US 2.
-
 #### Network Requirements
 
-ANF requires a delegated subnet which must be part of the same VNET as the SAP servers. Here's an example for such a configuration.
+ANF requires a delegated subnet, which must be part of the same VNET as the SAP servers. Here's an example for such a configuration.
 This screen shows the creation of the VNET and the first subnet:
 
 ![SAP LaMa create virtual network for Azure ANF ](media/lama/sap-lama-createvn-50.png)
@@ -295,16 +287,13 @@ Now a NetApp account needs to be created within the Azure portal:
 
 ![SAP LaMa NetApp account created ](media/lama/sap-lama-netappaccount.png)
 
-Within the NetApp account the capacity pool specifies the size and type of disks for each pool:
+Within the NetApp account, the capacity pool specifies the size and type of disks for each pool:
 
 ![SAP LaMa create NetApp capacity pool ](media/lama/sap-lama-capacitypool-50.png)
 
 ![SAP LaMa NetApp capacity pool created ](media/lama/sap-lama-capacitypool-list.png)
 
-The NFS volumes can now be defined. Since there will be volumes for multiple systems in one pool, a self-explaining naming scheme should be chosen. Adding the SID helps to group related volumes together. For the ASCS and the AS instance the following mounts are needed: */sapmnt/\<SID\>*, */usr/sap/\<SID\>*, and */home/\<sid\>adm*. Optionally, */usr/sap/trans* is needed for the central transport directory, which is at least used by all systems of one landscape.
-
-> [!NOTE]
-> During the BETA phase the name of the volumes must be unique within the subscription.
+The NFS volumes can now be defined. Since there might be volumes for multiple systems in one pool, a self-explaining naming scheme should be chosen. Adding the SID helps to group related volumes together. For the ASCS and the AS instance, the following mounts are needed: */sapmnt/\<SID\>*, */usr/sap/\<SID\>*, and */home/\<sid\>adm*. Optionally, */usr/sap/trans* is needed for the central transport directory, which is at least used by all systems of one landscape.
 
 ![SAP LaMa create a volume 1 ](media/lama/sap-lama-createvolume-80.png)
 
@@ -316,9 +305,9 @@ These steps need to be repeated for the other volumes as well.
 
 ![SAP LaMa list of created volumes ](media/lama/sap-lama-volumes.png)
 
-Now these volumes need to be mounted to the systems where the initial installation with the SAP SWPM will be performed.
+Now these volumes need to be mounted to the systems where the initial installation with the SAP SWPM is performed.
 
-First the mount points need to be created. In this case the SID is AN1 so the following commands need to be executed:
+First the mount points need to be created. In this case, the SID is AN1 so the following commands need to be executed:
 
 ```bash
 mkdir -p /home/an1adm
@@ -326,7 +315,7 @@ mkdir -p /sapmnt/AN1
 mkdir -p /usr/sap/AN1
 mkdir -p /usr/sap/trans
 ```
-Next the ANF volumes will be mounted with the following commands:
+Next the ANF volumes are mounted with the following commands:
 
 ```bash
 # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-home-sidadm /home/an1adm
@@ -334,7 +323,7 @@ Next the ANF volumes will be mounted with the following commands:
 # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-usr-sap-sid /usr/sap/AN1
 # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/global-usr-sap-trans /usr/sap/trans
 ```
-The mount commands can also be derived from the portal. The local mount points need to adjusted.
+The mount commands can also be looked up from the portal. The local mount points need to be adjusted.
 
 Use the df -h command to verify.
 
@@ -344,7 +333,7 @@ Now the installation with SWPM must be performed.
 
 The same steps must be performed for at least one AS instance.
 
-After the successful installation the system must be discovered within SAP LaMa.
+After the successful installation, the system must be discovered within SAP LaMa.
 
 The mount points should look like this for the ASCS and the AS instance:
 
@@ -408,7 +397,7 @@ Make sure to back up the SYSTEMDB and all tenant databases before you try to do 
 
 ### Microsoft SQL Server
 
-In the examples below, we assume that you install the SAP NetWeaver system with system ID AS1. The virtual hostnames are as1-db for the SQL Server instance used by the SAP NetWeaver system, as1-ascs for the SAP NetWeaver ASCS and as1-di-0 for the first SAP NetWeaver application server.
+In the following examples, we assume that you install the SAP NetWeaver system with system ID AS1. The virtual hostnames are as1-db for the SQL Server instance used by the SAP NetWeaver system, as1-ascs for the SAP NetWeaver ASCS and as1-di-0 for the first SAP NetWeaver application server.
 
 #### Install SAP NetWeaver ASCS for SQL Server
 
@@ -501,7 +490,7 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
 * Error when full copy is not enabled in Storage Step
   * An error occurred when reporting a context attribute message for path IStorageCopyData.storageVolumeCopyList:1 and field targetStorageSystemId
   * Solution  
-    Ignore Warnings in step and try again. This issue will be fixed in a new support package/patch of SAP LaMa.
+    Ignore Warnings in step and try again. This issue is fixed in a new support package/patch of SAP LaMa.
 
 ### Errors and Warnings during Relocate
 

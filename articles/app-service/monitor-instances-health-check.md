@@ -49,7 +49,7 @@ In addition to configuring the Health check options, you can also configure the 
 | App setting name | Allowed values | Description |
 |-|-|-|
 |`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | The required number of failed requests for an instance to be deemed unhealthy and removed from the load balancer. For example, when set to `2`, your instances will be removed after `2` failed pings. (Default value is `10`) |
-|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 1 - 100 | By default, no more than half of the instances will be excluded from the load balancer at one time to avoid overwhelming the remaining healthy instances. For example, if an App Service Plan is scaled to four instances and three are unhealthy, two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. <br /> To override this behavior, set app setting to a value between `0` and `100`. A higher value means more unhealthy instances will be removed (default value is `50`). |
+|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 1 - 100 | By default, no more than half of the instances will be excluded from the load balancer at one time to avoid overwhelming the remaining healthy instances. For example, if an App Service Plan is scaled to four instances and three are unhealthy, two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. <br /> To override this behavior, set app setting to a value between `1` and `100`. A higher value means more unhealthy instances will be removed (default value is `50`). |
 
 #### Authentication and security
 
@@ -126,6 +126,20 @@ function envVarMatchesHeader(headerValue) {
 
 > [!NOTE]
 > The `x-ms-auth-internal-token` header is only available on Windows App Service.
+
+## Instances
+Once Health Check is enabled, you can restart and monitor the status of your application instances through the instances tab. The instances tab will show your instance's name, the status of that instance and give you the option to manually restart the application instance.
+
+If the status of your instance is unhealthy, you can restart the instance manually using the restart button in the table.  Keep in mind that any other applications hosted on the same App Service Plan as the instance will also be affected by the restart.  If there are other applications using the same App Service Plan as the instance, they will be listed on the opening blade from the restart button.
+
+If you restart the instance and the restart process fails, you will then be given the option to replace the worker (only 1 instance can be replaced per hour).  This will also affect any applications using the same App Service Plan.
+
+Windows applications will also have the option to view processes via the Process Explorer.  This gives you further insight on the instance's processes including thread count, private memory, and total CPU time.
+
+## Diagnostic information collection
+For Windows applications, you have the option to collect diagnostic information in the Health Check tab. Enabling diagnostic collection will add an auto-heal rule that creates memory dumps for unhealthy instances and saves it to a designated storage account. Enabling this option will change auto-heal configurations. If there are existing auto-heal rules, we recommend setting this up through App Service diagnostics. 
+
+Once diagnostic collection is enabled, you can create or choose an existing storage account for your files. You can only select storage accounts in the same region as your application. Keep in mind that saving will restart your application. After saving, if your site instances are found to be unhealthy after continuous pings, you can go to your storage account resource and view the memory dumps.
 
 
 ## Monitoring

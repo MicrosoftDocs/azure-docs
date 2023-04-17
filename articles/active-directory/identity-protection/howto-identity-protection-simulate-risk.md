@@ -63,8 +63,8 @@ Completing the following procedure requires you to use a user account that has:
 
 **To simulate a sign-in from an unfamiliar location, perform the following steps**:
 
-1. When signing in with your test account, fail the multifactor authentication (MFA) challenge by not passing the MFA challenge.
-2. Using your new VPN, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com) and enter the credentials of your test account.
+1. Using your new VPN, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com) and enter the credentials of your test account.
+2. When signing in with your test account, fail the multifactor authentication (MFA) challenge by not passing the MFA challenge.
 
 The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes.
 
@@ -97,7 +97,7 @@ This risk detection indicates that the application's valid credentials have been
    
 5. Get the TenantID and Application(Client)ID in the **Overview** page.
 6. Ensure you disable the application via **Azure Active Directory** > **Enterprise Application** > **Properties** > Set **Enabled for users to sign-in** to **No**.
-7. Create a **public** GitHub Repository, add the following config and commit the change.
+7. Create a **public** GitHub Repository, add the following config and commit the change as a file with the .txt extension.
    ```GitHub file
      "AadClientId": "XXXX-2dd4-4645-98c2-960cf76a4357",
      "AadSecret": "p3n7Q~XXXX",

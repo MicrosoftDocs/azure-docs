@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with JOBHUB | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with JOBHUB'
 description: Learn how to configure single sign-on between Azure Active Directory and JOBHUB.
 services: active-directory
 author: jeevansd

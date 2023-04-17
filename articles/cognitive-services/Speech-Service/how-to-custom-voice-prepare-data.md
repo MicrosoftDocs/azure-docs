@@ -44,7 +44,7 @@ To upload training data, follow these steps:
 
 Data files are automatically validated when you select **Submit**. Data validation includes series of checks on the audio files to verify their file format, size, and sampling rate. If there are any errors, fix them and submit again. 
 
-After you upload the data, you can check the details in the training set detail view. On the **Overview** tab, you can further check the pronunciation scores and the noise level for each of your data. The pronunciation score ranges from 0-100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and affect the generated digital voice.
+After you upload the data, you can check the details in the training set detail view. On the detail page, you can further check the pronunciation issue and the noise level for each of your data. The pronunciation score at the sentence level ranges from 0-100. A score below 70 normally indicates a speech error or script mismatch. Utterances with an overall score lower than 70 will be rejected. A heavy accent can reduce your pronunciation score and affect the generated digital voice.
 
 ## Resolve data issues online
 
@@ -52,9 +52,13 @@ After upload, you can check the data details of the training set. Before continu
 
 You can resolve data issues per utterance in Speech Studio. 
 
-1. On the **Data details** page, select individual utterances you want to edit, then click **Edit**.
+1. On the detail page, go to the **Accepted data** or **Rejected data** page. Select individual utterances you want to change, then click **Edit**.
 
-   :::image type="content" source="media/custom-voice/cnv-edit-trainingset.png" alt-text="Screenshot of selecting edit button on the Data details page.":::
+   :::image type="content" source="media/custom-voice/cnv-edit-trainingset.png" alt-text="Screenshot of selecting edit button on the accepted data or rejected data details page.":::
+
+   You can choose which data issues to be displayed based on your criteria.
+   
+    :::image type="content" source="media/custom-voice/cnv-issues-display-criteria.png" alt-text="Screenshot of choosing which data issues to be displayed":::
 
 1. Edit window will be displayed.
 
@@ -70,7 +74,7 @@ You can resolve data issues per utterance in Speech Studio.
  
    :::image type="content" source="media/custom-voice/cnv-edit-trainingset-upload-recording.png" alt-text="Screenshot that shows how to upload recording file on the Edit transcript and recording file window.":::
 
-1. After the data in a training set are updated, you need to check the data quality by clicking **Analyze data** before using this training set for training. 
+1. After you've made changes to your data, you need to check the data quality by clicking **Analyze data** before using this dataset for training.
 
    You can't select this training set for training model before the analysis is complete. 
 
@@ -84,7 +88,7 @@ The issues are divided into three types. Refer to the following tables to check 
 
 **Auto-rejected**
 
-Data with these errors won't be used for training. Imported data with errors will be ignored, so you don't need to delete them. You can resubmit the corrected data for training.  
+Data with these errors won't be used for training. Imported data with errors will be ignored, so you don't need to delete them. You can [fix these data errors online](#resolve-data-issues-online) or upload the corrected data again for training.  
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
@@ -109,6 +113,7 @@ The following errors are fixed automatically, but you should review and confirm 
 | --------- | ----------- | --------------------------- |
 | Mismatch |Silence auto fixed |The start silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it. |
 | Mismatch |Silence auto fixed | The end silence is detected to be shorter than 100 ms, and has been extended to 100 ms automatically. Download the normalized dataset and review it.|
+| Script | Text auto normalized|Text is automatically normalized for digits, symbols, and abbreviations. Review the script and audio to make sure they match.|
 
 **Manual check required**
 
@@ -116,8 +121,7 @@ Unresolved errors listed in the next table affect the quality of training, but d
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
-| Script | Non-normalized text|This script contains digits. Expand them to normalized words, and match with the audio. For example, normalize *123* to *one hundred and twenty-three*.|
-| Script | Non-normalized text|This script contains symbols. Normalize the symbols to match the audio. For example, normalize *50%* to *fifty percent*.|
+| Script | Non-normalized text |This script contains symbols. Normalize the symbols to match the audio. For example, normalize */* to *slash*.|
 | Script | Not enough question utterances| At least 10 percent of the total utterances should be question sentences. This helps the voice model properly express a questioning tone.|
 | Script | Not enough exclamation utterances| At least 10 percent of the total utterances should be exclamation sentences. This helps the voice model properly express an excited tone.|
 | Script | No valid end punctuation| Add one of the following at the end of the line: full stop (half-width '.' or full-width '。'), exclamation point (half-width '!' or full-width '！' ), or question mark ( half-width '?' or full-width '？').|

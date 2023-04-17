@@ -119,18 +119,7 @@ To get started with Ingress traffic, see [HTTP application routing][aks-http-rou
 
 Kubernetes has a rich ecosystem of development and management tools that work seamlessly with AKS. These tools include [Helm][helm] and the [Kubernetes extension for Visual Studio Code][k8s-extension].
 
-Azure provides several tools that help streamline Kubernetes, such as DevOps Starter.  
-
-### DevOps Starter
-
-DevOps Starter provides a simple solution for bringing existing code and Git repositories into Azure. DevOps Starter automatically:
-
-* Creates Azure resources (such as AKS).
-* Configures a release pipeline in Azure DevOps Services that includes a build pipeline for CI.
-* Sets up a release pipeline for CD.
-* Generates an Azure Application Insights resource for monitoring.
-
-For more information, see [DevOps Starter][azure-devops].
+Azure provides several tools that help streamline Kubernetes.  
 
 ## Docker image support and private container registry
 
@@ -183,7 +172,7 @@ Learn more about deploying and managing AKS.
 [conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md
 [aad]: managed-aad.md
 [aks-monitor]: monitor-aks.md
-[azure-monitor]: ../azure-monitor/containers/containers.md
+[azure-monitor]: /previous-versions/azure/azure-monitor/containers/containers
 [azure-logs]: ../azure-monitor/logs/log-analytics-overview.md
 [helm]: quickstart-helm.md
 [aks-best-practices]: best-practices.md
