@@ -112,6 +112,10 @@ The Data Mapper extension currently works only with schemas in flat folder-struc
 
    Alternatively, you can also add your source and target schema files locally to your logic app project in the **Artifacts** **Schemas** folder, so that they appear in Visual Studio Code. In this case, you can specify your source and target schema in the Data Mapper tool on the **Configure** pane by selecting **Select existing**, rather than **Add new**.
 
+   When you're done, your map looks similar to the following example:
+
+   ![Screenshot showing the Data Mapper open and data map with sample source and target schemas.](media/create-maps-data-transformation-visual-studio-code/high-level-schema-example.png)
+
 The following table describes the possible data types that might appear in a schema:
 
 | Symbol | Type | More info |
@@ -136,12 +140,14 @@ To move around the map, you have the following options:
 
 - To pan around, drag your pointer around the map surface. Or, press and hold the mouse wheel, while you move the mouse or trackball.
 
-- In the lower left map corner, on the navigation bar, select the option you want:
+- After you move one level down into the map, in the map's lower left corner, a navigation bar appears where you can select from the following options:
+
+  ![Screenshot showing map navigation bar.](media/create-maps-data-transformation-visual-studio-code/map-navigation-bar.png)
 
   | Option | Alternative gesture |
   |--------|---------------------|
-  | **Zoom in** | On the map surface, double select. <br>-or- <br>Scroll up with the mouse wheel. |
   | **Zoom out** | On the map surface, press SHIFT + double select. <br>-or- <br>Scroll down with the mouse wheel. |
+  | **Zoom in** | On the map surface, double select. <br>-or- <br>Scroll up with the mouse wheel. |
   | **Zoom to fit** | None |
   | **Show (Hide) mini-map** | None |
 
@@ -151,17 +157,17 @@ To move around the map, you have the following options:
 
 ## Select target and source elements to map
 
-1. On the map surface, from the target schema's data element list, select the target element that you want to map. If that element is a child of a parent element, find and expand the parent first.
+1. On the map surface, starting from the right side, in the target schema area, select the target element that you want to map. If the element you want is a child of a parent element, find and expand the parent first.
 
-1. In the source schema area, select **Select element**.
+1. Now, on the left side, from the source schema area, select **Select element**.
 
-1. From the **Source schema** window that appears, select one or more source elements to show on the map.
+1. In the **Source schema** window that appears, select one or more source elements to show on the map.
 
-   - To include the parent and direct children, open the parent's shortcut menu, and select **Add children**.
+   - To include a parent and direct children, open the parent's shortcut menu, and select **Add children**.
 
-   - To include a parent and all the children of a parent, including any subsequent parents, open the top-level parent's shortcut menu, and select **Add children (recursive)**.
+   - To include a parent and all the children for that parent, including any sub-parents, open the top-level parent's shortcut menu, and select **Add children (recursive)**.
 
-1. When you're done, close the source schema window. You can always add more source elements later. On the map, in the upper left corner, select **Show source schema** (node tree).
+1. When you're done, you can close the source schema window. You can always add more source elements later. On the map, in the upper left corner, select **Show source schema** (![Icon for Show source schema.](media/create-maps-data-transformation-visual-studio-code/show-source-schema-icon.png)).
 
 <a name="create-direct-mapping"></a>
 
@@ -225,7 +231,7 @@ The example in this section transforms the source element type from String type 
 
 1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#select-elements).
 
-1. In the map's upper left corner, select **Show functions**.
+1. In the map's upper left corner, select **Show functions** (![Icon for Show functions.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
 
    ![Screenshot showing source and target schema elements plus the selected function, Show functions.](media/create-maps-data-transformation-visual-studio-code/no-mapping-show-functions.png)
 
@@ -287,7 +293,7 @@ The example in this section concatenates multiple source element types so that y
 
 1. If you haven't already, on the map, [select the target elements and then the source elements that you want to map](#select-elements).
 
-1. In the map's upper left corner, select **Show functions**.
+1. In the map's upper left corner, select **Show functions** (![Icon for Show functions.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
 
    ![Screenshot showing source and target schema elements and the selected function named Show functions.](media/create-maps-data-transformation-visual-studio-code/multi-inputs-show-functions.png)
 
@@ -347,6 +353,10 @@ If your source and target schemas include arrays, you can create a loop mapping 
 
    ![Screenshot showing code view with looping relationship between source and target arrays, Employee and Person, respectively.](media/create-maps-data-transformation-visual-studio-code/loop-example-code-view.png)
 
+1. Continue mapping the other array elements.
+
+   ![Screenshot showing continue looping mapping between other array items in source and target arrays.](media/create-maps-data-transformation-visual-studio-code/loop-example-continue-mapping.png)
+
 <a name="add-condition"></a>
 
 ## Set up a condition and task to perform between elements
@@ -355,7 +365,7 @@ To add a mapping relationship that evaluates a condition and performs a task whe
 
 The example in this section calculates a discount to apply when the purchase quantity exceeds 20 items by using the following functions:
 
-- **Greater**: Check whether item quantity is greater than 20
+- **Greater**: Check whether item quantity is greater than 20.
 - **If**: Check whether the **Greater** function returns true.
 - **Multiply**: Calculate the discount by multiplying the item price by 10% and the item quantity.
 
@@ -367,7 +377,7 @@ The example in this section calculates a discount to apply when the purchase qua
 
    ![Screenshot showing the data map and elements to map.](media/create-maps-data-transformation-visual-studio-code/if-condition-example-elements.png)
 
-1. In the map's upper left corner, select **Show functions**.
+1. In the map's upper left corner, select **Show functions** (![Icon for Show functions.](media/create-maps-data-transformation-visual-studio-code/function-icon.png)).
 
 1. Add the following functions to the map: **Greater**, **If**, and **Multiply**
 
