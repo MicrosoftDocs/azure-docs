@@ -68,11 +68,14 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	![Screenshot shows to choose metadata file in folder.](common/browse-upload-metadata.png "Browse")
 
 	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
+	
+	d. Enter the customer code / key provided by 360factors in “Relay State” input. Make sure the code is entered in lowercase. This is required for **IDP** initiated mode.
 
-	d. If you wish to configure the application in **SP** initiated mode, then perform the following step:
+	e. If you wish to configure the application in **SP** initiated mode, then perform the following step:
 
-    In the **Sign on URL** textbox, type the URL:
-    `https://paadt.360factors.com/predict360/login.do`.
+    In the **Sign on URL** textbox, type your customer specific URL:
+    `https://{customer-key}.360factors.com/predict360/login.do`.
+    This URL is shared by 360facors team. {customer-key} is replaced with the your customer key, which is also provide by 360factors team.
 
 	> [!Note]
 	> You will get the **Service Provider metadata file** from the [Predict360 SSO support team](mailto:support@360factors.com). If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
