@@ -1,9 +1,16 @@
+title: 'Tutorial: Create a .NET Core App  - Azure Cache for Redis'
+description: Learn how to create a .NET Core app that uses Azure Cache for Redis .
+author: flang-msft
+ms.author: franlanglois
+ms.service: cache
+ms.topic: how-to
+ms.date: 04/17/2023
 
 # Serverless Event-based Architectures with Azure Cache for Redis and Azure Functions (Preview)
 
 This article describes how to use Azure Cache for Redis with [Azure Functions](../azure-functions/functions-overview.md) to create optimized serverless and event-driven architectures.
 Azure Cache for Redis can be used as a [trigger](../azure-functions/functions-triggers-bindings.md) for Azure Functions, allowing Redis to initiate a serverless workflow.
-This functionality can be highly useful in data architectures like a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching), or any [event-based architectures](../architecture/guide/architecture-styles/event-driven.md).
+This functionality can be highly useful in data architectures like a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching), or any [event-based architectures](/azure/architecture/guide/architecture-styles/event-driven).
 
 There are three triggers supported in Azure Cache for Redis:
 - `RedisPubSubTrigger` triggers on [Redis pubsub messages](https://redis.io/docs/manual/pubsub/)
@@ -57,7 +64,7 @@ See [Get started with Functions triggers in Azure Cache for Redis](cache-tutoria
 The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSCRIBE`](https://redis.io/commands/psubscribe/), and surfaces messages received on those channels to the function.
 
 > [!WARNING]
-> This trigger is not supported on a [consumption plan](../azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages.For consumption plans, there is a chance your function may miss certain messages published to the channel. 
+> This trigger is not supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages.For consumption plans, there is a chance your function may miss certain messages published to the channel. 
 >
 
 > [!NOTE]
@@ -341,5 +348,4 @@ Coming Soon
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Tutorial: Get started with Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md)
+- [Tutorial: Get started with Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md)
