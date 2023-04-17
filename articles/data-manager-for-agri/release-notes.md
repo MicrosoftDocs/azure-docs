@@ -29,7 +29,7 @@ Azure Data Manager for Agriculture Preview is updated on an ongoing basis. To st
 ## March 2023
 
 ### Key Announcement: Preview Release
-Azure Data Manager for Agriculture is now available in preview. See our blog post [here](https://azure.microsoft.com/en-us/blog/announcing-microsoft-azure-data-manager-for-agriculture-accelerating-innovation-across-the-agriculture-value-chain/).
+Azure Data Manager for Agriculture is now available in preview. See our blog post [here](https://azure.microsoft.com/blog/announcing-microsoft-azure-data-manager-for-agriculture-accelerating-innovation-across-the-agriculture-value-chain/).
 
 ### Audit logs
 In Azure Data Manager for Agriculture Preview, you can monitor how and when your resources are accessed, and by whom. You can also debug reasons for failure for data-plane requests. [Audit Logs](how-to-set-up-audit-logs.md) are now available for your use.  

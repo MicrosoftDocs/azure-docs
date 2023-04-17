@@ -5,6 +5,9 @@
     - name: What is Azure Data Manager for Agriculture Preview?
       displayName: Overview
       href: Overview-azure-data-manager-for-agriculture.md
+      items:
+        - name: Release notes
+          href: release-notes.md
 - name: Quickstarts
   expanded: true
   items:
