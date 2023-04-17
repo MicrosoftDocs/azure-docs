@@ -77,6 +77,14 @@ Select the **Microsoft** identity provider and configure the application registr
 
 After you add the settings, the function app restarts and all subsequent requests are prompted to log in via Azure AD. You can test that unauthenticated requests are now being rejected by navigating to the function apps root URL (returned in the `hostNames` output in a previous step). You should be redirected to your organizations Azure AD login screen.
 
+Before we proceed to the next step, navigate to the application you just created, go the the **Expose an API** page, and copy the Application ID URI for later use.
+
+:::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png" alt-text="Screenshot of the Azure portal showing the Microsoft identity provider application." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png":::
+
+:::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-4.png" alt-text="Screenshot of the Azure portal showing the AAD application." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-4.png":::
+
+
+
 ## Create an HTTP Triggered Function
 
 In an empty local directory, create a new function app and add an HTTP triggered function.
@@ -161,6 +169,7 @@ This sample invokes the HTTP triggered function by first requesting an access to
    ```properties
    azure.function.uri=https://<your-functionapp-name>.azurewebsites.net
    azure.function.triggerPath=httptrigger
+   azure.function.application-id.uri=<your-functionapp-application-id-uri>
    ```
 
 1. Package your sample app.
