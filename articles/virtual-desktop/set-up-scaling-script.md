@@ -4,7 +4,7 @@ description: How to automatically scale Azure Virtual Desktop session hosts with
 author: Heidilohr
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 04/14/2023
+ms.date: 04/17/2023
 ms.author: helohr
 manager: femila
 ---
