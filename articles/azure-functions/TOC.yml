@@ -736,7 +736,20 @@
               href: functions-bindings-azure-sql-output.md
               displayName: Azure SQL
         - name: Dapr
-          href: https://github.com/dapr/azure-functions-extension
+          items: 
+            - name: Overview
+              href: functions-bindings-dapr.md
+              displayName: Dapr
+            - name: Trigger
+              href: functions-bindings-dapr-trigger.md
+              displayName: Dapr
+            - name: Input
+              href: functions-bindings-dapr-input.md
+              displayName: Dapr
+            - name: Output
+              href: functions-bindings-dapr-output.md
+              displayName: Dapr
+
         - name: Event Grid
           items:
             - name: Overview
