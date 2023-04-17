@@ -30,7 +30,7 @@ RDP files have the following properties by default:
 |EnableCredssp|Enabled|
 
 >[!NOTE]
->- Multi-monitor mode is only enabled for Desktop app groups and will be ignored for RemoteApp app groups.
+>- Multi-monitor mode is only enabled for Desktop application groups and will be ignored for RemoteApp application groups.
 >- All default RDP file properties are exposed in the Azure Portal.
 >- A null CustomRdpProperty field will apply all default RDP properties to your host pool. An empty CustomRdpProperty field won't apply any default RDP properties to your host pool.
 

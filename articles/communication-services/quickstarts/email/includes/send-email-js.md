@@ -5,7 +5,7 @@ author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
 ms.author: natekimball
-ms.date: 04/15/2022
+ms.date: 03/24/2023
 ms.topic: include
 ms.service: azure-communication-services
 ms.custom: mode-other
@@ -20,7 +20,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name | Description |
 | ---- |-------------|
 | EmailAddress | This class contains an email address and an option for a display name. |
-| EmailAttachment | This class creates an email attachment by accepting a unique ID, email attachment mime type string, and binary data for content. |
+| EmailAttachment | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../concepts/email/email-attachment-allowed-mime-types.md) string, and binary data for content. |
 | EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
 | EmailClientOptions | This class can be added to the EmailClient instantiation to target a specific API version. |
 | EmailContent | This class contains the subject and the body of the email message. You have to specify at least one of PlainText or Html content. |
@@ -133,7 +133,7 @@ const emailClient = new EmailClient(endpoint, credential);
 Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 
 ```javascript
-const { EmailClient } = require("@azure/communication-email");
+const { EmailClient, KnownEmailSendStatus } = require("@azure/communication-email");
 const { AzureKeyCredential } = require("@azure/core-auth");
 require("dotenv").config();
 
@@ -154,6 +154,7 @@ To send an email message, call the `beginSend` function from the EmailClient. Th
 ```javascript
 
 async function main() {
+  const POLLER_WAIT_TIME = 10
   try {
     const message = {
       senderAddress: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
@@ -172,7 +173,30 @@ async function main() {
     };
 
     const poller = await emailClient.beginSend(message);
-    const response = await poller.pollUntilDone();
+
+    if (!poller.getOperationState().isStarted) {
+      throw "Poller was not started."
+    }
+
+    let timeElapsed = 0;
+    while(!poller.isDone()) {
+      poller.poll();
+      console.log("Email send polling in progress");
+
+      await new Promise(resolve => setTimeout(resolve, POLLER_WAIT_TIME * 1000));
+      timeElapsed += 10;
+
+      if(timeElapsed > 18 * POLLER_WAIT_TIME) {
+        throw "Polling timed out.";
+      }
+    }
+
+    if(poller.getResult().status === KnownEmailSendStatus.Succeeded) {
+      console.log(`Successfully sent the email (operation id: ${poller.getResult().id})`);
+    }
+    else {
+      throw poller.getResult().error;
+    }
   } catch (e) {
     console.log(e);
   }
@@ -193,6 +217,9 @@ use the node command to run the code you added to the send-email.js file.
 ```console
 node ./send-email.js
 ```
+
+If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](#throw-an-exception-when-email-sending-tier-limit-is-reached).
+
 ### Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email)
@@ -273,7 +300,7 @@ const message = {
   attachments: [
     {
       name: path.basename(filePath),
-      contentType: "text/plain",
+      contentType: "<mime-type-for-your-file>",
       contentInBase64: readFileSync(filePath, "base64"),
     }
   ]
@@ -282,4 +309,42 @@ const message = {
 const response = await emailClient.send(message);
 ```
 
+For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
+
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-attachments)
+
+### Throw an exception when email sending tier limit is reached
+
+The Email API has throttling with limitations on the number of email messages that you can send. Email sending has limits applied per minute and per hour as mentioned in [API Throttling and Timeouts](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, additional email sends with `send` calls will receive an error response of “429: Too Many Requests”. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](https://learn.microsoft.com/javascript/api/overview/azure/logger-readme) to capture these response codes.
+
+There are per minute and per hour [limits to the amount of emails you can send using the Azure Communication Email Service](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, any further `beginSend` calls will recieve a `429: Too Many Requests` response. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](https://learn.microsoft.com/javascript/api/overview/azure/logger-readme) to capture these response codes.
+
+Alternatively, you can manually define a custom policy as shown below.
+
+```javascript
+const catch429Policy = {
+  name: "catch429Policy",
+  async sendRequest(request, next) {
+    const response = await next(request);
+    if (response.status === 429) {
+      throw new Error(response);
+    }
+    return response;
+  }
+};
+```
+
+Add this policy to your email client. This will ensure that 429 response codes throw an exception rather than being retried.
+
+```java
+const clientOptions = {
+  additionalPolicies: [
+    {
+      policy: catch429Policy,
+      position: "perRetry"
+    }
+  ]
+}
+
+const emailClient = new EmailClient(connectionString, clientOptions);
+```

@@ -46,6 +46,36 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-runtime-exceptions.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-runtime-exceptions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-performance.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-users.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/custom-data-correlation.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/custom-data-correlation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/correlation.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/distributed-tracing.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/console.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/console",
             "redirect_document_id": false
@@ -5810,6 +5840,16 @@
       {
             "source_path_from_root": "/articles/azure-monitor/app/java-in-process-agent.md",
             "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/logicapp-flow-connector.md",
+            "redirect_url": "/azure/connectors/connectors-azure-monitor-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/automate-with-logic-apps.md",
+            "redirect_url": "/azure/connectors/connectors-azure-application-insights",
             "redirect_document_id": false
         },
         {

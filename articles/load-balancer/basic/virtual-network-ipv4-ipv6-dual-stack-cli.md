@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: virtual-network
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 04/10/2023
 ms.author: mbender
 ---
 

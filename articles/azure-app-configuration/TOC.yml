@@ -11,6 +11,8 @@
 - name: Quickstarts
   expanded: true
   items:
+    - name: Create an App Configuration store
+      href: quickstart-azure-app-configuration-create.md
     - name: Configuration
       items:
         - name: ASP.NET Core
@@ -29,6 +31,8 @@
           href: quickstart-javascript.md
         - name: Azure Container Apps
           href: quickstart-container-apps.md
+        - name: Azure Kubernetes Service
+          href: quickstart-azure-kubernetes-service.md
     - name: Feature management
       items:
         - name: ASP.NET Core

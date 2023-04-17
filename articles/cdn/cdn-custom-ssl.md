@@ -121,7 +121,7 @@ Register Azure CDN as an app in your Azure Active Directory.
 > * You need to have the **Global Administrator** role to run this command.
 > * The service principal name was changed from `Microsoft.Azure.Cdn` to `Microsoft.AzureFrontDoor-Cdn`.
 
-# [Azure PowerShell](#tab/powershell)
+#### Azure PowerShell
 
 1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) on your local machine.
 
@@ -134,7 +134,7 @@ Register Azure CDN as an app in your Azure Active Directory.
 
     Secret                :
     ServicePrincipalNames : {205478c0-bd83-4e1b-a9d6-db63a3e1e1c8,
-                                https://microsoft.onmicrosoft.com/033ce1c9-f832-4658-b024-ef1cbea108b8}
+				https://microsoft.onmicrosoft.com/033ce1c9-f832-4658-b024-ef1cbea108b8}
     ApplicationId         : 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
     ObjectType            : ServicePrincipal
     DisplayName           : Microsoft.AzureFrontDoor-Cdn
@@ -142,7 +142,7 @@ Register Azure CDN as an app in your Azure Active Directory.
     Type                  :
     ```
 
-# [Azure CLI](#tab/cli)
+#### Azure CLI
 
 1. If needed, install [Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 

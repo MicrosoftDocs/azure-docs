@@ -300,6 +300,10 @@
       href: logic-apps-azure-functions.md
     - name: Azure Logic Apps
       href: logic-apps-http-endpoint.md
+    - name: Azure Monitor Application Insights
+      href: ../connectors/connectors-azure-application-insights.md
+    - name: Azure Monitor Logs
+      href: ../connectors/connectors-azure-monitor-logs.md
     - name: Azure Service Bus
       href: ../connectors/connectors-create-api-servicebus.md
     - name: Azure SQL Database

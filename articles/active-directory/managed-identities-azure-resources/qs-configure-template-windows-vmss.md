@@ -14,7 +14,7 @@ ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-arm-template
 ---
 
 # Configure managed identities for Azure resources on an Azure virtual machine scale using a template
