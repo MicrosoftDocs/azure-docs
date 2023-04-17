@@ -19,6 +19,8 @@ Azure Data Manager for Agriculture Preview is updated on an ongoing basis. To st
 - Deprecated functionality
 - Plans for changes
 
+ We'll provide information on latest releases, bug fixes, & deprecated functionality for Azure Data Manager for Agriculture Preview monthly.
+
 > [!NOTE]
 > Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). See Azure Data Manager for Agriculture specific terms of use [**here**](supplemental-terms-azure-data-manager-for-agriculture.md). 
 >
@@ -27,13 +29,13 @@ Azure Data Manager for Agriculture Preview is updated on an ongoing basis. To st
 ## March 2023
 
 ### Key Announcement: Preview Release
-Azure Data Manager for Agriculture is now available in preview. See our blog post [here](https://azure.microsoft.com/en-us/blog/announcing-microsoft-azure-data-manager-for-agriculture-accelerating-innovation-across-the-agriculture-value-chain/). Information on latest releases, bug fixes, & deprecated functionality for Azure Data Manager for Agriculture Preview will be updated monthly.
+Azure Data Manager for Agriculture is now available in preview. See our blog post [here](https://azure.microsoft.com/en-us/blog/announcing-microsoft-azure-data-manager-for-agriculture-accelerating-innovation-across-the-agriculture-value-chain/).
 
 ### Audit logs
-In Azure Data Manager for Agriculture Preview you can monitor how and when your resources are accessed, and by whom. You can also debug reasons for failure for data-plane requests. [Audit Logs](how-to-set-up-audit-logs.md) are now available for your use.  
+In Azure Data Manager for Agriculture Preview, you can monitor how and when your resources are accessed, and by whom. You can also debug reasons for failure for data-plane requests. [Audit Logs](how-to-set-up-audit-logs.md) are now available for your use.  
 
 ### Private links
-You can connect to an Azure Data Manager for Agriculture service from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network. You can then limit access to your Azure Data Manager for Agriculture Preview instance over these private IP addresses. [Private Links](how-to-set-up-private-links.md) are now available for your use.  
+You can connect to Azure Data Manager for Agriculture service from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network. You can then limit access to your Azure Data Manager for Agriculture Preview instance over these private IP addresses. [Private Links](how-to-set-up-private-links.md) are now available for your use.  
 
 ### BYOL for satellite imagery
 To support scalable ingestion of geometry-clipped imagery, we've partnered with Sentinel Hub by Sinergise to provide a seamless bring your own license (BYOL) experience. Read more about our satellite connector [here](concepts-ingest-satellite-imagery.md). 
