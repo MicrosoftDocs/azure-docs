@@ -5,7 +5,7 @@ description: This article shows how to deploy an IPv6 dual stack application in 
 services: virtual-network
 documentationcenter: na
 author: mbender-ms
-manager: kumud
+manager: kumudD
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
