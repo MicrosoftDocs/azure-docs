@@ -71,7 +71,7 @@ PhoneNumberIdentifier phoneNumber = new PhoneNumberIdentifier("+112345556789");
 
 [PhoneNumberIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/com/azure/android/communication/common/PhoneNumberIdentifier.html)
 
-### Microsoft Bot Identifier
+### Microsoft bot
 
 > [!NOTE]
 > The Microsoft Bot Identifier is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -81,22 +81,21 @@ The `MicrosoftBotIdentifier` interface represents a Microsoft bot with its Azure
 #### Basic usage
 
 ```java
-// get the Microsoft bot's ID from Graph APIs
+// Get the Microsoft bot's ID from Graph APIs
 UserCollectionPage users = graphClient.users()
 	.buildRequest()
 	.filter(filterConditions)
 	.select("displayName,id")
 	.get();
 
-//here we assume that you have a function getBotFromUsers that gets the bot from the returned response
+//Here we assume that you have a function getBotFromUsers that gets the bot from the returned response
 User bot = getBotFromUsers(users);
 
-// create an identifier
+// Create an identifier
 MicrosoftBotIdentifier botIdentifier = new MicrosoftBotIdentifier(bot.id);
 
-// if you're not operating in the public cloud, you must also pass the right Cloud type.
-// You can also specify tenantized bots by setting the isResourceAccountConfigured flag to true.
-// The flag is false if the bot is global and no resource account is configured.
+// If you're not operating in the public cloud, you must also pass the right Cloud type.
+// If you use Azure Bot Framework instead of Teams Voice applications, set property isResourceAccountConfigured to false.
 MicrosoftBotIdentifier gcchBotIdentifier = new MicrosoftBotIdentifier(bot.id, true, CommunicationCloudEnvironment.GCCH);
 ```
 
