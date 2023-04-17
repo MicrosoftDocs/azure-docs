@@ -218,10 +218,6 @@ EOF
 
 Congratulations, you have installed Gateway Controller on you cluster!
 
-You can refer to the [http-scenario](./examples/http-scenario/readme.md) to test a basic implementation of Gateway API with Gateway Controller.
-
-More scenarios for other implementations of Gateway API with Gateway Controller can be found in [Examples](./examples).
-
 ## Uninstall Traffic Controller and Gateway Controller
 
 1. To delete the Traffic Controller, you may simply delete the Resource Group containing the Traffic Controller resources:

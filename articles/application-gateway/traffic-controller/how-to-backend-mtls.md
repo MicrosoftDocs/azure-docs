@@ -17,7 +17,7 @@ ms.author: greglin
 This document will help setup an example application that leverage the following resources from Gateway API:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one https listener
 - [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - creating a http route that references a backend service
-- [BackendTLSPolicy](/concepts/apidocs/gatewaycontroller/v1alpha1.md) - creating a backend tls policy that has a client and CA certificate for the backend service referenced in the HTTPRoute
+- [BackendTLSPolicy](api-specification-kubernetes.md#backendtlspolicy) - creating a backend tls policy that has a client and CA certificate for the backend service referenced in the HTTPRoute
 
 ## Prerequisites
 Ensure you have a setup your Traffic Controller and Gateway Controller following the [Quickstart guide](quickstart-create-traffic-controller.md).

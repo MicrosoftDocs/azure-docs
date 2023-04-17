@@ -65,7 +65,7 @@ For feedback, or to report incidents please use alias [tcfeedback@microsoft.com]
 
 For Traffic Controller pricing information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
-While in Public Preivew, Traffic Controller follows [Preview supplemental terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+While in Public Preview, Traffic Controller follows [Preview supplemental terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## What's new
 
@@ -73,3 +73,5 @@ To learn what's new with Traffic Controller, see [Azure updates](https://azure.m
 
 ## Next steps
 
+- [Concepts: How Traffic Controller works](concepts-how-traffic-controller-works.md)
+- [Quickstart: Create a Traffic Controller](quickstart-create-traffic-controller.md)
