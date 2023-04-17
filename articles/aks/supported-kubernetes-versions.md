@@ -39,7 +39,7 @@ Aim to run the latest patch release of the minor version you're running. For exa
 View the upcoming version releases on the AKS Kubernetes release calendar. To see real-time updates of region release status and version release notes, visit the [AKS release status webpage][aks-release]. To learn more about the release status webpage, see [AKS release tracker][aks-tracker].
 
 > [!NOTE]
-> AKS follows 12 months of support for a generally available (GA) Kubernetes version. To read more about our support policy for Kubernetes versioning, please read our [FAQ](https://learn.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#faq).
+> AKS follows 12 months of support for a generally available (GA) Kubernetes version. To read more about our support policy for Kubernetes versioning, please read our [FAQ](./supported-kubernetes-versions.md#faq).
 
 For the past release history, see [Kubernetes history](https://en.wikipedia.org/wiki/Kubernetes#History).
 
@@ -59,7 +59,7 @@ For the past release history, see [Kubernetes history](https://en.wikipedia.org/
 
 With AKS, you can create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster will run the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will run **`1.21.7`**, which is the latest GA patch version of *1.21*.
 
-When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` won't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` will trigger an upgrade to the latest GA `1.15` patch. If you wish to upgrade your patch version in the same minor version, please use [auto-upgrade](https://learn.microsoft.com/azure/aks/auto-upgrade-cluster#using-cluster-auto-upgrade).
+When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` won't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` will trigger an upgrade to the latest GA `1.15` patch. If you wish to upgrade your patch version in the same minor version, please use [auto-upgrade](./auto-upgrade-cluster.md#using-cluster-auto-upgrade).
 
 To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The `currentKubernetesVersion` property shows the whole Kubernetes version.
 
