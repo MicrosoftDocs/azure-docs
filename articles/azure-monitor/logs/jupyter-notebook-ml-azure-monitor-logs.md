@@ -21,7 +21,7 @@ Training your own machine learning model in Jupyter Notebook provides you with s
 
 - While the [series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction) function gets you started quickly, without requiring data science and programming skills, you have more flexibility to refine results and address specific needs by creating your own machine learning models.
 - You can work with log data at large scales without have to export data to external services.  
-- Running custom code on your web browser lets you get started quickly without having to install Python or other tools on your local computer.
+- Running custom code on a server lets you get started quickly without having to install Python or other tools on your local computer.
 - By integrating Jupiter Notebook running in Azure Machine Learning with Azure Monitor Logs, you can [schedule a machine learning pipeline](../../machine-learning/how-to-schedule-pipeline-job.md) to analyze new data and retrain your model regularly.   
 
 ## Process overview
@@ -39,7 +39,6 @@ In this tutorial, you learn how to:
 > Model training is an iterative process that begins with data preparation and cleaning, and usually involves experimenting with several models until you find a model that's a good fit for your data set.
 > In this tutorial, to shorten the process, we'll: 
 >- Skip the data cleaning step.
->- Work with only six data types: `ContainerLog`, `AzureNetworkAnalytics_CL`, `AVSSyslog`, `StorageBlobLogs`, `AzureDiagnostics`, `Perf`.
 >- Experiment with only two models to see which best fits our data set.
 ## Limitations 
 
