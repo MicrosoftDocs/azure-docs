@@ -2,7 +2,7 @@
 title: Configure Azure Backup reports
 description: Configure and view reports for Azure Backup by using Log Analytics and Azure workbooks
 ms.topic: conceptual
-ms.date: 03/31/2023
+ms.date: 04/18/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -27,7 +27,7 @@ Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs]
 - If you're an [Azure Lighthouse](../lighthouse/index.yml) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
 - Currently, data can be viewed in Backup Reports across a maximum of 100 Log Analytics Workspaces (across tenants).
   >[!Note]
-  >Depending on the complexity of queries and the volume of data processed, it's possible that you might see errors when selecting a large number of workspaces that is less than 100, in some cases. We recommend that you limit the number of workspaces being queried at a time.
+  >Depending on the complexity of queries and the volume of data processed, it's possible that you might see errors when selecting a large number of workspaces that are less than 100, in some cases. We recommend that you limit the number of workspaces being queried at a time.
 - Data for log backup jobs currently isn't displayed in the reports.
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
@@ -54,7 +54,7 @@ Azure Resource Manager resources, such as Recovery Services vaults, record infor
 
 In the monitoring section of your Recovery Services vault, select **Diagnostics settings** and specify the target for the Recovery Services vault's diagnostic data. To learn more about using diagnostic events, see [Use diagnostics settings for Recovery Services vaults](./backup-azure-diagnostic-events.md).
 
-![Diagnostics settings pane for RS Vault](./media/backup-azure-configure-backup-reports/recovery-services-vault-diagnostics-settings.png)
+
 
 Azure Backup also provides a built-in Azure Policy definition, which automates the configuration of diagnostics settings for all Recovery Services vaults in a given scope. To learn how to use this policy, see [Configure vault diagnostics settings at scale](./azure-policy-configure-diagnostics.md).
 
@@ -62,7 +62,7 @@ Azure Backup also provides a built-in Azure Policy definition, which automates t
 
 In the monitoring section of your Backup vault, select **Diagnostics settings** and specify the target for the Backup vault's diagnostic data.
 
-![Diagnostics settings pane for Backup vault](./media/backup-azure-configure-backup-reports/backup-vault-diagnostics-settings.png)
+
 
 ---
 
@@ -71,9 +71,9 @@ In the monitoring section of your Backup vault, select **Diagnostics settings** 
 
 #### 3. View reports in the Azure portal
 
-After you've configured your vaults to send data to Log Analytics, view your Backup reports by going to Backup center and selecting **Backup Reports**. Select the relevant workspace(s) on the **Get started** tab.
+After you've configured your vaults to send data to Log Analytics, view your Backup reports by going to the Backup center and selecting **Backup Reports**. Select the relevant workspace(s) on the **Get started** tab.
 
-![Backup center dashboard](./media/backup-azure-configure-backup-reports/backup-reports-entry.png)
+
 
 The report contains various tabs:
 
@@ -81,7 +81,7 @@ The report contains various tabs:
 
 Use this tab to get a high-level overview of your backup estate. You can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances, and the job success rate per workload type. For more detailed information about a specific backup artifact type, go to the respective tabs.
 
-   ![Summary tab](./media/backup-azure-configure-backup-reports/backup-reports-summary-tab.png)
+   
 
 ##### Backup Items
 
@@ -124,7 +124,7 @@ Using this view, you can identify those backup items that haven't had a successf
 
 To view inactive resources, navigate to the **Optimize** tab, and select the **Inactive Resources** tile. Select this tile displays a grid that contains details of all the inactive resources that exist in the selected scope. By default, the grid shows items that don't have a recovery point in the last seven days. To find inactive resources for a different time range, you can adjust the **Time Range** filter at the top of the tab.
 
-Once you've identified an inactive resource, you can investigate the issue further by navigating to the backup item dashboard or the Azure resource pane for that resource (wherever applicable). Depending on your scenario, you can choose to either stop backup for the machine (if it doesn't exist anymore) and delete unnecessary backups, which saves costs, or you can fix issues in the machine to ensure that backups are taken reliably.
+Once you've identified an inactive resource, you can investigate the issue further by navigating to the backup item dashboard or the Azure resource pane for that resource (wherever applicable). Depending on your scenario, you can choose to either stop backup for the machine (if it doesn't exist anymore) and delete unnecessary backups, which save costs, or you can fix issues in the machine to ensure that backups are taken reliably.
 
 ![Optimize tab - Inactive Resources](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 

@@ -2,7 +2,7 @@
 title: Data model for Azure Backup diagnostics events
 description: This data model is in reference to the Resource Specific Mode of sending diagnostic events to Log Analytics (LA). 
 ms.topic: conceptual
-ms.date: 03/31/2023
+ms.date: 04/18/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -19,7 +19,7 @@ Recovery Services vaults and Backup vaults send data to a common set of tables t
 - One of the main reasons for this difference is that for Backup vaults, Azure Backup service does a 'flattening' of schemas to reduce the number of joins needed in queries, hence improving query performance. For example, if you are looking to write a query that lists all Backup vault jobs along with the friendly name of the datasource, and friendly name of the vault, you can get all of this information fro the AddonAzureBackupJobs table (without needing to do a join with CoreAzureBackup to get the datasource and vault names). Flattened schemas are currently supported only for Backup vaults and not yet for Recovery Services vaults.
 - Apart from the above, there are also certain scenarios that are currently applicable for Recovery Services vaults only (for example, fields related to DPM workloads). This also leads to some differences in the schema between Backup vaults and Recovery Services vaults.
 
-To understand which fields are specific to a particular vault type, and which fields are common across vault types, refer to the **Applicable Resource Types** column provided in the below sections. Refer to the [sample queries](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries) for more guidance on how to write queries on these tabls for Recovery Services vaults and Backup vaults.
+To understand which fields are specific to a particular vault type, and which fields are common across vault types, refer to the **Applicable Resource Types** column provided in the below sections. For more information on how to write queries on these tables for Recovery Services vaults and Backup vaults, see the [sample queries](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries).
 
 ## CoreAzureBackup
 
@@ -114,7 +114,7 @@ This table provides details about alert related fields.
 | BackupManagementType           | Text          | Recovery Services vault | Provider type for  server doing backup job, for example, IaaSVM, FileFolder |
 | CountOfAlertsConsolidated      | Number        | Recovery Services vault | Number of alerts consolidated if it's a consolidated alert  |
 | ProtectedContainerUniqueId     | Text          | Recovery Services vault | Unique identifier of  the protected server associated with the alert |
-| RecommendedAction              | Text          | Recovery Services vault | Action recommended to resolve the alert                      |
+| RecommendedAction              | Text          | Recovery Services vault | Action recommended to resolving the alert                      |
 | SchemaVersion                  | Text          | Recovery Services vault | Current version of the schema, for example **V2**            |
 | State                          | Text          | Recovery Services vault | Current state of the alert object, for example, Active, Deleted |
 | StorageUniqueId                | Text          | Recovery Services vault | Unique ID used to identify the storage entity                |
@@ -152,7 +152,7 @@ This table provides basic protected instances-related fields.
 | DatasourceType                 | Text          | Backup vault |  Type of the datasource being backed up, for example, Microsoft.DBforPostgreSQL/servers/databases                   |
 | BillingGroupType               | Text          | Backup vault |  Type of the billing group, used to denote the unit at which billing information is calculated. For example, in the case of Azure PostgreSQL backup, protected instances and storage consumed are calculated at the server (DatasourceSet) level so the value is DatasourceSet in this scenario                  |
 | SourceSizeInMBs                | Double        | Backup vault | Frontend size of the billing group                   |
-| BillingGroupResourceGroupName  | Text          | Backup vault | Resource group in which te billing group exists                  |
+| BillingGroupResourceGroupName  | Text          | Backup vault | Resource group in which the billing group exists                  |
 
 
 ## AddonAzureBackupJobs
@@ -167,11 +167,11 @@ This table provides details about job-related fields.
 | AdhocOrScheduledJob            | Text          | Recovery Services vault, Backup vault | Field to specify if the job is Ad Hoc or Scheduled           |
 | BackupItemUniqueId             | Text          | Recovery Services vault, Backup vault | Unique ID used to identify the backup item related to the storage entity |
 | BackupManagementServerUniqueId | Text          | Recovery Services vault | Unique ID used to identify the backup management server related to the storage entity |
-| BackupManagementType           | Text          | Recovery Services vault | Provider type for performing backup, for example, IaaSVM, FileFolder to which this job belongs to |
+| BackupManagementType           | Text          | Recovery Services vault | Provider type for performing backup, for example, IaaS VM, File-Folder to which this job belongs. |
 | DataTransferredInMB            | Number        | Recovery Services vault | Data transferred in MB for this job                          |
 | JobDurationInSecs              | Number        | Recovery Services vault, Backup vault | Total job duration in seconds                                |
 | JobFailureCode                 | Text          | Recovery Services vault, Backup vault | Failure Code string because of which job failure happened    |
-| JobOperation                   | Text          | Recovery Services vault, Backup vault | Operation for which job is run for example, Backup,   Restore, Configure Backup |
+| JobOperation                   | Text          | Recovery Services vault, Backup vault | Operation for which job, is run for example, Backup,   Restore, Configure Backup |
 | JobOperationSubType            | Text          | Recovery Services vault, Backup vault | Sub Type of the Job Operation. For example, 'Log', in the case of Log Backup Job |
 | JobStartDateTime               | DateTime      | Recovery Services vault, Backup vault | Date and time when job started running                       |
 | JobStatus                      | Text          | Recovery Services vault, Backup vault | Status of the finished job, for example, Completed, Failed   |
@@ -248,7 +248,7 @@ This table provides details about policy-related fields.
 | YearlyRetentionTimes            | Text           | Recovery Services vault, Backup vault | Date and time when yearly retention is configured            |
 | YearlyRetentionWeeksOfTheMonth  | Text           | Recovery Services vault, Backup vault | Weeks of the month selected for yearly retention             |
 | SourceSystem                    | Text           | Recovery Services vault, Backup vault | Source system of the current data - Azure                    |
-| PolicySubType                   | Text           | Recovery Services vault | Sub-type of the policy, for example, Standard or Enhanced                  |
+| PolicySubType                   | Text           | Recovery Services vault | Subtype of the policy, for example, Standard or Enhanced                  |
 | BackupIntervalInHours           | Integer        | Recovery Services vault, Backup vault | Interval of time between successive backup jobs. Applicable for Azure VM and Azure Disk backup                |
 | ScheduleWindowDuration          | Integer        | Recovery Services vault | Duration of the daily window in which backups can be run. Applicable for enhanced policy for Azure VM backup | 
 | ScheduleWindowStartTime         | DateTime       | Recovery Services vault | Start time of the daily window in which backups can be run. Applicable for enhanced policy for Azure VM backup        |
@@ -258,7 +258,7 @@ This table provides details about policy-related fields.
 | IncrementalBackupDaysOfTheWeek  | String           | Backup vault | Days of the week when incremental backup runs. Currently applicable for Azure Disk backup                     |
 | IncrementalBackupFrequency      | String           | Backup vault | Frequency of incremental backup. Currently applicable for Azure Disk backup                     |
 | IncrementalBackupTimes          | String           | Backup vault | Time of the day at which incremental backup is taken. Currently applicable for Azure Disk backup                     |                   |
-| PolicyId                    	  | String           | Backup vault | Azure Rsource Manager (ARM) ID of the backup policy                    |
+| PolicyId                    	  | String           | Backup vault | Azure Resource Manager (ARM) ID of the backup policy                    |
 | SnapshotTierDailyRetentionDuration    | Integer    | Backup vault | Retention duration in days for daily snapshots. Applicable for Azure Blob and Azure Disk backup                     |
 | SnapshotTierWeeklyRetentionDuration   | Integer    | Backup vault | Retention duration in weeks for weekly snapshots. Applicable for Azure Blob and Azure Disk backup                    |
 | SnapshotTierMonthlyRetentionDuration  | Integer    | Backup vault | Retention duration in months for monthly snapshots. Applicable for Azure Blob and Azure Disk backup                    |

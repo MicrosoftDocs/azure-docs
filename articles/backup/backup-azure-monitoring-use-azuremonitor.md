@@ -2,7 +2,7 @@
 title: Monitor Azure Backup with Azure Monitor
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
 ms.topic: conceptual
-ms.date: 03/31/2023
+ms.date: 04/18/2023
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 author: jyothisuri
 ms.author: jsuri
@@ -81,7 +81,7 @@ Recovery Services vaults and Backup vaults send data to a common set of tables t
     | where JobStatus=="Failed"
     ````
 
-#### Queries specific to Recovery Services vault worklods
+#### Queries specific to Recovery Services vault workloads
 
 - All successful Azure VM backup jobs
 
@@ -153,7 +153,7 @@ Recovery Services vaults and Backup vaults send data to a common set of tables t
     | sort by StorageConsumedInMBs desc
     ````
 
-#### Queries specific to Backup vault worklods
+#### Queries specific to Backup vault workloads
 
 - All successful Azure PostgreSQL backup jobs
 
