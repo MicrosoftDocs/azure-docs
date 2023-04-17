@@ -168,7 +168,7 @@ Reasons for why you may see failed connections:
 
 - If you're seeing a pattern of failed connections for your NAT gateway resource, there could be multiple possible reasons. See the NAT gateway [troubleshooting guide](./troubleshoot-nat.md) to help you further diagnose.  
 
-### Data path availability (Preview)
+### Data path availability
 
 The data path availability metric measures the status of the NAT gateway resource over time. This metric informs on whether or not NAT gateway is available for directing outbound traffic to the internet. This metric is a reflection of the health of the Azure infrastructure. 
 

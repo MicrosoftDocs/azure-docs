@@ -7,7 +7,7 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 07/13/2022
 ms.author: duau
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 ---
 # Tutorial: Create and modify peering for an ExpressRoute circuit using the Azure portal
 

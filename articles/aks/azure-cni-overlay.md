@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.date: 03/21/2023
 ---
 
@@ -43,7 +43,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 
 ## IP address planning
 
-- **Cluster Nodes**: Cluster nodes go into a subnet in your VNet, so verify you have a subnet large enough to account for future scale. A simple `/24` subnet can host up to 251 nodes (the first three IP addresses in a subnet are reserved for management operations).
+- **Cluster Nodes**: Cluster nodes go into a subnet in your VNet, so verify you have a subnet large enough to account for future scale. Cluster can't scale to another subnet but you can add new nodepools in another subnet within the same VNet for expansion. A simple `/24` subnet can host up to 251 nodes (the first three IP addresses in a subnet are reserved for management operations).
 
 - **Pods**: The overlay solution assigns a `/24` address space for pods on every node from the private CIDR that you specify during cluster creation. The `/24` size is fixed and can't be increased or decreased. You can run up to 250 pods on a node. When planning the pod address space, ensure that the private CIDR is large enough to provide `/24` address spaces for new nodes to support future cluster expansion.
 
@@ -97,6 +97,7 @@ Azure CNI Overlay has the following limitations:
 - You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
 - Windows Server 2019 node pools are not supported for overlay.
 - Traffic from host network pods is not able to reach Windows overlay pods.
+- You can't use [DCsv2-series](/azure/virtual-machines/dcv2-series) virtual machines in node pools. In case you need Confidential Computing you must use [DCasv5 or DCadsv5-series confidential VMs](/azure/virtual-machines/dcasv5-dcadsv5-series).
 
 ## Install the aks-preview Azure CLI extension
 
