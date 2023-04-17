@@ -157,7 +157,7 @@ This architecture features two clusters in different resource groups and virtual
    ```
   
 1. Here source is your `PRIMARYCLUSTER` and destination is your `SECONDARYCLUSTR`.  Replace it everywhere with correct name and replace `source.bootstrap.servers` and `destination.bootstrap.servers` with correct FQDN or IP of their respective worker nodes. 
-1. You can control the topics that you want to replicate along with configurations using regular expressions. `replication.factor=3` makes the replication factor = 3 for all the topic which Mirror maker script creates by itself. 
+1. You can use regular expressions to specify the topics and their configurations that you want to replicate. By setting the `replication.factor` parameter to 3, you can ensure that all topics created by the MirrorMaker script will have a replication factor of 3. 
 1. Increase the replication factor from 1 to 3 for these topics 
    ```
    checkpoints.topic.replication.factor=1
@@ -218,9 +218,9 @@ This architecture features two clusters in different resource groups and virtual
    groups=.*
    emit.checkpoints.enabled = true 
    primary-kafka-cluster->secondary-kafka-cluster.sync.group.offsets.enabled=true 
-   primary-kafka-cluster->secondary-kafka-     cluster.sync.group.offsets.interval.ms=30000 
+   primary-kafka-cluster->secondary-kafka-cluster.sync.group.offsets.interval.ms=30000 
    secondary-kafka-cluster->primary-kafka-cluster.sync.group.offsets.enabled   = true 
-   secondary-kafka-cluster->primary-kafka-   cluster.sync.group.offsets.interval.ms=30000
+   secondary-kafka-cluster->primary-kafka-cluster.sync.group.offsets.interval.ms=30000
    topics.blacklist="*.internal,__.*"
  
    # Setting replication factor of newly created remote topics
@@ -250,19 +250,21 @@ This architecture features two clusters in different resource groups and virtual
    export KAFKAZKHOSTS='zk0-primar:2181'
     
    //Start Producer
-   For Kafka 2.4 
+   
+   # For Kafka 2.4 
    bash /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --zookeeper $KAFKAZKHOSTS --topic $TOPICNAME 
-   For Kafka 3.2 
-   bash /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic $TOPICNAME 
+   # For Kafka 3.2 
+   bash /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --boostrap-server $KAFKABROKERS --topic $TOPICNAME 
    ```
 1. Now start the consumer in PRIMARYCLUSTER with a consumer group 
     ```
-   //Start Consumer 
-   For Kafka 2.4 
+   //Start Consumer
+   
+   # For Kafka 2.4 
    bash /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic $TOPICNAME -–group my-group –-from- beginning
    
-   For Kafka 3.2 
-   bash /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic $TOPICNAME -–group my-group –-from-beginning  
+   # For Kafka 3.2 
+   bash /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --boostrap-server $KAFKABROKERS --topic $TOPICNAME -–group my-group –-from-beginning  
    ```
 1. Now stop the consumer in PRIMARYCONSUMER and start consumer in SECONDARYCLUSTER with same consumer group 
    ```
