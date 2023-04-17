@@ -227,7 +227,7 @@ Insider releases are made available in the Azure Virtual Desktop app once you've
 
 1. Open the **Azure Virtual Desktop** app. The title in the top left-hand corner should be **Azure Virtual Desktop (Insider)**:
 
-   :::image type="content" source="../media/client-features-windows-avd-app/azure-virtual-desktop-app-windows-insider.png" alt-text="A screenshot of the Azure Virtual Desktop app with Insider features enabled. The title is highlighted in a red box.":::
+   :::image type="content" source="../media/client-features-windows-azure-virtual-desktop-app/azure-virtual-desktop-app-windows-insider.png" alt-text="A screenshot of the Azure Virtual Desktop app with Insider features enabled. The title is highlighted in a red box.":::
 
 If you already have configured the Azure Virtual Desktop app to use Insider releases, you can check for updates to ensure you have the latest Insider release by checking for updates in the normal way. For more information, see [Update the Azure Virtual Desktop app](#update-the-azure-virtual-desktop-app).
 
@@ -257,7 +257,7 @@ The purpose of the Azure Virtual Desktop (HostApp) is to provide core functional
 
 If you want to provide feedback to us on the Azure Virtual Desktop app, you can do so by selecting the button that looks like a smiley face emoji in the app, as shown in the following image. This will open the **Feedback Hub**.
 
-:::image type="content" source="../media/smiley-face-icon.png" alt-text="A screenshot highlighting the feedback button in a red box":::
+:::image type="content" source="../media/smiley-face-icon.png" alt-text="A screenshot highlighting the feedback button in a red box.":::
 
 To best help you, we need you to give us as detailed information as possible. Along with a detailed description, you can include screenshots, attach a file, or make a recording. For more tips about how to provide helpful feedback, see [Feedback](/windows-insider/feedback#add-new-feedback).
 
