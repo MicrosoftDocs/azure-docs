@@ -35,17 +35,12 @@ This documentation contains the following article types:
 
 There are different types of analysis available from this service. The following table describes the currently available API.
 
-| Type                        | Functionality                                                |
-| :-------------------------- | :----------------------------------------------------------- |
-| Text Detection API          | Scans text for sexual, violence, hate speech, and self harm with multi-severity risk levels. |
-| Image Detection API         | Scans image for sexual, violence, hate speech, and self harm with multi-severity risk levels. |
+| Type                        | Functionality           |
+| :-------------------------- | :---------------------- |
+| Text Detection API          | Scans text for sexual content, violence, hate, and self harm with multi-severity risk levels. |
+| Image Detection API         | Scans images for sexual content, violence, hate, and self harm with multi-severity risk levels. |
 | Multimodal Detection API    | Scans both image and text (include separate text or text from OCR of image) for hate content with multi-severity risk levels. |
-| Azure Content Safety Studio |                                                              |
-
-### Azure Content Safety Studio
-
-#### What is Azure Content Safety Studio?
-
+| Azure Content Safety Studio |         |
 
 ## Where it's used
 
