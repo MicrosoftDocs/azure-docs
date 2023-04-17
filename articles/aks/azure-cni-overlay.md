@@ -95,7 +95,6 @@ Use the traditional VNet option when:
 Azure CNI Overlay has the following limitations:
 
 - You can't use Application Gateway as an Ingress Controller (AGIC) for an Overlay cluster.
-- Azure CNI Overlay in Windows is still in preview and should **not** be used in production workloads
 - Windows support is still in Preview
     - Windows Server 2019 node pools are **not** supported for Overlay
     - Traffic from host network pods is not able to reach Windows Overlay pods.
