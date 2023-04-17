@@ -71,11 +71,11 @@ Access the newly created Function app from the [Azure portal](https://portal.azu
 
 :::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-1.png" alt-text="Screenshot of the Azure portal showing Authentication page with adding identity provider." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-1.png":::
 
-Select the **Microsoft** identity provider and configure the application registration. Choose the **Create new app registration** to create a new application. Configure the name for the app registration, or use the function name directly. Select **Current tenant - Single tenant** for the supported account type. Enable App Service Authentication and set the **Restrict access** to **Require authentication**. Then set the "Unauthenticated requests" to "HTTP 401 Unauthorized: recommended for APIs". This setting ensures that all unauthenticated requests are denied (401 response).
+Select the **Microsoft** identity provider and configure the application registration. Choose the **Create new app registration** and configure the app name. Select **Current tenant - Single tenant** for the supported account type. In the **App Service authentication settings**, set the "Restrict access" to "Require authentication" and the "Unauthenticated requests" to "HTTP 302 Found redirect: recommended for websites". This setting ensures that all unauthenticated requests are denied (401 response).
 
 :::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-2.png" alt-text="Screenshot of the Azure portal showing the Microsoft identity provider settings." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-2.png":::
 
-After you save the settings, the function app restarts and all subsequent requests are prompted to log in via Azure AD. You can test that unauthenticated requests are now being rejected by navigating to the function apps root URL (returned in the `hostNames` output in a previous step). You should be redirected to your organizations Azure AD login screen.
+After you add the settings, the function app restarts and all subsequent requests are prompted to log in via Azure AD. You can test that unauthenticated requests are now being rejected by navigating to the function apps root URL (returned in the `hostNames` output in a previous step). You should be redirected to your organizations Azure AD login screen.
 
 ## Create an HTTP Triggered Function
 
