@@ -4,7 +4,7 @@ description: Learn how to configure and use Azure Container Storage with Azure K
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/03/2023
+ms.date: 04/17/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -147,7 +147,7 @@ When you create an AKS cluster, AKS automatically creates a second resource grou
 The initial install uses Azure Arc CLI commands to download a new extension. The `--name` value can be whatever you want. During installation, you might be asked to install the `k8s-extension`. Select **Y**.
 
 ```azurecli-interactive
-az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myContainerStorageRG --name azurecontainerstorage --extension-type microsoft.azstor --scope cluster --release-train staging --release-namespace azstor
+az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myContainerStorageRG --name azurecontainerstorage --extension-type microsoft.azstor --scope cluster --release-train staging --release-namespace acstor
 ```
 
 Installation takes 10-15 minutes to complete. You can check if the installation completed correctly by running the following command and ensuring that `provisioningState` says Succeeded:
@@ -164,12 +164,12 @@ Now you can create a storage pool, which is a logical grouping of storage for yo
 
 2. Paste in the following code. The `name` value can be whatever you want. 
 
-```azurecli-interactive
+```yml
 apiVersion: containerstorage.azure.com/v1alpha1
 kind: StoragePool
 metadata:
    name: azuredisk
-   namespace: azstor
+   namespace: acstor
 spec:
    poolType:
        csi: {}
@@ -193,7 +193,7 @@ storagepool.containerstorage.azure.com/azuredisk created
 You can also run this command to check the status of the storage pool:
 
 ```azurecli-interactive
-kubectl describe sp azuredisk -n azstor
+kubectl describe sp azuredisk -n acstor
 ```
 
 ## Display the available storage classes
@@ -215,7 +215,7 @@ A persistent volume claim is used to automatically provision storage based on a 
 
 2. Paste in the following code. The `name` value can be whatever you want. 
 
-```azurecli-interactive
+```yml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -257,7 +257,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
 
 2. Paste in the following code.
 
-```azurecli-interactive
+```yml
 kind: Pod
 apiVersion: v1
 metadata:
