@@ -53,7 +53,7 @@ A *Stream* is the most granular entity, as there is one Stream per direction (in
 The Call Summary Log contains data to help you identify key properties of all Calls. A different Call Summary Log is created per each `participantId` (`endpointId` in the case of P2P calls) in the Call.
 
 > [!IMPORTANT]
-> Participant information in the call summary log vary based on the participant tenant. The SDK and OS version can redacted if the participant is not within the same tenant (also referred to as cross-tenant) as the ACS resource. Cross-tenants’ participants are classified as external users invited by a resource tenant to join and collaborate during a call.
+> Participant information in the call summary log vary based on the participant tenant. The SDK and OS version is redacted if the participant is not within the same tenant (also referred to as cross-tenant) as the ACS resource. Cross-tenants’ participants are classified as external users invited by a resource tenant to join and collaborate during a call.
 
 |     Property                  |       Description                  |
 |-------------------------------|-------------------------|
