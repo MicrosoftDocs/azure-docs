@@ -425,7 +425,7 @@ With this expression, if the Municipality value is Dallas, Austin, Seattle, or L
 
 When you initiate the Joiners process, you need to set and deliver a temporary password of new user accounts. With cloud HR to Azure AD user provisioning, you can roll out the Azure AD [self-service password reset](../authentication/tutorial-enable-sspr.md) (SSPR) capability for the user on day one.
 
-SSPR is a simple means for IT administrators to enable users to reset their passwords or unlock their accounts. You can provision the **Mobile Number** attribute from the cloud HR app to Active Directory and sync it with Azure AD. After the **Mobile Number** attribute is in Azure AD, you can enable SSPR for the user's account. Then on day one, the new user can use the registered and verified mobile number for authentication. Refer to the [SSPR documentation](../authentication/howto-sspr-authenticationdata.md) for details on how to pre-populate authentication contact information. 
+SSPR is a simple means for IT administrators to enable users to reset their passwords or unlock their accounts. You can provision the **Mobile Number** attribute from the cloud HR app to Active Directory and sync it with Azure AD. After the **Mobile Number** attribute is in Azure AD, you can enable SSPR for the user's account. Then on day one, the new user can use the registered and verified mobile number for authentication. Refer to the [SSPR documentation](../authentication/howto-sspr-authenticationdata.md) for details on how to prepopulate authentication contact information. 
 
 ## Plan for initial cycle
 
