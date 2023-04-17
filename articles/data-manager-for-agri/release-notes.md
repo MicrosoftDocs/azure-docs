@@ -39,3 +39,7 @@ You can connect to Azure Data Manager for Agriculture service from your virtual 
 
 ### BYOL for satellite imagery
 To support scalable ingestion of geometry-clipped imagery, we've partnered with Sentinel Hub by Sinergise to provide a seamless bring your own license (BYOL) experience. Read more about our satellite connector [here](concepts-ingest-satellite-imagery.md). 
+
+## Next steps
+* See the Hierarchy Model and learn how to create and organize your agriculture data  [here](./concepts-hierarchy-model.md).
+* Understand our APIs [here](/rest/api/data-manager-for-agri).
