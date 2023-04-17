@@ -27,20 +27,20 @@ The following are examples of daemon applications:
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
 >[!IMPORTANT]
->For production applications, we recommend implementing Azure AD and Azure role-based access control (Azure RBAC). For an overview of Azure AD concepts, see [Authentication with Azure Maps].
+>For production applications, we recommend implementing Azure AD and Azure role-based access control (Azure RBAC). For an overview of Azure AD concepts, see [Authentication with Azure Maps](azure-maps-authentication.md).
 
 ## Scenario: Shared key authentication with Azure Key Vault
 
-Applications that use Shared Key authentication, should store the keys in a secure store. This scenario describes how to safely store your application key as a secret in Azure Key Vault. Instead of storing the shared key in application configuration, the application can retrieve the shared key as an Azure Key Vault secret. To simplify key regeneration, we recommend that applications use one key at a time. Applications can then regenerate the unused key and deploy the regenerated key to Azure Key Vault while still maintaining current connections with one key. To understand how to configure Azure Key Vault, see [Azure Key Vault developer guide].
+Applications that use Shared Key authentication, should store the keys in a secure store. This scenario describes how to safely store your application key as a secret in Azure Key Vault. Instead of storing the shared key in application configuration, the application can retrieve the shared key as an Azure Key Vault secret. To simplify key regeneration, we recommend that applications use one key at a time. Applications can then regenerate the unused key and deploy the regenerated key to Azure Key Vault while still maintaining current connections with one key. To understand how to configure Azure Key Vault, see [Azure Key Vault developer guide](../key-vault/general/developers-guide.md).
 
 >[!IMPORTANT]
 >This scenario indirectly accesses Azure Active Directory through Azure Key Vault. However, we recommend that you use Azure AD authentication directly. Using Azure AD directly avoids the additional complexity and operational requirements of using shared key authentication and setting up Key Vault.
 
 The following steps outline this process:
 
-1. [Create an Azure Key Vault].
-2. Create an [Azure AD service principal] by creating an App registration or managed identity. The created principal is responsible for accessing the Azure Key Vault.
-3. Assign the service principal access to Azure Key secrets `get` permission. For details about how to set permissions, see [Assign a Key Vault access policy using the Azure portal].
+1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md).
+2. Create an [Azure AD service principal](../active-directory/fundamentals/service-accounts-principal.md) by creating an App registration or managed identity. The created principal is responsible for accessing the Azure Key Vault.
+3. Assign the service principal access to Azure Key secrets `get` permission. For details about how to set permissions, see [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
 4. Temporarily assign access to secrets `set` permission for you as the developer.
 5. Set the shared key in the Key Vault secrets and reference the secret ID as configuration for the daemon application.
 6. Remove your secrets `set` permission.
@@ -73,15 +73,15 @@ Some managed identity benefits are:
 
 ### Host a daemon on non-Azure resources
 
-When running on a non-Azure environment, managed identities aren't available. As such, you must configure a service principal through an Azure AD application registration for the daemon application.
+Managed identities are only available when running on an Azure environment. As such, you must configure a service principal through an Azure AD application registration for the daemon application.
 
 #### Create new application registration
 
-If you've already created your application registration, go to [Assign delegated API permissions].
+If you have already created your application registration, go to [Assign delegated API permissions](#assign-delegated-api-permissions).
 
 To create a new application registration:
 
-1. Sign in to the [Azure portal].
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **Azure Active Directory**.
 
@@ -101,7 +101,7 @@ To create a new application registration:
 
 To assign delegated API permissions to Azure Maps:
 
-1. If you haven't done so already, sign in to the [Azure portal].
+1. If you haven't done so already, sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **Azure Active Directory**.
 
@@ -169,18 +169,18 @@ To create a client secret:
 
    :::image type="content" border="true" source="./media/how-to-manage-authentication/new-client-secret-add.png" alt-text="Add new client secret.":::
 
-5. Copy the secret and store it securely in a service such as Azure Key Vault. Also, We'll use the secret in the [Request token with Managed Identity](#request-a-token-with-managed-identity) section of this article.
+5. Copy the secret and store it securely in a service such as Azure Key Vault. Also, use the secret in the [Request token with Managed Identity](#request-a-token-with-managed-identity) section of this article.
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/copy-client-secret.png" alt-text="Copy client secret.":::
 
      >[!IMPORTANT]
-     >To securely store the certificate or secret, see the [Azure Key Vault developer guide]. You'll use this secret to get tokens from Azure AD.
+     >To securely store the certificate or secret, see the [Azure Key Vault Developer Guide](../key-vault/general/developers-guide.md). You'll use this secret to get tokens from Azure AD.
 
 [!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ### Request a token with managed identity
 
-After a managed identity is configured for the hosting resource, you can use Azure SDK or REST API to acquire a token for Azure Maps. To learn how to acquire an access token, see [Acquire an access token].
+After a managed identity is configured for the hosting resource, you can use Azure SDK or REST API to acquire a token for Azure Maps. To learn how to acquire an access token, see [Acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ### Request token with application registration
 
@@ -188,7 +188,7 @@ After you register your app and associate it with Azure Maps, you'll need to req
 
 To acquire the access token:
 
-1. If you haven't done so already, sign in to the [Azure portal].
+1. If you haven't done so already, sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **Azure Active Directory**.
 
@@ -200,7 +200,7 @@ To acquire the access token:
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/get-token-params.png" alt-text="Copy token parameters.":::
 
-We'll use the [Postman] application to create the token request, but you can use a different API development environment.
+This article uses the [Postman](https://www.postman.com/) application to create the token request, but you can use a different API development environment.
 
 1. In the Postman app, select **New**.
 
@@ -229,32 +229,18 @@ We'll use the [Postman] application to create the token request, but you can use
 }
 ```
 
-For more information about authentication flow, see [OAuth 2.0 client credentials flow on the Microsoft identity platform]
+For more information about authentication flow, see [OAuth 2.0 client credentials flow on the Microsoft identity platform](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret)
 
 ## Next steps
 
 For more detailed examples:
 > [!div class="nextstepaction"]
-> [Authentication scenarios for Azure AD]
+> [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md)
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
-> [View usage metrics]
+> [View usage metrics](how-to-view-api-usage.md)
 
 Explore samples that show how to integrate Azure AD with Azure Maps:
 > [!div class="nextstepaction"]
-> [Azure Maps samples]
-
-[Acquire an access token]: ../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md
-[Assign a Key Vault access policy using the Azure portal]: ../key-vault/general/assign-access-policy-portal.md
-<!---[Assign delegated API permissions]: #assign-delegated-api-permissions-->
-<!--[Authentication scenarios for Azure AD]: ../active-directory/develop/authentication-vs-authorization.md-->
-[Authentication with Azure Maps]: azure-maps-authentication.md
-[Azure AD service principal]: ../active-directory/fundamentals/service-accounts-principal.md
-[Azure Key Vault developer guide]: ../key-vault/general/developers-guide.md
-[Azure Maps samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
-[Azure portal]: https://portal.azure.com
-[Create an Azure Key Vault]: ../key-vault/general/quick-create-portal.md
-[OAuth 2.0 client credentials flow on the Microsoft identity platform]: ../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret
-[Postman]: https://www.postman.com
-[View usage metrics]: how-to-view-api-usage.md
+> [Azure Maps samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
