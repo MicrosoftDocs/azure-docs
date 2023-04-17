@@ -22,15 +22,13 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 ## Prerequisites
 
-* A deployed Azure Spring Apps instance.
-* An Azure Cosmos DB account and a database.
-* The Azure Spring Apps extension for the Azure CLI.
-
-If you don't have a deployed Azure Spring Apps instance, follow the steps in the [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
+* An application deployed to Azure Spring Apps. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
+* An Azure Cosmos DB database instance.
+* [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 
 ## Prepare your Java project
 
-1. Add one of the following dependencies to your application's pom.xml pom.xml file. Choose the dependency that is appropriate for your API type.
+1. Add one of the following dependencies to your application's pom.xml file. Choose the dependency that is appropriate for your API type.
 
    * API type: NoSQL
 
@@ -60,15 +58,6 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
      </dependency>
      ```
 
-   * API type: Azure Table
-
-     ```xml
-     <dependency>
-         <groupId>com.azure.spring</groupId>
-         <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
-         <version>4.7.0</version>
-     </dependency>
-     ```
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 
@@ -117,39 +106,6 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
    1. Once the connection between your Spring apps and your Cosmos DB database has been generated, you can see it in the Service Connector page and select the unfold button to view the configured connection variables.
 
-### [Service Binding](#tab/Service-Binding)
-
-> [!NOTE]
-> We recommend using Service Connector instead of Service Binding to connect your app to your database. Service Binding is going to be deprecated in favor of Service Connector. For instructions, see the Service Connector tab.
-
-Azure Cosmos DB has five different API types that support binding. The following procedure shows how to use them:
-
-1. Create an Azure Cosmos DB database. Refer to the quickstart on [creating a database](../cosmos-db/create-cosmosdb-resources-portal.md) for help.
-
-1. Record the name of your database. For this procedure, the database name is **testdb**.
-
-1. Go to your Azure Spring Apps service page in the Azure portal. Go to **Application Dashboard** and select the application to bind to Azure Cosmos DB. This application is the same one you updated or deployed in the previous step.
-
-1. Select **Service binding**, and select **Create service binding**. To fill out the form, select:
-
-   * The **Binding type** value **Azure Cosmos DB**.
-   * The API type.
-   * Your database name.
-   * The Azure Cosmos DB account.
-
-   > [!NOTE]
-   > If you are using Cassandra, use a key space for the database name.
-
-1. Restart the application by selecting **Restart** on the application page.
-
-1. To ensure the service is bound correctly, select the binding name and verify its details. The `property` field should be similar to this example:
-
-   ```properties
-   spring.cloud.azure.cosmos.endpoint=https://<some account>.documents.azure.com:443
-   spring.cloud.azure.cosmos.key=abc******
-   spring.cloud.azure.cosmos.database=testdb
-   ```
-
 ### [Terraform](#tab/Terraform)
 
 The following Terraform script shows how to set up an Azure Spring Apps app with an Azure Cosmos DB account.
@@ -162,7 +118,7 @@ provider "azurerm" {
 variable "application_name" {
   type        = string
   description = "The name of your application"
-  default     = "demo-abc"
+  default     = "demo-cosmosdb"
 }
 
 resource "azurerm_resource_group" "example" {
@@ -214,7 +170,7 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
     cpu    = "2"
     memory = "4Gi"
   }
-  instance_count      = 2
+  instance_count      = 1
   jvm_options         = "-XX:+PrintGC"
   runtime_version     = "Java_11"
 
