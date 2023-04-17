@@ -147,7 +147,7 @@
             - name: Export and delete data
               displayName: GDPR
               href: how-to-export-delete-data.md
-    - name: Train models
+#   - name: Train models
       items:
         - name: Model training
           displayName: run config, machine learning pipeline, ml pipeline, train model
