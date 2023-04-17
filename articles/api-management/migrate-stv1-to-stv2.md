@@ -5,7 +5,7 @@ description: Follow the steps in this article to migrate your Azure API Manageme
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 04/17/2023
 ms.author: danlep
 
 ---
@@ -14,14 +14,15 @@ ms.author: danlep
 
 You can migrate an API Management instance hosted on the `stv1` compute platform to the `stv2` platform. This article provides migration steps for two scenarios, depending on whether or not your API Management instance is currently deployed (injected) in an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet.
 
-* **Non-VNet-injected API Management instance** - Use the [Migrate to stv2](/rest/api/apimanagement/current-preview/api-management-service/migratetostv2) REST API
+* **Non-VNet-injected API Management instance** - Use the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API
 
-* **VNet-injected API Management instance** - Update the VNet connection, or enable zone redundancy
+* **VNet-injected API Management instance** - Manually update the VNet configuration settings
 
 For more information about the `stv1` and `stv2` platforms and the benefits of using the `stv2` platform, see [Compute platform for API Management](compute-infrastructure.md).
 
 > [!IMPORTANT]
-> * Migration is a long-running operation and could take several minutes to complete. Your instance will experience downtime during the migration.
+> * Migration is a long-running operation. Your instance will experience downtime during the last 10-15 minutes of migration. Plan your migration accordingly.
+> * The VIP address(es) of your API Management will change.
 > * Migration to `stv2` is not reversible.
 
 > [!IMPORTANT]
@@ -61,20 +62,22 @@ RG_NAME={name of your resource group}
 APIM_RESOURCE_ID=$(az apim show --name $APIM_NAME --resource-group $RG_NAME --query id --output tsv)
 
 # Call REST API to migrate to stv2
-az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2022-04-01-preview"
+az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2022-08-01"
 ```
 
 ## Scenario 2: Migrate a network-injected API Management instance
 
-Trigger migration of a network-injected API Management instance to the `stv2` platform by updating the existing network configuration (see the following section), or enable [zone redundancy](../reliability/migrate-api-mgt.md).
+Trigger migration of a network-injected API Management instance to the `stv2` platform by updating the existing network configuration (see the following section). You can also cause migrate to the `stv2` platform by enabling [zone redundancy](../reliability/migrate-api-mgt.md).
 
 ### Update VNet configuration
 
+Update the configuration of the VNet in each location (region) where the API Management instance is deployed.
+
 #### Prerequisites
 
-* A new or existing virtual network and subnet in the same region and subscription as your API Management instance. The subnet must be different from the one currently used for the instance hosted on the `stv1` platform, and a network security group must be attached.
+* A new subnet in the current virtual network. (Alternatively, set up a subnet in a different virtual network in the same region and subscription as your API Management instance). A network security group must be attached to the subnet.
 
-* A new or existing Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region and subscription as your API Management instance.
+* A Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region and subscription as your API Management instance.
 
 For details, see [Prerequisites for network connections](api-management-using-with-vnet.md#prerequisites).
 
@@ -91,11 +94,6 @@ To update the existing external or internal VNet configuration:
 
 The virtual network configuration is updated, and the instance is migrated to the `stv2` platform.
 
-> [!NOTE]
-> * Updating the VNet configuration takes from 15 to 45 minutes to complete.
-> * The VIP address(es) of your API Management instance will change.
-
-
 ## Verify migration
 
 To verify that the migration was successful, check the [platform version](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance) of your API Management instance. After successful migration, the value is `stv2`.
@@ -103,3 +101,4 @@ To verify that the migration was successful, check the [platform version](comput
 ## Next steps
 
 * Learn about [stv1 platform retirement](breaking-changes/stv1-platform-retirement-august-2024.md).
+* For instances deployed in a VNet, see the [Virtual network configuration reference](virtual-network-reference.md).
