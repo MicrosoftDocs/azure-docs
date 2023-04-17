@@ -2,9 +2,9 @@
 title: Release annotations for Application Insights | Microsoft Docs
 description: Learn how to create annotations to track deployment or other significant events with Application Insights.
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 01/24/2023
 ms.reviewer: casocha
-
 ---
 
 # Release annotations for Application Insights
@@ -170,7 +170,7 @@ To create release annotations, install one of the many Azure DevOps extensions a
 
 1. On the **Visual Studio Marketplace** [Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) page, select your Azure DevOps organization. Select **Install** to add the extension to your Azure DevOps organization.
 
-   ![Screenshot that shows selecting an Azure DevOps organization and selecting Install.](./media/annotations/1-install.png)
+   :::image type="content" source="./media/annotations/1-install.png" lightbox="./media/annotations/1-install.png" alt-text="Screenshot that shows selecting an Azure DevOps organization and selecting Install.":::
 
 You only need to install the extension once for your Azure DevOps organization. You can now configure release annotations for any project in your organization.
 
@@ -182,34 +182,34 @@ Create a separate API key for each of your Azure Pipelines release templates.
 
 1. Open the **API Access** tab and copy the **Application Insights ID**.
 
-   ![Screenshot that shows under API Access, copying the Application ID.](./media/annotations/2-app-id.png)
+   :::image type="content" source="./media/annotations/2-app-id.png" lightbox="./media/annotations/2-app-id.png" alt-text="Screenshot that shows under API Access, copying the Application ID.":::
 
 1. In a separate browser window, open or create the release template that manages your Azure Pipelines deployments.
 
 1. Select **Add task** and then select the **Application Insights Release Annotation** task from the menu.
    
-   ![Screenshot that shows selecting Add Task and Application Insights Release Annotation.](./media/annotations/3-add-task.png)
+   :::image type="content" source="./media/annotations/3-add-task.png" lightbox="./media/annotations/3-add-task.png" alt-text="Screenshot that shows selecting Add Task and Application Insights Release Annotation.":::
 
    > [!NOTE]
    > The Release Annotation task currently supports only Windows-based agents. It won't run on Linux, macOS, or other types of agents.
 
 1. Under **Application ID**, paste the Application Insights ID you copied from the **API Access** tab.
 
-   ![Screenshot that shows pasting the Application Insights ID.](./media/annotations/4-paste-app-id.png)
+   :::image type="content" source="./media/annotations/4-paste-app-id.png" lightbox="./media/annotations/4-paste-app-id.png" alt-text="Screenshot that shows pasting the Application Insights ID.":::
 
 1. Back in the Application Insights **API Access** window, select **Create API Key**.
 
-   ![Screenshot that shows selecting the Create API Key on the API Access tab.](./media/annotations/5-create-api-key.png)
+   :::image type="content" source="./media/annotations/5-create-api-key.png" lightbox="./media/annotations/5-create-api-key.png" alt-text="Screenshot that shows selecting the Create API Key on the API Access tab.":::
 
 1. In the **Create API key** window, enter a description, select **Write annotations**, and then select **Generate key**. Copy the new key.
 
-   ![Screenshot that shows in the Create API key window, entering a description, selecting Write annotations, and then selecting the Generate key.](./media/annotations/6-create-api-key.png)
+   :::image type="content" source="./media/annotations/6-create-api-key.png" lightbox="./media/annotations/6-create-api-key.png" alt-text="Screenshot that shows in the Create API key window, entering a description, selecting Write annotations, and then selecting the Generate key.":::
 
 1. In the release template window, on the **Variables** tab, select **Add** to create a variable definition for the new API key.
 
 1. Under **Name**, enter **ApiKey**. Under **Value**, paste the API key you copied from the **API Access** tab.
 
-   ![Screenshot that shows in the Azure DevOps Variables tab, selecting Add, naming the variable ApiKey, and pasting the API key under Value.](./media/annotations/7-paste-api-key.png)
+   :::image type="content" source="./media/annotations/7-paste-api-key.png" lightbox="./media/annotations/7-paste-api-key.png" alt-text="Screenshot that shows in the Azure DevOps Variables tab, selecting Add, naming the variable ApiKey, and pasting the API key under Value.":::
 
 1. Select **Save** in the main release template window to save the template.
 

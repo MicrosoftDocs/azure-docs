@@ -180,11 +180,11 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 
 |  Model ID  |   Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --------- |  --------------------- | ------------------- | -------------------- | ---------------------- |
-| ada        |	N/A	                  | South Central US <sup>2</sup> | 2,049 | Oct 2019|
+| ada        |	N/A	                  | East US <sup>2</sup> | 2,049 | Oct 2019|
 | text-ada-001 | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019|
-| babbage | N/A | South Central US<sup>2</sup> | 2,049 | Oct 2019 |
+| babbage | N/A | East US<sup>2</sup> | 2,049 | Oct 2019 |
 | text-babbage-001 | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
-| curie | N/A | South Central US<sup>2</sup> | 2,049 | Oct 2019 |
+| curie | N/A | East US<sup>2</sup> | 2,049 | Oct 2019 |
 | text-curie-001  | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
 | davinci<sup>1</sup> | N/A | Currently unavailable | 2,049 | Oct 2019|
 | text-davinci-001 | South Central US, West Europe | N/A |  |  |
@@ -194,7 +194,7 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | gpt-35-turbo<sup>3</sup> (ChatGPT) (preview) | East US, South Central US | N/A | 4,096 | Sep 2021 |
 
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
-<br><sup>2</sup> East US and West Europe were previously available, but due to high demand they are currently unavailable for new customers to use for fine-tuning. Please use US South Central region for fine-tuning.
+<br><sup>2</sup> South Central US and West Europe were previously available, but due to high demand they are currently unavailable for new customers to use for fine-tuning. Please use the East US region for fine-tuning.
 <br><sup>3</sup> Currently, only version `0301` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
 
 ### GPT-4 Models
