@@ -9,7 +9,7 @@ ms.date: 03/23/2023
 ms.custom: template-how-to
 ---
 
-# How to view the output of an `az networkcloud run-read-command` in the Cluster Manager Storage account
+# How to view the output of an `az networkcloud baremetalmachine run-read-command` in the Cluster Manager Storage account
 
 This guide walks you through accessing the output file that is created in the Cluster Manager Storage account when an `az networkcloud baremetalmachine run-read-command` is executed on a server. The name of the file is identified in the `az rest` status output.
 
