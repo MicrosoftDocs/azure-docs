@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services Call Automation Logs
+title: Azure Communication Services Call Automation logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging for Azure Communication Services Call Automation.
 author: ddematheu2
@@ -26,7 +26,7 @@ Communication Services offers the following types of logs that you can enable:
 * **Usage logs** - provides usage data associated with each billed service offering
 * **Call Automation operational logs** - provides operational information on Call Automation API requests. These logs can be used to identify failure points, query all requests made in a call (using Correlation ID or Server Call ID) or query all requests made by a specific service application in the call (using Participant ID).
 
-### Usage logs schema
+## Usage logs schema
 
 | Property | Description |
 | -------- | ---------------|
@@ -41,7 +41,7 @@ Communication Services offers the following types of logs that you can enable:
 | `Unit Type` | The type of unit that usage is based off for a given mode of usage. (for example, minutes, megabytes, messages, etc.). |
 | `Quantity` | The number of units used or consumed for this record. |
 
-### Call Automation operational logs
+## Call Automation operational logs
 
 | Property | Description |
 | -------- | ---------------|

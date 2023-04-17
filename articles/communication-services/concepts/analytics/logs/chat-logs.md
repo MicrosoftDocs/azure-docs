@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services Chat Logs
+title: Azure Communication Services Chat logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging for Azure Communication Services Chat.
 author: ddematheu2
@@ -27,7 +27,7 @@ Communication Services offers the following types of logs that you can enable:
 * **Authentication operational logs** - provides basic information related to the Authentication service
 * **Chat operational logs** - provides basic information related to the chat service
 
-### Usage logs schema
+## Usage logs schema
 
 | Property | Description |
 | -------- | ---------------|
@@ -42,7 +42,7 @@ Communication Services offers the following types of logs that you can enable:
 | `Unit Type` | The type of unit that usage is based off for a given mode of usage. (for example, minutes, megabytes, messages, etc.). |
 | `Quantity` | The number of units used or consumed for this record. |
 
-### Authentication operational logs
+## Authentication operational logs
 
 | Property | Description |
 | -------- | ---------------|
@@ -62,7 +62,7 @@ Communication Services offers the following types of logs that you can enable:
 | `Identity` | The identity of Azure Communication Services or Teams user related to the operation. |
 | `Scopes` | The Communication Services scopes present in the access token. |
 
-### Chat operational logs
+## Chat operational logs
 
 | Property | Description |
 | -------- | ---------------|

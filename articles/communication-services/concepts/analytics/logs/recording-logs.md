@@ -19,8 +19,6 @@ Azure Communication Services offers logging capabilities that you can use to mon
 > [!IMPORTANT]
 > The following refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
 
-Call Recording Summary Logs
-
 ## Resource log categories
 
 Communication Services offers the following types of logs that you can enable:

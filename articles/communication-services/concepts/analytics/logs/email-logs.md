@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services Email Logs
+title: Azure Communication Services Email logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging for Azure Communication Services Email.
 author: ddematheu2
@@ -28,7 +28,7 @@ Communication Services offers the following types of logs that you can enable:
 * **Email Status Update operational logs** - provides message and recipient level delivery status updates related to the Email service send mail requests.
 * **Email User Engagement operational logs** - provides information related to 'open' and 'click' user engagement metrics for messages sent from the Email service.
 
-### Usage logs schema
+## Usage logs schema
 
 | Property | Description |
 | -------- | ---------------|
@@ -43,7 +43,7 @@ Communication Services offers the following types of logs that you can enable:
 | `Unit Type` | The type of unit that usage is based off for a given mode of usage. (for example, minutes, megabytes, messages, etc.). |
 | `Quantity` | The number of units used or consumed for this record. |
 
-### Email Send Mail operational logs
+## Email Send Mail operational logs
 
 | Property | Description |
 | -------- | ---------------|
@@ -60,7 +60,7 @@ Communication Services offers the following types of logs that you can enable:
 | `UniqueRecipientsCount` | This is the deduplicated total recipient count for the To, Cc and Bcc address fields. |
 | `AttachmentsCount` | The total # of attachments. |
 
-### Email Status Update operational logs
+## Email Status Update operational logs
 
 | Property | Description |
 | -------- | ---------------|
@@ -73,7 +73,7 @@ Communication Services offers the following types of logs that you can enable:
 | `RecipientId` | The email address for the targeted recipient. If this is a message-level event, the property will be empty. |
 | `DeliveryStatus` | The terminal status of the message. |
 
-### Email User Engagement operational logs
+## Email User Engagement operational logs
 
 | Property | Description |
 | -------- | ---------------|

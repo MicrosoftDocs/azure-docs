@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services Network Traversal Logs
+title: Azure Communication Services Network Traversal logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging for Azure Communication Services Network Traversal.
 author: ddematheu2
@@ -26,7 +26,7 @@ Communication Services offers the following types of logs that you can enable:
 * **Usage logs** - provides usage data associated with each billed service offering
 * **Network Traversal operational logs** - provides basic information related to the Network Traversal service
 
-### Usage logs schema
+## Usage logs schema
 
 | Property | Description |
 | -------- | ---------------|
@@ -41,7 +41,7 @@ Communication Services offers the following types of logs that you can enable:
 | `Unit Type` | The type of unit that usage is based off for a given mode of usage. (for example, minutes, megabytes, messages, etc.). |
 | `Quantity` | The number of units used or consumed for this record. |
 
-### Network Traversal operational logs
+## Network Traversal operational logs
 
 | Dimension | Description|
 |------------------|--------------------|

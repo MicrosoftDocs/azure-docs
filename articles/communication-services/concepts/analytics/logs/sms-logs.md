@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services SMS Logs
+title: Azure Communication Services SMS logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging for Azure Communication Services SMS.
 author: mkhribech
@@ -14,18 +14,24 @@ ms.subservice: data
 
 # Azure Communication Services SMS Logs
 
+Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
+
+> [!IMPORTANT]
+> The following refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
+
 ## Pre-requisites
 
 Azure Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](../../../../azure-monitor/logs/data-platform-logs.md) and [Azure Monitor Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
   * Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
   * One or more destinations to send the logs. Current destinations include Log Analytics workspace, Event Hubs, and Azure Storage.
   * A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to five diagnostic settings.
+
 The following are instructions for configuring your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
 
-***Note***: Under diagnostic setting name please select “SMS Operational” to enable the logs for SMS.
+> [!NOTE]
+> Under diagnostic setting name please select “SMS Operational” to enable the logs for SMS.
 
-
-## **Overview**: 
+## **Overview**
 
 SMS operational logs are records of events and activities that provide insights into your SMS API requests. They captured details about the performance and functionality of the SMS primitive, including details about the status of message whether they were successfully delivered, blocked, or failed to send.
 SMS operational logs contain information that help identify trends and patterns, resolve issues that might be impacting performance such failed message deliveries or serve issues. The logs include the following details:
@@ -34,7 +40,7 @@ SMS operational logs contain information that help identify trends and patterns,
  *   Messages delivered. 
  *   Messages opt-in & opt-out.  
 
-## *Resource log categories*
+## Resource log categories
 
 Communication Services offers the following types of logs that you can enable:
 
@@ -42,7 +48,7 @@ Communication Services offers the following types of logs that you can enable:
 * **SMS operational logs** - provides basic information related to the SMS service
 
 
-### *Usage logs schema*
+### Usage logs schema
 
 | Property | Description |
 | -------- | ---------------|
@@ -57,7 +63,7 @@ Communication Services offers the following types of logs that you can enable:
 | `Unit Type` | The type of unit that usage is based off for a given mode of usage. (for example, minutes, megabytes, messages, etc.). |
 | `Quantity` | The number of units used or consumed for this record. |
 
-### *SMS operational logs*
+### SMS operational logs
 
 | Property | Description |
 | -------- | ---------------|
