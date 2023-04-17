@@ -28,11 +28,9 @@ You can view debug snapshots in the portal to see the call stack and inspect var
 
 Snapshot collection is available for:
 
-- .NET Framework and ASP.NET applications running .NET Framework 4.6.2 and newer versions.
-- .NET and ASP.NET applications running .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) and newer versions on Windows.
-- .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) (and newer versions) applications on Windows.
+- .NET Framework 4.6.2 and newer versions.
+- .NET 6+ on Windows.
 
-We don't recommend using .NET Core versions prior to LTS since they're out of support.
 
 The following environments are supported:
 

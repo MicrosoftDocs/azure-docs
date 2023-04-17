@@ -42,14 +42,12 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **.NET Core version**: All officially [supported .NET Core versions](https://dotnet.microsoft.com/download/dotnet-core) that aren't in preview
 * **IDE**: Visual Studio, Visual Studio Code, or command line
 
-> [!NOTE]
-> ASP.NET Core 6.0 requires [Application Insights 2.19.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.19.0) or later.
-
 ## Prerequisites
 
 You need:
 
 - A functioning ASP.NET Core application. If you need to create an ASP.NET Core application, follow this [ASP.NET Core tutorial](/aspnet/core/getting-started/).
+- A reference to a recent version of [Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package.
 - A valid Application Insights connection string. This string is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get a connection string, see [Create an Application Insights resource](./create-new-resource.md).
 
 ## Enable Application Insights server-side telemetry (Visual Studio)
@@ -101,22 +99,6 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
     builder.Services.AddMvc();
 
     var app = builder.Build();
-    ```
-    
-    ### [ASP.NET Core 5 and earlier](#tab/netcoreold)
-    
-    Add `services.AddApplicationInsightsTelemetry();` to the `ConfigureServices()` method in your `Startup` class, as in this example:
-    
-    ```csharp
-    // This method gets called by the runtime. Use this method to add services to the container.
-    public void ConfigureServices(IServiceCollection services)
-    {
-        // The following line enables Application Insights telemetry collection.
-        services.AddApplicationInsightsTelemetry();
-
-        // This code adds other services for your application.
-        services.AddMvc();
-    }
     ```
     
     ---
@@ -331,18 +313,6 @@ var app = builder.Build();
 
 > [!NOTE]
 > `builder.Services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` works for simple initializers. For others, `builder.Services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });` is required.
-
-### [ASP.NET Core 5 and earlier](#tab/netcoreold)
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
-}
-```
-
-> [!NOTE]
-> `services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();` works for simple initializers. For others, `services.AddSingleton(new MyCustomTelemetryInitializer() { fieldName = "myfieldName" });` is required.
 
 ---
 
