@@ -401,10 +401,10 @@ Capture information from log files using
 following example Bash script can be helpful.
 
 ```bash
-linesToIncludeBeforeMatch=0
-linesToIncludeAfterMatch=10
-logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
-egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
+LINES_TO_INCLUDE_BEFORE_MATCH=0
+LINES_TO_INCLUDE_AFTER_MATCH=10
+LOGPATH=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
+egrep -B $LINES_TO_INCLUDE_BEFORE_MATCH -A $LINES_TO_INCLUDE_AFTER_MATCH 'DSCEngine|DSCManagedEngine' $LOGPATH | tail
 ```
 
 ### Agent files
