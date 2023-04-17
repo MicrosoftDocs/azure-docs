@@ -7,7 +7,7 @@ ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devdivchpfy22
-ms.date: 08/18/2022
+ms.date: 04/10/2023
 ---
 
 # Debug snapshots on exceptions in .NET apps
@@ -28,9 +28,9 @@ You can view debug snapshots in the portal to see the call stack and inspect var
 
 Snapshot collection is available for:
 
-* .NET Framework and ASP.NET applications running .NET Framework [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or later.
-* .NET Core and ASP.NET Core applications running .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) on Windows.
-* .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) applications on Windows.
+- .NET Framework and ASP.NET applications running .NET Framework 4.6.2 and newer versions.
+- .NET and ASP.NET applications running .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) and newer versions on Windows.
+- .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) (and newer versions) applications on Windows.
 
 We don't recommend using .NET Core versions prior to LTS since they're out of support.
 

@@ -32,6 +32,8 @@ Azure Machine Learning registries (preview) enable you to create and use those a
 
 [!INCLUDE [CLI v2 preres](../../includes/machine-learning-cli-prereqs.md)]
 
+[!INCLUDE [CLI v2 update](./includes/new-feature-cli.md)]
+
 ## Prepare to create registry
 
 You need to decide the following information carefully before proceeding to create a registry:
@@ -94,7 +96,7 @@ You can create registries in Azure Machine Learning studio using the following s
     > If you are in a workspace, navigate to the global UI by clicking your organization or tenant name in the navigation pane to find the __Registries__ entry.  You can also go directly there by navigating to [https://ml.azure.com/registries](https://ml.azure.com/registries).
 
     :::image type="content" source="./media/how-to-manage-registries/studio-create-registry-button.png" lightbox="./media/how-to-manage-registries/studio-create-registry-button.png" alt-text="Screenshot of the create registry screen.":::
-	
+    
 1. Enter the registry name, select the subscription and resource group and then select __Next__.
 
     :::image type="content" source="./media/how-to-manage-registries/studio-create-registry-basics.png" alt-text="Screenshot of the registry creation basics tab.":::
@@ -111,7 +113,7 @@ You can create registries in Azure Machine Learning studio using the following s
 1. From the [Azure portal](https://portal.azure.com), navigate to the Azure Machine Learning service. You can get there by searching for __Azure Machine Learning__ in the search bar at the top of the page or going to __All Services__ looking for __Azure Machine Learning__ under the __AI + machine learning__ category. 
 
 1. Select __Create__, and then select __Azure Machine Learning registry__. Enter the registry name, select the subscription, resource group and primary region, then select __Next__.
-	
+    
 1. Select the additional regions the registry must support, then select __Next__ until you arrive at the __Review + Create__ tab.
 
     :::image type="content" source="./media/how-to-manage-registries/create-registry-review.png" alt-text="Screenshot of the review + create tab.":::
