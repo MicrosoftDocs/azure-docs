@@ -4,7 +4,7 @@ titleSuffix: Microsoft Defender EASM
 description: This article describes how users are billed for their Defender EASM resource usage, and guides them to the dashboard that displays their counts. 
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 11/28/2022
 ms.topic: how-to
 ---
