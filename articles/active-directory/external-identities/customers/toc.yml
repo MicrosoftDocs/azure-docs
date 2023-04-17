@@ -6,6 +6,18 @@ items:
   items:   
     - name: What is Azure AD for customers?  
       href: overview-customers-ciam.md 
+    - name: "Solutions at-a-glance: Woodgrove demo"
+      href: overview-solutions-customers.md 
+- name: Quickstarts
+  expanded: true
+  items: 
+    - name: Explore a free trial
+      href: quickstart-trial-explore-features.md 
+- name: Samples
+  expanded: true
+  items: 
+    - name: Samples by app type and language
+      href: quickstart-app-samples-all.md
 - name: Concepts
   expanded: true
   items: 
@@ -27,17 +39,6 @@ items:
       href: concept-tokens-claims-endpoints-customers.md
     - name: Security and governance
       href: concept-security-customers.md  	  	  
-- name: Quickstarts
-  expanded: true
-  items: 
-    - name: Explore a free trial
-      href: quickstart-trial-explore-features.md 
-    - name: Customer tenant and sign-in (portal)
-      href: quickstart-customer-tenant-portal.md
-    - name: Add sign-in to your app (developers)
-      href: quickstart-add-sign-in.md
-    - name: Quickstarts by app type and platform
-      href: quickstart-app-samples-all.md
 - name: How-to guides
   expanded: true
   items:
