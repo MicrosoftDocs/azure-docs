@@ -891,7 +891,7 @@ sections:
 
           |Feature                                                                                                  | .NET      | Node.js   | Python    | Java               |
           |---------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|--------------------|
-          | [Distributed tracing](app/distributed-tracing.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Distributed tracing](app/distributed-tracing-telemetry-correlation.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Custom metrics](app/opentelemetry-enable.md#add-custom-metrics)                                        | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Standard metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                   | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Fixed-rate sampling](app/sampling.md)                                                                  | :warning: | :warning: | :warning: | :white_check_mark: |
@@ -899,7 +899,7 @@ sections:
           | [Exception reporting](app/asp-net-exceptions.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Logs collection](app/asp-net-trace-logs.md)                                                            | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Azure Active Directory authentication](app/azure-ad-authentication.md)                           | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Autopopulate cloud role name/role instance on Azure](app/correlation.md#role-names)                  | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Autopopulate cloud role name/role instance on Azure](app/distributed-tracing-telemetry-correlation.md#role-names)                  | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Live metrics](app/live-stream.md)                                                                      | :x:       | :x:       | :x:       | :white_check_mark: |
           | Autopopulation of user ID, authenticated user ID, and user IP                                           | :x:       | :x:       | :x:       | :white_check_mark: |
           | Manually override/set operation name, user ID, or authenticated user ID                                  | :x:       | :x:       | :x:       | :white_check_mark: |

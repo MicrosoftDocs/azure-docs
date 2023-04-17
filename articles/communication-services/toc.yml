@@ -121,7 +121,7 @@ items:
         - name: Create an access token
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting chat to your app
-          href: quickstarts/chat/meeting-interop.md   
+          href: quickstarts/chat/meeting-interop.md
     - name: Use UI components for chat
       href: quickstarts/ui-library/get-started-chat-ui-library.md
   - name: Phone calling
@@ -210,6 +210,8 @@ items:
         href: how-tos/calling-sdk/lobby-admit-and-reject.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
+      - name: Raise Hand
+        href: how-tos/calling-sdk/raise-hand.md
       - name: Show transcription state
         href: how-tos/calling-sdk/call-transcription.md
       - name: Manage role assignment
@@ -304,6 +306,10 @@ items:
       href: tutorials/file-sharing-tutorial.md
     - name: Integrate with data loss prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
+    - name: Connect to Teams
+      items:
+      - name: Enable inline image interoperability in your chat app
+        href: tutorials/chat-interop/meeting-interop-features-inline-image.md
     - name: Mobile integrations
       items:
       - name: Enable push notifications in your chat app
@@ -324,16 +330,14 @@ items:
         href: concepts/analytics/insights/chat-insights.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
-    - name: Phone calling
+  - name: Phone calling
+    items:
+    - name: Add emergency calling to your app
+      href: quickstarts/telephony/emergency-calling.md
+    - name: Phone numbers
       items:
-      - name: Add emergency calling to your app
-        href: quickstarts/telephony/emergency-calling.md
-      - name: Validate a domain for direct routing
-        href: how-tos/telephony/domain-validation.md
-      - name: Phone numbers
-        items:
-        - name: Port a phone number into Azure
-          href: quickstarts/telephony/port-phone-number.md
+      - name: Port a phone number into Azure
+        href: quickstarts/telephony/port-phone-number.md
     - name: Call Automation
       items:
       - name: Build a workflow for customer interactions 
