@@ -120,7 +120,7 @@ The first step in creating Panorama blocking policies in Defender for IoT is to 
 
 **To configure DNS lookup**:
 
-1. In the sensor console, select **System settings** > **Network monitoring** > **DNS Reverse Lookup**.
+1. Sign in to your OT sensor and select **System settings** > **Network monitoring** > **DNS Reverse Lookup**.
 
 1. Turn on the **Enabled** toggle to activate the lookup.
 
@@ -149,7 +149,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 **To block suspicious traffic with the Palo Alto firewall using a Defender for IoT forwarding rule**:
 
-1. Select **Forwarding**, then select **Create Forwarding Rule**.
+1. Sign into the OT sensor and select **Forwarding** > **Create Forwarding Rule**.
 
 1. From the **Actions** drop down menu, select **Send to Palo Alto Panorama**.
 
@@ -161,7 +161,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
     | **Port** | Enter the Panorama server port. |
     | **Username** | Enter the Panorama server username. |
     | **Password** | Enter the Panorama server password. |
-    | **Report Address**: Define how the blocking is executed, as follows: <br><br> - **By IP Address**: Always creates blocking policies on Panorama based on the IP address. <br> - **By FQDN or IP Address**: Creates blocking policies on Panorama based on FQDN if it exists, otherwise by the IP Address. |
+    | **Report Address** | Define how the blocking is executed, as follows: <br><br> - **By IP Address**: Always creates blocking policies on Panorama based on the IP address. <br> - **By FQDN or IP Address**: Creates blocking policies on Panorama based on FQDN if it exists, otherwise by the IP Address. |
     | **Email** | Set the email address for the policy notification email. | 
     | **Execute a DNS lookup upon alert detection (Checkbox)** | When the FQDN, or IP Address option is set in the Report Address. <br> This checkbox is selected by default. <br> If only the IP address is set, this option is disabled. |
     | **Configure** | Set up the following options to allow blocking of the suspicious sources by the Palo Alto Panorama: <br><br> - **Block illegal function codes**: Protocol violations - Illegal field value violating ICS, protocol specification (potential exploit). <br> - **Block unauthorized PLC programming/firmware updates**: Unauthorized PLC changes. <br> - **Block unauthorized PLC stop**: PLC stop (downtime). <br> - **Block malware-related alerts**: Blocking of industrial malware attempts (TRITON, NotPetya, etc.). <br> You can select the option of **Automatic blocking**. <br> In that case, the blocking is executed automatically and immediately. <br> - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance).
@@ -169,6 +169,8 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
     > [!NOTE]
     > Make sure you have configured a Mail Server in the Defender for IoT. If no email address is entered, Defender for IoT does not send a notification email.
 
+    For example:
+    
     :::image type="content" source="media/tutorial-palo-alto/edit.png" alt-text="Screenshot of the Select action screen.":::
 
 1. Select **Submit**.
