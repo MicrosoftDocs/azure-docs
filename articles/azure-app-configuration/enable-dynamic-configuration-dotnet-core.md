@@ -140,7 +140,7 @@ Calling the `ConfigureRefresh` method alone won't cause the configuration to ref
     > [!NOTE]
     > Since the cache expiration time was set to 10 seconds using the `SetCacheExpiration` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.
 
-## Logging and Monitoring
+## Logging and monitoring
 
 Logs are output upon configuration refresh and contain detailed information on key-values retrieved from your App Configuration store and configuration changes made to your application. If you have an ASP.NET Core application, see these instructions for [Logging and Monitoring in ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md#logging-and-monitoring). Otherwise, you can enable logging using the instructions for [logging with the Azure SDK](/dotnet/azure/sdk/logging).
 
