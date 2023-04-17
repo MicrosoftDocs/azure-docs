@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Email logs
+title: Azure Communication Services email logs
 titleSuffix: An Azure Communication Services concept document
-description: Learn about logging for Azure Communication Services Email.
+description: Learn about logging for Azure Communication Services email.
 author: ddematheu2
 services: azure-communication-services
 
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# Azure Communication Services Email Logs
+# Azure Communication Services email logs
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
 
