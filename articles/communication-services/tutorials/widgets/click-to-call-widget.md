@@ -26,7 +26,7 @@ Enable your customers to talk with your support agent on Teams through a call in
 
 ## Set up an Azure Function to provide access tokens
 
-Follow instructions from our [trusted user access service tutorial](../trusted-service-tutorial) to deploy your Azure Function for access tokens. This service returns an access token that our widget uses to authenticate to Azure Communication Services and start the call to the Teams user we define.
+Follow instructions from our [trusted user access service tutorial](../trusted-service-tutorial.md) to deploy your Azure Function for access tokens. This service returns an access token that our widget uses to authenticate to Azure Communication Services and start the call to the Teams user we define.
 
 ## Set up boilerplate vanilla web application
 
