@@ -1,7 +1,7 @@
 ---
-title: Copy a blob with asynchronous scheduling using .NET
+title: Copy a blob with asynchronous scheduling using Python
 titleSuffix: Azure Storage
-description: Learn how to copy a blob with asynchronous scheduling in Azure Storage by using the .NET client library.
+description: Learn how to copy a blob with asynchronous scheduling in Azure Storage by using the Python client library.
 author: pauljewellmsft
 
 ms.author: pauljewell
@@ -9,15 +9,15 @@ ms.date: 04/11/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.devlang: python
+ms.custom: devx-track-python, devguide-python
 ---
 
-# Copy a blob with asynchronous scheduling using .NET
+# Copy a blob with asynchronous scheduling using Python
 
-This article shows how to copy a blob with asynchronous scheduling using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL. You can also abort a pending copy operation.
+This article shows how to copy a blob with asynchronous scheduling using the [Azure Storage client library for Python](/dotnet/api/overview/azure/storage). You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL. You can also abort a pending copy operation.
 
-The client library methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with .NET](storage-blob-copy-url-dotnet.md).
+The client library methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with Python](storage-blob-copy-url-python.md).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To work with the code examples in this article, make sure you have:
 - Permissions to perform a copy operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Copy Blob](/rest/api/storageservices/copy-blob#authorization)
     - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob#authorization)
-- Packages installed to your project directory. These examples use **Azure.Storage.Blobs**. If you're using `DefaultAzureCredential` for authorization, you also need **Azure.Identity**. To learn more about setting up your project, see [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project). To see the necessary `using` directives, see [Code samples](#code-samples).
+- Packages installed to your project directory. These examples use **Azure.Storage.Blobs**. If you're using `DefaultAzureCredential` for authorization, you also need **Azure.Identity**. To learn more about setting up your project, see [Get Started with Azure Storage and Python](storage-blob-dotnet-get-started.md#set-up-your-project). To see the necessary `using` directives, see [Code samples](#code-samples).
 
 ## About copying blobs with asynchronous scheduling
 

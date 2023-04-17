@@ -1,7 +1,7 @@
 ---
-title: Copy a blob from a source object URL with .NET
+title: Copy a blob from a source object URL with Python
 titleSuffix: Azure Storage
-description: Learn how to copy a blob from a source object URL in Azure Storage by using the .NET client library.
+description: Learn how to copy a blob from a source object URL in Azure Storage by using the Python client library.
 author: pauljewellmsft
 
 ms.author: pauljewell
@@ -9,15 +9,15 @@ ms.date: 04/11/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.devlang: csharp
-ms.custom: devx-track-csharp, devguide-csharp
+ms.devlang: python
+ms.custom: devx-track-python, devguide-python
 ---
 
-# Copy a blob from a source object URL with .NET
+# Copy a blob from a source object URL with Python
 
-This article shows how to copy a blob from a source object URL using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL.
+This article shows how to copy a blob from a source object URL using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL.
 
-The client library methods covered in this article use the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) and [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operations. These methods are preferred for copy scenarios where you want to move data into a storage account and have a URL for the source object. For copy operations where you want asynchronous scheduling, see [Copy a blob with asynchronous scheduling using .NET](storage-blob-copy-async-dotnet.md).
+The client library methods covered in this article use the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) and [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operations. These methods are preferred for copy scenarios where you want to move data into a storage account and have a URL for the source object. For copy operations where you want asynchronous scheduling, see [Copy a blob with asynchronous scheduling using Python](storage-blob-copy-async-python.md).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To work with the code examples in this article, make sure you have:
 - Permissions to perform a copy operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url#authorization)
     - [Put Block From URL](/rest/api/storageservices/put-block-from-url#authorization)
-- Packages installed to your project directory. These examples use **Azure.Storage.Blobs**. If you're using `DefaultAzureCredential` for authorization, you also need **Azure.Identity**. To learn more about setting up your project, see [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project). To see the necessary `using` directives, see [Code samples](#code-samples).
+- Packages installed to your project directory. These examples use **azure-storage-blob**. If you're using `DefaultAzureCredential` for authorization, you also need **azure-identity**. To learn more about setting up your project, see [Get Started with Azure Storage and Python](storage-blob-python-get-started.md#set-up-your-project). To see the necessary `using` directives, see [Code samples](#code-samples).
 
 ## About copying blobs from a source object URL
 
@@ -45,19 +45,17 @@ To learn more about the `Put Blob From URL` operation, including blob size limit
 
 ## Copy a blob from a source object URL
 
-This section gives an overview of methods provided by the Azure Storage client library for .NET to perform a copy operation from a source object URL.
+This section gives an overview of methods provided by the Azure Storage client library for Python to perform a copy operation from a source object URL.
 
-The following methods wrap the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) REST API operation, and create a new block blob where the contents of the blob are read from a given URL:
+The following method wraps the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) REST API operation, and creates a new block blob where the contents of the blob are read from a given URL:
 
-- [SyncUploadFromUri](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.syncuploadfromuri)
-- [SyncUploadFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.syncuploadfromuriasync)
+- [BlobClient.upload_blob_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob-from-url)
 
 These methods are preferred for scenarios where you want to move data into a storage account and have a URL for the source object.
 
-For large objects, you may choose to work with individual blocks. The following methods wrap the [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operation. These methods create a new block to be committed as part of a blob where the contents are read from a source URL:
+For large objects, you may choose to work with individual blocks. The following method wraps the [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operation. This method create a new block to be committed as part of a blob where the contents are read from a source URL:
 
-- [StageBlockFromUri](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.stageblockfromuri)
-- [StageBlockFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.stageblockfromuriasync)
+- [BlobClient.stage_block_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-stage-block-from-url)
 
 ## Copy a blob within the same storage account
 
@@ -85,8 +83,6 @@ var sourceBlobSASURI = new Uri(
     $"https://{srcAccountName}.blob.core.windows.net/{srcContainerName}/{srcBlobName}?{sasToken}");
 ```
 
-You can also [create a user delegation SAS token with .NET](storage-blob-user-delegation-sas-create-dotnet.md). User delegation SAS tokens offer greater security, as they're signed with Azure AD credentials instead of an account key.
-
 ## Copy a blob from a source outside of Azure
 
 You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following example shows a scenario for copying a blob from an accessible source object URL.
@@ -95,11 +91,11 @@ You can perform a copy operation on any source object that can be retrieved via 
 
 ## Resources
 
-To learn more about copying blobs using the Azure Blob Storage client library for .NET, see the following resources.
+To learn more about copying blobs using the Azure Blob Storage client library for Python, see the following resources.
 
 ### REST API operations
 
-The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods covered in this article use the following REST API operations:
+The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods covered in this article use the following REST API operations:
 
 - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
 - [Put Block From URL](/rest/api/storageservices/put-block-from-url) (REST API)
