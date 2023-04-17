@@ -45,7 +45,7 @@ All of these capabilities are available as part of the [Defender Cloud Security 
 
 You need to have a Defender for CSPM plan enabled. There's no dependency on Defender for Containers​.
 
-Learn more about [trusted versions that AKS supports](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
+This feature uses trusted access. Learn more about [AKS trusted access prerequisites](/azure/aks/trusted-access-feature.md#prerequisites).
 
 ## Onboard Agentless Containers for CSPM
 
@@ -67,13 +67,15 @@ Onboarding Agentless Containers for CSPM will allow you to gain wide visibility 
 
 A notification message pops up in the top right corner that will verify that the settings were saved successfully.
 
-### Container registries vulnerability assessments recommendations
+## Agentless Container Posture extensions
+
+### Container registries vulnerability assessments
 
 For container registries vulnerability assessments, recommendations are available based on the vulnerability assessment timeline.
 
 Learn more about [image scanning](defender-for-containers-vulnerability-assessment-azure.md).
 
-### How Agentless discovery for Kubernetes works
+### Agentless discovery for Kubernetes
 
 The system’s architecture is based on a snapshot mechanism at intervals.
 
