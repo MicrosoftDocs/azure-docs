@@ -50,7 +50,7 @@
     - name: Charge back savings plan costs
       href: charge-back-costs.md
     - name: Calculate EA cost savings
-      href: ../reservations/calculate-ea-reservations-savings.md?toc=/azure/cost-management-billing/savings-plan/toc.json
+      href: calculate-ea-savings-plan-savings.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot utilization

@@ -4,7 +4,7 @@ description: Learn how to manage Azure Cosmos DB resources by using the Azure po
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-arm-template
 ms.topic: how-to
 ms.date: 03/08/2023
 ms.author: sidandrews
@@ -80,7 +80,7 @@ After an Azure Cosmos DB account is configured for service-managed failover, the
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Screenshot showing the Replicate data globally menu.":::
 
-1. On the **Service-Managed Failover** pane, make sure that **Enable Automatic Failover** is set to **ON**.
+1. On the **Service-Managed Failover** pane, make sure that **Enable Service-Managed Failover** is set to **ON**.
 
 1. To modify the failover priority, drag the read regions via the three dots on the left side of the row that appear when you hover over them.
 

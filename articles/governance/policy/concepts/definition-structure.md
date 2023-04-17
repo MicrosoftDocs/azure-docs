@@ -137,7 +137,7 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 The following Resource Provider modes are fully supported:
 
 - `Microsoft.Kubernetes.Data` for managing Kubernetes clusters and components such as pods, containers, and ingresses. Supported for Azure Kubernetes Service clusters and [Azure Arc-enabled Kubernetes clusters](../../../aks/intro-kubernetes.md). Definitions
-  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_.
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. 
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
   definitions, see
@@ -1174,7 +1174,7 @@ Limits to the size of objects that are processed by policy functions during poli
 }
 ```
 
-The length of the string created by the `concat()` function depends of the value of properties in the evaluated resource.
+The length of the string created by the `concat()` function depends on the value of properties in the evaluated resource.
 
 | Limit | Value | Example |
 |:---|:---|:---|

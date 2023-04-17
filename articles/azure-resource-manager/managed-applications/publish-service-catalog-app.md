@@ -4,7 +4,7 @@ description: Describes how to create and publish an Azure Managed Application in
 author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm, devx-track-arm-template, engagement-fy23
 ms.date: 03/21/2023
 ---
 

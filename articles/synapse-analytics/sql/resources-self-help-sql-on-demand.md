@@ -49,6 +49,10 @@ Incorrect network configuration is often the cause of this behavior. Make sure t
 
 Finally, make sure the appropriate roles are granted and have not been revoked.
 
+### Unable to create new database as the request will use the old/expired key
+
+This error is caused by changing workspace customer managed key used for enryption. You can choose to re-encrypt all the data in the workspace with the latest version of the active key. To-re-encrypt, change the key in the Azure portal to a temporary key and then switch back to the key you wish to use for encryption. Learn here how to [manage the workspace keys](../security/workspaces-encryption.md#manage-the-workspace-customer-managed-key).
+
 ### Synapse serverless SQL pool is unavailable after transfering a subscription to a different Azure AD tenant
 
 If you moved a subscription to another Azure AD tenant, you might experience some issues with serverless SQL pool. Create a support ticket and Azure suport will contact you to resolve the issue.
@@ -865,6 +869,7 @@ There are some limitations that you might see in Delta Lake support in serverles
 - Serverless SQL pools don't support time travel queries. Use Apache Spark pools in Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools don't support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Synapse Analytics to [update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
   - You can't [store query results to storage in Delta Lake format](create-external-table-as-select.md) by using the CETAS command. The CETAS command supports only Parquet and CSV as the output formats.
+- Serverless SQL pools in Synapse Analytics are compatible with Delta reader version 1. The Delta features that require Delta readers with version 2 or higher (for example [column mapping](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#reader-requirements-for-column-mapping)) are not supported in the serverless SQL pools.
 - Serverless SQL pools in Synapse Analytics don't support the datasets with the [BLOOM filter](/azure/databricks/optimizations/bloom-filters). The serverless SQL pool ignores the BLOOM filters.
 - Delta Lake support isn't available in dedicated SQL pools. Make sure that you use serverless SQL pools to query Delta Lake files.
 - For more information about known issues with serverless SQL pools, see [Azure Synapse Analytics known issues](../known-issues.md).
@@ -872,6 +877,10 @@ There are some limitations that you might see in Delta Lake support in serverles
 ### Column rename in Delta table is not supported
 
 The serverless SQL pool does not support querying Delta Lake tables with the [renamed columns](https://docs.delta.io/latest/delta-batch.html#rename-columns). Serverless SQL pool cannot read data from the renamed column.
+
+### The value of a column in the Delta table is NULL
+
+If you are using Delta data set that requires a Delta reader version 2 or higher, and uses the features that are unsupported in version 1 (for example - renaming columns, dropping columns, or column mapping), the values in the referenced columns might not be shown.
 
 ### JSON text isn't properly formatted
 

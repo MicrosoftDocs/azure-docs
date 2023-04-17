@@ -7,6 +7,7 @@ ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 3/29/2023
 ---
@@ -114,4 +115,3 @@ Make sure to specify the following properties for your VM in the parameters sect
 
 > [!div class="nextstepaction"]
 > [Deploy a confidential VM on AMD from the Azure portal](quick-create-confidential-vm-portal-amd.md)
-

@@ -18,7 +18,7 @@ This overview introduces the key concepts around developing devices that connect
 
 The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the devices and gateway shown in the diagram.
 
-:::image type="content" source="media/iot-overview-device-development/iot-architecture.svg" lightbox="media/iot-overview-device-development/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
+:::image type="content" source="media/iot-overview-device-development/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
 
 In Azure IoT, a device developer writes the code to run on the devices in the solution. This code typically:
 
@@ -83,6 +83,8 @@ All of the device SDKs include samples that demonstrate how to use the SDK to co
 The [IoT device development](../iot-develop/about-iot-develop.md) site includes tutorials and how-to guides that show you how to implement code for a range of device types and scenarios.
 
 You can find more samples in the [code sample browser](/samples/browse/?expanded=azure&products=azure-iot%2Cazure-iot-edge%2Cazure-iot-pnp%2Cazure-rtos).
+
+To learn more about implementing automatic reconnections to endpoints, see [Manage device reconnections to create resilient applications](../iot-develop/concepts-manage-device-reconnections.md).
 
 ## Device development without a device SDK
 

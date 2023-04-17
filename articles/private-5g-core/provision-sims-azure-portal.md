@@ -8,6 +8,7 @@ ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 01/16/2022
 ms.custom: template-how-to
+zone_pivot_groups: ap5gc-portal-powershell
 ---
 
 # Provision new SIMs for Azure Private 5G Core - Azure portal

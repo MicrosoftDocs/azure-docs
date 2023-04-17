@@ -2,7 +2,7 @@
 title: Configure customer-managed keys for your Azure Batch account with Azure Key Vault and Managed Identity
 description: Learn how to encrypt Batch data using customer-managed keys.
 ms.topic: how-to
-ms.date: 02/27/2023
+ms.date: 04/03/2023
 ms.devlang: csharp
 ms.custom: devx-track-azurecli
 ---
@@ -26,6 +26,11 @@ customer-managed keys at Batch account creation, as shown next.
 ## Create a Batch account with system-assigned managed identity
 
 If you don't need a separate user-assigned managed identity, you can enable system-assigned managed identity when you create your Batch account.
+
+> [!IMPORTANT]
+> A system-assigned managed identity created for a Batch account for customer data encryption as described in this document
+> cannot be used as a [user-assigned managed identity on a Batch pool](managed-identity-pools.md). If you wish to use the
+> same managed identity on both the Batch account and Batch pool, then use a common user-assigned managed identity instead.
 
 ### Azure portal
 
@@ -202,7 +207,7 @@ az batch account set \
 - **Can I disable customer-managed keys?** You can set the encryption type of the Batch Account back to "Microsoft managed key" at any time. You're free to delete or change the key afterwards.
 - **How can I rotate my keys?** Customer-managed keys aren't automatically rotated unless the [key is versionless with an appropriate key rotation policy set within Key Vault](../key-vault/keys/how-to-configure-key-rotation.md). To manually rotate the key, update the Key Identifier that the account is associated with.
 - **After I restore access how long will it take for the Batch account to work again?** It can take up to 10 minutes for the account to be accessible again once access is restored.
-- **While the Batch Account is unavailable what happens to my resources?** Any pools that are running when Batch access to the customer-managed key is lost will continue to run. However, the nodes in these pools will transition into an unavailable state, and tasks will stop running (and be requeued). Once access is restored, nodes become available again, and tasks are restarted.
+- **While the Batch Account is unavailable what happens to my resources?** Any pools that are active when Batch access to the customer-managed key is lost will continue to run. However, the nodes in these pools will transition into an unavailable state, and tasks will stop running (and be requeued). Once access is restored, nodes become available again, and tasks are restarted.
 - **Does this encryption mechanism apply to VM disks in a Batch pool?** No. For Cloud Services Configuration pools (which are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/)), no encryption is applied for the OS and temporary disk. For Virtual Machine Configuration pools, the OS and any specified data disks are encrypted with a Microsoft platform managed key by default. Currently, you can't specify your own key for these disks. To encrypt the temporary disk of VMs for a Batch pool with a Microsoft platform managed key, you must enable the [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) property in your [Virtual Machine Configuration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) Pool. For highly sensitive environments, we recommend enabling temporary disk encryption and avoiding storing sensitive data on OS and data disks. For more information, see [Create a pool with disk encryption enabled](./disk-encryption.md)
 - **Is the system-assigned managed identity on the Batch account available on the compute nodes?** No. The system-assigned managed identity is currently used only for accessing the Azure Key Vault for the customer-managed key. To use a user-assigned managed identity on compute nodes, see [Configure managed identities in Batch pools](managed-identity-pools.md).
 

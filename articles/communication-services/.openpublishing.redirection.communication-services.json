@@ -178,6 +178,11 @@
         "source_path_from_root": "/articles/communication-services/quickstarts/sms/logic-app.md",
         "redirect_url": "/azure/communication-services/quickstarts/sms/send?pivots=programming-language-power-platform",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/call-automation/teams-interop-call-automation-quickstart.md",
+        "redirect_url": "/azure/communication-services/how-tos/call-automation/teams-interop-call-automation",
+        "redirect_document_id": true
       }
     ]
 }

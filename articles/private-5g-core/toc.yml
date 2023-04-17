@@ -30,6 +30,10 @@ items:
   items:
   - name: Deploy a private mobile network and site - ARM template
     href: deploy-private-mobile-network-with-site-arm-template.md
+  - name: Deploy a private mobile network and site - command line
+    href: deploy-private-mobile-network-with-site-command-line.md
+  - name: Deploy a private mobile network and site - PowerShell
+    href: deploy-private-mobile-network-with-site-powershell.md
 - name: Tutorials
   items:
   - name: Create an example policy control configuration set
@@ -68,6 +72,10 @@ items:
       href: complete-private-mobile-network-prerequisites.md
     - name: Commission the AKS cluster
       href: commission-cluster.md
+  - name: Request support
+    items:
+    - name: How to open a support request 
+      href: open-support-request.md
   - name: Private mobile networks
     items:
     - name: Collect the required information to deploy a private mobile network

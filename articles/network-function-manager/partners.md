@@ -18,7 +18,6 @@ We have a growing ecosystem of partners offering their network function as manag
 | ---  | --- | --- |
 | Affirmed Private Network Service  | Mobile packet core |[Configuration guide](../private-multi-access-edge-compute-mec/deploy-affirmed-private-network-service-solution.md)|
 | NetFoundry ZTNA | Other| [Azure Marketplace](https://portal.azure.com/#create/netfoundryinc.application-ziti-private-edgeapp-edge-router)|
-| Nuage Networks SD-WAN From Nokia | SD-WAN| [Azure Marketplace](https://aka.ms/NokiaNuage)|
 | Versa SD-WAN| SD-WAN |[Azure Marketplace](https://aka.ms/versa)|
 | VMware SD-WAN | SD-WAN | [Azure Marketplace](https://portal.azure.com/#create/vmware-inc.vmware_sdwan_edge_zonesvelo_ase)|
 

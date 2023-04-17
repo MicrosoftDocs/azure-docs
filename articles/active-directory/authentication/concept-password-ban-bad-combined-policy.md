@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2023
+ms.date: 04/02/2023
 
 ms.author: justinha
 author: justinha
@@ -50,9 +50,8 @@ The following expiration requirements apply to other providers that use Azure AD
 
 | Property | Requirements |
 | --- | --- |
-| Password expiry duration (Maximum password age) |<ul><li>Default value: **90** days.</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
-| Password expiry notification (When users are notified of password expiration) |<ul><li>Default value: **14** days (before password expires).</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
-| Password expiry (Let passwords never expire) |<ul><li>Default value: **false** (indicates that password's have an expiration date).</li><li>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet.</li></ul> |
+| Password expiry duration (Maximum password age) |Default value: **90** days.<br>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell. |
+| Password expiry (Let passwords never expire) |Default value: **false** (indicates that password's have an expiration date).<br>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet.|
 
 ## Next steps
 

@@ -23,6 +23,7 @@ After the application has been registered, you can check or change the account t
 | Accounts in this organizational directory only (Single tenant) | `AzureADMyOrg` |
 | Accounts in any organizational directory (Any Azure AD directory - Multitenant) | `AzureADMultipleOrgs` |
 | Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox) | `AzureADandPersonalMicrosoftAccount` |
+| Personal Microsoft accounts only | `PersonalMicrosoftAccount` |
 
 If you change this property you may need to change other properties first. 
 
