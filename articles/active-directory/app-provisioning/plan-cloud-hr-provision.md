@@ -132,7 +132,7 @@ Include a representative from the HR organization who can provide inputs on exis
 
 ### Plan communications
 
-Communication is critical to the success of any new service. Proactively communicate with your users about when and how their experience will change. Let them know how to gain support if they experience issues.
+Communication is critical to the success of any new service. Proactively communicate with your users about when and how their experience is changing. Let them know how to gain support if they experience issues.
 
 ### Plan a pilot
 
