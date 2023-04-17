@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/14/2023
+ms.date: 04/17/2023
 ms.author: jppark
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
@@ -19,7 +19,9 @@ Form Recognizer Studio is an online tool to visually explore, understand, train,
 
 ## Prerequisite
 
-In order to share and import your custom extraction projects seamlessly, both users (user who shares and user who imports) need to check if they have been granted or have access to certain permission.
+In order to share and import your custom extraction projects seamlessly, both users (user who shares and user who imports) need an An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/). Also, both users need to configure permissions to grant access to the Form Recognizer abd storage resources.
+
+## Granted access and permissions
 
  > [!IMPORTANT]
  > Custom model projects can be imported only if you have the access to the storage account that is associated with the project you are trying to import. Check your storage account permission before starting to share or import projects with others.
@@ -32,7 +34,7 @@ For more information, *see*, [Enable a system-assigned managed identity](../mana
 
 ### Role-based access control (RBAC)
 
-Grant your Form Recognizer managed identity access to your storage account using Azure role-based access control (Azure RBAC). The [Storage Blob Data Reader](../../..//role-based-access-control/built-in-roles.md#storage-blob-data-reader) role grants read and list permissions to Azure Storage containers and blobs.
+Grant your Form Recognizer managed identity access to your storage account using Azure role-based access control (Azure RBAC). The [Storage Blob Data Contributor](../../..//role-based-access-control/built-in-roles.md#storage-blob-data-reader) role grants read, write, and delete permissions for Azure Storage containers and blobs.
 
 For more information, *see*, [Grant access to your storage account](../managed-identities.md#grant-access-to-your-storage-account)
 
@@ -50,11 +52,11 @@ A workaround is to manually create a project using the same settings as the proj
 
 ## User sharing requirements
 
-The user sharing the project needs to create a project **`ListAccountSAS`** to configure the storage account CORS and a `ListServiceSAS` to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
+The user sharing the project needs to create a project [**`ListAccountSAS`**](/rest/api/storagerp/storage-accounts/list-account-sas) to configure the storage account CORS and a [**`ListServiceSAS`**](/rest/api/storagerp/storage-accounts/list-service-sas) to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
 
 ### User importing requirements
 
-User who wants to import the project will need ListServiceSAS to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
+User who wants to import the project will need a [**`ListServiceSAS`**](/rest/api/storagerp/storage-accounts/list-service-sas) to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
 
 ## Share a custom extraction model with Form Recognizer studio
 
@@ -91,3 +93,8 @@ Follow the steps below to import a project using Form Recognizer studio.
 1. On the import project dialog, paste the project token shared with you and select import.
 
 :::image type="content" source="../media/how-to/studio-import-token.png" alt-text="Screenshot: Paste the project token in the dialogue.":::
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Back up and recover models](../disaster-recovery.md)
