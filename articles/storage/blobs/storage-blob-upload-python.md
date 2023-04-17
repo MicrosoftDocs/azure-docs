@@ -24,10 +24,6 @@ To upload a blob using a stream or a binary object, use the following method:
 
 - [BlobClient.upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob)
 
-To upload a blob from a given URL, use the following method:
-
-- [BlobClient.upload_blob_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-upload-blob-from-url)
-
 ## Upload data to a block blob
 
 The following example uploads data to a block blob using a `BlobClient` object:
@@ -61,7 +57,6 @@ To learn more about uploading blobs using the Azure Blob Storage client library 
 The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for uploading blobs use the following REST API operations:
 
 - [Put Blob](/rest/api/storageservices/put-blob) (REST API)
-- [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
 
 ### Code samples
 
