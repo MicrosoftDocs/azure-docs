@@ -79,7 +79,7 @@ The next sections show you how to secure the network scenario described above. T
 ## Public workspace and secured resources
 
 > [!IMPORTANT]
-> While this is a supported configuration for Azure Machine Learning, Microsoft doesn't recommend. The data in the Azure Storage Account behind the virtual network can be exposed on the public workspace. You should verify this configuration with your security team before using it in production.
+> While this is a supported configuration for Azure Machine Learning, Microsoft doesn't recommend it. The data in the Azure Storage Account behind the virtual network can be exposed on the public workspace. You should verify this configuration with your security team before using it in production.
 
 If you want to access the workspace over the public internet while keeping all the associated resources secured in a virtual network, use the following steps:
 
