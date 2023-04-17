@@ -29,6 +29,7 @@ In this article:
 > * Create a user flow
 > * Associate the SPA with the user flow
 
+
 ## Register the Single-page application (SPA)
 
 [!INCLUDE [active-directory-b2c-register-app](./customers/includes/register-app/register-client-app-common.md)]

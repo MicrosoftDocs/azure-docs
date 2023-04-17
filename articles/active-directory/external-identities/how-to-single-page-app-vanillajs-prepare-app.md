@@ -30,7 +30,7 @@ In this article:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Sign in users to a Vanilla JS Single-page application using Microsoft Entra - Prepare your tenant](how-to-single-page-app-vanillajs-prepare-tenant.md).
+* Completion of the prerequisites and steps in [Prepare your tenant](how-to-single-page-app-vanillajs-prepare-tenant.md).
 * Although any IDE that supports Vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 * [Node.js](https://nodejs.org/en/download/).
 
@@ -98,4 +98,4 @@ In this article:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in Users](how-to-single-page-app-vanillajs-configure-authentication.md)
+> [Configure application for authentication](how-to-single-page-app-vanillajs-configure-authentication.md)

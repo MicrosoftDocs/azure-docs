@@ -24,14 +24,14 @@ Authentication and authorization are handled by the [Microsoft Authentication Li
 In this article:
 > [!div class="checklist"]
 >
-> Create a configuration file for authentication
-> Create a sign-in and sign-out button
-> Create a sign-in and sign-out function
-> Create a function to get an access token and call a protected API
+> * Create a configuration file for authentication
+> * Create a sign-in and sign-out button
+> * Create a sign-in and sign-out function
+> * Create a function to get an access token and call a protected API
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Register a single-page application (SPA) with Microsoft Entra](how-to-single-page-app-vanillajs-prepare-app.md).
+* Completion of the prerequisites and steps in [Prepare a Single-page application for authentication](how-to-single-page-app-vanillajs-prepare-app.md).
 
 ## Creating the authentication configuration file
 
@@ -572,4 +572,4 @@ In this article:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in Users](how-to-single-page-app-vanillajs-sign-in-sign-out.md)
+> [Configure a Single-page application User Interface and Sign-In](how-to-single-page-app-vanillajs-sign-in-sign-out.md)

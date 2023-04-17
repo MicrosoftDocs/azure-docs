@@ -18,21 +18,21 @@ ms.custom: developer
 
 # Configure a Single-page application User Interface and Sign-In
 
-This how-to guide describes how to configure a single-page application (SPA) to sign in and sign out users with your CIAM tenant. To build the user interface (UI) for the application, you'll use [Bootstrap](https://getbootstrap.com/). Next, you'll add the authentication code to the application. The authentication code is used to sign in and sign out users with your CIAM tenant.
+When the application has been created, the user interface for the application can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, you'll use [Bootstrap](https://getbootstrap.com/). Next, you'll run the project and test the sign-in and sign-out functionality.
 
-In this article:
-
+> [!div class="checklist"]
+>
 > * Create the project
 > * Create the index.html & styles.css file
 > * Create the app.js file
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare your application](how-to-single-page-app-vanillajs-prepare-app.md).
+* Completion of the prerequisites and steps in [Create components for authentication and authorization](how-to-single-page-app-vanillajs-configure-authentication.md).
 
 ## Create the index.html file
 
-Index.html is the main page of the application and is the first page that is loaded when the application is started. It's also the page that is loaded when the user select the **Sign Out** button.
+*Index.html* is the main page of the application and is the first page that is loaded when the application is started. It's also the page that is loaded when the user select the **Sign Out** button.
 
 1. Right-click the project folder and select **New File**. Name the file *index.html*.
 1. Open *index.html* and add the following code snippet:
@@ -240,6 +240,12 @@ All the required code snippets have been added, so the application can now be ca
 <!-- SCREENSHOT -->
 
 1. The SPA will now display a button saying Request Profile Information. Select it to display the Microsoft Graph profile data acquired from the Microsoft Graph API.
+
+<!-- SCREENSHOT -->
+
+1. To sign out of the application, select the Sign Out button.
+
+<!-- SCREENSHOT -->
 
 ## Next steps
 
