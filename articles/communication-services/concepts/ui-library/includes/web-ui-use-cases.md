@@ -57,7 +57,7 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 
 *Inline image support is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-*If the Teams external user sends a message with images uploaded via "Upload from this device" menu or via drag-and-drop (such as dragging images directly to the send box) in the Teams, then these scenarios would be covered under the file sharing capability, which is currently not supported.
+*If the Teams external user sends a message with images uploaded via "Upload from this device" menu or via drag-and-drop (such as dragging images directly to the send box) in the Teams, then these scenarios would be covered under the file sharing capability, which is currently not supported. To learn more about this, please refer to the storyboook page for [Teams Inline Image](https://azure.github.io/communication-ui-library/?path=/docs/examples-teamsinterop-inlineimage--inline-image#inline-images)
 
 ## Supported identities
 
