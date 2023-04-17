@@ -1,5 +1,9 @@
 # Failover Considerations for Storage Accounts with Private Endpoints
 
+**NOTES**
+>*  We need to test failover
+>*  Datalake is not supported
+
 Storage Accounts operate differently than other services.  Instead of having a redundant node, like Azure SQL Multi-region HA, or a secondary web app setup for redundancy, Storage Accounts replicate to a secondary region and fail over in an emergency.
 That means that you don't plan to have a second SA (you could but its uncommon and you have to solve for file sync and pay more), you plan to fail over your SA.
 The Storage Account depends on DNS for routing if you are doing a Private Endpoint
