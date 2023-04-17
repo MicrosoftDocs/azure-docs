@@ -55,9 +55,9 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 |              | Show changes to the chat title                               |
 | Participants | Show a participant roster                               |
 
-*Inline image support is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+*Inline images are images that are copied and pasted directly into the send box of Teams client. For images that were uploaded via "Upload from this device" menu or via drag-and-drop (such as dragging images directly to the send box) in the Teams, they are not supported. To copy an image, the Teams user can either copy the image file from their operating system's context menu then paste it into the send box of their Teams client, or use keyboard shortcuts. To learn more about this, please refer to the storybook page for [Teams Inline Image](https://azure.github.io/communication-ui-library/?path=/docs/examples-teamsinterop-inlineimage--inline-image#inline-images)
 
-*If the Teams external user sends a message with images uploaded via "Upload from this device" menu or via drag-and-drop (such as dragging images directly to the send box) in the Teams, then these scenarios would be covered under the file sharing capability, which is currently not supported. To learn more about this, please refer to the storyboook page for [Teams Inline Image](https://azure.github.io/communication-ui-library/?path=/docs/examples-teamsinterop-inlineimage--inline-image#inline-images)
+*Inline image support is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Supported identities
 
