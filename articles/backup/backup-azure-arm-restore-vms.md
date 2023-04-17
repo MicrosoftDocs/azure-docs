@@ -262,16 +262,19 @@ In summary, the **Availability Zone** will only appear when
 
 ## Cross Subscription Restore (preview)
 
-Azure Backup now allows you to perform Cross Subscription Restore (CSR), which helps you to restore Azure VMs in a subscription that is different from the default one. Default subscription contains the recovery points.
+Azure Backup now allows you to perform Cross Subscription Restore (CSR), which helps you to restore Azure VMs in a subscription that is different from the default one. 
+
+> [!Note]
+> Default subscription contains the recovery points.
  
-This feature is enabled for all vaults by default. However, for a few instances, you may need to block Cross Subscription Restore based on your cloud infrastructure. You can enable, disable, or permanently disable Cross Subscription Restore for the existing vaults by going to *Vault* > **Properties** > **Cross Subscription Restore**.
+This feature is enabled for all the vaults by default. However, for a few instances, you may need to block Cross Subscription Restore based on your cloud infrastructure. You can enable, disable, or permanently disable Cross Subscription Restore for the existing vaults by going to *Vault* > **Properties** > **Cross Subscription Restore**.
 
 :::image type="content" source="./media/backup-azure-arm-restore-vms/cross-subscription-restore-for-virtual-machines-inline.png" alt-text="Screenshot shows how to modify cross-subscription restore settings." lightbox="./media/backup-azure-arm-restore-vms/cross-subscription-restore-for-virtual-machines-expanded.png":::
 
 >[!Note]
 >- CSR once permanently disabled on a vault can't be re-enabled because it's an irreversible operation. 
->- If CSR is disabled but not permanently disabled, then you can reverse the operation by selecting **Enable**.  
->- If a Recovery Services vault is moved to a different subscription when CSR is disabled or permanently disabled, restores to the original subscription will fail.
+>- If CSR is disabled but not permanently disabled, then you can reverse the operation by selecting *Vault* > **Properties** > **Cross Subscription Restore** > **Enable**.
+>- If a Recovery Services vault is moved to a different subscription when CSR is disabled or permanently disabled, restore to the original subscription fails.
 
 ## Restoring unmanaged VMs and disks as managed
 
