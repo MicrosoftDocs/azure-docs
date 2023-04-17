@@ -113,7 +113,7 @@ This article contains the releases notes for the Microsoft.ApplicationInsights.S
 
 [Learn](./snapshot-debugger.md) more about the Application Insights Snapshot Debugger for .NET applications.
 
-For bug reports and feedback, open an issue on GitHub at https://github.com/microsoft/ApplicationInsights-SnapshotCollector
+For bug reports and feedback, [open an issue on GitHub](https://github.com/microsoft/ApplicationInsights-SnapshotCollector)
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -287,7 +287,7 @@ The biggest change in this version (hence the move to a new minor version number
 ### [1.1.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.1.2)
 
 #### Changes
-Augmented  usage telemetry
+- Augmented usage telemetry
 - Detect and report .NET version and OS
 - Detect and report additional Azure Environments (Cloud Service, Service Fabric)
 - Record and report exception metrics (number of 1st chance exceptions and number of TrackException calls) in Heartbeat telemetry.

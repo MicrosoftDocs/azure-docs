@@ -876,12 +876,16 @@ items:
         - name: Overview
           displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
           href: snapshot-debugger/snapshot-debugger.md
-        - name: Enable Snapshot Debugger for an App Service
-          href: snapshot-debugger/snapshot-debugger-app-service.md
-        - name: Enable Snapshot Debugger for a Function App
-          href: snapshot-debugger/snapshot-debugger-function-app.md
-        - name: Enable Snapshot Debugger for other environments
-          href: snapshot-debugger/snapshot-debugger-vm.md
+        - name: View snapshots
+          href: snapshot-debugger/snapshot-debugger-data.md
+        - name: Enable Snapshot Debugger
+          items:
+          - name: Enable Snapshot Debugger for an App Service
+            href: snapshot-debugger/snapshot-debugger-app-service.md
+          - name: Enable Snapshot Debugger for a Function App
+            href: snapshot-debugger/snapshot-debugger-function-app.md
+          - name: Enable Snapshot Debugger for other environments
+            href: snapshot-debugger/snapshot-debugger-vm.md
         - name: Upgrade Snapshot Debugger
           href: snapshot-debugger/snapshot-debugger-upgrade.md
         - name: Configure BYOS (Bring Your Own Storage)
