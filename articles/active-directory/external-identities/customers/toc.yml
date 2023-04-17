@@ -72,7 +72,16 @@ items:
               items: 
                 - name: Node/Express​ - Sign in users
                   href: https://learn.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview
-                - name: ASP.NET - Sign in users and call an API
+                - name: ASP.NET - Sign in users
+                  items:
+                    - name: Overview
+                      href: how-to-web-app-dotnet-signin-overview.md
+                    - name: Prepare tenant 
+                      href: how-to-web-app-dotnet-prepare-tenant.md
+                    - name: Prepare app
+                      href: how-to-web-app-dotnet-prepare-app.md
+                    - name: Add sign-in and sign-out
+                      href: how-to-web-app-dotnet-sign-in-out.md
                   href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
             - name: Web API
               items: 

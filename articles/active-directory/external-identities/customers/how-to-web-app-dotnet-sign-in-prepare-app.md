@@ -1,6 +1,6 @@
 ---
 title: Prepare an ASP.NET Core web app for authentication with CIAM
-description: 
+description: Create and prepare an ASP.NET Core web app for authentication
 services: active-directory
 author: cilwerner
 ms.author: cwerner
@@ -11,7 +11,7 @@ ms.subservice: ciam
 ms.topic: how-to
 ms.date: 04/04/2023
 ms.custom: it-pro
-#Customer intent
+#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
 # Prepare an ASP.NET Core application for authentication
@@ -42,11 +42,10 @@ After registering an application and created a user flow in a CIAM tenant, an AS
     {
       "AzureAd": {
         "Instance": "https://login.microsoftonline.com/",
-        "Domain": "[Enter the domain of your tenant, e.g. contoso.onmicrosoft.com]",
         "TenantId": "[Enter the Tenant Id obtained from the Azure portal]",
         "ClientId": "[Enter the Client Id (Application ID) obtained from the Azure portal)]",
         "CallbackPath": "/signin-oidc",
-        "SignedOutCallbackPath ": "/signout-callback-oidc"
+        "SignedOutCallbackPath ": "/signout-oidc"
       },
       "Logging": {
         "LogLevel": {
@@ -72,16 +71,12 @@ After registering an application and created a user flow in a CIAM tenant, an AS
 1. In the Microsoft Entra admin center, under **Manage**, select **App registrations**, and then select the application that was previously created.
 1. In the left menu, under **Manage**, select **Authentication**.
 1. In **Platform configurations**, select **Add a platform**, and then select **Web**.
-
-    <!--:::image type="content" source="./media/web-app-tutorial-02-prepare-application/select-platform-inline.png" alt-text="Screenshot on how to select the platform for the application." lightbox="./media/web-app-tutorial-02-prepare-application/select-platform-expanded.png":::-->
-
 1. Under **Redirect URIs**, enter the `applicationURL` and the `CallbackPath`, `/signin-oidc`, in the form of `https://localhost:{port}/signin-oidc`.
-1. Under **Front-channel logout URL**, enter the following URL for signing out, `https://localhost:{port}/signout-callback-oidc`.
-1. Under **Implicit grant abd hybrid flows**, select the **ID tokens** checkbox.
+1. Under **Front-channel logout URL**, enter the following URL for signing out, `https://localhost:{port}/signout-oidc`.
+1. Under **Implicit grant and hybrid flows**, select the **ID tokens** checkbox.
 1. Select **Configure**.
-
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign-in and sign-out](how-to-web-app-dotnet-sign-in-out.md)
+> [Sign-in and sign-out](how-to-web-app-dotnet-sign-in-sign-out.md)

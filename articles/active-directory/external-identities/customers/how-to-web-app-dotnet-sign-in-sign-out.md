@@ -1,6 +1,6 @@
 ---
 title: Sign in and sign out from an ASP.NET Core application with CIAM
-description: Add sign in to an ASP.NET Core application and sign-in, sign-out of application
+description: Add sign in to an ASP.NET Core application and sign-in, sign-out of an application
 services: active-directory
 author: cilwerner
 ms.author: cwerner
@@ -11,7 +11,7 @@ ms.subservice: ciam
 ms.topic: how-to
 ms.date: 04/07/2023
 ms.custom: it-pro
-#Customer intent
+#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Azure Active Directory (Azure AD) for customers tenant.
 ---
 
 # Sign in and sign out from an ASP.NET Core application with CIAM
@@ -154,4 +154,5 @@ After installing the NuGet packages and adding necessary code for authentication
 
 ## Next steps
 
-To reset the password  [Enable self-service password reset](./how-to-enable-password-reset-customers.md)
+> [!div class="nextstepaction"]
+> [Enable self-service password reset](./how-to-enable-password-reset-customers.md)

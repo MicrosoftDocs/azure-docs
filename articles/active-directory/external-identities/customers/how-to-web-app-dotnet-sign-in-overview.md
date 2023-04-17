@@ -22,9 +22,9 @@ This how-to guide will show you how to build an ASP.NET web application and sign
 
 This how-to series is made up of the following steps:
 
-- [Prepare your Azure AD for customers tenant](how-to-web-app-dotnet-prepare-tenant.md) registers your app and configures user flows in the Microsoft Entra admin center.
-- [Prepare your web application](how-to-web-app-dotnet-prepare-app.md) sets up your ASP.NET app structure.
-- [Add sign-in and sign-out](how-to-web-app-dotnet-sign-in-out.md) adds authentication to your application by using MSAL.
+- [Prepare your Azure AD for customers tenant](how-to-web-app-dotnet-sign-in-prepare-tenant.md) registers your app and configures user flows in the Microsoft Entra admin center.
+- [Prepare your web application](how-to-web-app-dotnet-sign-in-prepare-app.md) sets up your ASP.NET app structure.
+- [Add sign-in and sign-out](how-to-web-app-dotnet-sign-in-sign-out.md) adds authentication to your application by using MSAL.
 
 ## Overview
 
@@ -47,11 +47,11 @@ The sign-in flow involves the following steps:
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://developer.microsoft.com/identity/customers). 
 
 
-If you want to run a sample Node.js web application to get a feel of how things work, complete the steps in [Sign in users in a sample Node.js web application by using Microsoft Entra](how-to-web-app-node-sample-sign-in.md)
+If you want to run a sample Node.js web application to get a feel of how things work, complete the steps in [Sign in users in a sample Node.js web application by using Microsoft Entra](how-to-web-app-dotnet-sample-sign-in.md)
 
 ## Next steps
 
 Next, learn how to prepare your Azure AD for customers tenant.
 
 > [!div class="nextstepaction"]
-> [Prepare your Azure AD for customers tenant >](how-to-web-app-dotnet-prepare-tenant.md)
+> [Prepare your Azure AD for customers tenant](how-to-web-app-dotnet-sign-in-prepare-tenant.md)
