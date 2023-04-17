@@ -82,8 +82,8 @@ The following table provides a list of high-level features and capabilities comp
 | Support for PgLogical extension | No | Yes |
 | Support logical replication with HA | N/A | [Limited](concepts-high-availability.md#high-availability---limitations) |
 | **Disaster Recovery** | | |
-| Cross region DR | Using read replicas, geo-redundant backup | Geo-redundant backup (in [selected regions](overview.md#azure-regions)) |
-| DR using replica | Using async physical replication | Preview |
+| Cross region DR | Using read replicas, geo-redundant backup | Using read replicas, Geo-redundant backup (in [selected regions](overview.md#azure-regions)) |
+| DR using replica | Using async physical replication | Using async physical replication |
 | Automatic failover | No | No |
 | Can use the same r/w endpoint | No | No |
 | **Backup and Recovery** | | |
@@ -95,7 +95,7 @@ The following table provides a list of high-level features and capabilities comp
 | Ability to restore to a different region | Yes (Geo-redundant) | Yes (in [selected regions](overview.md#azure-regions)) |
 | Ability to restore a deleted server | Limited via API | Limited via support ticket |
 | **Read Replica** | | |
-| Support for read replicas | Yes | Yes (Preview) |
+| Support for read replicas | Yes | Yes |
 | Number of read replicas | 5 | 5 |
 | Mode of replication | Async | Async |
 | Cross-region support | Yes | Yes |
