@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 04/17/2023
 ms.author: aahi
 ---
 
@@ -37,6 +37,7 @@ Before you can connect your labeling project to Azure Machine Learning, you need
 * The testing and training files in the labeling experience you switch away from will be ignored when training your model.  
 * Only Azure Machine Learning's JSONL file format can be imported into Language Studio.
 * Projects with the multi-lingual option enabled can't be connected to Azure Machine Learning, and not all languages are supported.
+    * Language support is provided by the Azure Machine Learning [TextDNNLanguages Class](/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages?view=azure-ml-py&preserve-view=true&branch=main#azureml-automl-core-constants-textdnnlanguages-supported).
 * The Azure Machine Learning workspace you're connecting to must be assigned to the same Azure Storage account that Language Studio is connected to. Be sure that the Azure Machine Learning workspace has the storage blob data reader permission on the storage account. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 * Switching between the two labeling experiences isn't instantaneous. It may take time to successfully complete the operation.
 
