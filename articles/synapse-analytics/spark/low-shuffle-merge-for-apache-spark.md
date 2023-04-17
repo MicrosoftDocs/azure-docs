@@ -85,6 +85,3 @@ spark.conf.set("spark.microsoft.delta.merge.lowShuffle.enabled", "false")
 SET `spark.microsoft.delta.merge.lowShuffle.enabled` = false
 ```
 
-## Future improvement
-
-There is ongoing work in OSS Delta Lake to support deletion vectors. Once it is delivered, rewriting unmodified rows is un-necessary and can be eliminated. This is expected to improve execution time and reduce resource utilization.
