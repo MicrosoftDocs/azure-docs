@@ -1,7 +1,7 @@
 ---
 title: 'SAP on Azure: Planning and Implementation Guide'
 description: Azure Virtual Machines planning and implementation for SAP NetWeaver
-author: robiro
+author: msftrobiro
 manager: juergent
 tags: azure-resource-manager
 ms.service: sap-on-azure
@@ -9,8 +9,8 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/07/2023
-ms.author: juergent
+ms.date: 04/17/2023
+ms.author: robiro
 ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
 ---
 # SAP on Azure: Planning and Implementation Guide
