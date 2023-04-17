@@ -131,9 +131,9 @@ Use MLflow SDK to track any metric, parameter, artifacts, or models. For detaile
 
 All Azure Machine Learning environments already have MLflow installed for you, so no action is required if you're using a curated environment. If you want to use a custom environment:
 
-1. Create a `conda.yml` file with the dependencies you need:
+1. Create a `conda.yaml` file with the dependencies you need:
 
-    :::code language="yaml" source="~/azureml-examples-main//sdk/python/using-mlflow/deploy/environment/conda.yml" highlight="7-8" range="1-12":::
+    :::code language="yaml" source="~/azureml-examples-main//sdk/python/using-mlflow/deploy/environment/conda.yaml" highlight="7-8" range="1-12":::
     
 1. Reference the environment in the job you're using.
 
