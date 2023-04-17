@@ -18,11 +18,11 @@ ms.subservice: calling
 To access telemetry for Azure Communication Services Voice & Video resources, follow these steps.
 
 ## Enable logging
-1. First, you will need to create a storage account for your logs. Go to [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) for instructions to complete this step. See also [Storage account overview](../../storage/common/storage-account-overview.md) for more information on the types and features of different storage options. If you already have an Azure storage account go to Step 2.
+1. First, you need to create a storage account for your logs. Go to [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal) for instructions to complete this step. For more information, see [Storage account overview](../../storage/common/storage-account-overview.md) on the types and features of different storage options. If you already have an Azure storage account, go to Step 2.
  
-2. When you've created your storage account, next you need to enable logging by following the instructions in [Enable diagnostic logs in your resource](./analytics/enable-logging.md). You will select the check boxes for the logs "CallSummaryPRIVATEPREVIEW" and "CallDiagnosticPRIVATEPREVIEW". 
+2. When you've created your storage account, next you need to enable logging by following the instructions in [Enable diagnostic logs in your resource](./analytics/enable-logging.md). You select the check boxes for the logs "CallSummaryPRIVATEPREVIEW" and "CallDiagnosticPRIVATEPREVIEW". 
 
-3. Next, select the "Archive to a storage account" box and then select the storage account for your logs in the drop-down menu below. The "Send to Analytics workspace" option isn't currently available for Private Preview of this feature, but it will be made available when this feature is made public.
+3. Next, select the "Archive to a storage account" box and then select the storage account for your logs in the drop-down menu. The "Send to Analytics workspace" option isn't currently available for Private Preview of this feature, but it is made available when this feature is made public.
 
 :::image type="content" source="media\call-logs-images\call-logs-access-diagnostic-setting.png" alt-text="Azure Monitor Diagnostic setting":::
 
