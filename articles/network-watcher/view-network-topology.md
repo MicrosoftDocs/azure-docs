@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.custom: ignite-2022, engagement-fy23
+ms.custom: ignite-2022, engagement-fy23, devx-track-azurecli
 ms.workload: infrastructure-services
 ms.date: 11/11/2022
 ---

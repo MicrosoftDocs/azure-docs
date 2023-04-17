@@ -11,7 +11,10 @@ ms.author: victorh
 
 # Azure Firewall easy upgrade/downgrade
 
-You can now easily upgrade your existing Firewall Standard SKU to Premium SKU and downgrade from Premium to Standard SKU. The process is fully automated and has no service impact (zero service downtime).
+You can now easily upgrade your existing Firewall Standard SKU to Premium SKU and downgrade from Premium to Standard SKU.
+
+> [!IMPORTANT]
+> Always perform any upgrade/downgrade operations during off-business hours and scheduled maintenance times.
 
 ## Policies
 

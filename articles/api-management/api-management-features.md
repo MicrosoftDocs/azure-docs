@@ -16,7 +16,8 @@ ms.author: danlep
 Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct set of features and per unit [capacity](api-management-capacity.md). The following table summarizes the key features available in each of the tiers. Some features might work differently or have different capabilities depending on the tier. In such cases the differences are called out in the documentation articles describing these individual features.
 
 > [!IMPORTANT]
-> Please note the Developer tier is for non-production use cases and evaluations. It does not offer SLA.
+> * The Developer tier is for non-production use cases and evaluations. It doesn't offer SLA.
+> * The Consumption tier isn't available in the US Government cloud or the Azure China cloud. 
 
 | Feature                                                                                      | Consumption | Developer | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
