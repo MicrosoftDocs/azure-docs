@@ -107,9 +107,12 @@ If you want to set the authenticated user context:
 1. In the HEART workbook, select **Authenticated Users** from the **ConversionScope** dropdown. 
 
 ## Use the plug-in
+
+The following sections describe how to use the plug-in.
+
 ### Telemetry data storage
 Telemetry data generated from the click events are stored as `customEvents` in the Azure portal > Application Insights > Logs section.
-### Name column
+### `name` column
 The `name` column of the `customEvent` is populated based on the following rules:
   1. The `id` provided in the `data-*-id`, which means it must start with `data` and end with `id`, is used as the `customEvent` name. For example, if the clicked HTML element has the attribute `"data-sample-id"="button1"`, then `"button1"` is the `customEvent` name.
   1. If no such attribute exists and if the `useDefaultContentNameOrId` is set to `true` in the configuration, the clicked element's HTML attribute `id` or content name of the element is used as the `customEvent` name. If both `id` and the content name are present, precedence is given to `id`.
@@ -117,19 +120,19 @@ The `name` column of the `customEvent` is populated based on the following rules
 
   > [!TIP]
   > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
-### parentId column
-To populate the `parentId` column of the `customEvent` table in the logs, declare the tag `parentDataTag` or define the `data-parentid` or `data-*-parentid` attribute.
+### `parentId` column
+To populate the `parentId` column of the `customEvent` table in the logs, declare the tag `parentDataTag` or define the `data-parentid` attribute.
      
-When you declare the `parentDataTag`, the plug-in fetches the value of `id` or `data-*-id` defined within the element that is closest to the clicked element as `parentId`. `parentDataTag` behaves like a boolean, so you only need to declare it with a string value to set it to `true`. However, we recommend defining a `data-{parentDataTag}` or `customDataPrefix-{parentDataTag}` attribute to reduce the number of loops needed to find `parentId`. Declaring `parentDataTag` is useful when you need to use the plug-in with customized options.
+When you declare the `parentDataTag`, the plug-in fetches the value of `id` or `data-*-id` defined within the element that is closest to the clicked element as `parentId`. If both `data-*-id` and `id` are defined, precedence is given to `data-*-id`. `parentDataTag` behaves like a boolean, so you only need to declare it with a string value to set it to `true`. However, we recommend defining the `data-{parentDataTag}` or `customDataPrefix-{parentDataTag}` attribute to reduce the number of loops needed to find `parentId`. Declaring `parentDataTag` is useful when you need to use the plug-in with customized options.
 
 > [!NOTE]
-> - If `parentDataTag` is defined, `useDefaultContentNameOrId` is set to `false`, and only an `id` attribute is defined within the element closest to the clicked element, the `parentId` populates as `"not_specified"`. To fetch the value of `id`, set `useDefaultContentNameOrId` to `true`.
-> - If both `data-*-id` and `id` are defined, precedence is given to `data-*-id`.
+> If `parentDataTag` is defined, `useDefaultContentNameOrId` is set to `false`, and only an `id` attribute is defined within the element closest to the clicked element, the `parentId` populates as `"not_specified"`. To fetch the value of `id`, set `useDefaultContentNameOrId` to `true`.
 
-When you define a `data-parentid` or `data-*-parentid` attribute, the plug-in fetches the instance of this attribute that is closest to the clicked element, including within the clicked element if applicable. 
+When you define the `data-parentid` or `data-*-parentid` attribute, the plug-in fetches the instance of this attribute that is closest to the clicked element, including within the clicked element if applicable. 
 
-When you declare `parentDataTag` and define the `data-parentid` or `data-*-parentid` attribute, the value of the `data-parentid` or `data-*-parentid` attribute is always fetched because this attribute takes precedence.
+If you declare `parentDataTag` and define the `data-parentid` or `data-*-parentid` attribute, precedence is given to `data-parentid` or `data-*-parentid`.
 
+#### Examples
 The following examples show which value is fetched as the `parentId` for different configurations.
 
 **Example 1**
@@ -153,7 +156,7 @@ export const clickPluginConfigWithUseDefaultContentNameOrId = {
       </div>
 ```
 
-For example 1, the value of `parentId` in the logs is `“not_specified”`, because `parentDataTag` is not declared and the `data-parentid` or `data-*-parentid` is not defined in any element.
+For example 1, the value of `parentId` is `“not_specified”`, because `parentDataTag` is not declared and the `data-parentid` or `data-*-parentid` is not defined in any element.
 
 **Example 2**
 
@@ -176,7 +179,7 @@ export const clickPluginConfigWithParentDataTag = {
    </div>
 ```
 
-For example 2, the value of `parentId` in the logs is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence.
+For example 2, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` definition takes precedence.
 > [!NOTE] 
 > If the `data-parentid` attribute was defined within the div element with `className=”test2”`, the value for `parentId` would still be `parentid2`.
        
@@ -202,12 +205,12 @@ export const clickPluginConfigWithParentDataTag = {
   </div>
      </div>
 ```
-For example 3, because `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined, the value of `parentId` in the logs is `test6parent`. `test6parent` is fetched because when `parentDataTag` is declared, the plug-in fetches the value of the `id` or `data-*-id` attribute from the parent HTML element that is closest to the clicked element rather than the grandparent. Because `data-group="buttongroup1"` is defined, the plug-in finds the `parentId` more efficiently.
+For example 3, because `parentDataTag` is declared and the `data-parentid` or `data-*-parentid` attribute isn’t defined, the value of `parentId` is `test6parent`. It's `test6parent` because when `parentDataTag` is declared, the plug-in fetches the value of the `id` or `data-*-id` attribute from the parent HTML element that is closest to the clicked element. Because `data-group="buttongroup1"` is defined, the plug-in finds the `parentId` more efficiently.
 > [!NOTE]
-> If you remove the `data-group="buttongroup1"` attribute, the value of `parentId` is still `test6parent`, because declaring `parentDataTag` behaves as a boolean.
+> If you remove the `data-group="buttongroup1"` attribute, the value of `parentId` is still `test6parent`, because `parentDataTag` is still declared.
 > [!CAUTION]
 > After `parentDataTag` is used, the SDK begins looking for parent tags across your entire application and not just the HTML element where you used it. If you're using the HEART workbook with the Click Analytics plugin, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
-### customDataPrefix
+### `customDataPrefix`
 The `customDataPrefix` provides the user the ability to configure a data attribute prefix to help identify where heart is located within the individual's codebase. The prefix should always be lowercase and start with `data-`. For example:
 
 - `data-heart-` 
