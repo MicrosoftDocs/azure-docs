@@ -5,7 +5,7 @@ author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
 ms.topic: conceptual 
-ms.date: 04/13/2023
+ms.date: 04/17/2023
 ---
 
 # Scale Dapr applications with KEDA scalers
@@ -17,6 +17,8 @@ In this scenario, the application includes the following elements:
 1. The Dapr Azure Service Bus pub/sub component.
 1. An `order-processor` subscriber container app picks up messages received via the `orders` topic and processed as they arrive.
 1. The scale rule for Azure Service Bus, which is responsible for scaling up the `order-processor` service and its Dapr sidecar when messages start to arrive to the `orders` topic.
+
+:::image type="content" source="media/dapr-keda-scaling/scaling-dapr-apps-keda.png" alt-text="Diagram showing the scaling architecture of the order processing application.":::
 
 ## Publisher container app
 
