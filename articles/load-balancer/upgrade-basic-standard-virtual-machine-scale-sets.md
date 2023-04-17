@@ -3,11 +3,11 @@ title: Upgrade from Basic to Standard for Virtual Machine Scale Sets
 titleSuffix: Azure Load Balancer
 description: This article shows you how to upgrade a load balancer from basic to standard SKU for Virtual Machine Scale Sets.
 services: load-balancer
-author: Welasco
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 09/22/2022
-ms.author: vsantana
+ms.date: 04/17/2023
+ms.author: mbender
 ms.custom: template-how-to
 ---
 
@@ -115,7 +115,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\Reco
 
 ### Will the module migrate my frontend IP address to the new Standard Load Balancer?
 
-Yes, for both public and internal load balancers, the module ensures that front end IP addresses are maintained. For public IPs, the IP is converted to a static IP prior to migration (if necessary). For internal front ends, the module will attempt to reassign the same IP address freed up when the Basic Load Balancer was deleted; if the private IP isn't available the script will fail (see [What happens if my upgrade fails mid-migration?](#what-happens-if-my-upgrade-fails-mid-migration)).
+Yes, for both public and internal load balancers, the module ensures that front end IP addresses are maintained. For public IPs, the IP is converted to a static IP prior to migration (if necessary). For internal front ends, the module attempts to reassign the same IP address freed up when the Basic Load Balancer was deleted; if the private IP isn't available the script will fail (see [What happens if my upgrade fails mid-migration?](#what-happens-if-my-upgrade-fails-mid-migration)).
 
 ### How long does the Upgrade take?
 
@@ -140,11 +140,11 @@ The script migrates the following from the Basic Load Balancer to the Standard L
   - Updates the public IP SKU to Standard, if Basic
   - Upgrade all associated public IPs to the new Standard Load Balancer
 - Health Probes:
-  - All probes will be migrated to the new Standard Load Balancer
+  - All probes are migrated to the new Standard Load Balancer
 - Load balancing rules:
-  - All load balancing rules will be migrated to the new Standard Load Balancer
+  - All load balancing rules are migrated to the new Standard Load Balancer
 - Inbound NAT Rules:
-  - All user-created NAT rules will be migrated to the new Standard Load Balancer
+  - All user-created NAT rules are migrated to the new Standard Load Balancer
 - Inbound NAT Pools:
   - All inbound NAT Pools will be migrated to the new Standard Load Balancer
 - Outbound Rules:
@@ -152,24 +152,24 @@ The script migrates the following from the Basic Load Balancer to the Standard L
 - Network security group
   - Basic Load Balancer doesn't require a network security group to allow outbound connectivity. In case there's no network security group associated with the Virtual Machine Scale Set, a new network security group will be created to preserve the same functionality. This new network security group will be associated to the Virtual Machine Scale Set backend pool member network interfaces. It will allow the same load balancing rules ports and protocols and preserve the outbound connectivity.
 - Backend pools:
-  - All backend pools will be migrated to the new Standard Load Balancer
-  - All Virtual Machine Scale Set network interfaces and IP configurations will be migrated to the new Standard Load Balancer
+  - All backend pools are migrated to the new Standard Load Balancer
+  - All Virtual Machine Scale Set network interfaces and IP configurations are migrated to the new Standard Load Balancer
   - If a Virtual Machine Scale Set is using Rolling Upgrade policy, the script will update the Virtual Machine Scale Set upgrade policy to "Manual" during the migration process and revert it back to "Rolling" after the migration is completed.
 
 **Internal Load Balancer:**
 
 - Private frontend IP configuration
 - Health Probes:
-  - All probes will be migrated to the new Standard Load Balancer
+  - All probes are migrated to the new Standard Load Balancer
 - Load balancing rules:
-  - All load balancing rules will be migrated to the new Standard Load Balancer
+  - All load balancing rules are migrated to the new Standard Load Balancer
 - Inbound NAT Pools:
   - All inbound NAT Pools will be migrated to the new Standard Load Balancer
 - Inbound NAT Rules:
-  - All user-created NAT rules will be migrated to the new Standard Load Balancer
+  - All user-created NAT rules are migrated to the new Standard Load Balancer
 - Backend pools:
-  - All backend pools will be migrated to the new Standard Load Balancer
-  - All Virtual Machine Scale Set network interfaces and IP configurations will be migrated to the new Standard Load Balancer
+  - All backend pools are migrated to the new Standard Load Balancer
+  - All Virtual Machine Scale Set network interfaces and IP configurations are migrated to the new Standard Load Balancer
   - If there's a Virtual Machine Scale Set using Rolling Upgrade policy, the script will update the Virtual Machine Scale Set upgrade policy to "Manual" during the migration process and revert it back to "Rolling" after the migration is completed.
 
 >[!NOTE]
