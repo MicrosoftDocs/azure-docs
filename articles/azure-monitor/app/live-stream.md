@@ -264,24 +264,6 @@ Then add the following service registration:
 builder.Services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
-# [.NET 5.0](#tab/dotnet5)
-
-In the *Startup.cs* file, add the following namespace:
-
-```csharp
-using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-```
-
-Then modify the `ConfigureServices` method:
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    // Existing code which includes services.AddApplicationInsightsTelemetry() to enable Application Insights.
-    services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
-}
-```
-
 # [.NET Framework](#tab/dotnet-framework)
 
 In the *applicationinsights.config* file, add `AuthenticationApiKey` to `QuickPulseTelemetryModule`:

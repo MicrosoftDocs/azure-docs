@@ -217,11 +217,11 @@ The full example is shared at this [GitHub page](https://github.com/microsoft/Ap
     ```
 
 1. Set up the connection string.
-   Use the same `appsettings.json` from the preceding [.NET Core](https://learn.microsoft.com/dotnet/fundamentals/) Worker Service example.
+   Use the same `appsettings.json` from the preceding [.NET Core](/fundamentals/) Worker Service example.
 
 ## .NET Core/.NET Framework console application
 
-As mentioned in the beginning of this article, the new package can be used to enable Application Insights telemetry from even a regular console application. This package targets [`netstandard2.0`](/dotnet/standard/net-standard), so it can be used for console apps in [.NET Core](https://learn.microsoft.com/dotnet/fundamentals/) or higher, and [.NET Framework](https://learn.microsoft.com/dotnet/framework/) or higher.
+As mentioned in the beginning of this article, the new package can be used to enable Application Insights telemetry from even a regular console application. This package targets [`netstandard2.0`](/dotnet/standard/net-standard), so it can be used for console apps in [.NET Core](/fundamentals/) or higher, and [.NET Framework](/framework/) or higher.
 
 The full example is shared at this [GitHub page](https://github.com/microsoft/ApplicationInsights-dotnet/tree/main/examples/ConsoleApp).
 
@@ -352,7 +352,7 @@ Dependency collection is enabled by default. The article [Dependency tracking in
 
 ### EventCounter
 
-`EventCounterCollectionModule` is enabled by default, and it will collect a default set of counters from [.NET Core](https://learn.microsoft.com/dotnet/fundamentals/) apps. The [EventCounter](eventcounters.md) tutorial lists the default set of counters collected. It also has instructions on how to customize the list.
+`EventCounterCollectionModule` is enabled by default, and it will collect a default set of counters from [.NET Core](/fundamentals/) apps. The [EventCounter](eventcounters.md) tutorial lists the default set of counters collected. It also has instructions on how to customize the list.
 
 ### Manually track other telemetry
 
@@ -587,7 +587,7 @@ Visual Studio IDE onboarding is currently supported only for ASP.NET/ASP.NET Cor
 
 ### Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
 
-No. [Azure Monitor Application Insights Agent](./application-insights-asp-net-agent.md) currently supports [.NET Core](https://learn.microsoft.com/dotnet/fundamentals/) only.
+No. [Azure Monitor Application Insights Agent](./application-insights-asp-net-agent.md) currently supports [.NET Core](/fundamentals/) only.
 
 ### Are all features supported if I run my application in Linux?
 
@@ -621,7 +621,7 @@ Use this sample if you're using a console application written in either .NET Cor
 Use this sample if you're in ASP.NET Core and creating background tasks in accordance with [official guidance](/aspnet/core/fundamentals/host/hosted-services).
 
 [.NET Core Worker Service](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService):
-Use this sample if you have a [.NET Core](https://learn.microsoft.com/dotnet/fundamentals/) Worker Service application in accordance with [official guidance](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template).
+Use this sample if you have a [.NET Core](/fundamentals/) Worker Service application in accordance with [official guidance](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template).
 
 ## Open-source SDK
 
