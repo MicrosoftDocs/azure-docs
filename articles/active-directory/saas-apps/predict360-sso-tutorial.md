@@ -77,7 +77,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	> [!Note]
 	> You will get the **Service Provider metadata file** from the [Predict360 SSO support team](mailto:support@360factors.com). If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
 
-1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer. Find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
     ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
@@ -87,7 +87,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Predict360 SSO SSO
 
-To configure single sign-on on **Predict360 SSO** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Predict360 SSO support team](mailto:support@360factors.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Predict360 SSO** side, you need to send the downloaded **Federation Metadata XML**, **Certificate (Raw)**  and appropriate copied URLs from Azure portal to [Predict360 SSO support team](mailto:support@360factors.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Predict360 SSO test user
 
