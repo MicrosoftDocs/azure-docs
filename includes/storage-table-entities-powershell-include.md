@@ -72,6 +72,17 @@ This command yields results similar to the following table:
 | 2 | Jessie | partition2 | NM |
 | 4 | Steven | partition2 | TX |
 
+#### Retrieve the count of the entities in table
+
+```powershell
+$totalEntities=(Get-AzTableRow -table $cloudTable | measure).Count
+Echo $totalEntities
+```
+
+This command results in the numeric count of entities similar to below:
+
+4
+
 #### Retrieve entities for a specific partition key
 
 ```powershell

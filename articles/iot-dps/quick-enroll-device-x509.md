@@ -289,7 +289,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 1. From the location where you downloaded the repo, go to the sample folder:
 
     ```cmd\sh
-    cd azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-group-sample 
+    cd azure-iot-sdk-java\provisioning\provisioning-service-client-samples\service-enrollment-group-sample 
     ```
 
 1. Open the file *_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_* in an editor of your choice.
@@ -369,7 +369,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 :::zone pivot="programming-language-java"
 
-1. From the *azure-iot-sdk-java\provisioning\provisioning-samples\service-enrollment-group-sample* folder in your command prompt, run the following command to build the sample:
+1. From the *azure-iot-sdk-java\provisioning\provisioning-service-client-samples\service-enrollment-group-sample* folder in your command prompt, run the following command to build the sample:
 
     ```cmd\sh
     mvn install -DskipTests

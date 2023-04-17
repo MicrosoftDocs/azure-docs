@@ -3,9 +3,6 @@ title: How to create a machine configuration assignment using templates
 description: Learn how to deploy configurations to machines directly from Azure Resource Manager.
 ms.date: 07/25/2022
 ms.topic: how-to
-ms.author: timwarner
-author: timwarner-msft
-ms.service: machine-configuration
 ms.custom: devx-track-terraform, devx-track-arm-template, devx-track-bicep
 ---
 # How to create a machine configuration assignment using templates
