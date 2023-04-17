@@ -4,11 +4,11 @@ metadata:
   description: This article lists the frequently asked questions about connectivity and networking for Microsoft Azure Cloud Services.
   ms.topic: faq
   ms.service: cloud-services
-  ms.date: 10/14/2020
+  ms.date: 02/21/2023
   author: hirenshah1
   ms.author: hirshah
   ms.reviewer: mimckitt
-  ms.custom: 
+  ms.custom: compute-evergreen
 title: 'Connectivity and networking issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)'
 summary: |
   [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]

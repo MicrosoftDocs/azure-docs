@@ -1,10 +1,10 @@
 ---
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 08/18/2022
+ms.date: 02/17/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # [Conversation summarization](#tab/conversation-summarization)
 
-[Reference documentation](/dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.1.0-beta.1) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations/src/)
+[Reference documentation](/dotnet/api/overview/azure/ai.language.conversations-readme) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations/samples) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.1.0-beta.1) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations/src/)
 
 ---
 
@@ -27,7 +27,7 @@ Use this quickstart to create a text summarization application with the client l
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint.  After it deploys, select **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
@@ -56,7 +56,7 @@ Install the client library by right-clicking on the solution in the **Solution E
 
 ## Code example
 
-Copy the following code into your *program.cs* file. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
+Copy the following code into your *program.cs* file. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 

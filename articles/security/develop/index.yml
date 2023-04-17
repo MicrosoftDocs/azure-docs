@@ -49,6 +49,6 @@ landingContent:
       - linkListType: learn
         links:
           - text: Top 5 security items
-            url: /learn/modules/top-5-security-items-to-consider
+            url: /training/modules/top-5-security-items-to-consider
           - text: Secure your cloud applications in Azure
-            url: /learn/paths/secure-your-cloud-apps
+            url: /training/paths/secure-your-cloud-apps

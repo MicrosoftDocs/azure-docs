@@ -4,7 +4,7 @@ description: Learn how to connect Azure Functions to an Azure Storage queue by a
 ms.date: 02/07/2020
 ms.topic: quickstart
 ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, mode-other
+ms.custom: devx-track-python, mode-other, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -57,7 +57,7 @@ For more information on the details of bindings, see [Azure Functions triggers a
 With the queue binding defined, you can now update your function to receive the `msg` output parameter and write messages to the queue.
 
 ::: zone pivot="programming-language-python"     
-[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python-v1-v2.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript"  

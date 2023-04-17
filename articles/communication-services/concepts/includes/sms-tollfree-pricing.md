@@ -26,16 +26,18 @@ Fees for toll-free leasing are charged after provisioning and then recur on a mo
 |--------|-----------|------------|
 |United States|Toll-free  |$2/mo|
 |Canada| Toll-free |$2/mo|
+|Puerto Rico| Toll-free |$2/mo|
 
 ### Usage Fee
 SMS offers pay-as-you-go pricing. The price is a per-message segment* charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States, Canada, and Puerto Rico.
 
-The following prices include required communications taxes and fees:
+The following prices are exclusive of the required communications taxes and fees:
 
 |Country| Send Message | Receive Message|
 |-----------|---------|--------------|
 |United States| $0.0075 | $0.0075|
 |Canada | $0.0075 | $0.0075|
+|Puerto Rico | $0.0400 | $0.0075|
 
 *Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
 

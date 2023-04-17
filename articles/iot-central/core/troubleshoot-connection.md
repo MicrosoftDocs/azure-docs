@@ -232,7 +232,7 @@ The validation commands also report an error if the same telemetry name is defin
 
 If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled.
 
-:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot of Raw Data view":::
+:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot of Raw Data view" lightbox="media/troubleshoot-connection/raw-data-view.png":::
 
 When you've detected the issue, you may need to update device firmware, or create a new device template that models previously unmodeled data.
 
@@ -252,4 +252,4 @@ To display telemetry from components hosted in IoT Edge modules correctly, use [
 
 If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
 
-For more information, see [Azure IoT support and help options](../../iot-fundamentals/iot-support-help.md).
+For more information, see [Azure IoT support and help options](../../iot/iot-support-help.md).

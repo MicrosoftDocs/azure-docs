@@ -6,7 +6,7 @@ ms.author: karler
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 05/09/2022
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022, engagement-fy23
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -19,11 +19,14 @@ zone_pivot_groups: programming-languages-spring-apps
 
 This article shows you how to register your application using Spring Cloud Service Registry.
 
+> [!NOTE]
+> The discover and register feature for the Standard consumption plan is currently under private preview. To sign up for this feature, fill in the form at [Azure Spring Apps Consumption - Fully Managed Spring Eureka & Config - Private Preview](https://aka.ms/asa-consumption-middleware-signup).
+
 Service registration and discovery are key requirements for maintaining a list of live app instances to call, and routing and load balancing inbound requests. Configuring each client manually takes time and introduces the possibility of human error. Azure Spring Apps provides two options for you to solve this problem:
 
 * Use Kubernetes Service Discovery approach to invoke calls among your apps.
 
-  Azure Spring Apps creates a corresponding kubernetes service for every app running in it using app name as the kubernetes service name. So you can invoke calls in one app to another app by using app name in a http/https request like http(s)://{app name}/path. And this approach is also suitable for Enterprise tier.
+  Azure Spring Apps creates a corresponding Kubernetes service for every app running in it using the app name as the Kubernetes service name. You can invoke calls from one app to another app by using the app name in an HTTP/HTTPS request such as `http(s)://{app name}/path`. This approach is also suitable for Enterprise tier. For more information, see the [Kubernetes registry code sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/k8s-service-registry).
 
 * Use Managed Spring Cloud Service Registry (OSS) in Azure Spring Apps.
 
@@ -39,7 +42,7 @@ For information about how to set up service registration for a Steeltoe app, see
 
 ## Register your application using Spring Cloud Service Registry
 
-Before your application can manage service registration and discovery using Spring Cloud Service Registry, you must include the following dependency for *spring-cloud-starter-netflix-eureka-client* to your *pom.xml*:
+Before your application can manage service registration and discovery using Spring Cloud Service Registry, you must include the following dependency for `spring-cloud-starter-netflix-eureka-client` in your *pom.xml* file:
 
 ```xml
 <dependency>
@@ -50,7 +53,7 @@ Before your application can manage service registration and discovery using Spri
 
 ## Update the top level class
 
-Finally, add an annotation to the top level class of your application as shown in the following example:
+Finally, add an annotation to the top level class of your application, as shown in the following example:
 
 ```java
 package foo.bar;
@@ -74,3 +77,7 @@ The Spring Cloud Service Registry server endpoint will be injected as an environ
 > [!NOTE]
 > It can take a few minutes for the changes to propagate from the server to all applications.
 ::: zone-end
+
+## Next steps
+
+In this article, you learned how to register your application using Spring Cloud Service Registry. To learn how to access the Spring Cloud Service Registry using Azure Active Directory (Azure AD) role-based access control (RBAC), see [Access Config Server and Service Registry](how-to-access-data-plane-azure-ad-rbac.md).

@@ -6,24 +6,19 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 10/21/2022
 ms.custom: template-how-to
 ---
 
-# Connect to and manage SAP HANA in Microsoft Purview (Preview)
+# Connect to and manage SAP HANA in Microsoft Purview
 
 This article outlines how to register SAP HANA, and how to authenticate and interact with SAP HANA in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 ## Supported capabilities
 
-|**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**| **Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No|No | No |
-
->[!NOTE]
->Supported version for SAP HANA is 15.
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No|No | No | No |
 
 When scanning SAP HANA source, Microsoft Purview supports extracting technical metadata including:
 
@@ -82,8 +77,9 @@ GRANT SELECT ON SCHEMA _SYS_BIC TO <user>;
 
 This section describes how to register a SAP HANA in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
 
-1. Go to your Microsoft Purview account.
-
+1. Open the Microsoft Purview governance portal by:
+    - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+    - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 1. Select **Data Map** on the left pane.
 
 1. Select **Register**.

@@ -1,12 +1,14 @@
 ---
-title: Automatic device management at scale with Azure IoT Hub (CLI) | Microsoft Docs
+title: Automatic device management at scale (CLI)
+titleSuffix: Azure IoT Hub
 description: Use Azure IoT Hub automatic configurations to manage multiple IoT devices or modules
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 07/08/2021
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: how-to
+ms.date: 07/08/2021
+ms.custom: devx-track-azurecli
 ---
 
 # Automatic IoT device and module management using the Azure CLI
@@ -221,16 +223,6 @@ az iot hub configuration delete --config-id [configuration id] \
 
 ## Next steps
 
-In this article, you learned how to configure and monitor IoT devices at scale. Follow these links to learn more about managing Azure IoT Hub:
+In this article, you learned how to configure and monitor IoT devices at scale. 
 
-* [Manage your IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md)
-* [Monitor your IoT hub](monitor-iot-hub.md)
-
-To further explore the capabilities of IoT Hub, see:
-
-* [IoT Hub developer guide](iot-hub-devguide.md)
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
-
-To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
-
-* [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml)
+To learn how to manage IoT Hub device identities in bulk, see [Import and export IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md)

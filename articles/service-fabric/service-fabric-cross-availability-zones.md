@@ -262,6 +262,8 @@ The Service Fabric node type must be enabled to support multiple Availability Zo
 > * The `multipleAvailabilityZones` property on the node type can only be defined when the node type is created and can't be modified later. Existing node types can't be configured with this property.
 > * When `sfZonalUpgradeMode` is omitted or set to `Hierarchical`, the cluster and application deployments will be slower because there are more upgrade domains in the cluster. It's important to correctly adjust the upgrade policy timeouts to account for the upgrade time required for 15 upgrade domains. The upgrade policy for both the app and the cluster should be updated to ensure that the deployment doesn't exceed the Azure Resource Service deployment time limit of 12 hours. This means that deployment shouldn't take more than 12 hours for 15 UDs (that is, shouldn't take more than 40 minutes for each UD).
 > * Set the cluster reliability level to `Platinum` to ensure that the cluster survives the one zone-down scenario.
+> * Upgrading the DurabilityLevel for a nodetype with multipleAvailabilityZones, is not supported. Please create a new nodetype with the higher durability instead.
+> * SF supports just 3 AvailabilityZones. Any higher number is not supported right now.
 
 >[!TIP]
 > We recommend setting `sfZonalUpgradeMode` to `Hierarchical` or omitting it. Deployment will follow the zonal distribution of VMs and affect a smaller amount of replicas or instances, making them safer.

@@ -73,7 +73,7 @@ List<Guid> actorIds = new();
 foreach(var partition in partitions)
 {
     //Retrieve the partition information
-    Int64RangePartitionInformation partitionInformation = (Int64RangePartitionInformation)partition.PartitionInformation; //Actors are restricted to the uniform Int64 scheme per https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-actors-introduction#distribution-and-failover
+    Int64RangePartitionInformation partitionInformation = (Int64RangePartitionInformation)partition.PartitionInformation; //Actors are restricted to the uniform Int64 scheme per https://learn.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#distribution-and-failover
     IActorService actorServiceProxy = ActorServiceProxy.Create(serviceName, partitionInformation.LowKey);
     
     ContinuationToken? continuationToken = null;

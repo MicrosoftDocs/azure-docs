@@ -93,7 +93,7 @@ There are several access control mechanisms that you could use to provide access
 
 Access keys are a common way to provide access to data plane resources. Access keys provide read, write, and delete permissions to whoever possesses the access key. This means attackers can get access to your sensitive data if they can get your access keys. Access keys do not have identity binding, do not have an expiration, and are a security risk to store.
 
-Like access keys, shared access signature (SAS) tokens do not have identity binding, but expire on a regularly basis. The lack of identity binding represents the same security risks as access keys do. You must manage the expiration to ensure that clients do not get errors. SAS tokens require additional code to manage and operate daily and can be a significant overhead for a DevOps team.
+Like access keys, shared access signature (SAS) tokens do not have identity binding, but expire on a regular basis. The lack of identity binding represents the same security risks as access keys do. You must manage the expiration to ensure that clients do not get errors. SAS tokens require additional code to manage and operate daily and can be a significant overhead for a DevOps team.
 
 Azure RBAC provides centralized fine-grained access control. Azure RBAC has identity binding that reduces your security risk. Using conditions you can potentially scale the management of role assignments and make access control easier to maintain because access is based on flexible and dynamic attributes.
 
@@ -113,7 +113,7 @@ If you have a similar scenario, follow these steps to see if you could potential
 
 To use this solution, you must have:
 
-- Multiple built-in or custom role assignments that have [storage blob data actions](../storage/blobs/storage-auth-abac-attributes.md). These include the following built-in roles:
+- Multiple built-in or custom role assignments that have [blob storage data actions](../storage/blobs/storage-auth-abac-attributes.md). These include the following built-in roles:
 
     - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
     - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
@@ -140,4 +140,4 @@ Create one or more role assignments that use a condition at a higher scope to ma
 
 - [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md)
 - [What are custom security attributes in Azure AD?](../active-directory/fundamentals/custom-security-attributes-overview.md)
-- [Allow read access to blobs based on tags and custom security attributes](conditions-custom-security-attributes.md)
+- [Allow read access to blobs based on tags and custom security attributes (Preview)](conditions-custom-security-attributes.md)

@@ -22,7 +22,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: Check out our blog
-            url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
+            url: https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/bg-p/ADforPostgreSQL
  # Card
   - title: Get started
     linkLists:
@@ -35,7 +35,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: 'Learning module: Create an Azure Database for PostgreSQL server'
-            url: /learn/modules/create-azure-db-for-postgresql-server/
+            url: /training/modules/create-azure-db-for-postgresql-server/
       - linkListType: concept
         links:
           - text: Pricing tiers

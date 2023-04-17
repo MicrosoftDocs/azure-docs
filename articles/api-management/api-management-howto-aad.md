@@ -6,8 +6,9 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 07/12/2022
+ms.date: 03/17/2023
 ms.author: danlep
+ms.custom: engagement-fy23
 ---
 
 # Authorize developer accounts by using Azure Active Directory in Azure API Management
@@ -17,9 +18,12 @@ In this article, you'll learn how to:
 > * Enable access to the developer portal for users from Azure Active Directory (Azure AD).
 > * Manage groups of Azure AD users by adding external groups that contain the users.
 
+For an overview of options to secure the developer portal, see [Authentication and authorization in API Management](authentication-authorization-overview.md#developer-portal-user-plane).
+
 > [!IMPORTANT]
 > * This article has been updated with steps to configure an Azure AD app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)). 
 > * If you previously configured an Azure AD app for user sign-in using the Azure AD Authentication Library (ADAL), we recommend that you [migrate to MSAL](#migrate-to-msal).
+ 
 
 ## Prerequisites
 
@@ -27,7 +31,7 @@ In this article, you'll learn how to:
 
 - [Import and publish](import-and-publish.md) an API in the Azure API Management instance.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
@@ -151,6 +155,7 @@ Now that you've enabled access for users in an Azure AD tenant, you can:
 Follow these steps to grant:
 * `User.Read` **delegated** permission for Microsoft Graph API. 
 * `Directory.ReadAll` **application** permission for Microsoft Graph API. 
+
 1. Update the first 3 lines of the following Azure CLI script to match your environment and run it.
 
    ```azurecli
@@ -174,7 +179,8 @@ Now you can add external Azure AD groups from the **Groups** tab of your API Man
 1. Under **Developer portal** in the side menu, select **Groups**.
 1. Select the **Add Azure AD group** button.
 
-   !["Screenshot showing Add Azure AD group button.](./media/api-management-howto-aad/api-management-with-aad008.png)
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad008.png" alt-text="Screenshot showing Add Azure AD group button in the portal.":::
+
 1. Select the **Tenant** from the drop-down. 
 1. Search for and select the group that you want to add.
 1. Press the **Select** button.
@@ -188,7 +194,7 @@ Users from the configured Azure AD instance can now:
 * View and subscribe to any groups for which they have visibility.
 
 > [!NOTE]
-> Learn more about the difference between **Delegated** and **Application** permissions types     in [Permissions and consent in the Microsoft identity platform](../active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
+> Learn more about the difference between **Delegated** and **Application** permissions types in [Permissions and consent in the Microsoft identity platform](../active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
 
 ## <a id="log_in_to_dev_portal"></a> Developer portal: Add Azure AD account authentication
 

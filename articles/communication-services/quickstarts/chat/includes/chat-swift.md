@@ -18,13 +18,13 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Xcode](https://developer.apple.com/xcode/) and [CocoaPods](https://cocoapods.org/). You use Xcode to create an iOS application for the quickstart, and CocoaPods to install dependencies.
 - Create an Azure Communication Services resource. For details, see [Quickstart: Create and manage Communication Services resources](../../create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
-- Create two users in Azure Communication Services, and issue them a [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. In this quickstart, you create a thread with an initial participant, and then add a second participant to the thread. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- Create two users in Azure Communication Services, and issue them a [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. In this quickstart, you create a thread with an initial participant, and then add a second participant to the thread. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope chat --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -45,8 +45,7 @@ From the command line, go inside the root directory of the `ChatQuickstart` iOS 
 Open the Podfile, and add the following dependencies to the `ChatQuickstart` target:
 
 ```
-pod 'AzureCommunicationCommon', '~> 1.0.3'
-pod 'AzureCommunicationChat', '~> 1.2.0'
+pod 'AzureCommunicationChat', '~> 1.3.1'
 ```
 
 Install the dependencies with the following command: `pod install`. Note that this also creates an Xcode workspace.
@@ -107,7 +106,7 @@ For demonstration purposes, we'll use a semaphore to synchronize your code. In f
 
 To create a chat client, you'll use your Communication Services endpoint and the access token that was generated as part of the prerequisite steps.
 
-Learn more about [User Access Tokens](../../access-tokens.md).
+Learn more about [User Access Tokens](../../identity/access-tokens.md).
 
 This quickstart doesn't cover creating a service tier to manage tokens for your chat application, although it's recommended. Learn more about [Chat Architecture](../../../concepts/chat/concepts.md)
 
@@ -389,7 +388,7 @@ semaphore.wait()
 ## Push notifications
 
 Push notifications notify clients of incoming messages in a chat thread in situations where the mobile app is not running in the foreground.
-Currently sending chat push notifications with Notification Hub is supported for IOS SDK in version 1.3.0-beta.1.
+Currently sending chat push notifications with Notification Hub is supported for IOS SDK in version 1.3.0.
 Please refer to the article [Enable Push Notification in your chat app](../../../tutorials/add-chat-push-notifications.md) for details.
 
 ## Run the code

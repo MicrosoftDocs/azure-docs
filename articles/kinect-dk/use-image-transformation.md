@@ -3,7 +3,7 @@ title: Use Azure Kinect Sensor SDK image transformations
 description: Learn how to use the Azure Kinect Sensor SDK image transformation functions.
 author: cdedmonds
 ms.author: cedmonds
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.topic: conceptual
 ms.date: 06/26/2019 
 keywords: kinect, azure, sensor, sdk, coordinate system, calibration, project, unproject, transformation, rgb-d, point cloud

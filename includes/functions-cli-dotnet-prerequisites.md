@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 11/01/2022
+ms.author: glenga
+---
 # [In-process](#tab/in-process)
 
 + [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download).

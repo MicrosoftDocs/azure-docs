@@ -3,8 +3,9 @@ title: Convert custom models to MLflow
 titleSuffix: Azure Machine Learning
 description:  Convert custom models to MLflow model format for no code deployment with endpoints.
 services: machine-learning
-author: abeomor
-ms.author: osomorog
+author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 04/15/2022
@@ -24,7 +25,7 @@ With Azure Machine Learning, MLflow models get the added benefits of,
 
 MLflow provides support for a variety of [machine learning frameworks](https://mlflow.org/docs/latest/models.html#built-in-model-flavors) (scikit-learn, Keras, Pytorch, and more); however, it might not cover every use case. For example, you may want to create an MLflow model with a framework that MLflow does not natively support or you may want to change the way your model does pre-processing or post-processing when running jobs. To know more about MLflow models read [From artifacts to models in MLflow](concept-mlflow-models.md).
 
-If you didn't train your model with MLFlow and want to use Azure Machine Learning's MLflow no-code deployment offering, you need to convert your custom model to MLFLow. Learn more about [custom python models and MLflow](https://mlflow.org/docs/latest/models.html#custom-python-models).
+If you didn't train your model with MLFlow and want to use Azure Machine Learning's MLflow no-code deployment offering, you need to convert your custom model to MLFLow. Learn more about [custom Python models and MLflow](https://mlflow.org/docs/latest/models.html#custom-python-models).
 
 ## Prerequisites
  
@@ -32,7 +33,7 @@ Only the mlflow package installed is needed to convert your custom models to an 
 
 ## Create a Python wrapper for your model
 
-Before you can convert your model to an MLflow supported format, you need to first create a python wrapper for your model.
+Before you can convert your model to an MLflow supported format, you need to first create a Python wrapper for your model.
 The following code demonstrates how to create a Python wrapper for an `sklearn` model.
 
 ```python
@@ -40,12 +41,8 @@ The following code demonstrates how to create a Python wrapper for an `sklearn` 
 # Load training and test datasets
 from sys import version_info
 import sklearn
-from sklearn import datasets
-from sklearn.model_selection import train_test_split
-
 import mlflow.pyfunc
-from sklearn.metrics import mean_squared_error
-from sklearn.model_selection import train_test_split
+
 
 PYTHON_VERSION = "{major}.{minor}.{micro}".format(major=version_info.major,
                                                   minor=version_info.minor,
@@ -98,7 +95,7 @@ conda_env = {
 Once your environment is ready, you can pass the SKlearnWrapper, the Conda environment, and your newly created artifacts dictionary to the mlflow.pyfunc.save_model() method. Doing so saves the model to your disk.
 
 ```python
-mlflow_pyfunc_model_path = "sklearn_mlflow_pyfunc7"
+mlflow_pyfunc_model_path = "sklearn_mlflow_pyfunc_custom"
 mlflow.pyfunc.save_model(path=mlflow_pyfunc_model_path, python_model=SKLearnWrapper(), conda_env=conda_env, artifacts=artifacts)
 
 ```

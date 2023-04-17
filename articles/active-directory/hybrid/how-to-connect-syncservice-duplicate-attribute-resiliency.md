@@ -1,5 +1,5 @@
 ---
-title: Identity synchronization and duplicate attribute resiliency | Microsoft Docs
+title: Identity synchronization and duplicate attribute resiliency
 description: New behavior of how to handle objects with UPN or ProxyAddress conflicts during directory sync using Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 

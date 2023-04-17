@@ -10,7 +10,7 @@ metadata:
   ms.collection: collection
   author: asudbring
   ms.author: allensu
-  ms.date: 09/16/2019
+  ms.date: 03/28/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,7 +27,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Private Link
-            url: /learn/modules/introduction-azure-private-link/
+            url: /training/modules/introduction-azure-private-link/
       - linkListType: video
         links:
           - text: Secure Azure PaaS resources using Private Link
@@ -84,7 +84,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Design and implement private access to Azure Services
-            url: /learn/modules/design-implement-private-access-to-azure-services
+            url: /training/modules/design-implement-private-access-to-azure-services
 
       - linkListType: reference
         links:

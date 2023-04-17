@@ -918,7 +918,7 @@ To return a list of all the VMs that are running on your Azure Stack Edge device
 Get-AzVM -ResourceGroupName <String> -Name <String>
 ```
 
-For more information about this cmdlet, see [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-6.1.0&preserve-view=true).
+For more information about this cmdlet, see [Get-AzVM](/powershell/module/az.compute/get-azvm).
 
 ### [AzureRM](#tab/azure-rm)
 
@@ -938,7 +938,7 @@ To turn on a virtual machine that's running on your device, run the following cm
 ```powershell
 Start-AzVM [-Name] <String> [-ResourceGroupName] <String>
 ```
-For more information about this cmdlet, see [Start-AzVM](/powershell/module/az.compute/start-azvm?view=azps-5.9.0&preserve-view=true).
+For more information about this cmdlet, see [Start-AzVM](/powershell/module/az.compute/start-azvm).
 
 ### [AzureRM](#tab/azure-rm)
 
@@ -960,7 +960,7 @@ To stop or shut down a virtual machine that's running on your device, run the fo
 Stop-AzVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
-For more information about this cmdlet, see [Stop-AzVM cmdlet](/powershell/module/az.compute/stop-azvm?view=azps-5.9.0&preserve-view=true).
+For more information about this cmdlet, see [Stop-AzVM cmdlet](/powershell/module/az.compute/stop-azvm).
 
 ### [AzureRM](#tab/azure-rm)
 
@@ -1004,7 +1004,7 @@ To remove a virtual machine from your device, run the following cmdlet:
 ```powershell
 Remove-AzVM [-Name] <String> [-ResourceGroupName] <String>
 ```
-For more information about this cmdlet, see [Remove-AzVm cmdlet](/powershell/module/az.compute/remove-azvm?view=azps-5.9.0&preserve-view=true).
+For more information about this cmdlet, see [Remove-AzVm cmdlet](/powershell/module/az.compute/remove-azvm).
 
 ### [AzureRM](#tab/azure-rm)
 

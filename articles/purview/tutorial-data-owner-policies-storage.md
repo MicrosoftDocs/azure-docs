@@ -61,7 +61,7 @@ To register your resource and enable Data Use Management, follow these steps:
 
 1. If you have a firewall enabled on your Storage account, follow these steps as well:
     1. Go into your Azure Storage account in [Azure portal](https://portal.azure.com).
-    1. Navigate to **Security + networking > Networking**.NET
+    1. Navigate to **Security + networking > Networking**.
     1. Choose **Selected Networks** under **Allow access from**.
     1. In the **Exceptions** section, select **Allow trusted Microsoft services to access this storage account** and select **Save**.
 
@@ -131,7 +131,7 @@ To register your resource and enable Data Use Management, follow these steps:
 
     :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-data-source-type.png" alt-text="Screenshot showing the policy editor, with Data Resources selected, and Data source Type highlighted in the data resources menu.":::
 
-1. Select the **Continue** button and transverse the hierarchy to select and underlying data-object (for example: folder, file, etc.).  Select **Recursive** to apply the policy from that point in the hierarchy down to any child data-objects. Then select the **Add** button. This will take you back to the policy editor.
+1. Select the **Continue** button and traverse the hierarchy to select and underlying data-object (for example: folder, file, etc.).  Select **Recursive** to apply the policy from that point in the hierarchy down to any child data-objects. Then select the **Add** button. This will take you back to the policy editor.
 
     :::image type="content" source="./media/how-to-policies-data-owner-authoring-generic/select-asset.png" alt-text="Screenshot showing the Select asset menu, and the Add button highlighted.":::
 

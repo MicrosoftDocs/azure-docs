@@ -1,5 +1,5 @@
 ---
-title: Opt out of the Microsoft Entra Verified ID
+title: Opt out of Microsoft Entra Verified ID
 description: Learn how to Opt Out of Entra Verified ID
 documentationCenter: ''
 author: barclayn
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am looking for information to help me disable 
 ---
 
-# Opt out of the verifiable credentials
+# Opt out of Verified ID service
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
@@ -24,33 +24,34 @@ In this article:
 - What happens to your data?
 - Effect on existing verifiable credentials.
 
+
 ## Prerequisites
 
 - Complete verifiable credentials onboarding.
 
 ## When do you need to opt out?
 
-Opting out is a one-way operation, after you opt-out your Entra Verified ID environment will be reset. Opting out may be required to:
+Opting out is a one-way operation. After you opt-out, your Entra Verified ID environment is reset. Opting out may be required to:
 
 - Enable new service capabilities.
 - Reset your service configuration.
 - Switch between trust systems ION and Web
 
-## What happens to your data when you opt-out?
+## What happens to your data?
 
-When you complete opting out of the Microsoft Entra Verified ID service, the following actions will take place:
+When you complete opting out of the Microsoft Entra Verified ID service, the following actions take place:
 
-- The DID keys in Key Vault will be [soft deleted](../../key-vault/general/soft-delete-overview.md).
-- The issuer object will be deleted from our database.
-- The tenant identifier will be deleted from our database.
-- All of the verifiable credentials contracts will be deleted from our database.
+- The DID keys in Key Vault are [soft deleted](../../key-vault/general/soft-delete-overview.md).
+- The issuer object is deleted from our database.
+- The tenant identifier is deleted from our database.
+- All of the verifiable credentials contracts are deleted from our database.
 
-Once an opt-out takes place, you won't be able to recover your DID or conduct any operations on your DID. This step is a one-way operation, and you need to opt in again, which results in a new environment being created.
+Once an opt-out takes place, you can't recover your DID or conduct any operations on your DID. This step is a one-way operation and you need to onboard again. Onboarding again results in a new environment being created.
 
 ## Effect on existing verifiable credentials
 
-All verifiable credentials already issued will continue to exist. They won't be cryptographically invalidated as your DID will remain resolvable through ION.
-However, when relying parties call the status API, they will always receive back a failure message.  
+All verifiable credentials already issued will continue to exist. For the ION trust system, they will not be cryptographically invalidated as your DID remain resolvable through ION.
+However, when relying parties call the status API, they always receive a failure message.  
 
 ## How to opt-out from the Microsoft Entra Verified ID service?
 

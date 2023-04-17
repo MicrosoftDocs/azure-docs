@@ -1,5 +1,5 @@
 ---
-title: Create an access review of groups and applications - Azure AD
+title: Create an access review of groups and applications
 description: Learn how to create an access review of group members or application access in Azure Active Directory. 
 services: active-directory
 author: amsliu
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/24/2022
+ms.date: 3/23/2023
 ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -95,6 +95,12 @@ If you are reviewing access to an application, then before creating the review, 
 
    If you choose either **Managers of users** or **Group owner(s)**, you can also specify a fallback reviewer. Fallback reviewers are asked to do a review when the user has no manager specified in the directory or if the group doesn't have an owner.
 
+    > [!NOTE]  
+    > In a team or group access review, only the group owners (at the time the review starts) are considered as reviewers. During the course of a review, if the list of group owners is updated, new group owners will not be considered reviewers as well as old group owners will still be considered reviewers. However, in the case of a recurring review, any changes on the group owners list will be considered in the next instance of that review.
+
+    >[!IMPORTANT]
+    > For PIM for Groups (Preview), you must select **Group owner(s)**. It is mandatory to assign at least one fallback reviewer to the review. The review will only assign active owner(s) as the reviewer(s). Eligible owners are not included. If there are no active owners when the review begins, the fallback reviewer(s) will be assigned to the review.
+
       ![Screenshot that shows New access review.](./media/create-access-review/new-access-review.png)
 
 1. In the **Specify recurrence of review** section, specify the following selections:
@@ -121,6 +127,9 @@ If you are reviewing access to an application, then before creating the review, 
        - **Remove access**: Removes a user's access.
        - **Approve access**: Approves a user's access.
        - **Take recommendations**: Takes the system's recommendation to deny or approve the user's continued access.
+    
+        >[!WARNING]
+        > If the settings **If reviewers don't respond** is set to **Remove access** or **Take recommendations** and **Auto apply results to resource** is enabled, all access to this resource could risk being revoked if the reviewers fail to respond.
 
     - **Action to apply on denied guest users**: This option is only available if the access review is scoped to include only guest users to specify what happens to guest users if they're denied either by a reviewer or by the **If reviewers don't respond** setting.
 
@@ -136,6 +145,7 @@ If you are reviewing access to an application, then before creating the review, 
 
 1. In the **Enable review decision helpers** section choose whether you want your reviewer to receive recommendations during the review process:
     1. If you select **No sign-in within 30 days**, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial. This 30-day interval is irrespective of whether the sign-ins were interactive or not. The last sign-in date for the specified user will also display along with the recommendation.
+    1. If you select **(Preview) User-to-Group Affiliation**, reviewers will get the recommendation to Approve or Deny access for the users based on user’s average distance in the organization’s reporting-structure. Users who are very distant from all the other users within the group are considered to have "low affiliation" and will get a deny recommendation in the group access reviews.
 
    > [!NOTE]
    > If you create an access review based on applications, your recommendations are based on the 30-day interval period depending on when the user last signed in to the application rather than the tenant. 
@@ -222,7 +232,7 @@ B2B direct connect users and teams are included in access reviews of the Teams-e
 
 Use the following instructions to create an access review on a team with shared channels:
 
-1. Sign in to the Azure portal as a Global Admin, User Admin or Identity Governance Admin.
+1. Sign in to the Azure portal as a Global Administrator, User Admin or Identity Governance Admin.
   
 1. Open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 
@@ -297,8 +307,10 @@ After one or more access reviews have started, you might want to modify or updat
 
 ## Next steps
 
+- [Complete an access review of groups or applications](complete-access-review.md)
+- [Create an access review of PIM for Groups (preview)](create-access-review-pim-for-groups.md)
 - [Review access to groups or applications](perform-access-review.md)
 - [Review access for yourself to groups or applications](review-your-access.md)
-- [Complete an access review of groups or applications](complete-access-review.md)
+
 
 

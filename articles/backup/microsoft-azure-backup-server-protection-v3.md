@@ -3,9 +3,9 @@ title: What Azure Backup Server V3 RTM can back up
 description: This article provides a protection matrix listing all workloads, data types, and installations that Azure Backup Serve V3 RTM protects.
 ms.date: 08/08/2022
 ms.topic: conceptual
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Backup Server V3 RTM protection matrix
@@ -68,7 +68,7 @@ The following matrix lists what can be protected with Azure Backup Server V3 RTM
 
 Support for the following operating systems and applications in MABS are deprecated. We recommended you to upgrade them to continue protecting your data.
 
-If the existing commitments prevent upgrading Windows Server or SQL Server, migrate them to Azure and [use Azure Backup to protect the servers](/azure/backup/). For more information, see [migration of Windows Server, apps and workloads](https://azure.microsoft.com/migration/windows-server/).
+If the existing commitments prevent upgrading Windows Server or SQL Server, migrate them to Azure and [use Azure Backup to protect the servers](./index.yml). For more information, see [migration of Windows Server, apps and workloads](https://azure.microsoft.com/migration/windows-server/).
 
 For on-premises or hosted environments that you can't upgrade or migrate to Azure, activate Extended Security Updates for the machines for protection and support. Note that only limited editions are eligible for Extended Security Updates. For more information, see [Frequently asked questions](https://www.microsoft.com/windows-server/extended-security-updates).
 

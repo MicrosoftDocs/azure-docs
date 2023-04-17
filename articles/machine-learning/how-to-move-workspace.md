@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 08/04/2022
+ms.date: 11/16/2022
 ---
 
 # Move Azure Machine Learning workspaces between subscriptions (preview)

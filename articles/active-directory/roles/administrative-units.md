@@ -1,5 +1,5 @@
 ---
-title: Administrative units in Azure Active Directory | Microsoft Docs
+title: Administrative units in Azure Active Directory
 description: Use administrative units for more granular delegation of permissions in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
-ms.date: 06/30/2022
+ms.date: 03/07/2023
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -20,6 +20,8 @@ ms.collection: M365-identity-device-management
 This article describes administrative units in Azure Active Directory (Azure AD). An administrative unit is an Azure AD resource that can be a container for other Azure AD resources. An administrative unit can contain only users, groups, or devices.
 
 Administrative units restrict permissions in a role to any portion of your organization that you define. You could, for example, use administrative units to delegate the [Helpdesk Administrator](permissions-reference.md#helpdesk-administrator) role to regional support specialists, so they can manage users only in the region that they support.
+
+Users can be members of multiple administrative units. For example, you might add users to administrative units by geography and division; Megan Bowen might be in the "Seattle" and "Marketing" administrative units.
 
 ## Deployment scenario
 
@@ -39,7 +41,6 @@ A central administrator could:
 Here are some of the constraints for administrative units.
 
 - Administrative units can't be nested.
-- Administrative unit-scoped user account administrators can't create or delete users.
 - Administrative units are currently not available in [Azure AD Identity Governance](../governance/identity-governance-overview.md).
 
 ## Groups
@@ -127,7 +128,8 @@ The following sections describe current support for administrative unit scenario
 | Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Administrative unit-scoped creation and deletion of groups | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Administrative unit-scoped management of group properties and membership | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Administrative unit-scoped management of group properties and membership for Microsoft 365 groups | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Administrative unit-scoped management of group properties and membership for all other groups | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Administrative unit-scoped management of group licensing | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ### Device management

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article provides an overview about migrating from Azure Enterprise Reporting to Microsoft Cost Management APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 12/19/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -23,20 +23,20 @@ The following information describes the differences between the older Azure Ente
 | --- | --- | --- |
 | Authentication | API key provisioned in the Enterprise Agreement (EA) portal | Azure Active Directory (Azure AD) Authentication using user tokens or service principals. Service principals take the place of API keys. |
 | Scopes and permissions | All requests are at the enrollment scope. API Key permission assignments will determine whether data for the entire enrollment, a department, or a specific account is returned. No user authentication. | Users or service principals are assigned access to the enrollment, department, or account scope. |
-| URI Endpoint | [https://consumption.azure.com](https://consumption.azure.com/) | [https://management.azure.com](https://management.azure.com/) |
+| URI Endpoint | `https://consumption.azure.com` | `https://management.azure.com` |
 | Development status | In maintenance mode. On the path to deprecation. | In active development |
 | Available APIs | Limited to what's currently available | Equivalent APIs are available to replace each EA API. Additional [Cost Management APIs](/rest/api/cost-management/) are also available, including: <br>- Budgets<br>- Alerts<br>- Exports |
 
 ## Migration checklist
 
 - Familiarize yourself with the [Azure Resource Manager REST APIs](/rest/api/azure).
-- Determine which Enterprise Reporting APIs you use and see which Cost Management APIs to move to at [Enterprise Reporting API mapping to new Cost Management APIs](../costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md#ea-api-mapping-to-new-azure-resource-manager-apis).
+- Determine which Enterprise Reporting APIs you use and see which Cost Management APIs to move to at [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md).
 - Configure service authorization and authentication for the Cost Management APIs. For more information, see [Assign permission to ACM APIs](cost-management-api-permissions.md).
 - Test the APIs and then update any programming code to replace Enterprise Reporting API calls with Cost Management API calls.
 - Update error handling to use new error codes. Some considerations include:
     - Cost Management APIs have a timeout period of 60 seconds.
     - Cost Management APIs have rate limiting in place. This results in a `429 throttling error` if rates are exceeded. Build your solutions so that you don't make too many API calls in a short time period.
-- Review the other Cost Management APIs available through Azure Resource Manager and assess for use later. For more information, see [Use additional Cost Management APIs](../costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md#use-additional-cost-management-apis).
+- Review the other Cost Management APIs available through Azure Resource Manager and assess for use later. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md).
 
 ## Enterprise Reporting API mapping to new Cost Management APIs
 
@@ -63,6 +63,6 @@ After you've migrated to the Cost Management APIs for your existing reporting sc
 ## Next steps
 
 - Familiarize yourself with the [Azure Resource Manager REST APIs](/rest/api/azure).
-- If needed, determine which Enterprise Reporting APIs you use and see which Cost Management APIs to move to at [Enterprise Reporting API mapping to new Cost Management APIs](../costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md#ea-api-mapping-to-new-azure-resource-manager-apis).
+- If needed, determine which Enterprise Reporting APIs you use and see which Cost Management APIs to move to at [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md).
 - If you're not already using Azure Resource Manager APIs, [register your client app with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
 - If needed, update any of your programming code to use [Azure AD authentication](/rest/api/azure/#create-the-request) with your service principal.

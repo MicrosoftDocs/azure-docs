@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.service: azure-portal
   ms.collection: collection
-  ms.date: 02/15/2022
+  ms.date: 03/27/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -49,7 +49,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Module - Manage services with the Azure portal
-            url: /learn/modules/tour-azure-portal/
+            url: /training/modules/tour-azure-portal/
 
   # Card
   - title: Create and manage support requests
@@ -73,9 +73,9 @@ landingContent:
       - linkListType: learn
         links:
           - text: Manage resources in Azure
-            url: /learn/paths/manage-resources-in-azure/
+            url: /training/paths/manage-resources-in-azure/
           - text: Secure your resources with Azure role-based access control (Azure RBAC)
-            url: /learn/modules/secure-azure-resources-with-rbac
+            url: /training/modules/secure-azure-resources-with-rbac
 
                         
   # Card

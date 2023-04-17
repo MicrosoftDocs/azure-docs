@@ -1,8 +1,8 @@
 ---
 title: Microsoft OPC Publisher
 description: This article provides an overview of the OPC Publisher Edge module.
-author: v-condav
-ms.author: jemorina
+author: hansgschossmann
+ms.author: johanng
 ms.service: industrial-iot
 ms.topic: conceptual
 ms.date: 3/22/2021
@@ -10,7 +10,7 @@ ms.date: 3/22/2021
 
 # What is the OPC Publisher?
 
-OPC Publisher is a fully-supported Microsoft product that bridges the gap between industrial assets and the Microsoft Azure cloud. It does so by connecting OPC UA-enabled assets or industrial connectivity software to your Microsoft Azure cloud. It publishes the telemetry data it gathers to Azure IoT Hub in various formats, including IEC62541 OPC UA PubSub standard format (from version 2.6 onwards). OPC Publisher runs on Azure IoT Edge as a Module or on plain Docker as a container. Because it leverages the .NET cross-platform runtime, it runs natively on both Linux and Windows 10.
+OPC Publisher is a fully supported Microsoft product that bridges the gap between industrial assets and the Microsoft Azure cloud. It does so by connecting OPC UA-enabled assets or industrial connectivity software to your Microsoft Azure cloud. It publishes the telemetry data it gathers to Azure IoT Hub in various formats, including IEC62541 OPC UA PubSub standard format (from version 2.6 onwards). OPC Publisher runs on Azure IoT Edge as a Module or on plain Docker as a container. Because it uses the .NET cross-platform runtime, it runs natively on both Linux and Windows 10.
 
 OPC Publisher is a reference implementation that demonstrates how to:
 
@@ -42,7 +42,7 @@ OPC Publisher supports batching of the data sent to IoT Hub to reduce network lo
 This application uses the OPC Foundation OPC UA reference stack as NuGet packages. See [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/) for the licensing terms.
 
 ## Next steps
-Now that you have learned what the OPC Publisher is, you can get started by deploying it:
+Now that you've learned what the OPC Publisher is, you can get started by deploying it:
 
 > [!div class="nextstepaction"]
 > [Deploy OPC Publisher in standalone mode](tutorial-publisher-deploy-opc-publisher-standalone.md)

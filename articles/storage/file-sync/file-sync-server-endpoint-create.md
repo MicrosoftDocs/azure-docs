@@ -94,7 +94,7 @@ As part of this section, a choice can be made for how content from the Azure fil
 Once you select an initial download option, you cannot change it after you confirm to create the server endpoint. 
 
 > [!NOTE]
-> To improve the file download performance when adding a server endpoint to a sync group, use the [Invoke-StorageSyncFileRecall](file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) cmdlet.
+> When adding a server endpoint and files exist in the Azure file share, if you choose to download the namespace first, files will show up as tiered until they're downloaded locally. Files are downloaded using a single thread by default to limit network bandwidth usage. To improve the file download performance, use the [Invoke-StorageSyncFileRecall](file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) cmdlet with a thread count greater than 1.
 
 ### File download behavior once initial download completes
 

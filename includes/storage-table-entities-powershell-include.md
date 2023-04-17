@@ -1,12 +1,13 @@
 ---
 author: tamram
 ms.service: storage
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 06/23/2022
 ms.author: tamram
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
-    There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
+    There is one for Azure Table Storage and one for Azure Cosmos DB for Table -->
 
 ## Managing table entities
 

@@ -176,7 +176,7 @@ static async Task Main(string[] args)
     // This is our main function.
     // Output languages are defined in the route.
     // For a complete list of options, see API reference.
-    // https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate
+    // https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate
     string route = "/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
     string textToTransliterate = @"こんにちは";
     await TransliterateTextRequest(key, endpoint, route, textToTransliterate);

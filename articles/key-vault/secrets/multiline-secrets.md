@@ -14,7 +14,7 @@ ms.author: mbaldwin
 ---
 # Store a multi-line secret in Azure Key Vault
 
-The [Azure CLI quickstart](quick-create-cli.md) and [Azure PowerShell quickstart](quick-create-powershell.md) demonstrate how to store a single-line secret.   You can also use Key Vault to store a multi-line secret, such as a JSON file or RSA private key.
+The [Azure CLI quickstart](quick-create-cli.md) or [Azure PowerShell quickstart](quick-create-powershell.md) demonstrate how to store a single-line secret.   You can also use Key Vault to store a multi-line secret, such as a JSON file or RSA private key.
 
 Multi-line secrets cannot be passed to the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command or the Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet through the commandline. Instead, you must first store the multi-line secret as a text file. 
 
@@ -26,11 +26,28 @@ multi-line
 secret
 ```
 
+## Set the secret using Azure CLI
+
 You can then pass this file to the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command using the `--file` parameter.
 
 ```azurecli-interactive
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "MultilineSecret" --file "secretfile.txt"
 ```
+You can then view the stored secret using the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show) command.
+
+```azurecli-interactive
+az keyvault secret show --name "MultilineSecret" --vault-name "<your-unique-keyvault-name>" --query "value"
+```
+
+The secret will be returned with `\n` in place of newline:
+
+```bash
+"This is\nmy multi-line\nsecret"
+```
+
+The `\n` above is a `\` and `n` character, not the newline character. Quotes `"` are included in the string.
+
+## Set the secret using Azure Powershell
 
 With Azure PowerShell, you must first read in the file using the [Get-Content](/powershell/module/microsoft.powershell.management/get-content) cmdlet, then convert it to a secure string using [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring). 
 
@@ -45,17 +62,19 @@ Lastly, you store the secret using the [Set-AzKeyVaultSecret](/powershell/module
 $secret = Set-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "MultilineSecret" -SecretValue $SecureSecret
 ```
 
-In either case, you can then view the stored secret using the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show) command or the Azure PowerShell [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet.
+You can then view the stored secret using the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show) command or the Azure PowerShell [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet.
 
 ```azurecli-interactive
 az keyvault secret show --name "MultilineSecret" --vault-name "<your-unique-keyvault-name>" --query "value"
 ```
 
-The secret will be returned with newlines embedded:
+The secret will be returned with `\n` in place of newline:
 
 ```bash
 "This is\nmy multi-line\nsecret"
 ```
+
+The `\n` above is a `\` and `n` character, not the newline character. Quotes `"` are included in the string.
 
 ## Next steps
 

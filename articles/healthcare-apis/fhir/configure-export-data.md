@@ -1,20 +1,22 @@
 ---
 title: Configure export settings in FHIR service - Azure Health Data Services
 description: This article describes how to configure export settings in the FHIR service
-author: ranvijaykumar
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: references_regions, subject-rbac-steps
 ms.date: 08/12/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 
 # Configure export settings and set up a storage account
 
 The FHIR service supports the `$export` operation [specified by HL7](https://hl7.org/fhir/uv/bulkdata/export/index.html) for exporting FHIR data from a FHIR server. In the FHIR service implementation, calling the `$export` endpoint causes the FHIR service to export data into a pre-configured Azure storage account.
 
-There are three steps in setting up the `$export` operation for the FHIR service:
+Ensure you are granted with application role -  'FHIR Data exporter role' prior to configuring export. To understand more on application roles, see [Authentication and Authorization for FHIR service](https://learn.microsoft.com/azure/healthcare-apis/authentication-authorization).
+
+Below are three steps in setting up the `$export` operation for the FHIR service-
 
 - Enable a managed identity for the FHIR service.
 - Configure a new or existing Azure Data Lake Storage Gen2 (ADLS Gen2) account and give permission for the FHIR service to access the account.
@@ -154,7 +156,7 @@ Select **Enabled from selected virtual networks and IP addresses**. Under the Fi
 | West US 2            | 40.64.135.77      |
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure ACR firewall](./convert-data.md#configure-acr-firewall).
+> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure the ACR firewall](./convert-data.md#step-6-optional-configure-the-azure-container-registry-firewall-for-secure-access).
 
 ### Allowing specific IP addresses to access the Azure storage account in the same region
 

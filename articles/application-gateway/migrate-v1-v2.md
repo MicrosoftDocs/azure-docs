@@ -193,7 +193,7 @@ No. The script doesn't  replicate this configuration for v2. You must add the lo
 
 ### Does this script support certificates uploaded to Azure KeyVault ?
 
-No. Currently the script does not support certificates in KeyVault. However, this is being considered for a future version.
+No. Currently the script doesn't support certificates in KeyVault. However, this is being considered for a future version.
 
 ### I ran into some issues with using this script. How can I get help?
   

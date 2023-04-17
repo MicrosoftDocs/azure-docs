@@ -2,9 +2,8 @@
 title: Best practices for storage and backup
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for storage, data encryption, and backups in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 11/30/2022
 
 ---
 
@@ -26,7 +25,8 @@ This best practices article focuses on storage considerations for cluster operat
 > 
 > Understand the needs of your application to pick the right storage. Use high performance, SSD-backed storage for production workloads. Plan for network-based storage when you need multiple concurrent connections.
 
-Applications often require different types and speeds of storage. Determine the most appropriate storage type by asking the following questions. 
+Applications often require different types and speeds of storage. Determine the most appropriate storage type by asking the following questions.
+
 * Do your applications need storage that connects to individual pods?
 * Do your applications need storage shared across multiple pods? 
 * Is the storage for read-only access to data?
@@ -40,18 +40,18 @@ The following table outlines the available storage types and their capabilities:
 | Structured app data        | Azure Disks   | Yes | No  | No  | Yes |
 | Unstructured data, file system operations | [BlobFuse][blobfuse] | Yes | Yes | Yes | No |
 
-AKS provides two primary types of secure storage for volumes backed by Azure Disks or Azure Files. Both use the default Azure Storage Service Encryption (SSE) that encrypts data at rest. Disks cannot be encrypted using Azure Disk Encryption at the AKS node level.
+AKS provides two primary types of secure storage for volumes backed by Azure Disks or Azure Files. Both use the default Azure Storage Service Encryption (SSE) that encrypts data at rest. Disks cannot be encrypted using Azure Disk Encryption at the AKS node level. With Azure Files shares, there is no limit as to how many can be mounted on a node.
 
 Both Azure Files and Azure Disks are available in Standard and Premium performance tiers:
 
 - *Premium* disks
-    - Backed by high-performance solid-state disks (SSDs). 
+    - Backed by high-performance solid-state disks (SSDs).
     - Recommended for all production workloads.
 - *Standard* disks
     - Backed by regular spinning disks (HDDs).
     - Good for archival or infrequently accessed data.
 
-Understand the application performance needs and access patterns to choose the appropriate storage tier. For more information about Managed Disks sizes and performance tiers, see [Azure Managed Disks overview][managed-disks]
+Understand the application performance needs and access patterns to choose the appropriate storage tier. For more information about Managed Disks sizes and performance tiers, see [Azure Managed Disks overview][managed-disks]. 
 
 ### Create and use storage classes to define application needs
 
@@ -134,8 +134,8 @@ This article focused on storage best practices in AKS. For more information abou
 <!-- LINKS - Internal -->
 [aks-concepts-storage]: concepts-storage.md
 [vm-sizes]: ../virtual-machines/sizes.md
-[dynamic-disks]: azure-disks-dynamic-pv.md
-[dynamic-files]: azure-files-dynamic-pv.md
+[dynamic-disks]: azure-disk-csi.md
+[dynamic-files]: azure-files-csi.md
 [reclaim-policy]: concepts-storage.md#storage-classes
 [aks-concepts-storage-pvcs]: concepts-storage.md#persistent-volume-claims
 [aks-concepts-storage-classes]: concepts-storage.md#storage-classes

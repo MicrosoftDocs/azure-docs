@@ -10,15 +10,15 @@ ms.date: 05/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Cassandra in Microsoft Purview (Preview)
+# Connect to and manage Cassandra in Microsoft Purview
 
 This article outlines how to register Cassandra, and how to authenticate and interact with Cassandra in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)| No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan) | No | No| No| [Yes](#lineage)| No |
 
 The supported Cassandra server versions are 3.*x* or 4.*x*.
 
@@ -56,7 +56,10 @@ This section describes how to register Cassandra in Microsoft Purview using the 
 
 To register a new Cassandra server in your data catalog:
 
-1. Go to your Microsoft Purview account.
+1. Open the Microsoft Purview governance portal by:
+
+    - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+    - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 1. Select **Data Map** on the left pane.
 1. Select **Register**.
 1. On the **Register sources** screen, select **Cassandra**, and then select **Continue**:

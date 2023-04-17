@@ -141,7 +141,7 @@ There are no specific actions to enable the client credentials for user flows or
 
 `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy>/oauth2/v2.0/token`
 
-- Replace `<tenant-name>` with the [name](tenant-management.md#get-your-tenant-name) of your Azure AD B2C tenant. For example, `contoso.b2clogin.com`.
+- Replace `<tenant-name>` with the [name]( tenant-management-read-tenant-name.md#get-your-tenant-name) of your Azure AD B2C tenant. For example, `contoso.b2clogin.com`.
 - Replace `<policy>` with the full name of your user flow, or custom policy. Note, all types of user flows and custom policies support client credentials flow. You can use any user flow or custom policy you have, or create a new one, such as sign-up or sign-in.
 
 | Key | Value |

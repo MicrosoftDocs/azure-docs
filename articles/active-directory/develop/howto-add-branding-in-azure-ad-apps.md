@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/31/2020
+ms.date: 03/16/2023
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
@@ -17,7 +17,7 @@ ms.custom: aaddev, signin_art
 
 # Sign in with Microsoft: Branding guidelines for applications
 
-When developing applications with the Microsoft identity platform, you'll need to direct your customers when they want to use their work or school account (managed in Azure AD), or their personal account for sign-up and sign-in to your application.
+When developing applications with the Microsoft identity platform, you need to direct your customers when they want to use their work or school account (managed in Azure AD), or their personal account for sign-up and sign-in to your application.
 
 In this article, you will:
 
@@ -44,13 +44,13 @@ Microsoft doesn’t expose end users to the Azure or the Active Directory brand 
 
 ## User account pictogram
 
-In an earlier version of these guidelines, we recommended using a “blue badge” pictogram. Based on user and developer feedback, we now recommend the use of the Microsoft logo instead. The Microsoft logo will help users understand that they can reuse the account they use with Microsoft 365 or other Microsoft business services to sign into your app.
+In an earlier version of these guidelines, we recommended using a “blue badge” pictogram. Based on user and developer feedback, we now recommend the use of the Microsoft logo instead. The Microsoft logo helps users understand that they can reuse the account they use with Microsoft 365 or other Microsoft business services to sign into your app.
 
 ## Signing up and signing in with Azure AD
 
 Your app may present separate paths for sign-up and sign-in and the following sections provide visual guidance for both scenarios.
 
-**If your app supports end-user sign-up (for example, free to trial or freemium model)**: You can show a **sign-in** button that allows users to access your app with their work account or their personal account. Azure AD will show a consent prompt the first time they access your app.
+**If your app supports end-user sign-up (for example, free to trial or freemium model)**: You can show a **sign-in** button that allows users to access your app with their work account or their personal account. Azure AD shows a consent prompt the first time they access your app.
 
 **If your app requires permissions that only admins can consent to, or if your app requires organizational licensing**: Separate admin acquisition from user sign-in. The **“get this app” button** will redirect admins to sign in then ask them to grant consent on behalf of users in their organization, which has the added benefit of suppressing end-user consent prompts to your app.
 
@@ -58,7 +58,7 @@ Your app may present separate paths for sign-up and sign-in and the following se
 
 Your “get the app” link must redirect the user to the Azure AD grant access (authorize) page, to allow an organization’s administrator to authorize your app to have access to their organization’s data, which is hosted by Microsoft. Details on how to request access are discussed in the [Integrating Applications with Azure Active Directory](./quickstart-register-app.md) article.
 
-After admins consent to your app, they can choose to add it to their users’ Microsoft 365 app launcher experience (accessible from the waffle and from [https://portal.office.com/myapps](https://portal.office.com/myapps)). If you want to advertise this capability, you can use terms like “Add this app to your organization” and show a button like the following example:
+After admins consent to your app, they can choose to add it to their users’ Microsoft 365 app launcher experience (accessible from the waffle and from [https://www.office.com/](https://www.office.com/)). If you want to advertise this capability, you can use terms like “Add this app to your organization” and show a button like the following example:
 
 ![Button showing the Microsoft logo and "Add to my organization" text](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 

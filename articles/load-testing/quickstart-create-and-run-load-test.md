@@ -6,21 +6,18 @@ ms.service: load-testing
 ms.topic: quickstart
 author: ntrogh
 ms.author: nicktrog
-ms.date: 02/15/2022
+ms.date: 01/18/2023
 ms.custom: template-quickstart, mode-other
 adobe-target: true
 ---
 
-# Quickstart: Create and run a load test with Azure Load Testing Preview
+# Quickstart: Create and run a load test with Azure Load Testing
 
-This quickstart describes how to load test a web application with Azure Load Testing Preview from the Azure portal without prior knowledge about load testing tools. You'll first create an Azure Load Testing resource, and then create a load test by using the web application URL.
+This quickstart describes how to load test a web application with Azure Load Testing from the Azure portal without prior knowledge about load testing tools. You'll first create an Azure Load Testing resource, and then create a load test by using the web application URL.
 
 After you complete this quickstart, you'll have a resource and load test that you can use for other tutorials.
 
 Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -35,7 +32,7 @@ If you already have a Load Testing resource, skip this section and continue to [
 
 To create a Load Testing resource:
 
-[!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
+[!INCLUDE [azure-load-testing-create-portal](./includes/azure-load-testing-create-in-portal/azure-load-testing-create-in-portal.md)]
 
 ## Create a load test
 

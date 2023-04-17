@@ -2,7 +2,7 @@
 title: Quickstart - Deploy a connected registry to an IoT Edge device
 description: Use Azure CLI commands and Azure portal to deploy a connected Azure container registry to an Azure IoT Edge device.
 ms.topic: quickstart
-ms.date: 10/21/2021
+ms.date: 10/11/2022
 ms.author: memladen
 author: toddysm
 ms.custom: ignite-fall-2021, mode-other, devx-track-azurecli 
@@ -16,7 +16,7 @@ In this quickstart, you use the Azure CLI to deploy a [connected registry](intro
 For an overview of using a connected registry with IoT Edge, see [Using connected registry with Azure IoT Edge](overview-connected-registry-and-iot-edge.md). This scenario corresponds to a device at the [top layer](overview-connected-registry-and-iot-edge.md#top-layer) of an IoT Edge hierarchy. 
 
 
-[!INCLUDE [Prepare Azure CLI environment](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Prepare Azure CLI environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 * Azure IoT Hub and IoT Edge device. For deployment steps, see [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](../iot-edge/quickstart-linux.md).
   > [!IMPORTANT]
   > For later access to the modules deployed on the IoT Edge device, make sure that you open the ports 8000, 5671, and 8883 on the device. For configuration steps, see [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md). 

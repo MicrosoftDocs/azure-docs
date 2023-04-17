@@ -2,11 +2,11 @@
 title: How to migrate from Azure Application Gateway Ingress Controller Helm to AGIC add-on
 description: This article provides instructions on how to migrate from AGIC deployed through Helm to AGIC deployed as an AKS add-on
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
 ms.date: 03/02/2021
-ms.author: caya
+ms.author: greglin
 ---
 
 # Migrate from AGIC Helm to AGIC add-on 
@@ -29,7 +29,7 @@ appgwId=$(az network application-gateway show -n myApplicationGateway -g myResou
 ```
 
 ## Delete AGIC Helm from your AKS cluster
-Through Azure CLI, delete your AGIC Helm deployment from your cluster. You'll need to delete the AGIC Helm deployment first before you can enable the AGIC AKS add-on. Please note that any changes that occur within your AKS cluster between the time of deleting your AGIC Helm deployment and the time you enable the AGIC add-on won't be reflected on your Application Gateway, and therefore this migration process should be done outside of business hours to minimize impact. Application Gateway will continue to have the last configuration applied by AGIC so existing routing rules will not be affected. 
+Through Azure CLI, delete your AGIC Helm deployment from your cluster. You'll need to delete the AGIC Helm deployment first before you can enable the AGIC AKS add-on. Please note that any changes that occur within your AKS cluster between the time of deleting your AGIC Helm deployment and the time you enable the AGIC add-on won't be reflected on your Application Gateway, and therefore this migration process should be done outside of business hours to minimize impact. Application Gateway will continue to have the last configuration applied by AGIC so existing routing rules won't be affected. 
 
 ## Enable AGIC add-on using your existing Application Gateway 
 You can now enable the AGIC add-on in your AKS cluster to target your existing Application Gateway through Azure CLI or Portal. Run the following Azure CLI command to enable the AGIC add-on in your AKS cluster. The example enables the add-on in a cluster called *myCluster*, in a resource group called *myResourceGroup*, using the Application Gateway resource ID *appgwId* we saved above in the earlier step. 

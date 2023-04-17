@@ -3,12 +3,12 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 09/09/2022
+ms.date: 02/17/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PyPi)](https://pypi.org/project/azure-ai-textanalytics/5.1.0/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics)
+[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PyPi)](https://pypi.org/project/azure-ai-textanalytics/5.2.0/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics)
 
 Use this quickstart to create an entity linking application with the client library for Python. In the following example, you will create a Python application that can identify and disambiguate entities found in text.
 
@@ -19,13 +19,13 @@ Use this quickstart to create an entity linking application with the client libr
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.7 or later](https://www.python.org/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Prerequisites    " target="_target">I ran into an issue</a>
 
 ## Setting up
 
@@ -34,7 +34,7 @@ Use this quickstart to create an entity linking application with the client libr
 After installing Python, you can install the client library with:
 
 ```console
-pip install azure-ai-textanalytics==5.1.0
+pip install azure-ai-textanalytics==5.2.0
 ```
 
 > [!div class="nextstepaction"]
@@ -42,7 +42,7 @@ pip install azure-ai-textanalytics==5.1.0
 
 ## Code example
 
-Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
+Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code. 
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
@@ -97,7 +97,7 @@ entity_linking_example(client)
 
 ```console
 Linked Entities:
-
+    
     Name:  Microsoft        Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft
     Data Source:  Wikipedia
     Matches:
@@ -128,13 +128,6 @@ Linked Entities:
             Offset: 40
             Length: 10
     Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4
-    Data Source:  Wikipedia
-    Matches:
-            Text: April 4
-            Confidence Score: 0.32
-            Offset: 54
-            Length: 7
-    Name:  BASIC    Id:  BASIC      Url:  https://en.wikipedia.org/wiki/BASIC
     Data Source:  Wikipedia
     Matches:
             Text: BASIC
