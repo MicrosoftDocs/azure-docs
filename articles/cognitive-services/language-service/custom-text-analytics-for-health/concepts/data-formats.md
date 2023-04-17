@@ -147,7 +147,7 @@ Your Labels file should be in the `json` format below to be used when importing 
 | `prebuilts` | `MedicationName` | The name of the prebuilt component populating the prebuilt entity. [Prebuilt entities](../../text-analytics-for-health/concepts/health-entity-categories.md) are automatically loaded into your project by default but you can extend them with list components in your labels file.  | `MedicationName` |
 | `documents` | | Array containing all the documents in your project and list of the entities labeled within each document. | [] |
 | `location` | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
-| `dataset` | `{DATASET}` |  The test set to which this file goes to when split before training. <!--Learn more about data splitting [here](../how-to/train-model.md#data-splitting).--> Possible values for this field are `Train` and `Test`.      |`Train`|
+| `dataset` | `{DATASET}` |  The test set to which this file goes to when split before training. Learn more about data splitting [here](../how-to/train-model.md#data-splitting). Possible values for this field are `Train` and `Test`.      |`Train`|
 | `regionOffset` |  |  The inclusive character position of the start of the text.      |`0`|
 | `regionLength` |  |  The length of the bounding box in terms of UTF16 characters. Training only considers the data in this region.      |`500`|
 | `category` |  |  The type of entity associated with the span of text specified. | `Entity1`|
@@ -166,4 +166,4 @@ Your Labels file should be in the `json` format below to be used when importing 
 ## Next steps
 * You can import your labeled data into your project directly. Learn how to [import project](../how-to/create-project.md#import-project)
 * See the [how-to article](../how-to/label-data.md)  more information about labeling your data. 
- <!--* When you're done labeling your data, you can [train your model](../how-to/train-model.md).-->  
+* When you're done labeling your data, you can [train your model](../how-to/train-model.md).  

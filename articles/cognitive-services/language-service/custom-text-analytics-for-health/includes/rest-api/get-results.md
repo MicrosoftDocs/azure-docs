@@ -270,7 +270,7 @@ The response is a JSON document with the following parameters
 }
 
 ```
-<!--
+
 |Key|Sample Value|Description|
 |--|--|--|
 |entities|[]|An array containing all the extracted entities.|
@@ -280,12 +280,11 @@ The response is a JSON document with the following parameters
 |text|`first entity`| The text that was extracted for a specific entity.|
 |category|`MedicationName`| The name of the entity type or category corresponding to the extracted text.|
 |confidenceScore|`0.9`| A number denoting the model's certainty level of the extracted entity ranging from 0 to 1 with higher number denoting higher certainty.|
-|assertion|`certainty`| [Assertions](../../../text-analytics-for-health/concepts/assertion-detection.md) associated with the extracted entity. Assertions are only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
-|name|`Ibuprofen`| The normalized name for the [entity linking](../../../text-analytics-for-health/includes/features.md#entity-linking) associated with the extracted entity. Entity linking is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
-|links| [] | An array containing all the results from the [entity linking](../../../text-analytics-for-health/includes/features.md#entity-linking) associated with the extracted entity. Entity linking is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
-|dataSource| `UMLS` | The reference standard resulting from the [entity linking](../../../text-analytics-for-health/includes/features.md#entity-linking) associated with the extracted entity. Entity linking is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
-|id| `C0020740` | The reference code resulting from the [entity linking](../../../text-analytics-for-health/includes/features.md#entity-linking) associated with the extracted entity belonging to the extracted data source. Entity linking is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
+|assertion|`certainty`| [Assertions](../../../text-analytics-for-health/concepts/assertion-detection.md) associated with the extracted entity. Assertions are only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/overview.md?tabs=entity-linking#text-analytics-for-health-features).|
+|name|`Ibuprofen`| The normalized name for the [entity linking](../../../text-analytics-for-health/overview.md?tabs=entity-linking#text-analytics-for-health-features) associated with the extracted entity. Entity linking is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
+|links| [] | An array containing all the results from the [entity linking](../../../text-analytics-for-health/overview.md?tabs=entity-linking#text-analytics-for-health-features) associated with the extracted entity. Entity linking is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
+|dataSource| `UMLS` | The reference standard resulting from the [entity linking](../../../text-analytics-for-health/overview.md?tabs=entity-linking#text-analytics-for-health-features) associated with the extracted entity. Entity linking is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
+|ID| `C0020740` | The reference code resulting from the [entity linking](../../../text-analytics-for-health/overview.md?tabs=entity-linking#text-analytics-for-health-features) associated with the extracted entity belonging to the extracted data source. Entity linking is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
 |relations| [] | Array containing all the extracted relationships. [Relationship extraction](../../../text-analytics-for-health/concepts/relation-extraction.md) is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
 |relationType| `DosageOfMedication` | The category of the extracted [relationship](../../../text-analytics-for-health/concepts/relation-extraction.md). Relationship extraction is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
 |entities| `"Dosage", "Medication"` | The entities associated with the extracted relationship. Relationship extraction is only supported for prebuilt [Text Analytics for health entities](../../../text-analytics-for-health/concepts/health-entity-categories.md).|
--->

@@ -10,9 +10,7 @@ ms.date: 04/14/2023
 ms.author: aahi
 ---
 
-Submit a **POST** request using the following URL, headers, and JSON body to import your labels file. 
-
-<!--Make sure that your labels file follow the [accepted format](../../concepts/data-formats.md).-->
+Submit a **POST** request using the following URL, headers, and JSON body to import your labels file. Make sure that your labels file follow the [accepted format](../../concepts/data-formats.md).
 
 If a project with the same name already exists, the data of that project is replaced.
 
@@ -150,28 +148,28 @@ Use the following JSON in your request. Replace the placeholder values below wit
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-| `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents). <!--See [language support](../language-support.md#) to learn more about multilingual support.--> | `true`|
+| `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents). See [language support](../../language-support.md) to learn more about multilingual support. | `true`|
 |`projectName`|`{PROJECT-NAME}`|Project name|`myproject`|
 | `storageInputContainerName` |`{CONTAINER-NAME}`|Container name|`mycontainer`|
 | `entities` | | Array containing all the entity types you have in the project. These are the entity types that will be extracted from your documents into.|  |
-| `category` | | The name of the entity type which can be user defined in the case of a new entity definition or predefined in the case of prebuilt entities. For more information, see the entity naming rules below.|  |
+| `category` | | The name of the entity type, which can be user defined for new entity definitions, or predefined for prebuilt entities. |  |
 |`compositionSetting`|`{COMPOSITION-SETTING}`|Rule that defines how to manage multiple components in your entity. Options are `combineComponents` or `separateComponents`. |`combineComponents`|
 | `list` | | Array containing all the sublists you have in the project for a specific entity. Lists can be added to prebuilt entities or new entities with learned components.|  |
 |`sublists`|`[]`|Array containing sublists. Each sublist is a key and its associated values.|`[]`|
 | `listKey`| `One` | A normalized value for the list of synonyms to map back to in prediction. | `One` |
 |`synonyms`|`[]`|Array containing all the synonyms|synonym|
-| `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the synonym in your sublist. If your project is a multilingual project and you want to support your list of synonyms for all the languages in your project, you have to explicitly add your synonyms to each language. <!--See [Language support](../language-support.md) for more information about supported language codes.--> |`en`|
+| `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the synonym in your sublist. If your project is a multilingual project and you want to support your list of synonyms for all the languages in your project, you have to explicitly add your synonyms to each language. See [Language support](../../language-support.md) for more information about supported language codes. |`en`|
 | `values`| `"EntityNumberone"`, `"FirstEntity"`  | A list of comma separated strings that will be matched exactly for extraction and map to the list key. | `"EntityNumberone"`, `"FirstEntity"` |
-| `prebuilts` | `MedicationName` | The name of the prebuilt component populating the prebuilt entity. <!--[Prebuilt entities](../../text-analytics-for-health/concepts/health-entity-categories.md) are automatically loaded into your project by default but you can extend them with list components in your labels file.-->  | `MedicationName` |
+| `prebuilts` | `MedicationName` | The name of the prebuilt component populating the prebuilt entity. [Prebuilt entities](../../../text-analytics-for-health/concepts/health-entity-categories.md) are automatically loaded into your project by default but you can extend them with list components in your labels file.  | `MedicationName` |
 | `documents` | | Array containing all the documents in your project and list of the entities labeled within each document. | [] |
 | `location` | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
-| `dataset` | `{DATASET}` |  The test set to which this file will go to when split before training. <!--Learn more about data splitting [here](../how-to/train-model.md#data-splitting).--> Possible values for this field are `Train` and `Test`.      |`Train`|
+| `dataset` | `{DATASET}` |  The [test set](../../how-to/train-model.md#data-splitting) to which this file will go to when split before training. Possible values for this field are `Train` and `Test`.      |`Train`|
 | `regionOffset` |  |  The inclusive character position of the start of the text.      |`0`|
 | `regionLength` |  |  The length of the bounding box in terms of UTF16 characters. Training only considers the data in this region.      |`500`|
 | `category` |  |  The type of entity associated with the span of text specified. | `Entity1`|
 | `offset` |  |  The start position for the entity text. | `25`|
 | `length` |  |  The length of the entity in terms of UTF16 characters. | `20`|
-| `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the document used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. <!--See [Language support](../language-support.md) for more information about supported language codes.--> |`en`|
+| `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the document used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. See [Language support](../../language-support.md) for more information about supported language codes. |`en`|
 
 Once you send your API request, you’ll receive a `202` response indicating that the job was submitted correctly. In the response headers, extract the `operation-location` value. It will be formatted like this: 
 
@@ -183,7 +181,7 @@ Once you send your API request, you’ll receive a `202` response indicating tha
 
 Possible error scenarios for this request:
 
-<!--* The selected resource doesn't have [proper permissions](../../how-to/create-project.md#using-a-pre-existing-language-resource) for the storage account.-->
+* The selected resource doesn't have [proper permissions](../../how-to/create-project.md#using-a-pre-existing-language-resource) for the storage account.
 * The `storageInputContainerName` specified doesn't exist.
 * Invalid language code is used, or if the language code type isn't string.
 * `multilingual` value is a string and not a boolean.
