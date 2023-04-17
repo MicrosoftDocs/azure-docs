@@ -77,7 +77,7 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
 ## Install project dependencies 
 
-1. Open a console window, and change to the directory that contains the Node.js sample app. For example:
+1. Open a console window, and change to the directory that contains the Node.js sample app:
 
     ```powershell
         cd 1-Authentication\5-sign-in-express\App
