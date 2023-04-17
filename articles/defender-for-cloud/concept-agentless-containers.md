@@ -45,7 +45,7 @@ All of these capabilities are available as part of the [Defender Cloud Security 
 
 You need to have a Defender for CSPM plan enabled. There's no dependency on Defender for Containers​.
 
-This feature uses trusted access. Learn more about [AKS trusted access prerequisites](/azure/aks/trusted-access-feature.md#prerequisites).
+This feature uses trusted access. Learn more about [AKS trusted access prerequisites](/azure/aks/trusted-access-feature#prerequisites).
 
 ## Onboard Agentless Containers for CSPM
 
