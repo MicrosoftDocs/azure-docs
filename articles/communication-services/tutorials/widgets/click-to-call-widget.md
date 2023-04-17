@@ -19,14 +19,14 @@ Enable your customers to talk with your support agent on Teams through a call in
 
 ## Architecture overview
 
-## Pre-requisites
+## Prerequisites
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
 
 ## Set up an Azure Function to provide access tokens
 
-Follow instructions from our [trusted user access service tutorial](../trusted-service-tutorial) to deploy your Azure Function for access tokens. This service returns an access token which our widget uses to authenticate to Azure Communication Services and start the call to the Teams user we define.
+Follow instructions from our [trusted user access service tutorial](../trusted-service-tutorial) to deploy your Azure Function for access tokens. This service returns an access token that our widget uses to authenticate to Azure Communication Services and start the call to the Teams user we define.
 
 ## Set up boilerplate vanilla web application
 
@@ -119,7 +119,7 @@ Follow instructions from our [trusted user access service tutorial](../trusted-s
 
 ```
 
-At this point we have set up a static HTML page with a button that opens a call widget when clicked. Next, we add the widget script code. It makes a call to our Azure Function to get the access token and then use it to initialize our call client for Azure Communication Services and start the call to the Teams user we define.
+At this point, we have set up a static HTML page with a button that opens a call widget when clicked. Next, we add the widget script code. It makes a call to our Azure Function to get the access token and then use it to initialize our call client for Azure Communication Services and start the call to the Teams user we define.
 
 ## Fetch an access token from your Azure Function
 
@@ -147,9 +147,9 @@ You need to add the URL of your Azure Function. You can find these values in the
 
 ```
 
-We provide a test script hosted on GitHub for you to use for testing. For production scenarios, we recommend to host the script on your own CDN. For more information on how to build your own bundle, see [this article](https://azure.github.io/communication-ui-library/?path=/docs/use-composite-in-non-react-environment--page#build-your-own-composite-js-bundle-files).
+We provide a test script hosted on GitHub for you to use for testing. For production scenarios, we recommend hosting the script on your own CDN. For more information on how to build your own bundle, see [this article](https://azure.github.io/communication-ui-library/?path=/docs/use-composite-in-non-react-environment--page#build-your-own-composite-js-bundle-files).
 
-2. Add the following code under the button event listener:
+1. Add the following code under the button event listener:
 
 ``` javascript
 
