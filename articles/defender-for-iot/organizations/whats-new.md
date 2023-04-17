@@ -160,7 +160,15 @@ The **Device inventory** page on the Azure portal supports new grouping categori
 
 ### Focused inventory in the Azure device inventory (Public preview)
 
-The **Device inventory** page on the Azure portal now includes a network location indication for your devices, to help focus your device inventory on the devices within your IoT/OT scope. See and filter which devices are defined as *local* or *routed*, according to your configured subnets. The *Network location* filter is on by default, and the *Network location* column can be added by editing the columns in the device inventory. For more information, see [Subnet](configure-sensor-settings-portal.md#subnet).
+The **Device inventory** page on the Azure portal now includes a network location indication for your devices, to help focus your device inventory on the devices within your IoT/OT scope. 
+
+See and filter which devices are defined as *local* or *routed*, according to your configured subnets. The **Network location** filter is on by default. Add the **Network location** column by editing the columns in the device inventory.
+ 
+Configure your subnets either on the Azure portal or on your OT sensor. For more information, see:
+
+- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#subnet)
+- [Define OT and IoT subnets on the OT sensor](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets)
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
 
