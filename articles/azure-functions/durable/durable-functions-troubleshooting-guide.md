@@ -147,7 +147,7 @@ traces  // determine control queue for this orchestrator
 | extend partitionId = tostring(customDimensions["prop__PartitionId"])
 | where partitionId contains "control" 
 | where instanceId == orchestrationInstanceID
-| join (
+| join kind = rightanti(
 traces  
 | where timestamp > start and timestamp < start + 1h 
 | where customDimensions.Category == "DurableTask.AzureStorage" 
