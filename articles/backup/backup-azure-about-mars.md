@@ -3,10 +3,10 @@ title: About the MARS Agent
 description: Learn how the MARS Agent supports the backup scenarios
 ms.topic: conceptual
 ms.date: 11/28/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
 ms.custom: engagement-fy23
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About the Microsoft Azure Recovery Services (MARS) agent for Azure Backup

@@ -55,7 +55,7 @@ You may also be asked to confirm that you want to install from an *untrusted rep
 
 ## Create a maintenance configuration
 
-Create a resource group as a container for your configuration. In this example, a resource group named *myMaintenanceRG* is created in *eastus*. If you already have a resource group that you want to use, you can skip this part and replace the resource group name with your own in the rest of the examples.
+The first step to creating a maintenance configuration is creating a resource group as a container for your configuration. In this example, a resource group named *myMaintenanceRG* is created in *eastus*. If you already have a resource group that you want to use, you can skip this part and replace the resource group name with your own in the rest of the examples.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -188,7 +188,7 @@ After you have created your configuration, you might want to also assign machine
 
 ### Isolated VM
 
-Apply the configuration to a VM using the ID of the configuration. Specify `-ResourceType VirtualMachines` and supply the name of the VM for `-ResourceName`, and the resource group of the VM for `-ResourceGroupName`.
+Assign the configuration to a VM using the ID of the configuration. Specify `-ResourceType VirtualMachines` and supply the name of the VM for `-ResourceName`, and the resource group of the VM for `-ResourceGroupName`.
 
 ```azurepowershell-interactive
 New-AzConfigurationAssignment `
@@ -226,6 +226,20 @@ New-AzConfigurationAssignment `
    -Location "eastus" `
    -ResourceName "myVMSS" `
    -ResourceType "VirtualMachineScaleSets" `
+   -ProviderName "Microsoft.Compute" `
+   -ConfigurationAssignmentName "configName" `
+   -MaintenanceConfigurationId "configID"
+```
+
+
+### Guest
+
+```azurepowershell-interactive
+New-AzConfigurationAssignment `
+   -ResourceGroupName "myResourceGroup" `
+   -Location "eastus" `
+   -ResourceName "myGuest" `
+   -ResourceType "VirtualMachines" `
    -ProviderName "Microsoft.Compute" `
    -ConfigurationAssignmentName "configName" `
    -MaintenanceConfigurationId "configID"

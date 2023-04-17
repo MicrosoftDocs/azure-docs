@@ -4,6 +4,7 @@ description: Tutorial - Accept and receive data using Azure Data Share
 author: sidontha
 ms.author: sidontha
 ms.service: data-share
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 11/30/2022
 ---
@@ -100,7 +101,7 @@ Prepare your Azure CLI environment and then view your invitations.
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Run the [az datashare consumer-invitation list-invitation](/cli/azure/datashare/consumer-invitation) command to see your current invitations:
 

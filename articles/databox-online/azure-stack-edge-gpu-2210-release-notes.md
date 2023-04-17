@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/21/2022
+ms.date: 01/31/2023
 ms.author: alkohli
 ---
 
@@ -44,6 +44,7 @@ If you have questions or concerns, [open a support case through the Azure portal
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
 |**1.**|Preview features |For this release, the following features are available in preview: <br> - Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only.  <br> - VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only. <br> - Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R. |These features will be generally available in later releases. |
+|**2.**|Azure Kubernetes service on Azure Stack Edge |When updating your device from 2209 to 2210, after the update is complete, the Kubernetes worker node may go down. |Updating to 2301 will resolve this issue. |
 
 ## Known issues from previous releases
 

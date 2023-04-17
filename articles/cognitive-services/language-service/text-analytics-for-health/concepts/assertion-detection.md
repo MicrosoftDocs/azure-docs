@@ -39,7 +39,7 @@ Text Analytics for health returns assertion modifiers, which are informative att
 
 **ASSOCIATION** – describes whether the concept is associated with the subject of the text or someone else.
 *	**Subject** [Default]: the concept is associated with the subject of the text, usually the patient.
-*	**Someone_Else**: the concept is associated with someone who is not the subject of the text.
+*	**Other**: the concept is associated with someone who is not the subject of the text.
 
 
 Assertion detection represents negated entities as a negative value for the certainty category, for example:

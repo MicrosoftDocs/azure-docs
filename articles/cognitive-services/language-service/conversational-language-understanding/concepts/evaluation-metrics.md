@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/13/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
@@ -170,6 +170,16 @@ Similarly,
 * The *false positive* of the model is the sum of *false positives* for all intents or entities.
 * The *false Negative* of the model is the sum of *false negatives* for all intents or entities.
 
+
+## Guidance
+
+After you trained your model, you will see some guidance and recommendations on how to improve the model. It's recommended to have a model covering every point in the guidance section.
+
+* Training set has enough data: When an intent or entity has fewer than 15 labeled instances in the training data, it can lead to lower accuracy due to the model not being adequately trained on that intent. In this case, consider adding more labeled data in the training set. You should only consider adding more labeled data to your entity if your entity has a learned component. If your entity is defined only by list, prebuilt, and regex components, then this recommendation is not applicable.
+
+* All intents or entities are present in test set: When the testing data lacks labeled instances for an intent or entity, the model evaluation is less comprehensive due to untested scenarios. Consider having test data for every intent and entity in your model to ensure everything is being tested.
+
+* Unclear distinction between intents or entities: When data is similar for different intents or entities, it can lead to lower accuracy because they may be frequently misclassified as each other. Review the following intents and entities and consider merging them if they’re similar. Otherwise, add more examples to better distinguish them from each other. You can check the *confusion matrix* tab for more guidance. If you are seeing two entities constantly being predicted for the same spans because they share the same list, prebuilt, or regex components, then make sure to add a **learned** component for each entity and make it **required**. Learn more about [entity components](./entity-components.md).
 
 ## Next steps
 

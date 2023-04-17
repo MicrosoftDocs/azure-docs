@@ -56,12 +56,16 @@
         href: tutorial-assess-hyper-v.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md
+      - name: Assess ASP.NET web apps for migration to App Service
+        href: tutorial-assess-webapps-hyper-v.md
     - name: Assess physical servers
       items:
       - name: Assess servers for migration to Azure VMs
         href: tutorial-assess-physical.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md 
+      - name: Assess ASP.NET web apps for migration to App Service
+        href: tutorial-assess-webapps-physical.md
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure
@@ -99,7 +103,9 @@
     - name: Containerize Java web apps and migrate to App Service containers
       href: tutorial-app-containerization-java-app-service.md
     - name: Modernize ASP.NET web apps to App Service code
-      href: tutorial-migrate-webapps.md
+      href: tutorial-modernize-asp-net-appservice-code.md
+    - name: Modernize ASP.NET web apps to AKS
+      href: tutorial-modernize-asp-net-aks.md
     - name: CI/CD for Day 2 operations
       href: tutorial-app-containerization-azure-pipeline.md  
 - name: Concepts
@@ -111,7 +117,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/migrate-security-baseline?context=/azure/migrate/context/migrate-context
+      href: /security/benchmark/azure/baselines/azure-migrate-security-baseline?context=/azure/migrate/context/migrate-context
   - name: Discover
     items:
     - name: VMware discovery support
@@ -211,7 +217,7 @@
     items:
     - name: Build business case
       href: how-to-build-a-business-case.md
-    - name: View business case
+    - name: Review business case
       href: how-to-view-a-business-case.md
   - name: Assess
     items:

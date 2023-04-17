@@ -1,5 +1,5 @@
 ---
-title: Conditional Access APIs and PowerShell - Azure Active Directory
+title: Conditional Access APIs and PowerShell
 description: Using the Azure AD Conditional Access APIs and PowerShell to manage policies like code
 
 services: active-directory

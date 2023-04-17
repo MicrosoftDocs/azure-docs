@@ -8,10 +8,11 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: devx-track-azurepowershell
-
 ---
 # Azure Virtual Machine Scale Set automatic OS image upgrades
+
+> [!NOTE]
+> Many of the steps listed in this document apply to Virtual Machine Scale Sets using Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 Enabling automatic OS image upgrades on your scale set helps ease update management by safely and automatically upgrading the OS disk for all instances in the scale set.
 
@@ -118,6 +119,10 @@ The following platform SKUs are currently supported (and more are added periodic
 - Ensure that external resources specified in the scale set model are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more.
 - For scale sets using Windows virtual machines, starting with Compute API version 2019-03-01, the property *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* property must set to *false* in the scale set model definition. The *enableAutomaticUpdates* property enables in-VM patching where "Windows Update" applies operating system patches without replacing the OS disk. With automatic OS image upgrades enabled on your scale set, an extra patching process through Windows Update is not required.
 
+> [!NOTE]
+> After an OS disk is replaced through reimage or upgrade, the attached data disks may have their drive letters reassigned. To retain the same drive letters for attached disks, it is suggested to use a custom boot script. 
+
+
 ### Service Fabric requirements
 
 If you are using Service Fabric, ensure the following conditions are met:
@@ -184,6 +189,57 @@ az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradeP
 
 > [!NOTE]
 >After configuring automatic OS image upgrades for your scale set, you must also bring the scale set VMs to the latest scale set model if your scale set uses the 'Manual' [upgrade policy](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+
+### ARM templates
+The following example describes how to set automatic OS upgrades on a scale set model via Azure Resource Manager templates (ARM templates):
+
+```json
+"properties": { 
+   "upgradePolicy": { 
+     "mode": "Automatic", 
+     "RollingUpgradePolicy": {
+         "BatchInstancePercent": 20,
+         "MaxUnhealthyInstancePercent": 25,
+         "MaxUnhealthyUpgradedInstancePercent": 25,
+         "PauseTimeBetweenBatches": "PT0S"
+      "automaticOSUpgradePolicy": { 
+        "enableAutomaticOSUpgrade": true,
+         "useRollingUpgradePolicy": true,
+         "disableAutomaticRollback": false 
+      } 
+    } 
+"imagePublisher": {
+   "type": "string",
+   "defaultValue": "MicrosoftWindowsServer"
+ },
+ "imageOffer": {
+   "type": "string",
+   "defaultValue": "WindowsServer"
+ },
+ "imageSku": {
+   "type": "string",
+   "defaultValue": "2022-datacenter"
+ },
+ "imageOSVersion": {
+   "type": "string",
+   "defaultValue": "latest"
+ } 
+}
+```
+
+### Bicep
+The following example describes how to set automatic OS upgrades on a scale set model via Bicep:
+
+```json
+properties: { 
+    overprovision: overProvision 
+    upgradePolicy: { 
+      mode: 'Automatic' 
+      automaticOSUpgradePolicy: { 
+        enableAutomaticOSUpgrade: true 
+      } 
+    } 
+```
 
 ## Using Application Health Probes
 

@@ -149,10 +149,10 @@ Azure Cognitive Services provides information and guidelines on how to responsib
 
 ## Personalizer
 
-* [Transparency note and use cases](/azure/cognitive-services/personalizer/responsible-use-cases)
-* [Characteristics and limitations](/azure/cognitive-services/personalizer/responsible-characteristics-and-limitations)
-* [Integration and responsible use](/azure/cognitive-services/personalizer/responsible-guidance-integration)
-* [Data and privacy](/azure/cognitive-services/personalizer/responsible-data-and-privacy)
+* [Transparency note and use cases](./personalizer/responsible-use-cases.md)
+* [Characteristics and limitations](./personalizer/responsible-characteristics-and-limitations.md)
+* [Integration and responsible use](./personalizer/responsible-guidance-integration.md)
+* [Data and privacy](./personalizer/responsible-data-and-privacy.md)
 
 ## QnA Maker
 
@@ -192,4 +192,3 @@ Azure Cognitive Services provides information and guidelines on how to responsib
 * [Characteristics and limitations](/legal/cognitive-services/speech-service/speech-to-text/characteristics-and-limitations?context=/azure/cognitive-services/speech-service/context/context)
 * [Integration and responsible use](/legal/cognitive-services/speech-service/speech-to-text/guidance-integration-responsible-use?context=/azure/cognitive-services/speech-service/context/context)
 * [Data, privacy, and security](/legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/cognitive-services/speech-service/context/context)
-

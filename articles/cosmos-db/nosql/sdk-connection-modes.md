@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 04/28/2022
+ms.date: 02/03/2023
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperf-fy21q2, ignite-2022
 ---
@@ -50,7 +50,7 @@ As detailed in the [introduction](#available-connectivity-modes), Direct mode cl
 
 ### Routing
 
-When an Azure Cosmos DB SDK on Direct mode is performing an operation, it needs to resolve which backend replica to connect to. The first step is knowing which physical partition should the operation go to, and for that, the SDK obtains the container information that includes the [partition key definition](../partitioning-overview.md#choose-partitionkey) from a Gateway node and considered [metadata](../concepts-limits.md#metadata-request-limits). It also needs the routing information that contains the replicas' TCP addresses. The routing information is available also from Gateway nodes. Once the SDK obtains the routing information, it can proceed to open the TCP connections to the replicas belonging to the target physical partition and execute the operations.
+When an Azure Cosmos DB SDK on Direct mode is performing an operation, it needs to resolve which backend replica to connect to. The first step is knowing which physical partition should the operation go to, and for that, the SDK obtains the container information that includes the [partition key definition](../partitioning-overview.md#choose-partitionkey) from a Gateway node. It also needs the routing information that contains the replicas' TCP addresses. The routing information is available also from Gateway nodes and both are considered [metadata](../concepts-limits.md#metadata-request-limits). Once the SDK obtains the routing information, it can proceed to open the TCP connections to the replicas belonging to the target physical partition and execute the operations.
 
 Each replica set contains one primary replica and three secondaries. Write operations are always routed to primary replica nodes while read operations can be served from primary or secondary nodes.
 

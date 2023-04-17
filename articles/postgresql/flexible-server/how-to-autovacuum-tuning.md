@@ -17,7 +17,7 @@ This article provides an overview of the autovacuum feature for [Azure Database 
 
 Internal data consistency in PostgreSQL is based on the Multi-Version Concurrency Control (MVCC) mechanism, which allows the database engine to maintain multiple versions of a row and provides greater concurrency with minimal blocking between the different processes. 
 
-PostgreSQL databases need appropriate maintenance. For example, when a row is deleted, it is not removed physically. Instead, the row is marked as “dead”. Similarly for updates, the row is marked as "dead" and a new version of the row is inserted. These operations leave behind dead records, called dead tuples, even after all the transactions that might see those versions finish. Unless cleaned up, dead tuples remain, consuming disk space and bloating tables and indexes which result in slow query performance.   
+PostgreSQL databases need appropriate maintenance. For example, when a row is deleted, it isn't removed physically. Instead, the row is marked as “dead”. Similarly for updates, the row is marked as "dead" and a new version of the row is inserted. These operations leave behind dead records, called dead tuples, even after all the transactions that might see those versions finish. Unless cleaned up, dead tuples remain, consuming disk space and bloating tables and indexes which result in slow query performance.   
 
 PostgreSQL uses a process called autovacuum to automatically clean up dead tuples. 
 
@@ -26,14 +26,14 @@ PostgreSQL uses a process called autovacuum to automatically clean up dead tuple
 
 Autovacuum reads pages looking for dead tuples, and if none are found, autovacuum discard the page.  When autovacuum finds dead tuples, it removes them.  The cost is based on:
 
-- `vacuum_cost_page_hit`: Cost of reading a page that is already in shared buffers and does not need a disk read. The default value is set to 1.
-- `vacuum_cost_page_miss`: Cost of fetching a page that is not in shared buffers. The default value is set to 10.
+- `vacuum_cost_page_hit`: Cost of reading a page that is already in shared buffers and doesn't need a disk read. The default value is set to 1.
+- `vacuum_cost_page_miss`: Cost of fetching a page that isn't in shared buffers. The default value is set to 10.
 - `vacuum_cost_page_dirty`: Cost of writing to a page when dead tuples are found in it. The default value is set to 20.
 
 The amount of work autovacuum does depends on two parameters: 
 
-- `autovacuum_vacuum_cost_limit` is the amount of work autovacuum does in one go and once the cleanup process is done, the amount of time autovacuum is asleep. 
-- `autovacuum_vacuum_cost_delay` number of milliseconds. 
+- `autovacuum_vacuum_cost_limit` is the amount of work autovacuum does in one go.
+- `autovacuum_vacuum_cost_delay` number of milliseconds that autovacuum is asleep after it has reached the cost limit specified by the `autovacuum_vacuum_cost_limit` parameter.
 
 
 In Postgres versions 9.6, 10 and 11 the default for `autovacuum_vacuum_cost_limit` is 200 and `autovacuum_vacuum_cost_delay` is 20 milliseconds.
@@ -115,13 +115,13 @@ Use the following query to list the tables in a database and identify the tables
           'pg_catalog'
           ,'information_schema'
           )
-        AND N.nspname ! ~ '^pg_toast'
+        AND N.nspname !~ '^pg_toast'
       ) AS av
     ORDER BY av_needed DESC ,n_dead_tup DESC;  
 ```
 
 > [!NOTE]
-> The query does not take into consideration that autovacuum can be configured on a per-table basis using the "alter table" DDL command.  
+> The query doesn't take into consideration that autovacuum can be configured on a per-table basis using the "alter table" DDL command.  
 
 
 ## Common autovacuum problems
@@ -137,7 +137,7 @@ By default, `autovacuum_vacuum_cost_limit` is set to –1,  meaning autovacuum
 
 If `autovacuum_vacuum_cost_limit` is set to `-1` then autovacuum uses the `vacuum_cost_limit` parameter,  but if `autovacuum_vacuum_cost_limit` itself is set to greater than `-1` then `autovacuum_vacuum_cost_limit` parameter is considered.
 
-In case the autovacuum is not keeping up, the following parameters may be changed:
+In case the autovacuum isn't keeping up, the following parameters may be changed:
 
 |Parameter  |Description  |
 |---------|---------|
@@ -146,7 +146,7 @@ In case the autovacuum is not keeping up, the following parameters may be change
 |`autovacuum_vacuum_cost_delay` | **Postgres Versions 9.6,10,11** - Default: `20 ms`. The parameter may be decreased to `2-10 ms`. </br> **Postgres Versions 12 and above** - Default: `2 ms`.         |
 
 > [!NOTE]
-> The `autovacuum_vacuum_cost_limit` value is distributed proportionally among the running autovacuum workers, so that if there is more than one, the sum of the limits for each worker does not exceed the value of the `autovacuum_vacuum_cost_limit` parameter
+> The `autovacuum_vacuum_cost_limit` value is distributed proportionally among the running autovacuum workers, so that if there is more than one, the sum of the limits for each worker doesn't exceed the value of the `autovacuum_vacuum_cost_limit` parameter
 
 ### Autovacuum constantly running
 
@@ -165,12 +165,12 @@ Autovacuum tries to start a worker on each database every `autovacuum_naptime`
 
 For example, if a server has 60 databases and `autovacuum_naptime` is set to 60 seconds, then the autovacuum worker starts every second [autovacuum_naptime/Number of DBs]. 
 
-It is a good idea to increase `autovacuum_naptime` if there are more databases in a cluster. At the same time, the autovacuum process can be made more aggressive by increasing the `autovacuum_cost_limit` and decreasing the `autovacuum_cost_delay` parameters and increasing the `autovacuum_max_workers` from the default of 3 to 4 or 5. 
+It's a good idea to increase `autovacuum_naptime` if there are more databases in a cluster. At the same time, the autovacuum process can be made more aggressive by increasing the `autovacuum_cost_limit` and decreasing the `autovacuum_cost_delay` parameters and increasing the `autovacuum_max_workers` from the default of 3 to 4 or 5. 
 
 
 ### Out of memory errors  
 
-Overly aggressive `maintenance_work_mem` values could periodically cause out-of-memory errors in the system. It is important to understand available RAM on the server before any change to the `maintenance_work_mem` parameter is made. 
+Overly aggressive `maintenance_work_mem` values could periodically cause out-of-memory errors in the system. It's important to understand available RAM on the server before any change to the `maintenance_work_mem` parameter is made. 
 
 
 ### Autovacuum is too disruptive
@@ -184,11 +184,11 @@ Evaluate the parameters `autovacuum_vacuum_cost_delay`, `autovacuum_vacuum_cost_
 If autovacuum is too disruptive, consider the following: 
 
 - Increase `autovacuum_vacuum_cost_delay` and reduce `autovacuum_vacuum_cost_limit` if set higher than the default of 200.  
-- Reduce the number of `autovacuum_max_workers` if it is set higher than the default of 3.  
+- Reduce the number of `autovacuum_max_workers` if it's set higher than the default of 3.  
 
 #### Too many autovacuum workers  
 
-Increasing the number of autovacuum workers will not necessarily increase the speed of vacuum. Having a high number of autovacuum workers is not recommended. 
+Increasing the number of autovacuum workers will not necessarily increase the speed of vacuum. Having a high number of autovacuum workers isn't recommended. 
 
 Increasing the number of autovacuum workers will result in more memory consumption, and depending on the value of `maintenance_work_mem` , could cause performance degradation. 
 
@@ -203,7 +203,7 @@ However, if we have changed table level `autovacuum_vacuum_cost_delay` or 
 When a database runs into transaction ID wraparound protection, an error message like the following can be observed:
 
 ```
-Database is not accepting commands to avoid wraparound data loss in database ‘xx’   
+Database isn't accepting commands to avoid wraparound data loss in database ‘xx’   
 Stop the postmaster and vacuum that database in single-user mode. 
 ```
 
@@ -215,7 +215,7 @@ The wraparound problem occurs when the database is either not vacuumed or there 
  
 #### Heavy workload 
 
-The workload could cause too many dead tuples in a brief period that makes it difficult for autovacuum to catch up. The dead tuples in the system add up over a period leading to degradation of query performance and leading to wraparound situation. One reason for this situation to arise might be because autovacuum parameters aren't adequately set and it is not keeping up with a busy server.
+The workload could cause too many dead tuples in a brief period that makes it difficult for autovacuum to catch up. The dead tuples in the system add up over a period leading to degradation of query performance and leading to wraparound situation. One reason for this situation to arise might be because autovacuum parameters aren't adequately set and it isn't keeping up with a busy server.
 
 
 #### Long-running transactions 
@@ -266,7 +266,7 @@ When the database runs into transaction ID wraparound protection, check for any 
 
 ### Table-specific requirements  
 
-Autovacuum parameters may be set for individual tables. It is especially important for small and big tables. For example, for a small table that contains only 100 rows, autovacuum triggers VACUUM operation when 70 rows change (as calculated previously). If this table is frequently updated, you might see hundreds of autovacuum operations a day. This will prevent autovacuum from maintaining other tables on which the percentage of changes aren't as big. Alternatively, a table containing a billion rows needs to change 200 million rows to trigger autovacuum operations.  Setting autovacuum parameters appropriately prevents such scenarios.
+Autovacuum parameters may be set for individual tables. It's especially important for small and big tables. For example, for a small table that contains only 100 rows, autovacuum triggers VACUUM operation when 70 rows change (as calculated previously). If this table is frequently updated, you might see hundreds of autovacuum operations a day. This will prevent autovacuum from maintaining other tables on which the percentage of changes aren't as big. Alternatively, a table containing a billion rows needs to change 200 million rows to trigger autovacuum operations.  Setting autovacuum parameters appropriately prevents such scenarios.
 
 To set autovacuum setting per table, change the server parameters as the following examples: 
 
@@ -283,7 +283,7 @@ To set autovacuum setting per table, change the server parameters as the follo
 
 In versions of PostgreSQL prior to 13, autovacuum will not run on tables with an insert-only workload, because if there are no updates or deletes, there are no dead tuples and no free space that needs to be reclaimed. However, autoanalyze will run for insert-only workloads since there is new data. The disadvantages of this are: 
 
-- The visibility map of the tables is not updated, and thus query performance, especially where there are Index Only Scans, starts to suffer over time.
+- The visibility map of the tables isn't updated, and thus query performance, especially where there are Index Only Scans, starts to suffer over time.
 - The database can run into transaction ID wraparound protection.
 - Hint bits will not be set.
 

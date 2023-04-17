@@ -18,18 +18,27 @@ To complete this procedure, you need:
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
-- A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server that writes logs to a text file.    
-    - The log file must be stored on the local drive of the machine on which Azure Monitor Agent is running. 
-    - Each entry in the log file must be delineated with an end of line. 
-    - The log file must not allow circular logging, log rotation where the file is overwritten with new entries, or renaming where a file is moved and a new file with the same name is opened. 
+- A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server that writes logs to a text file.
+    
+    Text file requirements and best practices:    
+    - Do store files on the local drive of the machine on which Azure Monitor Agent is running and in the directory that is being monitored.
+    - Do delineate the end of a record with an end of line. 
+    - Do use ASCII or UTF-8 encoding. Other formats such as UTF-16 aren't supported.
+    - Do create a new log file every day so that you can remove old files easily. 
+    - Do clean up all log files older than 2 days in the monitored directory. Azure Monitor Agent does not delete old log files and tracking them uses up Agent resources.
+    - Do Not overwrite an existing file with new data. You should only append new data to the file.
+    - Do Not rename a file and open a new file with the same name to log to. 
+    - Do Not rename or copy large log files in to the monitored directory. If you must, do not exceed 50MB per minute
+    - Do Not rename files in the monitored directory to a new name that is also in the monitored directory. This can cause incorrect ingestion behavior. 
+
 
 ## Create a custom table
 
 This step will create a new custom table, which is any table name that ends in \_CL. Currently a direct REST call to the table management endpoint is used to create a table. The script at the end of this section is the input to the REST call.
 
-The table created in the script has two columns TimeGenerated: datetime and RawData: string, which is the default schema for a custom text log. If you know your final schema, then you can add columns in the script before creating the table. If you do not, columns can always be added in the log analytics table UI.  
+The table created in the script has two columns TimeGenerated: datetime and RawData: string, which is the default schema for a custom text log. If you know your final schema, then you can add columns in the script before creating the table. If you don't, columns can always be added in the log analytics table UI.  
 
-The easiest way to make the REST call is from an Azure Cloud PowerShell command line (CLI). To open the shell, go to the Azure Portal, press the Cloud Shell button, and select PowerShell. If this is your first-time using Azure Cloud PowerShell, you will need to walk through the one-time configuration wizard.
+The easiest way to make the REST call is from an Azure Cloud PowerShell command line (CLI). To open the shell, go to the Azure portal, press the Cloud Shell button, and select PowerShell. If this is your first-time using Azure Cloud PowerShell, you will need to walk through the one-time configuration wizard.
  
 
 Copy and paste the following script in to PowerShell to create the table in your workspace. Make sure to replace the {subscription}, {resource group}, {workspace name}, and {table name} in the script. Make sure that there are no extra blanks at the beginning or end of the parameters
@@ -72,7 +81,7 @@ The data collection rule defines:
 You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Log Analytics workspace.
 
 > [!NOTE]
-> To send data across tenants, you must first enable [Azure Lighthouse](/azure/lighthouse/overview).
+> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 
 ### [Portal](#tab/portal)
 
@@ -282,7 +291,7 @@ To create the data collection rule in the Azure portal:
     See [Structure of a data collection rule in Azure Monitor (preview)](../essentials/data-collection-rule-structure.md#custom-logs) if you want to modify the text log DCR.
     
     > [!IMPORTANT]
-    > Custom data collection rules have a suffix of *Custom-*; for example, *Custom-rulename*. The *Custom-rulename* in the stream declaration must match the *Custom-rulename* name in the Log Analytics workspace.
+    > Custom data collection rules have a prefix of *Custom-*; for example, *Custom-rulename*. The *Custom-rulename* in the stream declaration must match the *Custom-rulename* name in the Log Analytics workspace.
 
 1. Select **Save**.
 
@@ -322,6 +331,29 @@ To create the data collection rule in the Azure portal:
 
 > [!NOTE]
 > It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
+
+### Sample log queries
+The column names used here are for example only. The column names for your log will most likely be different.
+
+- **Count the number of events by code.**
+    
+    ```kusto
+    MyApp_CL
+    | summarize count() by code
+    ```
+
+### Sample alert rule
+
+- **Create an alert rule on any error event.**
+    
+    ```kusto
+    MyApp_CL
+    | where status == "Error"
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
+
+
+
 ## Troubleshoot
 Use the following steps to troubleshoot collection of text logs. 
 
@@ -431,4 +463,4 @@ Learn more about:
 
 - [Azure Monitor Agent](azure-monitor-agent-overview.md).
 - [Data collection rules](../essentials/data-collection-rule-overview.md).
-- [Best practices for cost management in Azure Monitor](../best-practices-cost.md). 
+- [Best practices for cost management in Azure Monitor](../best-practices-cost.md).

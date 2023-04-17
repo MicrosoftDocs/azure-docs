@@ -46,8 +46,6 @@ For more information on `import`, see <a href="https://javascript.info/import-ex
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">What is require?.</a>.
-
 ---
 
 ### Import dependencies

@@ -2,16 +2,14 @@
 title: Troubleshoot Azure Load Balancer health probe status
 description: Learn how to troubleshoot known issues with Azure Load Balancer health probe status.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
 manager: dcscontentpm
-ms.custom: seodoc18
 ms.service: load-balancer
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mbender
+ms.custom: seodoc18
 ---
 
 # Troubleshoot Azure Load Balancer health probe status
@@ -23,7 +21,7 @@ For the backend servers to participate in the load balancer set, they must pass 
 
 The Load Balancer backend pool VMs may not be responding to the probes due to any of the following reasons: 
 - Load Balancer backend pool VM is unhealthy 
-- Load Balancer backend pool VM is not listening on the probe port 
+- Load Balancer backend pool VM isn't listening on the probe port
 - Firewall, or a network security group is blocking the port on the Load Balancer backend pool VMs 
 - Other misconfigurations in Load Balancer
 

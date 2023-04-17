@@ -2,8 +2,8 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 02/28/2022
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.date: 02/28/2023
+ms.custom: ignite-2022, devx-track-arm-template
 ---
 
 # Resource providers for Azure services
@@ -186,10 +186,12 @@ The resources providers that are marked with **- registered** are registered by 
 
 ## Registration
 
-The resources providers above that are marked with **- registered** are registered by default for your subscription. To use the other resource providers, you must [register them](resource-providers-and-types.md). However, many resource providers are registered for you when you take certain actions. For example, if you create a resource through the portal, the portal automatically registers any unregistered resource providers that are needed. When deploy resources through an [Azure Resource Manager template](../templates/overview.md), any required resource providers are also registered.
+The resources providers in the preceding section that are marked with **- registered** are registered by default for your subscription. To use the other resource providers, you must [register them](resource-providers-and-types.md). However, many resource providers are registered for you when you take certain actions. For example, if you create a resource through the portal, the portal automatically registers any unregistered resource providers that are needed. When deploy resources through an [Azure Resource Manager template](../templates/overview.md), any required resource providers are also registered.
 
 > [!IMPORTANT]
 > Only register a resource provider when you're ready to use it. The registration step enables you to maintain least privileges within your subscription. A malicious user can't use resource providers that aren't registered.
+>
+> When you register resource providers that aren't needed, you may see apps in your Azure Active Directory tenant that you don't recognize. Microsoft adds the app for a resource provider when you register it. These applications are typically added by Windows Azure Service Management API. To avoid having unnecessary apps in your tenant, only register resource providers that are needed.
 
 ## Find resource provider
 

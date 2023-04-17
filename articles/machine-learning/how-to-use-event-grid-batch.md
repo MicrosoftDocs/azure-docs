@@ -56,13 +56,13 @@ We will be using cloud URIs provided by Event Grid to indicate the input data to
 
 1. Create a [managed identity resource](../active-directory/managed-identities-azure-resources/overview.md):
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure Machine Learning CLI](#tab/cli)
 
    ```azurecli
    IDENTITY=$(az identity create  -n azureml-cpu-cluster-idn  --query id -o tsv)
    ```
 
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Azure Machine Learning SDK for Python](#tab/sdk)
 
    ```python
    # Use the Azure CLI to create the managed identity. Then copy the value of the variable IDENTITY into a Python variable
@@ -74,13 +74,13 @@ We will be using cloud URIs provided by Event Grid to indicate the input data to
    > [!NOTE]
    > This examples assumes you have a compute cluster created named `cpu-cluster` and it is used for the default deployment in the endpoint.
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure Machine Learning CLI](#tab/cli)
 
    ```azurecli
    az ml compute update --name cpu-cluster --identity-type user_assigned --user-assigned-identities $IDENTITY
    ```
 
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Azure Machine Learning SDK for Python](#tab/sdk)
 
    ```python
    from azure.ai.ml import MLClient

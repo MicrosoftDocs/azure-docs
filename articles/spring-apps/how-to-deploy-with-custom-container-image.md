@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: xiangy
 ms.topic: how-to
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-java
 ms.date: 4/28/2022
 ---
 
@@ -189,7 +189,7 @@ If you deployed the instance to a VNet, make sure you allow the network traffic 
 
 ### Install an APM into the image manually
 
-The installation steps vary on different APMs and languages. The following steps are for New Relic with Java applications. You must modify the *Dockerfile* using the following steps:
+The installation steps vary on different application performance monitors (APMs) and languages. The following steps are for New Relic with Java applications. You must modify the *Dockerfile* using the following steps:
 
 1. Download and install the agent file into the image by adding the following to the *Dockerfile*:
 

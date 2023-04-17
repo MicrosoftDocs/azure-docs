@@ -3,10 +3,10 @@ title: Integrate ClearPass with Microsoft Defender for IoT
 description: In this tutorial, you will learn how to integrate Microsoft Defender for IoT with ClearPass.
 ms.topic: tutorial
 ms.date: 02/07/2022
-ms.custom: template-tutorial
+ms.custom: how-to
 ---
 
-# Tutorial: Integrate ClearPass with Microsoft Defender for IoT
+# Integrate ClearPass with Microsoft Defender for IoT
 
 This tutorial will help you learn how to integrate ClearPass Policy Manager (CPPM) with Microsoft Defender for IoT.
 

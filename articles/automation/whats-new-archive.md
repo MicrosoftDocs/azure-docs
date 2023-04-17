@@ -81,7 +81,7 @@ See the [full list](./update-management/operating-system-requirements.md) of sup
 
 **Type:** New feature
 
-In all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing Business Continuity and Disaster Recovery (BCDR). For the Brazil and Southeast Asia regions only, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. For more information, see [Geo-replication in Azure Automation](./automation-managing-data.md#geo-replication-in-azure-automation).
+In all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing Business Continuity and Disaster Recovery (BCDR). For the Brazil and Southeast Asia regions only, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. For more information, see [Data residency](./automation-managing-data.md#data-residency).
 
 ## February 2021
 
@@ -204,7 +204,7 @@ Automation account and State Configuration availability in Brazil South East. Fo
 
 **Type:** New feature
 
-Azure Automation region mapping updated to support Update Management feature in South Central US region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings-for-version-1) for updates to the documentation to reflect this change.
+Azure Automation region mapping updated to support Update Management feature in South Central US region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation) for updates to the documentation to reflect this change.
 
 ## September 2020
 
@@ -272,7 +272,7 @@ The New-OnPremiseHybridWorker runbook has been updated to support Az modules. Fo
 
 **Type:** New feature
 
-Azure Automation region mapping updated to support Update Management feature in China East 2 region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings-for-version-1) for updates to the documentation to reflect this change.
+Azure Automation region mapping updated to support Update Management feature in China East 2 region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation) for updates to the documentation to reflect this change.
 
 ## May 2020
 

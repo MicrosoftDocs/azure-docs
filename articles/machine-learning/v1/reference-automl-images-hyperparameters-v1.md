@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: reference
-ms.reviewer: nibaccam
+ms.reviewer: ssalgado
 author: swatig007
 ms.author: swatig
 ms.date: 01/18/2022
@@ -17,7 +17,7 @@ ms.date: 01/18/2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
 > * [v1](reference-automl-images-hyperparameters-v1.md)
-> * [v2 (current version)](../reference-automl-images-hyperparameters.md)
+> * [v2 (current version)](../reference-automl-images-hyperparameters.md?view=azureml-api-2&preserve-view=true)
 
 Learn which hyperparameters are available specifically for computer vision tasks in automated ML experiments.
 

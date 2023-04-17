@@ -1,15 +1,13 @@
 ---
 title: 'Connect a VNet to multiple sites using VPN Gateway: Classic'
 description: Learn how to connect multiple on-premises sites to a classic virtual network using a VPN gateway.
-services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-
 ms.service: vpn-gateway
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-
 ---
 # Add a Site-to-Site connection to a VNet with an existing VPN gateway connection (classic)
 

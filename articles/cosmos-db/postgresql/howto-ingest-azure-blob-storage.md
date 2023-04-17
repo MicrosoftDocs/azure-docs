@@ -6,10 +6,10 @@ author: mulander
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 01/30/2023
 ---
 
-# How to ingest data using pg_azure_storage
+# How to ingest data using pg_azure_storage in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -29,6 +29,11 @@ extension in your database:
 ```sql
 SELECT * FROM create_extension('azure_storage');
 ``` 
+
+> [!IMPORTANT]
+>
+> The pg_azure_storage extension is available only on Azure Cosmos DB for
+> PostgreSQL clusters running PostgreSQL 13 and above.
 
 We've prepared a public demonstration dataset for this article. To use your own
 dataset, follow [migrate your on-premises data to cloud

@@ -7,6 +7,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: quickstart
 ms.devlang: azurecli
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.date: 09/12/2022
 ---
 
@@ -41,7 +42,7 @@ This article describes how to create a payment HSM with the host and management 
   You can continue with this quick start if all four of these commands return "Registered".
 - You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
 
-[!INCLUDE [Azure CLI prepare your environment](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure CLI prepare your environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Review the template
 

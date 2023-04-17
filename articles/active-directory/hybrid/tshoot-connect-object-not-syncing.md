@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot an object that is not syncing with Azure Active Directory | Microsoft Docs'
+title: Troubleshoot an object that is not syncing with Azure Active Directory'
 description: Troubleshoot an object that is not syncing with Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 08/10/2018
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

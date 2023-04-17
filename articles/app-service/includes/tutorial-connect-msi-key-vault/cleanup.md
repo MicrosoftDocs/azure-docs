@@ -40,7 +40,7 @@ At the moment, connection secrets are stored as app settings in your App Service
     
     ```azurecli-interactive
     vaultResourceId=$(az keyvault show --name $vaultName --query id --output tsv)
-    myId=$(az ad signed-in-user show --query objectId --output tsv)
+    myId=$(az ad signed-in-user show --query id --output tsv)
     az role assignment create --role "Key Vault Secrets Officer" --assignee-object-id $myId --assignee-principal-type User --scope $vaultResourceId
     ```
 

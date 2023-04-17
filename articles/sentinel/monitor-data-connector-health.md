@@ -12,15 +12,17 @@ ms.service: microsoft-sentinel
 
 To ensure complete and uninterrupted data ingestion in your Microsoft Sentinel service, keep track of your data connectors' health, connectivity, and performance. 
 
-This article describes how to use the following features, which allow you to perform this monitoring from within Microsoft Sentinel:
+The following features allow you to perform this monitoring from within Microsoft Sentinel:
 
-- **Data connectors health monitoring workbook:** This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
+- **Data connectors health monitoring workbook**: This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
 
-- ***SentinelHealth* data table (Preview):** Querying this table provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
+- ***SentinelHealth* data table (Preview)**: Querying this table provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. The *SentinelHealth* data table is currently supported only for [selected data connectors](#supported-data-connectors).
 
     > [!IMPORTANT]
     >
     > The *SentinelHealth* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+- [**View the health and status of your connected SAP systems**](monitor-sap-system-health.md): Review health information for your SAP systems under the SAP data connector, and use an alert rule template to get information about the health of the SAP agent's data collection.
 
 ## Use the health monitoring workbook
 
@@ -165,7 +167,8 @@ For more information, see [Azure Monitor alerts overview](../azure-monitor/alert
 
 ## Next steps
 
-- Learn what [health monitoring in Microsoft Sentinel](health-audit.md) can do for you.
-- [Turn on health monitoring](enable-monitoring.md) in Microsoft Sentinel.
-- Monitor the health of your [automation rules and playbooks](monitor-automation-health.md).
-- See more information about the [*SentinelHealth* table schema](health-table-reference.md).
+- Learn about [auditing and health monitoring in Microsoft Sentinel](health-audit.md).
+- [Turn on auditing and health monitoring](enable-monitoring.md) in Microsoft Sentinel.
+- [Monitor the health of your automation rules and playbooks](monitor-automation-health.md).
+- [Monitor the health and integrity of your analytics rules](monitor-analytics-rule-integrity.md).
+- See more information about the [*SentinelHealth*](health-table-reference.md) and [*SentinelAudit*](audit-table-reference.md) table schemas.

@@ -43,23 +43,19 @@ For Arc-enabled VMware vSphere, resource bridge has the following minimum virtua
 
 ### Resource bridge networking requirements
 
+[!INCLUDE [network-requirement-principles](../includes/network-requirement-principles.md)]
+
 The following firewall URL exceptions are needed for the Azure Arc resource bridge VM:
+
+[!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md)]
+
+In addition, VMware VSphere requires the following exception:
 
 | **Service** | **Port** | **URL** | **Direction** | **Notes**|
 | --- | --- | --- | --- | --- |
-| Microsoft container registry | 443 | `https://mcr.microsoft.com` | Appliance VM IP and control plane endpoint need outbound connection. | Required to pull container images for installation. |
-| Azure Arc Identity service | 443 | `https://*.his.arc.azure.com` | Appliance VM IP and control plane endpoint need outbound connection. | Manages identity and access control for Azure resources |
-| Azure Arc configuration service | 443 | `https://*.dp.kubernetesconfiguration.azure.com` | Appliance VM IP and control plane endpoint need outbound connection. | Used for Kubernetes cluster configuration. |
-| Cluster connect service | 443 | `https://*.servicebus.windows.net` | Appliance VM IP and control plane endpoint need outbound connection. | Provides cloud-enabled communication to connect on-premises resources with the cloud. |
-| Guest Notification service | 443 | `https://guestnotificationservice.azure.com` | Appliance VM IP and control plane endpoint need outbound connection. | Used to connect on-premises resources to Azure. |
-| SFS API endpoint | 443 | `msk8s.api.cdp.microsoft.com` | Host machine, Appliance VM IP and control plane endpoint need outbound connection. | Used when downloading product catalog, product bits, and OS images from SFS. |
-| Resource bridge (appliance) Data plane service | 443 | `https://*.dp.prod.appliances.azure.com` | Appliance VM IP and control plane endpoint need outbound connection. | Communicate with resource provider in Azure. |
-| Resource bridge (appliance) container image download | 443 | `*.blob.core.windows.net`, `https://ecpacr.azurecr.io` | Appliance VM IP and control plane endpoint need outbound connection. | Required to pull container images. |
-| Resource bridge (appliance) image download | 80 | `*.dl.delivery.mp.microsoft.com` | Host machine, Appliance VM IP and control plane endpoint need outbound connection. | Download the Arc resource bridge OS images. |
-| Azure Arc for K8s container image download | 443 | `https://azurearcfork8sdev.azurecr.io` | Appliance VM IP and control plane endpoint need outbound connection. | Required to pull container images. |
-| ADHS telemetry service | 443 | `adhs.events.data.microsoft.com`  | Appliance VM IP and control plane endpoint need outbound connection. Runs inside the appliance/mariner OS. | Used periodically to send Microsoft required diagnostic data from control plane nodes. Used when telemetry is coming off Mariner, which would mean any K8s control plane. |
-| Microsoft events data service | 443 | `v20.events.data.microsoft.com`  | Appliance VM IP and control plane endpoint need outbound connection. | Used periodically to send Microsoft required diagnostic data from the Azure Stack HCI or Windows Server host. Used when telemetry is coming off Windows like Windows Server or HCI. |
 | vCenter Server | 443 | URL of the vCenter server  | Appliance VM IP and control plane endpoint need outbound connection. | Used to by the vCenter server to communicate with the Appliance VM and the control plane.|
+
+For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
 
 ## Azure role/permission requirements
 

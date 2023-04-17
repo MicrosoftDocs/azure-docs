@@ -1,5 +1,5 @@
 ---
-title: Azure Automation migration to managed identity FAQ
+title: Azure Automation migration to managed identities FAQ
 description: This article gives answers to frequently asked questions when you're migrating from a Run As account to a managed identity.
 services: automation
 ms.subservice: process-automation
@@ -9,32 +9,25 @@ ms.custom: devx-track-azurepowershell
 #Customer intent: As an implementer, I want answers to various questions.
 ---
 
-#  FAQ for migrating from a Run As account to a managed identity 
+#  FAQ for migrating from a Run As account to managed identities
 
-The following FAQ can help you migrate from a Run As account to a managed identity in Azure Automation. If you have any other questions about the capabilities, post them on the [discussion forum](https://aka.ms/retirement-announcement-automation-runbook-start-using-managed-identities). When a question is frequently asked, we add it to this article so that it benefits everyone.
+The following FAQ can help you migrate from a Run As account to a Managed identity in Azure Automation. If you have any other questions about the capabilities, post them on the [discussion forum](https://aka.ms/retirement-announcement-automation-runbook-start-using-managed-identities). When a question is frequently asked, we add it to this article so that it benefits everyone.
 
 ## How long will you support a Run As account?
  
-Automation Run As accounts will be supported until *September 30, 2023*. Although we continue to support existing users, we recommend that all new users use managed identities for runbook authentication. 
-
-Existing users can still create a Run As account. You can go to the account properties and renew a certificate upon expiration until *January 30, 2023*. After that date, you won't be able to create a Run As account from the Azure portal. 
-
-You'll still be able to create a Run As account through a [PowerShell script](./create-run-as-account.md#create-account-using-powershell) until support ends. You can [use this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/RunAsAccountAssessAndRenew.ps1) to renew the certificate after *January 30, 2023*, until *September 30, 2023*. This script will assess the Automation account that has configured Run As accounts and renew the certificate if you choose to do so. On confirmation, the script will renew the key credentials of the Azure Active Directory (Azure AD) app and upload new a self-signed certificate to the Azure AD app.
+Automation Run As accounts will be supported until *30 September 2023*. Moreover, starting 01 April 2023, creation of **new** Run As accounts in Azure Automation will not be possible. Renewing of certificates for existing Run As accounts would be possible only till the end of support.
 
 ## Will existing runbooks that use the Run As account be able to authenticate?
-Yes, they'll be able to authenticate. There will be no impact to existing runbooks that use a Run As account.
+Yes, they'll be able to authenticate. There will be no impact to existing runbooks that use a Run As account. After 30 September 2023, all runbook executions using RunAs accounts, including Classic Run As accounts wouldn't be supported. Hence, you must migrate all runbooks to use Managed identities before that date.
 
-## How can I renew an existing Run As account after January 30, 2023, when portal support to renew the account is removed?
-You can [use this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/RunAsAccountAssessAndRenew.ps1) to renew the Run As account certificate after January 30, 2023, until September 30, 2023.
+## My Run as account will expire soon, how can I renew it?
+If your Run As account certificate is going to expire soon, it's a good time to start using Managed identities for authentication instead of renewing the certificate. However, if you still want to renew it, you would be able to do it through the portal only till 30 September 2023.
 
-## Can Run As accounts still be created after September 30, 2023, when Run As accounts will retire?
-Yes, you can still create Run As accounts by using the [PowerShell script](../automation/create-run-as-account.md#create-account-using-powershell). However, this will be an unsupported scenario.
-
-## Can Run As accounts still be renewed after September 30, 2023, when Run As account will retire?
-You can use [this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/RunAsAccountAssessAndRenew.ps1) to renew the Run As account certificate after September 30, 2023, when Run As accounts will retire. However, it will be an unsupported scenario.
-
+## Can I create new Run As accounts?
+From 1 April 2023, creation of new Run As accounts wouldn't be possible. We strongly recommend that you start using Managed identities for authentication instead of creating new Run As accounts.
+ 
 ## Will runbooks that still use the Run As account be able to authenticate after September 30, 2023?
-Yes, the runbooks will be able to authenticate until the Run As account certificate expires.
+Yes, the runbooks will be able to authenticate until the Run As account certificate expires. After 30 September 2023, all runbook executions using RunAs accounts wouldn't be supported.
 
 ## What is a managed identity?
 Applications use managed identities in Azure AD when they're connecting to resources that support Azure AD authentication. Applications can use managed identities to obtain Azure AD tokens without managing credentials, secrets, certificates, or keys. 
@@ -56,9 +49,6 @@ Run As accounts also have a management overhead that involves creating a service
 
 ## Can a managed identity be used for both cloud and hybrid jobs?
 Azure Automation supports [system-assigned managed identities](./automation-security-overview.md#managed-identities) for both cloud and hybrid jobs. Currently, Azure Automation [user-assigned managed identities](./automation-security-overview.md) can be used for cloud jobs only and can't be used for jobs that run on a hybrid worker.
-
-## Can I use a Run As account for new Automation account?
-Yes, but only in a scenario where managed identities aren't supported for specific on-premises resources. We'll allow the creation of a Run As account through a [PowerShell script](./create-run-as-account.md#create-account-using-powershell).
 
 ## How can I migrate from an existing Run As account to a managed identity?
 Follow the steps in [Migrate an existing Run As account to a managed identity](./migrate-run-as-accounts-managed-identity.md).

@@ -2,14 +2,15 @@
 title: "Quickstart: Sign in users and call Microsoft Graph in a Windows desktop application"
 description: In this quickstart, learn how a Windows Presentation Foundation (WPF) app can get an access token and call an API protected by the Microsoft identity platform.
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/14/2022
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, mode-api
 #Customer intent: As an application developer, I want to learn how my Windows Presentation Foundation (WPF) application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---

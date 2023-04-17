@@ -10,12 +10,9 @@ ms.date: 09/28/2022
 ms.custom: template-how-to
 ---
 
-# Load test secured endpoints with Azure Load Testing Preview
+# Load test secured endpoints with Azure Load Testing
 
-In this article, you learn how to load test secured applications with Azure Load Testing Preview. Secured applications require authentication to access the endpoint. Azure Load Testing enables you to [authenticate with endpoints by using shared secrets or credentials](#authenticate-with-a-shared-secret-or-credentials), or to [authenticate with client certificates](#authenticate-with-client-certificates).
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In this article, you learn how to load test secured applications with Azure Load Testing. Secured applications require authentication to access the endpoint. Azure Load Testing enables you to [authenticate with endpoints by using shared secrets or credentials](#authenticate-with-a-shared-secret-or-credentials), or to [authenticate with client certificates](#authenticate-with-client-certificates).
 
 ## Prerequisites
 

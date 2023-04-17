@@ -1,5 +1,6 @@
 ---
-title: Upload a blob using Java - Azure Storage
+title: Upload a blob with Java
+titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the Java client library.
 services: storage
 author: pauljewellmsft
@@ -13,7 +14,7 @@ ms.devlang: java
 ms.custom: devx-track-java, devguide-java
 ---
 
-# Upload a block blob to Azure Storage using the Java client library
+# Upload a block blob with Java
 
 This article shows how to upload a block blob using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). You can upload a blob, open a blob stream and write to the stream, or upload blobs with index tags.
 
@@ -53,10 +54,24 @@ The following example uploads a block blob with index tags set using `BlobUpload
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobUpload.java" id="Snippet_UploadBlobTags":::
 
-## See also
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobUpload.java)
-- [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
-- [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
+To learn more about uploading blobs using the Azure Blob Storage client library for Java, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for uploading blobs use the following REST API operations:
+
 - [Put Blob](/rest/api/storageservices/put-blob) (REST API)
 - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobUpload.java)
+
+[!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
+
+### See also
+
+- [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
+- [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)

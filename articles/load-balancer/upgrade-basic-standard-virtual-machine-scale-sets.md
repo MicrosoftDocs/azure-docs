@@ -8,11 +8,13 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/22/2022
 ms.author: vsantana
+ms.custom: template-how-to
 ---
+
 # Upgrade a basic load balancer used with Virtual Machine Scale Sets
 
 >[!Important]
->On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. This article will help guide you through the upgrade process. 
+>On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. 
 
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus).
 
@@ -33,6 +35,9 @@ The PowerShell module performs the following functions:
 >[!NOTE]
 > Migrating _internal_ Basic Load Balancers where the backend VMs or VMSS instances do not have Public IP Addresses assigned requires additional action post-migration to enable backend pool members to connect to the internet. The recommended approach is to create a NAT Gateway and assign it to the backend pool members' subnet (see: [**Integrate NAT Gateway with Internal Load Balancer**](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md)). Alternatively, Public IP Addresses can be allocated to each VMSS instance by adding a Public IP Configuration to the Network Profile (see: [**VMSS Public IPv4 Address Per Virtual Machine**](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)). 
 
+>[!NOTE]
+> If the Virtual Machine Scale Set in the Load Balancer backend pool has Public IP Addresses in its network configuration, the Public IP Addresses will change during migration (the Public IPs must be removed prior to the migration, then added back post migration with a Standard SKU configuration)
+
 ### Unsupported Scenarios
 
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member that is also a member of a backend pool on a different load balancer
@@ -41,7 +46,6 @@ The PowerShell module performs the following functions:
 - Basic Load Balancers with IPV6 frontend IP configurations
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member configured with 'Flexible' orchestration mode
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
-- Basic Load Balancers with a Public IP Configuration in the associated Virtual Machine Scale Sets' Network Profile (where a Basic SKU Public IP Address is assigned to each instance)
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
 
 ### Prerequisites

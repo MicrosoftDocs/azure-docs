@@ -385,3 +385,6 @@ Most of the time taken by the two-job process is spent uploading and download ar
 
 > [!div class="nextstepaction"]
 > [Configure Node.js app in App Service](./configure-language-nodejs.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

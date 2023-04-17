@@ -3,7 +3,7 @@ title: Use features of the Remote Desktop Web client - Azure Virtual Desktop
 description: Learn how to use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 01/25/2023
 ms.author: daknappe
 ---
 
@@ -30,6 +30,30 @@ Native resolution is set to off by default. To turn on native resolution:
 1. Sign in to the Remote Desktop Web client, then select **Settings** on the taskbar.
 
 1. Set **Enable native display resolution** to **On**.
+
+### Preview user interface (preview)
+
+A new user interface is available in preview for you to try. To enable the new user interface:
+
+1. Sign in to the Remote Desktop Web client.
+
+1. Toggle **Try the new client (Preview)** to **On**. To revert to the original user interface, toggle this to **Off**.
+
+### Grid view and list view (preview)
+
+You can change the view of remote resources assigned to you between grid view (default) and list view. To change between grid view and list view:
+
+1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**.
+
+1. In the top-right hand corner, select **Grid View** icon or the **List View** icon. The change will take effect immediately.
+
+### Light mode and dark mode (preview)
+
+You can change between light mode (default) and dark mode. To change between light mode and dark mode:
+
+1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**, then select **Settings** on the taskbar.
+
+1. Toggle **Dark Mode** to **On** to use dark mode, or **Off** to use light mode. The change will take effect immediately.
 
 ## Input methods
 
@@ -135,6 +159,14 @@ If you have another Remote Desktop client installed, you can download an RDP fil
 1. Select the resource you want to open (for example, Excel). Your browser will download the RDP in its normal way.
 
 1. Open the downloaded RDP file in your Remote Desktop client to launch a remote session.
+
+## Reset user settings (preview)
+
+If you want to reset your user settings back to the default, you can do this in the web client for the current browser. To reset user settings:
+
+1. Sign in to the Remote Desktop Web client and make sure you have toggled **Try the new client (Preview)** to **On**, then select **Settings** on the taskbar.
+
+1. Select **Reset user settings**. You'll need to confirm that you want reset the web client settings to default.
 
 ## Provide feedback
 

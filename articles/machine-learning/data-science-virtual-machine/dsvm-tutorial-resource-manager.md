@@ -8,7 +8,7 @@ ms.author: craigg
 ms.date: 06/10/2020
 ms.topic: quickstart
 ms.service: data-science-vm
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create an Ubuntu Data Science Virtual Machine using an ARM template

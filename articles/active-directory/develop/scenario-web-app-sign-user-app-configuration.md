@@ -2,7 +2,7 @@
 title: Configure a web app that signs in users
 description: Learn how to build a web app that signs in users (code configuration)
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/8/2022
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
 ---
@@ -54,7 +55,7 @@ You might want to refer to this sample for full implementation details.
 
 # [Python](#tab/python)
 
-Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample in MSAL Python.
+Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample using the [identity package](https://pypi.org/project/identity/) (a wrapper around MSAL Python).
 
 You might want to refer to this sample for full implementation details.
 
@@ -62,21 +63,21 @@ You might want to refer to this sample for full implementation details.
 
 ## Configuration files
 
-Web applications that sign in users by using the Microsoft identity platform are configured through configuration files. These are the values you're required to specify in the configuration:
+Web applications that sign in users by using the Microsoft identity platform are configured through configuration files. Those files must specify the following values:
 
-- The cloud instance (`Instance`) if you want your app to run in national clouds, for example. The different options include;
+- The cloud **instance** if you want your app to run in national clouds, for example. The different options include;
   - `https://login.microsoftonline.com/` for Azure public cloud
   - `https://login.microsoftonline.us/` for Azure US government
   - `https://login.microsoftonline.de/` for Azure AD Germany
   - `https://login.partner.microsoftonline.cn/common` for Azure AD China operated by 21Vianet
-- The audience in the tenant ID (`TenantId`). The options vary depending on whether your app is single tenant or multitenant.
-  - `TenantId` for a GUID obtained from the Azure portal to sign in users in your organization. You can also use a domain name.
+- The audience in the **tenant ID**. The options vary depending on whether your app is single tenant or multitenant.
+  - The tenant GUID obtained from the Azure portal to sign in users in your organization. You can also use a domain name.
   - `organizations` to sign in users in any work or school account
   - `common` to sign in users with any work or school account or Microsoft personal account
   - `consumers` to sign in users with a Microsoft personal account only
-- The client ID (`ClientId`) for your application, as copied from the Azure portal
+- The **client ID** for your application, as copied from the Azure portal
 
-You might also see references to the `Authority`. The `Authority` value is the concatenation of the `Instance` and `TenantId` values.
+You might also see references to the **authority**, a concatenation of the **instance** and **tenant ID** values.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -190,24 +191,22 @@ For simplicity in this article, the client secret is stored in the configuration
 
 # [Python](#tab/python)
 
-Here's the Python configuration file in [app_config.py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app_config.py):
+The configuration parameters are set in *.env* as environment variables:
 
-```Python
-CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-AUTHORITY = "https://login.microsoftonline.com/common"
-CLIENT_ID = "Enter_the_Application_Id_here"
-ENDPOINT = 'https://graph.microsoft.com/v1.0/users'
-SCOPE = ["User.ReadBasic.All"]
-SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-side session
+```bash
+CLIENT_ID=<client id>
+CLIENT_SECRET=<client secret>
+TENANT_ID=<tenant id>
 ```
 
-For simplicity in this article, the client secret is stored in the configuration file. In the production app, consider using a key vault or an environment variable as described in [Flask's documentation](https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables) to store your secret.
+Those environment variables are referenced in *app_config.py*:
 
-```python
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-if not CLIENT_SECRET:
-    raise ValueError("Need to define CLIENT_SECRET environment variable")
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app_config.py" highlight="4,6,9":::
+
+The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a *.gitignore* file that prevents the *.env* file from being checked in.
+
+:::code language="text" source="~/ms-identity-python-webapp-tutorial/.gitignore" range="84-85" highlight="2":::
+
 
 ---
 
@@ -217,10 +216,10 @@ The initialization code differences are platform dependant. For ASP.NET Core and
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET Core web apps (and web APIs), the application is protected because you have a `Authorize` attribute on the controllers or the controller actions. This attribute checks that the user is authenticated. Prior to the release of .NET 6, the code initializaation wis in the *Startup.cs* file.  New ASP.NET Core projects with .NET 6 no longer contain a *Startup.cs* file.  Taking its place is the *Program.cs* file.  The rest of this tutorial pertains to .NET 5 or lower.
+In ASP.NET Core web apps (and web APIs), the application is protected because you have a `Authorize` attribute on the controllers or the controller actions. This attribute checks that the user is authenticated. Prior to the release of .NET 6, the code initialization was in the *Startup.cs* file.  New ASP.NET Core projects with .NET 6 no longer contain a *Startup.cs* file.  Taking its place is the *Program.cs* file.  The rest of this tutorial pertains to .NET 5 or lower.
 
 > [!NOTE]
-> If you want to start directly with the new ASP.NET Core templates for Microsoft identity platform, that leverage Microsoft.Identity.Web, you can download a preview NuGet package containing project templates for .NET 5.0. Then, once installed, you can directly instantiate ASP.NET Core web applications (MVC or Blazor). See [Microsoft.Identity.Web web app project templates](https://aka.ms/ms-id-web/webapp-project-templates) for details. This is the simplest approach as it will do all the steps below for you.
+> If you want to start directly with the new ASP.NET Core templates for Microsoft identity platform, that leverage Microsoft.Identity.Web, you can download a preview NuGet package containing project templates for .NET 5.0. Then, once installed, you can directly instantiate ASP.NET Core web applications (MVC or Blazor). See [Microsoft.Identity.Web web app project templates](https://aka.ms/ms-id-web/webapp-project-templates) for details. This is the simplest approach as it will do all the following steps for you.
 >
 > If you prefer to start your project with the current default ASP.NET Core web project within Visual Studio or by using `dotnet new mvc --auth SingleOrg` or `dotnet new webapp --auth SingleOrg`, you'll see code like the following:
 >
@@ -231,7 +230,7 @@ In ASP.NET Core web apps (and web APIs), the application is protected because yo
 >
 > This code uses the legacy **Microsoft.AspNetCore.Authentication.AzureAD.UI** NuGet package which is used to create an Azure AD v1.0 application. This article explains how to create a Microsoft identity platform (Azure AD v2.0) application which replaces that code.
 
-1. Add the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) and [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) NuGet packages to your project. Remove the `Microsoft.AspNetCore.Authentication.AzureAD.UI` NuGet package if it is present.
+1. Add the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) and [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) NuGet packages to your project. Remove the `Microsoft.AspNetCore.Authentication.AzureAD.UI` NuGet package if it's present.
 
 2. Update the code in `ConfigureServices` so that it uses the `AddMicrosoftIdentityWebAppAuthentication` and `AddMicrosoftIdentityUI` methods.
 
@@ -269,7 +268,7 @@ In ASP.NET Core web apps (and web APIs), the application is protected because yo
    }
    ```
 
-In the code above:
+In that code:
 - The `AddMicrosoftIdentityWebAppAuthentication` extension method is defined in **Microsoft.Identity.Web**, which;
   - Adds the authentication service.
   - Configures options to read the configuration file (here from the "AzureAD" section)
@@ -328,26 +327,19 @@ For details about the authorization code flow that this method triggers, see the
 
 # [Node.js](#tab/nodejs)
 
-Node sample the Express framework. MSAL is initialized in *auth* route handler:
+The Node sample uses the Express framework. MSAL is initialized in *auth* route handler:
 
 :::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="6-16":::
 
 # [Python](#tab/python)
 
-The Python sample uses Flask. The initialization of Flask and MSAL Python is done in [app.py#L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28).
+The Python sample is built with the Flask framework, though other frameworks like Django could be used as well. The Flask app is initialized with the app configuration at the top of *app.py*:
 
-```Python
-import uuid
-import requests
-from flask import Flask, render_template, session, request, redirect, url_for
-from flask_session import Session  # https://pythonhosted.org/Flask-Session
-import msal
-import app_config
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="1-12" highlight="10":::
 
-app = Flask(__name__)
-app.config.from_object(app_config)
-Session(app)
-```
+Then the code constructs an [`auth` object](https://identity-library.readthedocs.io/en/latest/#identity.web.Auth) using the [identity package](https://pypi.org/project/identity/).
+
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="20-25":::
 
 ---
 

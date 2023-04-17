@@ -5,7 +5,7 @@ description: Service limits used for capacity planning and maximum limits on req
 services: machine-learning
 author: blackmist
 ms.author: larryfr
-ms.reviewer: mldocs
+ms.reviewer: larryfr
 ms.topic: reference
 ms.service: machine-learning
 ms.subservice: core
@@ -55,6 +55,12 @@ This section lists basic limits and throttling thresholds in Azure Machine Learn
 | Warning message length |300 characters |
 | Number of input datasets |200 |
 | Number of output datasets |20 |
+
+## Custom environments
+| Limit | Value |
+| --- | --- |
+| Number of files in Docker build context | 100 |
+| Total files size in Docker build context | 1 MB |
 
 ## Metrics
 | Limit | Value |

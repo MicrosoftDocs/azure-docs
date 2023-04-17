@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/29/2022
+ms.date: 01/29/2023
 
 ms.author: gasinh
 author: gargi-sinha
@@ -154,7 +154,7 @@ The following are sample test cases for passwordless authentication with the Aut
 | User can register the Authenticator app.| User can register app from https://aka.ms/mysecurityinfo. |
 | User can enable phone sign-in| Phone sign-in configured for work account. |
 | User can access an app with phone sign-in.| User goes through phone sign-in flow and reaches application. |
-| Test rolling back phone sign-in registration by turning off passwordless sign-in in the Authenticator app. Do this within the Authentication methods screen in the Azure AD portal| Previously enabled users unable to use passwordless sign-in from the Authenticator app. |
+| Test rolling back phone sign-in registration by turning off passwordless sign-in in the Authenticator app. Do this within the Authentication methods screen in the Azure portal| Previously enabled users unable to use passwordless sign-in from the Authenticator app. |
 | Removing phone sign-in from the Authenticator app| Work account no longer available on the Authenticator app. |
 
 
@@ -216,13 +216,13 @@ There are three types of passwordless sign-in deployments available with securit
 
 Enabling Windows 10 sign-in using FIDO2 security keys requires you to enable the credential provider functionality in Windows 10. Choose one of the following:
 
-* [Enable credential provider with Microsoft Endpoint Manager](howto-authentication-passwordless-security-key-windows.md)
+* [Enable credential provider with Microsoft Intune](howto-authentication-passwordless-security-key-windows.md)
 
-  * We recommend Microsoft Endpoint Manager deployment.
+  * We recommend Microsoft Intune deployment.
 
 * [Enable credential provider with a provisioning package](howto-authentication-passwordless-security-key-windows.md)
 
-  * If Microsoft Endpoint Manager deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
+  * If Microsoft Intune deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
     * Group Policy or Configuration Manager
     * Local installation on a Windows 10 machine
 
@@ -287,7 +287,7 @@ Here are the sample test cases for passwordless authentication with security key
 | The user can register FIDO2 device at aka.ms/mysecurityinfo using Firefox| Registration should succeed |
 | The user can sign in to OneDrive online using FIDO2 device using Microsoft Edge| Sign-in should succeed |
 | The user can sign in to OneDrive online using FIDO2 device using Firefox| Sign-in should succeed |
-| Test rolling back FIDO2 device registration by turning off FIDO2 Security Keys within the Authentication method window in the Azure Active Directory portal| Users will: <li> be prompted to sign in using their security key <li> successfully sign in and see an error: "Your company policy requires that you use a different method to sign in". <li>be able to select a different method and successfully sign in. Close the window and sign in again to verify they do not see the same error message. |
+| Test rolling back FIDO2 device registration by turning off FIDO2 Security Keys within the Authentication method window in the Azure portal| Users will: <li> be prompted to sign in using their security key <li> successfully sign in and see an error: "Your company policy requires that you use a different method to sign in". <li>be able to select a different method and successfully sign in. Close the window and sign in again to verify they do not see the same error message. |
 
 
 ### Troubleshoot security key sign-in

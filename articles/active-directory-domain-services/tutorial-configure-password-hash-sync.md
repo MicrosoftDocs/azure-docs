@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 04/03/2023
 ms.author: justinha
 
 #Customer intent: As an server administrator, I want to learn how to enable password hash synchronization with Azure AD Connect to create a hybrid environment using an on-premises AD DS domain.
@@ -20,7 +20,7 @@ For hybrid environments, an Azure Active Directory (Azure AD) tenant can be conf
 
 To use Azure AD DS with accounts synchronized from an on-premises AD DS environment, you need to configure Azure AD Connect to synchronize those password hashes required for NTLM and Kerberos authentication. After Azure AD Connect is configured, an on-premises account creation or password change event also then synchronizes the legacy password hashes to Azure AD.
 
-You don't need to perform these steps if you use cloud-only accounts with no on-premises AD DS environment, or if you use a *resource forest*. For managed domains that use a resource forest, on-premises password hashes are never synchronized. Authentication for on-premises accounts use the forest trust(s) back to your own AD DS domain controllers.
+You don't need to perform these steps if you use cloud-only accounts with no on-premises AD DS environment.
 
 In this tutorial, you learn:
 
@@ -66,7 +66,7 @@ With Azure AD Connect installed and configured to synchronize with Azure AD, now
 
     In this example screenshot, the following connectors are used:
 
-    * The Azure AD connector is named *contoso.onmicrosoft.com - AAD*
+    * The Azure AD connector is named *contoso.onmicrosoft.com - Azure AD*
     * The on-premises AD DS connector is named *onprem.contoso.com*
 
 1. Copy and paste the following PowerShell script to the computer with Azure AD Connect installed. The script triggers a full password sync that includes legacy password hashes. Update the `$azureadConnector` and `$adConnector` variables with the connector names from the previous step.

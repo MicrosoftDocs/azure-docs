@@ -98,7 +98,7 @@ The results are:
 ]
 ```
 
-Queries with an aggregate system function and a subquery with `DISTINCT` are only supported in specific SDK versions. For example, queries with the following shape are only supported in the below specific SDK versions:
+Queries with an aggregate system function and a subquery with `DISTINCT` are only supported in specific SDK versions. This is because they require coordination of the results returned from every continuation to create an exact result set. For example, queries with the following shape are only supported in the below specific SDK versions:
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
@@ -113,14 +113,15 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 |Node.js SDK|Unsupported|
 |Python SDK|Unsupported|
 
-There are some additional restrictions on queries with an aggregate system function and a subquery with `DISTINCT`. The below queries are unsupported:
+There are some additional restrictions on nested queries with `DISTINCT` regardless of SDK version. In these cases, there may be incorrect and inconsistent results because the query would require extra coordination. The below queries are unsupported:
 
 |**Restriction**|**Example**|
 |-------|----------------------|
+|Nested Subquery|SELECT VALUE f FROM (SELECT DISTINCT c.year FROM c) f|
 |WHERE clause in the outer query|SELECT COUNT(1) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName WHERE lastName = "Smith"|
 |ORDER BY clause in the outer query|SELECT VALUE COUNT(1) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName ORDER BY lastName|
 |GROUP BY clause in the outer query|SELECT COUNT(1) as annualCount, d.year FROM (SELECT DISTINCT c.year, c.id FROM c) AS d GROUP BY d.year|
-|Nested subquery|SELECT COUNT(1) FROM (SELECT y FROM (SELECT VALUE StringToNumber(SUBSTRING(d.date, 0, 4 FROM (SELECT DISTINCT c.date FROM c) d) AS y WHERE y > 2012)|
+|Nested subquery with aggregate system function|SELECT COUNT(1) FROM (SELECT y FROM (SELECT VALUE StringToNumber(SUBSTRING(d.date, 0, 4 FROM (SELECT DISTINCT c.date FROM c) d) AS y WHERE y > 2012)|
 |Multiple aggregations|SELECT COUNT(1) as AnnualCount, SUM(d.sales) as TotalSales FROM (SELECT DISTINCT c.year, c.sales, c.id FROM c) AS d|
 |COUNT() must have 1 as a parameter|SELECT COUNT(lastName) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName|
 

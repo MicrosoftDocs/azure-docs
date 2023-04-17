@@ -116,7 +116,11 @@ For technical information about the **EDIFACT** connector, review the [connector
 
 * The logic app resource and workflow where you want to use the EDIFACT operations.
 
-  If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
+  For more information, see the following documentation:
+
+  * [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+
+  * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
 <a name="encode"></a>
 

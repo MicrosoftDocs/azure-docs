@@ -37,12 +37,6 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
 
 * [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version is at least `2.37.0`
 
-* Enable the following feature for each subscription where you'll be creating the fleet resource or where your AKS clusters that will be joined as members are located in:
-
-    ```azurecli
-    az feature register --namespace Microsoft.ContainerService --name FleetResourcePreview
-    ```
-
 * Install the **fleet** Azure CLI extension. Make sure your version is at least `0.1.0`:
 
     ```azurecli

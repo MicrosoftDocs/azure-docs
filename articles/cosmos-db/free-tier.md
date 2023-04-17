@@ -78,10 +78,11 @@ To create an account with free tier using Azure PowerShell, set the `-EnableFree
 ```powershell-interactive
 # Create a free tier account for API for NoSQL. 
 New-AzCosmosDBAccount -ResourceGroupName "MyResourcegroup" `
-    -Name "Myaccount" `
+    -Name "myaccount" `
     -ApiKind "sql" `
-    -EnableFreeTier true `
+    -EnableFreeTier $true `
     -DefaultConsistencyLevel "Session" `
+    -Location "East US" `
 ```
 
 ### Unable to create a free-tier account

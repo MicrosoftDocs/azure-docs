@@ -1,13 +1,13 @@
 ---
-title: Azure Resource Manager template samples - Azure Front Door
+title: Azure Resource Manager template samples
+titleSuffix: Azure Front Door
 description: Learn about Resource Manager template samples for Azure Front Door, including templates for creating a basic Front Door profile and configuring Front Door rate limiting.
 services: frontdoor
-documentationcenter: ""
 author: duongau
 ms.service: frontdoor
 ms.topic: sample
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+ms.custom: devx-track-arm-template, devx-track-bicep
 ms.date: 03/10/2022
 ms.author: duau
 zone_pivot_groups: front-door-tiers

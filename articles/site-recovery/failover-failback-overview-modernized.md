@@ -4,6 +4,7 @@ description: Learn about failover and failback in Azure Site Recovery - Moderniz
 ms.topic: conceptual
 ms.date: 09/21/2022
 ms.author: ankitadutta
+ms.service: site-recovery
 author: ankitaduttaMSFT
 ---
 # About on-premises disaster recovery failover/failback - Modernized
@@ -90,6 +91,7 @@ After failover to Azure, the replicated Azure VMs are in an unprotected state.
 - As a first step to failing back to your on-premises site, you need to start the Azure VMs replicating to on-premises. The reprotection process depends on the type of machines you failed over.
 - After machines are replicating from Azure to on-premises, you can run a failover from Azure to your on-premises site.
 - After machines are running on-premises again, you can enable replication so that they replicate to Azure for disaster recovery.
+- Only disks replicated from on-premises to Azure will be replicated back from Azure during re-protect operation. Newly added disks to failed over Azure VM will not be replicated to on-premises machine. 
 
 **Planned failover works as follows**:
 

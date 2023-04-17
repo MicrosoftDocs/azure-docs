@@ -59,7 +59,7 @@ Alternatively, you can specify the market with the `mkt` query parameter, and a 
 |Sweden|SE|
 |Switzerland|CH|
 |Taiwan|TW|
-|Turkey|TR|
+|Türkiye|TR|
 |United Kingdom|GB|
 |United States|US|
 
@@ -103,7 +103,7 @@ Alternatively, you can specify the market with the `mkt` query parameter, and a 
 |Switzerland|French|fr-CH|
 |Switzerland|German|de-CH|
 |Taiwan|Traditional Chinese|zh-TW|
-|Turkey|Turkish|tr-TR|
+|Türkiye|Turkish|tr-TR|
 |United Kingdom|English|en-GB|
 |United States|English|en-US|
 |United States|Spanish|es-US|
