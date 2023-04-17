@@ -1,11 +1,8 @@
 ---
 title: Remediation options for machine configuration
 description: Azure Policy's machine configuration feature offers options for continuous remediation or control using remediation tasks.
-author: timwarner-msft
 ms.date: 07/25/2022
 ms.topic: how-to
-ms.author: timwarner
-ms.service: machine-configuration
 ---
 # Remediation options for machine configuration
 
