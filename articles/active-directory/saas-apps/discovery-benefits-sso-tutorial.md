@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Discovery Benefits SSO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Discovery Benefits SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and Discovery Benefits SSO.
 services: active-directory
 author: jeevansd

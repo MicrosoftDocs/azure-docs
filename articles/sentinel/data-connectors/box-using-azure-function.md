@@ -1,6 +1,6 @@
 ---
-title: "Box (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Box (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Box (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Box (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Box (using Azure Function) connector for Microsoft Sentinel
+# Box (using Azure Functions) connector for Microsoft Sentinel
 
 The Box data connector provides the capability to ingest [Box enterprise's events](https://developer.box.com/guides/events/#admin-events) into Microsoft Sentinel using the Box REST API. Refer to [Box  documentation](https://developer.box.com/guides/events/enterprise-events/for-enterprise/) for more information.
 
@@ -17,7 +17,7 @@ The Box data connector provides the capability to ingest [Box enterprise's event
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | AzureSentinelWorkspaceId<br/>AzureSentinelSharedKey<br/>BOX_CONFIG_JSON<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-BoxDataConnector-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-BoxDataConnector-functionapp |
 | **Log Analytics table(s)** | BoxEvents_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -35,7 +35,7 @@ BoxEvents
 
 ## Prerequisites
 
-To integrate with Box (using Azure Function) make sure you have: 
+To integrate with Box (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **Box API Credentials**: Box config JSON file is required for Box REST API JWT authentication. [See the documentation to learn more about JWT authentication](https://developer.box.com/guides/authentication/jwt/).

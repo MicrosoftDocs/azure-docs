@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - AD FS management and customization | Microsoft Docs
+title: Azure AD Connect - AD FS management and customization
 description: This article discusses how to manage AD FS with Azure AD Connect and customize the AD FS user sign-in experience with Azure AD Connect and PowerShell.
 keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, M365, federation, relying party
 services: active-directory

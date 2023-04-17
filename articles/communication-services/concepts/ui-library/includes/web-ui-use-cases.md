@@ -53,7 +53,8 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 
 ## Supported identities
 
-To initialize a composite and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
+To initialize a composite, and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
+
 
 ## Teams interoperability
 
@@ -99,7 +100,7 @@ The following table compares composites and UI components for observability use 
 
 ## Recommended architecture
 
-Initialize a composite and base components by using an Azure Communication Services access token. It's important to get access tokens from Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
+Initialize a composite and base component by using an Azure Communication Services access token. It's important to get access tokens from Communication Services through a trusted service that you manage. For more information, see [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md) and the [trusted service tutorial](../../../tutorials/trusted-service-tutorial.md).
 
 :::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" border="false" alt-text="Diagram that shows the recommended UI Library architecture.":::
 
@@ -122,7 +123,7 @@ The following table summarizes initialization and resource management functions 
 
 \* The current version of Chrome and the two preceding releases are supported.
 
-\*\* Safari version 13.1 and later versions are supported. Outgoing video for Safari macOS isn't yet supported, but it is supported for iOS. Outgoing screen sharing is supported only on desktop iOS.
+\*\* Safari version 13.1 and later versions are supported. Outgoing video for Safari macOS isn't yet supported, but it's supported for iOS. Outgoing screen sharing is supported only on desktop iOS.
 
 ## Accessibility
 

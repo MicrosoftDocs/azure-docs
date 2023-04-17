@@ -75,6 +75,7 @@ Provision a virtual network with two separate subnets: one for the cluster and o
     ```azurecli
     # Dedicated virtual network with AKS subnet
 
+<<<<<<< HEAD
     az network vnet create \
         --resource-group $RG \
         --name $VNET_NAME \
@@ -82,6 +83,10 @@ Provision a virtual network with two separate subnets: one for the cluster and o
         --address-prefixes 10.42.0.0/16 \
         --subnet-name $AKSSUBNET_NAME \
         --subnet-prefix 10.42.1.0/24
+=======
+```azurecli
+# Dedicated virtual network with AKS subnet
+>>>>>>> 3fd8d1fba64a42875809635a5dd59df79e769e09
 
     # Dedicated subnet for Azure Firewall (Firewall name can't be changed)
 
@@ -320,7 +325,13 @@ If you used authorized IP ranges for your cluster in the previous step, you need
     CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
     ```
 
+<<<<<<< HEAD
 2. Add the IP address to the approved ranges using the [`az aks update`][az-aks-update] command.
+=======
+```azurecli
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+>>>>>>> 3fd8d1fba64a42875809635a5dd59df79e769e09
 
     ```azurecli
     az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32

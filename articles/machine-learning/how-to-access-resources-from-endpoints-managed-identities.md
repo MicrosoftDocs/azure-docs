@@ -20,7 +20,7 @@ ms.custom: devplatv2, cliv2, event-tier1-build-2022, ignite-2022
 
 Learn how to access Azure resources from your scoring script with an online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
 
-Managed endpoints allow Azure Machine Learning to manage the burden of provisioning your compute resource and deploying your machine learning model. Typically your model needs to access Azure resources such as the Azure Container Registry or your blob storage for inferencing; with a managed identity you can access these resources without needing to manage credentials in your code. [Learn more about managed identities](../active-directory/managed-identities-azure-resources/overview.md).
+Both managed endpoints and Kubernetes endpoints allow Azure Machine Learning to manage the burden of provisioning your compute resource and deploying your machine learning model. Typically your model needs to access Azure resources such as the Azure Container Registry or your blob storage for inferencing; with a managed identity you can access these resources without needing to manage credentials in your code. [Learn more about managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 This guide assumes you don't have a managed identity, a storage account or an online endpoint. If you already have these components, skip to the [give access permission to the managed identity](#give-access-permission-to-the-managed-identity) section. 
 
@@ -147,6 +147,8 @@ This guide assumes you don't have a managed identity, a storage account or an on
 ## Limitations
 
 * The identity for an endpoint is immutable. During endpoint creation, you can associate it with a system-assigned identity (default) or a user-assigned identity. You can't change the identity after the endpoint has been created.
+* If your ARC and blob storage are configured as private, i.e. behind a Vnet, then access from the Kubernetes endpoint should be over the private link regardless of whether your workspace is public or private. More details about private link setting, please refer to [How to secure workspace vnet](./how-to-secure-workspace-vnet.md#azure-container-registry).
+
 
 ## Configure variables for deployment
 
@@ -555,7 +557,7 @@ Then, get the Principal ID of the System-assigned managed identity:
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb?name=6-get-sai-details)]
 
-Next, give assign the `Storage Blob Data Reader` role to the endpoint. The Role Definition is retrieved by name and passed along with the Principal ID of the endpoint. The role is applied at the scope of the storage account created above and allows the endpoint to read the file. 
+Next, assign the `Storage Blob Data Reader` role to the endpoint. The Role Definition is retrieved by name and passed along with the Principal ID of the endpoint. The role is applied at the scope of the storage account created above and allows the endpoint to read the file. 
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb?name=6-give-permission-user-storage-account)]
 
@@ -777,4 +779,5 @@ Delete the User-assigned managed identity:
 * To see which compute resources you can use, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * For more on costs, see [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
 * For information on monitoring endpoints, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
-* For limitations for managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+* For limitations for managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning-managed online endpoint](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+* For limitations for Kubernetes endpoints, see [Manage and increase quotas for resources with Azure Machine Learning-kubernetes online endpoint](how-to-manage-quotas.md#azure-machine-learning-kubernetes-online-endpoints).

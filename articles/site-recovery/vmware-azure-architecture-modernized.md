@@ -160,4 +160,4 @@ After replication is set up and you run a disaster recovery drill (test failover
 
 ## Next steps
 
-Follow [this tutorial](vmware-azure-tutorial.md) to enable VMware to Azure replication.
+Follow [this tutorial](vmware-azure-set-up-replication-tutorial-modernized.md) to enable VMware to Azure replication.

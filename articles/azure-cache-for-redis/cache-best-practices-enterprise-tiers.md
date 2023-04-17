@@ -13,7 +13,7 @@ ms.author: franlanglois
 
 ## Zone Redundancy
 
-We strongly recommended that you deploy new caches in a [zone redundant](cache-high-availability.md) configuration. Zone redundancy ensures that Redis Enterprise nodes are spread among three availability zones, boosting redundancy from data center-level outages. Using zone redundancy increases availability. For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/cache/v1_1/).
+We strongly recommend that you deploy new caches in a [zone redundant](cache-high-availability.md) configuration. Zone redundancy ensures that Redis Enterprise nodes are spread among three availability zones, boosting redundancy from data center-level outages. Using zone redundancy increases availability. For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/cache/v1_1/).
 
 Zone redundancy is important on the Enterprise tier because your cache instance always uses at least three nodes. Two nodes are data nodes, which hold your data, and a _quorum node_. Increasing capacity scales the number of data nodes in even-number increments. 
 
@@ -21,7 +21,7 @@ There's also another node called a quorum node. This node monitors the data node
 
 ## Scaling
 
-In the Enterprise and Enterprise Flash tiers of Azure Cache for Redis, we recommended prioritizing scaling up over scaling out. Prioritize scaling up because the Enterprise tiers are built on Redis Enterprise, which is able to utilize more CPU cores in larger VMs.
+In the Enterprise and Enterprise Flash tiers of Azure Cache for Redis, we recommend prioritizing scaling up over scaling out. Prioritize scaling up because the Enterprise tiers are built on Redis Enterprise, which is able to utilize more CPU cores in larger VMs.
 
 Conversely, the opposite recommendation is true for the Basic, Standard, and Premium tiers, which are built on open-source Redis. In those tiers, prioritizing scaling out over scaling up is recommended in most cases.
 

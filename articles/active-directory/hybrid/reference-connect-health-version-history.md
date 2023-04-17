@@ -27,6 +27,16 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](./reference-connect-version-history.md)
 For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 
+## 27 March 2023
+**Agent Update**
+
+Azure AD Connect Health ADDS and ADFS Health Agents (version 3.2.2256.26)
+
+- We created a fix for so that the agents would be FIPS compliant
+  - the change was to have the agents use ‘CloudStorageAccount.UseV1MD5 = false’ so the agent only uses only FIPS compliant cryptography, otherwise azure blob client causes FIPs exceptions to be thrown.
+- Update of Newtonsoft.json library from 12.0.1 to 13.0.1 to resolve a component governance alert. 
+- In ADFS health agent, the TestADFSDuplicateSPN test was disabled as the test was unreliable, it would generate misleading alerts when server experienced transient connectivity issues.
+
 ## 19 January 2023 
 **Agent Update**
 - Azure AD Connect Health agent for Azure AD Connect (version 3.2.2188.23)

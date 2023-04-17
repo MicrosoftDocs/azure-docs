@@ -120,7 +120,7 @@ This parameter specifies the URL of the video or audio file to be indexed. If th
 ### Code sample
 
 > [!NOTE]
-> The following sample is intended for Classic accounts only and isn't compatible with ARM accounts. For an updated sample for ARM, see [this ARM sample repo](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ApiUsage/ArmBased/Program.cs).
+> The following sample is intended for Classic accounts only and isn't compatible with ARM accounts. For an updated sample for ARM, see [this ARM sample repo](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/API-Samples/C%23/ArmBased/Program.cs).
 
 The following C# code snippets demonstrate the usage of all the Azure Video Indexer APIs together.
 

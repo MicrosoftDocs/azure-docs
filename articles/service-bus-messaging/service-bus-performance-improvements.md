@@ -28,7 +28,7 @@ Service Bus offers various pricing tiers. It's recommended to pick the appropria
 > [!NOTE]
 > If the right tier is not picked, there is a risk of overwhelming the Service Bus namespace which may lead to [throttling](service-bus-throttling.md).
 >
-> Throttling does not lead to loss of data. Applications leveraging the Service Bus SDK can utilize the default retry policy to ensure that the data is eventually accepted by Service Bus.
+> Throttling does not lead to loss of data. Applications leveraging the Service Bus SDK can utilize the default [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus) to ensure that the data is eventually accepted by Service Bus.
 >
 
 ### Calculating throughput for Premium

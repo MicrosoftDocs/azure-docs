@@ -17,7 +17,7 @@ CyberArk Enterprise Password Vault generates an xml Syslog message for every act
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (CyberArk)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Cyberark](https://www.cyberark.com/services-support/technical-support/) |
 
 ## Query samples

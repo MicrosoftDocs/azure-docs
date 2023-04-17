@@ -1,5 +1,5 @@
 ---
-title: Audit activity history for group assignments (preview) in Privileged Identity Management - Azure Active Directory
+title: Audit activity history for group assignments (preview) in Privileged Identity Management
 description: View activity and audit activity history for group assignments (preview) in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

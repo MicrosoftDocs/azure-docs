@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Workfront | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Workfront'
 description: Learn how to configure single sign-on between Azure Active Directory and Workfront.
 services: active-directory
 author: jeevansd

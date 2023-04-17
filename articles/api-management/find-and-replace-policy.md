@@ -27,8 +27,8 @@ The `find-and-replace` policy finds a request or response substring and replaces
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-|from|The string to search for.|Yes|N/A|
-|to|The replacement string. Specify a zero length replacement string to remove the search string.|Yes|N/A|
+|from|The string to search for. Policy expressions are allowed. |Yes|N/A|
+|to|The replacement string. Specify a zero length replacement string to remove the search string. Policy expressions are allowed. |Yes|N/A|
 
 ## Usage
 

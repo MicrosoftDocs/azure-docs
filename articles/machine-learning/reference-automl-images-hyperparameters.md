@@ -17,7 +17,7 @@ ms.date: 01/18/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](v1/reference-automl-images-hyperparameters-v1.md)
+> * [v1](v1/reference-automl-images-hyperparameters-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](reference-automl-images-hyperparameters.md)
 
 Learn which hyperparameters are available specifically for computer vision tasks in automated ML experiments.

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philema
-ms.custom: subject-rbac-steps, kr2b-contr-experiment
+ms.custom: subject-rbac-steps, kr2b-contr-experiment, devx-track-azurecli
 ---
 
-# Secure an Azure Maps account with a SAS token
+# Secure an Azure Maps account with a SAS token (preview)
 
 This article describes how to create an Azure Maps account with a securely stored SAS token you can use to call the Azure Maps REST API.
 

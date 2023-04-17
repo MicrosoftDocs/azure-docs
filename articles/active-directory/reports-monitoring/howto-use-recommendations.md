@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Active Directory recommendations | Microsoft Docs
+title: How to use Azure Active Directory recommendations
 description: Learn how to use Azure Active Directory recommendations.
 services: active-directory
 author: shlipsey3
@@ -71,6 +71,9 @@ Each recommendation provides the same set of details that explain what the recom
 - The **Action plan** provides step-by-step instructions to implement a recommendation. The Action plan may include links to relevant documentation or direct you to other pages in the Azure portal.
 
 - The **Impacted resources** table contains a list of resources identified by the recommendation. The resource's name, ID, date it was first detected, and status are provided. The resource could be an application or resource service principal, for example. 
+
+> [!NOTE]
+> In the Azure portal the impacted resources are limited to a maximum of 50 resources. To view more resources, you should use the expand query parameter at the end of your API query on Microsoft graph. For example: Get: https://graph.microsoft.com/beta/directory/recommendations?$expand=impactedResources
 
 ## How to update a recommendation
 

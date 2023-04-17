@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Enablon | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Enablon'
 description: Learn how to configure single sign-on between Azure Active Directory and Enablon.
 services: active-directory
 author: jeevansd
