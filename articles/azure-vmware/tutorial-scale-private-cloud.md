@@ -51,7 +51,8 @@ You'll need an existing private cloud to complete this tutorial. If you haven't 
 
    The addition of hosts to the cluster begins.
 
-   [!NOTE] The hosts will be added to the cluster in parrallel.
+   >[!NOTE] 
+   >The hosts will be added to the cluster in parallel.
 
 ## Next steps
 
