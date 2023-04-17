@@ -80,7 +80,6 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 ## Other considerations
 
 - Multiple Azure AD principals (a user, group, service principal or managed identity) can be configured as Azure AD Administrator for an Azure Database for PostgreSQL server at any time.
-- Azure AD groups must be a mail enabled security group for authentication to work.
 - Only an Azure AD administrator for PostgreSQL can initially connect to the Azure Database for PostgreSQL using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.
 -  If an Azure AD principal is deleted from Azure AD, it still remains as PostgreSQL role, but it will no longer be able to acquire new access token. In this case, although the matching role still exists in the database it won't be able to authenticate to the server. Database administrators need to transfer ownership and drop roles manually.
 
