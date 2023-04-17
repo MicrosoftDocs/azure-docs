@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/20/2022
+ms.date: 04/17/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
 # Plan cloud HR application to Azure Active Directory user provisioning
 
-Historically, IT staff have relied on manual methods to create, update, and delete employees. They've used methods such as uploading CSV files or custom scripts to sync employee data. These provisioning processes are error prone, insecure, and hard to manage.
+Historically, IT staff has relied on manual methods to create, update, and delete employees. They've used methods such as uploading CSV files or custom scripts to sync employee data. These provisioning processes are error prone, insecure, and hard to manage.
 
 To manage the identity lifecycles of employees, vendors, or contingent workers, [Azure Active Directory (Azure AD) user provisioning service](../app-provisioning/user-provisioning.md) offers integration with cloud-based human resources (HR) applications. Examples of applications include Workday or SuccessFactors.
 
@@ -36,7 +36,7 @@ The following video provides guidance on planning your HR-driven provisioning in
 
 The Azure AD user provisioning service enables automation of the following HR-based identity lifecycle management scenarios:
 
-- **New employee hiring:** When a new employee is added to the cloud HR app, a user account is automatically created in Active Directory and Azure AD with the option to write back the email address and username attributes to the cloud HR app.
+- **New employee hiring:** Adding an employee to the cloud HR app automatically creates a user in Active Directory and Azure AD. Adding a user account includes the option to write back the email address and username attributes to the cloud HR app.
 - **Employee attribute and profile updates:** When an employee record such as name, title, or manager is updated in the cloud HR app, their user account is automatically updated in Active Directory and Azure AD.
 - **Employee terminations:** When an employee is terminated in the cloud HR app, their user account is automatically disabled in Active Directory and Azure AD.
 - **Employee rehires:** When an employee is rehired in the cloud HR app, their old account can be automatically reactivated or reprovisioned to Active Directory and Azure AD.
@@ -48,7 +48,7 @@ The cloud HR app integration with Azure AD user provisioning is ideally suited f
 - Want a prebuilt, cloud-based solution for cloud HR user provisioning.
 - Require direct user provisioning from the cloud HR app to Active Directory or Azure AD.
 - Require users to be provisioned by using data obtained from the cloud HR app.
-- Require joining, moving, and leaving users to be synced to one or more Active Directory forests, domains, and OUs based only on change information detected in the cloud HR app.
+- Syncing users who are joining, moving, and leaving. The sync happens between one or more Active Directory forests, domains, and OUs based only on change information detected in the cloud HR app.
 - Use Microsoft 365 for email.
 
 ## Learn
@@ -68,7 +68,7 @@ This article uses the following terms:
 This capability of HR-driven IT provisioning offers the following significant business benefits:
 
 - **Increase productivity:** You can now automate the assignment of user accounts and Microsoft 365 licenses and provide access to key groups. Automating assignments gives new hires immediate access to their job tools and increases productivity.
-- **Manage risk:** You can increase security by automating changes based on employee status or group memberships with data flowing in from the cloud HR app. Automating changes ensures that user identities and access to key apps update automatically when users transition or leave the organization.
+- **Manage risk:** Automate changes based on employee status or group membership to increase security. This automation ensures that user identities and access to key apps update automatically. For example, an update in the HR app when a user transitions or leaves the organization flows in automatically.
 - **Address compliance and governance:** Azure AD supports native audit logs for user provisioning requests performed by apps of both source and target systems. With auditing, you can track who has access to the apps from a single screen.
 - **Manage cost:** Automatic provisioning reduces costs by avoiding inefficiencies and human error associated with manual provisioning. It reduces the need for custom-developed user provisioning solutions built over time by using legacy and outdated platforms.
 
@@ -76,7 +76,7 @@ This capability of HR-driven IT provisioning offers the following significant bu
 
 To configure the cloud HR app to Azure AD user provisioning integration, you require a valid [Azure AD Premium license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) and a license for the cloud HR app, such as Workday or SuccessFactors.
 
-You also need a valid Azure AD Premium P1 or higher subscription license for every user that will be sourced from the cloud HR app and provisioned to either Active Directory or Azure AD. Any improper number of licenses owned in the cloud HR app might lead to errors during user provisioning.
+You also need a valid Azure AD Premium P1 or higher subscription license for every user that is sourced from the cloud HR app and provisioned to either Active Directory or Azure AD. Any improper number of licenses owned in the cloud HR app might lead to errors during user provisioning.
 
 ### Prerequisites
 
@@ -132,7 +132,7 @@ Include a representative from the HR organization who can provide inputs on exis
 
 ### Plan communications
 
-Communication is critical to the success of any new service. Proactively communicate with your users about when and how their experience will change. Let them know how to gain support if they experience issues.
+Communication is critical to the success of any new service. Proactively communicate with your users about when and how their experience is changing. Let them know how to gain support if they experience issues.
 
 ### Plan a pilot
 
@@ -231,7 +231,7 @@ This is the most common deployment topology. Use this topology, if you need to p
 
 ### Deployment topology 2: Separate apps to provision distinct user sets from Cloud HR to single on-premises Active Directory domain
 
-This topology supports business requirements where attribute mapping and provisioning logic differs based on user type (employee/contractor), user location or user's business unit. You can also use this topology to delegate the administration and maintenance of inbound user provisioning based on division or country.
+This topology supports business requirements where attribute mapping and provisioning logic differ based on user type (employee/contractor), user location or user's business unit. You can also use this topology to delegate the administration and maintenance of inbound user provisioning based on division or country.
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png" alt-text="Screenshot of separate apps to provision users from Cloud HR to single AD domain" lightbox="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png":::
 
@@ -419,13 +419,13 @@ For example, if you want to create users in OU based on the HR attribute **Munic
 Switch([Municipality], "OU=Default,OU=Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")
 `
 
-With this expression, if the Municipality value is Dallas, Austin, Seattle, or London, the user account will be created in the corresponding OU. If there's no match, then the account is created in the default OU.
+With this expression, if the Municipality value is Dallas, Austin, Seattle, or London, the user account is created in the corresponding OU. If there's no match, then the account is created in the default OU.
 
 ## Plan for password delivery of new user accounts
 
 When you initiate the Joiners process, you need to set and deliver a temporary password of new user accounts. With cloud HR to Azure AD user provisioning, you can roll out the Azure AD [self-service password reset](../authentication/tutorial-enable-sspr.md) (SSPR) capability for the user on day one.
 
-SSPR is a simple means for IT administrators to enable users to reset their passwords or unlock their accounts. You can provision the **Mobile Number** attribute from the cloud HR app to Active Directory and sync it with Azure AD. After the **Mobile Number** attribute is in Azure AD, you can enable SSPR for the user's account. Then on day one, the new user can use the registered and verified mobile number for authentication. Refer to the [SSPR documentation](../authentication/howto-sspr-authenticationdata.md) for details on how to pre-populate authentication contact information. 
+SSPR is a simple means for IT administrators to enable users to reset their passwords or unlock their accounts. You can provision the **Mobile Number** attribute from the cloud HR app to Active Directory and sync it with Azure AD. After the **Mobile Number** attribute is in Azure AD, you can enable SSPR for the user's account. Then on day one, the new user can use the registered and verified mobile number for authentication. Refer to the [SSPR documentation](../authentication/howto-sspr-authenticationdata.md) for details on how to prepopulate authentication contact information. 
 
 ## Plan for initial cycle
 
@@ -452,7 +452,7 @@ After you configure the cloud HR app to Azure AD user provisioning, run test cas
 |User is terminated in the cloud HR app.|- The user account is disabled in Active Directory.</br>- The user can't log into any enterprise apps protected by Active Directory.
 |User supervisory organization is updated in the cloud HR app.|Based on the attribute mapping, the user account moves from one OU to another in Active Directory.|
 |HR updates the user's manager in the cloud HR app.|The manager field in Active Directory is updated to reflect the new manager's name.|
-|HR rehires an employee into a new role.|Behavior depends on how the cloud HR app is configured to generate employee IDs:</br>- If the old employee ID is reused for a rehire, the connector enables the existing Active Directory account for the user.</br>- If the rehire gets a new employee ID, the connector creates a new Active Directory account for the user.|
+|HR rehires an employee into a new role.|Behavior depends on how the cloud HR app is configured to generate employee IDs:</br>- If the old employee ID is used for a rehired employee, the connector enables the existing Active Directory account for the user.</br>- If the rehired employee gets a new employee ID, the connector creates a new Active Directory account for the user.|
 |HR converts the employee to a contract worker or vice versa.|A new Active Directory account is created for the new persona and the old account gets disabled on the conversion effective date.|
 
 Use the previous results to determine how to transition your automatic user provisioning implementation into production based on your established timelines.
