@@ -29,7 +29,7 @@ You can view debug snapshots in the portal to see the call stack and inspect var
 Snapshot collection is available for:
 
 - .NET Framework 4.6.2 and newer versions.
-- .NET 6+ on Windows.
+- [.NET 6.0 or later](https://dotnet.microsoft.com/download) on Windows.
 
 
 The following environments are supported:
