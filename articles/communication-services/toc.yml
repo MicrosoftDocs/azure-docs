@@ -596,6 +596,8 @@ items:
       href: concepts/chat/concepts.md
     - name: SDK features
       href: concepts/chat/sdk-features.md
+    - name: Archiving Chats
+      href: how-tos/chat-sdk/archive-chat-threads.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Events
