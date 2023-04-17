@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 12/09/2022
+ms.date: 04/16/2023
 ms.author: cwerner
 ms.reviewer: jmprieur
 ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-core", mode-api, engagement-fy23
@@ -48,10 +48,6 @@ First, register the web API in your Azure AD tenant and add a scope by following
 
 [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
 
-> [!Note]
-> The code sample currently targets ASP.NET Core 3.1. The sample can be updated to use .NET Core 6.0 and is covered in the following steps: [Update the sample code to ASP.NET Core 6.0](#step-4-update-the-sample-code-to-aspnet-core-60)
-This quickstart will be deprecated in the near future and will be updated to use .NET 6.0.
-
 ## Step 3: Configure the ASP.NET Core project
 
 In this step, the sample code will be configured to work with the app registration that was created earlier.
@@ -74,26 +70,7 @@ In this step, the sample code will be configured to work with the app registrati
 
 For this quickstart, don't change any other values in the *appsettings.json* file.
 
-### Step 4: Update the sample code to ASP.NET Core 6.0
-
-To update this code sample to target ASP.NET Core 6.0, follow these steps:
-
-1. Open webapi.csproj
-1. Remove the following line:
-
-    ```xml
-   <TargetFramework>netcoreapp3.1</TargetFramework>
-   ```
-
-1. Add the following line in its place:
-
-   ```xml
-   <TargetFramework>netcoreapp6.0</TargetFramework>
-   ```
-
-This step will ensure that the sample is targeting the .NET Core 6.0 framework.
-
-### Step 5: Run the sample
+### Step 4: Run the sample
 
 1. Open a terminal and change directory to the project folder.
 
@@ -167,6 +144,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 namespace webapi.Controllers
 {
     [Authorize]
+    [RequiredScope("access_as_user")]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -174,24 +152,20 @@ namespace webapi.Controllers
 
 ### Validation of scope in the controller
 
-The code in the API verifies that the required scopes are in the token by using `HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);`:
+The code in the API verifies that the required scopes are in the token by using `[RequiredScope("access_as_user")]` attribute:
 
 ```csharp
 namespace webapi.Controllers
 {
     [Authorize]
+    [RequiredScope("access_as_user")]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        // The web API will only accept tokens 1) for users, and 2) having the "access_as_user" scope for this API
-        static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
-
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
-
             // some code here
         }
     }
