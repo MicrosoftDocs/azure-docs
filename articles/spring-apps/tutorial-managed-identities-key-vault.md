@@ -243,7 +243,7 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Cli
    curl https://myspringcloud-springapp.azuremicroservices.io/get
    ```
 
-   You're shown the message `Successfully got the value of secret connectionString from Key Vault https://<your-keyvault-name>.vault.azure.net/: jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
+   You're shown the message `jdbc:sqlserver://SERVER.database.windows.net:1433;database=DATABASE;`.
 
 ## Next steps
 
