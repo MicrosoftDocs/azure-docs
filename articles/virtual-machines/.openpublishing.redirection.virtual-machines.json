@@ -3605,6 +3605,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/extensions/symantec.md",
+            "redirect_url": "/azure/virtual-machines/",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/cloudfoundry-get-started.md",
             "redirect_url": "/azure/cloudfoundry/cloudfoundry-get-started",
             "redirect_document_id": true
@@ -5053,11 +5058,6 @@
             "source_path_from_root": "/articles/virtual-machines/workloads/hpc/hb-hc-known-issues.md",
             "redirect_url": "/azure/virtual-machines/hb-hc-known-issues",
             "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/virtual-machines/extensions/symantec.md",
-            "redirect_url": "/azure/virtual-machines/",
-            "redirect_document_id": false
-        }       
+        }     
     ]
 }
