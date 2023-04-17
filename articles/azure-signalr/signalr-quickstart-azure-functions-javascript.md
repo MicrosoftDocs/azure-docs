@@ -88,7 +88,7 @@ When you run the `func new` command from the root directory of the project, the 
   }
   ```
 
-1. Edit *index/\__init\__.py* and replace the contents with the following code:
+1. Edit *index/index.js* and replace the contents with the following code:
 
   ```javascript
   var fs = require('fs').promises
@@ -265,16 +265,13 @@ The client interface for this app is a web page. The `index` function reads HTML
 
 
 ### Add the SignalR Service connection string to the function app settings
-=======
-1. Azure Functions requires a storage account to work. You can install and run the [Azure Storage Emulator](../storage/common/storage-use-azurite.md). **Or** you can update the setting to use your real storage account with the following command:
+
+Azure Functions requires a storage account to work. You can install and run the [Azure Storage Emulator](../storage/common/storage-use-azurite.md). **Or** you can update the setting to use your real storage account with the following command:
     ```bash
     func settings add AzureWebJobsStorage "<storage-connection-string>"
     ```
 
-4. You're almost done now. The last step is to set a connection string of the SignalR Service to Azure Function settings.
-
-
-The last step is to set the SignalR Service connection string in Azure Function app settings.
+You're almost done now. The last step is to set the SignalR Service connection string in Azure Function app settings.
 
 1. In the Azure portal, go to the SignalR instance you deployed earlier.
 1. Select **Keys** to view the connection strings for the SignalR Service instance.
@@ -288,7 +285,6 @@ The last step is to set the SignalR Service connection string in Azure Function 
   ```
   
 ### Run the Azure Function app locally
-
 
 Start the Azurite storage emulator:
 
