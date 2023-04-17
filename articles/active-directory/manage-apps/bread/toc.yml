@@ -86,7 +86,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Active Directory-b2c
+  - name: Active Directory
     tocHref: /azure/active-directory-b2c/
     topicHref: /azure/active-directory-b2c/index
     items:
