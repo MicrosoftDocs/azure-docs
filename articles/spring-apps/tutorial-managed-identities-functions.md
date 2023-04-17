@@ -67,13 +67,13 @@ Make a note of the returned `hostNames` value, which is in the format *https://\
 
 ## Enable Azure Active Directory Authentication
 
-Access the newly created Function app from the [Azure portal](https://portal.azure.com) and select **Authentication** from the settings menu. Enable App Service Authentication and set the **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This setting ensures that all unauthenticated requests are denied (401 response).
+Access the newly created Function app from the [Azure portal](https://portal.azure.com) and select **Authentication** from the settings menu. Click the **Add identity provider**.
 
-:::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-1.jpg" alt-text="Screenshot of the Azure portal showing Authentication / Authorization page with Azure Active Directory set as the default provider." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-1.jpg":::
+:::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-1.png" alt-text="Screenshot of the Azure portal showing Authentication page with adding identity provider." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-1.png":::
 
-Under **Authentication Providers**, select **Azure Active Directory** to configure the application registration. Selecting **Express Management Mode** automatically creates an application registration in your Azure AD tenant with the correct configuration.
+Select the **Microsoft** identity provider and configure the application registration. Choose the **Create new app registration** to create a new application. Configure the name for the app registration, or use the function name directly. Select **Current tenant - Single tenant** for the supported account type. Enable App Service Authentication and set the **Restrict access** to **Require authentication**. Then set the "Unauthenticated requests" to "HTTP 401 Unauthorized: recommended for APIs". This setting ensures that all unauthenticated requests are denied (401 response).
 
-:::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-2.jpg" alt-text="Screenshot of the Azure portal showing the Azure Active Directory provider set to Express Management Mode." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-2.jpg":::
+:::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-2.png" alt-text="Screenshot of the Azure portal showing the Microsoft identity provider settings." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-2.png":::
 
 After you save the settings, the function app restarts and all subsequent requests are prompted to log in via Azure AD. You can test that unauthenticated requests are now being rejected by navigating to the function apps root URL (returned in the `hostNames` output in a previous step). You should be redirected to your organizations Azure AD login screen.
 
