@@ -280,7 +280,7 @@ This architecture features two clusters in different resource groups and virtual
    # Start Consumer
    bash /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic $TOPICNAME --from-beginning 
    ```
-   You will notice that in secondary cluster consumer group my-group will not consume any messages because they are already consumed by primary cluster consumer group. Now produce more messages in primary-cluster and try to consumer then in secondary-cluster. You will be able to consume.
+   You will notice that in secondary cluster consumer group my-group will not consume any messages because they are already consumed by primary cluster consumer group. Now produce more messages in primary-cluster and try to consumer then in secondary-cluster. You will be able to consume from secondarycluster.
 
 ## Delete cluster
 
