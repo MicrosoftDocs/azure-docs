@@ -191,7 +191,7 @@ Like on action, you can also declare these required scopes in the configuration,
 using Microsoft.Identity.Web
 
 [Authorize]
-[RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")
+[RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
 public class TodoListController : Controller
 {
     // GET: api/values
