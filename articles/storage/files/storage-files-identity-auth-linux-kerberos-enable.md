@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/13/2023
+ms.date: 04/17/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -19,6 +19,9 @@ For more information on supported options and considerations, see [Overview of A
 - Azure Active Directory Domain Services (Azure AD DS)
 
 In order to use the first option (AD DS), you must sync your AD DS to Azure Active Directory (Azure AD) using Azure AD Connect.
+
+> [!Note]
+> This article uses Ubuntu for the example steps. Similar configurations will work for RHEL and SLES machines, allowing you to mount Azure file shares using Active Directory.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -35,7 +38,7 @@ You can't use identity-based authentication to mount Azure File shares on Linux 
 
 Before you enable AD authentication over SMB for Azure file shares, make sure you've completed the following prerequisites.
 
-- A Linux VM (Ubuntu 18.04+ or an equivalent Red Hat or SuSE VM) running on Azure. The VM must have at least one network interface on the VNET containing the Azure AD DS, or an on-premises Linux VM with AD DS synced to Azure AD.
+- A Linux VM (Ubuntu 18.04+ or an equivalent RHEL or SLES VM) running on Azure. The VM must have at least one network interface on the VNET containing the Azure AD DS, or an on-premises Linux VM with AD DS synced to Azure AD.
 - Root user or user credentials to a local user account that has full sudo rights (for this guide, localadmin).
 - The Linux VM must not have joined any AD domain. If it's already a part of a domain, it needs to first leave that domain before it can join this domain.
 - An Azure AD tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.
@@ -219,8 +222,8 @@ rtt min/avg/max/mdev = 0.740/1.026/1.419/0.248 ms
 
 ```bash
 nslookup
-> set type=SRV
-> _ldap._tcp.contosodomain.contoso.com.
+\ set type=SRV
+\ _ldap._tcp.contosodomain.contoso.com.
 ```
 
 ```output
