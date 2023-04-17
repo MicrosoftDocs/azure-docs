@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 02/09/2023
 ms.author: allensu 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, FY23 content-maintenance
 ---
@@ -40,11 +40,11 @@ In this section, you create a virtual network and the subnet that you'll later d
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **+ Create**.
+1. Select **+ Create**.
 
-4. Enter or select the following information in the **Basics** tab of **Create virtual network**:
+1. Enter or select the following information in the **Basics** tab of **Create virtual network**:
 
     | Setting | Value |
     | ------- | ----- |
@@ -55,24 +55,27 @@ In this section, you create a virtual network and the subnet that you'll later d
     | Name | Enter **myVNet**. |
     | Region | Select **East US 2** |
 
-5. Select **Next: IP Addresses**.
+1. Select **Next: Security**, then **Next: IP Addresses**.
 
-6. In **IPv4 address space**, enter **10.1.0.0/16**. 
+1. Select **Add an IP address space**, in the **Add an IP address space** pane, enter or select the following information, then select **Add**.  
 
-7. Select **+ Add subnet**. 
+    | Setting | Value |
+    | ------- | ----- |
+    | Address space type | Leave as default **IPV6**. |
+    | Starting address | Enter **10.1.0.0**. |
+    | Address space size | Select **/16**. |
 
-8. Enter or select the following information in **Add subnet**:
+1. Select **+ Add subnet** in the new IP address space. 
+
+1. Enter or select the following information in **Add a subnet**. Then select **Add**.
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **mySubnet**. |
-    | Subnet address range | Enter **10.1.0.0/24**. |
+    | Starting address | Enter **10.1.0.0**. |
+    | Subnet size | Select **/16**. |
 
-9. Select **Add**. 
-
-10. Select **Review + create**.
-
-11. Select **Create**. 
+1. Select **Review + create**, then select **Create**. 
 
 # [**PowerShell**](#tab/manage-subnet-delegation-powershell)
 
@@ -148,22 +151,22 @@ In this section, you delegate the subnet that you created in the preceding secti
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **myVNet**.
+1. Select **myVNet**.
 
-4. Select **Subnets** in **Settings**.
+1. Select **Subnets** in **Settings**.
 
-5. Select **mySubnet**.
+1. Select **mySubnet**.
 
-6. Enter or select the following information:
+1. Enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | **SUBNET DELEGATION** |  |
     | Delegate subnet to a service | Select the service that you want to delegate the subnet to. For example, **Microsoft.Sql/managedInstances**. |
 
-7. Select **Save**.
+1. Select **Save**.
 
 # [**PowerShell**](#tab/manage-subnet-delegation-powershell)
 
@@ -266,22 +269,22 @@ In this section, you'll remove a subnet delegation for an Azure service.
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **myVNet**.
+1. Select **myVNet**.
 
-4. Select **Subnets** in **Settings**.
+1. Select **Subnets** in **Settings**.
 
-5. Select **mySubnet**.
+1. Select **mySubnet**.
 
-6. Enter or select the following information:
+1. Enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | **SUBNET DELEGATION** |  |
     | Delegate subnet to a service | Select **None**. |
 
-7. Select **Save**.
+1. Select **Save**.
 
 # [**PowerShell**](#tab/manage-subnet-delegation-powershell)
 
@@ -353,6 +356,16 @@ Output from command is a null bracket:
 ```
 
 ---
+
+## Clean up resources
+
+When no longer needed, delete the resource group and all resources it contains: 
+
+1. Enter *myResourceGroup* in the **Search** box at the top of the Azure portal. When you see **myResourceGroup** in the search results, select it.
+
+1. Select **Delete resource group**.
+
+1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 
 ## Next steps
 - Learn how to [manage subnets in Azure](virtual-network-manage-subnet.md).

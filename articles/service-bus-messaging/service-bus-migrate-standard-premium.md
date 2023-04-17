@@ -145,6 +145,8 @@ After the migration is committed, the connection string that pointed to the stan
 
 The sender and receiver applications will disconnect from the standard Namespace and reconnect to the premium namespace automatically.
 
+If your are using the ARM Id for configuration rather a connection string (e.g. as a destination for an Event Grid Subscription), then you need to update the ARM Id to be that of the Premium namespace.
+
 ### What do I do after the standard to premium migration is complete?
 
 The standard to premium migration ensures that the entity metadata such as topics, subscriptions, and filters are copied from the standard namespace to the premium namespace. The message data that was committed to the standard namespace isn't copied from the standard namespace to the premium namespace.

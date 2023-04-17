@@ -6,7 +6,7 @@ ms.author: whhender
 ms.service: purview
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 11/23/2022
+ms.date: 03/04/2023
 ---
 
 # What's available in the Microsoft Purview governance portal?
@@ -35,9 +35,10 @@ Atop the Data Map, there are purpose-built apps that create environments for dat
 |App  |Description  |
 |----------|-----------|
 |[Data Catalog](#data-catalog-app)  | Finds trusted data sources by browsing and searching your data assets. The data catalog aligns your assets with friendly business terms and data classification to identify data sources.      |
-|[Data Estate Insights](#data-estate-insights-app) | Gives you an overview of your data estate to help you discover what kinds of data you have and where. |
+|[Data Estate Insights](#data-estate-insights-app) | Gives you an overview of your data estate to help you discover what kinds of data you have and where it is. |
 |[Data Sharing](#data-sharing-app) | Allows you to securely share data internally or cross organizations with business partners and customers. |
 |[Data Policy](#data-policy-app) | A set of central, cloud-based experiences that help you provision access to data securely and at scale. |
+|||
 
 ## Data Catalog app
 
@@ -59,18 +60,33 @@ For more information, see our [introduction to Data Sharing](concept-data-share.
 ## Data Policy app
 Microsoft Purview Data Policy is a set of central, cloud-based experiences that help you manage access to data sources and datasets securely and at scale.
 - Manage access to data sources from a single-pane of glass, cloud-based experience
-- At-scale access provisioning
+- Enables at-scale access provisioning
 - Introduces a new data-plane permission model that is external to data sources
-- Seamless integration with Microsoft Purview Data Map and Catalog:
+- It is seamlessly integrated with Microsoft Purview Data Map and Catalog:
     - Search for data assets and grant access only to what is required via fine-grained policies.
-    - Path to support SaaS, on-premises, and multicloud data sources
-    - Path to leverage all associated metadata for policies
+    - Path to support SaaS, on-premises, and multicloud data sources.
+    - Path to create policies that leverage any metadata associated to the data objects.
 - Based on role definitions that are simple and abstracted (for example: Read, Modify)
 
 For more information, see our introductory guides:
 * [Data owner access policies](concept-policies-data-owner.md) (preview): Provision fine-grained to broad access to users and groups via intuitive authoring experience.
 * [Self-service access policies](concept-self-service-data-access-policy.md) (preview): Self-Service: Workflow approval and automatic provisioning of access requests initiated by business analysts that discover data assets in Microsoft Purview’s catalog.
-* [DevOps policies](concept-policies-devops.md): Provision access for IT operations and other DevOps users from Microsoft Purview Studio, enabling them to monitor SQL database system health and security, while limiting insider threat.
+* [DevOps policies](concept-policies-devops.md): Provision IT operations personnel access to SQL system metadata, so that they can monitor performance, health and audit security, while limiting the insider threat.
+
+Here are the benefits of the Data Policy app:
+
+| **Principle** | **Benefit** |
+|-|-|
+|*Simplify*        |Permissions are bundled into role definitions that are abstracted and consistent across data source types, like Read and Modify.|
+|                  |Reduce the need of permission expertise for each data source type.|
+|||
+|*Reduce effort*   |Graphical interface lets you navigate the data object hierarchy quickly.|
+|                  |Supports policies on entire Azure resource groups and subscriptions.|
+|||
+|*Enhance security*|Access is granted centrally and can be easily reviewed and revoked.|
+|                  |Reduces the need for privileged accounts to configure access directly at the data source.|
+|                  |Supports the Principle of Least Privilege via data resource scopes and common role definitions.|
+|||
 
 ## Traditional challenges that Microsoft Purview seeks to address
 
@@ -115,14 +131,7 @@ Discovering and understanding data sources and their use is the primary purpose 
 
 At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which are then discovered, understood, and consumed by the community of catalog users.
 
-Lastly, Microsoft Purview Data Policy app applies the metadata in the Data Map, providing a superior solution to keep your data secure.
-* Structure and simplify the process of granting/revoking access.
-* Reduce the effort of access provisioning.
-* Access decision in Microsoft data systems has negligible latency penalty.
-* Enhanced security:
-   - Easier to review access/revoke it in a central vs. distributed access provisioning model.
-   - Reduced need for privileged accounts to configure access.
-   - Support Principle of Least Privilege (give people the appropriate level of access, limiting to the minimum permissions and the least data objects).
+Lastly, Microsoft Purview Data Policy app provides a superior solution to keep your data secure.
 
 ## In-region data residency
 

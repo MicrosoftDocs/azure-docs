@@ -33,7 +33,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `name` | string | **Required.** Name of the endpoint. Needs to be unique at the Azure region level. <br><br> Naming rules are defined under [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).| | |
 | `description` | string | Description of the endpoint. | | |
 | `tags` | object | Dictionary of tags for the endpoint. | | |
-| `auth_mode` | string | The authentication method for the endpoint. Key-based authentication and Azure ML token-based authentication are supported. Key-based authentication doesn't expire but Azure ML token-based authentication does. | `key`, `aml_token` | `key` |
+| `auth_mode` | string | The authentication method for the endpoint. Key-based authentication and Azure Machine Learning token-based authentication are supported. Key-based authentication doesn't expire but Azure Machine Learning token-based authentication does. | `key`, `aml_token` | `key` |
 | `compute` | string | Name of the compute target to run the endpoint deployments on. This field is only applicable for endpoint deployments to Azure Arc-enabled Kubernetes clusters (the compute target specified in this field must have `type: kubernetes`). Don't specify this field if you're doing managed online inference. | | |
 | `identity` | object | The managed identity configuration for accessing Azure resources for endpoint provisioning and inference. | | |
 | `identity.type` | string | The type of managed identity. If the type is `user_assigned`, the `identity.user_assigned_identities` property must also be specified. | `system_assigned`, `user_assigned` | |

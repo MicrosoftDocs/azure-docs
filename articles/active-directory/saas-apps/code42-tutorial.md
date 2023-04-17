@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Code42 | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Code42'
 description: Learn how to configure single sign-on between Azure Active Directory and Code42.
 services: active-directory
 author: jeevansd

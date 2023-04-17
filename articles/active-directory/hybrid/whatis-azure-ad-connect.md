@@ -1,5 +1,5 @@
 ---
-title: 'What is Azure AD Connect and Connect Health. | Microsoft Docs'
+title: 'What is Azure AD Connect and Connect Health.'
 description: Learn about the tools used to synchronize and monitor your on-premises environment with Azure AD.
 services: active-directory
 author: billmath
@@ -16,6 +16,8 @@ ms.collection: M365-identity-device-management
 # What is Azure AD Connect?
 
 Azure AD Connect is an on-premises Microsoft application that's designed to meet and accomplish your hybrid identity goals. If you're evaluating how to best meet your goals, you should also consider the cloud-managed solution [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
+
+[!INCLUDE [Choose cloud sync](../../../includes/choose-cloud-sync.md)]
 
 > [!div class="nextstepaction"]
 > [Install Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594)

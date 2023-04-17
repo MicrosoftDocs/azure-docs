@@ -3,7 +3,6 @@ title: Set up Secrets Store CSI Driver to enable NGINX Ingress Controller with T
 description: How to configure Secrets Store CSI Driver to enable NGINX Ingress Controller with TLS for Azure Kubernetes Service (AKS). 
 author: nickomang
 ms.author: nickoman
-ms.service: azure-kubernetes-service
 ms.topic: how-to
 ms.date: 05/26/2022
 ms.custom: template-how-to

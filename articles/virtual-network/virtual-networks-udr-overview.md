@@ -3,16 +3,12 @@ title: Azure virtual network traffic routing
 titlesuffix: Azure Virtual Network
 description: Learn how Azure routes virtual network traffic, and how you can customize Azure's routing.
 services: virtual-network
-documentationcenter: na
 author: asudbring
-manager: 
 ms.service: virtual-network
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2022
 ms.author: allensu
-
 ---
 
 # Virtual network traffic routing

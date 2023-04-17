@@ -17,7 +17,7 @@ ms.custom: "devx-track-csharp, aaddev"
 # Providing your own HttpClient and proxy using MSAL.NET
 When [initializing a client application](msal-net-initializing-client-applications.md), you can use the `.WithHttpClientFactory method` to provide your own HttpClient.  Providing your own HttpClient enables advanced scenarios such fine-grained control of an HTTP proxy, customizing user agent headers, or forcing MSAL to use a specific HttpClient (for example in ASP.NET Core web apps/APIs).
 
-`HttpClient` is intended to be instantiated once and then reused throughout the life of an application. See [Remarks](/dotnet/api/system.net.http.httpclient#remarks).
+`HttpClient` is intended to be instantiated once and then reused throughout the life of an application. See [Guidelines for using HttpClient: Recommended use](/dotnet/fundamentals/networking/http/httpclient-guidelines#recommended-use).
 
 ## Initialize with HttpClientFactory
 The following example shows to create an `HttpClientFactory` and then initialize a public client application with it:

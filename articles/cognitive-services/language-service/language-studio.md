@@ -57,6 +57,31 @@ When you're ready to use Language Studio features on your own text data, you wil
 
 4. Select **Done**. Your resource will be created, and you will be able to use the different features offered by the Language service with your own text.
 
+
+### Valid text formats for conversation features
+
+> [!NOTE]
+> This section applies to the following features:
+> * [PII detection for conversation](./personally-identifiable-information/overview.md)
+> * [Conversation summarization](./summarization/overview.md?tabs=conversation-summarization)
+
+If you're sending conversational text to supported features in Language Studio, be aware of the following input requirements: 
+* The text you send must be a conversational dialog between two or more participants.
+* Each line must start with the name of the participant, followed by a `:`, and followed by what they say.
+* Each participant must be on a new line. If multiple participants' utterances are on the same line, it will be processed as one line of the conversation.
+
+See the following example for how you should structure conversational text you want to send.
+
+*Agent: Hello, you're chatting with Rene. How may I help you?*
+
+*Customer: Hi, I tried to set up wifi connection for Smart Brew 300 espresso machine, but it didn't work.*
+
+*Agent: I’m sorry to hear that. Let’s see what we can do to fix this issue.*
+
+Note that the names of the two participants in the conversation (*Agent* and *Customer*) begin each line, and that there is only one participant per line of dialog. 
+
+:::image type="content" source="./media/language-studio-conversation-example.png" alt-text="A screenshot showing an example conversation input in Language Studio." lightbox="./media/language-studio-conversation-example.png":::
+
 ## Clean up resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.

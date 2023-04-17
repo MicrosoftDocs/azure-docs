@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/10/2022
+ms.date: 01/31/2023
 ms.author: jboback
 ms.reviewer: bidishac
 ---
@@ -35,6 +35,9 @@ Currently the conversational PII preview API supports all Azure regions supporte
 
 ## Submitting data
 
+> [!NOTE]
+> See the [Language Studio](../language-studio.md#valid-text-formats-for-conversation-features) article for information on formatting conversational text to submit using Language Studio. 
+
 You can submit the input to the API as list of conversation items. Analysis is performed upon receipt of the request. Because the API is asynchronous, there may be a delay between sending an API request, and receiving the results. For information on the size and number of requests you can send per minute and second, see the data limits below.
 
 When using the async feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
@@ -59,7 +62,7 @@ When you get results from PII detection, you can stream the results to an applic
 
 1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
-2. From the menu on the left side, select **Keys and Endpoint**. You will need one of the keys and the endpoint to authenticate your API requests.
+2. From the menu on the left side, select **Keys and Endpoint**. You'll need one of the keys and the endpoint to authenticate your API requests.
 
 3. Download and install the client library package for your language of choice:
     

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with CS Stars | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with CS Stars'
 description: Learn how to configure single sign-on between Azure Active Directory and CS Stars.
 services: active-directory
 author: jeevansd

@@ -105,7 +105,7 @@ Custom or third-party modules that are often specific to the downstream device's
 
 There are two patterns for translation gateways: *protocol translation* and *identity translation*.
 
-![Diagram - translation gateway patterns](./media/iot-edge-as-gateway/edge-as-gateway-translation.png)
+:::image type="content" source="./media/iot-edge-as-gateway/edge-as-gateway-translation.png" alt-text="Diagram showing translation gateway patterns." lightbox="./media/iot-edge-as-gateway/edge-as-gateway-translation.png":::
 
 ### Protocol translation
 

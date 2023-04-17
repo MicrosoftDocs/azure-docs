@@ -3,7 +3,7 @@ title: Cost recommendations
 description: Full list of available cost recommendations in Advisor.
 ms.topic: article
 ms.custom: ignite-2022
-ms.date: 02/04/2022
+ms.date: 02/28/2023
 ---
 
 # Cost recommendations
@@ -20,21 +20,21 @@ Azure Advisor helps you optimize and reduce your overall Azure spend by identify
 
 ### Use Standard Storage to store Managed Disks snapshots
 
-To save 60% of cost, we recommend storing your snapshots in Standard Storage, regardless of the storage type of the parent disk. This is the default option for Managed Disks snapshots. Migrate your snapshot from Premium to Standard Storage. Refer to Managed Disks pricing details.
+To save 60% of cost, we recommend storing your snapshots in Standard Storage, regardless of the storage type of the parent disk. It is the default option for Managed Disks snapshots. Migrate your snapshot from Premium to Standard Storage. Refer to Managed Disks pricing details.
 
 Learn more about [Managed Disk Snapshot - ManagedDiskSnapshot (Use Standard Storage to store Managed Disks snapshots)](https://aka.ms/aa_manageddisksnapshot_learnmore).
 
 ### Right-size or shutdown underutilized virtual machines
 
-We've analyzed the usage patterns of your virtual machine over the past 7 days and identified virtual machines with low usage. While certain scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machines.
+We've analyzed the usage patterns of your virtual machine over the past seven days and identified virtual machines with low usage. While certain scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machines.
 
 Learn more about [Virtual machine - LowUsageVmV2 (Right-size or shutdown underutilized virtual machines)](https://aka.ms/aa_lowusagerec_learnmore).
 
 ### You have disks which have not been attached to a VM for more than 30 days. Please evaluate if you still need the disk.
 
-We have observed that you have disks which have not been attached to a VM for more than 30 days. Please evaluate if you still need the disk. Note that if you decide to delete the disk, recovery is not possible. We recommend that you create a snapshot before deletion or ensure the data in the disk is no longer required.
+We've observed that you have disks which haven't been attached to a VM for more than 30 days. Please evaluate if you still need the disk. If you decide to delete the disk, recovery isn't possible. We recommend that you create a snapshot before deletion or ensure the data in the disk is no longer required.
 
-Learn more about [Disk - DeleteOrDowngradeUnattachedDisks (You have disks which have not been attached to a VM for more than 30 days. Please evaluate if you still need the disk.)](https://aka.ms/unattacheddisks).
+Learn more about [Disk - DeleteOrDowngradeUnattachedDisks (You have disks which haven't been attached to a VM for more than 30 days. Please evaluate if you still need the disk.)](https://aka.ms/unattacheddisks).
 
 ## MariaDB
 
@@ -48,7 +48,7 @@ Learn more about [MariaDB server - OrcasMariaDbCpuRightSize (Right-size underuti
 
 ### Right-size underutilized MySQL servers
 
-Our internal telemetry shows that the MySQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+Our internal telemetry shows that the MySQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure, which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
 
 Learn more about [MySQL server - OrcasMySQLCpuRightSize (Right-size underutilized MySQL servers)](https://aka.ms/mysqlpricing).
 
@@ -56,7 +56,7 @@ Learn more about [MySQL server - OrcasMySQLCpuRightSize (Right-size underutilize
 
 ### Right-size underutilized PostgreSQL servers
 
-Our internal telemetry shows that the PostgreSQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+Our internal telemetry shows that the PostgreSQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure, which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlCpuRightSize (Right-size underutilized PostgreSQL servers)](https://aka.ms/postgresqlpricing).
 
@@ -316,6 +316,9 @@ Apache Spark for Azure Synapse Analytics pool's Autoscale feature automatically 
 
 Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoScaleGuidance (Consider enabling autoscale feature on spark compute.)](https://aka.ms/EnableSynapseSparkComputeAutoScaleGuidance).
 
+## Azure Monitor
+
+For Azure Monitor cost optimization suggestions, please see [Optimize costs in Azure Monitor](../azure-monitor/best-practices-cost.md).
 
 ## Next steps
 

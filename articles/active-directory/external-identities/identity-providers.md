@@ -1,5 +1,5 @@
 ---
-title: Identity providers for External Identities - Azure AD
+title: Identity providers for External Identities
 description: Learn how to use Azure AD as your default identity provider for sharing with external users.
 services: active-directory
 ms.service: active-directory

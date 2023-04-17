@@ -5,9 +5,9 @@ author: evangelinew
 ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 01/26/2023
-ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
+ms.custom: template-how-to-pattern
 ---
 
 # Manage assets with metamodel

@@ -68,7 +68,7 @@ In **Tenant B**, assign the AcrPull role to the service principal, scoped to the
 
 ### Step 4: Update AKS with the Azure AD application secret
 
-Use the multitenant application (client) ID and client secret collected in Step 1 to [update the AKS service principal credential](../aks/update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
+Use the multitenant application (client) ID and client secret collected in Step 1 to [update the AKS service principal credential](../aks/update-credentials.md#update-aks-cluster-with-service-principal-credentials).
 
 Updating the service principal can take several minutes.
 

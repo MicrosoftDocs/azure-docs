@@ -1,5 +1,5 @@
 ---
-title: Best practices for Azure AD roles - Azure Active Directory
+title: Best practices for Azure AD roles
 description: Best practices for using Azure Active Directory roles.
 services: active-directory
 author: rolyon
@@ -27,7 +27,7 @@ When planning your access control strategy, it's a best practice to manage to le
 
 Follow these steps to help you find the right role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of Azure AD roles.
 
@@ -73,13 +73,13 @@ If you have an external governance system that takes advantage of groups, then y
 
 You can assign an owner to role-assignable groups. That owner decides who is added to or removed from the group, so indirectly, decides who gets the role assignment. In this way, a Global Administrator or Privileged Role Administrator can delegate role management on a per-role basis by using groups. For more information, see [Use Azure AD groups to manage role assignments](groups-concept.md).
 
-## 7. Activate multiple roles at once using privileged access groups
+## 7. Activate multiple roles at once using PIM for Groups
 
 It may be the case that an individual has five or six eligible assignments to Azure AD roles through PIM. They will have to activate each role individually, which can reduce productivity. Worse still, they can also have tens or hundreds of Azure resources assigned to them, which aggravates the problem.
  
-In this case, you should use [Privileged Identity Management (PIM) for Groups (preview)](../privileged-identity-management/concept-pim-for-groups.md). Create a privileged access group and grant it permanent access to multiple roles (Azure AD and/or Azure). Make that user an eligible member or owner of this group. With just one activation, they will have access to all the linked resources.
+In this case, you should use [Privileged Identity Management (PIM) for Groups (preview)](../privileged-identity-management/concept-pim-for-groups.md). Create a PIM for Groups and grant it permanent access to multiple roles (Azure AD and/or Azure). Make that user an eligible member or owner of this group. With just one activation, they will have access to all the linked resources.
 
-![Privileged access group diagram showing activating multiple roles at once](./media/best-practices/privileged-access-group.png)
+![PIM for Groups diagram showing activating multiple roles at once](./media/best-practices/pim-for-groups.png)
 
 ## 8. Use cloud native accounts for Azure AD roles
 

@@ -28,30 +28,30 @@ We are using a classic ETL-type logic to design our pipeline. The architecture w
 
 ![Data collection pipeline architecture](./media/create-pipeline-datacollector-api/data-pipeline-dataflow-architecture.png)
 
-This article will not cover how to create data or [upload it to an Azure Blob Storage account](../../storage/blobs/storage-upload-process-images.md). Rather, we pick the flow up as soon as a new file is uploaded to the blob. From here:
+This article will not cover how to create data or [upload it to an Azure Blob Storage account](../../storage/blobs/blob-upload-function-trigger.md). Rather, we pick the flow up as soon as a new file is uploaded to the blob. From here:
 
-1. A process will detect that new data has been uploaded.  Our example uses an [Azure Logic App](../../logic-apps/logic-apps-overview.md), which has available a trigger to detect new data being uploaded to a blob.
+1. A process will detect that new data has been uploaded. Our example uses an [logic app workflow](../../logic-apps/logic-apps-overview.md), which has available a trigger to detect new data being uploaded to a blob.
 
-2. A processor reads this new data and converts it to JSON, the format required by Azure Monitor  In this example, we use an [Azure Function](../../azure-functions/functions-overview.md) as a lightweight, cost-efficient way of executing our processing code. The function is kicked off by the same Logic App that we used to detect the new data.
+2. A processor reads this new data and converts it to JSON, the format required by Azure Monitor  In this example, we use an [Azure Function](../../azure-functions/functions-overview.md) as a lightweight, cost-efficient way of executing our processing code. The function is kicked off by the same logic app workflow that we used to detect the new data.
 
-3. Finally, once the JSON object is available, it is sent to Azure Monitor. The same Logic App sends the data to Azure Monitor using the built in Log Analytics Data Collector activity.
+3. Finally, once the JSON object is available, it is sent to Azure Monitor. The same logic app workflow sends the data to Azure Monitor using the built in Log Analytics Data Collector activity.
 
-While the detailed setup of the blob storage, Logic App, or Azure Function is not outlined in this article, detailed instructions are available on the specific products’ pages.
+While the detailed setup of the blob storage, logic app workflow, or Azure Function is not outlined in this article, detailed instructions are available on the specific products’ pages.
 
-To monitor this pipeline, we use Application Insights to monitor our Azure Function [details here](../../azure-functions/functions-monitoring.md), and Azure Monitor to monitor our Logic App [details here](../../logic-apps/monitor-logic-apps-log-analytics.md). 
+To monitor this pipeline, we use Application Insights to [monitor our Azure Function](../../azure-functions/functions-monitoring.md), and Azure Monitor to [monitor our logic app workflow](../../logic-apps/monitor-workflows-collect-diagnostic-data.md).
 
 ## Setting up the pipeline
 To set the pipeline, first make sure you have your blob container created and configured. Likewise, make sure that the Log Analytics workspace where you’d like to send the data to is created.
 
 ## Ingesting JSON data
-Ingesting JSON data is trivial with Logic Apps, and since no transformation needs to take place, we can encase the entire pipeline in a single Logic App. Once both the blob container and the Log Analytics workspace have been configured, create a new Logic App and configure it as follows:
+Ingesting JSON data is trivial with Azure Logic Apps, and since no transformation needs to take place, we can encase the entire pipeline in a single logic app workflow. Once both the blob container and the Log Analytics workspace have been configured, create a new logic app workflow and configure it as follows:
 
 ![Logic apps workflow example](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-01.png)
 
-Save your Logic App and proceed to test it.
+Save your logic app workflow and proceed to test it.
 
 ## Ingesting XML, CSV, or other formats of data
-Logic Apps today does not have built-in capabilities to easily transform XML, CSV, or other types into JSON format. Therefore, we need to use another means to complete this transformation. For this article, we use the serverless compute capabilities of Azure Functions as a very lightweight and cost-friendly way of doing so. 
+monitor-workflows-collect-diagnostic-data today does not have built-in capabilities to easily transform XML, CSV, or other types into JSON format. Therefore, we need to use another means to complete this transformation. For this article, we use the serverless compute capabilities of Azure Functions as a very lightweight and cost-friendly way of doing so. 
 
 In this example, we parse a CSV file, but any other file type can be similarly processed. Simply modify the deserializing portion of the Azure Function to reflect the correct logic for your specific data type.
 
@@ -93,7 +93,7 @@ In this example, we parse a CSV file, but any other file type can be similarly p
 
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
     {
-        string filePath = await req.Content.ReadAsStringAsync(); //get the CSV URI being passed from Logic App
+        string filePath = await req.Content.ReadAsStringAsync(); //get the CSV URI being passed from logic app workflow
         string response = "";
 
         //get a stream from blob
@@ -121,12 +121,12 @@ In this example, we parse a CSV file, but any other file type can be similarly p
 
     ![Function Apps test code](./media/create-pipeline-datacollector-api/functions-test-01.png)
 
-Now we need to go back and modify the Logic App we started building earlier to include the data ingested and converted to JSON format.  Using View Designer, configure as follows and then save your Logic App:
+Now we need to go back and modify the logic app we started building earlier to include the data ingested and converted to JSON format.  Using View Designer, configure as follows and then save your logic app:
 
-![Logic Apps workflow complete example](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
+![Azure Logic Apps workflow complete example](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
 ## Testing the pipeline
-Now you can upload a new file to the blob configured earlier and have it monitored by your  Logic App. Soon, you should see a new instance of the Logic App kick off, call out to your Azure Function, and then successfully send the data to Azure Monitor. 
+Now you can upload a new file to the blob configured earlier and have it monitored by your logic app workflow. Soon, you should see a new instance of the logic app workflow kick off, call out to your Azure Function, and then successfully send the data to Azure Monitor. 
 
 >[!NOTE]
 >It can take up to 30 minutes for the data to appear in Azure Monitor the first time you send a new data type.
@@ -151,12 +151,12 @@ The output should show the two data sources now joined.
 ## Suggested improvements for a production pipeline
 This article presented a working prototype, the logic behind which can be applied towards a true production-quality solution. For such a production-quality solution, the following improvements are recommended:
 
-* Add error handling and retry logic in your Logic App and Function.
+* Add error handling and retry logic in your logic app workflow and Function.
 * Add logic to ensure that the 30MB/single Log Analytics Ingestion API call limit is not exceeded. Split the data into smaller segments if needed.
 * Set up a clean-up policy on your blob storage. Once successfully sent to the Log Analytics workspace, unless you’d like to keep the raw data available for archival purposes, there is no reason to continue storing it. 
 * Verify monitoring is enabled across the full pipeline, adding trace points and alerts as appropriate.
-* Leverage source control to manage the code for your function and Logic App.
-* Ensure that a proper change management policy is followed, such that if the schema changes, the function and Logic Apps are modified accordingly.
+* Leverage source control to manage the code for your function and logic app workflow.
+* Ensure that a proper change management policy is followed, such that if the schema changes, the function and logic app are modified accordingly.
 * If you are uploading multiple different data types, segregate them into individual folders within your blob container, and create logic to fan the logic out based on the data type. 
 
 

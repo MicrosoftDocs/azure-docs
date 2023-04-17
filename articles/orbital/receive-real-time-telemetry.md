@@ -171,6 +171,10 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
                           "type": [ "null", "double" ]
                         },
                         {
+                          "name": "inputEsN0InDb",
+                          "type": [ "null", "double" ]
+                        },
+                        {
                           "name": "modemLockStatus",
                           "type": [
                             "null",

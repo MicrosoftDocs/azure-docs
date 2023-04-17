@@ -1,5 +1,5 @@
 ---
-title: Building a Conditional Access policy - Azure Active Directory
+title: Building a Conditional Access policy
 description: What are all of the options available to build a Conditional Access policy and what do they mean?
 
 services: active-directory
@@ -23,7 +23,7 @@ How does an organization create these policies? What is required? How are they a
 
 ![Conditional Access (Signals + Decisions + Enforcement = Policies)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
 
-Multiple Conditional Access policies may apply to an individual user at any time. In this case, all policies that apply must be satisfied. For example, if one policy requires multi-factor authentication (MFA) and another requires a compliant device, you must complete MFA, and use a compliant device. All assignments are logically **ANDed**. If you've more than one assignment configured, all assignments must be satisfied to trigger a policy.
+Multiple Conditional Access policies may apply to an individual user at any time. In this case, all policies that apply must be satisfied. For example, if one policy requires multifactor authentication (MFA) and another requires a compliant device, you must complete MFA, and use a compliant device. All assignments are logically **ANDed**. If you've more than one assignment configured, all assignments must be satisfied to trigger a policy.
 
 If a policy where "Require one of the selected controls" is selected, we prompt in the order defined, as soon as the policy requirements are satisfied, access is granted.
 
@@ -36,7 +36,7 @@ All policies are enforced in two phases:
    - Use the session details gathered in phase 1 to identify any requirements that haven't been met. 
    - If there's a policy that is configured to block access, with the block grant control, enforcement will stop here and the user will be blocked. 
    - The user will be prompted to complete more grant control requirements that weren't satisfied during phase 1 in the following order, until policy is satisfied:  
-      1. [Multi-factor authentication​](concept-conditional-access-grant.md#require-multi-factor-authentication)
+      1. [Multifactor Authentication​](concept-conditional-access-grant.md#require-multifactor-authentication)
       2. [Device to be marked as compliant](./concept-conditional-access-grant.md#require-device-to-be-marked-as-compliant)
       3. [Hybrid Azure AD joined device](./concept-conditional-access-grant.md#require-hybrid-azure-ad-joined-device)
       4. [Approved client app](./concept-conditional-access-grant.md#require-approved-client-app)
@@ -83,10 +83,6 @@ The software the user is employing to access the cloud app. For example, 'Browse
 
 The behavior of the client apps condition was updated in August 2020. If you have existing Conditional Access policies, they'll remain unchanged. However, if you select on an existing policy, the configure toggle has been removed and the client apps the policy applies to are selected.
 
-#### Device state
-
-This control is used to exclude devices that are hybrid Azure AD joined, or marked a compliant in Intune. This exclusion can be done to block unmanaged devices. 
-
 #### Filter for devices
 
 This control allows targeting specific devices based on their attributes in a policy.
@@ -107,7 +103,7 @@ Block access does just that, it will block access under the specified assignment
 
 The grant control can trigger enforcement of one or more controls. 
 
-- Require multi-factor authentication
+- Require multifactor authentication
 - Require device to be marked as compliant (Intune)
 - Require Hybrid Azure AD joined device
 - Require approved client app
@@ -160,7 +156,7 @@ The article [Common Conditional Access policies](concept-conditional-access-poli
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
-[Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md)
+[Planning a cloud-based Azure AD Multifactor Authentication deployment](../authentication/howto-mfa-getstarted.md)
 
 [Managing device compliance with Intune](/intune/device-compliance-get-started)
 

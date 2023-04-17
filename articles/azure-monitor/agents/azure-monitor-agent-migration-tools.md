@@ -49,7 +49,7 @@ To install DCR Config Generator, you need:
 
 1. PowerShell version 5.1 or higher. We recommend using PowerShell version 7.1.3 or higher.
 1. Read access for the specified workspace resources.
-1. The `Az Powershell` module to pull workspace agent configuration information.
+1. The `Az Powershell` module to pull workspace agent configuration information. Make sure `Az.Accounts` and `Az.OperationalInsights` modules are installed.
 1. The Azure credentials for running `Connect-AzAccount` and `Select-AzContext`, which set the context for the script to run.
 
 To install DCR Config Generator:
@@ -86,4 +86,6 @@ To install DCR Config Generator:
 	- Windows ARM template and parameter files - if the target workspace contains Windows performance counters or Windows events.
 	- Linux ARM template and parameter files - if the target workspace contains Linux performance counters or Linux Syslog events.
 	
-1. Use the built-in rule association policies to [associate the generated data collection rules with virtual machines](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule) running the new agent.
+	If the Log Analytics workspace was not [configured to collect data](./log-analytics-agent.md#data-collected) from connected agents, the generated files will be empty. This is a scenario in which the agent was connected to a Log Analytics workspace, but was not configured to send any data from the host machine.
+
+1. [Deploy the generated ARM template](../../azure-resource-manager/templates/deployment-tutorial-local-template.md) to associate the generated data collection rules with virtual machines running the new agent.

@@ -3,11 +3,11 @@ title: Diagnostics with metrics, alerts, and resource health
 titleSuffix: Azure Load Balancer
 description: Use the available metrics, alerts, and resource health information to diagnose your load balancer.
 author: mbender-ms
-ms.custom: seodec18
 ms.service: load-balancer
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2022
 ms.author: mbender
+ms.custom: template-concept, seodec18
 ---
 
 # Standard load balancer diagnostics with metrics, alerts, and resource health
@@ -347,7 +347,7 @@ A generic description of a resource health status is available in the [resource 
 
 ## Next steps
 
-- Learn about [Network Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+- Learn about [Network Analytics](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 - Learn about using [Insights](./load-balancer-insights.md) to view these metrics pre-configured for your load balancer.
 - Learn more about [Standard load balancer](./load-balancer-overview.md).
 

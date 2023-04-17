@@ -71,7 +71,7 @@ curl --location --request GET 'https://YOUR_RESOURCE_REGION.tts.speech.microsoft
 
 ### Sample response
 
-You should receive a response with a JSON body that includes all supported locales, voices, gender, styles, and other details. This JSON example shows partial results to illustrate the structure of a response:
+You should receive a response with a JSON body that includes all supported locales, voices, gender, styles, and other details. The `WordsPerMinute` property for each voice can be used to estimate the length of the output speech. This JSON example shows partial results to illustrate the structure of a response:
 
 ```json
 [  

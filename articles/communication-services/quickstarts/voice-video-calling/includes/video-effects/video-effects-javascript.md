@@ -32,13 +32,15 @@ Use the `npm install` command to install the Azure Communication Services Effect
 ```console
 npm install @azure/communication-calling-effects --save
 ```
+See [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling commmunication effects npm package page.
+
 > [!NOTE]
 > Currently browser support for creating video background effects is only supported on Chrome and Edge Desktop Browser (Windows and Mac) and Mac Safari Desktop.
 
 > [!NOTE]
 > Currently there are two available video effects:
 > - Background blur
-> - Background replacement with an image
+> - Background replacement with an image (the aspect ratio should be 16:9 to be compatible)
 
 To use video effects with the Azure Communication Calling SDK, once you've created a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to start/stop video effects:
 ```js
@@ -48,7 +50,7 @@ import { BackgroundBlurEffect, BackgroundReplacementEffect } from '@azure/commun
 
 // Get the video effects feature api on the LocalVideoStream 
 // (here, localVideoStream is the LocalVideoStream object you created while setting up video calling)
-const videoEffectsFeatureApi = localVideoStream.features(AzureCommunicationCallingSDK.Features.VideoEffects); 
+const videoEffectsFeatureApi = localVideoStream.feature(AzureCommunicationCallingSDK.Features.VideoEffects); 
 
 
 // Subscribe to useful events 
@@ -88,6 +90,7 @@ You need to provide the URL of the image you want as the background to this effe
 > [!NOTE]
 > Current supported image formats are: png, jpg, jpeg, tiff, bmp.
 >
+> Current supported aspect ratio is 16:9.
 
 ```js
 const backgroundImage = 'https://linkToImageFile'; 

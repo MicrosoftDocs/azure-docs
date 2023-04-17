@@ -53,7 +53,7 @@ Be sure that the Microsoft.Kubernetes, Microsoft.KubernetesConfiguration, and Mi
 
 ### Are all network requirements met?
 
-Review the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) and ensure that no required endpoints are blocked.
+Review the [network requirements](network-requirements.md) and ensure that no required endpoints are blocked.
 
 ### Are all pods in the `azure-arc` namespace running?
 
@@ -99,7 +99,7 @@ az connectedk8s connect --name <cluster-name> --resource-group <resource-group> 
 
 ### Is the proxy server able to reach required network endpoints?
 
-Review the [network requirements](quickstart-connect-cluster.md#meet-network-requirements) and ensure that no required endpoints are blocked.
+Review the [network requirements](network-requirements.md) and ensure that no required endpoints are blocked.
 
 ### Is the proxy server only using HTTP?
 

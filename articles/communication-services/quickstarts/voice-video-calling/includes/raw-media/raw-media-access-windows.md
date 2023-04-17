@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Add RAW media access to your app (Windows)
+title: Quickstart - Add raw media access to your app (Windows)
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add raw media access calling capabilities to your app using Azure Communication Services.
+description: In this quickstart, you'll learn how to add raw media access calling capabilities to your app by using Azure Communication Services.
 author: yassirbisteni
 
 ms.author: yassirb
@@ -12,26 +12,23 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-## Raw video
-
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
-In this quickstart, you'll learn how to implement raw media access using the Azure Communication Services Calling SDK for Windows.
+In this quickstart, you'll learn how to implement raw media access by using the Azure Communication Services Calling SDK for Windows.
 
-The Azure Communication Services Calling SDK offers APIs allowing apps to generate their own video frames to send to remote participants.
+The Azure Communication Services Calling SDK offers APIs that allow apps to generate their own video frames to send to remote participants in a call.
 
-This quick start builds upon [QuickStart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-windows) for Windows.
+This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-windows) for Windows.
 
+## Overview of virtual video streams
 
-## Virtual video stream overview
+Because the app will generate the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 
-Since the app will be generating the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats the app is capable of generating. This is required to allow the Azure Communication Services Calling SDK to pick the best video format configuration given the network conditions at any giving time.
-
-The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event will inform the app which video format is more appropriate for the current network conditions.
+The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event will inform the app which video format is most appropriate for the current network conditions.
 
 ### Supported video resolutions
 
-| Aspect Ratio | Resolution  | Maximum FPS  |
+| Aspect ratio | Resolution  | Maximum FPS  |
 | :--: | :-: | :-: |
 | 16x9 | 1080p | 30 |
 | 16x9 | 720p | 30 |
@@ -46,9 +43,11 @@ The app must register a delegate to get notified about when it should start or s
 | 4x3 | QVGA (320x240) | 15 |
 | 4x3 | 212x160 | 15 |
 
-The following is an overview of the steps required to create a virtual video stream.
+### Steps to create a virtual video stream
 
-1. Create an array of `VideoFormat` with the video formats supported by the app. It is fine to have only one video format supported, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type. When multiple formats are provided, the order of the format in the list doesn't influence or prioritize which one will be used. The selected format is based on external factors like network bandwidth.
+1. Create an array of `VideoFormat` with the video formats that the app supports. It's fine to have only one supported video format, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type.
+
+   When multiple formats are available, the order of the formats in the list doesn't influence or prioritize which one will be used. The criteria for format selection are based on external factors like network bandwidth.
 
     ```csharp
     var videoFormat = new VideoFormat
@@ -64,14 +63,14 @@ The following is an overview of the steps required to create a virtual video str
     VideoFormat[] videoFormats = { videoFormat };
     ```
 
-2. Create `RawOutgoingVideoStreamOptions` and set `VideoFormats` with the previously created object.
+2. Create `RawOutgoingVideoStreamOptions`, and set `VideoFormats` with the previously created object.
 
     ```csharp
     RawOutgoingVideoStreamOptions rawOutgoingVideoStreamOptions = new RawOutgoingVideoStreamOptions();
     rawOutgoingVideoStreamOptions.SetVideoFormats(videoFormats);
     ```
 
-3. Subscribe to `RawOutgoingVideoStreamOptions::addOnOutgoingVideoStreamStateChangedListener` delegate. This delegate will inform the state of the current stream, it's important that you don't send frames if the state is no equal to `OutgoingVideoStreamState.STARTED`.
+3. Subscribe to the `RawOutgoingVideoStreamOptions::addOnOutgoingVideoStreamStateChangedListener` delegate. This delegate will inform the state of the current stream. Don't send frames if the state is not equal to `OutgoingVideoStreamState.STARTED`.
 
     ```csharp
     private OutgoingVideoStreamState outgoingVideoStreamState;
@@ -82,7 +81,9 @@ The following is an overview of the steps required to create a virtual video str
     };
     ```
 
-4. Make sure the `RawOutgoingVideoStreamOptions::addOnVideoFrameSenderChangedListener` delegate is defined. This delegate will inform its listener about events requiring the app to start or stop producing video frames. In this quick start, `videoFrameSender` is used as trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
+4. Make sure the `RawOutgoingVideoStreamOptions::addOnVideoFrameSenderChangedListener` delegate is defined. This delegate will inform its listener about events that require the app to start or stop producing video frames.
+
+   This quickstart uses `videoFrameSender` as a trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
 
     ```csharp
     private VideoFrameSender videoFrameSender;
@@ -93,7 +94,7 @@ The following is an overview of the steps required to create a virtual video str
     };
     ```
 
-5. Create an instance of `VirtualRawOutgoingVideoStream` using the `RawOutgoingVideoStreamOptions` we created previously
+5. Create an instance of `VirtualRawOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
 
     ```csharp
     private VirtualRawOutgoingVideoStream virtualRawOutgoingVideoStream;
@@ -101,8 +102,13 @@ The following is an overview of the steps required to create a virtual video str
     virtualRawOutgoingVideoStream = new VirtualRawOutgoingVideoStream(rawOutgoingVideoStreamOptions);
     ```
 
-7.  Once outgoingVideoStreamState is equal to `OutgoingVideoStreamState.STARTED` create and instance of `FrameGenerator` class this will start a non-UI thread and will send frames, call `FrameGenerator.SetVideoFrameSender` each time we get an updated `VideoFrameSender` on the previous delegate, cast the `VideoFrameSender` to the appropriate type defined by the `VideoFrameKind` property of `VideoFormat`. For example, cast it to `SoftwareBasedVideoFrameSender` and then call the `send` method according to the number of planes defined by the VideoFormat.
-After that, create the ByteBuffer backing the video frame if needed. Then, update the content of the video frame. Finally, send the video frame to other participants with the `sendFrame` API.
+6. After `outgoingVideoStreamState` is equal to `OutgoingVideoStreamState.STARTED`, create an instance of the `FrameGenerator` class.
+
+   This step starts a non-UI thread and sends frames. It will call `FrameGenerator.SetVideoFrameSender` each time you get an updated `VideoFrameSender` instance on the previous delegate. It will also cast `VideoFrameSender` to the appropriate type defined by the `VideoFrameKind` property of `VideoFormat`.
+
+   For example, cast `VideoFrameSender` to `SoftwareBasedVideoFrameSender`. Then, call the `send` method according to the number of planes that `VideoFormat` defines.
+
+   After that, create the byte buffer that backs the video frame if needed. Then, update the content of the video frame. Finally, send the video frame to other participants by using the `sendFrame` API.
 
     ```csharp
     [ComImport]
@@ -204,21 +210,21 @@ After that, create the ByteBuffer backing the video frame if needed. Then, updat
     }
     ```
 
-## Screen share video stream overview
+## Overview of screen share video streams
 
-Repeat steps `1 to 4` from the previous VirtualRawOutgoingVideoStream tutorial.
+Repeat steps 1 to 4 from the previous [Steps to create a virtual video stream](#steps-to-create-a-virtual-video-stream) procedure.
 
-Since the Windows system generates the frames, you must implement your own foreground service to capture the frames and send them through using our Azure Communication Services Calling API
+Because the Windows system generates the frames, you must implement your own foreground service to capture the frames and send them by using the Azure Communication Services Calling API.
 
 ### Supported video resolutions
 
-| Aspect Ratio | Resolution  | Maximum FPS  |
+| Aspect ratio | Resolution  | Maximum FPS  |
 | :--: | :-: | :-: |
 | Anything | Anything | 30 |
 
-The following is an overview of the steps required to create a screen share video stream.
+### Steps to create a screen share video stream
 
-1. Create an instance of `ScreenShareRawOutgoingVideoStream` using the `RawOutgoingVideoStreamOptions` we created previously
+1. Create an instance of `ScreenShareRawOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
 
     ```csharp
     private ScreenShareRawOutgoingVideoStream screenShareRawOutgoingVideoStream;
@@ -226,13 +232,13 @@ The following is an overview of the steps required to create a screen share vide
     screenShareRawOutgoingVideoStream = new ScreenShareRawOutgoingVideoStream(rawOutgoingVideoStreamOptions);
     ```
 
-2. Capture the frames from the screen using Windows API's
+2. Capture the frames from the screen by using Windows APIs.
 
     ```csharp
-    MemoryBuffer memoryBuffer = // Fill it with the content you got from the Windows API's
+    MemoryBuffer memoryBuffer = // Fill it with the content you got from the Windows APIs
     ```
 
-3. Send the video frames in the following way
+3. Send the video frames in the following way.
 
     ```csharp
     private async Task GenerateVideoFrame(MemoryBuffer memoryBuffer)
