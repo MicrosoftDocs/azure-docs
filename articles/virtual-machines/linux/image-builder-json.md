@@ -898,6 +898,20 @@ Before you can distribute to the gallery, you must create a gallery and an image
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  type: 'SharedImage'
+  galleryImageId: '<resource ID>'
+  runOutputName: '<name>'
+  artifactTags: {
+      <name>: '<value>'
+      <name>: '<value>'
+  }
+}
+```
 ---
 
 The following JSON is an example of how to use the `replicationRegions` field to distribute to a Shared Image Gallery.
@@ -909,13 +923,9 @@ The following JSON is an example of how to use the `replicationRegions` field to
       "<region>"
   ]
 ```
----
 
-> [!NOTE]
->`replicationRegions` is deprecated for gallery distributions as `targetRegions` is updated property. For more information, see [targetRegions](../image-builder-api-update-release-notes.md#version-2022-07-01).
 
 # [Bicep](#tab/bicep)
-
 ```bicep
 {
   type: 'SharedImage'
@@ -932,6 +942,9 @@ The following JSON is an example of how to use the `replicationRegions` field to
 }
 ```
 ---
+
+> [!NOTE]
+>`replicationRegions` is deprecated for gallery distributions as `targetRegions` is updated property. For more information, see [targetRegions](../image-builder-api-update-release-notes.md#version-2022-07-01).
 
 #### targetRegions
 
@@ -950,6 +963,21 @@ The following JSON is an example of how to use the `targetRegions` field to dist
       "replicaCount": 3,
       "storageAccountType": "Premium_LRS"
      }
+]
+```
+# [Bicep](#tab/bicep)
+```bicep
+param targetRegions array = [
+  {
+    name: 'eastus'
+    replicaCount: 2
+    storageAccountType: 'Standard_ZRS'
+  }
+  {
+    name: 'eastus2'
+    replicaCount: 3
+    storageAccountType: 'Premium_LRS'
+  }
 ]
 ```
 ---
