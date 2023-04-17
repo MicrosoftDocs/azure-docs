@@ -31,7 +31,7 @@ Create the device based application in Azure AD to enable Azure AD sign in, whic
 
 2. Enter a **Name**, choose **Accounts in this organizational directory only** as the **Supported account type**. In **Redirect URIs**, specify **Public client / native (mobile & desktop)** then add `https://login.microsoftonline.com/common/oauth2/nativeclient` to the value. For more information, see Azure AD [Desktop app that calls web APIs: App registration]. Then **Register** the application.
 
-    :::image type="content" source="./media/how-to-manage-authentication/devicecode-app-registration.png" alt-text="A screenshot showing the settings used to register an application.":::
+    :::image type="content" source="./media/azure-maps-authentication/devicecode-app-registration.png" alt-text="A screenshot showing the settings used to register an application.":::
 
 3. Navigate to **Authentication** and enable **Treat application as a public client** to enable device code authentication with Azure AD.
 
