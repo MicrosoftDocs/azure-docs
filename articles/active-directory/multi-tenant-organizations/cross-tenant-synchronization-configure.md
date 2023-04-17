@@ -533,12 +533,12 @@ Alternatively, the target of the operation, or one of its properties, may be mas
 the provisioning service is not permitted to update it, and the corresponding source entry should be removed from the provisioning service's scope.
 Otherwise, authorizations may have been customized in such a way as to prevent the provisioning service from modifying the target object or one of its properties; 
 if so, then, again, the corresponding source entry should be removed from scope. 
-This operation was retried 0 times. It will be retried again after this date: 2023-04-14T16:57:48.5266936Z UTC
+This operation was retried 0 times. 
 ```
 
 **Cause**
 
-This error indicates the Guest invite settings in the target tenant are configured with the most restrictive setting "No one in the organization can invite guest users including admins (most restrictive)"
+This error indicates the Guest invite settings in the target tenant are configured with the most restrictive setting "No one in the organization can invite guest users including admins (most restrictive)".
 
 **Solution**
 
