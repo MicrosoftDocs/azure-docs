@@ -63,7 +63,7 @@ Here are prerequisites for the installation of SAP NetWeaver HA systems on Azure
 * Make sure that at least one Active Directory domain controller is in the Azure landscape, to avoid traversing Azure ExpressRoute to contact domain controllers on-premises.
 * Make sure that the Azure support team reviews the documentation for Azure Files SMB with [Active Directory integration](../../storage/files/storage-files-identity-auth-active-directory-enable.md#videos). The video shows extra configuration options, which were modified (DNS) and skipped (DFS-N) for simplification reasons. But these are valid configuration options.
 * Make sure that the user who's running the Azure Files PowerShell script has permission to create objects in Active Directory.
-* Install SWPM version 1.0 SP32 and SWPM 2.0 SP09 or later. The SAPinst patch must be 749.0.91 or later.
+* Use SWPM version 1.0 SP32 and SWPM 2.0 SP09 or later for the installation. The SAPinst patch must be 749.0.91 or later.
 * Install an up-to-date release of PowerShell on the Windows Server instance where the script is run.
 
 ## Installation sequence
