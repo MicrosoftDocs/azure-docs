@@ -79,7 +79,7 @@ The next sections show you how to secure the network scenario described above. T
 ## Public workspace and secured resources
 
 > [!IMPORTANT]
-> While this is a supported configuration for Azure Machine Learning, Microsoft doesn't recommend it. You should verify this configuration with your security team before using it in production.
+> While this is a supported configuration for Azure Machine Learning, Microsoft doesn't recommend. The data in the Azure Storage Account behind the virtual network can be exposed on the public workspace. You should verify this configuration with your security team before using it in production.
 
 If you want to access the workspace over the public internet while keeping all the associated resources secured in a virtual network, use the following steps:
 
@@ -213,7 +213,7 @@ Microsoft Sentinel is a security solution that can integrate with Azure Machine 
 
 ### Public access
 
-Microsoft Sentinel can automatically create a workspace for you if you are OK with a public endpoint. In this configuration, the security operations center (SOC) analysts and system administrators connect to notebooks in your workspace through Sentinel.
+Microsoft Sentinel can automatically create a workspace for you if you're OK with a public endpoint. In this configuration, the security operations center (SOC) analysts and system administrators connect to notebooks in your workspace through Sentinel.
 
 For information on this process, see [Create an Azure Machine Learning workspace from Microsoft Sentinel](../sentinel/notebooks-hunt.md?tabs=public-endpoint#create-an-azure-ml-workspace-from-microsoft-sentinel)
 
