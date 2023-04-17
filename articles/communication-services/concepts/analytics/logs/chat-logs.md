@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Chat logs
+title: Azure Communication Services chat logs
 titleSuffix: An Azure Communication Services concept document
-description: Learn about logging for Azure Communication Services Chat.
+description: Learn about logging for Azure Communication Services cat.
 author: ddematheu2
 services: azure-communication-services
 
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# Azure Communication Services Chat Logs
+# Azure Communication Services chat logs
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
 
