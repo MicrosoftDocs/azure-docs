@@ -17,7 +17,7 @@ ms.date: 01/27/2023
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-This article answers common questions about forecasting in automatic machine learning (AutoML). For more general information about forecasting methodology in AutoML, see the [Overview of forecasting methods in AutoML](./concept-automl-forecasting-methods.md) article.
+This article answers common questions about forecasting in automatic machine learning (AutoML). For general information about forecasting methodology in AutoML, see the [Overview of forecasting methods in AutoML](./concept-automl-forecasting-methods.md) article.
 
 ## How do I start building forecasting models in AutoML?
 
@@ -61,7 +61,7 @@ AutoML forecasting supports four basic configurations:
 |**Default AutoML**|Recommended if the dataset has a small number of time series that have roughly similar historical behavior.|- Simple to configure from code/SDK or Azure Machine Learning studio. <br><br> - AutoML can learn across different time series because the regression models pool all series together in training. For more information, see [Model grouping](./concept-automl-forecasting-methods.md#model-grouping).|- Regression models might be less accurate if the time series in the training data have divergent behavior. <br> <br> - Time series models might take a long time to train if the training data has a large number of series. For more information, see the [Why is AutoML slow on my data?](#why-is-automl-slow-on-my-data) answer.|
 |**AutoML with deep learning**|Recommended for datasets with more than 1,000 observations and, potentially, numerous time series that exhibit complex patterns. When it's enabled, AutoML will sweep over [temporal convolutional neural network (TCN) models](./concept-automl-forecasting-deep-learning.md#introduction-to-tcnforecaster) during training. For more information, see [Enable deep learning](./how-to-auto-train-forecast.md#enable-deep-learning).|- Simple to configure from code/SDK or Azure Machine Learning studio. <br> <br> - Cross-learning opportunities, because the TCN pools data over all series. <br> <br> - Potentially higher accuracy because of the large capacity of deep neural network (DNN) models. For more information, see [Forecasting models in AutoML](./concept-automl-forecasting-methods.md#forecasting-models-in-automl).|- Training can take much longer because of the complexity of DNN models. <br> <br> - Series with small amounts of history are unlikely to benefit from these models.|
 |**Many Models**|Recommended if you need to train and manage a large number of forecasting models in a scalable way. For more information, see [Forecasting at scale](./how-to-auto-train-forecast.md#forecasting-at-scale).|- Scalable. <br> <br> - Potentially higher accuracy when time series have divergent behavior from one another.|- No learning across time series. <br> <br> - You can't configure or run Many Models jobs from Azure Machine Learning studio. Only the code/SDK experience is currently available.|
-|**Hierarchical time series (HTS)**|Recommended if the series in your data have a nested, hierarchical structure, and you need to train or make forecasts at aggregated levels of the hierarchy. For more information, see [Hierarchical time series forecasting](how-to-auto-train-forecast.md#hierarchical-time-series-forecasting).|- Training at aggregated levels can reduce noise in the leaf-node time series and potentially lead to higher accuracy models. <br> <br> - You can retrieve forecasts for any level of the hierarchy by aggregating or disaggregating forecasts from the training level.|- You need to provide the aggregation level for training. AutoML doesn't currently have an algorithm to find an optimal level.|
+|**Hierarchical time series (HTS)**|Recommended if the series in your data have a nested, hierarchical structure, and you need to train or make forecasts at aggregated levels of the hierarchy. For more information, see [Hierarchical time series forecasting](how-to-auto-train-forecast.md#hierarchical-time-series-forecasting).|- Training at aggregated levels can reduce noise in the leaf-node time series and potentially lead to higher-accuracy models. <br> <br> - You can retrieve forecasts for any level of the hierarchy by aggregating or disaggregating forecasts from the training level.|- You need to provide the aggregation level for training. AutoML doesn't currently have an algorithm to find an optimal level.|
 
 > [!NOTE]
 > We recommend using compute nodes with GPUs when deep learning is enabled to best take advantage of high DNN capacity. Training time can be much faster in comparison to nodes with only CPUs. For more information, see the [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) article.
@@ -77,7 +77,7 @@ AutoML uses machine learning best practices, such as cross-validated model selec
 - **The training data uses features that are not known into the future, up to the forecast horizon**. AutoML's regression models currently assume that all features are known to the forecast horizon. We advise you to explore your data prior to training and remove any feature columns that are known only historically.
 - **There are significant structural differences (regime changes) between the training, validation, or test portions of the data**. For example, consider the effect of the COVID-19 pandemic on demand for almost any good during 2020 and 2021. This is a classic example of a regime change. Overfitting due to regime change is the most challenging problem to address because it's highly scenario dependent and can require deep knowledge to identify.
 
-  As a first line of defense, try to reserve 10 to 20 percent of the total history for validation data or cross-validation data. It isn't always possible to reserve this amount of validation data if the training history is short, but it's a best practice. For more information, see the [guide on configuring validation](./how-to-auto-train-forecast.md#training-and-validation-data).
+  As a first line of defense, try to reserve 10 to 20 percent of the total history for validation data or cross-validation data. It isn't always possible to reserve this amount of validation data if the training history is short, but it's a best practice. For more information, see [Training and validation data](./how-to-auto-train-forecast.md#training-and-validation-data).
 
 ## What if my time series data doesn't have regularly spaced observations?
 
@@ -89,9 +89,9 @@ AutoML's forecasting models all require that training data has regularly spaced 
 
 ## How do I choose the primary metric?
 
-The primary metric is important because its value on validation data determines the best model during [sweeping and selection](./concept-automl-forecasting-sweeping.md). Normalized root mean squared error (NRMSE) or normalized mean absolute error (NMAE) are usually the best choices for the primary metric in forecasting tasks.
+The primary metric is important because its value on validation data determines the best model during [sweeping and selection](./concept-automl-forecasting-sweeping.md). Normalized root mean squared error (NRMSE) and normalized mean absolute error (NMAE) are usually the best choices for the primary metric in forecasting tasks.
 
-To choose between them, note that NRMSE penalizes outliers in the training data more than NMAE because it uses the square of the error. The NMAE might be a better choice if you want the model to be less sensitive to outliers. For more information, see [Regression and forecasting metrics](./how-to-understand-automated-ml.md#regressionforecasting-metrics).
+To choose between them, note that NRMSE penalizes outliers in the training data more than NMAE because it uses the square of the error. NMAE might be a better choice if you want the model to be less sensitive to outliers. For more information, see [Regression and forecasting metrics](./how-to-understand-automated-ml.md#regressionforecasting-metrics).
 
 > [!NOTE]
 > We don't recommend using the R2 score, or _R_<sup>2</sup>, as a primary metric for forecasting.
@@ -106,7 +106,7 @@ To choose between them, note that NRMSE penalizes outliers in the training data 
 - Evaluate the model by using back tests over several forecasting cycles. This procedure gives a more robust estimate of forecasting error and gives you a baseline to measure improvements against. For an example, see the [back-testing notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-backtest-single-model/auto-ml-forecasting-backtest-single-model.ipynb).
 - If the data is noisy, consider aggregating it to a coarser frequency to increase the signal-to-noise ratio. For more information, see [Frequency and target data aggregation](./how-to-auto-train-forecast.md#frequency--target-data-aggregation).
 - Add new features that can help predict the target. Subject matter expertise can help greatly when you're selecting training data.
-- Compare validation and test metric values and determine if the selected model is underfitting or overfitting the data. This knowledge can guide you to a better training configuration. For example, you might determine that you need to use more cross-validation folds in response to overfitting.
+- Compare validation and test metric values, and determine if the selected model is underfitting or overfitting the data. This knowledge can guide you to a better training configuration. For example, you might determine that you need to use more cross-validation folds in response to overfitting.
 
 ## Will AutoML always select the same best model from the same training data and configuration?
 
@@ -140,20 +140,20 @@ For examples and details, see the [notebook for advanced forecasting scenarios](
 
 To find training and validation metric values, see [View jobs/runs information in the studio](how-to-log-view-metrics.md#view-jobsruns-information-in-the-studio). You can view metrics for any forecasting model trained in AutoML by going to a model from the AutoML job UI in the studio and selecting the **Metrics** tab.
 
-:::image type="content" source="media/how-to-automl-forecasting-faq/metrics_UI.png" alt-text="Screenshot that shows a the metric interface for an AutoML forecasting model.":::
+:::image type="content" source="media/how-to-automl-forecasting-faq/metrics_UI.png" alt-text="Screenshot that shows the metric interface for an AutoML forecasting model.":::
 
 ## How do I debug failures with forecasting training jobs?
 
-If your AutoML forecasting job fails, you'll see an error message in the studio UI that can help to diagnose and fix the problem. The best source of information about the failure beyond the error message is the driver log for the job. For instructions on finding driver logs, see [View jobs/runs information with MLflow](how-to-log-view-metrics.md#view-and-download-diagnostic-logs).
+If your AutoML forecasting job fails, an error message on the studio UI can help you diagnose and fix the problem. The best source of information about the failure beyond the error message is the driver log for the job. For instructions on finding driver logs, see [View jobs/runs information with MLflow](how-to-log-view-metrics.md#view-and-download-diagnostic-logs).
 
 > [!NOTE]
-> For a Many Models or HTS job, training is usually on multiple-node compute clusters. Logs for these jobs are present for each node IP address. In this case, you'll need to search for error logs in each node. The error logs, along with the driver logs, are in the *user_logs* folder for each node IP.
+> For a Many Models or HTS job, training is usually on multiple-node compute clusters. Logs for these jobs are present for each node IP address. In this case, you need to search for error logs in each node. The error logs, along with the driver logs, are in the *user_logs* folder for each node IP.
 
 ## How do I deploy a model from forecasting training jobs?
 
 You can deploy a model from forecasting training jobs in either of these ways:
 
-- **Online endpoint**: Check the scoring file used in the deployment or select the **Test** tab on the endpoint page in the studio to understand the structure of input that the deployment expects. See [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-energy-demand/automl-forecasting-task-energy-demand-advanced-mlflow.ipynb) for an example. For more information about online deployment, see [Deploy an AutoML model to an online endpoint](./how-to-deploy-automl-endpoint.md).
+- **Online endpoint**: Check the scoring file used in the deployment, or select the **Test** tab on the endpoint page in the studio, to understand the structure of input that the deployment expects. See [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-energy-demand/automl-forecasting-task-energy-demand-advanced-mlflow.ipynb) for an example. For more information about online deployment, see [Deploy an AutoML model to an online endpoint](./how-to-deploy-automl-endpoint.md).
 - **Batch endpoint**: This deployment method requires you to develop a custom scoring script. Refer to [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-orange-juice-sales/automl-forecasting-orange-juice-sales-mlflow.ipynb) for an example. For more information about batch deployment, see [Use batch endpoints for batch scoring](./how-to-use-batch-endpoint.md).
 
 For UI deployments, we encourage you to use either of these options:
@@ -170,7 +170,7 @@ Don't use the first option, **Real-time-endpoint (quick)**.
 
 ## What is a workspace, environment, experiment, compute instance, or compute target?
 
-If you aren't familiar with Azure Machine Learning concepts, start with the [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md) article and the [What is an Azure Machine Learning workspace?](./concept-workspace.md) article.
+If you aren't familiar with Azure Machine Learning concepts, start with the [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md) and [What is an Azure Machine Learning workspace?](./concept-workspace.md) articles.
 
 ## Next steps
 
