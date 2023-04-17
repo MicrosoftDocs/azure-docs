@@ -14,15 +14,13 @@ ms.date: 02/28/2023
 
 # Reliability in Azure Database for PostgreSQL - Flexible Server
 
-This article describes reliability support in Azure Database for PostgreSQL - Flexible Server and covers both intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure Database for PostgreSQL - Flexible Server and covers intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-Azure Database for PostgreSQL - Flexible Server offers both zonal and zone-redundant availability deployment models with automatic failover capabilities. The availability offering is designed to ensure that, in the case of failures, committed data is never lost and the database won't become a single point of failure in your software architecture. When availability is configured, flexible server automatically provisions and manages a standby replica.
+Azure Database for PostgreSQL - Flexible Server offers both zonal and zone-redundant deployment models with automatic failover capabilities. The offering is designed to ensure that, in the case of failures, committed data is never lost and the database won't become a single point of failure in your software architecture. When availability zones are configured, flexible server automatically provisions and manages a standby replica.
 
 ## Availability zone support
 
 Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](availability-zones-service-support.md).
-
-There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
 
 Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant and zonal models](availability-zones-service-support.md#azure-services-with-availability-zone-support).  Both availability configurations enable automatic failover capability with zero data loss during planned events such as user-initiated scale compute operation, and also during unplanned events such as underlying hardware and software faults, network failures, and availability zone failures.
 
