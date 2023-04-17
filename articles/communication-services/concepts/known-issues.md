@@ -30,7 +30,7 @@ Firefox desktop browser support is now available in public preview. Known issues
 ### iOS Chrome Known Issues
 iOS Chrome browser support is now available in public preview. Known issues are:
 - No outgoing and incoming audio when switching browser to background or locking the device
-- No incoming/outgoing audio coming from bluetooth headset. When using the bluetooth headset in the middle of ACS call, the audio still comes out from the speaker until the user locks and unlocks the phone. We have seen this issue on older iOS versions (15.6, 15.7), and it is not reproducible on iOS 16.
+- No incoming/outgoing audio coming from bluetooth headset. When a user connects bluetooth headset in the middle of ACS call, the audio still comes out from the speaker until the user locks and unlocks the phone. We have seen this issue on older iOS versions (15.6, 15.7), and it is not reproducible on iOS 16.
 
 ### iOS 16 introduced bugs when putting browser in the background during a call
 The iOS 16 release has introduced a bug that can stop the ACS audio\video call when using Safari mobile browser. Apple is aware of this issue and is looking for a fix on their side. The impact could be that an ACS call might stop working during a call and the only resolution to get it working again is to have the end customer restart their phone. 
