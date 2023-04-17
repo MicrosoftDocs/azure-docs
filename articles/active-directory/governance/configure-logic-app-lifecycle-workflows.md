@@ -28,13 +28,16 @@ To determine the security token type of your custom task extension, you'd check 
 :::image type="content" source="media/configure-logic-app-lifecycle-workflows/custom-task-extension-token-type.png" alt-text="Screenshot of custom task extension and token type.":::
 
 
+> [!NOTE]
+> New custom task extensions will only have Proof of Possession(POP) token security type. Only task extensions created before the inclusion of the Proof of Possession token security type will have a type of Normal.
+
 ## Configure existing Logic Apps for LCW use
 
 Making an Azure Logic app compatible to run with the **Custom Task Extension** requires the following steps:
 
 - Configure the logic app trigger
-- Configure the callback action (only applicable to the callback scenario)
-- Enable system assigned managed identity.
+- Configure the callback action (Only applicable to the callback scenario.)
+- Enable system assigned managed identity (Always required for Normal security token type extensions. This is also the default for callback scenarios with custom task extensions. For more information on this, and other, custom task extension deployment scenarios, see: [Custom task extension deployment scenarios](lifecycle-workflow-extensibility.md#custom-task-extension-deployment-scenarios).)
 - Configure AuthZ policies.
 
 To configure those you follow these steps:
@@ -231,25 +234,20 @@ If the security token type is **Proof of Possession (POP)** for your custom task
     |Claim  |Value  |
     |---------|---------|
     |Issuer     |  https://sts.windows.net/(Tenant ID)/       |
-    |Audience     | Application ID of your Logic Apps Managed Identity       |
     |appid     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
     |m     |  POST   |
-    |u     |  management.Azure.com   |
+    |u     |  management.azure.com   |
     |p     |  /subscriptions/(subscriptionId)/resourceGroups/(resourceGroupName)/providers/Microsoft.Logic/workflows/(logicAppName)   |
 
-    Policy name: AzureADLifecycleWorkflowsAuthPolicyV2App 
-
-    Policy type: AAD   
- 
-    |Claim  |Value  |
-    |---------|---------|
-    |Issuer     |  https://login.microsoftonline.com/(Tenant ID)/v2.0       |
-    |Audience     | Application ID of your Logic Apps Managed Identity       |
-    |azp     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
 
 1. Save the Authorization policy.
 > [!NOTE]
 > Due to a current bug in the Logic Apps UI you may have to save the authorization policy after each claim before adding another.
+
+> [!CAUTION]
+> Please pay attention to the details as minor differences can lead to problems later.
+-	For Issuer, ensure you did include the slash after your Tenant ID
+-	For appid, ensure the custom claim is “appid” in all lowercase. The appid value represents Lifecycle Workflows and is always the same.
 
 ## Configure authorization policy for custom task extension with normal security token type
 
