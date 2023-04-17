@@ -135,8 +135,6 @@ To use the `iotedge-config` tool to create and configure your hierarchy, follow 
 
    You can define the parent-child relationships manually as well. See the [create a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy) section of the how-to guide to learn more.
 
-   ![Screenshot of the edgedevices section of the configuration file allows you to define your hierarchy.](./media/tutorial-nested-iot-edge/hierarchy-config-sample.png)
-
 1. Save and close the file:
 
    `CTRL + S`, `CTRL + Q`
