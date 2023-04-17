@@ -602,6 +602,8 @@
         href: flexible-server/how-to-create-server-customer-managed-key-cli.md
       - name: Azure portal
         href: flexible-server/how-to-create-server-customer-managed-key-portal.md
+      - name: Azure API
+        href: flexible-server/how-to-create-server-customer-managed-key-azure-api.md
     - name: Database deployment
       items:
       - name: GitHub Actions
