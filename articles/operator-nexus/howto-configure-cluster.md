@@ -58,8 +58,6 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
   --cluster-type "$CLUSTER_TYPE" --cluster-version "$CLUSTER_VERSION" \
   --tags $TAG_KEY1="$TAG_VALUE1" $TAG_KEY2="$TAG_VALUE2"
 
-az networkcloud cluster wait --created --name "$CLUSTER_NAME" --resource-group
-"$CLUSTER_RG"
 ```
 
 You can instead create a Cluster with ARM template/parameter files in
