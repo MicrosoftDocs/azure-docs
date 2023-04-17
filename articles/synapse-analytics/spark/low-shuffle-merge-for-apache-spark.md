@@ -16,7 +16,7 @@ Delta Lake [MERGE command](https://docs.delta.io/latest/delta-update.html#upsert
 
 To run MERGE operation, 2 join queries are required. The first one is joining the whole target table and source data, to find *touched* files including any matched row. The other one is for actual MERGE operation only with *touched* files of the target table. The first join query is lighter as it only reads columns in the matching condition. Although Delta performs the first join to reduce the amount of data for the actual merge process, still a huge number of *unmodified* rows in *touched* files could go through the second join process which includes heavy shuffling process. 
 
-With Low Shuffle Merge optimization, Delta retrieves "matched" rows result from the first join result and utilizes it for classifying *matched* rows. Based on the information, Delta runs 2 separate write jobs for *matched* rows and *unmodified* rows, thus it could result in 2x number of output files compared to the default MERGE operation. The expected performance gain outweighs the possible small files problem. 
+With Low Shuffle Merge optimization, Delta retrieves *matched* rows result from the first join result and utilizes it for excluding *unmatched* rows from the second join. Delta runs 2 separate write jobs for *matched* rows and *unmodified* rows, thus it could result in 2x number of output files compared to the default MERGE operation. The expected performance gain outweighs the possible small files problem. 
 
 ## Availability
 
