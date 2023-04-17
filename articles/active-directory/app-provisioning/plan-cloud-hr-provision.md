@@ -68,7 +68,7 @@ This article uses the following terms:
 This capability of HR-driven IT provisioning offers the following significant business benefits:
 
 - **Increase productivity:** You can now automate the assignment of user accounts and Microsoft 365 licenses and provide access to key groups. Automating assignments gives new hires immediate access to their job tools and increases productivity.
-- **Manage risk:** You can increase security by automating changes based on employee status or group memberships with data flowing in from the cloud HR app. Automating changes ensures that user identities and access to key apps update automatically when users transition or leave the organization.
+- **Manage risk:** Automate changes based on employee status or group membership to increase security. This automation ensures that user identities and access to key apps update automatically. For example, an update in the HR app when a user transitions or leaves the organization flows in automatically.
 - **Address compliance and governance:** Azure AD supports native audit logs for user provisioning requests performed by apps of both source and target systems. With auditing, you can track who has access to the apps from a single screen.
 - **Manage cost:** Automatic provisioning reduces costs by avoiding inefficiencies and human error associated with manual provisioning. It reduces the need for custom-developed user provisioning solutions built over time by using legacy and outdated platforms.
 
