@@ -15,7 +15,7 @@ ms.date: 02/28/2023
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and text. It's a popular data science tool for data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning. 
 
-By integrating Jupyter Notebook with a Log Analytics workspace, you can create a multi-step process, running code in each step based on the results of the previous step, including advanced visualization options. Such streamlined, multi-step processes can be especially useful in building and running machine learning pipelines, performing advanced analytics analysis, or creating troubleshooting guides for Support needs (TSGs).
+By integrating Jupyter Notebook with a Log Analytics workspace, you can create a multi-step process, running code in each step based on the results of the previous step, including advanced visualization options. Such streamlined, multi-step processes can be especially useful in building and running machine learning pipelines, conducting advanced analysis, and creating troubleshooting guides (TSGs) for support needs.
 
 In this tutorial, you train a machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs, similar to [Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). However, instead of using native KQL machine learning capabilities, you train and evaluate a custom regression model in Jupyter Notebook based on log data in Azure Monitor Logs. 
 ## Process overview
