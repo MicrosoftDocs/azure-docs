@@ -249,6 +249,10 @@ For more information, and additional Azure AD Multi-Factor Authentication report
 ### Troubleshoot Azure AD Multi-Factor Authentication
 See [Troubleshooting Azure AD Multi-Factor Authentication](https://support.microsoft.com/help/2937344/troubleshooting-azure-multi-factor-authentication-issues) for common issues.
 
+## Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Microsoft 365 Configure multifactor authentication guided walkthrough](https://go.microsoft.com/fwlink/?linkid=2221401).
+
 ## Next steps
 
 [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)

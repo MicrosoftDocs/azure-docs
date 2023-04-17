@@ -75,8 +75,10 @@ For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-ver
 
 End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For more information, see [Spark versions supported in Azure HDInsight](./hdinsight-40-component-versioning.md#spark-versions-supported-in-azure-hdinsight)
 
-## Upcoming Changes
+## Coming soon
 
+* Autoscale
+  * Autoscale with improved latency and several improvements 
 * Cluster name change limitation 
   * The max length of cluster name will be changed to 45 from 59 in Public, Mooncake and Fairfax. 
 * Cluster permissions for secure storage  
@@ -91,3 +93,4 @@ End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For 
 
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
+* [Configure the OS patching schedule for Linux-based HDInsight clusters](./hdinsight-os-patching.md)

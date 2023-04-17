@@ -70,6 +70,7 @@ You can use two kinds of filters (properties):
 
 * App: filter by app name
 * Instance: filter by app instance
+* Deployment: filter by deployment name
 
 :::image type="content" source="media/concept-metrics/add-filter.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Metrics page with a chart selected and the Add filter controls highlighted." lightbox="media/concept-metrics/add-filter.png":::
 
@@ -81,6 +82,9 @@ You can also use the **Apply splitting** option, which will draw multiple lines 
 > You can build your own charts on the metrics page and pin them to your **Dashboard**. Start by naming your chart.  Next, select **Pin to dashboard in the top right corner**. You can now check on your application at your Portal **Dashboard**.
 
 ## User metrics options
+
+> [!NOTE]
+> For Spring Boot applications, to see metrics from Spring Boot Actuator, add the `spring-boot-starter-actuator` dependency. For more information, see the [Add actuator dependency](concept-manage-monitor-app-spring-boot-actuator.md#add-actuator-dependency) section of [Manage and monitor app with Spring Boot Actuator](concept-manage-monitor-app-spring-boot-actuator.md).
 
 The following tables show the available metrics and details.
 

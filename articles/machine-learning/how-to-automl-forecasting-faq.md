@@ -138,6 +138,30 @@ If your AutoML forecasting job fails, you'll see an error message in the studio 
 > [!NOTE]
 > For Many Models or HTS job, training is usually on multi-node compute clusters. Logs for these jobs are present for each node IP address. You will need to search for error logs in each node in this case. The error logs, along with the driver logs, are in the `user_logs` folder for each node IP. 
 
+## How do I deploy model from forecasting training jobs?
+
+Model from forecasting training jobs can be deployed in either of the two ways:
+
+- Online Endpoint
+    - Please refer [this link](./how-to-deploy-automl-endpoint.md) for online deployment.
+    - You can check the scoring file used in the deployment or click on the "Test" tab on the endpoint page in the studio to understand the structure of input that is expected by the deployment.
+    - You can refer [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-energy-demand/automl-forecasting-task-energy-demand-advanced-mlflow.ipynb) to see an example.
+- Batch Endpoint
+    - Please refer [this link](./how-to-use-batch-endpoint.md) for batch deployment.
+    - It requires you to develop a custom scoring script.
+    - You can refer [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-orange-juice-sales/automl-forecasting-orange-juice-sales-mlflow.ipynb) to see an example.
+
+For UI deployments, we encourage to use either of the two options:
+- Real-time endpoint
+- Batch endpoint
+
+:::image type="content" source="media/how-to-automl-forecasting-faq/deployment-ui.png" alt-text="A view of the possible deployment options for an AutoML forecasting model.":::
+
+**Please don't use the 1st option i.e. "Real-time-endpoint (quick)"**.
+
+> [!NOTE]
+> As of now, we don't support deploying MLflow model from forecasting training jobs through SDK, CLI, or UI. You will run into errors if you try this.
+
 ## What is a workspace / environment / experiment/ compute instance / compute target? 
 
 If you aren't familiar with Azure Machine Learning concepts, start with the ["What is Azure Machine Learning"](overview-what-is-azure-machine-learning.md) article and the [workspaces](./concept-workspace.md) article.

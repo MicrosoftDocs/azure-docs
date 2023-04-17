@@ -76,7 +76,7 @@ Once a NAT rule is defined for a connection, the effective address space for the
 
 The following diagram shows an example of Azure VPN NAT configurations:
 
-:::image type="content" source="./media/nat-overview/vpn-nat.png" alt-text="NAT diagram." lightbox="./media/nat-overview/vpn-nat.png" border="false":::
+:::image type="content" source="./media/nat-overview/vpn-nat.png" alt-text="Diagram showing NAT configuration and rules." lightbox="./media/nat-overview/vpn-nat.png":::
 
 The diagram shows an Azure VNet and two on-premises networks, all with address space of 10.0.1.0/24. To connect these two networks to the Azure VNet and VPN gateway, create the following rules:
 

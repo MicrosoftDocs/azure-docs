@@ -71,13 +71,13 @@ For more information, see the section [Data sent by Application Insights](#data-
 
 If you're developing an app using Visual Studio, run the app in debug mode (F5). The telemetry appears in the **Output** window. From there, you can copy it and format it as JSON for easy inspection.
 
-![Screenshot that shows running the app in debug mode in Visual Studio.](./media/data-retention-privacy/06-vs.png)
+:::image type="content" source="./media/data-retention-privacy/06-vs.png" lightbox="./media/data-retention-privacy/06-vs.png" alt-text="Screenshot that shows running the app in debug mode in Visual Studio.":::
 
 There's also a more readable view in the **Diagnostics** window.
 
 For webpages, open your browser's debugging window. Select F12 and open the **Network** tab.
 
-![Screenshot that shows the open Network tab.](./media/data-retention-privacy/08-browser.png)
+:::image type="content" source="./media/data-retention-privacy/08-browser.png" lightbox="./media/data-retention-privacy/08-browser.png" alt-text="Screenshot that shows the open Network tab.":::
 
 ### Can I write code to filter the telemetry before it's sent?
 

@@ -28,7 +28,7 @@ As client connects to the database, the connection string to the server resolves
 
 The gateway service is hosted on group of stateless compute nodes sitting behind an IP address, which your client would reach first when trying to connect to an Azure Database for MySQL server. 
 
-As part of ongoing service maintenance, we'll periodically refresh compute hardware hosting the gateways to ensure we provide the most secure and performant experience. When the gateway hardware is refreshed, a new ring of the compute nodes is built out first. This new ring serves the traffic for all the newly created Azure Database for MySQL servers and it will have a different IP address from older gateway rings in the same region to differentiate the traffic. Once the new ring is fully functional, the older gateway hardware serving existing servers are planned for decommissioning. Before decommissioning a gateway hardware, customers running their servers and connecting to older gateway rings will be notified via email and in the Azure portal, three months in advance before decommissioning. The decommissioning of gateways can impact the connectivity to your servers if 
+As part of ongoing service maintenance, we'll periodically refresh compute hardware hosting the gateways to ensure we provide the most secure and performant experience. When the gateway hardware is refreshed, a new ring of the compute nodes is built out first. This new ring serves the traffic for all the newly created Azure Database for MySQL servers and it will have a different IP address from older gateway rings in the same region to differentiate the traffic. Once the new ring is fully functional, the older gateway hardware serving existing servers are planned for decommissioning. Before decommissioning a gateway hardware, customers running their servers and connecting to older gateway rings will be notified via email and in the Azure portal. The decommissioning of gateways can impact the connectivity to your servers if 
 
 * You hard code the gateway IP addresses in the connection string of your application. It is **not recommended**. You should use fully qualified domain name (FQDN) of your server in the format `<servername>.mysql.database.azure.com`, in the connection string for your application. 
 * You don't update the newer gateway IP addresses in the client-side firewall to allow outbound traffic to be able to reach our new gateway rings.
@@ -41,18 +41,18 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 
 |  **Region name**       |  **Gateway IP addresses**                                  | **Gateway IP addresses   (decommissioning)**  |  **Gateway IP addresses   (decommissioned)**  |
 |------------------------|------------------------------------------------------------|-----------------------------------------------|-----------------------------------------------|
-|  Australia Central     |  20.36.105.0 |  |       |
+|  Australia Central     |  20.36.105.32 | 20.36.105.0 |       |
 |  Australia Central2    |  20.36.113.0  |  |        |
 |  Australia East        |  13.75.149.87, 40.79.161.1   |    |         |
 |  Australia South East  | 13.73.109.251, 13.77.49.32, 13.77.48.10     |        |            |
 |  Brazil South          |  191.233.201.8, 191.233.200.16     |       |  104.41.11.5                                  |
 |  Canada Central        |  13.71.168.32|| 40.85.224.249, 52.228.35.221             |                                               
-|  Canada East           |  40.86.226.166, 52.242.30.154                  |                                               |                                               |
+|  Canada East           |  40.86.226.166, 40.69.105.32                  | 52.242.30.154                                              |                                               |
 |  Central US            |  23.99.160.139, 52.182.136.37,   52.182.136.38       |  13.67.215.62      |                                               |
-|  China East            |  139.219.130.35            |                                               |                                               |
+|  China East            |  52.130.112.139         |         139.219.130.35                                         |                                               |
 |  China East 2          |  40.73.82.1, 52.130.120.89            | 
 |  China East 3          |  52.131.155.192      | 
-|  China North           |  139.219.15.17    |        |                                               |
+|  China North           |  52.130.128.89    | 139.219.15.17       |                                               |
 |  China North 2         |  40.73.50.0          |                                        |
 |  China North 3         |  52.131.27.192     |          |
 |  East Asia             |  13.75.33.20, 52.175.33.150,   13.75.33.20, 13.75.33.21  |                |                                               |

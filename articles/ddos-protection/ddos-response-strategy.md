@@ -69,4 +69,5 @@ If you suspect you're under a DDoS attack, escalate through your normal Azure Su
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).
+- Learn how to [configure metric alerts through portal](alerts.md).
+- Learn how to [engage DDoS Rapid Response](ddos-rapid-response.md).

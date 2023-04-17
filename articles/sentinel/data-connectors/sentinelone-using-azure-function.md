@@ -3,7 +3,7 @@ title: "SentinelOne (using Azure Function) connector for Microsoft Sentinel"
 description: "Learn how to install the connector SentinelOne (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -18,8 +18,6 @@ The [SentinelOne](https://www.sentinelone.com/) data connector provides the capa
 | --- | --- |
 | **Application settings** | SentinelOneAPIToken<br/>SentinelOneUrl<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
 | **Azure function app code** | https://aka.ms/sentinel-SentinelOneAPI-functionapp |
-| **Kusto function alias** | SentinelOne |
-| **Kusto function url** | https://aka.ms/sentinel-SentinelOneAPI-parser |
 | **Log Analytics table(s)** | SentinelOne_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -54,7 +52,7 @@ To integrate with SentinelOne (using Azure Function) make sure you have:
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-SentinelOneAPI-parser) to create the Kusto functions alias, **SentinelOne**
+   >  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias SentinelOne and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/SentinelOne/Parsers/SentinelOne.txt). The function usually takes 10-15 minutes to activate after solution installation/update.
 
 
 **STEP 1 - Configuration steps for the SentinelOne API**
@@ -71,7 +69,7 @@ To integrate with SentinelOne (using Azure Function) make sure you have:
 7. Save credentials of the new user for using in the data connector.
 
 
-**NOTE :- **Admin access can be delegated using custom roles. Please review SentinelOne [documentation](https://www.sentinelone.com/blog/feature-spotlight-fully-custom-role-based-access-control/) to learn more about custom RBAC.
+**NOTE :-** Admin access can be delegated using custom roles. Please review SentinelOne [documentation](https://www.sentinelone.com/blog/feature-spotlight-fully-custom-role-based-access-control/) to learn more about custom RBAC.
 
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
@@ -128,16 +126,20 @@ If you're already signed in, go to the next step.
 
 **2. Configure the Function App**
 
-1. In the Function App, select the Function App Name and select **Configuration**.
-2. In the **Application settings** tab, select ** New application setting**.
-3. Add each of the following application settings individually, with their respective string values (case-sensitive): 
-		SentinelOneAPIToken
-		SentinelOneUrl
-		WorkspaceID
-		WorkspaceKey
-		logAnalyticsUri (optional)
+ 1. In the Function App, select the Function App Name and select **Configuration**.
+
+ 2. In the **Application settings** tab, select ** New application setting**.
+
+ 3. Add each of the following application settings individually, with their respective string values (case-sensitive): 
+		 SentinelOneAPIToken
+		 SentinelOneUrl
+		 WorkspaceID
+		 WorkspaceKey
+		 logAnalyticsUri (optional)
+
 > - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
-4. Once all application settings have been entered, click **Save**.
+
+ 4. Once all application settings have been entered, click **Save**.
 
 
 
