@@ -88,7 +88,7 @@ When you run the `func new` command from the root directory of the project, the 
   }
   ```
 
-1. Edit *index/\__init\__.py* and replace the contents with the following code:
+1. Edit *index/index.js* and replace the contents with the following code:
 
   ```javascript
   var fs = require('fs').promises
