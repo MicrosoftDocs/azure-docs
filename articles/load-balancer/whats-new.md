@@ -7,7 +7,7 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 04/17/2023
 ms.author: mbender
-ms.custom: template-concept
+ms.custom: template-concept, engagement-fy23
 ---
 
 # What's new in Azure Load Balancer?

@@ -8,7 +8,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 04/17/2023
 ms.author: mbender
-ms.custom: template-how-to
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Upgrade a basic load balancer used with Virtual Machine Scale Sets
@@ -52,7 +52,7 @@ The PowerShell module performs the following functions:
 
 - Install the latest version of [PowerShell](/powershell/scripting/install/installing-powershell)
 - Determine whether you have the latest Az PowerShell module installed (8.2.0)
-  - Install the latest Az PowerShell module](/powershell/azure/install-az-ps)
+  - Install the latest [Az PowerShell module](/powershell/azure/install-az-ps)
 
 ## Install the 'AzureBasicLoadBalancerUpgrade' module
 

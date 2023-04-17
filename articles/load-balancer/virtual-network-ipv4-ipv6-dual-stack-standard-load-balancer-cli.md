@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2023
 ms.author: mbender
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli, engagement-fy23
 ---
 
 # Deploy an IPv6 dual stack application in Azure virtual network using Azure CLI

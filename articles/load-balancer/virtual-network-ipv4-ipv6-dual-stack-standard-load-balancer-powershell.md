@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2023
 ms.author: mbender 
-ms.custom: devx-track-azurepowershell, template-how-to
+ms.custom: devx-track-azurepowershell, template-how-to, engagement-fy23
 ---
 
 # Deploy an IPv6 dual stack application in Azure virtual network using PowerShell

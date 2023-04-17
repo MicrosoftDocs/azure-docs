@@ -8,7 +8,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 04/17/2023
 ms.author: mbender
-ms.custom: template-how-to
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Upgrade from a basic public to standard public load balancer
@@ -94,7 +94,7 @@ This command also installs the required Az PowerShell module modules.
 
 ### Install with the script directly
 
-If you do have Azure Az PowerShell module modules installed and can't uninstall them, or don't want to uninstall them,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](https://learn.microsoft.com/powershell/gallery/gallery/how-to/working-with-packages/manual-download?view=powershellget-2.x).
+If you do have Azure Az PowerShell module modules installed and can't uninstall them, or don't want to uninstall them,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download?view=powershellget-2.x)
 
 To run the script:
 
