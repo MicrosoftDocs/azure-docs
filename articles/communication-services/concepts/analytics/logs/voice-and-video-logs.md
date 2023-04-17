@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - Voice and Video logs 
+title: Azure Communication Services - voice and video logs 
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging for Azure Communication Services Voice and Video.
 author:  timmitchell
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Azure Communication Services Voice and Video Logs 
+# Azure Communication Services voice and video Logs 
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
 
