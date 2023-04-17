@@ -14,12 +14,12 @@ Learn how to use Apache Kafka's mirroring feature to replicate topics to a secon
 In this article, you use mirroring to replicate topics between two HDInsight clusters. These clusters are in different virtual networks in different datacenters.
 
 > [!NOTE]  
-> We can use mirroring cluster as a fault tolerance.
-> This is valid only is primary cluster HDI Kafka 2.4.1, 3.2.0 and secondary cluster is HDI Kafka 3.2.0 versions. 
-> Secondary cluster would work seamlessly if your primary cluster went down.  
-> Consumer group offsets will be automatically translated to secondary cluster. 
-> Just point your primary cluster consumers to secondary cluster with same consumer group and your consumer group will start consuming from the offset where it left in primary cluster.  
-> The only difference would be that the topic name in backup cluster will change from TOPIC_NAME to primary-cluster-name.TOPIC_NAME. 
+> 1. We can use mirroring cluster as a fault tolerance.
+> 2. This is valid only is primary cluster HDI Kafka 2.4.1, 3.2.0 and secondary cluster is HDI Kafka 3.2.0 versions. 
+> 3. Secondary cluster would work seamlessly if your primary cluster went down.  
+> 4. Consumer group offsets will be automatically translated to secondary cluster. 
+> 5. Just point your primary cluster consumers to secondary cluster with same consumer group and your consumer group will start consuming from the offset where it left in primary cluster.  
+> 6. The only difference would be that the topic name in backup cluster will change from TOPIC_NAME to primary-cluster-name.TOPIC_NAME. 
 
 ## How Apache Kafka mirroring works
 
