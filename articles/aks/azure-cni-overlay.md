@@ -39,7 +39,7 @@ Like Azure CNI Overlay, Kubenet assigns IP addresses to pods from an address spa
 | Network configuration        | Simple - no additional configuration required for pod networking | Complex - requires route tables and UDRs on cluster subnet for pod networking |
 | Pod connectivity performance | Performance on par with VMs in a VNet                            | Additional hop adds minor latency                                             |
 | Kubernetes Network Policies  | Azure Network Policies, Calico, Cilium                           | Calico                                                                        |
-| OS platforms supported       | Linux and Windows Server 2022(Preview)                                    | Linux only                                                                    |
+| OS platforms supported       | Linux and Windows Server 2022(Preview)                           | Linux only                                                                    |
 
 ## IP address planning
 
@@ -98,6 +98,7 @@ Azure CNI Overlay has the following limitations:
 - Windows support is still in Preview
     - Windows Server 2019 node pools are **not** supported for Overlay
     - Traffic from host network pods is not able to reach Windows Overlay pods.
+- Sovereign Clouds are not supported
 - Virtual Machine Scale Sets (VMAS) are not supported for Overlay
 - Dualstack networking is not supported in Overlay
 - You can't use [DCsv2-series](/azure/virtual-machines/dcv2-series) virtual machines in node pools. To meet Confidential Computing requirements, consider using [DCasv5 or DCadsv5-series confidential VMs](/azure/virtual-machines/dcasv5-dcadsv5-series) instead.
