@@ -307,3 +307,4 @@ To see the certicicate details, click on "Connection is secure" followed by "cer
 - [Caddy documentation](https://caddyserver.com/docs/)
 - [GitHub aci-helloworld](https://github.com/Azure-Samples/aci-helloworld)
 - [YAML reference: Azure Container Instances](container-instances-reference-yaml.md)
+- [Secure your codeless REST API with automatic HTTPS using Data API builder and Caddy](https://www.azureblue.io/secure-your-codeless-rest-api-with-automatic-https-using-data-api-builder-and-caddy/)
