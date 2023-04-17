@@ -128,8 +128,8 @@
   items:
     - name: What is v2?
       href: concept-v2.md
-   - name: Work with Data
-     items:
+    - name: Work with Data
+      items:
         # v1
         - name: Data access
           href: ./v1/concept-data.md
