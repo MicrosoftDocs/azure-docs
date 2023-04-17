@@ -13,7 +13,7 @@ Azure Functions integrates with [Azure Storage](../storage/index.yml) via [trigg
 
 | Action | Type |
 |---------|---------|
-| Trigger on a Dapr binding, service invocation, or topic subscription | [Trigger](./functions-bindings-dapr-trigger.md) |
+| Trigger a Dapr binding, service invocation, or topic subscription | [Trigger](./functions-bindings-dapr-trigger.md) |
 | Pull in Dapr state and secrets | [Input binding](./functions-bindings-dapr-input.md) |
 | Send a value to a Dapr topic or output binding |[Output binding](./functions-bindings-storage-blob-output.md) |
 
@@ -46,7 +46,7 @@ This extension is available by installing the [Microsoft.Azure.WebJobs.Extension
 Using the .NET CLI:
 
 ```dotnetcli
-NuGet\Install-Package Dapr.AzureFunctions.Extension -Version 0.10.0-preview01
+dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 ``` 
 
 [!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
@@ -72,7 +72,7 @@ Add the extension to your project by installing the [Microsoft.Azure.Functions.W
 Using the .NET CLI:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs --version 5.0.0
+dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 ``` 
 
 [!INCLUDE [functions-bindings-storage-extension-v5-isolated-worker-tables-note](../../includes/functions-bindings-storage-extension-v5-isolated-worker-tables-note.md)]
@@ -87,25 +87,84 @@ Functions version 1.x doesn't support isolated worker process.
 
 ---
 
-
 ::: zone-end
 
-::: zone pivot="programming-language-java"
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-
-::: zone-end
-
-::: zone pivot="programming-language-powershell"
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"
 
 <!-- Do the manual func install extension stuff here. -->
 ::: zone-end
 
-Next steps
-<!--Use the next step links from the original article.-->
+::: zone pivot="programming-language-csharp"
+
+## Binding types
+
+The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
+   
+# [In-process class library](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
+# [Isolated process](#tab/isolated-process)
+
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
+
+---
+
+Choose a version to see binding type details for the mode and version. 
+
+# [Extension 5.x and higher](#tab/extensionv5/in-process)
+
+The Dapr extension supports parameter types according to the table below.
+
+| Binding | Parameter types |
+|-|-|-| 
+| Dapr trigger | [daprBindingTrigger]<br/>[daprServiceInvocationTrigger]<br/>[daprTopicTrigger]|
+| Dapr input | [daprState]<br/>[daprSecret] |
+| Dapr output | [daprState][dapr-state-output]<br/>[daprInvoke]<br/>[daprPublish]<br/>[daprBinding] |
+
+For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dotnet-azurefunction). 
+
+# [Functions 2.x and higher](#tab/functionsv2/in-process)
+
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+
+# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
+
+The isolated worker process supports parameter types according to the table below. Binding to string parameters is currently the only option that is generally available. 
+
+| Binding | Parameter types | Preview parameter types<sup>1</sup> |
+|-|-|-| 
+| Dapr trigger | `string` | [daprBindingTrigger]<br/>[daprServiceInvocationTrigger]<br/>[daprTopicTrigger]|
+| Dapr input | `string` | [daprState]<br/>[daprSecret] |
+| Dapr output | `string` | [daprState][dapr-state-output]<br/>[daprInvoke]<br/>[daprPublish]<br/>[daprBinding] |
+
+
+# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+
+---
+
+[daprBindingTrigger]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/triggers.md#input-binding-trigger
+[daprServiceInvocationTrigger]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/triggers.md#service-invocation-trigger
+[daprTopicTrigger]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/triggers.md#topic-trigger
+
+[daprState]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/input-bindings.md#state-input-binding
+[daprSecret]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/input-bindings.md#state-input-binding
+
+[dapr-state-output]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#topic-publish-output-binding
+[daprInvoke]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#service-invocation-output-binding
+[daprPublish]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#topic-publish-output-binding
+[daprBinding]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#topic-publish-output-binding
+
+::: zone-end
+
+
+## Next steps
+- [Trigger a Dapr binding, service invocation, or topic subscription](./functions-bindings-dapr-trigger.md)
+- [Pull in Dapr state and secrets](./functions-bindings-dapr-input.md)
+- [Send a value to a Dapr topic or output binding](./functions-bindings-dapr-output.md)
