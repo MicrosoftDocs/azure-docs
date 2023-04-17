@@ -68,7 +68,7 @@ Follow these steps to configure your Spring app to connect to an Azure Database 
        --target-resource-group $MYSQL_RESOURCE_GROUP \
        --server $MYSQL_SERVER_NAME \
        --database $DATABASE_NAME \
-       --system-assigned-identity
+       --system-identity mysql-identity-id=$AZ_IDENTITY_RESOURCE_ID
    ```
 
 ### [Service Binding](#tab/Service-Binding)
