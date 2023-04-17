@@ -32,9 +32,7 @@ In this article:
 ## Prerequisites
 
 - A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet).
-
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
-
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://developer.microsoft.com/identity/customers). 
 
 
@@ -101,9 +99,6 @@ cd 1-Authentication\1-sign-in-aspnet-core-mvc
 Learn how to: 
 
 - [Enable password reset](how-to-enable-password-reset-customers.md)
-
 - [Customize the default branding](how-to-customize-branding-customers.md)
-
 - [Configure sign-in with Google](how-to-google-federation-customers.md)
-
 - [Sign in users in your own ASP.NET web application by using Microsoft Entra](how-to-web-app-dotnet-sign-in-overview.md)

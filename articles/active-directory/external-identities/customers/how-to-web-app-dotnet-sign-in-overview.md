@@ -28,7 +28,7 @@ This how-to series is made up of the following steps:
 
 ## Overview
 
-OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use OIDC to securely sign users in to an application. The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) to simplify adding authentication to your ASP.NET web application.
+OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use OIDC to securely sign users in to an application. The application you build uses [Microsoft Identity Web](https://github.com/AzureAD/microsoft-identity-web) to simplify adding authentication to your ASP.NET web application.
 
 The sign-in flow involves the following steps:
 
@@ -40,14 +40,12 @@ The sign-in flow involves the following steps:
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org).
-
+- A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
-
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://developer.microsoft.com/identity/customers). 
 
 
-If you want to run a sample Node.js web application to get a feel of how things work, complete the steps in [Sign in users in a sample Node.js web application by using Microsoft Entra](how-to-web-app-dotnet-sample-sign-in.md)
+If you want to run a sample ASP.NET web application to get a feel of how things work, complete the steps in [Sign in users in a sample Node.js web application by using Microsoft Entra](how-to-web-app-dotnet-sample-sign-in.md)
 
 ## Next steps
 
