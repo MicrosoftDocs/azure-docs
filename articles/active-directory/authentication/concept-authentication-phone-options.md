@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 04/17/2023
 
 ms.author: justinha
 author: justinha
@@ -44,7 +44,14 @@ Microsoft doesn't guarantee consistent SMS or voice-based Azure AD Multi-Factor 
 
 ### Text message verification
 
-With text message verification during SSPR or Azure AD Multi-Factor Authentication, an SMS is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface.
+With text message verification during SSPR or Azure AD Multi-Factor Authentication, an SMS is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface. 
+
+On Android devices, MFA text messages may be sent over Rich Communication Services (RCS) rather than SMS. RCS offers encryption and other improvements over SMS. Android users can enable RCS on their device. 
+
+The MFA text message is similar to SMS, but RCS messages have more branding customization:
+
+:::image type="content" source="media/concept-authentication-methods/brand.png" alt-text="Screenshot branding customization":::
+
 
 ### Phone call verification
 
