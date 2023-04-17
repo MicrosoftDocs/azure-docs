@@ -26,17 +26,17 @@ This tutorial assumes a basic understanding of Kubernetes concepts. For more inf
 
 - You have installed the latest version of the `aks-preview` extension, version 0.5.102 or later.
 
-- The identity you are using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
+- The identity you're using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [az account][az-account] command.
 
 ## Create a resource group
 
-An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are prompted to specify a location. This location is:
+An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is:
 
 * The storage location of your resource group metadata.
-* Where your resources will run in Azure if you don't specify another region during resource creation.
+* Where your resources run in Azure if you don't specify another region during resource creation.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -257,7 +257,7 @@ The following output resembles successful creation of the pod:
 pod/quick-start created
 ```
 
-To check whether all properties are injected properly by the webhook, use
+To check whether all properties are injected properly with the webhook, use
 the [kubectl describe][kubelet-describe] command:
 
 ```bash
