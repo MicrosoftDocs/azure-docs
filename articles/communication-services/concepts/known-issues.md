@@ -27,6 +27,10 @@ Firefox desktop browser support is now available in public preview. Known issues
 - Enumerating speakers is not available: If you're using Firefox, your app won't be able to enumerate or select speakers through the Communication Services device manager. In this scenario, you must select devices via the operating system. 
 - Virtual cameras are not currently supported when making Firefox desktop audio\video calls. 
 
+### iOS Chrome Known Issues
+iOS Chrome browser support is now available in public preview. Known issues are:
+- No outgoing and incoming audio when switching browser to background or locking the device
+- No incoming/outgoing audio coming from bluetooth headset. When using the bluetooth headset in the middle of ACS call, the audio still comes out from the speaker until the user locks and unlocks the phone. We have seen this issue on older iOS versions (15.6, 15.7), and the issue is not reproducible on iOS 16
 
 ### iOS 16 introduced bugs when putting browser in the background during a call
 The iOS 16 release has introduced a bug that can stop the ACS audio\video call when using Safari mobile browser. Apple is aware of this issue and is looking for a fix on their side. The impact could be that an ACS call might stop working during a call and the only resolution to get it working again is to have the end customer restart their phone. 
