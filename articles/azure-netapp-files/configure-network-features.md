@@ -77,14 +77,17 @@ This section shows you how to set the network features option when you create a 
 
 ## Edit network features option for existing volumes
 
-You can edit the network features option for existing volumes and set it to use *Standard* or *Basic* network features. The setting applies to all volumes in the same network sibling set. 
+You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same network sibling set.
+
+You can also revert the option from *Standard* back to *Basic* network features, but considerations apply and require careful planning. For example, you might need to change configurations for Network Security Groups (NSGs), user-defined routes (UDRs), and IP limits if you revert. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for constraints about Standard and Basic network features.
+
 
 > [!IMPORTANT]
 > Updating the network features option might cause a network disruption on the volumes for up to 5 minutes. 
 
 1. Navigate to the volume that you want to change the network features option. 
 2. Select **Change network features**. 
-3. The **Edit network features** window displays the volumes that are in the same network sibling set. In the **Network features** filed, specify whether you want these volumes to use **Standard** or **Basic** network features. 
+3. The **Edit network features** window displays the volumes that are in the same network sibling set. Confirm whether you want to modify the network features option. 
 
     :::image type="content" source="../media/azure-netapp-files/edit-network-features.png" alt-text="Screenshot showing the Edit Network Features window" lightbox="../media/azure-netapp-files/edit-network-features.png":::
 
