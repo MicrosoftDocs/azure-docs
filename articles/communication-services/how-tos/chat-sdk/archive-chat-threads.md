@@ -75,9 +75,10 @@ Follow these steps for archiving messages:
 - Validate the [events](../../how-tos/event-grid/view-events-request-bin.md) by configuring your resource to receive these events
 - Test your Event Grid handler [locally](../../how-tos/event-grid/local-testing-event-grid.md) to ensure that you are receiving events that you need for archiving.
 
-[!Note]: you would have to pay for [events](https://azure.microsoft.com/pricing/details/event-grid/). 
+> [!Note]
+> You would have to pay for [events](https://azure.microsoft.com/pricing/details/event-grid/). 
 
-## Next Steps
+## Next steps
 
 * For an introduction to Azure Event Grid Concepts, see [Concepts in Event Grid](../../../event-grid/concepts.md)
 * Service [Limits](../../concepts/service-limits.md)
