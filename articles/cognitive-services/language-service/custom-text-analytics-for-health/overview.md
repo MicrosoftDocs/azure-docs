@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: overview
 ms.date: 04/14/2023
 ms.author: aahi
-ms.custom: language-service-custom-ta4h, ignite-fall-2021, event-tier1-build-2022
+ms.custom: language-service-custom-ta4h
 ---
 
 # What is custom Text Analytics for health? 
