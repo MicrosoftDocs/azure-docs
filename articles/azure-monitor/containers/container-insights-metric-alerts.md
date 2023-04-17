@@ -50,6 +50,8 @@ The methods currently available for creating Prometheus alert rules are Azure Re
 > [!NOTE]
 > Although you can create the Prometheus alert in a resource group different from the target resource, use the same resource group as your target resource.
 
+---
+
 ### Edit Prometheus alert rules
 
  To edit the query and threshold or configure an action group for your alert rules, edit the appropriate values in the ARM template and redeploy it by using any deployment method.
