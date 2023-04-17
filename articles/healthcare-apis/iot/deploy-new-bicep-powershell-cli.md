@@ -4,21 +4,20 @@ description: In this article, you'll learn how to deploy the MedTech service usi
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-bicep, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 1/5/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI
 
-Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
+Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
 
-In this quickstart, you'll learn how to:
-
-> [!div class="checklist"]
-> - Use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
+In this quickstart, you'll learn how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
 
 > [!TIP]
 > To learn more about Bicep, see [What is Bicep?](../../azure-resource-manager/bicep/overview.md?tabs=bicep)
@@ -174,7 +173,7 @@ When deployment is completed, the following resources and access roles are creat
 
 - A Health Data Services workspace.
 
-- A Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
+- A Health Data Services FHIR service.
 
 - A Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
@@ -183,17 +182,17 @@ When deployment is completed, the following resources and access roles are creat
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
   
 > [!IMPORTANT]
-> In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+> In this quickstart, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
 >
-> To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+> To learn more about the MedTech service resolution types **Create** and **Lookup**, see [Destination properties](deploy-new-config.md#destination-properties).
 
 ## Post-deployment mappings
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
-- To learn about device mappings, see [How to configure device mappings](how-to-configure-device-mappings.md).
+- To learn about the device mapping, see [Overview of the device mapping](overview-of-device-mapping.md).
 
-- To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md).
+- To learn about the FHIR destination mapping, see [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md).
 
 ## Clean up Azure PowerShell deployed resources
 

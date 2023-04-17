@@ -5,9 +5,9 @@ documentationcenter: .net
 author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
+ms.custom: devx-track-arm-template
 ms.date: 09/27/2021
 ms.author: spelluru 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Create a Service Bus namespace by using an Azure Resource Manager template

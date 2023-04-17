@@ -1396,6 +1396,11 @@
             "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/azure-resource-manager/managed-applications/cli-samples.md",
+          "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/managed-applications/concepts-custom-providers-built-in-policy.md",
             "redirect_url": "/azure/azure-resource-manager/custom-providers/concepts-built-in-policy",
             "redirect_document_id": false
@@ -1409,6 +1414,11 @@
             "source_path_from_root": "/articles/managed-applications/concepts-custom-role-definition.md",
             "redirect_url": "/azure/azure-resource-manager/managed-applications/concepts-custom-role-definition",
             "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-resource-manager/managed-applications/concepts-custom-role-definition.md",
+          "redirect_url": "/azure/azure-resource-manager/managed-applications/overview",
+          "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/managed-applications/concepts-managed-applications-built-in-policy.md",
@@ -1581,6 +1591,11 @@
             "redirect_document_id": false
         },
         {
+          "source_path_from_root": "/articles/azure-resource-manager/managed-applications/powershell-samples.md",
+          "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/managed-applications/publish-managed-app-definition-quickstart.md",
             "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
             "redirect_document_id": false
@@ -1600,6 +1615,11 @@
             "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-portal",
             "redirect_document_id": false
         },
+        {
+          "source_path_from_root": "/articles/azure-resource-manager/managed-applications/publish-portal.md",
+          "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
+          "redirect_document_id": false
+      },
         {
             "source_path_from_root": "/articles/managed-applications/publish-service-catalog-app.md",
             "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
@@ -1879,6 +1899,31 @@
             "source_path_from_root": "/articles/xplat-cli-azure-resource-manager.md",
             "redirect_url": "/azure/azure-resource-manager/management/manage-resources-cli",
             "redirect_document_id": false
-        }
+        },
+        {
+          "source_path_from_root": "/articles/azure-resource-manager/managed-applications/scripts/managed-application-define-create-cli-sample.md",
+          "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-resource-manager/managed-applications/scripts/managed-application-powershell-sample-create-definition.md",
+          "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-resource-manager/managed-applications/scripts/managed-application-poweshell-sample-create-application.md",
+          "redirect_url": "/azure/azure-resource-manager/managed-applications/deploy-service-catalog-quickstart",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-resource-manager/managed-applications/scripts/managed-application-powershell-sample-get-managed-group-resize-vm.md",
+          "redirect_url": "/azure/azure-resource-manager/managed-applications/overview",
+          "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/governance/policy/tutorials/policy-as-code-github.md",
+            "redirect_url": "/azure/governance/policy/concepts/policy-as-code",
+            "redirect_document_id": false
+          }
     ]
 }

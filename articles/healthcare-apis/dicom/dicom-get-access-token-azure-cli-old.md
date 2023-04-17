@@ -4,6 +4,7 @@ description: This article explains how to obtain an access token for the DICOM s
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/02/2022
 ms.author: mmitrik

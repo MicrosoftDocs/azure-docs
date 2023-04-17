@@ -7,7 +7,9 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 11/17/2021
 ms.author: mbender
+ms.custom: template-concept
 ---
+
 # What's new in Azure Load Balancer?
 
 Azure Load Balancer is updated regularly. Stay up to date with the latest announcements. This article provides you with information about:

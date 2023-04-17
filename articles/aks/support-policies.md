@@ -1,7 +1,6 @@
 ---
 title: Support policies for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) support policies, shared responsibility, and features that are in preview (or alpha or beta).
-services: container-service
 ms.topic: article
 ms.date: 09/18/2020
 
@@ -89,7 +88,7 @@ Microsoft and users share responsibility for Kubernetes agent nodes where:
   * `Kube-proxy`
   * Networking tunnels that provide communication paths to the Kubernetes master components
   * `Kubelet`
-  * Docker or `containerd`
+  * `containerd`
 
 > [!NOTE]
 > If an agent node is not operational, AKS might restart individual components or the entire agent node. These restart operations are automated and provide auto-remediation for common issues. If you want to know more about the auto-remediation mechanisms, see [Node Auto-Repair](node-auto-repair.md)

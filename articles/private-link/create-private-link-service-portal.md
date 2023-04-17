@@ -1,16 +1,17 @@
 ---
-title: 'Quickstart - Create a Private Link service by using the Azure portal'
+title: 'Quickstart - Create a Private Link service - Azure portal'
 titleSuffix: Azure Private Link
-description: Learn how to create a Private Link service by using the Azure portal in this quickstart
+description: Learn how to create a Private Link service using the Azure portal in this quickstart.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/17/2022
 ms.author: allensu
-ms.custom: mode-ui
+ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone with a basic network background who's new to Azure, I want to create an Azure Private Link service by using the Azure portal
 ---
+
 # Quickstart: Create a Private Link service by using the Azure portal
 
 Get started creating a Private Link service that refers to your service. Give Private Link access to your service or resource deployed behind an Azure Standard Load Balancer. Users of your service have private access from their virtual network.

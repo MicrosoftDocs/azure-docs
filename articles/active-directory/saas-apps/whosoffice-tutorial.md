@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with WhosOffice | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with WhosOffice'
 description: Learn how to configure single sign-on between Azure Active Directory and WhosOffice.
 services: active-directory
 author: jeevansd

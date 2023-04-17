@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/19/2021
+ms.date: 03/03/2023
 ms.author: jomondi
 ms.reviewer: sureshja, saumadan
 ---
@@ -47,6 +47,13 @@ The owner of the application or Global Administrator or Application Administrato
 ## I need more details about certificate signing options
 
 In Azure AD, you can set up certificate signing options and the certificate signing algorithm. To learn more, see [Advanced SAML token certificate signing options for Azure AD apps](certificate-signing-options.md).
+
+## What type of certificate can I use for configuring the SAML Certificate for single sign-on?
+
+The recommendation for the SAML single sign-on certificate depends on your organization's security requirements and policies. 
+If your organization has an internal certificate authority (PKI), using a certificate from the internal PKI can provide a higher level of security and trust. This is because the internal PKI is under the control of your organization and can be managed and monitored to ensure the security of the certificate.
+
+On the other hand, if your organization doesn't have an internal certificate authority, using a certificate from an external certificate authority such as DigiCert can provide a higher level of trust and security. This is because external certificate authorities are trusted by many organizations and are subject to strict security and validation requirements.
 
 ## I need to replace the certificate for Azure AD Application Proxy applications and need more instructions
 

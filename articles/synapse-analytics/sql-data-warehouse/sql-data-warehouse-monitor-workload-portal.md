@@ -16,7 +16,7 @@ This article describes how to use the Azure portal to monitor your workload. Thi
 
 ## Prerequisites
 
-- Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- Azure subscription: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 - SQL pool: We will be collecting logs for a SQL pool. If you don't have a SQL pool provisioned, see the instructions in [Create a SQL pool](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## Create a Log Analytics workspace

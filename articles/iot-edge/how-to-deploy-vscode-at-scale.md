@@ -220,7 +220,7 @@ After you have configured the deployment manifest and configured tags in the dev
 
 1. Provide values as prompted, starting with the **deployment ID**.
 
-   ![Specify a deployment ID](./media/how-to-deploy-monitor-vscode/create-deployment-at-scale.png)
+   :::image type="content" source="./media/how-to-deploy-monitor-vscode/create-deployment-at-scale.png" alt-text="Screenshot showing how to specify a deployment ID.":::
 
    Specify values for these parameters:
 

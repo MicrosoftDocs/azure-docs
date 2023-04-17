@@ -4,26 +4,29 @@ description: In this article, you'll learn about the different methods for deplo
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ms.topic: quickstart
-ms.date: 1/18/2023
+ms.date: 03/10/2023
 ms.author: jasteppe
 ---
 
 # Quickstart: Choose a deployment method for the MedTech service
 
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
 The MedTech service provides multiple methods for deployment into Azure. Each deployment method has different advantages that will allow you to customize your deployment to suit your needs and use cases.
 
 In this quickstart, you'll learn about these deployment methods:
 
-> [!div class="checklist"]
-> - Azure Resource Manager template (ARM template) including an Azure Iot Hub using the **Deploy to Azure** button. 
-> - ARM template using the **Deploy to Azure** button.
-> - ARM template using Azure PowerShell or the Azure CLI.
-> - Manually in the Azure portal. 
+- Azure Resource Manager template (ARM template) including an Azure Iot Hub using the **Deploy to Azure** button. 
+- ARM template using the **Deploy to Azure** button.
+- ARM template using Azure PowerShell or the Azure CLI.
+- Manually in the Azure portal. 
 
 ## ARM template including an Azure Iot Hub using the Deploy to Azure button
 
- Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service and Azure IoT Hub are fully functional including conforming and valid device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings. Use the Azure IoT Hub to create devices and send device messages to the MedTech service.
+ Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service and Azure IoT Hub are fully functional including conforming and valid device and FHIR destination mappings. Use the Azure IoT Hub to create devices and send device messages to the MedTech service.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors-with-iothub%2Fazuredeploy.json)
 
@@ -70,7 +73,7 @@ The following diagram outlines the basic steps of the MedTech service deployment
 
 In this quickstart, you learned about the different types of deployment methods for the MedTech service. 
 
-To learn more about the MedTech service, see
+To learn about the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [What is the MedTech service?](overview.md)

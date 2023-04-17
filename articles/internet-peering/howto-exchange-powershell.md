@@ -1,6 +1,6 @@
 ---
 title: Create or modify an Exchange peering - PowerShell
-description: Create or modify an Exchange peering using PowerShell
+description: Create or modify an Exchange peering using PowerShell.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering

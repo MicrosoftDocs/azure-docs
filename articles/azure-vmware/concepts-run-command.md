@@ -21,6 +21,8 @@ Azure VMware Solution supports the following operations:
 
 - [Deploy disaster recovery using JetStream](deploy-disaster-recovery-using-jetstream.md)
 
+- [Use HCX Run commands](use-hcx-run-commands.md)
+
 >[!NOTE]
 >Run commands are executed one at a time in the order submitted.
 
@@ -28,7 +30,11 @@ Azure VMware Solution supports the following operations:
 
 You can view the status of any executed run command, including the output, errors, warnings, and information logs of the cmdlets.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+    
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
+
 
 1. Select **Run command** > **Run execution status**.
 

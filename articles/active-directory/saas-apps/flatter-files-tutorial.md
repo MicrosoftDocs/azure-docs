@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Flatter Files | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Flatter Files'
 description: Learn how to configure single sign-on between Azure Active Directory and Flatter Files.
 services: active-directory
 author: jeevansd

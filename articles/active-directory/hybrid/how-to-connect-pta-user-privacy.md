@@ -1,5 +1,5 @@
 ---
-title: User Privacy and Azure Active Directory Pass-through Authentication | Microsoft Docs
+title: User Privacy and Azure Active Directory Pass-through Authentication
 description: This article deals with Azure Active Directory (Azure AD) Pass-through Authentication and GDPR compliance.
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, GDPR, required components for Azure AD, SSO, Single Sign-on

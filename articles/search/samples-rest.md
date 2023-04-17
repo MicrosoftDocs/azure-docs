@@ -17,7 +17,7 @@ Learn about the REST API samples that demonstrate the functionality and workflow
 
 REST is the definitive programming interface for Azure Cognitive Search, and all operations that can be invoked programmatically are available first in REST, and then in SDKs. For this reason, most examples in the documentation leverage the REST APIs to demonstrate or explain important concepts.
 
-REST samples are usually developed and tested on Postman, but you can use any client that supports HTTP calls, including the [Postman desktop app](https://www.postman.com/downloads/). [This quickstart](search-get-started-rest.md) explains how to formulate the HTTP request from end-to-end.
+REST samples are usually developed and tested on Postman, but you can use any client that supports HTTP calls, including the [Postman app](https://www.postman.com/downloads/). [This quickstart](search-get-started-rest.md) explains how to formulate the HTTP request from end-to-end.
 
 ## Doc samples
 

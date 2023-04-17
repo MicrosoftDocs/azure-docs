@@ -38,4 +38,4 @@ ms.date: 01/24/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Governance capability improvements in Defender for Cloud](episode-twenty-six.md)

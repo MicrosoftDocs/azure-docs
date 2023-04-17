@@ -4,11 +4,12 @@ description: Troubleshooting issues caused by applications that don't support TL
 services: cloud-services
 author: hirenshah1
 ms.author: hirshah
-tags: top-support-issue
+ms.custom: compute-evergreen 
+tag: top-support-issue 
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.workload: 
-ms.date: 03/16/2020
+ms.date: 02/21/2023
 ---
 
 # Troubleshooting applications that don't support TLS 1.2

@@ -2,12 +2,10 @@
 title: 'How to configure Virtual WAN Hub routing policies'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure Virtual WAN routing policies
-services: virtual-wan
 author: wtnlee
-
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 02/13/2023
 ms.author: wellee
 
 ---

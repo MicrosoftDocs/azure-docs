@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Rhombus Systems | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Rhombus Systems'
 description: Learn how to configure single sign-on between Azure Active Directory and Rhombus Systems.
 services: active-directory
 author: jeevansd

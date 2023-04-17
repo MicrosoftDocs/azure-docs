@@ -17,7 +17,7 @@ Azure Front Door supports upgrading from Standard to Premium tier for more advan
 > Upgrading Azure Front Door tier is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article will walk you through how to perform the tier upgrade on the configuration page of a Front Door Standard profile. Once upgraded, you'll be charge for the Azure Front Door Premium monthly base fee at an hourly rate.
+This article will walk you through how to perform the tier upgrade on the configuration page of a Front Door Standard profile. Once upgraded, you'll be charged for the Azure Front Door Premium monthly base fee at an hourly rate.
 
 > [!IMPORTANT]
 > Downgrading from Premium to Standard tier is not supported.

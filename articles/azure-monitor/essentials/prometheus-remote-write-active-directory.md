@@ -145,7 +145,25 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     ```yml
     prometheus:
       prometheusSpec:
-        cluster: <CLUSTER-NAME>
+        cluster: <CLUSTER-NAME>  
+  
+        ##	Azure Managed Prometheus currently exports some default mixins in Grafana.  
+        ##  These mixins are compatible with data scraped by Azure Monitor agent on your 
+        ##  Azure Kubernetes Service cluster. These mixins aren't compatible with Prometheus 
+        ##  metrics scraped by the Kube Prometheus stack. 
+        ##  To make these mixins compatible, uncomment the remote write relabel configuration below:
+
+	      ##	writeRelabelConfigs:
+	      ##	  - sourceLabels: [metrics_path]
+	      ##	    regex: /metrics/cadvisor
+	      ##	    targetLabel: job
+	      ##	    replacement: cadvisor
+	      ##	    action: replace
+	      ##	  - sourceLabels: [job]
+	      ##	    regex: 'node-exporter'
+	      ##	    targetLabel: job
+	      ##	    replacement: node
+	      ##	    action: replace  
 
         ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write
         remoteWrite:

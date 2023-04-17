@@ -2,9 +2,9 @@
 title: Premium block blob storage accounts
 titleSuffix: Azure Storage
 description: Achieve lower and consistent latencies for Azure Storage workloads that require fast and consistent response times.
-author: jimmart-dev
+author: tamram
 
-ms.author: jammart
+ms.author: tamram
 ms.date: 10/14/2021
 ms.service: storage
 ms.subservice: blobs
@@ -43,7 +43,7 @@ In most cases, workloads executing more than 35 to 40 transactions per second pe
 > [!NOTE]
 > Prices differ per operation and per region. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to compare pricing between standard and premium performance tiers.
 
-The following table demonstrates the cost-effectiveness of premium block blob storage accounts. The numbers in this table are based on a Azure Data Lake Storage Gen2 enabled premium block blob storage account (also referred to as the [premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md)). Each column represents the number of transactions in a month. Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed.
+The following table demonstrates the cost-effectiveness of premium block blob storage accounts. The numbers in this table are based on an Azure Data Lake Storage Gen2 enabled premium block blob storage account (also referred to as the [premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md)). Each column represents the number of transactions in a month. Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed.
 
 For example, assuming that your account is in the East US 2 region, the number of transactions with your account exceeds 90M, and 70% of those transactions are read transactions, premium block blob storage accounts are more cost-effective.
 

@@ -225,14 +225,14 @@ The Azure services that support each encryption model:
 | Data Lake Storage Gen2           | Yes                | Yes, including Managed HSM | Yes                |
 | Avere vFXT                       | Yes                | -                  | -                  |
 | Azure Cache for Redis            | Yes                | N/A\*              | -                  |
-| Azure NetApp Files               | Yes                | Yes                | -                  |
+| Azure NetApp Files               | Yes                | Yes                | Yes                |
 | Archive Storage                  | Yes                | Yes                | -                  |
 | StorSimple                       | Yes                | Yes                | Yes                |
 | Azure Backup                     | Yes                | Yes                | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
 | Data Box Edge                    | Yes                | Yes                | -                  |
 | **Other**                        |                    |                    |                    |
-| Microsoft Energy Data Services   | Yes                | -                  | Yes                |
+| Azure Data Manager for Energy Preview  | Yes                | -                  | Yes                |
 
 \* This service doesn't persist data. Transient caches, if any, are encrypted with a Microsoft key.
 

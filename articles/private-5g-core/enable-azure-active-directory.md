@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Enable Azure Active Directory (Azure AD) for local monitoring tools
 
-Azure Private 5G Core provides the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) tools for monitoring your deployment at the edge. You can access these tools using [Azure Active Directory (Azure AD)](/azure/active-directory/authentication/overview-authentication) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
+Azure Private 5G Core provides the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) tools for monitoring your deployment at the edge. You can access these tools using [Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) or a local username and password. We recommend setting up Azure AD authentication to improve security in your deployment.
 
 In this how-to guide, you'll carry out the steps you need to complete after deploying or configuring a site that uses Azure AD to authenticate access to your local monitoring tools. You don't need to follow this if you decided to use local usernames and passwords to access the distributed tracing and packet core dashboards.
 
@@ -21,7 +21,7 @@ In this how-to guide, you'll carry out the steps you need to complete after depl
 - You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md) and [Collect the required information for a site](collect-required-information-for-a-site.md).
 - You must have deployed a site with Azure Active Directory set as the authentication type.
 - Identify the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. [Azure AD built-in roles](/azure/active-directory/roles/permissions-reference) that have the required permissions include, for example, Application administrator, Application developer, and Cloud application administrator.
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. [Azure AD built-in roles](../active-directory/roles/permissions-reference.md) that have the required permissions include, for example, Application administrator, Application developer, and Cloud application administrator.
 - Ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Set up kubectl access](commission-cluster.md#set-up-kubectl-access).
 
 ## Configure domain system name (DNS) for local monitoring IP
@@ -36,7 +36,7 @@ You'll now register a new local monitoring application with Azure AD to establis
 
 If your deployment contains multiple sites, you can use the same two redirect URIs for all sites, or create different URI pairs for each site. You can configure a maximum of two redirect URIs per site. If you've already registered an application for your deployment and you want to use the same URIs across your sites, you can skip this step.
 
-1. Follow [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app) to register a new application for your local monitoring tools with the Microsoft identity platform.
+1. Follow [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) to register a new application for your local monitoring tools with the Microsoft identity platform.
     1. In *Add a redirect URI*, select the **Web** platform and add the following two redirect URIs, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](#configure-domain-system-name-dns-for-local-monitoring-ip):
     
         - https://*\<local monitoring domain\>*/sas/auth/aad/callback
@@ -44,7 +44,7 @@ If your deployment contains multiple sites, you can use the same two redirect UR
 
     1. In *Add credentials*, follow the steps to add a client secret. Make sure to record the secret under the **Value** column, as this field is only available immediately after secret creation. This is the **Client secret** value that you'll need later in this procedure.
 
-1. Follow [App roles UI](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) to create three roles for your application (Admin, Viewer, and Editor) with the following configuration:
+1. Follow [App roles UI](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to create three roles for your application (Admin, Viewer, and Editor) with the following configuration:
 
     - In **Allowed member types**, select **Users/Groups**.
     - In **Value**, enter one of **Admin**, **Viewer**, and **Editor** for each role you're creating.
@@ -52,7 +52,7 @@ If your deployment contains multiple sites, you can use the same two redirect UR
 
     You'll be able to use these roles when managing access to the packet core dashboards.
 
-1. Follow [Assign users and groups to roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#assign-users-and-groups-to-roles) to assign users and groups to the roles you created.
+1. Follow [Assign users and groups to roles](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#assign-users-and-groups-to-roles) to assign users and groups to the roles you created.
 
 ## Collect the information for Kubernetes Secret Objects
 
@@ -111,7 +111,7 @@ To support Azure AD on Azure Private 5G Core applications, you'll need a YAML fi
 
 You'll need to apply your Kubernetes Secret Objects if you're enabling Azure AD for a site, after a packet core outage, or after updating the Kubernetes Secret Object YAML file.
 
-1. Sign in to [Azure Cloud Shell](/azure/cloud-shell/overview) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](/azure/azure-arc/kubernetes/cluster-connect?tabs=azure-cli) to configure kubectl access.
+1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
 1. Apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the core kubeconfig filename.
     
     `kubectl apply -f  /home/centos/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
@@ -149,4 +149,3 @@ Follow this step if you need to update your existing Kubernetes Secret Objects; 
 If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
 
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)
-

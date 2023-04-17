@@ -2,7 +2,7 @@
 title: Stream Microsoft Defender for IoT cloud alerts to a partner SIEM - Microsoft Defender for IoT
 description: Learn how to send Microsoft Defender for IoT data on the cloud to a partner SIEM via Microsoft Sentinel and Azure Event Hubs, using Splunk as an example.
 ms.date: 12/26/2022
-ms.topic: how-to
+ms.topic: integration
 ---
 
 # Stream Defender for IoT cloud alerts to a partner SIEM
