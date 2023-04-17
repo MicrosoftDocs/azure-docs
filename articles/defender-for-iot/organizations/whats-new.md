@@ -168,7 +168,7 @@ Configure your subnets either on the Azure portal or on your OT sensor. For more
 
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#subnet)
-- [Define OT and IoT subnets on the OT sensor](how-to-control-what-traffic-is-monitored#define-ot-and-iot-subnets)
+- [Define OT and IoT subnets on the OT sensor](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets)
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
 
