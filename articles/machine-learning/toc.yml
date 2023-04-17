@@ -807,8 +807,7 @@
               displayName: designer, data, import, dataset, datastore
               href: ./v1/how-to-designer-import-data.md
         # end v1
-  # v1
-    - name: Train models
+#   - name: Train models
       items:
         - name: Train a model (SDK, CLI, REST)
           href: how-to-train-model.md
