@@ -33,7 +33,7 @@ The model will perform predictions on tabular data from the [UCI Heart Disease D
 
 A visualization of the pipeline is as follows:
 
-:::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-overview.png" alt-text="Pipeline showing how the inference pipeline was created" lightbox=""media/how-to-use-batch-scoring-pipeline/pipeline-overview.png":::
+:::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-overview.png" alt-text="Pipeline showing how the inference pipeline was created" lightbox="media/how-to-use-batch-scoring-pipeline/pipeline-overview.png":::
 
 [!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
 
