@@ -65,7 +65,7 @@ In this article, you do the following tasks:
 
 ## Clone or download sample web application
 
-To get the desktop app sample code, [download the .zip file]() or clone the sample web application from GitHub by running the following command:
+To get the desktop app sample code, [download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) or clone the sample web application from GitHub by running the following command:
 
 ```powershell
 git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
