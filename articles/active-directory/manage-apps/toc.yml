@@ -140,7 +140,7 @@
         href: hide-application-from-user-portal.md
     - name: Migrate applications
       items:
-      - name: Migrate an AD FS app to Azure
+      - name: Migrate an AD FS app to Azure AD
         href: migrate-adfs-apps-to-azure.md
       - name: Migrate application authentication to Azure Active Directory
         href: migrate-application-authentication-to-azure-active-directory.md
