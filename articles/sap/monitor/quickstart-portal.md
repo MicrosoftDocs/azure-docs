@@ -52,9 +52,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In Azure **Marketplace** or **Search**, select **Azure Monitor for SAP solutions (classic)**.
+1. In Azure **Marketplace** or **Search**, select **Azure Monitor for SAP solutions (classic)**.
 
-  ![Diagram shows Azure Monitor for SAP solutions classic quick start page.](./media/quickstart-portal/azure-monitor-quickstart-classic.png)
+   ![Diagram shows Azure Monitor for SAP solutions classic quick start page.](./media/quickstart-portal/azure-monitor-quickstart-classic.png)
 
 
 1. On the **Basics** tab, provide the required values. If applicable, you can use an existing Log Analytics workspace.
