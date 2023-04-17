@@ -3,10 +3,10 @@ title: "Azure Operator Nexus: How to configure the Cluster deployment"
 description: Learn the steps for deploying the Operator Nexus Cluster.
 author: JAC0BSMITH
 ms.author: jacobsmith
-ms.service: azure-operator-nexus #Required; service per approved list. slug assigned by ACOM.
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 03/03/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 03/03/2023
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Create and provision a Cluster using Azure CLI
@@ -121,7 +121,7 @@ az networkcloud cluster show --resource-group "$CLUSTER_RG" \
   --resource-name "$CLUSTER_RESOURCE_NAME"
 ```
 
-The Cluster deployment is complete when the `provisioningState` of the resource
+The Cluster creation is complete when the `provisioningState` of the resource
 shows: `"provisioningState": "Succeeded"`
 
 ### Cluster logging
@@ -133,9 +133,8 @@ Cluster create Logs can be viewed in the following locations:
 
 ## Deploy Cluster
 
-Once a Cluster has been created and the Rack Manifests have been added, the
-deploy cluster action can be triggered. The deploy Cluster action creates the
-bootstrap image and deploys the Cluster.
+Once a Cluster has been created, the deploy cluster action can be triggered.
+The deploy Cluster action creates the bootstrap image and deploys the Cluster.
 
 Deploy Cluster initiates a sequence of events to occur in the Cluster Manager
 
@@ -152,7 +151,8 @@ Deploy the on-premises Cluster:
 az networkcloud cluster deploy \
   --name "$CLUSTER_NAME" \
   --resource-group "$CLUSTER_RESOURCE_GROUP" \
-  --subscription "$SUBSCRIPTION_ID"
+  --subscription "$SUBSCRIPTION_ID" \
+  --no-wait --debug 
 ```
 
 > [!TIP]
@@ -224,12 +224,11 @@ See the article [Tracking Asynchronous Operations Using Azure CLI](./howto-track
 View the status of the cluster:
 
 ```azurecli
-az networkcloud Cluster show --resource-group "$CLUSTER_RG" \
+az networkcloud cluster show --resource-group "$CLUSTER_RG" \
   --resource-name "$CLUSTER_RESOURCE_NAME"
 ```
 
-The Cluster deployment is complete when the `provisioningState` of the resource
-shows: `"provisioningState": "Succeeded"`
+The Cluster deployment is complete when detailedStatus is set to `Running` and detailedStatusMessage shows message `Cluster is up and running`.
 
 ## Cluster deployment Logging
 

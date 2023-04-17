@@ -239,7 +239,7 @@ You have now finished the setting up Profile Container. If you are installing Pr
 
 ## Validate profile creation 
 
-Once you've installed and configured Profile Container, you can test your deployment by signing in with a user account that's been assigned an app group or desktop on the host pool. 
+Once you've installed and configured Profile Container, you can test your deployment by signing in with a user account that's been assigned an application group or desktop on the host pool. 
 
 If the user has signed in before, they'll have an existing local profile that they'll use during this session. Either delete the local profile first, or create a new user account to use for tests.
 

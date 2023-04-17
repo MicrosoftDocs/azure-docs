@@ -46,7 +46,7 @@ VPN Gateway helps you create encrypted cross-premises connections to your virtua
 
 The following diagram illustrates multiple site-to-site VPN connections to the same virtual network. To view more connection diagrams, see [VPN Gateway - design](../../vpn-gateway/design.md). For more information about VPN Gateway, see [What is VPN Gateway?](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
-:::image type="content" source="../../vpn-gateway/media/design/vpngateway-multisite-connection-diagram.png" alt-text="Multiple site-to-site Azure VPN Gateway connections.":::
+:::image type="content" source="../../vpn-gateway/media/design/multi-site.png" alt-text="Diagram showing multiple site-to-site Azure VPN Gateway connections.":::
 
 ### <a name="virtualwan"></a>Virtual WAN
 Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. Some of the main features include:

@@ -3,6 +3,7 @@ title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
 ms.date: 01/25/2023
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
 ---
 
 # Connected Machine agent prerequisites
@@ -131,4 +132,3 @@ You can also register the resource providers in the [Azure portal](../../azure-r
 
 * Review the [networking requirements for deploying Azure Arc-enabled servers](network-requirements.md).
 * Before you deploy the Azure Arc-enabled servers agent and integrate with other Azure management and monitoring services, review the [Planning and deployment guide](plan-at-scale-deployment.md).* To resolve problems, review the [agent connection issues troubleshooting guide](troubleshoot-agent-onboard.md).
-
