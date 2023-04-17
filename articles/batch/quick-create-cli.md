@@ -72,14 +72,15 @@ az batch account login \
 
 ## Create a pool of compute nodes
 
-Run the [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) command to create a pool of Linux compute nodes in your Batch account. The following example creates a pool named `myPool` that consists of two Standard_A1_v2 size VMs running Ubuntu 18.04 LTS OS. This node size offers a good balance of performance versus cost for this quickstart example.
+Run the [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) command to create a pool of Linux compute nodes in your Batch account. The following example creates a pool named `myPool` that consists of two Standard_A1_v2 size VMs running Ubuntu 20.04 LTS OS. This node size offers a good balance of performance versus cost for this quickstart example.
 
 ```azurecli-interactive
 az batch pool create \
-    --id myPool --vm-size Standard_A1_v2 \
+    --id myPool \
+    --image canonical:0001-com-ubuntu-server-focal:20_04-lts \
+    --node-agent-sku-id "batch.node.ubuntu 20.04" \
     --target-dedicated-nodes 2 \
-    --image canonical:ubuntuserver:18.04-LTS \
-    --node-agent-sku-id "batch.node.ubuntu 18.04"
+    --vm-size Standard_A1_v2
 ```
 
 Batch creates the pool immediately, but takes a few minutes to allocate and start the compute nodes. To see the pool status, use the [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) command. This command shows all the properties of the pool, and you can query for specific properties. The following command queries for the pool allocation state:
