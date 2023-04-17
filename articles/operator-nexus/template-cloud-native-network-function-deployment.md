@@ -6,7 +6,7 @@ ms.author: dramasamy
 ms.date: 03/02/2023
 ms.topic: sample
 # ms.prod: used for on prem applications
-ms.service: azure
+ms.service: azure-operator-nexus
 ---
 
 # Sample: CNF deployment script

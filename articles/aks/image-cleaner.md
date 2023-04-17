@@ -13,7 +13,7 @@ ms.date: 03/02/2023
 It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images can present security issues as they may contain vulnerabilities. By cleaning these unreferenced images, you can remove an area of risk in your clusters. When done manually, this process can be time intensive, which Image Cleaner can mitigate via automatic image identification and removal.
 
 > [!NOTE]
-> Image Cleaner is a feature based on [Eraser](https://github.com/Azure/eraser).
+> Image Cleaner is a feature based on [Eraser](https://azure.github.io/eraser).
 > On an AKS cluster, the feature name and property name is `Image Cleaner` while the relevant Image Cleaner pods' names contain `Eraser`.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]

@@ -2,7 +2,7 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 03/16/2023
+ms.date: 04/06/2023
 ms.custom: references_regions
 ms.service: backup
 author: jyothisuri
@@ -42,7 +42,7 @@ Archive tier supports the following clients:
 
 ### Supported regions
 
-| Workloads | Preview | Generally available |
+| Workloads | Generally available |
 | --- | --- | --- |
 | SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines |  All regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West. |
 | Azure Virtual Machines |      All regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West, UAE North. |
@@ -112,6 +112,10 @@ To ensure that all recovery points are moved to Archive tier,
 1. Go to **Move Recovery Points** by following [these steps](./use-archive-tier-support.md?pivots=client-portaltier#move-recommended-recovery-points-for-a-particular-azure-virtual-machine).
 
 If the list of recovery points is blank, then all the eligible/recommended recovery points are moved to the vault Archive tier.
+
+### Can I use 'File Recovery' option to restore specific files in Azure VM backup for archived recovery points?
+
+No. Currently, the **File Recovery** option doesn't support restoring specific files from an archived recovery point of an Azure VM backup.
 
 ## Next steps
 

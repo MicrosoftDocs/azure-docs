@@ -6,8 +6,9 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 07/12/2022
+ms.date: 03/17/2023
 ms.author: danlep
+ms.custom: engagement-fy23
 ---
 
 # Authorize developer accounts by using Azure Active Directory in Azure API Management
@@ -154,6 +155,7 @@ Now that you've enabled access for users in an Azure AD tenant, you can:
 Follow these steps to grant:
 * `User.Read` **delegated** permission for Microsoft Graph API. 
 * `Directory.ReadAll` **application** permission for Microsoft Graph API. 
+
 1. Update the first 3 lines of the following Azure CLI script to match your environment and run it.
 
    ```azurecli
@@ -177,7 +179,8 @@ Now you can add external Azure AD groups from the **Groups** tab of your API Man
 1. Under **Developer portal** in the side menu, select **Groups**.
 1. Select the **Add Azure AD group** button.
 
-   !["Screenshot showing Add Azure AD group button.](./media/api-management-howto-aad/api-management-with-aad008.png)
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad008.png" alt-text="Screenshot showing Add Azure AD group button in the portal.":::
+
 1. Select the **Tenant** from the drop-down. 
 1. Search for and select the group that you want to add.
 1. Press the **Select** button.
@@ -191,7 +194,7 @@ Users from the configured Azure AD instance can now:
 * View and subscribe to any groups for which they have visibility.
 
 > [!NOTE]
-> Learn more about the difference between **Delegated** and **Application** permissions types     in [Permissions and consent in the Microsoft identity platform](../active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
+> Learn more about the difference between **Delegated** and **Application** permissions types in [Permissions and consent in the Microsoft identity platform](../active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
 
 ## <a id="log_in_to_dev_portal"></a> Developer portal: Add Azure AD account authentication
 

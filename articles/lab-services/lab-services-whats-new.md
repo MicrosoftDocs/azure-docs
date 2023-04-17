@@ -38,7 +38,7 @@ In this release, there are a few known issues:
 
 - When using virtual network injection, use caution in making changes to the virtual network and subnet.  Changes may cause the lab VMs to stop working. For example, deleting your virtual network will cause all the lab VMs to stop working. We plan to improve this experience in the future, but for now make sure to delete labs before deleting networks.
 - Moving lab plan and lab resources from one Azure region to another isn't supported.
-- Azure Compute [resource provider must be registered](../azure-resource-manager/management/resource-providers-and-types.md) before Azure Lab Services can [create and attach an Azure Compute Gallery resource](how-to-attach-detach-shared-image-gallery.md#create-and-attach-a-compute-gallery).
+- Azure Compute [resource provider must be registered](../azure-resource-manager/management/resource-providers-and-types.md) before Azure Lab Services can [create and attach an Azure Compute Gallery resource](how-to-attach-detach-shared-image-gallery.md#attach-an-existing-compute-gallery-to-a-lab-plan).
 
 ### Lab plans replace lab accounts
 

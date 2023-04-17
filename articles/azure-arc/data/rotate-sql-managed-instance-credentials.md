@@ -4,8 +4,8 @@ description: Rotate SQL Managed Instance service-managed credentials (preview)
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: GuptaSeattle
-ms.author: guptapra
+author: MikeRayMSFT
+ms.author: mikeray
 ms.reviewer: mikeray
 ms.date: 03/06/2023
 ms.topic: how-to

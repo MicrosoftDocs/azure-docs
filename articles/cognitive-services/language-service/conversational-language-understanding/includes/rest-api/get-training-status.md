@@ -5,9 +5,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/12/2022
+ms.date: 03/17/2023
 ms.author: aahi
 ---
+
+When you send a successful training request, the full request URL for checking the job's status (including your endpoint, project name, and job ID) is contained in the response's `operation-location` header. 
 
 Use the following **GET** request to get the status of your model's training progress. Replace the placeholder values below with your own values. 
 
@@ -21,7 +23,7 @@ Use the following **GET** request to get the status of your model's training pro
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `EmailApp` |
-|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received when submitted your training job.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
+|`{JOB-ID}`     | The ID for locating your model's training status.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 |`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-05-01` |
 
 ### Headers

@@ -23,7 +23,7 @@ A point release to address user-reported bugs.
 ### Bug fixes
 - Fix [Hide the IDMS dependency from dependency tracker.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/17)
 - Fix [ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/19)
-<br>Snapshot Collector used via SDK is not supported when Interop feature is enabled. [See more not supported scenarios.](/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot.md#not-supported-scenarios)
+<br>Snapshot Collector used via SDK is not supported when Interop feature is enabled. [See more not supported scenarios.](snapshot-debugger-troubleshoot.md#not-supported-scenarios)
 
 ## [1.4.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.2)
 A point release to address a user-reported bug.
@@ -36,7 +36,7 @@ A point release to revert a breaking change introduced in 1.4.0.
 - Fix [Method not found in WebJobs](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/15)
 
 ## [1.4.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.0)
-Address multiple improvements and added support for Azure Active Directory (AAD) authentication for Application Insights ingestion.
+Address multiple improvements and added support for Azure Active Directory (Azure AD) authentication for Application Insights ingestion.
 ### Changes
 - Snapshot Collector package size reduced by 60%. From 10.34 MB to 4.11 MB.
 - Target netstandard2.0 only in Snapshot Collector.
@@ -118,7 +118,7 @@ A point release to address a couple of high-impact issues.
 
 ## [1.3.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.1)
 - Remove support for collecting snapshots with the RtlCloneUserProcess API and only support PssCaptureSnapshots API.
-- Increase the default limit on how many snapshot can be captured in 10 minutes from 1 to 3.
+- Increase the default limit on how many snapshots can be captured in 10 minutes from 1 to 3.
 - Allow SnapshotUploader.exe to negotiate TLS 1.1 and 1.2
 - Report additional telemetry when SnapshotUploader logs a warning or an error
 - Stop taking snapshots when the backend service reports the daily quota was reached (50 snapshots per day)

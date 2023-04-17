@@ -7,7 +7,7 @@ ms.topic: reference
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.date: 03/16/2023
+ms.date: 04/03/2023
 ms.custom: contperf-fy21q1, ignite-2022
 ---
 
@@ -38,7 +38,7 @@ To view the list of parameters, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at
 | `Shutdown` | Shuts down the emulator. | `Microsoft.Azure.Cosmos.Emulator.exe /Shutdown` |
 | `DataPath` | Specifies the path in which to store data files. The default value is `%LocalAppdata%\CosmosDBEmulator`. | `Microsoft.Azure.Cosmos.Emulator.exe /DataPath=E:\SomeDataFolder` |
 | `Port` | Specifies the port number to use for the emulator. The default value is `8081`. | `Microsoft.Azure.Cosmos.Emulator.exe /Port=65000` |
-| `ComputePort` | Specified the port number to use for the compute interop gateway service. The gateway's HTTP endpoint probe port is calculated as `ComputePort + 79`. Hence, `ComputePort` and `ComputePort + 79` must be open and available. The default value is `8900`. | `Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=65100` |
+| `ComputePort` | Specifies the port number to use for the compute interop gateway service. The gateway's HTTP endpoint probe port is calculated as `ComputePort + 79`. Hence, `ComputePort` and `ComputePort + 79` must be open and available. The default value is `8900`. | `Microsoft.Azure.Cosmos.Emulator.exe /ComputePort=65100` |
 | `EnableMongoDbEndpoint=3.2` | Enables API for MongoDB version 3.2. | `Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.2` |
 | `EnableMongoDbEndpoint=3.6` | Enables API for MongoDB version 3.6. | `Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=3.6` |
 | `EnableMongoDbEndpoint=4.0` | Enables API for MongoDB version 4.0. | `Microsoft.Azure.Cosmos.Emulator.exe /EnableMongoDbEndpoint=4.0` |
@@ -76,13 +76,13 @@ To view the list of parameters, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at
 The emulator comes with a PowerShell module to start, stop, uninstall, and retrieve the status of the service. Run the following cmdlet to use the PowerShell module:
 
 ```powershell
-Import-Module "$env:ProgramFiles\emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 ```
 
 or place the `PSModules` directory on your `PSModulePath` and import it as shown in the following command:
 
 ```powershell
-$env:PSModulePath += ";$env:ProgramFiles\emulator\PSModules"
+$env:PSModulePath += ";$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
 Import-Module Microsoft.Azure.CosmosDB.Emulator
 ```
 

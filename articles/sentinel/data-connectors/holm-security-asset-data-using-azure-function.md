@@ -1,6 +1,6 @@
 ---
-title: "Holm Security Asset Data (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Holm Security Asset Data (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Holm Security Asset Data (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Holm Security Asset Data (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Holm Security Asset Data (using Azure Function) connector for Microsoft Sentinel
+# Holm Security Asset Data (using Azure Functions) connector for Microsoft Sentinel
 
 The connector provides the capability to poll data from Holm Security Center into Microsoft Sentinel.
 
@@ -40,7 +40,7 @@ web_assets_Cl
 
 ## Prerequisites
 
-To integrate with Holm Security Asset Data (using Azure Function) make sure you have: 
+To integrate with Holm Security Asset Data (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **Holm Security API Token**: Holm Security API Token is required. [Holm Security API Token](https://support.holmsecurity.com/hc/en-us)

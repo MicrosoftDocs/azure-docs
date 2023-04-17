@@ -8,8 +8,8 @@ metadata:
   description: Learn about Azure Managed Grafana
   ms.service: managed-grafana
   ms.topic: landing-page
-  author: maud-lv
-  ms.author: malev
+  author: mcleanbyron
+  ms.author: mcleans
   ms.date: 01/18/2023
 
 landingContent:
@@ -51,7 +51,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Modify permissions
+          - text: Modify access to Azure Monitor
             url: how-to-permissions.md
           - text: Share an instance
             url: how-to-share-grafana-workspace.md

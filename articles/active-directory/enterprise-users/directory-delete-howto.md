@@ -135,7 +135,9 @@ A few enterprise applications can't be deleted in the Azure portal and might blo
 5. Run the following commands to set the tenant context.  DO NOT skip these steps or you run the risk of deleting enterprise apps from the wrong teant.
 
    `Clear-AzContext -Scope CurrentUser`
+
    `Connect-AzAccount -Tenant \<object id of the tenant you are attempting to delete\>`
+   
    `Get-AzContext`
 
     >[!WARNING]

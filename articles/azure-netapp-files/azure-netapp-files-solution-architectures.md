@@ -23,7 +23,7 @@ For businesses looking to migrate their applications and workloads to Azure, Azu
 
 In addition to migration, Azure NetApp Files provides a platform for running specialized workloads in High-Performance Computing (HPC) like Analytics, Oil and Gas, and Electronic Design Automation (EDA). These specialized workloads require high-performance computing resources, and Azure NetApp Files’ scalable and high-performance file storage solution provides the ideal platform for running these workloads in Azure. Azure NetApp Files also supports running Virtual Desktop Infrastructure (VDI) with Azure Virtual Desktop and Citrix, as well as Azure VMware Solution with guest OS mounts and datastores. 
 
-Azure NetApp Files’ integration with Azure native services like Azure Kubernetes Service, Azure Batch, and ML provides users with a seamless experience and enables them to leverage the full power of Azure's cloud-native services. This integration allows businesses to run their workloads in a scalable, secure, and highly performant environment, providing them with the confidence they need to run mission-critical workloads in the cloud.
+Azure NetApp Files’ integration with Azure native services like Azure Kubernetes Service, Azure Batch, and Azure Machine Learning provides users with a seamless experience and enables them to leverage the full power of Azure's cloud-native services. This integration allows businesses to run their workloads in a scalable, secure, and highly performant environment, providing them with the confidence they need to run mission-critical workloads in the cloud.
 
 The following diagram depicts the categorization of reference architectures, blueprints and solutions on this page as laid out in the above introduction:
 

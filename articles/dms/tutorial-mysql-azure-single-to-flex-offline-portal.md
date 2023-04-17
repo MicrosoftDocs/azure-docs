@@ -108,6 +108,7 @@ With these best practices in mind, create your target flexible server and then c
     * Additionally, if migrating non-table objects, be sure to use the same name for the target schema as is used on the source.
   * Configure the server parameters on the target flexible server as follows:
     * Set the TLS version and require_secure_transport server parameter to match the values on the source server.
+    * Set the sql_mode server parameter to match the values on the source server.
     * Configure server parameters on the target server to match any non-default values used on the source server.
     * To ensure faster data loads when using DMS, configure the following server parameters as described.
       * max_allowed_packet – set to 1073741824 (i.e., 1 GB) to prevent any connection issues due to large rows.
@@ -187,6 +188,8 @@ To register the Microsoft.DataMigration resource provider, perform the following
 
 11. Select **Go to resource**.
      :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/9-1-go-to-resource.png" alt-text="Screenshot of a Select Go to resource.":::
+
+12. Identify the IP address of the DMS instance from the resource overview page and create a firewall rule for your source single server and target flexible server allow-listing the IP address of the DMS instance.
 
 ### Create a migration project
 

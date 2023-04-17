@@ -14,7 +14,7 @@ ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
 
-# Customize the schedule of workflows
+# Customize the schedule of workflows (Preview)
 
 Workflows created using Lifecycle Workflows can be fully customized to match the schedule that fits your organization's needs. By default, workflows are scheduled to run every 3 hours, but the interval can be set as frequent as 1 hour, or as infrequent as 24 hours.
 
