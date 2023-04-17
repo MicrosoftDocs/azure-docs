@@ -27,7 +27,7 @@ Use the following steps to run a workflow on-demand.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
+1. Type in **Identity Governance** on the search bar near the top of the page and select it.
 
 1. On the left menu, select **Lifecycle workflows (Preview)**.
 

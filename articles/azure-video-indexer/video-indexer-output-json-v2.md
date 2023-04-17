@@ -70,7 +70,7 @@ This section shows a summary of the insights.
 |`duration`|The time when an insight occurred, in seconds.|
 |`thumbnailVideoId`|The ID of the video from which the thumbnail was taken.|
 |`thumbnailId`|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Thumbnail) and pass it `thumbnailVideoId` and `thumbnailId`.|
-|`faces/animatedCharacters`|Contains zero or more faces. For more information, see [faces/animatedCharacters](#facesanimatedcharacters).|
+|`faces`|Contains zero or more faces. For more information, see [faces](#faces).|
 |`keywords`|Contains zero or more keywords. For more information, see [keywords](#keywords).|
 |`sentiments`|Contains zero or more sentiments. For more information, see [sentiments](#sentiments).|
 |`audioEffects`| Contains zero or more audio effects. For more information, see [audioEffects](#audioeffects-preview).|
@@ -146,7 +146,7 @@ A face might have an ID, a name, a thumbnail, other metadata, and a list of its 
 |`ocr`|The [OCR](#ocr) insight.|
 |`keywords`|The [keywords](#keywords) insight.|
 |`transcripts`|Might contain one or more [transcript](#transcript).|
-|`faces/animatedCharacters`|The [faces/animatedCharacters](#facesanimatedcharacters) insight.|
+|`faces`|The [faces](#faces) insight.|
 |`labels`|The [labels](#labels) insight.|
 |`shots`|The [shots](#shots) insight.|
 |`brands`|The [brands](#brands) insight.|
@@ -294,11 +294,9 @@ Example:
 }
 ```
 
-#### faces/animatedCharacters
+#### faces
 
-The `animatedCharacters` element replaces `faces` if the video was indexed with an animated characters model. This indexing is done through a custom model in Custom Vision. Azure Video Indexer runs it on keyframes.
-
-If faces (not animated characters) are present, Azure Video Indexer uses the Face API on all the video's frames to detect faces and celebrities.
+If faces are present, Azure Video Indexer uses the Face API on all the video's frames to detect faces and celebrities.
 
 |Name|Description|
 |---|---|

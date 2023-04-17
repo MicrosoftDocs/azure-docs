@@ -1,5 +1,5 @@
 ---
-title: 'Lifecycle workflows FAQs - Azure AD (preview)'
+title: 'Lifecycle workflows FAQs (preview)'
 description: Frequently asked questions about Lifecycle workflows (preview).
 services: active-directory
 author: amsliu

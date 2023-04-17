@@ -45,9 +45,12 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 | Cloud tiering recall size by application | Size of data recalled by application.<br><br>Unit: Bytes<br>Aggregation Type: Average, Sum<br>Applicable dimensions: Application Name, Server Name, Sync Group Name |
 | Cloud tiering recall success rate | Percentage of recall requests that were successful.<br><br>Unit: Percentage<br>Aggregation Type: Average<br>Applicable dimensions: Server Endpoint Name, Server Name, Sync Group Name |
 | Cloud tiering recall throughput | Size of data recall throughput.<br><br>Unit: Bytes<br>Aggregation Type: Average, Sum, Maximum, Minimum<br>Applicable dimensions: Server Name, Sync Group Name |
+| Cloud tiering size of data tiered | Size of data tiered to Azure File Share.<br><br>Unit: Bytes<br>Aggregation Type: Average, Sum, Max, Min<br>Applicable dimensions: Server Endpoint Name, Server Name, Sync Group Name |
+| Cloud tiering size of data tiered by last maintenance job | Size of data tiered during last maintenance job.<br><br>Unit: Bytes<br>Aggregation Type: Sum, Average, Max, Min<br>Applicable dimensions: Tiering Reason, Server Endpoint Name, Server Name, Sync Group Name |
 | Files not syncing | Count of files that are failing to sync.<br><br>Unit: Count<br>Aggregation Types: Average<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 | Files synced | Count of files transferred (upload and download).<br><br>Unit: Count<br>Aggregation Type: Average, Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 | Server cache size | Size of data cached on the server.<br><br>Unit: Bytes<br>Aggregation Type: Average, Maximum, Minimum<br>Applicable dimension: Server Endpoint Name, Server Name, Sync Group Name |
+| Cache data size by last access time | Size of data by last access time.<br><br>Unit: Bytes<br>Aggregation Type: Average, Max, Min<br>Applicable dimension: Last Access Time, Server Endpoint Name, Server Name, Sync Group Name |
 | Server online status | Count of heartbeats received from the server.<br><br>Unit: Count<br>Aggregation Type: Average, Count, Sum, Maximum, Minimum<br>Applicable dimension: Server Name |
 | Sync session result | Sync session result (1=successful sync session; 0=failed sync session)<br><br>Unit: Count<br>Aggregation Types: Average, Count, Sum, Maximum, Minimum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 

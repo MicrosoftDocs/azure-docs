@@ -1,5 +1,5 @@
 ---
-title: Use Azure custom roles in PIM - Azure AD | Microsoft Docs
+title: Use Azure custom roles in PIM
 description: Learn how to use Azure custom roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

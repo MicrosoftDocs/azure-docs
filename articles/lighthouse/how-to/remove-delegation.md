@@ -3,7 +3,6 @@ title: Remove access to a delegation
 description: Learn how to remove access to resources that were delegated to a service provider for Azure Lighthouse.
 ms.date: 03/02/2023
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Remove access to a delegation

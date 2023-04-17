@@ -1,6 +1,6 @@
 ---
 title: Configure Azure Database for MySQL metric alerts
-description: This article describes how to configure and access metric alerts for Azure Database for MySQL Flexible Server from the Azure portal.
+description: This article describes how to configure and access metric alerts for Azure Database for MySQL - Flexible Server from the Azure portal.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -32,7 +32,7 @@ You can configure and get information about alert rules using:
 
 ## Create an alert rule on a metric from the Azure portal
 
-1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for MySQL flexible server you want to monitor.
+1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for MySQL - Flexible Server you want to monitor.
 2. Under the **Monitoring** section of the sidebar, select **Alerts**.
 3. Select **+ New alert rule**.
 4. The **Create rule** page opens. Fill in the required information.
@@ -70,5 +70,5 @@ Once you create an alert, you can select it and do the following actions:
 ## Next steps
 
 * Learn more about [setting alert on metrics](../../azure-monitor/alerts/alerts-metric.md).
-* Learn more about available [metrics in Azure Database for MySQL Flexible Server](./concepts-monitoring.md).
+* Learn more about available [metrics in Azure Database for MySQL - Flexible Server](./concepts-monitoring.md).
 * [Understand how metric alerts work in Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md).

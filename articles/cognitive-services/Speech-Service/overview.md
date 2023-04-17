@@ -41,14 +41,30 @@ Speech feature summaries are provided below with links for more information.
 
 ### Speech-to-text
 
-Use [speech-to-text](speech-to-text.md) to transcribe audio into text, either in real time or asynchronously. 
+Use [speech-to-text](speech-to-text.md) to transcribe audio into text, either in [real-time](#real-time-speech-to-text) or asynchronously with [batch transcription](#batch-transcription). 
 
 > [!TIP]
-> You can try speech-to-text in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.
+> You can try real-time speech-to-text in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.
 
-Convert audio to text from a range of sources, including microphones, audio files, and blob storage. Use speaker diarisation to determine who said what and when. Get readable transcripts with automatic formatting and punctuation. 
+Convert audio to text from a range of sources, including microphones, audio files, and blob storage. Use speaker diarization to determine who said what and when. Get readable transcripts with automatic formatting and punctuation. 
 
 The base model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, you can create and train [custom speech models](custom-speech-overview.md) with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
+
+### Real-time speech-to-text
+
+With [real-time speech-to-text](get-started-speech-to-text.md), the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech-to-text for applications that need to transcribe audio in real-time such as:
+- Transcriptions, captions, or subtitles for live meetings
+- Contact center agent assist
+- Dictation
+- Voice agents
+- Pronunciation assessment
+
+### Batch transcription
+
+[Batch transcription](batch-transcription.md) is used to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. Use batch transcription for applications that need to transcribe audio in bulk such as:
+- Transcriptions, captions, or subtitles for pre-recorded audio
+- Contact center post-call analytics
+- Diarization
 
 ### Text-to-speech
 
@@ -74,7 +90,7 @@ With [text to speech](text-to-speech.md), you can convert input text into humanl
 
 ### Intent recognition
 
-[Intent recognition](./intent-recognition.md): Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. 
+[Intent recognition](./intent-recognition.md): Use speech-to-text with conversational language understanding to derive user intents from transcribed speech and act on voice commands. 
 
 ## Delivery and presence
 

@@ -1,5 +1,5 @@
 ---
-title: Preparing for an access review of users' access to an application - Azure AD
+title: Preparing for an access review of users' access to an application
 description: Planning for a successful access reviews campaign for a particular application starts with understanding how to model access for that application in Azure AD.
 services: active-directory
 documentationCenter: ''

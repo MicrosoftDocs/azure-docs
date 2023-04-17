@@ -1,5 +1,5 @@
 ---
-title: Passwordless security key sign-in - Azure Active Directory
+title: Passwordless security key sign-in
 description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys
 
 services: active-directory
@@ -47,7 +47,7 @@ Registration features for passwordless authentication methods rely on the combin
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy**.
-1. Under the method **FIDO2 Security Key**, click **All users**, or click **Add groups** to select specific groups.
+1. Under the method **FIDO2 Security Key**, click **All users**, or click **Add groups** to select specific groups. *Only security groups are supported*.
 1. **Save** the configuration.
 
    >[!NOTE]
@@ -72,7 +72,7 @@ There are some optional settings on the **Configure** tab to help manage how sec
 
 To remove a FIDO2 key associated with a user account, delete the key from the user’s authentication method.
 
-1. Sign in to the Azure AD portal and search for the user account from which the FIDO key is to be removed.
+1. Sign in to the Azure portal and search for the user account from which the FIDO key is to be removed.
 1. Select **Authentication methods** > right-click **FIDO2 security key** and click **Delete**. 
 
     ![View Authentication Method details](media/howto-authentication-passwordless-deployment/security-key-view-details.png)

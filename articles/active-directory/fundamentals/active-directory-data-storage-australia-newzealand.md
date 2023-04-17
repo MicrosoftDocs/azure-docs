@@ -1,5 +1,5 @@
 ---
-title: Customer data storage for Australian and New Zealand customers - Azure AD
+title: Customer data storage for Australian and New Zealand customers
 description: Learn about where Azure Active Directory stores customer-related data for its Australian and New Zealand customers.
 services: active-directory
 author: barclayn

@@ -3,7 +3,7 @@ title: Using MSIXMGR tool - Azure
 description: How to use the MSIXMGR tool for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/23/2021
+ms.date: 03/20/2023
 ms.author: helohr
 manager: femila
 ---
@@ -12,7 +12,7 @@ manager: femila
 The MSIXMGR tool is for expanding MSIX-packaged applications into MSIX images. The tool takes an MSIX-packaged application (.MSIX) and expands it into a VHD, VHDx, or CIM file. The resulting MSIX image is stored in the Azure Storage account that your Azure Virtual Desktop deployment uses.This article will show you how to use the MSIXMGR tool.
 
 >[!NOTE]
->To guarantee compatibility, make sure the CIMs storing your MSIX images are generated on the OS version you're running in your Azure Virtual Desktop host pools. MSIXMGR can create CIM files, but you can only use those files with a host pool running Windows 10 20H2.
+>To guarantee compatibility, make sure the CIM files storing your MSIX images are generated on a version of Windows that is lower than or equal to the version of Windows where you are planning to run the MSIX packages. For example, CIM files generated on Windows 11 may not work on Windows 10.
 
 ## Requirements
 

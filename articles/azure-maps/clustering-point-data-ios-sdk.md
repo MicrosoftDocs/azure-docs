@@ -2,8 +2,8 @@
 title: Clustering point data in the iOS SDK
 titleSuffix: Microsoft Azure Maps
 description: Learn how to cluster point data on maps. See how to use the Azure Maps iOS SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -12,7 +12,7 @@ services: azure-maps
 
 # Clustering point data in the iOS SDK (Preview)
 
-When visualizing many data points on the map, data points may overlap over each other. The overlap may cause the map may become unreadable and difficult to use. Clustering point data is the process of combining point data that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. When you work with large number of data points, use the clustering processes to improve your user experience.
+When displaying many data points on the map, data points may overlap over each other. The overlap may cause the map may become unreadable and difficult to use. Clustering point data is the process of combining point data that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. When you work with large number of data points, use the clustering processes to improve your user experience.
 
 [Internet of Things Show - Clustering point data in Azure Maps](/shows/Internet-of-Things-Show/Clustering-point-data-in-Azure-Maps/player?format=ny)
 
@@ -22,7 +22,7 @@ Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-a
 
 ## Enabling clustering on a data source
 
-Enable clustering in the `DataSource` class by setting the `cluster` option to `true`. Set `clusterRadius` to select nearby data points and combines them into a cluster. The value of `clusterRadius` is in points. Use `clusterMaxZoom` to specify a zoom level at which to disable the clustering logic. Here is an example of how to enable clustering in a data source.
+Enable clustering in the `DataSource` class by setting the `cluster` option to `true`. Set `clusterRadius` to select nearby data points and combines them into a cluster. The value of `clusterRadius` is in points. Use `clusterMaxZoom` to specify a zoom level at which to disable the clustering logic. Here's an example of how to enable clustering in a data source.
 
 ```swift
 // Create a data source and enable clustering.
@@ -49,8 +49,8 @@ The `DataSource` class provides the following methods related to clustering as w
 
 | Method | Return type | Description |
 |--------|-------------|-------------|
-| `children(of cluster: Feature)` | `[Feature]` | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of features and subclusters. The subclusters will be features with properties matching ClusteredProperties. |
-| `zoomLevel(forExpanding cluster: Feature)` | `Double` | Calculates a zoom level at which the cluster will start expanding or break apart. |
+| `children(of cluster: Feature)` | `[Feature]` | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of features and subclusters. The subclusters become features with properties matching ClusteredProperties. |
+| `zoomLevel(forExpanding cluster: Feature)` | `Double` | Calculates a zoom level at which the cluster starts expanding or break apart. |
 | `leaves(of cluster: Feature, offset: UInt, limit: UInt)` | `[Feature]` | Retrieves all points in a cluster. Set the `limit` to return a subset of the points, and use the `offset` to page through the points. |
 
 ## Display clusters using a bubble layer
@@ -59,7 +59,7 @@ A bubble layer is a great way to render clustered points. Use expressions to sca
 
 To display the size of the cluster on top of the bubble, use a symbol layer with text, and don't use an icon.
 
-The following code displays clustered points using a bubble layer, and the number of points in each cluster using a symbol layer. A second symbol layer is used to display individual points that are not within a cluster.
+The following code displays clustered points using a bubble layer, and the number of points in each cluster using a symbol layer. A second symbol layer is used to display individual points that aren't within a cluster.
 
 ```swift
 // Create a data source and enable clustering.
@@ -165,9 +165,9 @@ The following image shows the above code display clustered point features in a b
 
 ## Display clusters using a symbol layer
 
-When visualizing data points, the symbol layer automatically hides symbols that overlap each other to ensure a cleaner user interface. This default behavior might be undesirable if you want to show the data points density on the map. However, these settings can be changed. To display all symbols, set the `iconAllowOverlap` option of the Symbol layer to `true`.
+When displaying data points, the symbol layer automatically hides symbols that overlap each other to ensure a cleaner user interface. This default behavior might be undesirable if you want to show the data points density on the map. However, these settings can be changed. To display all symbols, set the `iconAllowOverlap` option of the Symbol layer to `true`.
 
-Use clustering to show the data points density while keeping a clean user interface. The sample below shows you how to add custom symbols and represent clusters and individual data points using the symbol layer.
+Use clustering to show the data points density while keeping a clean user interface. The following sample shows you how to add custom symbols and represent clusters and individual data points using the symbol layer.
 
 ```swift
 // Load all the custom image icons into the map resources.
@@ -228,7 +228,7 @@ The following image shows the above code rendering clustered and unclustered poi
 
 ## Clustering and the heat map layer
 
-Heat maps are a great way to display the density of data on the map. This visualization method can handle a large number of data points on its own. If the data points are clustered and the cluster size is used as the weight of the heat map, then the heat map can handle even more data. To achieve this option, set the `heatmapWeight` option of the heat map layer to `NSExpression(forKeyPath: "point_count")`. When the cluster radius is small, the heat map will look nearly identical to a heat map using the unclustered data points, but it will perform much better. However, the smaller the cluster radius, the more accurate the heat map will be, but with fewer performance benefits.
+Heat maps are a great way to display the density of data on the map. This visualization method can handle a large number of data points on its own. If the data points are clustered and the cluster size is used as the weight of the heat map, then the heat map can handle even more data. To achieve this option, set the `heatmapWeight` option of the heat map layer to `NSExpression(forKeyPath: "point_count")`. When the cluster radius is small, the heat map looks nearly identical to a heat map using the unclustered data points, but it performs better. However, the smaller the cluster radius, the more accurate the heat map is, but with fewer performance benefits.
 
 ```swift
 // Create a data source and enable clustering.
@@ -263,13 +263,13 @@ map.layers.insertLayer(
 )
 ```
 
-The following image shows the above code display a heat map that is optimized by using clustered point features and the cluster count as the weight in the heat map.
+The following image shows the above code displaying a heat map optimized by using clustered point features and the cluster count as the weight in the heat map.
 
 :::image type="content" source="./media/ios-sdk/cluster-point-data-ios-sdk/ios-cluster-heat-map.gif" alt-text="Map of a heatmap optimized using clustered points as a weight.":::
 
 ## Tap events on clustered data points
 
-When tap events occur on a layer that contains clustered data points, the clustered data point return to the event as a GeoJSON point feature object. This point feature will have the following properties:
+When tap events occur on a layer that contains clustered data points, the clustered data point return to the event as a GeoJSON point feature object. This point feature has the following properties:
 
 | Property name             | Type    | Description   |
 |---------------------------|---------|---------------|
@@ -411,13 +411,13 @@ func azureMap(_ map: AzureMap, didTapOn features: [Feature]) {
 }
 ```
 
-The following image shows the above code display clustered points on a map that when tapped, zoom into the next zoom level that a cluster starts to break apart and expand.
+The following image shows the above code displaying clustered points on a map that when tapped, zoom into the next zoom level that a cluster starts to break apart and expand.
 
 :::image type="content" source="./media/ios-sdk/cluster-point-data-ios-sdk/ios-cluster-expansion.gif" alt-text="Map of clustered features zooming in and breaking apart when tapped.":::
 
 ## Display cluster area
 
-The point data that a cluster represents is spread over an area. In this sample when a cluster is tapped, two main behaviors occur. First, the individual data points contained in the cluster will be used to calculate a convex hull. Then, the convex hull will be displayed on the map to show an area.  A convex hull is a polygon that wraps a set of points like an elastic band and can be calculated using the `convexHull(from:)` method. All points contained in a cluster can be retrieved from the data source using the `leaves(of:offset:limit:)` method.
+The point data that a cluster represents is spread over an area. In this sample when a cluster is tapped, two main behaviors occur. First, the individual data points contained in the cluster used to calculate a convex hull. Then, the convex hull is displayed on the map to show an area.  A convex hull is a polygon that wraps a set of points like an elastic band and can be calculated using the `convexHull(from:)` method. All points contained in a cluster can be retrieved from the data source using the `leaves(of:offset:limit:)` method.
 
 ```swift
 // Create a data source and enable clustering.
@@ -518,7 +518,7 @@ func azureMap(_ map: AzureMap, didTapOn features: [Feature]) {
 }
 ```
 
-The following image shows the above code display the area of all points within a tapped cluster.
+The following image shows the above code displaying the area of all points within a tapped cluster.
 
 :::image type="content" source="./media/ios-sdk/cluster-point-data-ios-sdk/ios-cluster-leaves-convex-hull.gif" alt-text="Map showing convex hull polygon of all points within a tapped cluster.":::
 
@@ -687,7 +687,7 @@ func azureMap(_ map: AzureMap, didTapOn features: [Feature]) {
 
 The popup follows the steps outlined in the [display a popup](Display-feature-information-ios-sdk.md) document.
 
-The following image shows the above code display a popup with aggregated counts of each entity value type for all points in the tapped clustered point.
+The following image shows the above code displaying a popup with aggregated counts of each entity value type for all points in the tapped clustered point.
 
 :::image type="content" source="./media/ios-sdk/cluster-point-data-ios-sdk/ios-cluster-aggregates.gif" alt-text="Map showing popup of aggregated counts of entity types of all points in a cluster.":::
 

@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge (preview) system requirements
 description: Learn about system requirements for Azure Arc resource bridge (preview).
 ms.topic: conceptual
-ms.date: 02/15/2023
+ms.date: 03/23/2023
 ---
 
 # Azure Arc resource bridge (preview) system requirements
@@ -18,6 +18,9 @@ Arc resource bridge is used with other partner products, such as [Azure Stack HC
 If you're deploying on VMware, a x64 Python environment is required. The [pip](https://pypi.org/project/pip/) package installer for Python is also required.
 
 If you're deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
+
+
+Arc Appliance CLI extension, 'arcappliance', needs to be installed on the CLI. This can be done by running: `az extension add --name arcappliance`
 
 ## Minimum resource requirements
 
@@ -88,7 +91,7 @@ The control plane IP has the following requirements:
 
 Arc resource bridge may require a separate user account with the necessary roles to view and manage resources in the on-premises infrastructure (such as Arc-enabled VMware vSphere or Arc-enabled SCVMM). If so, during creation of the configuration files, the `username` and `password` parameters will be required. The account credentials are then stored in a configuration file locally within the appliance VM.  
 
-If the user account is set to periodically change passwords, the credentials must be immediately updated on the resource bridge. This user account may also be set with a lockout policy to protect the on-premises infrastructure, in case the credentials aren't updated and the resource bridge makes multiple attempts to use expired credentials to access the on-premises control center.
+If the user account is set to periodically change passwords, [the credentials must be immediately updated on the resource bridge](maintenance.md#update-credentials-in-the-appliance-vm). This user account may also be set with a lockout policy to protect the on-premises infrastructure, in case the credentials aren't updated and the resource bridge makes multiple attempts to use expired credentials to access the on-premises control center.
 
 For example, with Arc-enabled VMware, Arc resource bridge needs a separate user account for vCenter with the necessary roles. If the [credentials for the user account change](troubleshoot-resource-bridge.md#insufficient-permissions), then the credentials stored in Arc resource bridge must be immediately updated by running `az arcappliance update-infracredentials` from the [management machine](#management-machine-requirements). Otherwise, the appliance will make repeated attempts to use the expired credentials to access vCenter, which will result in a lockout of the account.
 
@@ -116,49 +119,10 @@ Arc resource bridge uses a MOC login credential called [KVA token](/azure-stack/
 
 To use AKS and Arc resource bridge together on Azure Stack HCI, the AKS cluster must be deployed prior to deploying Arc resource bridge. If Arc resource bridge has already been deployed, AKS can't be deployed unless you delete Arc resource bridge first. Once your AKS cluster is deployed to Azure Stack HCI, you can deploy Arc resource bridge.
 
-The following example shows a network configuration setup for Arc resource bridge and AKS clusters when deployed on Azure Stack HCI. Key details are that Arc resource bridge and AKS share the same switch and `ipaddressprefix`, but require different IP addresses for `vippoolstart/end` and `k8snodeippoolstart/end`.
-
-### AKS hybrid
-
-```
-azurestackhciprovider: 
-   virtualnetwork: 
-      name: "mgmtvnet" 
-      vswitchname: "Default Switch" 
-      type: "Transparent" 
-      macpoolname:  
-      vlanid: 0 
-      ipaddressprefix: 172.16.0.0/16 
-      gateway: 17.16.1.1  
-      dnsservers: 17.16.1.1 
-      vippoolstart: 172.16.255.0 
-      vippoolend: 172.16.255.254 
-      k8snodeippoolstart: 172.16.10.0 
-      k8snodeippoolend: 172.16.10.254  
-```
-
-### Arc resource bridge
-
-```
-azurestackhciprovider: 
-   virtualnetwork: 
-      name: "mgmtvnet" 
-      vswitchname: "Default Switch" 
-      type: "Transparent" 
-      macpoolname:  
-      vlanid: 0 
-      ipaddressprefix: 172.16.0.0/16 
-      gateway: 17.16.1.1 
-      dnsservers: 17.16.0.1 
-      vippoolstart: 172.16.250.0 
-      vippoolend: 172.16.250.254 
-      k8snodeippoolstart: 172.16.30.0 
-      k8snodeippoolend: 172.16.30.254 
-```
-
-For instructions for how to deploy Arc resource bridge on Hybrid AKS, see [How to install Azure Arc Resource Bridge on Windows Server - AKS hybrid](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server). 
+When deploying Arc resource bridge with AKS on Azure Stack HCI (AKS Hybrid), the resource bridge should share the same 'vswitchname' and `ipaddressprefix`, but require different IP addresses for `vippoolstart/end` and `k8snodeippoolstart/end`. Arc resource bridge should be given a unique 'vnetname' that is different from the one used for AKS Hybrid. For full instructions to deploy Arc resource bridge on AKS Hybrid, see [How to install Azure Arc Resource Bridge on Windows Server - AKS hybrid](/azure/aks/hybrid/deploy-arc-resource-bridge-windows-server). 
 
 ## Next steps
 
-- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
+- Understand [network requirements for Azure Arc resource bridge (preview)](network-requirements.md).
+- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).

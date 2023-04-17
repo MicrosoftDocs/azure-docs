@@ -1,13 +1,14 @@
 ---
-title: Burst capacity in Azure Cosmos DB (preview)
-description: Learn more about burst capacity in Azure Cosmos DB
+title: Burst capacity (preview)
+titleSuffix: Azure Cosmos DB
+description: Use your database or container's idle throughput capacity to handle spikes of traffic with burst capacity in Azure Cosmos DB.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
 ms.reviewer: dech
-ms.date: 10/26/2022
+ms.date: 03/16/2023
 ---
 
 # Burst capacity in Azure Cosmos DB (preview)
@@ -16,7 +17,7 @@ ms.date: 10/26/2022
 
 Azure Cosmos DB burst capacity (preview) allows you to take advantage of your database or container's idle throughput capacity to handle spikes of traffic. With burst capacity, each physical partition can accumulate up to 5 minutes of idle capacity, which can be consumed at a rate up to 3000 RU/s. With burst capacity, requests that would have otherwise been rate limited can now be served with burst capacity while it's available.
 
-Burst capacity applies only to Azure Cosmos DB accounts using provisioned throughput (manual and autoscale) and doesn't apply to serverless containers. The feature is configured at the Azure Cosmos DB account level and will automatically apply to all databases and containers in the account that have physical partitions with less than 3000 RU/s of provisioned throughput. Resources that have greater than or equal to 3000 RU/s per physical partition won't benefit from or be able to use burst capacity.
+Burst capacity applies only to Azure Cosmos DB accounts using provisioned throughput (manual and autoscale) and doesn't apply to serverless containers. The feature is configured at the Azure Cosmos DB account level and automatically applies to all databases and containers in the account that have physical partitions with less than 3000 RU/s of provisioned throughput. Resources that have greater than or equal to 3000 RU/s per physical partition can't benefit from or use burst capacity.
 
 ## How burst capacity works
 
@@ -31,9 +32,9 @@ After the 10 seconds is over, the burst capacity has been used up. If the worklo
 
 To get started using burst capacity, navigate to the **Features** page in your Azure Cosmos DB account. Select and enable the **Burst Capacity (preview)** feature.
 
-Before enabling the feature, verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#limitations-preview-eligibility-criteria). Once you've enabled the feature, it will take 15-20 minutes to take effect.
+Before enabling the feature, verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#limitations-preview-eligibility-criteria). Once you've enabled the feature, it takes 15-20 minutes to take effect.
 
-:::image type="content" source="media/burst-capacity/burst-capacity-enable-feature.png" alt-text="Screenshot of Burst Capacity feature in Preview Features page in Subscriptions overview in Azure portal.":::
+:::image type="content" source="media/burst-capacity/burst-capacity-enable-feature.png" alt-text="Screenshot of Burst Capacity feature in the Features page in Subscriptions overview in Azure portal.":::
 
 ## Limitations (preview eligibility criteria)
 
@@ -47,5 +48,3 @@ To enroll in the preview, your Azure Cosmos DB account must meet all the followi
 - See the FAQ on [burst capacity.](burst-capacity-faq.yml)
 - Learn more about [provisioned throughput.](set-throughput.md)
 - Learn more about [request units.](request-units.md)
-- Trying to decide between provisioned throughput and serverless? See [choose between provisioned throughput and serverless.](throughput-serverless.md)
-- Want to learn the best practices? See [best practices for scaling provisioned throughput.](scaling-provisioned-throughput-best-practices.md)

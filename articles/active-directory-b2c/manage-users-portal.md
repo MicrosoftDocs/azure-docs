@@ -8,9 +8,10 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/24/2023
+ms.date: 03/30/2023
 ms.author: godonnell
 ms.subservice: B2C
+ms.custom: "b2c-support"
 ---
 
 # Use the Azure portal to create and delete consumer users in Azure AD B2C
@@ -34,7 +35,7 @@ This article focuses on working with **consumer accounts** in the Azure portal. 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. In the left menu, select **Azure Active Directory**. Or, select **All services** and search for and select **Azure Active Directory**.
 1. Under **Manage**, select **Users**.
 1. Select **New user**.
 1. Select **Create Azure AD B2C user**.

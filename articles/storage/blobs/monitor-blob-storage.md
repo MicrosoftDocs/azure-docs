@@ -7,10 +7,10 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 03/13/2023
 ms.author: normesta
 ms.devlang: csharp
-ms.custom: "subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
+ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Monitoring Azure Blob Storage
@@ -50,7 +50,7 @@ You can continue using classic metrics and logs if you want to. In fact, classic
 
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
 
-Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
+Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
 To collect resource logs, you must create a diagnostic setting. When you create the setting, choose **blob** as the type of storage that you want to enable logs for. Then, specify one of the following categories of operations for which you want to collect logs.
 
@@ -69,7 +69,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 
 For general destination limitations, see [Destination limitations](../../azure-monitor/essentials/diagnostic-settings.md#destination-limitations). The following limitations apply only to monitoring Azure Storage accounts.
 
-- You can't send logs to the same storage account that you are monitoring with this setting. 
+- You can't send logs to the same storage account that you're monitoring with this setting. 
 
   This would lead to recursive logs in which a log entry describes the writing of another log entry. You must create an account or use another existing account to store log information.
 
@@ -317,7 +317,7 @@ Log entries are created only if there are requests made against the service endp
 
 The [Activity log](../../azure-monitor/essentials/activity-log.md) is a type of platform log located in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
-When you view a storage account in the Azure portal, the operations called by the portal are also logged. For this reason, you may see operations logged in a storage account even though you have not written any data to the account.
+When you view a storage account in the Azure portal, the operations called by the portal are also logged. For this reason, you may see operations logged in a storage account even though you haven't written any data to the account.
 
 ### Log authenticated requests
 
@@ -331,7 +331,7 @@ When you view a storage account in the Azure portal, the operations called by th
 Requests made by the Blob storage service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-blob-storage-reference.md).
 
 > [!NOTE]
-> Azure Monitor currently filters out logs that describe activity in the `insights-` container. You can track activities in that container by using storage analytics (classic logs).
+> Azure Monitor currently filters out logs that describe activity in the "insights-logs-" container. You can track activities in that container by using storage analytics (classic logs).
 
 ### Log anonymous requests
 
@@ -429,6 +429,14 @@ The following table lists some example scenarios to monitor and the proper metri
 **Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
 
 No. Azure Compute supports the metrics on disks. For more information, see [Per disk metrics for Managed and Unmanaged Disks](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
+
+**What does a dashed line in an Azure Metric chart indicate?**
+
+Some Azure metrics charts, such as the ones that display availability and latency data, use a dashed line to indicate that there's a missing value (also known as null value) between two known time grain data points. For example, if in the time selector you picked `1 minute` time granularity, but the metric was reported at 07:26, 07:27, 07:29, and 07:30, then a dashed line connects 07:27 and 07:29 because there's a minute gap between those two data points. A solid line connects all other data points. The dashed line drops down to zero when the metric uses count and sum aggregation. For the avg, min or max aggregations, a dashed line connects the two nearest known data points. Also, when the data is missing on the rightmost or leftmost side of the chart, the dashed line expands to the direction of the missing data point.
+
+**How do I track availability of my storage account?**
+
+You can configure a resource health alert based on the [Azure Resource Health](../../service-health/resource-health-overview.md) service to track the availability of your storage account. If there are no transactions on the account, then the alert reports based on the health of the Storage cluster where your storage account is located.
 
 ## Next steps
 
