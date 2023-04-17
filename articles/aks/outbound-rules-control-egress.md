@@ -231,5 +231,5 @@ If you want to restrict how pods communicate between themselves and East-West tr
 
 <!-- LINKS - internal -->
 
-[private-clusters]: /private-clusters.md
-[use-network-policies]: /use-network-policies.md
+[private-clusters]: ./private-clusters.md
+[use-network-policies]: ./use-network-policies.md

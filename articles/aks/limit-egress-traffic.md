@@ -639,7 +639,7 @@ In this article, you learned how to secure your outbound traffic using Azure Fir
 <!-- LINKS - internal -->
 
 [az-group-create]: /cli/azure/group#az_group_create
-[outbound-fqdn-rules]: /outbound-rules-control-egress.md
+[outbound-fqdn-rules]: ./outbound-rules-control-egress.md
 [az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
 [az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_update
@@ -653,7 +653,7 @@ In this article, you learned how to secure your outbound traffic using Azure Fir
 [az-network-firewall-application-rule-create]: /cli/azure/network/firewall/application-rule#az_network_firewall_application_rule_create
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
-[az-network-firewall-nat-rule-create]: /cli/azure/network/firewall/nat_rule#az_network_firewall_nat_rule_create
+[az-network-firewall-nat-rule-create]: /cli/azure/network/firewall/nat-rule#az-network-firewall-nat-rule-create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [add role to identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
