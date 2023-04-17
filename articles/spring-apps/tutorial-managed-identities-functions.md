@@ -67,7 +67,7 @@ Make a note of the returned `hostNames` value, which is in the format *https://\
 
 ## Enable Azure Active Directory Authentication
 
-Access the newly created Function app from the [Azure portal](https://portal.azure.com) and select **Authentication / Authorization** from the settings menu. Enable App Service Authentication and set the **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This setting ensures that all unauthenticated requests are denied (401 response).
+Access the newly created Function app from the [Azure portal](https://portal.azure.com) and select **Authentication** from the settings menu. Enable App Service Authentication and set the **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This setting ensures that all unauthenticated requests are denied (401 response).
 
 :::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-1.jpg" alt-text="Screenshot of the Azure portal showing Authentication / Authorization page with Azure Active Directory set as the default provider." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-1.jpg":::
 
