@@ -50,7 +50,7 @@ To run PowerShell as "LocalSystem" in Windows, use the SysInternals tool
 [PSExec](/sysinternals/downloads/psexec).
 
 To run PowerShell as "Root" in Linux, use the
-[Su command](https://manpages.ubuntu.com/manpages/man1/su.1.html).
+[sudo command](https://www.sudo.ws/docs/man/sudo.man/).
 
 ## Validate the configuration package meets requirements
 
