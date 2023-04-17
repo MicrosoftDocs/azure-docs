@@ -128,8 +128,8 @@
   items:
     - name: What is v2?
       href: concept-v2.md
-#   - name: Work with Data
-      items:
+   - name: Work with Data
+     items:
         # v1
         - name: Data access
           href: ./v1/concept-data.md
@@ -147,64 +147,6 @@
             - name: Export and delete data
               displayName: GDPR
               href: how-to-export-delete-data.md
-#   - name: Train models
-      items:
-        - name: Model training
-          displayName: run config, machine learning pipeline, ml pipeline, train model
-          href: concept-train-machine-learning-model.md
-        # v1
-        - name: Model training
-          displayName: run config, machine learning pipeline, ml pipeline, train model
-          href: ./v1/concept-train-machine-learning-model-v1.md
-        # end v1
-        - name: Distributed training
-          displayName: parallellization, deep learning, deep neural network, dnn
-          href: concept-distributed-training.md
-        - name: Deep learning
-          displayName: deep learning vs machine learning, deep learning, vs, versus
-          href: concept-deep-learning-vs-machine-learning.md
-        - name: MLflow models
-          displayName: tracking models, mlflow, custom, flavors
-          href: concept-mlflow-models.md
-        - name: AutoML
-          items:
-            - name: Automated ML overview
-              displayName: automl, auto ml
-              href: concept-automated-ml.md
-            # v1
-            - name: Automated ML overview
-              displayName: automl, auto ml
-              href: ./v1/concept-automated-ml-v1.md
-            # end v1
-            - name: Time series forecasting
-              items:
-                - name: Forecasting methods
-                  displayName: auto ML, time series, forecasting, methods
-                  href: concept-automl-forecasting-methods.md
-                - name: Deep learning models
-                  displayName: auto ML, time series, forecasting, deep learning, TCN
-                  href: concept-automl-forecasting-deep-learning.md
-                - name: Model sweeping and selection
-                  displayName: auto ML, time series, forecasting, model selection, sweeping
-                  href: concept-automl-forecasting-sweeping.md
-                - name: Calendar features
-                  displayName: auto ML, time series, calendar features, holiday features
-                  href: concept-automl-forecasting-calendar-features.md
-                - name: Lag features
-                  displayName: auto ML, time series, lags
-                  href: concept-automl-forecasting-lags.md
-            - name: Overfitting & imbalanced data
-              displayName: automl, auto ml, risks
-              href: concept-manage-ml-pitfalls.md
-        - name: Designer (drag-n-drop ML)
-          items:
-            - name: Designer overview
-              displayName: studio
-              href: concept-designer.md
-            - name: Algorithm cheat sheet
-              href: algorithm-cheat-sheet.md
-            - name: How to select algorithms
-              href: how-to-select-algorithms.md
     - name: Deploy models
       items:
         - name: Endpoints
@@ -623,7 +565,7 @@
          - name: Automated ML overview
            displayName: automl, auto ml
            href: ./v1/concept-automated-ml-v1.md
-         # end v1
+          # end v1
          - name: Time series forecasting
            items:
              - name: Forecasting methods
