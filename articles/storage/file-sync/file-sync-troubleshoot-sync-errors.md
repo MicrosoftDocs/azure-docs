@@ -20,7 +20,9 @@ This article is designed to help you troubleshoot and resolve common sync issues
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 <a id="serverendpoint-pending"></a>**Server endpoint health is in a pending state for several hours**  
-This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. The change enumeration job that scans for changes in the Azure file share must complete before files can sync between the cloud and server endpoints. The time to complete the job is dependent on the size of the namespace in the Azure file share. The server endpoint health should update once the change enumeration job completes.
+This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. The cloud change enumeration job that scans for changes in the Azure file share must complete before files can sync between the cloud and server endpoints. The time to complete the job is dependent on the size of the namespace in the Azure file share. The server endpoint health should update once the change enumeration job completes.
+
+To check the status of the cloud change enumeration job, go the Cloud Endpoint properties in the portal and the status is provided in the Change Enumeration section.
 
 ### <a id="broken-sync"></a>How do I monitor sync health?
 # [Portal](#tab/portal1)
@@ -781,7 +783,7 @@ Server endpoint provisioning fails with this error code if these conditions are 
 * This server endpoint was provisioned with the initial sync mode: [server authoritative](file-sync-server-endpoint-create.md#initial-sync-section)
 * Local server path is empty or contains no items recognized as able to sync.
 
-This provisioning error protects you from deleting all content that might be available in an Azure file share. Server authoritative upload is a special mode to catch up a cloud location that was already seeded, with the updates from the server location. Review this [migration guide](../files/storage-files-migration-server-hybrid-databox.md) to understand the scenario for which this mode has been built for.
+This provisioning error protects you from deleting all content that might be available in an Azure file share. Server authoritative upload is a special mode to catch up a cloud location that was already seeded, with the updates from the server location. Review this [migration guide](../files/storage-files-migration-server-hybrid-databox.md) to understand the scenario for which this mode has been built.
 
 1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
 1. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](file-sync-server-endpoint-create.md).
