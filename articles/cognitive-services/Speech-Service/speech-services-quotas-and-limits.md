@@ -95,7 +95,7 @@ This section describes text-to-speech quotas and limits per Speech resource. Unl
 |--|--|--|
 | File size (plain text in SSML)<sup>1</sup>  | 3,000 characters per file | 20,000 characters per file |
 | File size (lexicon file)<sup>2</sup> | 3,000 characters per file | 20,000 characters per file |
-| Billable characters | 15,000 characters per file | 100,000 characters per file |
+| Billable characters in SSML| 15,000 characters per file | 100,000 characters per file |
 | Export to audio library | 1 concurrent task | N/A |
 
 <sup>1</sup> The limit only applies to plain text in SSML and doesn't include tags.
