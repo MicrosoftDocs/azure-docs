@@ -244,7 +244,7 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
    If the process isn't running, restart it by using the following commands:
 
-   - For Ubuntu: 
+   - For Ubuntu/Debian: 
      ```bash
         sudo systemctl restart walinuxagent
      ```
