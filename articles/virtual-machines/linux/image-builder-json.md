@@ -900,8 +900,6 @@ Before you can distribute to the gallery, you must create a gallery and an image
 ```
 ---
 
-#### replicationRegions
-
 The following JSON is an example of how to use the `replicationRegions` field to distribute to a Shared Image Gallery.
 
 # [JSON](#tab/json)
@@ -916,8 +914,6 @@ The following JSON is an example of how to use the `replicationRegions` field to
 > [!NOTE]
 >`replicationRegions` is deprecated for gallery distributions as `targetRegions` is updated property. For more information, see [targetRegions](../image-builder-api-update-release-notes.md#version-2022-07-01).
 
-
----
 # [Bicep](#tab/bicep)
 
 ```bicep
