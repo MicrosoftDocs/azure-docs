@@ -229,7 +229,7 @@ In this example, you use the [Get Current Conditions API] to retrieve current we
 
 ## Request severe weather alerts
 
-Azure Maps [Get Severe Weather Alerts API] returns the severe weather alerts that are available worldwide from both official Government Meteorological Agencies and leading global to regional weather alert providers. The service can return details such as alert type, category, level, and detailed descriptions about the active severe alerts for the requested location, such as hurricanes, thunderstorms, lightning, heat waves or forest fires. As an example, logistics managers can visualize severe weather conditions on a map, along with business locations and planned routes, and coordinate further with drivers and local workers.
+Azure Maps [Get Severe Weather Alerts API] returns the severe weather alerts that are available worldwide from both official Government Meteorological Agencies and leading global to regional weather alert providers. The service returns details like alert type, category, level. The service also returns detailed descriptions about the active severe alerts for the requested location, such as hurricanes, thunderstorms, lightning, heat waves or forest fires. As an example, logistics managers can visualize severe weather conditions on a map, along with business locations and planned routes, and coordinate further with drivers and local workers.
 
 In this example, you use the [Get Severe Weather Alerts API] to retrieve current weather conditions at coordinates located in Cheyenne, WY.
 
@@ -753,12 +753,12 @@ In this example, you use the [Get Minute Forecast API] to retrieve the minute-by
 > [Weather services]
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Weather services]: /rest/api/maps/weather
 [Get Current Conditions API]: /rest/api/maps/weather/getcurrentconditions
-[Get Severe Weather Alerts API]: /rest/api/maps/weather/getsevereweatheralerts
 [Get Daily Forecast API]: /rest/api/maps/weather/getdailyforecast
 [Get Hourly Forecast API]: /rest/api/maps/weather/gethourlyforecast
 [Get Minute Forecast API]: /rest/api/maps/weather/getminuteforecast
+[Get Severe Weather Alerts API]: /rest/api/maps/weather/getsevereweatheralerts
 [Postman]: https://www.postman.com/
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Weather service concepts]: weather-services-concepts.md
+[Weather services]: /rest/api/maps/weather
