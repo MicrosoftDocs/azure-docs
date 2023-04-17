@@ -36,7 +36,7 @@ The following video provides guidance on planning your HR-driven provisioning in
 
 The Azure AD user provisioning service enables automation of the following HR-based identity lifecycle management scenarios:
 
-- **New employee hiring:** When a new employee is added to the cloud HR app, a user account is automatically created in Active Directory and Azure AD with the option to write back the email address and username attributes to the cloud HR app.
+- **New employee hiring:** When a new employee is added to the cloud HR app, a user account is automatically created in Active Directory and Azure AD. Adding a user account includes the option to write back the email address and username attributes to the cloud HR app.
 - **Employee attribute and profile updates:** When an employee record such as name, title, or manager is updated in the cloud HR app, their user account is automatically updated in Active Directory and Azure AD.
 - **Employee terminations:** When an employee is terminated in the cloud HR app, their user account is automatically disabled in Active Directory and Azure AD.
 - **Employee rehires:** When an employee is rehired in the cloud HR app, their old account can be automatically reactivated or reprovisioned to Active Directory and Azure AD.
