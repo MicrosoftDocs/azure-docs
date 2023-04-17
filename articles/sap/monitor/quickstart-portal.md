@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 3. On the **Basics** tab, provide the required values.
    1. **Workload Region** is the region where the monitoring resources are created, make sure to select a region that is same as your virtual network.
-   2. **Service Region** is automatically selected based on your Workload Region selection.
+   2. **Service Region** is where proxy resource gets created which manages monitoring resources deployed in the workload region. Service region is automatically selected based on your Workload Region selection.
    3. For **Virtual Network** field select a virtual network, which has connectivity to your SAP systems.
    4. For the **Subnet** field, select a subnet that has connectivity to your SAP systems. You can use an existing subnet or create a new subnet. Make sure that you select a subnet, which is an **IPv4/25 block or larger**.
    5. For **Log Analytics Workspace**, you can use an existing Log Analytics workspace or create a new one. If you create a new workspace, it will be created inside the managed resource group along with other monitoring resources.
