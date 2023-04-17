@@ -34,6 +34,9 @@ Your cluster must be configured to send metrics to [Azure Monitor managed servic
 
 The methods currently available for creating Prometheus alert rules are Azure Resource Manager template (ARM template) and Bicep template.
 
+> [!NOTE]
+> Although you can create the Prometheus alert in a resource group different from the target resource, you should use the same resource group.
+
 ### [ARM template](#tab/arm-template)
 
 1. Download the template that includes the set of alert rules you want to enable. For a list of the rules for each, see [Alert rule details](#alert-rule-details).
@@ -46,9 +49,6 @@ The methods currently available for creating Prometheus alert rules are Azure Re
 ### [Bicep template](#tab/bicep)
 
 1. To deploy community and recommended alerts, follow this [template](https://aka.ms/azureprometheus-alerts-bicep) and follow the README.md file in the same folder for how to deploy.
-
-> [!NOTE]
-> Although you can create the Prometheus alert in a resource group different from the target resource, use the same resource group as your target resource.
 
 ---
 
