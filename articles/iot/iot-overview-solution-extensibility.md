@@ -60,7 +60,7 @@ IoT Hub and the Device Provisioning Service (DPS) provide a set of service APIs 
 - Managing enrollment groups (DPS)
 - Managing initial device twin state (DPS)
 
-For a list of the available service APIs, see [Service SDKs](iot-sdks.md#service-sdks)
+For a list of the available service APIs, see [Service SDKs](iot-sdks.md#iot-hub-service-sdks).
 
 ### REST APIs (IoT Central)
 
