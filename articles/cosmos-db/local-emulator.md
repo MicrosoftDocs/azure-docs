@@ -57,7 +57,7 @@ Before you install the emulator, make sure you have the following hardware and s
   * 64-bit operating system
 
 * Minimum hardware requirements:
-  * 2-GB RAM
+  * 4-GB RAM
   * 10-GB available hard disk space
 
 * To install, configure, and run the Azure Cosmos DB Emulator, you must have administrative privileges on the computer. The emulator will add a certificate and also set the firewall rules in order to run its services. Therefore admin rights are necessary for the emulator to be able to execute such operations.
