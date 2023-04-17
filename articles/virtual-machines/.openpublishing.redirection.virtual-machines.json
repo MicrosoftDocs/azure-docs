@@ -6,7 +6,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/virtual-machines/extensions/symantec.md",
+            "source_path_from_root": "/articles/virtual-machines/extensions/symantec.md",
             "redirect_url": "/azure/virtual-machines/overview",
             "redirect_document_id": false
         },
