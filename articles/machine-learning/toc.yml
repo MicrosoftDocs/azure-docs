@@ -494,6 +494,17 @@
     - name: Audit and manage
       displayName: policy
       href: how-to-integrate-azure-policy.md
+- name: Work with Data
+  items:
+  - name: Data Administration
+  - name: Import Data from external sources
+  - name: Access and explore your data
+  - name: Label data
+    items:
+    - name: Setup
+  - name: Prepare data with Apache Spark
+  - name: Productionizing data
+    - name: Managed Feature Store
 - name: Train models
   - name: Automated Machine Learning
     items:
@@ -599,8 +610,8 @@
         href: ./v1/how-to-troubleshoot-auto-ml.md
       # end v1
   - name: Training
-  items:
-  - name: Overview
+    items:
+    - name: Overview
     displayName: run config, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
   # v1
@@ -608,13 +619,13 @@
     displayName: run config, machine learning pipeline, ml pipeline, train model
     href: ./v1/concept-train-machine-learning-model-v1.md
   # end v1
-  - name: Training with CLI and SDK
+    - name: Training with CLI and SDK
     href: how-to-train-model.md
-  - name: Training with UI
-    href: how-to-train-with-ui.md
-  - name: Using secrets in training 
-    href: how-to-use-secrets-in-runs.md
-  - name: Custom Training
+    - name: Training with UI
+     href: how-to-train-with-ui.md
+    - name: Using secrets in training 
+     href: how-to-use-secrets-in-runs.md
+   - name: Custom Training
     items:
     - name: scikit-learn
       href: how-to-train-scikit-learn.md
@@ -626,7 +637,7 @@
       href: how-to-train-pytorch
     - name: Tune Hyperperameters
       href: how-to-tune-hyperperameters.md
-  - name: Distributed Training and deep learning
+   - name: Distributed Training and deep learning
     items:
     - name: Distributed training
       href: concept-distributed-training.md
@@ -636,7 +647,7 @@
       href: reference-checkpoint-performance-for large-models.md
     - name: Deep learning
       href: concept-deep-learning-vs-machine-learning.md
-  - name: Track and monitor
+   - name: Track and monitor
     items:
     - name: Monitor and analyze jobs in studio
       href: how-to-track-monitor-analyze-runs.md
@@ -644,11 +655,11 @@
       href: 
     - name: Query and compare runs
       href: how-to-track-experiments-mlflow.md
-  - name: Debug jobs
+   - name: Debug jobs
     href: how-to-interactive-jobs.md
-  - name: Schedule jobs
+   - name: Schedule jobs
     href: how-to-schedule-pipeline-job.md
-  - name: Common issues and FAQ
+   - name: Common issues and FAQ
 - name: How-to guides
   items:
     - name: Share components, environments, and models
