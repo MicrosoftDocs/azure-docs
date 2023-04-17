@@ -3,7 +3,7 @@ author: elavarasidc
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/24/2023
-ms.author: elavarasid@microsoft.com
+ms.author: elavarasid
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
