@@ -62,6 +62,8 @@ This document contains information about new features and other changes to the A
 
 ### Bug fixes (0.2.1)
 
+- fix facility state not initialized when tile loads don't emit `sourcedata` event
+
 - level preference sorting fixed
 
 ## [0.2.0]
