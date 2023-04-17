@@ -57,15 +57,15 @@ Download the migration script from the [PowerShell Gallery](https://www.powershe
 
 There are two options depending on your local PowerShell environment setup and preferences:
 
-* If you don’t have the Azure Az PowerShell module modules installed, or don’t mind uninstalling the Azure Az PowerShell module modules, use the `Install-Script` option to run the script.
+* If you don’t have the Azure AZ PowerShell module installed, or don’t mind uninstalling the Azure AZ PowerShell module, use the `Install-Script` option to run the script.
 
-* If you need to keep the Azure Az PowerShell module modules, download the script and run it directly.
+* If you need to keep the Azure AZ PowerShell module, download the script and run it directly.
 
-To determine if you have the Azure Az PowerShell module modules installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az PowerShell module modules, then you can use the `Install-Script` method.
+To determine if you have the Azure AZ PowerShell module installed, run `Get-InstalledModule -Name az`. If the Az PowerShell module isn't installed, you can use the `Install-Script` method.
 
 ### Install with Install-Script
 
-To use this option, don't have the Azure Az PowerShell module modules installed on your computer. If they're installed, the following command displays an error. Uninstall the Azure Az PowerShell module modules, or use the other option to download the script manually and run it.
+To use this option, don't have the Azure AZ PowerShell module installed on your computer. If they're installed, the following command displays an error. Uninstall the Azure AZ PowerShell module, or use the other option to download the script manually and run it.
   
 Run the script with the following command:
 
@@ -76,7 +76,7 @@ This command also installs the required Az PowerShell module modules.
 
 ### Install with the script directly
 
-If you do have Azure Az PowerShell module modules installed and can't uninstall them, or don't want to uninstall them,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download).
+If you do have Azure AZ PowerShell module installed and can't uninstall them, or don't want to uninstall them,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download).
 
 To run the script:
 

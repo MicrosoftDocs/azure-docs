@@ -75,32 +75,32 @@ Download the migration script from the [PowerShell Gallery](https://www.powershe
 
 There are two options depending on your local PowerShell environment setup and preferences:
 
-* If you don’t have the Azure Az PowerShell module modules installed, or don’t mind uninstalling the Azure Az PowerShell module modules, use the `Install-Script` option to run the script.
+* If you don’t have the Azure Az PowerShell module installed, or don’t mind uninstalling the Azure Az PowerShell module, use the `Install-Script` option to run the script.
 
-* If you need to keep the Azure Az PowerShell module modules, download the script and run it directly.
+* If you need to keep the Azure Az PowerShell module, download the script and run it directly.
 
-To determine if you have the Azure Az PowerShell module modules installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az PowerShell module modules, then you can use the `Install-Script` method.
+To determine if you have the Azure Az PowerShell module installed, run `Get-InstalledModule -Name az`. If you don't see any installed Azure Az PowerShell module, then you can use the `Install-Script` method.
 
 ### Install with Install-Script
 
-To use this option, don't have the Azure Az PowerShell module modules installed on your computer. If they're installed, the following command displays an error. Uninstall the Azure Az PowerShell module modules, or use the other option to download the script manually and run it.
+To use this option, don't have the Azure Az PowerShell module installed on your computer. If they're installed, the following command displays an error. Uninstall the Azure Az PowerShell module, or use the other option to download the script manually and run it.
   
 Run the script with the following command:
 
 ```azurepowershell
 Install-Script -Name AzurePublicLBUpgrade
 ```
-This command also installs the required Az PowerShell module modules.  
+This command also installs the required Azure Az PowerShell module.  
 
 ### Install with the script directly
 
-If you do have Azure Az PowerShell module modules installed and can't uninstall them, or don't want to uninstall them,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download)
+If you do have Azure Az PowerShell module installed and can't uninstall it, or don't want to uninstall it,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download)
 
 To run the script:
 
 1. Use `Connect-AzAccount` to connect to Azure.
 
-2. Use `Import-Module Az` to import the Az PowerShell module modules.
+2. Use `Import-Module Az` to import the Azure Az PowerShell module.
 
 3. Examine the required parameters:
 
