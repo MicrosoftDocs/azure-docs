@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 03/22/2023
+ms.date: 04/17/2023
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -1272,21 +1272,11 @@ func main() {
 
 ---
 
-## Content limits
-
-This table lists the limits for data that you send to Document Translation:
-
-|Attribute | Limit|
-|---|---|
-|Document size| ≤ 40 MB |
-|Total number of files.|≤ 1000 |
-|Total content size in a batch | ≤ 250 MB|
-|Number of target languages in a batch| ≤ 10 |
-|Size of Translation memory file| ≤ 10 MB|
-
-Document Translation can't be used to translate secured documents such as those with an encrypted password or with restricted access to copy content.
-
 ## Troubleshooting
+
+### Content limits
+
+For more information on content limits, _see_, [**Document Translation request limits**](../../request-limits.md#document-translation)
 
 ### Common HTTP status codes
 
@@ -1307,5 +1297,3 @@ Document Translation can't be used to translate secured documents such as those 
 
 > [!div class="nextstepaction"]
 > [Create a customized language system using Custom Translator](../../custom-translator/overview.md)
->
->
