@@ -69,7 +69,7 @@ After registering an application and created a user flow in a CIAM tenant, an AS
 
 ## Define the platform and URLs
 
-1. In the Azure portal, under **Manage**, select **App registrations**, and then select the application that was previously created.
+1. In the Microsoft Entra admin center, under **Manage**, select **App registrations**, and then select the application that was previously created.
 1. In the left menu, under **Manage**, select **Authentication**.
 1. In **Platform configurations**, select **Add a platform**, and then select **Web**.
 
@@ -80,13 +80,6 @@ After registering an application and created a user flow in a CIAM tenant, an AS
 1. Under **Implicit grant abd hybrid flows**, select the **ID tokens** checkbox.
 1. Select **Configure**.
 
-## Add delegated permissions
-
-1. In the Azure portal, under **Manage**, select **API permissions** > **Add a permission**
-1. Under the **Microsoft APIs** tab, select **Microsoft Graph**.
-1. In **Request API permissions**, select **Delegated permissions**.
-1. Under the **OpenId permissions** dropdown, select the checkboxes for **openid** and **offline_access**.
-1. Select **Grant admin consent for <CIAM_tenant>**, and select **Yes** in the **Grant admin consent conformation** dialog box.
 
 ## Next steps
 

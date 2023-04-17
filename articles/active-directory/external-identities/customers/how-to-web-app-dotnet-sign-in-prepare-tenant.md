@@ -15,7 +15,7 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your own Node.js web application by using Microsoft Entra - Prepare your tenant
+# Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your tenant
 
 In this article, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. To prepare your tenant:
 
@@ -31,7 +31,6 @@ If you've already registered a web application in the Microsoft Entra admin cent
 ## Register the web app
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-node.md)]  
 
 ## Add app client secret 
 
@@ -52,4 +51,4 @@ If you've already registered a web application in the Microsoft Entra admin cent
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Prepare your ASP.NET web app >](how-to-web-app-dotnet-prepare-app.md)
+> [Prepare your ASP.NET web app](how-to-web-app-dotnet-prepare-app.md)

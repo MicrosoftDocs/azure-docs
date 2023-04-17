@@ -1,0 +1,157 @@
+---
+title: Sign in and sign out from an ASP.NET Core application with CIAM
+description: Add sign in to an ASP.NET Core application and sign-in, sign-out of application
+services: active-directory
+author: cilwerner
+ms.author: cwerner
+manager: celestedg
+ms.service: active-directory
+ms.workload: identity
+ms.subservice: ciam
+ms.topic: how-to
+ms.date: 04/07/2023
+ms.custom: it-pro
+#Customer intent
+---
+
+# Sign in and sign out from an ASP.NET Core application with CIAM
+
+In the [previous article](./how-to-webapp-dotnet-02-prepare-app.md), an ASP.NET Core project was created and configured for authentication. This how-to will install the required packages, add code that implements authentication to the sign in and sign out experience. Finally, you will sign-in and sign-out of the application.
+
+## Prerequisites
+
+- Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](./how-to-webapp-dotnet-02-prepare-app.md).
+
+
+## Install identity packages
+
+Identity related NuGet packages must be installed in the project for authentication of users to be enabled.
+
+1. In the terminal, navigate to *aspnet_ciam_webapp*.
+1. Enter the following commands to install the relevant NuGet packages:
+
+    ```powershell
+    dotnet add package Microsoft.Identity.Web.UI
+    dotnet add package Microsoft.Identity.Web.MicrosoftGraph
+    ```
+
+## Add source code to Program and Controller
+
+1. Navigate to *Controllers* and open *HomeController.cs*. 
+1. Authorization needs to be added to the controller, add `Microsoft.AspNetCore.Authorization` so that the top of the file is identical to the following snippet:
+    ```cshtml
+    using System.Diagnostics;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    using aspnet_ciam_webapp.Models;
+    ```
+1. Additionally, add the following attribute directly above the `HomeController` class definition:
+
+    ```csharp
+    [Authorize]
+    ```
+1. Towards the end of the file, add the following attribute to `Error()`, so it looks like the following snippet:
+
+    ```csharp
+    [AllowAnonymous]
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    ```
+
+1. Open *Program.cs* and add the following snippet to the top of the file:
+
+    ```csharp
+    using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc.Authorization;
+    using Microsoft.Identity.Web;
+    using Microsoft.Identity.Web.UI;
+    ```
+
+1. Next we need to add the services to the container and sign users in with the the Microsoft identity platform. After `Services.AddControllersWithViews();` add the following snippet:
+
+    ```csharp
+    // Sign-in users with the Microsoft identity platform
+    builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApp(builder.Configuration);
+
+    builder.Services.AddControllersWithViews(options =>
+    {
+        var policy = new AuthorizationPolicyBuilder()
+            .RequireAuthenticatedUser()
+            .Build();
+        options.Filters.Add(new AuthorizeFilter(policy));
+    }).AddMicrosoftIdentityUI();
+    ```
+
+
+## Add the sign-in and sign-out experience
+
+After installing the NuGet packages and adding necessary code for authentication, we need to add the sign-in and sign-out experiences.
+
+1. In your IDE, navigate to *Views* > *Shared*, and create a new file called *_LoginPartial.cshtml*. 
+1. Open *_LoginPartial.cshtml* and add the following code for adding the sign in and sign out experience:
+
+    ```csharp
+    @using System.Security.Principal
+
+    <ul class="navbar-nav">
+    @if (User.Identity is not null && User.Identity.IsAuthenticated)
+    {
+            <li class="nav-item">
+                <span class="nav-link text-dark">Hello @User.Identity.Name!</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
+            </li>
+    }
+    else
+    {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+            </li>
+    }
+    </ul>
+    ```
+
+1. Next, add a reference to `_LoginPartial` in the *Layout.cshtml* file, which is located in the same folder. It is recommended to place this after the `navbar-collapse` class as shown in the following snippet:
+
+	```html
+    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+        <partial name="_LoginPartial" />
+    ```
+
+## Sign-in to the application
+
+1. Start the application by typing the following in the terminal:
+
+    ### [.NET 6.0](#tab/dotnet6)
+
+    ```powershell
+    dotnet run
+    ```
+
+    ### [.NET 7.0](#tab/dotnet7)
+
+    ```powershell
+    dotnet run --launch-profile https
+    ```
+
+1. You may need to enter the application URI into the browser, for example `https://localhost:{port}`. After the sign in window appears, select the account in which to sign in with.
+1. On the sign-in page, type your email address and enter your password. 
+    1. If you don't have an account, select **No account? Create one**, which starts the sign-up flow. After entering a one-time passcode, new password and more account details, this sign-up flow is completed. 
+1. Choose either **Yes** or **No** if a window appears asking to **Stay signed in**.
+1. The ASP.NET Welcome page will appear in your browser as depicted in the following screenshot:
+
+    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into a node web app.":::
+
+## Sign out of the application
+
+1. To sign out of the application, select **Sign out** in the navigation bar.
+1. A window will appear asking which account to sign out of.
+1. Upon successful sign out, a final window similar to the following will appear, advising you to close all browser windows.
+
+    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-sign-out.png" alt-text="Screenshot of sign in into a node web app.":::
+
+## Next steps
+
+To reset the password  [Enable self-service password reset](./how-to-enable-password-reset-customers.md)
