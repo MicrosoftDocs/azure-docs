@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Configure a Single-page application User Interface and Sign-In
 
-This how-to guide describes how to configure a single-page application (SPA) to sign in and sign out users with your CIAM tenant. To build the user interface (UI) for the application, you'll use [Bootstrap](https://getbootstrap.com/). Next, you'll configure the application to sign in users by using [Microsoft Entra](https://docs.microsoft.com/azure/active-directory/develop/msal-js-v2).
+This how-to guide describes how to configure a single-page application (SPA) to sign in and sign out users with your CIAM tenant. To build the user interface (UI) for the application, you'll use [Bootstrap](https://getbootstrap.com/). Next, you'll add the authentication code to the application. The authentication code is used to sign in and sign out users with your CIAM tenant.
 
 In this article:
 
