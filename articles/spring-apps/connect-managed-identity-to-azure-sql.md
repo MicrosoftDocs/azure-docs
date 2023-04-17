@@ -85,7 +85,7 @@ Configure your app deployed to Azure Spring to connect to an SQL Database with a
        --database $DATABASE_NAME \
        --system-identity
    ```
-3. Run the `az spring connection list-configuration` command to check the creation result.
+3. Run the `az spring connection list-configuration` command as below to check the creation result.
    ```azurecli
    CONNECTION_NAME=$(az spring connection list \
       --resource-group $SPRING_APP_RESOURCE_GROUP \

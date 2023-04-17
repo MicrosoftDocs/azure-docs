@@ -76,6 +76,8 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 ### [Service Connector](#tab/Service-Connector)
 
+#### Using Azure CLI
+
 1. Use the Azure CLI to configure your Spring app to connect to a Cosmos SQL Database with a system-assigned managed identity by using the `az spring connection create` command, as shown in the following example.
 
    > [!NOTE]
@@ -93,6 +95,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
        --system-assigned-identity
    ```
 
+
    > [!NOTE]
    > If you're using [Service Connector](../service-connector/overview.md) for the first time, start by running the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider.
    >
@@ -100,6 +103,8 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
    > [!TIP]
    > Run the command `az spring connection list-support-types --output table` to get a list of supported target services and authentication methods for Azure Spring Apps. If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.
+
+#### Using Azure Portal 
 
 1. Alternately, you can use the Azure portal to configure this connection by completing the following steps. The Azure portal provides the same capabilities as the Azure CLI and provides an interactive experience.
 
