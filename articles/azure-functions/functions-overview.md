@@ -11,6 +11,8 @@ ms.custom: contperf-fy21q2, devdivchpfy22, ignite-2022
 
 Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running. You focus on the code that matters most to you, in the most productive language for you, and Azure Functions handles the rest.
 
+If you want to jump right in creating your first functions, see [Getting started with Azure Functions](./functions-get-started.md) and select your preferred development language at the top of the article. To learn more about the benefits of Azure Functions, continue reading. 
+
 ## Serverless compute
 
 First and foremost, Azure Functions provides a simple, affordable, and scalable way to run your code in the cloud. Azure Functions allows you to implement your system's logic into readily available blocks of code. These code blocks are called _functions_. Different functions can run on-demand, when scheduled, or anytime you need to respond to events in your cloud services. 
