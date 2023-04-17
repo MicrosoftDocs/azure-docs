@@ -5,44 +5,30 @@ author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 04/17/2023
 ms.service: network-access
 ms.custom: 
 ---
 
-
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. H1 format is # What is <product/service>?
--->
-
 # Learn how to use admin audit logging for Global Secure Access
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
+The Azure Active Directory (Azure AD) audit log is a valuable source of information when troubleshooting why and how Global Secure Access changes happened in your environment.
 
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+Audit log data is only kept for 30 days by default, which may not be long enough for every organization. Organizations can store data for longer periods by changing diagnostic settings in Azure AD to:
+- Send data to a Log Analytics workspace
+- Archive data to a storage account
+- Stream data to Event Hubs
+- Send data to a partner solution
 
-## [Section 1 H2]
-<!-- add your content here -->
+Find these options in the **Microsoft Entra Identity admin center** > **Diagnostic settings** > **Edit** setting. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md) to create one. 
 
-## [Section 2 H2]
-<!-- add your content here -->
-
-## [Section n H2]
-<!-- add your content here -->
-
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+## Use the audit log
+To use audit logging:
+1. Sign in to the Microsoft Entra Identity admin center as a *Conditional Access Administrator*, *Security Administrator*, or *Global Administrator*.
+1. Browse to **Microsoft Entra Identity** and then **Audit logs**.
+1. Select the **Date** range you want to query.
+1. From the **Service** filter, select **Global Secure Access** and select the **Apply** button.
+1. The audit logs display all activities, by default. Open the **Activity** filter to narrow down the activities. 
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [abc](#)
-
+- [Manage admin access](how-to-manage-admin-access.md)
