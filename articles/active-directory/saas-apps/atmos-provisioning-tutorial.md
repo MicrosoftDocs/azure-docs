@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Atmos for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Atmos for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Atmos.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 769b98d7-009f-44ed-8569-a5acc52d7552
 ms.service: active-directory

@@ -68,9 +68,9 @@ az communication list-key --name "<acsResourceName>" --resource-group "<resource
 
 If you would like to select a specific subscription, you can also specify the ```--subscription``` flag and provide the subscription ID.
 ```azurepowershell-interactive
-az communication list --resource-group  "resourceGroup>"  --subscription "<subscriptionId>"
+az communication list --resource-group  "<resourceGroup>"  --subscription "<subscriptionId>"
 
-az communication list-key --name "<acsResourceName>" --resource-group "resourceGroup>" --subscription "<subscriptionId>"
+az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>" --subscription "<subscriptionId>"
 ```
 
 ## Store your connection string

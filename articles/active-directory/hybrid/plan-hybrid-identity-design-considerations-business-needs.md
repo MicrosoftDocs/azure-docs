@@ -1,5 +1,5 @@
 ---
-title: Identity requirements for hybrid cloud identity design Azure | Microsoft Docs
+title: Identity requirements for hybrid cloud identity design Azure
 description: Identify the company’s business needs that will lead you to define the requirements for the hybrid identity design.
 documentationcenter: ''
 services: active-directory

@@ -76,7 +76,7 @@ To set up a lab in a lab account, you must be a member of the Lab Creator role i
 Follow these steps to [assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 > [!NOTE]
-> Azure Lab Services automatically assign the Lab Creator role to the Azure account you use to create the lab account. If you plan to use the same user account to create a lab in this tutorial, skip this step.
+> Azure Lab Services automatically assigns the Lab Creator role to the Azure account you use to create the lab account. If you plan to use the same user account to create a lab in this tutorial, skip this step.
 
 1. On the **Lab Account** page, select **Access control (IAM)**.
 
@@ -91,6 +91,10 @@ Follow these steps to [assign Azure roles using the Azure portal](../role-based-
 1. On the **Members** tab, select the user you want to add to the Lab Creators role.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+## Troubleshooting
+
+[!INCLUDE [Troubleshoot insufficient IP addresses](./includes/lab-services-troubleshoot-insufficient-ip-addresses.md)]
 
 ## Next steps
 

@@ -81,7 +81,7 @@ You can enable collaboration across Microsoft clouds, such as Microsoft Azure op
 Learn more: 
 
 * [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations)
-* [Azure Government developer guide](/azure-government/documentation-government-developer-guide)
+* [Azure Government developer guide](/azure/azure-government/documentation-government-developer-guide)
 * [Configure Microsoft cloud settings for B2B collaboration (Preview)](../external-identities/cross-cloud-settings.md).
 
 You can allow inbound access to specific tenants (allowlist), and set the default policy to block access. Then, create organizational policies that allow access by user, group, or application.

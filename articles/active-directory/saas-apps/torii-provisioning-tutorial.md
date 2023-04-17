@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Torii for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Torii for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Torii.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: e6cfe864-b106-4d24-9070-03864e5dfb83
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

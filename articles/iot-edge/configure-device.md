@@ -254,6 +254,8 @@ identity_pk = "pkcs11:slot-id=0;object=est-id?pin-value=1234" # PKCS#11 URI
 
 ### EST ID cert requested via EST bootstrap ID cert
 
+Authentication with a TLS client certificate which are used once to create the initial EST ID certificate. After the first certificate issuance, an `identity_cert` and `identity_pk` are automatically created and used for future authentication and renewals. The Subject Common Name (CN) of the generated EST ID certificate is always the same as the configured device ID under the provisioning section. These files must be readable by the users aziotcs and aziotks, respectively.
+
 ```toml
 bootstrap_identity_cert = "file:///var/aziot/certs/est-bootstrap-id.pem"
 

@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting B2B collaboration - Azure Active Directory | Microsoft Docs
+title: Troubleshooting B2B collaboration
 description: Remedies for common problems with Azure Active Directory B2B collaboration
 services: active-directory
 ms.service: active-directory

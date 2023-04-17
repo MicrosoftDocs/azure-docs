@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot an attribute not synchronizing in Azure AD Connect | Microsoft Docs'
+title: Troubleshoot an attribute not synchronizing in Azure AD Connect'
 description: This topic provides steps for how to troubleshoot issues with attribute synchronization using the troubleshooting task.
 services: active-directory
 documentationcenter: ''

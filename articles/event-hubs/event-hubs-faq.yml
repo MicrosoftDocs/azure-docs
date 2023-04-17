@@ -150,6 +150,11 @@ sections:
           Is there a cost associated when I turn on the auto-inflate feature?
         answer: |
           There's **no cost** associated with this feature. 
+          
+      - question: |
+          Can Zone Redundancy be enabled for an existing Event Hub Namespace?
+        answer: |
+          Currently, this isn't possible because old Event Hub Namespaces are in different clusters, and there's no way to migrate them to the new clusters that automatically enable zone redundancy when new Event Hub namespaces are created.
 
       - question: |
           How are throughput limits enforced?

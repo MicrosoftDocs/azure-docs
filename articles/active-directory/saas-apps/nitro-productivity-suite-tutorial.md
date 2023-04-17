@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nitro Productivity Suite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nitro Productivity Suite'
 description: Learn how to configure single sign-on between Azure Active Directory and Nitro Productivity Suite.
 services: active-directory
 author: jeevansd

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with 8x8 | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with 8x8'
 description: Learn how to configure single sign-on between Azure Active Directory and 8x8.
 services: active-directory
 author: jeevansd

@@ -74,7 +74,6 @@ Provision a virtual network with two separate subnets: one for the cluster and o
 
     ```azurecli
     # Dedicated virtual network with AKS subnet
-
     az network vnet create \
         --resource-group $RG \
         --name $VNET_NAME \
@@ -84,7 +83,6 @@ Provision a virtual network with two separate subnets: one for the cluster and o
         --subnet-prefix 10.42.1.0/24
 
     # Dedicated subnet for Azure Firewall (Firewall name can't be changed)
-
     az network vnet subnet create \
         --resource-group $RG \
         --vnet-name $VNET_NAME \

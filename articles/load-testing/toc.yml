@@ -24,6 +24,11 @@ items:
       href: concept-load-testing-concepts.md
     - name: Scenarios for VNET deployment
       href: concept-azure-load-testing-vnet-injection.md
+    - name: Scenarios
+      items:
+        - name: Load test Azure App Service apps
+          href: concept-load-test-app-service.md
+
 - name: How-to guides
   items:
     - name: Configure tests
@@ -56,8 +61,6 @@ items:
           href: how-to-monitor-server-side-metrics.md
         - name: Troubleshoot failing load tests
           href: how-to-troubleshoot-failing-test.md
-        - name: Get insights from App Service Diagnostics
-          href: how-to-appservice-insights.md
         - name: Export test results
           href: how-to-export-test-results.md
     - name: Security

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TextMagic | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TextMagic'
 description: Learn how to configure single sign-on between Azure Active Directory and TextMagic.
 services: active-directory
 author: jeevansd

@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 02/28/2023
-ms.custom: seodec18, mvc, devx-track-js
+ms.custom: seodec18, mvc, devx-track-js, devx-track-arm-template
 ---
 
 # Tutorial: Create an ARM template for a confidential container deployment with custom confidential computing enforcement policy (preview)
@@ -184,7 +184,7 @@ With the ARM template that you've crafted and the Azure CLI confcom extension, y
 
    ![Screenshot of Build your own template in the editor button on deployment screen, PNG.](./media/container-instances-confidential-containers-tutorials/confidential-containers-cce-build-template.png)
 
-1. Select **Load file** and upload **template.json**, which you've modified by generating adding a CCE policy. 
+1. Select **Load file** and upload **template.json**, which you've modified by adding the CCE policy you generated in the previous steps. 
 
    ![Screenshot of Load file button on template screen, PNG.](./media/container-instances-confidential-containers-tutorials/confidential-containers-cce-load-file.png)
 

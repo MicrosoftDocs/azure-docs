@@ -16,6 +16,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 This quickstart describes how to use PowerShell to create an Azure Database for PostgreSQL server in an
 Azure resource group. You can use PowerShell to create and manage Azure resources interactively or
 in scripts.

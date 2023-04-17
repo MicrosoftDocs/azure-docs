@@ -5,10 +5,10 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/06/2022
+ms.date: 04/07/2023
 ms.reviewer: sapnakeshari
 ms.author: banders 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
 ---
 
 # Programmatically create Azure Enterprise Agreement subscriptions with the latest APIs
@@ -30,7 +30,7 @@ A user must have an Owner role on an Enrollment Account to create a subscription
 
 To use a service principal (SPN) to create an EA subscription, an Owner of the Enrollment Account must [grant that service principal the ability to create subscriptions](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
 
-When using an SPN to create subscriptions, use the ObjectId of the Azure AD Application Registration as the Service Principal ObjectId using [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list). You can also use the steps at [Find your SPN and tenant ID](assign-roles-azure-service-principals.md#find-your-spn-and-tenant-id) to find the object ID in the Azure portal for an existing SPN.
+When using an SPN to create subscriptions, use the ObjectId of the Azure AD Enterprise application as the Service Principal ID using [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list). You can also use the steps at [Find your SPN and tenant ID](assign-roles-azure-service-principals.md#find-your-spn-and-tenant-id) to find the object ID in the Azure portal for an existing SPN.
 
 For more information about the EA role assignment API request, see [Assign roles to Azure Enterprise Agreement service principal names](assign-roles-azure-service-principals.md). The article includes a list of roles (and role definition IDs) that can be assigned to an SPN.
 
@@ -288,6 +288,12 @@ You get the subscriptionId as part of the response from the command.
 
 ---
 
+## Create subscriptions in a different enrollment
+
+Using the subscription [Alias](/rest/api/subscription/2021-10-01/alias/create) REST API, you can use the `subscriptionTenantId` parameter in the request body. Your SPN must get the token from the home tenant to create the subscription. After you create the SPN, you get the token from `subscriptionTenantId` and accept the transfer using the [Accept Ownership](/rest/api/subscription/2021-10-01/subscription/accept-ownership) API.
+
+For more information about creating EA subscriptions in another tenant, see [Create subscription in other tenant and view transfer requests](direct-ea-administration.md#create-subscription-in-other-tenant-and-view-transfer-requests).
+
 ## Use ARM template or Bicep
 
 The previous section showed how to create a subscription with PowerShell, CLI, or REST API. If you need to automate creating subscriptions, consider using an Azure Resource Manager template (ARM template) or [Bicep file](../../azure-resource-manager/bicep/overview.md).
@@ -462,8 +468,6 @@ resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01
 - Only Azure Enterprise subscriptions are created using the API.
 - There's a limit of 5000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. To create more subscriptions through the API, create another enrollment account. Canceled, deleted, and transferred subscriptions count toward the 5000 limit.
 - Users who aren't Account Owners, but were added to an enrollment account via Azure RBAC, can't create subscriptions in the Azure portal.
-- You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
-
 
 ## Next steps
 

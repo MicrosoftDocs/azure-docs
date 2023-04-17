@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.tool: azure-powershell
-ms.custom: mvc, contperf-fy21q2, mode-api
+ms.custom: mvc, contperf-fy21q2, mode-api, devx-track-azurepowershell
 ms.date: 08/20/2022
 ---
 
@@ -22,7 +22,7 @@ This quickstart shows how to create and manage automated workflows that run in A
 > Azure Logic Apps. Azure PowerShell is currently unavailable for Standard logic app workflows that 
 > run in single-tenant Azure Logic Apps. For more information, review [Resource type and host differences in Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
 
-If you're new to Azure Logic Apps, learn how to create your first Consumption logic app workflow [through the Azure portal](quickstart-create-first-logic-app-workflow.md), [in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), or [in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md).
+If you're new to Azure Logic Apps, learn how to create your first Consumption logic app workflow [through the Azure portal](quickstart-create-example-consumption-workflow.md), [in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), or [in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md).
 
 ## Prerequisites
 
