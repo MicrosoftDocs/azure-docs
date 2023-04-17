@@ -31,8 +31,6 @@ To successfully make a call against Azure OpenAI, you'll need the following:
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
-
 ## Create a new Python application
 
 Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
@@ -40,32 +38,26 @@ Create a new Python file called quickstart.py. Then open it up in your preferred
 1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields.
 
     ```python
-        import openai
+    import openai
 
+    openai.api_base = 'enter_your_endpoint_URL' # Please add your endpoint here
+    openai.api_key = 'enter_your_key'  # Please add your api key here
 
-        openai.api_base = '' # Please add your endpoint here
-    
     # IMPORTANT: Dall-E is currently only available through api_version '2023-04-01-preview'. This version only supports Dall-E.
 
     # If you want to use Dall-E and completions together, you have to override the api_version in the constructor as shown throughout the example.
     openai.api_version = '2023-04-01-preview' # If this version is set globally completions and embeddings will not work without an override. 
 
-        openai.api_type = 'azure'
-        openai.api_key = ''  # Please add your api key here
-        # from azure.identity import DefaultAzureCredential
-        # default_credential = DefaultAzureCredential()
-        # token = default_credential.get_token(\https://cognitiveservices.azure.com/.default\)
+    openai.api_type = 'azure'
 
-        # openai.api_type = 'azure_ad'
-        # openai.api_key = token.token
-        openai.Image.create(
-            # IMPORTANT: Dall-E is currently only available through api version '2023-04-01-preview'. This version only supports Dall-E, no completions, etc..
-            # This means that if you want to use Dall-E and completions together, you have to override the api_version here.
-            api_version='2023-04-01-preview',
-            prompt='A cyberpunk monkey hacker dreaming of a beautiful bunch of bananas, digital art',
-            size='1024x1024',
-            n=2
-        )	
+    openai.Image.create(
+        # IMPORTANT: Dall-E is currently only available through api version '2023-04-01-preview'. This version only supports Dall-E, no completions, etc..
+        # This means that if you want to use Dall-E and completions together, you have to override the api_version here.
+        api_version='2023-04-01-preview',
+        prompt='A cyberpunk monkey hacker dreaming of a beautiful bunch of bananas, digital art',
+        size='1024x1024',
+        n=2
+    )	
     ```
 
     > [!IMPORTANT]
@@ -83,32 +75,14 @@ Create a new Python file called quickstart.py. Then open it up in your preferred
 
 The output from a successful image generation API call will look like this. The `"contentUrl"` field contains a URL where you can download the generated image. The URL stays active for 24 hours.
 
-```json
-{
-    "id": "6b22b459-485c-4730-893d-598ede809f2e",
-    "result":
-    {
-        "caption": "An avocado chair.",
-        "contentUrl": "<URL_TO_IMAGE>",
-        "contentUrlExpiresAt": "2022-08-14T19:28:43Z",
-        "createdDateTime": "2022-08-12T17:48:11Z"
-    },
-    "status": "Succeeded"
-}
+```console
+tbd
 ```
 
 The image generation APIs come with a content moderation filter. If the service recognizes your prompt as harmful content, it won't return a generated image. For more information, see the [content filter](../concepts/content-filter.md) article. The system will return an operation status of `Failed` and the `error.code` in the message will be set to `ContentFilter`. Here is an example.
 
-```json
-{
-    "id": "93e5e7c7-0ef4-4ba2-add3-3ed5751f4a94",
-    "status": "Failed",
-    "error":
-    {
-        "code": "ContentFilter",
-        "message": "Your task failed as a result of our safety system."
-    }
-}
+```console
+tbd
 ```
 
 
