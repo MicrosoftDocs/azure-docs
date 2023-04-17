@@ -5056,8 +5056,8 @@
         },
         {
             "source_path": "articles/virtual-machines/extensions/symantec.md",
-            "redirect_url": "/azure/virtual-machines/overview",
+            "redirect_url": "/azure/virtual-machines/",
             "redirect_document_id": false
-          }       
+        }       
     ]
 }
