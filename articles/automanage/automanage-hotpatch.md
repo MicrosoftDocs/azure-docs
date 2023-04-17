@@ -5,22 +5,20 @@ author: ju-shim
 ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 04/18/2023
 ms.author: jushiman
 ms.custom: devx-track-azurepowershell
 ---
 
 # Hotpatch for new virtual machines
 
-<!--
 > [!IMPORTANT]
 > Hotpatch is currently in Public Preview. An opt-in procedure is needed to use the Hotpatch capability described below.
 > This preview is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
--->
 
-> [!IMPORTANT]
-> Hotpatch is supported on _Windows Server 2022 Datacenter: Azure Edition (Server Core)_.
+> [!NOTE]
+> Hotpatch is supported on _Windows Server 2022 Datacenter: Azure Edition_.
 
 Hotpatching is a new way to install updates on supported _Windows Server Azure Edition_ virtual machines (VMs) that doesn’t require a reboot after installation. This article covers information about Hotpatch for supported _Windows Server Azure Edition_ VMs, which has the following benefits:
 * Lower workload impact with less reboots
@@ -33,10 +31,10 @@ Hotpatch works by first establishing a baseline with a Windows Update Latest Cum
 
 :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch Sample Schedule.":::
 
-There are two types of baselines: **Planned baselines** and **unplanned baselines**.
-*  **Planned baselines** are released on a regular cadence, with hotpatch releases in between.  Planned baselines include all the updates in a comparable _Latest Cumulative Update_ for that month, and require a reboot.
+There are two types of baselines: **Planned baselines** and **Unplanned baselines**.
+*  **Planned baselines** are released on a regular cadence, with hotpatch releases in between. Planned baselines include all the updates in a comparable _Latest Cumulative Update_ for that month, and require a reboot.
     * The sample schedule above illustrates four planned baseline releases in a calendar year (five total in the diagram), and eight hotpatch releases.
-* **Unplanned baselines** are released when an important update (such as a zero-day fix) is released, and that particular update can't be released as a Hotpatch.  When unplanned baselines are released, a hotpatch release will be replaced with an unplanned baseline in that month.  Unplanned baselines also include all the updates in a comparable _Latest Cumulative Update_ for that month, and also require a reboot.
+* **Unplanned baselines** are released when an important update (such as a zero-day fix) is released, and that particular update can't be released as a Hotpatch. When unplanned baselines are released, a hotpatch release will be replaced with an unplanned baseline in that month. Unplanned baselines also include all the updates in a comparable _Latest Cumulative Update_ for that month, and also require a reboot.
     * The sample schedule above illustrates two unplanned baselines that would replace the hotpatch releases for those months (the actual number of unplanned baselines in a year isn't known in advance).
 
 ## Regional availability
@@ -49,11 +47,11 @@ Hotpatch is available in all global Azure regions.
 
 To start using Hotpatch on a new VM, follow these steps:
 1.  Start creating a new VM from the Azure portal
-    * You can preview onboarding Automanage machine best practices during VM creation in the Azure portal using [this link](https://aka.ms/AzureEdition).
+    * You can preview onboarding Automanage machine best practices during VM creation in the Azure portal by visiting the [Azure Marketplace](https://aka.ms/AzureEdition).
 1.  Supply details during VM creation
-    * Ensure that a supported _Windows Server Azure Edition_ image is selected in the Image dropdown.  Use [this guide](automanage-windows-server-services-overview.md#getting-started-with-windows-server-azure-edition) to determine which images are supported.
-    * On the Management tab under section ‘Guest OS updates’, the checkbox for 'Enable hotpatch' will be selected.  Patch orchestration options will be set to 'Azure-orchestrated'. 
-    * If you create a VM using [this link](https://aka.ms/AzureEdition), on the Management tab under section 'Azure Automanage', select 'Dev/Test' or 'Production' for 'Azure Automanage environment' to evaluate Automanage machine best practices while in preview.
+    * Ensure that a supported _Windows Server Azure Edition_ image is selected in the Image dropdown. See [automanage windows server services](automanage-windows-server-services-overview.md#getting-started-with-windows-server-azure-edition) to determine which images are supported.
+    * On the Management tab under section ‘Guest OS updates’, the checkbox for 'Enable hotpatch' will be selected. Patch orchestration options will be set to 'Azure-orchestrated'. 
+    * If you create a VM by visiting the [Azure Marketplace](https://aka.ms/AzureEdition), on the Management tab under section 'Azure Automanage', select 'Dev/Test' or 'Production' for 'Azure Automanage environment' to evaluate Automanage machine best practices while in preview.
     
 1. Create your new VM
 
