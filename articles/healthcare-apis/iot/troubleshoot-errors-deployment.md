@@ -130,7 +130,7 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 **Fix**: Set the `location` property of the FHIR destination in your ARM template to the same value as the parent MedTech service's `location` property.
 
 > [!NOTE]
-> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket attaching copies of your device message, [device and FHIR destination mappings](how-to-use-mapping-debugger.md#overview-of-the-mapping-debugger) to your request to better help with issue determination.
+> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket attaching copies of your device message and [device and FHIR destination mappings](how-to-use-mapping-debugger.md#overview-of-the-mapping-debugger) to your request to better help with issue determination.
 
 ## Next steps
 
