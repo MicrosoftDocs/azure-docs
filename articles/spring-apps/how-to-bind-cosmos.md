@@ -76,7 +76,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 ### [Service Connector](#tab/Service-Connector)
 
-1. Use the Azure CLI to configure your Spring app to connect to a Cosmos SQL Database with a system-assigned managed identity by using the `az spring connection create` command, as shown in the following example.
+1. Use the Azure CLI to configure your Spring app to connect to a Cosmos SQL Database by using the `az spring connection create` command, as shown in the following example.
 
    > [!NOTE]
    > Updating Azure Cosmos DB database settings can take a few minutes to complete.
@@ -90,7 +90,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
        --target-resource-group $COSMOSDB_RESOURCE_GROUP \
        --account $COSMOSDB_ACCOUNT_NAME \
        --database $DATABASE_NAME \
-       --system-assigned-identity
+       --secret
    ```
 
    > [!NOTE]
