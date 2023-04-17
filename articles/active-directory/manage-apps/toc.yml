@@ -88,7 +88,7 @@
   - name: How-to guides
     expanded: false
     items:
-    - name: Application integration guidance
+    - name: Integrate SaaS applications
       href: ../saas-apps/tutorial-list.md
     - name: Assign owners
       href: assign-app-owners.md
