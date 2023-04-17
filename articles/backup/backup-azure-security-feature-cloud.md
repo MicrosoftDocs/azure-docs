@@ -48,11 +48,11 @@ Additionally, you can extend the retention duration for deleted backup data, ran
 
 To disable soft delete, follow these steps:
 
-1. In the Azure portal, go to your vault, and then go to **Settings** -> **Properties**.
-2. In the properties pane, select **Security Settings** -> **Update**.  
-3. In the security settings pane, under **Soft Delete**, select **Disable**.
+1. In the Azure portal, go to your *vault*, and then go to **Settings** > **Properties**.
+1. In the **Properties** pane, select **Security Settings Update**.
+1. In the **Security and soft delete settings** pane, clear the required checkboxes to disable soft delete.
 
-![Disable soft delete](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+:::image type="content" source="./media/backup-azure-security-feature-cloud/disable-soft-delete-inline.png" alt-text="Screenshot shows how to disable soft delete." lightbox="./media/backup-azure-security-feature-cloud/disable-soft-delete-expanded.png":::
 
 ### Disabling soft delete using Azure PowerShell
 
