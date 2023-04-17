@@ -155,8 +155,8 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Upgrade an existing cluster to CNI Overlay - Preview
 
-> [!NOTE] 
-> The upgrade capability is still in preview and requires the preview AKS Azure CLI extension
+> [!NOTE]
+> The upgrade capability is still in preview and requires the preview AKS Azure CLI extension.
 
 You can update an existing Azure CNI cluster to Overlay if the cluster meets certain criteria. A cluster must:
 
