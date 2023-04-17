@@ -909,6 +909,7 @@ The following JSON is an example of how to use the `replicationRegions` field to
       "<region>"
   ]
 ```
+---
 
 > [!NOTE]
 >`replicationRegions` is deprecated for gallery distributions as `targetRegions` is updated property. For more information, see [targetRegions](../image-builder-api-update-release-notes.md#version-2022-07-01).
