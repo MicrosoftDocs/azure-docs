@@ -497,14 +497,120 @@
 - name: Work with Data
   items:
   - name: Data Administration
+    items:
+    - name: Create Azure Machine Learning Datastores
+      displayName: Create datastores
+      href: how-to-datastore.md
+    - name: Setup storage authentication
+      displayName:
+      href:
+    - name: Common data authentication issues and FAQ
+      displayName:
+      href:
   - name: Import Data from external sources
+    items:
+    - name: Overview
+      displayName:
+      href:
+    - name: Create connections to external data sources
+      displayName:
+      href:
+    - name: Import data
+      displayName:
+      href:
+    - name: Manage import schedules
+      displayName:
+      href:
+    - name: Manage lifecycle settings
+      displayName:
+      href:
+    - name: Common data import issues and FAQ
+      displayName:
+      href:
   - name: Access and explore your data
+    items:
+    - name: Overview
+      displayName:
+      href:
+    - name: Bookmark your favorite data assets
+      displayName:
+      href:
+    - name: Access data during interactive development
+      displayName:
+      href:
+    - name: Access data in jobs
+      displayName:
+      href:
+    - name: Working with Tables (mltable)
+      displayName:
+      href:
+    - name: Tuning data loading performance
+      displayName:
+      href:
+    - name: Common data access issues and FAX
+      displayName:
+      href:
   - name: Label data
     items:
+    - name: Overview
+      displayName:
+      href:
     - name: Setup
+      items:
+      - name: Image labeling
+        displayName:
+        href:
+      - name: Text labeling
+        displayName:
+        href:
+      - name: Add users
+        displayName:
+        href:
+    - name: End-to-end tutorial
+      displayName:
+      href:
+    - name: Label images and text
+      displayName:
+      href:
+    - name: Outsource labeling tasks
+      displayName:
+      href:
+    - name: Common data labelling issues and FAQ
+      displayName:
+      href:
   - name: Prepare data with Apache Spark
+    items:
+    - name: Overview
+      displayName:
+      href:
+    - name: End-to-end tutorial
+      displayName:
+      href:
+    - name: Submit Spark Jobs
+      displayName:
+      href:
+    - name: Interactive development with Apache Spark
+      displayName:
+      href:
+    - name: Tuning Apache Spark performance
+      displayName:
+      href:
+    - name: Common Spark issues and FAQ
+      displayName:
+      href:
   - name: Productionizing data
+    items:
+    - name: Versioning data
+      displayName:
+      href:
+    - name: Sharing data across your organization
+      displayName:
+      href:
     - name: Managed Feature Store
+      items:
+      - name: TBD
+        displayName:
+         href:
 - name: Train models
   - name: Automated Machine Learning
     items:
