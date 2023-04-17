@@ -3,7 +3,6 @@ title: Azure Automation State Configuration to machine configuration migration p
 description: This article provides process and technical guidance for customers interested in moving from DSC version 2 in Azure Automation to version 3 in Azure Policy.
 ms.date: 03/06/2023
 ms.topic: how-to
-ms.service: machine-configuration
 ms.custom: devx-track-azurepowershell
 ---
 # Azure Automation state configuration to machine configuration migration planning

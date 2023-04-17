@@ -3,7 +3,6 @@ title: Azure Automanage machine configuration agent release notes
 description: Details guest configuration agent release notes, issues, and frequently asked questions.
 ms.date: 09/13/2022
 ms.topic: conceptual
-ms.service: machine-configuration
 ---
 # Azure Automanage machine configuration agent release notes
 
