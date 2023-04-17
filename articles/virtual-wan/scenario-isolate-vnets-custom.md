@@ -45,7 +45,7 @@ The branches will need to learn the prefixes from both Red and Blue VNets, so al
 > Since all branches need to be associated to the Default route table, as well as to propagate to the same set of routing tables, all branches will have the same connectivity profile. In other words, the Red/Blue concept for VNets cannot be applied to branches.
 
 > [!NOTE]
-> If your Virtual WAN is deployed over multiple regions, you will need to create the **RT_BLUE** and **RT_RED** route tables in every hub, and routes from each VNet connection need to be propagated to the route tables in every virtual hub using propagation labels.
+> If your Virtual WAN is deployed over multiple hubs, you will need to create the **RT_BLUE** and **RT_RED** route tables in every hub, and routes from each VNet connection need to be propagated to the route tables in every virtual hub using propagation labels.
 
 For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
