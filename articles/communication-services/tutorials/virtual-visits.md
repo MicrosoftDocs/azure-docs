@@ -66,7 +66,7 @@ This sample uses takes advantage of the Microsoft 365 Bookings app to power the 
 
 ![Screenshot of Booking configuration experience.](./media/virtual-visits/bookings-url.png)
 
-Make sure online meeting is enable in the calendar by going to https://outlook.office.com/bookings/services.
+Make sure online meeting is enabled in the calendar by going to https://outlook.office.com/bookings/services.
 
 ![Screenshot of Booking services configuration experience.](./media/virtual-visits/bookings-services.png)
 
