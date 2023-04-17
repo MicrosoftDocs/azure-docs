@@ -58,17 +58,11 @@ az appservice plan update --name sampleAppServicePlan --resource-group sampleRes
 
 *** In some scenarios while setting the value of "--elastic-scale true" for an existing app service plan for App service Linux you may receive an error message (“Operation returned an invalid status 'Bad Request'”). In such scenarios follow below mentioned steps:
 
- 
-
 Execute above step using the -- debug flag to return details about the error
  
-
-You can now view detailed error message which should be similar to "Message":"Requested feature is not available in resource group <<Your Resource Group Name>>. Please try using a different resource group or create a new one."
-
- 
+You can now view detailed error message which should be similar to "Message":"Requested feature is not available in resource group  `<Your Resource Group Name>`. Please try using a different resource group or create a new one."
 
 You should now create a new resource group and an app service plan (It is recommended to use PV3 SKU for the new app service plan) and then perform step 1
- 
 
 ### Step 2: Set the minimum number of instances
 
@@ -117,10 +111,10 @@ az appservice plan update --name sampleAppServicePlan --resource-group sampleRes
 - [Does App Service Environment support Automatic scaling?](#does-app-service-environment-support-automatic-scaling)
 - [How is Automatic scaling different than Auto scale?](#how-is-automatic-scaling-different-than-auto-scale)
 - [How does Automatic scaling work with existing Auto scale rules?](#how-does-automatic-scaling-work-with-existing-auto-scale-rules)
-- [Can I enable Always-on?](#can-i-enable-always-on)
-- [Can I have both Azure Functions and App Service web apps in my App Service plan?](#can-i-have-both-azure-functions-and-app-service-web-apps-in-my-app-service-plan)
+- [Should Always-on be enabled?](#should-always-on-be-enabled)
+- [Can you use Automatic scaling with both Azure Functions and App Service web apps in the same App Service plan?](#can-automatic-scaling-be-used-with-both-azure-functions-and-app-service-web-apps-in-the-same-app-service-plan)
 ### How to monitor the current instance count and instance history?
-Use Application Insights [Live Metrics](/azure-monitor/app/live-stream.md) to check the current instance count, and [performanceCounters](/azure-functions/analyze-telemetry-data.md#query-telemetry-data) to check the instance count history.
+Use Application Insights [Live Metrics](../azure-monitor/app/live-stream.md) to check the current instance count, and [performanceCounters](../azure-functions/analyze-telemetry-data.md#query-telemetry-data) to check the instance count history.
 
 ### What App Service platforms support Automatic scaling?
 - Automatic scaling is currently supported for Azure App Service for Windows, Linux and Windows container.
@@ -134,7 +128,7 @@ App Service's Automatic scaling is different than Azure Autoscale.  Automatic sc
 
 A quick comparison of various scale out and scale in options available for App Service web apps:
 
-| | **Manual scaling** | **Auto scaling** | **Automatic scaling** |
+| | **Manual scaling** | **Auto scaling** | **Automatic scaling** |
 | --- | --- | --- | --- |
 | Available pricing Tiers	| Basic and Up | Standard and Up | Premium v2 and Premium v3 |
 |Rule Based Scaling	|No	|Yes	|No(Scale out & in managed by the platform based on incoming HTTP traffic)|
@@ -146,10 +140,10 @@ A quick comparison of various scale out and scale in options available for App S
 ### How does Automatic scaling work with existing Auto scale rules?
 Once automatic scaling for web apps is configured, existing Azure Autoscale rules and schedules (if any) will not be honored. Applications can use either automatic scaling, or Azure Autoscale, but not both.
 
-### Can I enable Always-on?
+### Should Always-on be enabled?
 Always-on should not be enabled on web apps with this automatic scaling feature is turned on. App service scaling feature manages this once automatic scaling is turned-on 
 
-### Can I have both Azure Functions and App Service web apps in my App Service plan?
+### Can Automatic scaling be used with both Azure Functions and App Service web apps in the same App Service plan?
 You can only have Azure App Service web apps in the app service plan where you wish to enable automatic scaling. If you have existing Azure Functions apps in the same app service plan, or if you create new Azure Functions apps, then automatic scaling will be disabled. For Functions it is advised to use the Azure Functions Premium plan instead.
 
 <a name="Next Steps"></a>
