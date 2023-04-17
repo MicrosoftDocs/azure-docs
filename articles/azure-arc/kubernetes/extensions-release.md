@@ -133,7 +133,7 @@ Changes made for this version:
 
 - Upgrades Flux to [v0.41.2](https://github.com/fluxcd/flux2/releases/tag/v0.41.2)
 - Fixes issue causing resources that were deployed as part of Flux configuration to persist even when the configuration was deleted with prune flag set to `true`
-- Kubelet identity support for image-reflector-controller by [installing the microsoft.flux extension in a cluster with kubelet identity enabled](troubleshooting.md##flux-v2---installing-the-microsoftflux-extension-in-a-cluster-with-kubelet-identity-enabled) 
+- Kubelet identity support for image-reflector-controller by [installing the microsoft.flux extension in a cluster with kubelet identity enabled](troubleshooting.md#flux-v2---installing-the-microsoftflux-extension-in-a-cluster-with-kubelet-identity-enabled) 
 
 ### 1.7.0 (March 2023)
 
