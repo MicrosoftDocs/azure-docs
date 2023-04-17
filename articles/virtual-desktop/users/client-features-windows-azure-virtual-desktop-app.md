@@ -184,7 +184,7 @@ To check for updates through the app:
 
 1. For the section **App Update** select each link to open the Microsoft Store where you'll be prompted to install any updates once available.
 
-1. If there's an update to either app available, select **Update**. The apps can be updated in in any order.
+1. If there's an update to either app available, select **Update**. The apps can be updated in any order.
 
 While installing an update, the Azure Virtual Desktop app may close. Once the update is complete, you can reopen the app and continue where you left off. For more information about how to get updates in the Microsoft Store, see [Get updates for apps and games in Microsoft Store](https://support.microsoft.com/account-billing/get-updates-for-apps-and-games-in-microsoft-store-a1fe19c0-532d-ec47-7035-d1c5a1dd464f) and [Turn on automatic app updates](https://support.microsoft.com/windows/turn-on-automatic-app-updates-70634d32-4657-dc76-632b-66048978e51b).
 
