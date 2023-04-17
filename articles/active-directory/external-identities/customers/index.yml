@@ -24,15 +24,23 @@ landingContent:
             url: overview-customers-ciam.md 
   - title: Configure apps
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
-          - text: About Azure AD for customers
-            url: overview-customers-ciam.md 
+          - text: Planning and deploying a customer app
+            url: concept-planning-your-solution.md
+      - linkListType: sample
+        links:
+          - text: Samples by app type and language
+            url: quickstart-app-samples-all.md 
+      - linkListType: how-to-guide
+        links:
+          - text: PLACEHOLDER for dev guides 
+            url: quickstart-app-samples-all.md  
   - title: Create and edit user flows
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
-          - text: About Azure AD for customers
+          - text: ITT TARTOK
             url: overview-customers-ciam.md
   - title: Customize branding
     linkLists:
