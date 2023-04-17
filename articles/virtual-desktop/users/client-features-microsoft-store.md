@@ -14,7 +14,7 @@ Once you've connected to Azure Virtual Desktop using the Remote Desktop app for 
 > [!IMPORTANT]
 > We're no longer updating the Remote Desktop app for Windows with new features.
 >
-> For the best Azure Virtual Desktop experience that includes the latest features and updates, we recommend you download the [Azure Virtual Desktop app for Windows](connect-windows-avd-app.md) instead.
+> For the best Azure Virtual Desktop experience that includes the latest features and updates, we recommend you download the [Azure Virtual Desktop app for Windows](connect-windows-azure-virtual-desktop-app.md) instead.
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md). For more information about the differences between the clients, see [Compare the Remote Desktop clients](../compare-remote-desktop-clients.md).
 

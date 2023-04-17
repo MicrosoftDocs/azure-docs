@@ -65,7 +65,7 @@ landingContent:
           - text: Connect with the Windows Desktop client
             url: ./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
           - text: Connect with the Azure Virtual Desktop app for Windows
-            url: ./users/connect-windows-avd-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+            url: ./users/connect-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
           - text: Connect with the web client
             url: ./users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
           - text: Connect with macOS

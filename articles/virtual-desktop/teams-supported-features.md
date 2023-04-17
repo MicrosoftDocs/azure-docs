@@ -40,7 +40,7 @@ The following table lists whether the Windows Desktop client or macOS client sup
 The following table lists the minimum required versions for each Teams feature. For optimal user experience on Teams for Azure Virtual Desktop, we recommend using the latest supported versions of each client and the WebRTC Redirector Service, which you can find in the following list:
 
 - [Windows Desktop client](whats-new-client-windows.md)
-- [Azure Virtual Desktop app](whats-new-client-windows-avd-app.md)
+- [Azure Virtual Desktop app](whats-new-client-windows-azure-virtual-desktop-app.md)
 - [macOS client](whats-new-client-macos.md)
 - [Teams WebRTC Redirector Service](https://aka.ms/msrdcwebrtcsvc/msi)
 - [Teams desktop app](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm)

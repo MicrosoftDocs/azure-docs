@@ -9,13 +9,13 @@ ms.author: daknappe
 
 # Troubleshoot the Azure Virtual Desktop app for Windows
 
-This article describes issues you may experience with the [Azure Virtual Desktop app for Windows](users/connect-windows-avd-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json) when connecting to Azure Virtual Desktop and how to fix them.
+This article describes issues you may experience with the [Azure Virtual Desktop app for Windows](users/connect-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json) when connecting to Azure Virtual Desktop and how to fix them.
 
 ## Azure Virtual Desktop app is not updating
 
-The Azure Virtual Desktop app is downloaded and automatically updated through the Microsoft Store. It relies on the dependency app *Azure Virtual Desktop (HostApp)*, which is also automatically downloaded and updated. For more information, see [Azure Virtual Desktop (HostApp)](users/client-features-windows-avd-app.md#azure-virtual-desktop-hostapp).
+The Azure Virtual Desktop app is downloaded and automatically updated through the Microsoft Store. It relies on the dependency app *Azure Virtual Desktop (HostApp)*, which is also automatically downloaded and updated. For more information, see [Azure Virtual Desktop (HostApp)](users/client-features-windows-azure-virtual-desktop-app.md#azure-virtual-desktop-hostapp).
 
-You can also manually search for new updates for the app. For more information, see [Update the Azure Virtual Desktop app](users/client-features-windows-avd-app.md#update-the-azure-virtual-desktop-app).
+You can also manually search for new updates for the app. For more information, see [Update the Azure Virtual Desktop app](users/client-features-windows-azure-virtual-desktop-app.md#update-the-azure-virtual-desktop-app).
 
 ## General
 

@@ -13,7 +13,7 @@ ms.author: daknappe
 > The Azure Virtual Desktop app for Windows is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Once you've connected to Azure Virtual Desktop using the Azure Virtual Desktop app for Windows (preview), it's important to know how to use the features. This article shows you how to use the features available in the Azure Virtual Desktop app for Windows. If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Azure Virtual Desktop app for Windows](connect-windows-avd-app.md).
+Once you've connected to Azure Virtual Desktop using the Azure Virtual Desktop app for Windows (preview), it's important to know how to use the features. This article shows you how to use the features available in the Azure Virtual Desktop app for Windows. If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Azure Virtual Desktop app for Windows](connect-windows-azure-virtual-desktop-app.md).
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md). For more information about the differences between the clients, see [Compare the Remote Desktop clients](../compare-remote-desktop-clients.md).
 
@@ -263,4 +263,4 @@ To best help you, we need you to give us as detailed information as possible. Al
 
 ## Next steps
 
-If you're having trouble with the Azure Virtual Desktop app, see [Troubleshoot the Azure Virtual Desktop app](../troubleshoot-client-windows-avd-app.md).
+If you're having trouble with the Azure Virtual Desktop app, see [Troubleshoot the Azure Virtual Desktop app](../troubleshoot-client-windows-azure-virtual-desktop-app.md).

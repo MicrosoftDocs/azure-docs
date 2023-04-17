@@ -11,7 +11,7 @@ items:
     - name: Windows Desktop client
       href: ../whats-new-client-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
     - name: Azure Virtual Desktop app for Windows
-      href: ../whats-new-client-windows-avd-app.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
+      href: ../whats-new-client-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
     - name: Web client
       href: ../whats-new-client-web.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
     - name: macOS client
@@ -35,7 +35,7 @@ items:
     - name: Windows Desktop client
       href: connect-windows.md
     - name: Azure Virtual Desktop app for Windows
-      href: connect-windows-avd-app.md
+      href: connect-windows-azure-virtual-desktop-app.md
     - name: Web client
       href: connect-web.md
     - name: macOS client
@@ -53,7 +53,7 @@ items:
     - name: Windows Desktop client
       href: client-features-windows.md
     - name: Azure Virtual Desktop app for Windows
-      href: client-features-windows-avd-app.md
+      href: client-features-windows-azure-virtual-desktop-app.md
     - name: Web client
       href: client-features-web.md
     - name: macOS client

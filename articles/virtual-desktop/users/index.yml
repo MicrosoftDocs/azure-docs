@@ -32,7 +32,7 @@ landingContent:
           - text: Windows Desktop client
             url: connect-windows.md
           - text: Azure Virtual Desktop app for Windows
-            url: connect-windows-avd-app.md
+            url: connect-windows-azure-virtual-desktop-app.md
           - text: Web client
             url: connect-web.md
           - text: macOS client
@@ -54,7 +54,7 @@ landingContent:
           - text: Windows Desktop client
             url: client-features-windows.md
           - text: Azure Virtual Desktop app for Windows
-            url: client-features-windows-avd-app.md
+            url: client-features-windows-azure-virtual-desktop-app.md
           - text: Web client
             url: client-features-web.md
           - text: macOS client
