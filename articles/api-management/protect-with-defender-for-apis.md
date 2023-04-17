@@ -51,7 +51,7 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
 
 1. Select **Enable Defender on the subscription**.
 
-    :::image type="content" source="media/protect-with-defender-for-apis/enable-defender-for-apis.png" alt-text="Screenshot showing how to enable Defender for APIs in the portal.":::
+    :::image type="content" source="media/protect-with-defender-for-apis/enable-defender-for-apis.png" alt-text="Screenshot showing how to enable Defender for APIs in the portal." lightbox="media/protect-with-defender-for-apis/enable-defender-for-apis.png":::
 
 1. On the **Defender plan** page, select **On** for the **APIs** plan.
 
@@ -63,7 +63,7 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
 1. In the portal, go back to your API Management instance.
 1. In the left menu, select **Microsoft Defender for Cloud (preview)**.
 1. Under **Recommendations**, select **Azure API Management APIs should be onboarded to Defender for APIs**.
-    :::image type="content" source="media/protect-with-defender-for-apis/defender-for-apis-recommendations.png" alt-text="Screenshot of Defender for APIs recommendations in the portal.":::
+    :::image type="content" source="media/protect-with-defender-for-apis/defender-for-apis-recommendations.png" alt-text="Screenshot of Defender for APIs recommendations in the portal." lightbox="media/protect-with-defender-for-apis/defender-for-apis-recommendations.png":::
 1. On the next screen, review details about the recommendation:
     * Severity  
     * Refresh interval for security findings 
@@ -75,7 +75,7 @@ Onboarding APIs to Defender for APIs is a two-step process: enabling the Defende
 
 1. From the list of **Unhealthy** resources, select the API(s) that you wish to onboard to Defender for APIs.
 1. Select **Fix**, and then select **Fix resources**.
-    :::image type="content" source="media/protect-with-defender-for-apis/fix-unhealthy-resources.png" alt-text="Screenshot of onboarding unhealthy APIs in the portal.":::
+    :::image type="content" source="media/protect-with-defender-for-apis/fix-unhealthy-resources.png" alt-text="Screenshot of onboarding unhealthy APIs in the portal." lightbox="media/protect-with-defender-for-apis/fix-unhealthy-resources.png":::
 1.  Track the status of onboarded resources under **Notifications**. 
 
 > [!NOTE]
@@ -91,7 +91,7 @@ You can view a summary of all security recommendations and alerts for onboarded 
 1. In the portal, go to your API Management instance and select **Microsoft Defender for Cloud (preview**) from the left menu.
 1. Review **Recommendations** and **Security insights and alerts**.
 
-    :::image type="content" source="media/protect-with-defender-for-apis/view-security-insights.png" alt-text="Screenshot of API security insights in the portal.":::
+    :::image type="content" source="media/protect-with-defender-for-apis/view-security-insights.png" alt-text="Screenshot of API security insights in the portal." lightbox="media/protect-with-defender-for-apis/view-security-insights.png":::
 
 For the security alerts received, Defender for APIs suggests necessary steps to perform the required analysis and validate the potential exploit or anomaly associated with the APIs. Follow the steps in the security alert to fix and return the APIs to healthy status. 
 
