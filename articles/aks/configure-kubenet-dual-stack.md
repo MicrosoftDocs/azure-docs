@@ -16,7 +16,6 @@ AKS clusters can now be deployed in a dual-stack (using both IPv4 and IPv6 addre
 This article shows you how to use dual-stack networking with an AKS cluster. For more information on network options and considerations, see [Network concepts for Kubernetes and AKS][aks-network-concepts].
 
 ## Limitations
-> [!NOTE]
 * Azure Route Tables have a hard limit of 400 routes per table. Because each node in a dual-stack cluster requires two routes, one for each IP address family, dual-stack clusters are limited to 200 nodes.
 * In Mariner node pools, service objects are only supported with `externalTrafficPolicy: Local`.
 * Dual-stack networking is required for the Azure Virtual Network and the pod CIDR - single stack IPv6-only isn't supported for node or pod IP addresses. Services can be provisioned on IPv4 or IPv6.
