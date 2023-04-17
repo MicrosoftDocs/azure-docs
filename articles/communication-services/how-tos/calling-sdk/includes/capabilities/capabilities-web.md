@@ -1,9 +1,9 @@
 ---
-author: elavarasid
+author: elavarasidc
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/24/2023
-ms.author: elavarasid
+ms.author: elavarasid@microsoft.com
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
@@ -39,8 +39,9 @@ Capabilities object has the capabilities of the local participants and is of typ
 >```
 
 **Capabilities Exposed**
-> - *manageBreakOutRoom*:	      Ability to manage break out room
-> - *muteUnmuteMic*:	          Ability to Mute Unmute Mic
-> - *removeParticipant*:	      Ability to remove a participant
+> - *manageBreakOutRoom*:	    Ability to manage break out room
+> - *muteUnmuteMic*:	        Ability to mute and unmute Mic
+> - *removeParticipant*:	    Ability to remove a participant
 > - *shareApplication*:	        Ability to share an application
 > - *shareBrowserTab*:	        Ability to share a browser tab
+> - *shareScreen*:              Ability to share screen
