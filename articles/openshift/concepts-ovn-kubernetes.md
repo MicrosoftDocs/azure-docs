@@ -25,6 +25,9 @@ The OVN-Kubernetes CNI cluster network provider offers the following features:
 * Implements Kubernetes network policy support, including ingress and egress rules.
 * Uses the Generic Network Virtualization Encapsulation (Geneve) protocol rather than the Virtual Extensible LAN (VXLAN) protocol to create an overlay network between nodes.
 
+> [!NOTE]
+> As of ARO 4.11, OVN-Kubernetes is configured by default for all new new ARO clusters. Migrating from the previous SDN standard to OVN is not supported.
+
 For more information about OVN-Kubernetes CNI network provider, see [About the OVN-Kubernetes default Container Network Interface (CNI) network provider](https://docs.openshift.com/container-platform/4.10/networking/ovn_kubernetes_network_provider/about-ovn-kubernetes.html).
 
 <!-- remove 
