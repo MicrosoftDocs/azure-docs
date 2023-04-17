@@ -106,7 +106,7 @@ Use the following steps to assign an Azure role using the Azure portal.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the following Azure CLI command to obtain the **Azure Spring Apps Remote Debugging Role** role, which includes the `Microsoft.AppPlatform/Spring/apps/deployments/remotedebugging/action` data action permission.
+Use the following Azure CLI command to obtain the **Azure Spring Apps Remote Debugging Role** role.
 
    ```azurecli
    az role assignment create \
