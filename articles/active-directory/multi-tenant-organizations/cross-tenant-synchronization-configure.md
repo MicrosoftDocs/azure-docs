@@ -538,7 +538,7 @@ This operation was retried 0 times.
 
 **Cause**
 
-This error indicates the Guest invite settings in the target tenant are configured with the most restrictive setting "No one in the organization can invite guest users including admins (most restrictive)".
+This error indicates the Guest invite settings in the target tenant are configured with the most restrictive setting: "No one in the organization can invite guest users including admins (most restrictive)".
 
 **Solution**
 
