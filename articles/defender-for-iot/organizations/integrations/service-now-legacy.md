@@ -1,13 +1,13 @@
 ---
 title: Microsoft Defender for IoT integration with ServiceNow (legacy)
 description: In this tutorial, learn how to integrate the legacy ServiceNow integration with Microsoft Defender for IoT.
-ms.topic: tutorial
+ms.topic: reference
 ms.date: 08/11/2022
 ---
 
-# Tutorial: Integrate ServiceNow with Microsoft Defender for IoT (legacy)
+# Integrate ServiceNow with Microsoft Defender for IoT (legacy)
 
-> [!Note]
+> [!NOTE]
 > A new [Operational Technology Manager](https://store.servicenow.com/sn_appstore_store.do#!/store/application/31eed0f72337201039e2cb0a56bf65ef/1.1.2?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Doperational%2520technology%2520manager&sl=sh) integration is now available from the ServiceNow store. The new integration streamlines Microsoft Defender for IoT sensor appliances, OT assets, network connections, and vulnerabilities to ServiceNow’s Operational Technology (OT) data model.
 >
 >Please read the ServiceNow’s supporting links and docs for the ServiceNow's terms of service.
@@ -15,6 +15,7 @@ ms.date: 08/11/2022
 >Microsoft Defender for IoT's legacy integration with ServiceNow is not affected by the new integrations and Microsoft will continue supporting it.  
 >
 > For more information, see the new [ServiceNow integrations](../tutorial-servicenow.md), and the ServiceNow documentation on the ServiceNow store:
+>
 >- [Service Graph Connector (SGC)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ddd4bf1b53f130104b5cddeeff7b1229)
 >- [Vulnerability Response (VR)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/463a7907c3313010985a1b2d3640dd7e).
 
@@ -22,30 +23,31 @@ This tutorial will help you learn how to integrate, and use ServiceNow with Micr
 
 The Defender for IoT integration with ServiceNow provides a new level of centralized visibility, monitoring, and control for the IoT and OT landscape. These bridged platforms enable automated device visibility and threat management to previously unreachable ICS & IoT devices.
 
-The ServiceNow Configuration Management Database (CMDB) is enriched, and supplemented with a rich set of device attributes that are pushed by the Defender for IoT platform. This ensures a comprehensive, and continuous visibility into the device landscape. This visibility lets you monitor, and respond from a single-pane-of-glass. 
+The ServiceNow Configuration Management Database (CMDB) is enriched, and supplemented with a rich set of device attributes that are pushed by the Defender for IoT platform. This ensures a comprehensive, and continuous visibility into the device landscape. This visibility lets you monitor, and respond from a single-pane-of-glass.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Download the Defender for IoT application in ServiceNow
-> * Set up Defender for IoT to communicate with ServiceNow
-> * Create access tokens in ServiceNow
-> * Send Defender for IoT device attributes to ServiceNow
-> * Set up the integration using an HTTPS proxy
-> * View Defender for IoT detections in ServiceNow
-> * View connected devices
+>
+> - Download the Defender for IoT application in ServiceNow
+> - Set up Defender for IoT to communicate with ServiceNow
+> - Create access tokens in ServiceNow
+> - Send Defender for IoT device attributes to ServiceNow
+> - Set up the integration using an HTTPS proxy
+> - View Defender for IoT detections in ServiceNow
+> - View connected devices
 
 ## Prerequisites
 
 ### Software requirements
 
-Access to ServiceNow and Defender for IoT 
+Access to ServiceNow and Defender for IoT
 
 - ServiceNow Service Management version 3.0.2.
 
 - Defender for IoT patch 2.8.11.1 or above.
 
-> [!Note]
+> [!NOTE]
 >If you are already working with a Defender for IoT and ServiceNow integration and upgrade using the on-premises management console. In that case, the previous data from Defender for IoT sensors should be cleared from ServiceNow.
 
 ### Architecture
@@ -58,7 +60,7 @@ Access to ServiceNow and Defender for IoT
 
 ## Download the Defender for IoT application in ServiceNow
 
-To access the Defender for IoT application within ServiceNow, you will need to download the application from the ServiceNow application store. 
+To access the Defender for IoT application within ServiceNow, you will need to download the application from the ServiceNow application store.
 
 **To access the Defender for IoT application in ServiceNow**:
 
@@ -81,6 +83,8 @@ To access the Defender for IoT application within ServiceNow, you will need to d
 ## Set up Defender for IoT to communicate with ServiceNow
 
 Configure Defender for IoT to push alert information to the ServiceNow tables. Defender for IoT alerts will appear in ServiceNow as security incidents. This can be done by defining a Defender for IoT forwarding rule to send alert information to ServiceNow.
+
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
 
 **To push alert information to the ServiceNow tables**:
 
@@ -123,7 +127,7 @@ Configure Defender for IoT to push alert information to the ServiceNow tables. D
       | Client Secret | Enter the client secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
       | Report Type | **Incidents**: Forward a list of alerts that are presented in ServiceNow with an incident ID and short description of each alert.<br /><br />**Defender for IoT Application**: Forward full alert information, including the  sensor details, the engine, the source, and destination addresses. The information is forwarded to the Defender for IoT on the ServiceNow application. |
 
-1. Select **SAVE**. 
+1. Select **SAVE**.
 
 Defender for IoT alerts will now appear as incidents in ServiceNow.
 
@@ -189,7 +193,7 @@ Defender for IoT supports an HTTPS proxy in the ServiceNow integration by enabli
 
 3. Select **Save and Exit**.
 
-4. Reset the on-premises management console using the following command: 
+4. Reset the on-premises management console using the following command:
 
     ```bash
     sudo monit restart all

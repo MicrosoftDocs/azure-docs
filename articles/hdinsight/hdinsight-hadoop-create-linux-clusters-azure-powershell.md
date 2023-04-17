@@ -4,7 +4,7 @@ description: Learn how to create Apache Hadoop, Apache HBase, or Apache Spark cl
 ms.service: hdinsight
 ms.topic: how-to
 ms.tool: azure-powershell
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.date: 08/05/2022
 ---
 

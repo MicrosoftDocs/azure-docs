@@ -3,8 +3,8 @@ title: Terraform samples for Azure Cosmos DB for NoSQL
 description: Use Terraform to create and configure Azure Cosmos DB for NoSQL. 
 author: ginsiucheng
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
-ms.custom: ignite-2022
+ms.subservice: nosql
+ms.custom: ignite-2022, devx-track-terraform
 ms.topic: conceptual
 ms.date: 09/16/2022
 ms.author: gicheng

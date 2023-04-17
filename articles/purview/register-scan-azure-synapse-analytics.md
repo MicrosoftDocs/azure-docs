@@ -6,7 +6,7 @@ ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 01/31/2023
 ms.custom: template-how-to, ignite-fall-2021, fasttrack-edit
 ---
 
@@ -19,11 +19,21 @@ This article outlines how to register dedicated SQL pools (formerly SQL DW), and
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan)| [Yes](#scan)| [Yes](#scan)| No | Limited** | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|--|
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan)| [Yes](#scan)| [Yes](#scan)|[Yes](create-sensitivity-label.md)| No | Limited* | No |
 
-\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+\* *Lineage is supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
+
+When scanning dedicated SQL pool (formerly SQL DW) source, Microsoft Purview supports extracting technical metadata including:
+
+- Server
+- Dedicated SQL pools
+- Schemas
+- Tables including columns
+- Views including columns
+
+When setting up the scan, you can further scope it after providing the dedicated SQL pool name by selecting tables and views as needed. 
 
 ### Known limitations
 
@@ -126,7 +136,11 @@ When authentication method selected is **SQL Authentication**, you need to get y
 
 To register a new SQL dedicated pool in Microsoft Purview, complete the following steps:
 
-1. Navigate to your Microsoft Purview account.
+1. Open the Microsoft Purview governance portal by:
+
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Select the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
+
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On **Register sources**, select **Azure Dedicated SQL Pool (formerly SQL DW)**.

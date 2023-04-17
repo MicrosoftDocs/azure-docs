@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 11/30/2022
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -65,6 +65,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | North America | South Central US | East US 2 |
 | North America | South Central US | Central US |
 | North America | West US 2 | East US |
+| North America | West US 2 | West US 3 |
 | US Government | US Gov Arizona | US Gov Virginia |
 
 >[!NOTE]
@@ -133,6 +134,7 @@ Therefore, by the end of Month 2, the total cross-region replication charge is a
 Regular Azure NetApp Files storage capacity charge for Month 2 applies to the destination volume.
 
 ## Next steps
+
 * [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
@@ -141,3 +143,4 @@ Regular Azure NetApp Files storage capacity charge for Month 2 applies to the de
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
+* [Test disaster recovery for Azure NetApp Files](test-disaster-recovery.md)

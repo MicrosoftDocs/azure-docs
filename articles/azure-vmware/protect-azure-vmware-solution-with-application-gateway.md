@@ -34,7 +34,7 @@ The diagram shows the testing scenario used to validate the Application Gateway 
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagram showing the testing scenario used to validate the Application Gateway with Azure VMware Solution web applications."lightbox="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" border="false":::
 
-The Application Gateway instance gets deployed on the hub in a dedicated subnet with an Azure public IP address. Activating the [Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md) for the virtual network is recommended. The web server is hosted on an Azure VMware Solution private cloud behind NSX T0 and T1 Gateways. Additionally, Azure VMware Solution uses [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to enable communication with the hub and on-premises systems.
+The Application Gateway instance gets deployed on the hub in a dedicated subnet with an Azure public IP address. Activating the [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) for the virtual network is recommended. The web server is hosted on an Azure VMware Solution private cloud behind NSX T0 and T1 Gateways. Additionally, Azure VMware Solution uses [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to enable communication with the hub and on-premises systems.
 
 ## Prerequisites
 
@@ -86,9 +86,9 @@ Now you'll configure Application Gateway with Azure VMware Solution VMs as backe
 This procedure shows you how to define backend address pools using VMs running on an Azure VMware Solution private cloud on an existing application gateway.
 
 >[!NOTE]
->This procedure assumes you have multiple domains, so we'll use examples of www.contoso.com and www.fabrikam.com.
+>This procedure assumes you have multiple domains, so we'll use examples of www.contoso.com and www.contoso2.com.
 
-1. In your private cloud, create two different pools of VMs. One represents Contoso and the second Fabrikam.
+1. In your private cloud, create two different pools of VMs. One represents Contoso and the second contoso2.
 
     :::image type="content" source="media/application-gateway/app-gateway-multi-backend-pool.png" alt-text="Screenshot showing summary of a web server's details in VMware vSphere Client."lightbox="media/application-gateway/app-gateway-multi-backend-pool.png":::
 
@@ -113,7 +113,7 @@ This procedure shows you how to define backend address pools using VMs running o
 
 6. Configure the corresponding backend pool and HTTP settings. Select **Add**.
 
-7. Test the connection. Open your preferred browser and navigate to the different websites hosted on your Azure VMware Solution environment, for example, http://www.fabrikam.com.
+7. Test the connection. Open your preferred browser and navigate to the different websites hosted on your Azure VMware Solution environment.
 
     :::image type="content" source="media/application-gateway/app-gateway-multi-backend-pool-07.png" alt-text="Screenshot of browser page showing successful test the connection.":::
 

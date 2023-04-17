@@ -194,7 +194,7 @@ using Azure.Storage.Blobs;
 var clientID = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID");
 var credentialOptions = new DefaultAzureCredentialOptions
 {
-    ManagedIdentityClientId = clientID;
+    ManagedIdentityClientId = clientID
 };
 var credential = new DefaultAzureCredential(credentialOptions);                        
 
@@ -252,7 +252,7 @@ using Azure.Core;
 var clientID = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID");
 var credentialOptions = new DefaultAzureCredentialOptions
 {
-    ManagedIdentityClientId = clientID;
+    ManagedIdentityClientId = clientID
 };
 var credential = new DefaultAzureCredential(credentialOptions);        
 
@@ -308,7 +308,7 @@ using Microsoft.Data.SqlClient;
 var clientID = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID");
 var credentialOptions = new DefaultAzureCredentialOptions
 {
-    ManagedIdentityClientId = clientID;
+    ManagedIdentityClientId = clientID
 };
 
 AccessToken accessToken = await new DefaultAzureCredential(credentialOptions).GetTokenAsync(

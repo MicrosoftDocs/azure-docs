@@ -10,9 +10,9 @@ ms.date: 10/20/2022
 ms.topic: how-to
 ---
 
-# Use managed identities for Azure Load Testing Preview
+# Use managed identities for Azure Load Testing
 
-This article shows how to create a managed identity for Azure Load Testing Preview. You can use a managed identity to authenticate with and read secrets from Azure Key Vault.
+This article shows how to create a managed identity for Azure Load Testing. You can use a managed identity to authenticate with and read secrets from Azure Key Vault.
 
 A managed identity from Azure Active Directory (Azure AD) allows your load testing resource to easily access other Azure AD-protected resources, such as Azure Key Vault. The identity is managed by the Azure platform and doesn't require you to manage or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -20,9 +20,6 @@ Azure Load Testing supports two types of identities:
 
 - A **system-assigned identity** is associated with your load testing resource and is deleted when your resource is deleted. A resource can only have one system-assigned identity.
 - A **user-assigned identity** is a standalone Azure resource that you can assign to your load testing resource. When you delete the load testing resource, the managed identity remains available. You can assign multiple user-assigned identities to the load testing resource.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 

@@ -4,10 +4,10 @@
   items:
   - name: About Update management center
     href: overview.md
+  - name: What's New 
+    href: whats-new.md
   - name: Support matrix
     href: support-matrix.md
-  - name: Onboarding preview features
-    href: enable-machines.md
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
@@ -21,7 +21,9 @@
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
   - name: Manage updates on multiple machines
-    href: manage-multiple-machines.md  
+    href: manage-multiple-machines.md
+  - name: Workbooks
+    href: workbooks.md 
 - name: Samples
   items:
   - name: Azure Resource Graph queries
@@ -48,6 +50,8 @@
       href: manage-arc-enabled-servers-programmatically.md
     - name: Automate assessment at scale using Policy
       href: periodic-assessment-at-scale.md
+    - name: Create reports using workbooks
+      href: manage-workbooks.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot issues

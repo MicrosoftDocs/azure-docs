@@ -2,12 +2,12 @@
 title: How an Azure reservation discount is applied
 description: This article helps you understand how reserved instance discounts are generally applied.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 

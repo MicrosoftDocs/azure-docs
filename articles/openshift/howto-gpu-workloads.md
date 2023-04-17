@@ -1,7 +1,7 @@
 ---
 title: Use GPU workloads with Azure Red Hat OpenShift (ARO)
 description: Discover how to utilize GPU workloads with Azure Red Hat OpenShift (ARO)
-author: johnmarc
+author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: aro, gpu, openshift, red hat
@@ -43,8 +43,12 @@ All GPU quotas in Azure are 0 by default. You will need to sign in to the Azure 
 ARO supports the following GPU workers:
 
 * NC4as T4 v3
+* NC6s v3
 * NC8as T4 v3
+* NC12s v3
 * NC16as T4 v3
+* NC24s v3
+* NC24rs v3
 * NC64as T4 v3
 
 > [!NOTE] 

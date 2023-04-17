@@ -1,13 +1,13 @@
 ---
-title: 'Quickstart: Create and configure Azure DDoS IP Protection using PowerShell'
-description: Learn how to create Azure DDoS IP Protection using PowerShell
+title: 'Quickstart: Create and configure Azure DDoS IP Protection Preview - PowerShell'
+description: Learn how to create Azure DDoS IP Protection Preview using PowerShell
 author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 10/12/2022
+ms.date: 04/04/2023
 ms.workload: infrastructure-services
-ms.custom: template-quickstart, ignite-2022
+ms.custom: template-quickstart, ignite-2022, devx-track-azurepowershell
 ---
 
 # Quickstart: Create and configure Azure DDoS IP Protection using Azure PowerShell
@@ -81,7 +81,7 @@ $publicIp.DdosSettings.ProtectionMode = 'Disabled'
 Set-AzPublicIpAddress -PublicIpAddress $publicIp 
 ```
 > [!NOTE]
-> When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will not be available.
+> When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will no longer be active.
 
 ## Clean up resources
 

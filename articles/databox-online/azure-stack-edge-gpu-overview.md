@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 01/21/2022
+ms.date: 02/07/2023
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro GPU is and how it works so I can use it to process and transform data before sending it to Azure.
 ---
@@ -95,7 +95,7 @@ The users are charged a monthly, recurring subscription fee for an Azure Stack E
 
 Currency conversion and discounts are handled centrally by the Azure Commerce billing platform, and you get one unified, itemized bill at the end of each month.
 
-Billing starts 14 days after a device is marked as **Shipped** and ends when you initiate return of your device.
+Standard [storage rates and transaction fees](https://azure.microsoft.com/pricing/details/storage/blobs/) are charged separately as applicable. Monthly subscription fee billing starts after delivery whether the appliance is activated or not.
 
 The billing happens against the order resource. If you activate the device against a different resource, the order and billing details move to the new resource.
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 01/31/2023
 ms.custom: references_regions
 ms.author: anfdocs
 ---
@@ -48,37 +48,14 @@ Two settings are available for network features:
     * If the Standard volume capability is supported for the region, the Network Features field of the Create a Volume page defaults to *Standard*. You can change this setting to *Basic*. 
     * If the Standard volume capability is not available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you cannot modify the setting.
 
-* The ability to locate storage compatible with the desired type of network features depends on the VNet specified.  If you cannot create a volume because of insufficient resources, you can try a different VNet for which compatible storage is available.
+* The ability to locate storage compatible with the desired type of network features depends on the VNet specified. If you cannot create a volume because of insufficient resources, you can try a different VNet for which compatible storage is available.
 
 * You can create Basic volumes from Basic volume snapshots and Standard volumes from Standard volume snapshots. Creating a Basic volume from a Standard volume snapshot is not supported. Creating a Standard volume from a Basic volume snapshot is not supported.
 
-* Conversion between Basic and Standard networking features in either direction is not currently supported.
+* When restoring a backup to a new volume, the new volume can be configure with Basic or Standard network features. 
+
+* Conversion between Basic and Standard network features in either direction is not currently supported.
   
-## Register the feature 
-
-Follow the registration steps if you're using the feature for the first time.
-
-1.  Register the feature by running the following commands:
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSDNAppliance
-
-    Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowPoliciesOnBareMetal
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSDNAppliance
-
-    Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowPoliciesOnBareMetal
-    ```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
 ## Set the Network Features option
 
 This section shows you how to set the Network Features option. 
@@ -107,3 +84,4 @@ This section shows you how to set the Network Features option.
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) 
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md) 
+* [Configure Virtual WAN for Azure NetApp Files](configure-virtual-wan.md)

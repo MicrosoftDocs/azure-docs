@@ -1,14 +1,15 @@
 ---
-title: Develop for Azure Files with Python | Microsoft Docs
+title: Develop for Azure Files with Python
+titleSuffix: Azure Storage
 description: Learn how to develop Python applications and services that use Azure Files to store file data.
-author: khdownie
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.author: kendownie
+ms.author: pauljewell
 ms.subservice: files
-ms.custom: devx-track-python
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Develop for Azure Files with Python

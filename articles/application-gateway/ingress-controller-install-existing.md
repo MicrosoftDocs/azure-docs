@@ -4,6 +4,7 @@ description: This article provides information on how to deploy an Application G
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: greglin
@@ -207,10 +208,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
     ```
 
 1. Edit helm-config.yaml and fill in the values for `appgw` and `armAuth`.
-    ```bash
-    nano helm-config.yaml
-    ```
-
+  
     > [!NOTE] 
     > The `<identity-resource-id>` and `<identity-client-id>` are the properties of the Azure AD Identity you setup in the previous section. You can retrieve this information by running the following command: `az identity show -g <resourcegroup> -n <identity-name>`, where `<resourcegroup>` is the resource group in which the top level AKS cluster object, Application Gateway and Managed Identify are deployed.
 
@@ -299,7 +297,7 @@ appgw:
 Apply the Helm changes:
   1. Ensure the `AzureIngressProhibitedTarget` CRD is installed with:
       ```bash
-      kubectl apply -f https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/ae695ef9bd05c8b708cedf6ff545595d0b7022dc/crds/AzureIngressProhibitedTarget.yaml
+      kubectl apply -f https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/7b55ad194e7582c47589eb9e78615042e00babf3/crds/AzureIngressProhibitedTarget-v1-CRD-v1.yaml
       ```
   2. Update Helm:
       ```bash

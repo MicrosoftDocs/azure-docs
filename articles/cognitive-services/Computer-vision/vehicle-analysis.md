@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 11/07/2022
 ms.author: pafarley
 ---
 
@@ -21,10 +21,13 @@ Vehicle analysis is a set of capabilities that, when used with the Spatial Analy
 
 * To utilize the operations of vehicle analysis, you must first follow the steps to [install and run spatial analysis container](./spatial-analysis-container.md) including configuring your host machine, downloading and configuring your [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest.json) file, executing the deployment, and setting up device [logging](spatial-analysis-logging.md). 
    * When you configure your [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest.json) file, refer to the steps below to add the graph configurations for vehicle analysis to your manifest prior to deploying the container. Or, once the spatial analysis container is up and running, you may add the graph configurations and follow the steps to redeploy. The steps below will outline how to properly configure your container.
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE]
 > Make sure that the edge device has at least 50GB disk space available before deploying the Spatial Analysis module.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=spatial-analysis&Page=howto&Section=prerequisites" target="_target">I ran into an issue</a>
 
 ## Vehicle analysis operations
 
@@ -139,6 +142,9 @@ Below is the graph optimized for the **vehicle in polygon** operation, utilized 
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=spatial-analysis&Page=howto&Section=configuring-the-vehicle-analysis-operations" target="_target">I ran into an issue</a>
 
 ## Sample cognitiveservices.vision.vehicleanalysis-vehiclecount-preview and cognitiveservices.vision.vehicleanalysis-vehiclecount.cpu-preview output
 

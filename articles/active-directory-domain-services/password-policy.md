@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 03/06/2023
 ms.author: justinha
 
 ---
 # Password and account lockout policies on Azure Active Directory Domain Services managed domains
 
-To manage user security in Azure Active Directory Domain Services (Azure AD DS), you can define fine-grained password policies that control account lockout settings or minimum password length and complexity. A default fine grained password policy is created and applied to all users in an Azure AD DS managed domain. To provide granular control and meet specific business or compliance needs, additional policies can be created and applied to specific groups of users.
+To manage user security in Azure Active Directory Domain Services (Azure AD DS), you can define fine-grained password policies that control account lockout settings or minimum password length and complexity. A default fine grained password policy is created and applied to all users in an Azure AD DS managed domain. To provide granular control and meet specific business or compliance needs, additional policies can be created and applied to specific users or groups.
 
 This article shows you how to create and configure a fine-grained password policy in Azure AD DS using the Active Directory Administrative Center.
 
@@ -110,15 +110,15 @@ To create a custom password policy, you use the Active Directory Administrative 
 
     ![Select the users and groups to apply the password policy to](./media/password-policy/fgpp-applies-to.png)
 
-1. Password policies can only be applied to groups. In the **Locations** dialog, expand the domain name, such as *aaddscontoso.com*, then select an OU, such as **AADDC Users**. If you have a custom OU that contains a group of users you wish to apply, select that OU.
+1. In the **Locations** dialog, expand the domain name, such as *aaddscontoso.com*, then select an OU, such as **AADDC Users**. If you have a custom OU that contains a group of users you wish to apply, select that OU.
 
     ![Select the OU that the group belongs to](./media/password-policy/fgpp-container.png)
 
-1. Type the name of the group you wish to apply the policy to, then select **Check Names** to validate that the group exists.
+1. Type the name of the user or group you wish to apply the policy to. Select **Check Names** to validate the account.
 
     ![Search for and select the group to apply FGPP](./media/password-policy/fgpp-apply-group.png)
 
-1. With the name of the group you selected now displayed in **Directly Applies To** section, select **OK** to save your custom password policy.
+1. Click **OK** to save your custom password policy.
 
 ## Next steps
 

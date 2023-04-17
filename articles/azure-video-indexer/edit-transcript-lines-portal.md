@@ -119,4 +119,4 @@ This section shows how to examine word-level transcription information based on 
 
 ## Next steps
 
-For updating transcript lines and text using API visit [Azure Video Indexer Developer portal](https://aka.ms/avam-dev-portal)
+For updating transcript lines and text using API visit the [Azure Video Indexer API developer portal](https://aka.ms/avam-dev-portal)

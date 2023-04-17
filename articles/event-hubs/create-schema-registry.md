@@ -28,7 +28,7 @@ This article shows you how to create a schema group with schemas in a schema reg
     :::image type="content" source="./media/create-schema-registry/namespace-page.png" alt-text="Image showing the Schema Registry page in the Azure portal":::
 1. On the **Create Schema Group** page, do these steps:
     1. Enter a **name** for the schema group.
-    1. For **Serialization type**, pick a serialization format that applies to all schemas in the schema group. Currently, **Avro** is the only type supported, so select **Avro**. 
+    1. For **Serialization type**, pick **Avro** serialization format that applies to all schemas in the schema group. The **JSON** serialization is not supported yet. 
     1. Select a **compatibility mode** for all schemas in the group. For **Avro**, forward and backward compatibility modes are supported. 
     1. Then, select **Create** to create the schema group. 
     

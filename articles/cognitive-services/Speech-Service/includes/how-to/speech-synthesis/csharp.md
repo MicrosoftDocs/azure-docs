@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 ## Select synthesis language and voice
 
-The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md?tabs=stt-tts) or try them in a [text-to-speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md?tabs=tts) or try them in the [Voice Gallery](https://speech.microsoft.com/portal/voicegallery).
 
 Specify the language or voice of `SpeechConfig` to match your input text and use the wanted voice:
 
@@ -27,7 +27,7 @@ static async Task SynthesizeAudioAsync()
 }
 ```
 
-All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service won't output synthesized audio. See the [full list](../../../language-support.md?tabs=stt-tts) of supported neural voices.
+All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice doesn't speak the language of the input text, the Speech service won't output synthesized audio. See the [full list](../../../language-support.md?tabs=tts) of supported neural voices.
 
 > [!NOTE]
 > The default voice is the first voice returned per locale via the [Voice List API](../../../rest-text-to-speech.md#get-a-list-of-voices).
@@ -62,8 +62,8 @@ static async Task SynthesizeAudioAsync()
 {
     var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
-    using var synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    await synthesizer.SpeakTextAsync("I'm excited to try text-to-speech");
+    using var speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    await speechSynthesizer.SpeakTextAsync("I'm excited to try text-to-speech");
 }
 ```
 
@@ -77,8 +77,8 @@ To output synthesized speech to the current active output device such as a speak
 static async Task SynthesizeAudioAsync()
 {
     var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    using var synthesizer = new SpeechSynthesizer(speechConfig);
-    await synthesizer.SpeakTextAsync("I'm excited to try text to speech");
+    using var speechSynthesizer = new SpeechSynthesizer(speechConfig);
+    await speechSynthesizer.SpeakTextAsync("I'm excited to try text to speech");
 }
 ```
 
@@ -101,9 +101,9 @@ This time, save the result to a [`SpeechSynthesisResult`](/dotnet/api/microsoft.
 static async Task SynthesizeAudioAsync()
 {
     var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    using var synthesizer = new SpeechSynthesizer(speechConfig, null);
+    using var speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
 
-    var result = await synthesizer.SpeakTextAsync("I'm excited to try text-to-speech");
+    var result = await speechSynthesizer.SpeakTextAsync("I'm excited to try text-to-speech");
     using var stream = AudioDataStream.FromResult(result);
 }
 ```
@@ -133,8 +133,8 @@ static async Task SynthesizeAudioAsync()
     var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
     speechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 
-    using var synthesizer = new SpeechSynthesizer(speechConfig, null);
-    var result = await synthesizer.SpeakTextAsync("I'm excited to try text-to-speech");
+    using var speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
+    var result = await speechSynthesizer.SpeakTextAsync("I'm excited to try text-to-speech");
 
     using var stream = AudioDataStream.FromResult(result);
     await stream.SaveToWaveFileAsync("path/to/write/file.wav");
@@ -149,7 +149,7 @@ You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, a
 
 To start using SSML for customization, you make a simple change that switches the voice.
 
-First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md?tabs=stt-tts) of supported *neural* voices.
+First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md?tabs=tts) of supported *neural* voices.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -168,10 +168,10 @@ Next, you need to change the speech synthesis request to reference your XML file
 public static async Task SynthesizeAudioAsync()
 {
     var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    using var synthesizer = new SpeechSynthesizer(speechConfig, null);
+    using var speechSynthesizer = new SpeechSynthesizer(speechConfig, null);
 
     var ssml = File.ReadAllText("./ssml.xml");
-    var result = await synthesizer.SpeakSsmlAsync(ssml);
+    var result = await speechSynthesizer.SpeakSsmlAsync(ssml);
 
     using var stream = AudioDataStream.FromResult(result);
     await stream.SaveToWaveFileAsync("path/to/write/file.wav");

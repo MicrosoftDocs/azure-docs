@@ -3,6 +3,7 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 02/25/2021
+ms.topic: include
 ---
 
 This guide provides instructions and sample code to help you get started using the Custom Vision client library for Go to build an object detection model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.
@@ -19,7 +20,7 @@ Use the Custom Vision client library for Go to:
 * Publish the current iteration
 * Test the prediction endpoint
 
-Reference documentation [(training)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training) [(prediction)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction)| Library source code [(training)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/customvision/training) [(prediction)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.1/customvision/prediction) 
+Reference documentation [(training)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training) [(prediction)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction) 
 
 ## Prerequisites
 

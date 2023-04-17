@@ -4,7 +4,7 @@ description: Learn how to set auto shutdown schedules and policies for Azure Dev
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 11/01/2021
+ms.date: 12/18/2021
 ---
 
 # Configure auto shutdown for labs and VMs in DevTest Labs
@@ -23,10 +23,12 @@ Auto shutdown helps minimize lab waste by shutting down all of a lab's VMs at a 
 1. In the **Schedules** section of the left menu, select **Auto-shutdown**.
 1. On the **Auto-shutdown** screen, for **Enabled**, select **On** to enable auto shutdown, or **Off** to disable it.
 1. For **Scheduled shutdown** and **Time zone**, if you turned on auto shutdown, specify the time and time zone to shut down all lab VMs.
-1. For **Send notification before auto-shutdown?**, select **Yes** or **No** for the option to send a notification 30 minutes before the specified auto shutdown time. If you choose **Yes**, enter a webhook URL endpoint under **Webhook URL** or semicolon-separated email addresses under **Email address** where you want the notification to post or be sent. For more information, see the [auto shutdown notifications](#auto-shutdown-notifications) section.
-1. Select **Save**.
+1. For **Send notification before auto-shutdown?**, select **Yes** or **No** for the option to send a notification 30 minutes before the specified auto shutdown time. 
+    - If you choose **Yes**, enter a webhook URL endpoint under **Webhook URL** or semicolon-separated email addresses under **Email address** where you want the notification to post or be sent. For more information, see the [auto shutdown notifications](#auto-shutdown-notifications) section.
 
-   ![Screenshot that shows setting auto shutdown details for a lab.](media/devtest-lab-auto-shutdown/auto-shutdown.png)
+   :::image type="content" source="media/devtest-lab-auto-shutdown/auto-shutdown.png" alt-text="Screenshot showing setting auto shutdown details for a lab."::: 
+
+1. Select **Save**.
 
 By default, this schedule applies to all VMs in the lab. To remove this setting from a specific VM, if allowed by policy, open the VM's management pane and change its **Auto-shutdown** setting.
 
@@ -46,7 +48,7 @@ As a lab owner, you can control cost and minimize waste in your labs by managing
 
 1. Select one of the options.
 
-   ![Screenshot that shows auto shutdown policy options.](./media/devtest-lab-auto-shutdown/policy-options.png)
+   :::image type="content" source="media/devtest-lab-auto-shutdown/policy-options.png" alt-text="Screenshot showing setting auto shutdown policy options."::: 
 
    - **User sets a schedule and can opt out**: Lab users can override or opt out of the lab schedule. This option grants VM owners full control to set their VMs' auto shutdown schedules.
 
@@ -66,7 +68,7 @@ Depending on the auto shutdown policy, you can also set an auto shutdown schedul
 1. For **Send notification before auto-shutdown?**, select **Yes** or **No** for the option to send a notification 30 minutes before the specified auto shutdown time. If you choose **Yes**, enter a webhook URL endpoint under **Webhook URL** or an email address under **Email address** where you want the notification to post or be sent. For more information, see the [auto shutdown notifications](#auto-shutdown-notifications) section.
 1. Select **Save**.
 
-   ![Screenshot that shows setting auto shutdown details for a V M.](media/devtest-lab-auto-shutdown/compute-auto-shutdown.png)
+   :::image type="content" source="media/devtest-lab-auto-shutdown/compute-auto-shutdown.png" alt-text="Screenshot showing setting auto shutdown details for a virtual machine."::: 
 
 ### View activity logs for auto shutdown updates
 
@@ -75,7 +77,7 @@ After you update auto shutdown settings, you can see the activity logged in the 
 1. On the home page for the VM, select **Activity log** from the left menu.
 1. Remove the **Resource** filter, apply the appropriate **Resource group** filter, and view the entries for **Add or modify schedules**.
 
-   ![Screenshot that shows Add or modify schedules in the Activity log.](media/devtest-lab-auto-shutdown/activity-log-entry.png)
+   :::image type="content" source="media/devtest-lab-auto-shutdown/activity-log-entry.png" alt-text="Screenshot showing Add or modify schedules in the Activity log."::: 
 
 1. Select the **Add or modify schedules** operation to open a summary page that shows more details about the operation.
 
@@ -116,8 +118,12 @@ To get started, create a logic app in Azure with the following steps:
    - Select a **Resource Group** or create a new one.
    - Enter a **Logic App name**.
    - Select a **Region** for the logic app.
+   - Select a **Plan type** for the logic app.
+   - Select a **Windows Plan** for the logic app.
+   - Select a **Pricing plan** for the logic app.
+   - Enabled **Zone redundancy** if necessary.
 
-   ![Screenshot that shows the Create Logic App page.](media/devtest-lab-auto-shutdown/new-logic-app-page.png)
+   :::image type="content" source="media/devtest-lab-auto-shutdown/new-logic-app-page.png" alt-text="Screenshot showing the Create Logic App page."::: 
 
 1. Select **Review + create**, and when validation passes, select **Create**.
 
@@ -131,15 +137,15 @@ Next, configure the built-in template.
 
 1. Under **Templates**, select **HTTP Request/Response**.
 
-   ![Screenshot that shows the HTTP Request Response template.](media/devtest-lab-auto-shutdown/select-http-request-response-option.png)
+   :::image type="content" source="media/devtest-lab-auto-shutdown/select-http-request-response-option.png" alt-text="Screenshot showing the HTTP Request Response template."::: 
 
 1. On the **HTTP Request-Response** page, select **Use this template**.
 
-   ![Screenshot that shows selecting Use this template.](./media/devtest-lab-auto-shutdown/select-use-this-template.png)
+   :::image type="content" source="media/devtest-lab-auto-shutdown/select-use-this-template.png" alt-text="Screenshot showing selecting Use this template."::: 
 
 1. Paste the following JSON code into the **Request Body JSON Schema** section.
 
-   ![Screenshot that shows the Request Body JSON Schema in the designer.](media/devtest-lab-auto-shutdown/request-json.png)
+   :::image type="content" source="media/devtest-lab-auto-shutdown/request-json.png" alt-text="Screenshot showing the Request Body JSON Schema in the designer."::: 
 
     ```json
     {
@@ -208,23 +214,31 @@ Now, integrate with your email client.
 
 1. In the designer, select **New step**.
 
-   ![Screenshot that shows New step in the designer.](media/devtest-lab-auto-shutdown/new-step.png)
+   :::image type="content" source="media/devtest-lab-auto-shutdown/new-step.png" alt-text="Screenshot showing New step in the designer."::: 
 
 1. On the **Choose an operation** page, enter *Office 365 Outlook - Send an email* in the Search field, and then select **Send an email (V2)** from **Actions**.
 
-   ![Screenshot that shows the Send an email V2 option.](media/devtest-lab-auto-shutdown/select-send-email.png)
+   :::image type="content" source="media/devtest-lab-auto-shutdown/select-send-email.png" alt-text="Screenshot showing the Send an email V2 option."::: 
 
 1. In the **Send an email (V2)** form, fill in the **To**, **Subject**, and **Body** fields.
 
    Select **Add dynamic content** to automatically populate the notification with values that the app and connectors use. For example, for **To**, select **owner**. Populate **Subject** with **vmName** and **labName**. Add content like **skipUrl** and **delayUrl** values to the message body.
 
-   ![Screenshot that shows an example notification email.](media/devtest-lab-auto-shutdown/email-options.png)
+   :::image type="content" source="media/devtest-lab-auto-shutdown/email-options.png" alt-text="Screenshot showing shows an example notification email."::: 
 
 1. Select **Save** on the toolbar.
 
-Now you can copy the webhook URL. Select the **When an HTTP request is received** step, and then select the copy button to copy the HTTP POST URL to the clipboard. Paste this webhook URL into the auto shutdown notification settings.
+1. Now you can copy the webhook URL. 
 
-![Screenshot that shows copying the webhook URL.](media/devtest-lab-auto-shutdown/webhook-url.png)
+    1. Select the **When an HTTP request is received** step, and then select the copy button to copy the HTTP POST URL to the clipboard. 
+
+       :::image type="content" source="media/devtest-lab-auto-shutdown/webhook-url.png" alt-text="Screenshot showing copying the webhook URL."::: 
+
+    1. Paste this webhook URL into the auto shutdown notification settings.
+ 
+       :::image type="content" source="media/devtest-lab-auto-shutdown/auto-shutdown-settings-webhook.png" alt-text="Screenshot showing pasting the webhook URL into the auto-shutdown settings."::: 
+
+    1. Select **Save**.
 
 ## Next steps
 

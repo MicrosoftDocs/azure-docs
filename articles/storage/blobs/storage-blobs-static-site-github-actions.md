@@ -8,8 +8,7 @@ ms.author: jukullam
 ms.reviewer: dineshm
 ms.date: 01/24/2022
 ms.subservice: blobs
-ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-
+ms.custom: devx-track-javascript, github-actions-azure
 ---
 
 # Use GitHub Actions workflow to deploy your static website in Azure Storage
@@ -73,7 +72,7 @@ An Azure subscription and GitHub account.
       build:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - uses: azure/login@v1
           with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -107,7 +106,7 @@ An Azure subscription and GitHub account.
       build:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - uses: azure/login@v1
           with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -180,7 +179,7 @@ An Azure subscription and GitHub account.
       build:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - uses: azure/login@v1
           with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
@@ -220,7 +219,7 @@ An Azure subscription and GitHub account.
       build:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - uses: azure/login@v1
           with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}

@@ -77,7 +77,7 @@ A user that should only be validating and reviewing LUIS applications, typically
         * [LUIS Programmatic v2.0 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
 
       All the APIs under: 
-        * [LUIS Endpoint APIs v2.0](/azure/cognitive-services/LUIS/luis-migration-api-v1-to-v2)
+        * [LUIS Endpoint APIs v2.0](./luis-migration-api-v1-to-v2.md)
         * [LUIS Endpoint APIs v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8)
         * [LUIS Endpoint APIs v3.0-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8)
 

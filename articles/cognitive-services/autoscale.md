@@ -65,17 +65,17 @@ Yes, you can disable the autoscale feature through Azure portal or CLI and retur
 
 Autoscale feature is available for the following services:
 
-* [Cognitive Services multi-key](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Canomaly-detector%2Clanguage-service%2Ccomputer-vision%2Cwindows)
+* [Cognitive Services multi-key](./cognitive-services-apis-create-account.md?tabs=multiservice%2canomaly-detector%2clanguage-service%2ccomputer-vision%2cwindows)
 * [Computer Vision](computer-vision/index.yml)
 * [Language](language-service/overview.md) (only available for sentiment analysis, key phrase extraction, named entity recognition, and text analytics for health)
-* [Anomaly Detector](/azure/cognitive-services/anomaly-detector/overview)
-* [Content Moderator](/azure/cognitive-services/content-moderator/overview)
-* [Custom Vision (Prediction)](/azure/cognitive-services/custom-vision-service/overview)
-* [Immersive Reader](/azure/applied-ai-services/immersive-reader/overview)
-* [LUIS](/azure/cognitive-services/luis/what-is-luis)
-* [Metrics Advisor](/azure/applied-ai-services/metrics-advisor/overview)
-* [Personalizer](/azure/cognitive-services/personalizer/what-is-personalizer)
-* [QnAMaker](/azure/cognitive-services/qnamaker/overview/overview)
+* [Anomaly Detector](./anomaly-detector/overview.md)
+* [Content Moderator](./content-moderator/overview.md)
+* [Custom Vision (Prediction)](./custom-vision-service/overview.md)
+* [Immersive Reader](../applied-ai-services/immersive-reader/overview.md)
+* [LUIS](./luis/what-is-luis.md)
+* [Metrics Advisor](../applied-ai-services/metrics-advisor/overview.md)
+* [Personalizer](./personalizer/what-is-personalizer.md)
+* [QnAMaker](./qnamaker/overview/overview.md)
 * [Form Recognizer](../applied-ai-services/form-recognizer/overview.md?tabs=v3-0)
 
 ### Can I test this feature using a free subscription?

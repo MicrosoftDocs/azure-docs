@@ -16,7 +16,7 @@ Azure availability zones are physically separate locations within each Azure reg
 
 Event Grid resource definitions for topics, system topics, domains, and event subscriptions and event data are automatically replicated across three availability zones ([when available](../availability-zones/az-overview.md#azure-regions-with-availability-zones)) in the region. When there's a failure in one of the availability zones, Event Grid resources **automatically failover** to another availability zone without any human intervention. Currently, it isn't possible for you to control (enable or disable) this feature. When an existing region starts supporting availability zones, existing Event Grid resources would be automatically failed over to take advantage of this feature. No customer action is required. 
 
-:::image type="content" source="../availability-zones/media/availability-zones-region-geography.png" alt-text="Diagram that shows availability zones that protect against localized disasters and regional or large geography disasters by using another region.":::
+:::image type="content" source="../reliability/media/availability-zones-region-geography.png" alt-text="Diagram that shows availability zones that protect against localized disasters and regional or large geography disasters by using another region.":::
 
 ## Geo-disaster recovery across regions
 
@@ -35,7 +35,7 @@ Here are a few reasons why you may want to disable the Microsoft-initiated failo
 - Microsoft-initiated failover is done on a best-effort basis. 
 - Some geo pairs may not meet your organization's data residency requirements. 
 
-In such cases, the recommended option is to [build your own disaster recovery plan for Azure Event Grid topics and domains](custom-disaster-recovery.md). While this option requires a bit more effort, it enables faster failover, and you are in control of choosing secondary regions. If you want to implement client-side disaster recovery for Azure Event Grid topics, see [Build your own client-side disaster recovery for Azure Event Grid topics](custom-disaster-recovery-client-side.md). 
+In such cases, the recommended option is to build your own disaster recovery plan for Azure Event Grid topics and domains. While this option requires a bit more effort, it enables faster failover, and you are in control of choosing secondary regions. If you want to implement client-side disaster recovery for Azure Event Grid topics, see [Build your own client-side disaster recovery for Azure Event Grid topics](custom-disaster-recovery-client-side.md). 
 
 
 ## RTO and RPO
@@ -45,7 +45,7 @@ Disaster recovery is measured with two metrics:
 - Recovery Point Objective (RPO): the minutes or hours of data that may be lost. 
 - Recovery Time Objective (RTO): the minutes or hours the service may be down. 
 
-Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions.) and data (events). If you need different specification from the following ones, you can still implement your own [client-side fail over using the topic health apis](custom-disaster-recovery.md). 
+Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions.) and data (events). If you need different specification from the following ones, you can still implement your own client-side failover using the topic health apis. 
 
 ### Recovery point objective (RPO)
 - **Metadata RPO**: zero minutes. For applicable resources, when a resource is created/updated/deleted, the resource definition is synchronously replicated to the geo-pair. When a failover occurs, no metadata is lost.
@@ -61,4 +61,4 @@ Event Grid’s automatic failover has different RPOs and RTOs for your metadata 
 > - Geo-disaster recovery is not supported for partner namespaces and partner topics. 
 
 ## Next steps
-If you want to implement your own disaster recovery plan for Azure Event Grid topics and domains, see [Build your own disaster recovery for custom topics in Event Grid](custom-disaster-recovery.md).
+See [Build your own client-side disaster recovery for Azure Event Grid topics](custom-disaster-recovery-client-side.md).

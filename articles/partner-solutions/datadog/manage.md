@@ -1,15 +1,16 @@
 ---
 title: Manage a Datadog resource
 description: This article describes management of a Datadog resource in the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
-ms.topic: conceptual
-ms.date: 05/28/2021
 author: flang-msft
+
 ms.author: franlanglois
+ms.topic: conceptual
+ms.date: 01/06/2023
 ---
 
-# Manage the Datadog resource
+# Manage the Datadog - An Azure Native ISV Service resource
 
-This article shows how to manage the settings for your Azure integration with Datadog.
+This article shows how to manage the settings for your Datadog - An Azure Native ISV Service.
 
 ## Resource overview
 
@@ -120,7 +121,7 @@ If you would like to reconfigure single sign-on, select **Single sign-on** in th
 
 To establish single sign-on through Azure Active directory, select **Enable single sign-on through Azure Active Directory**.
 
-The portal retrieves the appropriate Datadog application from Azure Active Directory. The app comes from the enterprise app name you selected when setting up integration. Select the Datadog app name as shown below:
+The portal retrieves the appropriate Datadog application from Azure Active Directory. The app comes from the enterprise app name you selected when setting up integration. Select the Datadog app name:
  
 :::image type="content" source="media/manage/reconfigure-single-sign-on.png" alt-text="Reconfigure single sign-on application." border="true":::
  
@@ -130,7 +131,7 @@ To change the Datadog billing plan, go to **Overview** and select **Change Plan*
 
 :::image type="content" source="media/manage/datadog-select-change-plan.png" alt-text="Select change Datadog billing plan." border="true":::
 
-The portal retrieves all the available Datadog plans for your tenant. Select the appropriate plan and click on **Change Plan**.
+The portal retrieves all the available Datadog plans for your tenant. Select the appropriate plan and select on **Change Plan**.
 
 :::image type="content" source="media/manage/datadog-change-plan.png" alt-text="Select the Datadog billing plan to change." border="true":::
   
@@ -142,7 +143,7 @@ To disable the Azure integration with Datadog, go to **Overview**. Select **Disa
  
 :::image type="content" source="media/manage/disable.png" alt-text="Disable Datadog resource." border="true":::
 
-To enable the Azure integration with Datadog, go to **Overview**. Select **Enable** and **OK**. Selecting **Enable** retrieves any previous configuration for metrics and logs. The configuration determines which Azure resources emit metrics and logs to Datadog. After completing the step, metrics and logs are sent to Datadog.
+To enable the Azure integration with Datadog, go to **Overview**. Select **Enable** and **OK**. Selecting **Enable** retrieves any previous configuration for metrics and logs. The configuration determines which Azure resources emit metrics and logs to Datadog. After you complete this step, metrics and logs are sent to Datadog.
  
 :::image type="content" source="media/manage/enable.png" alt-text="Enable Datadog resource." border="true":::
 
@@ -158,4 +159,4 @@ If more than one Datadog resource is mapped to the Datadog organization, deletin
 
 ## Next steps
 
-For help with troubleshooting, see [Troubleshooting Datadog solutions](troubleshoot.md).
+- For help with troubleshooting, see [Troubleshooting Datadog solutions](troubleshoot.md).

@@ -1,11 +1,6 @@
 {
   "redirections": [
   {
-    "source_path": "enable-partitions-premium.md",
-    "redirect_url": "/azure/service-bus-messaging/enable-partitions-basic-standard",
-    "redirect_document_id": false
-  },
-  {
     "source_path": "migrate-java-apps-wild-fly.md",
     "redirect_url": "/azure/app-service/configure-language-java#use-service-bus-as-a-message-broker",
     "redirect_document_id": false
@@ -55,6 +50,11 @@
     "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",
     "redirect_document_id": false
   },
+  {
+    "source_path": "service-bus-create-namespace-portal.md",
+    "redirect_url": "/azure/service-bus-messaging/service-bus-quickstart-portal#create-a-namespace-in-the-azure-portal",
+    "redirect_document_id": false
+  },  
   {
     "source_path": "service-bus-create-queues.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues",

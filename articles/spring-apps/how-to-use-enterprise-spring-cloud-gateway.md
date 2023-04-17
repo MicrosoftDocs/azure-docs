@@ -1,9 +1,9 @@
 ---
 title: How to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier
 description: Shows you how to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier to route requests to your applications.
-author: karlerickson
+author: KarlErickson
 ms.author: xiading
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/04/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
@@ -49,6 +49,7 @@ The route configuration definition includes the following parts:
 - OpenAPI URI: This URI references an OpenAPI specification. You can use a public URI endpoint such as `https://petstore3.swagger.io/api/v3/openapi.json` or a constructed URI such as `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where *`<app-name>`* is the name of an application in Azure Spring Apps that includes the API definition. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification will also be shown in the API portal if enabled.
 - routes: A list of route rules to direct traffic to apps and apply filters.
 - protocol: The backend protocol of the application to which Spring Cloud Gateway routes traffic. The protocol's supported values are `HTTP` or `HTTPS`, and the default is `HTTP`. To secure traffic from Spring Cloud Gateway to your HTTPS-enabled application, you need to set the protocol to `HTTPS` in your route configuration.
+- app level routes: There are three route properties that you can configure at the app level to avoid repetition across all or most of the routes in the route configuration. The concrete routing rule will override the app level routing rule for the same property. You can define the following properties at the app level: `predicates`, `filters`, and `ssoEnabled`. If you use the `OpenAPI URI` feature to define routes, the only app level routing property to support is `filters`.
 
 Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests will route to.
 
@@ -63,7 +64,14 @@ The following example shows a JSON file that's passed to the `--routes-file` par
 
 ```json
 {
-   "open_api": {
+   "predicates": [
+      "<app-level-predicate-of-route>",
+   ],
+   "ssoEnabled": false,
+   "filters": [
+      "<app-level-filter-of-route>",
+   ],
+   "openApi": {
       "uri": "<OpenAPI-URI>"
    },
    "protocol": "<protocol-of-routed-app>",
@@ -96,8 +104,8 @@ The following table lists the route definitions. All the properties are optional
 | uri         | The full URI, which will override the name of app that the requests route to.                                                                                                          |
 | ssoEnabled  | A value that indicates whether to enable SSO validation. See [Configure single sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on-sso).           |
 | tokenRelay  | Passes the currently authenticated user's identity token to the application.                                                                                                           |
-| predicates  | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates). |
-| filters     | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters).          |
+| predicates  | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-configuring-routes.html#available-predicates). |
+| filters     | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-configuring-routes.html#available-filters).          |
 | order       | The route processing order. A lower order is processed with higher precedence, as in [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/). |
 | tags        | Classification tags that will be applied to methods in the generated OpenAPI documentation.                                                                                            |
 
@@ -200,9 +208,9 @@ You can use Spring Cloud Gateway OSS filters in Spring Cloud Gateway for Kuberne
 
 ### Use commercial filters
 
-For more examples of commercial filters, see [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#filters-added-in-spring-cloud-gateway-for-kubernetes) in the VMware Spring Cloud Gateway documentation. These examples are written using Kubernetes resource definitions.
+For more examples of commercial filters, see [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-route-filters.html#filters-added-in-spring-cloud-gateway-for-kubernetes) in the VMware Spring Cloud Gateway documentation. These examples are written using Kubernetes resource definitions.
 
-The following example shows how to use the [AddRequestHeadersIfNotPresent](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#add-request-headers-if-not-present) filter by converting the Kubernetes resource definition.
+The following example shows how to use the [AddRequestHeadersIfNotPresent](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-route-filters.html#add-request-headers-if-not-present) filter by converting the Kubernetes resource definition.
 
 Start with the following resource definition in YAML:
 
@@ -245,6 +253,37 @@ az spring gateway route-config create \
     --app myapp
     --routes-file <json-file-with-routes>
 ```
+
+## Enable/disable Spring Cloud Gateway after service creation
+
+You can enable and disable Spring Cloud Gateway after service creation using the Azure portal or Azure CLI. Before disabling Spring Cloud Gateway, you're required to unassign its endpoint and remove all route configs.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to enable or disable Spring Cloud Gateway using the Azure portal:
+
+1. Navigate to your service resource, and then select **Spring Cloud Gateway**.
+1. Select **Manage**.
+1. Select or unselect the **Enable Spring Cloud Gateway**, and then select **Save**.
+1. You can now view the state of Spring Cloud Gateway on the **Spring Cloud Gateway** page.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following Azure CLI commands to enable or disable Spring Cloud Gateway:
+
+```azurecli
+az spring spring-cloud-gateway create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+```azurecli
+az spring spring-cloud-gateway delete \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+---
 
 ## Next steps
 

@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 12/06/2022
 ms.author: aahi
 ---
 
@@ -13,7 +13,7 @@ ms.author: aahi
 
 To use the code sample below, you'll need to deploy an Azure resource. This resource will contain a key and endpoint you'll use to authenticate the API calls you send to the Language service.
 
-1. Use the following link to [create a language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) using the Azure portal. You will need to sign in using your Azure subscription.
+1. Use the following link to <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics" target="_blank">create a language resource</a> using the Azure portal. You will need to sign in using your Azure subscription.
 1. On the **Select additional features** screen that appears, select **Continue to create your resource**.
 
     :::image type="content" source="../media/portal-resource-additional-features.png" alt-text="A screenshot showing additional feature options in the Azure portal." lightbox="../media/portal-resource-additional-features.png":::

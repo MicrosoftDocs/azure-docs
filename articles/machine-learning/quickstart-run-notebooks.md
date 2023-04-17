@@ -9,6 +9,7 @@ ms.custom: ignite-2022
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
+ms.reviewer: sgilley
 ms.date: 09/28/2022
 adobe-target: true
 #Customer intent: As a data scientist, I want to run notebooks and explore sample notebooks in Azure Machine Learning.

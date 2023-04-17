@@ -18,11 +18,11 @@ Azure Communication Services currently provides metrics for all ACS primitives. 
 
 ## Where to find metrics
 
-Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics blade under your Communication Services resource. You can also create permanent dashboards using the workbooks blade under your Communication Services resource.
+Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics tab under your Communication Services resource. You can also create permanent dashboards using the workbooks tab under your Communication Services resource.
 
 ## Metric definitions
 
-Today there are various types of requests that are represented within Communication Services metrics: **Chat API requests** , **SMS API requests** , **Authentication API requests** and **Network Traversal API requests**.
+Today there are various types of requests that are represented within Communication Services metrics: **Chat API requests** , **SMS API requests** , **Authentication API requests**, **Call Automation API requests** and **Network Traversal API requests**.
 
 All API request metrics contain three dimensions that you can use to filter your metrics data. These dimensions can be aggregated together using the `Count` aggregation type and support all standard Azure Aggregation time series including `Sum`, `Average`, `Min`, and `Max`.
 
@@ -86,6 +86,31 @@ The following operations are available on Authentication API request metrics:
 | ExchangeTeamsUserAccessToken  | Exchange an Azure Active Directory (Azure AD) access token of a Teams user for a new Communication Identity access token with a matching expiration time.|
 
 :::image type="content" source="./media/acs-auth-metrics.png" alt-text="Authentication Request Metric.":::
+
+### Call Automation API requests
+
+The following operations are available on Call Automation API request metrics:
+
+| Operation / Route  | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| Create Call           | Create an outbound call to user. 
+| Answer Call           | Answer an inbound call. |
+| Redirect Call         | Redirect an inbound call to another user. |
+| Reject Call           | Reject an inbound call. |
+| Transfer Call To Participant   |  Transfer 1:1 call to another user.   |
+| Play                  | Play audio to call participants.  |
+| PlayPrompt            | Play a prompt to users as part of the Recognize action. |
+| Recognize             | Recognize user input from call participants. |
+| Add Participants      |  Add a participant to a call.    |
+| Remove Participants   | Remove a participant from a call.   |
+| HangUp Call           | Hang up your call leg. | 
+| Terminate Call        | End the call for all participants.  | 
+| Get Call              | Get details about a call.     |
+| Get Participant       |  Get details on a call participant.   |
+| Get Participants      |  Get all participants in a call.   |
+| Delete Call           |  Delete a call.    |
+| Cancel All Media Operations | Cancel all ongoing or queued media operations in a call. | 
+
 
 ### Network Traversal API requests
 

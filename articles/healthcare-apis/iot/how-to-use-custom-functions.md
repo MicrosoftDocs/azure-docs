@@ -5,13 +5,16 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 04/14/2023
 ms.author: jasteppe
 ---
 
 # How to use custom functions with device mappings
 
-Many functions are available when using **JMESPath** as the expression language. Besides the functions available as part of the JMESPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](how-to-use-device-mappings.md) during the device message [normalization](iot-data-flow.md#normalize) process.
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
+Many functions are available when using **JMESPath** as the expression language. Besides the functions available as part of the JMESPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](overview-of-device-mapping.md) during the device message [normalization](overview-of-device-data-processing-stages.md#normalize) process.
 
 > [!TIP]
 > For more information on JMESPath functions, see the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions).
@@ -182,13 +185,15 @@ Examples:
 | {"unix": 0}              | fromUnixTimestampMs(unix) | "1970-01-01T00:00:00+0" |
 
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings. 
+> See the MedTech service article [Troubleshoot MedTech service errors](troubleshoot-errors.md) for assistance fixing MedTech service errors. 
 
 ## Next steps
 
-In this article, you learned how to use the MedTech service custom functions. To learn how to use custom functions with the MedTech service device mapping, see
+In this article, you learned how to use the MedTech service custom functions with the device mappings. 
+
+To learn how to configure the MedTech service device mappings, see
 
 > [!div class="nextstepaction"]
-> [How to use device mappings](how-to-use-device-mappings.md)
+> [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

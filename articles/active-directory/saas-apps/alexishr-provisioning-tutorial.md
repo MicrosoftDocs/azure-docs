@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure AlexisHR for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure AlexisHR for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to AlexisHR.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 438a007c-2c3f-466f-ac9a-7e752e2532a4
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/05/2022
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

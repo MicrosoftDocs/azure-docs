@@ -3,7 +3,7 @@ title: Collect Prometheus metrics with Container insights
 description: Describes different methods for configuring the Container insights agent to scrape Prometheus metrics from your Kubernetes cluster.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/28/2022
+ms.date: 03/01/2023
 ms.reviewer: aul
 ---
 
@@ -55,7 +55,7 @@ Active scraping of metrics from Prometheus is performed from one of two perspect
 | Endpoint | Scope | Example |
 |----------|-------|---------|
 | Pod annotation | Cluster-wide | `prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
-| Kubernetes service | Cluster-wide | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics`​ |
+| Kubernetes service | Cluster-wide | `http://my-service-dns.my-namespace:9100/metrics` <br>`http://metrics-server.kube-system.svc.cluster.local/metrics`​ |
 | URL/endpoint | Per-node and/or cluster-wide | `http://myurl:9101/metrics` |
 
 When a URL is specified, Container insights only scrapes the endpoint. When Kubernetes service is specified, the service name is resolved with the cluster DNS server to get the IP address. Then the resolved service is scraped.
@@ -64,10 +64,10 @@ When a URL is specified, Container insights only scrapes the endpoint. When Kube
 |------|-----|-----------|-------|-------------|
 | Cluster-wide | | | | Specify any one of the following three methods to scrape endpoints for metrics. |
 | | `urls` | String | Comma-separated array | HTTP endpoint (either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Container insights parameter and can be used instead of a node IP address. Must be all uppercase.) |
-| | `kubernetes_services` | String | Comma-separated array | An array of Kubernetes services to scrape metrics from kube-state-metrics. Fully qualified domain names must be used here. For example,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace.svc.cluster.local:9100/metrics]`|
+| | `kubernetes_services` | String | Comma-separated array | An array of Kubernetes services to scrape metrics from kube-state-metrics. Fully qualified domain names must be used here. For example,`kubernetes_services = ["http://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace.svc.cluster.local:9100/metrics]`|
 | | `monitor_kubernetes_pods` | Boolean | true or false | When set to `true` in the cluster-wide settings, the Container insights agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | true or false | Enables scraping of the pod, and `monitor_kubernetes_pods` must be set to `true`. |
-| | `prometheus.io/scheme` | String | http or https | Defaults to scraping over HTTP. If necessary, set to `https`. | 
+| | `prometheus.io/scheme` | String | http | Defaults to scraping over HTTP. | 
 | | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path from which to fetch metrics. If the metrics path isn't `/metrics`, define it with this annotation. |
 | | `prometheus.io/port` | String | 9102 | Specify a port to scrape from. If the port isn't set, it will default to 9102. |
 | | `monitor_kubernetes_pods_namespaces` | String | Comma-separated array | An allowlist of namespaces to scrape metrics from Kubernetes pods.<br> For example, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
@@ -157,7 +157,7 @@ Perform the following steps to configure your ConfigMap configuration file for y
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
-The configuration change can take a few minutes to finish before taking effect. You must restart all Azure Monitor Agent pods manually. When the restarts are finished, a message appears that's similar to the following and includes the result `configmap "container-azm-ms-agentconfig" created`.
+The configuration change can take a few minutes to finish before taking effect. All ama-logs pods in the cluster will restart. When the restarts are finished, a message appears that's similar to the following and includes the result `configmap "container-azm-ms-agentconfig" created`.
 
 
 ### Verify configuration

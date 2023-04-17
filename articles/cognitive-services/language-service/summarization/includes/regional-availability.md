@@ -5,14 +5,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/21/2022
+ms.date: 12/06/2022
 ms.author: aahi
 ms.custom: references_regions, ignite-2022
 ---
 
 > [!IMPORTANT]
-> * To use gated summarization features, e.g. document abstractive summarization, conversation issue and resolution summarization, and conversation narrative summarization with chapters, you must [submit an online request and have it approved](https://aka.ms/applyforgatedsummarizationfeatures).
-> * These gated summarization features are only available through Language resources in the following regions:
+> * Starting April 10th, 2023, customers get access to all summarization capabilities in the Language service. Among them, document abstractive summarization, conversation issue and resolution summarization, and conversation narrative summarization with chapters will be batch-only by default. For real time requests, please [fill-out this form and submit your request.](https://aka.ms/applyforgatedsummarizationfeatures)
+> * Document abstractive summarization, conversation issue and resolution summarization and conversation narrative summarization with chapters features are only available through Language resources in the following regions:
 >     * North Europe
 >     * East US
 >     * UK South
@@ -20,5 +20,3 @@ ms.custom: references_regions, ignite-2022
 >     * REST API
 >     * Python
 >     * C#
-> * Document abstractive summarization, and conversation narrative summarization with chapter is only available using:
->     * REST API

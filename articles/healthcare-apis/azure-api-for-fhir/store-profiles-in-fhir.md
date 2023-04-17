@@ -66,7 +66,7 @@ Profiles are also specified by various Implementation Guides (IGs). Some common 
 
 ### Storing profiles
 
-To store profiles in Azure API for FHIR, you can `PUT` the `StructureDefinition` with the profile content in the body of the request. An update or a conditional update are both good methods to store profiles on the FHIR service. Use the conditional update if you are unsure which to use.
+To store profiles in Azure API for FHIR, you can `PUT` the `StructureDefinition` with the profile content in the body of the request. An update or a conditional update are both good methods to store profiles on the FHIR service. Use the conditional update if you're unsure which to use.
 
 Standard `PUT`: `PUT http://<your Azure API for FHIR base URL>/StructureDefinition/profile-id`
 
@@ -202,6 +202,12 @@ You'll be returned with a `CapabilityStatement` that includes the following info
         "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
     ],
 ```
+### Bindings in Profiles
+A terminology service is a set of functions that can perform operations on medical “terminologies,” such as validating codes, translating codes, expanding value sets, etc.  The Azure API for FHIR service doesn't support terminology service. Information for supported operations ($), resource types and interactions can be found in the service's CapabilityStatement. Resource types ValueSet, StructureDefinition and CodeSystem are supported with basic CRUD operations and Search (as defined in the CapabilityStatement) as well as being leveraged by the system for use in $validate. 
+
+ValueSets can contain a complex set of rules and external references. Today, the service will only consider the pre-expanded inline codes. Customers need to upload supported ValueSets to the FHIR server prior to utilizing the $validate operation. The ValueSet resources must be uploaded to the FHIR server, using PUT or conditional update as mentioned under Storing Profiles section above. 
+
+
 ## Next steps
 
 In this article, you've learned about FHIR profiles. Next, you'll learn how you can use $validate to ensure that resources conform to these profiles.

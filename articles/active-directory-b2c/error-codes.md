@@ -144,6 +144,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90288` | UserJourney with ID '{0}' referenced in TechnicalProfile '{1}' for refresh token redemption for tenant '{2}' does not exist in policy '{3}' or any of its base policies. |
 | `AADB2C90287` | The request contains invalid redirect URI '{0}'.| [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
 | `AADB2C90289` | We encountered an error connecting to the identity provider. Please try again later. |  [Add an IDP to your Azure AD B2C tenant](add-identity-provider.md) |
+| `AADB2C90289` | We encountered an 'invalid_client' error connecting to the identity provider. Please try again later. | Make sure the application secret is correct or it hasn't expired. Learn how to [Register apps](register-apps.md).|
 | `AADB2C90296` | Application has not been configured correctly. Please contact administrator of the site you are trying to access. | [Register a web application](tutorial-register-applications.md) |
 | `AADB2C99005` | The request contains an invalid scope parameter which includes an illegal character '{0}'. | [Web sign-in with OpenID Connect](openid-connect.md) | 
 | `AADB2C99006` | Azure AD B2C cannot find the extensions app with app ID '{0}'. Please visit https://go.microsoft.com/fwlink/?linkid=851224 for more information. | [Azure AD B2C extensions app](extensions-app.md) |

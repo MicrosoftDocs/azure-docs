@@ -1,5 +1,5 @@
 ---
-title: How to manage groups - Azure Active Directory | Microsoft Docs
+title: How to manage groups
 description: Instructions about how to manage Azure AD groups and group membership.
 services: active-directory
 author: shlipsey3
@@ -157,7 +157,7 @@ We currently don't support:
 
 1.  Locate the group you want your group to be a member of and choose **Select**. 
 
-    For this exercise, we're adding "MDM policy - West" to the "MDM policy - All org" group, so "MDM - policy - West" inherits all the properties and configurations of the "MDM policy - All org" group.
+    For this exercise, we're adding "MDM policy - West" to the "MDM policy - All org" group. The "MDM - policy - West" group will have the same access as the "MDM policy - All org" group.
 
     ![Screenshot of making a group the member of another group with 'Group membership' from the side menu and 'Add membership' option highlighted.](media/how-to-manage-groups/nested-groups-selected.png)
 
@@ -166,7 +166,7 @@ Now you can review the "MDM policy - West - Group memberships" page to see the g
 For a more detailed view of the group and member relationship, select the parent group name (MDM policy - All org) and take a look at the "MDM policy - West" page details.
 
 ### Remove a group from another group
-You can remove an existing Security group from another Security group; however, removing the group also removes any inherited settings for its members.
+You can remove an existing Security group from another Security group; however, removing the group also removes any inherited access for its members.
 
 1. On the **Groups - All groups** page, search for and select the group you need to remove as a member of another group.
 

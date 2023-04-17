@@ -6,7 +6,7 @@ ms.author: reprasa
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 04/11/2023
 ms.custom: template-concept, ignite-2022
 ---
  
@@ -21,16 +21,17 @@ Depending on your [type of scenario](guest-attestation-confidential-vms.md#scena
 ## Prerequisites
 
 - An Azure subscription.
-- An Azure [confidential VM](quick-create-confidential-vm-portal-amd.md) or a [VM with trusted launch enabled](../virtual-machines/trusted-launch-portal.md). You can use a Linux or Windows VM.
+- An Azure [confidential VM](quick-create-confidential-vm-portal-amd.md) or a [VM with trusted launch enabled](../virtual-machines/trusted-launch-portal.md). You can use a Ubuntu Linux VM or Windows VM.
+
 ## Use sample application
 
 To use a sample application in C++ for use with the guest attestation APIs, follow the instructions for your operating system (OS).
 
-#### [Linux](#tab/linux)
+#### [Ubuntu](#tab/linux)
 
 1. Sign in to your VM.
 
-1. Clone the sample Linux application.
+1. Clone the [sample Linux application](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-platform-checker-exe/Linux).
 
 1. Install the `build-essential` package. This package installs everything required for compiling the sample application.
 
@@ -59,13 +60,12 @@ To use a sample application in C++ for use with the guest attestation APIs, foll
 #### [Windows](#tab/windows)
 
 1. Install Visual Studio with the [**Desktop development with C++** workload](/cpp/build/vscpp-step-0-installation).
-1. Clone the sample Windows application.
+1. Clone the [sample Windows application](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-platform-checker-exe/Windows).
 1. Build your project. From the **Build** menu, select **Build Solution**.
 1. After the build succeeds, go to the `Release` build folder.
 1. Run the application by running the `AttestationClientApp.exe`.
 
 ---
-
 
 ## Next steps
 

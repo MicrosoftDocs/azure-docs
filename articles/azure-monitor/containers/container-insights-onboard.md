@@ -76,10 +76,6 @@ The containerized Linux agent (replicaset pod) makes API calls to all the Window
 
 If you have a Kubernetes cluster with Windows nodes, review and configure the network security group and network policies to make sure the Kubelet secure port (:10250) is opened for both inbound and outbound in the cluster's virtual network.
 
-### Network firewall requirements
-
-For information on the firewall requirements for the AKS cluster, see [Network firewall requirements](#network-firewall-requirements).
-
 ## Authentication
 
 Container insights now supports authentication by using managed identity (in preview). This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster.

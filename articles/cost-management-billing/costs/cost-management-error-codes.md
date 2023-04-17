@@ -7,7 +7,7 @@ ms.reviewer: micflan
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: troubleshooting
-ms.date: 05/13/2022
+ms.date: 12/13/2022
 ms.author: banders
 ---
 
@@ -24,7 +24,7 @@ If the information provided doesn't help you, [Create a support request](#create
 Error message `400`.
 <a name="400"></a>
 
-### Mitigation
+**Mitigation**
 
 If you're using the [BillingPeriods](/rest/api/consumption/#getting-list-of-billing-periods) API, confirm that you're using a classic pay-as-you-go or EA subscription. The BillingPeriods API doesn't support Microsoft Customer Agreement subscriptions.
 
@@ -32,7 +32,7 @@ Confirm that you're using a supported scope for the specific feature or subscrip
 
 There are many feature-specific errors that use the `400` error code. Refer to the error message and API documentation for specific details. For general information, see [Cost Management APIs](/rest/api/cost-management).
 
-### More information
+**More information**
 
 For more information about billing periods when transitioning to a Microsoft Customer Agreement, see [Billing period](../understand/mca-understand-your-invoice.md#billing-period).
 
@@ -42,7 +42,7 @@ Error message `401`.
 
 <a name="401"></a>
 
-### Mitigation
+**Mitigation**
 
 For an Enterprise Agreement, confirm that the view charges options (Account Owner or Department Administrator) have been enabled.
 
@@ -50,7 +50,7 @@ For a Microsoft Customer Agreement, confirm that the billing account owner has a
 
 See [AuthorizationFailed](#AuthorizationFailed).
 
-### More information
+**More information**
 
 For more information about enterprise agreements, see [Troubleshoot enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
@@ -62,7 +62,7 @@ Error message `404`.
 
 <a name="404"></a>
 
-### Mitigation
+**Mitigation**
 
 Confirm that you're using a supported scope for the specific feature or supported subscription offer type.
 
@@ -74,7 +74,7 @@ Error message `500`.
 
 <a name="500"></a>
 
-### Mitigation
+**Mitigation**
 
 This message is an internal error. Wait an hour and try again.
 
@@ -86,7 +86,7 @@ Error message `503`.
 
 <a name="503"></a>
 
-### Mitigation
+**Mitigation**
 
 This message is an internal error. Wait an hour and try again.
 
@@ -100,11 +100,11 @@ Error message `AccountCostDisabled`.
 
 <a name="AccountCostDisabled"></a>
 
-### Mitigation
+**Mitigation**
 
 The message indicates that the Enterprise Agreement administrator hasn't enabled Cost Management (view charges) for account owners and subscription users. Contact your administrator.
 
-### More information
+**More information**
 
 For more information, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
@@ -114,11 +114,11 @@ Error message `AuthorizationFailed`.
 
 <a name="AuthorizationFailed"></a>
 
-### Mitigation
+**Mitigation**
 
 Confirm that you have access to the specified scope or object. For example, budget or export.
 
-### More information
+**More information**
 
 For more information, see [Assign access to Cost Management data](assign-access-acm-data.md)
 
@@ -128,7 +128,7 @@ Error message `BadRequest`.
 
 <a name="BadRequest"></a>
 
-### Mitigation
+**Mitigation**
 
 When using the Query or Forecast APIs to retrieve cost data, validate the query body.
 
@@ -138,7 +138,7 @@ When using Power BI to pull reservation usage data for more than 3 months, you w
 
 Also, see [SubscriptionTypeNotSupported](#SubscriptionTypeNotSupported).
 
-### More information
+**More information**
 
 For more information about the Query - Usage API body examples, see [Query - Usage](/rest/api/cost-management/query/usage).
 
@@ -152,7 +152,7 @@ Error message `BillingAccessDenied`.
 
 <a name="BillingAccessDenied"></a>
 
-### Mitigation
+**Mitigation**
 
 See [AuthorizationFailed](#AuthorizationFailed).
 
@@ -162,11 +162,11 @@ Error message `DepartmentCostDisabled`.
 
 <a name="DepartmentCostDisabled"></a>
 
-### Mitigation
+**Mitigation**
 
 The message indicates that the Enterprise Agreement administrator hasn't enabled Cost Management (DA view charges) for department admins. Contact your EA administrator.
 
-### More information
+**More information**
 
 For more information about troubleshooting disabled costs, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
@@ -176,7 +176,7 @@ Error message `DisallowedOperation`.
 
 <a name="DisallowedOperation"></a>
 
-### Mitigation
+**Mitigation**
 
 The message indicates that the subscription doesn't have any charges. The type of subscription that you're using isn't allowed to incur charges. Because the subscription can't have any billed charges, it isn't supported by Cost Management.
 
@@ -186,7 +186,7 @@ Error message `FailedDependency`.
 
 <a name="FailedDependency"></a>
 
-### Mitigation
+**Mitigation**
 
 When you're using the Forecast API, the error indicates that there's either not enough data to generate an accurate forecast. Or, there are multiple currencies that can't be merged.
 
@@ -194,7 +194,7 @@ If you have multiple currencies, filter down to charges that only have one curre
 
 If there's not enough historical data, wait one week since you first had charges on the scope to see a forecast.
 
-### More information
+**More information**
 
 For more information about the API, see [Forecast - Usage](/rest/api/cost-management/forecast/usage).
 
@@ -204,7 +204,7 @@ Error message `GatewayTimeout`.
 
 <a name="GatewayTimeout"></a>
 
-### Mitigation
+**Mitigation**
 
 The message is an internal error. Wait an hour and try again.
 
@@ -216,11 +216,11 @@ Error message `IndirectCostDisabled`.
 
 <a name="IndirectCostDisabled"></a>
 
-### Mitigation
+**Mitigation**
 
 The message indicates that your partner hasn't published pricing for the Enterprise Agreement enrollment, which is required to use Cost Management. Contact your partner.
 
-### More information
+**More information**
 
 For more information, see [Troubleshoot Azure enterprise cost views](../manage/enterprise-mgmt-grp-troubleshoot-cost-view.md).
 
@@ -230,7 +230,7 @@ Error message `InvalidAuthenticationTokenTenant`.
 
 <a name="InvalidAuthenticationTokenTenant"></a>
 
-### Mitigation
+**Mitigation**
 
 The subscription you're accessing might have been moved to a different directory.
 
@@ -244,7 +244,7 @@ Error message `InvalidGatewayHost`.
 
 <a name="InvalidGatewayHost"></a>
 
-### Mitigation
+**Mitigation**
 
 The message is an internal error. Try again in five minutes. If the error continues, [create a support request](#create-a-support-request).
 
@@ -254,7 +254,7 @@ Error message `InvalidScheduledActionEmailRecipients`.
 
 <a name="InvalidScheduledActionEmailRecipients"></a>
 
-### Mitigation
+**Mitigation**
 
 The message indicates that the scheduled action/email for an alert that you're creating or updating doesn't have any email recipients. When using the Azure portal, press ENTER after specifying an email address to ensure it's saved in the form.
 
@@ -264,7 +264,7 @@ Error message `InvalidView`.
 
 <a name="InvalidView"></a>
 
-### Mitigation
+**Mitigation**
 
 The message indicates that the view specified when creating or updating an alert with the ScheduledActions API isn't valid.
 
@@ -276,7 +276,7 @@ Error message `MissingSubscription`.
 
 <a name="MissingSubscription"></a>
 
-### Mitigation
+**Mitigation**
 
 The message indicates that the HTTP request didn't include a valid scope.
 
@@ -288,7 +288,7 @@ Error message `NotFound`.
 
 <a name="NotFound"></a>
 
-### Mitigation
+**Mitigation**
 
 If using a subscription or resource group, see [SubscriptionNotFound](#SubscriptionNotFound).
 
@@ -298,19 +298,21 @@ If using Cost Management in the Azure portal, try refreshing the page. The error
 
 For any other cases, validate the scope or resource ID.
 
-### More information
+**More information**
 
 For more information, see [Assign access to Cost Management data](assign-access-acm-data.md).
 
-## RBACAccessDenied
-
-Error message `RBACAccessDenied`.
-
 <a name="RBACAccessDenied"></a>
 
-### Mitigation
+## RBACAccessDenied
 
-For mitigation information, see [AuthorizationFailed](#AuthorizationFailed).
+Indicates that the current user/account does not have adequate Role-Based Access Control (RBAC) permission to perform the action.
+
+**Mitigation**
+
+If creating a budget that references an action group (`contactGroups` in the request body), make sure the user/account executing the PUT request has both Cost Management Contributor (or `Microsoft.Consumption/budgets/write`) access as well as Monitoring Reader (or `Microsoft.Insights/actionGroups/read`) access.
+
+For additional mitigation steps, see [AuthorizationFailed](#AuthorizationFailed).
 
 ## ReadOnlyDisabledSubscription
 
@@ -318,11 +320,11 @@ Error message `ReadOnlyDisabledSubscription`.
 
 <a name="ReadOnlyDisabledSubscription"></a>
 
-### Mitigation
+**Mitigation**
 
 The subscription is disabled. You can't create or update Cost Management objects, like budgets and views, for a disabled subscription.
 
-### More information
+**More information**
 
 For more information, see [Reactivate a disabled Azure subscription](../manage/subscription-disabled.md).
 
@@ -330,7 +332,7 @@ For more information, see [Reactivate a disabled Azure subscription](../manage/s
 
 <a name="ResourceGroupNotFound"></a>
 
-### Mitigation
+**Mitigation**
 
 The error indicates that a resource group doesn't exist. The resource group might be moved or deleted.
 
@@ -342,11 +344,11 @@ Error message `ResourceRequestsThrottled`.
 
 <a name="ResourceRequestsThrottled"></a>
 
-### Mitigation
+**Mitigation**
 
 The error is caused by excessive use within a short timeframe. Wait five minutes and try again.
 
-### More information
+**More information**
 
 For more information, see [Data latency and rate limits](manage-automation.md#data-latency-and-rate-limits).
 
@@ -356,7 +358,7 @@ Error message `ServerTimeout`.
 
 <a name="ServerTimeout"></a>
 
-### Mitigation
+**Mitigation**
 
 For mitigation information, see [GatewayTimeout](#GatewayTimeout).
 
@@ -366,14 +368,14 @@ Error message `SubscriptionNotFound`.
 
 <a name="SubscriptionNotFound"></a>
 
-### Mitigation
+**Mitigation**
 
 - Validate that the subscription ID is correct.
 - Confirm that you have a supported subscription type.
 
 If using Cost Management for a newly created subscription, wait 48 hours and try again.
 
-### More information
+**More information**
 
 Supported subscription types are shown at [Understand Cost Management data](understand-cost-mgt-data.md).
 
@@ -383,11 +385,11 @@ Error message `SubscriptionTypeNotSupported`.
 
 <a name="SubscriptionTypeNotSupported"></a>
 
-### Mitigation
+**Mitigation**
 
 If using a management group, verify that all subscriptions have a supported offer type. Cost Management doesn't support management groups with Microsoft Customer Agreement subscriptions.
 
-### More information
+**More information**
 
 Supported subscription types are shown at [Understand Cost Management data](understand-cost-mgt-data.md).
 
@@ -397,7 +399,7 @@ Error message `Unauthorized`.
 
 <a name="Unauthorized"></a>
 
-### Mitigation
+**Mitigation**
 
 If using the ExternalBillingAccounts or ExternalSubscriptions APIs, verify that the Microsoft.CostManagement resource providerRP was [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for your Azure Active Directory instance. Resource Provider registration is required to use Cost Management for AWS.
 
@@ -405,7 +407,7 @@ If you get an `Empty GUID user id` error, update the bearer token associated wit
 
 Also, see [AuthorizationFailed](#AuthorizationFailed).
 
-### More information
+**More information**
 
 For more information, see [Set up AWS integration with Cost Management](aws-integration-set-up-configure.md).
 

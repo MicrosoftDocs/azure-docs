@@ -2,7 +2,6 @@
 title: Run an Azure Function in response to a blob rehydration event
 titleSuffix: Azure Storage
 description: Learn how to develop an Azure Function with .NET, then configure Azure Event Grid to run the function in response to an event fired when a blob is rehydrated from the Archive tier.
-services: storage
 author: normesta
 
 ms.service: storage

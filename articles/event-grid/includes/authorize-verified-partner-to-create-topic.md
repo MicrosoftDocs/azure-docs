@@ -33,7 +33,7 @@ You must grant your consent to the partner to create partner topics in a resourc
     
         :::image type="content" source="./media/subscribe-to-partner-events/partner-authorization-configuration.png" alt-text="Screenshot showing the Create Partner Configuration page with the Partner Authorization link selected.":::
 1. On the **Add partner authorization to create resources** page, you see a list of **verified partners**. A verified partner is a partner whose identity has been validated by Microsoft. Follow these steps to authorize **Auth0** to create a partner topic. 
-    1. Select the **verified partner** (Auth0, SAP, or Microsoft Graph API)  from the list of verified partners.
+    1. Select the **verified partner** (Auth0, SAP, Tribal Group, or Microsoft Graph API)  from the list of verified partners.
     1. Specify **authorization expiration time**.
     1. select **Add**. 
 

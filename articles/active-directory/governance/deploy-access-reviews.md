@@ -1,5 +1,5 @@
 ---
-title: Plan an Azure Active Directory access reviews deployment
+title: Plan a Microsoft Entra access reviews deployment
 description: Planning guide for a successful access reviews deployment.
 services: active-directory
 documentationCenter: ''
@@ -21,9 +21,9 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Plan an Azure Active Directory access reviews deployment
+# Plan a Microsoft Entra access reviews deployment
 
-[Azure Active Directory (Azure AD) access reviews](access-reviews-overview.md) help your organization keep the network more secure by managing its [resource access lifecycle](identity-governance-overview.md). With access reviews, you can:
+[Microsoft Entra access reviews](access-reviews-overview.md) help your organization keep the network more secure by managing its [resource access lifecycle](identity-governance-overview.md). With access reviews, you can:
 
 * Schedule regular reviews or do ad-hoc reviews to see who has access to specific resources, such as applications and groups.
 * Track reviews for insights, compliance, or policy reasons.
@@ -33,7 +33,7 @@ ms.collection: M365-identity-device-management
 
   ![Diagram that shows the access reviews flow.](./media/deploy-access-review/1-planning-review.png)
 
-Access reviews are an [Azure AD Identity Governance](identity-governance-overview.md) capability. The other capabilities are [entitlement management](entitlement-management-overview.md), [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), and [terms of use](../conditional-access/terms-of-use.md). Together, they help you address these four questions:
+Access reviews are an [Microsoft Entra Identity Governance](identity-governance-overview.md) capability. The other capabilities are [entitlement management](entitlement-management-overview.md), [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), and [terms of use](../conditional-access/terms-of-use.md). Together, they help you address these four questions:
 
 * Which users should have access to which resources?
 * What are those users doing with that access?
@@ -276,7 +276,7 @@ Group owners review membership because they're best qualified to know who needs 
 
    For example, Microsoft Teams uses Microsoft 365 Groups as the underlying authorization model to grant users access to resources that are in SharePoint, Exchange, OneNote, or other Microsoft 365 services. The creator of the team automatically becomes an owner and should be responsible for attesting to the membership of that group.
 
-* Groups created manually in the Azure AD portal or via scripting through Microsoft Graph might not necessarily have owners defined. Define them either through the Azure AD portal in the group's **Owners** section or via Microsoft Graph.
+* Groups created manually in the Azure portal or via scripting through Microsoft Graph might not necessarily have owners defined. Define them either through the Azure portal in the group's **Owners** section or via Microsoft Graph.
 
 * Groups that are synchronized from on-premises Active Directory can't have an owner in Azure AD. When you create an access review for them, select individuals who are best suited to decide on membership in them.
 
@@ -285,11 +285,11 @@ Group owners review membership because they're best qualified to know who needs 
 
 ### Review membership of exclusion groups in Conditional Access policies
 
-To learn how to review membership of exclusion groups, see [Use Azure AD access reviews to manage users excluded from Conditional Access policies](conditional-access-exclusion.md).
+To learn how to review membership of exclusion groups, see [Use Microsoft Entra access reviews to manage users excluded from Conditional Access policies](conditional-access-exclusion.md).
 
 ### Review guest users' group memberships
 
-To learn how to review guest users' access to group memberships, see [Manage guest access with Azure AD access reviews](./manage-guest-access-with-access-reviews.md).
+To learn how to review guest users' access to group memberships, see [Manage guest access with Microsoft Entra access reviews](./manage-guest-access-with-access-reviews.md).
 
 ### Review access to on-premises groups
 
@@ -442,5 +442,5 @@ For more advanced queries and analysis of access reviews, and to track changes a
 
 Learn about the following related technologies:
 
-* [What is Azure AD entitlement management?](entitlement-management-overview.md)
-* [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
+* [What is Microsoft entitlement management?](entitlement-management-overview.md)
+* [What is Microsoft Privileged Identity Management?](../privileged-identity-management/pim-configure.md)

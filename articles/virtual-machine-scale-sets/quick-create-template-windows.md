@@ -1,14 +1,14 @@
 ---
-title: Quickstart - Create a Windows virtual machine scale set with an Azure template
+title: Quickstart - Create a Windows Virtual Machine Scale Set with an Azure template
 description: Learn how to quickly create a Windows virtual machine scale with an Azure Resource Manager template that deploys a sample app and configures autoscale rules
 author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.collection: linux
-ms.date: 11/01/2022
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: mimckitt, subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: mimckitt, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create a Windows Virtual Machine Scale Set with an ARM template

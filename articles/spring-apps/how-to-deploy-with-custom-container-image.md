@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: xiangy
 ms.topic: how-to
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-java
 ms.date: 4/28/2022
 ---
 
@@ -111,7 +111,8 @@ The following matrix shows what features are supported in each application type.
 | Spring Cloud Eureka & Config Server                 | ✔️                                     | ❌                                   |                                                                                                                             |
 | API portal for VMware Tanzu®                        | ✔️                                     | ✔️                                   | Enterprise tier only.                                                                                                       |
 | Spring Cloud Gateway for VMware Tanzu®              | ✔️                                     | ✔️                                   | Enterprise tier only.                                                                                                       |
-| Application Configuration Service for VMware Tanzu® | ✔️                                     | ❌                                   | Enterprise tier only.                                                                                                       |
+| Application Configuration Service for VMware Tanzu® | ✔️                                     | ❌                                   | Enterprise tier only.         
+| Application Live View for VMware Tanzu®             | ✔️                                     | ❌                                   | Enterprise tier only.                                                                                                       |
 | VMware Tanzu® Service Registry                      | ✔️                                     | ❌                                   | Enterprise tier only.                                                                                                       |
 | VNET                                                | ✔️                                     | ✔️                                   | Add registry to [allowlist in NSG or Azure Firewall](#avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet). |
 | Outgoing IP Address                                 | ✔️                                     | ✔️                                   |                                                                                                                             |
@@ -188,7 +189,7 @@ If you deployed the instance to a VNet, make sure you allow the network traffic 
 
 ### Install an APM into the image manually
 
-The installation steps vary on different APMs and languages. The following steps are for New Relic with Java applications. You must modify the *Dockerfile* using the following steps:
+The installation steps vary on different application performance monitors (APMs) and languages. The following steps are for New Relic with Java applications. You must modify the *Dockerfile* using the following steps:
 
 1. Download and install the agent file into the image by adding the following to the *Dockerfile*:
 
@@ -245,7 +246,7 @@ AppPlatformContainerEventLogs
 
 ### Scan your image for vulnerabilities
 
-We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks#scanning-images-in-acr-registries)
+We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks)
 
 ### Switch between JAR deployment and container deployment
 

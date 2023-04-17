@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: cherylmc
 ---
 
-|  | **Private Peering** | **Microsoft Peering** |  **Public Peering** (deprecated for new circuits) |
+|  | **Private Peering** | **Microsoft Peering** |  **Public Peering** (deprecated for new circuits, will be retired on March 31, 2024) |
 | --- | --- | --- | --- |
 | **Max. # IPv4 prefixes supported per peering** |4000 by default, 10,000 with ExpressRoute Premium |200 |200 |
 | **Max. # IPv6 prefixes supported per peering** |100 |200 |N/A |

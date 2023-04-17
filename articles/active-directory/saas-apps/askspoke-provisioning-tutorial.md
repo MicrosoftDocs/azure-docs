@@ -1,11 +1,11 @@
 ---
-title: "Tutorial: Configure askSpoke for automatic user provisioning with Azure Active Directory | Microsoft Docs"
+title: "Tutorial: Configure askSpoke for automatic user provisioning with Azure Active Directory"
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to askSpoke.
 services: active-directory
 documentationcenter: ""
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: f9458aac-f576-49ce-aba4-fc8302ed6360
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 04/04/2023
 ms.author: thwimmer
 ---
 
 # Tutorial: Configure askSpoke for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both askSpoke and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [askSpoke](https://www.askspoke.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+This tutorial describes the steps you need to perform in both askSpoke and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [askSpoke](https://www.atspoke.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## Capabilities Supported
 

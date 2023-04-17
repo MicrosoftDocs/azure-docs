@@ -7,6 +7,7 @@ ms.topic: sample
 ms.date: 11/10/2021
 ms.author: prashabora
 ms.service: chaos-studio
+ms.custom: devx-track-arm-template
 ---
 
 # Resource Manager template samples for experiments in Azure Chaos Studio
@@ -50,17 +51,12 @@ In this sample, we create a chaos experiment with a single target resource and a
     {
       "type": "Microsoft.Chaos/experiments",
       "apiVersion": "2021-09-15-preview",
-      "name": "parameters('experimentName')",
-      "location": "parameters('location')",
+      "name": "[parameters('experimentName')]",
+      "location": "[parameters('location')]",
       "identity": {
         "type": "SystemAssigned"
       },
       "properties": {
-        "identity": {
-          "properties": {
-            "type": "SystemAssigned"
-          }
-        },
         "selectors": [
           {
             "id": "Selector1",
@@ -68,7 +64,7 @@ In this sample, we create a chaos experiment with a single target resource and a
             "targets": [
               {
                 "type": "ChaosTarget",
-                "id": "parameters('chaosTargetResourceId')"
+                "id": "[parameters('chaosTargetResourceId')]"
               }
             ]
           }
@@ -119,7 +115,7 @@ In this sample, we create a chaos experiment with a single target resource and a
         "value": "eastus"
       },
       "chaosTargetResourceId": {
-        "value": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.DocumentDB/databaseAccounts/<account-name>"
+        "value": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.DocumentDB/databaseAccounts/<account-name>/providers/Microsoft.Chaos/targets/microsoft-cosmosdb"
       }
   }
 }
