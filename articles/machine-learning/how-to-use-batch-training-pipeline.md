@@ -32,6 +32,10 @@ You'll learn to:
 
 The model training component will use tabular data from the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease) to train an XGBoost model. During training, the data preprocessing component will perform data transformations, and finally, the model evaluation component will be used for inferencing.
 
+A visualization of the pipeline is as follows:
+
+:::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-overview.png" alt-text="Pipeline showing the preprocessing and training components" lightbox="media/how-to-use-batch-training-pipeline/pipeline-overview.png":::
+
 [!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
 
 The files of this example are in:

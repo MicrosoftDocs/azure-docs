@@ -33,8 +33,7 @@ The model will perform predictions on tabular data from the [UCI Heart Disease D
 
 A visualization of the pipeline is as follows:
 
-:::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-with-transform-and-training-components.png" alt-text="Pipeline showing the preprocessing and training components" lightbox="media/how-to-use-batch-scoring-pipeline/pipeline-with-transform-and-training-components.png":::
-
+:::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-overview.png" alt-text="Pipeline showing how the inference pipeline was created" lightbox=""media/how-to-use-batch-scoring-pipeline/pipeline-overview.png":::
 
 [!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
 
@@ -188,15 +187,13 @@ We are going to register components, models, and transformations we need to buil
     transformation_name = "heart-classifier-transforms"
     transformation_local_path = "transformations"
     
-    if not any(filter(lambda m: m.name == transformation_name, ml_client.models.list())):
-        print(f"Model {transformation_name} is not registered. Creating...")
-        model = ml_client.models.create_or_update(
-            Model(name=transformation_name, path=transformation_local_path, type=AssetTypes.CUSTOM_MODEL)
-        )
-    
-    transformations = ml_client.models.get(name=transformation_name, label="latest")
+    model = ml_client.models.create_or_update(
+        Model(name=transformation_name, path=transformation_local_path, type=AssetTypes.CUSTOM_MODEL)
+    )
     ```
-    
+
+1. Inference for the registered model will be done using another component named `score` that compute the predictions using a given model. We could have registered the component and reference it from the pipeline. Actually, that would be the best practice. However, in this example we are going to refererence the component directly from its definition to help you see which components are reused from the training pipeline and which ones are new.
+
 
 ### Building the pipeline
 
@@ -218,7 +215,7 @@ __pipeline.yml__
 # [Python](#tab/python)
 
 ```python
-prepare_data = load_component(source="components/prepare/prepare.yml")
+prepare_data = load_component(source="azureml:uci_heart_prepare@latest")
 score_data = load_component(source="components/score/score.yml")
 
 @pipeline()
