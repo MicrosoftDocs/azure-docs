@@ -76,7 +76,7 @@ This capability of HR-driven IT provisioning offers the following significant bu
 
 To configure the cloud HR app to Azure AD user provisioning integration, you require a valid [Azure AD Premium license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) and a license for the cloud HR app, such as Workday or SuccessFactors.
 
-You also need a valid Azure AD Premium P1 or higher subscription license for every user that will be sourced from the cloud HR app and provisioned to either Active Directory or Azure AD. Any improper number of licenses owned in the cloud HR app might lead to errors during user provisioning.
+You also need a valid Azure AD Premium P1 or higher subscription license for every user that is sourced from the cloud HR app and provisioned to either Active Directory or Azure AD. Any improper number of licenses owned in the cloud HR app might lead to errors during user provisioning.
 
 ### Prerequisites
 
@@ -419,7 +419,7 @@ For example, if you want to create users in OU based on the HR attribute **Munic
 Switch([Municipality], "OU=Default,OU=Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")
 `
 
-With this expression, if the Municipality value is Dallas, Austin, Seattle, or London, the user account will be created in the corresponding OU. If there's no match, then the account is created in the default OU.
+With this expression, if the Municipality value is Dallas, Austin, Seattle, or London, the user account is created in the corresponding OU. If there's no match, then the account is created in the default OU.
 
 ## Plan for password delivery of new user accounts
 
