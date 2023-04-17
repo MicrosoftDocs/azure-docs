@@ -16,12 +16,11 @@ ms.custom: it-pro
 
 # Sign in and sign out from an ASP.NET Core application with CIAM
 
-In the [previous article](./how-to-webapp-dotnet-02-prepare-app.md), an ASP.NET Core project was created and configured for authentication. This how-to will install the required packages, add code that implements authentication to the sign in and sign out experience. Finally, you will sign-in and sign-out of the application.
+In the [previous article](./how-to-webapp-dotnet-sign-in-prepare-app.md), an ASP.NET Core project was created and configured for authentication. This how-to will install the required packages, add code that implements authentication to the sign in and sign out experience. Finally, you will sign-in and sign-out of the application.
 
 ## Prerequisites
 
-- Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](./how-to-webapp-dotnet-02-prepare-app.md).
-
+- Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](./how-to-webapp-dotnet-sign-in-prepare-app.md).
 
 ## Install identity packages
 
@@ -142,7 +141,7 @@ After installing the NuGet packages and adding necessary code for authentication
 1. Choose either **Yes** or **No** if a window appears asking to **Stay signed in**.
 1. The ASP.NET Welcome page will appear in your browser as depicted in the following screenshot:
 
-    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into a node web app.":::
+    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into an ASP.NET web app.":::
 
 ## Sign out of the application
 
@@ -150,7 +149,7 @@ After installing the NuGet packages and adding necessary code for authentication
 1. A window will appear asking which account to sign out of.
 1. Upon successful sign out, a final window similar to the following will appear, advising you to close all browser windows.
 
-    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-sign-out.png" alt-text="Screenshot of sign in into a node web app.":::
+    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-sign-out.png" alt-text="Screenshot of sign out window.":::
 
 ## Next steps
 

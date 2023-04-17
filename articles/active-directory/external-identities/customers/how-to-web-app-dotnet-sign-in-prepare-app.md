@@ -20,7 +20,7 @@ After registering an application and created a user flow in a CIAM tenant, an AS
 
 ## Prerequisites
 
-- Completion of the prerequisites and steps in [Register an application in a CIAM tenant](./how-to-dotnet-web-app-01-prepare-tenant.md).
+- Completion of the prerequisites and steps in [Register an application in a CIAM tenant](./how-to-dotnet-web-app-sign-in-prepare-tenant.md).
 - A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet).
 
 ## Create an ASP.NET Core project

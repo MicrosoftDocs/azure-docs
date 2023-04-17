@@ -29,7 +29,7 @@ In this article:
 > * Update a sample ASP.NET web application using your own Azure Active Directory (Azure AD) for customers tenant details.
 > * Run and test the sample web application.
 
-# Prerequisites
+## Prerequisites
 
 - A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 
@@ -37,10 +37,6 @@ In this article:
 
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://developer.microsoft.com/identity/customers). 
 
-## Register the web app
-
-[!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-node.md)]  
 
 ## Add app client secret 
 
@@ -71,9 +67,9 @@ To get the web app sample code, you can do either of the following tasks:
 
 Once downloaded, change to the directory that contains the ASP.NET sample app:
 
-    ```powershell
-    cd 1-Authentication\1-sign-in-aspnet-core-mvc
-    ```
+```powershell
+cd 1-Authentication\1-sign-in-aspnet-core-mvc
+```
 
 ## Register the web app
 
