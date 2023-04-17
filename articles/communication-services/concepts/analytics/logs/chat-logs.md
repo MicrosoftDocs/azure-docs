@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services chat logs
 titleSuffix: An Azure Communication Services concept document
-description: Learn about logging for Azure Communication Services cat.
+description: Learn about logging for Azure Communication Services chat.
 author: ddematheu2
 services: azure-communication-services
 
