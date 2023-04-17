@@ -1,0 +1,26 @@
+- name: Traffic Controller documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About traffic controllers
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Create Traffic Controller
+    href: quickstart-create-traffic-controller.md
+- name: How-to guides
+  items:
+  - name: Backend MTLS
+    href: how-to-backend-mtls.md
+  - name: SSL Offloading
+    href: how-to-ssl-offloading.md
+  - name: Traffic Splitting / Weighted Round Robin
+    href: how-to-traffic-splitting.md
+  - name: Troubleshoot
+    href: troubleshooting-guide.md
+- name: Kubernetes Reference
+  items:
+  - name: API Specification
+    href: api-specification-kubernetes.md
+  - name: API Types
+    href: api-types-kubernetes.md
