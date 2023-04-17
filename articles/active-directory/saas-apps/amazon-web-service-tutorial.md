@@ -310,7 +310,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. To download the user credentials of a user, enable the console access in **Security credentials** tab.
 
-    ![Screenshot shows the download the user credentials.](./media/amazon-web-service-tutorial/enable-console-access.png)
+    ![Screenshot shows the Security credentials.](./media/amazon-web-service-tutorial/enable-console-access.png)
 
 1. Enter these credentials into the Azure AD user provisioning section to fetch the roles from the AWS console.
 
