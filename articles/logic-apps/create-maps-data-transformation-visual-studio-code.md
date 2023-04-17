@@ -68,7 +68,7 @@ The Data Mapper extension currently works only with schemas in flat folder-struc
   - An XML schema definition file with the .xsd file extension
   - A JavaScript Object Notation file with the .json file extension
 
-- A Standard logic app project that includes a stateful workflow with at least a trigger. If you don't have a project, follow these steps in Visual Studio Code:
+- A Standard logic app project that includes a stateful or stateless workflow with at least a trigger. If you don't have a project, follow these steps in Visual Studio Code:
 
   1. [Connect to your Azure account](create-single-tenant-workflows-visual-studio-code.md#connect-azure-account), if you haven't already.
 
@@ -77,6 +77,7 @@ The Data Mapper extension currently works only with schemas in flat folder-struc
   After you create your logic app project, in your project's root folder, open the **local.settings.json** file, and add the following values:
 
   - `"FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"`
+
   - `"AzureWebJobsFeatureFlags": "EnableMultiLanguageWorker"`
 
 - Sample input data if you want to test the map and check that the transformation works as you expect.
