@@ -1,30 +1,25 @@
 ---
-title: Configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters (preview)
-description: In this how-to article, learn how to configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters (preview).
+title: Configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters
+description: In this how-to article, learn how to configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters.
 author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: how-to
 ms.author: johnmarc
-ms.date: 06/13/2022
+ms.date: 04/17/2023
 topic: how-to
 keywords: azure, openshift, aro, red hat, azure CLI, azure portal, ovn, ovn-kubernetes, CNI, Container Network Interface
 Customer intent: I need to configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters.
 ---
 
-# Configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters (preview)
+# Configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters
 
 This article explains how to Configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters. 
 
 ## About the OVN-Kubernetes default Container Network Interface (CNI) network provider
 
-OVN-Kubernetes Container Network Interface (CNI) for Azure Red Hat OpenShift cluster is now available for preview. 
-
 The OpenShift Container Platform cluster uses a virtualized network for pod and service networks. The OVN-Kubernetes Container Network Interface (CNI) plug-in is a network provider for the default cluster network. OVN-Kubernetes, which is based on the Open Virtual Network (OVN), provides an overlay-based networking implementation. 
 
 A cluster that uses the OVN-Kubernetes network provider also runs Open vSwitch (OVS) on each node. OVN configures OVS on each node to implement the declared network configuration.
-
-> [!IMPORTANT]
-> Currently, this Azure Red Hat OpenShift feature is being offered in preview only. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they are excluded from the service-level agreements and limited warranty. Azure Red Hat OpenShift previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use.
 
 ## OVN-Kubernetes features
 
