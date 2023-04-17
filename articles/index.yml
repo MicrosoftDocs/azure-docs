@@ -1325,7 +1325,7 @@ productDirectory:
       azureCategories:
         - networking
         - security
-      url: ./ddos-protection/ddos-protection-overview.md
+      url: ddos-protection/index.yml
     # Card
     - title: Azure DNS
       summary: Host your DNS domain in Azure

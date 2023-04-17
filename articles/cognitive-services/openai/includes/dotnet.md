@@ -112,29 +112,21 @@ using Azure;
 using Azure.AI.OpenAI;
 using static System.Environment;
 
-namespace azure_openai_quickstart
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            string endpoint = GetEnvironmentVariable("OPENAI_API_BASE");
-            string key = GetEnvironmentVariable("OPENAI_API_KEY");
-            string engine = "text-davinci-003"; //Enter the deployment name you chose when you deployed the model.
+string endpoint = GetEnvironmentVariable("OPENAI_API_BASE");
+string key = GetEnvironmentVariable("OPENAI_API_KEY");
 
-            OpenAIClient client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
+// Enter the deployment name you chose when you deployed the model.
+string engine = "text-davinci-003";
 
-            string prompt = "When was Microsoft founded?";
-            Console.Write($"Input: {prompt}\n");
+OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
 
-            Response<Completions> completionsResponse = client.GetCompletions(engine, prompt);
-            string completion = completionsResponse.Value.Choices[0].Text;
-            Console.WriteLine($"Chatbot: {completion}");
+string prompt = "When was Microsoft founded?";
+Console.Write($"Input: {prompt}\n");
 
-        }  
-    }
-}
-
+Response<Completions> completionsResponse = 
+    await client.GetCompletionsAsync(engine, prompt);
+string completion = completionsResponse.Value.Choices[0].Text;
+Console.WriteLine($"Chatbot: {completion}");
 ```
 
 > [!IMPORTANT]
