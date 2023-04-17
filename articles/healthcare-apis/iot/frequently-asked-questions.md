@@ -53,9 +53,9 @@ The MedTech service buffers [FHIR Observations](https://www.hl7.org/fhir/observa
 |Potential issue|Fix|
 |---------------|---|
 |Data is still being processed.|Data is egressed to the FHIR service in batches (every ~five minutes). It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
-|Device mapping hasn't been configured.|Configure and save a conforming and valid [device mapping](how-to-configure-device-mappings.md).|
-|FHIR destination mapping hasn't been configured.|Configure and save a conforming and valid [FHIR destination mapping](how-to-configure-fhir-mappings.md).|
-|The device message doesn't contain an expected expression defined in the device mapping.|Verify the [JsonPath](https://goessner.net/articles/JsonPath/) or [JMESPath](https://jmespath.org/specification.html) expressions defined in the [device mapping](how-to-configure-device-mappings.md) match tokens defined in the device message.|
+|Device mapping hasn't been configured.|Configure and save a conforming and valid [device mapping](overview-of-device-mapping.md).|
+|FHIR destination mapping hasn't been configured.|Configure and save a conforming and valid [FHIR destination mapping](overview-of-fhir-destination-mapping.md).|
+|The device message doesn't contain an expected expression defined in the device mapping.|Verify the [JsonPath](https://goessner.net/articles/JsonPath/) or [JMESPath](https://jmespath.org/specification.html) expressions defined in the [device mapping](overview-of-device-mapping.md) match tokens defined in the device message.|
 |A Device resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid [Device resource](https://www.hl7.org/fhir/device.html) in the FHIR service. Ensure the Device resource contains an identifier that matches the device identifier provided in the incoming message.|
 |A Patient resource hasn't been created in the FHIR service (**Resolution type**: **Lookup** only)*.|Create a valid [Patient resource](https://www.hl7.org/fhir/patient.html) in the FHIR service.|
 |The Device.patient reference isn't set, or the reference is invalid (**Resolution type**: **Lookup** only)*.|Make sure the Device resource contains a valid [reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a Patient resource.| 
@@ -94,7 +94,7 @@ For an overview of the MedTech service, see
 To learn about the MedTech service device message data transformation, see
 
 > [!div class="nextstepaction"]
-> [Understand the MedTech service device message processing stages](overview.md)
+> [Understand the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
 To learn about methods for deploying the MedTech service, see
 
