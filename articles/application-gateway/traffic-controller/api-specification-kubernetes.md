@@ -8,9 +8,11 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: article
-ms.date: 06/01/2023
+ms.date: 5/1/2023
 ms.author: greglin
 ---
+
+# Traffic Controller API Specification for Kubernetes
 
 ## networking.azure.io/v1alpha1 API
 This document defines each of the resource types for networking.azure.io/v1alpha1.

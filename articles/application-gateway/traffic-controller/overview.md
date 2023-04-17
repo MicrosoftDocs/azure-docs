@@ -8,7 +8,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: overview
-ms.date: 06/01/2023
+ms.date: 5/1/2023
 ms.author: greglin
 ---
 
@@ -55,7 +55,7 @@ Gateway Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/
 
 ### Implementation of custom CRDs in Gateway Controller 
 
-Gateway Controller supports a few custom CRDs, details on these can be found [here](traffic-controller-custom-resource-definitions.md).
+Gateway Controller supports a few custom CRDs, details on these can be found [here](api-types-kubernetes.md).
 
 ## Reporting Issues
 
@@ -65,7 +65,7 @@ For feedback, or to report incidents please use alias [tcfeedback@microsoft.com]
 
 For Traffic Controller pricing information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
-While in Public Preivew, Traffic Controller follows [Preview supplemental terms](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+While in Public Preivew, Traffic Controller follows [Preview supplemental terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## What's new
 

@@ -8,11 +8,11 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: traffic-controller
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 5/1/2023
 ms.author: greglin
 ---
 
-# Overview
+# SSL Offloading with Traffic Controller
 
 This document will help setup an example application that leverage the following resources from Gateway API:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one https listener
