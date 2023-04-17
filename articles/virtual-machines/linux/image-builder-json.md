@@ -893,26 +893,28 @@ Before you can distribute to the gallery, you must create a gallery and an image
   "artifactTags": {
       "<name>": "<value>",
       "<name>": "<value>"
-  },
+  }
+}
+```
+---
+
+#### replicationRegions
+
+The following JSON is an example of how to use the `replicationRegions` field to distribute to a Shared Image Gallery.
+
+# [JSON](#tab/json)
+```json
   "replicationRegions": [
       "<region where the gallery is deployed>",
       "<region>"
-  ],
-"targetRegions": [
-     {
-      "name": "eastus",
-      "replicaCount": 2,
-      "storageAccountType": "Standard_ZRS"
-     },
-     {
-      "name": "eastus2",
-      "replicaCount": 3,
-      "storageAccountType": "Premium_LRS"
-     }
-]
-}
+  ]
 ```
 
+> [!NOTE]
+>`replicationRegions` is deprecated for gallery distributions as `targetRegions` is updated property. For more information, see [targetRegions](../image-builder-api-update-release-notes.md#version-2022-07-01).
+
+
+---
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -930,8 +932,29 @@ Before you can distribute to the gallery, you must create a gallery and an image
   ]
 }
 ```
-
 ---
+
+#### targetRegions
+
+The following JSON is an example of how to use the `targetRegions` field to distribute to a shared image gallery.
+
+# [JSON](#tab/json)
+```json
+"targetRegions": [
+     {
+      "name": "eastus",
+      "replicaCount": 2,
+      "storageAccountType": "Standard_ZRS"
+     },
+     {
+      "name": "eastus2",
+      "replicaCount": 3,
+      "storageAccountType": "Premium_LRS"
+     }
+]
+```
+---
+
 
 Distribute properties for galleries:
 
@@ -945,14 +968,13 @@ Distribute properties for galleries:
 - **runOutputName** – unique name for identifying the distribution.
 - **artifactTags** - optional user specified key\value tags.
 - **replicationRegions** - array of regions for replication. One of the regions must be the region where the Gallery is deployed. Adding regions mean an increase of build time, as the build doesn't complete until the replication has completed.
+- **targetRegions** - 
 - **excludeFromLatest** (optional) - allows you to mark the image version you create not be used as the latest version in the gallery definition, the default is 'false'.
 - **storageAccountType** (optional) - AIB supports specifying these types of storage for the image version that is to be created:
 
   - "Standard_LRS"
   - "Standard_ZRS"","
 
-> [!NOTE]
->`replicationRegions` is deprecated for gallery distributions as `targetRegions` is updated property. For more information, see [targetRegions](../image-builder-api-update-release-notes.md#version-2022-07-01).
 
 > [!NOTE]
 > If the image template and referenced `image definition` aren't in the same location, you'll see additional time to create images. Image Builder currently doesn't have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in `westus` and you want the image version replicated to `eastus`, a blob is copied to `westus`, an image version resource in `westus` is created, and then replicate to `eastus`. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
