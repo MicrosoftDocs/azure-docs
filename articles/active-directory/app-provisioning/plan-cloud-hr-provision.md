@@ -48,7 +48,7 @@ The cloud HR app integration with Azure AD user provisioning is ideally suited f
 - Want a prebuilt, cloud-based solution for cloud HR user provisioning.
 - Require direct user provisioning from the cloud HR app to Active Directory or Azure AD.
 - Require users to be provisioned by using data obtained from the cloud HR app.
-- Require joining, moving, and leaving users to be synced to one or more Active Directory forests, domains, and OUs based only on change information detected in the cloud HR app.
+- Syncing users who are joining, moving, and leaving. The sync happens between one or more Active Directory forests, domains, and OUs based only on change information detected in the cloud HR app.
 - Use Microsoft 365 for email.
 
 ## Learn
