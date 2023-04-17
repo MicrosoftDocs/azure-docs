@@ -160,7 +160,7 @@ public void SignIn()
 
 You can protect a controller or controller actions by using the `[Authorize]` attribute. This attribute restricts access to the controller or actions by allowing only authenticated users to access the actions in the controller. An authentication challenge will then happen automatically when an unauthenticated user tries to access one of the actions or controllers decorated by the `[Authorize]` attribute.
 
-### Calling Microsoft Graph from the controller
+### Call Microsoft Graph from the controller
 
 You can call Microsoft Graph from the controller by getting the instance of GraphServiceClient using the `GetGraphServiceClient` extension method on the controller, like in the following code:
 
