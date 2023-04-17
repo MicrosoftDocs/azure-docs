@@ -20,11 +20,14 @@ This quickstart uses Azure CLI commands and scripts to create and manage Batch r
 
   You can run the Azure CLI commands in this quickstart interactively in Azure Cloud Shell. To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also [run Cloud Shell from within the Azure portal](https://shell.azure.com). Cloud Shell always uses the latest version of the Azure CLI.
 
-  You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. The steps in this article require Azure CLI version 2.0.20 or later. Run [az version](/cli/azure/reference-index?#az-version) to see your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade. If you use a local installation, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
+  Alternatively, you can [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. The steps in this article require Azure CLI version 2.0.20 or later. Run [az version](/cli/azure/reference-index?#az-version) to see your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade. If you use a local installation, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
+
+>[!NOTE]
+>For some regions and subscription types, quota restrictions might cause Batch account or node creation to fail or not complete. In this situation, you can request a quota increase at no charge. For more information, see [Batch service quotas and limits](batch-quota-limit.md).
 
 ## Create a resource group
 
-Run the following [az group create](/cli/azure/group#az-group-create) command to create an Azure resource group named `qsBatch` in the `eastus` Azure region. The resource group is a logical container that holds the Azure resources for this quickstart.
+Run the following [az group create](/cli/azure/group#az-group-create) command to create an Azure resource group named `qsBatch` in the `eastus2` Azure region. The resource group is a logical container that holds the Azure resources for this quickstart.
 
 ```azurecli-interactive
 az group create \
@@ -36,7 +39,7 @@ az group create \
 
 Use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command to create an Azure Storage account to link to your Batch account. Although this quickstart doesn't use the storage account, most real-world Batch workloads use a linked storage account to deploy applications and store input and output data.
 
-Run the following command to create a `Stamdard_LRS` SKU storage account named `mybatchstorage` in your resource group:
+Run the following command to create a Standard_LRS SKU storage account named `mybatchstorage` in your resource group:
 
 ```azurecli-interactive
 az storage account create \
@@ -58,7 +61,7 @@ az batch account create \
     --location eastus2
 ```
 
-Sign in to the new Batch account by running the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command. After you authenticate your account with Batch, the rest of the  `az batch` quickstart commands use this account context.
+Sign in to the new Batch account by running the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command. Once you authenticate your account with Batch, subsequent `az batch` commands in this session use this account context.
 
 ```azurecli-interactive
 az batch account login \
@@ -69,7 +72,7 @@ az batch account login \
 
 ## Create a pool of compute nodes
 
-Use the [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) command to create a pool of Linux compute nodes in your Batch account. The following example creates a pool named `myPool` that consists of two `Standard_A1_v2` size nodes running `Ubuntu 18.04 LTS` OS. This node size offers a good balance of performance versus cost for this quickstart example.
+Run the [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) command to create a pool of Linux compute nodes in your Batch account. The following example creates a pool named `myPool` that consists of two Standard_A1_v2 size VMs running Ubuntu 18.04 LTS OS. This node size offers a good balance of performance versus cost for this quickstart example.
 
 ```azurecli-interactive
 az batch pool create \
@@ -79,20 +82,18 @@ az batch pool create \
     --node-agent-sku-id "batch.node.ubuntu 18.04"
 ```
 
-Batch creates the pool immediately, but takes a few minutes to allocate and start the compute nodes. During this time, the pool is in the `resizing` state.
-
-To see the pool status, run the [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) command. This command shows all the properties of the pool, and you can query for specific properties. The following command queries for the pool allocation state:
+Batch creates the pool immediately, but takes a few minutes to allocate and start the compute nodes. To see the pool status, use the [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show) command. This command shows all the properties of the pool, and you can query for specific properties. The following command queries for the pool allocation state:
 
 ```azurecli-interactive
 az batch pool show --pool-id myPool \
     --query "allocationState"
 ```
 
-You can do the following steps to create a job and tasks while the pool state is still `resizing`. The pool is ready to run tasks when the allocation state is `steady` and all the nodes are running.
+While Batch allocates and starts the nodes, the pool is in the `resizing` state. You can create a job and tasks while the pool state is still `resizing`. The pool is ready to run tasks when the allocation state is `steady` and all the nodes are running.
 
 ## Create a job
 
-Use the [az batch job create](/cli/azure/batch/job#az-batch-job-create) command to create a Batch job to run on your pool. A Batch job is a logical group of one or more tasks. The job includes settings common to the tasks, such as the pool to run tasks on. The following example creates a job called `myJob` on `myPool` that initially has no tasks.
+Use the [az batch job create](/cli/azure/batch/job#az-batch-job-create) command to create a Batch job to run on your pool. A Batch job is a logical group of one or more tasks. The job includes settings common to the tasks, such as the pool to run on. The following example creates a job called `myJob` on `myPool` that initially has no tasks.
 
 ```azurecli-interactive
 az batch job create \
@@ -102,10 +103,9 @@ az batch job create \
 
 ## Create job tasks
 
-Use the [az batch task create](/cli/azure/batch/task#az-batch-task-create) command to create some tasks to run in the job. Each task has a command line that specifies an app or script. Batch provides several ways to deploy apps and scripts to compute nodes.
+Batch provides several ways to deploy apps and scripts to compute nodes. Use the [az batch task create](/cli/azure/batch/task#az-batch-task-create) command to create tasks to run in the job. Each task has a command line that specifies an app or script. 
 
 The following Bash script creates four identical, parallel tasks called `myTask1` through `myTask4`. The task command line displays the Batch environment variables on the compute node, and then waits 90 seconds.
-
 
 ```azurecli-interactive
 for i in {1..4}
@@ -131,7 +131,7 @@ az batch task show \
     --task-id myTask1
 ```
 
-The command output includes many details. For example, the `nodeId` shows the name of the pool node that ran the task. An `exitCode` of `0` indicates that the task command line completed successfully.
+The command output includes many details. For example, an `exitCode` of `0` indicates that the task command completed successfully. The `nodeId` shows the name of the pool node that ran the task.
 
 ## View task output
 
@@ -156,7 +156,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myJob/tasks/myTa
 
 ```
 
-Use the [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download) command to download output files to a local directory. The following example downloads the *stdout.txt* file:
+The [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download) command downloads output files to a local directory. Run the following example to download the *stdout.txt* file:
 
 ```azurecli-interactive
 az batch task file download \

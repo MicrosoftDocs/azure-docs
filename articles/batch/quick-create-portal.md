@@ -16,6 +16,9 @@ After you complete this quickstart, you understand the [key concepts of the Batc
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+>[!NOTE]
+>For some regions and subscription types, quota restrictions might cause Batch account or node creation to fail or not complete. In this situation, you can request a quota increase at no charge. For more information, see [Batch service quotas and limits](batch-quota-limit.md).
+
 <a name="create-a-batch-account"></a>
 ## Create a Batch account and Azure Storage account
 

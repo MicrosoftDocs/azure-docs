@@ -73,7 +73,7 @@ private const string StorageAccountKey  = "<key1>
 
 ### Build and run the app and view output
 
-To see the Batch workflow in action, build and run the application in Visual Studio or at the command line with the `dotnet build` and `dotnet run` commands.
+To see the Batch workflow in action, build and run the application in Visual Studio. You can also use the command line `dotnet build` and `dotnet run` commands.
 
 In Visual Studio:
 
@@ -155,7 +155,7 @@ Review the code to understand the steps in the [Azure Batch .NET Quickstart](htt
 
 To create a Batch pool, the app uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and pool configuration. The following [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server Marketplace image. Batch supports a wide range of Windows Server and Linux Marketplace OS images, and also supports custom VM images.
 
-The `PoolNodeCount` and VM size `PoolVMSize` are defined constants. The app creates a pool of two *Standard_A1_v2* nodes. This size offers a good balance of performance versus cost for this quickstart.
+The `PoolNodeCount` and VM size `PoolVMSize` are defined constants. The app creates a pool of two Standard_A1_v2 nodes. This size offers a good balance of performance versus cost for this quickstart.
 
 The [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) method submits the pool to the Batch service.
 
@@ -213,7 +213,7 @@ try
 
 ### Create tasks
 
-This app creates a list of [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) objects. Each task processes an input `ResourceFile` object by using a [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) property. Batch provides several ways to deploy apps and scripts to compute nodes. The Batch command line is where you specify your app or script.
+Batch provides several ways to deploy apps and scripts to compute nodes. This app creates a list of [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) input `ResourceFile` objects. Each task processes an input file by using a [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) property. The Batch command line is where you specify your app or script.
 
 The command line in the following code runs the Windows `type` command to display the input files. Then, the app adds each task to the job with the [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) method, which queues the task to run on the compute nodes.
 

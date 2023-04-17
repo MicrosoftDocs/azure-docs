@@ -152,7 +152,7 @@ Review the code to understand the steps in the [Azure Batch Python Quickstart](h
 
 To create a Batch pool, the app uses the [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and pool configuration. The following [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 20.04 LTS Azure Marketplace image. Batch supports a wide range of Linux and Windows Server Marketplace images, and also supports custom VM images.
 
-The `POOL_NODE_COUNT` and `POOL_VM_SIZE` are defined constants. The app creates a pool of two size *Standard_DS1_v2* nodes. This size offers a good balance of performance versus cost for this quickstart.
+The `POOL_NODE_COUNT` and `POOL_VM_SIZE` are defined constants. The app creates a pool of two size Standard_DS1_v2 nodes. This size offers a good balance of performance versus cost for this quickstart.
 
 The [pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations#azure-batch-operations-pooloperations-add) method submits the pool to the Batch service.
 
@@ -189,11 +189,9 @@ batch_service_client.job.add(job)
 
 ### Create tasks
 
-The app creates a list of task objects by using the [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) class. Each task uses a `command_line` parameter to specify an app or script. Batch provides several ways to deploy apps and scripts to compute nodes.
+Batch provides several ways to deploy apps and scripts to compute nodes. This app creates a list of task objects by using the [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) class. Each task processes an input file by using a `command_line` parameter to specify an app or script. 
 
-The following command line script processes the input `resource_files` objects. The script runs the Bash shell `cat` command to display the text files.
-
-The app then uses the [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations#azure-batch-operations-taskoperations-add-collection) method to add each task to the job, which queues the tasks to run on the compute nodes.
+The following script processes the input `resource_files` objects by running the Bash shell `cat` command to display the text files. The app then uses the [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations#azure-batch-operations-taskoperations-add-collection) method to add each task to the job, which queues the tasks to run on the compute nodes.
 
 ```python
 tasks = []
@@ -212,7 +210,7 @@ batch_service_client.task.add_collection(job_id, tasks)
 
 ### View task output
 
-The app monitors task state to make sure the tasks complete. When each task runs successfully, the output of the task command writes to the *stdout.txt* file. The app then displays the *stdout.txt* file for each completed task.
+The app monitors task state to make sure the tasks complete. When each task runs successfully, the task command output writes to the *stdout.txt* file. The app then displays the *stdout.txt* file for each completed task.
 
 ```python
 tasks = batch_service_client.task.list(job_id)
