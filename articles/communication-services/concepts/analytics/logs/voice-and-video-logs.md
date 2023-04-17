@@ -84,7 +84,7 @@ For each Endpoint within a Call, a distinct Call Diagnostic Log is created for o
 In a P2P Call, each log contains data relating to each of the outbound stream(s) associated with each Endpoint. In Group Calls the participantId serves as key identifier to join the related outbound logs into a distinct Participant connection. Note that Call diagnostic logs remain intact and are the same regardless of the participant tenant.
 
 > [!NOTE]
-> In this document P2P and group calls are by default within the same tenant, for all call scenarios that are cross-tenant they are specified accordingly throughout the document.
+> In this document, P2P and group calls are by default within the same tenant, for all call scenarios that are cross-tenant they are specified accordingly throughout the document.
 
 |     Property              |     Description                     |
 |---------------------------|-------------------------------------|
