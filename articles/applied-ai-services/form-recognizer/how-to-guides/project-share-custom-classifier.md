@@ -19,7 +19,7 @@ Form Recognizer Studio is an online tool to visually explore, understand, train,
 
 ## Prerequisite
 
-In order to share and import your custom extraction projects seamlessly, both users (user who shares and user who imports) need an An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/). Also, both users need to configure permissions to grant access to the Form Recognizer abd storage resources.
+In order to share and import your custom extraction projects seamlessly, both users (user who shares and user who imports) need an An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/). Also, both users need to configure permissions to grant access to the Form Recognizer and storage resources.
 
 ## Granted access and permissions
 
@@ -46,21 +46,21 @@ Form more information, *see* [Configure CORS](../quickstarts/try-form-recognizer
 
 ### Virtual networks and firewalls
 
-If your storage account VNet is enabled or if there are any firewall constraints, the project cannot be shared. If you want to bypass those restrictions, ensure that those settings are turned off.
+If your storage account VNet is enabled or if there are any firewall constraints, the project can't be shared. If you want to bypass those restrictions, ensure that those settings are turned off.
 
 A workaround is to manually create a project using the same settings as the project being shared.
 
 ## User sharing requirements
 
-The user sharing the project needs to create a project [**`ListAccountSAS`**](/rest/api/storagerp/storage-accounts/list-account-sas) to configure the storage account CORS and a [**`ListServiceSAS`**](/rest/api/storagerp/storage-accounts/list-service-sas) to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
+Users sharing the project need to create a project [**`ListAccountSAS`**](/rest/api/storagerp/storage-accounts/list-account-sas) to configure the storage account CORS and a [**`ListServiceSAS`**](/rest/api/storagerp/storage-accounts/list-service-sas) to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
 
 ### User importing requirements
 
-User who wants to import the project will need a [**`ListServiceSAS`**](/rest/api/storagerp/storage-accounts/list-service-sas) to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
+Users who want to import the project need a [**`ListServiceSAS`**](/rest/api/storagerp/storage-accounts/list-service-sas) to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
 
 ## Share a custom extraction model with Form Recognizer studio
 
-Follow the steps below to share your project using Form Recognizer studio.
+Follow these steps to share your project using Form Recognizer studio:
 
 1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio).
 
@@ -78,7 +78,7 @@ Follow the steps below to share your project using Form Recognizer studio.
 
 ## Import custom extraction model with Form Recognizer studio
 
-Follow the steps below to import a project using Form Recognizer studio.
+Follow these steps to import a project using Form Recognizer studio.
 
 1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio).
 
