@@ -40,7 +40,7 @@ Evaluate the following points when you're planning the deployment of Azure Files
 * We recommend that you use a private network endpoint.
 * Avoid putting too many SIDs in a single storage account and its file share.
 * As general guidance, don't put together more than four nonproduction SIDs.
-* Don't put the entire development, production, and quality assurance server landscape in one storage account or file share. Failure of the share leads to downtime of the entire SAP landscape.
+* Don't put the entire development, production, and quality assurance system (QAS) landscape in one storage account or file share. Failure of the share leads to downtime of the entire SAP landscape.
 * We recommend that you put the *sapmnt* and *transport* directories on different storage accounts, except in smaller systems. During the installation of the SAP primary application server, SAPinst will request the *transport* host name. Enter the FQDN of a different storage account as *<storage_account>.file.core.windows.net*.
 * Don't put the file system used for interfaces onto the same storage account as */sapmnt/\<SID>*.
 * You must add the SAP users and groups to the *sapmnt* share. Set the Storage File Data SMB Share Elevated Contributor permission for them in the Azure portal.
