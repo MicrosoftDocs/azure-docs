@@ -150,7 +150,7 @@ Open port 80 on your scale set by adding an inbound rule to your network securit
 
 1. On the page for your scale set, select **Networking** from the left menu. The **Networking** page will open.
 1. Select **Add inbound port rule**. The **Add inbound security rule** page will open.
-1. Under **Service**, select *HTTP* and then select **Add** at the bottom of the page.
+1. Under **Service**, select **HTTP** and then select **Add** at the bottom of the page.
 
 ## Test your scale set
 
