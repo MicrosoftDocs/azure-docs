@@ -19,7 +19,7 @@ The [Azure App Configuration](https://marketplace.visualstudio.com/items?itemNam
 - App Configuration store - create one for free in the [Azure portal](https://portal.azure.com).
 - Azure DevOps project - [create one for free](https://go.microsoft.com/fwlink/?LinkId=2014881)
 - Azure App Configuration task - download for free from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task#:~:text=Navigate%20to%20the%20Tasks%20tab,the%20Azure%20App%20Configuration%20instance.). 
-- Minimum agent version [2.206.1](https://github.com/microsoft/azure-pipelines-agent/releases/tag/v2.206.1) - for users running the task on self-hosted agents. 
+- Minimum agent version [2.206.1](https://github.com/microsoft/azure-pipelines-agent/releases/tag/v2.206.1) and [Node 16](https://nodejs.org/en/blog/release/v16.16.0/) - for users running the task on self-hosted agents. 
 
 ## Create a service connection
 
