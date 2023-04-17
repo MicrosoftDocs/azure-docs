@@ -60,7 +60,7 @@ WithParentActivityOrWindow(IWin32Window window)
 // Mac
 WithParentActivityOrWindow(NSWindow window)
 
-// .NET Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
+// .NET Standard (this will be on all platforms at runtime, but only on .NET Standard platforms at build time)
 WithParentActivityOrWindow(object parent).
 ```
 

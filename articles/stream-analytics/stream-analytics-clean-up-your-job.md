@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 # Stop or delete your Azure Stream Analytics job
 
-Azure Stream Analytics jobs can be easily stopped or deleted through the Azure portal, Azure PowerShell, Azure SDK for .Net, or REST API. A Stream Analytics job cannot be recovered once it has been deleted.
+Azure Stream Analytics jobs can be easily stopped or deleted through the Azure portal, Azure PowerShell, Azure SDK for .NET, or REST API. A Stream Analytics job cannot be recovered once it has been deleted.
 
 >[!NOTE] 
 >When you stop your Stream Analytics job, the data persists only in the input and output storage, such as Event Hubs or Azure SQL Database. If you are required to remove data from Azure, be sure to follow the removal process for the input and output resources of your Stream Analytics job.

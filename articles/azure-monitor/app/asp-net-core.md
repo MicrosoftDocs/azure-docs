@@ -162,7 +162,7 @@ Dependency collection is enabled by default. [Dependency tracking in Application
 Support for [performance counters](./performance-counters.md) in ASP.NET Core is limited:
 
 * SDK versions 2.4.1 and later collect performance counters if the application is running in Web Apps (Windows).
-* SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
+* SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `netstandard2.0` or later.
 * For applications that target the .NET Framework, all versions of the SDK support performance counters.
 * SDK versions 2.8.0 and later support the CPU/memory counter in Linux. No other counter is supported in Linux. To get system counters in Linux and other non-Windows environments, use [EventCounters](#eventcounter).
 
@@ -268,7 +268,7 @@ This table has the full list of `ApplicationInsightsServiceOptions` settings:
 |EnableAdaptiveSampling | Enable/Disable Adaptive Sampling. | True
 |EnableHeartbeat | Enable/Disable the heartbeats feature. It periodically (15-min default) sends a custom metric named `HeartbeatState` with information about the runtime like .NET version and Azure environment information, if applicable. | True
 |AddAutoCollectedMetricExtractor | Enable/Disable the `AutoCollectedMetrics extractor`. This telemetry processor sends preaggregated metrics about requests/dependencies before sampling takes place. | True
-|RequestCollectionOptions.TrackExceptions | Enable/Disable reporting of unhandled exception tracking by the request collection module. | False in NETSTANDARD2.0 (because exceptions are tracked with `ApplicationInsightsLoggerProvider`). True otherwise.
+|RequestCollectionOptions.TrackExceptions | Enable/Disable reporting of unhandled exception tracking by the request collection module. | False in `netstandard2.0` (because exceptions are tracked with `ApplicationInsightsLoggerProvider`). True otherwise.
 |EnableDiagnosticsTelemetryModule | Enable/Disable `DiagnosticsTelemetryModule`. Disabling causes the following settings to be ignored: `EnableHeartbeat`, `EnableAzureInstanceMetadataTelemetryModule`, and `EnableAppServicesHeartbeatTelemetryModule`. | True
 
 For the most current list, see the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs).

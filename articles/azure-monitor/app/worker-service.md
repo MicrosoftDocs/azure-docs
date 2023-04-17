@@ -221,7 +221,7 @@ The full example is shared at this [GitHub page](https://github.com/microsoft/Ap
 
 ## .NET Core/.NET Framework console application
 
-As mentioned in the beginning of this article, the new package can be used to enable Application Insights telemetry from even a regular console application. This package targets [`NetStandard2.0`](/dotnet/standard/net-standard), so it can be used for console apps in [.NET Core](https://learn.microsoft.com/dotnet/fundamentals/) or higher, and [.NET Framework](https://learn.microsoft.com/dotnet/framework/) or higher.
+As mentioned in the beginning of this article, the new package can be used to enable Application Insights telemetry from even a regular console application. This package targets [`netstandard2.0`](/dotnet/standard/net-standard), so it can be used for console apps in [.NET Core](https://learn.microsoft.com/dotnet/fundamentals/) or higher, and [.NET Framework](https://learn.microsoft.com/dotnet/framework/) or higher.
 
 The full example is shared at this [GitHub page](https://github.com/microsoft/ApplicationInsights-dotnet/tree/main/examples/ConsoleApp).
 

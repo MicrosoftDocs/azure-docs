@@ -256,7 +256,7 @@ CheckResultMessageArguments : {}
 
 RuleId                      : DotNetFrameworkInstalledCheck 
 RuleGroupId                 : prerequisites 
-RuleName                    : .Net Framework 4.6.2+ 
+RuleName                    : .NET Framework 4.6.2+
 RuleGroupName               : Prerequisite Checks 
 RuleDescription             : .NET Framework version 4.6.2 or higher is required 
 CheckResult                 : Passed 
