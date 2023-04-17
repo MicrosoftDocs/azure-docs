@@ -91,10 +91,10 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 > [!NOTE]
 > When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups].
 
-To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default values for the cluster name and the resource group name.
+To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the cluster name.
 
 ```bash
-export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
+export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g ${RESOURCE_GROUP} --query "oidcIssuerProfile.issuerUrl" -otsv)"
 ```
 
 ## Create a managed identity

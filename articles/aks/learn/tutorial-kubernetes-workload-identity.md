@@ -3,7 +3,7 @@ title: Tutorial - Use a workload identity with an application on Azure Kubernete
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 01/11/2023
+ms.date: 04/17/2023
 ---
 
 # Tutorial: Use a workload identity with an application on Azure Kubernetes Service (AKS)
@@ -97,12 +97,29 @@ When the status shows *Registered*, refresh the registration of the *Microsoft.C
 az provider register --namespace Microsoft.ContainerService
 ```
 
+## Export environmental variables
+
+To help simplify steps to configure the identities required, the steps below define
+environmental variables for reference on the cluster.
+
+Run the following commands to create these variables. Replace the default values for `RESOURCE_GROUP`, `LOCATION`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `USER_ASSIGNED_IDENTITY_NAME`, and `FEDERATED_IDENTITY_CREDENTIAL_NAME`.  
+
+```bash
+export RESOURCE_GROUP="myResourceGroup"
+export LOCATION="westcentralus"
+export SERVICE_ACCOUNT_NAMESPACE="default"
+export SERVICE_ACCOUNT_NAME="workload-identity-sa"
+export SUBSCRIPTION="$(az account show --query id --output tsv)"
+export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
+export FEDERATED_IDENTITY_CREDENTIAL_NAME="fic-test-fic-name" 
+```
+
 ## Create AKS cluster
 
 Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
 ```azurecli-interactive
-az aks create -g myResourceGroup -n myAKSCluster --node-count 1 --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
+az aks create -g "${RESOURCE_GROUP}" -n myAKSCluster --node-count 1 --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -110,36 +127,10 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 > [!NOTE]
 > When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups].
 
-To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `-n`, which is the name of the cluster and `-g`, the resource group name:
+To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `-n`, which is the name of the cluster:
 
 ```azurecli-interactive
-export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
-```
-
-## Export environmental variables
-
-To help simplify steps to configure creating Azure Key Vault and other identities required, the steps below define
-environmental variables for reference on the cluster.
-
-Run the following commands to create these variables. Replace the default values for `RESOURCE_GROUP`, `LOCATION`, `KEYVAULT_SECRET_NAME`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `UAID`, and `FICID`.  
-
-```bash
-# environment variables for the Azure Key Vault resource
-export KEYVAULT_NAME="azwi-kv-tutorial"
-export KEYVAULT_SECRET_NAME="my-secret"
-export RESOURCE_GROUP="resourceGroupName"
-export LOCATION="westcentralus"
-
-# environment variables for the Kubernetes Service account & federated identity credential
-export SERVICE_ACCOUNT_NAMESPACE="default"
-export SERVICE_ACCOUNT_NAME="workload-identity-sa"
-
-# environment variables for the Federated Identity
-export SUBSCRIPTION="{your subscription ID}"
-# user assigned identity name
-export UAID="fic-test-ua"
-# federated identity name
-export FICID="fic-test-fic-name" 
+export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -otsv)"
 ```
 
 ## Create an Azure Key Vault and secret
@@ -166,7 +157,7 @@ az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET
 To add the Key Vault URL to the environment variable `KEYVAULT_URL`, you can run the Azure CLI [az keyvault show][az-keyvault-show] command.
 
 ```bash
-export KEYVAULT_URL="$(az keyvault show -g ${RESOURCE_GROUP} -n ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
+export KEYVAULT_URL="$(az keyvault show -g "${RESOURCE_GROUP}" -n ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
 ```
 
 ## Create a managed identity and grant permissions to access the secret
@@ -178,13 +169,13 @@ az account set --subscription "${SUBSCRIPTION}"
 ```
 
 ```azurecli-interactive
-az identity create --name "${UAID}" --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --subscription "${SUBSCRIPTION}"
+az identity create --name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --subscription "${SUBSCRIPTION}"
 ```
 
 Next, you need to set an access policy for the managed identity to access the Key Vault secret by running the following commands:
 
 ```azurecli-interactive
-export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${UAID}" --query 'clientId' -otsv)"
+export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${USER_ASSIGNED_IDENTITY_NAME}" --query 'clientId' -otsv)"
 ```
 
 ```azurecli-interactive
@@ -226,7 +217,7 @@ Serviceaccount/workload-identity-sa created
 Use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the managed identity, the service account issuer, and the subject.
 
 ```azurecli-interactive
-az identity federated-credential create --name ${FICID} --identity-name ${UAID} --resource-group ${RESOURCE_GROUP} --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
+az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name ${USER_ASSIGNED_IDENTITY_NAME} --resource-group ${RESOURCE_GROUP} --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
 ```
 
 > [!NOTE]
