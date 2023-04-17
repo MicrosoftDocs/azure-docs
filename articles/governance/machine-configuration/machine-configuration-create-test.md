@@ -4,8 +4,6 @@ description: The experience creating and testing packages that audit or apply co
 ms.date: 07/25/2022
 ms.topic: how-to
 ms.service: machine-configuration
-ms.author: timwarner
-author: timwarner-msft
 ---
 # How to test machine configuration package artifacts
 

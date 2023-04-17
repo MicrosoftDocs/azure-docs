@@ -4,8 +4,6 @@ description: Learn how to create a machine configuration policy.
 ms.date: 10/17/2022
 ms.topic: how-to
 ms.service: machine-configuration
-ms.author: timwarner
-author: timwarner-msft
 ---
 # How to create custom machine configuration policy definitions
 

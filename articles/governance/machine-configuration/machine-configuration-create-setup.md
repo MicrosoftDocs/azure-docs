@@ -4,8 +4,6 @@ description: Learn how to install the PowerShell module for creating and testing
 ms.date: 01/13/2023
 ms.topic: how-to
 ms.service: machine-configuration
-ms.author: timwarner
-author: timwarner-msft
 ---
 # How to set up a machine configuration authoring environment
 
