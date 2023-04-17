@@ -109,7 +109,7 @@ You can now test the sample Electron desktop app. After you run the app, the des
 
     :::image type="content" source="media/how-to-desktop-app-electron-sample-sign-in/desktop-app-electron-sign-in.png" alt-text="Screenshot of sign in into an electron desktop app.":::
 
-1. On the desktop window that appears, select the **Sign In** button. A browser window opens, and you're prompted to sign in.
+1. On the desktop window that appears, select the **Sign In** or **Sign up** button. A browser window opens, and you're prompted to sign in.
 
 1. On the browser sign-in page, type your **Email address**, select **Next**, type your **Password**, then select **Sign in**. If you don't have an account, select **No account? Create one**, which starts the sign-up flow.
 
