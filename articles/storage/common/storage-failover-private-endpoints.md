@@ -14,6 +14,8 @@ To be safe you need:
 2. Have two Private Endpoints - one primary, one in secondary - for each storage service
 3. Enable DNS Zone Group for Primary-to-Primary and Secondary-to-Secondary
 
+![Image of PE environment](./media/storage-resiliency-privateendpoint/privateendpointenvironment.png)
+
 Scenario 1 - Storage Account Failover 
 
 The Storage Account fails over to the paired region, but the network routing stays the same.
