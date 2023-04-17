@@ -72,7 +72,7 @@ The Data Mapper extension currently works only with schemas in flat folder-struc
 
   1. [Connect to your Azure account](create-single-tenant-workflows-visual-studio-code.md#connect-azure-account), if you haven't already.
 
-  1. [Create a local folder, a local Standard logic app project, and a stateful workflow](create-single-tenant-workflows-visual-studio-code.md#create-project). During workflow creation, select **Open in current window**.
+  1. [Create a local folder, a local Standard logic app project, and a stateful or stateless workflow](create-single-tenant-workflows-visual-studio-code.md#create-project). During workflow creation, select **Open in current window**.
 
 - Sample input data if you want to test the map and check that the transformation works as you expect.
 
