@@ -66,10 +66,10 @@ Each change resource has the following properties:
 | `targetResourceType` | The resource type of the resource on which the change occurred. |
 | `changeType` | Describes the type of change detected for the entire change record. Values are: Create, Update, and Delete. The **changes** property dictionary is only included when **changeType** is _Update_. For the delete case, the change resource will still be maintained as an extension of the deleted resource for fourteen days, even if the entire Resource group has been deleted. The change resource will not block deletions or impact any existing delete behavior. |
 | `changes` | Dictionary of the resource properties (with property name as the key) that were updated as part of the change: |
-| `propertyChangeType` | This is depreciated and can be derived from previousValue being empty = Insert, newValue being empty = Remove, otherwise update. Describes the type of change detected for the individual resource property. Values are: Insert, Update, and Remove. |
+| `propertyChangeType` | This is depreciated and can be derived from previousValue being empty = Insert, newValue being empty = Remove, otherwise update.|
 | `previousValue` | The value of the resource property in the previous snapshot. Value is empty when **changeType** is _Insert_. |
 | `newValue` | The value of the resource property in the new snapshot. Value is empty when **changeType** is _Remove_. |
-| `changeCategory` | This is depreciated|
+| `changeCategory` | This was optional and has been depreciated, this field will no longer be available|
 | `changeAttributes` | Array of metadata related to the change: |
 | `changesCount` | The number of properties changed as part of this change record. |
 | `correlationId` | Contains the ID for tracking related events. Each deployment has a correlation ID, and all actions in a single template will share the same correlation ID. |
