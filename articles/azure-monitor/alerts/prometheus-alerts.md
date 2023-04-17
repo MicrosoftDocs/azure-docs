@@ -25,7 +25,17 @@ View fired and resolved Prometheus alerts in the Azure portal with other alert t
 :::image type="content" source="media/prometheus-metric-alerts/view-alerts.png" lightbox="media/prometheus-metric-alerts/view-alerts.png" alt-text="Screenshot of a list of alerts in Azure Monitor with a filter for Prometheus alerts.":::
 4. Click the alert name to view the details of a specific fired/resolved alert.
 
-:::image type="content" source="media/prometheus-metric-alerts/alert-details.png" lightbox="media/prometheus-metric-alerts/alert-details.png" alt-text="Screenshot of detail for a Prometheus alert in Azure Monitor.":::
+:::image type="content" source="media/prometheus-metric-alerts/alert-details-grafana.png" lightbox="media/prometheus-metric-alerts/alert-details-grafana.png" alt-text="Screenshot of detail for a Prometheus alert in Azure Monitor.":::
+
+## Explore Prometheus alerts in Grafana
+1. In the fired alerts details pane, you can click the **View query in Grafana** link. 
+2. A browser tab will be opened taking you to the [Azure Managed Grafana](https://learn.microsoft.com/azure/managed-grafana/) instance connected to your Azure Monitor Workspace. 
+3. Grafana will be opened in Explore mode, presenting the chart for your alert rule expression query which triggered the alert, around the alert firing time. You can further explore the query in Grafana to identify the reason causing the alert to fire.
+
+> [!NOTES]
+> 1. If there is no Azure Managed Grafana connected to your Azure Monitor Workspace, a link to Grafana will not be available.
+> 2. In order to view the alert query in Explore mode, you must have either a Grafana Admin or Grafana Editor role permissions. If you don't have the needed permissions, you will get a respective Grafana error.
+
 ## Next steps
 
 - [Create a Prometheus rule group](../essentials/prometheus-rule-groups.md).
