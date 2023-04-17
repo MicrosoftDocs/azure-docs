@@ -41,7 +41,7 @@ using TodoApi.Options;
 
 namespace TodoApi.Controllers;
 
-
+[Authorize]
 [Route("api/[controller]")]
 public class TodoItemsController : ControllerBase
 {
@@ -93,6 +93,18 @@ In this section, we go through the code to see we protect our API by adding code
     private bool RequestCanAccessToDo(Guid userId)
         {
             return IsAppMakingRequest() || (userId == GetUserId());
+        }
+
+    private Guid GetUserId()
+        {
+            Guid userId;
+
+            if (!Guid.TryParse(HttpContext.User.GetObjectId(), out userId))
+            {
+                throw new Exception("User ID is not valid.");
+            }
+
+            return userId;
         }
     ```
 
