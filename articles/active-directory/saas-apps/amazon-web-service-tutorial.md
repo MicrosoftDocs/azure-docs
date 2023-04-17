@@ -41,7 +41,7 @@ Use the information below to make a decision between using the AWS Single Sign-O
 | SAML certificate| Single certificate| Separate certificates per app / account | 
 
 ## AWS Single-Account Access architecture
-![Screenshot of showing Azure AD and AWS relationship.](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
+![Screenshot showing Azure AD and AWS relationship.](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
 You can configure multiple identifiers for multiple instances. For example:
 
@@ -120,7 +120,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Screenshot of showing Edit Basic SAML Configuration.](common/edit-urls.png)
+   ![Screenshot showing Edit Basic SAML Configuration.](common/edit-urls.png)
 
 1. In the **Basic SAML Configuration** section, update both **Identifier (Entity ID)** and **Reply URL** with the same default value: `https://signin.aws.amazon.com/saml`. You must select **Save** to save the configuration changes.
 
@@ -130,7 +130,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. AWS application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![Screenshot of showing default attributes.](common/default-attributes.png)
+	![Screenshot showing default attributes.](common/default-attributes.png)
 
 1. In addition to above, AWS application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
@@ -145,19 +145,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** (Step 3) dialog box, select **Add a certificate**.
 
-    ![Screenshot of showing Create new SAML Certificate.](common/add-saml-certificate.png)
+    ![Screenshot showing Create new SAML Certificate.](common/add-saml-certificate.png)
 
 1. Generate a new SAML signing certificate, and then select **New Certificate**. Enter an email address for certificate notifications.
    
-    ![Screenshot of showing New SAML Certificate.](common/new-saml-certificate.png) 
+    ![Screenshot showing New SAML Certificate.](common/new-saml-certificate.png) 
 
 1. In the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-    ![Screenshot of showing The Certificate download link.](./media/amazon-web-service-tutorial/certificate.png)
+    ![Screenshot showing the Certificate download link.](./media/amazon-web-service-tutorial/certificate.png)
 
 1. In the **Set up AWS Single-Account Access** section, copy the appropriate URL(s) based on your requirement.
 
-    ![Screenshot of showing Copy configuration URLs.](common/copy-configuration-urls.png)
+    ![Screenshot showing Copy configuration URLs.](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
