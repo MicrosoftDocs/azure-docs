@@ -83,6 +83,7 @@ Both of online and batch endpoints use the same constructs, which help you trans
 | Authentication                   | Key and token                    | Azure AD                       |
 | Private network support          | Yes                              | Yes                            |
 | Network egress control           | Yes                              | No                             |
+| Customer-managed keys            | Yes                              | No                             |
 
 #### Deployments
 
@@ -96,6 +97,7 @@ Both of online and batch endpoints use the same constructs, which help you trans
 | Compute type                     | AzureML and Kubernetes           | AzureML and Kubernetes          |
 | Scale compute to zero            | No                               | Yes                             |
 | Low-priority compute             | No                               | Yes                             |
+| Autoscale                        | Yes                              | No                              |
 | Test deployments locally         | Yes                              | No                              |
 
 

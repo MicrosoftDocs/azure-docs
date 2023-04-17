@@ -109,9 +109,11 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch i
 
 ## Create a batch deployment
 
-A deployment is a set of resources and compute required to implement the functionality the endpoint provides. There are you types of deployments: [Model deployments](concept-endpoints-batch.md#model-deployments) and [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment).
+A deployment is a set of resources and compute required to implement the functionality the endpoint provides. There are two types of deployments depending on the asset you want to deploy:
 
-See [How to deploy a model in a batch endpoint](how-to-use-batch-model-deployments.md) for a tutorial about how to deploy models. See [How to deploy a pipeline component in a batch endpoint](how-to-use-batch-pipeline-deployments.md) for a tutorial about how to deploy pipeline components.
+* [Model deployments](concept-endpoints-batch.md#model-deployments): Use them when you want to operationalize machine learning model inference routines. See [How to deploy a model in a batch endpoint](how-to-use-batch-model-deployments.md) for a tutorial about how to deploy models.
+* [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment): Use them when you want to operationalize complex inference pipelines under an stable URI. See [How to deploy a pipeline component in a batch endpoint](how-to-use-batch-pipeline-deployments.md) for a tutorial about how to deploy pipeline components.
+
 
 ## Create jobs from batch endpoints
 

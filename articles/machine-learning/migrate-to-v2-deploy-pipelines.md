@@ -208,7 +208,7 @@ response = requests.post(
 
 # [SDK v2](#tab/v2)
 
-Batch endpoints support multiple inputs types. To know more see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md).
+Batch endpoints support multiple inputs types. The following example shows how to indicate two different inputs of type `string` and `numeric`:
 
 ```python
 batch_endpoint = ml_client.batch_endpoints.get(endpoint_name)
@@ -233,6 +233,9 @@ response = requests.post(
     }
 )
 ```
+
+To know how to indicate inputs and outputs in batch endpoints and all the supported types see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md).
+
 ---
 
 ## Next steps
