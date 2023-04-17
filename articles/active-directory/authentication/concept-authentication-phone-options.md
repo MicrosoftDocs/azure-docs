@@ -48,7 +48,7 @@ With text message verification during SSPR or Azure AD Multi-Factor Authenticati
 
 Android users can enable Rich Communication Services (RCS) on their devices. RCS offers encryption and other improvements over SMS. For Android, MFA text messages may be sent over RCS rather than SMS. The MFA text message is similar to SMS, but RCS messages have more Microsoft branding and a verified checkmark so users know they can trust the message.
 
-:::image type="content" source="media/concept-authentication-methods/brand.png" alt-text="Screenshot of Microsoft branding in RCS messages":::
+:::image type="content" source="media/concept-authentication-methods/brand.png" alt-text="Screenshot of Microsoft branding in RCS messages.":::
 
 ### Phone call verification
 
