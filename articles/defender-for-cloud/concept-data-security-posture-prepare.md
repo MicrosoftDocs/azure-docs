@@ -62,7 +62,7 @@ Defender for Cloud starts discovering data immediately after enabling a plan, or
 In order to protect AWS resources in Defender for Cloud, you set up an AWS connector, using a CloudFormation template to onboard the AWS account.
 
 - To discover AWS data resources, Defender for Cloud updates the CloudFormation template.
-- The CloudFormation template creates a new role in AWS IAM, to allow permission for the Defender for Cloud scanner to access data in the S3 buckets. 
+- The CloudFormation template creates a new role in AWS IAM, to allow permission for the Defender for Cloud scanner to access data in the S3 buckets.
 - To connect AWS accounts, you need Administrator permissions on the account.
 - The role allows these permissions: S3 read only; KMS decrypt.
 
