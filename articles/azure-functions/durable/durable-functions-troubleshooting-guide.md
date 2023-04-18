@@ -69,7 +69,7 @@ Heavy data processing, internal errors, and insufficient compute resources can c
 1. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errorswarnings).
 
 2. If your app utilizes the .NET in-process model, consider enabling [extended sessions](./durable-functions-azure-storage-provider.md#extended-sessions). 
-   This minimizes history loads, which can slow down processing.
+   Extended sessions can minimize history loads, which can slow down processing.
 
 3. Check for performance and scalability bottlenecks. 
    Application performance depends on many factors. For example, high CPU usage, or large memory consumption can result in delays. Please read [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md) for detailed guidance.
