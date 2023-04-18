@@ -52,8 +52,8 @@ This table compares the advantages and limitations of using KQL's built-in machi
 
 You can implement custom machine learning models and build your own machine learning pipeline on data in Azure Monitor Logs to support advanced scenarios, such as: 
 
-- Hunting for security attacks with more sophisticated models than those by KQL
-- Correlate data in Azure Monitor Logs with data from other sources
+- Hunting for security attacks with more sophisticated models than those by KQL.
+- Correlating data in Azure Monitor Logs with data from other sources.
 - Creating multi-step flows, running code in each step based on the results of the previous step.
 
 There are three approaches to making data in Azure Monitor Logs available to your machine learning pipeline:
@@ -68,7 +68,7 @@ This table compares the advantages and limitations of the various machine learni
 |-|-|-|-|
 |**Data exported?**|No|Yes|**Training**: Yes<br>**Scoring**: No |
 |**Uses other Azure services?**|Optional|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azur e Synapse](/azure/synapse-analytics/overview-what-is). |**Training**: Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).<br>**Scoring**: Optional, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|
-|**Advantages**|-  Gets you started quickly, without requiring data science and programming skills.<br>- No need to install Python or other tools on your local computer because code runs on a server.<br> - Minimal latency and cost savings.|No query limits.|**Scoring**: Minimal latency and cost savings in running queries on top of Azure Monitor Logs for scoring.|
+|**Advantages**|-  Gets you started quickly, without requiring data science and programming skills.<br>- No need to install Python or other tools locally because code runs on a server.<br> - Minimal latency and cost savings.|No query limits.|**Scoring**: Minimal latency and cost savings in running queries on top of Azure Monitor Logs for scoring.|
 |**Limitations**|[Query API log query limits](../service-limits.md#log-analytics-workspaces), which you can overcome by [splitting query execution into chunks](https://learn.microsoft.com/en-us/samples/azure/azure-sdk-for-python/query-azuremonitor-samples/).|Cost of export and storage, increased latency due to export.|**Training**: Cost of export and training. |
 | |Analyze several GBs of data, or a few million records.|Training and scoring: Supports large volumes of data.|**Scoring**: Large volumes of data.<br>**Training**: Supports several GBs of data, or a few million records. |
 
