@@ -16,7 +16,7 @@ Please note this process is used in emergency situations when all other troubles
 
 There are rare situations where a user needs to investigate & resolve issues with a BMM and all other ways have been exhausted via Azure. Azure Operator Nexus provides the `az networkcloud cluster baremetalmachinekeyset` command so users can manage SSH access to these BMM.
 
-When the command runs, it executes on each BMM in the Cluster. If a BMM is unavailable or powered off at the time of command execution, the status of the command will reflect which BMMs couldn't have the command executed. There is a reconciliation process that runs periodically that will retry the command on any BMM that wasn't available at the time of the original command. Multiple commands execute in the order received.
+When the command runs, it executes on each BMM in the Cluster. If a BMM is unavailable or powered off at the time of command execution, the status of the command reflects which BMMs couldn't have the command executed. There is a reconciliation process that runs periodically that retries the command on any BMM that wasn't available at the time of the original command. Multiple commands execute in the order received.
 
 There's no limit to the number of users in a group.
 
@@ -25,13 +25,14 @@ Notes for jump host IP addresses
 
 - The keyset create/update process adds the jump host IP addresses to the IP tables for the Cluster. The process adds these addresses to IP tables and restricts SSH access to only those IPs.
 - It's important to specify the Cluster facing IP addresses for the jump hosts. These IP addresses may be different than the public facing IP address used to access the jump host.
-- Once added, users will be able to access BMMs from any specified jump host IP including a jump host IP defined in another BMM keyset group.
+- Once added, users are able to access BMMs from any specified jump host IP including a jump host IP defined in another BMM keyset group.
 - Existing SSH access remains when adding first BMM keyset. However, the keyset command limits an existing user's SSH access to the specified jump host IPs in the keyset commands.
 
 ## Prerequisites
 
 - Install the latest version of the
   [appropriate CLI extensions](./howto-install-cli-extensions.md)
+- The on-premises Cluster must have connectivity to Azure.
 - Get the Resource group name that you created for `Cluster` resource
 - The process applies keysets to all running BMMs.
 - The added users must be part of an Azure Active Directory (Azure AD) group. For more information, see [How to Manage Groups](../active-directory/fundamentals/how-to-manage-groups.md).
@@ -68,23 +69,23 @@ az networkcloud cluster baremetalmachinekeyset create \
   --azure-group-id                            [Required] : The object ID of Azure Active Directory
                                                            group that all users in the list must
                                                            be in for access to be granted. Users
-                                                           that are not in the group will not have
+                                                           that are not in the group do not have
                                                            access.
   --bare-metal-machine-key-set-name --name -n [Required] : The name of the bare metal machine key
                                                            set.
   --cluster-name                              [Required] : The name of the cluster.
   --expiration                                [Required] : The date and time after which the users
-                                                           in this key set will be removed from
+                                                           in this key set are removed from
                                                            the bare metal machines. Format is:
                                                            "YYYY-MM-DDTHH:MM:SS.000Z"
   --extended-location                         [Required] : The extended location of the cluster
                                                            associated with the resource.
     Usage: --extended-location name=XX type=XX
-      name: Required. The resource ID of the extended location on which the resource will be created.
+      name: Required. The resource ID of the extended location on which the resource is created.
       type: Required. The extended location type: "CustomLocation".
   --jump-hosts-allowed                        [Required] : The list of IP addresses of jump hosts
                                                            with management network access from
-                                                           which a login will be allowed for the
+                                                           which a login is be allowed for the
                                                            users. Supports IPv4 or IPv6 addresses.
   --privilege-level                           [Required] : The access level allowed for the users
                                                            in this key set.  Allowed values:
@@ -99,9 +100,8 @@ az networkcloud cluster baremetalmachinekeyset create \
       key-data: Required. The public ssh key of the user.
 
       Multiple users can be specified by using more than one --user-list argument.
-  --os-group-name                                        : The name of the group that users will
-                                                           be assigned to on the operating system
-                                                           of the machines.
+  --os-group-name                                        : The name of the group that users are assigned
+                                                           to on the operating system of the machines.
   --tags                                                 : Space-separated tags: key[=value]
                                                            [key[=value] ...]. Use '' to clear
                                                            existing tags.
@@ -133,7 +133,7 @@ az networkcloud cluster baremetalmachinekeyset create \
                                                            for full debug logs.
 ```
 
-This example will create a new keyset with two users that have standard access from two jump hosts.
+This example creates a new keyset with two users that have standard access from two jump hosts.
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset create \
@@ -157,7 +157,7 @@ For assistance in creating the `--user-list` structure, see [Azure CLI Shorthand
 
 ## Deleting a bare metal machine keyset
 
-The `baremetalmachinekeyset delete` command removes SSH access to the BMM for a group of users. All members of the group will no longer have SSH access to any of the BMM in the Cluster.
+The `baremetalmachinekeyset delete` command removes SSH access to the BMM for a group of users. All members of the group no longer have SSH access to any of the BMM in the Cluster.
 
 The command syntax is:
 
@@ -182,7 +182,7 @@ az networkcloud cluster baremetalmachinekeyset delete \
     --yes -y                                               : Do not prompt for confirmation.
 ```
 
-This example will remove the "bareMetalMachineKeysetName" keyset group in the "clusterName" Cluster.
+This example removes the "bareMetalMachineKeysetName" keyset group in the "clusterName" Cluster.
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset delete \
@@ -215,12 +215,12 @@ az networkcloud cluster baremetalmachinekeyset update \
   --bare-metal-machine-key-set-name --name -n [Required] : The name of the BMM key set.
   --cluster-name                              [Required] : The name of the cluster.
   --expiration                                           : The date and time after which the users
-                                                           in this key set will be removed from
+                                                           in this key set are removed from
                                                            the BMMs. Format is:
                                                            "YYYY-MM-DDTHH:MM:SS.000Z"
   --jump-hosts-allowed                                   : The list of IP addresses of jump hosts
                                                            with management network access from
-                                                           which a login will be allowed for the
+                                                           which a login is allowed for the
                                                            users. Supports IPv4 or IPv6 addresses.
   --privilege-level                                      : The access level allowed for the users
                                                            in this key set.  Allowed values:
@@ -242,7 +242,7 @@ az networkcloud cluster baremetalmachinekeyset update \
                                                            operation to finish.
 ```
 
-This example will add two new users to the "baremetalMachineKeySetName" group and will change the expiry time for the group.
+This example adds two new users to the "baremetalMachineKeySetName" group and changes the expiry time for the group.
 
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset update \

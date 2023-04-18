@@ -16,15 +16,16 @@ Please note this process is used in emergency situations when all other troubles
 
 There are rare situations where a user needs to investigate & resolve issues with a BMM and all other ways have been exhausted via Azure. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these BMMs.
 
-When the command runs, it executes on each of BMM in the Cluster. If a BMM is unavailable or powered off at the time of command execution, the status of the command will reflect which BMMs couldn't have the command executed. There's a reconciliation process that runs periodically that will retry the command on any BMM that wasn't available at the time of the original command. Multiple commands execute in the order received.
+When the command runs, it executes on each of BMM in the Cluster. If a BMM is unavailable or powered off at the time of command execution, the status of the command reflects which BMMs couldn't have the command executed. There's a reconciliation process that runs periodically that retries the command on any BMM that wasn't available at the time of the original command. Multiple commands execute in the order received.
 
-There's a maximum number of 12 users defined per Cluster. Attempts to add more than 12 users will result in an error. Delete a user before adding another one when 12 already exists.
+There's a maximum number of 12 users defined per Cluster. Attempts to add more than 12 users results in an error. Delete a user before adding another one when 12 already exists.
 
 ## Prerequisites
 
 - Install the latest version of the
   [appropriate CLI extensions](./howto-install-cli-extensions.md)
-- The on-premise Cluster must have connectivity to Azure.
+- The on-premises Cluster must have connectivity to Azure.
+- Get the Resource group name that you created for `Cluster` resource
 - The process applies keysets to all running BMMs.
 - The users added must be part of an Azure Active Directory (Azure AD) group. For more information, see [How to Manage Groups](../active-directory/fundamentals/how-to-manage-groups.md).
 - To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bmcKeySets`. The options are `/read`, `/write` and `/delete`.
@@ -58,18 +59,18 @@ az networkcloud cluster bmckeyset create \
   --azure-group-id                            [Required] : The object ID of Azure Active Directory
                                                            group that all users in the list must
                                                            be in for access to be granted. Users
-                                                           that are not in the group will not have
+                                                           that are not in the group do not have
                                                            access.
   --bmc-key-set-name --name -n                [Required] : The name of the BMC key set.
   --cluster-name                              [Required] : The name of the cluster.
   --expiration                                [Required] : The date and time after which the users
-                                                           in this key set will be removed from
+                                                           in this key set are removed from
                                                            the BMCs. The limit is up to 1 year from creation.
                                                            Format is "YYYY-MM-DDTHH:MM:SS.000Z"
   --extended-location                         [Required] : The extended location of the cluster
                                                            associated with the resource.
     Usage: --extended-location name=XX type=XX
-      name: Required. The resource ID of the extended location on which the resource will be created.
+      name: Required. The resource ID of the extended location on which the resource is created.
       type: Required. The extended location type: "CustomLocation".
   --privilege-level                           [Required] : The access level allowed for the users
                                                            in this key set.  Allowed values:
@@ -115,7 +116,7 @@ az networkcloud cluster bmckeyset create \
                                                            for full debug logs.
 ```
 
-This example will create a new keyset with two users that have standard access from two jump hosts.
+This example creates a new keyset with two users that have standard access from two jump hosts.
 
 ```azurecli
 az networkcloud cluster bmckeyset create \
@@ -162,7 +163,7 @@ az networkcloud cluster bmckeyset delete \
   --yes -y                                               : Do not prompt for confirmation.
 ```
 
-This example will remove the "bmcKeysetName" keyset group in the "clusterName" Cluster.
+This example removes the "bmcKeysetName" keyset group in the "clusterName" Cluster.
 
 ```azurecli
 az networkcloud cluster bmckeyset delete \
@@ -196,12 +197,12 @@ az networkcloud cluster bmckeyset update \
   --bmc-key-set-name --name -n                [Required] : The name of the BMC key set.
   --cluster-name                              [Required] : The name of the cluster.
   --expiration                                           : The date and time after which the users
-                                                           in this key set will be removed from
+                                                           in this key set are removed from
                                                            the BMCs. Format is:
                                                            "YYYY-MM-DDTHH:MM:SS.000Z"
   --jump-hosts-allowed                                   : The list of IP addresses of jump hosts
                                                            with management network access from
-                                                           which a login will be allowed for the
+                                                           which a login is allowed for the
                                                            users. Supports IPv4 or IPv6 addresses.
   --privilege-level                                      : The access level allowed for the users
                                                            in this key set.  Allowed values:
@@ -223,7 +224,7 @@ az networkcloud cluster bmckeyset update \
                                                            operation to finish.
 ```
 
-This example will add two new users to the "bmcKeySetName" group and will change the expiry time for the group.
+This example adds two new users to the "bmcKeySetName" group and changes the expiry time for the group.
 
 ```azurecli
 az networkcloud cluster bmckeyset update \
