@@ -130,30 +130,30 @@ Once the persistent volume claim has been created and the disk successfully prov
 
 1. Create a file named `azure-pvc-disk.yaml`, and copy in the following manifest: 
 
-      ```yaml
-      kind: Pod
-      apiVersion: v1
-      metadata:
-        name: mypod
-      spec:
-        containers:
-       - name: mypod
+    ```yaml
+    kind: Pod
+    apiVersion: v1
+    metadata:
+      name: mypod
+    spec:
+      containers:
+        - name: mypod
           image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
           resources:
             requests:
-               cpu: 100m
-               memory: 128Mi
+              cpu: 100m
+              memory: 128Mi
             limits:
               cpu: 250m
               memory: 256Mi
           volumeMounts:
-         - mountPath: "/mnt/azure"
-            name: volume
-        volumes:
-         - name: volume
-            persistentVolumeClaim:
-              claimName: azure-managed-disk
-       ```
+            - mountPath: "/mnt/azure"
+              name: volume
+      volumes:
+        - name: volume
+          persistentVolumeClaim:
+            claimName: azure-managed-disk
+    ```
 
 2. Create the pod with the [kubectl apply][kubectl-apply] command, as shown in the following example:
 

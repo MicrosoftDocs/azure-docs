@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services - Call Recording summary logs
 titleSuffix: An Azure Communication Services conceptual article
-description: Learn about the properties of summary logs for the Call Recording feature.
+description: Learn about logging for Azure Communication Services Recording.
 author: Mkhribech
 services: azure-communication-services
 
@@ -12,19 +12,44 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# Call Recording summary logs
-In Azure Communication Services, summary logs for the Call Recording feature provide details about:
+# Azure Communication Services Call Recording Logs
 
-- Call duration.
-- Media content (for example, audio/video, unmixed, or transcription).
-- Format types used for the recording (for example, WAV or MP4).
-- The reason why the recording ended.
+Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
+
+> [!IMPORTANT]
+> The following refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/faq.yml)). To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../enable-logging.md)
+
+## Resource log categories
+
+Communication Services offers the following types of logs that you can enable:
+
+* **Usage logs** - provides usage data associated with each billed service offering
+* **Call Recording Summary Logs** - provides summary information for call recordings like:
+  - Call duration.
+  - Media content (for example, audio/video, unmixed, or transcription).
+  - Format types used for the recording (for example, WAV or MP4).
+  - The reason why the recording ended.
 
 A recording file is generated at the end of a call or meeting. The recording can be initiated and stopped by either a user or an app (bot). It can also end because of a system failure.
 
-Summary logs are published after a recording is ready to be downloaded. The logs are published within the standard latency time for Azure Monitor resource logs. See [Log data ingestion time in Azure Monitor](../../../azure-monitor/logs/data-ingestion-time.md#azure-metrics-resource-logs-activity-log).
+Summary logs are published after a recording is ready to be downloaded. The logs are published within the standard latency time for Azure Monitor resource logs. See [Log data ingestion time in Azure Monitor](../../../../azure-monitor/logs/data-ingestion-time.md#azure-metrics-resource-logs-activity-log).
 
-## Properties
+### Usage logs schema
+
+| Property | Description |
+| -------- | ---------------|
+| `Timestamp` | The timestamp (UTC) of when the log was generated. |
+| `Operation Name` | The operation associated with log record. |
+| `Operation Version` | The `api-version` associated with the operation, if the operationName was performed using an API. If there's no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
+| `Category` | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
+| `Correlation ID` | The ID for correlated events. Can be used to identify correlated events between multiple tables. |
+| `Properties` | Other data applicable to various modes of Communication Services. |
+| `Record ID` | The unique ID for a given usage record. |
+| `Usage Type` | The mode of usage. (for example, Chat, PSTN, NAT, etc.) |
+| `Unit Type` | The type of unit that usage is based off for a given mode of usage. (for example, minutes, megabytes, messages, etc.). |
+| `Quantity` | The number of units used or consumed for this record. |
+
+### Call Recording summary logs schema
 
 | Property name |	Data type |	Description |
 |----------  |-----------|--------------|
@@ -44,7 +69,7 @@ Summary logs are published after a recording is ready to be downloaded. The logs
 |`audioChannelsCount`|Integer|Total number of audio channels in the recording.|
 |`recordingEndReason`|String|Reason why the recording ended.|   
 
-## Call Recording and example data
+### Call Recording and example data
 
 ```json
 "operationName":            "Call Recording Summary",
@@ -124,5 +149,6 @@ If the agent initiates a recording and then stops and restarts the recording mul
 
 ## Next steps
 
-For more information about Call Recording, see [Call Recording overview](../../../communication-services/concepts/voice-video-calling/call-recording.md). 
+- Get [Call Recording insights](../insights/call-recording-insights.md)
+- Learn more about [Call Recording](../../voice-video-calling/call-recording.md). 
 

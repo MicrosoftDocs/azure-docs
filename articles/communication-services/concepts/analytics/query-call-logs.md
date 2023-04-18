@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services - Log Analytics Preview
+title: Azure Communication Services - query call logs
 titleSuffix: An Azure Communication Services concept document
 description: About using Log Analytics for Call Summary and Call Diagnostic logs
 author:  timmitchell
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# Log analytics for Communications Services preview
+# Query call logs
 
 ## Overview and access
 
@@ -34,7 +34,7 @@ If you close the modal screen, you can still navigate to the various query packs
 :::image type="content" source="media\log-analytics\log-analytics-tables-resource.png" alt-text="Log Analytics tables in resource" lightbox="media\log-analytics\log-analytics-tables-resource.png":::
 
 ## Default query packs for call summary and call diagnostic logs
-The following are descriptions of each query in the [default query pack](../../../azure-monitor/logs/query-packs.md#default-query-pack), for the [Call Summary and Call Diagnostic logs](call-logs-azure-monitor.md) including code samples and example outputs for each query available:
+The following are descriptions of each query in the [default query pack](../../../azure-monitor/logs/query-packs.md#default-query-pack), for the [Call Summary and Call Diagnostic logs](logs/voice-and-video-logs.md) including code samples and example outputs for each query available:
 ### Call Overview Queries
 #### Number of participants per call
 
