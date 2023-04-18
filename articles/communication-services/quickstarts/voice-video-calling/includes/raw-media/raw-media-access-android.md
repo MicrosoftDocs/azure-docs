@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Add raw media access to your app (Android)
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add raw media access calling capabilities to your app by using Azure Communication Services.
+description: In this quickstart, you learn how to add raw media access calling capabilities to your app by using Azure Communication Services.
 author: yassirbisteni
 
 ms.author: yassirb
@@ -14,7 +14,7 @@ ms.custom: mode-other
 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
-In this quickstart, you'll learn how to implement raw media access by using the Azure Communication Services Calling SDK for Android.
+In this quickstart, you learn how to implement raw media access by using the Azure Communication Services Calling SDK for Android.
 
 The Azure Communication Services Calling SDK offers APIs that allow apps to generate their own video frames to send to remote participants in a call.
 
@@ -38,7 +38,7 @@ Make an options object specifying the raw stream properties we want to send.
                 .setRawOutgoingAudioProperties(outgoingAudioProperties);
     ```
 
-Create a `RawOutgoingAudioStream` and attach it to join call options and the stream will automatically starts when call is connected.
+Create a `RawOutgoingAudioStream` and attach it to join call options and the stream automatically starts when call is connected.
 
     ```java 
     JoinCallOptions options = // JoinCallOptions() or StartCallOptions()
@@ -63,8 +63,8 @@ Or you can also attach the stream to an existing `Call` instance instead:
 
 ### Start sending Raw Samples
 
-We will only be able to start sending data once the stream state is `AudioStreamState.STARTED`. 
-To observe the audio stream state change add a listener to the `OnStateChangedListener` event.
+We can only start sending data once the stream state is `AudioStreamState.STARTED`. 
+To observe the audio stream state change, add a listener to the `OnStateChangedListener` event.
 
     ```java
     private void onStateChanged(PropertyChangedEvent propertyChangedEvent) {
@@ -74,7 +74,7 @@ To observe the audio stream state change add a listener to the `OnStateChangedLi
     rawOutgoingAudioStream.addOnStateChangedListener(this::onStateChanged)
     ```
 
-When the stream started we can start sending [`java.nio.ByteBuffer`](https://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html) audio samples to the call.
+When the stream started, we can start sending [`java.nio.ByteBuffer`](https://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html) audio samples to the call.
 
 The audio buffer format should match the specified stream properties.
 
@@ -143,7 +143,7 @@ Or we can also attach the stream to an existing `Call` instance instead:
     CompletableFuture<Void> result = call.startAudio(context, rawIncomingAudioStream);
     ```
 
-To start receiving raw audio buffers from the incoming stream add listeners to the incoming stream state and
+For starting to receive raw audio buffers from the incoming stream add listeners to the incoming stream state and
 buffer received events.
 
     ```java
@@ -161,9 +161,9 @@ buffer received events.
 
 ## Raw Video Access
 
-Because the app will generate the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
+Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 
-The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event will inform the app which video format is most appropriate for the current network conditions.
+The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event informs the app, which video format is most appropriate for the current network conditions.
 
 ### Supported video resolutions
 
@@ -186,7 +186,7 @@ The app must register a delegate to get notified about when it should start or s
 
 1. Create an array of `VideoFormat` with the video formats that the app supports. It's fine to have only one video format supported, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type. 
 
-   When multiple formats are provided, the order of the format in the list doesn't influence or prioritize which one will be used. The criteria for format selection are based on external factors like network bandwidth.
+   When multiple formats are provided, the order of the format in the list doesn't influence or prioritize which one is used. The criteria for format selection are based on external factors like network bandwidth.
 
     ```java
     ArrayList<VideoFormat> videoFormats = new ArrayList<VideoFormat>();
@@ -209,7 +209,7 @@ The app must register a delegate to get notified about when it should start or s
     rawOutgoingVideoStreamOptions.setVideoFormats(videoFormats);
     ```
 
-3. Subscribe to the `RawOutgoingVideoStreamOptions::addOnOutgoingVideoStreamStateChangedListener` delegate. This delegate will inform the state of the current stream. Don't send frames if the state is not equal to `OutgoingVideoStreamState.STARTED`.
+3. Subscribe to the `RawOutgoingVideoStreamOptions::addOnOutgoingVideoStreamStateChangedListener` delegate. This delegate informs the state of the current stream. Don't send frames if the state isn't equal to `OutgoingVideoStreamState.STARTED`.
 
     ```java
     private OutgoingVideoStreamState outgoingVideoStreamState;
@@ -220,7 +220,7 @@ The app must register a delegate to get notified about when it should start or s
     });
     ```
 
-4. Make sure the `RawOutgoingVideoStreamOptions::addOnVideoFrameSenderChangedListener` delegate is defined. This delegate will inform its listener about events that require the app to start or stop producing video frames. 
+4. Make sure the `RawOutgoingVideoStreamOptions::addOnVideoFrameSenderChangedListener` delegate is defined. This delegate informs its listener about events that require the app to start or stop producing video frames. 
 
    This quickstart uses `mediaFrameSender` as a trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
 
@@ -243,7 +243,7 @@ The app must register a delegate to get notified about when it should start or s
 
 6. After `outgoingVideoStreamState` is equal to `OutgoingVideoStreamState.STARTED`, create an instance of the `FrameGenerator` class.
 
-   This step starts a non-UI thread and sends frames. It will call `FrameGenerator.SetVideoFrameSender` each time you get an updated `VideoFrameSender` instance on the previous delegate. It will also cast `VideoFrameSender` to the appropriate type defined by the `VideoFrameKind` property of `VideoFormat`.
+   This step starts a non-UI thread and sends frames. It calls `FrameGenerator.SetVideoFrameSender` each time you get an updated `VideoFrameSender` instance on the previous delegate. It also casts `VideoFrameSender` to the appropriate type defined by the `VideoFrameKind` property of `VideoFormat`.
 
    For example, cast `VideoFrameSender` to `SoftwareBasedVideoFrameSender`. Then, call the `send` method according to the number of planes that `VideoFormat` defines.
 
