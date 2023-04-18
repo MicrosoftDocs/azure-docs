@@ -38,13 +38,16 @@ Agentless scanning for VMs now supports processing of instances with encrypted d
 This extended support increases coverage and visibility over your cloud estate without impacting your running workloads. Support for encrypted disks maintains the same zero impact method on running instances.
 
 - For new customers enabling agentless scanning in AWS - encrypted disks coverage is built-in and supported by default.
-- For existing customers already having an AWS connector with agentless scanning enabled - re-apply the CloudFormation stack to your onboarded AWS accounts to update new permissions required to process encrypted disks. The updated CloudFormation template includes new assignments allowing Defender for Cloud to process encrypted disks. Learn more on [permissions used for scanning AWS instances](concept-agentless-data-collection.md#which-permissions-are-used-by-agentless-scanning).
+- For existing customers that already have an AWS connector with agentless scanning enabled, you will need to re-apply the CloudFormation stack to your onboarded AWS accounts to update and add the new permissions that are required to process encrypted disks. The updated CloudFormation template includes new assignments that allow Defender for Cloud to process encrypted disks. 
 
-To re-apply your CloudFormation stack:
+You can learn more about the [permissions used to scan AWS instances](concept-agentless-data-collection.md#which-permissions-are-used-by-agentless-scanning).
+
+**To re-apply your CloudFormation stack**:
 
 1. Go to Defender for Cloud environment settings and open your AWS connector.
-2. Go to **Configure Access** tab, then select **Click to download the CloudFormation template**.
-3. Go to your AWS environment and apply the updated template.
+1. Navigate to the **Configure Access** tab. 
+1. Select **Click to download the CloudFormation template**.
+1. Navigate to your AWS environment and apply the updated template.
 
 Learn more about [agentless scanning](concept-agentless-data-collection.md) and [enabling agentless scanning in AWS](enable-vulnerability-assessment-agentless.md#agentless-vulnerability-assessment-on-aws).
 
