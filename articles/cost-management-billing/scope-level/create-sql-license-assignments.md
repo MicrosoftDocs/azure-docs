@@ -3,7 +3,7 @@ title: Create SQL Server license assignments for Azure Hybrid Benefit
 description: This article explains how to create SQL Server license assignments for Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/06/2023
+ms.date: 04/18/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -12,11 +12,7 @@ ms.reviewer: chrisri
 
 # Create SQL Server license assignments for Azure Hybrid Benefit
 
-The new centralized Azure Hybrid Benefit (preview) experience in the Azure portal supports SQL Server license assignments at the account level or at a particular subscription level. When the assignment is created at the account level, Azure Hybrid Benefit discounts are automatically applied to SQL resources in all subscriptions in the account up to the license count specified in the assignment.
-
-> [!IMPORTANT]
-> Centrally-managed Azure Hybrid Benefit is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+The centralized Azure Hybrid Benefit experience in the Azure portal supports SQL Server license assignments at the account level or at a particular subscription level. When the assignment is created at the account level, Azure Hybrid Benefit discounts are automatically applied to SQL resources in all subscriptions in the account up to the license count specified in the assignment.
 
 For each license assignment, a scope is selected and then licenses are assigned to the scope. Each scope can have multiple license entries.
 
@@ -57,7 +53,7 @@ In the following procedure, you navigate from **Cost Management + Billing** to *
         :::image type="content" source="./media/create-sql-license-assignments/select-billing-profile.png" alt-text="Screenshot showing billing profile selection." lightbox="./media/create-sql-license-assignments/select-billing-profile.png" :::
 1. In the left menu, select **Reservations + Hybrid Benefit**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-reservations.png" alt-text="Screenshot showing Reservations + Hybrid Benefit selection."  :::
-1. Select **Add**  and then in the list, select **Azure Hybrid Benefit (Preview)**.  
+1. Select **Add**  and then in the list, select **Azure Hybrid Benefit**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-azure-hybrid-benefit.png" alt-text="Screenshot showing Azure Hybrid Benefit selection." lightbox="./media/create-sql-license-assignments/select-azure-hybrid-benefit.png" :::
 1. On the next screen, select **Begin to assign licenses**.  
     :::image type="content" source="./media/create-sql-license-assignments/get-started-centralized.png" alt-text="Screenshot showing Add SQL hybrid benefit selection" lightbox="./media/create-sql-license-assignments/get-started-centralized.png" :::  

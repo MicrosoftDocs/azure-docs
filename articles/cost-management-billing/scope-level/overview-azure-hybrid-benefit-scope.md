@@ -43,7 +43,7 @@ In the previous example, detected usage for 108 normalized core licenses is need
 
 The original resource-level way to enable Azure Hybrid Benefit is still available for SQL Server and is currently the only option for Windows Server. It involves a DevOps role selecting the benefit for each individual resource (like a SQL Database or Windows Server VM) when you create or manage it. Doing so results in the hourly cost of that resource being discounted. For more information, see [Azure Hybrid Benefit for Windows Server](/azure/azure-sql/azure-hybrid-benefit).
 
-Enabling centralized management of Azure Hybrid Benefit of for SQL Server at a subscription or account scope level is currently in preview. It's available to enterprise customers and to customers that buy directly from Azure.com with a Microsoft Customer Agreement. We hope to extend the capability to Windows Server and more customers.
+You can enable centralized management of Azure Hybrid Benefit for SQL Server at a subscription or account scope level. It's available to enterprise customers and to customers that buy directly from Azure.com with a Microsoft Customer Agreement. We hope to extend the capability to Windows Server and more customers.
 
 ## Qualifying SQL Server licenses
 
