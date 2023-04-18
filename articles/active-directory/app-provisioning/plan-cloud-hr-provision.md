@@ -145,7 +145,7 @@ Run the initial configuration in a [pilot environment](../fundamentals/active-di
 To facilitate Azure AD provisioning workflows between the cloud HR app and Active Directory, you can add multiple provisioning connector apps from the Azure AD app gallery:
 
 - **Cloud HR app to Active Directory user provisioning**: This provisioning connector app facilitates user account provisioning from the cloud HR app to a single Active Directory domain. If you have multiple domains, you can add one instance of this app from the Azure AD app gallery for each Active Directory domain you need to provision to.
-- **Cloud HR app to Azure AD user provisioning**: While Azure AD Connect is the tool that should be used to synchronize Active Directory users to Azure AD, this provisioning connector app can be used to facilitate the provisioning of cloud-only users from the cloud HR app to a single Azure AD tenant.
+- **Cloud HR app to Azure AD user provisioning**: Azure AD Connect is the tool used to synchronize Active Directory on premises users to Azure Active Directory. The Cloud HR app to Azure AD user provisioning is a connector you use to provision cloud-only users from the cloud HR app to a single Azure AD tenant.
 - **Cloud HR app write-back**: This provisioning connector app facilitates the write-back of the user's email addresses from Azure AD to the cloud HR app.
 
 For example, the following image lists the Workday connector apps that are available in the Azure AD app gallery.
