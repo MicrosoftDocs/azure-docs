@@ -18,6 +18,10 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 Both Azure Machine Learning and Azure Databricks can be secured by using a VNet to restrict incoming and outgoing network communication. When both services are configured to use a VNet, you can use a private endpoint to allow Azure Machine Learning to attach Azure Databricks as a compute resource.
 
+The information in this article assumes that your Azure Machine Learning workspace and Azure Databricks are configured for two separate Azure Virtual Networks. To enable communication between the two services, Azure Private Link is used. A private endpoint for each service is created in the VNet for the other service. A private endpoint for Azure Machine Learning is added to communicate with the VNet used by Azure Databricks. A private endpoint for Azure Databricks is added to communicate with the VNet used by Azure Machine Learning.
+
+:::image type="content" source="./media/how-to-securely-attach-databricks/secure-azure-machine-learning-to-azure-databricks.svg" alt-text="Diagram of the private endpoint connections between services and virtual networks.":::
+
 ## Prerequisites
 
 * An Azure Machine Learning workspace that is configured for network isolation.
@@ -29,9 +33,15 @@ Both Azure Machine Learning and Azure Databricks can be secured by using a VNet 
 
 * The VNets used by Azure Machine Learning and Azure Databricks must use a different set of IP address ranges.
 
-## Create a private endpoint
+## Limitations
 
-1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace.
+If you're using Azure Databricks through an Azure Machine Learning pipeline (for example, the [DatabrickStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep) class), you must use a workspace that allows public access. This can be either a workspace that isn't configured with a private link or a workspace with a private link that is [configured to allow public access](how-to-configure-private-link.md#enable-public-access).
+
+## Create a private endpoint for Azure Machine Learning
+
+To allow the Azure Machine Learning workspace to communicate with the VNet that Azure Databricks is using, use the following steps:
+
+1. From the [Azure portal](https://portal.azure.com), select your __Azure Machine Learning workspace__.
 
 1. From the sidebar, select __Networking__, __Private endpoint connections__, and then __+ Private endpoint__.
 
@@ -41,11 +51,25 @@ Both Azure Machine Learning and Azure Databricks can be secured by using a VNet 
 
     :::image type="content" source="./media/how-to-securely-attach-databricks/private-endpoint-basics.png" alt-text="Screenshot of the basics section of the private endpoint wizard.":::
 
-1. Select __Next__ until you arrive at the __Virtual Network__ tab. Select the __Virtual network__ that is used by Azure Databricks, and the __Subnet__ to connect to using the private endpoint.
+1. Select __Next__ until you arrive at the __Virtual Network__ tab. Select the __Virtual network__ that is used by __Azure Databricks__, and the __Subnet__ to connect to using the private endpoint.
 
     :::image type="content" source="./media/how-to-securely-attach-databricks/private-endpoint-virtual-network.png" alt-text="Screenshot of the virtual network section of the private endpoint wizard.":::
 
 1. Select __Next__ until you can select __Create__ to create the resource. 
+
+## Create a private endpoint for Azure Databricks
+
+To allow Azure Databricks to communicate with the VNet that the Azure Machine Learning workspace is using, use the following steps:
+
+1. From the [Azure portal](https://portal.azure.com), select your __Azure Databricks instance__.
+
+1. From the sidebar, select __Networking__, __Private endpoint connections__, and then __+ Private endpoint__.
+
+    :::image type="content" source="./media/how-to-securely-attach-databricks/databricks-add-private-endpoint.png" alt-text="Screenshot of the private endpoints connection page for Azure Databricks.":::
+
+1. From the __Create a private endpoint__ form, enter a name for the new private endpoint. Adjust the other values as needed by your scenario.
+
+1. Select __Next__ until you arrive at the __Virtual Network__ tab. Select the __Virtual network__ that is used by __Azure Machine Learning__, and the __Subnet__ to connect to using the private endpoint.
 
 ## Attach the Azure Databricks compute
 
