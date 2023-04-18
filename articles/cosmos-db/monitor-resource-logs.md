@@ -184,6 +184,200 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
     }
     ```
 
+### [ARM Template](#tab/arm-template)
+
+Use the [ARM template](https://learn.microsoft.com/en-us/azure/azure-monitor/resource-manager-samples?tabs=powershell) to create a diagnostic setting .
+
+> [!NOTE]
+> We recommend setting the **logAnalyticsDestinationType** property to **Dedicated** for enabling resource specific tables.
+
+1. Create the following Template file for your ComsosDB resource. 
+
+    ```json
+    {
+	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"settingName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the diagnostic setting."
+			}
+		},
+		"dbName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the database."
+			}
+		},
+		"workspaceId": {
+			"type": "string",
+			"metadata": {
+				"description": "The resource Id of the workspace."
+			}
+		},
+		"storageAccountId": {
+			"type": "string",
+			"metadata": {
+				"description": "The resource Id of the storage account."
+			}
+		},
+		"eventHubAuthorizationRuleId": {
+			"type": "string",
+			"metadata": {
+				"description": "The resource Id of the event hub authorization rule."
+			}
+		},
+		"eventHubName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the event hub."
+			}
+		}
+	},
+	"resources": [{
+		"type": "Microsoft.Insights/diagnosticSettings",
+		"apiVersion": "2021-05-01-preview",
+		"scope": "[format('Microsoft.DocumentDB/databaseAccounts/{0}', parameters('dbName'))]",
+		"name": "[parameters('settingName')]",
+		"properties": {
+			"workspaceId": "[parameters('workspaceId')]",
+			"storageAccountId": "[parameters('storageAccountId')]",
+			"eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+			"eventHubName": "[parameters('eventHubName')]",
+			"logAnalyticsDestinationType": "[parameters('logAnalyticsDestinationType')]",
+			"logs": [{
+					"category": "DataPlaneRequests",
+					"categoryGroup": null,
+					"enabled": true,
+					"retentionPolicy": {
+						"days": 0,
+						"enabled": false
+					}
+				},
+				{
+					"category": "MongoRequests",
+					"categoryGroup": null,
+					"enabled": false,
+					"retentionPolicy": {
+						"days": 0,
+						"enabled": false
+					}
+				},
+				{
+					"category": "QueryRuntimeStatistics",
+					"categoryGroup": null,
+					"enabled": true,
+					"retentionPolicy": {
+						"days": 0,
+						"enabled": false
+					}
+				},
+				{
+					"category": "PartitionKeyStatistics",
+					"categoryGroup": null,
+					"enabled": true,
+					"retentionPolicy": {
+						"days": 0,
+						"enabled": false
+					}
+				},
+				{
+					"category": "PartitionKeyRUConsumption",
+					"categoryGroup": null,
+					"enabled": true,
+					"retentionPolicy": {
+						"days": 0,
+						"enabled": false
+					}
+				},
+				{
+					"category": "ControlPlaneRequests",
+					"categoryGroup": null,
+					"enabled": true,
+					"retentionPolicy": {
+						"days": 0,
+						"enabled": false
+					}
+				},
+				{
+					"category": "CassandraRequests",
+					"categoryGroup": null,
+					"enabled": false,
+					"retentionPolicy": {
+						"days": 0,
+						"enabled": false
+					}
+				},
+				{
+					"category": "GremlinRequests",
+					"categoryGroup": null,
+					"enabled": false,
+					"retentionPolicy": {
+						"days": 0,
+						"enabled": false
+					}
+				},
+				{
+					"category": "TableApiRequests",
+					"categoryGroup": null,
+					"enabled": false,
+					"retentionPolicy": {
+						"days": 0,
+						"enabled": false
+					}
+				}
+			],
+			"metrics": [{
+				"timeGrain": null,
+				"enabled": false,
+				"retentionPolicy": {
+					"days": 0,
+					"enabled": false
+				},
+				"category": "Requests"
+			}]
+		}
+	}]
+    }
+
+    ```
+
+1. Create the following Parameter file for your CosmosDB resource. 
+
+    ```json
+    {
+		"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+		"contentVersion": "1.0.0.0",
+		"parameters": {
+			"settingName": {
+				"value": "{DIAGNOSTIC_SETTING_NAME}"
+			},
+			"dbName": {
+				"value": "{ACCOUNT_NAME}"
+			},
+			"workspaceId": {
+				"value": "/subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}"
+			},
+			"storageAccountId": {
+				"value": "/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Storage/storageAccounts/{STORAGE_ACCOUNT_NAME}"
+			},
+			"eventHubAuthorizationRuleId": {
+				"value": "/subscriptions/{SUBSCRIPTION_ID}/resourcegroups{RESOURCE_GROUP}/providers/Microsoft.EventHub/namespaces/{EVENTHUB_NAMESPACE}/authorizationrules/{EVENTHUB_POLICY_NAME}"
+			},
+			"eventHubName": {
+				"value": "{EVENTHUB_NAME}"
+			},
+			"logAnalyticsDestinationType":{
+				"value": "Dedicated"
+			}
+        }
+    }
+    ```
+
+
+1. Deploy the template by using any [deployment method for Resource Manager templates](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-portal).
+
 ---
 
 ## Enable full-text query for logging query text
