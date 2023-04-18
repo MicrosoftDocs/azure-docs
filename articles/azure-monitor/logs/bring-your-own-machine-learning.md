@@ -39,7 +39,7 @@ This table compares the advantages and limitations of using KQL's built-in machi
 
 ||Built-in KQL machine learning capabilities |Create your own machine learning pipeline|
 |-|-|-|
-|**Scenario**|:white_check_mark: Anomaly detection and root cause analysis <br>◾ Alerting and automation  |:white_check_mark: Anomaly detection and root cause analysis <br>:white_check_mark: Alerting and automation |
+|**Scenario**|:white_check_mark: Anomaly detection and root cause analysis <br> |:white_check_mark: Anomaly detection and root cause analysis <br>:white_check_mark: Alerting and automation |
 |**Integration**|None required.|Requires integration with a tool, such as Jupyter Notebook, or a machine learning service.|
 |**Performance**|Optimal performance, using the power of the Azure Data Explorer platform, running at high scales in a distributed manner. |◾ Dependent on the machine learning service you use. <br>◾ Introduces latency when querying or exporting data. |
 |**Cost**|No extra cost|◾ Cost of the machine learning service you use.<br>◾ Depending on how you [implement your machine learning pipeline](#apply-your-own-machine-learning-pipeline-to-data-in-azure-monitor-logs), you might incur charges for exporting data and ingest data into Azure Monitor Logs.|
