@@ -152,7 +152,7 @@ Follow the steps below to query your event data using the Azure portal:
 1. Find the tile entitled **Enable real time insights from events** and select **Start**.
 1. Select **Refresh** in the **Input preview** section of the page to fetch events from your event hub.
 
-:::image type="content" source="./media/stream-monitoring-data-event-hubs/View-event-hub-data.png" alt-text="A screenshot showing the process data page of an event hub.":::
+:::image type="content" source="./media/stream-monitoring-data-event-hubs/View-event-hub-data.png" alt-text="A screenshot showing the process data page of an event hub." lightbox="./media/stream-monitoring-data-event-hubs/View-event-hub-data.png":::
 
 ## Partner tools with Azure Monitor integration
 
