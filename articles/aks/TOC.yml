@@ -365,7 +365,7 @@
                   href: workload-identity-overview.md
                 - name: Deploy and configure cluster
                   href: workload-identity-deploy-cluster.md
-                - name: Modernize your app with workload identity
+                - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
             - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
@@ -411,6 +411,8 @@
               href: configure-azure-cni-dynamic-ip-allocation.md
             - name: Use Azure CNI Overlay
               href: azure-cni-overlay.md
+            - name: Deploy Isovalent Cilium Enterprise
+              href: cilium-enterprise-marketplace.md
         - name: DNS
           items:
             - name: Use a static IP address and DNS label

@@ -293,7 +293,7 @@ items:
       - name: Call Recording insights
         href: concepts/analytics/insights/call-recording-insights.md
       - name: Query call logs
-        href: concepts/analytics/log-analytics.md
+        href: concepts/analytics/query-call-logs.md
       - name: Export SDK telemetry to Application Insights
         href: quickstarts/telemetry-application-insights.md
   - name: Chat
@@ -466,8 +466,8 @@ items:
         href: ../event-grid/communication-services-telephony-sms-events.md
     - name: Analytics
       items:
-      - name: Logs overview
-        href: concepts/logging-and-diagnostics.md
+      - name: SMS logs
+        href: concepts/analytics/logs/sms-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
     - name: SMS FAQ
@@ -596,6 +596,8 @@ items:
       href: concepts/chat/concepts.md
     - name: SDK features
       href: concepts/chat/sdk-features.md
+    - name: Archiving Chats
+      href: how-tos/chat-sdk/archive-chat-threads.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Events
@@ -610,8 +612,8 @@ items:
         href: concepts/notifications.md
     - name: Analytics
       items:
-      - name: Logs overview
-        href: concepts/logging-and-diagnostics.md
+      - name: Chat logs
+        href: concepts/analytics/logs/chat-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
   - name: Phone calling
@@ -663,9 +665,11 @@ items:
     - name: Analytics
       items:
       - name: Call logs
-        href: concepts/analytics/call-logs-azure-monitor.md
+        href: concepts/analytics/logs/voice-and-video-logs.md
+      - name: Call Automation logs
+        href: concepts/analytics/logs/call-automation-logs.md
       - name: Recording logs
-        href: concepts/analytics/recording-logs.md
+        href: concepts/analytics/logs/recording-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
   - name: Email
@@ -694,14 +698,18 @@ items:
         href: ../event-grid/communication-services-email-events.md
     - name: Analytics
       items:
-      - name: Logs overview
-        href: concepts/logging-and-diagnostics.md
+      - name: Email logs
+        href: concepts/analytics/logs/email-logs.md
       - name: Metrics overview
         href: concepts/metrics.md
   - name: Network Traversal
     items:
     - name: Overview
       href: concepts/network-traversal.md
+    - name: Analytics
+      items:
+      - name: Network Traversal logs
+        href: concepts/analytics/logs/network-traversal-logs.md    
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
   - name: Azure Advisor
