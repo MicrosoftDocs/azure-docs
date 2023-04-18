@@ -60,7 +60,6 @@ landingContent:
         links:
           - text: API Specification
             url: api-specification-kubernetes.md
-        links:
           - text: API Types
             url: api-types-kubernetes.md
 
