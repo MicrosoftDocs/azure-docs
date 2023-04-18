@@ -22,8 +22,6 @@ This tutorial assumes a basic understanding of Kubernetes concepts. For more inf
 
 - This article requires version 2.40.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- You have installed the latest version of the `aks-preview` extension, version 0.5.102 or later.
-
 - The identity you're using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
@@ -260,7 +258,7 @@ az group delete --name "${RESOURCE_GROUP}"
 ## Next steps
 
 In this tutorial, you deployed a Kubernetes cluster and then deployed a simple container application to
-test working with an Azure AD workload identity (preview).
+test working with an Azure AD workload identity.
 
 This tutorial is for introductory purposes. For guidance on a creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
