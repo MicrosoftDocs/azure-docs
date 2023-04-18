@@ -52,10 +52,12 @@ In this tutorial, you need:
     - [A notebook](../../machine-learning/quickstart-run-notebooks.md#create-a-new-notebook). 
 - The following roles and permissions: 
 
-    |Type  |Details  |
-    |---------|---------|
-    |**Azure Monitor Logs**     |- The **Logs Analytics Contributor** role to read data from and send data to your Logs Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../logs/manage-access.md#log-analytics-contributor).|
-    |**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your notebook.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../../machine-learning/how-to-assign-roles.md).     | 
+    - In **Azure Monitor Logs**: The **Logs Analytics Contributor** role to read data from and send data to your Logs Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../logs/manage-access.md#log-analytics-contributor).
+    - In **Azure Machine Learning**:
+        - A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. 
+        - A **Contributor** role on the Azure Machine Learning workspace where you run your notebook.
+        
+        For more information, see [Manage access to an Azure Machine Learning workspace](../../machine-learning/how-to-assign-roles.md). 
 ## Tools you'll use
 
 |Source| Tool | Description |
