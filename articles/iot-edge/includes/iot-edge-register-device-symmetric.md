@@ -82,8 +82,6 @@ Devices that use symmetric key authentication need their connection strings to c
 
 The edge-enabled devices that connect to your IoT hub are listed on the **Devices** page of your IoT hub. If you have multiple devices, you can filter the list by selecting the type **Iot Edge Devices**, then select **Apply**. 
 
-:::image type="content" source="media/iot-edge-register-device/portal-view-devices.png" alt-text="Screenshot of how to view your devices in the Azure portal, IoT Hub." lightbox="media/iot-edge-register-device/portal-view-devices.png":::
-
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub. Devices that authenticate with symmetric keys have their connection strings available to copy in the portal. To find your connection string in the portal:
 
 1. From the **Devices** page, select the IoT Edge device ID from the list.
@@ -92,8 +90,6 @@ When you're ready to set up your device, you need the connection string that lin
 # [Visual Studio Code](#tab/visual-studio-code)
 
 All the devices that connect to your IoT hub are listed in the **Azure IoT Hub** section of the Visual Studio Code Explorer. IoT Edge devices are distinguishable from non-Edge devices because they have a different icon and you see the **$edgeAgent** and **$edgeHub** modules are deployed to each IoT Edge device.
-
-:::image type="content" source="media/iot-edge-register-device-symmetric/view-device-in-iot-hub.png" alt-text="Screenshot of how to view your list of devices in Visual Studio Code.":::
 
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub. Here's how to get your connection string from Visual Studio Code.
 
