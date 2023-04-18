@@ -1,5 +1,5 @@
 ---
-title: Import Data
+title: Import Data (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to import data from external sources on to Azure Machine Learning platform
 services: machine-learning
@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
-ms.date: 04/11/2023
+ms.date: 04/12/2023
 ms.custom: data4ml
 ---
 
-# Import data assets
+# Import data assets (preview)
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
@@ -29,6 +29,8 @@ The caching feature involves upfront compute and storage costs. However, it pays
 
 You can now import data from Snowflake, Amazon S3 and Azure SQL.
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Prerequisites
 
 To create and work with data assets, you need:
@@ -41,7 +43,7 @@ To create and work with data assets, you need:
 
 * [Workspace connections created](how-to-connection.md)
 
-## Importing from external database sources / import from external sources to create a meltable data asset
+## Importing from external database sources / import from external sources to create a mltable data asset
 
 > [!NOTE] 
 > The external databases can have Snowflake, Azure SQL, etc. formats.

@@ -5,9 +5,9 @@ author: evangelinew
 ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: conceptual
 ms.date: 11/10/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # Microsoft Purview metamodel

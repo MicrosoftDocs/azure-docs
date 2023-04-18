@@ -244,8 +244,15 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
    If the process isn't running, restart it by using the following commands:
 
-   - For Ubuntu: `service walinuxagent start`
-   - For other distributions: `service waagent start`
+   - For Ubuntu/Debian: 
+     ```bash
+        sudo systemctl restart walinuxagent
+     ```
+  
+   - For other distributions: 
+     ```bash
+        sudo systemctl restart waagent
+     ```
 
 3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Run a new test backup. If the failure persists, collect the following logs from the VM:

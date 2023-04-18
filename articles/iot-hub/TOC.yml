@@ -164,8 +164,6 @@
       - name: High availability and disaster recovery
         displayName: HA, DR, availability zone, failover, failback
         href: iot-hub-ha-dr.md
-      - name: How to clone an IoT Hub to another region
-        href: iot-hub-how-to-clone.md
     - name: Control access to IoT Hub
       items:
         - name: Overview
@@ -281,9 +279,17 @@
             - name: Use Azure CLI
               displayName: file upload, az iot hub update
               href: iot-hub-configure-file-upload-cli.md
-        - name: Upgrade an IoT hub
-          displayName: scale up, size, tier
-          href: iot-hub-upgrade.md
+        - name: Upgrade or migrate an IoT hub
+          items:
+          - name: Upgrade an IoT hub
+            displayName: scale up, size, tier
+            href: iot-hub-upgrade.md
+          - name: Automatically migrate an IoT hub using CLI
+            href: migrate-hub-state-cli.md
+          - name: Manually migrate an IoT hub using ARM
+            href: iot-hub-how-to-clone.md
+          - name: Bulk import and export IoT devices
+            href: iot-hub-bulk-identity-mgmt.md
         - name: Configure IP filtering
           href: iot-hub-ip-filtering.md
         - name: Manage public network access
@@ -298,8 +304,6 @@
             - name: Use Azure CLI
               displayName: automatic device management
               href: iot-hub-automatic-device-management-cli.md
-        - name: Bulk import and export IoT devices
-          href: iot-hub-bulk-identity-mgmt.md
         - name: Manage device twin tags
           href: iot-hubs-manage-device-twin-tags.md
     - name: Develop
