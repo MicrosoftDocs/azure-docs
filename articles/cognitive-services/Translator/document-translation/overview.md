@@ -72,7 +72,7 @@ Document Translation supports the following document file types:
 
 ## Request limits
 
-For detailed information regarding Azure Translator Service request limits *see* [**Document Translation request limits**](../request-limits.md#document-translation).
+For detailed information regarding Azure Translator Service request limits, *see* [**Document Translation request limits**](../request-limits.md#document-translation).
 
 ### Legacy file types
 
