@@ -20,6 +20,322 @@ The Azure Communication Services Calling SDK offers APIs that allow apps to gene
 
 This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-ios) for iOS.
 
+
+## Raw Audio Access 
+Accessing raw audio media gives you access to the incoming call's audio stream, along with the ability to view and send custom outgoing audio streams during a call.
+
+### Creating Stream and Attach to a call
+
+Make an options object specifying the raw stream properties we want to send. 
+
+    ```swift
+    let options = RawOutgoingAudioStreamOptions()
+    let properties = RawOutgoingAudioProperties()
+    properties.sampleRate = .hz44100
+    properties.dataPerBlockInMs = .inMs20
+    properties.channelMode = .mono
+    properties.audioFormat = .pcm16Bit
+    options.rawOutgoingAudioProperties = properties
+    ```
+
+Create a `RawOutgoingAudioStream` and attach it to join call options and the stream will automatically starts when call is connected.
+
+    ```swift 
+    let options = // JoinCallOptions() or StartCallOptions()
+
+    let outgoingAudioOptions = OutgoingAudioOptions()
+    self.rawOutgoingAudioStream = RawOutgoingAudioStream(rawOutgoingAudioStreamOptions: rawOutgoingOptions)
+    outgoingAudioOptions.outgoingAudioStream = self.rawOutgoingAudioStream
+    options.outgoingAudioOptions = outgoingAudioOptions
+
+    // Start or Join call passing the options instance.
+
+    ```
+
+Or you can also attach the stream to an existing `Call` instance instead:
+
+    ```swift
+
+    call.startAudio(self.rawOutgoingAudioStream) { error in 
+        // Stream attached to `Call`.
+    }
+    ```
+
+
+### Start sending Raw Samples
+
+We will only be able to start sending data once the stream state is `.started`. To observe the audio stream state change implement the `RawOutgoingAudioStreamDelegate`. And set the stream delegate.
+
+    ```swift
+    func rawOutgoingAudioStream(_ rawOutgoingAudioStream: RawOutgoingAudioStream,
+                                didOutgoingAudioStreamStateChanged args: OutgoingAudioStreamStateChangedEventArgs) {
+        // When value is `AudioStreamState.started` we will be able to send audio samples.
+    }
+
+    self.rawOutgoingAudioStream.delegate = DelegateImplementer()
+    ```
+
+or use closure based 
+
+    ```swift
+    self.rawOutgoingAudioStream.events.onStateChanged = { args in
+        // When value is `AudioStreamState.started` we will be able to send audio samples.
+    }
+    ```
+
+When the stream started we can start sending [`AVAudioPCMBuffer`](https://developer.apple.com/documentation/avfaudio/avaudiopcmbuffer) audio samples to the call. 
+
+The audio buffer format should match the specified stream properties.
+
+    ```swift
+    protocol SamplesProducer {
+        func produceSample(_ currentSample: Int, 
+                        options: RawOutgoingAudioStreamOptions) -> AVAudioPCMBuffer
+    }
+
+    // Let's use a simple Tone data producer as example.
+    // Producing PCM buffers.
+    func produceSamples(_ currentSample: Int,
+                        stream: RawOutgoingAudioStream,
+                        options: RawOutgoingAudioStreamOptions) -> AVAudioPCMBuffer {
+        let sampleRate = options.rawOutgoingAudioProperties.sampleRate
+        let channelMode = options.rawOutgoingAudioProperties.channelMode
+        let dataPerBlockInMs = options.rawOutgoingAudioProperties.dataPerBlock
+        let numberOfChunks = UInt32(1000 / dataPerBlockInMs.timeInMilliseconds)
+        let bufferFrameSize = UInt32(sampleRate.valueInHz) / numberOfChunks
+        let frequency = 400
+
+        guard let format = AVAudioFormat(commonFormat: .pcmFormatInt16,
+                                            sampleRate: sampleRate.valueInHz,
+                                            channels: channelMode.numberOfChannels,
+                                            interleaved: channelMode == .stereo) else {
+            fatalError("Failed to create PCM Format")
+        }
+
+        guard let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: bufferFrameSize) else {
+            fatalError("Failed to create PCM buffer")
+        }
+
+        buffer.frameLength = bufferFrameSize
+
+        let factor: Double = ((2 as Double) * Double.pi) / (sampleRate.valueInHz/Double(frequency))
+        var interval = 0
+        var sampleIdx = 0
+        for _ in 0..<Int(buffer.frameCapacity) {
+            for _ in 0..<Int(channelMode.numberOfChannels) {
+                let sample = sin(factor * Double(currentSample + interval))
+                // Scale to maximum amplitude. Int16.max is 37,767.
+                let value = Int16(sample * Double(Int16.max))
+                guard let underlyingByteBuffer = buffer.mutableAudioBufferList.pointee.mBuffers.mData else {
+                    continue
+                }
+                underlyingByteBuffer.assumingMemoryBound(to: Int16.self).advanced(by: sampleIdx).pointee = value
+                sampleIdx += 1
+            }
+            interval += 2
+        }
+
+        return buffer
+    }
+
+    final class RawOutgoingAudioSender {
+        let stream: RawOutgoingAudioStream
+        let options: RawOutgoingAudioStreamOptions
+        let producer: SamplesProducer
+
+        private var timer: Timer?
+        private var currentSample: Int = 0
+        private var currentTimestamp: Int64 = 0
+
+        init(stream: RawOutgoingAudioStream,
+            options: RawOutgoingAudioStreamOptions,
+            producer: SamplesProducer) {
+            self.stream = stream
+            self.options = options
+            self.producer = producer
+        }
+
+        func start() {
+            let properties = self.options.rawOutgoingAudioProperties
+            let interval = properties.dataPerBlock.asTimeInterval
+
+            let channelCount = AVAudioChannelCount(properties.channelMode.numberOfChannels)
+            let format = AVAudioFormat(commonFormat: .pcmFormatInt16,
+                                    sampleRate: properties.sampleRate.valueInHz,
+                                    channels: channelCount,
+                                    interleaved: channelCount > 1)!
+            self?.timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
+                guard let self = self else { return }
+                let sample = self.producer.produceSamples(self.currentSample, options: self.options)
+                let rawBuffer = RawAudioBuffer()
+                rawBuffer.buffer = sample
+                rawBuffer.timestampInTicks = self.currentTimestamp
+                self.stream.sendOutgoing(audioBuffer: rawBuffer, completionHandler: { error in
+                    if let error = error {
+                        // Handle possible error.
+                    }
+                })
+
+                self.currentTimestamp += Int64(properties.dataPerBlock.timeInMilliseconds)
+                self.currentSample += 1
+            }
+        }
+
+        func stop() {
+            self.timer?.invalidate()
+            self.timer = nil
+        }
+
+        deinit {
+            stop()
+        }
+    }
+    ```
+
+### Capturing Microphone Samples
+
+Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) we can capture microphone frames by tapping into the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode). And capturing the microphone data and being able to use raw audio functionality, we are able to process the audio before sending it to a call. 
+
+    ```swift 
+    import AVFoundation
+    import AzureCommunicationCalling
+
+    enum MicrophoneSenderError: Error {
+        case notMatchingFormat
+    }
+
+    final class MicrophoneDataSender {
+        private let stream: RawOutgoingAudioStream
+        private let properties: RawOutgoingAudioProperties
+        private let format: AVAudioFormat
+        private let audioEngine: AVAudioEngine = AVAudioEngine()
+
+        init(properties: RawOutgoingAudioProperties) throws {
+            // This can be different depending on which device we are running.
+            let nodeFormat = self.audioEngine.inputNode.outputFormat(forBus: 0)
+            let matchingSampleRate = AudioSampleRate.allCases.first(where: { $0.valueInHz == nodeFormat.sampleRate })
+            guard let inputNodeSampleRate = matchingSampleRate else {
+                throw MicrophoneSenderError.notMatchingFormat
+            }
+
+            // Override the sample rate to one that matches hardware (Audio engine input node frequency).
+            properties.sampleRate = inputNodeSampleRate
+
+            let options = RawOutgoingAudioStreamOptions()
+            options.rawOutgoingAudioProperties = properties
+
+            self.stream = RawOutgoingAudioStream(rawOutgoingAudioStreamOptions: options)
+            let channelCount = AVAudioChannelCount(properties.channelMode.numberOfChannels)
+            self.format = AVAudioFormat(commonFormat: .pcmFormatInt16,
+                                        sampleRate: properties.sampleRate.valueInHz,
+                                        channels: channelCount,
+                                        interleaved: channelCount > 1)!
+            self.properties = properties
+        }
+
+        func start() throws {
+            guard !self.audioEngine.isRunning else {
+                return
+            }
+
+            // Install tap documentations states that we can get between 100 and 400 ms of data.
+            let framesFor100ms = AVAudioFrameCount(self.format.sampleRate * 0.1)
+
+            // Note that some formats may not be allowed by `installTap`, so we have to specify the 
+            // correct properties.
+            self.audioEngine.inputNode.installTap(onBus: 0, bufferSize: framesFor100ms, 
+                                                format: self.format) { [weak self] buffer, _ in
+                guard let self = self else { return }
+                
+                let rawBuffer = RawAudioBuffer()
+                rawBuffer.buffer = buffer
+                // Although we specified either 10ms or 20ms, we allow sending up to 100ms of data
+                // as long as it can be evenly divided by the specified size.
+                self.stream.sendOutgoing(audioBuffer: rawBuffer) { error in
+                    if let error = error {
+                    // Handle error
+                    }
+                }
+            }
+
+            try audioEngine.start()
+        }
+
+        func stop() {
+            audioEngine.stop()
+        }
+    }
+    ```
+
+With this small sample we learned how we can capture the microphone [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) data and send those samples to a call using raw outgoing audio feature.
+
+### Receiving Raw Incoming Audio
+
+We can also receive the call audio stream samples as [`AVAudioPCMBuffer`](https://developer.apple.com/documentation/avfaudio/avaudiopcmbuffer) if we want to process the audio before playback.
+
+
+Create a `RawIncomingAudioStreamOptions` object specifying the raw stream properties we want to receive.
+
+    ```swift
+    let options = RawIncomingAudioStreamOptions()
+    let properties = RawIncomingAudioProperties()
+    properties.audioFormat = .pcm16Bit
+    properties.sampleRate = .hz44100
+    properties.channelMode = .stereo
+    opt.rawIncomingAudioProperties = properties
+    return options
+    ```
+
+Create a `RawOutgoingAudioStream` and attach it to join call options
+
+    ```swift 
+    let options = // JoinCallOptions() or StartCallOptions()
+    let incomingAudioOptions = IncomingAudioOptions()
+
+    self.rawIncomingStream = RawIncomingAudioStream(rawIncomingAudioStreamOptions: audioStreamOptions)
+    incomingAudioOptions.incomingAudioStream = self.rawIncomingStream
+    options.incomingAudioOptions = incomingAudioOptions
+    ```
+
+Or we can also attach the stream to an existing `Call` instance instead:
+
+    ```swift
+
+    call.startAudio(self.rawIncomingStream) { error in 
+        // Stream attached to `Call`.
+    }
+    ```
+
+To start receiving raw audio buffer from the incoming stream implement the `RawIncomingAudioStreamDelegate`:
+
+    ```swift
+    class RawIncomingReceiver: NSObject, RawIncomingAudioStreamDelegate {
+        func rawIncomingAudioStream(_ rawIncomingAudioStream: RawIncomingAudioStream,
+                                    didChangeState args: AudioStreamStateChangedEventArgs) {
+            // To be notified when stream started and stopped.
+        }
+        
+        func rawIncomingAudioStream(_ rawIncomingAudioStream: RawIncomingAudioStream,
+                                    mixedAudioBufferReceived args: IncomingMixedAudioEventArgs) {
+            // Receive raw audio buffers(AVAudioPCMBuffer) and process using AVAudioEngine API's.
+        }
+    }
+
+    self.rawIncomingStream.delegate = RawIncomingReceiver()
+    ```
+
+or
+
+    ```swift
+    rawIncomingAudioStream.events.mixedAudioBufferReceived = { args in
+        // Receive raw audio buffers(AVAudioPCMBuffer) and process them using AVAudioEngine API's.
+    }
+
+    rawIncomingAudioStream.events.onStateChanged = { args in
+        // To be notified when stream started and stopped.
+    }
+    ```
+
 ## Overview of virtual video streams
 
 Because the app will generate the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
