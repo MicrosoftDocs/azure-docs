@@ -1,5 +1,5 @@
 ---
-title: Pre-data migration steps
+title: Database Migration Assistant utility
 titleSuffix: Azure Cosmos DB for MongoDB
 description: This doc provides an overview of the Database Migration Assistant legacy utility.
 author: sandeep-nair
