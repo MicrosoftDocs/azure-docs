@@ -62,9 +62,9 @@ The installation process takes about 20 minutes. After the installation, the sys
 
    :::image type="content" source="../media/tutorial-install-components/on-prem-language-select.png" alt-text="Screenshot of selecting your preferred language for the installation process.":::
 
-1. The console lists a series of installation options. Select the option that best matches your requirements. <!--these are the old hw profiles. how to match them up?-->
+1. The console lists a series of installation options. Select the option that best matches your requirements.
 
-    The installation wizard starts running. This step takes several minutes to complete, and includes system reboots. <!--how many?-->
+    The installation wizard starts running. This step takes several minutes to complete, and includes system reboots.
 
     When complete, the a screen similar to the following appears, prompting you to enter your management interface:
 
@@ -80,7 +80,9 @@ The installation process takes about 20 minutes. After the installation, the sys
     |`configure DNS`     | Enter the on-premises management console's DNS address.        |
     |`configure default gateway IP address`     |   Enter the IP address for the on-premises management console's default gateway.      |
 
-1. (Optional) If you're installing a secondary Network Interface Card (NIC), enter the following details for the sensor's monitoring interface as prompted. For more information, see <!--xref to nic details-->.
+1. (Optional) Enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. When you use a secondary NIC, the first is dedicated for end-users, and the secondary supports the configuration of a gateway for routed networks.
+
+    If you're installing a secondary Network Interface Card (NIC), enter the following details for the sensor's monitoring interface as prompted:
 
     | Prompt  |Value  |
     |---------|---------|
