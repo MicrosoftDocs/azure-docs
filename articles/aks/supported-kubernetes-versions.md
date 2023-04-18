@@ -10,7 +10,7 @@ ms.custom: event-tier1-build-2022
 
 # Supported Kubernetes versions in Azure Kubernetes Service (AKS)
 
-The Kubernetes community releases minor versions roughly every three months. Recently, the Kubernetes community has [increased the support window for each version from nine months to 12 months](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), starting with version *1.19*.
+The Kubernetes community releases minor versions roughly every three months. Recently, the Kubernetes community has [increased the support window for each version from nine months to one year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), starting with version 1.19.
 
 Minor version releases include new features and improvements. Patch releases are more frequent (sometimes weekly) and are intended for critical bug fixes within a minor version. Patch releases include fixes for security vulnerabilities or major bugs.
 
@@ -39,7 +39,7 @@ Aim to run the latest patch release of the minor version you're running. For exa
 View the upcoming version releases on the AKS Kubernetes release calendar. To see real-time updates of region release status and version release notes, visit the [AKS release status webpage][aks-release]. To learn more about the release status webpage, see [AKS release tracker][aks-tracker].
 
 > [!NOTE]
-> AKS follows 12 months of support for a generally available (GA) Kubernetes version. To read more about our support policy for Kubernetes versioning, please read our [FAQ](https://learn.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#faq).
+> AKS follows 12 months of support for a generally available (GA) Kubernetes version. To read more about our support policy for Kubernetes versioning, please read our [FAQ](./supported-kubernetes-versions.md#faq).
 
 For the past release history, see [Kubernetes history](https://en.wikipedia.org/wiki/Kubernetes#History).
 
@@ -75,13 +75,15 @@ To see what patch you're on, run the `az aks show --resource-group myResourceGro
 
 ## Kubernetes version support policy
 
-AKS defines a GA version as a version enabled in all SLO or SLA measurements and available in all regions. AKS supports three GA minor versions of Kubernetes:
+AKS defines a generally available (GA) version as a version available in all regions and enabled in all SLO or SLA measurements. AKS supports three GA minor versions of Kubernetes:
 
-* The latest GA minor version released in AKS (which we'll refer to as N).
+* The latest GA minor version released in AKS (which we'll refer to as *N*).
 * Two previous minor versions.
-  * Each supported minor version also supports a maximum of two (2) stable patches.
+  * Each supported minor version also supports a maximum of two stable patches.
 
 AKS may also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
+
+AKS provides platform support only for one GA minor version of Kubernetes after the regular supported versions. The platform support window of Kubernetes versions on AKS is known as "N-3". For more information, see [platform support policy](#platform-support-policy).
 
 > [!NOTE]
 > AKS uses safe deployment practices which involve gradual region deployment. This means it may take up to 10 business days for a new release or a new version to be available in all regions.
@@ -125,6 +127,41 @@ New Supported Version List
 ----------------------
 1.17.*9*, 1.17.*8*, 1.16.*11*, 1.16.*10*
 ```
+
+## Platform support policy
+
+Platform support policy is a reduced support plan for certain unsupported kubernetes versions. During platform support, customers will only receive support from Microsoft for AKS/Azure platform related issues. Any issues related to Kubernetes functionality and components will not be supported. 
+
+Platform support policy applies to clusters in an n-3 version (where n is the latest supported AKS GA minor version), before the cluster drops to n-4. For example, kubernetes v1.25 will be considered platform support when v1.28 is the latest GA version. However, during the v1.29 GA release, v1.25 will then be auto-upgraded to v1.26.
+
+AKS relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
+
+This table outlines support guidelines for Community Support compared to Platform support.
+
+| Support category | Community Support (N-2) | Platform Support (N-3) | 
+|---|---|---|
+| Upgrades from N-3 to a supported version| Supported | Supported|
+| Platform (Azure) availability | Supported | Supported|
+| Node pool scaling| Supported | Supported|
+| VM availability| Supported | Supported|
+| Storage, Networking related issues| Supported | Supported with the exception of bug fixes and retired components |
+| Start/stop | Supported | Supported|
+| Rotate certificates | Supported | Supported|
+| Infrastructure SLA| Supported | Supported|
+| Control Plane SLA| Supported | Supported|
+| Platform (AKS) SLA| Supported | Not supported|
+| Kubernetes components (including Add-ons) | Supported | Not supported|
+| Component updates | Supported | Not supported|
+| Component hotfixes | Supported | Not supported|
+| Applying bug fixes | Supported | Not supported|
+| Applying security patches | Supported | Not supported|
+| Kubernetes API support | Supported | Not supported|
+| Cluster or node pool creation| Supported | Not supported|
+| Node pool snapshot| Supported | Not supported|
+| Node image upgrade| Supported | Not supported|
+
+ > [!NOTE]
+  > The above table is subject to change and outlines common support scenarios. Any scenarios related to Kubernetes functionality and components will not be supported for N-3. For further support, see [Support and troubleshooting for AKS](./aks-support-help.md).
 
 ### Supported `kubectl` versions
 
@@ -231,20 +268,22 @@ If you're on the *n-3* version or older, it means you're outside of support and 
 
 Downgrades aren't supported.
 
-**What does 'Outside of Support' mean?**
+### What does 'Outside of Support' mean?
+
+'Outside of Support' means that:
 
 * The version you're running is outside of the supported versions list.
 * You'll be asked to upgrade the cluster to a supported version when requesting support, unless you're within the 30-day grace period after version deprecation.
 
 Additionally, AKS doesn't make any runtime or other guarantees for clusters outside of the supported versions list.
 
-**What happens when you scale a Kubernetes cluster with a minor version that isn't supported?**
+### What happens when a user scales a Kubernetes cluster with a minor version that isn't supported?
 
 For minor versions not supported by AKS, scaling in or out should continue to work. Since there are no guarantees with quality of service, we recommend upgrading to bring your cluster back into support.
 
-**Can you stay on a Kubernetes version forever?**
+### Can a user stay on a Kubernetes version forever?
 
-If a cluster has been out of support for more than three (3) minor versions and has been found to carry security risks, Azure proactively contacts you to  upgrade your cluster. If you don't take further action, Azure reserves the right to automatically upgrade your cluster on your behalf.
+If a cluster has been out of support for more than three (3) minor versions and has been found to carry security risks, Azure proactively contacts you to upgrade your cluster. If you don't take further action, Azure reserves the right to automatically upgrade your cluster on your behalf.
 
 ### What version does the control plane support if the node pool isn't in one of the supported AKS versions?
 
@@ -267,11 +306,11 @@ Skipping multiple versions can only be done when upgrading from an unsupported v
 
 When performing an upgrade from an _unsupported version_ that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty. If your version is significantly out of date, it's recommended to re-create the cluster.
 
-No. Once a version is deprecated/removed, you can't create a cluster with that version. As the change rolls out, the old version is removed from your version list. This process may take up to two weeks from announcement, progressively by region.
+### Can I create a new 1.xx.x cluster during its 30 day support window?
 
 No. Once a version is deprecated/removed, you can't create a cluster with that version. As the change rolls out, you'll start to see the old version removed from your version list. This process may take up to two weeks from announcement, progressively by region.
 
-No, you can't add node pools of the deprecated version to your cluster. You can add node pools of a new version. However, this may require you to update the control plane first.
+### I'm on a freshly deprecated version, can I still add new node pools? Or will I have to upgrade?
 
 No. You won't be allowed to add node pools of the deprecated version to your cluster. You can add node pools of a new version, but this may require you to update the control plane first.
 

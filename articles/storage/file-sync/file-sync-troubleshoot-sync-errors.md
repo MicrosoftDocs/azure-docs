@@ -4,7 +4,7 @@ description: Troubleshoot common issues with monitoring sync health and resolvin
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 4/12/2022
+ms.date: 04/18/2023
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -175,13 +175,20 @@ The table below contains all of the unicode characters Azure File Sync does not 
 
 Sync sessions might fail for various reasons including the server being restarted or updated, VSS snapshots, etc. Although this error looks like it requires follow-up, it's safe to ignore this error unless it persists over a period of several hours.
 
-<a id="-2147012889"></a>**A connection with the service could not be established.**    
+<a id="-2147012889"></a>**A connection with the service could not be established.**
 
 | Error | Code |
 |-|-|
 | **HRESULT** | 0x80072ee7 |
 | **HRESULT (decimal)** | -2147012889 | 
 | **Error string** | WININET_E_NAME_NOT_RESOLVED |
+| **Remediation required** | Yes |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83081 |
+| **HRESULT (decimal)** | -2134364031 |
+| **Error string** | ECS_E_HTTP_CLIENT_CONNECTION_ERROR |
 | **Remediation required** | Yes |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
@@ -211,6 +218,17 @@ No action is required; the server will try again. If this error persists for sev
 
 No action is required. If this error persists for several hours, create a support request.
 
+<a id="-2134364019"></a>**Operation was cancelled.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8308d |
+| **HRESULT (decimal)** | -2134364019 |
+| **Error string** | ECS_E_REQUEST_CANCELLED_EXTERNALLY |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for several days, create a support request.
+
 <a id="-2134364043"></a>**Sync is blocked until change detection completes post restore**  
 
 | Error | Code |
@@ -221,6 +239,17 @@ No action is required. If this error persists for several hours, create a suppor
 | **Remediation required** | No |
 
 No action is required. When a file or file share (cloud endpoint) is restored using Azure Backup, sync is blocked until change detection completes on the Azure file share. Change detection runs immediately once the restore is complete and the duration is based on the number of files in the file share.
+
+<a id="-2134364072"></a>**Sync is blocked on the folder due to a pause initiated as part of restore on sync folder.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83058 |
+| **HRESULT (decimal)** | -2134364072 |
+| **Error string** |    ECS_E_SYNC_BLOCKED_ON_RESTORE |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for several days, create a support request.
 
 <a id="-2147216747"></a>**Sync failed because the sync database was unloaded.**  
 
@@ -424,6 +453,39 @@ These errors usually resolve themselves and can occur if there are:
 * A large number of errors on individual files and directories.
 
 If this error persists for longer than a few hours, create a support request and we will contact you to help you resolve this issue.
+
+<a id="-2134375905"></a>**The sync database has encountered a storage busy IO error.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8021f |
+| **HRESULT (decimal)** | -2134375905 |
+| **Error string** | ECS_E_SYNC_METADATA_IO_BUSY |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for several days, create a support request.
+
+<a id="-2134375906"></a>**The sync database has encountered an IO timeout.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8021e |
+| **HRESULT (decimal)** | -2134375906 |
+| **Error string** | ECS_E_SYNC_METADATA_IO_TIMEOUT |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for several days, create a support request.
+
+<a id="-2134375904"></a>**The sync database has encountered an IO error.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80220 |
+| **HRESULT (decimal)** | -2134375904 |
+| **Error string** | ECS_E_SYNC_METADATA_IO_ERROR |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for several days, create a support request.
 
 <a id="-2146762487"></a>**The server failed to establish a secure connection. The cloud service received an unexpected certificate.**  
 
@@ -743,6 +805,42 @@ No action is required. This error occurs because sync detected the replica has b
 
 This error occurs because Azure File Sync doesn't support HTTP redirection (3xx status code). To resolve this issue, disable HTTP redirect on your proxy server or network device.
 
+<a id="-2134364086"></a>**Sync session timeout error.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8304a |
+| **HRESULT (decimal)** | -2134364086 |
+| **Error string** | ECS_E_WORK_FRAMEWORK_TIMEOUT |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83049 |
+| **HRESULT (decimal)** | -2134364087 |
+| **Error string** | ECS_E_WORK_FRAMEWORK_RESULT_NOT_FOUND |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83093 |
+| **HRESULT (decimal)** | -2134364013 |
+| **Error string** | ECS_E_WORK_RESULT_EXPIRED |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for several days, create a support request.
+
+<a id="-2146233083"></a>**Operation time out.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80131505 |
+| **HRESULT (decimal)** | -2146233083 |
+| **Error string** | COR_E_TIMEOUT |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for several days, create a support request.
+
 <a id="-2134364027"></a>**A timeout occurred during offline data transfer, but it is still in progress.**  
 
 | Error | Code |
@@ -787,6 +885,100 @@ This provisioning error protects you from deleting all content that might be ava
 
 1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
 1. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](file-sync-server-endpoint-create.md).
+
+
+<a id="-2134364025"></a>**The subscription owning the storage account is disabled.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83087 |
+| **HRESULT (decimal)** | -2134364025 |
+| **Error string** | ECS_E_STORAGE_ACCOUNT_SUBSCRIPTION_DISABLED |
+| **Remediation required** | Yes |
+
+Please check and ensure the subscription where your storage account resides is enabled.
+
+<a id="64"></a>**The specified network name is no longer available.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x40 |
+| **HRESULT (decimal)** | 64 |
+| **Error string** | ERROR_NETNAME_DELETED |
+| **Remediation required** | Yes |
+
+Use the `Test-StorageSyncNetworkConnectivity` cmdlet to check network connectivity to the service endpoints. [Learn more](file-sync-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
+
+<a id="-2134364147"></a>**Sync session error.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8300d |
+| **HRESULT (decimal)** | -2134364147 |
+| **Error string** | ECS_E_CANNOT_CREATE_ACTIVE_SESSION_PLACEHOLDER_BLOB |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8300e |
+| **HRESULT (decimal)** | -2134364146 |
+| **Error string** | ECS_E_CANNOT_UPDATE_REPLICA_WATERMARK |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8024a |
+| **HRESULT (decimal)** | -2134375862 |
+| **Error string** | ECS_E_SYNC_DEFERRAL_QUEUE_RESTART_SESSION |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83098 |
+| **HRESULT (decimal)** | -2134364008 |
+| **Error string** | ECS_E_STORAGE_ACCOUNT_MGMT_OPERATION_THROTTLED |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83082 |
+| **HRESULT (decimal)** | -2134364030 |
+| **Error string** | ECS_E_ASYNC_WORK_ACTION_UNABLE_TO_RETRY |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83006 |
+| **HRESULT (decimal)** | -2134364154 |
+| **Error string** | ECS_E_ECS_BATCH_ERROR |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for several days, create a support request.
+
+<a id="-2134363999"></a>**Sync session error.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c830a1 |
+| **HRESULT (decimal)** | -2134363999 |
+| **Error string** | ECS_TOO_MANY_ETAGVERIFICATION_FAILURES |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8023c |
+| **HRESULT (decimal)** | -2134375876 |
+| **Error string** | ECS_E_SYNC_CLOUD_METADATA_CORRUPT |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** |  |
+| **HRESULT (decimal)** |  |
+| **Error string** |  |
+| **Remediation required** | Maybe |
+
+If the error persists for more than a day, create a support request.
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
