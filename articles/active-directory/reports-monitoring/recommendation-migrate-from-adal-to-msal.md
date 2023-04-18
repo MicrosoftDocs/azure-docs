@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/15/2023
+ms.date: 04/18/2023
 ms.author: sarahlipsey
 ms.reviewer: jamesmantu
 
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 [Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
-This article covers the recommendation to migrate from the Azure Active Directory Library to the Microsoft Authentication Libraries. This recommendation is called `???` in the recommendations API in Microsoft Graph. 
+This article covers the recommendation to migrate from the Azure Active Directory Library to the Microsoft Authentication Libraries. This recommendation is called `AdalToMsalMigration` in the recommendations API in Microsoft Graph. 
 
 ## Description
 
@@ -29,7 +29,7 @@ This recommendation shows up if your tenant has applications that still use ADAL
 
 ## Value 
 
-MSAL is designed to enable a secure solution without developers having to worry about the implementation details. MSAL simplifies and manages acquiring, managing, caching, and refreshing tokens, and uses best practices for resilience. For more information on migrating to MSAL, see [Migrate applications to MSAL](../develop/msal-migration.md).
+MSAL is designed to enable a secure solution without developers having to worry about the implementation details. MSAL simplifies how tokens are acquired, managed, cached, and refreshed. MSAL also uses best practices for resilience. For more information on migrating to MSAL, see [Migrate applications to MSAL](../develop/msal-migration.md).
 
 Existing apps that use ADAL will continue to work after the end-of-support date.
 
@@ -38,15 +38,17 @@ Existing apps that use ADAL will continue to work after the end-of-support date.
 The first step to migrating your apps from ADAL to MSAL is to identify all applications in your tenant that are currently using ADAL. You can run the following set of commands in Windows PowerShell or [view the Sign-ins Workbook in Azure AD](../develop/howto-get-list-of-all-active-directory-auth-library-apps.md).
 
 1. Open Windows Powershell as an administrator.
+
 1. Connect to Microsoft Graph:
     - `Connect-MgGraph-Tenant <YOUR_TENANT_ID>`
+
 1. Select your profile:
     - `Select-MgProfile beta`
+
 1. Get a list of your recommendations:
     - `Get-MgDirectoryRecommendation | Format-List`
 
 The steps to migrate from ADAL to MSAL vary depending on the type of application. For example, the steps for .NET and Python applications have separate instructions. For a full list of instructions for each scenario, see [How to migrate to MSAL](../develop/msal-migration.md#how-to-migrate-to-msal)
-
 
 ## Next steps
 
