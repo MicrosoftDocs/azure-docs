@@ -23,13 +23,15 @@ Several features of Azure NetApp Files require that you have an Active Directory
 > You must follow guidelines described in [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md) for Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS) used with Azure NetApp Files. 
 > In addition, before creating the AD connection, review [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md) to understand the impact of making changes to the AD connection configuration options after the AD connection has been created. Changes to the AD connection configuration options are disruptive to client access and some options cannot be changed at all.
 
-* An Azure NetApp Files account must be created in the region where the Azure NetApp Files volumes are deployed.
+* An Azure NetApp Files account must be created in the region where the Azure NetApp Files volumes are to be deployed.
 
-* You can configure only one Active Directory (AD) connection per subscription per region. 
+* The default behavior of Azure NetApp Files is to allow only one Active Directory (AD) connection per subscription. 
 
-    Azure NetApp Files doesn’t support multiple AD connections in a single region, even if the AD connections are created in different NetApp accounts. However, you can have multiple AD connections in a single subscription if the AD connections are in different regions. If you need multiple AD connections in a single region, you can use separate subscriptions to do so. 
+    You can [create multiple Active Directory configurations in a subscription](#multi-ad). 
 
-    The AD connection is visible only through the NetApp account it's created in. However, you can enable the Shared AD feature to allow NetApp accounts that are under the same subscription and same region to use the same AD connection. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad). 
+    You can also enable the Shared AD feature to allow NetApp accounts that are under the same subscription and same region to use the same AD connection. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad). 
+
+    Before enrolling in one of these feature, check the [Active Directory type](#active-directory-type) field in your account page.
 
 * The Azure NetApp Files AD connection admin account must have the following properties: 
     * It must be an AD DS domain user account in the same domain where the Azure NetApp Files computer accounts are created. 
@@ -160,7 +162,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     * **LDAP Search Scope**, **User DN**, **Group DN**, and **Group Membership Filter**  
 
-        The **LDAP search scope** option optimizes Azure NetApp Files storage LDAP queries for use with large AD DS topologies and LDAP with extended groups or Unix security style with an Azure NetApp Files dual-protocol volume. 
+        The [**LDAP search scope**](/windows/win32/ad/search-scope) option optimizes Azure NetApp Files storage LDAP queries for use with large AD DS topologies and LDAP with extended groups or Unix security style with an Azure NetApp Files dual-protocol volume. 
         
         The **User DN** and **Group DN** options allow you to set the search base in AD DS LDAP.  
          
@@ -319,7 +321,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Active Directory type
 
-You can use the NetApp account overview to confirm the Active Directory  There are three values for AD type:
+You can use the NetApp account overview to confirm the Active Directory. There are three values for AD type:
 
 * **NA**: Existing NetApp account which supports only one AD configuration per subscription and region. The AD  configuration is not shared with other other NetApp accounts in the subscription.
 * **SharedAD**: Account supports only one AD configuration per subscription and region, but is shared across all NetApp accounts in the subscription and region.
