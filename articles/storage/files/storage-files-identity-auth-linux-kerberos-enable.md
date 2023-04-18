@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 04/18/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -222,8 +222,8 @@ rtt min/avg/max/mdev = 0.740/1.026/1.419/0.248 ms
 
 ```bash
 nslookup
-\ set type=SRV
-\ _ldap._tcp.contosodomain.contoso.com.
+> set type=SRV
+> _ldap._tcp.contosodomain.contoso.com.
 ```
 
 ```output
