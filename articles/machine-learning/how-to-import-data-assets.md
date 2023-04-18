@@ -48,9 +48,9 @@ To create and work with data assets, you need:
 > 
 > If you have an older SDK package or CLI extension, please remove the old one and install the new one with the code shown in the tab section. Choose the code version that covers your situation:
 
-## Code versions
+### Code versions
 
-# [Version 1.5.0](#tab/version-1.5.0)
+# [Version 1.5.0](#tab/version-1-5-0)
 
 ```python
 pip uninstall azure-ai-ml
@@ -58,7 +58,7 @@ pip install azure-ai-ml
 pip show azure-ai-ml
 ```
 
-# [Version 2.15.1 or later](#tab/version-2.15.1-or-later)
+# [Version 2.15.1 or later](#tab/version-2-15-1-or-later)
 
 ```cli
 az extension remove -n ml
