@@ -3,7 +3,7 @@ title: Troubleshoot problems with Bicep installation
 description: How to resolve errors and problems with your Bicep installation.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 12/15/2021
+ms.date: 04/18/2023
 ---
 
 # Troubleshoot Bicep installation
@@ -11,6 +11,10 @@ ms.date: 12/15/2021
 This article describes how to resolve potential errors in your Bicep installation.
 
 ## .NET runtime error
+
+> [!WARNING]
+> This is a last resort solution that may cause problems when updating versions.
+
 
 When installing the Bicep extension for Visual Studio Code, you may run into the following error messages:
 
