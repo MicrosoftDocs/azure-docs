@@ -25,13 +25,6 @@ Whatever you call it, think of the new category of networking as a solution that
 :::image type="content" source="./media/overview-what-is-global-secure-access/modern_network_traffic.svg" alt-text="Diagram showing the modern line of control for network traffic." border="false" lightbox="./media/overview-what-is-global-secure-access/modern_network_traffic.svg":::
 
 ## Understand Secure Access Service Edge (SASE)
-
-** !!!BEGIN EDITORIAL NOTE!!! **
-
-**THIS CONTENT CAME FROM EXISTING MARKETING PAGE, KEEP OR REWRITE? CHECK WITH ALEX AND ABDI**: https://www.microsoft.com/en-us/security/business/security-101/what-is-sase 
-
-** !!!END EDITORIAL NOTE!!! **
-
 Secure access service edge, often abbreviated (SASE), is a security framework that converges software-defined wide area networking (SD-WAN) and Zero Trust security solutions into a converged cloud-delivered platform that securely connects users, systems, endpoints, and remote networks to apps and resources.
 
 SASE has four main traits:
