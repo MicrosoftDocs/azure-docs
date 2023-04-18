@@ -37,7 +37,7 @@ Before you select a service mesh, make sure you understand your requirements and
 
 ## Next steps
 
-Azure Kubernetes Service (AKS) offers officially supported addons for Istio and Open Service Mesh:
+Azure Kubernetes Service (AKS) offers officially supported add-ons for Istio and Open Service Mesh:
 
 > [!div class="nextstepaction"]
 > [Learn more about Istio][istio-about]
@@ -57,7 +57,6 @@ For more details on service mesh standardization efforts, see:
 - [Service Mesh Performance (SMP)][smp]
 
 <!-- LINKS - external -->
-[istio]: https://istio.io/latest/docs/setup/install/
 [linkerd]: https://linkerd.io/getting-started/
 [consul]: https://learn.hashicorp.com/tutorials/consul/service-mesh-deploy
 [service-mesh-landscape]: https://layer5.io/service-mesh-landscape
