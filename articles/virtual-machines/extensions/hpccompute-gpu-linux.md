@@ -35,6 +35,8 @@ This extension supports the following OS distros, depending on driver support fo
 > [!NOTE]
 > The latest supported CUDA drivers for NC-series VMs are currently 470.82.01. Later driver versions aren't supported on the K80 cards in NC. While the extension is being updated with this end of support for NC, install CUDA drivers manually for K80 cards on the NC-series.
 
+> [!IMPORTANT] > This document references a release version of Linux that is nearing or at, End of Life (EOL). Please consider updating to a more current version. 
+
 ### Internet connectivity
 
 The Microsoft Azure Extension for NVIDIA GPU Drivers requires that the target VM is connected to the internet and has access.
