@@ -11,6 +11,6 @@ ms.subservice: data-explorer
 
     :::image type="content" source="../media/ingest-data-pipeline/select-data-explorer-pool.png" alt-text="Screenshot of the Data Explorer pools screen, showing the list of existing pools.":::
 
-1. Make a note of the Query and Data Ingestion endpoints. Use the Query endpoint as the cluster when configuring connections to your Data Explorer pool.
+1. Make a note of the Query and Data Ingestion endpoints. Use the Query endpoint as the cluster when configuring connections to your Data Explorer pool. When configuring SDKs for data ingestion, use the data ingestion endpoint.
 
     :::image type="content" source="../media/ingest-data-pipeline/select-data-explorer-pool-properties-endpoints.png" alt-text="Screenshot of the Data Explorer pools properties pane, showing the Query and Data Ingestion URI addresses.":::

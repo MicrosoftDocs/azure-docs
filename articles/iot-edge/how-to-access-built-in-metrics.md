@@ -1,9 +1,9 @@
 ---
 title: Access built-in metrics - Azure IoT Edge
 description: Remote access to built-in metrics from the IoT Edge runtime components
-author: v-tcassi
+author: PatAltimore
 
-ms.author: v-tcassi
+ms.author: patricka
 ms.date: 06/25/2021
 ms.topic: conceptual
 ms.reviewer: veyalla
@@ -13,7 +13,7 @@ services: iot-edge
 
 # Access built-in metrics
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 The IoT Edge runtime components, IoT Edge hub and IoT Edge agent, produce built-in metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
 
@@ -109,7 +109,7 @@ The **edgeAgent** module produces the following metrics:
 | `edgeAgent_total_network_out_bytes` | `module_name` | Type: gauge<br> The number of bytes sent to network |
 | `edgeAgent_total_disk_read_bytes` | `module_name` | Type: gauge<br> The number of bytes read from the disk |
 | `edgeAgent_total_disk_write_bytes` | `module_name` | Type: gauge<br> The number of bytes written to disk |
-| `edgeAgent_metadata` | `edge_agent_version`, `experimental_features`, `host_information` | Type: gauge<br> General metadata about the device. The value is always 0, information is encoded in the tags. Note `experimental_features` and `host_information` are json objects. `host_information` looks like ```{"OperatingSystemType": "linux", "Architecture": "x86_64", "Version": "1.0.10~dev20200803.4", "Provisioning": {"Type": "dps.tpm", "DynamicReprovisioning": false, "AlwaysReprovisionOnStartup": true}, "ServerVersion": "19.03.6", "KernelVersion": "5.0.0-25-generic", "OperatingSystem": "Ubuntu 18.04.4 LTS", "NumCpus": 6, "Virtualized": "yes"}```. Note `ServerVersion` is the Docker version and `Version` is the IoT Edge security daemon version. |
+| `edgeAgent_metadata` | `edge_agent_version`, `experimental_features`, `host_information` | Type: gauge<br> General metadata about the device. The value is always 0, information is encoded in the tags. Note `experimental_features` and `host_information` are json objects. `host_information` looks like ```{"OperatingSystemType": "linux", "Architecture": "x86_64", "Version": "1.2.7", "Provisioning": {"Type": "dps.tpm", "DynamicReprovisioning": false, "AlwaysReprovisionOnStartup": false}, "ServerVersion": "20.10.11+azure-3", "KernelVersion": "5.11.0-1027-azure", "OperatingSystem": "Ubuntu 20.04.4 LTS", "NumCpus": 2, "Virtualized": "yes"}```. Note `ServerVersion` is the Docker version and `Version` is the IoT Edge security daemon version. |
 
 ## Next steps
 

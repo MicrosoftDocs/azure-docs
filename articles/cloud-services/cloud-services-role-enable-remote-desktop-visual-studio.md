@@ -3,11 +3,11 @@ title: Using Visual Studio, enable Remote Desktop for a Role (Azure Cloud Servic
 description: How to configure your Azure cloud service application to allow remote desktop connections
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services (classic) using Visual Studio
@@ -88,7 +88,7 @@ To use the RDP extension from Azure DevOps Services, include the following detai
 
 1. After your build steps, add the **Azure Cloud Service Deployment** step and set its properties.
 
-1. After the deployment step, add an **Azure Powershell** step, set its **Display name** property to "Azure Deployment: Enable RDP Extension" (or another suitable name), and select your appropriate Azure subscription.
+1. After the deployment step, add an **Azure PowerShell** step, set its **Display name** property to "Azure Deployment: Enable RDP Extension" (or another suitable name), and select your appropriate Azure subscription.
 
 1. Set **Script Type** to "Inline" and paste the code below into the **Inline Script** field. (You can also create a `.ps1` file in your project with this script, set **Script Type** to "Script File Path", and set **Script Path** to point to the file.)
 

@@ -2,11 +2,11 @@
 title: Expose an AKS service over HTTP or HTTPS using Application Gateway
 description: This article provides information on how to expose an AKS service over HTTP or HTTPS using Application Gateway. 
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/4/2019
-ms.author: caya
+ms.date: 06/09/2022
+ms.author: greglin
 ---
 
 # Expose an AKS service over HTTP or HTTPS using Application Gateway 
@@ -16,13 +16,13 @@ These tutorials help illustrate the usage of [Kubernetes Ingress Resources](http
 ## Prerequisites
 
 - Installed `ingress-azure` helm chart.
-  - [**Greenfield Deployment**](ingress-controller-install-new.md): If you are starting from scratch, refer to these installation instructions, which outlines steps to deploy an AKS cluster with Application Gateway and install application gateway ingress controller on the AKS cluster.
+  - [**Greenfield Deployment**](ingress-controller-install-new.md): If you're starting from scratch, refer to these installation instructions, which outlines steps to deploy an AKS cluster with Application Gateway and install application gateway ingress controller on the AKS cluster.
   - [**Brownfield Deployment**](ingress-controller-install-existing.md): If you have an existing AKS cluster and Application Gateway, refer to these instructions to install application gateway ingress controller on the AKS cluster.
-- If you want to use HTTPS on this application, you will need a x509 certificate and its private key.
+- If you want to use HTTPS on this application, you'll need an x509 certificate and its private key.
 
 ## Deploy `guestbook` application
 
-The guestbook application is a canonical Kubernetes application that composes of a Web UI frontend, a backend and a Redis database. By default, `guestbook` exposes its application through a service with name `frontend` on port `80`. Without a Kubernetes Ingress Resource, the service is not accessible from outside the AKS cluster. We will use the application and setup Ingress Resources to access the application through HTTP and HTTPS.
+The guestbook application is a canonical Kubernetes application that composes of a Web UI frontend, a backend and a Redis database. By default, `guestbook` exposes its application through a service with name `frontend` on port `80`. Without a Kubernetes Ingress Resource, the service isn't accessible from outside the AKS cluster. We'll use the application and setup Ingress Resources to access the application through HTTP and HTTPS.
 
 Follow the instructions below to deploy the guestbook application.
 
@@ -37,7 +37,7 @@ Now, the `guestbook` application has been deployed.
 
 ## Expose services over HTTP
 
-In order to expose the guestbook application, we will be using the following ingress resource:
+In order to expose the guestbook application, we'll be using the following ingress resource:
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -68,8 +68,7 @@ Save the above ingress resource as `ing-guestbook.yaml`.
 
 1. Check the log of the ingress controller for deployment status.
 
-Now the `guestbook` application should be available. You can check this by visiting the
-public address of the Application Gateway.
+Now the `guestbook` application should be available. You can check availability by visiting the public address of the Application Gateway.
 
 ## Expose services over HTTPS
 
@@ -157,7 +156,7 @@ Now the `guestbook` application will be available on both HTTP and HTTPS only on
 
 ## Integrate with other services
 
-The following ingress will allow you to add additional paths into this ingress and redirect those paths to other services:
+The following ingress will allow you to add other paths into this ingress and redirect those paths to other services:
 
 ```yaml
 apiVersion: extensions/v1beta1

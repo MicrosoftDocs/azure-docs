@@ -1,11 +1,14 @@
 ---
 title: Connect securely to an Azure Service Fabric cluster 
 description: Describes how to authenticate client access to a Service Fabric cluster and how to secure communication between clients and a cluster.
-
-ms.topic: conceptual
-ms.date: 01/29/2019
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Connect to a secure cluster
 
 When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security or Azure Active Directory (AAD). This authentication ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate or AAD security must have been previously enabled on the cluster when the cluster was created.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md). If you are connecting to a cluster secured with certificates, [set up the client certificate](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) on the computer that connects to the cluster. 
@@ -232,20 +235,27 @@ catch (Exception e)
 
 ### Connect to a secure cluster non-interactively using Azure Active Directory
 
-The following example relies on Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213.
+The following example relies on Microsoft.Identity.Client, Version: 4.37.0.
 
-For more information on AAD token acquisition, see [Microsoft.IdentityModel.Clients.ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory).
+For more information on AAD token acquisition, see [Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?view=azure-dotnet&preserve-view=true).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
 string clientApplicationId = "118473C2-7619-46E3-A8E4-6DA8D5F56E12";
 string webApplicationId = "53E6948C-0897-4DA6-B26A-EE2A38A690B4";
+string[] scopes = new string[] { "user.read" };
 
-string token = GetAccessToken(
-    tenantId,
-    webApplicationId,
-    clientApplicationId,
-    "urn:ietf:wg:oauth:2.0:oob");
+var pca = PublicClientApplicationBuilder.Create(clientApplicationId)
+    .WithAuthority($"https://login.microsoftonline.com/{tenantId}")
+    .WithRedirectUri("urn:ietf:wg:oauth:2.0:oob")
+    .Build();
+
+var accounts = await pca.GetAccountsAsync();
+var result = await pca.AcquireTokenInteractive(scopes)
+    .WithAccount(accounts.FirstOrDefault())
+    .ExecuteAsync();
+
+string token = result.AccessToken;
 
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
 string connection = "clustername.westus.cloudapp.azure.com:19000";
@@ -265,26 +275,6 @@ catch (Exception e)
 {
     Console.WriteLine("Connect failed: {0}", e.Message);
 }
-
-...
-
-static string GetAccessToken(
-    string tenantId,
-    string resource,
-    string clientId,
-    string redirectUri)
-{
-    string authorityFormat = @"https://login.microsoftonline.com/{0}";
-    string authority = string.Format(CultureInfo.InvariantCulture, authorityFormat, tenantId);
-    var authContext = new AuthenticationContext(authority);
-
-    var authResult = authContext.AcquireToken(
-        resource,
-        clientId,
-        new UserCredential("TestAdmin@clustenametenant.onmicrosoft.com", "TestPassword"));
-    return authResult.AccessToken;
-}
-
 ```
 
 ### Connect to a secure cluster without prior metadata knowledge using Azure Active Directory
@@ -300,9 +290,25 @@ claimsCredentials.ServerThumbprints.Add(serverCertThumb);
 
 var fc = new FabricClient(claimsCredentials, connection);
 
-fc.ClaimsRetrieval += (o, e) =>
+fc.ClaimsRetrieval += async (o, e) =>
 {
-    return GetAccessToken(e.AzureActiveDirectoryMetadata);
+    var accounts = await PublicClientApplicationBuilder
+        .Create("<client_id>")
+        .WithAuthority(AzureCloudInstance.AzurePublic, "<tenant_id>")
+        .WithRedirectUri("<redirect_uri>")
+        .Build()
+        .GetAccountsAsync();
+
+    var result = await PublicClientApplicationBuilder
+        .Create("<client_id>")
+        .WithAuthority(AzureCloudInstance.AzurePublic, "<tenant_id>")
+        .WithRedirectUri("<redirect_uri>")
+        .Build()
+        .AcquireTokenInteractive(new[] { "<scope>" })
+        .WithAccount(accounts.FirstOrDefault())
+        .ExecuteAsync();
+
+    return result.AccessToken;
 };
 
 try
@@ -314,20 +320,6 @@ catch (Exception e)
 {
     Console.WriteLine("Connect failed: {0}", e.Message);
 }
-
-...
-
-static string GetAccessToken(AzureActiveDirectoryMetadata aad)
-{
-    var authContext = new AuthenticationContext(aad.Authority);
-
-    var authResult = authContext.AcquireToken(
-        aad.ClusterApplication,
-        aad.ClientApplication,
-        new UserCredential("TestAdmin@clustenametenant.onmicrosoft.com", "TestPassword"));
-    return authResult.AccessToken;
-}
-
 ```
 
 <a id="connectsecureclustersfx"></a>

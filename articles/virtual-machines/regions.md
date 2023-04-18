@@ -7,7 +7,8 @@ ms.reviewer: cynthnn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 3/8/2021
+ms.custom: engagement-fy23
+ms.date: 02/21/2023
 ---
 
 # Regions for virtual machines in Azure
@@ -47,7 +48,7 @@ Examples of region pairs include:
 | North Europe |West Europe |
 | Southeast Asia |East Asia |
 
-You can see the full [list of regional pairs here](../best-practices-availability-paired-regions.md#what-are-paired-regions).
+You can see the full [list of regional pairs here](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies).
 
 ## Feature availability
 Some services or VM features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that do not require you to select a particular region, such as [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../traffic-manager/traffic-manager-overview.md), or [Azure DNS](../dns/dns-overview.md). To assist you in designing your application environment, you can check the [availability of Azure services across each region](https://azure.microsoft.com/regions/#services). You can also [programmatically query the supported VM sizes and restrictions in each region](../azure-resource-manager/templates/error-sku-not-available.md).
@@ -79,18 +80,6 @@ The following table provides a quick overview of the differences between the sto
 
 You can read more about [Azure Storage replication options here](../storage/common/storage-redundancy.md). For more information about managed disks, see [Azure Managed Disks overview](./managed-disks-overview.md).
 
-### Storage costs
-Prices vary depending on the storage type and availability that you select.
-
-**Azure Managed Disks**
-* Premium Managed Disks are backed by Solid-State Drives (SSDs) and Standard Managed Disks are backed by regular spinning disks. Both Premium and Standard Managed Disks are charged based on the provisioned capacity for the disk.
-
-**Unmanaged disks**
-* Premium storage is backed by Solid-State Drives (SSDs) and is charged based on the capacity of the disk.
-* Standard storage is backed by regular spinning disks and is charged based on the in-use capacity and desired storage availability.
-  * For RA-GRS, there is an additional Geo-Replication Data Transfer charge for the bandwidth of replicating that data to another Azure region.
-
-See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information on the different storage types and availability options.
 
 ## Next steps
 

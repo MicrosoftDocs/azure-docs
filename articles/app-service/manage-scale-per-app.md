@@ -7,8 +7,7 @@ ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal
-ms.custom: seodec18, devx-track-azurepowershell
-
+ms.custom: seodec18, devx-track-azurepowershell, devx-track-arm-template
 ---
 # High-density hosting on Azure App Service using per-app scaling
 
@@ -143,3 +142,4 @@ Follow these steps to configure high-density hosting for your apps:
 
 - [Azure App Service plans in-depth overview](overview-hosting-plans.md)
 - [Introduction to App Service Environment](environment/app-service-app-service-environment-intro.md)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

@@ -15,7 +15,7 @@ ms.custom: template-how-to
 
 Azure Application Gateway is a web traffic load balancer that manages traffic to your web applications. Application Gateway makes routing decisions based on attributes of an HTTP request. Examples of attributes such as URI path or host headers.  The frontend of an Application Gateway is the connection point for the applications in its backend pool. 
 
-An Application Gateway frontend can be a private IP address, public IP address, or both.  The V1 SKU of Application Gateway supports basic public IPs, static, or dynamic.  The V2 SKU supports standard SKU public IPs that are static only. Application Gateway V2 SKU doesn't support an internal IP address as it's only frontend.  For more information, see [Application Gateway front-end IP address configuration](../../application-gateway/configuration-front-end-ip.md).  
+An Application Gateway frontend can be a private IP address, public IP address, or both.  The V1 SKU of Application Gateway supports basic dynamic public IPs.  The V2 SKU supports standard SKU public IPs that are static only. Application Gateway V2 SKU doesn't support an internal IP address as it's only frontend.  For more information, see [Application Gateway frontend IP address configuration](../../application-gateway/configuration-frontend-ip.md).  
 
 In this article, you'll learn how to create an Application Gateway using an existing public IP in your subscription. 
 

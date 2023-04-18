@@ -51,15 +51,12 @@ private DefaultAzureCredential credential = new DefaultAzureCredential();
 Now we'll add code which uses the created credential, to issue a VoIP Access Token. We'll call this code later on.
 
 ```csharp
-public Response<AccessToken> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
+public AccessToken CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
 {
     var client = new CommunicationIdentityClient(resourceEndpoint, this.credential);
-    var identityResponse = client.CreateUser();
-    var identity = identityResponse.Value;
-
-    var tokenResponse = client.GetToken(identity, scopes: new[] { CommunicationTokenScope.VoIP });
-
-    return tokenResponse;
+    var result = client.CreateUserAndToken(scopes: new[] { CommunicationTokenScope.VoIP });
+    var (user, token) = response.Value;
+    return token;
 }
 ```
 
@@ -97,13 +94,13 @@ static void Main(string[] args)
     Program instance = new();
 
     Console.WriteLine("Retrieving new Access Token, using Service Principals");
-    Response<AccessToken> response = instance.CreateIdentityAndGetTokenAsync(endpoint);
-    Console.WriteLine($"Retrieved Access Token: {response.Value.Token}");
+    AccessToken response = instance.CreateIdentityAndGetTokenAsync(endpoint);
+    Console.WriteLine($"Retrieved Access Token: {response.Token}");
 
     Console.WriteLine("Sending SMS using Service Principals");
 
     // You will need a phone number from your resource to send an SMS.
-    SmsSendResult result = instance.SendSms(endpoint, "<Your ACS Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from using Service Principals");
+    SmsSendResult result = instance.SendSms(endpoint, "<Your Azure Communication Services Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from using Service Principals");
     Console.WriteLine($"Sms id: {result.MessageId}");
     Console.WriteLine($"Send Result Successful: {result.Successful}");
 }
@@ -125,25 +122,22 @@ class Program
                Program instance = new();
 
                Console.WriteLine("Retrieving new Access Token, using Service Principals");
-               Response<AccessToken> response = instance.CreateIdentityAndGetTokenAsync(endpoint);
-               Console.WriteLine($"Retrieved Access Token: {response.Value.Token}");
+               AccessToken response = instance.CreateIdentityAndGetTokenAsync(endpoint);
+               Console.WriteLine($"Retrieved Access Token: {response.Token}");
 
                Console.WriteLine("Sending SMS using Service Principals");
 
                // You will need a phone number from your resource to send an SMS.
-               SmsSendResult result = instance.SendSms(endpoint, "<Your ACS Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from Service Principals");
+               SmsSendResult result = instance.SendSms(endpoint, "<Your Azure Communication Services Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from Service Principals");
                Console.WriteLine($"Sms id: {result.MessageId}");
                Console.WriteLine($"Send Result Successful: {result.Successful}");
           }
-          public Response<AccessToken> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
+          public AccessToken CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
           {
                var client = new CommunicationIdentityClient(resourceEndpoint, this.credential);
-               var identityResponse = client.CreateUser();
-               var identity = identityResponse.Value;
-
-               var tokenResponse = client.GetToken(identity, scopes: new[] { CommunicationTokenScope.VoIP });
-
-               return tokenResponse;
+               var result = client.CreateUserAndToken(scopes: new[] { CommunicationTokenScope.VoIP });
+               var (user, token) = response.Value;
+               return token;
           }
           public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)
           {

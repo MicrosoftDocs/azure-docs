@@ -4,7 +4,7 @@ description: Get implementation tips for using Linux-based HDInsight (Hadoop) cl
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 11/17/2022
 ---
 
 # Information about using HDInsight on Linux
@@ -111,7 +111,7 @@ In HDInsight, the data storage resources (Azure Blob Storage and Azure Data Lake
 
 ### <a name="URI-and-scheme"></a>URI and scheme
 
-Some commands may require you to specify the scheme as part of the URI when accessing a file. For example, the Storm-HDFS component requires you to specify the scheme. When using non-default storage (storage added as "additional" storage to the cluster), you must always use the scheme as part of the URI.
+Some commands may require you to specify the scheme as part of the URI when accessing a file. When using non-default storage (storage added as "additional" storage to the cluster), you must always use the scheme as part of the URI.
 
 When using [**Azure Storage**](./hdinsight-hadoop-use-blob-storage.md), use one of the following URI schemes:
 
@@ -184,7 +184,7 @@ There are a various ways to access data from outside the HDInsight cluster. The 
 If using __Azure Blob storage__, see the following links for ways that you can access your data:
 
 * [Azure CLI](/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
-* [blobxfer.py](https://github.com/Azure/blobxfer): A python script for working with blobs in Azure Storage.
+* [blobxfer.py](https://github.com/Azure/blobxfer): A Python script for working with blobs in Azure Storage.
 * Various SDKs:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)

@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 # Querying Data from Azure Time Series Insights Gen2
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 Azure Time Series Insights Gen2 enables data querying on events and metadata stored in the environment via public surface APIs. These APIs also are used by the [Azure Time Series Insights TSI Explorer](./concepts-ux-panels.md).
 
 Three primary API categories are available in Azure Time Series Insights Gen2:

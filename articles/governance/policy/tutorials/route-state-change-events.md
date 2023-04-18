@@ -1,9 +1,11 @@
 ---
 title: "Tutorial: Route policy state change events to Event Grid with Azure CLI"
 description: In this tutorial, you configure Event Grid to listen for policy state change events and call a webhook.
-ms.date: 08/17/2021
+author: davidsmatlak
+ms.date: 07/19/2022
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
+ms.author: davidsmatlak
 ---
 # Tutorial: Route policy state change events to Event Grid with Azure CLI
 
@@ -24,19 +26,6 @@ send the events to a web app that collects and displays the messages.
 - This quickstart requires that you run Azure CLI version 2.0.76 or later. To find the version, run
   `az --version`. If you need to install or upgrade, see
   [Install Azure CLI](/cli/azure/install-azure-cli).
-
-- Even if you've previously used Azure Policy or Event Grid, re-register their respective resource
-  providers:
-
-  ```azurecli-interactive
-  # Log in first with az login if you're not using Cloud Shell
-
-  # Provider register: Register the Azure Policy provider
-  az provider register --namespace Microsoft.PolicyInsights
-
-  # Provider register: Register the Azure Event Grid provider
-  az provider register --namespace Microsoft.EventGrid
-  ```
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
@@ -61,14 +50,33 @@ az group create --name <resource_group_name> --location westus
 Now that we have a resource group, we create a
 [system topic](../../../event-grid/system-topics.md). A system topic in Event Grid represents one or
 more events published by Azure services such as Azure Policy and Azure Event Hubs. This system topic
-uses the `Microsoft.PolicyInsights.PolicyStates` topic type for Azure Policy state changes. Replace
-`<SubscriptionID>` in the **scope** parameter with the ID of your subscription and
-`<resource_group_name>` in **resource-group** parameter with the previously created resource group.
+uses the `Microsoft.PolicyInsights.PolicyStates` topic type for Azure Policy state changes.
+
+First, you'll need to register the `PolicyInsights` and `EventGrid` resource providers (RPs) at the appropriate management scope. Whereas the Azure portal auto-registers any RPs you invoke for the first time, Azure CLI does not.
 
 ```azurecli-interactive
 # Log in first with az login if you're not using Cloud Shell
 
-az eventgrid system-topic create --name PolicyStateChanges --location global --topic-type Microsoft.PolicyInsights.PolicyStates --source "/subscriptions/<SubscriptionID>" --resource-group "<resource_group_name>"
+# Register the required RPs at the management group scope
+az provider register --namespace Microsoft.PolicyInsights -m <managementGroupId>
+az provider register --namespace Microsoft.EventGrid -m <managementGroupId>
+
+# Alternatively, register the required RPs at the subscription scope (defaults to current subscription context)
+az provider register --namespace Microsoft.PolicyInsights
+az provider register --namespace Microsoft.EventGrid
+```
+
+Next, replace `<subscriptionId>` in the **scope** parameter with the ID of your subscription and
+`<resource_group_name>` in **resource-group** parameter with the previously created resource group.
+
+```azurecli-interactive
+az eventgrid system-topic create --name PolicyStateChanges --location global --topic-type Microsoft.PolicyInsights.PolicyStates --source "/subscriptions/<subscriptionId>" --resource-group "<resource_group_name>"
+```
+
+If your Event Grid system topic will be applied to the management group scope, then the Azure CLI `--source` parameter syntax is a bit different. Here's an example:
+
+```azurecli-interactive
+az eventgrid system-topic create --name PolicyStateChanges --location global --topic-type Microsoft.PolicyInsights.PolicyStates --source "/tenants/<tenantID>/providers/Microsoft.Management/managementGroups/<management_group_name>" --resource-group "<resource_group_name>"
 ```
 
 ## Create a message endpoint
@@ -131,12 +139,12 @@ groups** definition. This policy definition identifies resource groups that are 
 configured during policy assignment.
 
 Run the following command to create a policy assignment scoped to the resource group you created to
-hold the event grid topic:
+hold the Event Grid topic:
 
 ```azurecli-interactive
 # Log in first with az login if you're not using Cloud Shell
 
-az policy assignment create --name 'requiredtags-events' --display-name 'Require tag on RG' --scope '<ResourceGroupScope>' --policy '<policy definition ID>' --params '{ "tagName": { "value": "EventTest" } }'
+az policy assignment create --name 'requiredtags-events' --display-name 'Require tag on RG' --scope '<resourceGroupScope>' --policy '<policy definition ID>' --params '{ \"tagName\": { \"value\": \"EventTest\" } }'
 ```
 
 The preceding command uses the following information:
@@ -147,7 +155,7 @@ The preceding command uses the following information:
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets
   enforced on. It could range from a subscription to resource groups. Be sure to replace
   &lt;scope&gt; with the name of your resource group. The format for a resource group scope is
-  `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>`.
+  `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>`.
 - **Policy** - The policy definition ID, based on which you're using to create the assignment. In
   this case, it's the ID of policy definition _Require a tag on resource groups_. To get the policy
   definition ID, run this command:
@@ -167,18 +175,25 @@ event notification to appear in the web app. The resource group we created show 
 ## Trigger a change on the resource group
 
 To make the resource group compliant, a tag with the name **EventTest** is required. Add the tag to
-the resource group with the following command replacing `<SubscriptionID>` with your subscription ID
-and `<ResourceGroup>` with the name of the resource group:
+the resource group with the following command replacing `<subscriptionId>` with your subscription ID
+and `<resourceGroup>` with the name of the resource group:
 
 ```azurecli-interactive
 # Log in first with az login if you're not using Cloud Shell
 
-az tag create --resource-id '/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>' --tags EventTest=true
+az tag create --resource-id '/subscriptions/<SubscriptionID>/resourceGroups/<resourceGroup>' --tags EventTest=true
 ```
 
 After adding the required tag to the resource group, wait for a
 **Microsoft.PolicyInsights.PolicyStateChanged** event notification to appear in the web app. Expand
 the event and the `data.complianceState` value now shows _Compliant_.
+
+## Troubleshooting
+
+If you see an error similar to one of the following, please make sure that you've registered both resource providers at the scope to which you're subscribing (management group or subscription):
+
+- `Deployment has failed with the following error: {"code":"Publisher Notification Error","message":"Failed to enable publisher notifications.","details":[{"code":"Publisher Provider Error","message":"GET request for <uri> failed with status code: Forbidden, code: AuthorizationFailed and message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'microsoft.policyinsights/eventGridFilters/read' over scope '<scope>/providers/microsoft.policyinsights/eventGridFilters/_default' or the scope is invalid. If access was recently granted, please refresh your credentials.."}]}`
+- `Deployment has failed with the following error: {'code':'Publisher Notification Error','message':'Failed to enable publisher notifications.','details':[{'code':'ApiVersionNotSupported','message':'Event Grid notifications are currently not supported by microsoft.policyinsights in global. Try re-registering Microsoft.EventGrid provider if this is your first event subscription in this region.'}]}`
 
 ## Clean up resources
 

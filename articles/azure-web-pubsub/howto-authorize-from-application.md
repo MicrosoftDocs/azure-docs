@@ -23,14 +23,14 @@ The first step is to register an Azure application.
 2. Under **Manage** section, select **App registrations**.
 3. Click **New registration**.
 
-    ![Screenshot of registering an application](./media/aad-authorization/register-an-application.png)
+    ![Screenshot of registering an application.](./media/howto-authorize-from-application/register-an-application.png)
 
 4. Enter a display **Name** for your application.
 5. Click **Register** to confirm the register.
 
 Once you have your application registered, you can find the **Application (client) ID** and **Directory (tenant) ID** under its Overview page. These GUIDs can be useful in the following steps.
 
-![Screenshot of an application](./media/aad-authorization/application-overview.png)
+![Screenshot of an application.](./media/howto-authorize-from-application/application-overview.png)
 
 To learn more about registering an application, see
 - [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
@@ -45,7 +45,7 @@ The application requires a client secret to prove its identity when requesting a
 
 1. Under **Manage** section, select **Certificates & secrets**
 1. On the **Client secrets** tab, click **New client secret**.
-![Screenshot of creating a client secret](./media/aad-authorization/new-client-secret.png)
+![Screenshot of creating a client secret.](./media/howto-authorize-from-application/new-client-secret.png)
 1. Enter a **description** for the client secret, and choose a **expire time**.
 1. Copy the value of the **client secret** and then paste it to a secure location. 
     > [!NOTE]
@@ -54,7 +54,7 @@ The application requires a client secret to prove its identity when requesting a
 
 You can also upload a certification instead of creating a client secret.
 
-![Screenshot of uploading a certification](./media/aad-authorization/upload-certificate.png)
+![Screenshot of uploading a certification.](./media/howto-authorize-from-application/upload-certificate.png)
 
 To learn more about adding credentials, see
 
@@ -74,15 +74,15 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a service p
 
    The following screenshot shows an example of the Access control (IAM) page for a Web PubSub resource.
 
-   ![Screenshot of access control](./media/aad-authorization/access-control.png)
+   ![Screenshot of access control.](./media/howto-authorize-from-application/access-control.png)
 
 1. Click **Add > Add role assignment**.
 
-1. On the **Roles** tab, select `Web PubSub App Server`.
+1. On the **Roles** tab, select `Web PubSub Service Owner`.
 
 1. Click **Next**.
 
-   ![Screenshot of adding role assignment](./media/aad-authorization/add-role-assignment.png)
+   ![Screenshot of adding role assignment.](./media/howto-authorize-from-application/add-role-assignment.png)
 
 1. On the **Members** tab, under **Assign access to** section, select **User, group, or service principal**.
 
@@ -94,7 +94,7 @@ This sample shows how to assign a `Web PubSub Service Owner` role to a service p
 
 4. Click **Next**.
 
-   ![Screenshot of assigning role to service principals](./media/aad-authorization/assign-role-to-service-principals.png)
+   ![Screenshot of assigning role to service principals.](./media/howto-authorize-from-application/assign-role-to-service-principals.png)
 
 5. Click **Review + assign** to confirm the change.
 
@@ -107,58 +107,43 @@ To learn more about how to assign and manage Azure role assignments, see these a
 - [Assign Azure roles using Azure CLI](../role-based-access-control/role-assignments-cli.md)
 - [Assign Azure roles using Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)
 
-## Configure your server
+## Use Postman to get the Azure AD token
+1. Launch Postman
 
-It is recommended to configure identity and credentials in your environment variables:
+2. For the method, select **GET**.
 
-| Variable	| Description |
-|------|------
-| `AZURE_TENANT_ID`	| The Azure Active Directory tenant(directory) ID. |
-| `AZURE_CLIENT_ID`	| The client(application) ID of an App Registration in the tenant. |
-| `AZURE_CLIENT_SECRET`	| A client secret that was generated for the App Registration. |
-| `AZURE_CLIENT_CERTIFICATE_PATH` | A path to certificate and private key pair in PEM or PFX format, which can authenticate the App Registration. |
-| `AZURE_USERNAME`	| The username, also known as upn, of an Azure Active Directory user account. |
-| `AZURE_PASSWORD`	| The password of the Azure Active Directory user account. Note this does not support accounts with MFA enabled. |
+3. For the **URI**, enter `https://login.microsoftonline.com/<TENANT ID>/oauth2/token`. Replace `<TENANT ID>` with the **Directory (tenant) ID** value in the **Overview** tab of the application you created earlier.
 
-By doing this, you could use either [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) or [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) to configure your Web PubSub endpoints.
+4. On the **Headers** tab, add **Content-Type** key and `application/x-www-form-urlencoded` for the value.
 
-### Sample codes
+![Screenshot of the basic info using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman.png)
 
-These are sample codes for C#. For other supported languages, see JavaScript/Python/Java.
+5. Switch to the **Body** tab, and add the following keys and values.
+    1. Select **x-www-form-urlencoded**.
+    2. Add `grant_type` key, and type `client_credentials` for the value.
+    3. Add `client_id` key, and paste the value of **Application (client) ID** in the **Overview** tab of the application you created earlier.
+    4. Add `client_secret` key, and paste the value of client secret you noted down earlier.
+    5. Add `resource` key, and type `https://webpubsub.azure.com` for the value.
 
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var client = new WebPubSubServiceClient(endpoint, "hub", new DefaultAzureCredential());
-```
+![Screenshot of the body parameters when using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman-body.png)
 
-To learn how `DefaultAzureCredential` works, see [DefaultAzureCredential Class](/dotnet/api/azure.identity.defaultazurecredential).
+6. Select **Send** to send the request to get the token. You see the token in the `access_token` field. 
 
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var client = new WebPubSubServiceClient(endpoint, "hub", new EnvironmentCredential());
-```
+![Screenshot of the response token when using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman-response.png)
 
-You could also use [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential) or [ClientCertificateCredential](/dotnet/api/azure.identity.clientcertificatecredential) directly if you'd like to.
+## Sample codes using Azure AD auth
 
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var credential = new ClientSecretCredential("tenantId", "clientId", "clientSecret");
-var client = new WebPubSubServiceClient(endpoint, "hub", credential);
-```
-```C#
-var endpoint = new Uri("https://<resource1>.webpubsub.azure.com");
-var credential = new ClientCertificateCredential("tenantId", "clientId", "pathToCert");
-var client = new WebPubSubServiceClient(endpoint, "hub", credential);
-```
+We officially support 4 programming languages:
 
-To learn more about creating `TokenCredential` for Azure AD Authorization, see there articles:
-
-- [DefaultAzureCredential Class](/dotnet/api/azure.identity.defaultazurecredential)
-- [ClientSecretCredential Constructors](/dotnet/api/azure.identity.clientsecretcredential.-ctor)
-- [ClientCertificateCredential Constructors](/dotnet/api/azure.identity.clientcertificatecredential.-ctor)
+- [C#](./howto-create-serviceclient-with-net-and-azure-identity.md)
+- [Python](./howto-create-serviceclient-with-python-and-azure-identity.md)
+- [Java](./howto-create-serviceclient-with-java-and-azure-identity.md)
+- [JavaScript](./howto-create-serviceclient-with-javascript-and-azure-identity.md)
 
 ## Next steps
 
 See the following related articles:
+
 - [Overview of Azure AD for Web PubSub](concept-azure-ad-authorization.md)
 - [Authorize request to Web PubSub resources with Azure AD from managed identities](howto-authorize-from-managed-identity.md)
+- [Disable local authentication](./howto-disable-local-auth.md)

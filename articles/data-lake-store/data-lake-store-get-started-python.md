@@ -40,6 +40,7 @@ To work with Data Lake Storage Gen1 using Python, you need to install three modu
 Use the following commands to install the modules.
 
 ```console
+pip install azure-identity
 pip install azure-mgmt-resource
 pip install azure-mgmt-datalake-store
 pip install azure-datalake-store
@@ -52,27 +53,25 @@ pip install azure-datalake-store
 2. Add the following snippet to import the required modules
 
 	```python
-	## Use this only for Azure AD service-to-service authentication
-	from azure.common.credentials import ServicePrincipalCredentials
-
-	## Use this only for Azure AD end-user authentication
-	from azure.common.credentials import UserPassCredentials
-
-	## Use this only for Azure AD multi-factor authentication
-	from msrestazure.azure_active_directory import AADTokenCredentials
+	# Acquire a credential object for the app identity. When running in the cloud,
+	# DefaultAzureCredential uses the app's managed identity (MSI) or user-assigned service principal.
+	# When run locally, DefaultAzureCredential relies on environment variables named
+	# AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID.
+	from azure.identity import DefaultAzureCredential
 
 	## Required for Data Lake Storage Gen1 account management
 	from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
-	from azure.mgmt.datalake.store.models import DataLakeStoreAccount
+	from azure.mgmt.datalake.store.models import CreateDataLakeStoreAccountParameters
 
 	## Required for Data Lake Storage Gen1 filesystem management
 	from azure.datalake.store import core, lib, multithread
 
 	# Common Azure imports
+	import adal
 	from azure.mgmt.resource.resources import ResourceManagementClient
 	from azure.mgmt.resource.resources.models import ResourceGroup
 
-	## Use these as needed for your application
+	# Use these as needed for your application
 	import logging, getpass, pprint, uuid, time
 	```
 
@@ -95,18 +94,19 @@ subscriptionId = 'FILL-IN-HERE'
 adlsAccountName = 'FILL-IN-HERE'
 resourceGroup = 'FILL-IN-HERE'
 location = 'eastus2'
+credential = DefaultAzureCredential()
 
 ## Create Data Lake Storage Gen1 account management client object
-adlsAcctClient = DataLakeStoreAccountManagementClient(armCreds, subscriptionId)
+adlsAcctClient = DataLakeStoreAccountManagementClient(credential, subscription_id=subscriptionId)
 
 ## Create a Data Lake Storage Gen1 account
-adlsAcctResult = adlsAcctClient.account.create(
+adlsAcctResult = adlsAcctClient.accounts.begin_create(
 	resourceGroup,
 	adlsAccountName,
-	DataLakeStoreAccount(
+	CreateDataLakeStoreAccountParameters(
 		location=location
 	)
-).wait()
+)
 ```
 
 	
@@ -114,7 +114,7 @@ adlsAcctResult = adlsAcctClient.account.create(
 
 ```python
 ## List the existing Data Lake Storage Gen1 accounts
-result_list_response = adlsAcctClient.account.list()
+result_list_response = adlsAcctClient.accounts.list()
 result_list = list(result_list_response)
 for items in result_list:
     print(items)
@@ -124,7 +124,7 @@ for items in result_list:
 
 ```python
 ## Delete an existing Data Lake Storage Gen1 account
-adlsAcctClient.account.delete(adlsAccountName)
+adlsAcctClient.accounts.begin_delete(resourceGroup, adlsAccountName)
 ```
 	
 

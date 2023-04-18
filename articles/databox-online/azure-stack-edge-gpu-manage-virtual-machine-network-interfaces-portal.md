@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/02/2021
+ms.date: 01/12/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.<!--Does "it" refer to the device or to the virtual NICs?-->
 ---
@@ -25,9 +25,15 @@ This article explains how to add a network interface to an existing VM, change e
         
 ## About network interfaces on VMs
 
-A network interface enables a virtual machine (VM) running on your Azure Stack Edge Pro device to communicate with Azure and on-premises resources. When you enable a port for compute network on your device, a virtual switch is created on that network interface. This virtual switch is then used to deploy compute workloads such as VMs or containerized applications on your device. 
+A network interface enables a virtual machine (VM) running on your Azure Stack Edge Pro device to communicate with Azure and on-premises resources.
 
-Your device supports only one virtual switch but multiple virtual network interfaces. Each network interface on your VM has a static or a dynamic IP address assigned to it. With IP addresses assigned to multiple network interfaces on your VM, certain capabilities are enabled on your VM. For example, your VM can host multiple websites or services with different IP addresses and SSL certificates on a single server. A VM on your device can serve as a network virtual appliance, such as a firewall or a load balancer. <!--Is it possible to do that on ASE?-->
+You can create one or more virtual switches using the local UI. After the virtual switch is created, Azure Stack Edge will create a default network for it. A VM can attach to the default network via a virtual switch. The default network name is the same as the virtual switch name.
+
+Creating a virtual network is optional. You must create a virtual network only if your network is in a different VLAN network, or if it has a different, non-default address space and gateway.
+
+Multiple network interfaces can be associated with one virtual switch. Each network interface on your VM has a static or a dynamic IP address assigned to it. With IP addresses assigned to multiple network interfaces on your VM, certain capabilities are enabled on your VM. For example, your VM can host multiple websites or services with different IP addresses and SSL certificates on a single server. 
+
+A VM on your device can serve as a network virtual appliance, such as a firewall or a load balancer. For more information about adding a virtual local area network (LAN) configuration on a virtual switch, see [Create virtual LANs](azure-stack-edge-gpu-create-virtual-switch-powershell.md#create-virtual-lans).  <!--Is it possible to do that on ASE?-->
 
 <!--There is a limit to how many virtual network interfaces can be created on the virtual switch on your device. See the Azure Stack Edge Pro limits article for details.--> 
 
@@ -38,9 +44,6 @@ Before you begin to manage VMs on your device via the Azure portal, make sure th
 
 1. You've access to an activated Azure Stack Edge Pro GPU device. You have enabled a network interface for compute on your device. This action creates a virtual switch on that network interface on your VM. 
     1. In the local UI of your device, go to **Compute**. Select the network interface that you will use to create a virtual switch.
-
-        > [!IMPORTANT] 
-        > You can only configure one port for compute.
 
     1. Enable compute on the network interface. Azure Stack Edge Pro GPU creates and manages a virtual switch corresponding to that network interface.
 
@@ -69,7 +72,7 @@ Follow these steps to add a network interface to a virtual machine deployed on y
     |---------|-------------|
     |Name     | A unique name within the edge resource group. The name cannot be changed after the network interface is created. To manage multiple network interfaces easily, use the suggestions provided in the [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming).     |
     |Select an edge resource group |Select the edge resource group to add the network interface to.|   
-    |Virtual network| The virtual network associated with the virtual switch created on your device when you enabled compute on the network interface. There is only one virtual network associated with your device.         |
+    |Virtual network| The virtual network associated with the virtual switch created on your device when you enabled compute on the network interface.  |
     |Subnet     | A subnet within the selected virtual network. This field is automatically populated with the subnet associated with the network interface on which you enabled compute.         |
     |IP address assignment   | A static or a dynamic IP for your network interface. The static IP should be an available, free IP from the specified subnet range. Choose dynamic if a DHCP server exists in the environment.        |
 

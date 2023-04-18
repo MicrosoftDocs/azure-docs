@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: active-directory
-author: mmacy
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: include
 ms.date: 10/13/2020
-ms.author: marsma
+ms.author: davidmu
 ---
 
 > [!WARNING]

@@ -89,7 +89,7 @@ To learn about the properties in the data object, see the event source:
 * [Blob storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)
-* [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+* [Media Services](/azure/media-services/latest/monitoring/media-services-event-schemas?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Resource groups (management operations)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
 * [Azure SignalR](event-schema-azure-signalr.md)

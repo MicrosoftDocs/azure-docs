@@ -95,7 +95,7 @@ DFfromSourceCassandra
 ```
 
 > [!NOTE]
-> If you have a need to preserve or backdate the `writetime` of each row, refer to the [live migration](dual-write-proxy-migration.md) article. 
+> If you have a need to preserve the original `writetime` of each row, refer to the [cassandra migrator](https://github.com/Azure-Samples/cassandra-migrator) sample. 
 
 ## Next steps
 

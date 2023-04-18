@@ -1,13 +1,9 @@
 ---
  title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
- ms.topic: include
- ms.date: 03/22/2021
+ ms.date: 05/25/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
 ### Is BGP supported on all Azure VPN Gateway SKUs?
 
@@ -48,11 +44,11 @@ These ASNs aren't reserved by IANA or Azure for use, and therefore can be used t
 
 By default, VPN Gateway allocates a single IP address from the *GatewaySubnet* range for active-standby VPN gateways, or two IP addresses for active-active VPN gateways. These addresses are allocated automatically when you create the VPN gateway. You can get the actual BGP IP address allocated by using PowerShell or by locating it in the Azure portal. In PowerShell, use **Get-AzVirtualNetworkGateway**, and look for the **bgpPeeringAddress** property. In the Azure portal, on the **Gateway Configuration** page, look under the **Configure BGP ASN** property.
 
-If your on-premises VPN routers use **APIPA** IP addresses (169.254.x.x) as the BGP IP addresses, you must specify an additional **Azure APIPA BGP IP address** on your Azure VPN gateway. Azure VPN Gateway selects the APIPA address to use with the on-premises APIPA BGP peer specified in the local network gateway, or the private IP address for a non-APIPA, on-premises BGP peer. For more information, see [Configure BGP](../articles/vpn-gateway/bgp-howto.md).
+If your on-premises VPN routers use **APIPA** IP addresses (169.254.x.x) as the BGP IP addresses, you must specify one or more **Azure APIPA BGP IP addresses** on your Azure VPN gateway. Azure VPN Gateway selects the APIPA addresses to use with the on-premises APIPA BGP peer specified in the local network gateway, or the private IP address for a non-APIPA, on-premises BGP peer. For more information, see [Configure BGP](../articles/vpn-gateway/bgp-howto.md).
 
 ### What are the requirements for the BGP peer IP addresses on my VPN device?
 
-Your on-premises BGP peer address must not be the same as the public IP address of your VPN device or from the virtual network address space of the VPN gateway. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device (either a regular IP address or an APIPA address). If your device uses an APIPA address for BGP, you must specify an APIPA BGP IP address on your Azure VPN gateway, as described in [Configure BGP](../articles/vpn-gateway/bgp-howto.md). Specify this address in the corresponding local network gateway representing the location.
+Your on-premises BGP peer address must not be the same as the public IP address of your VPN device or from the virtual network address space of the VPN gateway. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device (either a regular IP address or an APIPA address). If your device uses an APIPA address for BGP, you must specify one or more APIPA BGP IP addresses on your Azure VPN gateway, as described in [Configure BGP](../articles/vpn-gateway/bgp-howto.md). Specify these addresses in the corresponding local network gateway representing the location.
 
 ### What should I specify as my address prefixes for the local network gateway when I use BGP?
 
@@ -63,7 +59,7 @@ Your on-premises BGP peer address must not be the same as the public IP address 
 
 ### Can I use the same ASN for both on-premises VPN networks and Azure virtual networks?
 
-No, you must assign different ASNs between your on-premises networks and your Azure virtual networks if you're connecting them together with BGP. Azure VPN gateways have a default ASN of 65515 assigned, whether BGP is enabled or not for your cross-premises connectivity. You can override this default by assigning a different ASN when you're creating the VPN gateway, or you can change the ASN after the gateway is created. You will need to assign your on-premises ASNs to the corresponding Azure local network gateways.
+No, you must assign different ASNs between your on-premises networks and your Azure virtual networks if you're connecting them together with BGP. Azure VPN gateways have a default ASN of 65515 assigned, whether BGP is enabled or not for your cross-premises connectivity. You can override this default by assigning a different ASN when you're creating the VPN gateway, or you can change the ASN after the gateway is created. You'll need to assign your on-premises ASNs to the corresponding Azure local network gateways.
 
 ### What address prefixes will Azure VPN gateways advertise to me?
 

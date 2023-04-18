@@ -1,22 +1,18 @@
 ---
 title: Deploy IPv6 dual stack application - Standard Load Balancer - PowerShell
 titlesuffix: Azure Virtual Network
-description: This article shows how deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network using Azure Powershell.
+description: This article shows how deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network using Azure PowerShell.
 services: virtual-network
-documentationcenter: na
 author: KumudD
-manager: mtillman
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2020
 ms.author: kumud 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, template-how-to
 ---
 
-# Deploy an IPv6 dual stack application in Azure - PowerShell
+# Deploy an IPv6 dual stack application in Azure virtual network using PowerShell
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure that includes a dual stack virtual network and subnet, a Standard Load Balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs.
 
@@ -359,4 +355,4 @@ Remove-AzResourceGroup -Name dsRG1
 
 ## Next steps
 
-In this article, you created a Standard Load Balancer with a dual frontend IP configuration (IPv4 and IPv6). You also created a two virtual machines that included NICs with dual IP configurations (IPV4 + IPv6) that were added to the back-end pool of the load balancer. To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?]((../virtual-network/ip-services/ipv6-overview.md)
+In this article, you created a Standard Load Balancer with a dual frontend IP configuration (IPv4 and IPv6). You also created a two virtual machines that included NICs with dual IP configurations (IPV4 + IPv6) that were added to the back-end pool of the load balancer. To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](../virtual-network/ip-services/ipv6-overview.md)

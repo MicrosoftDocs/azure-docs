@@ -1,11 +1,15 @@
 ---
 title: Update a cluster to use certificate common name 
 description: Learn how to convert an Azure Service Fabric cluster certificate from thumbprint-based declarations to common names.
-
-ms.topic: conceptual
-ms.date: 09/06/2019 
-ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-arm-template
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Convert cluster certificates from thumbprint-based declarations to common names
 
 The signature of a certificate (commonly known as a thumbprint) is unique. A cluster certificate declared by thumbprint refers to a specific instance of a certificate. This specificity makes certificate rollover, and management in general, difficult and explicit. Each change requires orchestrating upgrades of the cluster and the underlying computing hosts.

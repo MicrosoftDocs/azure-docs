@@ -5,11 +5,12 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 
 
 ---
+
 # How to author an attestation policy
 
 Attestation policy is a file uploaded to Microsoft Azure Attestation. Azure Attestation offers the flexibility to upload a policy in an attestation-specific policy format. Alternatively, an encoded version of the policy, in JSON Web Signature, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends attestation evidence, which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what is defined in the policy, and returns the computed result.
@@ -134,3 +135,4 @@ After creating a policy file, to upload a policy in JWS format, follow the below
 ## Next steps
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
 - [Attest an SGX enclave using code samples](/samples/browse/?expanded=azure&terms=attestation)
+- [Learn more about policy versions](policy-version-1-0.md)

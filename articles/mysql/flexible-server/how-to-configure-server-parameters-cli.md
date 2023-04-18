@@ -1,19 +1,20 @@
 ---
-title: Configure server parameters - Azure CLI - Azure Database for MySQL Flexible Server
-description: This article describes how to configure the service parameters in Azure Database for MySQL flexible server using the Azure CLI command line utility.
-author: savjani
-ms.author: pariks
+title: Configure server parameters - Azure CLI - Azure Database for MySQL - Flexible Server
+description: This article describes how to configure the service parameters in Azure Database for MySQL - Flexible Server using the Azure CLI command line utility.
 ms.service: mysql
-ms.devlang: azurecli
+ms.subservice: flexible-server
 ms.topic: how-to
+author: code-sidd
+ms.author: sisawant
+ms.devlang: azurecli
+ms.custom: devx-track-azurecli, event-tier1-build-2022
 ms.date: 11/10/2020
-ms.custom: devx-track-azurecli
 ---
-# Configure server parameters in Azure Database for MySQL Flexible Server using the Azure CLI
+# Configure server parameters in Azure Database for MySQL - Flexible Server using the Azure CLI
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-You can list, show, and update parameters for an Azure Database for MySQL flexible server by using Azure CLI, the Azure command-line utility. The server parameters are configured with the default and recommended value when you create the server.
+You can list, show, and update parameters for an Azure Database for MySQL - Flexible Server by using Azure CLI, the Azure command-line utility. The server parameters are configured with the default and recommended value when you create the server.
 
 This article describes how to list, show, and update server parameters by using the Azure CLI.
 
@@ -24,10 +25,10 @@ This article describes how to list, show, and update server parameters by using 
 
 To step through this how-to guide, you need:
 
-- [An Azure Database for MySQL flexible server](quickstart-create-server-cli.md)
+- [An Azure Database for MySQL - Flexible Server](quickstart-create-server-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
 
-## List server parameters for Azure Database for MySQL flexible server
+## List server parameters for Azure Database for MySQL - Flexible Server
 
 To list all parameters in a server and their values, run the [az mysql flexible-server parameter list](/cli/azure/mysql/flexible-server/parameter) command.
 
@@ -71,26 +72,6 @@ az mysql flexible-server parameter set --name init_connect --resource-group myre
 
 ## Working with the time zone parameter
 
-### Populating the time zone tables
-
-The time zone tables on your server can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench.
-
-> [!NOTE]
-> If you are running the `mysql.az_load_timezone` command from MySQL Workbench, you may need to turn off safe update mode first using `SET SQL_SAFE_UPDATES=0;`.
-
-```sql
-CALL mysql.az_load_timezone();
-```
-
-> [!IMPORTANT]
->You should restart the server to ensure the time zone tables are properly populated.<!-- fIX me To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.md). -->
-
-To view available time zone values, run the following command:
-
-```sql
-SELECT name FROM mysql.time_zone_name;
-```
-
 ### Setting the global level time zone
 
 The global level time zone can be set using the [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter) command.
@@ -111,6 +92,8 @@ SET time_zone = 'US/Pacific';
 
 Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
 
+>[!Note]
+> To change time zone at session level, Server parameter time_zone has to be updated globally to required timezone at least once, in order to update the [mysql.time_zone_name](https://dev.mysql.com/doc/refman/8.0/en/time-zone-support.html) table.
 
 ## Next steps
 

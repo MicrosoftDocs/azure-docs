@@ -1,12 +1,14 @@
 ---
 title: Change KVSActorStateProvider settings
 description: Learn about configuring Azure Service Fabric stateful actors of type KVSActorStateProvider.
-author: sumukhs
-
-ms.topic: conceptual
-ms.date: 10/2/2017
-ms.author: sumukhs
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Configuring Reliable Actors--KVSActorStateProvider
 You can modify the default configuration of KVSActorStateProvider by changing the settings.xml file that is generated in the Microsoft Visual Studio package root under the Config folder for the specified actor.
 

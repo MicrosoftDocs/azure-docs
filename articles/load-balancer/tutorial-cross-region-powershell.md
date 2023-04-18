@@ -1,13 +1,13 @@
 ---
-title: 'Tutorial: Create a cross-region load balancer using Azure PowerShell'
+title: 'Tutorial: Create a cross-region load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: Get started with this tutorial deploying a cross-region Azure Load Balancer using Azure PowerShell.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, template-tutorial
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -24,6 +24,11 @@ In this tutorial, you learn how to:
 > * Test the load balancer.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+> [!IMPORTANT]
+> Cross-region Azure Load Balancer is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

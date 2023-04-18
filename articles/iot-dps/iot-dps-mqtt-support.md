@@ -1,14 +1,16 @@
 ---
-title: Understand Azure IoT Device Provisioning Service MQTT support | Microsoft Docs
+title: Understand DPS MQTT support
+titleSuffix: Azure IoT Device Provisioning Service
 description: Developer guide - support for devices connecting to the Azure IoT Device Provisioning Service (DPS) device-facing endpoint using the MQTT protocol.
 author: rajeevmv
-ms.service: iot-dps
-services: iot-dps
-ms.topic: conceptual
-ms.date: 10/16/2019
+
 ms.author: ravokkar
+ms.service: iot-dps
+ms.topic: how-to
+ms.date: 02/25/2022
 ms.custom:  [amqp, mqtt]
 ---
+
 # Communicate with your DPS using the MQTT protocol
 
 DPS enables devices to communicate with the DPS device endpoint using:
@@ -20,14 +22,14 @@ DPS is not a full-featured MQTT broker and does not support all the behaviors sp
 
 All device communication with DPS must be secured using TLS/SSL. Therefore, DPS doesn't support non-secure connections over port 1883.
 
- > [!NOTE] 
+ > [!NOTE]
  > DPS does not currently support devices using TPM [attestation mechanism](./concepts-service.md#attestation-mechanism) over the MQTT protocol.
 
 ## Connecting to DPS
 
-A device can use the MQTT protocol to connect to a DPS using any of the following options.
+A device can use the MQTT protocol to connect to a DPS instance using any of the following options.
 
-* Libraries in the [Azure IoT Provisioning SDKs](../iot-hub/iot-hub-devguide-sdks.md#microsoft-azure-provisioning-sdks).
+* Libraries in the [Azure IoT Provisioning SDKs](libraries-sdks.md).
 * The MQTT protocol directly.
 
 ## Using the MQTT protocol directly (as a device)
@@ -36,12 +38,15 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
 * For the **ClientId** field, use **registrationId**.
 
-* For the **Username** field, use `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, where `{idScope}` is the [idScope](./concepts-service.md#id-scope) of the DPS.
+* For the **Username** field, use `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, where `{idScope}` is the [ID scope](./concepts-service.md#id-scope) of the DPS and `{registration_id}` is the [Registration ID](./concepts-service.md#registration-id) for your device.
+
+  > [!NOTE]
+  > If you use X.509 certificate authentication, the registration ID is provided by the subject common name (CN) of your device leaf (end-entity) certificate. `{registration_id}` in the **Username** field must match the common name.
 
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 
   `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration`
-  The resourceURI should be in the format `{idScope}/registrations/{registration_id}`. The policy name should be `registration`.
+  The resourceURI should be in the format `{idScope}/registrations/{registration_id}`. The policy name (`skn`) should be set to `registration`.
 
   > [!NOTE]
   > If you use X.509 certificate authentication, SAS token passwords are not required.
@@ -50,7 +55,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
 The following is a list of DPS implementation-specific behaviors:
 
- * DPS does not support the functionality of **CleanSession** flag being set to **0**.
+ * DPS doesn't support persistent sessions. It treats every session as non-persistent, regardless of the value of the **CleanSession** flag. We recommend setting **CleanSession** to true.
 
  * When a device app subscribes to a topic with **QoS 2**, DPS grants maximum QoS level 1 in the **SUBACK** packet. After that, DPS delivers messages to the device using QoS 1.
 

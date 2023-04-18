@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Scheduler documentation
-summary: Azure Logic Apps is replacing Azure Scheduler, which is being retired. To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible.
+summary: Azure Scheduler was fully retired on January 31, 2022 and is replaced by Azure Logic Apps. Please migrate your Azure Scheduler jobs to Azure Logic Apps.
 
 metadata:
   title: Azure Scheduler documentation
-  description: Create, schedule, and run automated jobs in the cloud, such as recurring application actions and routine maintenance. Azure Logic Apps is replacing Azure Scheduler, which is being retired. To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible.
+  description: Azure Scheduler was fully retired on January 31, 2022 and is replaced by [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Please [migrate your Azure Scheduler jobs to Azure Logic Apps](migrate-from-scheduler-to-logic-apps.md).
   services: scheduler
   ms.service: scheduler
   ms.topic: landing-page
   author: derek1ee
   ms.author: estfan
-  ms.date: 03/30/2020
+  ms.date: 02/15/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -19,19 +19,7 @@ landingContent:
   # Card
   - title: Migrate
     linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Scheduler?
-            url: scheduler-intro.md
-          - text: What is Azure Logic Apps?
-            url: ../logic-apps/logic-apps-overview.md
-      - linkListType: get-started
+      - linkListType: how-to-guide
         links:
           - text: Migrate Azure Scheduler jobs to Azure Logic Apps
             url: migrate-from-scheduler-to-logic-apps.md
-      - linkListType: reference
-        links:
-          - text: REST API
-            url: /rest/api/scheduler/
-          - text: PowerShell
-            url: scheduler-powershell-reference.md

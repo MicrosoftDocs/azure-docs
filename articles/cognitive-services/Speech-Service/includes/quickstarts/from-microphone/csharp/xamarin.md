@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Recognize speech from a microphone, C# (Xamarin) - Speech service"
 titleSuffix: Azure Cognitive Services
-description: In this article, you create a cross-platform C# Xamarin application for the Universal Windows Platform (UWP), Android, and iOS by using the Cognitive Services Speech SDK. You transcribe speech to text in real time from your device's or simulator's microphone. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2019.
+description: In this article, you create a cross-platform C# Xamarin application for the Universal Windows Platform (UWP), Android, and iOS by using the Cognitive Services Speech SDK. You transcribe speech to text in real-time from your device's or simulator's microphone. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2019.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=xamarin&pivots=programming-language-csharp)
 > * Make sure that you have access to a microphone for audio capture
 

@@ -4,7 +4,7 @@ description: An introduction to Apache HBase in HDInsight, a NoSQL database buil
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 04/20/2020
+ms.date: 11/17/2022
 
 #Customer intent: As a developer new to Apache HBase and Apache HBase in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache HBase in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 ---
@@ -37,7 +37,7 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 |Key-value store|HBase can be used as a key-value store, and it's suitable for managing message systems. Facebook uses HBase for their messaging system, and it's ideal for storing and managing Internet communications. WebTable uses HBase to search for and manage tables that are extracted from webpages.|
 |Sensor data|HBase is useful for capturing data that is collected incrementally from various sources. This data includes social analytics, and time series. And keeping interactive dashboards up to date with trends and counters, and managing audit log systems. Examples include Bloomberg trader terminal and the Open Time Series Database (OpenTSDB). OpenTSDB stores and provides access to metrics collected about the health of server systems.|
 |Real-time query|[Apache Phoenix](https://phoenix.apache.org/) is a SQL query engine for Apache HBase. It's accessed as a JDBC driver, and it enables querying and managing HBase tables by using SQL.|
-|HBase as a platform|Applications can run on top of HBase by using it as a datastore. Examples include Phoenix, OpenTSDB, `Kiji`, and Titan. Applications can also integrate with HBase. Examples include: [Apache Hive](https://hive.apache.org/), Apache Pig, [Solr](https://lucene.apache.org/solr/), Apache Storm, Apache Flume, [Apache Impala](https://impala.apache.org/), Apache Spark, `Ganglia`, and Apache Drill.|
+|HBase as a platform|Applications can run on top of HBase by using it as a datastore. Examples include Phoenix, OpenTSDB, `Kiji`, and Titan. Applications can also integrate with HBase. Examples include: [Apache Hive](https://hive.apache.org/), Apache Pig, [Solr](https://lucene.apache.org/solr/), Apache Flume, [Apache Impala](https://impala.apache.org/), Apache Spark, `Ganglia`, and Apache Drill.|
 
 ## Next steps
 

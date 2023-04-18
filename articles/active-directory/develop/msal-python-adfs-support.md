@@ -1,9 +1,8 @@
 ---
 title: Azure AD FS support (MSAL Python)
-titleSuffix: Microsoft identity platform
 description: Learn about Active Directory Federation Services (AD FS) support in the Microsoft Authentication Library for Python
 services: active-directory
-author: abhidnya13    
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/23/2019
-ms.author: abpati
-ms.reviewer: nacanuma
+ms.author: dmwendia
+ms.reviewer: celested, nacanuma
 ms.custom: aaddev, devx-track-python, has-adal-ref
 #Customer intent: As an application developer, I want to learn about AD FS support in MSAL for Python so I can decide if this platform meets my application development needs and requirements.
 ---

@@ -4,8 +4,7 @@ titleSuffix: Azure
 description: Read the release notes for the Microsoft Threat Modeling Tool released on 9/12/2018. The notes include feature changes and bug fixes.
 author: jegeib
 ms.author: jegeib
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
 ms.topic: article
 ms.date: 01/15/2019
 ---
@@ -85,7 +84,7 @@ Yes, you can! The [Azure stencil set is available on GitHub](https://github.com/
 
 ## Documentation and feedback
 
-- Documentation for the Threat Modeling Tool is located on [docs.microsoft.com](threat-modeling-tool.md), and includes information [about using the tool](threat-modeling-tool-getting-started.md).
+- Documentation for the Threat Modeling Tool is [located](threat-modeling-tool.md), and includes information [about using the tool](threat-modeling-tool-getting-started.md).
 
 ## Next steps
 

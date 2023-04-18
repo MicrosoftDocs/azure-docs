@@ -13,7 +13,7 @@ ms.topic: overview
 
 #  Create Azure Arc data controller from Azure portal - Direct connectivity mode
 
-This article describes how to deploy the Azure Arc data controller in direct connect mode during the current preview of this feature. 
+This article describes how to deploy the Azure Arc data controller in direct connect mode from the Azure portal. 
 
 ## Complete prerequisites
 
@@ -62,6 +62,6 @@ The progress of Azure Arc data controller deployment can be monitored as follows
 
 ## Next steps
 
-[Create an Azure Arc-enabled SQL managed instance](create-sql-managed-instance.md)
+[Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
 
-[Create an Azure Arc-enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md)
+[Create an Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)

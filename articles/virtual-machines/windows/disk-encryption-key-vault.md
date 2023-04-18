@@ -7,8 +7,8 @@ ms.collection: windows
 ms.topic: how-to
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 08/06/2019
-ms.custom: seodec18, devx-track-azurecli
+ms.date: 01/04/2023
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Create and configure a key vault for Azure Disk Encryption on a Windows VM
@@ -47,7 +47,7 @@ While the portal is accessible through your browser, Azure CLI and Azure PowerSh
 
 ### Connect to your Azure account
 
-Before using the Azure CLI or Azure PowerShell, you must first connect to your Azure subscription. You do so by [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli), [Signing in with Azure Powershell](/powershell/azure/authenticate-azureps), or supplying your credentials to the Azure portal when prompted.
+Before using the Azure CLI or Azure PowerShell, you must first connect to your Azure subscription. You do so by [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli), [Signing in with Azure PowerShell](/powershell/azure/authenticate-azureps), or supplying your credentials to the Azure portal when prompted.
 
 ```azurecli-interactive
 az login

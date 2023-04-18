@@ -1,7 +1,6 @@
 ---
 title: Migrate to Azure Kubernetes Service (AKS)
 description: Migrate to Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: article
 ms.date: 03/25/2021
 ms.custom: mvc, devx-track-azurecli
@@ -29,7 +28,7 @@ Several open-source tools can help with your migration, depending on your scenar
 
 * [Velero](https://velero.io/) (Requires Kubernetes 1.7+)
 * [Azure Kube CLI extension](https://github.com/yaron2/azure-kube-cli)
-* [ReShifter](https://github.com/mhausenblas/reshifter)
+
 
 In this article we will summarize migration details for:
 
@@ -56,7 +55,7 @@ AKS is a managed service offering unique capabilities with lower management over
 
 We recommend using AKS clusters backed by [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml) and the [Azure Standard Load Balancer](./load-balancer-standard.md) to ensure you get features such as:
 * [Multiple node pools](./use-multiple-node-pools.md),
-* [Availability Zones](../availability-zones/az-overview.md),
+* [Availability Zones](../reliability/availability-zones-overview.md),
 * [Authorized IP ranges](./api-server-authorized-ip-ranges.md),
 * [Cluster Autoscaler](./cluster-autoscaler.md),
 * [Azure Policy for AKS](../governance/policy/concepts/policy-for-kubernetes.md), and
@@ -131,8 +130,8 @@ Stateless application migration is the most straightforward case:
 
 Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
 
-* If you use Azure Files, you can mount the file share as a volume into the new cluster. See [Mount Static Azure Files as a Volume](./azure-files-volume.md#mount-file-share-as-an-persistent-volume).
-* If you use Azure Managed Disks, you can only mount the disk if unattached to any VM. See [Mount Static Azure Disk as a Volume](./azure-disk-volume.md#mount-disk-as-volume).
+* If you use Azure Files, you can mount the file share as a volume into the new cluster. See [Mount Static Azure Files as a Volume](./azure-csi-files-storage-provision.md#mount-file-share-as-a-persistent-volume).
+* If you use Azure Managed Disks, you can only mount the disk if unattached to any VM. See [Mount Static Azure Disk as a Volume](./azure-csi-disk-storage-provision.md#mount-disk-as-a-volume).
 * If neither of those approaches work, you can use a backup and restore options. See [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md).
 
 #### Azure Files
@@ -149,7 +148,6 @@ If not, one possible migration approach involves the following steps:
 
 If you want to start with an empty share and make a copy of the source data, you can use the [`az storage file copy`](/cli/azure/storage/file/copy) commands to migrate your data.
 
-
 #### Migrating persistent volumes
 
 If you're migrating existing persistent volumes to AKS, you'll generally follow these steps:
@@ -159,7 +157,7 @@ If you're migrating existing persistent volumes to AKS, you'll generally follow 
 1. Take snapshots of the disks.
 1. Create new managed disks from the snapshots.
 1. Create persistent volumes in AKS.
-1. Update pod specifications to [use existing volumes](./azure-disk-volume.md) rather than PersistentVolumeClaims (static provisioning).
+1. Update pod specifications to [use existing volumes](./azure-disk-csi.md) rather than PersistentVolumeClaims (static provisioning).
 1. Deploy your application to AKS.
 1. Validate your application is working correctly.
 1. Point your live traffic to your new AKS cluster.
@@ -171,7 +169,6 @@ Some open-source tools can help you create managed disks and migrate volumes bet
 
 * [Azure CLI Disk Copy extension](https://github.com/noelbundick/azure-cli-disk-copy-extension) copies and converts disks across resource groups and Azure regions.
 * [Azure Kube CLI extension](https://github.com/yaron2/azure-kube-cli) enumerates ACS Kubernetes volumes and migrates them to an AKS cluster.
-
 
 ### Deployment of your cluster configuration
 
@@ -191,7 +188,6 @@ You may want to move your AKS cluster to a [different region supported by AKS][r
 
 In addition, if you have any services running on your AKS cluster, you will need to install and configure those services on your cluster in the new region.
 
-
 In this article, we summarized migration details for:
 
 > [!div class="checklist"]
@@ -202,6 +198,5 @@ In this article, we summarized migration details for:
 > * Considerations for stateless applications
 > * Considerations for stateful applications
 > * Deployment of your cluster configuration
-
 
 [region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

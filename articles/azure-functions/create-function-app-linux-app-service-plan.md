@@ -16,7 +16,7 @@ Azure Functions lets you host your functions on Linux in a default Azure App Ser
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com> with your Azure account.
+Sign in to the [Azure portal](https://portal.azure.com) using your Azure account.
 
 ## Create a function app
 

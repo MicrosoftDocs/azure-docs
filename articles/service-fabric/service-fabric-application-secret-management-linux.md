@@ -1,12 +1,14 @@
 ---
 title: Set up an encryption cert on Linux clusters 
 description: Learn how to set up an encryption certificate and encrypt secrets on Linux clusters.
-author: shsha
-
-ms.topic: conceptual
-ms.date: 01/04/2019
-ms.author: shsha
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Set up an encryption certificate and encrypt secrets on Linux clusters
 This article shows how to set up an encryption certificate and use it to encrypt secrets on Linux clusters. For Windows clusters, see [Set up an encryption certificate and encrypt secrets on Windows clusters][secret-management-windows-specific-link].
 

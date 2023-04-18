@@ -1,7 +1,6 @@
 ---
 title: Design tables using Synapse SQL
 description: Introduction to designing tables in Synapse SQL. 
-services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Design tables using Synapse SQL in Azure Synapse Analytics

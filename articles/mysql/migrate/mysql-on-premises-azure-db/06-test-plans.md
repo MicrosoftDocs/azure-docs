@@ -4,8 +4,8 @@ description: "WWI created a test plan that included a set of IT and the Business
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: arunkumarthiags
-ms.author: arthiaga
+author: rothja
+ms.author: jroth
 ms.reviewer: maghan
 ms.custom:
 ms.date: 06/21/2021
@@ -56,7 +56,7 @@ WHERE TABLE_SCHEMA = '{SchemaName}';
 
 Execute the `count(*)` SQL statement against every table to get an accurate count of rows. Running this command can take a large amount of time on large tables. The following script generates a set of SQL statements that can be executed to get the exact counts:
 
-```
+```sql
 SELECT CONCAT( 
     'SELECT "', 
     table_name, 

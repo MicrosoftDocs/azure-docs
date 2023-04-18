@@ -3,16 +3,19 @@ title: Custom Commands service encryption of data at rest
 titleSuffix: Azure Cognitive Services
 description: Custom Commands encryption of data at rest.
 services: cognitive-services
-author: singhsaumya
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
-ms.author: sausin
+ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Custom Commands encryption of data at rest
+
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
 
 Custom Commands automatically encrypts your data when it is persisted to the cloud. The Custom Commands service encryption protects your data and to help you to meet your organizational security and compliance commitments.
 

@@ -2,7 +2,7 @@
 title: Create a dashboard in the Azure portal
 description: This article describes how to create and customize a dashboard in the Azure portal.
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 05/05/2022
 ---
 
 # Create a dashboard in the Azure portal
@@ -36,7 +36,7 @@ This example shows how to create a new private dashboard with an assigned name. 
 
     :::image type="content" source="media/azure-portal-dashboards/dashboard-name.png" alt-text="Screenshot of an empty grid with the Tile Gallery.":::
 
-1. To save the dashboard as is, select **Done customizing** in the page header. Or, continue to Step 2 of the next section to add tiles and save your dashboard.
+1. To save the dashboard as is, select **Save** in the page header. Or, continue to Step 2 of the next section to add tiles and save your dashboard.
 
 The dashboard view now shows your new dashboard. Select the arrow next to the dashboard name to see dashboards available to you. The list might include dashboards that other users have created and shared.
 
@@ -64,7 +64,7 @@ To add tiles to a dashboard, follow these steps:
 
 1. If desired, [resize or rearrange](#resize-or-rearrange-tiles) your tiles.
 
-1. To save your changes, select **Save** in the page header. You can also preview the changes without saving by selecting **Preview** in the page header. This preview mode also allows you to see how [filters](#set-and-override-dashboard-filters) affect your tiles. From the preview screen, you can select **Save** to keep the changes, **Discard** to remove them, or **Edit** to go back to the editing options and make further changes.
+1. To save your changes, select **Save**. You can also preview the changes without saving by selecting **Preview**. This preview mode also allows you to see how [filters](#set-and-override-dashboard-filters) affect your tiles. From the preview screen, you can select **Save** to keep the changes, **Cancel** to remove them, or **Edit** to go back to the editing options and make further changes.
 
    :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Screenshot of the Preview, Save, and Discard options.":::
 
@@ -113,7 +113,7 @@ By default, data will be refreshed every hour. To change this, select **Auto ref
 
 The default time settings are **UTC Time**, showing data for the **Past 24 hours**. To change this, select the button and choose a new time range, time granularity, and/or time zone, then select **Apply**.
 
-To apply additional filters, select **Add filters**. The options you'll see will vary depending on the tiles in your dashboard. For example, you may be able to show only data for a specific subscription or location. Select the filter you'd like to use and make your selections. The filter will then be applied to your data. To remove a filter, select the **X** in its button.
+To apply additional filters, select **Add filter**. The options you'll see will vary depending on the tiles in your dashboard. For example, you may be able to show only data for a specific subscription or location. Select the filter you'd like to use and make your selections. The filter will then be applied to your data. To remove a filter, select the **X** in its button.
 
 Tiles which support filtering have a ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) filter icon in the top-left corner of the tile. Some tiles allow you to override the global filters with filters specific to that tile. To do so, select **Configure tile data** from the context menu, or select the filter icon, then apply the desired filters.
 
@@ -141,7 +141,7 @@ To customize the tile:
 
 Data on the dashboard shows activity and refreshes based on the global filters. Some tiles will allow you to select a different time span for just one tile. To do so, follow these steps:
 
-1. Select **Customize tile data** from the context menu or from the ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) in the upper left corner of the tile.
+1. Select **Configure tile settings** from the context menu or from the ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) in the upper left corner of the tile.
 
     :::image type="content" source="media/azure-portal-dashboards/dashboard-customize-tile-data.png" alt-text="Screenshot of tile context menu.":::
 

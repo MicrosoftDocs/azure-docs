@@ -6,14 +6,14 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 01/17/2023
 ms.author: mbaldwin
 ---
 # Azure Key Vault developer's guide
 
 Azure Key Vault allows you to securely access sensitive information from within your applications:
 
-- Keys, secrets, and certificates are protected without your having to write the code yourself, and you can easily use them from your applications.
+- Keys, secrets, and certificates are protected without you're having to write the code yourself, and you can easily use them from your applications.
 - You allow customers to own and manage their own keys, secrets, and certificates so you can concentrate on providing the core software features. In this way, your applications won't own the responsibility or potential liability for your customers' tenant keys, secrets, and certificates.
 - Your application can use keys for signing and encryption yet keep the key management external from your application. For more information, see [About keys](../keys/about-keys.md).
 - You can manage credentials like passwords, access keys, and SAS tokens by storing them in Key Vault as secrets. For more information, see [About secrets](../secrets/about-secrets.md).
@@ -37,7 +37,7 @@ You can use the predefined Key Vault Contributor role to grant management access
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)<br>[Quickstart](./vault-create-template.md)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/com.microsoft.azure.management.keyvault)|[Reference](/javascript/api/@azure/arm-keyvault)|
+|[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)<br>[Quickstart](./vault-create-template.md)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/overview/azure/resourcemanager-keyvault-readme?view=azure-java-stable&preserve-view=true)|[Reference](/javascript/api/@azure/arm-keyvault)|
 
 For installation packages and source code, see [Client libraries](client-libraries.md).
 
@@ -168,6 +168,6 @@ To learn about:
 
 ## Social
 
-- [Key Vault blog](/archive/blogs/kv/)
 - [Microsoft Q&A](/answers/products/)
-- [Stack Overflow for Key Vault](https://stackoverflow.com/questions/tagged/azure-keyvault)
+- [Stack Overflow for questions about Key Vault](https://stackoverflow.com/questions/tagged/azure-keyvault)
+- [Azure Feedback for features requests](https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0)

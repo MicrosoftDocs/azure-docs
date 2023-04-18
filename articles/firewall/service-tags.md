@@ -5,24 +5,27 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/5/2021
+ms.date: 01/28/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Firewall service tags
 
-A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation. You cannot create your own service tag, nor specify which IP addresses are included within a tag. Microsoft manages the address prefixes encompassed by the service tag, and automatically updates the service tag as addresses change.
+A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation. You can’t create your own service tag, nor specify which IP addresses are included within a tag. Microsoft manages the address prefixes encompassed by the service tag, and automatically updates the service tag as addresses change.
 
 Azure Firewall service tags can be used in the network rules destination field. You can use them in place of specific IP addresses.
 
 ## Supported service tags
 
-See [Virtual network service tags](../virtual-network/service-tags-overview.md#available-service-tags) for a list of service tags that are available for use in Azure firewall network rules.
+Azure Firewall supports the following Service Tags to use in Azure Firewall Network rules:
+
+- Tags for various Microsoft and Azure services listed in [Virtual network service tags](../virtual-network/service-tags-overview.md#available-service-tags).
+- Tags for the required IP addresses of Office365 services, split by Office365 product and category. You must define the TCP/UDP ports specified in the [Office 365 documentation](/microsoft-365/enterprise/urls-and-ip-address-ranges) inside your rules. 
 
 ## Configuration
 
-Azure Firewall supports configuration of Service Tags via PowerShell, Azure CLI, or the Azure portal.
+Azure Firewall supports configuration of service tags via PowerShell, Azure CLI, or the Azure portal.
 
 ### Configure via Azure PowerShell
 
@@ -34,14 +37,14 @@ $ResourceGroup = "AzureFirewall-RG"
 $azfirewall = Get-AzFirewall -Name $FirewallName -ResourceGroupName $ResourceGroup
 ```
 
-Next, we must create a new Rule.  For the Source or Destination, you can specify the text value of the Service Tag you wish to leverage, as mentioned earlier above in this article.
+Next, we must create a new rule.  For the Destination, you can specify the text value of the service tag you wish to leverage, as mentioned previously.
 
 ````Create new Network Rules using Service Tags
 $rule = New-AzFirewallNetworkRule -Name "AllowSQL" -Description "Allow access to Azure Database as a Service (SQL, MySQL, PostgreSQL, Datawarehouse)" -SourceAddress "10.0.0.0/16" -DestinationAddress Sql -DestinationPort 1433 -Protocol TCP
 $ruleCollection = New-AzFirewallNetworkRuleCollection -Name "Data Collection" -Priority 1000 -Rule $rule -ActionType Allow
 ````
 
-Next, we must update the variable containing our Azure Firewall definition with the new Network Rules we created.
+Next, we must update the variable containing our Azure Firewall definition with the new network rules we created.
 
 ````Merge the new rules into our existing Azure Firewall variable
 $azFirewall.NetworkRuleCollections.add($ruleCollection)

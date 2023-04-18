@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/04/2021
+ms.date: 09/26/2022
 ---
 
 # Transform data using mapping data flows
@@ -71,7 +71,7 @@ In this step, you'll create a pipeline that contains a Data Flow activity.
 
 1. On the home page of Azure Data Factory, select **Orchestrate**.
 
-   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
+   :::image type="content" source="./media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the ADF home page.":::
 
 1. In the **General** tab for the pipeline, enter **TransformMovies** for **Name** of the pipeline.
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.
@@ -86,7 +86,11 @@ In this step, you'll create a pipeline that contains a Data Flow activity.
 
 ## Build transformation logic in the data flow canvas
 
-Once you create your Data Flow, you'll be automatically sent to the data flow canvas. In this step, you'll build a data flow that takes the moviesDB.csv in ADLS storage and aggregates the average rating of comedies from 1910 to 2000. You'll then write this file back to the ADLS storage.
+Once you create your Data Flow, you'll be automatically sent to the data flow canvas. In case you are not redirected to data flow canvas, in the panel below the canvas, go to **Settings** and select **Open**, located beside data flow field. This will open the dataflow canvas.
+
+:::image type="content" source="media/tutorial-data-flow/open-data-flow-from-pipeline.png" alt-text="Screenshot showing how to open the data flow editor from the pipeline editor.":::
+
+In this step, you'll build a data flow that takes the moviesDB.csv in ADLS storage and aggregates the average rating of comedies from 1910 to 2000. You'll then write this file back to the ADLS storage.
 
 1. In the data flow canvas, add a source by clicking on the **Add Source** box.
 
@@ -204,4 +208,4 @@ The pipeline in this tutorial runs a data flow that aggregates the average ratin
 > * Test run the pipeline.
 > * Monitor a Data Flow activity
 
-Learn more about the [data flow expression language](data-flow-expression-functions.md).
+Learn more about the [data flow expression language](data-transformation-functions.md).

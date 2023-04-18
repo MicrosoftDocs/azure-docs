@@ -3,7 +3,8 @@ title: Use an Azure free account to try Azure Database for MySQL - Flexible Serv
 description: Guidance on how to deploy an Azure Database for MySQL - Flexible Server for free using an Azure Free Account.
 author: shreyaaithal 
 ms.author: shaithal 
-ms.service: mysql 
+ms.service: mysql
+ms.subservice: flexible-server 
 ms.topic: how-to 
 ms.date: 08/16/2021
 ms.custom: template-how-to 
@@ -28,7 +29,7 @@ To complete this tutorial, you need:
 
 ## Create an Azure Database for MySQL - Flexible Server
 
-In this article, you'll use the Azure portal to create a Flexible Server with public access connectivity method. Alternatively, refer the respective quickstarts to create a Flexible Server using [Azure CLI](./quickstart-create-server-cli.md) or [ARM template](./quickstart-create-arm-template.md), or [within a VNET](./quickstart-create-connect-server-vnet.md).
+In this article, you'll use the Azure portal to create a Flexible Server with public access connectivity method. Alternatively, refer to the respective quickstarts to create a Flexible Server using [Azure CLI](./quickstart-create-server-cli.md), [ARM template](./quickstart-create-arm-template.md), [Terraform](./quickstart-create-terraform.md), or [within a VNET](./quickstart-create-connect-server-vnet.md).
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure free account. 

@@ -14,6 +14,8 @@ ms.custom: seodec18
 
 # Create an Azure Time Series Insights Gen2 environment using the Azure portal
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article describes how to create an Azure Time Series Insights Gen2 environment by using the [Azure portal](https://portal.azure.com/).
 
 The environment provisioning tutorial will walk you through the process. You'll learn about selecting the correct Time Series ID and view examples from two JSON payloads.</br>

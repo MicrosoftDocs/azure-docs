@@ -1,5 +1,5 @@
 ---
-title: Optimize the performance of AzCopy v10 with Azure Storage | Microsoft Docs
+title: Optimize the performance of AzCopy v10 with Azure Storage
 description: This article helps you to optimize the performance of AzCopy v10 with Azure Storage.
 author: normesta
 ms.service: storage
@@ -32,7 +32,7 @@ Use the following command to run a performance benchmark test.
 **Example**
 
 ```azcopy
-azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'
+azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D'
 ```
 
 > [!TIP]
@@ -64,7 +64,7 @@ If you're copying blobs between storage accounts, consider setting the value of 
 
 #### Decrease the number of logs generated
 
-You can improve performance by reducing the number of log entries that AzCopy creates as it completes an operation. By default, AzCopy logs all activity related to an operation. To achieve optimal performance, consider setting the `log-level` parameter of your copy, sync, or remove command to `ERROR`. That way, AzCopy logs only errors. By default, the value log level is set to `INFO`.
+You can improve performance by reducing the number of log entries that AzCopy creates as it completes an operation. By default, AzCopy logs all activity related to an operation. To achieve optimal performance, consider setting the `--log-level` parameter of your copy, sync, or remove command to `ERROR`. That way, AzCopy logs only errors. By default, the value log level is set to `INFO`.
 
 #### Turn off length checking
 
@@ -72,7 +72,7 @@ If you're uploading or downloading files, consider setting the `--check-length` 
 
 #### Turn on concurrent local scanning (Linux)
 
-File scans on some Linux systems don't execute fast enough to saturate all of the parallel network connections. In these cases, you can set the `AZCOPY_CONCURRENT_SCAN` to `true`.
+File scans on some Linux systems don't execute fast enough to saturate all of the parallel network connections. In these cases, you can set the `AZCOPY_CONCURRENT_SCAN` to a higher number.
 
 ## Increase the number of concurrent requests
 

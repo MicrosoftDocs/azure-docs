@@ -6,7 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/09/2021
+ms.date: 01/04/2023
+ms.custom: mode-other, engagement-fy23, devx-track-azurecli
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Hub
@@ -16,7 +17,7 @@ ms.date: 06/09/2021
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
-In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT. 
+In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (from now on, MXCHIP DevKit) to Azure IoT. 
 
 You'll also use IoT Explorer and IoT Plug and Play to manage the MXCHIP DevKit. IoT Plug and Play provides an open device model that lets applications programmatically query a device's capabilities and interact with it. A device uses this model to broadcast its capabilities to an IoT Plug and Play-enabled application. By using this model, you can streamline and enhance the tasks of adding, configuring, and managing devices. For more information, see the [IoT Plug and Play documentation](../iot-develop/index.yml).
 
@@ -29,9 +30,9 @@ You'll complete the following tasks:
 
 ## Prerequisites
 
-* A PC running Windows 10
-* If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* A PC running Windows 10 or Windows 11
 * [Git](https://git-scm.com/downloads) for cloning the repository
+* If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     * Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
     * Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
@@ -93,7 +94,7 @@ To create an IoT hub:
     - If you prefer to use Cloud Shell, right-click the link for [Cloud Shell](https://shell.azure.com/bash) and select the option to open in a new tab.
     - If you're using Azure CLI locally, start your CLI console app and sign in to Azure CLI.
 
-1. Run [az extension add](/cli/azure/extension?view=azure-cli-latest#az_extension_add&preserve-view=true) to install or upgrade the *azure-iot* extension to the current version.
+1. Run [az extension add](/cli/azure/extension#az-extension-add) to install or upgrade the *azure-iot* extension to the current version.
 
     ```azurecli-interactive
     az extension add --upgrade --name azure-iot
@@ -110,7 +111,7 @@ To create an IoT hub:
 
 1. Run the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create an IoT hub. It might take a few minutes to create an IoT hub.
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. This placeholder is used in the rest of this quickstart to represent your unique IoT hub name.
+    *YourIotHubName*. Replace this placeholder in the code with the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. This placeholder is used in the rest of this quickstart to represent your unique IoT hub name.
 
     The `--sku F1` parameter creates the IoT hub in the Free tier. Free tier hubs have a limited feature set and are used for proof of concept applications. For more information on IoT Hub tiers, features, and pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
 
@@ -124,11 +125,11 @@ To create an IoT hub:
 
 ### Configure IoT Explorer
 
-In the rest of this quickstart, you'll use IoT Explorer to register a device to your IoT hub, to view the device properties and telemetry, and to send commands to your device. In this section, you configure IoT Explorer to connect to the IoT hub you just created and to read plug and play models from the public model repository. 
+In the rest of this quickstart, you'll use IoT Explorer to register a device to your IoT hub, to view the device properties and telemetry, and to send commands to your device. In this section, you configure IoT Explorer to connect to your IoT hub and to read plug and play models from the public model repository. 
 
 To add a connection to your IoT hub:
 
-1. In your CLI app, run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az_iot_hub_connection_string_show) command to get the connection string for your IoT hub.
+1. In your CLI app, run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get the connection string for your IoT hub.
 
     ```azurecli
     az iot hub connection-string  show --hub-name {YourIoTHubName}
@@ -155,7 +156,7 @@ To add the public model repository:
 
 ### Register a device
 
-In this section, you create a new device instance and register it with the IoT hub you created. You will use the connection information for the newly registered device to securely connect your physical device in a later section.
+In this section, you create a new device instance and register it with the IoT hub you created. You'll use the connection information for the newly registered device to securely connect your physical device in a later section.
 
 To register a device:
 
@@ -202,9 +203,9 @@ To connect the MXCHIP DevKit to Azure, you'll modify a configuration file for Wi
 
     |Constant name|Value|
     |-------------|-----|
-    |`IOT_HUB_HOSTNAME` |{*Your Iot hub hostName value*}|
-    |`IOT_DPS_REGISTRATION_ID` |{*Your Device ID value*}|
-    |`IOT_DEVICE_SAS_KEY` |{*Your Primary key value*}|
+    | `IOT_HUB_HOSTNAME` | {*Your host name value*} |
+    | `IOT_HUB_DEVICE_ID` | {*Your Device ID value*} |
+    | `IOT_DEVICE_SAS_KEY` | {*Your Primary key value*} |
 
 1. Save and close the file.
 
@@ -253,41 +254,55 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
     ```output
     Starting Azure thread
-
+    
+    
     Initializing WiFi
-	    MAC address: C8:93:46:8A:4C:43
-	    Connecting to SSID 'iot'
-    SUCCESS: WiFi connected to iot
-
+    	MAC address: ******************
+    SUCCESS: WiFi initialized
+    
+    Connecting WiFi
+    	Connecting to SSID 'iot'
+    	Attempt 1...
+    SUCCESS: WiFi connected
+    
     Initializing DHCP
-	    IP address: 192.168.0.18
-	    Mask: 255.255.255.0
-	    Gateway: 192.168.0.1
+    	IP address: 192.168.0.49
+    	Mask: 255.255.255.0
+    	Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
-
+    
     Initializing DNS client
-	    DNS address: 75.75.75.75
+    	DNS address: 192.168.0.1
     SUCCESS: DNS client initialized
-
-    Initializing SNTP client
-	    SNTP server 0.pool.ntp.org
-	    SNTP IP address: 157.245.166.169
-	    SNTP time update: Jun 8, 2021 18:16:50.807 UTC
+    
+    Initializing SNTP time sync
+    	SNTP server 0.pool.ntp.org
+    	SNTP time update: Jan 4, 2023 22:57:32.658 UTC 
     SUCCESS: SNTP initialized
-
+    
     Initializing Azure IoT Hub client
-	    Hub hostname: ***.azure-devices.net
-	    Device id: mydevice
-	    Model id: dtmi:azurertos:devkit:gsgmxchip;1
-    Connected to IoT Hub
-    SUCCESS: Azure IoT Hub client initialized
+    	Hub hostname: ***.azure-devices.net
+    	Device id: mydevice
+    	Model id: dtmi:azurertos:devkit:gsgmxchip;2
+    SUCCESS: Connected to IoT Hub
+    
+    Receive properties: {"desired":{"$version":1},"reported":{"deviceInformation":{"__t":"c","manufacturer":"MXCHIP","model":"AZ3166","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":1024,"totalMemory":128},"ledState":false,"telemetryInterval":{"ac":200,"av":1,"value":10},"$version":4}}
+    Sending property: $iothub/twin/PATCH/properties/reported/?$rid=3{"deviceInformation":{"__t":"c","manufacturer":"MXCHIP","model":"AZ3166","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":1024,"totalMemory":128}}
+    Sending property: $iothub/twin/PATCH/properties/reported/?$rid=5{"ledState":false}
+    Sending property: $iothub/twin/PATCH/properties/reported/?$rid=7{"telemetryInterval":{"ac":200,"av":1,"value":10}}
+    
+    Starting Main loop
+    Telemetry message sent: {"humidity":31.01,"temperature":25.62,"pressure":927.3}.
+    Telemetry message sent: {"magnetometerX":177,"magnetometerY":-36,"magnetometerZ":-346.5}.
+    Telemetry message sent: {"accelerometerX":-22.5,"accelerometerY":0.54,"accelerometerZ":1049.01}.
+    Telemetry message sent: {"gyroscopeX":0,"gyroscopeY":0,"gyroscopeZ":0}.
     ```
 
 Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In this section and the following sections, you'll use the Plug and Play capabilities surfaced in IoT Explorer to manage and interact with the MXCHIP DevKit. These capabilities rely on the device model published for the MXCHIP DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting the same action from the left side menu of your device pane in IoT Explorer; however, using plug and play often provides an enhanced experience. This is because IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
+You can use Azure IoT Explorer to view and manage the properties of your devices. In this section and the following sections, you'll use the Plug and Play capabilities that surfaced in IoT Explorer to manage and interact with the MXCHIP DevKit. These capabilities rely on the device model published for the MXCHIP DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. You can perform many actions without using plug and play by selecting the action from the left side menu of your device pane in IoT Explorer. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -305,14 +320,12 @@ To access IoT Plug and Play components for the device in IoT Explorer:
     | Tab | Type | Name | Description |
     |---|---|---|---|
     | **Interface** | Interface | `MXCHIP Getting Started Guide` | Example model for the MXCHIP DevKit |
-    | **Properties (read-only)** | Property | -- | The model currently doesn't have any read-only properties |
+    | **Properties (read-only)** | Property | `ledState` | The current state of the LED |
     | **Properties (writable)** | Property | `telemetryInterval` | The interval that the device sends telemetry |
     | **Commands** | Command | `setLedState` | Turn the LED on or off |
-    | **Telemetry** | Telemetry | `temperature` | The temperature in Celsius |
 
 To view device properties using Azure IoT Explorer:
 
-1. Select the **Properties (read-only)** tab. Currently, there aren't any read-only properties exposed by the device model.
 1. Select the **Properties (writable)** tab. It displays the interval that telemetry is sent.
 1. Change the `telemetryInterval` to *5*, and then select **Update desired value**. Your device now uses this interval to send telemetry.
 
@@ -323,17 +336,17 @@ To view device properties using Azure IoT Explorer:
  
 To use Azure CLI to view device properties:
 
-1. Run the [az iot hub device-identity show](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show) command.
+1. Run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
 
     ```azurecli
-    az iot hub device-identity show --device-id mydevice --hub-name {YourIoTHubName}
+    az iot hub device-twin show --device-id mydevice --hub-name {YourIoTHubName}
     ```
 
 1. Inspect the properties for your device in the console output.
 
 ## View telemetry
 
-With Azure IoT Explorer, you can view the flow of telemetry from your device to the cloud. Optionally, you can perform the same task using Azure CLI.
+With Azure IoT Explorer, you can view the flow of telemetry from your device to the cloud. Optionally, you can do the same task using Azure CLI.
 
 To view telemetry in Azure IoT Explorer:
 
@@ -354,7 +367,7 @@ To view telemetry in Azure IoT Explorer:
 
 To use Azure CLI to view device telemetry:
 
-1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command. Use the names that you created previously in Azure IoT for your device and IoT hub.
+1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az-iot-hub-monitor-events) command. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
     ```azurecli
     az iot hub monitor-events --device-id mydevice --hub-name {YourIoTHubName}
@@ -379,7 +392,7 @@ To use Azure CLI to view device telemetry:
 
 ## Call a direct method on the device
 
-You can also use Azure IoT Explorer to call a direct method that you've implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that turns an LED on or off. Optionally, you can perform the same task using Azure CLI.
+You can also use Azure IoT Explorer to call a direct method that you've implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that turns an LED on or off. Optionally, you can do the same task using Azure CLI.
 
 To call a method in Azure IoT Explorer:
 
@@ -394,7 +407,7 @@ To call a method in Azure IoT Explorer:
 
 To use Azure CLI to call a method:
 
-1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az_iot_hub_invoke_device_method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` turns on the LED, and setting it to `false` turns it off.
+1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` turns on the LED, and setting it to `false` turns it off.
 
     ```azurecli
     az iot hub invoke-device-method --device-id mydevice --method-name setLedState --method-payload true --hub-name {YourIoTHubName}
@@ -435,7 +448,7 @@ If you no longer need the Azure resources created in this quickstart, you can us
 
 To delete a resource group by name:
 
-1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This removes the resource group, the IoT Hub, and the device registration you created.
+1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This command removes the resource group, the IoT Hub, and the device registration you created.
 
     ```azurecli-interactive
     az group delete --name MyResourceGroup
@@ -451,14 +464,13 @@ To delete a resource group by name:
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the Azure CLI and/or IoT Explorer to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs to connect general devices, and embedded devices, to Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Connect an MXCHIP AZ3166 devkit to IoT Central](quickstart-devkit-mxchip-az3166.md)
+> [Connect a general simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+
 > [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
-> [!div class="nextstepaction"]
-> [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Learn more about connecting embedded devices using C SDK and Embedded C SDK](concepts-using-c-sdk-and-embedded-c-sdk.md)
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.

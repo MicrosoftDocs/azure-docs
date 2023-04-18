@@ -1,22 +1,22 @@
 ---
 title: Move data to an Azure HPC Cache cloud container 
 description: How to populate Azure Blob storage for use with Azure HPC Cache
-author: femila
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/30/2021
-ms.author: femila
+ms.date: 05/02/2022
+ms.author: rohogue
 ---
 
 # Move data to Azure Blob storage
 
-If your workflow includes moving data to Azure Blob storage, make sure you are using an efficient strategy. You can either pre-load data in a new blob container before defining it as a storage target, or add the container and then copy your data using Azure HPC Cache.
+If your workflow includes moving data to Azure Blob storage, make sure you are using an efficient strategy. You should create the cache, add the blob container as a storage target, and then copy your data using Azure HPC Cache.
 
 This article explains the best ways to move data to blob storage for use with Azure HPC Cache.
 
 > [!TIP]
 >
-> This article does not apply to NFS-mounted blob storage (ADLS-NFS storage targets). You can use any NFS-based method to populate an ADLS-NFS blob container before adding it to the HPC Cache. Read [Pre-load data with NFS protocol](nfs-blob-considerations.md#pre-load-data-with-nfs-protocol) to learn more.
+> This article does not apply to NFS-mounted blob storage (ADLS-NFS storage targets). You can use any NFS-based method to populate an ADLS-NFS blob container before or after adding it to the HPC Cache. Read [Pre-load data with NFS protocol](nfs-blob-considerations.md#pre-load-data-with-nfs-protocol) to learn more.
 
 Keep these facts in mind:
 
@@ -24,36 +24,11 @@ Keep these facts in mind:
 
 * Copying data through the Azure HPC Cache to a back-end storage target is more efficient when you use multiple clients and parallel operations. A simple copy command from one client will move data slowly.
 
-A Python-based utility is available to load content into a blob storage container. Read [Pre-load data in blob storage](#pre-load-data-in-blob-storage-with-clfsload) to learn more.
-
-If you don't want to use the loading utility, or if you want to add content to an existing storage target, follow the parallel data ingest tips in [Copy data through the Azure HPC Cache](#copy-data-through-the-azure-hpc-cache).
-
-## Pre-load data in blob storage with CLFSLoad
-
-You can use the Avere CLFSLoad utility to copy data to a new blob storage container before you add it as a storage target. This utility runs on a single Linux system and writes data in the proprietary format needed for Azure HPC Cache. CLFSLoad is the most efficient way to populate a blob storage container for use with the cache.
-
-The Avere CLFSLoad utility is available by request from your Azure HPC Cache team. Ask your team contact for it, or open a [support ticket](hpc-cache-support-ticket.md) to request assistance.
-
-This option works with new, empty containers only. Create the container before using Avere CLFSLoad.
-
-Detailed information is included in the Avere CLFSLoad distribution, which is available on request from the Azure HPC Cache team.
-
-A general overview of the process:
-
-1. Prepare a Linux system (VM or physical) with Python version 3.6 or later. Python 3.7 is recommended for better performance.
-1. Install the Avere-CLFSLoad software on the Linux system.
-1. Execute the transfer from the Linux command line.
-
-The Avere CLFSLoad utility needs the following information:
-
-* The storage account ID that contains your blob storage container
-* The name of the empty blob storage container
-* A shared access signature (SAS) token that allows the utility to write to the container
-* A local path to the data source - either a local directory that contains the data to copy, or a local path to a mounted remote system with the data
+The strategies outlined in this article work for populating an empty blob container or for adding files to a previously used storage target.
 
 ## Copy data through the Azure HPC Cache
 
-If you don't want to use the Avere CLFSLoad utility, or if you want to add a large amount of data to an existing blob storage target, you can copy it through the cache. Azure HPC Cache is designed to serve multiple clients simultaneously, so to copy data through the cache, you should use parallel writes from multiple clients.
+Azure HPC Cache is designed to serve multiple clients simultaneously, so to copy data through the cache, you should use parallel writes from multiple clients.
 
 ![Diagram showing multi-client, multi-threaded data movement: At the top left, an icon for on-premises hardware storage has multiple arrows coming from it. The arrows point to four client machines. From each client machine three arrows point toward the Azure HPC Cache. From the Azure HPC Cache, multiple arrows point to blob storage.](media/hpc-cache-parallel-ingest.png)
 
@@ -63,7 +38,7 @@ This section explains strategies for creating a multi-client, multi-threaded fil
 
 It also explains some utilities that can help. The ``msrsync`` utility can be used to partially automate the process of dividing a dataset into buckets and using rsync commands. The ``parallelcp`` script is another utility that reads the source directory and issues copy commands automatically.
 
-### Strategic planning
+## Strategic planning
 
 When building a strategy to copy data in parallel, you should understand the tradeoffs in file size, file count, and directory depth.
 

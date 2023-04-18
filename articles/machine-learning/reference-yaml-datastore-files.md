@@ -4,20 +4,25 @@ titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) Azure Files datastore YAML schema.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: reference
+ms.custom: cliv2, event-tier1-build-2022
 
 author: ynpandey
 ms.author: yogipandey
 ms.date: 10/21/2021
-ms.reviewer: laobri
+ms.reviewer: franksolomon
 ---
 
 # CLI (v2) Azure Files datastore YAML schema
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/azureFile.schema.json.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 

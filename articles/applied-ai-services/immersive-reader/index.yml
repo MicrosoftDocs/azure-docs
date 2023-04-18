@@ -11,9 +11,10 @@ metadata:
   ms.subservice: immersive-reader
   ms.topic: landing-page
   ms.collection: collection
-  author: IEvangelist
-  ms.author: dapine
-  ms.date: 01/23/2020
+  author: rwallerms
+  ms.author: rwaller
+  ms.date: 11/15/2021
+
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -51,31 +52,32 @@ landingContent:
         links:
           - text: Create an Immersive Reader Resource
             url: how-to-create-immersive-reader.md
-          - text: Use multiple Immersive Reader resources
-            url: how-to-multiple-resources.md
           - text: Launch the Immersive Reader
             url: how-to-launch-immersive-reader.md
+          - text: Prepare HTML content
+            url: how-to-prepare-html.md
+          - text: Customize the launch button
+            url: how-to-customize-launch-button.md
           - text: Set the cookie policy
             url: how-to/set-cookie-policy.md
           - text: Display math
             url: how-to/display-math.md
-          - text: Customize Immersive Reader button
-            url: how-to-customize-launch-button.md
-          - text: Cache the authentication token
-            url: how-to-cache-token.md
           - text: Configure Read Aloud
             url: how-to-configure-read-aloud.md
-          - text: Configure translation
-            url: how-to-configure-translation.md
-          - text: Store user preferences
-            url: how-to-store-user-preferences.md
+          - text: Configure Translation
+            url: how-to-configure-translation.md          
+          - text: Use multiple Immersive Reader resources
+            url: how-to-multiple-resources.md
+          - text: Cache the authentication token
+            url: how-to-cache-token.md
       - linkListType: reference
         links:
           - text: JavaScript SDK
             url: reference.md
+          - text: Security Advisory - Update Role Assignment for Azure Active Directory authentication
+            url: security-how-to-update-role-assignment.md            
           - text: Release notes
             url: release-notes.md
-
   - title: Help and feedback
     linkLists:
     - linkListType: reference

@@ -3,11 +3,11 @@ title: include file
 titleSuffix: Azure
 description: include file
 services: internet-peering
-author: derekolo
+author: halkazwini
 ms.service: internet-peering
 ms.topic: include
 ms.date: 3/18/2020
-ms.author: derekol
+ms.author: halkazwini
 ---
 
 1. Select a peering connection you want to enable for Azure Peering Service. Then select **...** > **Edit connection**.

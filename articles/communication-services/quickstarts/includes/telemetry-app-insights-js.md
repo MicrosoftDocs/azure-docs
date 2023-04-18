@@ -18,13 +18,13 @@ ms.author: orwatson
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
-- Create an [Application Insights Resources](../../../azure-monitor/app/create-new-resource.md) in Azure portal.
+- Create an [Application Insights Resources](/previous-versions/azure/azure-monitor/app/create-new-resource) in Azure portal.
 
 ## Setting Up
 
 ### Create a new Node.js app
 
-If you already have an app using an ACS library, and you are comfortable with JavaScript, feel free to skip to [Setup tracer](#setup-tracer).
+If you already have an app using an Azure Communication Services library, and you are comfortable with JavaScript, feel free to skip to [Setup tracer](#setup-tracer).
 
 To get started, you will need a JS app that uses any one of our client libraries. We will use the [@azure/communication-identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/communication/communication-identity) library to create our app. Follow the steps below to set up your sample app:
 

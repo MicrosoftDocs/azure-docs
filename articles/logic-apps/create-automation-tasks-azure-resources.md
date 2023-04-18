@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 08/20/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -15,18 +15,22 @@ ms.custom: ignite-fall-2021
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group by using automation task templates, which vary in availability based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule.
+To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group. These tasks vary in number and availability, based on the resource type. For example:
 
-Here are the currently available task templates in this preview:
+- For an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends the monthly cost for that storage account.
+
+- For an [Azure virtual machine](../virtual-machines/overview.md), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule. Specifically, you can create a task that automatically starts or stops the virtual machine a specific number of times every day, week, or month. On the task's **Configure** tab, set the **Interval** value to the number of times and the **Frequency** value to **Day**, **Week**, or **Month**. The automation task continues to work until you delete or disable the task.
+ 
+  For example, you can create a task that automatically starts a virtual machine once every day. On the task's **Configure** tab, set **Interval** to **1** and **Frequency** to **Day**. 
+
+You can create an automation task from a specific automation task template. The following table lists the currently supported resource types and available task templates in this preview:
 
 | Resource type | Automation task templates |
 |---------------|---------------------------|
-| Azure resource groups | **When resource is deleted** |
 | All Azure resources | **Send monthly cost for resource** |
-| Azure virtual machines | Additionally: <p>- **Power off Virtual Machine** <br>- **Start Virtual Machine** |
-| Azure Storage accounts | Additionally: <p>- **Delete old blobs** |
-| Azure Cosmos DB | Additionally, <p>- **Send query result via email** |
-|||
+| Azure virtual machines | Additionally: <br><br>- **Power off Virtual Machine** <br>- **Start Virtual Machine** <br>- **Deallocate Virtual Machine** |
+| Azure storage accounts | Additionally: <br><br>- **Delete old blobs** |
+| Azure Cosmos DB | Additionally, <br><br>- **Send query result via email** |
 
 This article shows you how to complete the following tasks:
 
@@ -40,9 +44,9 @@ This article shows you how to complete the following tasks:
 
 ## How do automation tasks differ from Azure Automation?
 
-Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md). Currently, you can create an automation task only at the Azure resource level. Behind the scenes, an automation task is actually a logic app resource that runs a workflow and is powered by the [*multi-tenant* Azure Logic Apps service](logic-apps-overview.md). After you create the automation task, you can view and edit the underlying workflow by opening the task in the workflow designer. After a task finishes at least one run, you can review the task's status, workflow run history, inputs, and outputs for each run.
+Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md). Currently, you can create an automation task only at the Azure resource level. Behind the scenes, an automation task is actually a logic app resource that runs a workflow. This logic app workflow is powered by the [*multi-tenant* Azure Logic Apps service](logic-apps-overview.md). After you create the automation task, you can view and edit the underlying workflow by opening the task in the workflow designer. After a task finishes at least one run, you can review the run's status, history, inputs, and outputs.
 
-By comparison, Azure Automation is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) by using [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking/overview.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
+By comparison, Azure Automation is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) that uses [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking/overview.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
 
 <a name="pricing"></a>
 
@@ -54,7 +58,7 @@ Executions are metered and billed, regardless whether the workflow runs successf
 
 Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/), which differ based on whether these operations are ["built-in"](../connectors/built-in.md) or ["managed" (Standard or Enterprise)](../connectors/managed.md). Triggers and actions also make storage transactions, which use the [Consumption plan data rate](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-> [!TIP]
+> [!NOTE]
 > As a monthly bonus, the Consumption plan includes *several thousand* built-in executions free of charge. 
 > For specific information, review the [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/).
 
@@ -64,7 +68,7 @@ Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com
 
 * The Azure resource that you want to manage. This article uses an Azure storage account as the example.
 
-* An Office 365 account if you want to follow along with the example, which sends you email by using Office 365 Outlook.
+* An Office 365 account if you want to follow along with the example, which sends email by using Office 365 Outlook.
 
 <a name="create-automation-task"></a>
 
@@ -162,7 +166,7 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 
    The **Logic app run** pane opens and shows the underlying workflow that ran.
 
-   * A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
+   * A workflow always starts with a [*trigger*](../connectors/introduction.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
 
    * Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
 
@@ -178,7 +182,7 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 
    ![Screenshot that shows an expanded action, inputs, and outputs.](./media/create-automation-tasks-azure-resources/view-action-inputs-outputs.png)
 
-To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Quickstart: Create your first integration workflow by using Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md).
+To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Quickstart: Create an example Consumption logic app workflow - Azure portal](quickstart-create-example-consumption-workflow.md).
 
 <a name="edit-task"></a>
 
@@ -268,7 +272,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
    ![Screenshot that shows the expanded Recurrence trigger with the Frequency list open to show available frequency options.](./media/create-automation-tasks-azure-resources/edit-recurrence-trigger.png)
 
-   For more information about the Recurrence trigger, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger.](../connectors/connectors-native-recurrence.md). For more information about other triggers and actions that you can use, see [Connectors for Azure Logic Apps](../connectors/apis-list.md).
+   For more information about the Recurrence trigger, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger.](../connectors/connectors-native-recurrence.md).
 
 1. To save your changes, on the designer toolbar, select **Save**.
 
@@ -281,6 +285,163 @@ When you change the underlying workflow for an automation task, your changes aff
    ![Screenshot that shows the workflow's run details on the designer.](./media/create-automation-tasks-azure-resources/view-run-details-designer.png)
 
 1. To disable the workflow so that the task doesn't continue running, see [Manage logic apps in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md).
+
+<a name="create-automation-template"></a>
+
+## Create automation task template from workflow
+
+You can create your own automation task template by using any Consumption logic app workflow that starts with a recurring or event-based trigger, but not HTTP-based triggers or HTTP-based webhook triggers. For this task, you'll need the following items:
+
+* A [GitHub](https://github.com) account
+
+* Your forked version of the [Azure automation task templates GitHub repository](https://github.com/Azure/automation-task-template/tree/master/templates).
+
+  For more information about forks and creating a fork, review the following GitHub documentation:
+
+  * [About forks](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)
+  * [Fork a repo](https://docs.github.com/get-started/quickstart/fork-a-repo)
+
+* A working branch in your forked repository where you'll add your automation task template.
+
+  For more information about branches and creating a branch, review the following documentation:
+
+  * [About branches](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
+  * [Create and delete branches](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
+
+* Your choice of a web debugging tool. This example uses Fiddler 4, but you can try the free trial available for [Fiddler Everywhere](https://www.telerik.com/fiddler/fiddler-everywhere).
+
+To create the template and make the template available for use in Azure, here are the high-level steps:
+
+1. [Export the workflow](#export-workflow) to an automation task template.
+1. [Upload your template](#upload-template) to your working branch in your forked repository.
+1. [Test your template](#test-template) by using your web debugging tool or Fiddler.
+1. [Create a pull request (PR) for your working branch](#create-pull-request) against the default branch in the Azure automation task templates GitHub repository.
+
+After the Azure Logic Apps team reviews and approves your PR for merging to the default branch, your template is live and available to all Azure customers.
+
+<a name="export-workflow"></a>
+
+### Export workflow to automation task template
+
+1. In the [Azure portal](https://portal.azure.com), open the logic app workflow that you want to export. Make sure that the workflow starts with a recurring or event-based trigger, not an HTTP-based trigger or HTTP-based webhook trigger.
+
+1. On the logic app resource menu, select **Overview**.
+
+1. On the **Overview** pane toolbar, select **Export** > **Export to Automation Task**.
+
+   ![Screenshot showing the 'Overview' pane toolbar with 'Export' menu open and 'Export to Automation Task' selected.](./media/create-automation-tasks-azure-resources/export-automation-task.png)
+
+1. On the **Export to Automation Task** pane that opens, provide the following information:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Template Name** | Yes | <*template-name*> | The friendly display name for the automation task template. <p><p>**Important**: Make sure that you use a concise and easy-to-understand name, for example, **List stale virtual machines**. |
+   | **Template Description** | Yes | <*template-description*> | A description for the template's task or purpose |
+   | **Supported Resource Types** | No | Empty or <*supported-Azure-resource-type-list*> | The first-class Azure resource types where you want to make the template available. Sub-resource types are currently unsupported. To include all first-class Azure resource types, leave this property empty. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template available for Azure resource groups, specify **Microsoft.Resources/resourceGroups**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
+   | **Unsupported Resource Types** | No | Empty or <*unsupported-Azure-resource-type-list*> | If any, the Azure resource types where you specifically don't want to make the template available. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template unavailable for Azure resource groups, specify **Microsoft.Resources/resourceGroups**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
+   | **Configure Parameters** | No | Varies | If your workflow includes cross-environment [parameter definitions](create-parameters-workflows.md), those parameters appear in this section for you to configure further. You can select whether each parameter value is provided either from the resource or the task creator. <p><p>- If you select **From Resource**, select a **Source Parameter** property value to use from that resource: <p>-- **Resource Name** <br>-- **Resource Type** <br>-- **Resource Id** <br>-- **Subscription Id** <br>-- **Resource Group** <br>-- **Resource Location**. <p><p>- If you select **User Provided**, select a **Template** format that determines how the task creator provides the parameter value: <p>-- **Default**: The parameter value is anything other than an interval, frequency, or time zone. <p>---- Specify the parameter's display name, default value, and description. <p>---- If the value is a timestamp (*hh:mm:ss*), set the **Format** property to **Time Format**. <p>---- To mark the parameter as required, change the **Optional** to **Required**. <p>-- **Interval**: The parameter value is an interval, such as **1** or **12**. <p>-- **Frequency**: The parameter value is a frequency, such as **Hour**, **Day** or **Month**. <p>-- **Timezone**: The parameter value is a timezone, such as **(UTC-08:00) Pacific Time (US & Canada)**. |
+   |||||
+
+   The following example shows the properties for a sample automation task template that works only on an Azure resource group:
+
+   ![Screenshot showing the 'Export to Automation Task' pane with example properties for an automation task template.](./media/create-automation-tasks-azure-resources/export-template-properties.png)
+
+   In this example, the task's underlying workflow includes the following parameter definitions and specifies that these parameter values are provided by the task creator:
+
+   | Parameter | Description |
+   |-----------|-------------|
+   | **emailAddress** | Specifies the email address for where to send the report. This parameter uses the **Default** template, which lets you specify the parameter's information, the expected format, and whether the parameter is optional or not. For this example parameter, the expected format is **None**, and the parameter is **Required**. |
+   | **numberOf** | Specifies the maximum number of time units that a virtual machine can stay idle. This parameter uses the **Default** template. |
+   | **timeUnit** | Specifies the time unit to use for the parameter value. This parameter uses the **Frequency** template, which shows the time units that the task creator can select, for example, **Hour**, **Day**, or **Month**. |
+   |||
+
+1. When you're done, select **Download Template**, and save the template using the **.json** file name extension. For a consistent template name, use only lowercase, hyphens between words, and the following syntax:
+
+   **<*action-verb*>-<*Azure-resource*>**
+
+   For example, based on the earlier example template name, you might name the template file as **list-stale-virtual-machines.json**.
+
+<a name="upload-template"></a>
+
+### Upload template to GitHub
+
+1. Go to [GitHub](https://github.com), and sign in with your GitHub account.
+
+1. Go to the [Azure automation task templates GitHub repository](https://github.com/Azure/automation-task-template/tree/master/templates), which takes you to the default branch in the repository.
+
+1. From the branch list, switch to your working branch.
+
+1. Above the files list, select **Add file** > **Upload files**.
+
+1. Either drag your workflow definition file to the specified area on the page, or select **choose your files**.
+
+1. After you add your template, in the same folder, open the **manifest.json** file, and add an entry for your **<*template-name*>.json** file.
+
+<a name="test-template"></a>
+
+### Test your template
+
+You can use your favorite web debugging tool to test the template you uploaded to your working directory. This example continues by using Fiddler with the script that modifies web requests. If you use a different tool, use the equivalent steps and script for your tool.
+
+1. In the Fiddler script, find the `onBeforeRequest()` function, and add the following code to the function, for example:
+
+   ```javascript
+   static function OnBeforeRequest(oSession: Session)
+   {
+      if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/manifest.json") {
+         oSession.url = "raw.githubusercontent.com/<GitHub-username>/automation-task-template/<working-branch>/templates/manifest.json";
+      }
+
+      if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/<template-name>") {
+         oSession.url = "raw.githubusercontent.com/<GitHub-username>/automation-task-template/<working-branch>/templates/<template-name>";
+      }
+
+      {...}
+   }
+   ```
+
+   This code gets the **manifest.json** and **<*template-name*>.json** files from your forked repository, rather than from the main Azure GitHub repository.
+
+   So, based on the example, the file redirection code looks like the following version:
+
+   ```javascript
+   static function OnBeforeRequest(oSession: Session)
+   {
+      if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/manifest.json") {
+         oSession.url = "raw.githubusercontent.com/sophowe/automation-task-template/upload-auto-template/templates/manifest.json";
+      }
+
+      if (oSession.url == "raw.githubusercontent.com/azure/automation-task-template/master/templates/list-stale-virtual-machines.json") {
+         oSession.url = "raw.githubusercontent.com/sophowe/automation-task-template/upload-auto-template/templates/list-stale-virtual-machines.json";
+      }
+
+      {...}
+   }
+   ```
+
+1. Before you run your test, make sure to close all browser windows, and clear your browser cache in Fiddler.
+
+1. Open a new browser window, and sign in to the [Azure portal](https://portal.azure.com).
+
+1. Open the Azure resource where you expect to find your automation task. Create an automation task with your exported template. Run the task.
+
+If your task runs successfully, continue by creating a pull request from your working branch to the default branch.
+
+<a name="create-pull-request"></a>
+
+### Create your pull request
+
+1. Under **Commit changes**, enter a concise but descriptive title for your update. You can provide more information in the description box.
+
+1. Select **Create a new branch for this commit and start a pull request**. At the prompt, provide a name for your working branch, for example:
+
+   `<your-GitHub-alias>-<automation-task-name>-template`
+
+1. When you're ready, select **Propose changes**. On the next page, select **Create pull request**.
+
+1. Provide a name and description for your pull request. In the lower-right corner, select **Create pull request**.
+
+1. Wait for the Azure Logic Apps team to review your pull request.
 
 ## Provide feedback
 

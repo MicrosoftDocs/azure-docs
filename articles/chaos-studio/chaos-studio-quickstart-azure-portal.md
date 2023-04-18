@@ -2,9 +2,9 @@
 title: Create and run a chaos experiment using Azure Chaos Studio
 description: Understand the steps to create and run a Chaos Studio experiment in 10mins
 services: chaos-studio
-author: prashabora
-ms.topic: article
-ms.date: 10/21/2021
+author: prasha-microsoft
+ms.topic: quickstart
+ms.date: 11/10/2021
 ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
@@ -13,8 +13,23 @@ ms.custom: ignite-fall-2021
 Get started with Chaos Studio by using VM shutdown service-direct experiment to make your service more resilient to that failure in real-world. 
 
 ## Prerequisites
-- Open the [Azure portal](https://portal.azure.com).
-- A virtual machine. If you do not have a virtual machine, you can [follow these steps to create one](../virtual-machines/linux/quick-create-portal.md).
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+- A Linux virtual machine. If you do not have a virtual machine, you can [follow these steps to create one](../virtual-machines/linux/quick-create-portal.md).
+
+## Register the Chaos Studio resource provider
+If this is your first time using Chaos Studio, you must first register the Chaos Studio resource provider before onboarding resources and creating an experiment. This must be done for each subscription where you will be using Chaos Studio.
+
+1. Open the [Azure portal](https://portal.azure.com).
+2. Search for **Subscriptions** and open the subscription management page.
+3. Click on the subscription where you will be using Chaos Studio.
+4. In the left-hand navigation, click on **Resource providers**.
+5. In the list of resource providers that appears, search for **Microsoft.Chaos**.
+6. Click on the Microsoft.Chaos provider, and click the **Register** button.
+
+## Create an Azure resource supported by Chaos Studio
+
+Create an azure resource and ensure this is one of the supported [fault providers](chaos-studio-fault-providers.md). Also validate if this resource is being created in the [region](https://azure.microsoft.com/global-infrastructure/services/?products=chaos-studio) where Chaos Studio is available. In this experiment we choose an Azure Virtual Machine which is one of the supported fault providers for Chaos Studio.
+
 
 ## Enable Chaos Studio on the Virtual Machine you created
 1. Open the [Azure portal](https://portal.azure.com).
@@ -85,7 +100,7 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 ## Run the chaos experiment
 
 1. Open the Azure portal:
-    * If using an @microsoft.com account, [click this link](https://ms.portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
+    * If using an @microsoft.com account, [click this link](https://portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
     * If using an external account, [click this link](https://portal.azure.com/?feature.customPortal=false&microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}).
 2. Check the box next to the experiments name and click **Start Experiment**.
     ![Start experiment](images/quickstart-experiment-start.png)
@@ -115,4 +130,4 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 ## Next steps
 Now that you have run a VM shutdown service-direct experiment, you are ready to:
-- [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based.md)
+- [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based-portal.md)

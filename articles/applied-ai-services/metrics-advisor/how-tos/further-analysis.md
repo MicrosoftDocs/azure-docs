@@ -1,13 +1,12 @@
 ---
 title: Further analyze an incident and evaluate impact
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn how to leverage analysis tools to further analyze an incident. 
-services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: mbullwin
 ---
@@ -37,9 +36,8 @@ There are two types of drill down options: **Drill down** and **Horizontal compa
 ### Value comparison for different dimension values
 
 The second section of the drill down tab is a table with comparisons for different dimension values. It includes the value, baseline value, difference value, delta value and whether it is an anomaly.
- 
-:::image type="content" source="../media/diagnostics/drill-down-comparison.png" alt-text="Drill down comparison" lightbox="../media/diagnostics/drill-down-comparison.png":::
 
+:::image type="content" source="../media/diagnostics/drill-down-comparison.png" alt-text="Drill down comparison" lightbox="../media/diagnostics/drill-down-comparison.png":::
 
 ### Value and expected value comparisons for different dimension value
 

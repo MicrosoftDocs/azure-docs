@@ -3,11 +3,11 @@ title: 'Attribute mapping in Azure AD Connect cloud sync'
 description: This article describes how to use the cloud sync feature of Azure AD Connect to map attributes.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 01/20/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -15,7 +15,9 @@ ms.collection: M365-identity-device-management
 
 # Attribute mapping in Azure AD Connect cloud sync
 
-You can use the cloud sync feature of Azure Active Directory (Azure AD) Connect to map attributes between your on-premises user or group objects and the objects in Azure AD. This capability has been added to the cloud sync configuration.
+You can use the cloud sync attribute mapping feature to map attributes between your on-premises user or group objects and the objects in Azure AD. 
+
+ :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-1.png" alt-text="Screenshot of new UX screen attribute mapping." lightbox="media/how-to-attribute-mapping/new-ux-mapping-1.png":::
 
 You can customize (change, delete, or create) the default attribute mappings according to your business needs. For a list of attributes that are synchronized, see [Attributes synchronized to Azure Active Directory](../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context/hybrid/reference-connect-sync-attributes-synchronized.md).
 
@@ -54,7 +56,10 @@ For more information on how to map UserType, see [Map UserType with cloud sync](
 
 ## Understand properties of attribute mappings
 
-Along with the type property, attribute mappings support certain attributes.  These attributes will depend on the type of mapping you have selected.  The following sections describe the supported attribute mappings for each of the individual types
+Along with the type property, attribute mappings support certain attributes.  These attributes will depend on the type of mapping you have selected.  The following sections describe the supported attribute mappings for each of the individual types.  The following type of attribute mapping is available.
+- Direct
+- Constant
+- Expression
 
 ### Direct mapping attributes
 The following are the attributes supported by a direct mapping:
@@ -66,7 +71,7 @@ The following are the attributes supported by a direct mapping:
   - **Always**: Apply this mapping on both user-creation and update actions.
   - **Only during creation**: Apply this mapping only on user-creation actions.
 
- ![Screenshot for direct](media/how-to-attribute-mapping/mapping-7.png)
+:::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-2.png" alt-text="Screenshot of editing attribute mapping." lightbox="media/how-to-attribute-mapping/new-ux-mapping-2.png":::
 
 ### Constant mapping attributes
 The following are the attributes supported by a constant mapping:
@@ -76,8 +81,6 @@ The following are the attributes supported by a constant mapping:
 - **Apply this mapping**:
   - **Always**: Apply this mapping on both user-creation and update actions.
   - **Only during creation**: Apply this mapping only on user-creation actions.
-
- ![Screenshot for constant](media/how-to-attribute-mapping/mapping-9.png)
 
 ### Expression mapping attributes
 The following are the attributes supported by an expression mapping:
@@ -90,61 +93,59 @@ The following are the attributes supported by an expression mapping:
   - **Always**: Apply this mapping on both user-creation and update actions.
   - **Only during creation**: Apply this mapping only on user-creation actions.
 
- ![Screenshot for expression](media/how-to-attribute-mapping/mapping-10.png)
-
 ## Add an attribute mapping
 
-To use the new capability, follow these steps:
+To use attribute mapping, follow these steps:
 
-1.  In the Azure portal, select **Azure Active Directory**.
-2.  Select **Azure AD Connect**.
-3.  Select **Manage cloud sync**.
+ 1.  In the Azure portal, select **Azure Active Directory**.
+ 2.  On the left, select **Azure AD Connect**.
+ 3.  On the left, select **Cloud sync**.
+ 
+ :::image type="content" source="media/how-to-on-demand-provision/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/how-to-on-demand-provision/new-ux-1.png":::
 
-    ![Screenshot that shows the link for managing cloud sync.](media/how-to-install/install-6.png)
+ 4. Under **Configuration**, select your configuration.
+ 5. On the left, select **Attribute mapping**.
+ 6. At the top, ensure that you have the correct object type selected.  That is, user, group, or contact.
+ 7. Click **Add attribute mapping**.
 
-4. Under **Configuration**, select your configuration.
-5. Select **Click to edit mappings**.  This link opens the **Attribute mappings** screen.
+ :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-3.png" alt-text="Screenshot of adding an attribute mapping." lightbox="media/how-to-attribute-mapping/new-ux-mapping-3.png":::
 
-    ![Screenshot that shows the link for adding attributes.](media/how-to-attribute-mapping/mapping-6.png)
-
-6.  Select **Add attribute**.
-
-    ![Screenshot that shows the button for adding an attribute, along with lists of attributes and mapping types.](media/how-to-attribute-mapping/mapping-1.png)
-
-7. Select the mapping type. This can be one of the following:
+ 8. Select the mapping type. This can be one of the following:
      - **Direct**: The target attribute is populated with the value of an attribute of the linked object in Active Directory.
      - **Constant**: The target attribute is populated with a specific string that you specify.
      - **Expression**: The target attribute is populated based on the result of a script-like expression. 
      - **None**: The target attribute is left unmodified. 
- 
-     For more information see See [Understanding attribute types](#understand-types-of-attribute-mapping) above.
-8. Depending on what you have selected in the previous step, different options will be available for filling in.  See the [Understand properties of attribute mappings](#understand-properties-of-attribute-mappings)sections above for information on these attributes.
-9. Select when to apply this mapping, and then select **Apply**.
-11. Back on the **Attribute mappings** screen, you should see your new attribute mapping.  
-12. Select **Save schema**.
+    
+ 9. Depending on what you have selected in the previous step, different options will be available for filling in.  
+ 10. Select when to apply this mapping, and then select **Apply**.
+ :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-4.png" alt-text="Screenshot of saving an attribute mapping." lightbox="media/how-to-attribute-mapping/new-ux-mapping-4.png":::
 
-    ![Screenshot that shows the Save schema button.](media/how-to-attribute-mapping/mapping-3.png)
+ 11. Back on the **Attribute mappings** screen, you should see your new attribute mapping.
+ 12. Select **Save schema**.  You will be notified that once you save the schema, a synchronization will occur.  Click **OK**.
+ :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-5.png" alt-text="Screenshot of saving schema." lightbox="media/how-to-attribute-mapping/new-ux-mapping-5.png":::
+
+ 13. Once the save is successful you will see a notification on the right.
+
+ :::image type="content" source="media/how-to-attribute-mapping/new-ux-mapping-6.png" alt-text="Screenshot of successful schema save." lightbox="media/how-to-attribute-mapping/new-ux-mapping-6.png":::
 
 ## Test your attribute mapping
 
 To test your attribute mapping, you can use [on-demand provisioning](how-to-on-demand-provision.md): 
 
-1. In the Azure portal, select **Azure Active Directory**.
-2. Select **Azure AD Connect**.
-3. Select **Manage provisioning**.
-4. Under **Configuration**, select your configuration.
-5. Under **Validate**, select the **Provision a user** button. 
-6. On the **Provision on demand** screen, enter the distinguished name of a user or group and select the **Provision** button. 
+ 1.  In the Azure portal, select **Azure Active Directory**.
+ 2.  On the left, select **Azure AD Connect**.
+ 3.  On the left, select **Cloud sync**.
+ 4. Under **Configuration**, select your configuration.
+ 5. On the left, select **Provision on demand**.
+ 6. Enter the distinguished name of a user and select the **Provision** button.
+ 
+ :::image type="content" source="media/how-to-on-demand-provision/new-ux-2.png" alt-text="Screenshot of user distinguished name." lightbox="media/how-to-on-demand-provision/new-ux-2.png":::    
 
-   The screen shows that the provisioning is in progress.
+ 7. After provisioning finishes, a success screen appears with four green check marks. Any errors appear to the left.
 
-   ![Screenshot that shows provisioning in progress.](media/how-to-attribute-mapping/mapping-4.png)
+ :::image type="content" source="media/how-to-on-demand-provision/new-ux-3.png" alt-text="Screenshot of on-demand success." lightbox="media/how-to-on-demand-provision/new-ux-3.png":::  
 
-8. After provisioning finishes, a success screen appears with four green check marks. 
 
-   Under **Perform action**, select **View details**. On the right, you should see the new attribute synchronized and the expression applied.
-
-   ![Screenshot that shows success and export details.](media/how-to-attribute-mapping/mapping-5.png)
 
 
 

@@ -16,7 +16,7 @@ Azure Virtual Desktop offers a diagnostics feature that allows the administrator
 
 - Feed subscription activities: when a user tries to connect to their feed through Microsoft Remote Desktop applications.
 - Connection activities: when a user tries to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
-- Management activities: when an administrator performs management operations on the system, such as creating host pools, assigning users to app groups, and creating role assignments.
+- Management activities: when an administrator performs management operations on the system, such as creating host pools, assigning users to application groups, and creating role assignments.
 
 Connections that don't reach Azure Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Azure Virtual Desktop. Azure Virtual Desktop connection issues can happen when the user is experiencing network connectivity issues.
 
@@ -28,7 +28,7 @@ We recommend you use Log Analytics to analyze diagnostics data in the Azure clie
 
 Before you can use Log Analytics with the diagnostics feature, you'll need to [create a workspace](../../azure-monitor/logs/quick-create-workspace.md).
 
-After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key) to get the following information:
+After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../../azure-monitor/agents/agent-windows.md#workspace-id-and-key) to get the following information:
 
 - The workspace ID
 - The primary key of your workspace

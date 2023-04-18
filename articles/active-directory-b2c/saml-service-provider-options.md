@@ -291,18 +291,20 @@ For example, when `TokenNotBeforeSkewInSeconds` is set to `120` seconds:
 You can specify whether milliseconds will be removed from date and time values within the SAML response. (These values include `IssueInstant`, `NotBefore`, `NotOnOrAfter`, and `AuthnInstant`.) To remove the milliseconds, set the `RemoveMillisecondsFromDateTime` metadata key within the relying party. Possible values: `false` (default) or `true`.
 
 ```xml
-<ClaimsProvider>
-  <DisplayName>Token Issuer</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="Saml2AssertionIssuer">
-      <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="SAML2"/>
-      <OutputTokenFormat>SAML2</OutputTokenFormat>
+  <RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="SAML2" />
       <Metadata>
         <Item Key="RemoveMillisecondsFromDateTime">true</Item>
       </Metadata>
-      ...
+      <OutputClaims>
+             ...
+      </OutputClaims>
+      <SubjectNamingInfo ClaimType="objectId" ExcludeAsClaim="true" />
     </TechnicalProfile>
+  </RelyingParty>
 ```
 
 ## Use an issuer ID to override an issuer URI

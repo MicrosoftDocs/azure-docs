@@ -5,6 +5,7 @@ description: Learn how to authenticated client certificates on TLS. Azure App Se
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 12/11/2020
+ms.devlang: csharp
 ms.custom: "devx-track-csharp, seodec18"
 
 ---
@@ -26,11 +27,59 @@ To set up your app to require client certificates:
 
 1. Set **Client certificate mode** to **Require**. Click **Save** at the top of the page.
 
+### [Azure CLI](#tab/azurecli)
 To do the same with Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
 ```
+### [Bicep](#tab/bicep)
+
+For Bicep, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sampe Bicep snippet is provided for you:
+
+```bicep
+resource appService 'Microsoft.Web/sites@2020-06-01' = {
+  name: webSiteName
+  location: location
+  kind: 'app'
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      linuxFxVersion: linuxFxVersion
+    }
+    clientCertEnabled: true
+    clientCertMode: 'Required'
+    clientCertExclusionPaths: '/sample1;/sample2'
+  }
+}
+```
+
+### [ARM](#tab/arm)
+
+For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sampe ARM template snippet is provided for you:
+
+```ARM
+{
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2020-06-01",
+    "name": "[parameters('webAppName')]",
+    "location": "[parameters('location')]",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
+        "siteConfig": {
+            "linuxFxVersion": "[parameters('linuxFxVersion')]"
+        },
+        "clientCertEnabled": true,
+        "clientCertMode": "Required",
+        "clientCertExclusionPaths": "/sample1;/sample2"
+    }
+}
+```
+
+---
 
 ## Exclude paths from requiring authentication
 
@@ -38,7 +87,7 @@ When you enable mutual auth for your application, all paths under the root of yo
 
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
-1. Next to **Client exclusion paths**, click the edit icon.
+1. Next to **Certificate exclusion paths**, click the edit icon.
 
 1. Click **New path**, specify a path, or a list of paths separated by `,` or `;`, and click **OK**.
 
@@ -78,6 +127,9 @@ public class Startup
         {
             options.ForwardedHeaders =
                 ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            // Only loopback proxies are allowed by default. Clear that restriction to enable this explicit configuration.
+            options.KnownNetworks.Clear();
+            options.KnownProxies.Clear();
         });       
         
         // Configure the application to client certificate forwarded the frontend load balancer

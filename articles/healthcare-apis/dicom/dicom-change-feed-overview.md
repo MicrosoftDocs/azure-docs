@@ -1,20 +1,17 @@
 ---
-title:  Overview of DICOM Change Feed - Azure Healthcare APIs
+title:  Overview of DICOM Change Feed - Azure Health Data Services
 description: In this article, you'll learn the concepts of DICOM Change Feed.
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/04/2021
-ms.author: aersoy
+ms.date: 03/01/2022
+ms.author: mmitrik
 ---
 
 # Change Feed Overview
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-The Change Feed provides logs of all the changes that occur in the DICOM service. The Change Feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The Change Feed offers the ability to go through the history of the DICOM service and acts upon the creates and deletes in the service.
+The Change Feed provides logs of all the changes that occur in DICOM service. The Change Feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The Change Feed offers the ability to go through the history of DICOM service and acts upon the creates and deletes in the service.
 
 Client applications can read these logs at any time, either in streaming, or in batch mode. The Change Feed enables you to build efficient and scalable solutions that process change events that occur in your DICOM service.
 
@@ -55,7 +52,7 @@ deleted  | This instance has been deleted and is no longer available in the serv
 ### Read Change Feed
 
 **Route**: /changefeed?offset={int}&limit={int}&includemetadata={**true**|false}
-```
+```json
 [
     {
         "Sequence": 1,
@@ -96,7 +93,7 @@ includemetadata | bool | Whether or not to include the metadata (default: true)
 
 **Route**: /changefeed/latest?includemetadata={**true**|false}
 
-```
+```json
 {
     "Sequence": 2,
     "StudyInstanceUid": "{uid}",
@@ -121,7 +118,7 @@ includemetadata | bool | Whether or not to include the metadata (default: true)
 
 ### Example usage flow
 
-Below is the usage flow for an example application that does other processing on the instances within the DICOM service.
+Below is the usage flow for an example application that does other processing on the instances within DICOM service.
 
 1. Application that wants to monitor the Change Feed starts.
 2. It determines if there's a current state that it should start with:

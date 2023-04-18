@@ -1,5 +1,5 @@
 ---
-title: Azure storage table design patterns | Microsoft Docs
+title: Azure storage table design patterns
 description: Review design patterns that are appropriate for use with Table service solutions in Azure. Address issues and trade-offs that are discussed in other articles.
 services: storage
 author: tamram
@@ -9,7 +9,8 @@ ms.topic: article
 ms.date: 06/24/2021
 ms.author: tamram
 ms.subservice: tables
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 # Table design patterns
 
@@ -17,7 +18,7 @@ This article describes some patterns appropriate for use with Table service solu
 
 ![to look up related data](media/storage-table-design-guide/storage-table-design-IMAGE05.png)
 
-The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to use the [Materialized View Pattern](/previous-versions/msp-n-p/dn589782(v=pandp.10)) from the [Command Query Responsibility Segregation (CQRS)](/previous-versions/msp-n-p/jj554200(v=pandp.10)) pattern.  
+The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to use the [Materialized View Pattern](/previous-versions/msp-n-p/dn589782(v=pandp.10)) from the [Command Query Responsibility Segregation (CQRS)](/previous-versions/msp-n-p/jj554200(v=pandp.10)) pattern.  
 
 ## Intra-partition secondary index pattern
 
@@ -637,19 +638,14 @@ As discussed in the section Design for querying, the most efficient query is a p
 The easiest way to execute a point query is to use the **GetEntityAsync** method as shown in the following C# code snippet that retrieves an entity with a **PartitionKey** of value "Sales" and a **RowKey** of value "212":  
 
 ```csharp
-var retrieveResult = employeeTable.GetEntityAsync<EmployeeEntity>("Sales", "212");
-if (retrieveResult.Result != null)
-{
-    EmployeeEntity employee = (EmployeeEntity)queryResult.Result;
-    ...
-}  
+EmployeeEntity employee = await employeeTable.GetEntityAsync<EmployeeEntity>("Sales", "212");
 ```
 
 Notice how this example expects the entity it retrieves to be of type **EmployeeEntity**.  
 
 ### Retrieving multiple entities using LINQ
 
-You can use LINQ to retrieve multiple entities from the Table service when working with Microsoft Azure Cosmos Table Standard Library.
+You can use LINQ to retrieve multiple entities from the Table service when working with Microsoft Azure Cosmos DB Table Standard Library.
 
 ```azurecli
 dotnet add package Microsoft.Azure.Cosmos.Table
@@ -739,7 +735,7 @@ employees.max = 50;
 
 ### Server-side projection
 
-A single entity can have up to 255 properties and be up to 1 MB in size. When you query the table and retrieve entities, you may not need all the properties and can avoid transferring data unnecessarily (to help reduce latency and cost). You can use server-side projection to transfer just the properties you need. The following example is retrieves just the **Email** property (along with **PartitionKey**, **RowKey**, **Timestamp**, and **ETag**) from the entities selected by the query.  
+A single entity can have up to 255 properties and be up to 1 MB in size. When you query the table and retrieve entities, you may not need all the properties and can avoid transferring data unnecessarily (to help reduce latency and cost). You can use server-side projection to transfer just the properties you need. The following example  retrieves just the **Email** property (along with **PartitionKey**, **RowKey**, **Timestamp**, and **ETag**) from the entities selected by the query.  
 
 ```csharp
 var subsetResults  = query{

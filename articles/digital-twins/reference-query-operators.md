@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language operators
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/22/2021
+ms.date: 02/25/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins query language reference: Operators
 
-This document contains reference information on **operators** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on *operators* for the [Azure Digital Twins query language](concepts-query-language.md).
 
 ## Comparison operators
 

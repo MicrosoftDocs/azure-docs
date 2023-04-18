@@ -4,9 +4,10 @@ description: Learn how to create an Azure container registry by using a Bicep fi
 services: azure-resource-manager
 author: mumian
 ms.author: jgao
-ms.date: 09/27/2021
+ms.date: 10/11/2022
 ms.topic: quickstart
 ms.service: azure-resource-manager
+ms.custom: mode-api, devx-track-bicep
 ---
 
 # Quickstart: Create a container registry by using a Bicep file

@@ -3,14 +3,14 @@ title: Named Entity Recognition (NER) language support
 titleSuffix: Azure Cognitive Services
 description: This article explains which natural languages are supported by the NER feature of Azure Cognitive Service for Language.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
-ms.author: aahi
-ms.custom: language-service-ner, ignite-fall-2021
+ms.date: 06/27/2022
+ms.author: jboback
+ms.custom: language-service-ner, ignite-fall-2021, ignite-2022
 ---
 
 # Named Entity Recognition (NER) language support 
@@ -19,37 +19,92 @@ Use this article to learn which natural languages are supported by the NER featu
 
 > [!NOTE]
 > * Languages are added as new [model versions](how-to-call.md#specify-the-ner-model) are released. 
-> * Only "Person", "Location" and "Organization" entities are returned for languages marked with *.
-> * The current model version for NER is `2021-06-01`.
+> * The language support below is for model version `2023-02-01-preview`.
 
 ## NER language support
 
-| Language              | Language code | Starting with model version: | Notes              |
-|:----------------------|:-------------:|:----------------------------:|:------------------:|
-| Arabic*               | `ar`          | 2019-10-01                   |                    |
-| Chinese-Simplified    | `zh-hans`     | 2021-01-15                   | `zh` also accepted |
-| Chinese-Traditional*  | `zh-hant`     | 2019-10-01                   |                    |
-| Czech*                | `cs`          | 2019-10-01                   |                    |
-| Danish*               | `da`          | 2019-10-01                   |                    |
-| Dutch*                | `nl`          | 2019-10-01                   |                    |
-| English               | `en`          | 2019-10-01                   |                    |
-| Finnish*              | `fi`          | 2019-10-01                   |                    |
-| French                | `fr`          | 2021-01-15                   |                    |
-| German                | `de`          | 2021-01-15                   |                    |
-| Hebrew*               | `he`          | 2019-10-01                   |                    |
-| Hungarian*            | `hu`          | 2019-10-01                   |                    |
-| Italian               | `it`          | 2021-01-15                   |                    |
-| Japanese              | `ja`          | 2021-01-15                   |                    |
-| Korean                | `ko`          | 2021-01-15                   |                    |
-| Norwegian  (Bokmål)*  | `no`          | 2019-10-01                   | `nb` also accepted |
-| Polish*               | `pl`          | 2019-10-01                   |                    |
-| Portuguese (Brazil)   | `pt-BR`       | 2021-01-15                   |                    |
-| Portuguese (Portugal) | `pt-PT`       | 2021-01-15                   | `pt` also accepted |
-| Russian*              | `ru`          | 2019-10-01                   |                    |
-| Spanish               | `es`          | 2020-04-01                   |                    |
-| Swedish*              | `sv`          | 2019-10-01                   |                    |
-| Turkish*              | `tr`          | 2019-10-01                   |                    |
+|Language|Language Code|Supports resolution|Notes|
+|:----|:----|:----|:----|
+|Afrikaans|`af`| | |
+|Albanian|`sq`| | |
+|Amharic|`am`| | |
+|Arabic|`ar`| | |
+|Armenian|`hy`| | |
+|Assamese|`as`| | |
+|Azerbaijani|`az`| | |
+|Basque|`eu`| | |
+|Bengali|`bn`| | |
+|Bosnian|`bs`| | |
+|Bulgarian|`bg`| | |
+|Burmese|`my`| | |
+|Catalan|`ca`| | |
+|Chinese (Simplified)|`zh-Hans`|✓ |`zh` also accepted|
+|Chinese (Traditional)|`zh-Hant`| | |
+|Croatian|`hr`| | |
+|Czech|`cs`| | |
+|Danish|`da`| | |
+|Dutch|`nl`|✓ | |
+|English|`en`|✓ | |
+|Estonian|`et`| | |
+|Finnish|`fi`| | |
+|French|`fr`|✓ | |
+|Galician|`gl`| | |
+|Georgian|`ka`| | |
+|German|`de`|✓ | |
+|Greek|`el`| | |
+|Gujarati|`gu`| | |
+|Hebrew|`he`| | |
+|Hindi|`hi`|✓ | |
+|Hungarian|`hu`| | |
+|Indonesian|`id`| | |
+|Irish|`ga`| | |
+|Italian|`it`|✓ | |
+|Japanese|`ji`|✓ | |
+|Kannada|`kn`| | |
+|Kazakh|`kk`| | |
+|Khmer|`km`| | |
+|Korean|`ko`| | |
+|Kurdish (Kurmanji)|`ku`| | |
+|Kyrgyz|`ky`| | |
+|Lao|`lo`| | |
+|Latvian|`lv`| | |
+|Lithuanian|`lt`| | |
+|Macedonian|`mk`| | |
+|Malagasy|`mg`| | |
+|Malay|`ms`| | |
+|Malayalam|`ml`| | |
+|Marathi|`mr`| | |
+|Mongolian|`mn`| | |
+|Nepali|`ne`| | |
+|Norwegian (Bokmal)|`no`| |`nb` also accepted|
+|Oriya|`or`| | |
+|Pashto|`ps`| | |
+|Persian|`fa`| | |
+|Polish|`pl`| | |
+|Portuguese (Brazil)|`pt-BR`|✓ | |
+|Portuguese (Portugal)|`pt-PT`| |`pt` also accepted|
+|Punjabi|`pa`| | |
+|Romanian|`ro`| | |
+|Russian|`ru`| | |
+|Serbian|`sr`| | |
+|Slovak|`sk`| | |
+|Slovenian|`sl`| | |
+|Somali|`so`| | |
+|Spanish|`es`|✓ | |
+|Swahili|`sw`| | |
+|Swazi|`ss`| | |
+|Swedish|`sv`| | |
+|Tamil|`ta`| | |
+|Telugu|`te`| | |
+|Thai|`th`| | |
+|Turkish|`tr`|✓ | |
+|Ukrainian|`uk`| | |
+|Urdu|`ur`| | |
+|Uyghur|`ug`| | |
+|Uzbek|`uz`| | |
+|Vietnamese|`vi`| | |
+|Welsh|`cy`| | |
 
 ## Next steps
 
-[PII feature overview](overview.md)
+[NER feature overview](overview.md)

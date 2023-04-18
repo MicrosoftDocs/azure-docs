@@ -1,6 +1,12 @@
 {
   "redirections": [
   {
+    "source_path": "event-hubs-tutorial-visualize-anomalies.md",
+    "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+    "redirect_document_id": false
+  },
+  
+  {
     "source_path": "event-hubs-api-overview.md",
     "redirect_url": "/azure/event-hubs/event-hubs-samples",
     "redirect_document_id": false
@@ -101,6 +107,11 @@
     "redirect_document_id": false
   },
   {
+    "source_path": "event-hubs-for-kafka-ecosystem-overview.md",
+    "redirect_url": "/azure/event-hubs/azure-event-hubs-kafka-overview",
+    "redirect_document_id": false
+  },  
+  {
     "source_path": "event-hubs-go-get-started-receive-eph.md",
     "redirect_url": "/azure/event-hubs/event-hubs-go-get-started-send",
     "redirect_document_id": false
@@ -120,6 +131,11 @@
     "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
     "redirect_document_id": false
   },
+  {
+    "source_path": "event-hubs-java-get-started-send-legacy.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
+    "redirect_document_id": false
+  },    
   {
     "source_path": "event-hubs-java-get-started-receive-eph.md",
     "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
@@ -158,6 +174,11 @@
   {
     "source_path": "event-hubs-performance-scale.md",
     "redirect_url": "/azure/event-hubs/",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-programming-guide.md",
+    "redirect_url": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples",
     "redirect_document_id": false
   },
   {
@@ -258,6 +279,11 @@
   {
     "source_path": "policy-samples.md",
     "redirect_url": "/azure/event-hubs/policy-reference",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "store-captured-data-data-warehouse.md",
+    "redirect_url": "/azure/stream-analytics/event-hubs-parquet-capture-tutorial",
     "redirect_document_id": false
   }
 ]

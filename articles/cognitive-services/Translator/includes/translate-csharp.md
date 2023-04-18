@@ -104,18 +104,18 @@ public class SentenceLength
 
 ## Get subscription information from environment variables
 
-Add the following lines to the `Program` class. These lines read your subscription key and endpoint from environment variables, and throws an error if you run into any issues.
+Add the following lines to the `Program` class. These lines read your key and endpoint from environment variables, and throws an error if you run into any issues.
 
 ```csharp
-private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
-private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+private const string key_var = "TRANSLATOR_TEXT_KEY";
+private static readonly string key = Environment.GetEnvironmentVariable(key_var);
 
 private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
 private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
 
 static Program()
 {
-    if (null == subscriptionKey)
+    if (null == key)
     {
         throw new Exception("Please set/export the environment variable: " + key_var);
     }
@@ -129,12 +129,12 @@ static Program()
 
 ## Create a function to translate text
 
-In the `Program` class, create an asynchronous function called `TranslateTextRequest()`. This function takes four arguments: `subscriptionKey`, `host`, `route`, and `inputText`.
+In the `Program` class, create an asynchronous function called `TranslateTextRequest()`. This function takes four arguments: `key`, `host`, `route`, and `inputText`.
 
 ```csharp
 // This sample requires C# 7.1 or later for async/await.
 // Async call to the Translator
-static public async Task TranslateTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
+static public async Task TranslateTextRequest(string key, string endpoint, string route, string inputText)
 {
   /*
    * The code for your call to the translation service will be added to this
@@ -184,7 +184,7 @@ request.Method = HttpMethod.Post;
 // Construct the URI and add headers.
 request.RequestUri = new Uri(endpoint + route);
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 // Send the request and get response.
 HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -217,19 +217,19 @@ static async Task Main(string[] args)
     // This is our main function.
     // Output languages are defined in the route.
     // For a complete list of options, see API reference.
-    // https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate
+    // https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate
     string route = "/translate?api-version=3.0&to=de&to=it&to=ja&to=th";
     // Prompts you for text to translate. If you'd prefer, you can
     // provide a string as textToTranslate.
     Console.Write("Type the phrase you'd like to translate? ");
     string textToTranslate = Console.ReadLine();
-    await TranslateTextRequest(subscriptionKey, endpoint, route, textToTranslate);
+    await TranslateTextRequest(key, endpoint, route, textToTranslate);
     Console.WriteLine("Press any key to continue.");
     Console.ReadKey();
 }
 ```
 
-You'll notice that in `Main`, you're declaring `subscriptionKey`, `endpoint`, and `route`. Additionally, you're prompting the user for input with `Console.Readline()` and assigning the value to `textToTranslate`.
+You'll notice that in `Main`, you're declaring `key`, `endpoint`, and `route`. Additionally, you're prompting the user for input with `Console.Readline()` and assigning the value to `textToTranslate`.
 
 ## Run the sample app
 
@@ -286,7 +286,7 @@ This message is built from the raw JSON, which will look like this:
 
 ## Clean up resources
 
-Make sure to remove any confidential information from your sample app's source code, like subscription keys.
+Make sure to remove any confidential information from your sample app's source code, like keys.
 
 ## Next steps
 

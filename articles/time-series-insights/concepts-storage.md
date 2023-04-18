@@ -14,6 +14,8 @@ ms.custom: seodec18
 
 # Data Storage
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article describes data storage in Azure Time Series Insights Gen2. It covers warm and cold, data availability, and best practices.
 
 ## Provisioning
@@ -89,7 +91,7 @@ Don't delete your Azure Time Series Insights Gen2 files. Manage related data fro
 
 Parquet is an open-source columnar file format designed for efficient storage and performance. Azure Time Series Insights Gen2 uses Parquet to enable Time Series ID-based query performance at scale.
 
-For more information about the Parquet file type, read the [Parquet documentation](https://parquet.apache.org/documentation/latest/).
+For more information about the Parquet file type, read the [Parquet documentation](https://parquet.apache.org/docs/).
 
 Azure Time Series Insights Gen2 stores copies of your data as follows:
 

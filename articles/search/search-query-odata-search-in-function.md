@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Search
 description: Syntax and reference documentation for using the search.in function in Azure Cognitive Search queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/16/2021
 translation.priority.mt:
   - "de-de"

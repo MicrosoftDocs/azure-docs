@@ -9,11 +9,14 @@ ms.date: 05/06/2020
 
 # Data collection for your app
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 A Language Understanding (LUIS) app needs data as part of app development.
 
 ## Data used in LUIS
 
-LUIS uses text as data to train and test your LUIS app for classification for [intents](luis-concept-intent.md) and for extraction of [entities](luis-concept-entity-types.md). You need a large enough data set that you have sufficient data to create separate data sets for both training and test that have the diversity and distribution called out specifically below.  The data in each of these sets should not overlap.
+LUIS uses text as data to train and test your LUIS app for classification for [intents](luis-concept-intent.md) and for extraction of [entities](concepts/entities.md). You need a large enough data set that you have sufficient data to create separate data sets for both training and test that have the diversity and distribution called out specifically below.  The data in each of these sets should not overlap.
 
 ## Training data selection for example utterances
 
@@ -74,5 +77,4 @@ Once the first version of your app is published, you should update your test set
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn how LUIS alters your data before prediction](luis-concept-data-alteration.md)
+[Learn how LUIS alters your data before prediction](luis-concept-data-alteration.md)

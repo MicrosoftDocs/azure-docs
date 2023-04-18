@@ -8,9 +8,7 @@ manager: rkarlin
 editor: TomSh
 
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
-ms.service: security
-ms.subservice: security-fundamentals
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -29,7 +27,7 @@ In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (V
 The first step in protecting your VMs is to ensure that only authorized users can set up new VMs and access VMs.
 
 > [!NOTE]
-> To improve the security of Linux VMs on Azure, you can integrate with Azure AD authentication. When you use [Azure AD authentication for Linux VMs](../../virtual-machines/linux/login-using-aad.md), you centrally control and enforce policies that allow or deny access to the VMs.
+> To improve the security of Linux VMs on Azure, you can integrate with Azure AD authentication. When you use [Azure AD authentication for Linux VMs](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md), you centrally control and enforce policies that allow or deny access to the VMs.
 >
 >
 
@@ -46,7 +44,7 @@ If your organization has many subscriptions, you might need a way to efficiently
 
 - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Can manage VMs, but not the virtual network or storage account to which they are connected.
 - [Classic Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Can manage VMs created by using the classic deployment model, but not the virtual network or storage account to which the VMs are connected.
-- [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin): In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations.
+- [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin): In Defender for Cloud only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations.
 - [DevTest Labs User](../../role-based-access-control/built-in-roles.md#devtest-labs-user): Can view everything and connect, start, restart, and shut down VMs.
 
 Your subscription admins and coadmins can change this setting, making them administrators of all the VMs in a subscription. Be sure that you trust all of your subscription admins and coadmins to log in to any of your machines.
@@ -68,13 +66,13 @@ You should install antimalware protection to help identify and remove viruses, s
 
 Microsoft Antimalware includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. For environments that are hosted separately from your production environment, you can use an antimalware extension to help protect your VMs and cloud services.
 
-You can integrate Microsoft Antimalware and partner solutions with [Azure Security Center](../../security-center/index.yml) for ease of deployment and built-in detections (alerts and incidents).
+You can integrate Microsoft Antimalware and partner solutions with [Microsoft Defender for Cloud](../../security-center/index.yml) for ease of deployment and built-in detections (alerts and incidents).
 
 **Best practice**: Install an antimalware solution to protect against malware.   
 **Detail**: [Install a Microsoft partner solution or Microsoft Antimalware](../../security-center/security-center-services.md#supported-endpoint-protection-solutions-)
 
-**Best practice**: Integrate your antimalware solution with Security Center to monitor the status of your protection.   
-**Detail**: [Manage endpoint protection issues with Security Center](../../security-center/security-center-partner-integration.md)
+**Best practice**: Integrate your antimalware solution with Defender for Cloud to monitor the status of your protection.   
+**Detail**: [Manage endpoint protection issues with Defender for Cloud](../../security-center/security-center-partner-integration.md)
 
 ## Manage your VM updates
 Azure VMs, like all on-premises VMs, are meant to be user managed. Azure doesn't push Windows updates to them. You need to manage your VM updates.
@@ -98,7 +96,7 @@ If you use Windows Update, leave the automatic Windows Update setting enabled.
 **Detail**: Define your VM with an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) so you can easily redeploy it. Using a template gives you a patched and secure VM when you need it.
 
 **Best practice**: Rapidly apply security updates to VMs.   
-**Detail**: Enable Azure Security Center (Free tier or Standard tier) to [identify missing security updates and apply them](../../security-center/asset-inventory.md).
+**Detail**: Enable Microsoft Defender for Cloud (Free tier or Standard tier) to [identify missing security updates and apply them](../../security-center/asset-inventory.md).
 
 **Best practice**: Install the latest security updates.   
 **Detail**: Some of the first workloads that customers move to Azure are labs and external-facing systems. If your Azure VMs host applications or services that need to be accessible to the internet, be vigilant about patching. Patch beyond the operating system. Unpatched vulnerabilities on partner applications can also lead to problems that can be avoided if good patch management is in place.
@@ -115,7 +113,7 @@ Software-update best practices for a traditional datacenter and Azure IaaS have 
 ## Manage your VM security posture
 Cyberthreats are evolving. Safeguarding your VMs requires a monitoring capability that can quickly detect threats, prevent unauthorized access to your resources, trigger alerts, and reduce false positives.
 
-To monitor the security posture of your [Windows](../../security-center/security-center-introduction.md) and [Linux VMs](../../security-center/security-center-introduction.md), use [Azure Security Center](../../security-center/security-center-introduction.md). In Security Center, safeguard your VMs by taking advantage of the following capabilities:
+To monitor the security posture of your [Windows](../../security-center/security-center-introduction.md) and [Linux VMs](../../security-center/security-center-introduction.md), use [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md). In Defender for Cloud, safeguard your VMs by taking advantage of the following capabilities:
 
 - Apply OS security settings with recommended configuration rules.
 - Identify and download system security and critical updates that might be missing.
@@ -124,9 +122,9 @@ To monitor the security posture of your [Windows](../../security-center/security
 - Assess and remediate vulnerabilities.
 - Detect threats.
 
-Security Center can actively monitor for threats, and potential threats are exposed in security alerts. Correlated threats are aggregated in a single view called a security incident.
+Defender for Cloud can actively monitor for threats, and potential threats are exposed in security alerts. Correlated threats are aggregated in a single view called a security incident.
 
-Security Center stores data in [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md). Azure Monitor logs provides a query language and analytics engine that gives you insights into the operation of your applications and resources. Data is also collected from [Azure Monitor](../../batch/monitoring-overview.md), management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
+Defender for Cloud stores data in [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md). Azure Monitor logs provides a query language and analytics engine that gives you insights into the operation of your applications and resources. Data is also collected from [Azure Monitor](../../batch/monitoring-overview.md), management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
 
 Organizations that don't enforce strong security for their VMs remain unaware of potential attempts by unauthorized users to circumvent security controls.
 
@@ -143,7 +141,7 @@ Organizations that don't monitor VM performance can’t determine whether certai
 ## Encrypt your virtual hard disk files
 We recommend that you encrypt your virtual hard disks (VHDs) to help protect your boot volume and data volumes at rest in storage, along with your encryption keys and secrets.
 
-[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) helps you encrypt your Windows and Linux IaaS virtual machine disks. Azure Disk Encryption uses the industry-standard [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. The solution also ensures that all data on the virtual machine disks are encrypted at rest in Azure Storage.
+[Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md) helps you encrypt your Linux and Windows IaaS virtual machine disks. Azure Disk Encryption uses the industry-standard [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux and the [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) feature of Windows to provide volume encryption for the OS and the data disks. The solution is integrated with [Azure Key Vault](../../key-vault/index.yml) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. The solution also ensures that all data on the virtual machine disks are encrypted at rest in Azure Storage.
 
 Following are best practices for using Azure Disk Encryption:
 
@@ -171,10 +169,10 @@ Monitor and restrict VM direct internet connectivity. Attackers constantly scan 
 **Detail**: Use Azure RBAC to ensure that only the central networking group has permission to networking resources.
 
 **Best practice**: Identify and remediate exposed VMs that allow access from “any” source IP address.   
-**Detail**: Use Azure Security Center. Security Center will recommend that you restrict access through internet-facing endpoints if any of your network security groups has one or more inbound rules that allow access from “any” source IP address. Security Center will recommend that you edit these inbound rules to [restrict access](../../security-center/security-center-network-recommendations.md) to source IP addresses that actually need access.
+**Detail**: Use Microsoft Defender for Cloud. Defender for Cloud will recommend that you restrict access through internet-facing endpoints if any of your network security groups has one or more inbound rules that allow access from “any” source IP address. Defender for Cloud will recommend that you edit these inbound rules to [restrict access](../../security-center/security-center-network-recommendations.md) to source IP addresses that actually need access.
 
 **Best practice**: Restrict management ports (RDP, SSH).   
-**Detail**: [Just-in-time (JIT) VM access](../../security-center/security-center-just-in-time.md) can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. When JIT is enabled, Security Center locks down inbound traffic to your Azure VMs by creating a network security group rule. You select the ports on the VM to which inbound traffic will be locked down. These ports are controlled by the JIT solution.
+**Detail**: [Just-in-time (JIT) VM access](../../security-center/security-center-just-in-time.md) can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. When JIT is enabled, Defender for Cloud locks down inbound traffic to your Azure VMs by creating a network security group rule. You select the ports on the VM to which inbound traffic will be locked down. These ports are controlled by the JIT solution.
 
 ## Next steps
 See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.

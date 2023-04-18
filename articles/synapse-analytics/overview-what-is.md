@@ -1,14 +1,13 @@
 ---
 title: What is Azure Synapse Analytics?
 description: An Overview of Azure Synapse Analytics
-services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 11/02/2021
 ms.author: saveenr
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: ignite-fall-2021
 ---
 
@@ -30,7 +29,7 @@ ms.custom: ignite-fall-2021
 
 **Apache Spark for Azure Synapse** deeply and seamlessly integrates Apache Spark--the most popular open source big data engine used for data preparation, data engineering, ETL, and machine learning.
 
-* ML models with SparkML algorithms and AzureML integration for Apache Spark 2.4 with built-in support for Linux Foundation Delta Lake.
+* ML models with SparkML algorithms and AzureML integration for Apache Spark 3.1 with built-in support for Linux Foundation Delta Lake.
 * Simplified resource model that frees you from having to worry about managing clusters.
 * Fast Spark start-up and aggressive autoscaling.
 * Built-in support for .NET for Spark allowing you to reuse your C# expertise and existing .NET code within a Spark application.

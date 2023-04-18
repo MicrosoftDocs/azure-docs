@@ -9,6 +9,9 @@ ms.date: 05/04/2020
 
 # App and version settings
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 These settings are stored in the [exported](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app and updated with the REST APIs or LUIS portal.
 
 Changing your app version settings resets your app training status to untrained.
@@ -163,4 +166,4 @@ The following punctuation is removed with `NormalizePunctuation` is set to true.
 
 ## Next steps
 
-* Learn [concepts](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) of diacritics and punctuation.
+* Learn [concepts](concepts/utterances.md#utterance-normalization) of diacritics and punctuation.

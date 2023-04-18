@@ -1,18 +1,18 @@
 ---
 
-title: Reset a user's password - Azure Active Directory | Microsoft Docs
+title: Reset a user's password
 description: Instructions about how to reset a user's password using Azure Active Directory.
 services: active-directory
-author: ajburnle
-manager: daveba
+author: barclayn
+manager: amycolannino
 
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/05/2018
-ms.author: ajburnle
+ms.date: 01/23/2023
+ms.author: barclayn
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
 
@@ -20,13 +20,15 @@ ms.collection: M365-identity-device-management
 ---
 # Reset a user's password using Azure Active Directory
 
-As an administrator, you can reset a user's password if the password is forgotten, if the user gets locked out of a device, or if the user never received a password.
+Azure Active Directory (Azure AD) administrators can reset a user's password if the password is forgotten, if the user gets locked out of a device, or if the user never received a password.
 
 >[!Note]
->Unless your Azure AD tenant is the home directory for a user, you won't be able reset their password. This means that if your user is signing in to your organization using an account from another organization, a Microsoft account, or a Google account, you won't be able to reset their password.<br><br>If your user has a source of authority as Windows Server Active Directory, you'll only be able to reset the password if you've turned on password writeback.<br><br>If your user has a source of authority as External Azure AD, you won't be able to reset the password. Only the user, or an administrator in External Azure AD, can reset the password.
+>Unless your Azure AD tenant is the home directory for a user, you won't be able reset their password. This means that if your user is signing in to your organization using an account from another organization, a Microsoft account, or a Google account, you won't be able to reset their password.
+>
+>If your user has a source of authority as Windows Server Active Directory, you'll only be able to reset the password if you've turned on password writeback and the user domain is managed. Changing the user password from Azure Active Directory for federated domains is not supported. In this case, you should change the user password in the on-premises Active Directory.<br><br>If your user has a source of authority as External Azure AD, you won't be able to reset the password. Only the user, or an administrator in External Azure AD, can reset the password.
 
 >[!Note]
->If you're not an administrator and are instead looking for instructions about how to reset your own work or school password, see [Reset your work or school password](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
+>If you're not an administrator and you need instructions on how to reset your own work or school password, see [Reset your work or school password](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
 
 ## To reset a password
 
@@ -49,7 +51,7 @@ As an administrator, you can reset a user's password if the password is forgotte
     >The temporary password never expires. The next time the user signs in, the password will still work, regardless how much time has passed since the temporary password was generated.
 
 > [!IMPORTANT]
-> If an administrator is unable to reset the user's password, and in the Application Event Logs on the Azure AD Connect server the following error code hr=80231367 is seen, review the user's attributes in Active Directory.  If the attribute **AdminCount** is set to 1, this will prevent an administrator from resetting the user's password.  The attribute **AdminCount** must be set to 0, in order for an administrators to reset the user's password.
+> If an administrator is unable to reset the user's password, and the Application Event Logs on the Azure AD Connect server has error code hr=80231367, review the user's attributes in Active Directory.  If the attribute **AdminCount** is set to 1, this will prevent an administrator from resetting the user's password.  The attribute **AdminCount** must be set to 0, in order for an administrators to reset the user's password.
 
 
 ## Next steps

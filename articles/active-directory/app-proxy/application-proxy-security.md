@@ -3,12 +3,12 @@ title: Security considerations for Azure Active Directory Application Proxy
 description: Covers security considerations for using Azure AD Application Proxy
 services: active-directory
 author: kenwith
-manager: karenh444
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 09/02/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -23,7 +23,7 @@ The following diagram shows how Azure AD enables secure remote access to your on
 
 ## Security benefits
 
-Azure AD Application Proxy offers the following security benefits:
+Azure AD Application Proxy offers many security benefits including authenticated access, conditional access, traffic termination, all outbound access, cloud scale analytics and machine learning, and remote access as a service. It is important to note that even with all of the added security provided by Application Proxy, the systems being accessed must continually be updated with the latest patches.
 
 ### Authenticated access 
 
@@ -39,7 +39,7 @@ Apply richer policy controls before connections to your network are established.
 
 With [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md), you can define restrictions on how users are allowed to access your applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
 
-You can also use Conditional Access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. Additionally, your applications can also be routed to Microsoft Cloud App Security via Azure AD Conditional Access to provide real-time monitoring and controls, via [access](/cloud-app-security/access-policy-aad) and [session](/cloud-app-security/session-policy-aad) policies
+You can also use Conditional Access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. Additionally, your applications can also be routed to Microsoft Defender for Cloud Apps via Azure AD Conditional Access to provide real-time monitoring and controls, via [access](/cloud-app-security/access-policy-aad) and [session](/cloud-app-security/session-policy-aad) policies
 
 ### Traffic termination
 
@@ -166,7 +166,6 @@ After it receives a response, the connector makes an outbound connection to the 
 #### 5. The service streams data to the user. 
 
 Some processing of the application may occur here. If you configured Application Proxy to translate headers or URLs in your application, that processing happens as needed during this step.
-
 
 ## Next steps
 

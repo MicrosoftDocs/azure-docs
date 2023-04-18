@@ -1,14 +1,13 @@
 ---
-title: Add a tile layer to the Azure Maps Power BI visual | Microsoft Azure Maps
-description: In this article, you will learn how to use the tile layer in the Microsoft Azure Maps visual for Power BI.
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 10/28/2021
-ms.topic: conceptual
+title: Add a tile layer to an Azure Maps Power BI visual
+titleSuffix: Microsoft Azure Maps
+description: In this article, you will learn how to use the tile layer in Azure Maps Power BI visual.
+author: eriklindeman
+ms.author: eriklind
+ms.date: 11/29/2021
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: eriklind
-ms.custom: 
 ---
 
 # Add a tile layer
@@ -38,7 +37,7 @@ The bounding box and zoom range of where a tile service is available can be pass
 
 ## Tile URL formatting
 
-There are three different tile service naming conventions supported by the Azure Maps visual:
+There are three different tile service naming conventions supported by the Azure Maps Power BI visual:
 
 * **X, Y, Zoom notation** - X is the column, Y is the row position of the tile in the tile grid, and the Zoom notation a value based on the zoom level.
 * **Quadkey notation** - Combines x, y, and zoom information into a single string value. This string value becomes a unique identifier for a single tile.
@@ -55,7 +54,7 @@ parameters:
 
 As an example, the following is a formatted tile URL for the [weather radar tile service](/rest/api/maps/render-v2/get-map-tile) in Azure Maps. Note that `[subscription-key]` is a placeholder for your Azure Maps subscription key.
 
-> `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}`
+> `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}`
 
 For more information on Azure Maps tiling system, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 

@@ -1,11 +1,12 @@
 ---
 title: Develop .NET Core applications with Visual Studio Code 
 description: This article shows how to build, deploy, and debug .NET Core Service Fabric applications using Visual Studio Code. 
-author: peterpogorski
-
-ms.topic: article
-ms.date: 06/29/2018
-ms.author: pepogors
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Develop C# Service Fabric applications with Visual Studio Code

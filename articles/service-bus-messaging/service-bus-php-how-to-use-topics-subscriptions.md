@@ -1,7 +1,7 @@
 ---
 title: How to use Azure Service Bus topics with PHP
 description: In this article, you learn how to use Azure Service Bus topics and subscriptions from a PHP application. 
-ms.devlang: PHP
+ms.devlang: php
 ms.topic: how-to
 ms.date: 07/27/2021
 ---
@@ -127,7 +127,7 @@ try {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -163,7 +163,7 @@ try {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -233,7 +233,7 @@ try {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -300,7 +300,7 @@ try {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -336,7 +336,7 @@ try {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";

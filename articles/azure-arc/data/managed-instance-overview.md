@@ -3,7 +3,7 @@ title: Azure Arc-enabled SQL Managed Instance Overview
 description: Azure Arc-enabled SQL Managed Instance Overview
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -24,11 +24,11 @@ To learn more about these capabilities, watch these introductory videos.
 
 ### Azure Arc-enabled SQL Managed Instance - indirect connected mode
 
-> [!VIDEO https://channel9.msdn.com/Shows/Inside-Azure-for-IT/Azure-Arcenabled-data-services-in-disconnected-mode/player?format=ny]
+> [!VIDEO https://learn.microsoft.com/Shows/Inside-Azure-for-IT/Azure-Arcenabled-data-services-in-disconnected-mode/player?format=ny]
 
 ### Azure Arc-enabled SQL Managed Instance - direct connected mode
 
-> [!VIDEO https://channel9.msdn.com/Shows/Inside-Azure-for-IT/Azure-Arcenabled-data-services-in-connected-mode/player?format=ny]
+> [!VIDEO https://learn.microsoft.com/Shows/Inside-Azure-for-IT/Azure-Arcenabled-data-services-in-connected-mode/player?format=ny]
 
 ## Next steps
 
@@ -36,6 +36,6 @@ Learn more about [Features and Capabilities of Azure Arc-enabled SQL Managed Ins
 
 [Azure Arc-enabled Managed Instance high availability](managed-instance-high-availability.md)
 
-[Start by creating a Data Controller](create-data-controller.md)
+[Start by creating a Data Controller](create-data-controller-indirect-cli.md)
 
 Already created a Data Controller? [Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)

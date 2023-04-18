@@ -1,42 +1,45 @@
 ---
 title: How to configure JMX metrics - Azure Monitor application insights for Java
-description: Configure additional JMX metrics collection for Azure Monitor application insights Java agent
+description: Configure extra JMX metrics collection for Azure Monitor Application Insights Java agent
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 05/13/2023
+ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
+ms.reviewer: mmcc
 ---
 
 # Configuring JMX metrics
 
-Application Insights Java 3.x collects some of the JMX metrics by default, but in many cases this is not enough. This document describes the JMX configuration option in details.
+Application Insights Java 3.x collects some of the JMX metrics by default, but in many cases it isn't enough. This document describes the JMX configuration option in details.
 
-## How do I collect additional JMX metrics?
+## How do I collect extra JMX metrics?
 
-JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource. You have to define the object name and attribute for each of the metrics you want collected.
+JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource. Object name and attribute are required for each of the metrics you want collected.
 
 ## How do I know what metrics are available to configure?
 
-You nailed it - you must know the object names and the attributes, those properties are different for various libraries, frameworks, and application servers, and are often not well documented. To get the object names and attributes, you need to view the MBean tree. An MBean is a managed Java object, that can represent a device, an application, or a resource, and has a set of attributes. 
+You nailed it - you must know the object names and the attributes, those properties are different for various libraries, frameworks, and application servers, and are often not well documented. Luckily, it's easy to find exactly what JMX metrics are supported for your particular environment.
 
-To view the available metrics and browse through the available metrics, we recommend using [Java Mission Control](https://www.oracle.com/java/technologies/jdk-mission-control.html).
+To view the available metrics, set the self-diagnostics level to `DEBUG` in your `applicationinsights.json` configuration file, for example:
 
-### How to navigate the Java Mission Control to get to the right metrics?
+```json
+{
+  "selfDiagnostics": {
+    "level": "DEBUG"
+  }
+}
+```
 
-When you run the Java Mission Control tool, you'll have a selection of JVMs available on the left side, click on the relevant process under the 'JVM Browser' tab. Wait until JMC loads the dashboard for the process, select 'MBean Browser' tab on the bottom (see below). The JMC must be located in the same folder as the JVM and your process/app must be up and running.
+Available JMX metrics, with object names and attribute names, appear in your Application Insights log file.
 
-![Screenshot of JMC MBean browser](media/java-ipa/jmx/jmc-mbean-browser.png)
+Log file output looks similar to these examples. In some cases, it can be extensive.
 
-### How to get to the metrics I want, and the necessary attributes?
+> :::image type="content" source="media/java-ipa/jmx/available-mbeans.png" lightbox="media/java-ipa/jmx/available-mbeans.png" alt-text="Screenshot of available JMX metrics in the log file.":::
 
-The MBean browser opens the MBean tree with the list of categories that can be expanded. Selecting a category on the left opens the list of attributes on the right. Below is an example of a metric, its object name, and the attributes. The attributes may be nested, as in the example below.
 
-![Screenshot of JMC MBean tree](media/java-ipa/jmx/jmc-metric-sample.png)
+## Configuration example
 
-### Configuration example
-
-From the selection as shown in the image above, lets configure a few metrics. The first one is an example of a nested metric - `LastGcInfo` that has several properties, and we want to capture the `GcThreadCount`.
+Knowing what metrics are available, you can configure the agent to collect them. The first one is an example of a nested metric - `LastGcInfo` that has several properties, and we want to capture the `GcThreadCount`.
 
 ```json
 "jmxMetrics": [
@@ -58,15 +61,15 @@ From the selection as shown in the image above, lets configure a few metrics. Th
 ],
 ```
 
-### Types of collected metrics and available configuration options?
+## Types of collected metrics and available configuration options?
 
-We support numeric and boolean JMX metrics, while other types aren't supported and will be ignored. 
+We support numeric and boolean JMX metrics, while other types aren't supported and is ignored. 
 
 Currently, the wildcards and aggregated attributes aren't supported, that's why every attribute 'object name'/'attribute' pair must be configured separately. 
 
 
 ## Where do I find the JMX Metrics in application insights?
 
-As your application is running and the JMX metrics are collected, you can view them by going to Azure portal and navigate to your application insights resource. Under Metrics tab, select the dropdown as shown below to view the metrics.
+You can view the JMX metrics collected while your application is running by navigating to your application insights resource in the Azure portal. Under Metrics tab, select the dropdown as shown to view the metrics.
 
-![Screenshot of metrics in portal](media/java-ipa/jmx/jmx-portal.png)
+> :::image type="content" source="media/java-ipa/jmx/jmx-portal.png" lightbox="media/java-ipa/jmx/jmx-portal.png" alt-text="Screenshot of metrics in portal":::

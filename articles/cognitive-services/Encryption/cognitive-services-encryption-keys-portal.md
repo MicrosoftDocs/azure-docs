@@ -26,6 +26,7 @@ The process to enable Customer-Managed Keys with Azure Key Vault for Cognitive S
 * [Language Understanding service encryption of data at rest](../LUIS/encrypt-data-at-rest.md)
 * [QnA Maker encryption of data at rest](../QnAMaker/encrypt-data-at-rest.md)
 * [Translator encryption of data at rest](../translator/encrypt-data-at-rest.md)
+* [Language service encryption of data at rest](../language-service/concepts/encryption-data-at-rest.md)
 
 ## Speech
 
@@ -35,6 +36,11 @@ The process to enable Customer-Managed Keys with Azure Key Vault for Cognitive S
 
 * [Content Moderator encryption of data at rest](../Content-Moderator/encrypt-data-at-rest.md)
 * [Personalizer encryption of data at rest](../personalizer/encrypt-data-at-rest.md)
+
+## Azure OpenAI
+
+* [Azure OpenAI encryption of data at rest](../openai/encrypt-data-at-rest.md)
+
 
 ## Next steps
 

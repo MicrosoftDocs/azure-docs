@@ -1,8 +1,12 @@
 ---
 title: Run init containers
 description: Run init containers in Azure Container Instances to perform setup tasks in a container group before the application containers run. 
-ms.topic: article
-ms.date: 06/01/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Run an init container for setup tasks in a container group
@@ -17,7 +21,7 @@ This article shows how to use an Azure Resource Manager template to configure a 
 * **Order of execution** - Init containers are executed in the order specified in the template, and before other containers. By default, you can specify a maximum of 59 init containers per container group. At least one non-init container must be in the group.
 * **Host environment** - Init containers run on the same hardware as the rest of the containers in the group.
 * **Resources** - You don't specify resources for init containers. They are granted the total resources such as CPUs and memory available to the container group. While an init container runs, no other containers run in the group.
-* **Supported properties** - Init containers can use group properties such as volumes, secrets, and managed identities. However, they can't use ports or an IP address if configured for the container group. 
+* **Supported properties** - Init containers can use some group properties such as volumes and secrets. However, they can't use ports, IP address and managed identities if configured for the container group. 
 * **Restart policy** - Each init container must exit successfully before the next container in the group starts. If an init container doesn't exit successfully, its restart action depends on the [restart policy](container-instances-restart-policy.md) configured for the group:
 
     |Policy in group  |Policy in init  |

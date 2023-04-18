@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
-ms.date: 10/12/2021
+ms.date: 03/20/2023
 ms.author: zhenlwa
 
 #Customer intent: I want to dynamically update my ASP.NET web application (.NET Framework) to use the latest configuration data in App Configuration.
@@ -24,25 +24,22 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2 or later](https://dotnet.microsoft.com/download/dotnet-framework)
 
-## Create an App Configuration store
+## Add key-values
 
-[!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
+Add the following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-7. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values:
-
-    | Key                                | Value                               |
-    |------------------------------------|-------------------------------------|
-    | *TestApp:Settings:BackgroundColor* | *White*                             |
-    | *TestApp:Settings:FontColor*       | *Black*                             |
-    | *TestApp:Settings:FontSize*        | *40*                                |
-    | *TestApp:Settings:Message*         | *Data from Azure App Configuration* |
-    | *TestApp:Settings:Sentinel*        | *v1*                                |
-
-    Leave **Label** and **Content type** empty.
+| Key                                | Value                               |
+|------------------------------------|-------------------------------------|
+| *TestApp:Settings:BackgroundColor* | *White*                             |
+| *TestApp:Settings:FontColor*       | *Black*                             |
+| *TestApp:Settings:FontSize*        | *40*                                |
+| *TestApp:Settings:Message*         | *Data from Azure App Configuration* |
+| *TestApp:Settings:Sentinel*        | *v1*                                |
 
 ## Create an ASP.NET Web Application
 
@@ -80,12 +77,12 @@ In this tutorial, you learn how to:
         builder.AddAzureAppConfiguration(options =>
         {
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                    // Load all keys that start with `TestApp:`.
+                    // Load all keys that start with `TestApp:` and have no label.
                     .Select("TestApp:*")
                     // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.
                     .ConfigureRefresh(refresh => 
                     {
-                        refresh.Register("TestApp:Settings:Sentinel", refreshAll:true);
+                        refresh.Register("TestApp:Settings:Sentinel", refreshAll:true)
                                .SetCacheExpiration(new TimeSpan(0, 5, 0));
                     });
             _configurationRefresher = options.GetRefresher();
@@ -96,7 +93,7 @@ In this tutorial, you learn how to:
     ```
     The `Application_Start` method is called upon the first request to your web application. It is called only once during the application's life cycle. As such it is a good place to initialize your `IConfiguration` object and load data from App Configuration.
 
-    In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the registered key changes. In this example, the key *TestApp:Settings:Sentinel* is a *sentinel* key that you update after you complete the change of all other keys. When a change is detected, your application refreshes all configuration values. This approach helps to ensure the consistency of configuration in your application compared to monitoring all keys for changes.
+    In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the registered key changes. In this example, the key *TestApp:Settings:Sentinel* is a *sentinel key* that you update after you complete the change of all other keys. When a change is detected, your application refreshes all configuration values. This approach helps to ensure the consistency of configuration in your application compared to monitoring all keys for changes.
     
     The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 5 minutes instead. It reduces the potential number of requests made to your App Configuration store.
 

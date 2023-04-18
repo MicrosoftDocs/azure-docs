@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 09/22/2022
 ---
 
 # Transform data using Hadoop Pig activity in Azure Data Factory or Synapse Analytics
@@ -22,6 +22,20 @@ ms.date: 09/09/2021
 The HDInsight Pig activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes Pig queries on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 To learn more, read through the introduction to [Azure Data Factory](introduction.md) or [Synapse Analytics](../synapse-analytics/overview-what-is.md) and do the [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 
+
+## Add an HDInsight Pig activity to a pipeline with UI
+
+To use an HDInsight Pig activity to a pipeline, complete the following steps:
+
+1. Search for _Pig_ in the pipeline Activities pane, and drag a Pig activity to the pipeline canvas.
+1. Select the new Pig activity on the canvas if it is not already selected.
+1. Select the  **HDI Cluster** tab to select or create a new linked service to an HDInsight cluster that will be used to execute the MapReduce activity.
+
+   :::image type="content" source="media/transform-data-using-hadoop-pig/pig-activity.png" alt-text="Shows the UI for a Pig activity.":::
+
+1. Select the **Script** tab to select or create a new script linked service to an Azure Storage location where your script will be hosted.  Specify a class name to be executed there, and a file path within the storage location.  You can also configure advanced details including debugging configuration, and arguments and parameters to be passed to the script.
+
+   :::image type="content" source="media/transform-data-using-hadoop-pig/pig-script-configuration.png" alt-text="Shows the UI for the Script tab for a Pig activity.":::
 
 ## Syntax
 

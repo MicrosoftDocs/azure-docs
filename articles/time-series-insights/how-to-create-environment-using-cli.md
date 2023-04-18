@@ -15,6 +15,8 @@ ms.custom: seodec18, devx-track-azurecli
 
 # Create an Azure Time Series Insights Gen2 environment using the Azure CLI
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This document will guide you through creating a new Time Series Insights Gen2 Environment.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -58,19 +60,19 @@ az tsi environment gen2 create --name "my-tsi-env" --location eastus2 --resource
 
 You can use the Azure CLI to delete an individual resource, such as a Time Series Insights Environment, or delete a Resource Group and all its resources, including any Time Series Insights Environments.
 
-To [delete a Time Series Insights Environments](/cli/azure/tsi/environment#az_tsi_environment_delete), run the following command:
+To [delete a Time Series Insights Environments](/cli/azure/tsi/environment#az-tsi-environment-delete), run the following command:
 
 ```azurecli-interactive
 az tsi environment delete --name "my-tsi-env" --resource-group $rg
 ```
 
-To [delete the storage account](/cli/azure/storage/account#az_storage_account_delete), run the following command:
+To [delete the storage account](/cli/azure/storage/account#az-storage-account-delete), run the following command:
 
 ```azurecli-interactive
 az storage account delete --name $storage --resource-group $rg
 ```
 
-To [delete a resource group](/cli/azure/group#az_group_delete) and all its resources, run the following command:
+To [delete a resource group](/cli/azure/group#az-group-delete) and all its resources, run the following command:
 
 ```azurecli-interactive
 az group delete --name $rg

@@ -100,7 +100,7 @@ To add Blob storage after creating the cluster, follow these steps.
 
    You can use the Azure portal or click the  "Deploy to Azure" button below.
 
-   [![button to create storage account](media/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fstorageaccount%2Fazuredeploy.json)
+   [![button to create storage account](media/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fstorageaccount%2Fazuredeploy.json)
 
 1. After the account is created, browse to the storage account page.
 
@@ -151,7 +151,7 @@ To add Blob storage after creating the cluster, follow these steps.
    * Optionally, set **Encryption type** to **None**.  Azure Storage is encrypted by default.
    * Click **Add Filer**.
 
-   For more detailed information, read [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) in the Avere cluster configuration guide.
+   For more detailed information, read [Adding a new cloud core filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html) in the Avere cluster configuration guide.
 
 The page will refresh, or you can refresh the page to display your new core filer.
 

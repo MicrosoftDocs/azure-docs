@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Peakon automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Peakon automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Peakon .
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/28/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -26,7 +26,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Pe
 The scenario outlined in this tutorial assumes that you already have the following prerequisites
 
 * An Azure AD tenant.
-* [A Peakon tenant](https://peakon.com/us/pricing/).
+* [A Peakon tenant](https://www.workday.com/en-us/products/employee-voice/overview.html).
 * A user account in Peakon  with Admin permissions.
 
 > [!NOTE]

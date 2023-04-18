@@ -3,20 +3,15 @@ title: Restrict data exfiltration to Azure Storage - Azure PowerShell
 description: In this article, you learn how to limit and restrict virtual network data exfiltration to Azure Storage resources with virtual network service endpoint policies using Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
-author: RDhillon
+author: asudbring
 manager: narayan
-editor: ''
 tags: azure-resource-manager
 # Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
-
-ms.assetid: 
 ms.service: virtual-network
-ms.devlang: 
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: rdhillon
+ms.author: allensu
 ms.custom: devx-track-azurepowershell
 ---
 

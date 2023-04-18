@@ -2,11 +2,10 @@
 metadata:
   title: Frequently asked questions
   description: Answers for frequently asked questions related to the Azure Container Instances service 
-  author: macolso
-  ms.author: macolso
-  ms.topic: article
-  ms.date: 06/02/2020
-    
+  author: tomvcassidy
+  ms.author: tomcassidy
+  ms.topic: faq
+  ms.date: 06/17/2022
 title: Frequently asked questions about Azure Container Instances
 summary: This article addresses frequently asked questions about Azure Container Instances.
 
@@ -17,7 +16,7 @@ sections:
       - question: |
           How large can my container image be?
         answer: |
-          The maximum size for a deployable container image on Azure Container Instances is 15 GB. You might be able to deploy larger images depending on the exact availability at the moment you deploy, but this is not guaranteed.
+          The maximum size for a deployable container image on Azure Container Instances is 15 GB. You might be able to deploy larger images depending on the exact availability at the moment you deploy, but larger image size is not guaranteed.
           
           The size of your container image impacts how long it takes to deploy, so generally you want to keep your container images as small as possible.
           
@@ -34,16 +33,21 @@ sections:
           What Windows base OS images are supported?
         answer: |
           > [!NOTE]
-          > Due to issues with backward compatibility after the Windows updates in 2020, the following image versions include the minimum version number that we recommend you use in your base image. Current deployments using older image versions are not impacted, but new deployments should adhere to the following base images. After June 14th, 2021, ACI will no longer support deployments using older version numbers. 
-          
+          > Due to issues with backward compatibility after the Windows updates in 2020, the following image versions include the minimum version number that we recommend you use in your base image. Current deployments using older image versions aren't impacted, but new deployments should adhere to the following base images. After June 14, 2021, ACI will no longer support deployments using older version numbers. 
+          > [!NOTE]
+          > Confidential containers on Azure Container Instances currently doesn't support Windows containers. 
+
       - question: |
           Windows Server 2016 base images
         answer: |
+          > [!IMPORTANT]
+          > From now through 31 December 2022, you can continue to deploy Windows Server 2016 container groups on Azure Container Instances. After this date, Windows Server 2016 images will no longer be supported. See [How do I migrate my Windows Server 2016 container groups to Windows Server 2019 images?](#how-do-i-migrate-my-windows-server-2016-container-groups-to-windows-server-2019-images-) for instructions on how to transition your workloads.
+
           * [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016`, `10.0.14393.3568` or newer
           * [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,  `10.0.14393.3568` or newer
           
           > [!NOTE]
-          > Windows images based on Semi-Annual Channel release 1709 or 1803 are not supported.
+          > Windows images based on Semi-Annual Channel release 1709 or 1803 aren't supported.
           
       - question: |
           Windows Server 2019 and client base images
@@ -55,7 +59,7 @@ sections:
       - question: |
           What .NET or .NET Core image layer should I use in my container? 
         answer: |
-          Use the smallest image that satisfies your requirements. For Linux, you could use a *runtime-alpine* .NET Core image, which has been supported since the release of .NET Core 2.1. For Windows, if you are using the full .NET Framework, then you need to use a Windows Server Core image (runtime-only image, such as  *4.7.2-windowsservercore-ltsc2016*). Runtime-only images are smaller but do not support workloads that require the .NET SDK.
+          Use the smallest image that satisfies your requirements. For Linux, you could use a *runtime-alpine* .NET Core image, which has been supported since the release of .NET Core 2.1. For Windows, if you're using the full .NET Framework, then you need to use a Windows Server Core image (runtime-only image, such as  *4.7.2-windowsservercore-ltsc2016*). Runtime-only images are smaller but do not support workloads that require the .NET SDK.
           
           > [!NOTE]
           > ACI cannot pull images from non OCI-compliant registries.
@@ -65,6 +69,34 @@ sections:
         answer: |
           ACI supports image pulls from ACR and other third-party container registries such as DockerHub. ACI supports image pulls from ACR and other third-party OCI compatible container registries such as DockerHub with an endpoint that is publicly exposed to the internet.
 
+      - question: |
+          How do I migrate my Windows Server 2016 container groups to Windows Server 2019 images?
+        answer: |
+          1. Identify what Windows base image you're currently using.
+
+              If you're pulling directly from Microsoft Container Registry (MCR), then that image name is your base image.
+
+              If you're working with a private registry, you'll need to look at your Dockerfile to identify the base image, which will be stated after the ['FROM' line](https://docs.docker.com/engine/reference/builder/#from).
+
+          2. Select the new base image you want to use from Windows Server 2019. Below are some examples of commonly used Windows Server 2016 images on Azure Container Instances and our recommendations for replacement Windows Server 2019 images.
+
+              | Windows Server 2016 Image | Recommended Windows Server 2019 Images |
+              | - | - |
+              | mcr.microsoft.com/windows/servercore/iis | mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019 |
+              | mcr.microsoft.com/windows/servercore:ltsc2016 | mcr.microsoft.com/windows/servercore:ltsc2019 |
+
+              Read about [image discovery](/virtualization/windowscontainers/manage-containers/container-base-images#image-discovery) to learn more.
+
+              > [!NOTE]
+              > If you would like assistance selecting your new base image, please create an Azure Support Ticket.
+
+          3. Follow the [Update containers in Azure Container Instances how-to guide](container-instances-update.md) to update your ACI container group to use your new base image.
+
+              If you're using MCR for your container registry, you can pass the MCR image name directly into the [container group image parameter](/azure/templates/microsoft.containerinstance/containergroups?tabs=bicep&pivots=deployment-language-bicep#containerproperties).
+
+              If you're using a private container registry, please follow the steps in [Upgrade containers to a new version of the Windows operating system](/virtualization/windowscontainers/deploy-containers/upgrade-windows-containers#create-new-container-instances-using-the-new-os-version). Make sure the container group's [image registry parameters](/azure/templates/microsoft.containerinstance/containergroups?tabs=bicep&pivots=deployment-language-bicep#imageregistrycredential) are updated if you've changed them.
+          
+
   - name: Availability and quotas
     questions:
       - question: |
@@ -72,10 +104,10 @@ sections:
         answer: |
           This really depends on your workload. Start small and test performance to see how your containers do. [Monitor CPU and memory resource usage](container-instances-monitor.md), and then add cores or memory based on the kind of processes that you deploy in the container.
           
-          Make sure also to check the [resource availability](container-instances-region-availability.md) for the region you are deploying in for the upper bounds on CPU cores and memory available per container group. 
+          Make sure also to check the [resource availability](container-instances-region-availability.md) for the region you're deploying in for the upper bounds on CPU cores and memory available per container group. 
           
           > [!NOTE]
-          > A small amount of a container group's resources is used by the service's underlying infrastructure. Your containers will be able to access most but not all of the resources allocated to the group. For this reason, plan a small resource buffer when requesting resources for containers in the group.
+          > A small amount of a container group's resources is used by the service's underlying infrastructure. Your containers are able to access most but not all of the resources allocated to the group. For this reason, plan a small resource buffer when requesting resources for containers in the group.
           
       - question: |
           What underlying infrastructure does ACI run on?
@@ -83,7 +115,7 @@ sections:
           Azure Container Instances aims to be a serverless containers-on-demand service, so we want you to be focused on developing your containers, and not worry about the infrastructure! For those that are curious or wanting to do comparisons on performance, ACI runs on sets of Azure VMs of various SKUs, primarily from the F and the D series. We expect this to change in the future as we continue to develop and optimize the service. 
 
       - question: |
-          I want to deploy thousand of cores on ACI - can I get my quota increased?
+          I want to deploy thousands of cores on ACI - can I get my quota increased?
         answer: |
           Yes (sometimes). See the [quotas and limits](container-instances-quotas.md) article for current quotas and which limits can be increased by request.
           
@@ -95,20 +127,30 @@ sections:
       - question: |
           When will ACI be in a specific region?
         answer: |
-          Current region availability is published [here](container-instances-region-availability.md). If you have a requirement for a specific region, contact Azure Support.
+          Current region availability is published [here](container-instances-region-availability.md). If you've a requirement for a specific region, contact Azure Support.
           
   - name: Features and scenarios
     questions:
       - question: |
           How do I scale a container group?
         answer: |
-          Currently, scaling is not available for containers or container groups. If you need to run more instances, use our API to automate and create more requests for container group creation to the service. 
+          Currently, scaling isn't available for containers or container groups. If you need to run more instances, use our API to automate and create more requests for container group creation to the service. 
 
       - question: |
           What features are available to instances running in a custom VNet?
         answer: |
           You can [deploy container groups in an Azure virtual network](container-instances-vnet.md) of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. For networking scenarios and limitations with Azure Container Instances, see [Virtual network scenarios and resources](container-instances-virtual-network-concepts.md).
           
+      - question: |
+          Does the ACI service reserve ports for service functionality?
+        answer: |
+          Yes, the ACI service does reserve the following ports for service functionality: 22, 443, 1025-1027, 3389-3399, 9999, 19000, 19080, 19390, 19100, 20000-30000, 49152-65534. Please avoid using these ports in your container group definition.
+
+      - question: |
+          Can you take a dependencyon the container group's IP address?
+        answer: |
+          Container group IP addresses are subject to change after being created or deleted. We recommend that your application code does not take a dependency on the container group's IP address. We also suggest using [NAT Gateway](container-instances-nat-gateway.md) or [Application Gateway](container-instances-application-gateway.md) if you would like to maintain a static IP address.
+
   - name: Pricing
     questions:
       - question: |
@@ -120,6 +162,33 @@ sections:
           Do I stop being charged when my containers are stopped?
         answer: |
           Meters stop running once your entire container group is stopped. As long as a container in your container group is running, we hold the resources in case you want to start the containers up again. 
+
+  - name: Confidential containers on Azure Container Instances (Preview)
+    questions:
+      - question: | 
+          What is Confidential computing and how is it being applied to Azure Container Instances?
+        answer: |
+          Confidential computing is an industry term defined by the Confidential Computing Consortium (CCC) - a foundation dedicated to defining and accelerating the adoption of confidential computing. The CCC defines confidential computing as: The protection of data in use by performing computations in a hardware-based Trusted Execution Environment (TEE). ACI Confidential Containers introduce hardware-based protection, code integrity, and verification of the Trusted Execution Environment (TEE). Confidential containers apply the latest in confidential computing hardware enabling customers to deploy their existing applications without any modifications while taking advantage of the hardware-based data protection. Code integrity, and verification of the TEE are achieved through the attestation of a confidential computing enforcement policy, which is attached to the container group at deployment time. If any of the properties of the container group differ from those of the confidential computing enforcement policy, the environment will fail to launch ensuring that the TEE isn't compromised.
+      - question: | 
+          When should I use Confidential containers on Azure Container Instances? 
+        answer: |
+          Confidential containers can be used for a wide variety of elastic workloads but are especially a great fit for workloads that require strong data protection guarantees. Some examples of these workloads include machine learning workloads that utilize data sets that include personal data or with algorithms that are considered intellectual property. Healthcare customers can use it for analyzing patient data and researching. Financial services customers may use it for credit analysis risk calculation, and portfolio balancing. 
+      - question: | 
+          How do I generate a confidential computing enforcement policy?
+        answer: |
+          Confidential computing enforcement policies can be generated using the confcom extension with the Azure CLI. For more information, see [confcom extension](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md). 
+      - question: |
+          Are there any features that aren't supported on confidential containers on Azure Container Instances?
+        answer: | 
+          GPU based ACI container deployments, Windows containers, availability zones, and dedicated instances aren't supported with confidential containers. 
+      - question: |
+          What regions are confidential containers on Azure Container Instances available?
+        answer: |
+          Confidential containers on Azure Container Instances are only available in select regions during Public Preview. Current region availability is published [here](container-instances-region-availability.md).
+      - question: |
+          Is there an additional cost for confidential container on Azure Container Instances?
+        answer: |
+          Confidential containers on Azure Container Instances do have an additional cost compared to standard SKU container groups. For more details, see [pricing page](https://azure.microsoft.com/pricing/details/container-instances/).
 
 additionalContent: |
 

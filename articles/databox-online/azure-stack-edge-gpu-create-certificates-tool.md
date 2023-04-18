@@ -70,9 +70,9 @@ Use these steps to prepare the Azure Stack Edge Pro device certificates:
     |Input |Description  |
     |---------|---------|
     |`OutputRequestPath`|The file path on your local client where you want the certificate requests to be created.        |
-    |`DeviceName`|The name of your device in the **Devices** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.         |
-    |`NodeSerialNumber`|The serial number of the device node in the **Network** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.       |
-    |`ExternalFQDN`|The DNSDomain value in the **Devices** page in the local web UI of your device.         |
+    |`DeviceName`|The name of your device in the **Device** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.         |
+    |`NodeSerialNumber`|The `Node serial number` of the device node shown on the **Overview** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.       |
+    |`ExternalFQDN`|The `DNS domain` value in the **Device** page in the local web UI of your device.         |
     |`RequestType`|The request type can be for `MultipleCSR` - different certificates for the various endpoints, or `SingleCSR` - a single certificate for all the endpoints. <br> This field isn't required for a VPN certificate.     |
 
     For all the certificates except the VPN certificate, type: 

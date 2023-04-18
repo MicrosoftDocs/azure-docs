@@ -1,25 +1,25 @@
 ---
-title: Create a Windows VM with Azure Image Builder using an existing VNET 
-description: Create a Windows VM with the Azure Image Builder using an existing VNET
+title: Create a Windows VM with Azure VM Image Builder by using an existing virtual network 
+description: Use Azure VM Image Builder to create a basic, customized Windows image that has access to existing resources on a virtual network.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 03/02/2021
+ms.reviewer: erd
+ms.date: 03/27/2023
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subervice: image-builder
-ms.colletion: windows
+ms.subservice: image-builder
+ms.collection: windows
 ms.custom: devx-track-azurepowershell
 ---
-# Use Azure Image Builder for Windows VMs allowing access to an existing Azure VNET
+# Use Azure VM Image Builder to access an existing Azure virtual network
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-This article shows you how you can use the Azure Image Builder to create a basic customized Windows image that has access to existing resources on a VNET. The build VM you create is deployed to a new or existing VNET you specify in your subscription. When you use an existing Azure VNET, the Azure Image Builder service does not require public network connectivity.
+This article shows you how to use Azure VM Image Builder to create a basic, customized Windows image that has access to existing resources on a virtual network. The build virtual machine (VM) you create is deployed to a new or existing virtual network that you specify in your subscription. When you use an existing Azure virtual network, VM Image Builder doesn't require public network connectivity.
 
-## Set variables and permissions 
+## Set variables and permissions
 
-You will be using some pieces of information repeatedly. Create some variables to store that information.
+For this task, you use some pieces of information repeatedly. Create some variables to store that information.
 
 ```powershell-interactive
 # Step 1: Import module
@@ -51,7 +51,7 @@ $imageTemplateName="window2019VnetTemplate03"
 # distribution properties object name (runOutput), i.e. this gives you the properties of the managed image on completion
 $runOutputName="winSvrSigR01"
 
-# VNET properties (update to match your existing VNET, or leave as-is for demo)
+# VNET properties (update to match your existing virtual network, or leave as-is for demo)
 # VNET name
 $vnetName="myexistingvnet01"
 # subnet name
@@ -60,7 +60,7 @@ $subnetName="subnet01"
 $vnetRgName="existingVnetRG"
 # Existing Subnet NSG Name or the demo will create it
 $nsgName="aibdemoNsg"
-# NOTE! The VNET must always be in the same region as the AIB service region.
+# NOTE! The virtual network must always be in the same region as the VM Image Builder service region.
 ```
 
 Create the resource group.
@@ -71,7 +71,7 @@ New-AzResourceGroup -Name $imageResourceGroup -Location $location
 
 ## Configure networking
 
-If you do not have an existing VNET\Subnet\NSG, use the following script to create one.
+If you don't have an existing virtual network, subnet, or network security group (NSG), use the following script to create one.
 
 ```powershell-interactive
 New-AzResourceGroup -Name $vnetRgName -Location $location
@@ -85,18 +85,20 @@ $subnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.
 
 New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRgName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $subnet
 
-## NOTE! The VNET must always be in the same region as the Azure Image Builder service region.
+## NOTE! The virtual network must always be in the same region as the VM Image Builder service region.
 ```
 
-### Add Network Security Group rule
+### Add an NSG rule
 
-This rule allows connectivity from the Azure Image Builder load balancer to the proxy VM. Port 60001 is for Linux OSs and port 60000 is for Windows OSs. The proxy VM connects to the build VM using port 22 for Linux OSs or port 5986 for Windows OSs.
+This rule allows connectivity from the VM Image Builder load balancer to the proxy VM. Port 60001 is for Linux, and port 60000 is for Windows. The proxy VM connects to the build VM by using port 22 for Linux, or port 5986 for Windows.
 
 ```powershell-interactive
 Get-AzNetworkSecurityGroup -Name $nsgName -ResourceGroupName $vnetRgName  | Add-AzNetworkSecurityRuleConfig -Name AzureImageBuilderAccess -Description "Allow Image Builder Private Link Access to Proxy VM" -Access Allow -Protocol Tcp -Direction Inbound -Priority 400 -SourceAddressPrefix AzureLoadBalancer -SourcePortRange * -DestinationAddressPrefix VirtualNetwork -DestinationPortRange 60000-60001 | Set-AzNetworkSecurityGroup
 ```
 
-### Disable Private Service Policy on subnet
+### Disable private service policy on the subnet
+
+Here's how:
 
 ```powershell-interactive
 $virtualNetwork= Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRgName 
@@ -106,9 +108,11 @@ $virtualNetwork= Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRg
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-For more information on Image Builder networking, see [Azure Image Builder Service networking options](../linux/image-builder-networking.md).
+For more information, see [Azure VM Image Builder networking options](../linux/image-builder-networking.md).
 
 ## Modify the example template and create role
+
+After you configure networking, you can modify the example template and create a role. Here's how:
 
 ```powershell-interactive
 $templateUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/existingVNETWindows.json"
@@ -138,7 +142,10 @@ Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPa
 ((Get-Content -path $templateFilePath -Raw) -replace '<subnetName>',$subnetName) | Set-Content -Path $templateFilePath
 ((Get-Content -path $templateFilePath -Raw) -replace '<vnetRgName>',$vnetRgName) | Set-Content -Path $templateFilePath
 ```
+
 ## Create a user-assigned identity and set permissions
+
+Next, you create a user-assigned identity and set permissions. Here's how:
 
 ```powershell-interactive
 # setup role def names, these need to be unique
@@ -180,17 +187,18 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $networkRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$vnetRgName"
 ```
 
-For more information on permissions, see [Configure Azure Image Builder Service permissions using Azure CLI](../linux/image-builder-permissions-cli.md) or [Configure Azure Image Builder Service permissions using PowerShell](../linux/image-builder-permissions-powershell.md).
+For more information, see [Configure Azure VM Image Builder permissions by using the Azure CLI](../linux/image-builder-permissions-cli.md) or [Configure Azure VM Image Builder permissions by using PowerShell](../linux/image-builder-permissions-powershell.md).
 
 ## Create the image
 
-Submit the image configuration to the Azure Image Builder service.
+Submit the image configuration to Azure VM Image Builder.
 
 ```powershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -api-version "2020-02-14" -imageTemplateName $imageTemplateName -svclocation $location
-
-# note this will take minute, as validation is run (security / dependencies etc.)
 ```
+
+> [!NOTE]
+> This will take a minute, as validation is run in regards to security, dependenciec, etc.
 
 Start the image build.
 
@@ -198,9 +206,10 @@ Start the image build.
 Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Run -Force
 ```
 
-## Get Image Build Status and Properties
+## Get build status and properties
 
-### Query the Image Template for Current or Last Run Status and Image Template Settings
+First, you query the image template for current or last run status, and for image template settings.
+
 ```powerShell
 $managementEp = $currentAzureContext.Environment.ResourceManagerUrl
 
@@ -212,7 +221,7 @@ $buildJsonStatus
 
 ```
 
-The image build for this example will take approximately 50 minutes (multiple reboots, windows update installs/reboot), when you query the status, you need to look for *lastRunStatus*, below shows the build is still running, if it had completed successfully, it would show 'succeeded'.
+The image build for this example takes approximately 50 minutes (including multiple reboots and Windows updates). When you query the status, look for `lastRunStatus`. The following code shows that the build is still running. If it had completed successfully, it would show `succeeded`.
 
 ```text
   "lastRunStatus": {
@@ -224,8 +233,9 @@ The image build for this example will take approximately 50 minutes (multiple re
   },
 ```
 
-### Query the Distribution properties
-If you are distributing to a VHD location, need Managed Image Location properties, or Azure Compute Gallery (formerly known as Shared Image Gallery) replications status, you need to query the 'runOutput', every time you have a distribution target, you will have a unique runOutput, to describe properties of the distribution type.
+### Query the distribution properties
+
+If you're distributing to a VHD location, need managed image location properties, or Azure Compute Gallery replications status, you need to query `runOutput`. Every time you have a distribution target, you will have a unique `runOutput`, to describe properties of the distribution type.
 
 ```powerShell
 $managementEp = $currentAzureContext.Environment.ResourceManagerUrl
@@ -235,13 +245,17 @@ $runOutStatusResult = Invoke-WebRequest -Method GET  -Uri $urlRunOutputStatus -U
 $runOutJsonStatus =$runOutStatusResult.Content
 $runOutJsonStatus
 ```
+
 ## Create a VM
 
-Now the build is finished, you can build a VM from the image. Use the examples from the [PowerShell New-AzVM  documentation](/powershell/module/az.compute/new-azvm#description).
+Now that the build is finished, you can build a VM from the image. Use the examples from the [PowerShell New-AzVM  documentation](/powershell/module/az.compute/new-azvm#description).
 
-## Clean Up
+## Clean up tasks
 
-### Delete Image Template Artifact
+You can now delete the image template artifact, the role assignment, and the resource groups if you want to.
+
+Here's how to delete the image template artifact:
+
 ```powerShell
 # Get ResourceID of the Image Template
 $resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14"
@@ -250,7 +264,9 @@ $resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupN
 Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
 
 ```
-### Delete role assignment
+
+Here's how to delete the role assignment:
+
 ```powerShell
 ## remove role assignments
 Remove-AzRoleAssignment -ObjectId $idenityNamePrincipalId  -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
@@ -264,15 +280,16 @@ Remove-AzRoleDefinition -Id $networkRoleObjId -Force
 Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName -Force
 ```
 
-### Delete Resource Groups
+Here's how to delete resource groups:
+
 ```powerShell
 Remove-AzResourceGroup $imageResourceGroup -Force
 
 
 # delete VNET created
-# BEWARE!!!!! In this example, you have either used an existing VNET or created one for this example. Do not delete your existing VNET. If you want to delete the VNET Resource group used in this example '$vnetRgName', modify the above code.
+# BEWARE! In this example, you have either used an existing virtual network or created one for this example. Do not delete your existing virtual network. If you want to delete the virtual network resource group used in this example '$vnetRgName', modify the preceding code.
 ```
 
 ## Next steps
 
-Learn more about [Azure Compute Galleries](../shared-image-galleries.md).
+[Azure Compute Galleries](../shared-image-galleries.md)

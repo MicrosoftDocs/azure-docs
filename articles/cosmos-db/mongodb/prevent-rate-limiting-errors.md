@@ -1,18 +1,19 @@
 ---
-title: Prevent rate-limiting errors for Azure Cosmos DB API for MongoDB operations.
-description: Learn how to prevent your Azure Cosmos DB API for MongoDB operations from hitting rate limiting errors with the SSR (server-side retry) feature. 
+title: Prevent rate-limiting errors for Azure Cosmos DB for MongoDB operations.
+description: Learn how to prevent your Azure Cosmos DB for MongoDB operations from hitting rate limiting errors with the SSR (server-side retry) feature. 
 author: gahl-levy
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: gahllevy
 ---
 
-# Prevent rate-limiting errors for Azure Cosmos DB API for MongoDB operations
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+# Prevent rate-limiting errors for Azure Cosmos DB for MongoDB operations
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-Azure Cosmos DB API for MongoDB operations may fail with rate-limiting (16500/429) errors if they exceed a collection's throughput limit (RUs). 
+Azure Cosmos DB for MongoDB operations may fail with rate-limiting (16500/429) errors if they exceed a collection's throughput limit (RUs). 
 
 You can enable the Server Side Retry (SSR) feature and let the server retry these operations automatically. The requests are retried after a short delay for all collections in your account. This feature is a convenient alternative to handling rate-limiting errors in the client application.
 
@@ -20,7 +21,7 @@ You can enable the Server Side Retry (SSR) feature and let the server retry thes
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to your Azure Cosmos DB API for MongoDB account.
+1. Navigate to your Azure Cosmos DB for MongoDB account.
 
 1. Go to the **Features** pane underneath the **Settings** section.
 
@@ -28,7 +29,7 @@ You can enable the Server Side Retry (SSR) feature and let the server retry thes
 
 1. Click **Enable** to enable this feature for all collections in your account.
 
-:::image type="content" source="./media/prevent-rate-limiting-errors/portal-features-server-side-retry.png" alt-text="Screenshot of the server-side retry feature for Azure Cosmos DB API for MongoDB":::
+:::image type="content" source="./media/prevent-rate-limiting-errors/portal-features-server-side-retry.png" alt-text="Screenshot of the server-side retry feature for Azure Cosmos DB for MongoDB":::
 
 ## Use the Azure CLI
 
@@ -58,9 +59,9 @@ Requests are retried continuously (over and over again) until a 60-second timeou
 
 ### How can I monitor the effects of a server-side retry?
 
-You can view the rate limiting errors (429) that are retried server-side in the Cosmos DB Metrics pane. Keep in mind that these errors don't go to the client when SSR is enabled, since they are handled and retried server-side.
+You can view the rate limiting errors (429) that are retried server-side in the Azure Cosmos DB Metrics pane. Keep in mind that these errors don't go to the client when SSR is enabled, since they are handled and retried server-side.
 
-You can search for log entries containing *estimatedDelayFromRateLimitingInMilliseconds* in your [Cosmos DB resource logs](../cosmosdb-monitor-resource-logs.md).
+You can search for log entries containing *estimatedDelayFromRateLimitingInMilliseconds* in your [Azure Cosmos DB resource logs](../monitor-resource-logs.md).
 
 ### Will server-side retry affect my consistency level?
 

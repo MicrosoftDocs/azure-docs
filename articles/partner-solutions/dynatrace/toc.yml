@@ -1,0 +1,36 @@
+items:
+- name: Azure Native Dynatrace Service Documentation 
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Native Dynatrace Service?
+    href: dynatrace-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create Dynatrace resource
+    href: dynatrace-create.md
+  - name: Link to existing Dynatrace resource
+    href: dynatrace-link-to-existing.md
+- name: How to
+  items:
+  - name: Configure prerequisites
+    href: dynatrace-how-to-configure-prereqs.md
+  - name: Manage Dynatrace
+    href: dynatrace-how-to-manage.md
+  - name: Troubleshoot
+    href: dynatrace-troubleshoot.md
+- name: Reference
+  items:
+  - name: Python
+    href: /python/api/overview/azure/dynatrace
+  - name: JavaScript
+    href: /javascript/api/overview/azure/dynatrace
+  - name: .NET
+    href: /dotnet/api/overview/azure/dynatrace
+  - name: Java
+    href: /java/api/overview/azure/dynatrace
+  - name: REST API
+    href: /rest/api/dynatrace
+#  - name: Azure PowerShell
+#    href: 

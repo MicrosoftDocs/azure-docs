@@ -44,10 +44,8 @@ After training is complete:
 
 + To save a snapshot of the trained model, select the component. Then select the **Register dataset** icon under the **Outputs+logs** tab in the right panel.   
 
- 
 ## Next steps
 
 See the [set of components available](component-reference.md) to Azure Machine Learning. 
 
 See [Exceptions and error codes for the designer](designer-error-codes.md) for a list of errors specific to the designer components.
-'

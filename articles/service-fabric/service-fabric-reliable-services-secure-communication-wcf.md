@@ -1,13 +1,14 @@
 ---
 title: Secure WCF-based service communication
 description: Learn how to secure WCF-based communications for reliable services that are running in an Azure Service Fabric cluster.
-author: suchiagicha
-
-ms.topic: conceptual
-ms.date: 04/20/2017
-ms.author: pepogors
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Secure WCF-based communications for a service
 Security is one of the most important aspects of communication. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. This article talks about how to improve security when you're using service remoting.
 

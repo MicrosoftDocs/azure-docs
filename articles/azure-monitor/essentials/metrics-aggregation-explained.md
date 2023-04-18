@@ -5,7 +5,8 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 08/31/2022
+ms.reviewer: vitalyg
 ---
 
 # Azure Monitor Metrics aggregation and display explained

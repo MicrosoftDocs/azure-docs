@@ -1,15 +1,14 @@
 ---
 title: 'Tutorial: Load New York Taxicab data'
 description: Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from an Azure blob for Synapse SQL.
-services: synapse-analytics
-author: julieMSFT
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/23/2020
-ms.author: jrasnick
-ms.reviewer: igorstan
+ms.author: joanpo
+ms.reviewer: wiassaf
 ms.custom: azure-synapse
 ---
 
@@ -24,7 +23,7 @@ This tutorial uses the [COPY statement](/sql/t-sql/statements/copy-into-transact
 > * Use the COPY T-SQL statement to load data into your data warehouse
 > * View the progress of data as it is loading
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Before you begin
 
@@ -79,7 +78,7 @@ The first step toward loading data is to login as LoaderRC20.
 
 3. Select **Connect**.
 
-4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as MedRCLogin.
+4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as LoaderRC20.
 
     ![Connection is successful](./media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
 

@@ -23,15 +23,15 @@ Per-user access pricing for Azure Virtual Desktop lets you grant access to apps 
 Before you can estimate per-user access costs for an existing deployment, you’ll need the following things:
 
 - An Azure Virtual Desktop deployment that's had active users within the last month.
-- [Azure Monitor for your Azure Virtual Desktop deployment](../azure-monitor.md)
+- [Azure Virtual Desktop Insights for your Azure Virtual Desktop deployment](../insights.md)
 
 ## Measure monthly user activity in a host pool
 
-In order to estimate total costs for running a host pool, you'll first need to know the number of active users over the past month. You can use Azure Monitor for Azure Virtual Desktop to find this number.
+In order to estimate total costs for running a host pool, you'll first need to know the number of active users over the past month. You can use Azure Virtual Desktop Insights to find this number.
 
-To check monthly active users on Azure Monitor:
+To check monthly active users on Azure Virtual Desktop Insights:
 
-1. Open the Azure portal, then search for and select **Azure Virtual Desktop**. After that, select **Insights** to open Azure Monitor for Azure Virtual Desktop.
+1. Open the Azure portal, then search for and select **Azure Virtual Desktop**. After that, select **Insights** to open Azure Virtual Desktop Insights.
 
 2. Select the name of the subscription or host pool that you want to measure.
 
@@ -52,7 +52,7 @@ You can estimate the total cost by checking how many users in each pricing tier 
 
 To check the number of users in each tier:
 
-1. Go to the [Azure Virtual Desktop pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/) and look for the "Apps" and "Apps + Desktops" prices for your region.
+1. Go to the [Azure Virtual Desktop pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/#pricing) and look for the "Apps" and "Desktops + apps" prices for your region.
 2. Use the connection volume number you found in step 4 of [Measure monthly activity in a host pool](#measure-monthly-user-activity-in-a-host-pool) to calculate the total user access cost.
    
    If your host pool uses a RemoteApp application group, you'll need to multiply the connection volume by the price value you see in "Apps." In other words, you'll need to use this equation:

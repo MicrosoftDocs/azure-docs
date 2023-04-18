@@ -6,11 +6,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 author: mgoedtel
 ms.author: magoedte
+ms.reviewer: erd
 ms.collection: windows
-ms.date: 06/01/2021
-ms.custom: devx-track-azurepowershell
-
-
+ms.date: 03/27/2023
 ---
 # Azure Monitor Dependency virtual machine extension for Windows
 
@@ -50,7 +48,7 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
+        "typeHandlerVersion": "9.10",
         "autoUpgradeMinorVersion": true
       }
     }
@@ -67,7 +65,7 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentWindows |
-| typeHandlerVersion | 9.5 |
+| typeHandlerVersion | 9.10 |
 
 ## Template deployment
 
@@ -90,7 +88,7 @@ The following example assumes the Dependency agent extension is nested inside th
 	"properties": {
 		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
+        "typeHandlerVersion": "9.10",
         "autoUpgradeMinorVersion": true
 	}
 }
@@ -110,7 +108,7 @@ When you place the extension JSON at the root of the template, the resource name
 	"properties": {
 		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
+        "typeHandlerVersion": "9.10",
         "autoUpgradeMinorVersion": true
 	}
 }
@@ -127,7 +125,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -VMName "myVM" `
     -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
     -ExtensionType "DependencyAgentWindows" `
-    -TypeHandlerVersion 9.5 `
+    -TypeHandlerVersion 9.10 `
     -Location WestUS
 ```
 
@@ -163,4 +161,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitoring.DependencyAgent\
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Or, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get support**. For information about how to use Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [Microsoft Q & A and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Or, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get support**. For information about how to use Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).

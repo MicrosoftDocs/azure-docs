@@ -5,8 +5,8 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: "include"
-ms.date: 10/01/2020
-ms.author: robb
+ms.date: 02/22/2022
+ms.author: bwren
 ms.custom: "include file"
 ---
 
@@ -21,3 +21,4 @@ ms.custom: "include file"
 | Maximum number of extensions | 10 |
 | Maximum size of extension settings | 32 Kb |
 | Maximum number of Log Analytics workspaces | 10 |
+| Maximum number of characters in a transformation | 15,360 |

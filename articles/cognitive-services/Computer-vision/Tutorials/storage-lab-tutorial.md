@@ -9,8 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial 
-ms.date: 07/06/2021
+ms.date: 12/29/2022
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---
@@ -131,6 +132,9 @@ In this section, you'll create a new Web app in Visual Studio and add code to im
     ```xml
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=ACCOUNT_NAME;AccountKey=ACCOUNT_KEY" />
     ```
+    
+    > [!IMPORTANT]
+    > The _Web.config_ file is meant to hold sensitive information like your subscription keys, and any HTTP request to a file with the _.config_ extension is handled by the ASP.NET engine, which returns a "This type of page is not served" message. However, if an attacker is able to find some other exploit that allows them to view your _Web.config_ contents, then they'll be able to expose that information. See [Protecting Connection Strings and Other Configuration Information](/aspnet/web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs) for extra steps you can take to further secure your _Web.config_ data.
 
 1. Open the file named *_Layout.cshtml* in the project's **Views/Shared** folder. On line 19, change "Application name" to "Intellipix." The line should look like this:
 

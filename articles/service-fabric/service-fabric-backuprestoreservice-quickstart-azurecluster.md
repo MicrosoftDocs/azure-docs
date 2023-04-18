@@ -1,10 +1,14 @@
 ---
 title: Periodic backup and restore in Azure Service Fabric
 description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
-
-ms.topic: conceptual
-ms.date: 5/24/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Periodic backup and restore in an Azure Service Fabric cluster
 > [!div class="op_single_selector"]
 > * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
@@ -108,6 +112,9 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
             "parameters":  [{
                 "name": "SecretEncryptionCertThumbprint",
                 "value": "[Thumbprint]"
+            },{
+                "name": "SecretEncryptionCertX509StoreName",
+                "value": "My"
             }]
         }
         ...
@@ -185,7 +192,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
     ![Create Backup Policy][6]
 
-2. Fill out the information. For Azure clusters, AzureBlobStore should be selected.
+2. Fill out the information. For details out how to specify a frequency based interval, see the [TimeGrain property](/dotnet/api/microsoft.azure.management.monitor.models.metricavailability.timegrain?view=azure-dotnet&preserve-view=true). For Azure clusters, AzureBlobStore should be selected.
 
     ![Create Backup Policy Azure Blob Storage][7]
 
@@ -217,7 +224,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 #### Using Service Fabric Explorer
 Make sure the [advanced mode](service-fabric-visualizing-your-cluster.md#backup-and-restore) for Service Fabric Explorer is enabled
 
-1. Select an application and go to action. Click Enable/Update Application Backup.
+1. Click the gear at the top right of the SF Explorer Window.
+2. Check the box for "Advanced mode" and refresh the SF Explorer page. 
+3. Select an application and go to action. Click Enable/Update Application Backup.
+
 
     ![Enable Application Backup][3]
 

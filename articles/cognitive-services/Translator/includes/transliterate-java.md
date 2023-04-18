@@ -85,10 +85,10 @@ public class Transliterate {
 }
 ```
 
-Add these lines to the `Transliterate` class. First, the subscription key and endpoint are being read from environment variables. Then, you'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the input language, and the scripts for transliteration. In this sample, it's set to Japanese (`jpan`) and Latin (`latn`). 
+Add these lines to the `Transliterate` class. First, the key and endpoint are being read from environment variables. Then, you'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the input language, and the scripts for transliteration. In this sample, it's set to Japanese (`jpan`) and Latin (`latn`). 
 
 ```java
-private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String key = System.getenv("TRANSLATOR_TEXT_KEY");
 private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
 String url = endpoint + "/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
 ```
@@ -113,7 +113,7 @@ public String Post() throws IOException {
             "[{\n\t\"Text\": \"こんにちは\"\n}]");
     Request request = new Request.Builder()
             .url(url).post(body)
-            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Ocp-Apim-Subscription-Key", key)
             .addHeader("Content-type", "application/json").build();
     Response response = client.newCall(request).execute();
     return response.body().string();

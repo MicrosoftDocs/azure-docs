@@ -1,11 +1,11 @@
 ---
 title: Create UI definition string functions
 description: Describes the string functions to use when constructing UI definitions for Azure Managed Applications
-author: tfitzmac
+author: davidsmatlak
 
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.author: tomfitz
+ms.author: davidsmatlak
 
 ---
 # CreateUiDefinition string functions

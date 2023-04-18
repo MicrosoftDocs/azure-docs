@@ -10,9 +10,9 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/27/2021
-ms.author: ryanwi
+ms.author: cwerner
 ms.custom: aaddev
-ms.reviewer: hirsin
+ms.reviewer: ludwignick
 ROBOTS: NOINDEX
 ---
 

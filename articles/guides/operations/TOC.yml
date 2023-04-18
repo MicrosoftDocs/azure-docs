@@ -40,10 +40,10 @@
         href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
       - name: Jenkins CI/CD Pipeline
         href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Load balance VMs
-        href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
       - name: Authoring Azure Resource Manager templates
         href: ../../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: Create a load balancer
+        href: ../../load-balancer/quickstart-load-balancer-standard-public-powershell.md
       - name: Backup VMs at Scale
         href: ../../backup/tutorial-backup-vm-at-scale.md
   - name: How To Guides
@@ -59,5 +59,5 @@
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Microsoft Azure portal overview
-      href: https://azure.microsoft.com/documentation/articles/azure-portal-overview/
+      href: ../../azure-portal/azure-portal-overview.md
   - name: References

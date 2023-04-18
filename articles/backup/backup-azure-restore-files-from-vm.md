@@ -1,9 +1,12 @@
 ---
 title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
-ms.topic: conceptual
-ms.date: 03/12/2020
+ms.topic: how-to
+ms.date: 11/04/2022
 ms.custom: references_regions
+ms.service: backup
+author: jyothisuri
+ms.author: jsuri
 ---
 # Recover files from Azure virtual machine backup
 
@@ -35,9 +38,12 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
     ![File recovery menu](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
+> [!IMPORTANT]
+> Users should note the performance limitations of this feature. As pointed out in the footnote section of the above blade, this feature should be used when the total size of recovery is 10 GB or less. The expected data transfer speeds are around 1 GB per hour.
+
 4. From the **Select recovery point** drop-down menu, select the recovery point that holds the files you want. By default, the latest recovery point is already selected.
 
-5. Select **Download Executable** (for Windows Azure VMs) or **Download Script** (for Linux Azure VMs, a python script is generated) to download the software used to copy files from the recovery point.
+5. Select **Download Executable** (for Windows Azure VMs) or **Download Script** (for Linux Azure VMs, a Python script is generated) to download the software used to copy files from the recovery point.
 
     ![Download Executable](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -54,7 +60,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 ## Step 2: Ensure the machine meets the requirements before executing the script
 
-After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine preferably from the same region that meets the requirements**.  
+After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine that meets the requirements**.  
 
 ### Dynamic disks
 
@@ -87,6 +93,7 @@ The following table shows the compatibility between server and computer operatin
 
 |Server OS | Compatible client OS  |
 | --------------- | ---- |
+| Windows Server 2022    | Windows 11 and Windows 10 |
 | Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
@@ -107,17 +114,12 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | SLES | 12 and above |
 | openSUSE | 42.2 and above |
 
-> [!NOTE]
-> We've found some issues in running the file recovery script on machines with SLES 12 SP4 OS and we're investigating with the SLES team.
-> Currently, running the file recovery script is working on machines with SLES 12 SP2 and SP3 OS versions.
->
-
 The script also requires Python and bash components to execute and connect securely to the recovery point.
 
 |Component | Version  |
 | --------------- | ---- |
 | bash | 4 and above |
-| python | 2.6.6 and above  |
+| Python | 2.6.6 and above  |
 | .NET | 4.6.2 and above |
 | TLS | 1.2 should be supported  |
 
@@ -141,11 +143,11 @@ If you run the script on a computer with restricted access, ensure there's acces
 > [!NOTE]
 >
 > In case, the backed up VM is Windows, then the geo-name will be mentioned in the password generated.<br><br>
-> For eg, if the generated password is *ContosoVM_wcus_GUID*, then then geo-name is wcus and the URL would be: <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
+> For eg, if the generated password is *ContosoVM_wcus_GUID*, then then geo-name is wcus and the URL would be: <`https://pod01-rec2.wcus.backup.windowsazure.com`><br><br>
 >
 >
 > If the backed up VM is Linux, then the script file you downloaded in step 1 [above](#step-1-generate-and-download-script-to-browse-and-recover-files) will have the **geo-name** in the name of the file. Use that **geo-name** to fill in the URL. The downloaded script name will begin with: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
-> So for example, if the script filename is *ContosoVM_wcus_12345678*, the **geo-name** is *wcus* and the URL would be: <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
+> So for example, if the script filename is *ContosoVM_wcus_12345678*, the **geo-name** is *wcus* and the URL would be: <`https://pod01-rec2.wcus.backup.windowsazure.com`><br><br>
 >
 
 
@@ -184,15 +186,15 @@ If the file recovery process hangs after you run the file-restore script (for ex
     ![Registry key changes](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
-- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200 secs.
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200 secs.
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 2400 secs.
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 2400 secs.
 - HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200 secs.
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 2400 secs.
 ```
 
 ### For Linux
 
-After you meet all the requirements listed in [Step 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [Step 3](#step-3-os-requirements-to-successfully-run-the-script) and [Step 4](#step-4-access-requirements-to-successfully-run-the-script), generate a python script for Linux machines. See [Step 1 to learn how to generate and download script](#step-1-generate-and-download-script-to-browse-and-recover-files). Download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
+After you meet all the requirements listed in [Step 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [Step 3](#step-3-os-requirements-to-successfully-run-the-script) and [Step 4](#step-4-access-requirements-to-successfully-run-the-script), generate a Python script for Linux machines. See [Step 1 to learn how to generate and download script](#step-1-generate-and-download-script-to-browse-and-recover-files). Download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the Python file with ```./<python file name>```.
 
 
 In Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes, and the corresponding mount paths are shown accordingly. These mount paths are visible to users having root level access. Browse through the volumes mentioned in the script output.
@@ -233,12 +235,12 @@ Once the script is run, the LVM partitions are mounted in the physical volume(s)
 To list the volume group names:
 
 ```bash
-pvs -o +vguuid
+sudo pvs -o +vguuid
 ```
 
 This command will list all physical volumes (including the ones present before running the script), their corresponding volume group names, and the volume group's unique user IDs (UUIDs). A sample output of the command is shown below.
 
-```bash
+```output
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
 
   /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
@@ -258,7 +260,7 @@ The first column (PV) shows the physical volume, the subsequent columns show the
 
 There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed-up VM are the same. Then we need to rename the backed-up VMs volume groups. Take a look at the example below.
 
-```bash
+```output
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
 
   /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
@@ -279,8 +281,8 @@ The script output would have shown /dev/sdg, /dev/sdh, /dev/sdm2 as attached. So
 Now we need to rename VG names for script-based volumes, for example: /dev/sdg, /dev/sdh, /dev/sdm2. To rename the volume group, use the following command
 
 ```bash
-vgimportclone -n rootvg_new /dev/sdm2
-vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
+sudo vgimportclone -n rootvg_new /dev/sdm2
+sudo vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
 ```
 
 Now we have all VG names with unique IDs.
@@ -290,14 +292,13 @@ Now we have all VG names with unique IDs.
 Make sure that the Volume groups corresponding to script's volumes are active. The following command is used to display active volume groups. Check whether the script's related volume groups are present in this list.
 
 ```bash
-vgdisplay -a
+sudo vgdisplay -a
 ```  
 
 Otherwise, activate the volume group by using the following command.
 
 ```bash
-#!/bin/bash
-vgchange –a y  <volume-group-name>
+sudo vgchange –a y  <volume-group-name>
 ```
 
 ##### Listing logical volumes within Volume groups
@@ -305,8 +306,7 @@ vgchange –a y  <volume-group-name>
 Once we get the unique, active list of VGs related to the script, then the logical volumes present in those volume groups can be listed using the following command.
 
 ```bash
-#!/bin/bash
-lvdisplay <volume-group-name>
+sudo lvdisplay <volume-group-name>
 ```
 
 This command displays the path of each logical volume as 'LV Path'.
@@ -316,8 +316,7 @@ This command displays the path of each logical volume as 'LV Path'.
 To mount the logical volumes to the path of your choice:
 
 ```bash
-#!/bin/bash
-mount <LV path from the lvdisplay cmd results> </mountpath>
+sudo mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
@@ -328,8 +327,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 The following command displays details about all raid disks:
 
 ```bash
-#!/bin/bash
-mdadm –detail –scan
+sudo mdadm –detail –scan
 ```
 
  The relevant RAID disk is displayed as `/dev/mdm/<RAID array name in the protected VM>`
@@ -337,8 +335,7 @@ mdadm –detail –scan
 Use the mount command if the RAID disk has physical volumes:
 
 ```bash
-#!/bin/bash
-mount [RAID Disk Path] [/mountpath]
+sudo mount [RAID Disk Path] [/mountpath]
 ```
 
 If the RAID disk has another LVM configured in it, then use the preceding procedure for LVM partitions but use the volume name in place of the RAID Disk name.

@@ -4,6 +4,8 @@ description: Azure Instant Restore Capability and FAQs for VM backup stack, Reso
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
@@ -114,6 +116,11 @@ If the recovery point has a snapshot and it's the latest recovery point availabl
 In a scenario where a retention policy is set as “1”, you can find two snapshots. This mandates that at least one latest recovery point always be present, in case all subsequent backups fail due to an issue in the VM. This can cause the presence of two snapshots.<br></br>So, if the policy is for "n" snapshots, you can find “n+1” snapshots at times. Further, you can even find “n+1+2” snapshots if there is a delay in garbage collection. This can happen at rare times when:
 - You clean up snapshots, which are past retention.
 - The garbage collector (GC) in the backend is under heavy load.
+
+> [!NOTE]
+> Azure Backup manages backups in automatic way. Azure Backup retains old snapshop as these are needed to mantain this backup for consistency purpose. If you delete snapshot manually, you might encounter problem in backup consistency.
+> If there are errors in your backup history, you need to stop backup with retain data option and resume the backup.
+> Consider creating a **backup strategy** if you've a particular scenario (for example, a virtual machine with multiple disks and requires oversize space). You need to separately create a backup for **VM with OS Disk** and create a different backup for **the other disks**.
 
 ### I don’t need Instant Restore functionality. Can it be disabled?
 

@@ -1,16 +1,16 @@
 ---
-author: curib
+author: flang-msft
 ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: cauribeg
+ms.author: franlanglois
 ---
 | Resource | Limit |
 | --- | --- |
 | Cache size |1.2 TB |
 | Databases |64 |
 | Maximum connected clients |40,000 |
-| Azure Cache for Redis replicas, for high availability |1 |
+| Azure Cache for Redis replicas, for high availability |3 |
 | Shards in a premium cache with clustering |10 |
 
 Azure Cache for Redis limits and sizes are different for each pricing tier. To see the pricing tiers and their associated sizes, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).

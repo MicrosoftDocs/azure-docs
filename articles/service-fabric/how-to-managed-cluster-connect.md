@@ -2,7 +2,11 @@
 title: Connect to a Service Fabric managed cluster
 description: Learn how to connect to a Service Fabric managed cluster
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Connect to a Service Fabric managed cluster
 
@@ -32,11 +36,11 @@ To navigate to SFX for your managed cluster
 
  3) Select your cluster
 
- 4) Locate the `SF Explorer` located in the upper right, example: https://mycluster.region.cloudapp.azure.com:19080/Explorer
+ 4) Locate the `SF Explorer` located in the upper right, example: `https://mycluster.region.cloudapp.azure.com:19080/Explorer`
 
 ## Use PowerShell Modules
 
-There following PowerShell Modules are available to connect, view, and modify configurations for your cluster. 
+The following PowerShell Modules are available to connect, view, and modify configurations for your cluster. 
 
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
 
@@ -82,6 +86,3 @@ Get-AzServiceFabricManagedCluster -ResourceGroupName $rgName -Name $clusterName
 
 * [Deploy an application to a managed cluster using Azure Resource Manager](how-to-managed-cluster-app-deployment-template.md)
 * [Configure managed cluster options](how-to-managed-cluster-configuration.md)
-
-
-

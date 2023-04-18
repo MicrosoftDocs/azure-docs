@@ -1,8 +1,7 @@
 ---
-title: SAML 2.0 token claims reference | Azure
-titleSuffix: Microsoft identity platform
+title: SAML 2.0 token claims reference
 description: Claims reference with details on the claims included in SAML 2.0 tokens issued by the Microsoft identity platform, including their JWT equivalents.
-author: kenwith
+author: davidmu1
 services: active-directory
 manager: CelesteDG
 
@@ -10,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 03/29/2021
-ms.author: kenwith
-ms.reviewer: paulgarn
+ms.date: 01/19/2023
+ms.author: davidmu
 ms.custom: aaddev
+ms.reviewer: alamaral
 ---
 
 # SAML token claims reference

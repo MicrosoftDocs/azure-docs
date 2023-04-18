@@ -1,22 +1,16 @@
 ---
 
-title: What is Azure Active Directory monitoring? | Microsoft Docs
+title: What is Azure Active Directory monitoring?
 description: Provides a general overview of Azure Active Directory monitoring.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
-ms.author: markvi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk  
 
 # Customer intent: As an Azure AD administrator, I want to understand what monitoring solutions are available for Azure AD activity data and how they can help me manage my tenant.
@@ -33,7 +27,7 @@ Currently, you can route the logs to:
 - An Azure event hub, so you can integrate with your Splunk and Sumologic instances.
 - Azure Log Analytics workspace, wherein you can analyze the data, create dashboard and alert on specific events
 
-**Prerequisite role**: Global Admin
+**Prerequisite role**: Global Administrator
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
@@ -41,7 +35,7 @@ Currently, you can route the logs to:
 
 ## Licensing and prerequisites for Azure AD reporting and monitoring
 
-You'll need an Azure AD premium license to access the Azure AD sign in logs.
+You'll need an Azure AD premium license to access the Azure AD sign-in logs.
 
 For detailed feature and licensing information in the [Azure Active Directory pricing guide](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 

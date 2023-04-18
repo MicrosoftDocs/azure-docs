@@ -39,7 +39,7 @@ General strategies for mitigating SNAT port exhaustion are discussed in [Trouble
 
 ### Scale your APIM instance
 
-Each API Management instance is allocated a number of SNAT ports, based on APIM units. You can allocate additional SNAT ports by scaling your API Management instance with additional units. For more info, see [Scale your API Management service](upgrade-and-scale.md#scale-your-api-management-service)
+Each API Management instance is allocated a number of SNAT ports, based on APIM units. You can allocate additional SNAT ports by scaling your API Management instance with additional units. For more info, see [Scale your API Management service](upgrade-and-scale.md#scale-your-api-management-instance).
 
 > [!NOTE]
 > SNAT port usage is currently not available as a metric for autoscaling API Management units.

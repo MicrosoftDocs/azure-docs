@@ -20,6 +20,8 @@ In this Sample quickstart, we'll learn how the sample works before we run the sa
 
 Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). A version of the sample which includes features currently in public preview such as [Teams Interop](../../concepts/teams-interop.md) and [Call Recording](../../concepts/voice-video-calling/call-recording.md) can be found on a separate [branch](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
 
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fcommunication-services-web-calling-hero%2Fmain%2Fdeploy%2Fazuredeploy.json)
+
 ## Overview
 
 The sample has both a client-side application and a server-side application. The **client-side application** is a React/Redux web application that uses Microsoft's Fluent UI framework. This application sends requests to an ASP.NET Core **server-side application** that helps the client-side application connect to Azure.
@@ -43,7 +45,7 @@ Components of the main calling screen:
 - **Side Bar**: This is where participants and settings information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
 
 > [!NOTE]
-> Based on limitations on the Web Calling SDK, only one remote video stream is rendered. For more information see, [Calling SDK Stream Support](../../concepts/voice-video-calling/calling-sdk-features.md#calling-sdk-streaming-support).
+> Based on limitations on the Web Calling SDK, only 4 video streams and 1 screen sharing stream is rendered. For more information see, [Calling SDK Stream Support](../../concepts/voice-video-calling/calling-sdk-features.md#calling-sdk-streaming-support).
 
 Below you'll find more information on prerequisites and steps to set up the sample.
 
@@ -51,35 +53,62 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js (12.18.4 and above)](https://nodejs.org/en/download/)
-- [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/)
-- [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
+- [Visual Studio Code (Stable Build)](https://code.visualstudio.com/Download)
 - An Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
-## Locally deploy the service & client applications
-
-The group calling sample is essentially two applications: the ClientApp and the Service.NET app.
-
-When we want to deploy locally we need to start up both applications. When the server app is visited from the browser, it will use the locally deployed ClientApp for the user experience.
-
-You can test the sample locally by opening multiple browser sessions with the URL of your call to simulate a multi-user call.
-
-### Before running the sample for the first time
+## Before running the sample for the first time
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
-2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
-3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Services resources](../../quickstarts/create-communication-resource.md).
-4. Once you get the `Connection String`, add the connection string to the **Calling/appsetting.json** file found under the Service .NET folder. Input your connection string in the variable: `ResourceConnectionString`.
 
-### Local run
+   ```shell
+   git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git
+   ```
+   
+1. Get the `Connection String` from the Azure portal or by using the Azure CLI. 
 
-1. Go to Calling folder and open `Calling.csproj` solution in Visual Studio.
-2. Run `Calling` project. The browser will open at `localhost:5001`.
+    ```azurecli-interactive
+    az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>"
+    ```
 
-## Publish the sample to Azure
+   For more information on connection strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
+1. Once you get the `Connection String`, add the connection string to the **samples/Server/appsetting.json** file. Input your connection string in the variable: `ResourceConnectionString`.
+1. Get the `Endpoint string` from the Azure portal or by using the Azure CLI. 
 
-1. Right click on the `Calling` project and select Publish.
-2. Create a new publish profile and select your Azure subscription.
-3. Before publishing, add your connection string with `Edit App Service Settings`, and fill in `ResourceConnectionString` as the key and provide your connection string (copied from appsettings.json) as the value.
+    ```azurecli-interactive
+    az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>"
+    ```
+
+   For more information on Endpoint strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
+1. Once you get the `Endpoint String`, add the endpoint string to the **samples/Server/appsetting.json** file. Input your endpoint string in the variable `EndpointUrl`
+
+## Local run
+
+1. Install dependencies
+
+    ```bash
+    npm run setup
+    ```
+
+1. Start the calling app
+
+    ```bash
+    npm run start
+    ```
+
+    This will open a client server on port 3000 that serves the website files, and an api server on port 8080 that performs functionality like minting tokens for call participants.
+
+### Troubleshooting
+
+- The app shows an "Unsupported browser" screen but I am on a [supported browser](../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser).
+
+	If your app is being served over a hostname other than localhost, you must serve traffic over https and not http.
+
+## Publish to Azure
+
+1. `npm run setup`
+2. `npm run build`
+3. `npm run package`
+4. Use the Azure extension and deploy the Calling/dist directory to your app service
 
 ## Clean up resources
 

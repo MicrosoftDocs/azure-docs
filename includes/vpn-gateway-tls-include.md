@@ -1,13 +1,10 @@
 ---
  title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 07/27/2018
+ ms.date: 05/23/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
 
 

@@ -1,11 +1,10 @@
 ---
 title: 'Architecture: Migrate to Azure Virtual WAN'
 description: Learn how to migrate from an existing customer-managed hub-and-spoke topology, to a design that leverages Microsoft-managed Virtual WAN hubs.
-services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 10/13/2022
 ms.author: cherylmc
 
 ---
@@ -25,7 +24,7 @@ This article shows how to migrate an existing customer-managed hub-and-spoke env
 
 ## Scenario
 
-Contoso is a global financial organization with offices in both Europe and Asia. They are planning to move their existing applications from an on-premises data center in to Azure and have built out a foundation design based on the customer-managed hub-and-spoke architecture, including regional hub virtual networks for hybrid connectivity. As part of the move to cloud-based technologies, the network team have been tasked with ensuring that their connectivity is optimized for the business moving forward.
+Contoso is a global financial organization with offices in both Europe and Asia. They are planning to move their existing applications from an on-premises data center in to Azure and have built out a foundation design based on the customer-managed hub-and-spoke architecture, including regional hub virtual networks for hybrid connectivity. As part of the move to cloud-based technologies, the network team has been tasked with ensuring that their connectivity is optimized for the business moving forward.
 
 The following figure shows a high-level view of the existing global network including connectivity to multiple Azure regions.
 
@@ -40,7 +39,7 @@ The following points can be understood from the existing network topology:
 
 ## Requirements
 
-The networking team have been tasked with delivering a global network model that can support the Contoso migration to the cloud and must optimize in the areas of cost, scale, and performance. In summary, the following requirements are to be met:
+The networking team has been tasked with delivering a global network model that can support the Contoso migration to the cloud and must optimize in the areas of cost, scale, and performance. In summary, the following requirements are to be met:
 
 * Provide both head quarter (HQ) and branch offices with optimized path to cloud hosted applications.
 * Remove the reliance on existing on-premises data centers (DC) for VPN termination while retaining the following connectivity paths:
@@ -118,7 +117,7 @@ Prior to using the managed Virtual WAN hub for production connectivity, we recom
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure4.png" alt-text="Test hybrid connectivity via Virtual WAN":::
 **Figure 4: Customer-managed hub-and-spoke to Virtual WAN migration**
 
-At this stage, it is important to recognize that both the original customer-managed hub virtual network and the new Virtual WAN Hub are both connected to the same ExpressRoute circuit. Due to this, we have a traffic path that can be used to enable spokes in both environments to communicate. For example, traffic from a spoke that is attached to the customer-managed hub virtual network will traverse the MSEE devices used for the ExpressRoute circuit to reach any spoke connected via a VNet connection to the new Virtual WAN hub. This allows a staged migration of spokes in Step 5.
+At this stage, it's important to recognize that both the original customer-managed hub virtual network and the new Virtual WAN Hub are both connected to the same ExpressRoute circuit. Due to this, we have a traffic path that can be used to enable spokes in both environments to communicate. For example, traffic from a spoke that is attached to the customer-managed hub virtual network will traverse the MSEE devices used for the ExpressRoute circuit to reach any spoke connected via a VNet connection to the new Virtual WAN hub. This allows a staged migration of spokes in Step 5.
 
 ### Step 5: Transition connectivity to virtual WAN hub
 
@@ -142,7 +141,7 @@ We have now redesigned our Azure network to make the Virtual WAN hub the central
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure6.png" alt-text="Old hub becomes Shared Services spoke":::
 **Figure 6: Customer-managed hub-and-spoke to Virtual WAN migration**
 
-Because the Virtual WAN hub is a managed entity and does not allow deployment of custom resources such as virtual machines, the shared services block now exists as a spoke virtual network and hosts functions such as internet ingress via Azure Application Gateway or network virtualized appliance. Traffic between the shared services environment and backend virtual machines now transits the Virtual WAN-managed hub.
+Because the Virtual WAN hub is a managed entity and doesn't allow deployment of custom resources such as virtual machines, the shared services block now exists as a spoke virtual network and hosts functions such as internet ingress via Azure Application Gateway or network virtualized appliance. Traffic between the shared services environment and backend virtual machines now transits the Virtual WAN-managed hub.
 
 ### Step 7: Optimize on-premises connectivity to fully utilize Virtual WAN
 
@@ -280,4 +279,5 @@ The traffic is routed as follows:
 
 ## Next steps
 
-Learn more about [Azure Virtual WAN](virtual-wan-about.md).
+* Learn more about [Azure Virtual WAN](virtual-wan-about.md).
+* [Configure Virtual WAN for Azure NetApp Files](../azure-netapp-files/configure-virtual-wan.md)

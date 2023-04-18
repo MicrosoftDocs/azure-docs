@@ -4,15 +4,13 @@ description: This article shows how to create Azure key vaults and vault access 
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
+ms.custom: devx-track-arm-template
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 3/14/2021
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
-
 #Customer intent: As a security admin who's new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
-
 ---
 
 # How to create an Azure key vault and vault access policy by using a Resource Manager template
@@ -134,7 +132,8 @@ You can deploy access policies to an existing key vault without redeploying the 
       "metadata": {
         "description": "Specifies the permissions to certificates in the vault. Valid values are: all,  create, delete, update, deleteissuers, get, getissuers, import, list, listissuers, managecontacts, manageissuers,  recover, backup, restore, setissuers, and purge."
       }
-    },
+    }
+  },
   "resources": [
      {
       "type": "Microsoft.KeyVault/vaults/accessPolicies",
@@ -176,7 +175,7 @@ You can find more Key Vault templates here: [Key Vault Resource Manager referenc
 You can use the Azure portal to deploy the preceding templates by using the **Build your own template in editor** option as described here:
 [Deploy resources from a custom template](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-You can also save the preceding templates to files and use these commands:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create):
+You can also save the preceding templates to files and use these commands:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-vault-template.json

@@ -3,9 +3,9 @@ title: Manage Azure file share backups
 description: This article describes common tasks for managing and monitoring the Azure file shares that are backed up by Azure Backup.
 ms.topic: conceptual
 ms.date: 11/03/2021
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Manage Azure file share backups
@@ -27,6 +27,9 @@ To open the **Backup Jobs** page:
 1. Select **Azure Files (Azure Storage)** as the datasource type and select any row to see details of the particular job.
 
    :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-inline.png" alt-text="Screenshow showing the list of jobs." lightbox="./media/manage-afs-backup/backup-center-jobs-expanded.png":::
+   
+    >[!NOTE]
+    >Since there is no data transferred to the vault, the data transferred in MB is 0 for backup jobs corresponding to Azure Files.
 
 ## Monitor using Azure Backup reports
 

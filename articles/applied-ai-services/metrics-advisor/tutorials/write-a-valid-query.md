@@ -3,7 +3,8 @@ title: Write a query for Metrics Advisor data ingestion
 description: Learn how to onboard your data to Metrics Advisor.
 author: mrbullwinkle
 ms.author: mbullwin
-ms.service: cognitive-services
+ms.service: applied-ai-services
+ms.subservice: metrics-advisor
 ms.topic: tutorial
 ms.date: 05/20/2021	
 ---
@@ -15,7 +16,7 @@ main branch.
 
 <!--
 This template provides the basic structure of a tutorial article.
-See the [tutorial guidance](contribute-how-to-mvc-tutorial.md) in the contributor guide.
+See the [tutorial guidance](contribute-how-to-mvc-tutorial.md) in our contributor guide.
 
 To provide feedback on this template contact 
 [the templates workgroup](mailto:templateswg@microsoft.com).

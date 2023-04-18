@@ -1,11 +1,8 @@
 ---
 title: Genomics Data Lake
-titleSuffix: Azure Open Datasets
 description: Learn how to use the Genomics Data Lake in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 

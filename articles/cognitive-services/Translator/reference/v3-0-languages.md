@@ -15,7 +15,7 @@ ms.author: lajanuar
 
 # Translator 3.0: Languages
 
-Gets the set of languages currently supported by other operations of the Translator. 
+Gets the set of languages currently supported by other operations of the Translator.
 
 ## Request URL
 
@@ -37,9 +37,11 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>scope</td>
-    <td>*Optional parameter*.<br/>A comma-separated list of names defining the group of languages to return. Allowed group names are: `translation`, `transliteration` and `dictionary`. If no scope is given, then all groups are returned, which is equivalent to passing `scope=translation,transliteration,dictionary`. To decide which set of supported languages is appropriate for your scenario, see the description of the [response object](#response-body).</td>
+    <td>*Optional parameter*.<br/>A comma-separated list of names defining the group of languages to return. Allowed group names are: `translation`, `transliteration` and `dictionary`. If no scope is given, then all groups are returned, which is equivalent to passing `scope=translation,transliteration,dictionary`.</td>
   </tr>
-</table> 
+</table>
+
+*See* [response body](#response-body).
 
 Request headers are:
 
@@ -48,14 +50,14 @@ Request headers are:
   <th>Description</th>
   <tr>
     <td>Accept-Language</td>
-    <td>*Optional request header*.<br/>The language to use for user interface strings. Some of the fields in the response are names of languages or names of regions. Use this parameter to define the language in which these names are returned. The language is specified by providing a well-formed BCP 47 language tag. For instance, use the value `fr` to request names in French or use the value `zh-Hant` to request names in Chinese Traditional.<br/>Names are provided in the English language when a target language is not specified or when localization is not available.
+    <td>*Optional request header*.<br/>The language to use for user interface strings. Some of the fields in the response are names of languages or names of regions. Use this parameter to define the language in which these names are returned. The language is specified by providing a well-formed BCP 47 language tag. For instance, use the value `fr` to request names in French or use the value `zh-Hant` to request names in Chinese Traditional.<br/>Names are provided in the English language when a target language isn't specified or when localization isn't available.
     </td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
     <td>*Optional request header*.<br/>A client-generated GUID to uniquely identify the request.</td>
   </tr>
-</table> 
+</table>
 
 Authentication isn't required to get language resources.
 
@@ -100,7 +102,7 @@ The value for each property is as follows.
   * `dir`: Directionality, which is `rtl` for right-to-left languages or `ltr` for left-to-right languages.
 
   An example is:
-          
+
   ```json
   {
     "translation": {
@@ -197,7 +199,7 @@ The value for each property is as follows.
     * `nativeName`: Display name of the target language in the locale native for the target language.
 
     * `dir`: Directionality, which is `rtl` for right-to-left languages or `ltr` for left-to-right languages.
-    
+
     * `code`: Language code identifying the target language.
 
   An example is:
@@ -218,9 +220,9 @@ The value for each property is as follows.
   },
   ```
 
-The structure of the response object will not change without a change in the version of the API. For the same version of the API, the list of available languages may change over time because Microsoft Translator continually extends the list of languages supported by its services.
+The structure of the response object doesn't change without a change in the version of the API. For the same version of the API, the list of available languages may change over time because Microsoft Translator continually extends the list of languages supported by its services.
 
-The list of supported languages will not change frequently. To save network bandwidth and improve responsiveness, a client application should consider caching language resources and the corresponding entity tag (`ETag`). Then, the client application can periodically (for example, once every 24 hours) query the service to fetch the latest set of supported languages. Passing the current `ETag` value in an `If-None-Match` header field will allow the service to optimize the response. If the resource has not been modified, the service will return status code 304 and an empty response body.
+The list of supported languages doesn't change frequently. To save network bandwidth and improve responsiveness, a client application should consider caching language resources and the corresponding entity tag (`ETag`). Then, the client application can periodically (for example, once every 24 hours) query the service to fetch the latest set of supported languages. Passing the current `ETag` value in an `If-None-Match` header field allows the service to optimize the response. If the resource hasn't been modified, the service returns status code 304 and an empty response body.
 
 ## Response headers
 
@@ -234,13 +236,13 @@ The list of supported languages will not change frequently. To save network band
   </tr>
   <tr>
     <td>X-RequestId</td>
-    <td>Value generated by the service to identify the request. It is used for troubleshooting purposes.</td>
+    <td>Value generated by the service to identify the request. It's used for troubleshooting purposes.</td>
   </tr>
-</table> 
+</table>
 
 ## Response status codes
 
-The following are the possible HTTP status codes that a request returns. 
+The following are the possible HTTP status codes that a request returns.
 
 <table width="100%">
   <th width="20%">Status Code</th>
@@ -251,7 +253,7 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
   <tr>
     <td>304</td>
-    <td>The resource has not been modified since the version specified by request headers `If-None-Match`.</td>
+    <td>The resource hasn't been modified since the version specified by request headers `If-None-Match`.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -269,9 +271,9 @@ The following are the possible HTTP status codes that a request returns.
     <td>503</td>
     <td>Server temporarily unavailable. Retry the request. If the error persists, report it with: date and time of the failure, request identifier from response header `X-RequestId`, and client identifier from request header `X-ClientTraceId`.</td>
   </tr>
-</table> 
+</table>
 
-If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](./v3-0-reference.md#errors). 
+If an error occurs, the request also returns a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](./v3-0-reference.md#errors).
 
 ## Examples
 

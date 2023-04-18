@@ -1,21 +1,24 @@
 ---
-title: Associate peer ASN to Azure subscription using PowerShell
-titleSuffix: Azure
-description: Associate peer ASN to Azure subscription using PowerShell
+title: Associate peer ASN to Azure subscription - PowerShell
+description: Associate peer ASN to Azure subscription using PowerShell.
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 12/15/2020
-ms.author: prmitiki 
-ms.custom: devx-track-azurepowershell
+ms.date: 01/23/2023
+ms.author: halkazwini 
+ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Associate peer ASN to Azure subscription using PowerShell
 
+> [!div class="op_single_selector"]
+> - [Azure portal](howto-subscription-association-portal.md)
+> - [PowerShell](howto-subscription-association-powershell.md)
+
 Before you submit a peering request, you should first associate your ASN with Azure subscription using the steps below.
 
-If you prefer, you can complete this guide using the [portal](howto-subscription-association-portal.md).
+If you prefer, you can complete this guide using the [Azure portal](howto-subscription-association-portal.md).
 
 ### Working with Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
@@ -26,7 +29,7 @@ If you prefer, you can complete this guide using the [portal](howto-subscription
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
 ### Register for peering resource provider
-Register for peering resource provider in your subscription using the command below. If you do not execute this, then Azure resources required to set up peering are not accessible.
+Register for peering resource provider in your subscription using the command below. If you don't execute this, then Azure resources required to set up peering aren't accessible.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
@@ -94,7 +97,7 @@ Set-PeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
 ```
 
 ## Delete PeerAsn
-Deleting a PeerASN is not currently supported. If you need to delete PeerASN, contact [Microsoft peering](mailto:peering@microsoft.com).
+Deleting a PeerASN isn't currently supported. If you need to delete PeerASN, contact [Microsoft peering](mailto:peering@microsoft.com).
 
 ## Next steps
 

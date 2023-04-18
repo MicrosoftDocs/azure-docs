@@ -10,9 +10,9 @@ ms.custom: language-service-question-answering, ignite-fall-2021
 
 # Precise answering
 
-The precise answering feature introduced, allows you to get the precise short answer from the best candidate answer passage present in the knowledge base for any user query. This feature uses a deep learning model at runtime, which understands the intent of the user query and detects the precise short answer from the answer passage, if there is a short answer present as a fact in the answer passage.
+The precise answering feature introduced, allows you to get the precise short answer from the best candidate answer passage present in the project for any user query. This feature uses a deep learning model at runtime, which understands the intent of the user query and detects the precise short answer from the answer passage, if there is a short answer present as a fact in the answer passage.
 
-This feature is beneficial for both content developers as well as end users. Now, content developers don't need to manually curate specific question answer pairs for every fact present in the knowledge base, and the end user doesn't need to look through the whole answer passage returned from the service to find the actual fact that answers the user's query.
+This feature is beneficial for both content developers as well as end users. Now, content developers don't need to manually curate specific question answer pairs for every fact present in the project, and the end user doesn't need to look through the whole answer passage returned from the service to find the actual fact that answers the user's query.
 
 ## Precise answering via the portal
 

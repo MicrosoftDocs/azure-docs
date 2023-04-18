@@ -2,7 +2,7 @@
 title: How to use Azure Service Bus queues with PHP
 description: In this article, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
 services: service-bus-messaging
-ms.devlang: PHP
+ms.devlang: php
 ms.topic: how-to
 ms.date: 07/23/2021
 ---
@@ -109,7 +109,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -146,7 +146,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -199,7 +199,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -225,5 +225,3 @@ For more information, also visit the [PHP Developer Center](https://azure.micros
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [require_once]: https://php.net/require_once
-
-

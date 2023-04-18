@@ -1,9 +1,8 @@
 ---
-author: jasonwhowell
 ms.service: hdinsight
 ms.topic: include
 ms.date: 10/25/2018
-ms.author: jasonh
+
 ---
 > [!div class="op_single_selector"]
 > * [Overview](../hdinsight-hadoop-provision-linux-clusters.md)

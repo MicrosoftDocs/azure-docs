@@ -6,7 +6,7 @@ author: cherylmc
 manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/02/2020
+ms.date: 02/13/2023
 ms.author: radwiv
 ms.reviewer: chadmat;genli
 ---
@@ -119,7 +119,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 
 ### Load Latte.exe onto the VMs
 
-Download the latest version of [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+Download the latest version of [Latte.exe](https://github.com/microsoft/latte/releases/download/v0/latte.exe)
 
 Consider putting Latte.exe in separate folder, such as `c:\tools`
 

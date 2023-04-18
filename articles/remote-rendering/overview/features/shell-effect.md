@@ -14,6 +14,9 @@ The shell state of the [Hierarchical state override component](../../overview/fe
 
 You can configure the appearance of shell-rendered objects via the `ShellRenderingSettings` global state. All objects that use shell rendering will use the same setting. There are no per object parameters.
 
+> [!NOTE]
+> The shell rendering effect can't be applied to point clouds.
+
 ## ShellRenderingSettings parameters
 
 Class `ShellRenderingSettings` holds the settings related to global shell rendering properties:

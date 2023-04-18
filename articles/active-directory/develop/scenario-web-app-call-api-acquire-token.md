@@ -1,17 +1,17 @@
 ---
-title: Get a token in a web app that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Get a token in a web app that calls web APIs
 description: Learn how to acquire a token for a web app that calls web APIs
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/25/2020
-ms.author: jmprieur
+ms.date: 05/06/2022
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -20,7 +20,7 @@ ms.custom: aaddev
 
 You've built your client application object. Now, you'll use it to acquire a token to call a web API. In ASP.NET or ASP.NET Core, calling a web API is done in the controller:
 
-- Get a token for the web API by using the token cache. To get this token, you call the MSAL `AcquireTokenSilent` method (or the equivalent in Microsoft.Identity.Web).
+- Get a token for the web API by using the token cache. To get this token, you call the Microsoft Authentication Library (MSAL) `AcquireTokenSilent` method (or the equivalent in Microsoft.Identity.Web).
 - Call the protected API, passing the access token to it as a parameter.
 
 # [ASP.NET Core](#tab/aspnetcore)
@@ -86,6 +86,9 @@ The code for ASP.NET is similar to the code shown for ASP.NET Core:
 - Finally, it calls the `AcquireTokenSilent` method of the confidential client application.
 - If interaction is required, the web app needs to challenge the user (re-sign in) and ask for more claims.
 
+>[!NOTE]
+>The scope should be the fully qualified scope name. For example,`({api_uri}/scope)`.
+
 The following code snippet is extracted from [HomeController.cs#L157-L192](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Controllers/HomeController.cs#L157-L192) in the [ms-identity-aspnet-webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) ASP.NET MVC code sample:
 
 ```C#
@@ -112,7 +115,7 @@ public async Task<ActionResult> ReadMail()
 }
 ```
 
-For details see the code for [BuildConfidentialClientApplication()](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Utils/MsalAppBuilder.cs) and [GetMsalAccountId](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Utils/ClaimPrincipalExtension.cs#L38) in the code sample
+For details see the code for [GetMsalAccountId](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Utils/ClaimPrincipalExtension.cs#L38) in the code sample.
 
 
 # [Java](#tab/java)
@@ -179,26 +182,34 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
 
 # [Python](#tab/python)
 
-In the Python sample, the code that calls Microsoft Graph is in [app.py#L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
+In the Python sample, the code that calls the API is in [app.py#L60-71](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.5.0/app.py#L60-71).
 
-The code attempts to get a token from the token cache. Then, after setting the authorization header, it calls the web API. If it can't get a token, it signs the user in again.
+The code attempts to get a token from the token cache. If it can't get a token, it redirects the user to the sign-in route. Otherwise, it can proceed to call the API.
 
-```python
-@app.route("/graphcall")
-def graphcall():
-    token = _get_token_from_cache(app_config.SCOPE)
-    if not token:
-        return redirect(url_for("login"))
-    graph_data = requests.get(  # Use token to call downstream service.
-        app_config.ENDPOINT,
-        headers={'Authorization': 'Bearer ' + token['access_token']},
-        ).json()
-    return render_template('display.html', result=graph_data)
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="60-71":::
 
 ---
 
 ## Next steps
 
+# [ASP.NET Core](#tab/aspnetcore)
+
 Move on to the next article in this scenario,
-[Call a web API](scenario-web-app-call-api-call-api.md).
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=aspnetcore).
+
+# [ASP.NET](#tab/aspnet)
+
+Move on to the next article in this scenario,
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=aspnet).
+
+# [Java](#tab/java)
+
+Move on to the next article in this scenario,
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=java).
+
+# [Python](#tab/python)
+
+Move on to the next article in this scenario,
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=python).
+
+---

@@ -2,7 +2,11 @@
 title: Azure Service Fabric Event List 
 description: Comprehensive list of events provided by Azure Service Fabric to help monitor clusters.
 ms.topic: reference
-ms.date: 2/25/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # List of Service Fabric events 
@@ -138,6 +142,26 @@ More details on application upgrades can be found [here](service-fabric-applicat
 | 23074 | ContainerActivated | A container has started | Hosting | Informational | 1 |
 | 23075 | ContainerDeactivated | A container has stopped | Hosting | Informational | 1 |
 | 23082 | ContainerExited | A container has exited - Check the UnexpectedTermination flag | Hosting | Informational | 1 |
+
+## BackupRestoreService Events
+
+When BackupRestoreService (BRS) is enabled on an SF Cluster, it exposes events for user triggered and periodic operations to let user understand the status of operations. User triggered operations cover actions like creating a backup policy on cluster, triggering backup on a partition or any other valid action in BRS context. BRS periodically emits status of current active policies at cluster level, information about last backup and upcoming scheduled backup and status of periodic backup at different stages at partition level.
+
+**BackupRestoreService partition events**
+
+| EventId | Name | Description |Source (Task) | Level |
+| --- | --- | ---| --- | --- |
+| 65305 | BRSInfo | Periodic backup triggered | BackupRestoreService | Informational |
+| 65307 | BRSWarning | Incremental backup failed, triggering a full backup | BackupRestoreService | Warning |
+| 65309 | BRSError | Periodic backup failed | BackupRestoreService | Error |
+
+**BackupRestoreService cluster events**
+
+| EventId | Name | Description |Source (Task) | Level |
+| --- | --- | ---| --- | --- |
+| 65306 | BRSInfo | Backup policy created | BackupRestoreService | Informational |
+| 65308 | BRSWarning | Backup policy deleted | BackupRestoreService | Warning |
+| 65310 | BRSError | AddBackupPolicy failed | BackupRestoreService | Error |
 
 ## Health reports
 

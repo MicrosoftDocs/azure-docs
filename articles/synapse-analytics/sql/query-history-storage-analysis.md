@@ -45,10 +45,11 @@ SET QUERY_STORE = ON;
 You can run performance auditing and troubleshooting related tasks by finding last executed queries, execution counts, longest running queries, queries with maximum physical I/O leads. Please refer to [Monitoring Performance By Using the Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#performance) for sample queries.
 
 Advantages:
-* 30 days of threshold for storage query data.
+* Up to 30 days of storage for query data. Default 7 days.
 * Data can be consumed in the same tool that you'd run the query in.
 
 Known Limitation:
+* Default storage of historic query data is less.
 * Scenarios for analysis are limited in Query Store for Azure Synapse when compared to using DMVs.
 
 ## DMVs
@@ -78,7 +79,7 @@ Known Limitations:
 ## Log Analytics
 Log Analytics workspaces can be created easily in the Azure portal. For further instructions on how to connect Synapse with Log Analytics, see  [Monitor workload - Azure portal](../sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md).
 
-Like Azure Data Explorer, Log Analytics uses the Kusto Query Language (KQL). For more information about Kusto syntax, see [Kusto query overview](/data-explorer/kusto/query/index.md). 
+Like Azure Data Explorer, Log Analytics uses the Kusto Query Language (KQL). For more information about Kusto syntax, see [Kusto query overview](/azure/data-explorer/kusto/query/). 
 
 Along with configurable retention period, you choose the workspace you are specifically targeting to query in Log Analytics. Log Analytics gives you the flexibility to store data, run, and save queries.
 
@@ -91,7 +92,7 @@ Known Limitations:
 
 ## Azure Data Explorer (ADX)
 
-Azure Data Explorer (ADX) is a leading data exploration service. This service can be used to analyze historic queries from Azure Synapse Analytics. To setup an Azure Data Factory (ADF) pipeline to copy and store logs to ADX, see [Copy data to or from Azure Data Explorer](/data-factory/connector-azure-data-explorer.md). In ADX, you can run performant Kusto query to analyze your logs. You can combine other strategies here, for example to query and load DMV output to ADX via ADF.
+Azure Data Explorer (ADX) is a leading data exploration service. This service can be used to analyze historic queries from Azure Synapse Analytics. To setup an Azure Data Factory (ADF) pipeline to copy and store logs to ADX, see [Copy data to or from Azure Data Explorer](../../data-factory/connector-azure-data-explorer.md). In ADX, you can run performant Kusto query to analyze your logs. You can combine other strategies here, for example to query and load DMV output to ADX via ADF.
   
 Advantages:
 * ADX provides a customizable log retention policy.
@@ -103,7 +104,7 @@ Known Limitation:
 ## Next steps
 
  - [Azure Data Explorer](/azure/data-explorer/)
- - [Azure Data Factory](/azure/data-factory/)
- - [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
+ - [Azure Data Factory](../../data-factory/index.yml)
+ - [Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md)
  - [Azure Synapse SQL architecture](overview-architecture.md)
  - [Get Started with Azure Synapse Analytics](../get-started.md)

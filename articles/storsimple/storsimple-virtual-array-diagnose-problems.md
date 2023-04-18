@@ -9,14 +9,16 @@ editor: ''
 
 ms.assetid: 53f57d17-07af-457f-a0e8-741e52fbbc2a
 ms.service: storsimple
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 08/19/2022
 ms.author: manuaery
 ---
 # Use the StorSimple Device Manager service to troubleshoot the StorSimple Virtual Array
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
+
 ## Overview
 
 The StorSimple Device Manager provides a **Diagnose and solve problems** setting within the service summary blade, which highlights some of the commonly occurring issues that can occur with your virtual array and how to solve them. This tutorial introduces the self-serve troubleshooting capability provided within the StorSimple Device Manager service.
