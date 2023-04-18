@@ -12,7 +12,7 @@ ms.custom:
 
 # What is Security Service Edge (SSE)?
 
-The way people work has changed. Instead of working in traditional offices, people now work from nearly anywhere. Global Secure Access provides modern network access control for users and devices.
+The way people work has changed. Instead of working in traditional offices, people now work from nearly anywhere. This new paradigm in modern work has taken on various names. Gartner originally came up with the term Secure Access Service Edge (SASE). Forrester then came up with a similar term called Security Service Edge (SSE). You will also hear people refer to Network as a Service (NaaS) and Zero Trust Network Access (ZTNA). 
 
 ## Understand SASE, SSE, and modern networking
 
@@ -23,24 +23,6 @@ Whatever you call it, think of the new category of networking as a solution that
 :::image type="content" source="./media/overview-what-is-global-secure-access/traditional_network_traffic.svg" alt-text="Diagram showing the traditional line of control for network traffic." border="false" lightbox="./media/overview-what-is-global-secure-access/traditional_network_traffic.svg":::
 
 :::image type="content" source="./media/overview-what-is-global-secure-access/modern_network_traffic.svg" alt-text="Diagram showing the modern line of control for network traffic." border="false" lightbox="./media/overview-what-is-global-secure-access/modern_network_traffic.svg":::
-
-## Understand Microsoft Entra Private Access and Microsoft Entra Internet Access
-Microsoft Entra has two products that provide the features that make up Global Secure Access. These are Microsoft Entra Private Access and Microsoft Entra Internet Access. These two products make up the Microsoft solution for SASE, SSE, and Global Secure Access.
-
-Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines
-which product is required for each feature in this article. To learn more about Microsoft Entra Private Access, see
-[What is Microsoft Entra Private Access?](overview-what-is-private-access.md). To learn more about Microsoft Entra
-Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
-
-|               |Private Access - Standard|Private Access - Premium|Internet Access - Standard|Internet Access - Premium|
-|---------------|--------------------------------|-------|---------------------------------|-------|
-| **Feature A** | X                              |       | X                               |       |
-| **Feature B** |                                | X     |                                 |       |
-| **Feature C** | X                              |       | X                               |       |
-| **Feature D** |                                | X     |                                 | X     |
-
-## Managing Global Secure Access
-You manage Global Secure Access in the Microsoft Entra admin center.
 
 ## Understand Secure Access Service Edge (SASE)
 
