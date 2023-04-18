@@ -36,7 +36,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Designing the flow of of sign-in steps
+          - text: Designing the flow of sign-in steps
             url: concept-user-flows-customers.md
       - linkListType: how-to-guide
         links:
