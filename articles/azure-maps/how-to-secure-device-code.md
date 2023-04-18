@@ -10,7 +10,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Secure an input constrained device using Azure active directory (Azure AD) and Azure Maps REST APIs
+# Secure an input constrained device by using Azure Active Directory (Azure AD) and Azure Maps REST APIs
 
 This guide discusses how to secure public applications or devices that can't securely store secrets or accept browser input. These types of applications fall under the internet of things (IoT) category. Examples include Smart TVs and sensor data emitting applications.
 
