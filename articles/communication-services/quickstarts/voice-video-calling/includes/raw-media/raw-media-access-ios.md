@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Add raw media access to your app (iOS)
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add raw media access calling capabilities to your app by using Azure Communication Services.
+description: In this quickstart, you learn how to add raw media access calling capabilities to your app by using Azure Communication Services.
 author: lucianopa-msft
 
 ms.author: lucianopa
@@ -14,7 +14,7 @@ ms.custom: mode-other
 
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
-In this quickstart, you'll learn how to implement raw media access by using the Azure Communication Services Calling SDK for iOS.
+In this quickstart, you learn how to implement raw media access by using the Azure Communication Services Calling SDK for iOS.
 
 The Azure Communication Services Calling SDK offers APIs that allow apps to generate their own video frames to send to remote participants in a call.
 
@@ -38,7 +38,7 @@ Make an options object specifying the raw stream properties we want to send.
     options.rawOutgoingAudioProperties = properties
     ```
 
-Create a `RawOutgoingAudioStream` and attach it to join call options and the stream will automatically starts when call is connected.
+Create a `RawOutgoingAudioStream` and attach it to join call options and the stream automatically starts when call is connected.
 
     ```swift 
     let options = // JoinCallOptions() or StartCallOptions()
@@ -66,7 +66,8 @@ Or you can also attach the stream to an existing `Call` instance instead:
 
 ### Start sending Raw Samples
 
-We will only be able to start sending data once the stream state is `.started`. To observe the audio stream state change implement the `RawOutgoingAudioStreamDelegate`. And set the stream delegate.
+We can only start sending data once the stream state is `AudioStreamState.started`. 
+To observe the audio stream state change, we implement the `RawOutgoingAudioStreamDelegate`. And set it as the stream delegate.
 
     ```swift
     func rawOutgoingAudioStream(_ rawOutgoingAudioStream: RawOutgoingAudioStream,
@@ -85,7 +86,7 @@ or use closure based
     }
     ```
 
-When the stream started we can start sending [`AVAudioPCMBuffer`](https://developer.apple.com/documentation/avfaudio/avaudiopcmbuffer) audio samples to the call. 
+When the stream started, we can start sending [`AVAudioPCMBuffer`](https://developer.apple.com/documentation/avfaudio/avaudiopcmbuffer) audio samples to the call. 
 
 The audio buffer format should match the specified stream properties.
 
@@ -196,7 +197,7 @@ The audio buffer format should match the specified stream properties.
 
 ### Capturing Microphone Samples
 
-Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) we can capture microphone frames by tapping into the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode). And capturing the microphone data and being able to use raw audio functionality, we are able to process the audio before sending it to a call. 
+Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) we can capture microphone frames by tapping into the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode). And capturing the microphone data and being able to use raw audio functionality, we're able to process the audio before sending it to a call. 
 
     ```swift 
     import AVFoundation
@@ -269,7 +270,7 @@ Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaud
     }
     ```
 
-With this small sample we learned how we can capture the microphone [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) data and send those samples to a call using raw outgoing audio feature.
+With this small sample, we learned how we can capture the microphone [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) data and send those samples to a call using raw outgoing audio feature.
 
 ### Receiving Raw Incoming Audio
 
@@ -307,7 +308,7 @@ Or we can also attach the stream to an existing `Call` instance instead:
     }
     ```
 
-To start receiving raw audio buffer from the incoming stream implement the `RawIncomingAudioStreamDelegate`:
+For starting to receive raw audio buffer from the incoming stream implement the `RawIncomingAudioStreamDelegate`:
 
     ```swift
     class RawIncomingReceiver: NSObject, RawIncomingAudioStreamDelegate {
@@ -339,9 +340,9 @@ or
 
 ## Raw Video Access
 
-Because the app will generate the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
+Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 
-The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event will inform the app which video format is most appropriate for the current network conditions.
+The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event informs the app, which video format is most appropriate for the current network conditions.
 
 ### Supported video resolutions
 
@@ -364,7 +365,7 @@ The app must register a delegate to get notified about when it should start or s
 
 1. Create an array of `VideoFormat` with the video formats that the app supports. It's fine to have only one video format supported, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type.
 
-   When multiple formats are provided, the order of the formats in the list doesn't influence or prioritize which one will be selected. The criteria for format selection are based on external factors like network bandwidth.
+   When multiple formats are provided, the order of the formats in the list doesn't influence or prioritize which one is selected. The criteria for format selection are based on external factors like network bandwidth.
 
     ```swift
     let videoFormats: [VideoFormat] = []
@@ -388,7 +389,7 @@ The app must register a delegate to get notified about when it should start or s
     options.videoFormats = videoFormats
     ```
 
-3. Implement the `RawOutgoingVideoStreamOptionsDelegate` delegate. This delegate will observe changes to the current stream state and the frame sender. Don't send frames if the state is not equal to `OutgoingVideoStreamState.started`.
+3. Implement the `RawOutgoingVideoStreamOptionsDelegate` delegate. This delegate observes changes to the current stream state and the frame sender. Don't send frames if the state isn't equal to `OutgoingVideoStreamState.started`.
 
    Remember to set `options.delegate` for the class, which implements it. This example uses `self`.
 
@@ -405,7 +406,7 @@ The app must register a delegate to get notified about when it should start or s
     }
     ```
 
-4. Make sure the `didChangeOutgoingVideoStreamState` delegate is also implemented. This delegate will inform the listener about events that require the app to start or stop producing video frames.
+4. Make sure the `didChangeOutgoingVideoStreamState` delegate is also implemented. This delegate informs the listener about events that require the app to start or stop producing video frames.
 
    This quickstart uses `mediaFrameSender` as a trigger to let the app know when it's time to start generating frames. Feel free to use any mechanism in your app as a trigger.
 
@@ -426,7 +427,7 @@ The app must register a delegate to get notified about when it should start or s
 
 6. After `outgoingVideoStreamState` is equal to `OutgoingVideoStreamState.started` and you receive a `VideoFrameSender` instance on the previous delegate, cast `VideoFrameSender` to the appropriate type defined by the `VideoFrameKind` property of `VideoFormat`.
 
-   For example, for `.videoSoftware`, cast `VideoFrameSender` to `SoftwareBasedVideoFrameSender`. Then, you'll be able to use the `send` method to pass the frame that you want to send in a format defined by the `VideoFormat` instance that you specified in the first step.
+   For example, for `.videoSoftware`, cast `VideoFrameSender` to `SoftwareBasedVideoFrameSender`. Then, you're able to use the `send` method to pass the frame that you want to send in a format defined by the `VideoFormat` instance that you specified in the first step.
 
    First, produce the frame.
 
@@ -654,9 +655,9 @@ The app must register a delegate to get notified about when it should start or s
 
 Repeat steps 1 to 5 from the previous [Steps to create a virtual video stream](#steps-to-create-a-virtual-video-stream) procedure.
 
-For screen sharing, you're still going to use the same sender, but you'll use a different `VideoStream` and `FrameProducer` instance.
+For screen sharing, you're still going to use the same sender, but you use a different `VideoStream` and `FrameProducer` instance.
 
-You'll use Apple's `ReplayKit` framework to capture the frames to send to the call.
+You use Apple's `ReplayKit` framework to capture the frames to send to the call.
 
 ### Supported video resolutions
 
@@ -666,7 +667,7 @@ You'll use Apple's `ReplayKit` framework to capture the frames to send to the ca
 
 ### Steps to create a screen share video stream
 
-1. The format now will be the screen bounds.
+1. The format now is the screen bounds.
 
     ```swift
     let videoFormats: [VideoFormat] = []
