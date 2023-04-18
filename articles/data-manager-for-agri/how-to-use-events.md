@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Azure Data Manager for Agriculture Preview as Event Grid source 
 
-This article provides the properties and schema for Azure Data Manager for Agriculture events. For an introduction to event schemas, see [Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/event-schema) event schema.
+This article provides the properties and schema for Azure Data Manager for Agriculture events. For an introduction to event schemas, see [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema) event schema.
 
 ## Prerequisites
 
@@ -49,8 +49,8 @@ To learn more about how to apply filters, see <a href = "https://docs.microsoft.
 ## Subscribing to events
 You can subscribe to Data Manager for Agriculture events by using Azure portal or Azure Resource Manager client. Each of these provide the user with a set of functionalities. Refer to following resources to know more about each method.
 
-1.  <a href = "https://docs.microsoft.com/en-us/azure/event-grid/subscribe-through-portal#:~:text=Create%20event%20subscriptions%201%20Select%20All%20services.%202,event%20types%20option%20checked.%20...%20More%20items..." target = "_blank"> Subscribe to events using portal </a>
-2. <a href = "https://docs.microsoft.com/en-us/azure/event-grid/sdk-overview" target = "_blank"> Subscribe to events using the ARM template client </a>
+1.  <a href = "https://docs.microsoft.com/azure/event-grid/subscribe-through-portal#:~:text=Create%20event%20subscriptions%201%20Select%20All%20services.%202,event%20types%20option%20checked.%20...%20More%20items..." target = "_blank"> Subscribe to events using portal </a>
+2. <a href = "https://docs.microsoft.com/azure/event-grid/sdk-overview" target = "_blank"> Subscribe to events using the ARM template client </a>
 
 ## Practices for consuming events
 
@@ -58,7 +58,7 @@ Applications that handle Data Manager for Agriculture events should follow a few
 
 1. Check that the eventType is one you're prepared to process, and don't assume that all events you receive are the types you expect.
 2. As messages can arrive out of order, use the modifiedTime and etag fields to understand the order of events for any particular object.
-3. Data Manager for Agriculture events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries or availability of subscriptions, duplicate messages may occasionally occur. To learn more about message delivery and retry, see <a href = "https://docs.microsoft.com/en-us/azure/event-grid/delivery-and-retry" target = "_blank">Event Grid message delivery and retry </a>
+3. Data Manager for Agriculture events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries or availability of subscriptions, duplicate messages may occasionally occur. To learn more about message delivery and retry, see <a href = "https://docs.microsoft.com/azure/event-grid/delivery-and-retry" target = "_blank">Event Grid message delivery and retry </a>
 4. Ignore fields you don't understand. This practice will help keep you resilient to new features that might be added in the future.
 
 

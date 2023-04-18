@@ -33,9 +33,11 @@
           - name: Using Events
             href: how-to-use-events.md
     - name: Monitoring
+      items:
           - name: Set up audit logs
             href: how-to-set-up-audit-logs.md
     - name: Security
+      items:
           - name: Set up Private Links
             href: how-to-set-up-private-links.md
     - name: Use ISV solutions
