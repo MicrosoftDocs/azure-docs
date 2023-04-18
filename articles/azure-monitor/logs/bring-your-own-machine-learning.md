@@ -48,7 +48,7 @@ This table compares the advantages and limitations of using KQL's built-in machi
 | |[Azure portal or Query API log query limits](../service-limits.md#log-analytics-workspaces) depending on whether you're working in the portal or using the API, for example, from a notebook.| Query API log query limits depending on how you [implement your machine learning pipeline](#apply-your-own-machine-learning-pipeline-to-data-in-azure-monitor-logs).|
 |**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
 
-## Build your own machine learning pipeline on data in Azure Monitor Logs
+## Create your own machine learning pipeline on data in Azure Monitor Logs
 
 You can implement custom machine learning models and build your own machine learning pipeline on data in Azure Monitor Logs to support advanced scenarios, such as: 
 
@@ -56,11 +56,11 @@ You can implement custom machine learning models and build your own machine lear
 - Correlating data in Azure Monitor Logs with data from other sources.
 - Creating multi-step flows, running code in each step based on the results of the previous step.
 
-There are three approaches to making data in Azure Monitor Logs available to your machine learning pipeline:
+There are three approaches to building making data in Azure Monitor Logs available to your machine learning pipeline:
 
 - **Query data in Azure Monitor Logs** - [Integrate a notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md) or run a script or application using libraries like [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) or [MSTICPY](https://msticpy.readthedocs.io/en/latest/) to retrieve data from Azure Monitor Logs in a Pandas DataFrame. The data you query is retrieved to an in-memory object on your server, without exporting the data out of your Log Analytics workspace.   
-- **Export data out of Azure Monitor Logs** - Usually to blob storage account in JSON format. 
-- **Hybrid pipeline** - Export data for model training and query data in Azure Monitor Logs for scoring.
+- **Export data out of Azure Monitor Logs** - Usually to a blob storage account in JSON format. 
+- **Hybrid pipeline** - Export data for model training and query data in Azure Monitor Logs to score new data.
 
 This table compares the advantages and limitations of the various machine learning pipeline implementation approaches:
 
