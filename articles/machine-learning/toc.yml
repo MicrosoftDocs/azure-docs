@@ -592,7 +592,7 @@
         - name: Create data assets
           displayName: Create data assets
           href: how-to-create-data-assets.md
-        - name: Import data from external sources
+        - name: Create data assets by importing data from external sources
           items:
             - name: Create connections to external data sources (preview)
               displayName: Create connections to external data sources (preview)

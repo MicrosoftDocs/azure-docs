@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
-ms.date: 04/13/2023
+ms.date: 04/18/2023
 ms.custom: data4ml
 
 # Customer intent: As an experienced data scientist with Python skills, I have data located in external sources outside of Azure. I need to make that data available to the Azure Machine Learning platform, to train my machine learning models.
@@ -34,8 +34,31 @@ In this article, learn how to connect to data sources located outside of Azure, 
 
 - An Azure Machine Learning workspace.
 
-> [!NOTE]
+> [!IMPORTANT]
 > An Azure Machine Learning connection securely stores the credentials passed during connection creation in the Workspace Azure Key Vault. A connection references the credentials from the key vault storage location for further use. You won't need to directly deal with the credentials after they are stored in the key vault. You have the option to store the credentials in the YAML file. A CLI command or SDK can override them. We recommend that you **avoid** credential storage in a YAML file, because a security breach could lead to a credential leak.
+
+> [!NOTE]
+> For a successful data import, please verify that you have installed the latest azure-ai-ml package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).  
+> 
+> If you have an older SDK package or CLI extension, please remove the old one and install the new one with the code shown in the tab section. Choose the code version that covers your situation:
+
+# [Version 1.5.0](#tab/version-1.5.0)
+
+```python
+pip uninstall azure-ai-ml
+pip install azure-ai-ml
+pip show azure-ai-ml
+```
+
+# [Version 2.15.1 or later](#tab/version-2.15.1-or-later)
+
+```cli
+az extension remove -n ml
+az extension add -n ml --yes
+az extension show -n ml
+```
+
+---
 
 ## Create a Snowflake DB connection
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
-ms.date: 04/13/2023
+ms.date: 04/18/2023
 ms.custom: data4ml
 ---
 
@@ -42,6 +42,29 @@ To create and work with data assets, you need:
 * The [Azure Machine Learning CLI/SDK installed](how-to-configure-cli.md).
 
 * [Workspace connections created](how-to-connection.md)
+
+> [!NOTE]
+> For a successful data import, please verify that you have installed the latest azure-ai-ml package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).  
+> 
+> If you have an older SDK package or CLI extension, please remove the old one and install the new one with the code shown in the tab section. Choose the code version that covers your situation:
+
+# [Version 1.5.0](#tab/version-1.5.0)
+
+```python
+pip uninstall azure-ai-ml
+pip install azure-ai-ml
+pip show azure-ai-ml
+```
+
+# [Version 2.15.1 or later](#tab/version-2.15.1-or-later)
+
+```cli
+az extension remove -n ml
+az extension add -n ml --yes
+az extension show -n ml
+```
+
+---
 
 ## Importing from an external database source as a table data asset
 
