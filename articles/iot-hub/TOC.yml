@@ -532,19 +532,8 @@
       displayName: C, Device Client SDK, Provisioning Client SDK
       href: https://github.com/Azure/azure-iot-sdk-c/
     - name: REST APIs
-      items:
-        - name: Device
-          displayName: REST, /rest/api/iothub/device
-          href: /rest/api/iothub/device
-        - name: Service
-          displayName: REST, /rest/api/iothub/service/configuration
-          href: /rest/api/iothub/service/configuration
-        - name: IoT Hub Resource
-          displayName: REST, /rest/api/iothub/iothubresource
-          href: /rest/api/iothub/iothubresource
-        - name: Certificates
-          displayName: REST, /rest/api/iothub/certificates
-          href: /rest/api/iothub/certificates
+      displayName: REST, /rest/api/iothub/
+      href: /rest/api/iothub/
     - name: Resource Manager template
       displayName: Microsoft.Devices, IotHubs/certificates, IotHubs/eventHubEndpoints/ConsumerGroups, IotHubs/privateEndpointConnections
       href: /azure/templates/microsoft.devices/iothub-allversions
