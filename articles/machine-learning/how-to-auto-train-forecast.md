@@ -86,6 +86,7 @@ AutoML uses Azure Machine Learning Compute, which is a fully managed compute res
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute)]
 
+
 ## Configure experiment
 
 There are several options that you can use to configure your AutoML forecasting experiment. These configuration parameters are set in the automl.forecasting() task method. You can also set job training settings and exit criteria with the set_training() and set_limits() functions, respectively.

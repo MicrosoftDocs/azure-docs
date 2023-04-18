@@ -81,6 +81,8 @@ A compute is a designated compute resource where you run your job or host your e
 * **Inference cluster** - used to deploy trained machine learning models to Azure Kubernetes Service. You can create an Azure Kubernetes Service (AKS) cluster from your Azure Machine Learning workspace, or attach an existing AKS cluster.
 * **Attached compute** - You can attach your own compute resources to your workspace and use them for training and inference.
 
+[!INCLUDE [serverless compute](./includes/serverless-compute.md)]
+
 ### [Azure CLI](#tab/cli)
 
 To create a compute using CLI v2, use the following command:
