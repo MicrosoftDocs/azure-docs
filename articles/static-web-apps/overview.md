@@ -29,7 +29,7 @@ With Static Web Apps, static assets are separated from a traditional web server 
 - **Web hosting** for static content like HTML, CSS, JavaScript, and images.
 - **Integrated API** support provided by managed Azure Functions, with the option to link an existing function app, web app, container app, or API Management instance using a standard account.
 - **First-class GitHub and Azure DevOps integration** that allows repository changes to trigger builds and deployments.
-- **Globally distributed** static content, putting content closer to your users. If you need your API in a region that doesn't support [managed functions](apis-functions.md), you can [bring your own functions](functions-bring-your-own.md) to your app.
+- **Globally distributed** static content, putting content closer to your users.
 - **Free SSL certificates**, which are automatically renewed.
 - **Custom domains** to provide branded customizations to your app.
 - **Seamless security model** with a reverse-proxy when calling APIs, which requires no CORS configuration.
