@@ -1108,6 +1108,8 @@ recognizer.stop_continuous_recognition()
 
 ---
 
+::: zone-end
+
 ## Run and use a container
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
@@ -1116,8 +1118,6 @@ When you run language ID in a container, use the `SourceLanguageRecognizer` obje
 
 For more information about containers, see the [language identification speech containers](speech-container-lid.md#use-the-container) how-to guide.
 
-
-::: zone-end
 
 ## Next steps
 
