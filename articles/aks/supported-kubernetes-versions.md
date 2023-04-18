@@ -130,7 +130,7 @@ New Supported Version List
 1.17.*9*, 1.17.*8*, 1.16.*11*, 1.16.*10*
 ```
 
-## Platform Support Policy
+## Platform support policy
 
 Platform support policy is a reduced support plan for certain unsupported kubernetes versions. During platform support, customers will only receive support from Microsoft for AKS/Azure platform related issues. Any issues related to Kubernetes functionality and components will not be supported. 
 
