@@ -7,11 +7,11 @@ ms.author: elkrieger
 ms.topic: overview
 ---
 
-# Overview of Microsoft Defender for APIs
+# About Microsoft Defender for APIs
 
-Microsoft Defender for APIs is a plan provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction) that offers security protection for APIs.
+Microsoft Defender for APIs is a plan provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md) that offers security protection for APIs.
 
-Defender for APIs helps you to gain visibility into business-critical APIs. You can analyze your API security posture, identify risks and vulnerabilities, detect real-time threats, and prioritize remediation.
+Defender for APIs helps you to gain visibility into business-critical APIs. You can investigate your API security posture, prioritize vulnerabilities fixes, and detect active real-time threats.
 
 
 > [!IMPORTANT]
@@ -22,11 +22,12 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 
 ## What can I do with Defender for APIs?
 
-- **Inventory and insights**: In a single dashboard, get an aggregated view of all managed APIs. Review security insights, identify misconfigurations, and detect threats.
+- **Inventory**: In a single dashboard, get an aggregated view of all managed APIs.
+- **Security findings**: Analyze API security findings, including information about API traffic, authentication, and sensitive data.
 - **Security posture**: Review and implement security recommendations to improve API security posture, and harden at-risk surfaces.
 - **Real time threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP Top 10](https://owasp.org/www-project-top-ten/) critical threats.
-- **Defender CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your security graph.
-
+- **Defender CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your organization.
+- **Azure API Management integration**: With the Defender for APIs plan enabled, you can receive API security recommendations and alerts in the Azure API Management portal.
 
 ## Reviewing inventory and insights
 
@@ -46,16 +47,13 @@ Data classification | Classifies API request and response bodies based on suppor
 > [!NOTE]
 > API endpoints that haven't received any traffic since onboarding to Defender for APIs display the status *Awaiting data* in the API dashboard.
 
-## Reviewing security recommendations
+## Investigating API recommendations
 
 API recommendations include recommendations for onboarding APIs to Defender for APIs, disabling and removing unused APIs, and security, authentication, access control best practices.
 
 You can use recommendations to improve your security posture, harden API configurations, identify critical API risks, and mitigate issues by risk priority.
 
 [Review the recommendations reference](recommendations-reference.md).
-
-
-## Hardening API configuration
 
 
 
@@ -69,7 +67,7 @@ Defender for APIs monitors runtime traffic and threat intelligence feeds and iss
 
 Act on recommendations and alerts to mitigate threats. Defender for Cloud alerts and recommendations can be exported into SIEM systems such as Microsoft Sentinel, for investigation within existing threat response workflows for fast and efficient remediation. [Learn more](export-to-siem.md).
 
-## Investigating security risks
+## Investigating Cloud Security Graph insights
 
 [Cloud Security Graph](concept-attack-path.md) in the Defender CSPM plan analyses assets and connections across your organization, to expose risks, vulnerabilities, and possible lateral movement paths. 
 

@@ -43,7 +43,7 @@ To explore API security risks using Cloud Security Explorer, the Defender Cloud 
 
 ## Account/role requirements
 
-Deployment permissions for Defender for APIs are as follows.
+Account and role requirements for Defender for APIs are as follows.
 
 **Permission** | **Details**
 --- | ---

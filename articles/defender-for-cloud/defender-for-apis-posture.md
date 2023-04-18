@@ -19,8 +19,11 @@ This article describes how to investigate API security findings, alerts, and sec
 ## View recommendations and runtime alerts
 
 1. In the Defender for Cloud portal, select **Workload protections**.
-1. Select **API security**.
+1. Select **API security (Preview)**.
 1. In the **API Security** dashboard, select an API collection to drill down.  
+
+    :::image type="content" source="media/defender-for-apis-posture/api-collection.png" alt-text="Graphic showing the onboarded API collections.":::
+
 1. In the API collection page, to drill down into an API endpoint, select the ellipses (...) > **View resource**.
 1. Review API endpoint status details. [Learn more about status settings](defender-for-apis-introduction.md#reviewing-inventory-and-insights).
 1. In the **Resource health** page > **Recommendations** for the endpoint, review recommendation details and status.
