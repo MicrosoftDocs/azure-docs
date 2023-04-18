@@ -25,10 +25,6 @@
     href: tutorial-enrich-ip-information.md
   - name: Detect Log4j vulnerability exploits
     href: tutorial-log4j-detection.md
-  - name: Get started with notebooks and MSTICPy
-    href: notebook-get-started.md
-  - name: Create a Power BI report from Microsoft Sentinel
-    href: powerbi.md
   - name: Build and monitor Zero Trust
     href: sentinel-solution.md
   - name: Integrate with Microsoft Defender for IoT
@@ -295,6 +291,8 @@
         href: data-connectors/aruba-clearpass.md
       - name: Atlassian Confluence Audit (using Azure Function)
         href: data-connectors/atlassian-confluence-audit-using-azure-function.md
+      - name: Atlassian Jira Audit (using Azure Function)
+        href: data-connectors/atlassian-jira-audit-using-azure-function.md
       - name: Auth0 Access Management (using Azure Function)
         href: data-connectors/auth0-access-management-using-azure-function.md
       - name: Automated Logic WebCTRL
@@ -355,6 +353,8 @@
         href: data-connectors/cisco-duo-security-using-azure-function.md
       - name: Cisco Firepower eStreamer
         href: data-connectors/cisco-firepower-estreamer.md
+      - name: Cisco Identity Services Engine
+        href: data-connectors/cisco-identity-services-engine.md
       - name: Cisco Meraki
         href: data-connectors/cisco-meraki.md
       - name: Cisco Secure Email Gateway
@@ -485,6 +485,8 @@
         href: data-connectors/imperva-cloud-waf-using-azure-function.md
       - name: Infoblox Cloud Data Connector
         href: data-connectors/infoblox-cloud-data-connector.md
+      - name: Infoblox NIOS
+        href: data-connectors/infoblox-nios.md
       - name: InfoSecGlobal Data Connector
         href: data-connectors/infosecglobal-data-connector.md
       - name: ISC Bind
@@ -813,6 +815,8 @@
       href: get-visibility.md
     - name: Use Azure Monitor workbooks
       href: ./monitor-your-data.md
+    - name: Create a Power BI report
+      href: powerbi.md
   - name: Detect threats and analyze data
     items:
     - name: MITRE ATT&CK coverage
@@ -863,6 +867,8 @@
     items:
     - name: Hunt with Jupyter notebooks
       items:
+      - name: Get started with notebooks and MSTICPy
+        href: notebook-get-started.md
       - name: Launch Jupyter notebook
         href: notebooks-hunt.md      
       - name: Advanced MSTICPy settings for Jupyter notebooks

@@ -1,63 +1,27 @@
 ---
-title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity (preview)
-description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity (preview).
+title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity
+description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity.
 ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 03/14/2023
+ms.date: 04/18/2023
+
 ---
 
-# Deploy and configure workload identity (preview) on an Azure Kubernetes Service (AKS) cluster
+# Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this article, you will:
 
-* Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect Issuer and an Azure AD workload identity (preview)
+* Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect Issuer and an Azure AD workload identity
 * Grant access to your Azure Key Vault
 * Create an Azure Active Directory (Azure AD) workload identity and Kubernetes service account
 * Configure the managed identity for token federation.
 
-This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you aren't familiar with Azure AD workload identity (preview), see the following [Overview][workload-identity-overview] article.
+This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you aren't familiar with Azure AD workload identity, see the following [Overview][workload-identity-overview] article.
 
 - This article requires version 2.40.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- The identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
+- The identity you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account][az-account] command.
-
-## Install the aks-preview Azure CLI extension
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-To install the aks-preview extension, run the following command:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-## Register the 'EnableWorkloadIdentityPreview' feature flag
-
-Register the `EnableWorkloadIdentityPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ## Create AKS cluster
 
@@ -106,6 +70,7 @@ Copy and paste the following multi-line input in the Azure CLI, and update the v
 ```bash
 export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 export SERVICE_ACCOUNT_NAMESPACE="my-namespace"
+export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${UAID}" --query 'clientId' -otsv)"
 
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
@@ -113,8 +78,6 @@ kind: ServiceAccount
 metadata:
   annotations:
     azure.workload.identity/client-id: "${USER_ASSIGNED_CLIENT_ID}"
-  labels:
-    azure.workload.identity/use: "true"
   name: "${SERVICE_ACCOUNT_NAME}"
   namespace: "${SERVICE_ACCOUNT_NAMESPACE}"
 EOF
@@ -139,11 +102,39 @@ az identity federated-credential create --name myfederatedIdentity --identity-na
 
 ## Deploy your application
 
+When you deploy your application pods, the manifest should reference the service account created in the **Create Kubernetes service account** step. The following manifest shows how to reference the account, specifically *metadata\namespace* and *spec\serviceAccountName* properties:
+
+```yml
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quick-start
+  namespace: SERVICE_ACCOUNT_NAMESPACE
+  labels:
+    azure.workload.identity/use: "true"
+spec:
+  serviceAccountName: workload-identity-sa
+EOF
+```
+
 > [!IMPORTANT]
 > Ensure your application pods using workload identity have added the following label [azure.workload.identity/use: "true"] to your running pods/deployments, otherwise the pods will fail once restarted.
 
 ```azurecli-interactive
 kubectl apply -f <your application>
+```
+
+To check whether all properties are injected properly by the webhook, use the [kubectl describe][kubectl-describe] command:
+
+```bash
+kubectl describe pod containerName
+```
+
+To verify that pod is able to get a token and access the resource, use the kubectl logs command:
+
+```bash
+kubectl logs containerName
 ```
 
 ## Optional - Grant permissions to access Azure Key Vault
@@ -181,6 +172,7 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --enable-work
 In this article, you deployed a Kubernetes cluster and configured it to use a workload identity in preparation for application workloads to authenticate with that credential. Now you're ready to deploy your application and configure it to use the workload identity with the latest version of the [Azure Identity][azure-identity-libraries] client library. If you can't rewrite your application to use the latest client library version, you can [set up your application pod][workload-identity-migration] to authenticate using managed identity with workload identity as a short-term migration solution.
 
 <!-- EXTERNAL LINKS -->
+[kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
 [kubernetes-concepts]: concepts-clusters-workloads.md

@@ -265,7 +265,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ### Running a custom script more than once by using the CLI
 
-The Custom Script Extension handler prevents rerunning a script if the *exact* same settings have been passed. This behavior prevents accidental rerunning, which might cause unexpected behaviors if the script isn't idempotent. To confirm whether the handler blocked the rerunning, look at *C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\<HandlerVersion>\CustomScriptHandler.log*. Searching for a warning like this one:
+The Custom Script Extension handler prevents rerunning a script if the *exact* same settings have been passed. This behavior prevents accidental rerunning, which might cause unexpected behaviors if the script isn't idempotent. To confirm whether the handler blocked the rerunning, look at ```C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\<HandlerVersion>\CustomScriptHandler.log*```. Searching for a warning like this one:
 
 ```output
 Current sequence number, <SequenceNumber>, is not greater than the sequence number

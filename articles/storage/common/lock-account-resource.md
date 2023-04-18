@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common 
+ms.custom: devx-track-arm-template
 ---
 
 # Apply an Azure Resource Manager lock to a storage account
