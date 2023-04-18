@@ -7,9 +7,8 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
-
 ---
 
 # Configure development environment for deployment scripts in ARM templates
@@ -35,11 +34,11 @@ $DeploymentScriptOutputs['text'] = $output
 For an Azure CLI container image, you can create a *hello.sh* file by using the following content:
 
 ```bash
-firstname=$1
-lastname=$2
-output="{\"name\":{\"displayName\":\"$firstname $lastname\",\"firstName\":\"$firstname\",\"lastName\":\"$lastname\"}}"
+FIRSTNAME=$1
+LASTNAME=$2
+OUTPUT="{\"name\":{\"displayName\":\"$FIRSTNAME $LASTNAME\",\"firstName\":\"$FIRSTNAME\",\"lastName\":\"$LASTNAME\"}}"
 echo -n "Hello "
-echo $output | jq -r '.name.displayName'
+echo $OUTPUT | jq -r '.name.displayName'
 ```
 
 > [!NOTE]

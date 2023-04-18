@@ -397,6 +397,8 @@
           href: how-to-prevent-data-loss-exfiltration.md
         - name: Configure network isolation with v2
           href: how-to-configure-network-isolation-with-v2.md
+        - name: Securely attach Azure Databricks
+          href: how-to-securely-attach-databricks.md
     # v1 for now - need PM update to v2
     - name: Data protection
       items:
@@ -493,7 +495,7 @@
         - name: Secure inferencing environment
           displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
           href: how-to-secure-kubernetes-inferencing-environment.md
-        - name: Secure Kubernetes online endpoint
+        - name: Configure a secure online endpoint with TLS/SSL
           displayName: AKS, Arc Kubernetes, HTTPS, TSL, SSL, Cname, DNS, Certificate, inference
           href: how-to-secure-kubernetes-online-endpoint.md
         - name: Troubleshoot Azure Machine Learning extension
@@ -600,6 +602,12 @@
             - name: Access data in jobs
               displayName: Access data in jobs
               href: how-to-read-write-data-v2.md
+            - name: Import data
+              displayName: Import data
+              href: how-to-import-data-assets.md
+            - name: Use connections
+              displayName: Use connections
+              href: how-to-connection.md
             - name: Working with Tables (mltable)
               displayName: Working with Tables (mltable)
               href: how-to-mltable.md
@@ -1078,6 +1086,8 @@
               href: how-to-use-pipeline-ui.md
             - name: How to use parallel job in pipeline
               href: how-to-use-parallel-job-in-pipeline.md
+            - name: How to use pipeline component in pipeline
+              href: how-to-use-pipeline-component.md
             # v1
             - name: Create ML pipelines (Python)
               href: ./v1/how-to-create-machine-learning-pipelines.md
@@ -1174,6 +1184,10 @@
       href: how-to-troubleshoot-online-endpoints.md
     - name: Troubleshoot batch endpoints
       href: how-to-troubleshoot-batch-endpoints.md
+    - name: Troubleshoot Kubernetes Compute
+      href: how-to-troubleshoot-kubernetes-compute.md
+    - name: Troubleshoot Azure Machine Learning extension
+      href: how-to-troubleshoot-kubernetes-extension.md
     # v1
     - name: Pipeline issues
       items:
@@ -1221,6 +1235,8 @@
           href: reference-yaml-model.md
         - name: Schedule
           href: reference-yaml-schedule.md
+        - name: Pipeline component
+          href: reference-yaml-component-pipeline.md
         - name: Compute
           items:
             - name: Compute cluster (AmlCompute)

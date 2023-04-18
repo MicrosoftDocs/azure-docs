@@ -45,62 +45,7 @@ The outline of this process is as follows:
 
 The following code examples show how to construct an **If-Match** condition on the write request that checks the ETag value for a blob. Azure Storage evaluates whether the blob's current ETag is the same as the ETag provided on the request and performs the write operation only if the two ETag values match. If another process has updated the blob in the interim, then Azure Storage returns an HTTP 412 (Precondition Failed) status message.
 
-# [.NET v12 SDK](#tab/dotnet)
-
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Concurrency.cs" id="Snippet_DemonstrateOptimisticConcurrencyBlob":::
-
-# [.NET v11 SDK](#tab/dotnetv11)
-
-```csharp
-public void DemonstrateOptimisticConcurrencyBlob(string containerName, string blobName)
-{
-    Console.WriteLine("Demonstrate optimistic concurrency");
-
-    // Parse connection string and create container.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-    container.CreateIfNotExists();
-
-    // Create test blob. The default strategy is last writer wins, so
-    // write operation will overwrite existing blob if present.
-    CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName);
-    blockBlob.UploadText("Hello World!");
-
-    // Retrieve the ETag from the newly created blob.
-    string originalETag = blockBlob.Properties.ETag;
-    Console.WriteLine("Blob added. Original ETag = {0}", originalETag);
-
-    /// This code simulates an update by another client.
-    string helloText = "Blob updated by another client.";
-    // No ETag was provided, so original blob is overwritten and ETag updated.
-    blockBlob.UploadText(helloText);
-    Console.WriteLine("Blob updated. Updated ETag = {0}", blockBlob.Properties.ETag);
-
-    // Now try to update the blob using the original ETag value.
-    try
-    {
-        Console.WriteLine(@"Attempt to update blob using original ETag
-                            to generate if-match access condition");
-        blockBlob.UploadText(helloText, accessCondition: AccessCondition.GenerateIfMatchCondition(originalETag));
-    }
-    catch (StorageException ex)
-    {
-        if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
-        {
-            Console.WriteLine(@"Precondition failure as expected.
-                                Blob's ETag does not match.");
-        }
-        else
-        {
-            throw;
-        }
-    }
-    Console.WriteLine();
-}
-```
-
----
 
 Azure Storage also supports other conditional headers, including as **If-Modified-Since**, **If-Unmodified-Since** and **If-None-Match**. For more information, see [Specifying Conditional Headers for Blob Service Operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).
 
@@ -112,64 +57,7 @@ Leases enable different synchronization strategies to be supported, including ex
 
 The following code examples show how to acquire an exclusive lease on a blob, update the content of the blob by providing the lease ID, and then release the lease. If the lease is active and the lease ID isn't provided on a write request, then the write operation fails with error code 412 (Precondition Failed).
 
-# [.NET v12 SDK](#tab/dotnet)
-
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Concurrency.cs" id="Snippet_DemonstratePessimisticConcurrencyBlob":::
-
-# [.NET v11 SDK](#tab/dotnetv11)
-
-```csharp
-public void DemonstratePessimisticConcurrencyBlob(string containerName, string blobName)
-{
-    Console.WriteLine("Demonstrate pessimistic concurrency");
-
-    // Parse connection string and create container.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-    container.CreateIfNotExists();
-
-    CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName);
-    blockBlob.UploadText("Hello World!");
-    Console.WriteLine("Blob added.");
-
-    // Acquire lease for 15 seconds.
-    string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
-    Console.WriteLine("Blob lease acquired. Lease = {0}", lease);
-
-    // Update blob using lease. This operation should succeed.
-    const string helloText = "Blob updated";
-    var accessCondition = AccessCondition.GenerateLeaseCondition(lease);
-    blockBlob.UploadText(helloText, accessCondition: accessCondition);
-    Console.WriteLine("Blob updated using an exclusive lease");
-
-    // Simulate another client attempting to update to blob without providing lease.
-    try
-    {
-        // Operation will fail as no valid lease was provided.
-        Console.WriteLine("Now try to update blob without valid lease.");
-        blockBlob.UploadText("Update operation will fail without lease.");
-    }
-    catch (StorageException ex)
-    {
-        if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
-        {
-            Console.WriteLine(@"Precondition failure error as expected.
-                                Blob lease not provided.");
-        }
-        else
-        {
-            throw;
-        }
-    }
-
-    // Release lease proactively.
-    blockBlob.ReleaseLease(accessCondition);
-    Console.WriteLine();
-}
-```
-
----
 
 ## Pessimistic concurrency for containers
 
@@ -180,3 +68,7 @@ Leases on containers enable the same synchronization strategies that are support
 - [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations)
 - [Lease Container](/rest/api/storageservices/lease-container)
 - [Lease Blob](/rest/api/storageservices/lease-blob)
+
+## Resources
+
+For related code samples using deprecated .NET version 11.x SDKs, see [Code samples using .NET version 11.x](blob-v11-samples-dotnet.md#optimistic-concurrency-for-blobs).

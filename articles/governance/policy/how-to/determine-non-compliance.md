@@ -3,8 +3,8 @@ title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Discover what caused the non-compliance quickly and easily.
 ms.date: 06/09/2022
 ms.topic: how-to
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Determine causes of non-compliance
 
