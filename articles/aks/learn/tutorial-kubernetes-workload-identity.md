@@ -3,7 +3,7 @@ title: Tutorial - Use a workload identity with an application on Azure Kubernete
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 04/17/2023
+ms.date: 04/18/2023
 ---
 
 # Tutorial: Use a workload identity with an application on Azure Kubernetes Service (AKS)
@@ -19,8 +19,6 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 This tutorial assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [preview features callout](../includes/preview/preview-callout.md)]
 
 - This article requires version 2.40.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -61,42 +59,6 @@ The following output example resembles successful creation of the resource group
 }
 ```
 
-## Install the aks-preview Azure CLI extension
-
-[!INCLUDE [preview features callout](../includes/preview/preview-callout.md)]
-
-To install the aks-preview extension, run the following command:
-
-```azurecli-interactive
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli-interactive
-az extension update --name aks-preview
-```
-
-## Register the 'EnableWorkloadIdentityPreview' feature flag
-
-Register the `EnableWorkloadIdentityPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
-```
-
-When the status shows *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 ## Export environmental variables
 
 To help simplify steps to configure the identities required, the steps below define
@@ -111,7 +73,9 @@ export SERVICE_ACCOUNT_NAMESPACE="default"
 export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 export SUBSCRIPTION="$(az account show --query id --output tsv)"
 export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-export FEDERATED_IDENTITY_CREDENTIAL_NAME="fic-test-fic-name" 
+export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity"
+export KEYVAULT_NAME="azwi-kv-tutorial"
+export KEYVAULT_SECRET_NAME="my-secret"
 ```
 
 ## Create AKS cluster
@@ -119,7 +83,7 @@ export FEDERATED_IDENTITY_CREDENTIAL_NAME="fic-test-fic-name"
 Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
 ```azurecli-interactive
-az aks create -g "${RESOURCE_GROUP}" -n myAKSCluster --node-count 1 --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
+az aks create -g "${RESOURCE_GROUP}" -n myAKSCluster --node-count 1 --enable-oidc-issuer --enable-workload-identity
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -234,8 +198,6 @@ kind: Pod
 metadata:
   name: quick-start
   namespace: ${SERVICE_ACCOUNT_NAMESPACE}
-  labels:
-    azure.workload.identity/use: "true"
 spec:
   serviceAccountName: ${SERVICE_ACCOUNT_NAME}
   containers:

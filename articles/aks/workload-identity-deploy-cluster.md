@@ -3,7 +3,7 @@ title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workl
 description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity (preview).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 04/17/2023
+ms.date: 04/18/2023
 ---
 
 # Deploy and configure workload identity (preview) on an Azure Kubernetes Service (AKS) cluster
@@ -23,42 +23,6 @@ This article assumes you have a basic understanding of Kubernetes concepts. For 
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account][az-account] command.
 
-## Install the aks-preview Azure CLI extension
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-To install the aks-preview extension, run the following command:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-## Register the 'EnableWorkloadIdentityPreview' feature flag
-
-Register the `EnableWorkloadIdentityPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 ## Export environmental variables
 
 To help simplify steps to configure the identities required, the steps below define
@@ -73,7 +37,7 @@ export SERVICE_ACCOUNT_NAMESPACE="default"
 export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 export SUBSCRIPTION="$(az account show --query id --output tsv)"
 export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-export FEDERATED_IDENTITY_CREDENTIAL="fic-test-fic-name" 
+export FEDERATED_IDENTITY_CREDENTIAL="myFedIdentity" 
 ```
 
 ## Create AKS cluster
@@ -91,10 +55,10 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 > [!NOTE]
 > When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups].
 
-To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the cluster name.
+To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `-n`, which is the name of the cluster:
 
 ```bash
-export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g ${RESOURCE_GROUP} --query "oidcIssuerProfile.issuerUrl" -otsv)"
+export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -otsv)"
 ```
 
 ## Create a managed identity
