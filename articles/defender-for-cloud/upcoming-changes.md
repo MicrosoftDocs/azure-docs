@@ -166,7 +166,7 @@ In addition, the release includes renaming the current existing container recomm
 - Container registry images should have vulnerability findings resolved (powered by Qualys)
 - Running container images should have vulnerability findings resolved   (powered by Qualys)
 
-Learn more about [Microsoft Defender Vulnerability Management (MDVM)](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management?view=o365-worldwide).
+Learn more about [Microsoft Defender Vulnerability Management (MDVM)](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management).
 
 
 ### DevOps Resource Deduplication for Defender for DevOps
