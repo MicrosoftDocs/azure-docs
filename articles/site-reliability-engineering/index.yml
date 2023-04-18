@@ -153,7 +153,7 @@ conceptualContent:
           itemType: get-started
           text: Application Performance Management with Application Insights
 
-        - url: ../azure-monitor/app/distributed-tracing.md
+        - url: ../azure-monitor/app/distributed-tracing-telemetry-correlation.md
           itemType: get-started
           text: Distributed Tracing with Azure Monitor
           

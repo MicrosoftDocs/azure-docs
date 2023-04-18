@@ -2,49 +2,52 @@
 title: Use an Azure AD workload identities (preview) on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity (preview) for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
-ms.date: 03/27/2023
+ms.date: 03/28/2023
 
 ---
 
-# Use Azure AD workload identity (preview) with Azure Kubernetes Service (AKS)
+# Use Azure AD workload identity with Azure Kubernetes Service (AKS)
 
-Today with Azure Kubernetes Service (AKS), you can assign [managed identities at the pod-level][use-azure-ad-pod-identity], which has been a preview feature. This pod-managed identity allows the hosted workload or application access to resources through Azure Active Directory (Azure AD). For example, a workload stores files in Azure Storage, and when it needs to access those files, the pod authenticates itself against the resource as an Azure managed identity. This authentication method has been replaced with [Azure Active Directory (Azure AD) workload identities][azure-ad-workload-identity] (preview), which integrate with the Kubernetes native capabilities to federate with any external identity providers. This approach is simpler to use and deploy, and overcomes several limitations in Azure AD pod-managed identity:
-
-- Removes the scale and performance issues that existed for identity assignment
-- Supports Kubernetes clusters hosted in any cloud or on-premises
-- Supports both Linux and Windows workloads
-- Removes the need for Custom Resource Definitions and pods that intercept [Azure Instance Metadata Service][azure-instance-metadata-service] (IMDS) traffic
-- Avoids the complicated and error-prone installation steps such as cluster role assignment from the previous iteration
+Azure AD Workload Identity leverages [Service Account Token Volume Projection](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) giving pods the ability to use a Kubernetes identity (service account), to which a Kubernetes token is issued and [OIDC federation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens) which enables Kubernetes applications to access Azure cloud resources securely with Azure Active Directory based on annotated service accounts.
 
 Azure AD workload identity works especially well with the Azure Identity client library using the [Azure SDK][azure-sdk-download] and the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL) if you're using [application registration][azure-ad-application-registration]. Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
 
-This article helps you understand this new authentication feature, and reviews the options available to plan your migration phases and project strategy.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+This article helps you understand this new authentication feature, and reviews the options available to plan your project strategy and potential migration from Pod Identity.
 
 ## Dependencies
 
 - AKS supports Azure AD workload identities on version 1.22 and higher.
 
-- The Azure CLI version 2.40.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- The Azure CLI version 2.47.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-- The `aks-preview` extension version 0.5.102 or later.
+## Azure Identity SDK
 
-- The following are the minimum versions of the [Azure Identity][azure-identity-libraries] client library supported:
+The following client libraries are the **minimum** version required
 
-    * [.NET][dotnet-azure-identity-client-library] 1.5.0
-    * [Java][java-azure-identity-client-library] 1.4.0
-    * [JavaScript][javascript-azure-identity-client-library] 2.0.0
-    * [Python][python-azure-identity-client-library] 1.7.0
+| Language                       | Library    | Minimum Version | Example |
+|-----------|-----------|----------|----------|
+| Go | [azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [sdk/azidentity/v1.3.0-beta.1](https://github.com/Azure/azure-sdk-for-go/releases/tag/sdk/azidentity/v1.3.0-beta.1)| [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/go) |
+| C# | [azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) | [Azure.Identity_1.5.0](https://github.com/Azure/azure-sdk-for-net/releases/tag/Azure.Identity_1.5.0)| [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/dotnet) |
+| JavaScript/TypeScript | [azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js) | [@azure/identity_2.0.0](https://github.com/Azure/azure-sdk-for-js/releases/tag/@azure/identity_2.0.0) | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/node) |
+| Python | [azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [azure-identity_1.7.0](https://github.com/Azure/azure-sdk-for-python/releases/tag/azure-identity_1.7.0) | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/python) |
+| Java | [azure-sdk-for-java]() | [azure-identity_1.4.0](https://github.com/Azure/azure-sdk-for-java/releases/tag/azure-identity_1.4.0) | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/azure-identity/java) |
+
+## Microsoft Authentication Library (MSAL)
+
+The following client libraries are the **minimum** version required
+
+| Language | Library | Image | Example | Has Windows |
+|-----------|-----------|----------|----------|----------|
+| Go | [microsoft-authentication-library-for-go](https://github.com/AzureAD/microsoft-authentication-library-for-go) | ghcr.io/azure/azure-workload-identity/msal-go | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-go) | Yes |
+| C# | [microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | ghcr.io/azure/azure-workload-identity/msal-net | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-net/akvdotnet) | Yes |
+| JavaScript/TypeScript | [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) | ghcr.io/azure/azure-workload-identity/msal-node | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-node) | No |
+| Python | [microsoft-authentication-library-for-python](https://github.com/AzureAD/microsoft-authentication-library-for-python) | ghcr.io/azure/azure-workload-identity/msal-python | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-python) | No |
+| Java | [microsoft-authentication-library-for-java](https://github.com/AzureAD/microsoft-authentication-library-for-java) | ghcr.io/azure/azure-workload-identity/msal-java | [Link](https://github.com/Azure/azure-workload-identity/tree/main/examples/msal-java) | No |
 
 ## Limitations
 
 - You can only have 20 federated identity credentials per managed identity.
 - It takes a few seconds for the federated identity credential to be propagated after being initially added.
-
-## Language SDK examples
-  - [Azure Identity SDK](https://azure.github.io/azure-workload-identity/docs/topics/language-specific-examples/azure-identity-sdk.html)
-  - [MSAL](https://azure.github.io/azure-workload-identity/docs/topics/language-specific-examples/msal.html)
 
 ## How it works
 
