@@ -162,7 +162,3 @@ The custom attribute is now available in the list of user attributes and for use
 1. Select **Save**, to save the changes.
 
    <!-- ![Screenshot that shows how to select attributes to collect during the sign-up.](./media/user-flow-select-attributes.png)-->
-
-## Next steps
-
-- [Enable password reset](how-to-user-flow-password-reset-customers.md)
