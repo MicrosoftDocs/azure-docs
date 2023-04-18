@@ -27,7 +27,7 @@ Accessing raw audio media gives you access to the incoming call's audio stream, 
 
 Make an options object specifying the raw stream properties we want to send. 
 
-    ```csharp
+```csharp
     RawOutgoingAudioProperties outgoingAudioProperties = new RawOutgoingAudioProperties()
     {
         AudioFormat = AudioFormat.Pcm16Bit,
@@ -40,11 +40,11 @@ Make an options object specifying the raw stream properties we want to send.
     {
         RawOutgoingAudioProperties = outgoingAudioProperties
     };
-    ```
+```
 
 Create a `RawOutgoingAudioStream` and attach it to join call options and the stream automatically starts when call is connected.
 
-    ```csharp 
+```csharp 
     JoinCallOptions options =  JoinCallOptions(); // or StartCallOptions()
 
     OutgoingAudioOptions outgoingAudioOptions = new OutgoingAudioOptions();
@@ -55,15 +55,15 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
 
     // Start or Join call with those call options.
 
-    ```
+```
 
 ### Attach Stream to a call
 
 Or you can also attach the stream to an existing `Call` instance instead:
 
-    ```csharp
+```csharp
     await call.StartAudio(rawOutgoingAudioStream);
-    ```
+```
 
 ### Start sending Raw Samples
 
@@ -85,38 +85,38 @@ When the stream started, we can start sending [`MemoryBuffer`](https://learn.mic
 
 The audio buffer format should match the specified stream properties.
 
-    ```csharp
+```csharp
     void Start()
     {
         RawOutgoingAudioProperties properties = outgoingAudioStream.RawOutgoingAudioProperties;
-            RawAudioBuffer buffer;
-            new Thread(() =>
+        RawAudioBuffer buffer;
+        new Thread(() =>
+        {
+            DateTime nextDeliverTime = DateTime.Now;
+            while (true)
             {
-                DateTime nextDeliverTime = DateTime.Now;
-                while (true)
+                MemoryBuffer memoryBuffer = new MemoryBuffer((uint)outgoingAudioStream.ExpectedBufferSizeInBytes);
+                using (IMemoryBufferReference reference = memoryBuffer.CreateReference())
                 {
-                    MemoryBuffer memoryBuffer = new MemoryBuffer((uint)outgoingAudioStream.ExpectedBufferSizeInBytes);
-                    using (IMemoryBufferReference reference = memoryBuffer.CreateReference())
-                    {
-                        byte* dataInBytes;
-                        uint capacityInBytes;
+                    byte* dataInBytes;
+                    uint capacityInBytes;
 
-                        ((IMemoryBufferByteAccess)reference).GetBuffer(out dataInBytes, out capacityInBytes);
+                    ((IMemoryBufferByteAccess)reference).GetBuffer(out dataInBytes, out capacityInBytes);
 
-                        // Use AudioGraph here to grab data from microphone if you want microphone data
-                    }
-                    nextDeliverTime = nextDeliverTime.AddMilliseconds(20);
-                    buffer = new RawAudioBuffer(memoryBuffer);
-                    outgoingAudioStream.SendOutgoingAudioBuffer(buffer);
-                    TimeSpan wait = nextDeliverTime - DateTime.Now;
-                    if (wait > TimeSpan.Zero)
-                    {
-                        Thread.Sleep(wait);
-                    }
+                    // Use AudioGraph here to grab data from microphone if you want microphone data
                 }
-            }).Start();
+                nextDeliverTime = nextDeliverTime.AddMilliseconds(20);
+                buffer = new RawAudioBuffer(memoryBuffer);
+                outgoingAudioStream.SendOutgoingAudioBuffer(buffer);
+                TimeSpan wait = nextDeliverTime - DateTime.Now;
+                if (wait > TimeSpan.Zero)
+                {
+                    Thread.Sleep(wait);
+                }
+            }
+        }).Start();
     }
-    ```
+```
 
 ### Receiving Raw Incoming Audio
 
@@ -125,7 +125,7 @@ We can also receive the call audio stream samples as [`MemoryBuffer`](https://le
 
 Create a `RawIncomingAudioStreamOptions` object specifying the raw stream properties we want to receive.
 
-    ```csharp
+```csharp
     RawIncomingAudioProperties properties = new RawIncomingAudioProperties()
     {
         AudioFormat = AudioFormat.Pcm16Bit,
@@ -137,12 +137,11 @@ Create a `RawIncomingAudioStreamOptions` object specifying the raw stream proper
     {
         RawIncomingAudioProperties = properties
     };
-
-    ```
+```
 
 Create a `RawIncomingAudioStream` and attach it to join call options
 
-    ```csharp
+```csharp
     JoinCallOptions options =  JoinCallOptions(); // or StartCallOptions()
 
     RawIncomingAudioStream rawIncomingAudioStream = new RawIncomingAudioStream(audioStreamOptions);
@@ -152,19 +151,19 @@ Create a `RawIncomingAudioStream` and attach it to join call options
     };
 
     options.IncomingAudioOptions = incomingAudioOptions;
-    ```
+```
 
 Or we can also attach the stream to an existing `Call` instance instead:
 
-    ```csharp
+```csharp
 
     await call.startAudio(context, rawIncomingAudioStream);
-    ```
+```
 
 For starting to receive raw audio buffers from the incoming stream add listeners to the incoming stream state and
 buffer received events.
 
-    ```csharp
+```csharp
     unsafe private void OnAudioStateChanged(object sender, AudioStreamStateChanged args)
     {
         if (args.AudioStreamState == AudioStreamState.Started)
@@ -178,16 +177,16 @@ buffer received events.
         // Received a raw audio buffers(MemoryBuffer).
         using (IMemoryBufferReference reference = args.IncomingAudioBuffer.Buffer.CreateReference())
         {
-           byte* dataInBytes;
-           uint capacityInBytes;
-           ((IMemoryBufferByteAccess)reference).GetBuffer(out dataInBytes, out capacityInBytes);
-           //process the data using AudioGraph class
+            byte* dataInBytes;
+            uint capacityInBytes;
+            ((IMemoryBufferByteAccess)reference).GetBuffer(out dataInBytes, out capacityInBytes);
+            // Process the data using AudioGraph class
         }
     }
 
     rawIncomingAudioStream.StateChanged += OnAudioStateChanged;
     rawIncomingAudioStream.MixedAudioBufferReceived += OnRawIncomingMixedAudioBufferAvailable;
-    ```
+```
 
 ## Raw Video Access
 

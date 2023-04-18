@@ -27,7 +27,7 @@ Accessing raw audio media gives you access to the incoming call's audio stream, 
 
 Make an options object specifying the raw stream properties we want to send. 
 
-    ```java
+```java
     RawOutgoingAudioProperties outgoingAudioProperties = new RawOutgoingAudioProperties()
                 .setAudioFormat(AudioFormat.PCM16_BIT)
                 .setSampleRate(AudioSampleRate.HZ44100)
@@ -36,11 +36,11 @@ Make an options object specifying the raw stream properties we want to send.
 
     RawOutgoingAudioStreamOptions outgoingAudioOptions = new RawOutgoingAudioStreamOptions()
                 .setRawOutgoingAudioProperties(outgoingAudioProperties);
-    ```
+```
 
 Create a `RawOutgoingAudioStream` and attach it to join call options and the stream automatically starts when call is connected.
 
-    ```java 
+```java 
     JoinCallOptions options = // JoinCallOptions() or StartCallOptions()
 
     OutgoingAudioOptions outgoingAudioOptions = new OutgoingAudioOptions();
@@ -51,34 +51,34 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
 
     // Start or Join call with those call options.
 
-    ```
+```
 
 ### Attach Stream to a call
 
 Or you can also attach the stream to an existing `Call` instance instead:
 
-    ```java
+```java
     CompletableFuture<Void> result = call.startAudio(context, rawOutgoingAudioStream);
-    ```
+```
 
 ### Start sending Raw Samples
 
 We can only start sending data once the stream state is `AudioStreamState.STARTED`. 
 To observe the audio stream state change, add a listener to the `OnStateChangedListener` event.
 
-    ```java
+```java
     private void onStateChanged(PropertyChangedEvent propertyChangedEvent) {
         // When value is `AudioStreamState.STARTED` we'll be able to send audio samples.
     }
 
     rawOutgoingAudioStream.addOnStateChangedListener(this::onStateChanged)
-    ```
+```
 
 When the stream started, we can start sending [`java.nio.ByteBuffer`](https://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html) audio samples to the call.
 
 The audio buffer format should match the specified stream properties.
 
-    ```java
+```java
     Thread thread = new Thread(){
         public void run(){
             RawAudioBuffer buffer;
@@ -107,7 +107,7 @@ The audio buffer format should match the specified stream properties.
         }
     };
     thread.start();
-    ```
+```
 
 ### Receiving Raw Incoming Audio
 
@@ -116,37 +116,37 @@ We can also receive the call audio stream samples as [`java.nio.ByteBuffer`](htt
 
 Create a `RawIncomingAudioStreamOptions` object specifying the raw stream properties we want to receive.
 
-    ```java
+```java
     RawIncomingAudioStreamOptions options = new RawIncomingAudioStreamOptions();
     RawIncomingAudioProperties properties = new RawIncomingAudioProperties()
                 .setAudioFormat(AudioFormat.PCM16_BIT)
                 .setSampleRate(AudioSampleRate.HZ44100)
                 .setChannelMode(AudioChannelMode.STEREO);
     options.setRawIncomingAudioProperties(properties);
-    ```
+```
 
 Create a `RawIncomingAudioStream` and attach it to join call options
 
-    ```java
+```java
     JoinCallOptions options = // JoinCallOptions() or StartCallOptions()
     IncomingAudioOptions incomingAudioOptions = new IncomingAudioOptions();
 
     RawIncomingAudioStream rawIncomingAudioStream = new RawIncomingAudioStream(audioStreamOptions);
     incomingAudioOptions.setIncomingAudioStream(rawIncomingAudioStream);
     options.setIncomingAudioOptions(incomingAudioOptions);
-    ```
+```
 
 Or we can also attach the stream to an existing `Call` instance instead:
 
-    ```java
+```java
 
     CompletableFuture<Void> result = call.startAudio(context, rawIncomingAudioStream);
-    ```
+```
 
 For starting to receive raw audio buffers from the incoming stream add listeners to the incoming stream state and
 buffer received events.
 
-    ```java
+```java
     private void onStateChanged(PropertyChangedEvent propertyChangedEvent) {
         // When value is `AudioStreamState.STARTED` we'll be able to receive samples.
     }
@@ -157,7 +157,7 @@ buffer received events.
 
     rawIncomingAudioStream.addOnStateChangedListener(this::onStateChanged);
     rawIncomingAudioStream.addMixedAudioBufferReceivedListener(this::onMixedAudioBufferReceived);
-    ```
+```
 
 ## Raw Video Access
 
