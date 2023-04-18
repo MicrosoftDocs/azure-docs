@@ -300,6 +300,7 @@ The following sample polls the key "streamTest" at a localhost Redis instance at
 ```powershell
 coming soon
 ```
+
 ---
 
 ## Return Values
