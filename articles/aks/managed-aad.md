@@ -144,9 +144,9 @@ In order to access the cluster, follow the steps in [access an Azure AD enabled 
 
 There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with `kubectl`. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to connect to the cluster with a non-interactive service principal credential.
 
-Starting with Kubernetes 1.24, the default format of clusterUser credential for AAD enabled clusters will be `exec`, which requires [kubelogin](https://github.com/Azure/kubelogin) binary in the execution PATH. If you are using Azure CLI, it will prompt users to download kubelogin. There will be no behavior change for non-AAD clusters, or AAD clusters whose version is older than 1.24. Existing downloaded kubeconfig will still work. 
+Starting with Kubernetes version 1.24, the default format of the clusterUser credential for Azure AD clusters is `exec`, which requires  [kubelogin](https://github.com/Azure/kubelogin) binary in the execution PATH. If you use the Azure CLI, it prompts you to download kubelogin. For non-Azure AD clusters, or Azure AD clusters where the version of Kubernetes is older than 1.24, there is no change in behavior. The version of kubeconfig installed continues to work.
 
-We provide an optional query parameter `format` when getting clusterUser credential to overwrite the default behavior change, you can explicitly specify format to `azure` to get old format kubeconfig.
+An optional query parameter named `format` is available when retrieving the clusterUser credential to overwrite the default behavior change. You can set the value to `azure` to use the original kubeconfig format.
 
 Example:
 
@@ -154,7 +154,7 @@ Example:
 az aks get-credentials --format azure
 ```
 
-For AAD clusters whose version is newer than 1.24, it will return to kubelogin format automatically and no conversion needed. For AAD clusters whose version is older than 1.24, you need to run the below commands to convert kube config format manually. 
+For Azure AD integrated clusters using a version of Kubernetes newer than 1.24, it uses the kubelogin format automatically and no conversion is needed. For Azure AD integrated clusters running a version older than 1.24, you need to run the following commands to convert the kubeconfig format manually
 
 ```azurecli-interactive
 export KUBECONFIG=/path/to/kubeconfig
