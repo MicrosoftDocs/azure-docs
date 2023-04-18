@@ -10,7 +10,7 @@ author: jricketts
 ms.author: jricketts
 manager: martinco
 ms.reviewer: martinco
-ms.date: 04/13/2023
+ms.date: 04/18/2023
 ms.custom: it-pro
 ms.collection: 
 ---
@@ -36,8 +36,8 @@ ms.collection:
 |**1.2.3** An accurate network diagram(s) is maintained that shows all connections between the cardholder data environment (CDE) and other networks, including any wireless networks.|Not applicable to Azure AD.|
 |**1.2.4** An accurate data-flow diagram(s) is maintained that meets the following: </br> Shows all account data flows across systems and networks. </br> Updated as needed upon changes to the environment.|Not applicable to Azure AD.|
 |**1.2.5** All services, protocols, and ports allowed are identified, approved, and have a defined business need|Not applicable to Azure AD.|
-|**1.2.6** Security features are defined and implemented for all services, protocols, and ports that are in use and considered to be insecure, such that the risk is mitigated.|Not applicable to Azure AD.|
-|**1.2.7** Configurations of NSCs are reviewed at least once every six months to confirm they are relevant and effective.|Use Azure AD access reviews to automate group-membership reviews and applications, such as VPN appliances, that align to network security controls in your CDE. [What are access reviews?](../governance/access-reviews-overview.md)|
+|**1.2.6** Security features are defined and implemented for all services, protocols, and ports in use and considered insecure, such that risk is mitigated.|Not applicable to Azure AD.|
+|**1.2.7** Configurations of NSCs are reviewed at least once every six months to confirm they're relevant and effective.|Use Azure AD access reviews to automate group-membership reviews and applications, such as VPN appliances, which align to network security controls in your CDE. [What are access reviews?](../governance/access-reviews-overview.md)|
 |**1.2.8** Configuration files for NSCs are: </br> Secured from unauthorized access </br> Kept consistent with active network configurations|Not applicable to Azure AD.|
 
 ## 1.3 Network access to and from the cardholder data environment is restricted.    
@@ -66,11 +66,11 @@ ms.collection:
 
 ## Next steps
 
-PCI-DSS requirements **3**, **4**, **9**, and **12** are not addressed or met by Azure AD, therefore there are no corresponding articles. To see all requirements, go to pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
+PCI-DSS requirements **3**, **4**, **9**, and **12** aren't addressed or met by Azure AD, therefore there are no corresponding articles. To see all requirements, go to pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
 
 To configure Azure AD to comply with PCI-DSS, see the following articles. 
 
-* [Requirement 1: Install and Maintain Network Security Controls](pci-requirement-1.md) (You are here)
+* [Requirement 1: Install and Maintain Network Security Controls](pci-requirement-1.md) (You're here)
 * [Requirement 2: Apply Secure Configurations to All System Components](pci-requirement-2.md)
 * [Requirement 5: Protect All Systems and Networks from Malicious Software](pci-requirement-5.md)
 * [Requirement 6: Develop and Maintain Secure Systems and Software](pci-requirement-6.md)
