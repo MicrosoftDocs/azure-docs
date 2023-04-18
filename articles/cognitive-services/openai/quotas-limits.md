@@ -35,7 +35,7 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Max training job time (job will fail if exceeded) | 720 hours |
 | Max training job size (tokens in training file) x (# of epochs) | 2 Billion |
 
-*The limits are subject to change. We anticipate that you will need higher limits as you move toward production and your solution scales. When you know your solution requirements, please reach out to us by applying for a quota increase here: https://aka.ms/oai/quotaincrease
+*The limits are subject to change. We anticipate that you will need higher limits as you move toward production and your solution scales. When you know your solution requirements, please reach out to us by applying for a quota increase here: <https://aka.ms/oai/quotaincrease>
 
 
 For information on max tokens for different models, consult the [models article](./concepts/models.md#model-summary-table-and-region-availability)
