@@ -6,7 +6,7 @@ author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 07/05/2022
+ms.date: 04/18/2023
 ---
 
 # Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
@@ -82,8 +82,8 @@ The following table provides a list of high-level features and capabilities comp
 | Support for PgLogical extension | No | Yes |
 | Support logical replication with HA | N/A | [Limited](concepts-high-availability.md#high-availability---limitations) |
 | **Disaster Recovery** | | |
-| Cross region DR | Using read replicas, geo-redundant backup | Geo-redundant backup (in [selected regions](overview.md#azure-regions)) |
-| DR using replica | Using async physical replication | Preview |
+| Cross region DR | Using read replicas, geo-redundant backup | Using read replicas, Geo-redundant backup (in [selected regions](overview.md#azure-regions)) |
+| DR using replica | Using async physical replication | Using async physical replication |
 | Automatic failover | No | No |
 | Can use the same r/w endpoint | No | No |
 | **Backup and Recovery** | | |
