@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory and PCI-DSS Requirement 1
-description: Learn PCI-DSS defined approach requirements with Azure AD guidance and recommendations
+description: Learn PCI-DSS defined approach requirements for installing and maintaining network security controls
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -58,7 +58,7 @@ ms.collection:
 |**1.4.4** System components that store cardholder data are not directly accessible from untrusted networks.|In addition to controls in the networking layer, applications in the CDE using Azure AD can use Conditional Access policies. Restrict access to applications based on location. [Using the location condition in a CA policy](../conditional-access/location-condition.md)|
 |**1.4.5** The disclosure of internal IP addresses and routing information is limited to only authorized parties.|Not applicable to Azure AD.|
 
-# 1.5 Risks to the CDE from computing devices that are able to connect to both untrusted networks and the CDE are mitigated.
+## 1.5 Risks to the CDE from computing devices that are able to connect to both untrusted networks and the CDE are mitigated.
 
 |PCI-DSS Defined approach requirements|Azure AD guidance and recommendations|
 |-|-|
