@@ -47,7 +47,7 @@ Specific instructions for each type of application are described in the followin
 
 The full example is shared at the [NuGet website](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService).
 
-1. [Download and install .NET Core](https://dotnet.microsoft.com/download).
+1. [Download and install the .NET SDK](https://dotnet.microsoft.com/download).
 1. Create a new Worker Service project either by using a Visual Studio new project template or the command line `dotnet new worker`.
 1. Add the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
 
@@ -217,7 +217,7 @@ The full example is shared at this [GitHub page](https://github.com/microsoft/Ap
     ```
 
 1. Set up the connection string.
-   Use the same `appsettings.json` from the preceding [.NET Core](/fundamentals/) Worker Service example.
+   Use the same `appsettings.json` from the preceding [.NET](/fundamentals/) Worker Service example.
 
 ## .NET Core/.NET Framework console application
 
@@ -587,7 +587,7 @@ Visual Studio IDE onboarding is currently supported only for ASP.NET/ASP.NET Cor
 
 ### Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
 
-No. [Azure Monitor Application Insights Agent](./application-insights-asp-net-agent.md) currently supports [.NET Core](/fundamentals/) only.
+No. [Azure Monitor Application Insights Agent](./application-insights-asp-net-agent.md) currently supports [.NET](/fundamentals/) only.
 
 ### Are all features supported if I run my application in Linux?
 
