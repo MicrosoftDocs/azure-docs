@@ -61,7 +61,7 @@ The following tables summarize current availability:
 | Number             | Type           | Send SMS             | Receive SMS          | Make Calls       | Receive Calls    |
 | :----------------- | :------------- | :------------------- | :------------------- | :--------------- | :--------------- |
 | UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
-| UK                 | Local          | -        | -        | 
+| UK                 | Local          | -        | -        | General Availability   | General Availability\* |
 | USA & Puerto Rico  | Toll-Free      | General Availability | General Availability | General Availability   | General Availability\* |
 | USA & Puerto Rico  | Local          | -        | -        | General Availability   | General Availability\* |
 | Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
