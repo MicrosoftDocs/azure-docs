@@ -3,7 +3,7 @@ title: About service meshes
 description: Obtain an overview of service meshes, supported scenarios, selection criteria, and next steps to explore.
 author: pgibson
 ms.topic: article
-ms.date: 04/06/2023
+ms.date: 04/18/2023
 ms.author: pgibson
 ---
 
@@ -37,14 +37,14 @@ Before you select a service mesh, make sure you understand your requirements and
 
 ## Next steps
 
-Open Service Mesh (OSM) is a supported service mesh that runs Azure Kubernetes Service (AKS):
+Azure Kubernetes Service (AKS) offers officially supported addons for Istio and Open Service Mesh:
 
 > [!div class="nextstepaction"]
+> [Learn more about Istio][istio-about]
 > [Learn more about OSM][osm-about]
 
 There are also service meshes provided by open-source projects and third parties that are commonly used with AKS. These service meshes aren't covered by the [AKS support policy][aks-support-policy].
 
-- [Istio][istio]
 - [Linkerd][linkerd]
 - [Consul Connect][consul]
 
@@ -67,4 +67,5 @@ For more details on service mesh standardization efforts, see:
 
 <!-- LINKS - internal -->
 [osm-about]: ./open-service-mesh-about.md
+[istio-about]: ./istio-about.md
 [aks-support-policy]: support-policies.md
