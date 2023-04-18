@@ -20,7 +20,7 @@ This article describes how to use the Azure CLI to deploy an Azure virtual machi
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 - Azure Cloud Shell or the Azure CLI.
 
@@ -224,7 +224,7 @@ In this task, you must configure some external endpoints for the database listen
    ```
    
    > [!Important]
-   > This command mounts the /etc/fstab file without a specified UUID for the mount point, which can prevent successful reboot of the disk. Before you attempt to reboot the disk, update the /etc/fstab entry to include a UUID for the mount point.
+   > This command mounts the /etc/fstab file without a specific UUID, which can prevent successful reboot of the disk. Before you attempt to reboot the disk, update the /etc/fstab entry to include a UUID for the mount point.
 
 1. Update the **/etc/hosts** file with the public IP address and address hostname. Change the `<Public IP>` and `<VMname>` portions to reflect your actual values:
   
