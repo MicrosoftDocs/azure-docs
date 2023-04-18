@@ -37,6 +37,10 @@ landingContent:
             url: concepts-ingest-weather-data.md
           - text: Sensor data ingestion
             url: concepts-ingest-sensor-data.md
+      - linkListType: whats-new
+        links:
+          - text: Release notes
+            url: release-notes.md
   - title: Understanding ISV solutions
     linkLists:
       - linkListType: concept
