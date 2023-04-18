@@ -567,8 +567,8 @@
             href: ./v1/concept-automated-ml-v1.md
           # end v1
           - name: Time series forecasting
-           items:
-             - name: Forecasting methods
+            items:
+              - name: Forecasting methods
                 displayName: auto ML, time series, forecasting, methods
                 href: concept-automl-forecasting-methods.md
               - name: Deep learning models
