@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article explains how to set up a staging deployment by using the blue-green deployment pattern in Azure Spring Apps. Blue-green deployment is an Azure DevOps continuous delivery pattern that relies on keeping an existing (blue) version live while a new (green) one is deployed. This article shows you how to put that staging deployment into production without changing the production deployment.
 
@@ -44,7 +44,7 @@ az extension add --name spring
 
 To build the application, follow these steps:
 
-1. Generate the code for the sample app by using Spring Initializr with [this configuration](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client).
+1. Generate the code for the sample app by using Spring Initializr with [this configuration](https://start.spring.io/#!type=maven-project&language=java&packaging=jar&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client).
 
 1. Download the code.
 1. Add the following *HelloController.java* source file to the folder *\src\main\java\com\example\hellospring\*:
@@ -76,13 +76,22 @@ To build the application, follow these steps:
 1. Create the app in your Azure Spring Apps instance:
 
    ```azurecli
-   az spring app create -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --assign-endpoint
+   az spring app create \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name demo \
+       --runtime-version Java_17 \
+       --assign-endpoint
    ```
 
 1. Deploy the app to Azure Spring Apps:
 
    ```azurecli
-   az spring app deploy -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+   az spring app deploy \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name demo \
+       --artifact-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
 
 1. Modify the code for your staging deployment:
@@ -114,7 +123,13 @@ To build the application, follow these steps:
 1. Create the green deployment:
 
    ```azurecli
-   az spring app deployment create -n green --app demo -g <resourceGroup> -s <Azure Spring Apps instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+   az spring app deployment create \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --app demo \
+       --name green \
+       --runtime-version Java_17 \
+       --artifact-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
 
 ## View apps and deployments
@@ -123,7 +138,7 @@ Use the following steps to view deployed apps.
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
-1. From the left pane, open the **Apps** pane to view apps for your service instance.
+1. From the navigation pane, open the **Apps** pane to view apps for your service instance.
 
    :::image type="content" source="media/how-to-staging-environment/app-dashboard.png" lightbox="media/how-to-staging-environment/app-dashboard.png" alt-text="Screenshot of the Apps pane showing apps for your service instance.":::
 
@@ -175,7 +190,12 @@ If you visit your public-facing app gateway at this point, you should see the ol
 If you're not satisfied with your change, you can modify your application code, build a new .jar package, and upload it to your green deployment by using the Azure CLI:
 
 ```azurecli
-az spring app deploy  -g <resource-group-name> -s <service-instance-name> -n gateway -d green --jar-path gateway.jar
+az spring app deploy \
+    --resource-group <resource-group-name> \
+    --service <service-instance-name> \
+    --name gateway \
+    --deployment green \
+    --jar-path gateway.jar
 ```
 
 ## Delete the staging deployment
@@ -185,7 +205,11 @@ To delete your staging deployment from the Azure portal, go to the page for your
 Alternatively, delete your staging deployment from the Azure CLI by running the following command:
 
 ```azurecli
-az spring app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway
+az spring app deployment delete \
+    --resource-group <resource-group-name> \
+    --service <service-instance-name> \
+    --name <staging-deployment-name> \
+    --app gateway
 ```
 
 ## Next steps

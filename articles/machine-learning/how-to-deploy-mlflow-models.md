@@ -10,7 +10,7 @@ ms.author: fasantia
 ms.reviewer: mopeakande
 ms.date: 06/06/2022
 ms.topic: how-to
-ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2, event-tier1-build-2022
+ms.custom: deploy, mlflow, devplatv2, no-code-deployment, cliv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
@@ -19,7 +19,7 @@ ms.devlang: azurecli
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](./v1/how-to-deploy-mlflow-models.md)
+> * [v1](./v1/how-to-deploy-mlflow-models.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-deploy-mlflow-models.md)
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure Machine Learning for both real-time and batch inference. Learn also about the different tools you can use to perform management of the deployment.
@@ -110,7 +110,7 @@ The rest of this section mostly applies to online endpoints but you can learn mo
 | JSON-serialized pandas DataFrames in the records orientation | Deprecated |  |
 | CSV-serialized pandas DataFrames | **&check;** | Use batch<sup>1</sup> |
 | Tensor input format as JSON-serialized lists (tensors) and dictionary of lists (named tensors) | **&check;** | **&check;** |
-| Tensor input formatted as in TF Serving’s API | **&check;** |  |
+| Tensor input formatted as in TF Serving's API | **&check;** |  |
 
 > [!NOTE]
 > - <sup>1</sup> We suggest you to explore batch inference for processing files. See [Deploy MLflow models to Batch Endpoints](how-to-mlflow-batch.md).

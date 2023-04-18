@@ -55,7 +55,7 @@ Business transactions and project collaborations often require sharing confident
    ![Screenshot of a ML training model on Azure Container Instances.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-ml-training.png)
 
 ### Confidential inference
-ACI provides fast and easy deployments, flexible resource allocation, and pay per use pricing, which positions it as a great platform for confidential inference workloads. With confidential containers on Azure Container Instances, model developers and data owners can collaborate while protecting the intellectual property of the model developer and keeping the data used for inferencing secure and private. Check out a sample deployment of confidential inference using confidential containers on Azure Container Instances.  
+ACI provides fast and easy deployments, flexible resource allocation, and pay per use pricing, which positions it as a great platform for confidential inference workloads. With confidential containers on Azure Container Instances, model developers and data owners can collaborate while protecting the intellectual property of the model developer and keeping the data used for inferencing secure and private. Check out a [sample](https://aka.ms/ccaciinference) deployment of confidential inference using confidential containers on Azure Container Instances.  
 
    ![Screenshot of a ML inference model on Azure Container Instances.](media/container-instances-confidential-containers-tutorials/confidential-containers-aci-ml-inference.png)
 

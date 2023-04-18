@@ -10,7 +10,7 @@ author: dem108
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: deploy, docker, prebuilt
+ms.custom: UpdateFrequency5, deploy, docker, prebuilt
 ---
 
 # Extend a prebuilt Docker image

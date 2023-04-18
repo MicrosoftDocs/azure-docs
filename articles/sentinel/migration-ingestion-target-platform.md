@@ -26,7 +26,7 @@ This article compares target platforms in terms of performance, cost, usability 
 |**How to access data**:     |[Search jobs](search-jobs.md)      |Direct KQL queries         |[externaldata](/azure/data-explorer/kusto/query/externaldata-operator) |Modified KQL queries |
 |**Scenario**:     |**Occasional access**<br><br>Relevant in scenarios where you don’t need to run heavy analytics or trigger analytics rules, and you only need to access the data occasionally.    |**Frequent access**<br><br>Relevant in scenarios where you need to access the data frequently, and need to control how the cluster is sized and configured.         |**Compliance/audit**<br><br>• Optimal for storing massive amounts of unstructured data.<br>• Relevant in scenarios where you don't need quick access to the data or high performance, such as for compliance or audit purposes. |**Occasional access**<br><br>Relevant in scenarios where you want to benefit from the low cost of Azure Blob Storage, and maintain relatively quick access to the data. |
 |**Complexity**:     |Very low         |Medium         |Low |High         |
-|**Readiness**:     |Public Preview         |GA         |GA         |GA |
+|**Readiness**:     |GA         |GA         |GA         |GA |
 
 ## General considerations 
 

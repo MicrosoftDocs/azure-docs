@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 02/28/2023
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: ignite-fall-2021, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage an Azure disk pool (preview)
@@ -49,7 +49,7 @@ Now that you've attached your disk and enabled the LUN, you must create and atta
 
 ### Prerequisites
 
-Install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true) of the Azure PowerShell module.
+Install [version 6.1.0 or newer](/powershell/module/az.diskpool/) of the Azure PowerShell module.
 
 Install the disk pool module using the following command:
 

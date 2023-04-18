@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 09/23/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, devx-track-azurecli
 ---
 
 # Set up authentication between Azure Machine Learning and other services
@@ -18,7 +18,7 @@ ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cli
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
-> * [v1](./v1/how-to-use-managed-identities.md)
+> * [v1](./v1/how-to-use-managed-identities.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](./how-to-identity-based-service-authentication.md)
 
 Azure Machine Learning is composed of multiple Azure services. There are multiple ways that authentication can happen between Azure Machine Learning and the services it relies on.
@@ -293,7 +293,7 @@ If your storage account has virtual network settings, that dictates what identit
 
 * If your storage is ADLS Gen 2 or Blob and has virtual network settings, customers can use either user identity or workspace MSI depending on the datastore settings defined during creation. 
 
-* If the virtual network setting is “Allow Azure services on the trusted services list to access this storage account”, then Workspace MSI is used. 
+* If the virtual network setting is "Allow Azure services on the trusted services list to access this storage account", then Workspace MSI is used. 
 
 ## Scenario: Azure Container Registry without admin user
 

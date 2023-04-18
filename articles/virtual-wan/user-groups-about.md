@@ -5,23 +5,25 @@ description: Learn about using user groups to assign IP addresses from specific 
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 03/31/2023
 ms.author: cherylmc
 
 ---
 # About user groups and IP address pools for P2S User VPNs - Preview
 
-You can configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials by creating **User Groups**. This article describes the different configurations and parameters the Virtual WAN P2S VPN gateway uses to determine user groups and assign IP addresses.
+You can configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials by creating **User Groups**. This article describes the different configurations and parameters the Virtual WAN P2S VPN gateway uses to determine user groups and assign IP addresses. For configuration steps, see [Configure user groups and IP address pools for P2S User VPNs](user-groups-create.md).
 
-## Use cases
+This article covers the following concepts:
 
-Contoso corporation is composed of multiple functional departments, such as Finance, Human Resources and Engineering. Contoso uses Virtual WAN to allow remote workers (users) to connect to Azure Virtual WAN and access resources hosted on-premises or in a Virtual Network connected to the Virtual WAN hub.
-
-However, Contoso has internal security policies where users from the Finance department can only access certain databases and Virtual Machines and users from Human Resources have access to other sensitive applications.
-
-Contoso can configure different user groups for each of their functional departments. This will ensure users from each department are assigned IP addresses from a department-level pre-defined address pool.
-
-Contoso's network administrator can then configure Firewall rules, network security groups (NSG) or access control lists (ACLs) to allow or deny certain users access to resources based on their IP addresses.
+* Server configuration concepts
+  * User groups
+  * Group members
+  * Default policy group
+  * Group priority
+  * Available group settings
+* Gateway concepts
+* Configuration requirements and limitations
+* Use cases
 
 ## Server configuration concepts
 
@@ -42,12 +44,12 @@ For every P2S VPN server configuration, one group must be selected as default. U
 
 ### Group priority
 
-Each group is also assigned a numerical priority. Groups with lower priority are evaluated first. This means that if a user presents credentials that match the settings of multiple groups, they'll be considered part of the group with the lowest priority. For example, if user A presents a credential that corresponds to the IT Group (priority 3) and Finance Group (priority 4), user A will be considered part of the IT Group for purposes of assigning IP addresses.
+Each group is also assigned a numerical priority. Groups with lower priority are evaluated first. This means that if a user presents credentials that match the settings of multiple groups, they're considered part of the group with the lowest priority. For example, if user A presents a credential that corresponds to the IT Group (priority 3) and Finance Group (priority 4), user A is considered part of the IT Group for purposes of assigning IP addresses.
 
 ### Available group settings
 
 The following section describes the different parameters that can be used to define which groups members are a part of. The available parameters vary based on selected authentication methods.
-The table below summarizes the available setting types and acceptable values. For more detailed information on each type of Member Value, view the section corresponding to your authentication type.
+The following table summarizes the available setting types and acceptable values. For more detailed information on each type of Member Value, view the section corresponding to your authentication type.
 
 |Authentication type|Member type |Member values|Example member value|
 |---|---|---|---|
@@ -59,9 +61,9 @@ Azure Active Directory|AADGroupID|Azure Active Directory Group Object ID	|0cf484
 
 Gateways using Azure Active Directory authentication can use **Azure Active Directory Group Object IDs** to determine which user group a user belongs to. If a user is part of multiple Azure Active Directory groups, they're considered to be part of the Virtual WAN user group that has the lowest numerical priority.
 
-However, if you plan to have users who are external (users who are not part of the Azure Active Directory domain configured on the VPN Gateway) connect to the Virtual WAN Point-to-site VPN Gateway, please make sure that the user type of the external user is "Member" and **not** "Guest". Also, make sure that the "Name" of the user is set to the user's email address. If the user type and name of the connecting user is not set correctly as described above or you cannot set an external member to be a "Member" of your Azure Active Directory domain, that connecting user will be assigned to the default group and assigned an IP from the default IP address pool.   
+However, if you plan to have users who are external (users who aren't part of the Azure Active Directory domain configured on the VPN gateway) connect to the Virtual WAN Point-to-site VPN gateway, make sure that the user type of the external user is "Member" and **not** "Guest". Also, make sure that the "Name" of the user is set to the user's email address. If the user type and name of the connecting user isn't set correctly as described above or you can't set an external member to be a "Member" of your Azure Active Directory domain, that connecting user will be assigned to the default group and assigned an IP from the default IP address pool.   
 
-You can also identify whether or not a user is external by looking at the user's "User Principal Name." External users will have **#EXT** in their "User Principal Name."
+You can also identify whether or not a user is external by looking at the user's "User Principal Name." External users have **#EXT** in their "User Principal Name."
 
 :::image type="content" source="./media/user-groups-about/groups.png" alt-text="Screenshot of an Azure Active Directory group." lightbox="./media/user-groups-about/groups.png":::
 
@@ -128,8 +130,20 @@ The following result is:
 
 ## Configuration considerations
 
-[!INCLUDE [User groups preview considerations](../../includes/virtual-wan-user-groups-considerations.md)]
+This section lists configuration requirements and limitations for user groups and IP address pools.
+
+[!INCLUDE [User groups configuration considerations](../../includes/virtual-wan-user-groups-considerations.md)]
+
+## Use cases
+
+Contoso corporation is composed of multiple functional departments, such as Finance, Human Resources and Engineering. Contoso uses Virtual WAN to allow remote workers (users) to connect to Azure Virtual WAN and access resources hosted on-premises or in a Virtual Network connected to the Virtual WAN hub.
+
+However, Contoso has internal security policies where users from the Finance department can only access certain databases and virtual machines, and users from Human Resources have access to other sensitive applications.
+
+* Contoso can configure different user groups for each of their functional departments. This ensures users from each department are assigned IP addresses from a department-level predefined address pool.
+
+* Contoso's network administrator can then configure Firewall rules, network security groups (NSG) or access control lists (ACLs) to allow or deny certain users access to resources based on their IP addresses.
 
 ## Next steps
 
-* To create User Groups, see [Create User Groups for P2S User VPN](user-groups-create.md).
+* To create User Groups, see [Create user groups for P2S User VPN](user-groups-create.md).

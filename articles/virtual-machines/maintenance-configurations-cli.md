@@ -6,6 +6,7 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 11/20/2020
 ms.author: cynthn
 #pmcontact: shants
@@ -45,7 +46,7 @@ az maintenance configuration create \
    --maintenance-window-duration "05:00" \
    --maintenance-window-recur-every "Month Fourth Monday" \
    --maintenance-window-start-date-time "2020-12-30 08:00" \
-   --maintenance-window-time-zone "Pacific Standard Time"
+   --maintenance-window-time-zone "Pacific Standard Time" 
 ```
  
 Using `--maintenance-scope host` ensures that the maintenance configuration is used for controlling updates to the host infrastructure. If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your resource group.
@@ -77,7 +78,7 @@ az maintenance configuration create \
    --maintenance-window-duration "05:00" \
    --maintenance-window-recur-every "Month Fourth Monday" \
    --maintenance-window-start-date-time "2020-12-30 08:00" \
-   --maintenance-window-time-zone "Pacific Standard Time"
+   --maintenance-window-time-zone "Pacific Standard Time" 
 ```
 
 ### Guest VMs
@@ -89,14 +90,14 @@ az maintenance configuration create \
    --resource-group myMaintenanceRG \
    --resource-name myConfig \
    --maintenance-scope InGuestPatch \
-   --location eastus 
-   --maintenance-window-duration "02:00" 
-   --maintenance-window-recur-every "20days" 
-   --maintenance-window-start-date-time "2022-12-30 07:00" 
-   --maintenance-window-time-zone "Pacific Standard Time" 
-   --install-patches-linux-parameters package-name-masks-to-exclude="ppt" package-name-masks-to-include="apt" classifications-to-include="Other" 
-   --install-patches-windows-parameters kb-numbers-to-exclude="KB123456" kb-numbers-to-include="KB123456" classifications-to-include="FeaturePack" 
-   --reboot-setting "IfRequired" 
+   --location eastus \
+   --maintenance-window-duration "02:00" \
+   --maintenance-window-recur-every "20days" \
+   --maintenance-window-start-date-time "2022-12-30 07:00" \
+   --maintenance-window-time-zone "Pacific Standard Time" \
+   --install-patches-linux-parameters package-name-masks-to-exclude="ppt" package-name-masks-to-include="apt" classifications-to-include="Other" \
+   --install-patches-windows-parameters kb-numbers-to-exclude="KB123456" kb-numbers-to-include="KB123456" classifications-to-include="FeaturePack" \
+   --reboot-setting "IfRequired" \
    --extension-properties InGuestPatchMode="User"
 ```
 
@@ -189,7 +190,7 @@ az maintenance assignment list \
    --resource-type hosts \
    --provider-name Microsoft.Compute \
    --resource-parent-name myHostGroup \
-   --resource-parent-type hostGroups 
+   --resource-parent-type hostGroups \
    --query "[].{ResourceGroup:resourceGroup,configName:name}" \
    --output table
 ```

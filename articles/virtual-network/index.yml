@@ -42,6 +42,8 @@ landingContent:
             url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%202
           - text: Provision a secondary Azure region infrastructure
             url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%205
+          - text: Implement Azure network security
+            url: https://mslearn.cloudguides.com/guides/Azure%20network%20security
  
   # Card (optional)
   - title: Get started

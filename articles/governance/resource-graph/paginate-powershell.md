@@ -5,7 +5,7 @@ ms.date: 11/11/2022
 ms.topic: quickstart
 ms.author: timwarner
 author: timwarner-msft
-ms.custom: dev-track-azurepowershell
+ms.custom: dev-track-azurepowershell, devx-track-azurepowershell
 ---
 # Quickstart: Paginate Azure Resource Graph query results using Azure PowerShell
 

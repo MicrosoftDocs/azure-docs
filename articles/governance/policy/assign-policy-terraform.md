@@ -1,8 +1,9 @@
 ---
 title: "Quickstart: New policy assignment with Terraform"
 description: In this quickstart, you use Terraform and HCL syntax to create a policy assignment to identify non-compliant resources.
-ms.date: 02/28/2023
+ms.date: 03/01/2023
 ms.topic: quickstart
+ms.custom: devx-track-terraform
 ms.tool: terraform
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Terraform
@@ -191,7 +192,7 @@ To remove the assignment created, use Azure CLI or reverse the Terraform executi
 - Terraform
 
   ```bash
-  terraform destroy assignment.tfplan
+  terraform destroy
   ```
 
 ## Next steps

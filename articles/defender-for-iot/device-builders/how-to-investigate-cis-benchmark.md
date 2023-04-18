@@ -45,11 +45,11 @@ For example:
 ## Useful queries to investigate the OS baseline resources
 
 > [!Note]
-> Make sure to Replace `<device-id>` with the name(s) you gave your device in each of the following queries.
+> Make sure to replace `<device-id>` with the name(s) you gave your device in each of the following queries.
 
 ### Retrieve the latest information
 
-- **Device fleet failure**: Run the following query to retrieve the latest information about checks that failed across the device fleet:
+- **Device fleet failure**: Run this query to retrieve the latest information about checks that failed across the device fleet:
 
     ```kusto
     let lastDates = SecurityIoTRawEvent |
@@ -61,7 +61,7 @@ For example:
     project DeviceId, event.BaselineCheckId, event.BaselineCheckDescription
     ```
 
-- **Specific device failure** - Run the following query to retrieve the latest information about checks that failed on a specific device:  
+- **Specific device failure** - Run this query to retrieve the latest information about checks that failed on a specific device:  
 
     ```kusto
     let id = SecurityIoTRawEvent | 

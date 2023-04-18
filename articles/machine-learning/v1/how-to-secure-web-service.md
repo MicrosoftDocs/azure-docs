@@ -9,7 +9,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 07/28/2022
 ms.topic: how-to
-ms.custom: cliv1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, cliv1, sdkv1, event-tier1-build-2022
 ---
 
 # Use TLS to secure a web service through Azure Machine Learning

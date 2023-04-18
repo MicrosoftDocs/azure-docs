@@ -1,6 +1,6 @@
 ---
 
-title: External Identities in Azure Active Directory | Microsoft Docs
+title: External Identities in Azure Active Directory
 description: Azure AD External Identities allow you to collaborate with or publish apps to people outside your organization. Compare solutions for External Identities, including Azure Active Directory B2B collaboration, Azure AD B2B collaboration, and Azure AD B2C.
 
 services: active-directory

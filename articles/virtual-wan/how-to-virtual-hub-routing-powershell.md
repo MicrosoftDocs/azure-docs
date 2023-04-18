@@ -6,10 +6,10 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 10/26/2022
 ms.author: cherylmc
-
 ---
 # How to configure virtual hub routing - Azure PowerShell
 

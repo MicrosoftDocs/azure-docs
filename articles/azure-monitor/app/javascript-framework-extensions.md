@@ -107,11 +107,11 @@ It measures time from the `ComponentDidMount` event through the `ComponentWillUn
 
 To see this metric in the Azure portal, go to the Application Insights resource and select the **Metrics** tab. Configure the empty charts to display the custom metric name `React Component Engaged Time (seconds)`. Select the aggregation (for example, sum or avg) of your metric and split by `Component Name`.
 
-![Screenshot that shows a chart that displays the custom metric "React Component Engaged Time (seconds)" split by "Component Name"](./media/javascript-react-plugin/chart.png)
+:::image type="content" source="./media/javascript-react-plugin/chart.png" lightbox="./media/javascript-react-plugin/chart.png" alt-text="Screenshot that shows a chart that displays the custom metric React Component Engaged Time (seconds) split by Component Name":::
 
 You can also run custom queries to divide Application Insights data to generate reports and visualizations as per your requirements. In the Azure portal, go to the Application Insights resource, select **Analytics** from the **Overview** tab, and run your query.
 
-![Screenshot that shows custom metric query results.](./media/javascript-react-plugin/query.png)
+:::image type="content" source="./media/javascript-react-plugin/query.png" lightbox="./media/javascript-react-plugin/query.png" alt-text="Screenshot that shows custom metric query results.":::
 
 > [!NOTE]
 > It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
@@ -268,7 +268,7 @@ If a custom `PageView` duration isn't provided, `PageView` duration defaults to 
 
 ### Sample app
 
-Check out the [Application Insights React demo](https://github.com/Azure-Samples/application-insights-react-demo).
+Check out the [Application Insights React demo](https://github.com/microsoft/applicationinsights-react-js/tree/main/sample/applicationinsights-react-sample).
 
 ## [React Native](#tab/reactnative)
 

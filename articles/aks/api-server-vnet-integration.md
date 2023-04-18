@@ -6,13 +6,12 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.date: 09/09/2022
-ms.custom: references_regions
-
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Create an Azure Kubernetes Service cluster with API Server VNet Integration (Preview)
 
-An Azure Kubernetes Service (AKS) cluster configured with API Server VNet Integration (Preview) projects the API server endpoint directly into a delegated subnet in the VNet where AKS is deployed. API Server VNet Integartion enables network communication between the API server and the cluster nodes without requiring a private link or tunnel. The API server is available behind an Internal Load Balancer VIP in the delegated subnet, which the nodes are configured to utilize. By using API Server VNet Integration, you can ensure network traffic between your API server and your node pools remains on the private network only.
+An Azure Kubernetes Service (AKS) cluster configured with API Server VNet Integration (Preview) projects the API server endpoint directly into a delegated subnet in the VNet where AKS is deployed. API Server VNet Integration enables network communication between the API server and the cluster nodes without requiring a private link or tunnel. The API server is available behind an Internal Load Balancer VIP in the delegated subnet, which the nodes are configured to utilize. By using API Server VNet Integration, you can ensure network traffic between your API server and your node pools remains on the private network only.
 
 ## API server connectivity
 

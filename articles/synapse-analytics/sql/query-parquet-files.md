@@ -121,6 +121,8 @@ ORDER BY
 
 You don't need to use the OPENROWSET WITH clause when reading Parquet files. Column names and data types are automatically read from Parquet files.
 
+Have in mind that if you are reading number of files at once, the schema, column names and data types will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. To explicitly specify the schema, please use OPENROWSET WITH clause.
+
 The following sample shows the automatic schema inference capabilities for Parquet files. It returns the number of rows in September 2018 without specifying a schema.
 
 > [!NOTE]

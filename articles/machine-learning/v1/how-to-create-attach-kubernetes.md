@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, sdkv1, event-tier1-build-2022
 ms.author: bozhlin
 author:  bozhong68
 ms.reviewer: larryfr
@@ -19,7 +19,7 @@ ms.date: 04/21/2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
 > * [v1](how-to-create-attach-kubernetes.md)
-> * [v2 (current version)](../how-to-attach-kubernetes-anywhere.md)
+> * [v2 (current version)](../how-to-attach-kubernetes-anywhere.md?view=azureml-api-2&preserve-view=true)
 
 > [!IMPORTANT]
 > This article shows how to use the CLI and SDK v1 to create or attach an Azure Kubernetes Service cluster, which is considered as **legacy** feature now.  To attach Azure Kubernetes Service cluster using  the recommended approach for v2, see [Introduction to Kubernetes compute target in v2](../how-to-attach-kubernetes-anywhere.md).
@@ -54,7 +54,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 - If you want to use a private AKS cluster (using Azure Private Link), you must create the cluster first, and then **attach** it to the workspace. For more information, see [Create a private Azure Kubernetes Service cluster](../../aks/private-clusters.md).
 
-- Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../../aks/private-clusters.md) is __not supported__ with Azure Machine learning. 
+- Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../../aks/private-clusters.md) is __not supported__ with Azure Machine Learning. 
 
 - The compute name for the AKS cluster MUST be unique within your Azure Machine Learning workspace. It can include letters, digits and dashes. It must start with a letter, end with a letter or digit, and be between 3 and 24 characters in length.
  

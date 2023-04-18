@@ -165,5 +165,6 @@ If you encounter this problem, follow these steps:
 
 ## Next steps
 
+- [Find SAP and HANA passwords](manage-virtual-instance.md) through Azure Center for SAP solutions
 - [Monitor SAP system from Azure portal](monitor-portal.md)
 - [Manage a Virtual Instance for SAP solutions](manage-virtual-instance.md)

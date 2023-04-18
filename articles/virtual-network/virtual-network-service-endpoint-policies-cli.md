@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: virtual-network
 author: asudbring
 tags: azure-resource-manager
-# Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
@@ -13,7 +12,8 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: allensu
-ms.custom: 
+ms.custom: devx-track-azurecli
+# Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
 ---
 
 # Manage data exfiltration to Azure Storage accounts with virtual network service endpoint policies using the Azure CLI

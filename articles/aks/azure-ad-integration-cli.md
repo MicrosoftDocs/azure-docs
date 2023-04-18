@@ -3,9 +3,9 @@ title: Integrate Azure Active Directory with Azure Kubernetes Service (legacy)
 description: Learn how to use the Azure CLI to create and Azure Active Directory-enabled Azure Kubernetes Service (AKS) cluster (legacy)
 author: TomGeske
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 11/11/2021
 ms.author: miwithro
-
 ---
 
 # Integrate Azure Active Directory with Azure Kubernetes Service using the Azure CLI (legacy)
@@ -283,4 +283,4 @@ For best practices on identity and resource control, see [Best practices for aut
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [managed-aad]: managed-aad.md
-[managed-aad-migrate]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration
+[managed-aad-migrate]: managed-aad.md#upgrade-to-aks-managed-azure-ad-integration

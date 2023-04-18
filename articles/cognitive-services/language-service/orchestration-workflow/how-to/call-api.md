@@ -1,7 +1,7 @@
 ---
-title: How to send a Conversational Language Understanding job
+title: How to send requests to orchestration workflow
 titleSuffix: Azure Cognitive Services
-description: Learn about sending a request for Conversational Language Understanding.
+description: Learn about sending requests for orchestration workflow.
 services: cognitive-services
 author: aahill
 manager: nitinme

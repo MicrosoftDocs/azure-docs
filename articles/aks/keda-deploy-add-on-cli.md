@@ -5,7 +5,7 @@ author: raorugan
 ms.author: raorugan
 ms.topic: article
 ms.date: 10/10/2022
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Install the Kubernetes Event-driven Autoscaling (KEDA) add-on by using Azure CLI

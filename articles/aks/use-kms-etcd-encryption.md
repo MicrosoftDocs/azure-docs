@@ -2,7 +2,8 @@
 title: Use Key Management Service (KMS) etcd encryption in Azure Kubernetes Service (AKS) 
 description: Learn how to use the Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 01/17/2023
+ms.custom: devx-track-azurecli
+ms.date: 04/12/2023
 ---
 
 # Add Key Management Service (KMS) etcd encryption to an Azure Kubernetes Service (AKS) cluster
@@ -36,6 +37,8 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 * Bring your own (BYO) Azure Key Vault from another tenant isn't supported.
 * With KMS enabled, you can't  change associated Azure Key Vault model (public, private). To [change associated key vault mode][changing-associated-key-vault-mode], you need to disable and enable KMS again.
 * If a cluster is enabled KMS with private key vault and not using the `API Server VNet integration` tunnel, then stop/start cluster is not allowed.
+* Using the virtual machine scale set (VMSS) API to scale down nodes in the cluster to zero will deallocate the nodes, causing the cluster to go down and unrecoverable.
+
 
 KMS supports [public key vault][Enable-KMS-with-public-key-vault] and [private key vault][Enable-KMS-with-private-key-vault].
 
@@ -338,7 +341,7 @@ Use the following command to disable KMS on existing cluster.
 az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
 ```
 
-Use the following command to update all secrets. Otherwise, the old secrets will still be encrypted with the previous key. For larger clusters, you may want to subdivide the secrets by namespace or script an update.
+Use the following command to update all secrets. Otherwise, the old secrets will still be encrypted with the previous key and the encrypt/decrypt permission on key vault is still required. For larger clusters, you may want to subdivide the secrets by namespace or script an update.
 
 ```azurecli-interactive
 kubectl get secrets --all-namespaces -o json | kubectl replace -f -

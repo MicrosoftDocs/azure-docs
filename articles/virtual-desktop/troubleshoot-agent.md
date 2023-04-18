@@ -109,9 +109,7 @@ To resolve this issue, check that you can reach the two endpoints referred to as
 
 On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703 with **RD Gateway Url: is not accessible** in the description, the agent is unable to reach the gateway URLs. To successfully connect to your session host, you must allow network traffic to the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Azure Virtual Desktop.
 
-To resolve this issue, verify that your firewall and/or DNS settings are not blocking these URLs:
-1. [Use Azure Firewall to protect Azure Virtual Desktop deployments.](../firewall/protect-azure-virtual-desktop.md).
-1. Configure your [Azure Firewall DNS settings](../firewall/dns-settings.md).
+To resolve this issue, verify access these to the required URLs by running the [Required URL Check tool](required-url-check-tool.md). If you're using Azure Firewall, see [Use Azure Firewall to protect Azure Virtual Desktop deployments.](../firewall/protect-azure-virtual-desktop.md) and [Azure Firewall DNS settings](../firewall/dns-settings.md) for more information on how to configure it for Azure Virtual Desktop.
 
 ## Error: 3019
 
@@ -349,8 +347,10 @@ You must generate a new registration key that is used to re-register your sessio
 By reinstalling the most updated version of the agent and boot loader, the side-by-side stack and Geneva monitoring agent automatically get installed as well. To reinstall the agent and boot loader:
 
 1. Sign in to your session host VM as an administrator and run the agent installer and bootloader for your session host VM:
-        - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
-        - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
+   
+   - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
+   
+   - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
 
    > [!TIP]
    > For each of the the agent and boot loader installers you downloaded, you may need to unblock them. Right-click each file and select **Properties**, then select **Unblock**, and finally select **OK**.
@@ -371,7 +371,7 @@ By reinstalling the most updated version of the agent and boot loader, the side-
    > [!div class="mx-imgBorder"]
    > ![Screenshot of available session host](media/hostpool-portal.png)
 
-## Remove DisableRegistryTools
+## Remove DisableRegistryTools registry key
 
 If you've performed all four steps but the agent still doesn't work, that may be because the DisableRegistryTools registry key is enabled in one of the following locations:
 
