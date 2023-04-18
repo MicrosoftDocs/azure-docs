@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB transactional (row-based) and analytica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2022
+ms.date: 04/18/2023
 ms.author: rosouz
 ms.custom: seo-nov-2020, devx-track-azurecli, ignite-2022
 ms.reviewer: mjbrown
@@ -446,24 +446,24 @@ the MongoDB `_id` field is fundamental to every collection in MongoDB and origin
 
 ###### Working with the MongoDB `_id` field in Spark
 
+The example below works on Spark 2.x and 3.x versions:
+
 ```Python
-import org.apache.spark.sql.types._
-val simpleSchema = StructType(Array(
-    StructField("_id", StructType(Array(StructField("objectId",BinaryType,true)) ),true),
-    StructField("id", StringType, true)
-  ))
+val df = spark.read.format("cosmos.olap").option("spark.synapse.linkedService", "xxxx").option("spark.cosmos.container", "xxxx").load()
 
-df = spark.read.format("cosmos.olap")\
-    .option("spark.synapse.linkedService", "<enter linked service name>")\
-    .option("spark.cosmos.container", "<enter container name>")\
-    .schema(simpleSchema)
-    .load()
+val convertObjectId = udf((bytes: Array[Byte]) => {
+    val builder = new StringBuilder
 
-df.select("id", "_id.objectId").show()
+    for (b <- bytes) {
+        builder.append(String.format("%02x", Byte.box(b)))
+    }
+    builder.toString
+}
+ )
+
+val dfConverted = df.withColumn("objectId", col("_id.objectId")).withColumn("convertedObjectId", convertObjectId(col("_id.objectId"))).select("id", "objectId", "convertedObjectId")
+display(dfConverted)
 ```
-
-> [!NOTE]
-> This workaround was designed to work with Spark 2.4.
 
 ###### Working with the MongoDB `_id` field in SQL
 
