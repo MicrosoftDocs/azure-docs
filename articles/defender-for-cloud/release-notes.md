@@ -19,10 +19,20 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 ## April 2023
 
 Updates in April include:
-
+- [New alert in Defender for Resource Manager](#new-alert-in-defender-for-resource-manager)
 - [New preview Unified Disk Encryption recommendation](#unified-disk-encryption-recommendation-preview)
 - [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely)
 - [Deprecation of App Service language monitoring policies](#deprecation-of-app-service-language-monitoring-policies)
+
+### New alert in Defender for Resource Manager
+
+Defender for Resource Manager has the following new alert:
+
+| Alert (alert type) | Description | MITRE tactics | Severity |
+|---|---|:-:|---|
+| **PREVIEW - Suspicious creation of compute resources detected**<br>(ARM_SuspiciousComputeCreation) | Microsoft Defender for Resource Manager identified a suspicious creation of compute resources in your subscription utilizing Virtual Machines/Azure Scale Set. The identified operations are designed to allow administrators to efficiently manage their environments by deploying new resources when needed. While this activity may be legitimate, a threat actor might utilize such operations to conduct crypto mining.<br> The activity is deemed suspicious as the compute resources scale is higher than previously observed in the subscription. <br> This can indicate that the principal is compromised and is being used with malicious intent. | Impact | Medium  |
+
+You can see a list of all of the [alerts available for Resource Manager](alerts-reference.md#alerts-resourcemanager).
 
 ### Unified Disk Encryption recommendation (preview)
 
@@ -67,7 +77,6 @@ These policies are no longer available in Defender for Cloud's built-in recommen
 
 Updates in March include:
 
-- [New alert in Defender for Resource Manager](#new-alert-in-defender-for-resource-manager)
 - [A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection](#a-new-defender-for-storage-plan-is-available-including-near-real-time-malware-scanning-and-sensitive-data-threat-detection)
 - [Data-aware security posture (preview)](#data-aware-security-posture-preview)
 - [Improved experience for managing the default Azure security policies](#improved-experience-for-managing-the-default-azure-security-policies)
@@ -77,16 +86,6 @@ Updates in March include:
 - [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
 - [New preview recommendation for Azure SQL Servers](#new-preview-recommendation-for-azure-sql-servers)
 - [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
-
-### New alert in Defender for Resource Manager
-
-Defender for Resource Manager has the following new alert:
-
-| Alert (alert type) | Description | MITRE tactics | Severity |
-|---|---|:-:|---|
-| **PREVIEW - Suspicious creation of compute resources detected**<br>(ARM_SuspiciousComputeCreation) | Microsoft Defender for Resource Manager identified a suspicious creation of compute resources in your subscription utilizing Virtual Machines/Azure Scale Set. The identified operations are designed to allow administrators to efficiently manage their environments by deploying new resources when needed. While this activity may be legitimate, a threat actor might utilize such operations to conduct crypto mining.<br> The activity is deemed suspicious as the compute resources scale is higher than previously observed in the subscription. <br> This can indicate that the principal is compromised and is being used with malicious intent. | Impact | Medium  |
-
-You can see a list of all of the [alerts available for Resource Manager](alerts-reference.md#alerts-resourcemanager).
 
 ### A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection
 
