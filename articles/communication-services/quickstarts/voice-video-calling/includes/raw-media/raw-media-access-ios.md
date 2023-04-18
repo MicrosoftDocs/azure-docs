@@ -24,18 +24,18 @@ This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../
 ## Raw Audio Access 
 Accessing raw audio media gives you access to the incoming call's audio stream, along with the ability to view and send custom outgoing audio streams during a call.
 
-### Creating Audio Stream
+### Sending Raw Outgoing Audio
 
 Make an options object specifying the raw stream properties we want to send. 
 
 ```swift
-    let options = RawOutgoingAudioStreamOptions()
+    let outgoingAudioStreamOptions = RawOutgoingAudioStreamOptions()
     let properties = RawOutgoingAudioProperties()
     properties.sampleRate = .hz44100
     properties.dataPerBlock = .inMs20
     properties.channelMode = .mono
     properties.audioFormat = .pcm16Bit
-    options.rawOutgoingAudioProperties = properties
+    outgoingAudioStreamOptions.rawOutgoingAudioProperties = properties
 ```
 
 Create a `RawOutgoingAudioStream` and attach it to join call options and the stream automatically starts when call is connected.
@@ -44,7 +44,7 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
     let options = JoinCallOptions() // or StartCallOptions()
 
     let outgoingAudioOptions = OutgoingAudioOptions()
-    self.rawOutgoingAudioStream = RawOutgoingAudioStream(rawOutgoingAudioStreamOptions: rawOutgoingOptions)
+    self.rawOutgoingAudioStream = RawOutgoingAudioStream(rawOutgoingAudioStreamOptions: outgoingAudioStreamOptions)
     outgoingAudioOptions.outgoingAudioStream = self.rawOutgoingAudioStream
     options.outgoingAudioOptions = outgoingAudioOptions
 

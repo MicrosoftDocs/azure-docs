@@ -23,7 +23,7 @@ This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../
 ## Raw Audio Access 
 Accessing raw audio media gives you access to the incoming call's audio stream, along with the ability to view and send custom outgoing audio streams during a call.
 
-### Creating Audio Stream
+### Sending Raw Outgoing Audio
 
 Make an options object specifying the raw stream properties we want to send. 
 
@@ -36,7 +36,7 @@ Make an options object specifying the raw stream properties we want to send.
         DataPerBlock = DataPerBlock.InMs20
     };
 
-    RawOutgoingAudioStreamOptions outgoingAudioOptions = new RawOutgoingAudioStreamOptions()
+    RawOutgoingAudioStreamOptions outgoingAudioStreamOptions = new RawOutgoingAudioStreamOptions()
     {
         RawOutgoingAudioProperties = outgoingAudioProperties
     };
@@ -48,7 +48,7 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
     JoinCallOptions options =  JoinCallOptions(); // or StartCallOptions()
 
     OutgoingAudioOptions outgoingAudioOptions = new OutgoingAudioOptions();
-    RawOutgoingAudioStream rawOutgoingAudioStream = new RawOutgoingAudioStream(outgoingAudioOptions);
+    RawOutgoingAudioStream rawOutgoingAudioStream = new RawOutgoingAudioStream(outgoingAudioStreamOptions);
 
     outgoingAudioOptions.OutgoingAudioStream = rawOutgoingAudioStream;
     options.OutgoingAudioOptions = outgoingAudioOptions;
