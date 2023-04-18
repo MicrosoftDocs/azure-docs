@@ -12,7 +12,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The Blob storage trigger starts a function when a new or updated blob is detected. The blob contents are provided as [input to the function](./functions-bindings-storage-blob-input.md).
 
-> [!TIP] There are several ways to execute your function code based on changes to blobs in a storage container, and the blob trigger might not be your best option. To learn more about alternate triggering optins, see [Working with blobs](./storage-considerations.md#working-with-blobs) in the best practices documentation.
+> [!TIP] 
+> There are several ways to execute your function code based on changes to blobs in a storage container, and the Blob storage trigger might not be the best option. To learn more about alternate triggering options, see [Working with blobs](./storage-considerations.md#working-with-blobs).
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md). 
 

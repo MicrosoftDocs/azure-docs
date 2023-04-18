@@ -8,7 +8,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure Functions scenarios
 
-As the core serverless compute offering for Azure, Functions is frequently a key component in many cloud-based computing topologies. Triggers and bindings make it easy to integrate with an array of cloud services to provide feature-rich implementations. For a complete list of supported triggers and bindings, see [](./functions-triggers-bindings.md#supported-bindings).
+As the core serverless compute offering for Azure, Functions is frequently a key component in many cloud-based computing topologies. Triggers and bindings make it easy to integrate with an array of cloud services to provide feature-rich implementations. For a complete list of supported triggers and bindings, see [Supported bindings](./functions-triggers-bindings.md#supported-bindings).
 
 This article highlights a set of representative, _but by no means exhaustive_, set of scenarios for Azure Functions. 
 
@@ -50,7 +50,7 @@ Functions can connect to other services to help process data and perform other A
 Functions provides a great way to run your code based on a [cron schedule](./functions-bindings-timer.md#usage) that you define. To learn more, see [Create a function in the Azure portal that runs on a schedule](./functions-create-scheduled-function.md).
 
 ::: zone pivot="programming-language-csharp,programming-language-java"
-## Build a web API
+## Build a scalable web API
 
 An HTTP triggered function defines an HTTP endpoint. These endpoints run function code that can connect to other services directly or by using binding extensions. You can compose the endpoints into a web-based API. For examples, see the following:
 ::: zone-end
@@ -81,18 +81,18 @@ Functions is often the compute component in a serverless workflow topology, such
 + Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 ::: zone pivot="programming-language-javascript" 
-+ Quickstart: [Create your first durable function in Azure using JavaScript](./durable/quickstart-js-vscode)
++ Quickstart: [Create your first durable function in Azure using JavaScript](./durable/quickstart-js-vscode.md)
 + Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 ::: zone pivot="programming-language-python" 
-+ Quickstart: [Create your first durable function in Azure using Python](./durable/quickstart-python-vscode)
++ Quickstart: [Create your first durable function in Azure using Python](./durable/quickstart-python-vscode.md)
 + Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 ::: zone pivot="programming-language-java" 
-+ Quickstart: [Create your first durable function in Azure using Java](./durable/quickstart-java)
++ Quickstart: [Create your first durable function in Azure using Java](./durable/quickstart-java.md)
 ::: zone-end
 ::: zone pivot="programming-language-powershell" 
-+ Quickstart: [Create your first durable function in Azure using PowerShell](./durable/quickstart-powershell-vscode)
++ Quickstart: [Create your first durable function in Azure using PowerShell](./durable/quickstart-powershell-vscode.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python" 
@@ -143,7 +143,7 @@ You can use Functions with Azure messaging services to create event-driven messa
 ::: zone-end
 
 
-## Process data in real time 
+## Process data in real-time 
 
 Your functions can use low-latency event triggers, like Event Grid, and real-time outputs like SignalR to process data in near-real-time.  
  
