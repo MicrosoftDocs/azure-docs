@@ -138,9 +138,9 @@ To show secrets held in the secrets store:
 
 To display a secret in the store, for example this command shows the test secret `ExampleSecret`:
 
-    ```
-    kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecret
-    ```
+```
+kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecret
+```
 
 ## Obtain certificates and keys
 
@@ -215,15 +215,15 @@ A key vault certificate also contains public x509 certificate metadata. The key 
 
 Disable the secrets provider addon:
 
-    ```azurecli-interactive
-    az aks addon disable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
-    ```
+```azurecli-interactive
+az aks addon disable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
+```
 
 Re-enable the secrets provider addon, but without the `enable-secret-rotation` parameter:
 
-    ```
-    az aks addon enable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
-    ```
+```bash
+az aks addon enable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
+```
 
 ### Sync mounted content with a Kubernetes secret
 
