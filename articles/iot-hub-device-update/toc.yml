@@ -8,6 +8,8 @@ items:
     href: understand-device-update.md
   - name: Device Update for IoT Hub public preview documentation
     href: /previous-versions/azure/iot-hub-device-update/understand-device-update
+  - name: Release notes and version history
+    href: device-update-changelog.md
 - name: Tutorials
   items:
   - name: Try Device Update with a simulator
@@ -151,7 +153,7 @@ items:
 - name: Resources
   items:
     - name: Support and help options
-      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
+      href: ../iot/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
     - name: Azure IoT services
       items:
         - name: IoT Hub

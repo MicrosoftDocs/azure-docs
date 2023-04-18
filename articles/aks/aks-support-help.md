@@ -1,7 +1,6 @@
 ---
 title: Azure Kubernetes Service support and help options 
 description: How to obtain help and support for questions or problems when you create solutions using Azure Kubernetes Service. 
-ms.service: azure-kubernetes-service
 ms.topic: troubleshooting
 ms.date: 10/18/2022
 ms.custom: support-help-page

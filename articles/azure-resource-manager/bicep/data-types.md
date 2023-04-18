@@ -2,12 +2,13 @@
 title: Data types in Bicep
 description: Describes the data types that are available in Bicep
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.custom: devx-track-bicep
+ms.date: 01/10/2023
 ---
 
 # Data types in Bicep
 
-This article describes the data types supported in [Bicep](./overview.md).
+This article describes the data types supported in [Bicep](./overview.md). [User-defined data types](./user-defined-data-types.md) are currently in preview. 
 
 ## Supported types
 

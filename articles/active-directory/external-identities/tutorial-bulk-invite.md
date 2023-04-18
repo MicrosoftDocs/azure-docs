@@ -1,13 +1,13 @@
 ---
 
-title: Tutorial for bulk inviting B2B collaboration users - Azure AD
+title: Bulk invite guest users for B2B collaboration tutorial
 description: In this tutorial, you learn how to send bulk invitations using a CSV file to external Azure AD B2B collaboration users. 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 10/24/2022
+ms.date: 02/28/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -15,13 +15,13 @@ manager: celestedg
 
 # Customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
 
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
 ms.custom: engagement-fy23
 ---
 
 # Tutorial: Bulk invite Azure AD B2B collaboration users
 
-If you use [Azure Active Directory (Azure AD) B2B collaboration](what-is-b2b.md) to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you'll follow these steps:
+If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you'll follow these steps:
 
 > [!div class="checklist"]
 >
@@ -136,6 +136,7 @@ For example: `Remove-MgUser -UserId "lstokes_fabrikam.com#EXT#@contoso.onmicroso
 
 ## Next steps
 
+- [Bulk invite guest users via PowerShell](bulk-invite-powershell.md)
 - [Learn about the Azure AD B2B collaboration invitation redemption process](redemption-experience.md)
 - [Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
-- [Billing model for guest user collaboration usage](external-identities-pricing.md#about-monthly-active-users-mau-billing)
+

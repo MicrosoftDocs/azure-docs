@@ -3,8 +3,8 @@ title: Use Azure AD and Kubernetes RBAC for clusters
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure Active Directory group membership to restrict access to cluster resources using Kubernetes role-based access control (Kubernetes RBAC) in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 02/13/2023
-
 ---
 
 # Use Kubernetes role-based access control with Azure Active Directory in Azure Kubernetes Service

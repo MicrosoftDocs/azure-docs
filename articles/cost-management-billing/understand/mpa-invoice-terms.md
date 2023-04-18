@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/08/2023
+ms.date: 03/13/2023
 ms.author: banders
 ---
 
@@ -61,7 +61,7 @@ The **Billing details by product** section lists the total charges for each prod
 
 ## How to pay
 
-At the bottom of the invoice, there are instructions for paying your bill. You can pay by check or wire within 60 days of your invoice date.
+At the bottom of the invoice, there are instructions for paying your bill. You can pay by wire within 60 days of your invoice date.
 
 [!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/03/2023
+ms.date: 02/23/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -23,6 +23,10 @@ As you consider the governance of external access, assess your organization's se
 
    > [!NOTE]
    > A high degree of control over collaboration can lead to higher IT budgets, reduced productivity, and delayed business outcomes. When official collaboration channels are perceived as onerous, end users tend to evade official channels. An example is end users sending unsecured documents by email.
+
+## Before you begin
+
+This article is number 1 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series. 
 
 ## Scenario-based planning
 
@@ -77,13 +81,13 @@ IT teams can delegate access decisions to business owners through entitlement ma
 
 ## Next steps
 
-See the following articles to learn more about securing external access to resources. We recommend you follow the listed order.
+Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
 1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md) (You're here)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
-3. [Create a security plan for external access](3-secure-access-plan.md)
+3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
 4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
 
@@ -91,8 +95,10 @@ See the following articles to learn more about securing external access to resou
 
 6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
 
-7. [Manage external access with Conditional Access policies](7-secure-access-conditional-access.md)
+7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md)
 
 8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure AD](9-secure-access-teams-sharepoint.md)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+
+10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)

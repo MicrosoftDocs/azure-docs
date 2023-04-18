@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-workflows
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/17/2022
+ms.date: 02/22/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -22,6 +22,7 @@ Currently the following connectors are available for a workflow in Microsoft Pur
 
 |Connector Type  |Functionality  |Parameters  |Customizable  |Workflow templates |
 |---------|---------|---------|---------|---------|
+|Apply to each |Apply an action or set of actions to all returned values in an output. | -Output to process <br> -Actions|- Renamable: Yes <br> - Deletable: Yes <br> - Multiple per workflow|All workflows templates|
 |Check data source registration for data use governance     |Validate if data source has been registered with Data Use Management enabled.         |None         | <br> - Renamable: Yes <br> - Deletable: Yes <br> - Multiple per workflow         |Data access request         |
 |Condition     |Evaluate a value to true or false. Based on the evaluation the workflow will be re-directed to different branches         | <br> - Add row <br> - Title <br> - Add group         | <br> - Renamable: Yes <br> - Deletable: Yes <br> - Multiple per workflow         |All workflows templates         |
 |Create Glossary Term     |Create a new glossary term         |None         | <br> - Renamable: Yes <br> - Deletable: Yes <br> - Multiple per workflow         |Create glossary term template         |

@@ -49,8 +49,8 @@ items:
           href: ./hdinsight-overview-versioning.md
         - name: HDInsight versions
           href: ./hdinsight-component-versioning.md
-        - name: HDInsight version 5.0
-          href: ./hdinsight-50-component-versioning.md
+        - name: HDInsight version 5.x
+          href: ./hdinsight-5x-component-versioning.md
         - name: HDInsight version 4.0
           href: ./hdinsight-40-component-versioning.md
         - name: Retired HDInsight versions
@@ -699,6 +699,8 @@ items:
         href: ./kafka/apache-kafka-connect-vpn-gateway.md
       - name: Replicate Apache Kafka data
         href: ./kafka/apache-kafka-mirroring.md
+      - name: Use MirrorMaker2 to replicate Apache Kafka topics with Kafka
+        href: ./kafka/apache-kafka-mirror-maker-2.md
       - name: Analyze Apache Kafka logs
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
       - name: Secure Spark and Kafka streaming integration scenario

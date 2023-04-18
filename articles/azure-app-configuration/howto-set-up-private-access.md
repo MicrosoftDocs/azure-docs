@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: how-to 
 ms.date: 07/12/2022
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Set up private access in Azure App Configuration

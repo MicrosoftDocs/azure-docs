@@ -186,7 +186,7 @@ After you publish a product, developers can access the APIs. Depending on how th
 
     When a client makes an API request without a subscription key:
     
-    * API Management checks whether the API is associated with an open product. 
+    * API Management checks whether the API is associated with an open product. An API can be associated with at most one open product.
 
     * If the open product exists, it then processes the request in the context of that open product. Policies and access control rules configured for the open product can be applied. 
 

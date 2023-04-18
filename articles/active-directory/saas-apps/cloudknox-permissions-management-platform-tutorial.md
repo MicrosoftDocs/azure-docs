@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CloudKnox Permissions Management Platform | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CloudKnox Permissions Management Platform'
 description: Learn how to configure single sign-on between Azure Active Directory and CloudKnox Permissions Management Platform.
 services: active-directory
 author: jeevansd

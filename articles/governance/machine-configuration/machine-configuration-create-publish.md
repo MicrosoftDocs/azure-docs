@@ -4,6 +4,7 @@ description: Learn how to publish a machine configuration package file top Azure
 ms.date: 07/25/2022
 ms.topic: how-to
 ms.service: machine-configuration
+ms.custom: devx-track-azurepowershell
 ms.author: timwarner
 author: timwarner-msft
 ---

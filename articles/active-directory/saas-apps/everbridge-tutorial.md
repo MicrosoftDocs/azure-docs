@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Everbridge | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Everbridge'
 description: Learn how to configure single sign-on between Azure Active Directory and Everbridge.
 services: active-directory
 author: jeevansd

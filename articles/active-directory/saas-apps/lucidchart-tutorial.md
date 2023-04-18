@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Lucidchart | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Lucidchart'
 description: Learn how to configure single sign-on between Azure Active Directory and Lucidchart.
 services: active-directory
 author: jeevansd

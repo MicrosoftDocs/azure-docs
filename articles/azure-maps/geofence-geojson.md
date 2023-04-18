@@ -1,8 +1,8 @@
 ---
 title: GeoJSON data format for geofence | Microsoft Azure Maps
 description: Learn about Azure Maps geofence data. See how to use the GET Geofence and POST Geofence APIs when retrieving the position of coordinates relative to a geofence.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -11,9 +11,9 @@ services: azure-maps
 
 # Geofencing GeoJSON data
 
-The Azure Maps [GET Geofence](/rest/api/maps/spatial/getgeofence) and [POST Geofence](/rest/api/maps/spatial/postgeofence) APIs allow you to retrieve proximity of a coordinate relative to a provided geofence or set of fences. This article details how to prepare the geofence data that can be used in the Azure Maps GET and POST API.
+The Azure Maps [GET Geofence] and [POST Geofence] API allow you to retrieve proximity of a coordinate relative to a provided geofence or set of fences. This article details how to prepare the geofence data that can be used in the Azure Maps GET and POST API.
 
-The data for geofence or set of geofences is represented by `Feature` Object and `FeatureCollection` Object in `GeoJSON` format, which is defined in [rfc7946](https://tools.ietf.org/html/rfc7946). In Addition to it:
+The data for geofence or set of geofences is represented by `Feature` Object and `FeatureCollection` Object in `GeoJSON` format, which is defined in [rfc7946]. In Addition to it:
 
 * The GeoJSON Object type can be a `Feature` Object or a `FeatureCollection` Object.
 * The Geometry Object type can be a `Point`, `MultiPoint`, `LineString`, `MultiLineString`, `Polygon`, `MultiPolygon`, and `GeometryCollection`.
@@ -31,10 +31,9 @@ The data for geofence or set of geofences is represented by `Feature` Object and
 | recurrenceType | string | false |   The recurrence type of the period. The value can be `Daily`, `Weekly`, `Monthly`, or `Yearly`. Default value is `Daily`.|
 | businessDayOnly | Boolean | false |  Indicate whether the data is only valid during business days. Default value is `false`.|
 
-
 * All coordinate values are represented as [longitude, latitude] defined in `WGS84`.
 * For each Feature, which contains `MultiPoint`, `MultiLineString`, `MultiPolygon` , or `GeometryCollection`, the properties are applied to all the elements. for example: All the points in `MultiPoint` will use same radius to form a multiple circle geofence.
-* In point-circle scenario, a circle geometry can be represented using a `Point` geometry object with properties elaborated in [Extending GeoJSON geometries](./extend-geojson.md).      
+* In point-circle scenario, a circle geometry can be represented using a `Point` geometry object with properties elaborated in [Extending GeoJSON geometries].
 
 Following is a sample request body for a geofence represented as a circle geofence geometry in `GeoJSON` using a center point and a radius. The valid period of the geofence data starts from 2018-10-22, 9AM to 5PM, repeated every day except for the weekend. `expiredTime` indicates this geofence data will be considered expired, if `userTime` in the request is later than `2019-01-01`.  
 
@@ -65,3 +64,8 @@ Following is a sample request body for a geofence represented as a circle geofen
     }
 }
 ```
+
+[GET Geofence]: /rest/api/maps/spatial/getgeofence
+[POST Geofence]: /rest/api/maps/spatial/postgeofence
+[rfc7946]: https://tools.ietf.org/html/rfc7946
+[Extending GeoJSON geometries]: extend-geojson.md

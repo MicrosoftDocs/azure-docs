@@ -1,24 +1,18 @@
 ---
 title: Azure PowerShell script sample - Create a network for multi-tier applications
 description: Azure PowerShell script sample - Create a virtual network for multi-tier applications.
-services: virtual-network
-documentationcenter: virtual-network
-author: mbender-ms
-manager: kumudD
+author: asudbring
 ms.service: virtual-network
-ms.devlang: powershell
 ms.topic: article
-ms.tgt_pltfrm:
-ms.workload: infrastructure
-ms.date: 05/16/2017
-ms.author: mbender 
+ms.date: 03/23/2023
+ms.author: allensu 
 ms.custom: devx-track-azurepowershell
 
 ---
 
 # Create a network for multi-tier applications
 
-This script sample creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP and SSH, while traffic to the back-end subnet is limited to MySQL, port 3306. After running the script, you will have two virtual machines, one in each subnet that you can deploy web server and MySQL software to.
+This script sample creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP and SSH, while traffic to the back-end subnet is limited to MySQL, port 3306. After running the script, you'll have two virtual machines, one in each subnet that you can deploy web server and MySQL software to.
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/), and then run `Connect-AzAccount` to create a connection with Azure.
 
@@ -35,7 +29,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 Run the following command to remove the resource group, VM, and all related resources.
 
 ```powershell
-Remove-AzResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name $rgName
 ```
 
 ## Script explanation
@@ -58,4 +52,4 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional networking PowerShell script samples can be found in the [Azure Networking Overview documentation](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+More networking PowerShell script samples can be found in the [Azure Networking Overview documentation](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

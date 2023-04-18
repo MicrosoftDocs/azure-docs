@@ -24,7 +24,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About Lab Services 
+          - text: What is Azure Lab Services? 
             url: lab-services-overview.md                       
           - text: What's new in Lab Services?
             url: lab-services-whats-new.md
@@ -35,8 +35,8 @@ landingContent:
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Create a lab plan      
-          url: tutorial-setup-lab-plan.md
+        - text: Set up resources for creating labs
+          url: quick-create-resources.md
     - linkListType: how-to-guide
       links:
         - text: Add a Lab Creator
@@ -50,7 +50,9 @@ landingContent:
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Create your lab
+        - text: Create and connect to a lab
+          url: quick-create-connect-lab.md
+        - text: Set up a lab for classroom training
           url: tutorial-setup-lab.md
     - linkListType: how-to-guide
       links:

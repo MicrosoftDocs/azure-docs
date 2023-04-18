@@ -2,7 +2,7 @@
 title: "Quickstart: Submit Apache Spark jobs in Azure Machine Learning (preview)"
 titleSuffix: Azure Machine Learning
 description: Learn how to submit Apache Spark jobs with Azure Machine Learning
-author: ynpandey
+author: fbsolo-ms1
 ms.author: franksolomon
 ms.reviewer: franksolomon
 ms.service: machine-learning
@@ -329,7 +329,7 @@ First, upload the parameterized Python code `titanic.py` to the Azure Blob stora
 
 ## Next steps
 - [Apache Spark in Azure Machine Learning (preview)](./apache-spark-azure-ml-concepts.md)
-- [Quickstart: Interactive Data Wrangling with Apache Spark (preview)](./quickstart-spark-data-wrangling.md)
+- [Quickstart: Interactive Data Wrangling with Apache Spark (preview)](./apache-spark-environment-configuration.md)
 - [Attach and manage a Synapse Spark pool in Azure Machine Learning (preview)](./how-to-manage-synapse-spark-pool.md)
 - [Interactive Data Wrangling with Apache Spark in Azure Machine Learning (preview)](./interactive-data-wrangling-with-apache-spark-azure-ml.md)
 - [Submit Spark jobs in Azure Machine Learning (preview)](./how-to-submit-spark-jobs.md)

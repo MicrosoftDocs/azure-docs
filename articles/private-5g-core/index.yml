@@ -57,6 +57,10 @@ landingContent:
         links:
           - text: Deploy a private mobile network and site - ARM template
             url: deploy-private-mobile-network-with-site-arm-template.md
+          - text: Deploy a private mobile network and site - command line
+            url: deploy-private-mobile-network-with-site-command-line.md
+          - text: Deploy a private mobile network and site - PowerShell
+            url: deploy-private-mobile-network-with-site-powershell.md
   # Card
   - title: Manage sites
     linkLists:
@@ -68,8 +72,10 @@ landingContent:
             url: create-a-site.md
           - text: Create a site - ARM template
             url: create-site-arm-template.md
-          - text: Modify a site plan
-            url: modify-site-plan.md
+          - text: Create additional Packet Core instances for a site - Azure portal
+            url: create-additional-packet-core.md
+          - text: Modify a service plan
+            url: modify-service-plan.md
           - text: Delete a site
             url: delete-a-site.md
           - text: Modify a packet core instance

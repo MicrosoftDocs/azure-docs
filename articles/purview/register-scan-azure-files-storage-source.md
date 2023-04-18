@@ -6,7 +6,7 @@ ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 02/14/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -52,11 +52,11 @@ Currently there's only one way to set up authentication for Azure file shares:
 
 When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
 
-1. Navigate to your storage account
-1. Select **Settings > Access keys**
+1. Navigate to your storage account 
+1. Select **Security + networking > Access keys**
 1. Copy your *key* and save it somewhere for the next steps
 1. Navigate to your key vault
-1. Select **Settings > Secrets**
+1. Select **Objects > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *key* from your storage account
 1. Select **Create** to complete
 1. If your key vault isn't connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)

@@ -71,7 +71,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Remove a participant                                                                                                | ✔️        |
 |                   | Manage breakout rooms                                                                                               | ❌ |
 |                   | Participation in breakout rooms                                                                                     | ❌ |
-|                   | Admit participants in the lobby into the Teams meeting                                                               | ❌        |
+|                   | Admit participants in the lobby into the Teams meeting                                                               | ✔️        |
 |                   | Be admitted from the lobby into the Teams meeting                                                                   | ✔️        |
 |                   | Promote participant to a presenter or attendee                                                                        | ❌        |
 |                   | Be promoted to presenter or attendee                                                                                | ✔️        |
@@ -97,8 +97,8 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | See Large gallery view                                                                                              | ❌ |
 |                   | Receive video stream from Teams media bot                                                                           | ❌ |
 |                   | Receive adjusted stream for "content from Camera"                                                                   | ❌ |
-|                   | Add and remove video stream from spotlight                                                                          | ❌ |
-|                   | Allow video stream to be selected for spotlight                                                                     | ❌ |
+|                   | Add and remove video stream from spotlight                                                                          | ✔️ |
+|                   | Allow video stream to be selected for spotlight                                                                     | ✔️ |
 |                   | Apply Teams background effects                                                                                      | ❌ |
 | Recording & transcription | Manage Teams convenient recording                                                                           | ❌ |
 |                   | Receive information of call being recorded                                                                          |   ✔️      |
@@ -107,8 +107,8 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Manage Teams closed captions                                                                                        | ❌ |
 |                   | Support for compliance recording                                                                                    |   ✔️      |
 |                   | [Azure Communication Services recording](../../voice-video-calling/call-recording.md)                               |   ❌      |
-| Engagement        | Raise and lower hand                                                                                                | ❌ |
-|                   | Indicate other participants' raised and lowered hands | ❌ |
+| Engagement        | Raise and lower hand                                                                                                | ✔️ |
+|                   | Indicate other participants' raised and lowered hands                                                               | ✔️ |
 |                   | Trigger reactions                                                                                                   | ❌ |
 |                   | Indicate other participants' reactions                                                                              | ❌ |
 | Integrations      | Control Teams third-party applications                                                                              | ❌ |
@@ -159,7 +159,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Honor setting "Meeting reactions"                                                                                   |   No API available |
 | DevOps            | [Azure Metrics](../../metrics.md)                                                                                   | ✔️ |
 |                   | [Azure Monitor](../../logging-and-diagnostics.md)                                                                   | ✔️ |
-|                   | [Azure Communication Services Insights](../../analytics/insights.md)                                                | ✔️ |
+|                   | [Azure Communication Services Insights](../../analytics/insights/voice-and-video-insights.md)                                                | ✔️ |
 |                   | [Azure Communication Services Voice and video calling events](../../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ |
@@ -177,7 +177,7 @@ The following table shows supported server-side capabilities available in Azure 
 | [Manage ACS call recording](../../voice-video-calling/call-recording.md)                                                        | ❌ |
 | [Azure Metrics](../../metrics.md)                                                                                               | ✔️ |
 | [Azure Monitor](../../logging-and-diagnostics.md)                                                                                  | ✔️ |
-| [Azure Communication Services Insights](../../analytics/insights.md)                                                            | ✔️ |
+| [Azure Communication Services Insights](../../analytics/insights/voice-and-video-insights.md)                                                            | ✔️ |
 | [Azure Communication Services Voice and video calling events](../../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 
 
@@ -193,7 +193,7 @@ The following table shows supported Teams capabilities:
 
 ## Next steps
 
-- [Authenticate as Teams external user](../../../quickstarts/access-tokens.md)
+- [Authenticate as Teams external user](../../../quickstarts/identity/access-tokens.md)
 - [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)
 - [Join Teams meeting chat as Teams external user](../../../quickstarts/chat/meeting-interop.md)
 - [Join meeting options](../../../how-tos/calling-sdk/teams-interoperability.md)

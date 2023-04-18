@@ -4,7 +4,7 @@ description: This tutorial describes how to register an on-prem SQL Server to Mi
 author: heniot
 ms.author: shjia
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial #Required; leave this attribute/value as-is.
 ms.date: 11/03/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.

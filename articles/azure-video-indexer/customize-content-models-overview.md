@@ -14,10 +14,6 @@ Azure Video Indexer allows you to customize some of its models to be adapted to 
 
 This article gives links to articles that explain the benefits of each type of customization. The article also links to how-to guides that show how you can implement the customization of each model.
 
-## Animated characters
-
-* [Animated character detection](animated-characters-recognition.md)
-
 ## Brands model
 
 * [Customizing the brands model overview](customize-brands-model-overview.md)

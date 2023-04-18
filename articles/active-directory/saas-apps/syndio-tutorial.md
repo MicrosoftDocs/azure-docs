@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Syndio | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Syndio'
 description: Learn how to configure single sign-on between Azure Active Directory and Syndio.
 services: active-directory
 author: jeevansd

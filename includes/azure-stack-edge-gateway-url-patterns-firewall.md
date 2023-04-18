@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 12/06/2022
+ms.date: 03/17/2023
 ms.author: alkohli
 ---
 
@@ -17,5 +17,6 @@ ms.author: alkohli
 |    http://\*.data.microsoft.com     |    Telemetry service in Windows, see the update for customer experience and diagnostic telemetry |
 |    `http://<vault-name>.vault.azure.net:443`     |    Key Vault |
 |    `https://azstrpprod.trafficmanager.net/*`    |Remote Management  |
+|   `https://www.msftconnecttest.com/connecttest.txt`  |    Required for a web proxy test, this URL is used to validate web connectivity before applying the configuration.  | 
 <!--|    http://www.msftconnecttest.com/connecttest.txt  |    For diagnostics     ||  |-->   
 

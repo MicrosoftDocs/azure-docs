@@ -45,11 +45,11 @@ Use the table below to find which model versions are supported by each feature:
 | Sentiment Analysis and opinion mining               | `2021-10-01`, `2022-06-01`,`2022-10-01`,`2022-11-01*` |
 | Language Detection                                  | `2021-11-20`, `2022-10-01*` |
 | Entity Linking                                      | `2021-06-01*`               |
-| Named Entity Recognition (NER)                      | `2021-06-01*`, `2022-10-01-preview`               |
-| Personally Identifiable Information (PII) detection | `2020-07-01`, `2021-01-15*` | 
+| Named Entity Recognition (NER)                      | `2021-06-01*`, `2022-10-01-preview`, `2023-02-01-preview**`               |
+| Personally Identifiable Information (PII) detection | `2020-07-01`, `2021-01-15*`, `2023-01-01-preview**`  | 
 | PII detection for conversations (Preview)           | `2022-05-15-preview**`      |  
 | Question answering                                  | `2021-10-01*`               |
-| Text Analytics for health                           | `2021-05-15`, `2022-03-01*`, `2022-08-15-preview**` |
+| Text Analytics for health                           | `2021-05-15`, `2022-03-01*`, `2022-08-15-preview`, `2023-01-01-preview**` |
 | Key phrase extraction                               | `2021-06-01`, `2022-07-01`,`2022-10-01*` | 
 | Document summarization - extractive only (preview)     | `2022-08-31-preview**`               |
 
@@ -64,14 +64,14 @@ Use the table below to find which model versions are supported by each feature:
 
 As new training configs and new functionality become available; older and less accurate configs are retired, see the following timelines for configs expiration:
 
-New configs are being released every few months. So, training configs expiration of any publicly available config is **six months** after its release. If you have assigned a trained model to a deployment, this deployment expires after **twelve months** from the training config expiration. If your models are about to expire, you can retrain and redeploy your models with the latest training configuration version.
+New configs are being released every few months. So, training configs expiration of any publicly available config is **six months** after its release. If you've assigned a trained model to a deployment, this deployment expires after **twelve months** from the training config expiration. If your models are about to expire, you can retrain and redeploy your models with the latest training configuration version.
 
-After training config version expires, API calls will return an error when called or used if called with an expired config version. By default, training requests will use the latest available training config version. To change the config version, use `trainingConfigVersion` when submitting a training job and assign the version you want. 
+After training config version expires, API calls will return an error when called or used if called with an expired config version. By default, training requests use the latest available training config version. To change the config version, use `trainingConfigVersion` when submitting a training job and assign the version you want. 
 
 > [!Tip]
 > It's recommended to use the latest supported config version
 
-You can train and deploy a custom AI model from the date of training config version release, up until the **Training config expiration** date. After this date, you will have to use another supported training config version for submitting any training or deployment jobs.
+You can train and deploy a custom AI model from the date of training config version release, up until the **Training config expiration** date. After this date, you'll have to use another supported training config version for submitting any training or deployment jobs.
 
 Deployment expiration is when your deployed model will be unavailable to be used for prediction.
 
@@ -90,9 +90,9 @@ Use the table below to find which model versions are supported by each feature:
 
 When you're making API calls to the following features, you need to specify the `API-VERISON` you want to use to complete your request. It's recommended to use the latest available API versions.
 
-If you're using the [Language Studio](https://aka.ms/languageStudio) for building your project you will be using the latest API version available. If you need to use another API version this is only available directly through APIs.
+If you're using [Language Studio](https://aka.ms/languageStudio) for your projects, you'll use the latest API version available. Other API versions are only available through the REST APIs and client libraries.
 
-Use the table below to find which API versions are supported by each feature:
+Use the following table to find which API versions are supported by each feature:
 
 | Feature                                             | Supported versions                                                  | Latest Generally Available version | Latest preview version |
 |-----------------------------------------------------|---------------------------------------------------------------------|------------------------------------|------------------------|

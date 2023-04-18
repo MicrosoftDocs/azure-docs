@@ -6,7 +6,7 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 04/05/2022
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.custom: ignite-2022
 ms.reviewer: robb
 ---
 # Resource Manager template samples for Azure Monitor

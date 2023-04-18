@@ -5,10 +5,13 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 1/12/2023
+ms.date: 02/27/2023
 ms.author: jasteppe
 ---
 # Open-source projects
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 Check out our open-source projects on GitHub that provide source code and instructions to deploy services for various uses with the MedTech service.
 
@@ -19,11 +22,11 @@ Check out our open-source projects on GitHub that provide source code and instru
 
 ### FHIR integration
 
-* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Health Data Services MedTech service managed service. Can be used with any Fast Healthcare Interoperability Resources (FHIR&#174;) service that supports [FHIR R4&#174;](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
+* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Health Data Services MedTech service managed service. Can be used with any FHIR service that supports [FHIR R4&#174;](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
 
 ### Device and FHIR destination mappings
 
-* [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): Tool for editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the open-source version.
+* [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): Tool for editing, testing, and troubleshooting MedTech service device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the open-source version.
 
 ### Wearables integration
 

@@ -4,6 +4,7 @@ description: This article provides an overview of the catalog lineage feature of
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 01/09/2023
 ---
@@ -18,7 +19,7 @@ One of the platform features of Microsoft Purview is the ability to show the lin
 ## Lineage collection
 
  Metadata collected in Microsoft Purview from enterprise data systems are stitched across to show an end to end data lineage. Data systems that collect lineage into Microsoft Purview are broadly categorized into following three types:
- 
+
  - [Data processing systems](#data-processing-systems)
  - [Data storage systems](#data-storage-systems)
  - [Data analytics and reporting systems](#data-analytics-and-reporting-systems)
@@ -60,7 +61,7 @@ Databases & storage solutions such as Oracle, Teradata, and SAP have query engin
 || [SAP S/4HANA](register-scan-saps4hana-source.md) |
 
 ### Data analytics and reporting systems
-Data analytics and reporting systems like Azure ML and Power BI report lineage into Microsoft Purview. These systems will use the datasets from storage systems and process through their meta model to create BI Dashboards, ML experiments and so on.
+Data analytics and reporting systems like Azure Machine Learning and Power BI report lineage into Microsoft Purview. These systems will use the datasets from storage systems and process through their meta model to create BI Dashboards, ML experiments and so on.
 
 | Data analytics & reporting system | Supported scope |
 | ---------------------- | ------------|

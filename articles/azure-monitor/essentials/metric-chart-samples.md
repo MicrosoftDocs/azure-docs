@@ -1,12 +1,10 @@
 ---
 title: Azure Monitor metric chart example
 description: Learn about visualizing your Azure Monitor data.
-author: vgorbenko
 services: azure-monitor
-ms.reviewer: vitalyg
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: vitalyg
+ms.reviewer: vitalyg
 ---
 
 # Metric chart examples 
@@ -33,7 +31,7 @@ View your application's availability by region to identify which geographic loca
 
 ### How to configure this chart?
 
-You first need to turn on [Application Insights availability](../app/monitor-web-app-availability.md) monitoring for your website. After that, pick your Application Insights resource and select the Availability metric. Apply splitting on the **Run location** dimension.
+You first need to turn on [Application Insights availability](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) monitoring for your website. After that, pick your Application Insights resource and select the Availability metric. Apply splitting on the **Run location** dimension.
 
 ## Volume of failed storage account transactions by API name
 
@@ -44,6 +42,16 @@ Your storage account resource is experiencing an excess volume of failed transac
 ### How to configure this chart?
 
 In the metric picker, select your storage account and the **Transactions** metric. Switch chart type to **Bar chart**. Click **Apply splitting** and select dimension **API name**. Then click on the **Add filter** and pick the **API name** dimension once again. In the filter dialog, select the APIs that you want to plot on the chart.
+
+## Total requests of Cosmos DB by Database Names and Collection Names
+
+You want to identify which collection in which database of your Cosmos DB instance is having maximum requests to adjust your costs for Cosmos DB.
+
+![Segmented line chart of Total Requests](./media/metrics-charts/multiple-split-example.png)
+
+### How to configure this chart?
+
+In the metric picker, select your Cosmos DB resource and the **Total Requests** metric. Click **Apply splitting** and select dimensions **DatabaseName** and **CollectionName**.
 
 ## Next steps
 

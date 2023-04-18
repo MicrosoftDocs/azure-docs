@@ -1,5 +1,5 @@
 ---
-title: How to generate a refresh token for Microsoft Energy Data Service #Required; page title is displayed in search results. Include the brand.
+title: How to generate a refresh token for Microsoft Azure Data Manager for Energy Preview #Required; page title is displayed in search results. Include the brand.
 description: This article describes how to generate a refresh token #Required; article description that is displayed in search results. 
 author: elizabethhalper #Required; your GitHub user alias, with correct capitalization.
 ms.author: elhalper #Required; microsoft alias of author; optional team alias.
@@ -21,7 +21,7 @@ In this article, you will learn how to generate a refresh token. The following a
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Register your app with Azure AD
-To use the Microsoft Energy Data Services Preview platform endpoint, you must register your app using the [Azure app registration portal](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app.
+To use the Azure Data Manager for Energy Preview platform endpoint, you must register your app using the [Azure app registration portal](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app.
 
 To configure an app to use the OAuth 2.0 authorization code grant flow, save the following values when registering the app:
 

@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/15/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli   #Required; leave this attribute/value as-is.
 ---
 
 # Manage inbound NAT rules for Azure Load Balancer using the Azure portal

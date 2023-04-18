@@ -91,7 +91,7 @@ The file **plumber.R** is the R script where you'll define the function for scor
 # This script will be deployed to a managed endpoint to do the model scoring
 
 # REQUIRED
-# When you deploy a model as an online endpoint, AzureML mounts your model
+# When you deploy a model as an online endpoint, Azure Machine Learning mounts your model
 # to your endpoint. Model mounting enables you to deploy new versions of the model without
 # having to create a new Docker image.
 

@@ -45,6 +45,11 @@ Customers can filter their inventory to surface the specific insights they care 
 
 ![Screenshot of Inventory View](media/Overview-4.png)
 
+## User permissions 
+
+Users that have been assigned either Owner or Contributor roles can create, delete, and edit Defender EASM resources and the inventory assets within it. These roles can utilize all capabilities offered in the platform. Users that have been assigned the Reader role are able to view Defender EASM data, but are unable to create, delete or edit inventory assets or the resource itself.  
+
+
 ## Data residency, availability and privacy
 
 Microsoft Defender External Attack Surface Management contains both global data and customer-specific data. The underlying internet data is global Microsoft data; labels applied by customers are considered customer data. All customer data is stored in the region of the customer’s choosing.

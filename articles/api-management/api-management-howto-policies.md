@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/23/2022
+ms.date: 03/07/2023
 ms.author: danlep
 
 ---
@@ -83,7 +83,8 @@ Policy expressions provide a sophisticated means to control traffic and modify A
 API Management allows you to define policies at the following *scopes*, from most broad to most narrow:
 
 * Global (all APIs)
-* Product (APIs associated with a selected product)
+* Workspace (all APIs associated with a selected workspace)
+* Product (all APIs associated with a selected product)
 * API (all operations in an API)
 * Operation (single operation in an API) 
 

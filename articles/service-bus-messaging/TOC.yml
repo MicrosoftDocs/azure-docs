@@ -4,9 +4,6 @@
   items:
   - name: What is Service Bus Messaging?
     href: service-bus-messaging-overview.md
-  - name: Compare messaging services
-    href: ../event-grid/compare-messaging-services.md
-    maintainContext: true
   - name: Use Service Bus with Java Message Service (JMS) 2.0
     href: how-to-use-java-message-service-20.md
 - name: Quickstarts

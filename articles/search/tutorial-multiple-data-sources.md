@@ -118,8 +118,6 @@ Having a valid key establishes trust, on a per request basis, between the applic
 
 1. In the **Browse** tab, find and then install **Azure.Search.Documents** (version 11.0 or later). 
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Using NuGet to add Azure libraries" border="false":::
-
 1. Search for the **Microsoft.Extensions.Configuration** and **Microsoft.Extensions.Configuration.Json** NuGet packages and install them as well.
 
 1. Open the solution file **/v11/AzureSearchMultipleDataSources.sln**.

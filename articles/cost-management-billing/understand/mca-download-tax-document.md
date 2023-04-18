@@ -6,10 +6,9 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 04/05/2023
 ms.subservice: billing
 ms.author: banders
-ms.custom: seodec18
 ---
 
 # View and download tax documents for your Azure invoice

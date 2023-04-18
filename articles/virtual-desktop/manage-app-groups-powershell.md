@@ -3,6 +3,7 @@ title: Manage app groups for Azure Virtual Desktop - Azure
 description: How to manage Azure Virtual Desktop app groups with PowerShell or the Azure CLI.
 author: Heidilohr
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 07/23/2021
 ms.author: helohr
 manager: femila

@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 08/12/2022
+ms.date: 03/23/2022
 ms.custom: engagement-fy23
 
 --- 
@@ -22,7 +22,7 @@ Get started by creating an Azure Managed Grafana workspace using the Azure porta
     >[!NOTE]
     > If you don't meet this requirement, once you've created a new Azure Managed Grafana instance, ask a User Access Administrator, subscription Owner or resource group Owner to grant you a Grafana Admin, Grafana Editor or Grafana Viewer role on the instance.
 
-## Create a Managed Grafana workspace
+## Create an Azure Managed Grafana workspace
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.  
 

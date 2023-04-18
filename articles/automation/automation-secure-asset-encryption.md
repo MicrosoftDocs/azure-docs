@@ -4,6 +4,7 @@ description: This article provides concepts for configuring the Automation accou
 services: automation
 ms.service: automation
 ms.subservice: process-automation
+ms.custom: devx-track-azurepowershell
 author: snehithm
 ms.author: snmuvva
 ms.date: 07/27/2021
