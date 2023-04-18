@@ -1,5 +1,5 @@
 ---
-title: Analyze your API security posture
+title: Investigate your API security findings and posture
 description: Learn how to analyze your API security alerts and posture with Defender for APIs
 author: elazark
 ms.author: elkrieger
