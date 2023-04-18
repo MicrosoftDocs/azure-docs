@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 10/27/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -58,7 +58,8 @@ Device administrators are assigned to all Azure AD joined devices. You can’t s
 
 - Upto 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
 - User signs out and signs back in, not lock/unlock, to refresh their profile.
-- Users won't be listed in the local administrator group, the permissions are received through the Primary Refresh Token. 
+
+Users won't be listed in the local administrator group, the permissions are received through the Primary Refresh Token. 
 
 > [!NOTE]
 > The above actions are not applicable to users who have not signed in to the relevant device previously. In this case, the administrator privileges are applied immediately after their first sign-in to the device. 
@@ -67,7 +68,7 @@ Device administrators are assigned to all Azure AD joined devices. You can’t s
 
 Starting with Windows 10 version 20H2, you can use Azure AD groups to manage administrator privileges on Azure AD joined devices with the [Local Users and Groups](/windows/client-management/mdm/policy-csp-localusersandgroups) MDM policy. This policy allows you to assign individual users or Azure AD groups to the local administrators group on an Azure AD joined device, providing you the granularity to configure distinct administrators for different groups of devices. 
 
-Currently, there's no UI in Intune to manage these policies and they need to be configured using [Custom OMA-URI Settings](/mem/intune/configuration/custom-settings-windows-10). A few considerations for using this policy:
+Organizations can use Intune to manage these policies using [Custom OMA-URI Settings](/mem/intune/configuration/custom-settings-windows-10) or [Account protection policy](/mem/intune/protect/endpoint-security-account-protection-policy). A few considerations for using this policy:
 
 - Adding Azure AD groups through the policy requires the group's SID that can be obtained by executing the [Microsoft Graph API for Groups](/graph/api/resources/group). The SID is defined by the property `securityIdentifier` in the API response.
 

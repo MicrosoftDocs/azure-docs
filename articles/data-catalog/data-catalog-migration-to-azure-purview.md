@@ -3,14 +3,14 @@ title: Migrate from Azure Data Catalog to Microsoft Purview
 description: Steps to migrate from Azure Data Catalog to Microsoft's unified data governance service--Microsoft Purview.
 ms.service: data-catalog
 ms.topic: how-to 
-ms.date: 01/24/2022
+ms.date: 03/15/2023
 ms.custom: template-how-to
 #Customer intent: As an Azure Data Catalog user, I want to know why and how to migrate to Microsoft Purview so that I can use the best tools to manage my data.
 ---
 
 # Migrate from Azure Data Catalog to Microsoft Purview
 
-Microsoft launched a unified data governance service to help manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Microsoft Purview creates a map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage. Microsoft Purview enables data curators to manage and secure their data estate and empowers data consumers to find valuable, trustworthy data. 
+Microsoft launched a unified data governance service to help manage and govern your on-premises, multicloud, and software-as-a-service (SaaS) data. Microsoft Purview creates a map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage. Microsoft Purview enables data curators to manage and secure their data estate and empowers data consumers to find valuable, trustworthy data. 
 
 The document shows you how to do the migration from Azure Data Catalog to Microsoft Purview. 
 
@@ -36,11 +36,10 @@ Look at [Microsoft Purview](https://azure.microsoft.com/services/purview/) and u
 ||Azure Data Catalog  |Microsoft Purview |
 |---------|---------|---------|
 |**Pricing**    |[User based model](https://azure.microsoft.com/pricing/details/data-catalog/)      |[Pay-As-You-Go model](https://azure.microsoft.com/pricing/details/azure-purview/)       |
-|**Platform**    |[Data catalog](overview.md)     |[Unified governance platform for data discoverability, classification, lineage, and governance.](../purview/purview-connector-overview.md)        |
+|**Platform**    |[Data catalog](overview.md)     |[Unified governance platform for data discoverability, classification, lineage, and governance.](../purview/overview.md)        |
+|**Data sources supported** | [Data Catalog supported sources](data-catalog-dsr.md)| [Microsoft Purview supported sources](../purview/microsoft-purview-connector-overview.md))
 |**Extensibility** |N/A  |[Extensible on Apache Atlas](../purview/tutorial-purview-tools.md)|
 |**SDK/PowerShell support** |N/A |[Supports REST APIs](/rest/api/purview/) |
-
-Compare [Azure Data Catalog supported sources](data-catalog-dsr.md) and [Microsoft Purview supported sources](../purview/purview-connector-overview.md), to confirm you can support your data landscape.
 
 ## Prepare to migrate
 
@@ -49,16 +48,15 @@ Compare [Azure Data Catalog supported sources](data-catalog-dsr.md) and [Microso
 1. Review [Microsoft Purview best practices for deployment and architecture](../purview/deployment-best-practices.md) to develop a deployment strategy for Microsoft Purview.
 1. Determine the impact that a migration will have on your business. 
     For example: how will Azure Data catalog be used until the transition is complete?
-1. Create a migration plan.
+1. Create a migration plan using the [Microsoft Purview deployment checklist.](../purview/tutorial-azure-purview-checklist.md)
 
 ## Migrate to Microsoft Purview
-
-Manually migrate your data from Azure Data Catalog to Microsoft Purview.
 
 [Create a Microsoft Purview account](../purview/create-catalog-portal.md), [create collections](../purview/create-catalog-portal.md) in your data map, set up [permissions for your users](../purview/catalog-permissions.md), and onboard your data sources.
     
 We suggest you review the Microsoft Purview best practices documentation before deploying your Microsoft Purview account, so you can deploy the best environment for your data landscape.
 Here's a selection of articles that may help you get started:
+- [Microsoft Purview deployment checklist](../purview/tutorial-azure-purview-checklist.md)
 - [Microsoft Purview security best practices](../purview/concept-best-practices-security.md)
 - [Accounts architecture best practices](../purview/concept-best-practices-accounts.md)
 - [Collections architectures best practices](../purview/concept-best-practices-collections.md)

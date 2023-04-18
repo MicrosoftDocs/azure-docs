@@ -2,7 +2,9 @@
 title: Manage signed images
 description: Learn how to enable content trust for your Azure container registry, and push and pull signed images. Content trust implements Docker content trust and is a feature of the Premium service tier.
 ms.topic: how-to
-ms.date: 07/26/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: subject-rbac-steps, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -18,6 +20,9 @@ Azure Container Registry implements Docker's [content trust][docker-content-trus
 Important to any distributed system designed with security in mind is verifying both the *source* and the *integrity* of data entering the system. Consumers of the data need to be able to verify both the publisher (source) of the data, as well as ensure it's not been modified after it was published (integrity). 
 
 As an image publisher, content trust allows you to **sign** the images you push to your registry. Consumers of your images (people or systems pulling images from your registry) can configure their clients to pull *only* signed images. When an image consumer pulls a signed image, their Docker client verifies the integrity of the image. In this model, consumers are assured that the signed images in your registry were indeed published by you, and that they've not been modified since being published.
+
+> [!NOTE]
+> Azure Container Registry (ACR) does not support `acr import` to import images signed with Docker Content Trust (DCT). By design, the signatures are not visible after the import, and the notary v2 stores these signatures as artifacts.
 
 ### Trusted images
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Zenya for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Zenya for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Zenya.
 services: active-directory
 author: twimmers
@@ -9,17 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/29/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
 # Tutorial: Configure Zenya for automatic user provisioning
 
 The objective of this tutorial is to demonstrate the steps to be performed in Zenya and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to [Zenya](https://www.infoland.nl/). For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). Before you attempt to use this tutorial, be sure that you know and meet all requirements. If you have questions, contact Infoland.
-
-> [!NOTE]
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## Capabilities supported
 > * Create users in Zenya

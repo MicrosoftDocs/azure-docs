@@ -6,7 +6,7 @@ ms.date: 08/23/2022
 author: mijacobs
 ms.author: mijacobs
 ms.devlang: python
-ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22, vscode-azure-extension-update-completed
+ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22, vscode-azure-extension-update-completed, devx-track-azurecli
 ---
 
 # Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service
@@ -103,7 +103,7 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## 2 - Create a web app in Azure
 
-To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), [VS Code](https://code.visualstudio.com/) using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
+To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using [Azure portal](https://portal.azure.com/), [VS Code](https://code.visualstudio.com/), [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or Azure CLI.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -297,3 +297,6 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 > [!div class="nextstepaction"]
 > [Tutorial: Run Python app in custom container](./tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

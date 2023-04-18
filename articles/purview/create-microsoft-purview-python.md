@@ -12,7 +12,7 @@ ms.custom: mode-api
 
 # Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using Python
 
-In this quickstart, you’ll create a Microsoft Purview (formerly Azure Purview) account programatically using Python. [The python reference for Microsoft Purview](/python/api/azure-mgmt-purview/) is available, but this article will take you through all the steps needed to create an account with Python.
+In this quickstart, you’ll create a Microsoft Purview (formerly Azure Purview) account programatically using Python. [The Python reference for Microsoft Purview](/python/api/azure-mgmt-purview/) is available, but this article will take you through all the steps needed to create an account with Python.
 
 The Microsoft Purview governance portal surfaces tools like the Microsoft Purview Data Map and Microsoft Purview Data Catalog that help you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
@@ -106,7 +106,7 @@ For more information about the governance capabilities of Microsoft Purview, for
     while (getattr(pa,'provisioning_state')) != "Succeeded" :
         pa = (purview_client.accounts.get(rg_name, purview_name))  
         print(getattr(pa,'provisioning_state'))
-        if getattr(pa,'provisioning_state') != "Failed" :
+        if getattr(pa,'provisioning_state') == "Failed" :
             print("Error in creating Microsoft Purview account")
             break
         time.sleep(30)      
@@ -165,7 +165,7 @@ Here’s the full Python code:
     while (getattr(pa,'provisioning_state')) != "Succeeded" :
         pa = (purview_client.accounts.get(rg_name, purview_name))  
         print(getattr(pa,'provisioning_state'))
-        if getattr(pa,'provisioning_state') != "Failed" :
+        if getattr(pa,'provisioning_state') == "Failed" :
             print("Error in creating Microsoft Purview account")
             break
         time.sleep(30)    

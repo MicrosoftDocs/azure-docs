@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: azure-import-export
 ms.topic: tutorial
-ms.date: 03/14/2022
+ms.date: 02/13/2023
 ms.author: alkohli
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
@@ -13,7 +13,7 @@ ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-
 
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely import large amounts of data into Azure Files. To import data, the service requires you to ship supported disk drives containing your data to an Azure datacenter.
 
-The Import/Export service supports only import of Azure Files into Azure Storage. Exporting Azure Files is not supported.
+The Import/Export service supports only import of Azure Files into Azure Storage. Exporting Azure Files isn't supported.
 
 In this tutorial, you learn how to:
 
@@ -31,7 +31,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
 
 - Have an active Azure subscription to use with Import/Export service.
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md).
-  - Consider configuring large file shares on the storage account. During imports to Azure Files, if a file share doesn't have enough free space, auto splitting the data to multiple Azure file shares is no longer supported, and the copy will fail. For instructions, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
+  - Consider configuring large file shares on the storage account. During imports to Azure Files, if a file share doesn't have enough free space, auto splitting the data to multiple Azure file shares is no longer supported, and the copy will fail. For instructions, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-file-shares-on-an-existing-account).
   - For information on creating a new storage account, see [How to create a storage account](../storage/common/storage-account-create.md).
 - Have an adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
 - Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
@@ -51,7 +51,7 @@ Do the following steps to prepare the drives.
 2. Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
 3. Modify the *dataset.csv* file in the root folder where the tool is. Depending on whether you want to import a file or folder or both, add entries in the *dataset.csv* file similar to the following examples.
 
-   - **To import a file**: In the following example, the data to copy is on the F: drive. Your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it's created in the Azure Storage account. Folder structure is maintained.
+   - **To import a file**: In the following example, the data to copy is on the F: drive. Your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* doesn't exist, it's created in the Azure Storage account. Folder structure is maintained.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType
@@ -65,7 +65,7 @@ Do the following steps to prepare the drives.
        ```
    
        > [!NOTE]
-       > The /Disposition parameter, which let you choose what to do when you import a file that already exists in earlier versions of the tool, is not supported in Azure Import/Export version 2.2.0.300. In the earlier tool versions, an imported file with the same name as an existing file was renamed by default.
+       > The /Disposition parameter, which let you choose what to do when you import a file that already exists in earlier versions of the tool, isn't supported in Azure Import/Export version 2.2.0.300. In the earlier tool versions, an imported file with the same name as an existing file was renamed by default.
 
      Multiple entries can be made in the same file corresponding to folders or files that are imported.
 
@@ -78,7 +78,7 @@ Do the following steps to prepare the drives.
 
     This example assumes that two disks are attached and basic NTFS volumes G:\ and H:\ are created. H:\is not encrypted while G: is already encrypted. The tool formats and encrypts the disk that hosts H:\ only (and not G:\).
 
-   - **For a disk that is not encrypted**: Specify *Encrypt* to enable BitLocker encryption on the disk.
+   - **For a disk that isn't encrypted**: Specify *Encrypt* to enable BitLocker encryption on the disk.
 
        ```
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -118,20 +118,15 @@ For additional samples, go to [Samples for journal files](#samples-for-journal-f
 
 ## Step 2: Create an import job
 
-### [Portal (Preview)](#tab/azure-portal-preview)
+### [Portal](#tab/azure-portal-preview)
 
 [!INCLUDE [storage-import-export-preview-import-steps.md](../../includes/storage-import-export-preview-import-steps.md)]
-
-### [Portal (Classic)](#tab/azure-portal-classic)
-
-[!INCLUDE [storage-import-export-classic-import-steps.md](../../includes/storage-import-export-preview-import-steps.md)]
-
 
 ### [Azure CLI](#tab/azure-cli)
 
 Use the following steps to create an import job in the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ### Create a job
 
@@ -319,7 +314,7 @@ Install-Module -Name Az.ImportExport
 [!INCLUDE [storage-import-export-verify-data-copy](../../includes/storage-import-export-verify-data-copy.md)]
 
 > [!NOTE]
-> In the latest version of the Azure Import/Export tool for files (2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For more information, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
+> In the latest version of the Azure Import/Export tool for files (2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For more information, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-file-shares-on-an-existing-account).
 
 
 ## Samples for journal files

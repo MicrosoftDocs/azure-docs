@@ -2,8 +2,9 @@
 title: Make predictions with AutoML ONNX Model in .NET
 description: Learn how to make predictions using an AutoML ONNX model in .NET with ML.NET
 titleSuffix: Azure Machine Learning
-author: ssalgadodev
-ms.author: ssalgado
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.date: 10/21/2021
 ms.topic: how-to
 services: machine-learning
@@ -24,7 +25,7 @@ ONNX is an open-source format for AI models. ONNX supports interoperability betw
 
 - [.NET Core SDK 3.1 or greater](https://dotnet.microsoft.com/download)
 - Text Editor or IDE (such as [Visual Studio](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/Download))
-- ONNX model. To learn how to train an AutoML ONNX model, see the following [bank marketing classification notebook](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
+- ONNX model. To learn how to train an AutoML ONNX model, see the following [bank marketing classification notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 - [Netron](https://github.com/lutzroeder/netron) (optional)
 
 ## Create a C# console application

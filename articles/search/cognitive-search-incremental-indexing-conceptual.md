@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/17/2021
+ms.date: 01/31/2023
 ---
 
 # Incremental enrichment and caching in Azure Cognitive Search

@@ -1,10 +1,10 @@
 ---
 title: What is Service Connector?
 description: Understand typical use case scenarios for Service Connector, and learn the key benefits of Service Connector.
-author: shizn
-ms.author: xshi
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: overview
 ms.date: 06/14/2022
 ---
@@ -19,10 +19,9 @@ This article provides an overview of Service Connector.
 
 Any application that runs on Azure compute services and requires a backing service, can use Service Connector. Find below some examples that can use Service Connector to simplify service-to-service connection experience.
 
-* **WebApp + DB:** Use Service Connector to connect PostgreSQL, MySQL, or Cosmos DB to your App Service.  
-* **WebApp + Storage:** Use Service Connector to connect to Azure Storage accounts and use your preferred storage products easily in your App Service.
-* **Spring Cloud + Database:** Use Service Connector to connect PostgreSQL, MySQL, SQL DB or Cosmos DB to your Spring Cloud application.
-* **Spring Cloud + Apache Kafka:** Service Connector can help you connect your Spring Cloud application to Apache Kafka on Confluent Cloud.
+* **WebApp/Container Apps/Spring Apps + Database:** Use Service Connector to connect PostgreSQL, MySQL, or Azure Cosmos DB to your App Service/Container Apps/Spring Apps.
+* **WebApp/Container Apps/Spring Apps + Storage:** Use Service Connector to connect to Azure Storage accounts and use your preferred storage products easily for any of your apps.
+* **WebApp/Container Apps/Spring Apps + Messaging Services:** Service Connector can help you connect your cloud apps to Service Bus, Event Hubs, and Apache Kafka on Confluent Cloud.
 
 See [what services are supported in Service Connector](#what-services-are-supported-in-service-connector) to see more supported services and application patterns.
 
@@ -41,7 +40,7 @@ Once a service connection is created, developers can validate and check the heal
 **Compute Services:**
 
 * Azure App Service
-* Azure Spring Cloud
+* Azure Spring Apps
 * Azure Container Apps
 
 **Target Services:**
@@ -49,7 +48,7 @@ Once a service connection is created, developers can validate and check the heal
 * Apache Kafka on Confluent Cloud
 * Azure App Configuration
 * Azure Cache for Redis (Basic, Standard and Premium and Enterprise tiers)
-* Azure Cosmos DB (Core, MangoDB, Gremlin, Cassandra, Table)
+* Azure Cosmos DB (NoSQL, MongoDB, Gremlin, Cassandra, Table)
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure Event Hubs
@@ -72,8 +71,16 @@ There are two major ways to use Service Connector for your Azure application:
 Follow the tutorials listed below to start building your own application with Service Connector.
 
 > [!div class="nextstepaction"]
-> - [Quickstart: Service Connector in App Service using Azure CLI](./quickstart-cli-app-service-connection.md)
-> - [Quickstart: Service Connector in App Service using Azure portal](./quickstart-portal-app-service-connection.md)
-> - [Quickstart: Service Connector in Spring Cloud Service using Azure CLI](./quickstart-cli-spring-cloud-connection.md)
-> - [Quickstart: Service Connector in Spring Cloud using Azure portal](./quickstart-portal-spring-cloud-connection.md)
-> - [Learn about Service Connector concepts](./concept-service-connector-internals.md)
+> [Quickstart: Service Connector in App Service using Azure CLI](./quickstart-cli-app-service-connection.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Service Connector in App Service using Azure portal](./quickstart-portal-app-service-connection.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Service Connector in Spring Cloud Service using Azure CLI](./quickstart-cli-spring-cloud-connection.md)
+
+> [!div class="nextstepaction"]
+> [Quickstart: Service Connector in Spring Cloud using Azure portal](./quickstart-portal-spring-cloud-connection.md)
+
+> [!div class="nextstepaction"]
+> [Learn about Service Connector concepts](./concept-service-connector-internals.md)

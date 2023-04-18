@@ -2,21 +2,22 @@
 title: How to prevent misconfigurations with Microsoft Defender for Cloud
 description: Learn how to use Defender for Cloud's 'Enforce' and 'Deny' options on the recommendations details pages
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/08/2023
 ---
 
 # Prevent misconfigurations with Enforce/Deny recommendations
 
-Security misconfigurations are a major cause of security incidents. Defender for Cloud can help *prevent* misconfigurations of new resources with regard to specific recommendations. 
+Security misconfigurations are a major cause of security incidents. Defender for Cloud can help *prevent* misconfigurations of new resources regarding specific recommendations. 
 
 This feature can help keep your workloads secure and stabilize your secure score.
 
 Enforcing a secure configuration, based on a specific recommendation, is offered in two modes:
 
-- Using the **Deny** effect of Azure Policy, you can stop unhealthy resources from being created
-- Using the **Enforce** option, you can take advantage of Azure Policy's **DeployIfNotExist** effect and automatically remediate non-compliant resources upon creation
+- Using the **Deny** effect of Azure Policy, you can stop unhealthy resources from being created.
 
-This can be found at the top of the resource details page for selected security recommendations (see [Recommendations with deny/enforce options](#recommendations-with-denyenforce-options)).
+- Using the **Enforce** option, you can take advantage of Azure Policy's **DeployIfNotExist** effect and automatically remediate non-compliant resources upon creation.
+
+The ability to secure configurations can be found at the top of the resource details page for selected security recommendations (see [Recommendations with deny/enforce options](#recommendations-with-denyenforce-options)).
 
 ## Prevent resource creation
 
@@ -79,3 +80,7 @@ These recommendations can be used with the **enforce** option:
 - Diagnostic logs in Logic Apps should be enabled
 - Diagnostic logs in Search services should be enabled
 - Diagnostic logs in Service Bus should be enabled
+
+## Next steps
+
+[Automate responses to Microsoft Defender for Cloud triggers](workflow-automation.md)

@@ -2,13 +2,14 @@
 title:  Onboard a Google Cloud Platform (GCP) project in Permissions Management
 description: How to onboard a Google Cloud Platform (GCP) project on Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Onboard a Google Cloud Platform (GCP) project

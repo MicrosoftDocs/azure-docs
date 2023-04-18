@@ -42,8 +42,6 @@ Once you're inside your IoT application, use the left pane to access various fea
 > [!NOTE]
 > The items you see in the left pane depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles.md).
 
-<!-- TODO: Needs a new screenshot and entry. -->
-
 :::row:::
   :::column span="":::
 
@@ -57,6 +55,8 @@ Once you're inside your IoT application, use the left pane to access various fea
     **Device groups** lets you view and create collections of devices specified by a query. Device groups are used through the application to perform bulk operations.
 
     **Device templates** lets you create and manage the characteristics of devices that connect to your application.
+
+    **Edge manifests** lets you import and manage deployment manifests for the IoT Edge devices that connect to your application.
 
     **Data explorer** exposes rich capabilities to analyze historical trends and correlate various telemetries from your devices.
 
@@ -118,7 +118,13 @@ This page lets you create and view device groups in your IoT Central application
 
 :::image type="content" source="Media/overview-iot-central-tour/templates.png" alt-text="Screenshot of Device Templates.":::
 
-The device templates page is where you can view and create device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](howto-set-up-template.md) tutorial.
+The device templates page is where you can view and create device templates in the application. To learn more, see [Connect Azure IoT Edge devices to an Azure IoT Central application](concepts-iot-edge.md).
+
+### Edge manifests
+
+:::image type="content" source="Media/overview-iot-central-tour/manifests.png" alt-text="Screenshot of Edge manifests page.":::
+
+The edge manifests page is where you can import and manage IoT Edge deployment manifests in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](howto-set-up-template.md) tutorial.
 
 ### Data Explorer
 
@@ -149,6 +155,12 @@ This page lets you view and create rules based on device data. When a rule fires
 :::image type="content" source="Media/overview-iot-central-tour/export.png" alt-text="Data Export":::
 
 Data export enables you to set up streams of data to external systems. To learn more, see the [Export your data in Azure IoT Central](./howto-export-to-blob-storage.md) article.
+
+### Audit logs
+
+:::image type="content" source="Media/overview-iot-central-tour/audit.png" alt-text="Screenshot of audit logs page.":::
+
+Audit logs enable you to view a list of recent changes made in your IoT Central application. To learn more, see the [Use audit logs to track activity in your IoT Central application](howto-use-audit-logs.md) article.
 
 ### Permissions
 

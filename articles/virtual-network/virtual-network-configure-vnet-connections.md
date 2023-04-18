@@ -2,19 +2,14 @@
 title: Configure and validate virtual network or VPN connections
 description: Step-by-step guidance to configure and validate various Azure VPN and virtual network deployments
 services: virtual-network
-documentationcenter: na
-author: v-miegge
+author: asudbring
 manager: dcscontentpm
-editor: ''
-
 ms.assetid: 0433a4f4-b5a0-476d-b398-1506c57eafa2
 ms.service: virtual-network
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
-ms.author: kaushika
-
+ms.author: allensu
 ---
 
 # Configure and validate virtual network or VPN connections

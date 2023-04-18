@@ -6,6 +6,7 @@ description: Skillsets are where you author an AI enrichment pipeline in Azure C
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/14/2022
 ---
@@ -135,7 +136,7 @@ The initial content is metadata and the *root node* (`document/content`). The ro
 |---|---|---|
 |Blob Storage|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
 |Azure SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
+|Azure Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
 As skills execute, output is added to the enrichment tree as new nodes. If skill execution is over the entire document, nodes are added at the first level under the root.
 

@@ -4,8 +4,9 @@ description: This article provides an overview of the Azure Front Door Rules Eng
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
+ms.custom: devx-track-arm-template
 ms.date: 03/22/2022
 ms.author: duau
 zone_pivot_groups: front-door-tiers

@@ -1,23 +1,23 @@
 ---
-title: Microsoft Energy Data Services Preview entitlement concepts #Required; page title is displayed in search results. Include the brand.
-description:  This article describes the various concepts regarding the entitlement services in Microsoft Energy Data Services Preview #Required; article description that is displayed in search results. 
-author: Lakshmisha-KS #Required; your GitHub user alias, with correct capitalization.
-ms.author: lakshmishaks #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 08/19/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview entitlement concepts
+description:  This article describes the various concepts regarding the entitlement services in Azure Data Manager for Energy Preview
+author: Lakshmisha-KS
+ms.author: lakshmishaks
+ms.service: energy-data-services
+ms.topic: conceptual
+ms.date: 02/10/2023
+ms.custom: template-concept
 ---
 
 # Entitlement service
 
-Access management is a critical function for any service or resource. Entitlement service helps you manage who has access to your Microsoft Energy Data Service instance, what they can do with it, and what services they have access to.
+Access management is a critical function for any service or resource. Entitlement service helps you manage who has access to your Azure Data Manager for Energy Preview instance, what they can do with it, and what services they have access to.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Groups
 
-The entitlements service of Microsoft Energy Data Services allows you to create groups, and an entitlement group defines permissions on services/data sources for your Microsoft Energy Data Services instance. Users added by you to that group obtain the associated permissions.
+The entitlements service of Azure Data Manager for Energy Preview allows you to create groups, and an entitlement group defines permissions on services/data sources for your Azure Data Manager for Energy Preview instance. Users added by you to that group obtain the associated permissions.
 
 The main motivation for entitlements service is data authorization, but the functionality enables three use cases:
 
@@ -33,9 +33,9 @@ For each group, you can either add a user as an OWNER or a MEMBER. The only diff
 
 ## Group naming
 
-All group identifiers (emails) will be of form {groupType}.{serviceName|resourceName}.{permission}@{partition}.{domain}.com. A group naming convention has been adopted such that the group's name should start with the word "data." for data groups; "service." for service groups; and "users." for user groups. An exception is when a data partition is provisioned. When a data partition is created, so is a corresponding group: users (for example, for data partition `opendes`, the group `users@opendes.dataservices.energy` is created). 
+All group identifiers (emails) will be of form {groupType}.{serviceName|resourceName}.{permission}@{partition}.{domain}.com. A group naming convention has been adopted such that the group's name should start with the word "data." for data groups; "service." for service groups; and "users." for user groups. An exception is when a data partition is provisioned. When a data partition is created, so is a corresponding group-for example, for data partition `opendes`, the group `users@opendes.dataservices.energy` is created. 
 
-## Permissions/roles
+## Permissions and roles
 
 The OSDU&trade; Data Ecosystem user groups provide an abstraction from permission and user management and--without a user creating their own groups--the following user groups exist by default:
 

@@ -22,6 +22,9 @@ This article shows you how to configure a managed Spring Cloud Config Server in 
 
 Spring Cloud Config Server provides server and client-side support for an externalized configuration in a distributed system. The Config Server instance provides a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config documentation](https://spring.io/projects/spring-cloud-config).
 
+> [!NOTE]
+> The Config Server feature for the Standard consumption plan is currently under private preview. To sign up for this feature, fill in the form at [Azure Spring Apps Consumption - Fully Managed Spring Eureka & Config - Private Preview](https://aka.ms/asa-consumption-middleware-signup).
+
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -38,8 +41,10 @@ eureka.instance.preferIpAddress
 eureka.instance.instance-id
 server.port
 spring.cloud.config.tls.keystore
+spring.config.import
 spring.application.name
 spring.jmx.enabled
+management.endpoints.jmx.exposure.include
 ```
 
 > [!CAUTION]
@@ -87,7 +92,7 @@ The following table lists the configurable properties that you can use to set up
 | `strict-host-key-checking` | No       | Indicates whether the Config Server instance will fail to start when using the private `host-key`. Should be *true* (default value) or *false*.                      |
 
 > [!NOTE]
-> Config Server doesn't support SHA-2 signatures yet. Until support is added, use SHA-1 signatures or basic auth instead.
+> Config Server uses RSA keys with SHA-1 signatures for now. If you're using GitHub, for RSA public keys added to GitHub before November 2, 2021, the corresponding private key is supported. For RSA public keys added to GitHub after November 2, 2021, the corresponding private key is not supported, and we suggest using basic authentication instead.
 
 ### Private repository with basic authentication
 

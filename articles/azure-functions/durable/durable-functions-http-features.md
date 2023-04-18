@@ -45,11 +45,11 @@ The [orchestration client binding](durable-functions-bindings.md#orchestration-c
 
 **index.js**
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/index.js":::
 
 **function.json**
 
-[!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/function.json":::
 
 # [Python](#tab/python)
 

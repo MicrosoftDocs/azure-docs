@@ -114,4 +114,6 @@ func remoteParticipant(_ remoteParticipant: RemoteParticipant, didChangeRole arg
 }
 ```
 
+The ability to join a room call and display the roles of call participants is available in the iOS Mobile Calling SDK version [2.3.0-beta.1](https://github.com/Azure/Communication/releases/tag/v2.3.0-beta.1) and above. 
+
 You can learn more about roles of room call participants in the [rooms concept documentation](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).

@@ -1,19 +1,20 @@
 ---
-title: Migrate local runs from SDK v1 to SDK v2
+title: Upgrade local runs to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate local runs from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade local runs from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: johnwu0604
-ms.author: johwu
+ms.author: balapv
+author: balapv
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
-# Migrate local runs from SDK v1 to SDK v2
+# Upgrade local runs to SDK v2
 
 Local runs are similar in both V1 and V2. Use the "local" string when setting the compute target in either version.
 

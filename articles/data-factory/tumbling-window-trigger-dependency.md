@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/22/2022
+ms.date: 09/27/2022
 ---
 
 # Create a tumbling window trigger dependency
@@ -161,6 +161,9 @@ Click through the trigger name to view trigger dependencies. Right-hand panel sh
 You can see the status of the dependencies, and windows for each dependent trigger. If one of the dependencies triggers fails, you must successfully rerun it in order for the dependent trigger to run.
 
 A tumbling window trigger will wait on dependencies for _seven days_ before timing out. After seven days, the trigger run will fail.
+
+> [!NOTE]
+> A tumbling window trigger cannot be cancelled while it is in the **Waiting on dependency** state. The dependent activity must finish before the tumbling window trigger can be cancelled. This is by design to ensure dependent activities can complete once started, and helps reduce the likelihood of unexpected results.
 
 For a more visual to view the trigger dependency schedule, select the Gantt view.
 

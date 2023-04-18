@@ -10,6 +10,9 @@ ms.custom: devx-track-azurepowershell
 
 # Compile DSC configurations in Azure Automation State Configuration
 
+> [!NOTE]
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+
 You can compile Desired State Configuration (DSC) configurations in Azure Automation State Configuration in the following ways:
 
 - Azure State Configuration compilation service

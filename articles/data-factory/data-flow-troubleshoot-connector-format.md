@@ -6,6 +6,7 @@ ms.author: jianleishen
 ms.reviewer: wiassaf
 ms.service: data-factory
 ms.subservice: data-flows
+ms.custom: ignite-2022
 ms.topic: troubleshooting 
 ms.date: 08/04/2022
 ---
@@ -60,7 +61,7 @@ To solve this issue, refer to the following recommendations:
 ### Support customized schemas in the source
 
 #### Symptoms
-When you want to use the ADF data flow to move or transfer data from Cosmos DB/JSON into other data stores, some columns of the source data may be missed. 
+When you want to use the ADF data flow to move or transfer data from Azure Cosmos DB/JSON into other data stores, some columns of the source data may be missed. 
 
 #### Cause 
 For the schema-free connectors (the column number, column name and column data type of each row can be different when comparing with others), by default, ADF uses sample rows (for example, top 100 or 1000 rows data) to infer the schema, and the inferred result will be used as a schema to read data. So if your data stores have extra columns that don't appear in sample rows, the data of these extra columns are not read, moved, or transferred into sink data stores.
@@ -94,17 +95,17 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
 ### Support map type in the source
 
 #### Symptoms
-In ADF data flows, map data type cannot be directly supported in Cosmos DB or JSON source, so you cannot get the map data type under "Import projection".
+In ADF data flows, map data type cannot be directly supported in Azure Cosmos DB or JSON source, so you cannot get the map data type under "Import projection".
 
 #### Cause
-For Cosmos DB and JSON, they are schema-free connectivity and related spark connector uses sample data to infer the schema, and then that schema is used as the Cosmos DB/JSON source schema. When inferring the schema, the Cosmos DB/JSON spark connector can only infer object data as a struct rather than a map data type, and that's why map type cannot be directly supported.
+For Azure Cosmos DB and JSON, they are schema-free connectivity and related spark connector uses sample data to infer the schema, and then that schema is used as the Azure Cosmos DB/JSON source schema. When inferring the schema, the Azure Cosmos DB/JSON Spark connector can only infer object data as a struct rather than a map data type, and that's why map type cannot be directly supported.
 
 #### Recommendation 
-To solve this issue, refer to the following examples and steps to manually update the script (DSL) of the Cosmos DB/JSON source to get the map data type support.
+To solve this issue, refer to the following examples and steps to manually update the script (DSL) of the Azure Cosmos DB/JSON source to get the map data type support.
 
 **Examples**:
 
-:::image type="content" source="./media/data-flow-troubleshoot-connector-format/script-example.png" alt-text="Screenshot that shows examples of updating the script (DSL) of the Cosmos DB/JSON source." lightbox="./media/data-flow-troubleshoot-connector-format/script-example.png"::: 
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/script-example.png" alt-text="Screenshot that shows examples of updating the script (DSL) of the Azure Cosmos DB/JSON source." lightbox="./media/data-flow-troubleshoot-connector-format/script-example.png"::: 
     
 **Step-1**: Open the script of the data flow activity.
 
@@ -121,7 +122,7 @@ The map type support:
 |Excel, CSV  |No      |Both are tabular data sources with the primitive type, so there is no need to support the map type. |
 |Orc, Avro |Yes |None.|
 |JSON|Yes |The map type cannot be directly supported, follow the recommendation part in this section to update the script (DSL) under the source projection.|
-|Cosmos DB |Yes |The map type cannot be directly supported, follow the recommendation part in this section to update the script (DSL) under the source projection.|
+|Azure Cosmos DB |Yes |The map type cannot be directly supported, follow the recommendation part in this section to update the script (DSL) under the source projection.|
 |Parquet |Yes |Today the complex data type is not supported on the parquet dataset, so you need to use the "Import projection" under the data flow parquet source to get the map type.|
 |XML |No |None.|
 
@@ -255,7 +256,7 @@ You can try to use copy activities to unblock this issue.
 
 #### Symptoms
 
-Your Azure SQL Database can work well in the data copy, dataset preview-data, and test-connection in the linked service, but it fails when the same Azure SQL Database is used as a source or sink in the data flow with error like `Cannot connect to SQL database: 'jdbc:sqlserver://powerbasenz.database.windows.net;..., Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access`
+Your Azure SQL Database can work well in the data copy, dataset preview-data, and test-connection in the linked service, but it fails when the same Azure SQL Database is used as a source or sink in the data flow with error like `Cannot connect to SQL database: 'jdbc:sqlserver://powerbasenz.database.windows.net;..., Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access.'`
 
 #### Cause
 
@@ -337,7 +338,7 @@ You use the Azure Synapse Analytics and the linked service actually is a Synapse
 1. When you select 'enable staging' in the Source, you face the following error:
 `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Incorrect syntax near 'IDENTITY'.`
 1. When you want to fetch data from an external table, you face the following error: `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: External table 'dbo' is not accessible because location does not exist or it is used by another process.`
-1. When you want to fetch data from Cosmos DB through Serverless pool by query/from view, you face the following error: 
+1. When you want to fetch data from Azure Cosmos DB through Serverless pool by query/from view, you face the following error: 
  `Job failed due to reason: Connection reset.`
 1. When you want to fetch data from a view, you may face with different errors.
 
@@ -346,7 +347,7 @@ Causes of the symptoms are stated below respectively:
 1. Serverless pool cannot be used as a sink. It doesn't support write data into the database.
 1. Serverless pool doesn't support staged data loading, so 'enable staging' is not supported. 
 1. The authentication method that you use doesn't have a correct permission to the external data source where the external table referring to.
-1. There is a known limitation in Synapse serverless pool, blocking you to fetch Cosmos DB data from data flows.
+1. There is a known limitation in Synapse serverless pool, blocking you to fetch Azure Cosmos DB data from data flows.
 1. View is a virtual table based on an SQL statement. The root cause is inside the statement of the view.
 
 #### Recommendation
@@ -358,7 +359,7 @@ You can apply the following steps to solve your issues correspondingly.
     >[!Note]
     > The user-password authentication can not query external tables. For more information, see [Security model](../synapse-analytics/metadata/database.md#security-model).
 
-1. You can use copy activity to fetch Cosmos DB data from the serverless pool.
+1. You can use copy activity to fetch Azure Cosmos DB data from the serverless pool.
 1. You can provide the SQL statement that creates the view to the engineering support team, and they can help analyze if the statement hits an authentication issue or something else.
 
 

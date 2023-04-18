@@ -2,6 +2,7 @@
 title: Migrate Azure Service Bus namespaces - standard to premium
 description: Guide to allow migration of existing Azure Service Bus standard namespaces to premium
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 06/27/2022
 ---
 
@@ -41,7 +42,7 @@ Some conditions are associated with the migration process. Familiarize yourself 
 
 To migrate your Service Bus standard namespace to premium by using the Azure CLI or PowerShell tool, follow these steps.
 
-1. Create a new Service Bus premium namespace. You can reference the [Azure Resource Manager templates](service-bus-resource-manager-namespace.md) or [use the Azure portal](service-bus-create-namespace-portal.md). Be sure to select **premium** for the **serviceBusSku** parameter.
+1. Create a new Service Bus premium namespace. You can reference the [Azure Resource Manager templates](service-bus-resource-manager-namespace.md) or [use the Azure portal](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal). Be sure to select **premium** for the **serviceBusSku** parameter.
 
 1. Set the following environment variables to simplify the migration commands.
 
@@ -127,19 +128,11 @@ Here is a list of features not supported by Premium and their mitigation -
 
 ### Express entities
 
-   Express entities that don't commit any message data to storage are not supported in Premium. Dedicated resources provided significant throughput improvement while ensuring that data is persisted, as is expected from any enterprise messaging system.
+Express entities that don't commit any message data to storage are not supported in the **Premium** tier. Dedicated resources provided significant throughput improvement while ensuring that data is persisted, as is expected from any enterprise messaging system.
 
-   During migration, any of your express entities in your Standard namespace will be created on the Premium namespace as a non-express entity.
+During migration, any of your express entities in your Standard namespace will be created on the Premium namespace as a non-express entity.
 
-   If you utilize Azure Resource Manager (ARM) templates, please ensure that you remove the 'enableExpress' flag from the deployment configuration so that your automated workflows execute without errors.
-
-### Partitioned entities
-
-   Partitioned entities were supported in the Standard tier to provide better availability in a multi-tenant setup. With the provision of dedicated resources available per namespace in the Premium tier, this is no longer needed.
-
-   During migration, any partitioned entity in the Standard namespace is created on the Premium namespace as a non-partitioned entity.
-
-   If your ARM template sets 'enablePartitioning' to 'true' for a specific Queue or Topic, then it will be ignored by the broker.
+If you utilize Azure Resource Manager (ARM) templates, please ensure that you remove the 'enableExpress' flag from the deployment configuration so that your automated workflows execute without errors.
 
 ### RBAC settings
 The role-based access control (RBAC) settings on the namespace aren't migrated to the premium namespace. You'll need to add them manually after the migration. 
@@ -151,6 +144,8 @@ The role-based access control (RBAC) settings on the namespace aren't migrated t
 After the migration is committed, the connection string that pointed to the standard namespace will point to the premium namespace.
 
 The sender and receiver applications will disconnect from the standard Namespace and reconnect to the premium namespace automatically.
+
+If your are using the ARM Id for configuration rather a connection string (e.g. as a destination for an Event Grid Subscription), then you need to update the ARM Id to be that of the Premium namespace.
 
 ### What do I do after the standard to premium migration is complete?
 
@@ -224,5 +219,4 @@ However, if you can migrate during a planned maintenance/housekeeping window, an
 ## Next steps
 
 * Learn more about the [differences between standard and premium Messaging](./service-bus-premium-messaging.md).
-* Learn about the [High-Availability and Geo-Disaster recovery aspects for Service Bus premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
-
+* Learn about the [High-Availability and Geo-Disaster recovery aspects for Service Bus premium](service-bus-outages-disasters.md#protection-against-outages-and-disasters---premium-tier).

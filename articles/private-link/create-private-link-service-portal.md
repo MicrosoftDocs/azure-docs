@@ -1,41 +1,38 @@
 ---
-title: 'Quickstart - Create a Private Link service by using the Azure portal'
+title: 'Quickstart - Create a Private Link service - Azure portal'
 titleSuffix: Azure Private Link
-description: Learn how to create a Private Link service by using the Azure portal in this quickstart
+description: Learn how to create a Private Link service using the Azure portal in this quickstart.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 07/11/2022
+ms.date: 11/17/2022
 ms.author: allensu
-ms.custom: mode-ui
+ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone with a basic network background who's new to Azure, I want to create an Azure Private Link service by using the Azure portal
 ---
+
 # Quickstart: Create a Private Link service by using the Azure portal
 
-Get started creating a Private Link service that refers to your service.  Give Private Link access to your service or resource deployed behind an Azure Standard Load Balancer.  Users of your service have private access from their virtual network.
+Get started creating a Private Link service that refers to your service. Give Private Link access to your service or resource deployed behind an Azure Standard Load Balancer. Users of your service have private access from their virtual network.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Sign in to the Azure portal
-
-Sign in to the Azure portal at https://portal.azure.com.
-
 ## Create an internal load balancer
 
 In this section, you'll create a virtual network and an internal Azure Load Balancer.
 
-### Virtual network
+### Load balancer virtual network
 
-In this section, you create a virtual network and subnet to host the load balancer that accesses your Private Link service.
+Create a virtual network and subnet to host the load balancer that accesses your Private Link service.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
+2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **Create**. 
+3. Select **+ Create**. 
 
 4. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
@@ -46,7 +43,7 @@ In this section, you create a virtual network and subnet to host the load balanc
     | Resource Group   | Select **Create new**. Enter **CreatePrivLinkService-rg**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **(US) East US 2** |
+    | Region           | Select **East US 2** |
 
 5. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -73,7 +70,7 @@ In this section, you create a virtual network and subnet to host the load balanc
 
 ### Create load balancer
 
-In this section, you create a load balancer that load balances virtual machines.
+Create an internal load balancer that load balances virtual machines.
 
 During the creation of the load balancer, you'll configure:
 
@@ -83,9 +80,9 @@ During the creation of the load balancer, you'll configure:
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
-1. In the **Load balancer** page, select **Create**.
+1. In the **Load balancer** page, select **+ Create**.
 
-1. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
     | Setting              | Value                                |
     |----------------------|--------------------------------------|
@@ -94,79 +91,76 @@ During the creation of the load balancer, you'll configure:
     | Resource group       | Select **CreatePrivLinkService-rg**. |
     | **Instance details** |                                      |
     | Name                 | Enter **myLoadBalancer**             |
-    | Region               | Select **(US) East US 2**.           |
+    | Region               | Select **East US 2**.           |
     | SKU                  | Leave the default **Standard**.      |
     | Type                 | Select **Internal**.                 |
     | Tier                 | Select **Regional**.                 |
     
-1. Select **Next: Frontend IP configuration** at the bottom of the page.
+3. Select **Next: Frontend IP configuration**.
 
-1. In **Frontend IP configuration**, select **+ Add a frontend IP**.
+4. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
-1. Enter **LoadBalancerFrontend** in **Name**.
+5. Enter or select the following information in **Add frontend IP configuration**.
 
-1. Select **myBackendSubnet** in **Subnet**.
-
-1. Select **Dynamic** for **Assignment**.
-
-1. Select **Zone-redundant** in **Availability zone**.
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **LoadBalancerFrontend**.|
+    | Virtual network | Select **myVNet (CreatePrivLinkService-rg)**. |
+    | Subnet | Select **myBackendSubnet (10.1.0.0/24)**. |
+    | Assignment | Leave the default of **Dynamic**. |
+    | Availability zone | Leave the default of **Zone-redundant**. |
 
     > [!NOTE]
     > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
-1. Select **Add**.
+6. Select **Add**.
 
-1. Select **Next: Backend pools** at the bottom of the page.
+7. Select **Next: Backend pools**.
 
-1. In the **Backend pools** tab, select **+ Add a backend pool**.
+8. In **Backend pools**, select **+ Add a backend pool**.
 
-1. Enter **myBackendPool** for **Name** in **Add backend pool**.
+9. Enter **myBackendPool** for **Name**.
 
-1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+10. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
 
-1. Select **Save**.
+11. Select **Save**.
 
-1. Select the **Next: Inbound rules** button at the bottom of the page.
+12. Select **Next: Inbound rules**.
 
-1. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
+13. In **Load balancing rule**, select **+ Add a load balancing rule**.
 
-1. In **Add load balancing rule**, enter or select the following information:
+14. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myHTTPRule** |
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
     | Frontend IP address | Select **LoadBalancerFrontend**. |
+    | Backend pool | Select **myBackendPool**. |
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Backend pool | Select **myBackendPool**. |
-    | HA Ports     | Check box.                |
     | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select **Enabled**. |
     | Floating IP | Select **Disabled**. |
 
-1. Select **Add**.
+15. Select **Add**.
 
-1. Select the blue **Review + create** button at the bottom of the page.
+16. Select the blue **Review + create** button.
 
-1. Select **Create**.
+17. Select **Create**.
 
 ## Create a private link service
 
-In this section, you'll create a Private Link service behind a standard load balancer.
+Create a Private Link service behind the load balancer you created in the previous section.
 
-1. On the upper-left part of the page in the Azure portal, select **Create a resource**.
+1. In the search box at the top of the portal, enter **Private link**. Select **Private link services** in the search results.
 
-1. Search for **Private Link** in the **Search the Marketplace** box.
+2. Select **+ Create**.
 
-1. Select **Create**.
-
-1. In **Overview** under **Private Link Center**, select the blue **Create private link service** button.
-
-1. In the **Basics** tab under **Create private link service**, enter, or select the following information:
+3. In the **Basics** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -175,30 +169,30 @@ In this section, you'll create a Private Link service behind a standard load bal
     | Resource Group | Select **CreatePrivLinkService-rg**. |
     | **Instance details** |  |
     | Name | Enter **myPrivateLinkService**. |
-    | Region | Select **(US) East US 2**. |
+    | Region | Select **East US 2**. |
 
-1. Select the **Outbound settings** tab or select **Next: Outbound settings** at the bottom of the page.
+4. Select **Next: Outbound settings**.
 
-1. In the **Outbound settings** tab, enter or select the following information:
+5. In the **Outbound settings** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | Load balancer | Select **myLoadBalancer**. |
     | Load balancer frontend IP address | Select **LoadBalancerFrontEnd (10.1.0.4)**. |
-    | Source NAT subnet | Select **mySubnet (10.1.0.0/24)**. |
+    | Source NAT subnet | Select **myVNet/myBackendSubnet (10.1.0.0/24)**. |
     | Enable TCP proxy V2 | Leave the default of **No**. </br> If your application expects a TCP proxy v2 header, select **Yes**. |
     | **Private IP address settings** |  |
     | Leave the default settings |  |
 
-1. Select the **Access security** tab or select **Next: Access security** at the bottom of the page.
+6. Select **Next: Access security**.
 
-1. Leave the default of **Role-based access control only** in the **Access security** tab.
+7. Leave the default of **Role-based access control only** in the **Access security** tab.
 
-1. Select the **Tags** tab or select **Next: Tags** at the bottom of the page.
+8. Select **Next: Tags**.
 
-1. Select the **Review + create** tab or select **Next: Review + create** at the bottom of the page.
+9. Select **Next: Review + create**.
 
-1. Select **Create** in the **Review + create** tab.
+10. Select **Create**.
 
 Your private link service is created and can receive traffic. If you want to see traffic flows, configure your application behind your standard load balancer.
 
@@ -208,9 +202,11 @@ In this section, you'll map the private link service to a private endpoint. A vi
 
 ### Create private endpoint virtual network
 
-1. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-1. In **Create virtual network**, enter or select this information in the **Basics** tab:
+2. Select **+ Create**. 
+
+3. In the **Basics** tab, enter or select the following information:
 
     | **Setting**          | **Value**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -219,42 +215,38 @@ In this section, you'll map the private link service to a private endpoint. A vi
     | Resource Group   | Select **CreatePrivLinkService-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNetPE**                                    |
-    | Region           | Select **(US) East US 2** |
+    | Region           | Select **East US 2** |
 
-1. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+4. Select **Next: IP Addresses** or the **IP Addresses** tab.
 
-1. In the **IP Addresses** tab, enter this information:
+5. In the **IP Addresses** tab, enter the following information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | IPv4 address space | Enter **11.1.0.0/16** |
+    | IPv4 address space | Enter **10.1.0.0/16** |
 
-1. Under **Subnet name**, select the word **default**.
+6. Select **+Add subnet**.
 
-1. In **Edit subnet**, enter this information:
+7. In **Add subnet**, enter this information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **mySubnetPE** |
-    | Subnet address range | Enter **11.1.0.0/24** |
+    | Subnet address range | Enter **10.1.0.0/24** |
 
-1. Select **Save**.
+8. Select **Add**.
 
-1. Select the **Review + create** tab or select the **Review + create** button.
+9. Select **Review + create**.
 
-1. Select **Create**.
+10. Select **Create**.
 
 ### Create private endpoint
 
-1. On the upper-left side of the screen in the portal, select **Create a resource** > **Networking** > **Private Link**, or in the search box enter **Private Link**.
+1. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints** in the search results.
 
-1. Select **Create**.
+2. Select **+ Create**. 
 
-1. In **Private Link Center**, select **Private endpoints** in the left-hand menu.
-
-1. In **Private endpoints**, select **+ Add**.
-
-1. In the **Basics** tab of **Create a private endpoint**, enter, or select this information:
+3. In the **Basics** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -263,11 +255,12 @@ In this section, you'll map the private link service to a private endpoint. A vi
     | Resource group | Select **CreatePrivLinkService-rg**. You created this resource group in the previous section.|
     | **Instance details** |  |
     | Name  | Enter **myPrivateEndpoint**. |
-    | Region | Select **(US) East US 2**. |
+    | Network Interface Name | Leave the default of **myPrivateEndpoint-nic**. |
+    | Region | Select **East US 2**. |
 
-1. Select the **Next: Resource** button at the bottom of the page.
+4. Select **Next: Resource**.
     
-1. In **Resource**, enter or select this information:
+5. In the **Resource** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -276,29 +269,54 @@ In this section, you'll map the private link service to a private endpoint. A vi
     | Resource type | Select **Microsoft.Network/privateLinkServices**. |
     | Resource | Select **myPrivateLinkService**. |
 
-1. Select the **Next: Virtual Network** button at the bottom of the screen.
+6. Select **Next: Virtual Network**.
 
-1. In **Configuration**, enter or select this information:
+7. In **Virtual Network**, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
     | **Networking** |  |
-    | Virtual Network | Select **myVNetPE**. |
-    | Subnet | Select **mySubnetPE**. |
+    | Virtual network | Select **myVNetPE**. |
+    | Subnet | Select **myVNet/mySubnetPE (10.1.0.0/24)**. |
+    | Network policy for private endpoints | Select **edit** to apply Network security groups and/or Route tables to the subnet that contains the private endpoint. </br> In **Edit subnet network policy**, select the checkbox next to **Network security groups** and **Route Tables**. </br> Select **Save**. </br></br>For more information, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md) |
 
-1. Select **Next** until the **Review + create** tab then select **Create**.
+# [**Dynamic IP**](#tab/dynamic-ip)
+
+| Setting | Value |
+| ------- | ----- |
+| **Private IP configuration** | Select **Dynamically allocate IP address**. |
+
+:::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true":::
+
+# [**Static IP**](#tab/static-ip)
+
+| Setting | Value |
+| ------- | ----- |
+| **Private IP configuration** | Select **Statically allocate IP address**. |
+| Name | Enter **myIPconfig**. |
+| Private IP | Enter **10.1.0.10**. |
+
+:::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true":::
+
+---
+
+8. Select **Next: DNS**.
+
+9. Select **Next: Tags**.
+
+10. Select **Next: Review + create**.
+
+11. Select **Create**.
 
 ### IP address of private endpoint
 
 In this section, you'll find the IP address of the private endpoint that corresponds with the load balancer and private link service.
 
-1. In the left-hand column of the Azure portal, select **Resource groups**.
+1. Enter **CreatePrivLinkService-rg** in the search box at the top of the portal. Select **CreatePrivLinkService-rg** in the search results in **Resource Groups**.
 
-2. Select the **CreatePrivLinkService-rg** resource group.
+2. In the **CreatePrivLinkService-rg** resource group, select **myPrivateEndpoint**.
 
-3. In the **CreatePrivLinkService-rg** resource group, select **myPrivateEndpoint**.
-
-4. In the **Overview** page of **myPrivateEndpoint**, select the name of the network interface associated with the private endpoint.  The network interface name begins with **myPrivateEndpoint.nic**.
+4. In the **Overview** page of **myPrivateEndpoint**, select the name of the network interface associated with the private endpoint. The network interface name begins with **myPrivateEndpoint.nic**.
 
 5. In the **Overview** page of the private endpoint nic, the IP address of the endpoint is displayed in **Private IP address**.
 
@@ -306,7 +324,7 @@ In this section, you'll find the IP address of the private endpoint that corresp
 
 When you're done using the private link service, delete the resource group to clean up the resources used in this quickstart.
 
-1. Enter **CreatePrivLinkService-rg** in the search box at the top of the portal, and select **CreatePrivLinkService-rg** from the search results.
+1. Enter **CreatePrivLinkService-rg** in the search box at the top of the portal. Select **CreatePrivLinkService-rg** in the search results.
 
 2. Select **Delete resource group**.
 

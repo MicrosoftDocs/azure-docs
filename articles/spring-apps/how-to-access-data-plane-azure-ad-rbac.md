@@ -54,15 +54,15 @@ After the role is assigned, the assignee can access the Spring Cloud Config Serv
     >[!NOTE]
     > If you're using Azure China, replace `*.azuremicroservices.io` with `*.microservices.azure.cn`. For more information, see the section [Check endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) in the [Azure China developer guide](/azure/china/resources-developer-guide).
 
-1. Access the composed endpoint with the access token. Put the access token in a header to provide authorization: `--header 'Authorization: Bearer {TOKEN_FROM_PREVIOUS_STEP}`.
+1. Access the composed endpoint with the access token. Put the access token in a header to provide authorization: `--header 'Authorization: Bearer {TOKEN_FROM_PREVIOUS_STEP}'`.
 
     For example:
 
-    a. Access an endpoint like *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/health'* to see the health status of Config Server.
+    a. Access an endpoint like `https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/health` to see the health status of Config Server.
 
-    b. Access an endpoint like *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/eureka/apps'* to see the registered apps in Spring Cloud Service Registry (Eureka here).
+    b. Access an endpoint like `https://SERVICE_NAME.svc.azuremicroservices.io/eureka/eureka/apps` to see the registered apps in Spring Cloud Service Registry (Eureka here).
 
-    If the response is *401 Unauthorized*, check to see if the role is successfully assigned.  It will take several minutes for the role to take effect or to verify that the access token has not expired.
+    If the response is `401 Unauthorized`, check to see if the role is successfully assigned. It will take several minutes for the role to take effect or to verify that the access token has not expired.
 
 For more information about actuator endpoint, see [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints).
 

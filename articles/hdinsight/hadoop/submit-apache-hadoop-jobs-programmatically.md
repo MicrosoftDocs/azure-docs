@@ -4,7 +4,7 @@ description: Submit Apache Hadoop jobs in Azure HDInsight using Microsoft .NET S
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/16/2019
+ms.date: 02/27/2023
 ---
 
 # Submit Apache Hadoop jobs in HDInsight

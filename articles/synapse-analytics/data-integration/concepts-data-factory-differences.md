@@ -34,4 +34,4 @@ Check below table for features availability:
 
 ## Next steps
 
-Get started with data integration in your Synapse workspace by learning how to [ingest data into a Azure Data Lake Storage gen2 account](data-integration-data-lake.md).
+Get started with data integration in your Synapse workspace by learning how to [ingest data into an Azure Data Lake Storage gen2 account](data-integration-data-lake.md).

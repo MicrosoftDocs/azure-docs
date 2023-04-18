@@ -5,7 +5,6 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/07/2021
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Move your Azure Automation account to another subscription

@@ -3,13 +3,13 @@ title: Generate a REST API client library - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Swagger documentation can be used to auto-generate SDKs for a number of programming languages. 
 services: cognitive-services
-author: alexeyo26
+author: eric-urban
+ms.author: eur
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/16/2021
-ms.author: alexeyo
+ms.date: 10/03/2022
 ---
 
 # Generate a REST API client library for the Speech-to-text REST API
@@ -23,7 +23,7 @@ Speech service offers a Swagger specification to interact with a handful of REST
 
 ## Generating code from the Swagger specification
 
-The [Swagger specification](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) has options that allow you to quickly test for various paths. However, sometimes it's desirable to generate code for all paths, creating a single library of calls that you can base future solutions on. Let's take a look at the process to generate a Python library.
+The [Swagger specification](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1) has options that allow you to quickly test for various paths. However, sometimes it's desirable to generate code for all paths, creating a single library of calls that you can base future solutions on. Let's take a look at the process to generate a Python library.
 
 You'll need to set Swagger to the region of your Speech resource. You can confirm the region in the **Overview** part of your Speech resource settings in Azure portal. The complete list of supported regions is available [here](regions.md#speech-service).
 

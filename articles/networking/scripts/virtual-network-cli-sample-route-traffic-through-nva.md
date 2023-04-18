@@ -1,19 +1,12 @@
 ---
 title: Azure CLI script sample - Route traffic through a network virtual appliance
 description: Azure CLI script sample - Route traffic through a firewall network virtual appliance.
-services: virtual-network
-documentationcenter: virtual-network
-author: mbender-ms
-manager: kumudD
+author: asudbring
 ms.service: virtual-network
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm:
-ms.workload: infrastructure
-ms.date: 07/07/2017
-ms.author: mbender 
+ms.date: 03/23/2023
+ms.author: allensu
 ms.custom: devx-track-azurecli
-
 ---
 
 # Use an Azure CLI script to route traffic through a network virtual appliance
@@ -24,9 +17,7 @@ This script sample creates a virtual network with front-end and back-end subnets
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-
 ## Sample script
-
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh "Route traffic through a network virtual appliance")]
 
@@ -35,7 +26,7 @@ This script sample creates a virtual network with front-end and back-end subnets
 Run the following command to remove the resource group, VM, and all related resources.
 
 ```azurecli
-az group delete --name MyResourceGroup --yes
+az group delete --name $resourceGroup --yes
 ```
 
 ## Script explanation
@@ -61,4 +52,4 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional networking CLI script samples can be found in the [Azure Networking Overview documentation](../cli-samples.md)
+More networking CLI script samples can be found in the [Azure Networking Overview documentation](../cli-samples.md)

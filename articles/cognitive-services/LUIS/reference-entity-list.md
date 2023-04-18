@@ -11,6 +11,9 @@ ms.date: 01/05/2022
 ---
 # List entity
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 List entities represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the **Recommend** feature to see suggestions for new words based on the current list. If there is more than one list entity with the same value, each entity is returned in the endpoint query.
 
 A list entity isn't machine-learned. It is an exact text match. LUIS marks any match to an item in any list as an entity in the response.

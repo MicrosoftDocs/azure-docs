@@ -3,11 +3,11 @@ title: 'Tutorial: Create an alias record to support apex domain name with Traffi
 titleSuffix: Azure DNS
 description: In this tutorial, you learn how to create and configure an Azure DNS alias record to support using your apex domain name with Traffic Manager.
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: tutorial
-ms.date: 06/20/2022
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS alias records to use my apex domain name with Traffic Manager.
 ---

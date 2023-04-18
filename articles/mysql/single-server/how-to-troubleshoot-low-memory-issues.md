@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 To help ensure that a MySQL database server performs optimally, it's very important to have the appropriate memory allocation and utilization. By default, when you create an instance of Azure Database for MySQL, the available physical memory is dependent on the tier and size you select for your workload. In addition, memory is allocated for buffers and caches to improve database operations. For more information, see [How MySQL Uses Memory](https://dev.mysql.com/doc/refman/5.7/en/memory-use.html).
 
 Note that the Azure Database for MySQL service consumes memory to achieve as much cache hit as possible. As a result, memory utilization can often hover between 80- 90% of the available physical memory of an instance. Unless there's an issue with the progress of the query workload, it isn't a concern. However, you may run into out of memory issues for reasons such as that you have:

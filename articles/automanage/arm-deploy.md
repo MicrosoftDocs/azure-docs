@@ -3,6 +3,7 @@ title: Onboard a machine to Azure Automanage with an ARM template
 description: Learn how to onboard a machine to Azure Automanage with an Azure Resource Manager template.
 ms.service: automanage
 ms.workload: infrastructure
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 12/10/2021
 ---
@@ -35,7 +36,7 @@ The following ARM template will onboard your specified machine onto Azure Automa
     "resources": [
         {
             "type": "Microsoft.Compute/virtualMachines/providers/configurationProfileAssignments",
-            "apiVersion": "2021-04-30-preview",
+            "apiVersion": "2022-05-04",
             "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/default')]",
             "properties": {
                 "configurationProfile": "[parameters('configurationProfileName')]"

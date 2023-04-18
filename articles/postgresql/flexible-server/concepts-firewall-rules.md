@@ -15,7 +15,7 @@ ms.date: 11/30/2021
 
 When you're running Azure Database for PostgreSQL - Flexible Server, you have two main networking options. The options are private access (virtual network integration) and public access (allowed IP addresses). 
 
-With public access, the Azure Database for PostgreSQL server is accessed through a public endpoint. By default, the firewall blocks all access to the server. To specify which IP hosts can access the server, you create server-level *firewall rules*. Firewall rules specify allowed public IP address ranges. The firewall grants access to the server based on the originating IP address of each request.
+With public access, the Azure Database for PostgreSQL server is accessed through a public endpoint. By default, the firewall blocks all access to the server. To specify which IP hosts can access the server, you create server-level *firewall rules*. Firewall rules specify allowed public IP address ranges. The firewall grants access to the server based on the originating IP address of each request. With [private access](concepts-networking.md#private-access-vnet-integration) no public endpoint is available and only hosts located on the same network can access Azure Database for PostgreSQL - Flexible Server. 
 
 You can create firewall rules by using the Azure portal or by using Azure CLI commands. You must be the subscription owner or a subscription contributor.
 

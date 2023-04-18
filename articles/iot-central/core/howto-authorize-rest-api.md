@@ -86,7 +86,7 @@ Using the REST API:
 1. Use the REST API to retrieve a list of role IDs from your application:
 
     ```http
-    GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-05-31
+    GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-07-31
     ```
 
     The response to this request looks like the following example:
@@ -113,7 +113,7 @@ Using the REST API:
 1. Use the REST API to create an API token for a role. For example, to create an API token called `operator-token` for the operator role:
 
     ```http
-    PUT https://{your app subdomain}.azureiotcentral.com/api/apiToken/operator-token?api-version=2022-05-31
+    PUT https://{your app subdomain}.azureiotcentral.com/api/apiToken/operator-token?api-version=2022-07-31
     ```
 
     Request body:

@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.author: sairamyeturi
 author: yeturis
-ms.date: 07/21/2022
+ms.date: 10/24/2022
 ---
 
 # NSG service tags for Azure HDInsight
@@ -69,6 +69,7 @@ If your cluster is located in a region listed in this table, you only need to ad
 | India | Central India | HDInsight.CentralIndia |
 | &nbsp; | JIO India West | HDInsight.JioIndiaWest |
 | &nbsp; | South India | HDInsight.SouthIndia |
+| Qatar | Qatar Central | HDInsight.QatarCentral |
 | South Africa | South Africa North | HDInsight.SouthAfricaNorth |
 | UAE | UAE North | HDInsight.UAENorth |
 | &nbsp; | UAE Central | HDInsight.UAECentral |
@@ -76,6 +77,7 @@ If your cluster is located in a region listed in this table, you only need to ad
 | &nbsp; | West Europe | HDInsight.WestEurope |
 | France | France Central| HDInsight.FranceCentral |
 | Germany | Germany West Central| HDInsight.GermanyWestCentral |
+| &nbsp; | Germany North| HDInsight.GermanyNorth |
 | Norway | Norway East | HDInsight.NorwayEast |
 | Sweden | Sweden Central | HDInsight.SwedenCentral |
 | &nbsp; | Sweden South | HDInsight.SwedenSouth |
@@ -125,6 +127,7 @@ For example, if your cluster is created in the `East US 2` region, you'll need t
 | Asia | East Asia | HDInsight.EastAsia |
 | &nbsp; | Southeast Asia | HDInsight.SoutheastAsia |
 | Australia | Australia East | HDInsight.AustraliaEast |
+
 
 #### Group 2
 

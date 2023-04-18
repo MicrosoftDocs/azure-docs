@@ -76,8 +76,7 @@ Invoke-AzVMRunCommand `
    -ScriptString 'sudo apt-get update && sudo apt-get install -y nginx'
 ```
 
-The `-ScriptString' parameter requires version `4.27.0` or later of the 'Az.Compute` module.
-
+The `-ScriptString` parameter requires version `4.27.0` or later of the `Az.Compute` module.
 
 ## View the web server in action
 

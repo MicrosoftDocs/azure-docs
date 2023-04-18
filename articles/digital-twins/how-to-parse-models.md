@@ -93,5 +93,5 @@ The following code shows an example of how to use the parser library to reflect 
 
 ## Next steps
 
-Once you're done writing your models, see how to upload them (and do other management operations) with the DigitalTwinsModels APIs:
+Once you're done writing your models, see how to upload them (and do other management operations) with the Azure Digital Twins Models APIs:
 * [Manage DTDL models](how-to-manage-model.md)

@@ -2,11 +2,12 @@
 title: Azure Resource Manager template samples for targets and capabilities in Azure Chaos Studio
 description: Sample Azure Resource Manager templates to onboard resources to Azure Chaos Studio using targets and capabilities
 services: chaos-studio
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: sample
 ms.date: 11/10/2021
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
+ms.custom: devx-track-arm-template
 ---
 
 # Resource Manager template samples for targets and capabilities in Azure Chaos Studio
@@ -58,7 +59,7 @@ In this sample, we onboard an Azure Cosmos DB instance using [targets and capabi
       "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-CosmosDB/Failover-1.0')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[concat(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('resourceName'), parameters('resourceGroup')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-CosmosDB')]"
+        "[concat(resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('resourceName')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-CosmosDB')]"
       ],
       "properties": {}
     }
@@ -130,7 +131,7 @@ In this sample, we onboard an Azure Kubernetes Service cluster using [targets an
       "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/NetworkChaos-2.1')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName'), parameters('resourceGroup')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
+        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
       ],
       "properties": {}
     },
@@ -140,7 +141,7 @@ In this sample, we onboard an Azure Kubernetes Service cluster using [targets an
       "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/PodChaos-2.1')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName'), parameters('resourceGroup')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
+        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
       ],
       "properties": {}
     },
@@ -150,7 +151,7 @@ In this sample, we onboard an Azure Kubernetes Service cluster using [targets an
       "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/StressChaos-2.1')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName'), parameters('resourceGroup')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
+        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
       ],
       "properties": {}
     },
@@ -160,7 +161,7 @@ In this sample, we onboard an Azure Kubernetes Service cluster using [targets an
       "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/IOChaos-2.1')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName'), parameters('resourceGroup')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
+        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
       ],
       "properties": {}
     },
@@ -170,7 +171,7 @@ In this sample, we onboard an Azure Kubernetes Service cluster using [targets an
       "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/TimeChaos-2.1')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName'), parameters('resourceGroup')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
+        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
       ],
       "properties": {}
     },
@@ -180,7 +181,7 @@ In this sample, we onboard an Azure Kubernetes Service cluster using [targets an
       "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/KernelChaos-2.1')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName'), parameters('resourceGroup')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
+        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
       ],
       "properties": {}
     },
@@ -190,7 +191,7 @@ In this sample, we onboard an Azure Kubernetes Service cluster using [targets an
       "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/DNSChaos-2.1')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName'), parameters('resourceGroup')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
+        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
       ],
       "properties": {}
     },
@@ -200,7 +201,7 @@ In this sample, we onboard an Azure Kubernetes Service cluster using [targets an
       "name": "[concat(parameters('resourceName'), '/', 'Microsoft.Chaos/Microsoft-AzureKubernetesServiceChaosMesh/HTTPChaos-2.1')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName'), parameters('resourceGroup')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
+        "[concat(resourceId('Microsoft.ContainerService/managedClusters', parameters('resourceName')), '/', 'providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh')]"
       ],
       "properties": {}
     }

@@ -74,4 +74,4 @@ For more details go to my.visualstudio.com, or follow this link: [Use Microsoft 
 <a name="maintain-a-subscription-to-use-monthly-credits"></a>
 ## Troubleshoot removed/expired subscriptions
 
-If your Visual Studio subscription expires or is removed, all the subscription benefits, including the monthly Azure dev/test individual credit are no longer available. To learn how to continue using Azure with a monthly credit, read "[Renew an expired subscription, purchase a new on, or transfer your Azure resources](troubleshoot-expired-removed-subscription.md)".
+If your Visual Studio subscription expires or is removed, all the subscription benefits, including the monthly Azure dev/test individual credit are no longer available. To learn how to continue using Azure with a monthly credit, read "[Renew an expired subscription, purchase a new one, or transfer your Azure resources](troubleshoot-expired-removed-subscription.md)".

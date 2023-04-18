@@ -1,71 +1,71 @@
 ---
-title: Low priority vms retirement migration guide
-description: Describes the migration steps for the low priority vms retirement and the end of support details.
+title: Migrate low-priority VMs to spot VMs in Batch
+description: Learn how to migrate Azure Batch low-priority VMs to Spot VMs and plan for feature end of support.
 author: harperche
 ms.author: harpercheng
 ms.service: batch
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 08/10/2022
+ms.topic: how-to
+ms.date: 10/14/2022
 ---
-# Low Priority VMs Retirement Migration Guide
 
-Azure Batch offers Low priority and Spot virtual machines (VMs). The virtual machines are computing instances allocated from spare capacity, offered at a highly discounted rate compared to "on-demand" VMs.
+# Migrate Batch low-priority VMs to Spot VMs
 
-Low priority VMs enable the customer to take advantage of unutilized capacity. The amount of available unutilized capacity can vary based on size, region, time of day, and more. At any point in time when Azure needs the capacity back, we'll evict low-priority VMs. Therefore, the low-priority offering is excellent for flexible workloads, like large processing jobs, dev/test environments, demos, and proofs of concept. In addition, low-priority VMs can easily be deployed through our virtual machine scale set offering.
+The ability to allocate low-priority compute nodes in Azure Batch pools is being retired on *September 30, 2025*. Learn how to migrate your Batch pools with low-priority compute nodes to compute nodes based on Spot instances.
 
-Low priority VMs are a deprecated feature, and it will never become Generally Available (GA). Spot VMs are the official preemptible offering from the Compute platform, and are generally available. Therefore, we'll retire Low Priority VMs on **30 September 2025**. After that, we'll stop supporting Low priority VMs. The existing Low priority pools may no longer work or be provisioned.
+## About the feature
 
-## Retirement alternative
+Currently, as part of a Batch pool configuration, you can specify a target number of low-priority compute nodes for Batch managed pool allocation Batch accounts. In user subscription pool allocation Batch accounts, you can specify a target number of spot compute nodes. In both cases, these compute resources are allocated from spare capacity and offered at a discount compared to dedicated, on-demand VMs.
 
-As of May 2020, Azure offers Spot VMs in addition to Low Priority VMs. Like Low Priority, the Spot option allows the customer to purchase spare capacity at a deeply discounted price in exchange for the possibility that the VM may be evicted. Unlike Low Priority, you can use the Azure Spot option for single VMs and scale sets. Virtual machine scale sets scale up to meet demand, and when used with Spot VMs, will only allocate when capacity is available. 
+The amount of unused capacity that's available varies depending on factors such as VM family, VM size, region, and time of day. Unlike dedicated capacity, these low-priority or spot VMs can be reclaimed at any time by Azure. Therefore, low-priority and spot VMs are typically viable for Batch workloads that are amenable to interruption or don't require strict completion timeframes to potentially lower costs.
 
-The Spot VMs can be evicted when Azure needs the capacity or when the price goes above your maximum price. In addition, the customer can choose to get a 30-second eviction notice and attempt to redeploy. 
+## Feature end of support
 
-The other key difference is that Azure Spot pricing is variable and based on the capacity for size or SKU in an Azure region. Prices change slowly to provide stabilization. The price will never go above pay-as-you-go rates.
+Only low-priority compute nodes in Batch are being retired. Spot compute nodes will continue to be supported, is a GA offering, and not affected by this deprecation. On September 30, 2025, we'll retire low-priority compute nodes. After that date, existing low-priority pools in Batch may no longer be usable, attempts to seek back to target low-priority node counts will fail, and you'll no longer be able to provision new pools with low-priority compute nodes.
 
-When it comes to eviction, you have two policy options to choose between:
+## Alternative: Use Azure Spot-based compute nodes in Batch pools
 
-* Stop/Deallocate (default) – when evicted, the VM is deallocated, but you keep (and pay for) underlying disks. This is the ideal for cases where the state is stored on disks.
-* Delete – when evicted, the VM and underlying disks are deleted.
+As of December 2021, Azure Batch began offering Spot-based compute nodes in Batch. Like low-priority VMs, you can use spot instances to obtain spare capacity at a discounted price in exchange for the possibility that the VM will be preempted. If a preemption occurs, the spot compute node will be evicted and all work that wasn't appropriately checkpointed will be lost. Checkpointing is optional and is up to the Batch end-user to implement. The running Batch task that was interrupted due to preemption will be automatically requeued for execution by a different compute node. Additionally, Azure Batch will automatically attempt to seek back to the target Spot node count as specified on the pool.
 
-While similar in idea, there are a few key differences between these two purchasing options:
+See the [detailed breakdown](batch-spot-vms.md) between the low-priority and spot offering in Batch.
 
-| | **Low Priority VMs** | **Spot VMs** |
-|---|---|---|
-| **Availability** | **Azure Batch** | **Single VMs, Virtual machine scale sets** |
-| **Pricing** | **Fixed pricing** | **Variable pricing with ability to set maximum price** |
-| **Eviction/Preemption** | **Preempted when Azure needs the capacity. Tasks on preempted node VMs are re-queued and run again.** | **Evicted when Azure needs the capacity or if the price exceeds your maximum. If evicted for price and afterward the price goes below your maximum, the VM will not be automatically restarted.** |
+## Migrate a Batch pool with low-priority compute nodes or create a Batch pool with Spot instances
 
-## Migration steps
+1. Ensure that you're using a [user subscription pool allocation mode Batch account](batch-account-create-portal.md).
 
-Customers in User Subscription mode can include Spot VMs using the following the steps below:
+1. In the Azure portal, select the Batch account and view an existing pool or create a new pool.
 
-1. In the Azure portal, select the Batch account and view the existing pool or create a new pool.
-2. Under **Scale**, users can choose 'Target dedicated nodes' or 'Target Spot/low-priority nodes.'
+1. Under **Scale**, select either **Target dedicated nodes** or **Target Spot/low-priority nodes**.
 
-  ![Scale Target Nodes](../batch/media/certificates/low-priority-vms-scale-target-nodes.png)
+   :::image type="content" source="media/certificates/low-priority-vms-scale-target-nodes.png" alt-text="Screenshot that shows how to scale target nodes.":::
 
-3. Navigate to the existing Pool and select 'Scale' to update the number of Spot nodes required based on the job scheduled. 
-4. Click **Save**.
+1. For an existing pool, select the pool, and then select **Scale** to update the number of spot nodes required based on the job scheduled.
 
-Customers in Batch Managed mode must recreate the Batch account, pool, and jobs under User Subscription mode to take advantage of spot VMs.
+1. Select **Save**.
 
-## FAQ
+## FAQs
 
-* How to create a new Batch account /job/pool?
+- How do I create a user subscription pool allocation Batch account?
 
-    See the quick start [link](./batch-account-create-portal.md) on creating a new Batch account/pool/task.
+   See the [quickstart](./batch-account-create-portal.md) to create a new Batch account in user subscription pool allocation mode.
 
-* Are Spot VMs available in Batch Managed mode?
+- Are Spot VMs available in Batch managed pool allocation accounts?
 
-    No, Spot VMs are available in User Subscription mode - Batch accounts only.
+  No. Spot VMs are available only in user subscription pool allocation Batch accounts.
+  
+- Are spot instances available for `CloudServiceConfiguration` Pools?
 
-* What is the pricing and eviction policy of Spot VMs? Can I view pricing history and eviction rates?
+  No. Spot instances are only available for `VirtualMachineConfiguration` pools. `CloudServiceConfiguration` pools will be [retired](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/) before low-priority pools. We recommend that you migrate to `VirtualMachineConfiguration` pools and user subscription pool allocation Batch accounts before then.
 
-    See [Spot VMs](../virtual-machines/spot-vms.md) for more information on using Spot VMs. Yes, you can see historical pricing and eviction rates per size in a region in the portal.
+- What is the pricing and eviction policy of spot instances? Can I view pricing history and eviction rates?
+
+   Yes. In the Azure portal, you can see historical pricing and eviction rates per size in a region.
+
+   For more information about using spot VMs, see [Spot Virtual Machines](../virtual-machines/spot-vms.md).
+
+- Can I transfer my quotas between Batch accounts?
+
+  Currently you can't transfer any quotas between Batch accounts.
 
 ## Next steps
 
-Use the [CLI](../virtual-machines/linux/spot-cli.md), [portal](../virtual-machines/spot-portal.md), [ARM template](../virtual-machines/linux/spot-template.md), or [PowerShell](../virtual-machines/windows/spot-powershell.md) to deploy Azure Spot Virtual Machines.
-
-You can also deploy a [scale set with Azure Spot Virtual Machine instances](../virtual-machine-scale-sets/use-spot.md).
+See the [Batch Spot compute instance guide](batch-spot-vms.md) for details on further details in the difference between offerings, limitations, and deployment examples.

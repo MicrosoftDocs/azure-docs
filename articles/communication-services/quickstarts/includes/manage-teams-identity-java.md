@@ -89,7 +89,7 @@ public class App
 
 ### Step 1: Receive the Azure Active Directory user token and object ID via the MSAL library
 
-The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md).
+The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md). It's essential to configure the MSAL client with the correct authority, based on the `tenantId` variable, to be able to retrieve the Object ID (`oid`) claim corresponding with a user in Fabrikam's tenant and initialize the `userObjectId` variable.
 
 ```java
 // You need to provide your Azure AD client ID and tenant ID

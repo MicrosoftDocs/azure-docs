@@ -8,7 +8,7 @@ metadata:
   ms.subservice: disks
   ms.topic: faq
   ms.author: mbaldwin
-  ms.date: 06/05/2019
+  ms.date: 01/04/2023
   ms.custom: seodec18
 title: Azure Disk Encryption for Linux virtual machines FAQ
 summary: |
@@ -84,7 +84,7 @@ sections:
           To rotate secrets, just call the same command you used originally to enable disk encryption, specifying a different Key Vault. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
           
           >[!WARNING]
-          > - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-linux-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can't use Azure Disk Encryption on this encrypted VM as this isn't a supported scenario, meaning switching away from AAD application for this encrypted VM isn't supported yet.
+          > - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-linux-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can't use Azure Disk Encryption on this encrypted VM as this isn't a supported scenario, meaning switching away from Azure AD application for this encrypted VM isn't supported yet.
           
       - question: |
           How do I add or remove a key encryption key if I didn't originally use one?

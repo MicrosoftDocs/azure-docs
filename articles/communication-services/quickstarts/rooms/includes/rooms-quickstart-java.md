@@ -17,7 +17,7 @@ ms.author: antonsamson
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-java) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
+- Two or more Communication User Identities. [Create and manage access tokens](../../identity/access-tokens.md?pivots=programming-language-java) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
@@ -36,6 +36,8 @@ mvn archetype:generate -DgroupId=com.contoso.app -DartifactId=rooms-quickstart -
 ```
 
 ### Include the package
+
+You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.2/jar) or above. 
 
 #### Include the BOM file
 
@@ -74,7 +76,7 @@ If you want to take dependency on a particular version of the library that isn't
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-rooms</artifactId>
-  <version>1.0.0-alpha.1</version>
+  <version>1.0.0-beta.1</version>
 </dependency>
 ```
 

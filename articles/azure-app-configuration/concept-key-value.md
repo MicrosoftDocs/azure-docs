@@ -1,11 +1,11 @@
 ---
 title: Understand Azure App Configuration key-value store
 description: Understand key-value storage in Azure App Configuration, which stores configuration data as key-values. Key-values are a representation of application settings.
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 08/17/2022
+ms.date: 09/14/2022
 ms.custom: devdivchpfy22
 ---
 
@@ -66,9 +66,9 @@ Each key-value is uniquely identified by its key plus a label that can be `\0`. 
 | Key | Description |
 |---|---|
 | `key` is omitted or `key=*` | Matches all keys. |
-| `key=abc` | Matches key name **abc** exactly. |
-| `key=abc*` | Matches key names that start with **abc**.|
-| `key=abc,xyz` | Matches key names **abc** or **xyz**. Limited to five CSVs. |
+| `key=abc` | Matches key name `abc` exactly. |
+| `key=abc*` | Matches key names that start with `abc`.|
+| `key=abc,xyz` | Matches key names `abc` or `xyz`. Limited to five CSVs. |
 
 You also can include the following label patterns:
 
@@ -76,9 +76,9 @@ You also can include the following label patterns:
 |---|---|
 | `label` is omitted or `label=*` | Matches any label, which includes `\0`. |
 | `label=%00` | Matches `\0` label. |
-| `label=1.0.0` | Matches label **1.0.0** exactly. |
-| `label=1.0.*` | Matches labels that start with **1.0.**. |
-| `label=%00,1.0.0` | Matches labels `\0` or **1.0.0**, limited to five CSVs. |
+| `label=1.0.0` | Matches label `1.0.0` exactly. |
+| `label=1.0.*` | Matches labels that start with `1.0.`. |
+| `label=%00,1.0.0` | Matches labels `\0` or `1.0.0`, limited to five CSVs. |
 
 > [!NOTE]
 > `*`, `,`, and `\` are reserved characters in queries. If a reserved character is used in your key names or labels, you must escape it by using `\{Reserved Character}` in queries.

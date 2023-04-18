@@ -35,7 +35,7 @@ Use any of the following options to prepare the file.
 Copy the following Apache Spark configuration, save it as *spark_loganalytics_conf.txt*, and fill in the following parameters:
 
    - `<LOG_ANALYTICS_WORKSPACE_ID>`: Log Analytics workspace ID.
-   - `<LOG_ANALYTICS_WORKSPACE_KEY>`: Log Analytics key. To find this, in the Azure portal, go to **Azure Log Analytics workspace** > **Agents management** > **Primary key**.
+   - `<LOG_ANALYTICS_WORKSPACE_KEY>`: Log Analytics key. To find this, in the Azure portal, go to **Azure Log Analytics workspace** > **Agents** > **Primary key**.
 
 ```properties
 spark.synapse.logAnalytics.enabled true
@@ -183,6 +183,14 @@ val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample")
 logger.info("info message")
 logger.warn("warn message")
 logger.error("error message")
+//log exception
+try {
+      1/0
+ } catch {
+      case e:Exception =>logger.warn("Exception", e)
+}
+// run job for task level metrics
+val data = sc.parallelize(Seq(1,2,3,4)).toDF().count()
 ```
 
 Example for PySpark:

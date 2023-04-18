@@ -5,6 +5,7 @@ services: healthcare-apis
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: ignite-2022
 ms.topic: reference
 ms.date: 06/03/2022
 ms.author: kesheth
@@ -45,7 +46,7 @@ Below is a summary of the supported RESTful capabilities. For more information o
 | intermediaries                 | No        | No        |
 
 > [!Note] 
-> In the Azure API for FHIR and the open-source FHIR server backed by Cosmos, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 1000 results, an error will be thrown.
+> In the Azure API for FHIR and the open-source FHIR server backed by Azure Cosmos DB, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Azure Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 1000 results, an error will be thrown.
 
 ## Extended Operations
 
@@ -66,7 +67,7 @@ The Microsoft FHIR Server has a pluggable persistence module (see [`Microsoft.He
 
 Currently the FHIR Server open-source code includes an implementation for [Azure Cosmos DB](../../cosmos-db/index-overview.md) and [SQL Database](https://azure.microsoft.com/services/sql-database/).
 
-Cosmos DB is a globally distributed multi-model (SQL API, MongoDB API, etc.) database. It supports different [consistency levels](../../cosmos-db/consistency-levels.md). The default deployment template configures the FHIR Server with `Strong` consistency, but the consistency policy can be modified (generally relaxed) on a request by request basis using the `x-ms-consistency-level` request header.
+Azure Cosmos DB is a globally distributed multi-model (NoSQL, MongoDB, and others) database. It supports different [consistency levels](../../cosmos-db/consistency-levels.md). The default deployment template configures the FHIR Server with `Strong` consistency, but the consistency policy can be modified (generally relaxed) on a request by request basis using the `x-ms-consistency-level` request header.
 
 ## Role-based access control
 
@@ -76,7 +77,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Service limits
 
-* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You'll need a minimum of 400 RUs or 40 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have the RUs increased. The maximum available is 1,000,000. In addition, we support [autoscaling of RUs](autoscale-azure-api-fhir.md).
+* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 100,000 RUs in the portal for Azure API for FHIR. You'll need a minimum of 400 RUs or 40 RUs/GB, whichever is larger. If you need more than 100,000 RUs, you can put in a support ticket to have the RUs increased. The maximum available is 1,000,000. In addition, we support [autoscaling of RUs](autoscale-azure-api-fhir.md).
 
 * **Bundle size** - Each bundle is limited to 500 items.
 

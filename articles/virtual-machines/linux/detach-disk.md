@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 01/09/2023
 ms.author: rogarana
 ms.subservice: disks 
 ms.custom: devx-track-azurecli
@@ -41,7 +41,7 @@ dmesg | grep SCSI
 
 The output is similar to the following example:
 
-```bash
+```output
 [    0.294784] SCSI subsystem initialized
 [    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
 [    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
@@ -57,7 +57,7 @@ sudo -i blkid
 
 The output looks similar to the following example:
 
-```bash
+```output
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
 /dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
@@ -69,19 +69,15 @@ Edit the */etc/fstab* file to remove references to the disk.
 > [!NOTE]
 > Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
 
-Open the */etc/fstab* file in a text editor as follows:
+Open the **/etc/fstab** file in a text editor and remove the line containing the UUID of your disk. Using the example values in this article, the line would look like the following:
 
-```bash
-sudo vi /etc/fstab
-```
-
-In this example, the following line needs to be deleted from the */etc/fstab* file:
-
-```bash
+```config
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
-Use `umount` to unmount the disk. The following example unmounts the */dev/sdc1* partition from the */datadrive* mount point:
+Save and close the file when you're done.
+
+Next, use `umount` to unmount the disk. The following example unmounts the */dev/sdc1* partition from the */datadrive* mount point:
 
 ```bash
 sudo umount /dev/sdc1 /datadrive
@@ -93,10 +89,7 @@ sudo umount /dev/sdc1 /datadrive
 This example detaches the *myDataDisk* disk from VM named *myVM* in *myResourceGroup*.
 
 ```azurecli
-az vm disk detach \
-    -g myResourceGroup \
-	--vm-name myVm \
-	-n myDataDisk
+az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
 ```
 
 The disk stays in storage but is no longer attached to a virtual machine.

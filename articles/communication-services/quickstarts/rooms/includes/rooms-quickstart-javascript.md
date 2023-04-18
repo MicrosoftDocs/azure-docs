@@ -17,7 +17,7 @@ ms.author: antonsamson
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
+- Two or more Communication User Identities. [Create and manage access tokens](../../identity/access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
 - The latest versions of [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
 
 ## Sample code
@@ -40,6 +40,8 @@ npm init -y
 ```
 
 ### Install the packages
+
+You'll need to use the Azure Communication Rooms client library for JavaScript [version 1.0.0-beta.1](https://www.npmjs.com/package/@azure/communication-rooms) or above. 
 
 Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 

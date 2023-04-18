@@ -5,7 +5,7 @@ author: karlerickson
 title: Azure Spring Apps reference architecture
 ms.author: akaleshian
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-java
 description: This reference architecture is a foundation using a typical enterprise hub and spoke design for the use of Azure Spring Apps.
 ---
 
@@ -24,7 +24,7 @@ Azure Spring Apps Standard tier is composed of the Spring Cloud Config Server, t
 
 Azure Spring Apps Enterprise tier is composed of the VMware Tanzu® Build Service™, Application Configuration Service for VMware Tanzu®, VMware Tanzu® Service Registry, Spring Cloud Gateway for VMware Tanzu®, and API portal for VMware Tanzu®.
 
-For an implementation of this architecture, see the [Azure Spring Apps Reference Architecture][10] repository on GitHub.
+For an implementation of this architecture, see the [Azure Spring Apps Reference Architecture][10] on GitHub.
 
 Deployment options for this architecture include Azure Resource Manager (ARM), Terraform, Azure CLI, and Bicep. The artifacts in this repository provide a foundation that you can customize for your environment. You can group resources such as Azure Firewall or Application Gateway into different resource groups or subscriptions. This grouping helps keep different functions separate, such as IT infrastructure, security, business application teams, and so on.
 
@@ -35,10 +35,10 @@ Azure Spring Apps requires two dedicated subnets:
 * Service runtime
 * Spring Boot applications
 
-Each of these subnets requires a dedicated Azure Spring Apps cluster. Multiple clusters can't share the same subnets. The minimum size of each subnet is /28. The number of application instances that Azure Spring Apps can support varies based on the size of the subnet. You can find the detailed Virtual Network (VNET) requirements in the [Virtual network requirements][11] section of [Deploy Azure Spring Apps in a virtual network][17].
+Each of these subnets requires a dedicated Azure Spring Apps cluster. Multiple clusters can't share the same subnets. The minimum size of each subnet is /28. The number of application instances that Azure Spring Apps can support varies based on the size of the subnet. You can find the detailed virtual network requirements in the [Virtual network requirements][11] section of [Deploy Azure Spring Apps in a virtual network][17].
 
 > [!WARNING]
-> The selected subnet size can't overlap with the existing VNET address space, and shouldn't overlap with any peered or on-premises subnet address ranges.
+> The selected subnet size can't overlap with the existing virtual network address space, and shouldn't overlap with any peered or on-premises subnet address ranges.
 
 ## Use cases
 
@@ -112,7 +112,7 @@ The following list describes the infrastructure requirements for public applicat
 * A subnet must only have one instance of Azure Spring Apps.
 * Adherence to at least one Security Benchmark should be enforced.
 * Application host Domain Name Service (DNS) records should be stored in Azure Private DNS.
-* Azure DDoS Protection standard should be enabled.
+* Azure DDoS Protection should be enabled.
 * Azure service dependencies should communicate through Service Endpoints or Private Link.
 * Data at rest should be encrypted.
 * Data in transit should be encrypted.
@@ -235,7 +235,7 @@ The following list shows the CIS controls that address network security in this 
 | 6.5            | Ensure that Network Watcher is 'Enabled'.                      |
 | 6.6            | Ensure that ingress using UDP is restricted from the internet. |
 
-Azure Spring Apps requires management traffic to egress from Azure when deployed in a secured environment. You must allow the network and application rules listed in [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md).
+Azure Spring Apps requires management traffic to egress from Azure when deployed in a secured environment. You must allow the network and application rules listed in [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
 
 #### Application security
 
@@ -278,7 +278,7 @@ Explore this reference architecture through the ARM, Terraform, and Azure CLI de
 [7]: ../web-application-firewall/index.yml
 [8]: ./how-to-config-server.md
 [9]: https://steeltoe.io/
-[10]: https://github.com/Azure/azure-spring-apps-reference-architecture
+[10]: https://github.com/Azure/azure-spring-apps-landing-zone-accelerator/tree/reference-architecture
 [11]: ./how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements
 [12]: ./vnet-customer-responsibilities.md#azure-spring-apps-network-requirements
 [13]: ./vnet-customer-responsibilities.md#azure-spring-apps-fqdn-requirements--application-rules

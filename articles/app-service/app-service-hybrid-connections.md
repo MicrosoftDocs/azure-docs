@@ -7,7 +7,7 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 2/10/2022
 ms.author: madsd
-ms.custom: seodec18, fasttrack-edit
+ms.custom: "UpdateFrequency3, fasttrack-edit"
 ---
 
 # Azure App Service Hybrid Connections

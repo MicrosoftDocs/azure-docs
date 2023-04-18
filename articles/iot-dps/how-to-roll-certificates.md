@@ -1,12 +1,13 @@
 ---
-title: Roll X.509 certificates in Azure IoT Hub Device Provisioning Service
-description: How to roll X.509 certificates with your Device Provisioning Service (DPS) instance
+title: Roll X.509 certificates in DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: How to update or replace X.509 certificates with your Azure IoT Hub Device Provisioning Service (DPS) instance
 author: kgremban
+
 ms.author: kgremban
-ms.date: 03/08/2022
-ms.topic: conceptual
+ms.date: 03/13/2023
+ms.topic: how-to
 ms.service: iot-dps
-services: iot-dps
 ---
 
 # How to roll X.509 device certificates
@@ -41,7 +42,7 @@ The mechanics of installing a new certificate on a device will often involve one
 
 - You can retain a CSR from each device and use that to get a new device certificate from the PKI CA. In this case, you'll need to push the new certificate to each device in a firmware update using a secure OTA update service like [Device Update for IoT Hub](../iot-hub-device-update/index.yml).
 
-## Roll the certificate in the IoT hub
+## Roll the certificate in DPS
 
 The device certificate can be manually added to an IoT hub. The certificate can also be automated using a Device Provisioning Service instance. In this article, we'll assume a Device Provisioning Service instance is being used to support auto-provisioning.
 
@@ -49,129 +50,95 @@ When a device is initially provisioned through auto-provisioning, it boots-up, a
 
 Once a new leaf certificate has been rolled to the device, it can no longer connect to the IoT hub because it’s using a new certificate to connect. The IoT hub only recognizes the device with the old certificate. The result of the device's connection attempt will be an "unauthorized" connection error. To resolve this error, you must update the enrollment entry for the device to account for the device's new leaf certificate. Then the provisioning service can update the IoT Hub device registry information as needed when the device is reprovisioned.
 
-One possible exception to this connection failure would be a scenario where you've created an [Enrollment Group](concepts-service.md#enrollment-group) for your device in the provisioning service. In this case, if you aren't rolling the root or intermediate certificates in the device's certificate chain of trust, then the device will be recognized if the new certificate is part of the chain of trust defined in the enrollment group. If this scenario arises as a reaction to a security breach, you should at least disallow the specific device certificates in the group that are considered to be breached. For more information, see [Disallow specific devices in an enrollment group](./how-to-revoke-device-access-portal.md#disallow-specific-devices-in-an-enrollment-group).
-
-Updating enrollment entries for rolled certificates is accomplished on the **Manage enrollments** page. To access that page, follow these steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the IoT Hub Device Provisioning Service instance that has the enrollment entry for your device.
-
-2. Click **Manage enrollments**.
-
-    ![Manage enrollments](./media/how-to-roll-certificates/manage-enrollments-portal.png)
+One possible exception to this connection failure would be a scenario where you've created an [Enrollment Group](concepts-service.md#enrollment-group) for your device in the provisioning service. In this case, if you aren't rolling the root or intermediate certificates in the device's certificate chain of trust, then the device will be recognized if the new certificate is part of the chain of trust defined in the enrollment group. If this scenario arises as a reaction to a security breach, you should at least disallow the specific device certificates in the group that are considered to be breached. For more information, see [Disallow specific devices in an enrollment group](./how-to-revoke-device-access-portal.md#disallow-specific-devices-from-an-x509-enrollment-group)
 
 How you handle updating the enrollment entry will depend on whether you're using individual enrollments, or group enrollments. Also the recommended procedures differ depending on whether you're rolling certificates because of a security breach, or certificate expiration. The following sections describe how to handle these updates.
 
-## Individual enrollments and security breaches
+### Roll certificates for individual enrollments
 
-If you're rolling certificates in response to a security breach, you should use the following approach that deletes the current certificate immediately:
+If you're rolling certificates in response to a security breach, you should delete any compromised certificates immediately.
 
-1. Click **Individual Enrollments**, and click the registration ID entry in the list.
+If you're rolling certificates to handle certificate expirations, you should use the secondary certificate configuration to reduce downtime for devices attempting to provision. Later, when the secondary certificate nears expiration and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way reduces downtime for devices attempting to provision.
 
-2. Click the **Delete current certificate** button and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save** when finished.
+Updating enrollment entries for rolled certificates is accomplished on the **Manage enrollments** page. To access that page, follow these steps:
 
-    These steps should be completed for the primary and secondary certificate, if both are compromised.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the Device Provisioning Service instance that has the enrollment entry for your device.
 
-    ![Manage individual enrollments with a security breach](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
+1. Select **Manage enrollments**.
 
-3. Once the compromised certificate has been removed from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as a device registration for it exists there. You can address this two ways:
+   :::image type="content" source="./media/how-to-roll-certificates/manage-enrollments-portal.png" alt-text="Screenshot that shows the Manage enrollments page in the Azure portal.":::
+
+1. Select the **Individual enrollments** tab, and select the registration ID entry from the list.
+
+1. Check the **Remove or replace primary/secondary certificate** checkboxes if you want to delete an existing certificate. Select the file folder icon to browse for and upload the new certificates.
+
+   If any of your certificates were compromised, you should remove them as soon as possible.
+
+   If one of your certificates is nearing its expiration, you can keep it in place as long as the second certificate will still be active after that date.
+
+   :::image type="content" source="./media/how-to-roll-certificates/manage-individual-enrollments-portal.png" alt-text="Screenshot that shows how to remove a certificate and upload new ones.":::
+
+1. Select **Save** when finished.
+
+1. If you removed a compromised certificate from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as a device registration for it exists there. You can address this two ways:
 
     The first way would be to manually navigate to your IoT hub and immediately remove the device registration associated with the compromised certificate. Then when the device provisions again with an updated certificate, a new device registration will be created.
 
-    ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
-
     The second way would be to use reprovisioning support to reprovision the device to the same IoT hub. This approach can be used to replace the certificate for the device registration on the IoT hub. For more information, see [How to reprovision devices](how-to-reprovision.md).
 
-## Individual enrollments and certificate expiration
+### Roll certificates for enrollment groups
 
-If you're rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to reduce downtime for devices attempting to provision.
+To update a group enrollment in response to a security breach, you should delete the compromised root CA or intermediate certificate immediately.
 
-Later when the secondary certificate also nears expiration, and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way reduces downtime for devices attempting to provision.
+If you are rolling certificates to handle certificate expirations, you should use the secondary certificate configuration to ensure no downtime for devices attempting to provision. Later, when the secondary certificate also nears expiration and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way ensures no downtime for devices attempting to provision.
 
-1. Click **Individual Enrollments**, and click the registration ID entry in the list.
+#### Update root CA certificates
 
-2. Click **Secondary Certificate** and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
+1. Select **Certificates** from the **Settings** section of the navigation menu for your Device Provisioning Service instance.
 
-    ![Manage individual enrollments using the secondary certificate expiration](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
+   :::image type="content" source="./media/how-to-roll-certificates/manage-certificates.png" alt-text="Screenshot that shows the certificates page.":::
 
-3. Later when the primary certificate has expired, come back and delete that primary certificate by clicking the **Delete current certificate** button.
-
-## Enrollment groups and security breaches
-
-To update a group enrollment in response to a security breach, you should use one of the following approaches that will delete the current root CA, or intermediate certificate immediately.
-
-#### Update compromised root CA certificates
-
-1. Click the **Certificates** tab for your Device Provisioning Service instance.
-
-2. Click the compromised certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name and click **OK**. Repeat this process for all compromised certificates.
-
-    ![Delete root CA certificate](./media/how-to-roll-certificates/delete-root-cert.png)
-
-3. Follow steps outlined in [Configure verified CA certificates](how-to-verify-certificates.md) to add and verify new root CA certificates.
-
-4. Click the **Manage enrollments** tab for your Device Provisioning Service instance, and click the **Enrollment Groups** list. Click your enrollment group name in the list.
-
-5. Click **CA Certificate**, and select your new root CA certificate. Then click **Save**. 
-
-    ![Select the new root CA certificate for a compromised certificate](./media/how-to-roll-certificates/select-new-root-cert.png)
-
-6. Once the compromised certificate has been removed from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as device registrations for it exists there. You can address this two ways: 
-
-    The first way would be to manually navigate to your IoT hub and immediately remove the device registration associated with the compromised certificate. Then when your devices provision again with updated certificates, a new device registration will be created for each one.
-
-    ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
-
-    The second way would be to use reprovisioning support to reprovision your devices to the same IoT hub. This approach can be used to replace certificates for device registrations on the IoT hub. For more information, see [How to reprovision devices](how-to-reprovision.md).
-
-#### Update compromised intermediate certificates
-
-1. Click **Enrollment Groups**, and then click the group name in the list. 
-
-2. Click **Intermediate Certificate**, and **Delete current certificate**. Click the folder icon to navigate to the new intermediate certificate to be uploaded for the enrollment group. Click **Save** when you're finished. These steps should be completed for both the primary and secondary certificate, if both are compromised.
-
-    This new intermediate certificate should be signed by a verified root CA certificate that has already been added into provisioning service. For more information, see [X.509 certificates](concepts-x509-attestation.md#x509-certificates).
-
-    ![Manage individual enrollments for a compromised intermediate](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
-
-3. Once the compromised certificate has been removed from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as device registrations for it exists there. You can address this two ways: 
-
-    The first way would be to manually navigate to your IoT hub and immediately remove the device registration associated with the compromised certificate. Then when your devices provision again with updated certificates, a new device registration will be created for each one.
-
-    ![Remove IoT hub device registration](./media/how-to-roll-certificates/remove-hub-device-registration.png)
-
-    The second way would be to use reprovisioning support to reprovision your devices to the same IoT hub. This approach can be used to replace certificates for device registrations on the IoT hub. For more information, see [How to reprovision devices](how-to-reprovision.md).
-
-## Enrollment groups and certificate expiration
-
-If you are rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to ensure no downtime for devices attempting to provision.
-
-Later when the secondary certificate also nears expiration, and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way ensures no downtime for devices attempting to provision. 
-
-#### Update expiring root CA certificates
+1. Select the compromised or expired certificate from the list, and then select **Delete**. Confirm the delete by entering the certificate name and select **OK**.
 
 1. Follow steps outlined in [Configure verified CA certificates](how-to-verify-certificates.md) to add and verify new root CA certificates.
 
-2. Click the **Manage enrollments** tab for your Device Provisioning Service instance, and click the **Enrollment Groups** list. Click your enrollment group name in the list.
+1. Select **Manage enrollments** from the **Settings** section of the navigation menu for your Device Provisioning Service instance, and select the **Enrollment groups** tab.
 
-3. Click **CA Certificate**, and select your new root CA certificate under the **Secondary Certificate** configuration. Then click **Save**.
+1. Select your enrollment group name from the list.
 
-    ![Select the new root CA certificate for expiration](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
+1. In the **X.509 certificate settings** section, and select your new root CA certificate to either replace the compromised or expired certificate, or to add as a secondary certificate.
 
-4. Later when the primary certificate has expired, click the **Certificates** tab for your Device Provisioning Service instance. Click the expired certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name, and click **OK**.
+   :::image type="content" source="./media/how-to-roll-certificates/select-new-root-cert.png" alt-text="Screenshot that shows selecting a new uploaded certificate for an enrollment group.":::
 
-    ![Delete root CA certificate](./media/how-to-roll-certificates/delete-root-cert.png)
+1. Select **Save**.
 
-#### Update expiring intermediate certificates
+1. If you removed a compromised certificate from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as device registrations for it exists there. You can address this two ways:
 
-1. Click **Enrollment Groups**, and click the group name in the list.
+   The first way would be to manually navigate to your IoT hub and immediately remove the device registrations associated with the compromised certificate. Then when your devices provision again with updated certificates, a new device registration will be created for each one.
 
-2. Click **Secondary Certificate** and then, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
+   The second way would be to use reprovisioning support to reprovision your devices to the same IoT hub. This approach can be used to replace certificates for device registrations on the IoT hub. For more information, see [How to reprovision devices](how-to-reprovision.md).
 
-    This new intermediate certificate should be signed by a verified root CA certificate that has already been added into provisioning service. For more information, see [X.509 certificates](concepts-x509-attestation.md#x509-certificates).
+#### Update intermediate certificates
 
-   ![Manage enrollment groups using the secondary certificate expiring](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
+1. Select **Manage enrollments** from the **Settings** section of the navigation menu for your Device Provisioning Service instance, and select the **Enrollment groups** tab.
 
-3. Later when the primary certificate has expired, come back and delete that primary certificate by clicking the **Delete current certificate** button.
+1. Select the group name from the list.
+
+1. Check the **Remove or replace primary/secondary certificate** checkboxes if you want to delete an existing certificate. Select the file folder icon to browse for and upload the new certificates.
+
+   If any of your certificates were compromised, you should remove them as soon as possible.
+
+   If one of your certificates is nearing its expiration, you can keep it in place as long as the second certificate will still be active after that date.
+
+   Each intermediate certificate should be signed by a verified root CA certificate that has already been added to the provisioning service. For more information, see [X.509 certificates](concepts-x509-attestation.md#x509-certificates).
+
+   :::image type="content" source="./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png" alt-text="Screenshot that shows replacing an intermediate certificate for an enrollment group.":::
+
+1. If you removed a compromised certificate from the provisioning service, the certificate can still be used to make device connections to the IoT hub as long as device registrations for it exists there. You can address this two ways:
+
+    The first way would be to manually navigate to your IoT hub and immediately remove the device registration associated with the compromised certificate. Then when your devices provision again with updated certificates, a new device registration will be created for each one.
+
+    The second way would be to use reprovisioning support to reprovision your devices to the same IoT hub. This approach can be used to replace certificates for device registrations on the IoT hub. For more information, see [How to reprovision devices](how-to-reprovision.md).
 
 ## Reprovision the device
 
@@ -179,9 +146,9 @@ Once the certificate is rolled on both the device and the Device Provisioning Se
 
 One easy way of programming devices to reprovision is to program the device to contact the provisioning service to go through the provisioning flow if the device receives an “unauthorized” error from attempting to connect to the IoT hub.
 
-Another way is for both the old and the new certificates to be valid for a short overlap, and use the IoT hub to send a command to devices to have them re-register via the provisioning service to update their IoT Hub connection information. Because each device can process commands differently, you will have to program your device to know what to do when the command is invoked. There are several ways you can command your device via IoT Hub, and we recommend using [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md) or [jobs](../iot-hub/iot-hub-devguide-jobs.md) to initiate the process.
+Another way is for both the old and the new certificates to be valid for a short overlap, and use the IoT hub to send a command to devices to have them re-register via the provisioning service to update their IoT Hub connection information. Because each device can process commands differently, you have to program your device to know what to do when the command is invoked. There are several ways you can command your device via IoT Hub, and we recommend using [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md) or [jobs](../iot-hub/iot-hub-devguide-jobs.md) to initiate the process.
 
-Once reprovisioning is complete, devices will be able to connect to IoT Hub using their new certificates.
+Once reprovisioning is complete, devices are able to connect to IoT Hub using their new certificates.
 
 ## Disallow certificates
 

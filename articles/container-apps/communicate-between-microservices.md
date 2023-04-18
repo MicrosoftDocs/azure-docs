@@ -4,6 +4,7 @@ description: Learn how to communicate between microservices deployed in Azure Co
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 05/13/2022
 ms.author: cshoe
@@ -12,7 +13,7 @@ zone_pivot_groups: container-apps-image-build-type
 
 # Tutorial: Communication between microservices in Azure Container Apps
 
-Azure Container Apps exposes each container app through a domain name if [ingress](ingress.md) is enabled. Ingress endpoints for container apps within an external environment can be either publicly accessible or only available to other container apps in the same [environment](environment.md).
+Azure Container Apps exposes each container app through a domain name if [ingress](ingress-how-to.md) is enabled. Ingress endpoints for container apps within an external environment can be either publicly accessible or only available to other container apps in the same [environment](environment.md).
 
 Once you know the fully qualified domain name for a given container app, you can make direct calls to the service from other container apps within the shared environment.
 
@@ -47,10 +48,10 @@ Sign in to the Azure CLI.
 az login
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az login
+```azurepowershell
+Connect-AzAccount
 ```
 
 ---
@@ -63,10 +64,10 @@ az login
 az acr login --name $ACR_NAME
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az acr login --name $ACR_NAME
+```azurepowershell
+az acr login --name $ACRName
 ```
 
 ---
@@ -110,10 +111,10 @@ az acr login --name $ACR_NAME
 az acr build --registry $ACR_NAME --image albumapp-ui .
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az acr build --registry $ACR_NAME --image albumapp-ui .
+```azurepowershell
+az acr build --registry $ACRName --image albumapp-ui .
 ```
 
 ---
@@ -129,13 +130,13 @@ Output from the `az acr build` command shows the upload progress of the source c
     # [Bash](#tab/bash)
 
     ```azurecli
-    docker build --tag $ACR_NAME.azurecr.io/albumapp-ui . 
+    docker build --tag "$ACR_NAME.azurecr.io/albumapp-ui" . 
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
-    ```powershell
-    docker build --tag $ACR_NAME.azurecr.io/albumapp-ui . 
+    ```azurepowershell
+    docker build --tag "$ACRName.azurecr.io/albumapp-ui" . 
     ```
 
     ---
@@ -150,10 +151,10 @@ Output from the `az acr build` command shows the upload progress of the source c
     az acr login --name $ACR_NAME
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
-    ```powershell
-    az acr login --name $ACR_NAME
+    ```azurepowershell
+    az acr login --name $ACRName
     ```
 
     ---
@@ -163,13 +164,15 @@ Output from the `az acr build` command shows the upload progress of the source c
     # [Bash](#tab/bash)
 
     ```azurecli
-     docker push $ACR_NAME.azurecr.io/albumapp-ui 
+
+     docker push "$ACR_NAME.azurecr.io/albumapp-ui" 
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
-    ```powershell
-    docker push $ACR_NAME.azurecr.io/albumapp-ui 
+    ```azurepowershell
+
+    docker push "$ACRName.azurecr.io/albumapp-ui"
     ```
 
     ---
@@ -205,10 +208,11 @@ Run the following command to query for the API endpoint address.
 API_BASE_URL=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query properties.configuration.ingress.fqdn -o tsv)
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$API_BASE_URL=$(az containerapp show --resource-group $RESOURCE_GROUP --name $API_NAME --query properties.configuration.ingress.fqdn -o tsv)
+```azurepowershell
+$APIBaseURL = (Get-AzContainerApp -Name $APIName -ResourceGroupName $ResourceGroup).IngressFqdn
+
 ```
 
 ---
@@ -231,31 +235,83 @@ az containerapp create \
   --env-vars API_BASE_URL=https://$API_BASE_URL \
   --ingress 'external' \
   --registry-server $ACR_NAME.azurecr.io \
-  --query configuration.ingress.fqdn
+  --query properties.configuration.ingress.fqdn
 ```
 
-# [PowerShell](#tab/powershell)
 
-```azurecli
-az containerapp create `
-  --name $FRONTEND_NAME `
-  --resource-group $RESOURCE_GROUP `
-  --environment $ENVIRONMENT `
-  --image $ACR_NAME.azurecr.io/albumapp-ui  `
-  --env-vars API_BASE_URL=https://$API_BASE_URL `
-  --target-port 3000 `
-  --ingress 'external' `
-  --registry-server "$ACR_NAME.azurecr.io"  `
-  --query configuration.ingress.fqdn
+By adding the argument `--env-vars "API_BASE_URL=https://$API_ENDPOINT"` to `az containerapp create`, you define an environment variable for your front end application. With this syntax, the environment variable named `API_BASE_URL` is set to the API's FQDN.
+
+The output from the `az containerapp create` command shows the URL of the front end application.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+To create the container app, create template objects that you'll pass in as arguments to the `New-AzContainerApp` command.
+
+Create a template object to define your container image parameters.  The environment variable named `API_BASE_URL` is set to the API's FQDN.
+
+```azurepowershell
+
+$EnvVars = New-AzContainerAppEnvironmentVarObject -Name API_BASE_URL -Value https://$APIBaseURL
+
+$ContainerArgs = @{
+  Name = $FrontendName
+  Image = $ACRName + '.azurecr.io/albumapp-ui'
+  Env = $EnvVars
+}
+$ContainerObj = New-AzContainerAppTemplateObject @ContainerArgs
+```
+
+You'll need run the following command to get your registry credentials.
+
+```azurepowershell
+$RegistryCredentials = Get-AzContainerRegistryCredential -Name $ACRName -ResourceGroupName $ResourceGroup
+```
+
+Create a registry credential object to define your registry information, and a secret object to define your registry password.  The `PasswordSecretRef` in `$RegistryObj` refers to the `Name` in `$SecretObj`.  
+
+```azurepowershell
+$RegistryArgs = @{
+    Server = $ACRName + '.azurecr.io'
+    PasswordSecretRef = 'registrysecret'
+    Username = $RegistryCredentials.Username
+}
+$RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
+
+$SecretObj = New-AzContainerAppSecretObject -Name 'registrysecret' -Value $RegistryCredentials.Password
+```
+
+Get your environment ID.
+
+```azurepowershell
+$EnvId = (Get-AzContainerAppManagedEnv -EnvName $Environment -ResourceGroup $ResourceGroup).Id
+```
+
+Create the container app.
+
+```azurepowershell
+$AppArgs = @{
+    Name = $FrontendName
+    Location = $Location
+    ResourceGroupName = $ResourceGroup
+    ManagedEnvironmentId = $EnvId
+    TemplateContainer = $ContainerObj
+    ConfigurationRegistry = $RegistryObj
+    ConfigurationSecret = $SecretObj
+    IngressTargetPort = 3000
+    IngressExternal = $true
+}
+$FrontEndApp = New-AzContainerApp @AppArgs
+
+# show the app's FQDN
+
+$FrontEndApp.IngressFqdn
 ```
 
 ---
 
-By adding the argument `--env-vars "API_BASE_URL=https://$API_ENDPOINT"` to `az containerapp create`, you define an environment variable for your front end application. With this syntax, the environment variable named `API_BASE_URL` is set to the API's FQDN.
-
 ## View website
 
-The `az containerapp create` CLI command returns the fully qualified domain name (FQDN) of your album UI container app. Open this location in a browser to navigate to the web application resembling the following screenshot.
+Use the container app's FQDN to view the website.  The page will resemble the following screenshot.
 
 :::image type="content" source="media/communicate-between-microservices/azure-container-apps-album-ui.png" alt-text="Screenshot of album list UI microservice.":::
 
@@ -263,16 +319,20 @@ The `az containerapp create` CLI command returns the fully qualified domain name
 
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
 
+> [!CAUTION]
+> This command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
+
+
 # [Bash](#tab/bash)
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az group delete --name $RESOURCE_GROUP
+```azurepowershell
+Remove-AzResourceGroup -Name $ResourceGroup -Force
 ```
 
 ---

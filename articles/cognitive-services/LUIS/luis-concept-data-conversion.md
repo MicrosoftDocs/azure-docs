@@ -14,6 +14,9 @@ ms.date: 03/21/2022
 ---
 
 # Convert data format of utterances
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 LUIS provides the following conversions of a user utterance before prediction.
 
 * Speech to text using [Cognitive Services Speech](../Speech-Service/overview.md) service.

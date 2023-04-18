@@ -2,7 +2,6 @@
 title: Use Planned Maintenance for your Azure Kubernetes Service (AKS) cluster weekly releases (preview)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Planned Maintenance in Azure Kubernetes Service (AKS) for cluster weekly releases
-services: container-service
 ms.topic: article
 ms.date: 09/16/2021
 ms.author: kaarthis
@@ -10,9 +9,11 @@ author: kaarthis
 
 ---
 
-#  Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster exclusively for weekly releases (preview)
+# Use Planned Maintenance pre-created configurations to schedule Azure Kubernetes Service (AKS) weekly releases (preview)
 
- Planned Maintenance allows you to schedule weekly maintenance windows that will ensure the weekly releases [releases] are controlled. Maintenance Windows are configured using the Azure CLI, allowing you to select from a set of pre-available configurations.
+Planned Maintenance allows you to schedule weekly maintenance windows that ensure the weekly [releases] are controlled. You can select from the set of pre-created configurations and use the Azure CLI to configure your maintenance windows.
+
+You can also be schedule with more fine-grained control using Planned Maintenance's `default` configuration type. For more information, see [Planned Maintenance to schedule and control upgrades][planned-maintenance].
 
 ## Before you begin
 
@@ -22,17 +23,15 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 ### Limitations
 
-When using Planned Maintenance, the following restrictions apply:
+When you use Planned Maintenance, the following restrictions apply:
 
 - AKS reserves the right to break these windows for unplanned/reactive maintenance operations that are urgent or critical.
 - Currently, performing maintenance operations are considered *best-effort only* and are not guaranteed to occur within a specified window.
 - Updates cannot be blocked for more than seven days.
 
-
-
 ## Available pre-created public maintenance configurations for you to pick
 
-There are 2 general kinds of pre-created public maintenance configurations:
+There are two general kinds of pre-created public maintenance configurations:
 
 - For Weekday (Monday, Tuesday, Wednesday, Thursday), from 10 pm to 6 am next morning.
 - For Weekend (Friday, Saturday, Sunday), from 10 pm to 6 am next morning.
@@ -109,3 +108,4 @@ az maintenance assignment delete --name assignmentName --provider-name "Microsof
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [aks-upgrade]: upgrade-cluster.md
 [releases]:release-tracker.md
+[planned-maintenance]: ./planned-maintenance.md

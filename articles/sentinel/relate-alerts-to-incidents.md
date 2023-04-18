@@ -2,9 +2,9 @@
 title: Relate alerts to incidents in Microsoft Sentinel | Microsoft Docs
 description: This article shows you how to relate alerts to your incidents in Microsoft Sentinel.
 author: yelevin
-ms.topic: how-to
-ms.date: 05/12/2022
 ms.author: yelevin
+ms.topic: how-to
+ms.date: 01/17/2023
 ---
 
 # Relate alerts to incidents in Microsoft Sentinel
@@ -21,7 +21,60 @@ One thing that this feature allows you to do is to include alerts from one data 
 
 This feature is built into the latest version of the Microsoft Sentinel API, which means that it's available to the Logic Apps connector for Microsoft Sentinel. So you can use playbooks to automatically add an alert to an incident if certain conditions are met.
 
-You can also use this automation to add alerts to [manually-created incidents](create-incident-manually.md), to create custom correlations, or to define custom criteria for grouping alerts into incidents when they're created.
+You can also use this automation to add alerts to [manually created incidents](create-incident-manually.md), to create custom correlations, or to define custom criteria for grouping alerts into incidents when they're created.
+
+### Limitations
+
+- Microsoft Sentinel imports both alerts and incidents from Microsoft 365 Defender. For the most part, you can treat these alerts and incidents like regular Microsoft Sentinel alerts and incidents. 
+
+    However, you can only add Defender alerts to Defender incidents (or remove them) in the Defender portal, not in the Sentinel portal. If you try doing this in Microsoft Sentinel, you will get an error message. You can pivot to the incident in the Microsoft 365 Defender portal using the link in the Microsoft Sentinel incident. Don't worry, though - any changes you make to the incident in the Microsoft 365 Defender portal are [synchronized](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-365-defender-incidents-in-microsoft-sentinel-and-bi-directional-sync) with the parallel incident in Microsoft Sentinel, so you'll still see the added alerts in the incident in the Sentinel portal.
+
+    You *can* add Microsoft 365 Defender alerts to non-Defender incidents, and non-Defender alerts to Defender incidents, in the Microsoft Sentinel portal.
+
+- An incident can contain a maximum of 150 alerts. If you try to add an alert to an incident with 150 alerts in it, you will get an error message.
+
+## Add alerts using the entity timeline (Preview)
+
+The entity timeline, as featured in the new [incident experience](incident-investigation.md) (now in Preview), presents all the entities in a particular incident investigation. When an entity in the list is selected, a miniature entity page is displayed in a side panel.
+
+1. From the Microsoft Sentinel navigation menu, select **Incidents**.
+
+    :::image type="content" source="media/investigate-incidents/incident-grid.png" alt-text="Screenshot of new incidents queue displayed in a grid." lightbox="media/investigate-incidents/incident-grid.png":::
+
+1. Select an incident to investigate. In the incident details panel, select **View full details**.
+
+1. In the incident page, select the **Entities** tab.
+
+    :::image type="content" source="media/investigate-incidents/entities-tab.png" alt-text="Screenshot of entities tab in incident page." lightbox="media/investigate-incidents/entities-tab.png":::
+
+1. Select an entity from the list.
+
+1. In the entity page side panel, select the **Timeline** card.
+
+    :::image type="content" source="media/relate-alerts-to-incidents/entity-timeline.png" alt-text="Screenshot of entity timeline card in entities tab of incident page.":::
+
+1. Select an alert external to the open incident. These are indicated by a grayed-out shield icon and a dotted-line color band representing the severity. Select the plus-sign icon on the right end of that alert.
+
+    :::image type="content" source="media/relate-alerts-to-incidents/external-alert.png" alt-text="Screenshot of appearance of external alert in entity timeline.":::
+
+1. Confirm adding the alert to the incident by selecting **OK**. You'll receive a notification confirming the adding of the alert to the incident, or explaining why it was not added.
+    :::image type="content" source="media/relate-alerts-to-incidents/add-alert-to-incident.png" alt-text="Screenshot of adding an alert to an incident in the entity timeline.":::
+
+You'll see that the added alert now appears in the open incident's **Timeline** widget in the **Overview** tab, with a full-color shield icon and a solid-line color band like any other alert in the incident.
+
+The added alert is now a full part of the incident, and any entities in the added alert (that weren't already part of the incident) have also become part of the incident. You can now explore *those* entities' timelines for *their* other alerts that are now eligible to be added to the incident.
+
+### Remove an alert from an incident
+
+Alerts that were added to an incident&mdash;manually or automatically&mdash;can be removed from an incident as well.
+
+1. From the Microsoft Sentinel navigation menu, select **Incidents**.
+
+1. Select an incident to investigate. In the incident details panel, select **View full details**.
+
+1. In the **Overview** tab, in the **Incident timeline** widget, select the three dots next to an alert you want to remove from the incident. From the pop-up menu, select **Remove alert**.
+
+    :::image type="content" source="media/relate-alerts-to-incidents/remove-alert.png" alt-text="Screenshot showing how to remove an alert from an incident in the incident timeline.":::
 
 ## Add alerts using the investigation graph
 
@@ -45,7 +98,7 @@ The [investigation graph](investigate-cases.md) is a visual, intuitive tool that
 
 1. Hover over one of the related alerts until a menu pops out to its side. Select **Add alert to incident (Preview)**.
 
-    :::image type="content" source="media/relate-alerts-to-incidents/add-alert-to-incident.png" alt-text="Screenshot of adding an alert to an incident in the investigation graph.":::
+    :::image type="content" source="media/relate-alerts-to-incidents/add-alert-using-graph.png" alt-text="Screenshot of adding an alert to an incident in the investigation graph.":::
 
 1. The alert is added to the incident, and for all purposes is part of the incident, along with all its entities and details. You'll see two visual representations of this:
 
@@ -80,16 +133,6 @@ When adding an alert to an incident, depending on the circumstances, you might b
     - **Cancel** leaves the status quo. It makes no changes to either the open incident or any other referenced incident.
 
     Which of these options you choose depends on your particular needs; we don't recommend one choice over the other.
-
-### Limitations
-
-- Microsoft Sentinel imports both alerts and incidents from Microsoft 365 Defender. For the most part, you can treat these alerts and incidents like regular Microsoft Sentinel alerts and incidents. 
-
-    However, you can only add Defender alerts to Defender incidents (or remove them) in the Defender portal, not in the Sentinel portal. If you try doing this in Microsoft Sentinel, you will get an error message. You can pivot to the incident in the Microsoft 365 Defender portal using the link in the Microsoft Sentinel incident. Don't worry, though - any changes you make to the incident in the Microsoft 365 Defender portal are [synchronized](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-365-defender-incidents-in-microsoft-sentinel-and-bi-directional-sync) with the parallel incident in Microsoft Sentinel, so you'll still see the added alerts in the incident in the Sentinel portal.
-
-    You *can* add Microsoft 365 Defender alerts to non-Defender incidents, and non-Defender alerts to Defender incidents, in the Microsoft Sentinel portal.
-
-- An incident can contain a maximum of 150 alerts. If you try to add an alert to an incident with 150 alerts in it, you will get an error message.
 
 ## Add/remove alerts using playbooks
 

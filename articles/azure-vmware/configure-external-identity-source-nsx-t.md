@@ -1,14 +1,14 @@
 ---
-title: Configure external identity source for NSX-T
-description: Learn how to use the Azure VMware Solution to configure an external identity source for NSX-T.
+title: Configure external identity source for NSX-T Data Center
+description: Learn how to use the Azure VMware Solution to configure an external identity source for NSX-T Data Center.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 09/20/2022
+ms.date: 10/17/2022
 
 ---
-# Configure external identity source for NSX-T
+# Configure external identity source for NSX-T Data Center
 
-In this article, you'll learn how to configure an external identity source for NSX-T in an Azure VMware Solution. The NSX-T Data Center can be configured with external LDAP directory service to add remote directory users or groups. The users can be assigned an NSX-T Data Center Role-based access control (RBAC) role like you've on-premises. 
+In this article, you'll learn how to configure an external identity source for NSX-T Data Center in an Azure VMware Solution. The NSX-T Data Center can be configured with external LDAP directory service to add remote directory users or groups. The users can be assigned an NSX-T Data Center Role-based access control (RBAC) role like you've on-premises. 
 
 ## Prerequisites 
 
@@ -20,13 +20,13 @@ In this article, you'll learn how to configure an external identity source for N
     >[!Note] 
     > Self-sign certificates are not recommended for production environments.   
     
-- Ensure your Azure VMware Solution has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. For more information, see [Configure NSX-T DNS for resolution to your Active Directory Domain and Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md) .    
+- Ensure your Azure VMware Solution has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. For more information, see [Configure NSX-T Data Center DNS for resolution to your Active Directory Domain and Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md) .    
 >[!NOTE] 
 > For more information about LDAPS and certificate issuance, see with your security or identity management team.
 
 ## Add Active Directory as LDAPS identity source 
 
-1. Sign-in to NSX-T and Navigate to System > Users and Roles > LDAP. 
+1. Sign-in to NSX-T Manager and Navigate to System > Users and Roles > LDAP. 
 
 1. Select on the Add Identity Source. 
 
@@ -59,11 +59,11 @@ In this article, you'll learn how to configure an external identity source for N
 1. Select **Save** to complete the changes.
        :::image type="content" source="./media/nsxt/user-roles-ldap-server.png" alt-text="Screenshot showing user roles on an LDAP server." border="true" lightbox="./media/nsxt/user-roles-ldap-server.png":::
 
-## Assign other NSX-T roles to Active Directory identities 
+## Assign other NSX-T Data Center roles to Active Directory identities 
 
-After adding an external identity, you can assign NSX-T Roles to Active Directory security groups based on your organization's security controls. 
+After adding an external identity, you can assign NSX-T Data Center Roles to Active Directory security groups based on your organization's security controls. 
 
-1. Sign in to NSX-T and navigate to **System** > **Users and Roles**.
+1. Sign in to NSX-T Manager and navigate to **System** > **Users and Roles**.
        
 1. Select **Add** > **Role Assignment for LDAP**.  
 
@@ -76,7 +76,7 @@ After adding an external identity, you can assign NSX-T Roles to Active Director
 1. Verify the permission assignment is displayed under **Users and Roles**.
 :::image type="content" source="./media/nsxt/user-roles-ldap-verify.png" alt-text="Screenshot showing how to verify user roles on an LDAP server." border="true" lightbox="./media/nsxt/user-roles-ldap-verify.png":::
 
-1. Users should now be able to sign in to NSX-T using their Active Directory credentials. 
+1. Users should now be able to sign in to NSX-T Manager using their Active Directory credentials. 
 
 ## Next steps
 Now that you've configured the external source, you can also learn about:
