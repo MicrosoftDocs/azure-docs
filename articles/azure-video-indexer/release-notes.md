@@ -27,7 +27,7 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 
 ### Excluding sensitive AI models
 
-Following the Microsoft Responsible AI agenda, Video Indexer now allows you to exclude specific AI models when indexing media files. The list of sensitive AI models includes: face detection, observed people, emotions, labels identification.
+Following the Microsoft Responsible AI agenda, Azure Video Indexer now allows you to exclude specific AI models when indexing media files. The list of sensitive AI models includes: face detection, observed people, emotions, labels identification.
 
 This feature is currently available through the API, and is available in all presets except the Advanced preset.
 
