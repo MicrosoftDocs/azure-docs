@@ -11,7 +11,10 @@ ms.date: 05/02/2023
 ms.author: wellee
 
 ---
-# Configure Palo Alto Networks Cloud NGFW in a Virtual WAN hub
+# Configure Palo Alto Networks Cloud NGFW in Virtual WAN (preview)
+
+>[!NOTE]
+>Preview Place holder message goes here
 
 Palo Alto Networks Cloud NGFW is a cloud-native software-as-a-service security offering that can be deployed into the Virtual WAN hub as a bump-in-the-wire solution to inspect network traffic.
 
