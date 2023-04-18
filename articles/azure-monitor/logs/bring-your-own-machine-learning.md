@@ -60,11 +60,11 @@ There are three approaches to making data in Azure Monitor Logs available to you
 
 - **Run queries on top of Azure Monitor Logs data** - [Integrate a notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md) or run a script or application using libraries like [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) or [MSTICPY](https://msticpy.readthedocs.io/en/latest/) to retrieve data from Azure Monitor Logs in a Pandas DataFrame.  
 - **Export data out of Azure Monitor Logs** - Usually to blob storage account in JSON format. 
-- **Export data for model training and run queries on top of Azure Monitor Logs data for scoring**
+- **Hybrid pipeline** - Export data for model training and run queries on top of Azure Monitor Logs data for scoring.
 
 This table compares the advantages and limitations of the various machine learning pipeline implementation approaches:
 
-||Query on top of Azure Monitor Logs|External machine learning pipeline|Hybrid pipeline<br>(Scoring in an integrated environment, external model training)|
+||Query on top of Azure Monitor Logs|Export data|Hybrid pipeline|
 |-|-|-|-|
 |**Data exported?**|No|Yes|**Training**: Yes<br>**Scoring**: No |
 |**Uses other Azure services?**|Optional|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azur e Synapse](/azure/synapse-analytics/overview-what-is). |**Training**: Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).<br>**Scoring**: Optional, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|
