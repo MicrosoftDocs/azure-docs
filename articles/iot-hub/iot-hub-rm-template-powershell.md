@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
 ms.date: 04/02/2019 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Create an IoT hub using Azure Resource Manager template (PowerShell)

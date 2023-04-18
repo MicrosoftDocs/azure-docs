@@ -70,6 +70,8 @@
       - name: Create profile and endpoint - ARM Template
         displayName: Resource Manager
         href: ../cdn/create-profile-endpoint-template.md?toc=/azure/frontdoor/TOC.json
+      - name: Create profile and endpoint - Terraform
+        href: ../cdn/create-profile-endpoint-terraform.md?toc=/azure/frontdoor/TOC.json
 - name: Tutorials
   items:
     - name: Front Door
