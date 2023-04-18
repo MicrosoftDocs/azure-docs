@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
-ms.topic: how-t0
+ms.topic: how-to
 ms.date: 03/09/2023
 ms.author: mimart
 ms.custom: it-pro
@@ -66,4 +66,4 @@ To reset a customer's password:
 1. Search for and select the user to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.
 
-For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Azure Active Directory](../fundamentals/active-directory-users-restore.md).
+For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Azure Active Directory](../../fundamentals/active-directory-users-restore.md).
