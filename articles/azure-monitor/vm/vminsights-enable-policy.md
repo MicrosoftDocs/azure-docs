@@ -24,7 +24,7 @@ VM insights policy initiatives install Azure Monitor Agent and the Dependency ag
 The initiatives apply to new machines you create and machines you modify, but not to existing VMs.
 
 |Name |Description |
-|:---|:---|
+|-----|------------|
 | Enable Azure Monitor for VMs with Azure Monitoring Agent  | Installs Azure Monitor Agent and the Dependency agent on Azure VMs. |
 | Enable Azure Monitor for virtual machine scale sets with Azure Monitoring Agent  | Installs Azure Monitor Agent and the Dependency agent on virtual machine scale sets. |
 | Enable Azure Monitor for Hybrid VMs with Azure Monitoring Agent | Installs Azure Monitor Agent and Dependency agent on hybrid VMs connected with Azure Arc. |
