@@ -8,6 +8,10 @@
   items:
   - name: Create Traffic Controller
     href: quickstart-create-traffic-controller.md
+- name: Concepts
+  items:
+  - name: How Traffic Controller works
+    href: concepts-how-traffic-controller-works.md
 - name: How-to guides
   items:
   - name: Backend MTLS
