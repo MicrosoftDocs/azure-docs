@@ -125,15 +125,15 @@ At this point, we have set up a static HTML page with a button that opens a call
 
 Add the following code to the `getAccessToken()` function:
 
-    ``` javascript
+``` javascript
 
-        async function getAccessToken(){
-            const response = await fetch('https://<your-function-name>.azurewebsites.net/api/GetAccessToken?code=<your-function-key>');
-            const data = await response.json();
-            return data.token;
-        }
+    async function getAccessToken(){
+        const response = await fetch('https://<your-function-name>.azurewebsites.net/api/GetAccessToken?code=<your-function-key>');
+        const data = await response.json();
+        return data.token;
+    }
 
-    ```
+```
     
 You need to add the URL of your Azure Function. You can find these values in the Azure portal under your Azure Function resource.
 
