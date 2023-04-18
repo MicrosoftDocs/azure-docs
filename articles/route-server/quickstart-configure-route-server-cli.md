@@ -167,6 +167,8 @@ RouteServerIps  : {10.5.10.4, 10.5.10.5}  "virtualRouterAsn": 65515,
 
 If you have an ExpressRoute and an Azure VPN gateway in the same virtual network and you want them to exchange routes, you can enable route exchange on the Azure Route Server.
 
+[!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-active-active.md)]
+
 > [!IMPORTANT]
 > For greenfield deployments make sure to create the Azure VPN gateway before creating Azure Route Server; otherwise the deployment of Azure VPN Gateway will fail.
 > 
