@@ -436,7 +436,7 @@
     - name: Audit and manage
       displayName: policy
       href: how-to-integrate-azure-policy.md
-- name: Work with Data
+- name: Work with data
   items:
   - name: Data Administration
     items:
@@ -709,6 +709,44 @@
     - name: Schedule jobs
       href: how-to-schedule-pipeline-job.md
     - name: Common issues and FAQ
+- name: Orchestrate workflows using pipelines
+  items:
+  - name: Overview
+    items:
+    - name: What is a pipeline
+      href: concept-ml-pipelines.md
+    - name: What is a component
+    - name: What is Designer
+  - name: How to create pipelines with components
+    items: 
+    - name: Create ML pipelines using components (Python SDK v2)
+      href: how-to-create-component-pipeline-python.md
+    - name: Create ML pipelines using components (CLI v2)
+      href: how-to-create-component-pipelines-cli.md
+    - name: Create ML pipelines using components (UI)
+      href: how-to-create-component-pipelines-ui.md
+  - name: Use Azure Machine Learning jobs in pipelines
+    items: 
+    - name: How to use parallel job in pipeline
+      href: how-to-use-parallel-job-in-pipeline.md
+    - name: How to do hyperparameter sweep in pipeline
+      href: how-to-use-sweep-in-pipeline.md
+  - name: Manage complex pipelines
+    items:
+    - name: How to use pipeline components in pipeline 
+      href: how-to-use-pipeline-component.md
+    - name: Control flow 
+  - name: Debug pipeline jobs
+    items:
+    - name: Build and debug pipelines (UI)
+      href: how-to-use-pipeline-ui.md
+    - name: Debug job performance
+  - name: Schedule a pipeline job
+    href: how-to-schedule-pipeline-job.md
+  - name: Deploy a pipeline as a batch endpoint
+  - name: Use pipeline inputs for versatile pipeline
+    href: how-to-use-pipeline-parameter.md
+  - name: Manage components
 - name: How-to guides
   items:
     - name: Share components, environments, and models
