@@ -38,8 +38,8 @@ landingContent:
             url: use-cvm.md
           - text: AKS GitHub Actions
             url: kubernetes-action.md
-          - text: FIPS support for Windows Server node pools
-            url: enable-fips-nodes.md#create-a-fips-enabled-windows-node-pool
+          - text: Enable Azure resources to access AKS clusters using Trusted Access (preview)
+            url: trusted-access-feature.md
           - text: Automatically upgrade an AKS cluster
             url: auto-upgrade-cluster.md
           - text: Start/stop node pools

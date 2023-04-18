@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AlertMedia | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AlertMedia'
 description: Learn how to configure single sign-on between Azure Active Directory and AlertMedia.
 services: active-directory
 author: jeevansd

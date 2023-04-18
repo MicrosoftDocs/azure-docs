@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Connect machines at scale by running PowerShell scripts with Configuration Manager
 
-Microsoft Endpoint Configuration Manager facilitates comprehensive management of servers supporting the secure and scalable deployment of applications, software updates, and operating systems. Configuration Manager has an integrated ability to run PowerShell scripts.
+Microsoft Configuration Manager facilitates comprehensive management of servers supporting the secure and scalable deployment of applications, software updates, and operating systems. Configuration Manager has an integrated ability to run PowerShell scripts.
 
 You can use Configuration Manager to run a PowerShell script that automates at-scale onboarding to Azure Arc-enabled servers.
 

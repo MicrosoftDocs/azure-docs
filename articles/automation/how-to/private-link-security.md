@@ -3,8 +3,6 @@ title: Use Azure Private Link to securely connect networks to Azure Automation
 description: Use Azure Private Link to securely connect networks to Azure Automation
 ms.topic: conceptual
 ms.date: 12/15/2022
-ms.subservice:  
-ms.custom: devx-track-azurepowershell
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Automation

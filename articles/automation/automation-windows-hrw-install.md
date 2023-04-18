@@ -3,12 +3,15 @@ title: Deploy an agent-based Windows Hybrid Runbook Worker in Automation
 description: This article tells how to deploy an agent-based Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/29/2022
+ms.date: 04/01/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy an agent-based Windows Hybrid Runbook Worker in Automation
+
+> [!IMPORTANT]
+> Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 October 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+
 
 You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 
@@ -38,6 +41,7 @@ The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monit
 
 The Hybrid Runbook Worker feature supports the following operating systems:
 
+* Windows Server 2022 (including Server Core) 
 * Windows Server 2019 (including Server Core)
 * Windows Server 2016, version 1709 and 1803 (excluding Server Core)
 * Windows Server 2012, 2012 R2
@@ -243,18 +247,20 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 
 ## <a name="remove-windows-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker
 
-1. In the Azure portal, go to your Automation account.
+1. Open PowerShell session in Administrator mode and run the following command:
 
-1. Under **Account Settings**, select **Keys** and note the values for **URL** and **Primary Access Key**.
+    ```powershell-interactive
+        Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker\<AutomationAccountID>\<HybridWorkerGroupName>" -Force -Verbose
+    ```
+1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
+1. Under **Hybrid worker group**, select **Hybrid Workers**.
+1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
+1. Select **Delete** to remove the agent-based Windows Hybrid Worker.
 
-1. Open a PowerShell session in Administrator mode and run the following command with your URL and primary access key values. Use the `Verbose` parameter for a detailed log of the removal process. To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
+   > [!NOTE]
+   > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+   > - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
-```powershell-interactive
-Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
-```
-> [!NOTE]
-> - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
-> - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
 ## Remove a Hybrid Worker group
 

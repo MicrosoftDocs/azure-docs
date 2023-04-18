@@ -1,5 +1,5 @@
 ---
-title: Reprocess assignments for an access package in entitlement management - Azure AD
+title: Reprocess assignments for an access package in entitlement management
 description: Learn how to reprocess assignments for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''

@@ -4,7 +4,6 @@ ms.date: 12/22/2022
 author: cebundy
 ms.author: v-bcatherine
 manager: mcclean
-ms.custom: devx-track-azurecli
 ---
 
 ## Prerequisites

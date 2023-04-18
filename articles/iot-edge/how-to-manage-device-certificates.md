@@ -167,7 +167,7 @@ Using a self-signed certificate authority (CA) certificate as a root of trust wi
 1. Apply the configuration.
 
    ```bash
-   sudo iotege config apply
+   sudo iotedge config apply
    ```
 ### Install root CA to OS certificate store
 

@@ -6,7 +6,7 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 02/15/2023
 ---
 
 # Classification best practices in the Microsoft Purview governance portal

@@ -1,6 +1,6 @@
 ---
 
-title: How to download logs in Azure Active Directory | Microsoft Docs
+title: How to download logs in Azure Active Directory
 description: Learn how to download activity logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3

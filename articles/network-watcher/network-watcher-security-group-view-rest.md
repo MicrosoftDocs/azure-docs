@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/01/2022
 ms.author: halkazwini
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.custom: engagement-fy23
 ---
 
 # Analyze your Virtual Machine security with Security Group View using REST API

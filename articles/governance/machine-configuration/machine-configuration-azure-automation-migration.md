@@ -1,11 +1,9 @@
 ---
 title: Azure Automation State Configuration to machine configuration migration planning
 description: This article provides process and technical guidance for customers interested in moving from DSC version 2 in Azure Automation to version 3 in Azure Policy.
-ms.date: 07/26/2022
+ms.date: 03/06/2023
 ms.topic: how-to
-ms.service: machine-configuration
-ms.author: timwarner
-author: timwarner-msft
+ms.custom: devx-track-azurepowershell
 ---
 # Azure Automation state configuration to machine configuration migration planning
 
@@ -81,15 +79,15 @@ Group where the Automation Account is deployed.
 Install the PowerShell module "Az.Automation".
 
 ```powershell
-Install-Module Az.Automation
+Install-Module -Name Az.Automation
 ```
 
-Next, use the "Get-AzAutomationAccount" command to identify your Automation
+Next, use the `Get-AzAutomationAccount` command to identify your Automation
 Accounts and the Resource Group where they're deployed.
-The properties "ResourceGroupName" and "AutomationAccountName"
+The properties **ResourceGroupName** and **AutomationAccountName**
 are important for next steps.
 
-```powershell
+```azurepowershell
 Get-AzAutomationAccount
 
 SubscriptionId        : <your subscription id>
@@ -108,7 +106,7 @@ Discover the configurations in your Automation Account. The output
 contains one entry per configuration. If you have many, store the information
 as a variable so it's easier to work with.
 
-```powershell
+```azurepowershell
 Get-AzAutomationDscConfiguration -ResourceGroupName <your resource group name> -AutomationAccountName <your automation account name>
 
 ResourceGroupName     : <your resource group name>
@@ -125,10 +123,10 @@ LogVerbose            : False
 ```
 
 Finally, export each configuration to a local script file using the command
-"Export-AzAutomationDscConfiguration". The resulting file name uses the
+`Export-AzAutomationDscConfiguration`. The resulting file name uses the
 pattern `\ConfigurationName.ps1`.
 
-```powershell
+```azurepowershell
 Export-AzAutomationDscConfiguration -OutputFolder /<location on your machine> -ResourceGroupName <your resource group name> -AutomationAccountName <your automation account name> -name <your configuration name>
 
 UnixMode   User             Group                 LastWriteTime           Size Name
@@ -145,7 +143,7 @@ To automate this process, pipe the output of each command above to the next.
 The example exports 5 configurations. The output pattern is
 the only indication of success.
 
-```powershell
+```azurepowershell
 Get-AzAutomationAccount | Get-AzAutomationDscConfiguration | Export-AzAutomationDSCConfiguration -OutputFolder /<location on your machine>
 
 UnixMode   User             Group                 LastWriteTime           Size Name
@@ -195,8 +193,8 @@ the account.
 
 For example, to create a list of all modules published to any of your accounts.
 
-```powershell
-Get-AzAutomationAccount | Get-AzAutomationModule | ? IsGlobal -eq $false
+```azurepowershell
+Get-AzAutomationAccount | Get-AzAutomationModule | Where-Object IsGlobal -eq $false
 ```
 
 You can also use the PowerShell Gallery as an aid in finding details about
@@ -204,8 +202,8 @@ modules that are publicly available. For example, the list of modules that are
 built in to new Automation Accounts, and that contain DSC resources, is produced
 by the following example.
 
-```powershell
-Get-AzAutomationAccount | Get-AzAutomationModule | ? IsGlobal -eq $true | Find-Module -erroraction silentlycontinue | ? {'' -ne $_.Includes.DscResource} | Select Name, Version -Unique | format-table -AutoSize
+```azurepowershell
+Get-AzAutomationAccount | Get-AzAutomationModule | Where-Object IsGlobal -eq $true | Find-Module -ErrorAction SilentlyContinue | Where-Object {'' -ne $_.Includes.DscResource} | Select-Object -Property Name, Version -Unique | Format-Table -AutoSize
 
 Name                       Version
 ----                       -------
@@ -232,8 +230,8 @@ the feed is registered in your local environment as a
 The `Find-Module` command in the example doesn't suppress errors, meaning
 any modules not found in the gallery return an error message.
 
-```powershell
-Get-AzAutomationAccount | Get-AzAutomationModule | ? IsGlobal -eq $false | Find-Module | ? {'' -ne $_.Includes.DscResource} | Install-Module
+```azurepowershell
+Get-AzAutomationAccount | Get-AzAutomationModule | Where-Object IsGlobal -eq $false | Find-Module | Where-Object {'' -ne $_.Includes.DscResource} | Install-Module
 
   Installing package xWebAdministration'
 
@@ -286,7 +284,7 @@ the configuration to a MOF file and create a machine configuration package.
 Some modules might encounter compatibility issues with machine configuration. The
 most common problems are related to .NET framework vs .NET core. Detailed
 technical information is available on the page,
-[Differences between Windows PowerShell 5.1 and PowerShell (core) 7.x](/powershell/scripting/whats-new/differences-from-windows-powershell)
+[Differences between Windows PowerShell 5.1 and PowerShell (core) 7.x](/powershell/gallery/how-to/working-with-local-psrepositories)
 
 One option to resolve compatibility issues is to run commands in Windows PowerShell
 from within a module that is imported in PowerShell 7, by running `powershell.exe`.

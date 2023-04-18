@@ -153,8 +153,6 @@ When you select the Smart Global Governance tile in Access Panel, you should be 
 
 - [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try Smart Global Governance with Azure AD](https://aad.portal.azure.com/)
-
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Smart Global Governance with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

@@ -6,7 +6,7 @@ manager: gwallace
 ms.topic: article
 ms.date: 01/04/2023
 ms.author: stevelas
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions
 ---
 
 # Push and pull supply chain artifacts using Azure Registry (Preview)

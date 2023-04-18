@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with JDA Cloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with JDA Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and JDA Cloud.
 services: active-directory
 author: jeevansd

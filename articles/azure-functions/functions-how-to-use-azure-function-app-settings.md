@@ -4,7 +4,7 @@ description: Learn how to configure function app settings in Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 12/13/2022
-ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: cc996988-fb4f-47, devx-track-azurecli
 ---
 
 # Manage your function app 
@@ -139,6 +139,8 @@ You can use either the Azure portal or Azure CLI commands to migrate a function 
 + Migration isn't supported on Linux. 
 + The source plan and the target plan must be in the same resource group and geographical region. For more information, see [Move an app to another App Service plan](../app-service/app-service-plan-manage.md#move-an-app-to-another-app-service-plan).
 + The specific CLI commands depend on the direction of the migration.
++ Downtime in your function executions occur as the function app is migrated between plans.
++ State and other app-specific content is maintained, since the same Azure Files share is used by the app both before and after migration.
 
 ### Migration in the portal
 

@@ -1,5 +1,5 @@
 ---
-title: Conditions in Conditional Access policy - Azure Active Directory
+title: Conditions in Conditional Access policy
 description: What are conditions in an Azure AD Conditional Access policy
 
 services: active-directory
@@ -177,7 +177,7 @@ This setting has an impact on access attempts made from the following mobile app
 - When creating a policy assigned to Exchange ActiveSync clients, **Exchange Online** should be the only cloud application assigned to the policy. 
 - Organizations can narrow the scope of this policy to specific platforms using the **Device platforms** condition.
 
-If the access control assigned to the policy uses **Require approved client app**, the user is directed to install and use the Outlook mobile client. In the case that **Multi-factor authentication**, **Terms of use**, or **custom controls** are required, affected users are blocked, because basic authentication doesn’t support these controls.
+If the access control assigned to the policy uses **Require approved client app**, the user is directed to install and use the Outlook mobile client. In the case that **Multifactor Authentication**, **Terms of use**, or **custom controls** are required, affected users are blocked, because basic authentication doesn’t support these controls.
 
 For more information, see the following articles:
 
@@ -190,7 +190,7 @@ By selecting **Other clients**, you can specify a condition that affects apps th
 
 ## Device state (deprecated)
 
-**This preview feature has been deprecated.** Customers should use the **Filter for devices** condition in the Conditional Access policy, to satisfy scenarios previously achieved using device state (preview) condition.
+**This preview feature has been deprecated.** Customers should use the **Filter for devices** condition in the Conditional Access policy, to satisfy scenarios previously achieved using device state (deprecated) condition.
 
 
 The device state condition was used to exclude devices that are hybrid Azure AD joined and/or devices marked as compliant with a Microsoft Intune compliance policy from an organization's Conditional Access policies.
@@ -206,7 +206,7 @@ The above scenario, can be configured using *All users* accessing the *Microsoft
 
 ## Filter for devices
 
-There’s a new optional condition in Conditional Access called filter for devices. When configuring filter for devices as a condition, organizations can choose to include or exclude devices based on a filter using a rule expression on device properties. The rule expression for filter for devices can be authored using rule builder or rule syntax. This experience is similar to the one used for dynamic membership rules for groups. For more information, see the article [Conditional Access: Filter for devices (preview)](concept-condition-filters-for-devices.md).
+There’s a new optional condition in Conditional Access called filter for devices. When configuring filter for devices as a condition, organizations can choose to include or exclude devices based on a filter using a rule expression on device properties. The rule expression for filter for devices can be authored using rule builder or rule syntax. This experience is similar to the one used for dynamic membership rules for groups. For more information, see the article [Conditional Access: Filter for devices](concept-condition-filters-for-devices.md).
 
 ## Next steps
 

@@ -5,6 +5,7 @@ author: madsd
 ms.topic: overview
 ms.date: 09/01/2022
 ms.author: madsd
+ms.custom: UpdateFrequency3
 ---
 
 # Azure App Service access restrictions

@@ -2,6 +2,7 @@
 title: Configure conditional access to your Azure Container Registry
 description: Learn how to configure conditional access to your registry by using Azure CLI and Azure portal.
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 09/13/2021
 ms.author: tejaswikolli
 ms.reviewer: johnsonshi 

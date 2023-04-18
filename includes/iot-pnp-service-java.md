@@ -40,7 +40,7 @@ mvn clean package
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/pnp-device-sample/readme.md).
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/pnp-device-sample/readme.md).
 
 From the */device/iot-device-samples/pnp-device-sample/thermostat-device-sample* folder, run the application:
 

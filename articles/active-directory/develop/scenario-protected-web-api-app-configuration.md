@@ -197,14 +197,7 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddMicrosoftIdentityWebApi(Configuration);
 services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
 {
-  var existingOnTokenValidatedHandler = options.Events.OnTokenValidated;
-  options.Events.OnTokenValidated = async context =>
-  {
-       await existingOnTokenValidatedHandler(context);
-      // Your code to add extra configuration that will be executed after the current event implementation.
-      options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
-      options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
-  };
+  options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
 });
 ```
 

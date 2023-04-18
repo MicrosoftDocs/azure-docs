@@ -5,8 +5,7 @@ author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/09/2023
 ms.custom: [amqp, mqtt]
 ---

@@ -11,7 +11,7 @@ ms.author: danlep
 ---
 
 # Mask URLs in content
-The `redirect-content-urls` policy rewrites (masks) links in the response body so that they point to the equivalent link via the gateway. Use in the outbound section to rewrite response body links to make them point to the gateway. Use in the inbound section for an opposite effect.
+The `redirect-content-urls` policy rewrites (masks) links in the response body so that they point to the equivalent link via the gateway. Use in the outbound section to rewrite response body links to the backend service to make them point to the gateway. Use in the inbound section for an opposite effect.
 
 > [!NOTE]
 >  This policy does not change any header values such as `Location` headers. To change header values, use the [set-header](set-header-policy.md) policy.
