@@ -35,8 +35,6 @@ items:
       href: concept-extensions-customers.md
     - name: Authentication methods and identity providers
       href: concept-authentication-methods-customers.md
-    - name: Understanding tokens, claims, endpoints
-      href: concept-tokens-claims-endpoints-customers.md
     - name: Security and governance
       href: concept-security-customers.md  	  	  
 - name: How-to guides
@@ -96,6 +94,7 @@ items:
                 - name: .NET MAUI - Sign in users
                   href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-ios
     - name: Authenticate and authorize
+      expanded: true
       items:
       - name: Add your app
         items:
@@ -114,6 +113,7 @@ items:
           - name: Facebook federation
             href: how-to-facebook-federation-customers.md
     - name: Customize
+      expanded: true
       items:
       - name: Customize branding
         items:
