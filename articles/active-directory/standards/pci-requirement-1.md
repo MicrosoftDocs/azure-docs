@@ -70,7 +70,7 @@ PCI-DSS requirements **3**, **4**, **9**, and **12** aren't addressed or met by 
 
 To configure Azure AD to comply with PCI-DSS, see the following articles. 
 
-* [Azure AD PCI-DSS Guidance](azure-ad-pci-dss-guidance.md) (You're here)
+* [Azure AD PCI-DSS Guidance](azure-ad-pci-dss-guidance.md) 
 * [Requirement 1: Install and Maintain Network Security Controls](pci-requirement-1.md) (You're here)
 * [Requirement 2: Apply Secure Configurations to All System Components](pci-requirement-2.md)
 * [Requirement 5: Protect All Systems and Networks from Malicious Software](pci-requirement-5.md)
