@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/17/2023
+ms.date: 04/18/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -145,7 +145,7 @@ Run the initial configuration in a [pilot environment](../fundamentals/active-di
 To facilitate Azure AD provisioning workflows between the cloud HR app and Active Directory, you can add multiple provisioning connector apps from the Azure AD app gallery:
 
 - **Cloud HR app to Active Directory user provisioning**: This provisioning connector app facilitates user account provisioning from the cloud HR app to a single Active Directory domain. If you have multiple domains, you can add one instance of this app from the Azure AD app gallery for each Active Directory domain you need to provision to.
-- **Cloud HR app to Azure AD user provisioning**: While Azure AD Connect is the tool that should be used to synchronize Active Directory users to Azure AD, this provisioning connector app can be used to facilitate the provisioning of cloud-only users from the cloud HR app to a single Azure AD tenant.
+- **Cloud HR app to Azure AD user provisioning**: Azure AD Connect is the tool used to synchronize Active Directory on premises users to Azure Active Directory. The Cloud HR app to Azure AD user provisioning is a connector you use to provision cloud-only users from the cloud HR app to a single Azure AD tenant.
 - **Cloud HR app write-back**: This provisioning connector app facilitates the write-back of the user's email addresses from Azure AD to the cloud HR app.
 
 For example, the following image lists the Workday connector apps that are available in the Azure AD app gallery.
@@ -180,9 +180,9 @@ We recommend the following production configuration:
 
 |Requirement|Recommendation|
 |:-|:-|
-|Number of Azure AD Connect provisioning agents to deploy|Two (for high availability and failover)
-|Number of provisioning connector apps to configure|One app per child domain|
-|Server host for Azure AD Connect provisioning agent|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers</br>Can coexist with Azure AD Connect service|
+|Number of Azure AD Connect provisioning agents to deploy.|Two (for high availability and failover).
+|Number of provisioning connector apps to configure.|One app per child domain.|
+|Server host for Azure AD Connect provisioning agent.|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers. </br>Can coexist with Azure AD Connect service.|
 
 ![Flow to on-premises agents](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
 
@@ -194,15 +194,15 @@ We recommend the following production configuration:
 
 |Requirement|Recommendation|
 |:-|:-|
-|Number of Azure AD Connect provisioning agents to deploy on-premises|Two per disjoint Active Directory forest|
-|Number of provisioning connector apps to configure|One app per child domain|
-|Server host for Azure AD Connect provisioning agent|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers</br>Can coexist with Azure AD Connect service|
+|Number of Azure AD Connect provisioning agents to deploy on-premises|Two per disjoint Active Directory forest.|
+|Number of provisioning connector apps to configure|One app per child domain.|
+|Server host for Azure AD Connect provisioning agent.|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers. </br>Can coexist with Azure AD Connect service.|
 
 ![Single cloud HR app tenant disjoint Active Directory forest](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
 
 ### Azure AD Connect provisioning agent requirements
 
-The cloud HR app to Active Directory user provisioning solution requires that you deploy one or more Azure AD Connect provisioning agents on servers that run Windows Server 2016 or greater. The servers must have a minimum of 4-GB RAM and .NET 4.7.1+ runtime. Ensure that the host server has network access to the target Active Directory domain.
+The cloud HR app to Active Directory user provisioning solution requires the deployment of one or more Azure AD Connect provisioning agents. These agents must be deployed on servers that run Windows Server 2016 or greater. The servers must have a minimum of 4-GB RAM and .NET 4.7.1+ runtime. Ensure that the host server has network access to the target Active Directory domain.
 
 To prepare the on-premises environment, the Azure AD Connect provisioning agent configuration wizard registers the agent with your Azure AD tenant, [opens ports](../app-proxy/application-proxy-add-on-premises-application.md#open-ports), [allows access to URLs](../app-proxy/application-proxy-add-on-premises-application.md#allow-access-to-urls), and supports [outbound HTTPS proxy configuration](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 
@@ -227,7 +227,7 @@ This is the most common deployment topology. Use this topology, if you need to p
 * Setup two provisioning agent nodes for high availability and failover. 
 * Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register your AD domain with your Azure AD tenant. 
 * When configuring the provisioning app, select the AD domain from the dropdown of registered domains. 
-* If you are using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
+* If you're using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 ### Deployment topology 2: Separate apps to provision distinct user sets from Cloud HR to single on-premises Active Directory domain
 
@@ -247,7 +247,7 @@ This topology supports business requirements where attribute mapping and provisi
 
 ### Deployment topology 3: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (no cross-domain visibility)
 
-Use this topology to manage multiple independent child AD domains belonging to the same forest, if managers always exist in the same domain as the user and your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* does not require a forest-wide lookup. It also offers the flexibility of delegating the administration of each provisioning job by domain boundary. 
+Use this topology to manage multiple independent child AD domains belonging to the same forest, if managers always exist in the same domain as the user and your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* doesn't require a forest-wide lookup. It also offers the flexibility of delegating the administration of each provisioning job by domain boundary. 
 
 For example: In the diagram below, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Delegated administration of the provisioning app is possible so that *EMEA administrators* can independently manage the provisioning configuration of users belonging to the EMEA region.  
 
@@ -283,7 +283,7 @@ For example: In the diagram below, the provisioning apps are set up for each geo
 
 ### Deployment topology 5: Single app to provision all users from Cloud HR to multiple on-premises Active Directory domains (with cross-domain visibility)
 
-Use this topology if you want to use a single provisioning app to manage users belonging to all your parent and child AD domains. This topology is recommended if provisioning rules are consistent across all domains and there is no requirement for delegated administration of provisioning jobs. This topology supports resolving cross-domain manager references and can perform forest-wide uniqueness check. 
+Use this topology if you want to use a single provisioning app to manage users belonging to all your parent and child AD domains. This topology is recommended if provisioning rules are consistent across all domains and there's no requirement for delegated administration of provisioning jobs. This topology supports resolving cross-domain manager references and can perform forest-wide uniqueness check. 
 
 For example: In the diagram below, a single provisioning app manages users present in three different child domains grouped by region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). The attribute mapping for *parentDistinguishedName* is used to dynamically create a user in the appropriate child domain. Cross-domain manager references and forest-wide lookup are handled by enabling referral chasing on the provisioning agent. 
 
@@ -296,7 +296,7 @@ For example: In the diagram below, a single provisioning app manages users prese
 * Create a single HR2AD provisioning app for the entire forest. 
 * When configuring the provisioning app, select the parent AD domain from the dropdown of available AD domains. This ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
 * Use *parentDistinguishedName* with expression mapping to dynamically create user in the correct child domain and [OU container](#configure-active-directory-ou-container-assignment). 
-* If you are using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
+* If you're using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 ### Deployment topology 6: Separate apps to provision distinct users from Cloud HR to disconnected on-premises Active Directory forests
 
@@ -314,7 +314,7 @@ Use this topology if your IT infrastructure has disconnected/disjoint AD forests
 
 ### Deployment topology 7: Separate apps to provision distinct users from multiple Cloud HR to disconnected on-premises Active Directory forests
 
-In large organizations, it is not uncommon to have multiple HR systems. During business M&A (mergers and acquisitions) scenarios, you may come across a need to connect your on-premises Active Directory to multiple HR sources. We recommend the topology below if you have multiple HR sources and would like to channel the identity data from these HR sources to either the same or different on-premises Active Directory domains.  
+In large organizations, it isn't uncommon to have multiple HR systems. During business M&A (mergers and acquisitions) scenarios, you may come across a need to connect your on-premises Active Directory to multiple HR sources. We recommend the topology below if you have multiple HR sources and would like to channel the identity data from these HR sources to either the same or different on-premises Active Directory domains.  
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-7-separate-apps-from-multiple-hr-to-disconnected-ad-forests.png" alt-text="Screenshot of separate apps to provision users from multiple Cloud HR to disconnected AD forests" lightbox="media/plan-cloud-hr-provision/topology-7-separate-apps-from-multiple-hr-to-disconnected-ad-forests.png":::
 
