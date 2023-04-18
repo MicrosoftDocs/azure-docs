@@ -47,7 +47,7 @@ To ensure fields are correctly geocoded, you can set the Data Category on the da
 Learn more about the Azure Maps Power BI visual:
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Maps Power BI visual (Preview)](power-bi-visual-get-started.md)
+> [Get started with Azure Maps Power BI visual](power-bi-visual-get-started.md)
 
 > [!div class="nextstepaction"]
 > [Understanding layers in the Azure Maps Power BI visual](power-bi-visual-understanding-layers.md)

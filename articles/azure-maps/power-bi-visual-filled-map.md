@@ -10,7 +10,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Filled map in Azure Maps Power BI Visual (Preview)
+# Filled map in Azure Maps Power BI visual
 
 Filled maps use varying degrees of shading, tinting or different patterns to provide a visual display that quickly shows differences in values across a geography or region. Showing these relative differences with shading that ranges from light (less-frequent/lower) to dark (more-frequent/more) is a useful way to quickly convey pertinent information to viewers.
 

@@ -10,7 +10,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Get started with Azure Maps Power BI visual (Preview)
+# Get started with Azure Maps Power BI visual
 
 **APPLIES TO:** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for designers & developers ![Green check mark.](media/power-bi-visual/yes.png) Power BI Desktop ![X indicating no.](media/power-bi-visual/no.png) Requires Pro or Premium license
 
