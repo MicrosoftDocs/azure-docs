@@ -1,5 +1,5 @@
 ---
-title: Isovalent Cilium Enterprise on Azure Marketplace (preview)
+title: Isovalent Cilium Enterprise on Azure Marketplace (Preview)
 titleSuffix: Azure Kubernetes Service (AKS)
 description: Learn about Isovalent Cillium Enterprise on Azure Marketplace and how to deploy it on Azure. 
 author: asudbring
@@ -11,7 +11,7 @@ ms.date: 04/18/2023
 ms.custom: template-how-to
 ---
 
-# Isovalent Cilium Enterprise on Azure Marketplace (preview)
+# Isovalent Cilium Enterprise on Azure Marketplace (Preview)
 
 Isovalent Cilium Enterprise on Azure Marketplace is a powerful tool for securing and managing Kubernetes’ workloads on Azure. Cilium Enterprise's range of features and easy deployment make it an ideal solution for organizations of all sizes looking to secure their cloud-native applications. 
 
