@@ -13,7 +13,12 @@ Application Insights now supports [Azure Active Directory (Azure AD) authenticat
 
 Using various authentication systems can be cumbersome and risky because it's difficult to manage credentials at scale. You can now choose to [opt out of local authentication](#disable-local-authentication) to ensure only telemetry exclusively authenticated by using [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your resource. This feature is a step to enhance the security and reliability of the telemetry used to make critical operational ([alerting](../alerts/alerts-overview.md#what-are-azure-monitor-alerts)and [autoscale](../autoscale/autoscale-overview.md#overview-of-autoscale-in-azure)) and business decisions.
 
+> [!NOTE]
+> Note
+> This document is used to cover data ingestion into Application Insights using Azure AD. authentication. If you are looking for information on querying data within Application Insights, please refer to **[Query Application Insights using Azure AD Authentication](/azure/azure-monitor/logs/api/app-insights-azure-ad-api)**.
+
 ## Prerequisites
+> 
 
 The following prerequisites enable Azure AD authenticated ingestion. You need to:
 
@@ -275,7 +280,7 @@ tracer = Tracer(
 ```
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
----
+-
 
 ## Disable local authentication
 
@@ -527,5 +532,9 @@ This error usually occurs when the provided credentials don't grant access to in
 
 ---
 ## Next steps
+
 * [Monitor your telemetry in the portal](overview-dashboard.md)
 * [Diagnose with Live Metrics Stream](live-stream.md)
+* [Query Application Insights using Azure AD Authentication](/azure/azure-monitor/logs/api/app-insights-azure-ad-api)
+
+
