@@ -59,11 +59,19 @@ To make it easy to get started writing your function code, Azure Functions provi
 
 ## Scenarios
 
-These scenarios allow you to build event-driven systems using modern architectural patterns.
+The following are a set of representative, _but by no means exhaustive_, set of scenarios in which Azure Functions might be featured:
 
-`<<Pending>>`
++ Processing file uploads
++ Data processing and AI
++ Running scheduled tasks
++ Building a scalable web AP
++ Responding to a webhook 
++ Building serverless workflows
++ Responding to database changes
++ Building reliable messaging systems
++ Processing data in real-time
 
-For more information, see [Azure Functions scenarios](./functions-scenarios.md).
+For more information and examples, see [Azure Functions scenarios](./functions-scenarios.md).
 
 ## Watch a video
 

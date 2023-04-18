@@ -3,9 +3,6 @@ title: How to test machine configuration package artifacts
 description: The experience creating and testing packages that audit or apply configurations to machines.
 ms.date: 07/25/2022
 ms.topic: how-to
-ms.service: machine-configuration
-ms.author: timwarner
-author: timwarner-msft
 ---
 # How to test machine configuration package artifacts
 
@@ -53,7 +50,7 @@ To run PowerShell as "LocalSystem" in Windows, use the SysInternals tool
 [PSExec](/sysinternals/downloads/psexec).
 
 To run PowerShell as "Root" in Linux, use the
-[Su command](https://manpages.ubuntu.com/manpages/man1/su.1.html).
+[sudo command](https://www.sudo.ws/docs/man/sudo.man/).
 
 ## Validate the configuration package meets requirements
 

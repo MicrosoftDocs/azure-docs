@@ -52,7 +52,7 @@ The storage account must be accessible to the function app. If you need to use a
 
 ### Storage account connection setting
 
-By default, Functions clients will configure the AzureWebJobsStorage connection as a connection string stored in the [AzureWebJobsStorage application setting](./functions-app-settings.md#azurewebjobsstorage), but you can also [configure AzureWebJobsStorage to use an identity-based connection](functions-reference.md#connecting-to-host-storage-with-an-identity-preview) without a secret.
+By default, Functions clients will configure the AzureWebJobsStorage connection as a connection string stored in the [AzureWebJobsStorage application setting](./functions-app-settings.md#azurewebjobsstorage), but you can also [configure AzureWebJobsStorage to use an identity-based connection](functions-reference.md#connecting-to-host-storage-with-an-identity) without a secret.
 
 Function apps are configured to use Azure Files by storing a connection string in the [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING application setting](./functions-app-settings.md#website_contentazurefileconnectionstring) and providing the name of the file share in the [WEBSITE_CONTENTSHARE application setting](./functions-app-settings.md#website_contentshare).
 
