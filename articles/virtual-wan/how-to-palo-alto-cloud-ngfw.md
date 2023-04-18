@@ -13,8 +13,8 @@ ms.author: wellee
 ---
 # Configure Palo Alto Networks Cloud NGFW in Virtual WAN (preview)
 
->[!NOTE]
->Preview Place holder message goes here
+> [!IMPORTANT] 
+> Palo Alto Cloud NGFW for Virtual WAN is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Palo Alto Networks Cloud NGFW is a cloud-native software-as-a-service security offering that can be deployed into the Virtual WAN hub as a bump-in-the-wire solution to inspect network traffic.
 
@@ -26,6 +26,8 @@ Palo Alto Networks Cloud NGFW integration with Virtual WAN provides the followin
 * **Cloud-native experience** that has a tight integration with Azure to provide end-to-end Firewall management using Azure Portal or Azure API's. Rule and policy management is also optionally  configurable through Palo Alto Network management solution Panorama.
 * **Dedicated support channel** between Azure and Palo Alto Networks.
 * **One-click routing** to configure Virtual WAN to inspect on-premises, Virtual Network and Internet-outbound traffic using Palo Alto Networks Cloud NGFW.
+
+:::image type="content" source="./media/how-to-palo-alto-cloudngfw/deployment-topology.png" alt-text="Screenshot showing hub sample Virtual WAN topology with Cloud NGFW." lightbox="./media/how-to-palo-alto-cloudngfw/deployment-topology.png":::
 
 ## Before you begin
 
