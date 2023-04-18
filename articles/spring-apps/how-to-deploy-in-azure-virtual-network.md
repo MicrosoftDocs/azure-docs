@@ -212,12 +212,12 @@ To deploy an Azure Spring Apps instance in the virtual network:
 
 1. Select the **Networking** tab, and select the following values:
 
-    | Setting                            | Value                               |
-    |------------------------------------|-------------------------------------|
-    | Deploy in your own virtual network | Select **Yes**.                     |
-    | Virtual network                    | Select **azure-spring-apps-vnet**.  |
-    | Service runtime subnet             | Select **service-runtime-subnet**.  |
-    | Spring apps subnet                 | Select **apps-subnet**.             |
+    | Setting                              | Value                               |
+    |--------------------------------------|-------------------------------------|
+    | Deploy in your own virtual network   | Select **Yes**.                     |
+    | Virtual network                      | Select **azure-spring-apps-vnet**.  |
+    | Service runtime subnet               | Select **service-runtime-subnet**.  |
+    | Spring Boot microservice apps subnet | Select **apps-subnet**.             |
 
    :::image type="content" source="./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png" alt-text="Screenshot of the Azure portal Azure Spring Apps Create page showing the Networking tab.":::
 
