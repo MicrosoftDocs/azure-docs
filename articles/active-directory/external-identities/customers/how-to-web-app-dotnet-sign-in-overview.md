@@ -43,7 +43,7 @@ The sign-in flow involves the following steps:
 - A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial). 
-
+- A separate email account that can be used to test the user flow and sign-in experience.
 
 If you want to run a sample ASP.NET web application to get a feel of how things work, complete the steps in [Sign in users in a sample Node.js web application by using Microsoft Entra](how-to-web-app-dotnet-sample-sign-in.md)
 
