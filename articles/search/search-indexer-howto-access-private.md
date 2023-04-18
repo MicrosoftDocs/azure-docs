@@ -16,9 +16,10 @@ ms.date: 04/18/2023
 
 This article explains how to configure private, outbound calls from Azure Cognitive Search to Azure PaaS resources that run within a virtual network.
 
-Setting up a private connection allows Azure Cognitive Search to connect to Azure PaaS through a virtual network instead of a port that's open to the internet. The object created for the connection is called a *shared private link*. On the connection, search uses the shared private link internally to reach an Azure PaaS resource inside the network boundary. 
+Setting up a private connection allows Azure Cognitive Search to connect to Azure PaaS through a virtual network IP address instead of a port that's open to the internet. The object created for the connection is called a *shared private link*. On the connection, Search uses the shared private link internally to reach an Azure PaaS resource inside the network boundary. 
 
-If you're setting up a private indexer connection to a SQL Managed Instance, see [this article](search-indexer-how-to-access-private-sql.md) instead.
+> [!NOTE]
+> If you're setting up a private indexer connection to a SQL Managed Instance, see [this article](search-indexer-how-to-access-private-sql.md) instead.
 
 ## When to use a shared private link
 

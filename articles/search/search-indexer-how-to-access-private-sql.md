@@ -12,7 +12,7 @@ ms.date: 04/18/2023
 
 # Create a shared private link for a SQL Managed Instance from Azure Cognitive Search
 
-This article explains how to configure an indexer in Azure Cognitive Search for a private connection to a SQL Managed Instance.
+This article explains how to configure an indexer in Azure Cognitive Search for a private connection to a SQL Managed Instance that runs within a virtual network.
 
 On a private connection to a SQL Managed Instance, the fully qualified domain name (FQDN) of the instance must include the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture). Currently, only the Azure Cognitive Search Management REST API provides a `resourceRegion` parameter for accepting the DNS zone specification.
 
@@ -151,7 +151,7 @@ This article assumes Postman or equivalent tool, and uses the REST APIs to make 
     ```
 
    > [!NOTE]
-   > If you're familiar with data source definitions in Cognitive Search, you'll notice that data source properties don't vary when using a shared private link. That's because the private connection is detected and handled internally.
+   > If you're familiar with data source definitions in Cognitive Search, you'll notice that data source properties don't vary when using a shared private link. That's because Search will always use a shared private link on the connection if one exists.
 
 1. [Create the indexer definition](search-howto-create-indexers.md), setting the indexer execution environment to "private".
 
