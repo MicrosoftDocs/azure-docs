@@ -212,7 +212,10 @@ In contrast, for clustered caches, we recommend using the metrics with the suffi
 > [!CAUTION]
 > The Server Load metric can present incorrect data for Enterprise and Enterprise Flash tier caches. Sometimes Server Load is represented as being over 100. We are investigating this issue. We recommend using the CPU metric instead in the meantime.
 
-
+- P99 Latency (preview)
+  - Depicts the 99th percentile latency of server-side commands. Measured by issuing `PING` commands from the load balancer to the Redis server and tracking the time to respond. 
+  - Useful for tracking the health of your Redis instance. Latency will increase if the cache is under heavy load or if there are long running commands that delay the execution of the `PING` command.
+  - This metric is only available in Standard and Premium tier caches
 - Sets
   - The number of set operations to the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, and `cmdstat_setnx`.
 - Total Keys  
