@@ -122,7 +122,7 @@ You can now test the sample Node.js web app. You need to start the Node.js serve
 
     :::image type="content" source="media/how-to-web-app-node-sample-sign-in/web-app-node-view-claims.png" alt-text="Screenshot of view I D token claims.":::
 
-1. Select **Sign out** to sign user out of the web app or select **View ID token claims** to view ID token claims returned by Microsoft Entra. 
+1. Select **Sign out** to sign the user out of the web app or select **View ID token claims** to view ID token claims returned by Microsoft Entra. 
 
 ## Next steps
 
