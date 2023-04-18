@@ -79,10 +79,10 @@ You can access the Ubuntu DSVM in one of four ways:
 
 ### SSH
 
-If you configured your VM with SSH authentication, you can log on using the account credentials that you created in the **Basics** section of step 3 for the text shell interface. [Learn more about connecting to a Linux VM](/virtual-machines/linux-vm-connect).
+If you configured your VM with SSH authentication, you can log on using the account credentials that you created in the **Basics** section of step 3 for the text shell interface. [Learn more about connecting to a Linux VM](../../virtual-machines/linux-vm-connect).
 
 ### xrdp
-xrdp is the standard tool for accessing Linux graphical sessions. While this isn't included in the distro by default, you can [install it by following these instructions](virtual-machines/linux/use-remote-desktop).
+xrdp is the standard tool for accessing Linux graphical sessions. While this isn't included in the distro by default, you can [install it by following these instructions](../../virtual-machines/linux/use-remote-desktop).
 
 ### X2Go
 > [!NOTE]
