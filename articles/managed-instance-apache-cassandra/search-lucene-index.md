@@ -24,42 +24,46 @@ This quickstart demonstrates how to query using Lucene Index.
 - Deploy an Azure Managed Instance for Apache Cassandra cluster. You can do this via the [portal](create-cluster-portal.md) - Lucene indexes will be enabled by default.
 - Connect to your cluster from [CQLSH](https://learn.microsoft.com/en-us/azure/managed-instance-apache-cassandra/create-cluster-portal#connecting-from-cqlsh).
 
-## Create a managed instance cluster
+## Create keyspace and table
 
 1. In your `CQLSH` command window, create a keyspace and table as below:
+    
+    ```SQL
+       CREATE KEYSPACE demo
+       WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'datacenter-1': 3};
+       USE demo;
+       CREATE TABLE tweets (
+          id INT PRIMARY KEY,
+          user TEXT,
+          body TEXT,
+          time TIMESTAMP,
+          latitude FLOAT,
+          longitude FLOAT
+       );
+    ```
 
-```SQL
-   CREATE KEYSPACE demo
-   WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'datacenter-1': 3};
-   USE demo;
-   CREATE TABLE tweets (
-      id INT PRIMARY KEY,
-      user TEXT,
-      body TEXT,
-      time TIMESTAMP,
-      latitude FLOAT,
-      longitude FLOAT
-   );
-```
+## Create custom secondary index using Lucene
 
 1. Now create a custom secondary index on the table using Lucene Index:
 
-```SQL
-   CREATE CUSTOM INDEX tweets_index ON tweets ()
-   USING 'com.stratio.cassandra.lucene.Index'
-   WITH OPTIONS = {
-      'refresh_seconds': '1',
-      'schema': '{
-         fields: {
-            id: {type: "integer"},
-            user: {type: "string"},
-            body: {type: "text", analyzer: "english"},
-            time: {type: "date", pattern: "yyyy/MM/dd"},
-            place: {type: "geo_point", latitude: "latitude", longitude: "longitude"}
-         }
-      }'
-   };
-```
+    ```SQL
+       CREATE CUSTOM INDEX tweets_index ON tweets ()
+       USING 'com.stratio.cassandra.lucene.Index'
+       WITH OPTIONS = {
+          'refresh_seconds': '1',
+          'schema': '{
+             fields: {
+                id: {type: "integer"},
+                user: {type: "string"},
+                body: {type: "text", analyzer: "english"},
+                time: {type: "date", pattern: "yyyy/MM/dd"},
+                place: {type: "geo_point", latitude: "latitude", longitude: "longitude"}
+             }
+          }'
+       };
+    ```
+
+## Insert data
 
 1. Insert the following sample tweets:
 
@@ -71,92 +75,94 @@ This quickstart demonstrates how to query using Lucene Index.
     INSERT INTO tweets (id,user,body,time,latitude,longitude) VALUES (5,'quetzal','Click my link, like my stuff!', '2023-04-01T11:21:59.001+0000', 40.3930, -3.7329);
 ```
 
+## Search data
+
 1. The index you created earlier will index all the columns in the table with the specified types, and it will be refreshed once per second. Alternatively, you can explicitly refresh all the index shards with an empty search with consistency ALL:
 
-```SQL
-    CONSISTENCY ALL
-    SELECT * FROM tweets WHERE expr(tweets_index, '{refresh:true}');
-    CONSISTENCY QUORUM
-```
+    ```SQL
+        CONSISTENCY ALL
+        SELECT * FROM tweets WHERE expr(tweets_index, '{refresh:true}');
+        CONSISTENCY QUORUM
+    ```
 
 1. Now, you can search for tweets within a certain date range:
 
-```SQL
-    SELECT * FROM tweets WHERE expr(tweets_index, '{filter: {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"}}');
-```
+    ```SQL
+        SELECT * FROM tweets WHERE expr(tweets_index, '{filter: {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"}}');
+    ```
 1. The same search can be performed forcing an explicit refresh of the involved index shards:
 
-```SQL
-    SELECT * FROM tweets WHERE expr(tweets_index, '{
-       filter: {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
-       refresh: true
-    }') limit 100;
-```
+    ```SQL
+        SELECT * FROM tweets WHERE expr(tweets_index, '{
+           filter: {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
+           refresh: true
+        }') limit 100;
+    ```
 
 1. Now, to search the top 100 more relevant tweets where body field contains the phrase “Click my link” within the aforementioned date range:
 
-```SQL
-    SELECT * FROM tweets WHERE expr(tweets_index, '{
-       filter: {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
-       query: {type: "phrase", field: "body", value: "Click my link", slop: 1}
-    }') LIMIT 100;
-```
+    ```SQL
+        SELECT * FROM tweets WHERE expr(tweets_index, '{
+           filter: {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
+           query: {type: "phrase", field: "body", value: "Click my link", slop: 1}
+        }') LIMIT 100;
+    ```
 
 1. To refine the search to get only the tweets written by users whose names start with "q":
 
-```SQL
-    SELECT * FROM tweets WHERE expr(tweets_index, '{
-       filter: [
-          {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
-          {type: "prefix", field: "user", value: "q"}
-       ],
-       query: {type: "phrase", field: "body", value: "Click my link", slop: 1}
-    }') LIMIT 100;
-```
+    ```SQL
+        SELECT * FROM tweets WHERE expr(tweets_index, '{
+           filter: [
+              {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
+              {type: "prefix", field: "user", value: "q"}
+           ],
+           query: {type: "phrase", field: "body", value: "Click my link", slop: 1}
+        }') LIMIT 100;
+    ```
 
 1. To get the 100 more recent filtered results you can use the sort option:
 
-```SQL
-    SELECT * FROM tweets WHERE expr(tweets_index, '{
-       filter: [
-          {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
-          {type: "prefix", field: "user", value: "q"}
-       ],
-       query: {type: "phrase", field: "body", value: "Click my link", slop: 1},
-       sort: {field: "time", reverse: true}
-    }') limit 100;
-```
+    ```SQL
+        SELECT * FROM tweets WHERE expr(tweets_index, '{
+           filter: [
+              {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
+              {type: "prefix", field: "user", value: "q"}
+           ],
+           query: {type: "phrase", field: "body", value: "Click my link", slop: 1},
+           sort: {field: "time", reverse: true}
+        }') limit 100;
+    ```
 
 1. The previous search can be restricted to tweets created close to a geographical position:
 
-```SQL
-    SELECT * FROM tweets WHERE expr(tweets_index, '{
-       filter: [
-          {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
-          {type: "prefix", field: "user", value: "q"},
-          {type: "geo_distance", field: "place", latitude: 40.3930, longitude: -3.7328, max_distance: "1km"}
-       ],
-       query: {type: "phrase", field: "body", value: "Click my link", slop: 1},
-       sort: {field: "time", reverse: true}
-    }') limit 100;
-```
+    ```SQL
+        SELECT * FROM tweets WHERE expr(tweets_index, '{
+           filter: [
+              {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
+              {type: "prefix", field: "user", value: "q"},
+              {type: "geo_distance", field: "place", latitude: 40.3930, longitude: -3.7328, max_distance: "1km"}
+           ],
+           query: {type: "phrase", field: "body", value: "Click my link", slop: 1},
+           sort: {field: "time", reverse: true}
+        }') limit 100;
+    ```
 
 1. It is also possible to sort the results by distance to a geographical position:
 
-```SQL
-    SELECT * FROM tweets WHERE expr(tweets_index, '{
-       filter: [
-          {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
-          {type: "prefix", field: "user", value: "q"},
-          {type: "geo_distance", field: "place", latitude: 40.3930, longitude: -3.7328, max_distance: "1km"}
-       ],
-       query: {type: "phrase", field: "body", value: "Click my link", slop: 1},
-       sort: [
-          {field: "time", reverse: true},
-          {field: "place", type: "geo_distance", latitude: 40.3930, longitude: -3.7328}
-       ]
-    }') limit 100;
-```
+    ```SQL
+        SELECT * FROM tweets WHERE expr(tweets_index, '{
+           filter: [
+              {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
+              {type: "prefix", field: "user", value: "q"},
+              {type: "geo_distance", field: "place", latitude: 40.3930, longitude: -3.7328, max_distance: "1km"}
+           ],
+           query: {type: "phrase", field: "body", value: "Click my link", slop: 1},
+           sort: [
+              {field: "time", reverse: true},
+              {field: "place", type: "geo_distance", latitude: 40.3930, longitude: -3.7328}
+           ]
+        }') limit 100;
+    ```
 
 For more in-depth information and samples see [Stratio's Cassandra Lucene Index](https://github.com/Stratio/cassandra-lucene-index/blob/branch-3.0.14/doc/documentation.rst). 
 
