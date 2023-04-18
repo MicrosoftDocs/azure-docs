@@ -104,6 +104,19 @@ By enabling the Agentless discovery for Kubernetes extension, the following proc
 
 Agentless information in Defender CSPM is updated once an hour through a snapshot mechanism. It can take up to **24 hours** to see results in Cloud Security Explorer and Attack Path.
 
+## FAQs
+
+**What do I do if I have stopped clusters?**
+
+We suggest that you rerun the cluster to solve this issue.
+
+**What do I do if I have Read only clusters (locked)?**
+
+We suggest that you do one of the following:
+
+- Remove the lock.
+- Perform the bind operation manually by doing an API request.
+
 ## Next steps
 
 Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
