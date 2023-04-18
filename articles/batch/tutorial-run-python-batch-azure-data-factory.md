@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Use Batch Explorer to run Python scripts through Azure Data Factory'
-description: Learn how to use Batch Explorer and Azure Storage Explorer to run Python workloads through an Azure Data Factory pipeline.
+title: 'Tutorial: Run Python scripts through Azure Data Factory'
+description: Learn how to use Batch Explorer and Azure Storage Explorer to run a Python workload through an Azure Data Factory pipeline.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/17/2023
