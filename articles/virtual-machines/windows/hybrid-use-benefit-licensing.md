@@ -6,7 +6,7 @@ ms.subservice: billing
 ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 9/28/2022
+ms.date: 4/18/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 
