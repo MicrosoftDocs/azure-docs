@@ -95,7 +95,7 @@ In this example:
 
 ### Which recommendations are included in the secure score calculations?
 
-Only built-in recommendations part of the default initiative, Azure Security Benchmark, have an impact on the secure score.
+Only built-in recommendations that are part of the default initiative, Azure Security Benchmark, have an impact on the secure score.
 Recommendations flagged as **Preview** aren't included in the calculations of your secure score. They should still be remediated wherever possible, so that when the preview period ends they'll contribute towards your score.
 
 Preview recommendations are marked with: :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::
