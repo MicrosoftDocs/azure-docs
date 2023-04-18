@@ -98,19 +98,19 @@ Use the following guidance as a recommended starting point for event collection.
 
 | Query | Description |
 |:---|:---|
-| `Event` | All Windows events |
-| `Event` | where EventLevelName == "Error"` |All Windows events with severity of error |
-| `Event` | summarize count() by Source` |Count of Windows events by source |
-| `Event` | where EventLevelName == "Error" | summarize count() by Source` |Count of Windows error events by source |
+| Event | All Windows events |
+| Event | where EventLevelName == "Error"` |All Windows events with severity of error |
+| Event | summarize count() by Source` |Count of Windows events by source |
+| Event | where EventLevelName == "Error" | summarize count() by Source` |Count of Windows error events by source |
 
 ### Sample log queries: Syslog events
 
 | Query | Description |
 |:--- |:--- |
-| `Syslog` |All Syslogs |
-| `Syslog` | where SeverityLevel == "error"` |All Syslog records with severity of error |
-| `Syslog` | summarize AggregatedValue = count() by Computer` |Count of Syslog records by computer |
-| `Syslog` | summarize AggregatedValue = count() by Facility` |Count of Syslog records by facility |
+| Syslog |All Syslogs |
+| Syslog | where SeverityLevel == "error"` |All Syslog records with severity of error |
+| Syslog | summarize AggregatedValue = count() by Computer` |Count of Syslog records by computer |
+| Syslog | summarize AggregatedValue = count() by Facility` |Count of Syslog records by facility |
 
 ## Collect performance counters
 Performance data from the client can be sent to either [Azure Monitor Metrics](../essentials/data-platform-metrics.md) or [Azure Monitor Logs](../logs/data-platform-logs.md), and you typically send them to both destinations. If you enabled VM insights, a common set of performance counters is collected in Logs to support its performance charts. You can't modify this set of counters, but you can create other DCRs to collect more counters and send them to different destinations.
@@ -137,17 +137,17 @@ The following samples use the `Perf` table with custom performance data. For inf
 
 | Query | Description |
 |:--- |:---|
-| `Perf` | All Performance data |
-| `Perf` | where Computer == "MyComputer"` |All Performance data from a particular computer |
-| `Perf` | where CounterName == "Current Disk Queue Length"` |All Performance data for a particular counter |
-| `Perf` | where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" | summarize AVGCPU = avg(CounterValue) by Computer` |Average CPU Utilization across all computers |
-| `Perf` | where CounterName == "% Processor Time" | summarize AggregatedValue = max(CounterValue) by Computer` |Maximum CPU Utilization across all computers |
-| `Perf` | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" | summarize AggregatedValue = avg(CounterValue) by InstanceName` |Average Current Disk Queue length across all the instances of a given computer |
-| `Perf` | where CounterName == "Disk Transfers/sec" | summarize AggregatedValue = percentile(CounterValue, 95) by Computer` |95th Percentile of Disk Transfers/Sec across all computers |
-| `Perf` | where CounterName == "% Processor Time" and InstanceName == "_Total" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer` |Hourly average of CPU usage across all computers |
-| `Perf` | where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" | summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName` | Hourly 70 percentile of every % percent counter for a particular computer |
-| `Perf` | where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" | summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer` |Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
-| `Perf` | where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master"` | All Performance data from the Database performance object for the master database from the named SQL Server instance INST2. | 
+| Perf | All Performance data |
+| Perf | where Computer == "MyComputer"` |All Performance data from a particular computer |
+| Perf | where CounterName == "Current Disk Queue Length"` |All Performance data for a particular counter |
+| Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" | summarize AVGCPU = avg(CounterValue) by Computer` |Average CPU Utilization across all computers |
+| Perf | where CounterName == "% Processor Time" | summarize AggregatedValue = max(CounterValue) by Computer` |Maximum CPU Utilization across all computers |
+| Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" | summarize AggregatedValue = avg(CounterValue) by InstanceName` |Average Current Disk Queue length across all the instances of a given computer |
+| Perf | where CounterName == "Disk Transfers/sec" | summarize AggregatedValue = percentile(CounterValue, 95) by Computer` |95th Percentile of Disk Transfers/Sec across all computers |
+| Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer` |Hourly average of CPU usage across all computers |
+| Perf | where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" | summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName` | Hourly 70 percentile of every % percent counter for a particular computer |
+| Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" | summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer` |Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
+| Perf | where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master"` | All Performance data from the Database performance object for the master database from the named SQL Server instance INST2. | 
 
 ## Collect text logs
 Some applications write events written to a text log stored on the virtual machine. Create a [custom table and DCR](../agents/data-collection-text-log.md) to collect this data. You define the location of the text log, its detailed configuration, and the schema of the custom table. There's a cost for the ingestion and retention of this data in the workspace.
@@ -157,8 +157,8 @@ The column names used here are examples only. The column names for your log will
 
 | Query | Description |
 |:--- |:--- |
-| `MyApp_CL` | summarize count() by code` | Count the number of events by code. |
-| `MyApp_CL` | where status == "Error" | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)` | Create an alert rule on any error event. |
+| MyApp_CL | summarize count() by code` | Count the number of events by code. |
+| MyApp_CL | where status == "Error" | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)` | Create an alert rule on any error event. |
 
 ## Collect IIS logs
 IIS running on Windows machines writes logs to a text file. Configure IIS log collection by using [Collect IIS logs with Azure Monitor Agent](../agents/data-collection-iis.md). There's a cost for the ingestion and retention of this data in the workspace.
@@ -169,8 +169,8 @@ Records from the IIS log are stored in the [W3CIISLog](/azure/azure-monitor/refe
 
 | Query | Description |
 |:--- |:--- |
-| `W3CIISLog` | where csHost=="www.contoso.com" | summarize count() by csUriStem` | Count the IIS log entries by URL for the host www.contoso.com. |
-| `W3CIISLog` | summarize sum(csBytes) by Computer` | Review the total bytes received by each IIS machine. |
+| W3CIISLog | where csHost=="www.contoso.com" | summarize count() by csUriStem` | Count the IIS log entries by URL for the host www.contoso.com. |
+| W3CIISLog | summarize sum(csBytes) by Computer` | Review the total bytes received by each IIS machine. |
 
 ## Monitor a service or daemon
 To monitor the status of a Windows service or Linux daemon, enable the [Change Tracking and Inventory](../../automation/change-tracking/overview.md) solution in [Azure Automation](../../automation/automation-intro.md).
