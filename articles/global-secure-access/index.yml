@@ -73,8 +73,6 @@ landingContent:
         links:
           - text: Session management policies
             url: how-to-session-management-policies.md
-          - text: Create web gateway policies
-            url: how-to-create-web-gateway-policies.md
 
   - title: Monitor
     linkLists:
