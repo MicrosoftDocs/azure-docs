@@ -161,4 +161,22 @@ SCREENSHOT HERE
 
 SCREENSHOT HERE
 
+### Call API
+
+To call the ASP.NET API, select the **View your todolist** link.
+
+ANOTHER SCREENSHOT HERE - for the create, delete, read API
+
+explain that in each operation
+
 ## Next steps
+
+Learn how to: 
+
+- [Enable password reset](how-to-enable-password-reset-customers.md)
+
+- [Customize the default branding](how-to-customize-branding-customers.md)
+
+- [Configure sign-in with Google](how-to-google-federation-customers.md)
+
+- [Sign in users and call an API in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-call-api-overview.md)
