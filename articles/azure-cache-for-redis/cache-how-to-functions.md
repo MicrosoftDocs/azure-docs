@@ -1,10 +1,14 @@
-title: 'Tutorial: Create a .NET Core App  - Azure Cache for Redis'
-description: Learn how to create a .NET Core app that uses Azure Cache for Redis .
+---
+title: Using Azure Cache for Redis and Azure Functions
+description: Learn how to use Azure Cache for Redis and Azure Functions.
 author: flang-msft
+
 ms.author: franlanglois
 ms.service: cache
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 04/17/2023
+
+---
 
 # Serverless Event-based Architectures with Azure Cache for Redis and Azure Functions (Preview)
 
@@ -13,11 +17,12 @@ Azure Cache for Redis can be used as a [trigger](../azure-functions/functions-tr
 This functionality can be highly useful in data architectures like a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching), or any [event-based architectures](/azure/architecture/guide/architecture-styles/event-driven).
 
 There are three triggers supported in Azure Cache for Redis:
+
 - `RedisPubSubTrigger` triggers on [Redis pubsub messages](https://redis.io/docs/manual/pubsub/)
 - `RedisListTrigger` triggers on [Redis lists](https://redis.io/docs/data-types/lists/)
 - `RedisStreamTrigger` triggers on [Redis streams](https://redis.io/docs/data-types/streams/)
 
-[Keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) can also be used as triggers through `RedisPubSubTrigger`. 
+[Keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) can also be used as triggers through `RedisPubSubTrigger`.
 
 ## Scope of Availability for Functions Triggers
 
@@ -33,7 +38,7 @@ There are three triggers supported in Azure Cache for Redis:
 
 ## Triggering on keyspace notifications
 
-Redis offers a built-in concept called [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/). When enabled, this feature publishes notifications of a wide range of cache actions to a dedicated pub/sub channel. Supported actions include actions that affect specific keys, called _keyspace notifications_, and specific commands, called _keyevent notifications_. A huge range of Redis actions are supported, such as `SET`, `DEL`, and `EXPIRE`. The full list can be found in the [keyspace notification documentation](https://redis.io/docs/manual/keyspace-notifications/). 
+Redis offers a built-in concept called [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/). When enabled, this feature publishes notifications of a wide range of cache actions to a dedicated pub/sub channel. Supported actions include actions that affect specific keys, called _keyspace notifications_, and specific commands, called _keyevent notifications_. A huge range of Redis actions are supported, such as `SET`, `DEL`, and `EXPIRE`. The full list can be found in the [keyspace notification documentation](https://redis.io/docs/manual/keyspace-notifications/).
 
 Keyspace and keyevent notifications are published with the following syntax:
 
@@ -47,8 +52,8 @@ Because these events are published on pub/sub channels, the `RedisPubSubTrigger`
 > [!IMPORTANT]
 > In Azure Cache for Redis, keyspace events must be enabled before notifications are published. See [Advanced Settings](cache-configure.md#keyspace-notifications-advanced-settings) for more information.
 
-
 ## How to get started
+
 See [Azure Cache for Redis trigger for Azure Functions overview (preview)]() for information on how to install the Functions extension.
 See [Get started with Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md) for a step-by-step tutorial on how to get started.
 
@@ -61,10 +66,11 @@ See [Get started with Functions triggers in Azure Cache for Redis](cache-tutoria
 ## Trigger usage
 
 ### `RedisPubSubTrigger`
+
 The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSCRIBE`](https://redis.io/commands/psubscribe/), and surfaces messages received on those channels to the function.
 
 > [!WARNING]
-> This trigger is not supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages.For consumption plans, there is a chance your function may miss certain messages published to the channel. 
+> This trigger is not supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages.For consumption plans, there is a chance your function may miss certain messages published to the channel.
 >
 
 > [!NOTE]
@@ -72,13 +78,15 @@ The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSC
 > Each instance will listen and process each pubsub message, resulting in duplicate processing.
 
 #### Inputs
+
 - `ConnectionString`: connection string to the redis cache (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).
 - `Channel`: name of the pubsub channel that the trigger should listen to.
 
-This sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
-#### [C#](#tab/Csharp)
+This sample listens to the channel "channel" at a localhost Redis instance at `127.0.0.1:6379`
 
-```c#
+#### [C#](#tab/C#)
+
+```csharp
 [FunctionName(nameof(PubSubTrigger))]
 public static void PubSubTrigger(
     [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "channel")] RedisMessageModel model,
@@ -87,33 +95,40 @@ public static void PubSubTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
+
 #### [Java](#tab/Java)
 
 ```java
-TBD!
+// TBD!
 ```
+
 #### [JavaScript](#tab/JavaScript)
 
 ```javascript
-TBD!
+// TBD!
+
 ```
+
 #### [Python](#tab/Python)
 
 ```python
-TBD!
+# TBD!
 ```
+
 #### [PowerShell](#tab/Powershell)
 
 ```powershell
-TBD!
+# TBD!
 ```
+
 ---
 
-This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at "127.0.0.1:6379.
+This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at `127.0.0.1:6379`.
 
 #### [C#](#tab/Csharp)
 
-```c#
+```csharp
+
 [FunctionName(nameof(PubSubTrigger))]
 public static void PubSubTrigger(
     [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyspace@0__:myKey")] RedisMessageModel model,
@@ -122,33 +137,38 @@ public static void PubSubTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
+
 #### [Java](#tab/Java)
 
 ```java
-TBD!
+// TBD!
 ```
+
 #### [JavaScript](#tab/JavaScript)
 
 ```javascript
-TBD!
+// TBD!
 ```
+
 #### [Python](#tab/Python)
 
 ```python
-TBD!
+# TBD!
 ```
+
 #### [PowerShell](#tab/Powershell)
 
 ```powershell
-TBD!
+# TBD!
 ```
+
 ---
 
-This sample listens to any keyevent notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at "127.0.0.1:6379.
+This sample listens to any keyevent notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at `127.0.0.1:6379`.
 
 #### [C#](#tab/Csharp)
 
-```c#
+```csharp
 [FunctionName(nameof(PubSubTrigger))]
 public static void PubSubTrigger(
     [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyevent@0__:del")] RedisMessageModel model,
@@ -157,34 +177,39 @@ public static void PubSubTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
+
 #### [Java](#tab/Java)
 
 ```java
-TBD!
+// TBD!
 ```
+
 #### [JavaScript](#tab/JavaScript)
 
 ```javascript
-TBD!
+// TBD!
 ```
+
 #### [Python](#tab/Python)
 
 ```python
-TBD!
+# TBD!
 ```
+
 #### [PowerShell](#tab/Powershell)
 
 ```powershell
-TBD!
+# TBD!
 ```
----
 
+---
 
 ### `RedisListsTrigger`
 
 The `RedisListsTrigger` pops elements from a list and surfaces those elements to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/)/[`LMPOP`](https://redis.io/commands/lmpop/) to pop elements from the lists.
 
 #### Inputs
+
 - `ConnectionString`: connection string to the redis cache (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).
 - `Keys`: Keys to read from, space-delimited.
   - Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/).
@@ -200,8 +225,10 @@ The `RedisListsTrigger` pops elements from a list and surfaces those elements to
   - Default: true
 
 #### [C#](#tab/Csharp)
-The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
-```c#
+
+The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`
+
+```csharp
 [FunctionName(nameof(ListsTrigger))]
 public static void ListsTrigger(
     [RedisListsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "listTest")] RedisMessageModel model,
@@ -212,30 +239,37 @@ public static void ListsTrigger(
 ```
 
 #### [Java](#tab/Java)
-The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
+
+The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`
 
 ```java
-TBD
+// TBD
 ```
 
 #### [JavaScript](#tab/JavaScript)
-The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
+
+The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
 ```javascript
-Coming Soon
+// Coming Soon
 ```
+
 #### [Python](#tab/Python)
-The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
+
+The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
 ```python
-Coming soon
+# Coming soon
 ```
+
 #### [PowerShell](#tab/Powershell)
-The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
+
+The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
 ```powershell
-Coming Soon
+# Coming Soon
 ```
+
 ---
 
 ### `RedisStreamsTrigger`
@@ -262,8 +296,9 @@ Each function creates a new random GUID to use as its consumer name within the g
 
 #### [C#](#tab/Csharp)
 
-The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
-```c#
+The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
+
+```csharp
 [FunctionName(nameof(StreamsTrigger))]
 public static void StreamsTrigger(
     [RedisStreamsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "streamTest")] RedisMessageModel model,
@@ -275,40 +310,45 @@ public static void StreamsTrigger(
 
 #### [Java](#tab/Java)
 
-The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
+The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
+
 ```java
 Coming Soon
 ```
+
 #### [JavaScript](#tab/JavaScript)
 
-The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
+The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
 
-```javascsript
+```javascript
 Coming Soon
 ```
+
 #### [Python](#tab/Python)
 
-The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
+The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
 
 ```python
-Coming Soon
+# Coming Soon
 ```
+
 #### [PowerShell](#tab/Powershell)
 
-The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
+The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
 
 ```powershell
-coming soon
+# coming soon
 ```
 
 ---
 
-## Return Values
+### Return Values
 
 All triggers return a [`RedisMessageModel`](./src/Models/RedisMessageModel.cs) object that has two fields:
 
 #### [C#](#tab/Csharp)
-```c#
+
+```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.Redis
 {
   public class RedisMessageModel
@@ -318,32 +358,41 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis
   }
 }
 ```
+
 #### [Java](#tab/Java)
-The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
+
+The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
 ```java
 TBD
 ```
 
 #### [JavaScript](#tab/JavaScript)
-The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
+
+The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
 ```javascript
 Coming Soon
 ```
+
 #### [Python](#tab/Python)
-The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
+
+The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
 ```python
 Coming soon
 ```
+
 #### [PowerShell](#tab/Powershell)
-The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
+
+The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
 ```powershell
 Coming Soon
 ```
+
 ---
+
 - `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
 - `Message`: The pubsub message, list element, or stream element.
 

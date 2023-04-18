@@ -1,24 +1,39 @@
+---
+title: 'Tutorial: Function  - Azure Cache for Redis and Azure Functions'
+description: Learn how to use Azure functions with Azure Cache for Redis .
+author: flang-msft
+
+ms.author: franlanglois
+ms.service: cache
+ms.topic: tutorial
+ms.date: 05/10/2023
+
+---
+
 # Using Azure Functions and Azure Cache for Redis to Create a Write-Behind Cache
 
 The objective of this tutorial is to use an Azure Cache for Redis instance as a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching), where writes to the cache trigger corresponding writes to an Azure SQL database.
-We'll use the [Redis trigger for Azure Functions](cache-how-to-functions.md) to implement this functionality. In this scenario, we are using Redis to store inventory and pricing information, while backing that information up in an Azure SQL Database. 
-Every new item or new price written to the cache will be reflected in a SQL table in the database. 
+
+We'll use the [Redis trigger for Azure Functions](cache-how-to-functions.md) to implement this functionality. In this scenario, we are using Redis to store inventory and pricing information, while backing that information up in an Azure SQL Database.
+
+Every new item or new price written to the cache will be reflected in a SQL table in the database.
 
 ## Requirements
+
 - Azure account
 - Completion of the previous tutorial, [Get started with Azure Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md) with the following resources provisioned:
-    - Azure Cache for Redis instance
-    - Azure Function instance
-    - VS code environment set up with NuGet packages installed
+  - Azure Cache for Redis instance
+  - Azure Function instance
+  - VS code environment set up with NuGet packages installed
 
 ## Instructions
 
 ### 1. Create and configure a new Azure SQL Database instance
 
 This will be the backing database for our example. You can create an Azure SQL DB instance through the Azure portal or through your preferred method of automation.
-This example will use the portal. 
+This example will use the portal.
 
-First, enter a database name and select **Create new** to create a new SQL server to hold the database. 
+First, enter a database name and select **Create new** to create a new SQL server to hold the database.
 
 Select **Use SQL authentication** and enter an admin login and password. Make sure to remember these or write them down. When deploying in production, using Azure Active Directory (AAD) authentication is recommended instead.
 
@@ -27,6 +42,7 @@ Go to the **Networking** tab and choose **Public endpoint** as a connection meth
 Select **Review + create** and then **Create** after validation finishes. You should see the SQL DB start to deploy.
 
 Once deployment completes, go to the resource in the Azure portal, and select the **Query editor** tab. We’re going to create a new table called “inventory” that will hold the data we’ll be writing to it. Use the following SQL command to make a new table with two fields:
+
 - `ItemName`, which will list the name of each item
 - `Price`, which stores the price of the item
 
@@ -36,6 +52,7 @@ CREATE TABLE inventory (
     Price decimal(18,2)
     );
 ```
+
 Once that command has completed, expand the **Tables** folder and verify that the new table was created.
 
 ### 2. Configure the Redis trigger
@@ -44,13 +61,13 @@ First, we’ll make a copy of the same VS Code project we used in the previous t
 
 In this example, we’re going to use the [pub/sub trigger](cache-how-to-functions.md#redispubsubtrigger) to trigger on keyevent notifications. Our goal is the following:
 
-1.	Trigger every time a SET event occurs. This means that either new keys are being written to the cache instance or the value of a key is being changed.
-1.	Once a SET event is triggered, access the cache instance to find the value of the new key.
-1.	Determine if the key already exists in the “inventory” table in the Azure SQL DB.
+1. Trigger every time a SET event occurs. This means that either new keys are being written to the cache instance or the value of a key is being changed.
+1. Once a SET event is triggered, access the cache instance to find the value of the new key.
+1. Determine if the key already exists in the “inventory” table in the Azure SQL DB.
     1. If so, update the value of that key.
     1. If not, write a new row with the key and its value.
 
-To do this, copy and paste the following code in redisfunction.cs, replacing the existing code. 
+To do this, copy and paste the following code in redisfunction.cs, replacing the existing code.
 
 ```c#
 using System.Text.Json;
@@ -131,7 +148,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
 > This example is simplified for the tutorial. For production use, you should use parameterized SQL queries to prevent SQL injection attacks.
 >
 
-You'll need to update the `cacheAddress` and `SQLAddress` variables with the connection strings for your Redis cache instance and your SQL database. You'll need to manually enter the password for your SQL DB connection string, as the password is not pasted automatically. You can find the Redis connection string in the **Access Keys** blade in the Azure Cache for Redis portal. You can find the SQL DB connection string under the **ADO.NET** tab in the **Connection strings** blade in the SQL DB portal. 
+You'll need to update the `cacheAddress` and `SQLAddress` variables with the connection strings for your Redis cache instance and your SQL database. You'll need to manually enter the password for your SQL DB connection string, as the password is not pasted automatically. You can find the Redis connection string in the **Access Keys** blade in the Azure Cache for Redis portal. You can find the SQL DB connection string under the **ADO.NET** tab in the **Connection strings** blade in the SQL DB portal.
 
 You’ll see errors in some of the SQL classes. We’ll need to import the System.Data.SqlClient NuGet package to resolve these. Do that by going to the VS Code terminal and using the following command:
 
@@ -143,7 +160,7 @@ dotnet add package System.Data.SqlClient
 
 Go to the **Run and debug tab** in VS Code and run the project. Navigate back to your Azure Cache for Redis instance in the Azure portal and select the **Console** button to enter the Redis Console. Try using some set commands:
 
-Back in VS Code, you should see the triggers being registered: 
+Back in VS Code, you should see the triggers being registered:
 
 To validate that the triggers are working, go to the SQL DB instance in the Azure portal and go back to the **Query editor** blade. Create a **New Query** with the following SQL to view the top 100 items in the inventory table:
 
@@ -159,7 +176,7 @@ The only thing left is to deploy the code to the actual Azure Function app. As b
 
 Once the deployment has finished, go back to your Azure Cache for Redis instance and use SET commands to write additional values. You should see these show up in your Azure SQL DB as well.
 
-If you’d like to confirm that your Azure Function app is working properly, go to the app in the portal and select the **Log stream** blade. You should see the triggers executing there, and the corresponding updates being made to your SQL database. 
+If you’d like to confirm that your Azure Function app is working properly, go to the app in the portal and select the **Log stream** blade. You should see the triggers executing there, and the corresponding updates being made to your SQL database.
 
 If you ever would like to clear the SQL DB table without deleting it, you can use the following SQL query:
 
@@ -168,6 +185,5 @@ TRUNCATE TABLE [dbo].[inventory]
 ```
 
 ## Summary
-In the past two tutorials, you have learned how to use Azure Cache for Redis to trigger Azure Function apps, and how to use that functionality to use Azure Cache for Redis as a write-behind cache with Azure SQL Database. Using Azure Cache for Redis with Azure Functions is a powerful combination that can solve a variety of integration and performance problems. 
 
-
+In the past two tutorials, you have learned how to use Azure Cache for Redis to trigger Azure Function apps, and how to use that functionality to use Azure Cache for Redis as a write-behind cache with Azure SQL Database. Using Azure Cache for Redis with Azure Functions is a powerful combination that can solve a variety of integration and performance problems.
