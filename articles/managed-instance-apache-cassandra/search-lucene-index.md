@@ -9,9 +9,7 @@ ms.date: 04/17/2023
 ---
 # Quickstart: Search Azure Managed Instance for Apache Cassandra using Lucene Index (Preview)
 
-Cassandra Lucene Index, derived from Stratio Cassandra, is a plugin for Apache Cassandra that extends its index functionality to provide full text search capabilities and free multivariable, geospatial and bitemporal search. It is achieved through an Apache Lucene based implementation of Cassandra secondary indexes, where each node of the cluster indexes its own data. 
-
-This quickstart demonstrates how to search Azure Managed Instance for Apache Cassandra using Lucene Index.
+Cassandra Lucene Index, derived from Stratio Cassandra, is a plugin for Apache Cassandra that extends its index functionality to provide full text search capabilities and free multivariable, geospatial and bitemporal search. It is achieved through an Apache Lucene based implementation of Cassandra secondary indexes, where each node of the cluster indexes its own data. This quickstart demonstrates how to search Azure Managed Instance for Apache Cassandra using Lucene Index.
 
 > [!IMPORTANT]
 > Lucene Index is in public preview.
