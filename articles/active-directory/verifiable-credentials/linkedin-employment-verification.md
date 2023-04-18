@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 04/14/2023
+ms.date: 04/18/2023
 ms.author: barclayn
 ---
 
@@ -19,6 +19,9 @@ If your organization wants its employees get verified on LinkedIn, you need to f
 1. [Create](how-to-use-quickstart-verifiedemployee.md#create-a-verified-employee-credential) a Verified ID Employee credential.
 1. Configure the LinkedIn company page  with your organization DID (decentralized identity) and URL of the custom Webapp.
 1. Once you deploy the updated LinkedIn mobile app your employees can get verified.
+
+>[!NOTE]
+> Review LinkedIn's documentation for information on [verifications on LinkedIn profiles.](https://www.linkedin.com/help/linkedin/answer/a1359065).
 
 ## Deploying custom Webapp
 
