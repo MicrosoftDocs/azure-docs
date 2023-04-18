@@ -275,5 +275,5 @@ Send the anomalies you identify to a custom table in your Log Analytics workspac
 Learn more about how to: 
 
 - [Schedule a machine learning pipeline](../../machine-learning/how-to-schedule-pipeline-job.md).
+- [Split query execution into chunks](https://learn.microsoft.com/en-us/samples/azure/azure-sdk-for-python/query-azuremonitor-samples/).
 - [Detect and analyze anomalies using KQL](../logs/kql-machine-learning-azure-monitor.md).
-- [Analyze logs in Azure Monitor with KQL](/training/modules/analyze-logs-with-kql/).
