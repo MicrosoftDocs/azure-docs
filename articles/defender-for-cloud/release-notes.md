@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 04/17/2023
+ms.date: 04/18/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -26,6 +26,7 @@ Updates in April include:
 - [New alert in Defender for Resource Manager](#new-alert-in-defender-for-resource-manager)
 - [Three alerts in the Defender for Resource Manager plan have been deprecated](#three-alerts-in-the-defender-for-resource-manager-plan-have-been-deprecated)
 - [Alerts automatic export to Log Analytics workspace have been deprecated](#alerts-automatic-export-to-log-analytics-workspace-have-been-deprecated)
+- [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers)
 
 ### Unified Disk Encryption recommendation (preview)
 
@@ -96,6 +97,22 @@ Defenders for Cloud security alerts are automatically exported to a default Log 
 Instead, you can export your security alerts to a dedicated Log Analytics workspace with [Continuous Export](continuous-export.md#set-up-a-continuous-export).
 
 If you have already configured continuous export of your alerts to a Log Analytics workspace, no further action is required.
+
+### Deprecation and improvement of selected alerts for Windows and Linux Servers
+
+The security alert quality improvement process for Defender for Servers includes the deprecation of some alerts for both Windows and Linux servers. The deprecated alerts are now sourced from and covered by Defender for Endpoint threat alerts.  
+
+If you already have the Defender for Endpoint integration enabled, no further action is required. You may experience a decrease in your alerts volume in April 2023.
+
+If you don't have the Defender for Endpoint integration enabled in Defender for Servers, you'll need to enable the Defender for Endpoint integration to maintain and improve your alert coverage. 
+
+All Defender for Servers customers, have full access to the Defender for Endpoint’s integration as a part of the [Defender for Servers plan](plan-defender-for-servers-select-plan.md#plan-features).  
+
+You can learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
+
+You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-alerts-to-be-deprecated) that are set to be deprecated.
+
+Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-servers-security-alerts-improvements/ba-p/3714175).
 
 ## March 2023
 
