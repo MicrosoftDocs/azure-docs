@@ -139,7 +139,10 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
 
 ## Grant service permission to the virtual network
 
-Azure Spring Apps requires **Owner** permission to your virtual network, in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
+The following procedures describe granting Azure Spring Apps **[Owner](../role-based-access-control/built-in-roles.md#owner)** permission on your virtual network, in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
+
+> [!NOTE]
+> The minimal required permissons are **[User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator)** **and** **[Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor)**. You can grant role assignments to both of them if not able to grant **Owner** permission.
 
 #### [Portal](#tab/azure-portal)
 
@@ -292,7 +295,7 @@ The route tables to which your custom vnet is associated must meet the following
 
 * You can associate your Azure route tables with your vnet only when you create a new Azure Spring Apps service instance. You cannot change to use another route table after Azure Spring Apps has been created.
 * Both the Spring application subnet and the service runtime subnet must associate with different route tables or neither of them.
-* Permissions must be assigned before instance creation. Be sure to grant **Azure Spring Apps Resource Provider** the *Owner* permission to your route tables.
+* Permissions must be assigned before instance creation. Be sure to grant **Azure Spring Apps Resource Provider** the *Owner* permission (or *User Access Administrator* and *Network Contributor* permissions) on your route tables.
 * The associated route table resource cannot be updated after cluster creation. While the route table resource cannot be updated, custom rules can be modified on the route table.
 * You cannot reuse a route table with multiple instances due to potential conflicting routing rules.
 
