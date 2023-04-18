@@ -124,5 +124,5 @@ You can now test the sample Electron desktop app. After you run the app, the des
 - [Customize the default branding](how-to-customize-branding-customers.md).
 
 - [Configure sign-in with Google](how-to-google-federation-customers.md).
-- 
-- Learn [About the Electron desktop app sample code](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/tree/main/1-Authentication/3-sign-in-electron#about-the-code).
+
+- [Explore the Electron desktop app sample code](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/tree/main/1-Authentication/3-sign-in-electron#about-the-code).
