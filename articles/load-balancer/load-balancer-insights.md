@@ -27,7 +27,7 @@ The functional dependency view enables you to picture even the most complex load
 
 You can access this view by visiting the Insights page of your Load Balancer resource in Azure.
 
-:::image type="content" source="./media/load-balancer-insights/load-balancer-functional-dependency-visual.png" alt-text="Diagram of the functional dependency view. The frontend of the load balancer can be seen connecting to the backend pool members via the rules configured. For Standard Load Balancer, the lines from load-balancing rules to the backend pool instances are color-coded based on health probe status." border="true":::
+:::image type="content" source="./media/load-balancer-insights/load-balancer-functional-dependency-visual.png" alt-text="Diagram of the functional dependency view showing connections." border="true":::
 
 For Standard Load Balancers, your backend pool resources are color-coded with Health Probe status indicating the current availability of your backend pool to serve traffic. Alongside the above topology you're presented with a time-wise graph of health status, giving a snapshot view of the health of your application.
 
@@ -48,7 +48,7 @@ The dashboard tabs currently available are:
 ### Overview tab
 The Overview tab contains a searchable grid with the overall Data Path Availability and Health Probe Status for each of the Frontend IPs attached to your Load Balancer. These metrics indicate whether the Frontend IP is responsive and the compute instances in your Backend Pool are individually responsive to inbound connections.
 
-You can also view the overall data throughput for each Frontend IP on this page to get a sense of whether you're producing and receive expected traffic levels. The guidance at the bottom of the page will direct you to the appropriate tab should you see any irregular values.
+You can also view the overall data throughput for each Frontend IP on this page to get a sense of whether you're producing and receive expected traffic levels. The guidance at the bottom of the page directs you to the appropriate tab should you see any irregular values.
 
 ### Frontend and Backend Availability tab
 The Frontend and Backend Availability tabs show the Data Path Throughput and Health Probe Status metrics presented in a few useful views. The first graph shows the aggregate value so you can determine whether there's an issue. The rest of the graphs show these metrics split by various dimensions so that you can troubleshoot and identify the sources of any inbound availability issues.
@@ -56,10 +56,10 @@ The Frontend and Backend Availability tabs show the Data Path Throughput and Hea
 A workflow for viewing these graphs is provided at the bottom of the page with common causes for various symptoms. 
 
 ### Data Throughput tab
-The Data Throughput tab allows you to review your inbound and outbound throughput to identify if your traffic patterns are as expected. It will show the inbound and outbound data throughput split by Frontend IP and Frontend Port so that you can identify if how the services you have running are performing individually.
+The Data Throughput tab allows you to review your inbound and outbound throughput to identify if your traffic patterns are as expected. It shows the inbound and outbound data throughput split by Frontend IP and Frontend Port so that you can identify if how the services you have running are performing individually.
 
 ### Flow Distribution
-The Flow Distribution Tab will help you visualize and manage the number of flows your backend instances are receiving and producing. It shows the Flow Creation Rate and Flow Count for inbound and outbound traffic as well as the Network Traffic each VM and virtual machine scale set instance is receiving. 
+The Flow Distribution Tab helps you visualize and manage the number of flows your backend instances are receiving and producing. It shows the Flow Creation Rate and Flow Count for inbound and outbound traffic as well as the Network Traffic each VM and Virtual Machine Scale Set instance is receiving. 
 
 These views can give you feedback on whether your Load Balancer configuration or traffic patterns are leading to imbalanced traffic. For example, if you have session affinity configured and a single client is making a disproportionate number of requests. It will also let you know if you're approaching the [per VM flow limit](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) for your machine size.
 
