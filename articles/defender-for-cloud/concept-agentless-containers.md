@@ -38,7 +38,7 @@ All of these capabilities are available as part of the [Defender Cloud Security 
 |---------|---------|
 |Release state:|Preview|
 |Pricing:|Requires [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) and is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
-| Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP accounts        |
+| Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected GCP accounts         |
 | Permissions | You need to have access as a Subscription Owner, or, User Access Admin as well as Security Admin permissions for the Azure subscription used for onboarding |
 
 ## Prerequisites
