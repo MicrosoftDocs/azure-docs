@@ -15,7 +15,7 @@ ms.date: 04/17/2022
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the supplemental terms of use.
 
-This article describes reliability support in Azure Operator Nexus Network Cloud and covers both intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure Operator Nexus and covers both intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Availability zone support
 
