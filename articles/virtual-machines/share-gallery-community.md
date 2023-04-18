@@ -52,6 +52,8 @@ There are some limitations for sharing your gallery to the community:
 
 > [!IMPORTANT]
 > Microsoft does not provide support for images you share to the community.
+> 
+> [!INCLUDE [community-gallery-artifacts](../includes/community-gallery-artifacts.md)]
 
 ## How sharing with the community works
 
@@ -96,7 +98,9 @@ Utilizing community-submitted virtual machine images has several risks. Certain 
 
 - Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
  
+## Best practices
 
+- Images published to the community gallery should be [generalized](generalize.md) images, that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific infomation for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
 ## FAQ
 
 **Q: What are the charges for using a gallery that is shared to the community?**
