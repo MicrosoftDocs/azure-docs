@@ -203,7 +203,7 @@ Take note of the **publicIpAddress**. This address is used to access the VM from
 
 ## Route traffic through an NVA
 
-Using an SSH client of your choice, connect to the VMs created above.  For example, the following command can be used from a command line interface such as [WSL](windows/wsl/install) to create an SSH session with the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
+Using an SSH client of your choice, connect to the VMs created above.  For example, the following command can be used from a command line interface such as [WSL](/windows/wsl/install) to create an SSH session with the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
 
 ```bash
 ssh azureuser@<publicIpAddress>
