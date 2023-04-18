@@ -71,10 +71,10 @@ To connect to Azure MySQL Server by using the GUI tool MySQL Workbench:
 
 1. In the listing of **MySQL Connections**, select the tile corresponding to your server, and then wait for the connection to be established.
 
-        A new SQL tab opens with a blank editor where you can type your queries.
+      A new SQL tab opens with a blank editor where you can type your queries.
 
-        > [!NOTE]  
-        > By default, SSL connection security is required and enforced on your Azure Database for MySQL server. Although typically no additional configuration with SSL certificates is required for MySQL Workbench to connect to your server, we recommend binding the SSL CA certification with MySQL Workbench. For more information on how to download and bind the certification, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./how-to-configure-ssl.md).  If you need to disable SSL, visit the Azure portal and select the Connection security page to disable the Enforce SSL connection toggle button.
+      > [!NOTE]  
+      > By default, SSL connection security is required and enforced on your Azure Database for MySQL server. Although typically no additional configuration with SSL certificates is required for MySQL Workbench to connect to your server, we recommend binding the SSL CA certification with MySQL Workbench. For more information on how to download and bind the certification, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./how-to-configure-ssl.md).  If you need to disable SSL, visit the Azure portal and select the Connection security page to disable the Enforce SSL connection toggle button.
 
 ## Create a table, insert data, read data, update data, delete data
 
