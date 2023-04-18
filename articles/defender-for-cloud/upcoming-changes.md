@@ -164,7 +164,7 @@ We're announcing the release of Vulnerability Assessment for images in Azure con
 In addition, the release includes renaming the current existing container recommendations as follows:
 
 - Container registry images should have vulnerability findings resolved (powered by Qualys)
-- Running container images should have vulnerability findings resolved   (powered by Qualys)
+- Running container images should have vulnerability findings resolved (powered by Qualys)
 
 Learn more about [Microsoft Defender Vulnerability Management (MDVM)](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management).
 
