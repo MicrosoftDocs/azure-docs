@@ -12,10 +12,6 @@ This article describes how to resolve potential errors in your Bicep installatio
 
 ## .NET runtime error
 
-> [!WARNING]
-> This is a last resort solution that may cause problems when updating versions.
-
-
 When installing the Bicep extension for Visual Studio Code, you may run into the following error messages:
 
 ```error
@@ -25,6 +21,9 @@ Failed to install .NET runtime v5.0
 ```error
 Failed to download .NET 5.0.x ....... Error!
 ```
+
+> [!WARNING]
+> This is a last resort solution that may cause problems when updating versions.
 
 To solve the problem, you can manually install .NET from the [.NET website](https://aka.ms/dotnet-core-download), and then configure Visual Studio Code to reuse an existing installation of .NET with the following settings:
 
