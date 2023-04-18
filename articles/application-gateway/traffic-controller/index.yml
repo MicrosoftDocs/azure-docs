@@ -46,21 +46,17 @@ landingContent:
   # Card
   - title: Deploy with SSL termination
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
           - text: SSL Offloading
             url: how-to-ssl-offloading.md
           - text: Backend Mutual Authentication (mTLS)
             url: how-to-backend-mtls.md
-      - linkListType: tutorial
-        links:
-          - text: Configure an application gateway with SSL termination
-            url: create-ssl-portal.md
 
 # Card
   - title: Traffic Controller Kubernetes Reference
     linkLists:
-      - linkListType: article
+      - linkListType: concept
         links:
           - text: API Specification
             url: api-specification-kubernetes.md
