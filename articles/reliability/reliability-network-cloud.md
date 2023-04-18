@@ -1,5 +1,5 @@
 ---
-title: Reliability in Azure Operator Nexus```
+title: Reliability in Azure Operator Nexus
 description: Find out about reliability in Azure Operator Nexus
 author: anaharris-ms
 ms.author: anaharris
@@ -28,10 +28,6 @@ Azure Operator Nexus offers zone-redundant deployments by default for all SKU of
 >[!NOTE]
 >Because Operator Nexus On-Premises Clusters are owned by the users, and not by Microsoft, they don't offer zone redundancy by default.  To enable zone-redundancy for on-premises clusters, you'll need to configure for availability zones at the tenant workload level.​
 
-### Prerequisites
-
-<!-- Do we have any Prerequisites? -->
-
 ### Zone down experience
 
 In a zone-down scenario, API calls against the cluster and resource providers would continue to work without interruption. There would be no ​impact to the currently running on-premises tenant workloads or to the ability to create new tenant workloads. ​ Also, no data loss should occur, as the RPaaS ensure the resilience of the Operator Nexus Network Cloud, and other resource types. 
@@ -42,8 +38,8 @@ In the case of a zonal failure, reconnection to an Azure zone is automatic and r
 
 ## Next steps
 
-> [!div class="nextstepaction"]
+>[!div class="nextstepaction"]
 >[Azure Architecture Center's guide on availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
-> [!div class="nextstepaction"]
-> [Reliability in Azure](./overview.md)
+>[!div class="nextstepaction"]
+>[Reliability in Azure](./overview.md)
