@@ -65,7 +65,7 @@ Register your web API in **App registrations** in the Azure portal.
 
 Configure the service project to match the registered web API.
 
-1. Open the solution in Visual Studio, and then open the *appsettings.son* file under the root of the TodoListService project.
+1. Open the solution in Visual Studio, and then open the *appsettings.json* file under the root of the TodoListService project.
 
 1. Replace the value of the `Enter_the_Application_Id_here` by the Client ID (Application ID) value from the application you registered in the **App registrations** portal both in the `ClientID` and the `Audience` properties.
 
