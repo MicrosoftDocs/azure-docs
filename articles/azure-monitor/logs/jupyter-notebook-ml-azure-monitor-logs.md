@@ -15,7 +15,7 @@ ms.date: 02/28/2023
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and text. 
 
-By integrating Jupyter Notebook with a Log Analytics workspace, you can create a multi-step process, running code in each step based on the results of the previous step, with advanced visualization options. Such streamlined, multi-step processes can be especially useful in building and running machine learning pipelines, conducting advanced analysis, and creating troubleshooting guides (TSGs) for support needs.
+By integrating Jupyter Notebook with a Log Analytics workspace, you can create a multi-step process, running code in each step based on the results of the previous step, [without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#build-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). You can use such streamlined, multi-step processes to build and run machine learning pipelines, and for other purposes, such as conducting advanced analysis and creating troubleshooting guides (TSGs) for support needs.
 
 In this tutorial, you integrate Jupyter Notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline on data in Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#build-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). 
 
