@@ -93,14 +93,13 @@ The following table summarizes how the Standard model handles metering and billi
 | Trigger and action operations | The Standard model includes an *unlimited number* of free built-in operations that your workflow can run. <p>If your workflow uses any managed connector operations, metering applies to *each call*, while billing follows the [same *Standard* or *Enterprise* connector pricing as the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps). For more information, review [Trigger and action operations in the Standard model](#standard-operations). |
 | Storage operations | Metering applies to any storage operations run by Azure Logic Apps. For example, storage operations run when the service saves inputs and outputs from your workflow's run history. Billing follows your chosen [pricing tier](#standard-pricing-tiers). For more information, review [Storage operations](#storage-operations). |
 | Integration accounts | If you create an integration account for your logic app to use, metering is based on the integration account type that you create. Billing follows the [*Integration Account* pricing](https://azure.microsoft.com/pricing/details/logic-apps/). For more information, review [Integration accounts](#integration-accounts). |
-|||
 
 <a name="standard-pricing-tiers"></a>
 
 ### Pricing tiers in the Standard model
 
-The pricing tier that you choose for metering and billing for your **Logic App (Standard)** resource includes specific amounts of compute in virtual CPU (vCPU) and memory resources. If you select an App Service Environment v3 as the deployment location and a corresponding App Service Plan, you're charged for the instances used by the App Service Plan and for running your logic app workflows. No other charges apply.
-  
+The pricing tier that you choose for metering and billing for your **Logic App (Standard)** resource includes specific amounts of compute in virtual CPU (vCPU) and memory resources. If you select an App Service Environment v3 as the deployment location and an App Service Plan, specifically an Isolated V2 Service Plan pricing tier, you're charged for the instances used by the App Service Plan and for running your logic app workflows. No other charges apply. For more information, see [App Service Plan - Isolated V2 Service Plan pricing tiers](https://azure.microsoft.com/pricing/details/app-service/windows/#pricing).
+
 If you select a **Workflow Standard** hosting plan, you can choose from the following tiers:
 
 | Pricing tier | Virtual CPU (vCPU) | Memory (GB) |
