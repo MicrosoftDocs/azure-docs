@@ -30,7 +30,7 @@ Since the video stream resolution of a participant is increased when spotlighted
 
 Communication Services or Microsoft 365 users can call the spotlight APIs based on role type and conversation type
 
-**In a one to one call or a group call scenario, the following APIs are supported for both Communication Services and Microsoft 365 users**
+**In a one to one call or group call scenario, the following APIs are supported for both Communication Services and Microsoft 365 users**
 
 |APIs| Organizer | Presenter | Attendee |
 |----------------------------------------------|--------|--------|--------|
