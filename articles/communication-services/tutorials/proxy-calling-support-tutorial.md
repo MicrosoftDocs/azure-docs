@@ -17,7 +17,7 @@ ms.custom: mode-other
 In certain situations it might be useful to have all your client traffic be proxyed to a TURN server that you can control. This tutorial will walk you through the process to ena. When the SDK is initializing you can provide the details of your TURN servers that you would like the traffic to route to. When this is enabled all the media traffic (audio/video/screen sharing) will flow through the provided TURN servers instead of the Azure Communication Services defaults. Once your provide your TURN server details while initializing the `CallClient`, all the calls to and from this `CallClient` will be using the provided TURN servers. Below is a guide on how to do provide your TURN configurations to the WebJS SDK.
 
 >[!IMPORTANT]
-> The custom proxy feature is available starting on the public preview version [1.13.0-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.0-beta.4) of the Calling SDK. Please ensure that you use this or a newer SDK when trying to use this feature. This quickstart uses the Azure Communication Services Calling SDK version greater than `1.13.0`.
+> The custom proxy feature is available starting in the public preview version [1.13.0-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.0-beta.4) of the Calling SDK. Please ensure that you use this or a newer SDK when trying to use this feature. This quickstart uses the Azure Communication Services Calling SDK version greater than `1.13.0`.
 
 [!INCLUDE [Public Preview](../../../includes/public-preview-include-document.md)]
 
