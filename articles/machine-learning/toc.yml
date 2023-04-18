@@ -554,6 +554,7 @@
         displayName:
          href:
 - name: Train models
+  items:
   - name: Automated Machine Learning
     items:
       - name: Concepts
