@@ -18,7 +18,7 @@ ms.custom: developer
 
 # How-to guide: Sign in users in your own ASP.NET web application by using Microsoft Entra 
 
-This how-to guide will show you how to build an ASP.NET web application and sign in users. You'll register the web application on an Azure Active Directory (Azure AD) for customers tenant and add authentication.
+This how-to guide shows you how to build an ASP.NET web application and sign in users. You'll register the web application on an Azure Active Directory (Azure AD) for customers tenant and add authentication.
 
 This how-to series is made up of the following steps:
 

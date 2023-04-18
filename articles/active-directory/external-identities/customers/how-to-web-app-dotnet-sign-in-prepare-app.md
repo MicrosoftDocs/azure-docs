@@ -64,7 +64,7 @@ After registering an application and created a user flow in a CIAM tenant, an AS
     
 1. Save changes to the file.
 1. In the **Properties** folder, open the *launchSettings.json* file.
-1. Find and record the `https` value `applicationURI` within *launchSettings.json*, for example `https://localhost:{port}`. This URL will be used when defining the **Redirect URI**.
+1. Find and record the `https` value `applicationURI` within *launchSettings.json*, for example `https://localhost:{port}`. This URL is used when defining the **Redirect URI**.
 
 ## Define the platform and URLs
 

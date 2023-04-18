@@ -26,7 +26,7 @@ In this article, you prepare your Azure Active Directory (Azure AD) for customer
 > * Associate your web application with the user flow. 
 
 
-If you've already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your ASP.NET web app](how-to-web-app-dotnet-sign-in-prepare-app.md).
+If you have already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your ASP.NET web app](how-to-web-app-dotnet-sign-in-prepare-app.md).
 
 ## Register the web app
 

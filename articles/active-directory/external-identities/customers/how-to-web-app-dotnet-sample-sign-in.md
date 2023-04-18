@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.date: 04/30/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js web app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample ASP.NET web app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
 # Sign in users in a sample ASP.NET web application by using Microsoft Entra
@@ -70,9 +70,9 @@ To get the web app sample code, you can do either of the following tasks:
 
 1. Navigate to the directory that contains the ASP.NET sample app:
 
-```powershell
-cd 1-Authentication\1-sign-in-aspnet-core-mvc
-```
+    ```powershell
+    cd 1-Authentication\1-sign-in-aspnet-core-mvc
+    ```
 
 1. Open the *appsettings.json* file.
 1. Find the `Enter_the_Application_Id_Here` value and replace it with the application ID (clientId) of the app registered in the Microsoft Entra admin center.

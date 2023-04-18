@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 # Sign in and sign out from an ASP.NET Core application with CIAM
 
-In the [previous article](./how-to-web-app-dotnet-sign-in-prepare-app.md), an ASP.NET Core project was created and configured for authentication. This how-to will install the required packages, add code that implements authentication to the sign in and sign out experience. Finally, you will sign-in and sign-out of the application.
+In the [previous article](./how-to-web-app-dotnet-sign-in-prepare-app.md), an ASP.NET Core project was created and configured for authentication. This how-to guide will install the required packages, add code that implements authentication to the sign in and sign out experience. Finally, you'll sign-in and sign-out of the application.
 
 ## Prerequisites
 
@@ -49,12 +49,6 @@ Identity related NuGet packages must be installed in the project for authenticat
     ```csharp
     [Authorize]
     ```
-1. Towards the end of the file, add the following attribute to `Error()`, so it looks like the following snippet:
-
-    ```csharp
-    [AllowAnonymous]
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    ```
 
 1. Open *Program.cs* and add the following snippet to the top of the file:
 
@@ -66,7 +60,7 @@ Identity related NuGet packages must be installed in the project for authenticat
     using Microsoft.Identity.Web.UI;
     ```
 
-1. Next we need to add the services to the container and sign users in with the the Microsoft identity platform. After `Services.AddControllersWithViews();` add the following snippet:
+1. Next we need to add the services to the container and sign users in with the Microsoft identity platform. After `Services.AddControllersWithViews();` add the following snippet:
 
     ```csharp
     // Sign-in users with the Microsoft identity platform
@@ -112,7 +106,7 @@ After installing the NuGet packages and adding necessary code for authentication
     </ul>
     ```
 
-1. Next, add a reference to `_LoginPartial` in the *Layout.cshtml* file, which is located in the same folder. It is recommended to place this after the `navbar-collapse` class as shown in the following snippet:
+1. Next, add a reference to `_LoginPartial` in the *Layout.cshtml* file, which is located in the same folder. It's recommended to place this after the `navbar-collapse` class as shown in the following snippet:
 
 	```html
     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
@@ -138,15 +132,15 @@ After installing the NuGet packages and adding necessary code for authentication
 1. You may need to enter the application URI into the browser, for example `https://localhost:{port}`. After the sign in window appears, select the account in which to sign in with.
 1. On the sign-in page, type your email address and enter your password. 
     1. If you don't have an account, select **No account? Create one**, which starts the sign-up flow. After entering a one-time passcode, new password and more account details, this sign-up flow is completed. 
-1. Choose either **Yes** or **No** if a window appears asking to **Stay signed in**.
-1. The ASP.NET Welcome page will appear in your browser as depicted in the following screenshot:
+1. Choose either **Yes** or **No** if a window appears asking whether to **Stay signed in**.
+1. The ASP.NET Welcome page appears in your browser as depicted in the following screenshot:
 
     :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into an ASP.NET web app.":::
 
 ## Sign out of the application
 
 1. To sign out of the application, select **Sign out** in the navigation bar.
-1. A window will appear asking which account to sign out of.
+1. A window appears asking which account to sign out of.
 1. Upon successful sign out, a final window similar to the following will appear, advising you to close all browser windows.
 
     :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-sign-out.png" alt-text="Screenshot of sign out window.":::
