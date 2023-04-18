@@ -56,7 +56,7 @@ Azure Load Testing supports the following client metrics:
 |Metric  |Aggregate function  |Threshold  |Condition  | Description |
 |---------|---------|---------|---------|-------------|
 |`response_time_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Response time or elapsed time, in milliseconds. Learn more about [elapsed time in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
-|`latency_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Latency, in milliseconds. Learn more about [latency in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
+|`latency`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Latency, in milliseconds. Learn more about [latency in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
 |`error`     |  `percentage`       | Numerical value in the range 0-100, representing a percentage.      |   `>` (greater than)      | Percentage of failed requests. |
 |`requests_per_sec`     |  `avg` (average)       | Numerical value with up to two decimal places.      |   `>` (greater than) <BR> `<` (less than)     | Number of requests per second. |
 |`requests`     |  `count`       | Integer value.      |   `>` (greater than) <BR> `<` (less than)     | Total number of requests. |
@@ -118,7 +118,7 @@ To specify fail criteria in the YAML configuration file:
     failureCriteria:
       - avg(response_time_ms) > 300
       - percentage(error) > 50
-      - GetCustomerDetails: avg(latency_ms) >200
+      - GetCustomerDetails: avg(latency) >200
     ```
     
     When you define a test criterion for a specific JMeter request, the request name should match the name of the JMeter sampler in the JMX file.
@@ -158,7 +158,7 @@ To specify fail criteria in the YAML configuration file:
     failureCriteria:
       - avg(response_time_ms) > 300
       - percentage(error) > 50
-      - GetCustomerDetails: avg(latency_ms) >200
+      - GetCustomerDetails: avg(latency) >200
     ```
     
     When you define a test criterion for a specific JMeter request, the request name should match the name of the JMeter sampler in the JMX file.

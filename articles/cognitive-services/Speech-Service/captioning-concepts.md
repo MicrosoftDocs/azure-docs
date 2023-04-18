@@ -36,7 +36,7 @@ The following are aspects to consider when using captioning:
 > 
 > Try the [Azure Video Indexer](../../azure-video-indexer/video-indexer-overview.md) as a demonstration of how you can get captions for videos that you upload. 
 
-Captioning can accompany real time or pre-recorded speech. Whether you're showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
+Captioning can accompany real-time or pre-recorded speech. Whether you're showing captions in real-time or with a recording, you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
 
 ## Caption output format
 
@@ -68,13 +68,13 @@ Welcome to applied Mathematics course 201.
 
 ## Input audio to the Speech service
 
-For real time captioning, use a microphone or audio input stream instead of file input. For examples of how to recognize speech from a microphone, see the [Speech to text quickstart](get-started-speech-to-text.md) and [How to recognize speech](how-to-recognize-speech.md) documentation. For more information about streaming, see [How to use the audio input stream](how-to-use-audio-input-streams.md).
+For real-time captioning, use a microphone or audio input stream instead of file input. For examples of how to recognize speech from a microphone, see the [Speech to text quickstart](get-started-speech-to-text.md) and [How to recognize speech](how-to-recognize-speech.md) documentation. For more information about streaming, see [How to use the audio input stream](how-to-use-audio-input-streams.md).
 
 For captioning of a prerecording, send file input to the Speech service. For more information, see [How to use compressed input audio](how-to-use-codec-compressed-audio-input-streams.md).
 
 ## Caption and speech synchronization 
 
-You'll want to synchronize captions with the audio track, whether it's done in real time or with a prerecording. 
+You'll want to synchronize captions with the audio track, whether it's done in real-time or with a prerecording. 
 
 The Speech service returns the offset and duration of the recognized speech. 
 
@@ -91,7 +91,7 @@ Consider when to start displaying captions, and how many words to show at a time
 
 For captioning of prerecorded speech or wherever latency isn't a concern, you could wait for the complete transcription of each utterance before displaying any words. Given the final offset and duration of each word in an utterance, you know when to show subsequent words at pace with the soundtrack.
 
-Real time captioning presents tradeoffs with respect to latency versus accuracy. You could show the text from each `Recognizing` event as soon as possible. However, if you can accept some latency, you can improve the accuracy of the caption by displaying the text from the `Recognized` event. There's also some middle ground, which is referred to as "stable partial results". 
+Real-time captioning presents tradeoffs with respect to latency versus accuracy. You could show the text from each `Recognizing` event as soon as possible. However, if you can accept some latency, you can improve the accuracy of the caption by displaying the text from the `Recognized` event. There's also some middle ground, which is referred to as "stable partial results". 
 
 You can request that the Speech service return fewer `Recognizing` events that are more accurate. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property to a value between `0` and `2147483647`. The value that you set is the number of times a word has to be recognized before the Speech service returns a `Recognizing` event. For example, if you set the `SpeechServiceResponse_StablePartialResultThreshold` property value to `5`, the Speech service will affirm recognition of a word at least five times before returning the partial results to you with a `Recognizing` event.
 

@@ -203,3 +203,18 @@ landingContent:
           url: catalog-private-link-name-resolution.md
         - text: Connect to private networks
           url: manage-integration-runtimes.md
+          
+          
+   #Card
+  - title: Troubleshoot Microsoft Purview
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Troubleshoot source connections
+          url: troubleshoot-connections.md
+        - text: Troubleshoot Self Hosted Integration Runtime
+          url: scanning-shir-troubleshooting.md
+        - text: Troubleshoot private endpoints
+          url: catalog-private-link-troubleshoot.md
+          
+          

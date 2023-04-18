@@ -3,7 +3,7 @@ title: "Infoblox Cloud Data connector for Microsoft Sentinel"
 description: "Learn how to install the connector Infoblox Cloud Data to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -17,7 +17,7 @@ The Infoblox Cloud Data Connector allows you to easily connect your Infoblox Blo
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (InfobloxCDC)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [InfoBlox](https://support.infoblox.com/) |
 
 ## Query samples
@@ -88,10 +88,10 @@ InfobloxCDC
 ## Vendor installation instructions
 
 
->**IMPORTANT:** This data connector depends on a parser based on a Kusto Function to work as expected called [**InfobloxCDC**](https://aka.ms/sentinel-InfobloxCloudDataConnector-parser) which is deployed with the solution.
+>**IMPORTANT:** This data connector depends on a parser based on a Kusto Function to work as expected called [**InfobloxCDC**](https://aka.ms/sentinel-InfobloxCloudDataConnector-parser) which is deployed with the Microsoft Sentinel Solution.
 
 
->**IMPORTANT:** This Microsoft Sentinel data connector assumes an Infoblox Cloud Data Connector host has already been created and configured in the Infoblox Cloud Services Portal (CSP). As the [**Infoblox Cloud Data Connector**](https://docs.infoblox.com/display/BloxOneThreatDefense/Deploying+the+Data+Connector+Solution) is a feature of BloxOne Threat Defense, access to an appropriate BloxOne Threat Defense subscription is required. See this [**quick-start guide**](https://www.infoblox.com/wp-content/uploads/infoblox-deployment-guide-data-connector.pdf) for more information and licensing requirements.
+>**IMPORTANT:** This Sentinel data connector assumes an Infoblox Data Connector host has already been created and configured in the Infoblox Cloud Services Portal (CSP). As the [**Infoblox Data Connector**](https://docs.infoblox.com/display/BloxOneThreatDefense/Deploying+the+Data+Connector+Solution) is a feature of BloxOne Threat Defense, access to an appropriate BloxOne Threat Defense subscription is required. See this [**quick-start guide**](https://www.infoblox.com/wp-content/uploads/infoblox-deployment-guide-data-connector.pdf) for more information and licensing requirements.
 
 1. Linux Syslog agent configuration
 
@@ -101,7 +101,7 @@ Install and configure the Linux agent to collect your Common Event Format (CEF) 
 
 1.1 Select or create a Linux machine
 
-Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Microsoft Sentinel or other clouds.
+Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds.
 
 1.2 Install the CEF collector on the Linux machine
 
@@ -121,7 +121,7 @@ Follow the steps below to configure the Infoblox CDC to send BloxOne data to Mic
 2. Navigate to **Manage > Data Connector**.
 3. Click the **Destination Configuration** tab at the top.
 4. Click **Create > Syslog**. 
- - **Name**: Give the new Destination a meaningful **name**, such as **Microsoft-Sentinel-Destination**.
+ - **Name**: Give the new Destination a meaningful **name**, such as **Azure-Sentinel-Destination**.
  - **Description**: Optionally give it a meaningful **description**.
  - **State**: Set the state to **Enabled**.
  - **Format**: Set the format to **CEF**.
@@ -131,7 +131,7 @@ Follow the steps below to configure the Infoblox CDC to send BloxOne data to Mic
  - Click **Save & Close**.
 5. Click the **Traffic Flow Configuration** tab at the top.
 6. Click **Create**.
- - **Name**: Give the new Traffic Flow a meaningful **name**, such as **Microsoft-Sentinel-Flow**.
+ - **Name**: Give the new Traffic Flow a meaningful **name**, such as **Azure-Sentinel-Flow**.
  - **Description**: Optionally give it a meaningful **description**. 
  - **State**: Set the state to **Enabled**. 
  - Expand the **CDC Enabled Host** section. 

@@ -29,10 +29,14 @@ The `acr purge` container command deletes images by tag in a repository that mat
 
 `acr purge` is designed to run as a container command in an [ACR Task](container-registry-tasks-overview.md), so that it authenticates automatically with the registry where the task runs and performs actions there. The task examples in this article use the `acr purge` command [alias](container-registry-tasks-reference-yaml.md#aliases) in place of a fully qualified container image command.
 
+> [!IMPORTANT]
+- The standard command to execute the `acr purge` is `az acr run --registry <YOUR_REGISTRY> --cmd 'acr purge --optional parameter' /dev/null`.
+- We recommend running the complete `acr purge` command to use the ACR Purge. For example, run the `acr purge --help` as `az acr run --registry <YOUR_REGISTRY> --cmd 'acr purge --help' /dev/null`.
+
 At a minimum, specify the following when you run `acr purge`:
 
 * `--filter` - A repository name *regular expression* and a tag name *regular expression* to filter images in the registry. Examples: `--filter "hello-world:.*"` matches all tags in the `hello-world` repository, `--filter "hello-world:^1.*"` matches tags beginning with `1` in the `hello-world` repository, and `--filter ".*/cache:.*"` matches all tags in the repositories ending in `/cache`. You can also pass multiple `--filter` parameters.
-* `--ago` - A Go-style [duration string](https://go.dev/pkg/time/) to indicate a duration beyond which images are deleted. The duration consists of a sequence of one or more decimal numbers, each with a unit suffix. Valid time units include "d" for days, "h" for hours, and "m" for minutes. For example, `--ago 2d3h6m` selects all filtered images last modified more than 2 days, 3 hours, and 6 minutes ago, and `--ago 1.5h` selects images last modified more than 1.5 hours ago.
+* `--ago` - A Go-style [duration string](https://go.dev/pkg/time/) to indicate a duration beyond which images are deleted. The duration consists of a sequence of one or more decimal numbers, each with a unit suffix. Valid time units include "d" for days, "h" for hours, and "m" for minutes. For example, `--ago 2d3h6m` selects all filtered images last modified more than two days, 3 hours, and 6 minutes ago, and `--ago 1.5h` selects images last modified more than 1.5 hours ago.
 
 `acr purge` supports several optional parameters. The following two are used in examples in this article:
 

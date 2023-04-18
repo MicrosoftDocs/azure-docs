@@ -5,6 +5,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
 ms.date: 03/21/2023
+ms.custom: engagement-fy23
 ---
 
 # Quickstart: Deploy a service catalog managed application
