@@ -191,6 +191,20 @@ Sync sessions might fail for various reasons including the server being restarte
 | **Error string** | ECS_E_HTTP_CLIENT_CONNECTION_ERROR |
 | **Remediation required** | Yes |
 
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8309a |
+| **HRESULT (decimal)** | -2134364006 |
+| **Error string** | ECS_E_AZURE_STORAGE_REMOTE_NAME_NOT_RESOLVED |
+| **Remediation required** | Yes |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0xc00000c4 |
+| **HRESULT (decimal)** | -1073741628 |
+| **Error string** | UNEXPECTED_NETWORK_ERROR |
+| **Remediation required** | Yes |
+
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
 > [!Note]  
@@ -218,13 +232,20 @@ No action is required; the server will try again. If this error persists for sev
 
 No action is required. If this error persists for several hours, create a support request.
 
-<a id="-2134364019"></a>**Operation was cancelled.**
+<a id="-2134364019"></a>**The operation was cancelled.**
 
 | Error | Code |
 |-|-|
 | **HRESULT** | 0x80c8308d |
 | **HRESULT (decimal)** | -2134364019 |
 | **Error string** | ECS_E_REQUEST_CANCELLED_EXTERNALLY |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x8013153b |
+| **HRESULT (decimal)** | -2146233029 |
+| **Error string** | COR_E_OPERATIONCANCELED |
 | **Remediation required** | No |
 
 No action required. This error should automatically resolve. If the error persists for several days, create a support request.
@@ -841,6 +862,17 @@ No action required. This error should automatically resolve. If the error persis
 
 No action required. This error should automatically resolve. If the error persists for several days, create a support request.
 
+<a id="-2134351859"></a>**Time out error.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8600d |
+| **HRESULT (decimal)** | -2134351859 |
+| **Error string** | ECS_E_AZURE_OPERATION_TIME_OUT |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for several days, create a support request.
+
 <a id="-2134364027"></a>**A timeout occurred during offline data transfer, but it is still in progress.**  
 
 | Error | Code |
@@ -1131,6 +1163,68 @@ If the error persists for more than a day, create a support request.
 | **Remediation required** | Yes |
 
 Please upgrade to the latest file sync agent version. If the error persists after upgrading the agent, create a support request.
+
+<a id="-2147023570"></a>**Operation failed due to an authentication failure.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x8007052e |
+| **HRESULT (decimal)** | -2147023570 |
+| **Error string** | ERROR_LOGON_FAILURE |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x8007051f |
+| **HRESULT (decimal)** | -2147023585 |
+| **Error string** | ERROR_NO_LOGON_SERVERS |
+| **Remediation required** | Maybe |
+
+If the error persists for more than a day, create a support request.
+
+<a id="-2134351869"></a>**The specified Azure account is disabled.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c86003 |
+| **HRESULT (decimal)** | -2134351869 |
+| **Error string** | ECS_E_AZURE_ACCOUNT_IS_DISABLED |
+| **Remediation required** | Yes |
+
+Please check and ensure the subscription where your storage account resides is enabled.
+
+<a id="-2134364036"></a>**Storage account key based authentication blocked.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8307c |
+| **HRESULT (decimal)** | -2134364036 |
+| **Error string** | ECS_E_STORAGE_ACCOUNT_KEY_BASED_AUTHENTICATION_BLOCKED |
+| **Remediation required** | Yes |
+
+Enable 'Allow storage account key access' on the storage account. [Learn more](file-sync-deployment-guide.md#prerequisites).
+
+<a id="-2134364020"></a>**The specified seeded share does not exist.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8308c |
+| **HRESULT (decimal)** | -2134364020 |
+| **Error string** | ECS_E_SEEDED_SHARE_NOT_FOUND |
+| **Remediation required** | Yes |
+
+Check if the Azure file share exists in the storage account.
+
+<a id="-2134376385"></a>**Sync needs to update the database on the server.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8003f |
+| **HRESULT (decimal)** | -2134376385 |
+| **Error string** | ECS_E_SYNC_EPOCH_MISMATCH |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for several days, create a support request.
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
