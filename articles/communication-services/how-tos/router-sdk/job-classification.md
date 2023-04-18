@@ -17,8 +17,6 @@ zone_pivot_groups: acs-js-csharp
 
 Learn to use a classification policy in Job Router to dynamically resolve the queue and priority while also attaching worker selectors to a Job.
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -32,15 +30,27 @@ The following example will leverage [PowerFx Expressions](https://powerapps.micr
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-var policy = await client.SetClassificationPolicyAsync(
-    id: "XBOX_NA_QUEUE_Priority_1_10",
-    name: "Select XBOX Queue and set priority to 1 or 10",
-    queueSelector: new QueueIdSelector(
-        new ExpressionRule("If(job.Region = \"NA\", \"XBOX_NA_QUEUE\", \"XBOX_DEFAULT_QUEUE\")")
-    ),
-    prioritizationRule: new ExpressionRule("If(job.Hardware_VIP = true, 10, 1)"),
-    fallbackQueueId: "DEFAULT_QUEUE"
-);
+await routerAdministrationClient.CreateClassificationPolicyAsync(
+    options: new CreateClassificationPolicyOptions("XBOX_NA_QUEUE_Priority_1_10")
+    {
+        Name = "Select XBOX Queue and set priority to 1 or 10",
+        PrioritizationRule = new ExpressionRule("If(job.Hardware_VIP = true, 10, 1)"),
+        QueueSelectors = new List<QueueSelectorAttachment>()
+        {
+            new ConditionalQueueSelectorAttachment(
+                condition: new ExpressionRule("If(job.Region = \"NA\", true, false)"),
+                labelSelectors: new List<QueueSelector>()
+                {
+                    new QueueSelector("Id", LabelOperator.Equal, new LabelValue("XBOX_NA_QUEUE"))
+                }),
+            new ConditionalQueueSelectorAttachment(
+                condition: new ExpressionRule("If(job.Region != \"NA\", true, false)"),
+                labelSelectors: new List<QueueSelector>()
+                {
+                    new QueueSelector("Id", LabelOperator.Equal, new LabelValue("XBOX_DEFAULT_QUEUE"))
+                })
+        }
+    });
 ```
 
 ::: zone-end
@@ -73,19 +83,20 @@ The following example will cause the classification policy to evaluate the Job l
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-var job = await client.CreateJobAsync(
-    channelId: "voice",
-    classificationPolicyId: "XBOX_NA_QUEUE_Priority_1_10",
-    labels: new LabelCollection()
+var job = await routerClient.CreateJobAsync(
+    options: new CreateJobWithClassificationPolicyOptions(
+        jobId: "<job id>",
+        channelId: "voice",
+        classificationPolicyId: "XBOX_NA_QUEUE_Priority_1_10")
     {
-        ["Region"] = "NA",
-        ["Caller_Id"] = "tel:7805551212",
-        ["Caller_NPA_NXX"] = "780555",
-        ["XBOX_Hardware"] = 7
-    }
-);
-
-// returns a new GUID such as: 4ad7f4b9-a0ff-458d-b3ec-9f84be26012b
+        Labels = new Dictionary<string, LabelValue>()
+        {
+            {"Region", new LabelValue("NA")},
+            {"Caller_Id", new LabelValue("tel:7805551212")},
+            {"Caller_NPA_NXX", new LabelValue("780555")},
+            {"XBOX_Hardware", new LabelValue(7)}
+        }
+    });
 ```
 
 ::: zone-end
@@ -118,15 +129,14 @@ In this example, the Classification Policy is configured with a static attachmen
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.SetClassificationPolicyAsync(
-    id: "policy-1",
-    workerSelectors: new List<LabelSelectorAttachment>
+await routerAdministrationClient.CreateClassificationPolicyAsync(
+    options: new CreateClassificationPolicyOptions("policy-1")
     {
-        new StaticLabelSelector(
-            new LabelSelector("Foo", LabelOperator.Equal, "Bar")
-        )
-    }
-);
+        WorkerSelectors = new List<WorkerSelectorAttachment>()
+        {
+            new StaticWorkerSelectorAttachment(new WorkerSelector("Foo", LabelOperator.Equal, new LabelValue("Bar")))
+        }
+    });
 ```
 
 ::: zone-end
@@ -154,18 +164,19 @@ In this example, the Classification Policy is configured with a conditional atta
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.SetClassificationPolicyAsync(
-    id: "policy-1",
-    workerSelectors: new List<LabelSelectorAttachment>
+await routerAdministrationClient.CreateClassificationPolicyAsync(
+    options: new CreateClassificationPolicyOptions("policy-1")
     {
-        new ConditionalLabelSelector(
-            condition: new ExpressionRule("job.Urgent = true"),
-            labelSelectors: new List<LabelSelector>
-            {
-                new LabelSelector("Foo", LabelOperator.Equal, "Bar")
-            })
-    }
-);
+        WorkerSelectors = new List<WorkerSelectorAttachment>()
+        {
+            new ConditionalWorkerSelectorAttachment(
+                condition: new ExpressionRule("job.Urgent = true")),
+                labelSelectors: new List<WorkerSelector>()
+                {
+                    new WorkerSelector("Foo", LabelOperator.Equal, "Bar")
+                })
+        }
+    });
 ```
 
 ::: zone-end
@@ -199,13 +210,14 @@ In this example, the Classification Policy is configured to attach a worker sele
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.SetClassificationPolicyAsync(
-    id: "policy-1",
-    workerSelectors: new List<LabelSelectorAttachment>
+await routerAdministrationClient.CreateClassificationPolicyAsync(
+    options: new CreateClassificationPolicyOptions("policy-1")
     {
-        new PassThroughLabelSelector(key: "Foo", @operator: LabelOperator.Equal)
-    }
-);
+        WorkerSelectors = new List<WorkerSelectorAttachment>()
+        {
+            new PassThroughQueueSelectorAttachment("Foo", LabelOperator.Equal)
+        }
+    });
 ```
 
 ::: zone-end
@@ -234,27 +246,27 @@ In this example, the Classification Policy is configured with a weighted allocat
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.SetClassificationPolicyAsync(
-    id: "policy-1",
-    workerSelectors: new List<LabelSelectorAttachment>
+await routerAdministrationClient.CreateClassificationPolicyAsync(
+    options: new CreateClassificationPolicyOptions("policy-1")
     {
-        new WeightedAllocationLabelSelector(new WeightedAllocation[]
+        WorkerSelectors = new List<WorkerSelectorAttachment>()
         {
-            new WeightedAllocation(
-                weight: 0.3,
-                labelSelectors: new List<LabelSelector>
+            new WeightedAllocationWorkerSelectorAttachment(
+                new List<WorkerWeightedAllocation>()
                 {
-                    new LabelSelector("Vendor", LabelOperator.Equal, "A")
-                }),
-            new WeightedAllocation(
-                weight: 0.7,
-                labelSelectors: new List<LabelSelector>
-                {
-                    new LabelSelector("Vendor", LabelOperator.Equal, "B")
+                    new WorkerWeightedAllocation(0.3, 
+                        new List<WorkerSelector>()
+                        {
+                            new WorkerSelector("Vendor", LabelOperator.Equal, "A")
+                        }),
+                    new WorkerWeightedAllocation(0.7, 
+                        new List<WorkerSelector>()
+                        {
+                            new WorkerSelector("Vendor", LabelOperator.Equal, "B")
+                        })
                 })
-        })
-    }
-);
+        }
+    });
 ```
 
 ::: zone-end
@@ -287,19 +299,12 @@ await client.upsertClassificationPolicy(
 
 ## Reclassify a job after submission
 
-Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way to increase the priority of the Job to `10`, simply by specifying the **Job ID**, calling the `ReclassifyJobAsync` method, and including the `Hardware_VIP` label.
+Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way to increase the priority of the Job, simply by specifying the **Job ID**, calling the `ReclassifyJobAsync` method.
 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-var reclassifiedJob = await client.ReclassifyJobAsync(
-    jobId: "4ad7f4b9-a0ff-458d-b3ec-9f84be26012b",
-    classificationPolicyId: null,
-    labelsToUpdate: new LabelCollection()
-    {
-        ["Hardware_VIP"] = true
-    }
-);
+var reclassifiedJob = await routerClient.ReclassifyJobAsync("<job id>");
 ```
 
 ::: zone-end
@@ -307,12 +312,7 @@ var reclassifiedJob = await client.ReclassifyJobAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.reclassifyJob("4ad7f4b9-a0ff-458d-b3ec-9f84be26012b", {
-    classificationPolicyId: null,
-    labelsToUpdate: {
-        Hardware_VIP: true
-    }
-});
+await client.reclassifyJob("<jobId>");
 ```
 
 ::: zone-end

@@ -33,7 +33,7 @@ The best practices are intended to be a resource for IT pros. This might include
 * [Azure Service Fabric security best practices](service-fabric-best-practices.md)
 * [Best practices for Azure VM security](iaas.md)
 * [Implementing a secure hybrid network architecture in Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
-* [Internet of Things security best practices](../../iot-fundamentals/iot-security-best-practices.md)
+* [Internet of Things security best practices](../../iot/iot-security-best-practices.md)
 * [Securing PaaS databases in Azure](paas-applications-using-sql.md)
 * [Securing PaaS web and mobile applications using Azure App Service](paas-applications-using-app-services.md)
 * [Securing PaaS web and mobile applications using Azure Storage](paas-applications-using-storage.md)

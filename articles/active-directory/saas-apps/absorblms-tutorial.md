@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Absorb LMS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Absorb LMS'
 description: Learn how to configure single sign-on between Azure Active Directory and Absorb LMS.
 services: active-directory
 author: jeevansd

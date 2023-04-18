@@ -22,7 +22,7 @@ sections:
       questions:
         - question: How can I get access to Azure Data Manager for Energy Preview?
           answer: >
-            Azure Data Manager for Energy Preview is available to all customers and partners with a valid subscription. Customers can create an instance by going directly to the Azure Marketplace and searching for "Microsoft Energy Data Services."
+            Azure Data Manager for Energy Preview is available to all customers and partners with a valid subscription. Customers can create an instance by going directly to the Azure Marketplace and searching for "Microsoft Energy Data Services".
 
 
     - name: Data Residency
@@ -35,11 +35,15 @@ sections:
       questions:
         - question: Where can I learn about the pricing for Azure Data Manager for Energy Preview?
           answer: >
-            Pricing for Azure Data Manager for Energy Preview will be made available on Azure.com via the Product Pricing Page. 
+            Pricing for Azure Data Manager for Energy Preview is available [here](https://aka.ms/adme-pricing). 
           
         - question: How is Azure Data Manager for Energy priced?
           answer: >
-            Azure Data Manager for Energy will have a fixed instance fee. This base instance price includes the capacity which can scale up to allow for peak workloads and a higher number of data partition needs.
+            Azure Data Manager for Energy includes a fixed instance fee. This base instance price includes the capacity which can scale up to allow for peak workloads and a higher number of data partition needs.
+
+        - question: Does Azure Data Manager for Energy charge even if the instance is idle and not being used?
+          answer: >
+            Yes, the fixed instance fee for Azure Data Manager for Energy Preview is applicable for all active instances and will be charged even if the instance is idle or running with no usage. 
 
         - question: Are there any data storage charges?
           answer: >

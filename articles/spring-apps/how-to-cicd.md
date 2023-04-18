@@ -6,7 +6,7 @@ ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 09/13/2021
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022, devx-track-arm-template
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -248,6 +248,23 @@ To deploy directly from an existing container image, use the following pipeline 
     RegistryUsername: '$(username)'
     RegistryPassword: '$(password)'
     ContainerImage: '<your image tag>'
+```
+
+### Deploy and specify a builder (Enterprise tier only)
+
+If you're using Azure Spring Apps Enterprise tier, you can also specify which builder to use for deploy actions using the `builder` option, as shown in the following example. For more information, see [Use Tanzu Build Service](how-to-enterprise-build-service.md).
+
+```yaml
+- task: AzureSpringCloud@0
+  inputs:
+    azureSubscription: '<your-service-connection-name>'
+    Action: 'Deploy'
+    AzureSpringCloud: '<your-Azure-Spring-Apps-service-instance-name>'
+    AppName: '<app-name>'
+    UseStagingDeployment: false
+    DeploymentName: 'default'
+    Package: './target/your-result-jar.jar'
+    Builder: '<your-Tanzu-Build-Service-Builder-resource>'
 ```
 
 ::: zone-end

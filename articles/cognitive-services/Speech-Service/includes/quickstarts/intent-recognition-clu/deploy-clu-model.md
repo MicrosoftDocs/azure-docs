@@ -13,7 +13,7 @@ Go to the [Language Studio](https://aka.ms/languageStudio) and sign in with your
 
 ### Create a conversational language understanding project
 
-For this quickstart, you can download [this sample project](https://go.microsoft.com/fwlink/?linkid=2196152) and import it. This project can predict the intended commands from user input, such as: reading emails, deleting emails, and attaching a document to an email. 
+For this quickstart, you can download [this sample home automation project](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/language-service/CLU/HomeAutomationDemo.json) and import it. This project can predict the intended commands from user input, such as turning lights on and off. 
 
 [!INCLUDE [Import project](../../../../language-service/conversational-language-understanding/includes/language-studio/import-project.md)]
 

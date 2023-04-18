@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot the sensor and on-premises management console
-description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
+title: Troubleshoot the OT sensor and on-premises management console
+description: Troubleshoot your OT sensor and on-premises management console to eliminate any problems you might be having.
 ms.date: 06/15/2022
 ms.topic: troubleshooting
 ---
@@ -239,15 +239,13 @@ To connect a sensor controlled by the management console to NTP:
 Sometimes ICS devices are configured with external IP addresses. These ICS devices are not shown on the map. Instead of the devices, an internet cloud appears on the map. The IP addresses of these devices are included in the cloud image. Another indication of the same problem is when multiple internet-related alerts appear. Fix the issue as follows:
 
 1. Right-click the cloud icon on the device map and select **Export IP Addresses**.
-1. Copy the public ranges that are private, and add them to the subnet list. Learn more about [configuring subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets).
+1. Copy the public ranges that are private, and add them to the subnet list.
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
 
 ### Clearing sensor data
 
 In cases where the sensor needs to be relocated or erased, all learned data can be cleared from the sensor.
-
-For more information on how to clear system data, see [Clearing sensor data](how-to-manage-individual-sensors.md#clearing-sensor-data).
 
 ### Export logs from the sensor console for troubleshooting
 
@@ -278,7 +276,7 @@ For further troubleshooting, you may want to export logs to send to the support 
     To keep your logs secure, make sure to forward the password separately from the downloaded log.
 
 > [!NOTE]
-> Support ticket diagnostics can be downloaded from the sensor console and then uploaded directly to the support team in the Azure portal. For more information on downloading diagnostic logs, see [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support).
+> Support ticket diagnostics can be downloaded from the sensor console and then uploaded directly to the support team in the Azure portal.
 
 ## Troubleshoot an on-premises management console
 
@@ -363,7 +361,5 @@ For further troubleshooting, you may want to export logs to send to the support 
 - [View alerts](how-to-view-alerts.md)
 
 - [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md)
-
-- [Understand sensor disconnection events](how-to-manage-sensors-from-the-on-premises-management-console.md#understand-sensor-disconnection-events)
 
 - [Track on-premises user activity](track-user-activity.md)

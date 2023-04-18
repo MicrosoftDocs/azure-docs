@@ -106,7 +106,7 @@ To configure a custom destination workspace for the Azure Monitor Agent:
 
 The Azure Monitor Agent requires Log analytics workspace solutions. These solutions are automatically installed when you auto-provision the Azure Monitor Agent with the default workspace. 
 
-The required [Log Analytics workspace solutions](../azure-monitor/insights/solutions.md) for the data that you're collecting are:
+The required [Log Analytics workspace solutions](/previous-versions/azure/azure-monitor/insights/solutions) for the data that you're collecting are:
 
   - Security posture management (CSPM) – **SecurityCenterFree solution**
   - Defender for Servers Plan 2 – **Security solution**

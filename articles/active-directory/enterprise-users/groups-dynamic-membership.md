@@ -1,5 +1,5 @@
 ---
-title: Rules for dynamically populated groups membership - Azure AD | Microsoft Docs
+title: Rules for dynamically populated groups membership
 description: How to create membership rules to automatically populate groups, and a rule reference.
 services: active-directory
 documentationcenter: ''

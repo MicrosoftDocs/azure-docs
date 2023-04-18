@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.workload: Infrastructure-services
 ms.date: 01/19/2023
 ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
 ---
 
 # Create, change, or delete a Peering Service connection using the Azure CLI

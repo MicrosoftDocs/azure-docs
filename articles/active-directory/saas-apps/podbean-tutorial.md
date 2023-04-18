@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Podbean | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Podbean'
 description: Learn how to configure single sign-on between Azure Active Directory and Podbean.
 services: active-directory
 author: jeevansd

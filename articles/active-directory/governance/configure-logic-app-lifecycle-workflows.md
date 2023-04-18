@@ -202,7 +202,7 @@ To configure those you'll follow these steps:
 
 1. Select Save.    
 
-1. For Logic Apps authorization policy, we'll need the managed identities **Application ID**. Since the Azure portal only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Azure AD Portal** to find the required Application ID.
+1. For Logic Apps authorization policy, we'll need the managed identities **Application ID**. Since the Azure portal only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Azure portal** to find the required Application ID.
 
 1. Go back to the logic app you created, and select **Authorization**.
 

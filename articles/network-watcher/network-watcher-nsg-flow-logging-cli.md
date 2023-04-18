@@ -1,7 +1,7 @@
 ---
-title: Manage NSG Flow logs - Azure CLI
+title: Manage NSG flow logs - Azure CLI
 titleSuffix: Azure Network Watcher
-description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with Azure CLI
+description: Learn how to manage network security group flow logs in Azure Network Watcher using the Azure CLI.
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
@@ -9,11 +9,10 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/09/2021
 ms.author: halkazwini
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
-
-# Configuring Network Security Group Flow logs with Azure CLI
+# Manage network security group flow logs using the Azure CLI
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)

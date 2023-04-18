@@ -185,7 +185,7 @@ switch (result.Reason)
 
 The previous examples use single-shot recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 
-In contrast, you use continuous recognition when you want to control when to stop recognizing. It requires you to subscribe to the `Recognizing`, `Recognized`, and `Canceled` events to get the recognition results. To stop recognition, you must call [`StopContinuousRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.speechspeechRecognizer.stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
+In contrast, you use continuous recognition when you want to control when to stop recognizing. It requires you to subscribe to the `Recognizing`, `Recognized`, and `Canceled` events to get the recognition results. To stop recognition, you must call [`StopContinuousRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
 
 Start by defining the input and initializing [`SpeechRecognizer`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer):
 
@@ -202,10 +202,10 @@ var stopRecognition = new TaskCompletionSource<int>();
 
 Next, subscribe to the events that `SpeechRecognizer` sends:
 
-* [`Recognizing`](/dotnet/api/microsoft.cognitiveservices.speech.speechspeechRecognizer.recognizing): Signal for events that contain intermediate recognition results.
-* [`Recognized`](/dotnet/api/microsoft.cognitiveservices.speech.speechspeechRecognizer.recognized): Signal for events that contain final recognition results, which indicate a successful recognition attempt.
-* [`SessionStopped`](/dotnet/api/microsoft.cognitiveservices.speech.speechRecognizer.sessionstopped): Signal for events that indicate the end of a recognition session (operation).
-* [`Canceled`](/dotnet/api/microsoft.cognitiveservices.speech.speechspeechRecognizer.canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result or a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
+* [`Recognizing`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizing): Signal for events that contain intermediate recognition results.
+* [`Recognized`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognized): Signal for events that contain final recognition results, which indicate a successful recognition attempt.
+* [`SessionStopped`](/dotnet/api/microsoft.cognitiveservices.speech.recognizer.sessionstopped): Signal for events that indicate the end of a recognition session (operation).
+* [`Canceled`](/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result of a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
 
 ```csharp
 speechRecognizer.Recognizing += (s, e) =>

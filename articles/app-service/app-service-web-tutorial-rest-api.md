@@ -5,7 +5,7 @@ ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 01/31/2023
-ms.custom: "devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18, devx-track-azurecli"
+ms.custom: "UpdateFrequency3, devx-track-csharp, mvc, devcenter, devx-track-azurecli"
 ---
 
 # Tutorial: Host a RESTful API with CORS in Azure App Service

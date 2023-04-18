@@ -8,8 +8,7 @@ ms.date: 02/21/2023
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: quickstart
-ms.custom:
-  - azure-synapse
+ms.custom: azure-synapse, devx-track-azurepowershell
 ---
 
 # Quickstart: Pause and resume compute in dedicated SQL pool in a Synapse Workspace with Azure PowerShell

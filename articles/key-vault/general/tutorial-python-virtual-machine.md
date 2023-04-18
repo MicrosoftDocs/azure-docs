@@ -8,10 +8,8 @@ ms.topic: tutorial
 ms.date: 01/17/2023
 ms.author: mbaldwin
 ms.devlang: python
-ms.custom: mvc, devx-track-python, devx-track-azurecli
-
+ms.custom: mvc, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
-
 ---
 
 # Tutorial: Use Azure Key Vault with a virtual machine in Python

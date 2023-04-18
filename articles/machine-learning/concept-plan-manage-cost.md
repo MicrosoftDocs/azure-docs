@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Plan and manage costs for Azure Machine Learning with cost analysis in Azure portal. Learn further cost-saving tips to lower your cost when building ML models.  
 author: sdgilley
 ms.author: sgilley
-ms.custom: subject-cost-optimization, devx-track-azurecli, sdkv1, event-tier1-build-2022
+ms.custom: subject-cost-optimization, sdkv1, event-tier1-build-2022
 ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: mlops
@@ -61,7 +61,7 @@ When you create resources for an Azure Machine Learning workspace, resources for
 * [Application Insights](https://azure.microsoft.com/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  
-* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview) to save on cost when the VM has been idle for a specified time period.
+* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
 * Or [set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
 
  

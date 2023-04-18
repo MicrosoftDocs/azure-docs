@@ -139,7 +139,7 @@ String fields (Edm.String, Edm.ComplexType subfields) are sorted in either [ASCI
 
 + Numeric content in string fields is sorted alphabetically (1, 10, 11, 2, 20).
 
-+ Upper case strings are sorted ahead of lower case (APPLE, Apple, BANANA, Banana, apple, banana). You can assign a [text normalizer](search-normalizers.md) to preprocess the text before sorting to change this behavior. Using the lowercase tokenizer ona field will have no effect on sorting behavior because Cognitive Search sorts on a non-analyzed copy of the field.
++ Upper case strings are sorted ahead of lower case (APPLE, Apple, BANANA, Banana, apple, banana). You can assign a [text normalizer](search-normalizers.md) to preprocess the text before sorting to change this behavior. Using the lowercase tokenizer on a field will have no effect on sorting behavior because Cognitive Search sorts on a non-analyzed copy of the field.
 
 + Strings that lead with diacritics appear last (Äpfel, Öffnen, Üben)
 
@@ -298,6 +298,6 @@ To quickly generate a search page for your client, consider these options:
 
 + [Application Generator](search-create-app-portal.md), in the portal, creates an HTML page with a search bar, faceted navigation, and results area that includes images.
 
-+ [Create your first app in C#](tutorial-csharp-create-first-app.md) is a tutorial and code sample that builds a functional client. Sample code demonstrates paginated queries, hit highlighting, and sorting.
++ [Add search to an ASP.NET Core (MVC) app](tutorial-csharp-create-mvc-app.md) is a tutorial and code sample that builds a functional client.
 
 + [Add search to web apps](tutorial-csharp-overview.md) is a tutorial and code sample that uses the React JavaScript libraries for the user experience. The app is deployed using Azure Static Web Apps.

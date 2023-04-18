@@ -4,8 +4,9 @@ description: In this article, you'll learn how to deploy the MedTech service usi
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-arm-template
 ms.topic: quickstart
-ms.date: 02/27/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ---
 
@@ -14,14 +15,13 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. 
+To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a [JavaScript Object Notation (JSON)](https://www.json.org/) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. 
 
 In this quickstart, you'll learn how to:
 
-> [!div class="checklist"]
-> - Open an ARM template in the Azure portal.
-> - Configure the ARM template for your deployment.
-> - Deploy the ARM template. 
+- Open an ARM template in the Azure portal.
+- Configure the ARM template for your deployment.
+- Deploy the ARM template. 
 
 > [!TIP]
 > To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
@@ -56,7 +56,7 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
    - **Resource group** - An existing resource group, or you can create a new resource group.
 
-   - **Region** - The Azure region of the resource group that's used for the deployment. Region auto-fills by using the resource group region.
+   - **Region** - The Azure region of the resource group that's used for the deployment. Region autofills by using the resource group region.
 
    - **Basename** - A value that's appended to the name of the Azure resources and services that are deployed.
 
@@ -124,9 +124,9 @@ When deployment is completed, the following resources and access roles are creat
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
- - To learn about the device mapping, see [How to configure the device mapping](how-to-configure-device-mappings.md).
+ - To learn about the device mapping, see [Overview of the MedTech service device mapping](overview-of-device-mapping.md).
 
- - To learn about the FHIR destination mapping, see [How to configure the FHIR destination mapping](how-to-configure-fhir-mappings.md).
+ - To learn about the FHIR destination mapping, see [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md).
 
 ## Next steps
 

@@ -6,7 +6,7 @@ author: rtanase
 ms.author: ratanase
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: conceptual
 ms.date: 11/30/2022
 ms.custom: sdkv2, event-tier1-build-2022
@@ -121,14 +121,14 @@ Azure Machine Learning will set the `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, 
 
 ## DeepSpeed
 
-[DeepSpeed](https://www.deepspeed.ai/tutorials/azure/) is supported as a first-class citizen within Azure Machine Learning to run distributed jobs with near linear scalabibility in terms of 
+[DeepSpeed](https://www.deepspeed.ai/tutorials/azure/) is supported as a first-class citizen within Azure Machine Learning to run distributed jobs with near linear scalability in terms of 
 
 * Increase in model size
 * Increase in number of GPUs
 
 `DeepSpeed` can be enabled using either Pytorch distribution or MPI for running distributed training. Azure Machine Learning supports the `DeepSpeed` launcher to launch distributed training as well as autotuning to get optimal `ds` configuration.
 
-You can use a [curated environment](resource-curated-environments.md#azure-container-for-pytorch-acpt-preview) for an out of the box environment with the latest state of art technologies including `DeepSpeed`, `ORT`, `MSSCCL`, and `Pytorch` for your DeepSpeed training jobs.
+You can use a [curated environment](resource-curated-environments.md#azure-container-for-pytorch-acpt) for an out of the box environment with the latest state of art technologies including `DeepSpeed`, `ORT`, `MSSCCL`, and `Pytorch` for your DeepSpeed training jobs.
 
 ### DeepSpeed example
 

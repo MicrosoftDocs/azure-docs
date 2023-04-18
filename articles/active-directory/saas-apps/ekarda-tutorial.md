@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ekarda | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ekarda'
 description: Learn how to configure single sign-on between Azure Active Directory and ekarda.
 services: active-directory
 author: jeevansd

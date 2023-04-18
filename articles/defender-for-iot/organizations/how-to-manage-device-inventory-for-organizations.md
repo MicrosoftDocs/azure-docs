@@ -3,6 +3,7 @@ title: Manage your device inventory from the Azure portal
 description: Learn how to view and manage OT and IoT devices (assets) from the Device inventory page in the Azure portal.
 ms.date: 06/27/2022
 ms.topic: how-to
+ms.custom: enterprise-iot
 ---
 
 # Manage your device inventory from the Azure portal
@@ -26,7 +27,13 @@ Use any of the following options to modify or filter the devices shown:
 |**Modify columns shown**     |   Select **Edit columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select the **+ Add Column** button to add new columns to the grid.<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
 | **Group devices** | From the **Group by** above the gird, select a category, such as **Class**, **Data source**, **Location**, **Purdue level**, **Site**, **Type**, **Vendor**, or **Zone**, to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
 
-For more information, see [Device inventory column reference](#device-inventory-column-reference).
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
+
+
+> [!NOTE]
+> If your OT sensors detect multiple devices in the same zone with the same IP or MAC address, those devices are automatically merged and identified as a single, unique device. Devices that have different IP addresses, but the same MAC address, are not merged, and continue to be listed as unique devices.
+>
+> Merged devices are listed only once in the **Device inventory** page. For more information, see [Separating zones for recurring IP ranges](best-practices/plan-corporate-monitoring.md#separating-zones-for-recurring-ip-ranges).
 
 ### View full device details
 
@@ -42,7 +49,7 @@ The device details page displays comprehensive device information, including the
 |---------|---------|
 | **Attributes** | Displays full device details such as class, data source, firmware details, activity, type, protocols, Purdue level, sensor, site, zone, and more. |
 | **Backplane** | Displays the backplane hardware configuration, including slot and rack information. Select a slot in the backplane view to see the details of the underlying devices. The backplane tab is usually visible for Purdue level 1 devices that have slots in use, such as PLC, RTU, and DCS devices. |
-|**Vulnerabilities** | Displays current vulnerabilities specific to the device. Vulnerability data is based on the repository of standards based vulnerability data documented at the US government National Vulnerability Database (NVD). Select the CVE name to see the CVE details and description. You can also view vulnerability data across your network with the [Defender for IoT Vulnerability workbook](workbooks.md#view-workbooks). |
+|**Vulnerabilities** | Displays current vulnerabilities specific to the device. Defender for IoT provides vulnerability coverage for [supported OT vendors](resources-manage-proprietary-protocols.md) where Defender for IoT can detect firmware models and firmwware versions.<br><br>Vulnerability data is based on the repository of standards-based vulnerability data documented in the US government National Vulnerability Database (NVD). Select the CVE name to see the CVE details and description. <br><br>**Tip**: View vulnerability data across your network with the [Defender for IoT Vulnerability workbook](workbooks.md#view-workbooks).|
 |**Alerts** | Displays current open alerts related to the device. Select any alert to view more details, and then select **View full details** to open the alert page to view the full alert information and take action. For more information on the alerts page, see [View alerts on the Azure portal](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal). |
 |**Recommendations** | Displays current recommendations for the device, such as Review PLC operating mode and Review unauthorized devices. For more information on recommendations, see [Enhance security posture with security recommendations](recommendations.md). |
 
@@ -83,7 +90,7 @@ As you manage your network devices, you may need to update their details. For ex
 
 Your updates are saved for all selected devices.
 
-For more information, see [Device inventory column reference](#device-inventory-column-reference).
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
 ### Reference of editable fields
 
@@ -107,7 +114,7 @@ The following device fields are supported for editing in the **Device inventory*
 |**Importance**     | Select **Low**, **Normal**, or **High** to modify the device's importance.        |
 |**Programming device**     | Toggle the **Programming Device** option on or off as needed for your device.        |
 
-For more information, see [Device inventory column reference](#device-inventory-column-reference).
+For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
 ## Export the device inventory to CSV
 
@@ -163,58 +170,11 @@ A success message appears at the top right confirming that the devices have been
 
 The merged device that is now listed in the grid retains the details of the device with the most recent activity or an update to its identifying details.
 
-## Device inventory column reference
-
-The following table describes the device properties shown in the **Device inventory** page on the Azure portal.
-
-| Parameter | Description |
-|--|--|
-| **Application** | The application that exists on the device. |
-|**Authorization**     |Editable. Determines whether or not the device is *authorized*. This value may change as device security changes.         |
-|**Business Function**     | Editable. Describes the device's business function.        |
-| **Class** | Editable. The class of the device. <br>Default: `IoT`|
-| **Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent`|
-| **Description** | Editable. The description of the device. |
-| **Firmware vendor** | Editable. The vendor of the device's firmware. |
-| **Firmware version** |Editable.  The version of the firmware. |
-| **First seen** | The date, and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
-|**Hardware Model**     |  Editable.  Determines the device's hardware model.     |
-|**Hardware Vendor**     |Editable.  Determines the device's hardware vendor.        |
-| **Importance** | Editable. The level of importance of the device. |
-| **IPv4 Address** | The IPv4 address of the device. |
-| **IPv6 Address** | The IPv6 address of the device. |
-| **Last activity** | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
-| **Location** | Editable. The physical location of the device. |
-| **MAC Address** | The MAC address of the device. |
-| **Model** | The device's model. |
-| **Name** | Mandatory, and editable. The name of the device as the sensor discovered it, or as entered by the user. |
-| **OS architecture** | Editable. The architecture of the operating system. |
-| **OS distribution** | Editable. The distribution of the operating system, such as Android, Linux, and Haiku. |
-| **OS platform** | Editable. The OS of the device, if detected. |
-| **OS version** | Editable. The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. |
-| **PLC mode** | The PLC operating mode that includes the Key state (physical, or logical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. |
-| **PLC secured** | Determines if the PLC mode is in a secure state. A possible secure state is `Run`. A possible unsecured state can be either `Program`, or `Remote`. |
-|**Programming device**     | Editable.  Determines whether the device is a *Programming Device*. |
-| **Programming time** | The last time the device was programmed.  |
-| **Protocols** | The protocols that the device uses. |
-| **Purdue level** | Editable. The Purdue level in which the device exists. |
-| **Scanner device** | Whether the device performs scanning-like activities in the network. |
-| **Sensor** | The sensor the device is connected to.  |
-| **Site** | The site that contains this device. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.|
-| **Slots** | The number of slots the device has.  |
-| **Subtype** | Editable. The subtype of the device, such as speaker and smart tv. <br>**Default**: `Managed Device` |
-| **Tags** | Editable. Tagging data for each device. |
-| **Type** | Editable. The type of device, such as communication, and industrial. <br>**Default**: `Miscellaneous` |
-| **Underlying devices** | Any relevant underlying devices for the device |
-| **Underlying device region** | The region for an underlying device |
-| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
-| **VLAN** | The VLAN of the device. |
-| **Zone** | The zone that contains this device. |
-
 ## Next steps
 
 For more information, see:
 
+- [Defender for IoT device inventory](device-inventory.md)
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
 - [Device data retention periods](references-data-retention.md#device-data-retention-periods).
