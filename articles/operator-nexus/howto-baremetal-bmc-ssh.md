@@ -11,12 +11,12 @@ ms.custom: template-how-to
 
 # Manage emergency access to a bare metal machine using the `az networkcloud cluster bmckeyset`
 
->[!CAUTION]
-Please note this process is used in emergency situations when all other troubleshooting options have been exhausted via Azure. SSH access to these bare metal machines (BMM) is restricted to users managed via this method from the specified jump host list.
+> [!CAUTION]
+> Please note this process is used in emergency situations when all other troubleshooting options via Azure have been exhausted. SSH access to these bare metal machines (BMM) is restricted to users managed via this method from the specified jump host list.
 
-There are rare situations where a user needs to investigate & resolve issues with a BMM and all other ways have been exhausted via Azure. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these BMMs.
+There are rare situations where a user needs to investigate & resolve issues with a BMM and all other ways using Azure have been exhausted. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these BMMs.
 
-When the command runs, it executes on each of BMM in the Cluster. If a BMM is unavailable or powered off at the time of command execution, the status of the command reflects which BMMs couldn't have the command executed. There's a reconciliation process that runs periodically that retries the command on any BMM that wasn't available at the time of the original command. Multiple commands execute in the order received.
+When the command runs, it executes on each BMM in the Cluster. If a BMM is unavailable or powered off at the time of command execution, the status of the command reflects which BMMs couldn't have the command executed. There's a reconciliation process that runs periodically that retries the command on any BMM that wasn't available at the time of the original command. Multiple commands execute in the order received.
 
 There's a maximum number of 12 users defined per Cluster. Attempts to add more than 12 users results in an error. Delete a user before adding another one when 12 already exists.
 
@@ -50,7 +50,7 @@ az networkcloud cluster bmckeyset create \
    "sshPublicKey":{"keyData":"<SSH Public Key>"}}]' \
   --tags key1=<Key Value> key2=<Key Value> \
   --cluster-name <Cluster Name> \
-  --resource-group <Resource Group>
+  --resource-group <Resource Group Name>
 ```
 
 ### Create Arguments
@@ -188,7 +188,7 @@ az networkcloud cluster bmckeyset update \
     "sshPublicKey":{"keyData":"<SSH Public Key>"}}]' \
   --tags key1=<Key Value> key2=<Key Value> \
   --cluster-name <Cluster Name> \
-  --resource-group <Resource Group>
+  --resource-group <Resource Group Name>
 ```
 
 ### Update Arguments
@@ -245,7 +245,7 @@ The command syntax is:
 ```azurecli
 az networkcloud cluster bmckeyset list \
   --cluster-name <Cluster Name> \
-  --resource-group <Resource Group>
+  --resource-group <Resource Group Name>
 ```
 
 ### List Arguments
@@ -266,7 +266,7 @@ The command syntax is:
 ```azurecli
 az networkcloud cluster bmckeyset show \
   --cluster-name <Cluster Name> \
-  --resource-group <Resource Group>
+  --resource-group <Resource Group Name>
 ```
 
 ### Show Arguments
