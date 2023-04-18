@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # How to sign machine configuration packages
 
-[!INCLUDE [Machine config rename banner](../includes/banner.md)]
+[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Machine configuration custom policies use SHA256 hash to validate the policy package hasn't
 changed. Optionally, customers may also use a certificate to sign packages and force the machine
@@ -19,7 +19,7 @@ content package, and append a tag to the machines that should require code to be
 ## Signature validation using a code signing certificate
 
 To use the Signature Validation feature, run the `Protect-GuestConfigurationPackage` cmdlet to sign
-the package before it's published. This cmdlet requires a 'Code Signing' certificate. If you do not
+the package before it's published. This cmdlet requires a 'Code Signing' certificate. If you don't
 have a 'Code Signing' certificate, please use the script below to create a self-signed certificate
 for testing purposes to follow along with the example.
 
@@ -122,7 +122,7 @@ requirement through the machine configuration extension.
 ## Next steps
 
 - [Test the package artifact][04] from your development environment.
-- [Publish the package artifact][05] so it is accessible to your machines.
+- [Publish the package artifact][05] so it's accessible to your machines.
 - Use the `GuestConfiguration` module to [create an Azure Policy definition][06] for at-scale
   management of your environment.
 - [Assign your custom policy definition][07] using Azure portal.

@@ -6,35 +6,34 @@ ms.topic: how-to
 ---
 # How to test machine configuration package artifacts
 
-[!INCLUDE [Machine config rename banner](../includes/banner.md)]
+[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 The PowerShell module **GuestConfiguration** includes tools to automate testing a configuration
 package outside of Azure. Use these tools to find issues and iterate quickly before moving on to
 test in an Azure or Arc connected environment.
 
-Before you can begin testing, follow all steps in the page
-[How to setup a machine configuration authoring environment][01] and then
-[How to create custom machine configuration package artifacts][02] to create and publish a custom
-machine configuration package.
+Before you can begin testing, you need to [set up your authoring environment][01] and
+[create a custom machine configuration package artifact][02].
 
 > [!IMPORTANT]
-> Custom packages that audit the state of an environment are Generally Available, but packages that
-> apply configurations are **in preview**. The following limitations apply:
+> Custom packages that audit the state of an environment and apply configurations are in Generally
+> Available (GA) support status. However, the following limitations apply:
 >
 > To use machine configuration packages that apply configurations, Azure VM guest configuration
 > extension version 1.29.24 or later, or Arc agent 1.10.0 or later, is required.
 >
-> To test creating and applying configurations on Linux, the **GuestConfiguration** module is only
-> available on Ubuntu 18 but the package and policies produced by the module can be used on any
-> Linux distro/version supported in Azure or Arc.
+> The **GuestConfiguration** module is only available on Ubuntu 18. However, the package and
+> policies produced by the module can be used on any Linux distro/version supported in Azure or
+> Arc.
 >
-> Testing packages on macOS is not available.
+> Testing packages on macOS isn't available.
 
 You can test the package from your workstation or continuous integration and continuous deployment
 (CI/CD) environment. The **GuestConfiguration** module includes the same agent for your development
 environment as is used inside Azure or Arc enabled machines. The agent includes a stand-alone
-instance of PowerShell 7.1.3 for Windows and 7.2.0-preview.7 for Linux, so the script environment
-where the package is tested will be consistent with machines you manage using guest configuration.
+instance of PowerShell 7.1.3 for Windows and 7.2.0-preview.7 for Linux. This ensures the script
+environment where the package is tested will be consistent with machines you manage using machine
+configuration.
 
 The agent service in Azure and Arc-enabled machines is running as the `LocalSystem` account in
 Windows and Root in Linux. Run the commands below in privileged security context for best results.
@@ -57,7 +56,7 @@ requirements.
 Parameters of the `Get-GuestConfigurationPackageComplianceStatus` cmdlet:
 
 - **Path**: File path or URI of the machine configuration package.
-- **Parameter**: Policy parameters provided in hashtable format.
+- **Parameter**: Policy parameters provided as a  hash table.
 
 When this command is run for the first time, the machine configuration agent gets installed on the
 test machine at the path `C:\ProgramData\GuestConfig\bin` on Windows and `/var/lib/GuestConfig/bin`
@@ -121,7 +120,7 @@ After running the command `Start-GuestConfigurationPackageRemediation`, you can 
 
 ## Next steps
 
-- [Publish the package artifact][05] so it is accessible to your machines.
+- [Publish the package artifact][05] so it's accessible to your machines.
 - Use the **GuestConfiguration** module to [create an Azure Policy definition][06] for at-scale
   management of your environment.
 - [Assign your custom policy definition][07] using Azure portal.

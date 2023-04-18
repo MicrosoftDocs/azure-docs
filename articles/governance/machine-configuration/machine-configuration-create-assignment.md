@@ -7,7 +7,7 @@ ms.custom: devx-track-terraform, devx-track-arm-template, devx-track-bicep
 ---
 # How to create a machine configuration assignment using templates
 
-[!INCLUDE [Machine config rename banner](../includes/banner.md)]
+[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 The best way to [assign machine configuration packages][01] to multiple machines is using
 [Azure Policy][02]. You can also assign machine configuration packages to a single machine.
@@ -232,7 +232,7 @@ resource "azurerm_virtual_machine_configuration_policy_assignment" "AzureWindows
 - Setup a custom machine configuration package [development environment][13].
 - [Create a package artifact][14] for machine configuration.
 - [Test the package artifact][15] from your development environment.
-- [Publish the package artifact][03] so it is accessible to your machines.
+- [Publish the package artifact][03] so it's accessible to your machines.
 - Use the **GuestConfiguration** module to [create an Azure Policy definition][02] for at-scale
   management of your environment.
 - [Assign your custom policy definition][16] using Azure portal.

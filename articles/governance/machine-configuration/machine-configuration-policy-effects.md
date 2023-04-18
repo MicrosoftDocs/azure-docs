@@ -6,7 +6,7 @@ ms.topic: how-to
 ---
 # Remediation options for machine configuration
 
-[!INCLUDE [Machine config rename banner](../includes/banner.md)]
+[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
@@ -19,7 +19,7 @@ Before you begin, it's a good idea to read the overview page for [machine config
 > extension version 1.29.24 or later, or Arc agent 1.10.0 or later, is required.
 >
 > Custom machine configuration policy definitions using `AuditIfNotExists` as well as
-> `DeployIfNotExists` are now Generally Available.
+> `DeployIfNotExists` are in Generally Available (GA) support status.
 
 ## How remediation (Set) is managed by machine configuration
 
@@ -40,17 +40,22 @@ available as a parameter of machine configuration definitions that support `Depl
 | `ApplyAndMonitor`     | Applied to the machine once and then monitored for changes. If the configuration drifts and becomes `NonCompliant`, it won't be automatically corrected unless remediation is triggered. |
 | `ApplyAndAutoCorrect` | Applied to the machine. If it drifts, the local service inside the machine makes a correction at the next evaluation.                                                                    |
 
-In each of the three assignment types, when a new policy assignment is assigned to an existing
-machine, a guest assignment is automatically created to audit the state of the configuration first,
-providing information to make decisions about which machines need remediation.
+When a new policy assignment is assigned to an existing machine, a guest assignment is
+automatically created to audit the state of the configuration first. This gives you information you
+can use to make decide which machines need remediation.
 
 ## Remediation on-demand (ApplyAndMonitor)
 
-By default, machine configuration assignments operates in a "remediation on demand" scenario. The
-configuration is applied and then allowed to drift out of compliance. The compliance status of the
-guest assignment is `Compliant` unless an error occurs while applying the configuration or if
-during the next evaluation the machine is no longer in the desired state. The agent reports the
-status as `NonCompliant` and doesn't automatically remediate.
+By default, machine configuration assignments operates in a remediation on demand scenario. The
+configuration is applied and then allowed to drift out of compliance.
+
+The compliance status of the guest assignment is `Compliant` unless either:
+
+- An error occurs while applying the configuration
+- If the machine is no longer in the desired state during the next evaluation
+
+When either of those conditions are met, the agent reports the status as `NonCompliant` and doesn't
+automatically remediate.
 
 To enable this behavior, set the [assignmentType property][05] of the machine configuration
 assignment to `ApplyandMonitor`. Each time the assignment is processed within the machine, for each
@@ -59,7 +64,7 @@ returns `false` the agent reports `NonCompliant`.
 
 ## Continuous remediation (AutoCorrect)
 
-Machine configuration supports the concept of "continuous remediation". If the machine drifts out
+Machine configuration supports the concept of _continuous remediation_. If the machine drifts out
 of compliance for a configuration, the next time it's evaluated the configuration is corrected
 automatically. Unless an error occurs, the machine always reports status as `Compliant` for the
 configuration. There's no way to report when a drift was automatically corrected when using
@@ -72,7 +77,7 @@ each resource the [Test][06] method returns `false`, the [Set][07] method runs a
 ## Disable remediation
 
 When the **assignmentType** property is set to `Audit`, the agent only performs an audit of the
-machine and doesn't attempt to remediate the configuration if it isn't compliant.
+machine and doesn't try to remediate the configuration if it isn't compliant.
 
 ### Disable remediation of custom content
 
@@ -87,11 +92,11 @@ Azure Policy assignments include a required property [Enforcement Mode][08] that
 behavior for new and existing resources. Use this property to control whether configurations are
 automatically applied to machines.
 
-By default, enforcement is set to `Enabled`. When a new machine is deployed or the properties of a
-machine are updated, if the machine is in the scope of an Azure Policy assignment with a policy
-definition in the category `Guest Configuration`, Azure Policy automatically applies the
-configuration. Update operations include actions that occur in Azure Resource Manager such as
-adding or changing a tag, and for virtual machines, changes such as resizing or attaching a disk.
+By default, enforcement is set to `Enabled`. Azure Policy automatically applies the configuration
+when a new machine is deployed. It also applies the configuration when the properties of a machine
+in the scope of an Azure Policy assignment with a policy in the category `Guest Configuration` is
+updated. Update operations include actions that occur in Azure Resource Manager such as adding or
+changing a tag, and for virtual machines, changes such as resizing or attaching a disk.
 
 Leave enforcement enabled if the configuration should be remediated when changes occur to the
 machine resource in Azure. Changes happening inside the machine don't trigger automatic remediation
@@ -110,24 +115,22 @@ assignment is created any resources that evaluate to `NonCompliant` are automati
 by remediation tasks.
 
 The effect of this setting for machine configuration is that you can deploy a configuration across
-many machines simply by assigning a policy. You won't also have to run the remediation task
-manually for machines that aren't compliant.
+many machines by assigning a policy. You won't also have to run the remediation task manually for
+machines that aren't compliant.
 
 ## Manually trigger remediation outside of Azure Policy
 
-It's also possible to orchestrate remediation outside of the Azure Policy experience by updating a
+You can orchestrate remediation outside of the Azure Policy experience by updating a
 guest assignment resource, even if the update doesn't make changes to the resource properties.
 
 When a machine configuration assignment is created, the [complianceStatus property][10] is set to
-`Pending`. The machine configuration service inside the machine (delivered to Azure virtual
-machines by the [Guest configuration extension][01] and included with Arc-enabled servers) requests
-a list of assignments every 5 minutes. If the machine configuration assignment has both
-requirements, a **complianceStatus** of `Pending` and a **configurationMode** of either
-`ApplyandMonitor` or `ApplyandAutoCorrect`, the service in the machine applies the configuration.
+`Pending`. The machine configuration service requests a list of assignments every 5 minutes. If the
+machine configuration assignment's **complianceStatus** is `Pending` and its **configurationMode**
+is `ApplyandMonitor` or `ApplyandAutoCorrect`, the service in the machine applies the
+configuration.
 
-After the configuration is applied, at the [next interval][01] the configuration mode dictates
-whether the behavior is to only report on compliance status and allow drift or to automatically
-correct.
+After the configuration is applied, the configuration mode dictates whether the behavior is to only
+report on compliance status and allow drift or to automatically correct.
 
 ## Understanding combinations of settings
 

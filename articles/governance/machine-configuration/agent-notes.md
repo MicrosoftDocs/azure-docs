@@ -6,7 +6,7 @@ ms.topic: conceptual
 ---
 # Azure Automanage machine configuration agent release notes
 
-[!INCLUDE [Machine config rename banner][00]]
+[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 ## About the machine configuration agent
 
@@ -26,7 +26,7 @@ For information on release notes for the connected machine agent, please see
 
 #### New Features
 
-- In this release we have added support for Linux distributions such as Red Hat Enterprise Linux
+- In this release we've added support for Linux distributions such as Red Hat Enterprise Linux
   (RHEL) 9, Mariner 1&2, Alma 9, and Rocky 9.
 
 #### Fixed
@@ -85,7 +85,6 @@ az vm extension set \
 - Learn how to view [compliance details for machine configuration][09] policy assignments.
 
 <!-- Reference link definitions -->
-[00]: ../includes/banner.md
 [01]: ../../azure-arc/servers/agent-release-notes.md
 [03]: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007
 [04]: ./machine-configuration-create-setup.md

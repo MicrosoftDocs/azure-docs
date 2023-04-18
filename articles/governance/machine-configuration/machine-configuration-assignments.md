@@ -6,7 +6,7 @@ ms.topic: conceptual
 ---
 # Understand machine configuration assignment resources
 
-[!INCLUDE [Machine config rename banner](../includes/banner.md)]
+[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 When an Azure Policy is assigned, if it's in the category `Guest Configuration` there's metadata
 included to describe a guest assignment.
@@ -30,26 +30,26 @@ version `1.0.0` to any machines in scope of the policy.
 
 ## How Azure Policy uses machine configuration assignments
 
-The metadata information is used by the machine configuration service to automatically create an
-audit resource for definitions with either `AuditIfNotExists` or `DeployIfNotExists` policy
-effects. The resource type is `Microsoft.GuestConfiguration/guestConfigurationAssignments`. Azure
-Policy uses the **complianceStatus** property of the guest assignment resource to report compliance
-status. For more information, see [getting compliance data][02].
+The machine configuration service uses the metadata information to automatically create an audit
+resource for definitions with either `AuditIfNotExists` or `DeployIfNotExists` policy effects. The
+resource type is `Microsoft.GuestConfiguration/guestConfigurationAssignments`. Azure Policy uses
+the **complianceStatus** property of the guest assignment resource to report compliance status. For
+more information, see [getting compliance data][02].
 
 ### Deletion of guest assignments from Azure Policy
 
 When an Azure Policy assignment is deleted, if a machine configuration assignment was created by
 the policy, the machine configuration assignment is also deleted.
 
-When an Azure Policy assignment is deleted from an initiative, if a machine configuration
-assignment was created by the policy, you will need to manually delete the corresponding machine
-configuration assignment. This can be done by navigating to the guest assignments page on Azure
-portal and deleting the assignment there.
+When an Azure Policy assignment is deleted, if a machine configuration assignment was created by
+the policy, you'll need to manually delete the corresponding machine configuration assignment. This
+can be done by navigating to the guest assignments page on Azure portal and deleting the assignment
+there.
 
 ## Manually creating machine configuration assignments
 
-Guest assignment resources in Azure Resource Manager can be created by Azure Policy or any client
-SDK.
+You can create guest assignment resources in Azure Resource Manager by using Azure Policy or any
+client SDK.
 
 An example deployment template:
 
@@ -84,16 +84,16 @@ The following table describes each property of guest assignment resources.
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | **name**                   | Name of the configuration inside the content package MOF file.                                                                    |
 | **contentUri**             | HTTPS URI path to the content package (`.zip`).                                                                                   |
-| **contentHash**            | A SHA256 hash value of the content package, used to verify it has not changed.                                                    |
+| **contentHash**            | A SHA256 hash value of the content package, used to verify it hasn't changed.                                                     |
 | **version**                | Version of the content package. Only used for built-in packages and not used for custom content packages.                         |
 | **assignmentType**         | Behavior of the assignment. Allowed values: `Audit`, `ApplyandMonitor`, and `ApplyandAutoCorrect`.                                |
 | **configurationParameter** | List of DSC resource type, name, and value in the content package MOF file to be overridden after it's downloaded in the machine. |
 
 ### Deletion of manually created machine configuration assignments
 
-Machine configuration assignments created through any manual approach (such as an Azure Resource
-Manager template deployment) must be deleted manually. Deleting the parent resource (virtual
-machine or Arc-enabled machine) will also delete the machine configuration assignment.
+You must manually delete machine configuration assignments created through any manual approach
+(such as an Azure Resource Manager template deployment). Deleting the parent resource (virtual
+machine or Arc-enabled machine) also deletes the machine configuration assignment.
 
 To manually delete a machine configuration assignment, use the following example. Make sure to
 replace all example strings, indicated by `<>` brackets.

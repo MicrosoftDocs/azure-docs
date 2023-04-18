@@ -7,11 +7,11 @@ ms.custom: devx-track-azurepowershell
 ---
 # How to publish custom machine configuration package artifacts
 
-[!INCLUDE [Machine config rename banner](../includes/banner.md)]
+[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
-Machine configuration custom `.zip` packages must be stored in a location that is accessible via
+Machine configuration custom `.zip` packages must be stored in a location that's accessible via
 HTTPS by the managed machines. Examples include GitHub repositories, an Azure Repo, Azure storage,
 or a web server within your private datacenter.
 

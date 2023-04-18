@@ -6,22 +6,22 @@ ms.topic: conceptual
 ---
 # Understand the machine configuration feature of Azure Automanage
 
-[!INCLUDE [Machine config rename banner](../includes/banner.md)]
+[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Azure Policy's machine configuration feature provides native capability to audit or configure
-operating system settings as code, both for machines running in Azure and hybrid
-[Arc-enabled machines][01]. The feature can be used directly per-machine, or at-scale orchestrated
-by Azure Policy.
+operating system settings as code for machines running in Azure and hybrid
+[Arc-enabled machines][01]. You can use the feature directly per-machine, or orchestrate it at
+scale by using Azure Policy.
 
 Configuration resources in Azure are designed as an [extension resource][02]. You can imagine each
-configuration as an additional set of properties for the machine. Configurations can include
-settings such as:
+configuration as an extra set of properties for the machine. Configurations can include settings
+such as:
 
 - Operating system settings
 - Application configuration or presence
 - Environment settings
 
-Configurations are distinct from policy definitions. Machine configuration utilizes Azure Policy to
+Configurations are distinct from policy definitions. Machine configuration uses Azure Policy to
 dynamically assign configurations to machines. You can also assign configurations to machines
 [manually][03], or by using other Azure services such as [Automanage][04].
 
@@ -30,11 +30,11 @@ Examples of each scenario are provided in the following table.
 |              Type              |                                                                                                        Description                                                                                                         |                                                                                            Example story                                                                                            |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Configuration management][05] | You want a complete representation of a server, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website."                                                                                                                                |
-| [Compliance][06]               | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed.                                                                  | "All machines should use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
+| [Compliance][06]               | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they're deployed.                                                                  | "All machines should use TLS 1.2. Audit existing machines so I can release change where it's needed, in a controlled way, at scale. For new machines, enforce the setting when they're deployed." |
 
-The per-setting results from configurations can be viewed either in the
-[Guest assignments page][07] or, if the configuration is orchestrated by an Azure Policy assignment,
-by selecting the "Last evaluated resource" link on the ["Compliance details" page][07].
+You can view the per-setting results from configurations in the [Guest assignments page][07]. If the
+configuration is orchestrated by an Azure Policy assignment, you can select the "Last evaluated
+resource" link on the ["Compliance details" page][07].
 
 [A video walk-through of this document is available][08]. (Update coming soon)
 
@@ -90,18 +90,18 @@ Inside the machine, the machine configuration agent uses local tools to perform 
 The following table shows a list of the local tools used on each supported operating system. For
 built-in content, machine configuration handles loading these tools automatically.
 
-| Operating system |                 Validation tool                 |                                                                                 Notes                                                                                  |
-| ---------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows          | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                                  |
-| Linux            | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. PowerShell isn't added to system path.                                                                              |
-| Linux            | [Chef InSpec][16]                               | Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
+| Operating system |                 Validation tool                 |                                                                         Notes                                                                          |
+| ---------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Windows          | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                  |
+| Linux            | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. PowerShell isn't added to system path.                                                              |
+| Linux            | [Chef InSpec][16]                               | Installs Chef InSpec version 2.2.61 in default location and adds it to system path. It installs InSpec's dependencies, including Ruby and Python, too. |
 
 ### Validation frequency
 
 The machine configuration agent checks for new or changed guest assignments every 5 minutes. Once a
 guest assignment is received, the settings for that configuration are rechecked on a 15-minute
 interval. If multiple configurations are assigned, each is evaluated sequentially. Long-running
-configurations impact the interval for all configurations, because the next will not run until the
+configurations impact the interval for all configurations, because the next won't run until the
 prior configuration has finished.
 
 Results are sent to the machine configuration service when the audit completes. When a policy
@@ -214,8 +214,8 @@ Apply tag with the name `EnablePrivateNetworkGC` and value `TRUE` to enable this
 can be applied before or after machine configuration policy definitions are applied to the machine.
 
 > [!IMPORTANT]
-> In order to communicate over private link for custom packages, the link to the location of the
-> package must be added to the list of allowed URLS.
+> To communicate over private link for custom packages, the link to the location of the
+> package must be added to the list of allowed URLs.
 
 Traffic is routed using the Azure [virtual public IP address][22] to establish a secure,
 authenticated channel with Azure platform resources.
@@ -237,7 +237,7 @@ configuration scenarios.
 ### Communicate over Private Link outside of Azure
 
 When using [private link with Arc-enabled servers][24], built-in policy packages will automatically
-be downloaded over the private link. You do not need to set any tags on the Arc-enabled server to
+be downloaded over the private link. You don't need to set any tags on the Arc-enabled server to
 enable this feature.
 
 ## Assigning policies to machines outside of Azure
@@ -271,20 +271,19 @@ If the machine currently has a user-assigned system identity, the effective poli
 
 Customers designing a highly available solution should consider the redundancy planning
 requirements for [virtual machines][28] because guest assignments are extensions of machine
-resources in Azure. When guest assignment resources are provisioned into an Azure region that is
-[paired][29], as long as at least one region in the pair is available, then guest assignment
-reports are available. If the Azure region isn't paired and it becomes unavailable, then it isn't
-possible to access reports for a guest assignment until the region is restored.
+resources in Azure. When guest assignment resources are provisioned into an Azure region that's
+[paired][29], you can view guest assignment reports if at least one region in the pair is
+available. If the Azure region isn't paired and it becomes unavailable, then it isn't possible to
+access reports for a guest assignment until the region is restored.
 
-When you're considering an architecture for highly available applications, especially where virtual
-machines are provisioned in [Availability Sets][30] behind a load balancer solution to provide high
-availability, it's best practice to assign the same policy definitions with the same parameters to
-all machines in the solution. If possible, a single policy assignment spanning all machines would
-offer the least administrative overhead.
+It's best practice to assign the same policy definitions with the same parameters to all machines
+in the solution for highly available applications. This is especially true for scenarios where
+virtual machines are provisioned in [Availability Sets][30] behind a load balancer solution. A
+single policy assignment spanning all machines has the least administrative overhead.
 
-For machines protected by [Azure Site Recovery][31], ensure that machines in a secondary site are
-within scope of Azure Policy assignments for the same definitions using the same parameter values
-as machines in the primary site.
+For machines protected by [Azure Site Recovery][31], ensure that machines in the primary and
+secondary site are within scope of Azure Policy assignments for the same definitions. Use the same
+parameter values for both sites.
 
 ## Data residency
 
@@ -421,7 +420,7 @@ Machine configuration built-in policy samples are available in the following loc
 
 - [Built-in policy definitions - Guest Configuration][38]
 - [Built-in initiatives - Guest Configuration][39]
-- [Azure Policy samples GitHub repo][40]
+- [Azure Policy samples GitHub repository][40]
 - [Sample DSC resource modules][41]
 
 ## Next steps

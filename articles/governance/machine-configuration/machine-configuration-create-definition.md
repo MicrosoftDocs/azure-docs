@@ -6,11 +6,10 @@ ms.topic: how-to
 ---
 # How to create custom machine configuration policy definitions
 
-[!INCLUDE [Machine config rename banner](../includes/banner.md)]
+[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01], and
-the details about machine configuration policy effects
-[How to configure remediation options for machine configuration][02].
+the details about machine configuration's [remediation options][02].
 
 > [!IMPORTANT]
 > The machine configuration extension is required for Azure virtual machines. To deploy the
@@ -21,23 +20,22 @@ the details about machine configuration policy effects
 > extension version 1.29.24 or later, or Arc agent 1.10.0 or later, is required.
 >
 > Custom machine configuration policy definitions using either `AuditIfNotExists` or
-> `DeployIfNotExists` are now Generally Available.
+> `DeployIfNotExists` are in Generally Available (GA) support status.
 
 Use the following steps to create your own policies that audit compliance or manage the state of
 Azure or Arc-enabled machines.
 
 ## Install PowerShell 7 and required PowerShell modules
 
-First, make sure you've followed all steps on the page
-[How to set up a machine configuration authoring environment][03] to install the required version
+First, [set up a machine configuration authoring environment][03] to install the required version
 of PowerShell for your OS and the **GuestConfiguration** module.
 
 ## Create and publish a machine configuration package artifact
 
-If you haven't already, follow all steps on the page
-[How to create custom machine configuration package artifacts][04] to create and publish a custom
-machine configuration package and [How to test machine configuration package artifacts][05] to
-validate the machine configuration package locally in your development environment.
+If you haven't already, create and publish a custom machine configuration package by following the
+steps in [How to create custom machine configuration package artifacts][04]. Then validate the
+package in your development environment by following the steps in
+[How to test machine configuration package artifacts][05].
 
 ## Policy requirements for machine configuration
 
@@ -47,7 +45,7 @@ The **category** property must be set to `Guest Configuration` and a section nam
 **guestConfiguration** must contain information about the machine configuration assignment. The
 `New-GuestConfigurationPolicy` cmdlet creates this text automatically.
 
-The following example demonstrates the **metadata** section that is automatically created by
+The following example demonstrates the **metadata** section that's automatically created by
 `New-GuestConfigurationPolicy`.
 
 ```json
@@ -85,7 +83,7 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **ContentUri**: Public HTTP(s) URI of machine configuration content package.
 - **DisplayName**: Policy display name.
 - **Description**: Policy description.
-- **Parameter**: Policy parameters provided in hashtable format.
+- **Parameter**: Policy parameters provided in a hash table.
 - **PolicyVersion**: Policy version.
 - **Path**: Destination path where policy definitions are created.
 - **Platform**: Target platform (Windows/Linux) for machine configuration policy and content
@@ -141,7 +139,7 @@ name `deployIfNotExists.json`.
 
 The policy definitions created by cmdlets in the **GuestConfiguration** module can optionally
 include a filter for tags. The **Tag** parameter of `New-GuestConfigurationPolicy` supports an
-array of hashtables containing individual tag entries. The tags are added to the **if** section of
+array of hash tables containing individual tag entries. The tags are added to the **if** section of
 the policy definition and can't be modified by a policy assignment.
 
 An example snippet of a policy definition that filters for tags is given below.
@@ -176,7 +174,7 @@ The override values are provided through Azure Policy and don't change how the D
 are authored or compiled.
 
 The cmdlets `New-GuestConfigurationPolicy` and `Get-GuestConfigurationPackageComplianceStatus`
-include a parameter named **Parameter**. This parameter takes a hashtable definition including all
+include a parameter named **Parameter**. This parameter takes a hash table definition including all
 details about each parameter and creates the required sections of each file used for the Azure
 Policy definition.
 
@@ -259,7 +257,7 @@ configuration package and the Azure Policy definition details.
 > the file name.
 
 First, when running `New-GuestConfigurationPackage`, specify a name for the package that makes it
-unique from previous versions. You can include a version number in the name such as
+unique from earlier versions. You can include a version number in the name such as
 `PackageName_1.0.0`. The number in this example is only used to make the package unique, not to
 specify that the package should be considered newer or older than other packages.
 
@@ -267,7 +265,7 @@ Second, update the parameters used with the `New-GuestConfigurationPolicy` cmdle
 the following explanations.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
-  number greater than what is currently published.
+  number greater than what's currently published.
 - **contentUri**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a URI to
   the location of the package. Including a package version in the file name will ensure the value
   of this property changes in each release.
@@ -277,7 +275,7 @@ the following explanations.
   the Extension won't accept the content package.
 
 The easiest way to release an updated package is to repeat the process described in this article
-and provide an updated version number. That process guarantees all properties have been correctly
+and specify an updated version number. That process guarantees all properties have been correctly
 updated.
 
 ## Next steps

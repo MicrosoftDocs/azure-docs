@@ -6,7 +6,7 @@ ms.topic: how-to
 ---
 # How to create custom machine configuration package artifacts
 
-[!INCLUDE [Machine config rename banner](../includes/banner.md)]
+[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
@@ -15,17 +15,17 @@ When auditing and configuring both Windows and Linux, machine configuration uses
 machine should be in.
 
 > [!IMPORTANT]
-> Custom packages that audit the state of an environment and apply configurations are in generally
-> available (GA) support status. However, the following limitations apply:
+> Custom packages that audit the state of an environment and apply configurations are in Generally
+> Available (GA) support status. However, the following limitations apply:
 >
 > To use machine configuration packages that apply configurations, Azure VM guest configuration
 > extension version 1.29.24 or later, or Arc agent 1.10.0 or later, is required.
 >
-> To test creating and applying configurations on Linux, the **GuestConfiguration** module is only
-> available on Ubuntu 18 but the package and policies produced by the module can be used on any
-> Linux distribution and version supported in Azure or Arc.
+> The **GuestConfiguration** module is only available on Ubuntu 18. However, the package and
+> policies produced by the module can be used on any Linux distribution and version supported in
+> Azure or Arc.
 >
-> Testing packages on macOS is not available.
+> Testing packages on macOS isn't available.
 >
 > Don't use secrets or confidential information in custom content packages.
 
@@ -34,10 +34,9 @@ non-Azure machine.
 
 ## Install PowerShell 7 and required PowerShell modules
 
-First, make sure you've followed all steps on the page
-[How to setup a machine configuration authoring environment][03] to install the required version of
-PowerShell for your OS, the **GuestConfiguration** module, and if needed, the module
-**PSDesiredStateConfiguration**.
+First, follow the steps in [How to setup a machine configuration authoring environment][03].
+They'll help you to install the required version of PowerShell for your OS, the
+**GuestConfiguration** module, and the **PSDesiredStateConfiguration** module.
 
 ## Author a configuration
 
@@ -50,10 +49,9 @@ configurations are available for Windows and Linux.
 
 An example is provided in the DSC [Getting started document][04] for Windows.
 
-For Linux, you'll need to create a custom DSC resource module using [PowerShell classes][05]. A
-full example of a custom resource and configuration is available (and has been tested with machine
-configuration) in the PowerShell docs page
-[Writing a custom DSC resource with PowerShell classes][05].
+For Linux, you'll need to create a custom DSC resource module using [PowerShell classes][05]. The
+article [Writing a custom DSC resource with PowerShell classes][05] includes a full example of a
+custom resource and configuration tested with machine configuration.
 
 ## Create a configuration package artifact
 
@@ -151,7 +149,7 @@ third-party platform in the content artifact.
 ## Next steps
 
 - [Test the package artifact][07] from your development environment.
-- [Publish the package artifact][08] so it is accessible to your machines.
+- [Publish the package artifact][08] so it's accessible to your machines.
 - Use the **GuestConfiguration** module to [create an Azure Policy definition][09] for at-scale
   management of your environment.
 - [Assign your custom policy definition][10] using Azure portal.

@@ -6,7 +6,7 @@ ms.topic: how-to
 ---
 # Planning a change from Desired State Configuration extension for Linux to machine configuration
 
-[!INCLUDE [Machine config rename banner](../includes/banner.md)]
+[!INCLUDE [Machine configuration rename banner](../includes/banner.md)]
 
 Machine configuration is the latest implementation of functionality that has been provided by the
 PowerShell Desired State Configuration (DSC) extension for Linux virtual machines in Azure. When
@@ -31,9 +31,9 @@ finished running inside the virtual machine. After deployment, no further inform
 to ARM. The monitoring and drift are managed within the machine.
 
 Machine configuration processes configurations in a "pull" model. The extension is deployed to a
-virtual machine and then jobs are executed based on machine configuration assignment details. it's
-not possible to view the status while the configuration in real time as it's being applied inside
-the machine. It's possible to monitor and correct drift from Azure Resource Manager (ARM) after the
+virtual machine and then jobs are executed based on machine configuration assignment details. It
+isn't possible to view the status while the configuration in real time as it's being applied inside
+the machine. It's possible to watch and correct drift from Azure Resource Manager (ARM) after the
 configuration is applied.
 
 The DSC extension included **privateSettings** where secrets could be passed to the configuration,
@@ -100,7 +100,7 @@ First, replace the DSC extension with the [extension for the machine configurati
 Then, add a [machine configuration assignment][06] that associates the new configuration package
 (and hash value) with the machine.
 
-#### Older "nx" modules for Linux DSC are not compatible with DSCv3
+#### Older nx\* modules for Linux DSC aren't compatible with DSCv3
 
 The modules that shipped with DSC for Linux on GitHub were created in the C programming language.
 In the latest version of DSC, which is used by the machine configuration feature, modules for Linux
@@ -112,7 +112,7 @@ As a result, new Linux packages will require custom module development.
 Linux content authored using Chef Inspec remains supported but should only be used for legacy
 configurations.
 
-#### Updated "nx" module functionality
+#### Updated nx\* module functionality
 
 A new open-source [nxtools module][07] has been released to help make managing Linux systems easier
 for PowerShell users.
@@ -128,8 +128,8 @@ The module will help in managing common tasks such as:
 The module includes class-based DSC resources for Linux, as well as built-in machine configuration
 packages.
 
-To provide feedback about this functionality, open an issue on the documentation. We currently
-_don't_ accept PRs for this project, and support is best effort.
+To give feedback about this functionality, open an issue on the documentation. We currently _don't_
+accept PRs for this project, and support is best effort.
 
 #### Will I have to add the Reasons property to custom resources?
 
