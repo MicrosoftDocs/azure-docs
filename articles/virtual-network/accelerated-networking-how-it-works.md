@@ -34,7 +34,7 @@ The synthetic network interface and VF interface are automatically paired and ac
  
 The synthetic and VF interfaces both have the same MAC address. Together they constitute a single NIC from the standpoint of other network entities that exchange packets with the virtual NIC in the VM. Other entities don't take any special action because of the existence of both the synthetic interface and the VF interface. 
 
-Both interfaces are visible via the “ifconfig” or “ip addr” command in Linux.  Here's example “ifconfig” output in Ubuntu 18.04: 
+Both interfaces are visible via the “ifconfig” or “ip addr” command in Linux. Here's an example “ifconfig” output: 
 
 ```output
 U1804:~$ ifconfig 
