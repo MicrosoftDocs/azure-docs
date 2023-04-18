@@ -2,17 +2,19 @@
 title: Use an Azure AD workload identities (preview) on Azure Kubernetes Service (AKS)
 description: Learn about Azure Active Directory workload identity (preview) for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 ms.topic: article
-ms.date: 03/28/2023
+ms.date: 04/18/2023
 
 ---
 
 # Use Azure AD workload identity with Azure Kubernetes Service (AKS)
 
-Azure AD Workload Identity leverages [Service Account Token Volume Projection](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection) giving pods the ability to use a Kubernetes identity (service account), to which a Kubernetes token is issued and [OIDC federation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens) which enables Kubernetes applications to access Azure cloud resources securely with Azure Active Directory based on annotated service accounts.
+Workloads deployed on an Azure Kubernetes Services (AKS) cluster require Azure Active Directory (Azure AD) application credentials or managed identities to access Azure AD protected resources, such as Azure Key Vault and Microsoft Graph. Azure AD workload identity integrates with the capabilities native to Kubernetes to federate with external identity providers.
+
+[Azure AD workload identity][azure-ad-workload-identity] uses [Service Account Token Volume Projection][service-account-token-volume-projection] enabling pods to use a Kubernetes identity (that is, a service account). A Kubernetes token is issued and [OIDC federation][oidc-federation] enables Kubernetes applications to access Azure resources securely with Azure AD based on annotated service accounts.
 
 Azure AD workload identity works especially well with the Azure Identity client library using the [Azure SDK][azure-sdk-download] and the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL) if you're using [application registration][azure-ad-application-registration]. Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
 
-This article helps you understand this new authentication feature, and reviews the options available to plan your project strategy and potential migration from Pod Identity.
+This article helps you understand this new authentication feature, and reviews the options available to plan your project strategy and potential migration from Azure AD pod-managed identity.
 
 ## Dependencies
 
@@ -68,7 +70,7 @@ The following diagram summarizes the authentication sequence using OpenID Connec
 
 ### Webhook Certificate Auto Rotation
 
-Similar to other webhook addons, the certificate will be rotated by cluster certificate [auto rotation](https://learn.microsoft.com/azure/aks/certificate-rotation#certificate-auto-rotation) operation.
+Similar to other webhook addons, the certificate will be rotated by cluster certificate [auto rotation][auto-rotation] operation.
 
 ## Service account labels and annotations
 
@@ -134,11 +136,11 @@ The following table summarizes our migration or deployment recommendations for w
 <!-- EXTERNAL LINKS -->
 [azure-sdk-download]: https://azure.microsoft.com/downloads/
 [custom-resource-definition]: https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/
-
+[service-account-token-volume-projection]: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection
+[oidc-federation]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens
 <!-- INTERNAL LINKS -->
 [use-azure-ad-pod-identity]: use-azure-ad-pod-identity.md
 [azure-ad-workload-identity]: ../active-directory/develop/workload-identities-overview.md
-[azure-instance-metadata-service]: ../virtual-machines/linux/instance-metadata-service.md
 [microsoft-authentication-library]: ../active-directory/develop/msal-overview.md
 [azure-ad-application-registration]: ../active-directory/develop/application-model.md#register-an-application
 [install-azure-cli]: /cli/azure/install-azure-cli
@@ -147,7 +149,4 @@ The following table summarizes our migration or deployment recommendations for w
 [deploy-configure-workload-identity-new-cluster]: workload-identity-deploy-cluster.md
 [tutorial-use-workload-identity]: ./learn/tutorial-kubernetes-workload-identity.md
 [workload-identity-migration-sidecar]: workload-identity-migrate-from-pod-identity.md
-[dotnet-azure-identity-client-library]: /dotnet/api/overview/azure/identity-readme
-[java-azure-identity-client-library]: /java/api/overview/azure/identity-readme
-[javascript-azure-identity-client-library]: /javascript/api/overview/azure/identity-readme
-[python-azure-identity-client-library]: /python/api/overview/azure/identity-readme
+[auto-rotation]: certificate-rotation.md#certificate-auto-rotation
