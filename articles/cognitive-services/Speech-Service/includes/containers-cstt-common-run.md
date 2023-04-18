@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/06/2023
+ms.date: 04/18/2023
 ms.author: eur
 ---
 

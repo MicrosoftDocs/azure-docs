@@ -4,14 +4,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/06/2023
+ms.date: 04/18/2023
 ms.author: eur
 ---
 
-Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK. By default, the Speech SDK uses the public Speech service. To use the container, you need to change the initialization method.
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method.
 
 > [!IMPORTANT]
-> When you use the Speech service with containers, be sure to use host authentication. If you configure the key and region, requests will go to the public Speech service. Results from the Speech service might not be what you expect. Requests from disconnected containers will fail.
+> When you use the Speech service with containers, be sure to use [host authentication](../speech-container-howto.md#host-urls). If you configure the key and region, requests will go to the public Speech service. Results from the Speech service might not be what you expect. Requests from disconnected containers will fail.
 
 ::: zone pivot="programming-language-csharp"
 Instead of using this Azure-cloud initialization config:

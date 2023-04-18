@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 04/18/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk-cli
 keywords: on-premises, Docker, container
@@ -121,7 +121,7 @@ Increasing the number of concurrent calls can affect reliability and latency. Fo
 
 [!INCLUDE [Speech container authentication](includes/containers-speech-config-http.md)]
 
-[Try language identification](language-identification.md) using host authentication instead of key and region. Use the `SourceLanguageRecognizer` object instead of `SpeechRecognizer`.
+[Try language identification](language-identification.md) using host authentication instead of key and region. When you run language ID in a container, use the `SourceLanguageRecognizer` object instead of `SpeechRecognizer` or `TranslationRecognizer`.
 
 ## Next steps
 

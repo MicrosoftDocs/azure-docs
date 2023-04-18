@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 04/18/2023
 ms.author: eur
 keywords: on-premises, Docker, container
 ---
@@ -147,8 +147,8 @@ You can have this container and a different Cognitive Services container running
 
 | Protocol | Host URL | Containers |
 |--|--|--|
-| WS | `ws://localhost:5000` | [Speech-to-text](speech-container-stt.md)<br/><br/>[Custom speech-to-text](speech-container-cstt.md)  |
-| HTTP | `http://localhost:5000` | [Neural text-to-speech](speech-container-ntts.md)<br/><br/>[Speech language identification](speech-container-lid.md) |
+| WS | `ws://localhost:5000` | [Speech-to-text](speech-container-stt.md#use-the-container)<br/><br/>[Custom speech-to-text](speech-container-cstt.md#use-the-container)  |
+| HTTP | `http://localhost:5000` | [Neural text-to-speech](speech-container-ntts.md#use-the-container)<br/><br/>[Speech language identification](speech-container-lid.md#use-the-container) |
 
 For more information on using WSS and HTTPS protocols, see [Container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security) in the Azure Cognitive Services documentation.
 

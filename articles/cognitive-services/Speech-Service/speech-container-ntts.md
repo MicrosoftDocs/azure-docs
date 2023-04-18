@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 04/18/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk-cli
 keywords: on-premises, Docker, container
