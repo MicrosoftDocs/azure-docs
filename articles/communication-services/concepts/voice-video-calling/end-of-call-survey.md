@@ -69,6 +69,16 @@ The API allows applications to gather data points that describe user perceived r
 | Screenshare | 2 | 1 - 5   |  A response of 1 indicates an imperfect screen share experience and 5 indicates no screen share issues were experienced. |
 
 
+second conversion
+
+| **API Rating Categories** | **Cutoff Value\*** | **Input Range** | **Comments**                                                                                                                                                                                                                                                               |
+|---------------------------|--------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Overall Call              | 2                  | 1 - 5           | Survey’s a calling participant’s overall quality experience on a scale of 1-5 where 1 indicates an imperfect call experience and 5 indicates a perfect call. The cutoff value of 2 means that a customer response of 1 or 2 indicates a less than perfect call experience. |
+| Audio                     | 2                  | 1 – 5           | A response of 1 indicates an imperfect audio experience and 5 indicates no audio issues were experienced.                                                                                                                                                                  |
+| Video                     | 2                  | 1 – 5           | A response of 1 indicates an imperfect video experience and 5 indicates no video issues were experienced.                                                                                                                                                                  |
+| Screenshare               | 2                  | 1 – 5           | A response of 1 indicates an imperfect screen share experience and 5 indicates no screen share issues were experienced.                                                                                                                                                    |
+
+
 
 -	***Note:** A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
@@ -84,6 +94,15 @@ The API allows applications to gather data points that describe user perceived r
 
 ### End of Call Survey Customization
 You can choose to collect each of the four API values or only the ones you find most important. For example, you can choose to only ask customers about their overall call experience instead of asking them about their audio, video, and screen share experience. You can also customize input ranges to suit your needs. The default input range is 1 to 5 for Overall Call, and 0 to 1 for Audio, Video, and Screenshare. However, each API value can be customized from a minimum of 0 to maximum of 100.
+
+You can choose to collect each of the four API values or only the ones
+you find most important. For example, you can choose to only ask
+customers about their overall call experience instead of asking them
+about their audio, video, and screen share experience. You can also
+customize input ranges to suit your needs. The default input range is 1
+to 5 for Overall Call, <span class="mark">Audio</span>, Video, and
+Screenshare. However, each API value can be customized from a minimum of
+0 to maximum of 100.
 
 ### Customization options
 
