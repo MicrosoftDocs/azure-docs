@@ -89,7 +89,6 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
        --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
        --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
        --app $APP_NAME \
-       --deployment $DEPLOYMENT_NAME \
        --target-resource-group $COSMOSDB_RESOURCE_GROUP \
        --account $COSMOSDB_ACCOUNT_NAME \
        --database $DATABASE_NAME \
