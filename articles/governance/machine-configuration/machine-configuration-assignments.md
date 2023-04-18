@@ -8,7 +8,7 @@ ms.topic: conceptual
 
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
-When an Azure Policy is assigned, if it's in the category "Guest Configuration" there's metadata
+When an Azure Policy is assigned, if it's in the category `Guest Configuration` there's metadata
 included to describe a guest assignment.
 
 [A video walk-through of this document is available][01].
@@ -19,11 +19,11 @@ version `1.0.0` to any machines in scope of the policy.
 
 ```json
 "metadata": {
-  "category": "Guest Configuration",
-  "guestConfiguration": {
-      "name": "AzureWindowsBaseline",
-      "version": "1.*"
-  }
+    "category": "Guest Configuration",
+    "guestConfiguration": {
+        "name": "AzureWindowsBaseline",
+        "version": "1.*"
+    }
   //additional metadata properties exist
 }
 ```
@@ -31,7 +31,7 @@ version `1.0.0` to any machines in scope of the policy.
 ## How Azure Policy uses machine configuration assignments
 
 The metadata information is used by the machine configuration service to automatically create an
-audit resource for definitions with either **AuditIfNotExists** or **DeployIfNotExists** policy
+audit resource for definitions with either `AuditIfNotExists` or `DeployIfNotExists` policy
 effects. The resource type is `Microsoft.GuestConfiguration/guestConfigurationAssignments`. Azure
 Policy uses the **complianceStatus** property of the guest assignment resource to report compliance
 status. For more information, see [getting compliance data][02].
@@ -80,14 +80,14 @@ An example deployment template:
 
 The following table describes each property of guest assignment resources.
 
-|        Property        |                                                            Description                                                            |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| name                   | Name of the configuration inside the content package MOF file.                                                                    |
-| contentUri             | HTTPS URI path to the content package (`.zip`).                                                                                   |
-| contentHash            | A SHA256 hash value of the content package, used to verify it has not changed.                                                    |
-| version                | Version of the content package. Only used for built-in packages and not used for custom content packages.                         |
-| assignmentType         | Behavior of the assignment. Allowed values: `Audit`, `ApplyandMonitor`, and `ApplyandAutoCorrect`.                                |
-| configurationParameter | List of DSC resource type, name, and value in the content package MOF file to be overridden after it's downloaded in the machine. |
+|          Property          |                                                            Description                                                            |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| **name**                   | Name of the configuration inside the content package MOF file.                                                                    |
+| **contentUri**             | HTTPS URI path to the content package (`.zip`).                                                                                   |
+| **contentHash**            | A SHA256 hash value of the content package, used to verify it has not changed.                                                    |
+| **version**                | Version of the content package. Only used for built-in packages and not used for custom content packages.                         |
+| **assignmentType**         | Behavior of the assignment. Allowed values: `Audit`, `ApplyandMonitor`, and `ApplyandAutoCorrect`.                                |
+| **configurationParameter** | List of DSC resource type, name, and value in the content package MOF file to be overridden after it's downloaded in the machine. |
 
 ### Deletion of manually created machine configuration assignments
 
@@ -98,7 +98,7 @@ machine or Arc-enabled machine) will also delete the machine configuration assig
 To manually delete a machine configuration assignment, use the following example. Make sure to
 replace all example strings, indicated by `<>` brackets.
 
-```PowerShell
+```azurepowershell-interactive
 # First get details about the machine configuration assignment
 $resourceDetails = @{
   ResourceGroupName = '<resource-group-name>'
@@ -121,7 +121,7 @@ $guestAssignment | Remove-AzResource
 - Setup a custom machine configuration package [development environment][04].
 - [Create a package artifact][05] for machine configuration.
 - [Test the package artifact][06] from your development environment.
-- Use the `GuestConfiguration` module to [create an Azure Policy definition][07] for at-scale
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][07] for at-scale
   management of your environment.
 - [Assign your custom policy definition][08] using Azure portal.
 - Learn how to view [compliance details for machine configuration][09] policy assignments.

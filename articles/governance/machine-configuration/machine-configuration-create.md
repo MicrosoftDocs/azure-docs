@@ -10,7 +10,7 @@ ms.topic: how-to
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
-When auditing / configuring both Windows and Linux, machine configuration uses a
+When auditing and configuring both Windows and Linux, machine configuration uses a
 [Desired State Configuration][02] (DSC). The DSC configuration defines the condition that the
 machine should be in.
 
@@ -19,9 +19,9 @@ machine should be in.
 > available (GA) support status. However, the following limitations apply:
 >
 > To use machine configuration packages that apply configurations, Azure VM guest configuration
-> extension version **1.29.24** or later, or Arc agent **1.10.0** or later, is required.
+> extension version 1.29.24 or later, or Arc agent 1.10.0 or later, is required.
 >
-> To test creating and applying configurations on Linux, the `GuestConfiguration` module is only
+> To test creating and applying configurations on Linux, the **GuestConfiguration** module is only
 > available on Ubuntu 18 but the package and policies produced by the module can be used on any
 > Linux distribution and version supported in Azure or Arc.
 >
@@ -36,8 +36,8 @@ non-Azure machine.
 
 First, make sure you've followed all steps on the page
 [How to setup a machine configuration authoring environment][03] to install the required version of
-PowerShell for your OS, the `GuestConfiguration` module, and if needed, the module
-`PSDesiredStateConfiguration`.
+PowerShell for your OS, the **GuestConfiguration** module, and if needed, the module
+**PSDesiredStateConfiguration**.
 
 ## Author a configuration
 
@@ -45,8 +45,8 @@ Before creating a configuration package, author and compile a DSC configuration.
 configurations are available for Windows and Linux.
 
 > [!IMPORTANT]
-> When compiling configurations for Windows, use `PSDesiredStateConfiguration` version `2.0.5` (the
-> stable release). When compiling configurations for Linux install the prerelease version `3.0.0`.
+> When compiling configurations for Windows, use **PSDesiredStateConfiguration** version 2.0.5 (the
+> stable release). When compiling configurations for Linux install the prerelease version 3.0.0.
 
 An example is provided in the DSC [Getting started document][04] for Windows.
 
@@ -70,35 +70,39 @@ Parameters of the `New-GuestConfigurationPackage` cmdlet when creating Windows c
 - **Configuration**: Compiled DSC configuration document full path.
 - **Path**: Output folder path. This parameter is optional. If not specified, the package is
   created in current directory.
-- **Type**: (Audit, AuditandSet) Determines whether the configuration should only audit or if the
-  configuration should be applied and change the state of the machine. The default is "Audit".
+- **Type**: (`Audit`, `AuditandSet`) Determines whether the configuration should only audit or if
+  the configuration should be applied and change the state of the machine. The default is `Audit`.
 
-This step doesn't require elevation. The Force cmdlet is used to overwrite existing packages, if
-you run the command more than once.
+This step doesn't require elevation. The **Force** parameter is used to overwrite existing
+packages, if you run the command more than once.
 
 The following commands create a package artifacts:
 
 ```powershell
 # Create a package that will only audit compliance
-New-GuestConfigurationPackage `
-  -Name 'MyConfig' `
-  -Configuration './Config/MyConfig.mof' `
-  -Type Audit `
-  -Force
+$params = @{
+    Name          = 'MyConfig'
+    Configuration = './Config/MyConfig.mof'
+    Type          = 'Audit'
+    Force         = $true
+}
+New-GuestConfigurationPackage @params
 ```
 
 ```powershell
 # Create a package that will audit and apply the configuration (Set)
-New-GuestConfigurationPackage `
-  -Name 'MyConfig' `
-  -Configuration './Config/MyConfig.mof' `
-  -Type AuditAndSet `
-  -Force
+$params = @{
+    Name          = 'MyConfig'
+    Configuration = './Config/MyConfig.mof'
+    Type          = 'AuditAndSet'
+    Force         = $true
+}
+New-GuestConfigurationPackage @params
 ```
 
 An object is returned with the Name and Path of the created package.
 
-```
+```Output
 Name      Path
 ----      ----
 MyConfig  /Users/.../MyConfig/MyConfig.zip
@@ -111,13 +115,13 @@ package consists of:
 
 - The compiled DSC configuration as a MOF
 - Modules folder
-  - GuestConfiguration module
-  - DscNativeResources module
+  - **GuestConfiguration** module
+  - **DscNativeResources** module
   - DSC resource modules required by the MOF
 - A metaconfig file that stores the package `type` and `version`
 
-The PowerShell cmdlet creates the package .zip file. No root level folder or version folder is
-required. The package format must be a .zip file and can't exceed a total size of 100 MB when
+The PowerShell cmdlet creates the package `.zip` file. No root level folder or version folder is
+required. The package format must be a `.zip` file and can't exceed a total size of 100 MB when
 uncompressed.
 
 ## Extending machine configuration with third-party tools
@@ -148,7 +152,7 @@ third-party platform in the content artifact.
 
 - [Test the package artifact][07] from your development environment.
 - [Publish the package artifact][08] so it is accessible to your machines.
-- Use the `GuestConfiguration` module to [create an Azure Policy definition][09] for at-scale
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][09] for at-scale
   management of your environment.
 - [Assign your custom policy definition][10] using Azure portal.
 

@@ -32,11 +32,11 @@ type to the name of the resource provider. For Arc-enabled servers, the resource
 
 Replace the following "<>" fields with values specific to you environment:
 
-- **<vm_name>**: Name of the machine resource where the configuration will be applied
-- **<configuration_name>**: Name of the configuration to apply
-- **<vm_location>**: Azure region where the machine configuration assignment will be created
-- **<Url_to_Package.zip>**: For custom content package, an HTTPS link to the .zip file
-- **<SHA256_hash_of_package.zip>**: For custom content package, a SHA256 hash of the .zip file
+- `<vm_name>`: Name of the machine resource where the configuration will be applied
+- `<configuration_name>`: Name of the configuration to apply
+- `<vm_location>`: Azure region where the machine configuration assignment will be created
+- `<Url_to_Package.zip>`: For custom content package, an HTTPS link to the `.zip` file
+- `<SHA256_hash_of_package.zip>`: For custom content package, a SHA256 hash of the `.zip` file
 
 ## Assign a configuration using an Azure Resource Manager template
 
@@ -176,7 +176,7 @@ You can use [Terraform][09] to [deploy][10] machine configuration assignments.
 
 > [!IMPORTANT]
 > The Terraform provider [azurerm_policy_virtual_machine_configuration_assignment][11] hasn't been
-> updated to support the `assignmentType` property so only configurations that perform audits are
+> updated to support the **assignmentType** property so only configurations that perform audits are
 > supported.
 
 The following example assigns a custom configuration.
@@ -233,7 +233,7 @@ resource "azurerm_virtual_machine_configuration_policy_assignment" "AzureWindows
 - [Create a package artifact][14] for machine configuration.
 - [Test the package artifact][15] from your development environment.
 - [Publish the package artifact][03] so it is accessible to your machines.
-- Use the `GuestConfiguration` module to [create an Azure Policy definition][02] for at-scale
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][02] for at-scale
   management of your environment.
 - [Assign your custom policy definition][16] using Azure portal.
 

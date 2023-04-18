@@ -8,9 +8,9 @@ ms.topic: conceptual
 
 [!INCLUDE [Machine config rename banner][00]]
 
-## About the guest configuration agent
+## About the machine configuration agent
 
-The guest configuration agent receives improvements on an ongoing basis. To stay up to date with
+The machine configuration agent receives improvements on an ongoing basis. To stay up to date with
 the most recent developments, this article provides you with information about:
 
 - The latest releases
@@ -39,7 +39,7 @@ For information on release notes for the connected machine agent, please see
 In this release, various improvements were made.
 
 - You can now restrict which URLs can be used to download machine configuration packages by setting
-  the allowedGuestConfigPkgUrls tag on the server resource and providing a comma-separated list of
+  the `allowedGuestConfigPkgUrls` tag on the server resource and providing a comma-separated list of
   URL patterns to allow. If the tag exists, the agent will only allow custom packages to be
   downloaded from the specified URLs. Built-in packages are unaffected by this feature.
 
@@ -49,7 +49,7 @@ In this release, various improvements were made.
 - If you're currently running an older version of the AzurePolicyforLinux extension, use the
   PowerShell or Azure CLI commands below to update your extension to the latest version.
 
-```powershell
+```azurepowershell-interactive
 $params = @{
     Publisher              = 'Microsoft.GuestConfiguration'
     Type                   = 'ConfigurationforLinux'

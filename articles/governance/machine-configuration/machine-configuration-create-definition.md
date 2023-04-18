@@ -14,12 +14,14 @@ the details about machine configuration policy effects
 
 > [!IMPORTANT]
 > The machine configuration extension is required for Azure virtual machines. To deploy the
-> extension at scale across all machines, assign the following policy initiative: `Deploy
-> prerequisites to enable machine configuration policies on virtual machines` To use machine
-> configuration packages that apply configurations, Azure VM guest configuration extension version
-> **1.29.24** or later, or Arc agent **1.10.0** or later, is required. Custom machine configuration
-> policy definitions using either **AuditIfNotExists** or **DeployIfNotExists** are now Generally
-> Available.
+> extension at scale across all machines, assign the following policy initiative:
+> `Deploy prerequisites to enable machine configuration policies on virtual machines`
+>
+> To use machine configuration packages that apply configurations, Azure VM guest configuration
+> extension version 1.29.24 or later, or Arc agent 1.10.0 or later, is required.
+>
+> Custom machine configuration policy definitions using either `AuditIfNotExists` or
+> `DeployIfNotExists` are now Generally Available.
 
 Use the following steps to create your own policies that audit compliance or manage the state of
 Azure or Arc-enabled machines.
@@ -28,7 +30,7 @@ Azure or Arc-enabled machines.
 
 First, make sure you've followed all steps on the page
 [How to set up a machine configuration authoring environment][03] to install the required version
-of PowerShell for your OS and the `GuestConfiguration` module.
+of PowerShell for your OS and the **GuestConfiguration** module.
 
 ## Create and publish a machine configuration package artifact
 
@@ -39,33 +41,32 @@ validate the machine configuration package locally in your development environme
 
 ## Policy requirements for machine configuration
 
-The policy definition `metadata` section must include two properties for the machine configuration
-service to automate provisioning and reporting of guest configuration assignments. The `category`
-property must be set to "Guest Configuration" and a section named `guestConfiguration` must contain
-information about the machine configuration assignment. The `New-GuestConfigurationPolicy` cmdlet
-creates this text automatically.
+The policy definition **metadata** section must include two properties for the machine
+configuration service to automate provisioning and reporting of guest configuration assignments.
+The **category** property must be set to `Guest Configuration` and a section named
+**guestConfiguration** must contain information about the machine configuration assignment. The
+`New-GuestConfigurationPolicy` cmdlet creates this text automatically.
 
-The following example demonstrates the `metadata` section that is automatically created by
+The following example demonstrates the **metadata** section that is automatically created by
 `New-GuestConfigurationPolicy`.
 
 ```json
-    "metadata": {
-      "category": "Guest Configuration",
-      "guestConfiguration": {
+"metadata": {
+    "category": "Guest Configuration",
+    "guestConfiguration": {
         "name": "test",
         "version": "1.0.0",
         "contentType": "Custom",
         "contentUri": "CUSTOM-URI-HERE",
         "contentHash": "CUSTOM-HASH-VALUE-HERE",
         "configurationParameter": {}
-      }
-    },
+    }
+}
 ```
 
-The `category` property must be set to "Guest Configuration". If the definition effect is set to
-"DeployIfNotExists", the `then` section must contain deployment details about a machine
-configuration assignment. The `New-GuestConfigurationPolicy` cmdlet creates this text
-automatically.
+If the definition effect is set to `DeployIfNotExists`, the **then** section must contain
+deployment details about a machine configuration assignment. The `New-GuestConfigurationPolicy`
+cmdlet creates this text automatically.
 
 ### Create an Azure Policy definition
 
@@ -74,8 +75,8 @@ machine configuration policy definition. The `New-GuestConfigurationPolicy` cmdl
 policy package and creates a policy definition.
 
 The **PolicyId** parameter of `New-GuestConfigurationPolicy` requires a unique string. A globally
-unique identifier (GUID) is required. For new definitions, generate a new GUID using the cmdlet
-`New-GUID`. When making updates to the definition, use the same unique string for **PolicyId** to
+unique identifier (GUID) is required. For new definitions, generate a new GUID using the `New-GUID`
+cmdlet. When making updates to the definition, use the same unique string for **PolicyId** to
 ensure the correct definition is updated.
 
 Parameters of the `New-GuestConfigurationPolicy` cmdlet:
@@ -90,7 +91,7 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Platform**: Target platform (Windows/Linux) for machine configuration policy and content
   package.
 - **Mode**: (`ApplyAndMonitor`, `ApplyAndAutoCorrect`, `Audit`) choose if the policy should audit
-  or deploy the configuration. Default is `Audit`.
+  or deploy the configuration. The default is `Audit`.
 - **Tag** adds one or more tag filters to the policy definition
 - **Category** sets the category metadata field in the policy definition
 
@@ -138,10 +139,10 @@ name `deployIfNotExists.json`.
 
 #### Filtering machine configuration policies using tags
 
-The policy definitions created by cmdlets in the Guest Configuration can optionally include a
-filter for tags. The **Tag** parameter of `New-GuestConfigurationPolicy` supports an array of
-hashtables containing individual tag entires. The tags are added to the `If` section of the policy
-definition and can't be modified by a policy assignment.
+The policy definitions created by cmdlets in the **GuestConfiguration** module can optionally
+include a filter for tags. The **Tag** parameter of `New-GuestConfigurationPolicy` supports an
+array of hashtables containing individual tag entries. The tags are added to the **if** section of
+the policy definition and can't be modified by a policy assignment.
 
 An example snippet of a policy definition that filters for tags is given below.
 
@@ -169,12 +170,12 @@ An example snippet of a policy definition that filters for tags is given below.
 
 #### Using parameters in custom machine configuration policy definitions
 
-Machine configuration supports overriding properties of a Configuration at run time. This feature
-means that the values in the MOF file in the package don't have to be considered static. The
-override values are provided through Azure Policy and don't change how the Configurations are
-authored or compiled.
+Machine configuration supports overriding properties of a DSC Configuration at run time. This
+feature means that the values in the MOF file in the package don't have to be considered static.
+The override values are provided through Azure Policy and don't change how the DSC Configurations
+are authored or compiled.
 
-The cmdlets `New-GuestConfigurationPolicy` and `Get-GuestConfigurationPackageComplianceStatus `
+The cmdlets `New-GuestConfigurationPolicy` and `Get-GuestConfigurationPackageComplianceStatus`
 include a parameter named **Parameter**. This parameter takes a hashtable definition including all
 details about each parameter and creates the required sections of each file used for the Azure
 Policy definition.
@@ -184,12 +185,11 @@ list at the time of policy assignment.
 
 ```powershell
 # This DSC resource definition...
-Service 'UserSelectedNameExample'
-  {
-    Name = 'ParameterValue'
+Service 'UserSelectedNameExample' {
+    Name   = 'ParameterValue'
     Ensure = 'Present'
-    State = 'Running'
-  }`
+    State  = 'Running'
+}
 
 # ...can be converted to a hash table:
 $PolicyParameterInfo     = @(
@@ -231,17 +231,17 @@ New-GuestConfigurationPolicy @PolicyParam
 Finally, you can publish the policy definitions using the `New-AzPolicyDefinition` cmdlet. The
 below commands will publish your machine configuration policy to the policy center.
 
-To run the New-AzPolicyDefinition command, you need access to create policy definitions in Azure.
+To run the `New-AzPolicyDefinition` command, you need access to create policy definitions in Azure.
 The specific authorization requirements are documented in the [Azure Policy Overview][06] page. The
-recommended built-in role is **Resource Policy Contributor**.
+recommended built-in role is `Resource Policy Contributor`.
 
-```powershell
+```azurepowershell-interactive
 New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies\auditIfNotExists.json'
 ```
 
 Or, if this is a deploy if not exist policy (DINE) please use
 
-```powershell
+```azurepowershell-interactive
 New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies\deployIfNotExists.json'
 ```
 
@@ -282,10 +282,8 @@ updated.
 
 ## Next steps
 
-- [Assign your custom policy definition][07] using
-  Azure portal.
-- Learn how to view
-  [compliance details for machine configuration][10] policy assignments.
+- [Assign your custom policy definition][07] using Azure portal.
+- Learn how to view [compliance details for machine configuration][10] policy assignments.
 
 <!-- Reference link definitions -->
 [01]: ./overview.md

@@ -8,7 +8,7 @@ ms.topic: how-to
 
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
-The PowerShell module `GuestConfiguration` includes tools to automate testing a configuration
+The PowerShell module **GuestConfiguration** includes tools to automate testing a configuration
 package outside of Azure. Use these tools to find issues and iterate quickly before moving on to
 test in an Azure or Arc connected environment.
 
@@ -19,30 +19,29 @@ machine configuration package.
 
 > [!IMPORTANT]
 > Custom packages that audit the state of an environment are Generally Available, but packages that
-> apply configurations are **in preview**. **The following limitations apply:**
+> apply configurations are **in preview**. The following limitations apply:
 >
 > To use machine configuration packages that apply configurations, Azure VM guest configuration
-> extension version **1.29.24** or later, or Arc agent **1.10.0** or later, is required.
+> extension version 1.29.24 or later, or Arc agent 1.10.0 or later, is required.
 >
-> To test creating and applying configurations on Linux, the `GuestConfiguration` module is only
+> To test creating and applying configurations on Linux, the **GuestConfiguration** module is only
 > available on Ubuntu 18 but the package and policies produced by the module can be used on any
 > Linux distro/version supported in Azure or Arc.
 >
 > Testing packages on macOS is not available.
 
 You can test the package from your workstation or continuous integration and continuous deployment
-(CI/CD) environment. The `GuestConfiguration` module includes the same agent for your development
+(CI/CD) environment. The **GuestConfiguration** module includes the same agent for your development
 environment as is used inside Azure or Arc enabled machines. The agent includes a stand-alone
 instance of PowerShell 7.1.3 for Windows and 7.2.0-preview.7 for Linux, so the script environment
 where the package is tested will be consistent with machines you manage using guest configuration.
 
-The agent service in Azure and Arc-enabled machines is running as the "LocalSystem" account in
-Windows and "Root" in Linux. Run the commands below in privileged security context for best
-results.
+The agent service in Azure and Arc-enabled machines is running as the `LocalSystem` account in
+Windows and Root in Linux. Run the commands below in privileged security context for best results.
 
-To run PowerShell as "LocalSystem" in Windows, use the SysInternals tool [PSExec][03].
+To run PowerShell as `LocalSystem` in Windows, use the SysInternals tool [PSExec][03].
 
-To run PowerShell as "Root" in Linux, use the [sudo command][04].
+To run PowerShell as Root in Linux, use the [sudo command][04].
 
 ## Validate the configuration package meets requirements
 
@@ -85,7 +84,7 @@ The command outputs an object containing the compliance status and details per r
 ```Output
   complianceStatus  resources
   ----------------  ---------
-  True              @{BuiltInAccount=localSystem; ConfigurationName=MyConfig; Credential=; Dependencies=System.Obje…
+  True              @{BuiltInAccount=localSystem; ConfigurationName=MyConfig; …
 ```
 
 #### Test the configuration package can apply a configuration
@@ -123,7 +122,7 @@ After running the command `Start-GuestConfigurationPackageRemediation`, you can 
 ## Next steps
 
 - [Publish the package artifact][05] so it is accessible to your machines.
-- Use the `GuestConfiguration` module to [create an Azure Policy definition][06] for at-scale
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][06] for at-scale
   management of your environment.
 - [Assign your custom policy definition][07] using Azure portal.
 - Learn how to view [compliance details for machine configuration][08] policy assignments.

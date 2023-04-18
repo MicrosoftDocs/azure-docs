@@ -25,18 +25,18 @@ Before you begin, it's a good idea to read the conceptual overview information a
 
 ## Major differences
 
-Configurations are deployed through DSC extension for Linux in a "push" model, where the operation
-is completed asynchronously. The deployment doesn't return until the configuration has finished
-running inside the virtual machine. After deployment, no further information is returned to ARM.
-The monitoring and drift are managed within the machine.
+Configurations are deployed through the DSC extension for Linux in a "push" model, where the
+operation is completed asynchronously. The deployment doesn't return until the configuration has
+finished running inside the virtual machine. After deployment, no further information is returned
+to ARM. The monitoring and drift are managed within the machine.
 
 Machine configuration processes configurations in a "pull" model. The extension is deployed to a
-virtual machine and then jobs are executed based on guest assignment details. it's not possible to
-view the status while the configuration in real time as it's being applied inside the machine. it's
-possible to monitor and correct drift from Azure Resource Manager (ARM) after the configuration is
-applied.
+virtual machine and then jobs are executed based on machine configuration assignment details. it's
+not possible to view the status while the configuration in real time as it's being applied inside
+the machine. It's possible to monitor and correct drift from Azure Resource Manager (ARM) after the
+configuration is applied.
 
-The DSC extension included "privateSettings" where secrets could be passed to the configuration
+The DSC extension included **privateSettings** where secrets could be passed to the configuration,
 such as passwords or shared keys. Secrets management hasn't yet been implemented for machine
 configuration.
 
@@ -47,11 +47,11 @@ older versions of DSC in [Linux][02]. The implementations are separate. However,
 conflict detection.
 
 For machines that will only exist for days or weeks, update the deployment templates and switch
-from DSC extension to machine configuration. After testing, use the updated templates to build
+from the DSC extension to machine configuration. After testing, use the updated templates to build
 future machines.
 
 If a machine is planned to exist for months or years, you might choose to change which
-configuration features of Azure manage the machine, to take advantage of new features.
+configuration features of Azure manage the machine to take advantage of new features.
 
 It isn't advised to have both platforms manage the same configuration.
 
@@ -62,33 +62,32 @@ new solution for new machines.
 
 The expected steps for migration are:
 
-- Download and expand the .zip package used for DSC extension
-- Examine the Managed Object Format (MOF) file and resources to understand the scenario
-- Create custom DSC resources in PowerShell classes
-- Update the MOF file to use the new resources
-- Use the machine configuration authoring module to create, test, and publish a new package
-- Use machine configuration for future deployments rather than DSC extension
+1. Download and expand the `.zip` package used for the DSC extension.
+1. Examine the Managed Object Format (MOF) file and resources to understand the scenario.
+1. Create custom DSC resources in PowerShell classes.
+1. Update the MOF file to use the new resources.
+1. Use the machine configuration authoring module to create, test, and publish a new package.
+1. Use machine configuration for future deployments rather than DSC extension.
 
 #### Consider decomposing complex configuration files
 
 Machine configuration can manage multiple configurations per machine. Many configurations written
-for DSC extension for Linux assumed the limitation of managing a single configuration per machine.
-To take advantage of the expanded capabilities offered by machine configuration, large
+for the DSC extension for Linux assumed the limitation of managing a single configuration per
+machine. To take advantage of the expanded capabilities offered by machine configuration, large
 configuration files can be divided into many smaller configurations where each handles a specific
 scenario.
 
 There's no orchestration in machine configuration to control the order of how configurations are
-sorted. Keep steps in a configuration together in one package if they're required to happen
-sequentially.
+sorted. Keep steps in a configuration together in one package if they must happen sequentially.
 
 ### Test content in Azure machine configuration
 
-Read the page [How to create custom machine configuration package artifacts][03]. to evaluate
-whether your content from DSC extension can be used with machine configuration.
+Read the page [How to create custom machine configuration package artifacts][03] to evaluate
+whether your content from the DSC extension can be used with machine configuration.
 
 When you reach the step [Author a configuration][04], use the MOF file from the DSC extension
 package as the basis for creating a new MOF file and custom DSC resources. You must have the custom
-PowerShell modules available in `PSModulePath` before you can create a machine configuration
+PowerShell modules available in `$env:PSModulePath` before you can create a machine configuration
 package.
 
 #### Update deployment templates
@@ -105,44 +104,44 @@ Then, add a [machine configuration assignment][06] that associates the new confi
 
 The modules that shipped with DSC for Linux on GitHub were created in the C programming language.
 In the latest version of DSC, which is used by the machine configuration feature, modules for Linux
-are written in PowerShell classes. Meaning, none of the original resources are compatible with the
-new platform.
+are written in PowerShell classes. This means that none of the original resources are compatible
+with the new platform.
 
 As a result, new Linux packages will require custom module development.
 
-Linux content authored using ChefInspec remains supported but should only be used for legacy
+Linux content authored using Chef Inspec remains supported but should only be used for legacy
 configurations.
 
-#### Updated "nx" module functionality 
+#### Updated "nx" module functionality
 
-A new "nx" module will be released with the purpose of making managing Linux systems easier for
-PowerShell users.
+A new open-source [nxtools module][07] has been released to help make managing Linux systems easier
+for PowerShell users.
 
 The module will help in managing common tasks such as:
 
-- User and group management
-- File system operations (changing mode, owner, listing, set/replace content)
-- Service management (start, stop, restart, remove, add)
+-	User and group management
+-	File system operations (changing mode, owner, listing, set/replace content)
+-	Service management (start, stop, restart, remove, add)
 - Archive operations (compress, extract)
-- Package Management (list, search, install, uninstall packages)
+-	Package management (list, search, install, uninstall packages)
 
-The module will include class based DSC resources for Linux, as well as built-in Machine
-Configuration packages.
+The module includes class-based DSC resources for Linux, as well as built-in machine configuration
+packages.
 
-To provide feedback on the above listed fuctionality, please open an issue on the documentation and
-we will respond accordingly.
+To provide feedback about this functionality, open an issue on the documentation. We currently
+_don't_ accept PRs for this project, and support is best effort.
 
-#### Will I have to add "Reasons" property to custom resources?
+#### Will I have to add the Reasons property to custom resources?
 
-Implementing the ["Reasons" property][07] provides a better experience when viewing the results of
+Implementing the [Reasons property][08] provides a better experience when viewing the results of
 a configuration assignment from the Azure Portal. If the `Get` method in a module doesn't include
-"Reasons", generic output is returned with details from the properties returned by the `Get`
+**Reasons**, generic output is returned with details from the properties returned by the `Get`
 method. Therefore, it's optional for migration.
 
 ### Removing a configuration the was assigned in Linux by DSC extension
 
 In previous versions of DSC, the DSC extension assigned a configuration through the Local
-Configuration Manager. It's recommended to remove the DSC extension and reset LCM.
+Configuration Manager (LCM). It's recommended to remove the DSC extension and reset the LCM.
 
 > [!IMPORTANT]
 > Removing a configuration in Local Configuration Manager doesn't "roll back" the settings in Linux
@@ -150,16 +149,16 @@ Configuration Manager. It's recommended to remove the DSC extension and reset LC
 > to stop managing the assigned configuration. The settings remain in place.
 
 Use the `Remove.py` script as documented in
-[Performing DSC Operations from the Linux Computer][08]
+[Performing DSC Operations from the Linux Computer][09]
 
 ## Next steps
 
 - [Create a package artifact][03] for machine configuration.
-- [Test the package artifact][09] from your development environment.
-- [Publish the package artifact][10] so it's accessible to your machines.
-- Use the `GuestConfiguration` module to [create an Azure Policy definition][11] for at-scale
+- [Test the package artifact][10] from your development environment.
+- [Publish the package artifact][11] so it's accessible to your machines.
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][12] for at-scale
   management of your environment.
-- [Assign your custom policy definition][12] using Azure portal.
+- [Assign your custom policy definition][13] using Azure portal.
 
 <!-- Reference link definitions -->
 [01]: ./overview.md
@@ -168,9 +167,10 @@ Use the `Remove.py` script as documented in
 [04]: ./machine-configuration-create.md#author-a-configuration
 [05]: ../../virtual-machines/extensions/dsc-template.md
 [06]: ./machine-configuration-assignments.md
-[07]: ./machine-configuration-custom.md#special-requirements-for-get
-[08]: https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer
-[09]: ./machine-configuration-create-test.md
-[10]: ./machine-configuration-create-publish.md
-[11]: ./machine-configuration-create-definition.md
-[12]: ../policy/assign-policy-portal.md
+[07]: https://github.com/azure/nxtools#getting-started
+[08]: ./machine-configuration-custom.md#special-requirements-for-get
+[09]: https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer
+[10]: ./machine-configuration-create-test.md
+[11]: ./machine-configuration-create-publish.md
+[12]: ./machine-configuration-create-definition.md
+[13]: ../policy/assign-policy-portal.md

@@ -26,10 +26,16 @@ for testing purposes to follow along with the example.
 ## Windows signature validation
 
 ```azurepowershell-interactive
-# How to create a self sign cert and use it to sign Machine Configuration custom policy package
+# How to create a self sign cert and use it to sign Machine Configuration
+# custom policy package
 
 # Create Code signing cert
-$mycert = New-SelfSignedCertificate -Type CodeSigningCert -DnsName 'GCEncryptionCertificate' -HashAlgorithm SHA256
+$codeSigningParams = @{
+    Type          = 'CodeSigningCert'
+    DnsName       = 'GCEncryptionCertificate'
+    HashAlgorithm = 'SHA256'
+}
+$mycert = New-SelfSignedCertificate @codeSigningParams
 
 # Export the certificates
 $mypwd = ConvertTo-SecureString -String "Password1234" -Force -AsPlainText
@@ -37,29 +43,45 @@ $mycert | Export-PfxCertificate -FilePath C:\demo\GCPrivateKey.pfx -Password $my
 $mycert | Export-Certificate -FilePath "C:\demo\GCPublicKey.cer" -Force
 
 # Import the certificate
-Import-PfxCertificate -FilePath C:\demo\GCPrivateKey.pfx -Password $mypwd -CertStoreLocation 'Cert:\LocalMachine\My'
-
+$importParams = @{
+    FilePath          = 'C:\demo\GCPrivateKey.pfx'
+    Password          = $mypwd
+    CertStoreLocation = 'Cert:\LocalMachine\My'
+}
+Import-PfxCertificate @importParams
 
 # Sign the policy package
 $certToSignThePackage = Get-ChildItem -Path cert:\LocalMachine\My |
     Where-Object { $_.Subject-eq "CN=GCEncryptionCertificate" }
-Protect-GuestConfigurationPackage -Path C:\demo\AuditWindowsService.zip -Certificate $certToSignThePackage -Verbose
+$protectParams = @{
+    Path        = 'C:\demo\AuditWindowsService.zip'
+    Certificate = $certToSignThePackage
+    Verbose     = $true
+}
+Protect-GuestConfigurationPackage @protectParams
 ```
 
 ## Linux signature validation
 
-```bash
+```azurepowershell-interactive
 # generate gpg key
 gpg --gen-key
 
 # export public key
-gpg --output public.gpg --export <email-id used to generate gpg key>
+gpg --output public.gpg --export <email-id-used-to-generate-gpg-key>
+
 # export private key
-gpg --output private.gpg --export-secret-key <email-id used to generate gpg key>
+gpg --output private.gpg --export-secret-key <email-id-used-to-generate-gpg-key>
 
 # Sign linux policy package
 Import-Module GuestConfiguration
-Protect-GuestConfigurationPackage -Path ./not_installed_application_linux.zip -PrivateGpgKeyPath ./private.gpg -PublicGpgKeyPath ./public.gpg -Verbose
+$protectParams = @{
+    Path              = './not_installed_application_linux.zip'
+    PrivateGpgKeyPath = './private.gpg'
+    PublicGpgKeyPath  = './public.gpg'
+    Verbose           = $true
+}
+Protect-GuestConfigurationPackage
 ```
 
 Parameters of the `Protect-GuestConfigurationPackage` cmdlet:
@@ -70,7 +92,7 @@ Parameters of the `Protect-GuestConfigurationPackage` cmdlet:
 
 ## Certificate requirements
 
-GuestConfiguration agent expects the certificate public key to be present in "Trusted Root
+The machine configuration agent expects the certificate public key to be present in "Trusted Root
 Certificate Authorities" on Windows machines and in the path `/usr/local/share/ca-certificates/gc`
 on Linux machines. For the node to verify signed content, install the certificate public key on the
 machine before applying the custom policy. This process can be done using any technique inside the

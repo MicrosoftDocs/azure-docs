@@ -31,14 +31,14 @@ Before you begin, it's a good idea to read the conceptual overview information a
 The best approach to migration is to redeploy content first, and then migrate machines. The
 expected steps for migration are outlined.
 
-- Export configurations from Azure Automation
-- Discover module requirements and load them in your environment
-- Compile configurations
-- Create and publish machine configuration packages
-- Test machine configuration packages
-- Onboard hybrid machines to Azure Arc
-- Unregister servers from Azure Automation State Configuration
-- Assign configurations to servers using machine configuration
+1. Export configurations from Azure Automation
+1. Discover module requirements and load them in your environment
+1. Compile configurations
+1. Create and publish machine configuration packages
+1. Test machine configuration packages
+1. Onboard hybrid machines to Azure Arc
+1. Unregister servers from Azure Automation State Configuration
+1. Assign configurations to servers using machine configuration
 
 Machine configuration uses DSC version 3 with PowerShell version 7. DSC version 3 can coexist with
 older versions of DSC in [Windows][02] and [Linux][03]. The implementations are separate. However,
@@ -60,8 +60,8 @@ configuration.
 
 ### Configurations
 
-Only configuration scripts can be exported from Azure Automation. It isn't possible to export "Node
-configurations", or compiled MOF files. If you published MOF files directly in to the Automation
+Only configuration scripts can be exported from Azure Automation. It isn't possible to export Node
+configurations, or compiled MOF files. If you published MOF files directly in to the Automation
 Account and no longer have access to the original file, you must recompile from your private
 configuration scripts, or possibly re-author the configuration if the original can't be found.
 
@@ -79,12 +79,14 @@ Next, use the `Get-AzAutomationAccount` command to identify your Automation Acco
 Resource Group where they're deployed. The properties **ResourceGroupName** and
 **AutomationAccountName** are important for next steps.
 
-```azurepowershell
+```azurepowershell-interactive
 Get-AzAutomationAccount
+```
 
-SubscriptionId        : <your subscription id>
-ResourceGroupName     : <your resource group name>
-AutomationAccountName : <your automation account name>
+```Output
+SubscriptionId        : <your-subscription-id>
+ResourceGroupName     : <your-resource-group-name>
+AutomationAccountName : <your-automation-account-name>
 Location              : centralus
 State                 :
 Plan                  :
@@ -97,14 +99,21 @@ Tags                  : {}
 Discover the configurations in your Automation Account. The output contains one entry per
 configuration. If you have many, store the information as a variable so it's easier to work with.
 
-```azurepowershell
-Get-AzAutomationDscConfiguration -ResourceGroupName <your resource group name> -AutomationAccountName <your automation account name>
+```azurepowershell-interactive
+$getParams = @{
+    ResourceGroupName     = '<your-resource-group-name>'
+    AutomationAccountName = '<your-automation-account-name>'
+}
 
-ResourceGroupName     : <your resource group name>
-AutomationAccountName : <your automation account name>
+Get-AzAutomationDscConfiguration @params
+```
+
+```Output
+ResourceGroupName     : <your-resource-group-name>
+AutomationAccountName : <your-automation-account-name>
 Location              : centralus
 State                 : Published
-Name                  : <your configuration name>
+Name                  : <your-configuration-name>
 Tags                  : {}
 CreationTime          : 6/30/2021 12:18:26 PM -05:00
 LastModifiedTime      : 6/30/2021 12:18:26 PM -05:00
@@ -117,9 +126,17 @@ Finally, export each configuration to a local script file using the command
 `Export-AzAutomationDscConfiguration`. The resulting file name uses the pattern
 `\ConfigurationName.ps1`.
 
-```azurepowershell
-Export-AzAutomationDscConfiguration -OutputFolder /<location on your machine> -ResourceGroupName <your resource group name> -AutomationAccountName <your automation account name> -name <your configuration name>
+```azurepowershell-interactive
+$exportParams = @{
+    OutputFolder          = '<location-on-your-machine>'
+    ResourceGroupName     = '<your-resource-group-name>'
+    AutomationAccountName = '<your-automation-account-name>'
+    Name                  = '<your-configuration-name>'
+}
+Export-AzAutomationDscConfiguration @exportParams
+```
 
+```Output
 UnixMode   User             Group                 LastWriteTime           Size Name
 --------   ----             -----                 -------------           ---- ----
                                                12/31/1600 18:09
@@ -133,9 +150,13 @@ each command above to the next.
 
 The example exports 5 configurations. The output pattern is the only indication of success.
 
-```azurepowershell
-Get-AzAutomationAccount | Get-AzAutomationDscConfiguration | Export-AzAutomationDSCConfiguration -OutputFolder /<location on your machine>
+```azurepowershell-interactive
+Get-AzAutomationAccount |
+    Get-AzAutomationDscConfiguration |
+    Export-AzAutomationDSCConfiguration -OutputFolder <location on your machine>
+```
 
+```Output
 UnixMode   User             Group                 LastWriteTime           Size Name
 --------   ----             -----                 -------------           ---- ----
                                                12/31/1600 18:09
@@ -160,9 +181,9 @@ sequentially.
 ### Modules
 
 It isn't possible to export modules from Azure Automation or automatically correlate which
-configurations require which module/version. You must have the modules in your local environment to
-create a new machine configuration package. To create a list of modules you need for migration, use
-PowerShell to query Azure Automation for the name and version of modules.
+configurations require which modules and versions. You must have the modules in your local
+environment to create a new machine configuration package. To create a list of modules you need for
+migration, use PowerShell to query Azure Automation for the name and version of modules.
 
 If you are using modules that are custom authored and only exist in your private development
 environment, it isn't possible to export them from Azure Automation.
@@ -179,17 +200,26 @@ Azure Automation always, or if it was published to the account.
 
 For example, to create a list of all modules published to any of your accounts.
 
-```azurepowershell
-Get-AzAutomationAccount | Get-AzAutomationModule | Where-Object IsGlobal -eq $false
+```azurepowershell-interactive
+Get-AzAutomationAccount |
+    Get-AzAutomationModule |
+    Where-Object IsGlobal -eq $false
 ```
 
 You can also use the PowerShell Gallery as an aid in finding details about modules that are
 publicly available. For example, the list of modules that are built in to new Automation Accounts,
 and that contain DSC resources, is produced by the following example.
 
-```azurepowershell
-Get-AzAutomationAccount | Get-AzAutomationModule | Where-Object IsGlobal -eq $true | Find-Module -ErrorAction SilentlyContinue | Where-Object {'' -ne $_.Includes.DscResource} | Select-Object -Property Name, Version -Unique | Format-Table -AutoSize
-
+```azurepowershell-interactive
+Get-AzAutomationAccount |
+    Get-AzAutomationModule |
+    Where-Object IsGlobal -eq $true |
+    Find-Module -ErrorAction SilentlyContinue |
+    Where-Object {'' -ne $_.Includes.DscResource} |
+    Select-Object -Property Name, Version -Unique |
+    Format-Table -AutoSize
+```
+```Output
 Name                       Version
 ----                       -------
 AuditPolicyDsc             1.4.0
@@ -204,7 +234,7 @@ xRemoteDesktopAdmin        1.1.0.0
 #### Download modules from PowerShell Gallery or PowerShellGet repository
 
 If the modules were imported from the PowerShell Gallery, you can pipe the output from
-`Find-Module` directly in `Install-Module`. Piping the output across commands provides a solution
+`Find-Module` directly to `Install-Module`. Piping the output across commands provides a solution
 to load a developer environment with all modules currently in an Automation Account that are
 available publicly in the PowerShell Gallery.
 
@@ -214,12 +244,12 @@ in your local environment as a [PowerShellGet repository][04].
 The `Find-Module` command in the example doesn't suppress errors, meaning any modules not found in
 the gallery return an error message.
 
-```azurepowershell
+```azurepowershell-interactive
 Get-AzAutomationAccount |
     Get-AzAutomationModule |
     Where-Object IsGlobal -eq $false |
     Find-Module |
-    Where-Object {'' -ne $_.Includes.DscResource} |
+    Where-Object { '' -ne $_.Includes.DscResource } |
     Install-Module
 ```
 
@@ -234,7 +264,7 @@ might still be in the account.
 Towards the top of each file, look for a line that includes `Import-DscResource`. This command is
 only applicable inside a configuration, and is used to load modules at the time of compilation.
 
-For example, the "WindowsIISServerConfig" configuration in the PowerShell Gallery
+For example, the `WindowsIISServerConfig` configuration in the PowerShell Gallery
 contains the lines in this example.
 
 ```powershell
@@ -245,8 +275,8 @@ Import-DscResource -ModuleName @{ModuleName = 'xWebAdministration';ModuleVersion
 Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
 ```
 
-The configuration requires you to have the "xWebAdministration" module version "1.19.0.0" and the
-module "PSDesiredStateConfiguration".
+The configuration requires you to have the **xWebAdministration** module version 1.19.0.0 and the
+module **PSDesiredStateConfiguration**.
 
 ### Test content in Azure machine configuration
 
@@ -263,12 +293,11 @@ configuration to a MOF file and create a machine configuration package.
 
 Some modules might encounter compatibility issues with machine configuration. The most common
 problems are related to .NET framework vs .NET core. Detailed technical information is available on
-the page, [Differences between Windows PowerShell 5.1 and PowerShell (core) 7.x][07].
+the page, [Differences between Windows PowerShell 5.1 and PowerShell 7.x][07].
 
-One option to resolve compatibility issues is to run commands in Windows PowerShell
-from within a module that is imported in PowerShell 7, by running `powershell.exe`.
-You can review a sample module that uses this technique in the Azure-Policy repo
-where it is used to audit the state of
+One option to resolve compatibility issues is to run commands in Windows PowerShell from within a
+module that is imported in PowerShell 7, by running `powershell.exe`. You can review a sample
+module that uses this technique in the Azure-Policy repo where it is used to audit the state of
 [Windows DSC Configuration][08].
 
 The example also illustrates a small proof of concept.
@@ -276,18 +305,20 @@ The example also illustrates a small proof of concept.
 ```powershell
 # example function that could be loaded from module
 function New-TaskResolvedInPWSH7 {
-  # runs the fictitious command 'Get-myNotCompatibleCommand' in Windows PowerShell
-  $compatObject = & powershell.exe -noprofile -NonInteractive -command { Get-myNotCompatibleCommand }
-  # resulting object can be used in PowerShell 7
-  return $compatObject
+    # runs the fictitious command 'Get-myNotCompatibleCommand' in Windows PowerShell
+    $compatObject = & powershell.exe -NoProfile -NonInteractive -Command {
+        Get-myNotCompatibleCommand
+    }
+    # resulting object can be used in PowerShell 7
+    return $compatObject
 }
 ```
 
-#### Will I have to add "Reasons" property to Get-TargetResource in all modules I migrate?
+#### Will I have to add the Reasons property to Get-TargetResource in all modules I migrate?
 
-Implementing the ["Reasons" property][09] provides a better experience when viewing the results of
-a configuration assignment from the Azure Portal. If the `Get` method in a module doesn't include
-"Reasons", generic output is returned with details from the properties returned by the `Get`
+Implementing the [Reasons property][09] provides a better experience when viewing the results of a
+configuration assignment from the Azure Portal. If the `Get` method in a module doesn't include
+**Reasons**, generic output is returned with details from the properties returned by the `Get`
 method. Therefore, it's optional for migration.
 
 ## Machines
@@ -317,31 +348,31 @@ Azure Automation State Configuration.
 ### Hybrid machines
 
 Machines outside of Azure [can be registered to Azure Automation State Configuration][13], but they
-don't have a machine resource in Azure. The connection to Azure Automation is handled by Local
-Configuration Manager service inside the machine and the record of the node is managed as a
+don't have a machine resource in Azure. The connection to Azure Automation is handled by the Local
+Configuration Manager (LCM) service inside the machine and the record of the node is managed as a
 resource in the Azure Automation provider type.
 
 Before removing a machine from Azure Automation State Configuration, onboard each node as an
-[Azure Arc-enabled server][14]. Onboard to Azure Arc creates a machine resource in Azure so the
-machine can be managed by Azure Policy. The machine can be onboarded to Azure Arc at any time but
+[Azure Arc-enabled server][14]. Onboarding to Azure Arc creates a machine resource in Azure so the
+machine can be managed by Azure Policy. The machine can be onboarded to Azure Arc at any time, but
 you can use Azure Automation State Configuration to automate the process.
 
 You can register a machine to Azure Arc-enabled servers by using PowerShell DSC. For details, view
 the page [How to install the Connected Machine agent using Windows PowerShell DSC][15]. Remember
 however, that Azure Automation State Configuration can manage only one configuration per machine,
 per Automation Account. This means you have the option to export, test, and prepare your content
-for machine configuration, and then "switch" the node configuration in Azure Automation to onboard
-to Azure Arc. As the last step, you remove the node registration from Azure Automation State
-Configuration and move forward only managing the machine state through guest configuration.
+for machine configuration, and then switch the node configuration in Azure Automation to onboard to
+Azure Arc. As the last step, remove the node registration from Azure Automation State Configuration
+and move forward only managing the machine state through machine configuration.
 
 ## Troubleshooting issues when exporting content
 
-Details about known issues are provided
+Details about known issues are provided in this section.
 
 ### Exporting configurations results in "\\" character in file name
 
-When using PowerShell on macOS/Linux, you encounter issues dealing with the file names output by
-`Export-AzAutomationDSCConfiguration`.
+When using PowerShell on macOS and Linux, you encounter issues dealing with the file names output
+by `Export-AzAutomationDSCConfiguration`.
 
 As a workaround, a module has been published to the PowerShell Gallery named
 [AADSCConfigContent][16]. The module has only one command, which exports the content of a
@@ -352,7 +383,7 @@ configuration stored in Azure Automation by making a REST request to the service
 - [Create a package artifact][05] for machine configuration.
 - [Test the package artifact][17] from your development environment.
 - [Publish the package artifact][18] so it is accessible to your machines.
-- Use the `GuestConfiguration` module to [create an Azure Policy definition][19] for at-scale
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][19] for at-scale
   management of your environment.
 - [Assign your custom policy definition][20] using Azure portal.
 - Learn how to view [compliance details for machine configuration][21] policy assignments.

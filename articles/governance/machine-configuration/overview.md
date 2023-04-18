@@ -33,10 +33,10 @@ Examples of each scenario are provided in the following table.
 | [Compliance][06]               | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed.                                                                  | "All machines should use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
 
 The per-setting results from configurations can be viewed either in the
-[Guest assignments page][07] or if the configuration is orchestrated by an Azure Policy assignment,
-by clicking on the "Last evaluated resource" link on the ["Compliance details" page][07].
+[Guest assignments page][07] or, if the configuration is orchestrated by an Azure Policy assignment,
+by selecting the "Last evaluated resource" link on the ["Compliance details" page][07].
 
-[A video walk-through of this document is available][08]. (update coming soon)
+[A video walk-through of this document is available][08]. (Update coming soon)
 
 ## Enable machine configuration
 
@@ -55,7 +55,7 @@ resource provider is registered automatically. You can manually register through
 
 To manage settings inside a machine, a [virtual machine extension][12] is enabled and the machine
 must have a system-managed identity. The extension downloads applicable machine configuration
-assignment and the corresponding dependencies. The identity is used to authenticate the machine as
+assignments and the corresponding dependencies. The identity is used to authenticate the machine as
 it reads and writes to the machine configuration service. The extension isn't required for
 Arc-enabled servers because it's included in the Arc Connected Machine agent.
 
@@ -74,7 +74,7 @@ for each:
 - [Configure managed identities for Azure resources on a VM using the Azure portal][14]
 
 To use machine configuration packages that apply configurations, Azure VM guest configuration
-extension version **1.29.24** or later is required.
+extension version 1.29.24 or later is required.
 
 ### Limits set on the extension
 
@@ -92,8 +92,8 @@ built-in content, machine configuration handles loading these tools automaticall
 
 | Operating system |                 Validation tool                 |                                                                                 Notes                                                                                  |
 | ---------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows          | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.                             |
-| Linux            | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. PowerShell Core isn't added to system path.                                                                         |
+| Windows          | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                                  |
+| Linux            | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. PowerShell isn't added to system path.                                                                              |
 | Linux            | [Chef InSpec][16]                               | Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
 
 ### Validation frequency
@@ -116,7 +116,7 @@ status is then written to Azure Resource Graph.
 Machine configuration policy definitions are inclusive of new versions. Older versions of operating
 systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
 compatible. The following table shows a list of supported operating systems on Azure images. The
-".x" text is symbolic to represent new minor versions of Linux distributions.
+`.x` text is symbolic to represent new minor versions of Linux distributions.
 
 | Publisher | Name                       | Versions         |
 | --------- | -------------------------- | ---------------- |
@@ -201,9 +201,9 @@ machines to communicate with the machine configuration resource provider in Azur
 ### Communicate over virtual networks in Azure
 
 To communicate with the machine configuration resource provider in Azure, machines require outbound
-access to Azure datacenters on port **443**. If a network in Azure doesn't allow outbound traffic,
+access to Azure datacenters on port `443`*. If a network in Azure doesn't allow outbound traffic,
 configure exceptions with [Network Security Group][18] rules. The [service tags][19]
-"AzureArcInfrastructure" and "Storage" can be used to reference the guest configuration and Storage
+`AzureArcInfrastructure` and `Storage` can be used to reference the guest configuration and Storage
 services rather than manually maintaining the [list of IP ranges][20] for Azure datacenters. Both
 tags are required because machine configuration content packages are hosted by Azure Storage.
 
@@ -252,7 +252,7 @@ included.
 Policy definitions in the initiative
 `Deploy prerequisites to enable guest configuration policies on virtual machines` enable a
 system-assigned managed identity, if one doesn't exist. There are two policy definitions in the
-initiative that manage identity creation. The IF conditions in the policy definitions ensure the
+initiative that manage identity creation. The `if` conditions in the policy definitions ensure the
 correct behavior based on the current state of the machine resource in Azure.
 
 > [!IMPORTANT]
@@ -271,12 +271,12 @@ If the machine currently has a user-assigned system identity, the effective poli
 
 Customers designing a highly available solution should consider the redundancy planning
 requirements for [virtual machines][28] because guest assignments are extensions of machine
-resources in Azure. When guest assignment resources are provisioned in to an Azure region that is
+resources in Azure. When guest assignment resources are provisioned into an Azure region that is
 [paired][29], as long as at least one region in the pair is available, then guest assignment
 reports are available. If the Azure region isn't paired and it becomes unavailable, then it isn't
 possible to access reports for a guest assignment until the region is restored.
 
-When you considering an architecture for highly available applications, especially where virtual
+When you're considering an architecture for highly available applications, especially where virtual
 machines are provisioned in [Availability Sets][30] behind a load balancer solution to provide high
 availability, it's best practice to assign the same policy definitions with the same parameters to
 all machines in the solution. If possible, a single policy assignment spanning all machines would
@@ -288,9 +288,9 @@ as machines in the primary site.
 
 ## Data residency
 
-Machine configuration stores/processes customer data. By default, customer data is replicated to
-the [paired region.][29] For the regions: Singapore, Brazil South, and East Asia all customer data
-is stored and processed in the region.
+Machine configuration stores and processes customer data. By default, customer data is replicated
+to the [paired region.][29] For the regions Singapore, Brazil South, and East Asia, all customer
+data is stored and processed in the region.
 
 ## Troubleshooting machine configuration
 
@@ -299,12 +299,12 @@ For more information about troubleshooting machine configuration, see
 
 ### Multiple assignments
 
-At this time, only some built-in Guest Configuration policy definitions support multiple
+At this time, only some built-in machine configuration policy definitions support multiple
 assignments. However, all custom policies support multiple assignments by default if you used the
-latest version of [the `GuestConfiguration` PowerShell module][33] to create Guest Configuration
+latest version of [the GuestConfiguration PowerShell module][33] to create machine configuration
 packages and policies.
 
-Following is the list of built-in Guest Configuration policy definitions that support multiple
+Following is the list of built-in machine configuration policy definitions that support multiple
 assignments:
 
 | ID                                                                                        | DisplayName                                                                                                 |
@@ -324,7 +324,7 @@ assignments:
 | /providers/Microsoft.Authorization/policyDefinitions/c633f6a2-7f8b-4d9e-9456-02f0f04f5505 | Audit Windows machines that are not set to the specified time zone                                          |
 
 > [!NOTE]
-> Please check this page periodically for updates to the list of built-in Guest Configuration
+> Please check this page periodically for updates to the list of built-in machine configuration
 > policy definitions that support multiple assignments.
 
 ### Assignments to Azure management groups
@@ -359,7 +359,7 @@ PowerShell script can be helpful.
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
-$linesToIncludeAfterMatch = 10
+$linesToIncludeAfterMatch  = 10
 $params = @{
     Path = 'C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log'
     Pattern = @(
@@ -392,9 +392,8 @@ egrep -B $LINES_TO_INCLUDE_BEFORE_MATCH -A $LINES_TO_INCLUDE_AFTER_MATCH 'DSCEng
 The machine configuration agent downloads content packages to a machine and extracts the contents.
 To verify what content has been downloaded and stored, view the folder locations given below.
 
-Windows: `c:\programdata\guestconfig\configuration`
-
-Linux: `/var/lib/GuestConfig/Configuration`
+- Windows: `C:\ProgramData\guestconfig\configuration`
+- Linux: `/var/lib/GuestConfig/Configuration`
 
 
 ### Open-source nxtools module functionality
@@ -402,7 +401,7 @@ Linux: `/var/lib/GuestConfig/Configuration`
 A new open-source [nxtools module][37] has been released to help make managing Linux systems easier
 for PowerShell users.
 
-The module will help in managing common tasks such as these:
+The module will help in managing common tasks such as:
 
 -	User and group management
 -	File system operations (changing mode, owner, listing, set/replace content)
@@ -410,12 +409,11 @@ The module will help in managing common tasks such as these:
 - Archive operations (compress, extract)
 -	Package management (list, search, install, uninstall packages)
 
-The module includes class-based DSC resources for Linux, as well as built-in machine-configuration
+The module includes class-based DSC resources for Linux, as well as built-in machine configuration
 packages.
 
 To provide feedback about this functionality, open an issue on the documentation. We currently
 _don't_ accept PRs for this project, and support is best effort.
-
 
 ## Machine configuration samples
 
@@ -431,7 +429,7 @@ Machine configuration built-in policy samples are available in the following loc
 - Set up a custom machine configuration package [development environment][33].
 - [Create a package artifact][42] for machine configuration.
 - [Test the package artifact][34] from your development environment.
-- Use the `GuestConfiguration` module to [create an Azure Policy definition][43] for at-scale
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][43] for at-scale
   management of your environment.
 - [Assign your custom policy definition][06] using Azure portal.
 - Learn how to view [compliance details for machine configuration][07] policy assignments.

@@ -8,10 +8,10 @@ ms.topic: how-to
 
 [!INCLUDE [Machine config rename banner](../includes/banner.md)]
 
-The PowerShell module `GuestConfiguration` automates the process of creating custom content
+The PowerShell module **GuestConfiguration** automates the process of creating custom content
 including:
 
-- Creating a machine configuration content artifact (.zip)
+- Creating a machine configuration content artifact (`.zip`)
 - Validating the package meets requirements
 - Installing the machine configuration agent locally for testing
 - Validating the package can be used to audit settings in a machine
@@ -20,7 +20,7 @@ including:
 - Creating a policy definition
 - Publishing the policy
 
-Support for applying configurations through machine configuration is introduced in version `3.4.2`.
+Support for applying configurations through machine configuration is introduced in version 3.4.2.
 
 ### Base requirements
 
@@ -37,16 +37,16 @@ listed below.
 | Windows   | [PowerShell 7.1.3][01] |
 | Ubuntu 18 | [PowerShell 7.2.4][02] |
 
-The `GuestConfiguration` module requires the following software:
+The **GuestConfiguration** module requires the following software:
 
 - Azure PowerShell 5.9.0 or higher. The required Az modules are installed automatically with the
-  `GuestConfiguration` module, or you can follow [these instructions][03].
+  **GuestConfiguration** module, or you can follow [these instructions][03].
 
 
 ### Install the module from the PowerShell Gallery
 
-To install the `GuestConfiguration` module on either Windows or Linux, run the following command in
-PowerShell 7.
+To install the **GuestConfiguration** module on either Windows or Linux, run the following command
+in PowerShell 7.
 
 ```powershell
 # Install the machine configuration DSC resource module from PowerShell Gallery
@@ -64,7 +64,7 @@ Get-Command -Module 'GuestConfiguration'
 
 - [Create a package artifact][04] for machine configuration.
 - [Test the package artifact][05] from your development environment.
-- Use the `GuestConfiguration` module to [create an Azure Policy definition][06] for at-scale
+- Use the **GuestConfiguration** module to [create an Azure Policy definition][06] for at-scale
   management of your environment.
 - [Assign your custom policy definition][07] using Azure portal.
 
