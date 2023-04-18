@@ -90,14 +90,14 @@ For more granular filtering by criteria such as event ID, you can create a custo
 Use the following guidance as a recommended starting point for event collection. Modify the DCR settings to filter unneeded events and add other events depending on your requirements.
 
 | Source | Strategy |
-|--------|----------|
+|:---|:---|
 | Windows events | Collect at least **Critical**, **Error**, and **Warning** events for the **System** and **Application** logs to support alerting. Add **Information** events to analyze trends and support troubleshooting. **Verbose** events are rarely useful and typically shouldn't be collected. |
 | Syslog events | Collect at least **LOG_WARNING** events for each facility to support alerting. Add **Information** events to analyze trends and support troubleshooting. **LOG_DEBUG** events are rarely useful and typically shouldn't be collected. |
 
 ### Sample log queries: Windows events
 
 | Query   | Description |
-|---------|-------------|
+|:---|:---|
 | Event | All Windows events |
 | Event | where EventLevelName == "Error"` |All Windows events with severity of error |
 | Event | summarize count() by Source` |Count of Windows events by source |
@@ -106,7 +106,7 @@ Use the following guidance as a recommended starting point for event collection.
 ### Sample log queries: Syslog events
 
 | Query    | Description |
-|----------|-------------|
+|:---|:---|
 | Syslog |All Syslogs |
 | Syslog | where SeverityLevel == "error"` |All Syslog records with severity of error |
 | Syslog | summarize AggregatedValue = count() by Computer` |Count of Syslog records by computer |
@@ -128,7 +128,7 @@ For guidance on creating a DCR to collect performance counters, see [Collect eve
 > You might choose to combine performance and event collection in the same DCR.
 
  Destination | Description |
-|------------|-------------|
+|:---|:---|
 | Metrics    | Host metrics are automatically sent to Azure Monitor Metrics. You can use a DCR to collect client metrics so that they can be analyzed together with [metrics explorer](../essentials/metrics-getting-started.md) or used with [metrics alerts](../alerts/alerts-create-new-alert-rule.md?tabs=metric). This data is stored for 93 days. |
 | Logs | Performance data stored in Azure Monitor Logs can be stored for extended periods. The data can be analyzed along with your event data by using [log queries](../logs/log-query-overview.md) with [Log Analytics](../logs/log-analytics-overview.md) or [log query alerts](../alerts/alerts-create-new-alert-rule.md?tabs=log). You can also correlate data by using complex logic across multiple machines, regions, and subscriptions.<br><br>Performance data is sent to the following tables:<br>VM insights - [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics)<br>Other performance data - [Perf](/azure/azure-monitor/reference/tables/perf) |
 
@@ -136,7 +136,7 @@ For guidance on creating a DCR to collect performance counters, see [Collect eve
 The following samples use the `Perf` table with custom performance data. For information on performance data collected by VM insights, see [How to query logs from VM insights](../vm/vminsights-log-query.md#performance-records).
 
 | Query  | Description |
-|--------|-------------|
+|:---|:---|
 | Perf | All Performance data |
 | Perf | where Computer == "MyComputer"` |All Performance data from a particular computer |
 | Perf | where CounterName == "Current Disk Queue Length"` |All Performance data for a particular counter |
@@ -156,7 +156,7 @@ Some applications write events written to a text log stored on the virtual machi
 The column names used here are examples only. The column names for your log will most likely be different.
 
 | Query      | Description |
-|------------|-------------|
+|:---|:---|
 | MyApp_CL | summarize count() by code` | Count the number of events by code. |
 | MyApp_CL | where status == "Error" | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)` | Create an alert rule on any error event. |
 
@@ -168,7 +168,7 @@ Records from the IIS log are stored in the [W3CIISLog](/azure/azure-monitor/refe
 ### Sample log queries
 
 | Query       | Description |
-|-------------|-------------|
+|:---|:---|
 | W3CIISLog | where csHost=="www.contoso.com" | summarize count() by csUriStem` | Count the IIS log entries by URL for the host www.contoso.com. |
 | W3CIISLog | summarize sum(csBytes) by Computer` | Review the total bytes received by each IIS machine. |
 
@@ -185,7 +185,7 @@ For different options to enable the Change Tracking solution on your virtual mac
 When you enable Change Tracking and Inventory, two new tables are created in your Log Analytics workspace. Use these tables for logs queries and log query alert rules.
 
 | Table | Description |
-|-------|-------------|
+|:---|:---|
 | [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationdata) | Changes to in-guest configuration data |
 | [ConfigurationData](/azure/azure-monitor/reference/tables/configurationdata) | Last reported state for in-guest configuration data |
 
