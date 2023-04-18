@@ -48,7 +48,7 @@ To update the patch mode, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Go to **Virtual machine**, and select **+Create** to open *Create a virtual machine* page.
 1. In **Basics** tab, complete all the mandatory fields.
-1. In **Management** tab, under **Guest OS updates**, for **Patch orchestration options**, select *Azure-orchestrated with user managed schedules(Preview)*.
+1. In **Management** tab, under **Guest OS updates**, for **Patch orchestration options**, select *Azure-orchestrated*.
 1. After you complete the entries in **Monitoring**, **Advanced** and **Tags** tabs.
 1. Select **Review + Create** and select **Create** to create a new VM with the appropriate patch orchestration option.
 
@@ -60,7 +60,7 @@ To schedule patch the newly created VMs, follow the procedure from step 2 in **E
 You can update the patch orchestration option for existing VMs that either already have schedules associated or are to be newly associated with a schedule:  
 
 > [!NOTE]
-> If the **Patch orchestration** is set as *Azure orchestrated*, the **BypassPlatformSafetyChecksOnUserSchedule** is set to *False* and there is no schedule associated, the VM(s) will be autopatched.
+> If the **Patch orchestration** is set as *Azure-orchestrated or Azure-orchestrated Global safe deployment (AutomaticByPlatform)*, the **BypassPlatformSafetyChecksOnUserSchedule** is set to *False* and there is no schedule associated, the VM(s) will be autopatched.
 
 To update the patch mode, follow these steps:
 
@@ -68,7 +68,7 @@ To update the patch mode, follow these steps:
 1. Go to **Update management center (Preview)**, select **Update Settings**.    
 1. In **Change update settings**, select **+Add machine**.
 1. In **Select resources**, select your VMs and then select **Add**.
-1. In **Change update settings**, under **Patch orchestration**, select *Azure orchestrated with user managed schedules (Preview)* and then select **Save**.
+1. In **Change update settings**, under **Patch orchestration**, select *Azure-orchestrated with user managed schedules(Preview)* and then select **Save**.
 
 Attach a schedule after you complete the above steps.
 
