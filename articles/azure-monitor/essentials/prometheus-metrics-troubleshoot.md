@@ -13,6 +13,14 @@ Follow the steps in this article to determine the cause of Prometheus metrics no
 
 Note that the ReplicaSet pod scrapes metrics from `kube-state-metrics` and custom scrape targets in the `ama-metrics-prometheus-config` configmap. The DaemonSet pods scrape metrics from the following targets on their respective node: `kubelet`, `cAdvisor`, `node-exporter`, and custom scrape targets in the `ama-metrics-prometheus-config-node` configmap. The pod that you will want to view the logs and the Prometheus UI for will depend on which scrape target you are investigating.
 
+## Metrics Throttling
+
+In the Azure Portal, navigate to your Azure Monitor Workspace. Go to `Metrics` and verify that the metrics `Active Time Series % Utilization` and `Events Per Minuted Ingested % Utilization` are below 100%.
+
+:::image type="content" source="media/prometheus-metrics-troubleshoot/throttling.png" alt-text="Screenshot showing how to navigate to the throttling metrics." lightbox="media/prometheus-metrics-troubleshoot/throttling.png":::
+
+If either are above 100%, ingestion into this workspace is being throttled. In this same workspace, navigate to `New Support Request` to create a request to increase the limits. Select the issue type as `Service and subscription limits (quotas)` and the quota type as `Managed Prometheus`.
+
 ## Pod status
 
 Check the pod status with the following command:
@@ -47,7 +55,10 @@ kubectl logs <ama-metrics pod name> -n kube-system -c prometheus-collector
 
 - Verify if there's an issue with getting the authentication token:
     - The message *No configuration present for the AKS resource* will be logged every 5 minutes. 
-    * The pod will restart every 15 minutes to try again with the error: *No configuration present for the AKS resource*.
+    - The pod will restart every 15 minutes to try again with the error: *No configuration present for the AKS resource*.
+      - If so, check that the Data Collection Rule and Data Collection Endpoint exist in your resource group.
+      - Also verify that the Azure Monitor Workspace exists.
+      - Verify that you do not have a private AKS cluster annd that it's not linked to an Azure Monitor Private Link Scope for any other service. This is currently not a supported scenario.
 - Verify there are no errors with parsing the Prometheus config, merging with any default scrape targets enabled, and validating the full config.
 - Verify there are no errors from MetricsExtension regarding authenticating with the Azure Monitor workspace.
 - Verify there are no errors from the OpenTelemetry collector about scraping the targets.
