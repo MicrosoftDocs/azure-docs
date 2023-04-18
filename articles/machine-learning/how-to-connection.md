@@ -120,8 +120,9 @@ from azure.ai.ml.entities import UsernamePasswordConfiguration
 
 target= "jdbc:snowflake://<myaccount>.snowflakecomputing.com/?db=<mydb>&warehouse=<mywarehouse>&role=<myrole>"
 # add the Snowflake account, database, warehouse name and role name here. If no role name provided it will default to PUBLIC
-
-wps_connection = WorkspaceConnection(type="snowflake",
+name= <my_snowflake_connection> # name of the connection
+wps_connection = WorkspaceConnection(name= name,
+type="snowflake",
 target= target,
 credentials= UsernamePasswordConfiguration(username="XXXXX", password="XXXXXX")
 )
@@ -193,7 +194,9 @@ from azure.ai.ml.entities import UsernamePasswordConfiguration
 target= "Server=tcp:<myservername>,<port>;Database=<mydatabase>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
 # add the sql servername, port addresss and database
 
-wps_connection = WorkspaceConnection(type="azure_sql_db",
+name= <my_sql_connection> # name of the connection
+wps_connection = WorkspaceConnection(name= name,
+type="azure_sql_db",
 target= target,
 credentials= UsernamePasswordConfiguration(username="XXXXX", password="XXXXXX")
 )
@@ -253,7 +256,9 @@ from azure.ai.ml.entities import WorkspaceConnection
 from azure.ai.ml.entities import AccessKeyConfiguration
 
 target = "https://<mybucket>.amazonaws.com" # add the s3 bucket details
-wps_connection = WorkspaceConnection(type="s3",
+name=<my_s3_connection> # name of the connection
+wps_connection = WorkspaceConnection(name=name,
+type="s3",
 target= target,
 credentials= AccessKeyConfiguration(access_key_id="XXXXXX",acsecret_access_key="XXXXXXXX")
 )

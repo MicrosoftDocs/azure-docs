@@ -112,7 +112,7 @@ from azure.ai.ml import MLClient
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
 # Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
 
 ml_client = MLClient.from_config()
 
@@ -145,7 +145,7 @@ $schema: http://azureml/sdk-2-0/DataImport.json
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
 # Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
 
 
 type: uri_folder
@@ -173,7 +173,7 @@ from azure.ai.ml import MLClient
 # Supported connections include:
 # Connection: azureml:<workspace_connection_name>
 # Supported paths include:
-# Datastore: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
+# path: azureml://datastores/<data_store_name>/paths/<my_path>/${{name}}
 
 ml_client = MLClient.from_config()
 
