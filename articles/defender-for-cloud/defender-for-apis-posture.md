@@ -7,9 +7,9 @@ ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023
 ---
-# Investigate API recommendations, alerts, and risks
+# Investigate API findings, recommendations, and alerts
 
-This article describes how to review security settings, security posture recommendations, security alerts, and risk insights for APIs protected by [Microsoft Defender for APIs](defender-for-apis-introduction.md). Defender for APIs is currently in preview.
+This article describes how to investigate API security findings, alerts, and security posture recommendations for APIs protected by [Microsoft Defender for APIs](defender-for-apis-introduction.md). Defender for APIs is currently in preview.
 
 ## Before you start
 
@@ -30,7 +30,7 @@ This article describes how to review security settings, security posture recomme
 
 In Defender for Cloud you can use sample alerts to evaluate your Defender for Cloud plans, and validate your security configuration. [Follow these instructions](alert-validation.md#generate-sample-security-alerts) to set up sample alerts, and select the relevant APIs within your subscriptions.
 
-## Explore risks with Cloud Security Explorer
+## Build queries in Cloud Security Explorer
 
 In Defender CSPM, [Cloud Security Graph](concept-attack-path.md) collects data to provide a map of assets and connections across organization, to expose security risks, vulnerabilities, and possible lateral movement paths.
 
