@@ -397,6 +397,8 @@
           href: how-to-prevent-data-loss-exfiltration.md
         - name: Configure network isolation with v2
           href: how-to-configure-network-isolation-with-v2.md
+        - name: Securely attach Azure Databricks
+          href: how-to-securely-attach-databricks.md
     # v1 for now - need PM update to v2
     - name: Data protection
       items:
