@@ -19,6 +19,14 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
+
+  - title: Latest changes
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: What's new in Centrally managed Azure Hybrid Benefit
+            url: whats-new.md
+
   - title: Get started
     linkLists:
     - linkListType: overview
