@@ -334,6 +334,8 @@ items:
     items:
     - name: Add emergency calling to your app
       href: quickstarts/telephony/emergency-calling.md
+    - name: Validate a domain for direct routing
+      href: how-tos/telephony/domain-validation.md
     - name: Phone numbers
       items:
       - name: Port a phone number into Azure
