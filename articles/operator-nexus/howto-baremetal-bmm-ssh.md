@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Manage emergency access to a bare metal machine using the `az networkcloud cluster baremetalmachinekeyset`
 
-> [!CAUTION] > 
+>[!CAUTION]
 Please note this process is used in emergency situations when all other troubleshooting options have been exhausted via Azure. SSH access to these bare metal machines (BMM) is restricted to users managed via this method from the specified jump host list.
 
 There are rare situations where a user needs to investigate & resolve issues with a BMM and all other ways have been exhausted via Azure. Azure Operator Nexus provides the `az networkcloud cluster baremetalmachinekeyset` command so users can manage SSH access to these BMM.
@@ -20,7 +20,7 @@ When the command runs, it executes on each BMM in the Cluster. If a BMM is unava
 
 There's no limit to the number of users in a group.
 
-> [!CAUTION] > 
+>[!CAUTION]
 Notes for jump host IP addresses
 
 - The keyset create/update process adds the jump host IP addresses to the IP tables for the Cluster. The process adds these addresses to IP tables and restricts SSH access to only those IPs.
