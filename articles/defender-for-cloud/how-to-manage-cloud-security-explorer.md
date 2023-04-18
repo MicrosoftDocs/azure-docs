@@ -19,13 +19,12 @@ Learn more about [the cloud security graph, attack path analysis, and the cloud 
 
 ## Prerequisites
 
-- You must [enable agentless scanning](enable-vulnerability-assessment-agentless.md).
-
 - You must [enable Defender CSPM](enable-enhanced-security.md).
+    - For Agentless Container Posture, you must enable the following extensions:
+        - Agentless discovery for Kubernetes (preview)
+        - Container registries vulnerability assessments (preview)
 
-- You must [enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. 
-
-    When you enable Defender for Containers, you also gain the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in the security explorer. 
+- You must [enable agentless scanning](enable-vulnerability-assessment-agentless.md).
 
 - Required roles and permissions: 
     - Security Reader
