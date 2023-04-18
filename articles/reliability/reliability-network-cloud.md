@@ -23,7 +23,7 @@ Azure availability zones are at least three physically separate groups of datace
 
 There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
 
-Azure Operator Nexus Network Cloud offers zone-redundant deployments by default for all SKU offerings. Operator Nexus Components, such as Cluster Manager, Fabric Controller, and Proxy services are all deployed on an Azure Kubernetes Service (AKS) cluster that's enabled with availability zones. Other service dependencies, such as Resource Provider as a Service (RPaaS), Storage Account Service, and KeyVault are also configured with zone-redundancy.
+Azure Operator Nexus offers zone-redundant deployments by default for all SKU offerings. Operator Nexus Components, such as Cluster Manager, Fabric Controller, and Proxy services are all deployed on an Azure Kubernetes Service (AKS) cluster that's enabled with availability zones. Other service dependencies, such as Resource Provider as a Service (RPaaS), Storage Account Service, and KeyVault are also configured with zone-redundancy.
 
 >[!NOTE]
 >Because Operator Nexus On-Premises Clusters are owned by the users, and not by Microsoft, they don't offer zone redundancy by default.  To enable zone-redundancy for on-premises clusters, you'll need to configure for availability zones at the tenant workload level.​
