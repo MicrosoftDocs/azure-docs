@@ -939,6 +939,7 @@
         "articles/event-hubs/*.md": "event-hubs",
         "articles/governance/*.md": "governance",
         "articles/governance/blueprints/**/*.md": "blueprints",
+        "articles/governance/machine-configuration/**/*.md": "machine-configuration",
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
