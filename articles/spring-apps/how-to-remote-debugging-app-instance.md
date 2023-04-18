@@ -92,11 +92,11 @@ Use the following steps to assign an Azure role using the Azure portal.
 1. Open the [Azure portal](https://portal.azure.com).
 1. Open your Azure Spring Apps service instance.
 1. In the navigation pane, select **Access Control (IAM)**.
-1. Select **Add**, and then select **Add role assignment**.
+1. On the **Access Control (IAM)** page, select **Add** and then select **Add role assignment**.
 
    :::image type="content" source="media/how-to-remote-debugging-app-instance/add-role-assignment.png" alt-text="Screenshot of the Azure portal showing the Access Control (IAM) page for an Azure Spring Apps instance with the Add role assignment option highlighted." lightbox="media/how-to-remote-debugging-app-instance/add-role-assignment.png":::
 
-1. In the **Name** list, search for and select *Azure Spring Apps Remote Debugging Role*, and then select **Next**.
+1. On the **Add role assignment** page, in the **Name** list search for and select *Azure Spring Apps Remote Debugging Role* and then select **Next**.
 
    :::image type="content" source="media/how-to-remote-debugging-app-instance/remote-debugging-role.png" alt-text="Screenshot of the Azure portal showing the Add role assignment page for an Azure Spring Apps instance with the Azure Spring Apps Remote Debugging Role name highlighted." lightbox="media/how-to-remote-debugging-app-instance/remote-debugging-role.png":::
 
