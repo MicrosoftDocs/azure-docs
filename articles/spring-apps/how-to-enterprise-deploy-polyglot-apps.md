@@ -21,7 +21,7 @@ This article shows you how to deploy polyglot apps in Azure Spring Apps Enterpri
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
-- [Azure CLI](/cli/azure/install-azure-cli), version 2.43.0 or higher.
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher.
 
 ## Deploy a polyglot application
 
