@@ -237,12 +237,11 @@ If the security token type is **Proof of Possession (POP)** for your custom task
     |appid     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
     |m     |  POST   |
     |u     |  management.azure.com   |
-    |p     |  /subscriptions/(subscriptionId)/resourceGroups/(resourceGroupName)/providers/Microsoft.Logic/workflows/(logicAppName)   |
+    |p     |  /subscriptions/(subscriptionId)/resourceGroups/(resourceGroupName)/providers/Microsoft.Logic/workflows/(LogicApp name)   |
 
 
 1. Save the Authorization policy.
-> [!NOTE]
-> Due to a current bug in the Logic Apps UI you may have to save the authorization policy after each claim before adding another.
+
 
 > [!CAUTION]
 > Please pay attention to the details as minor differences can lead to problems later.
@@ -280,8 +279,6 @@ If the security token type is **Normal** for your custom task extension, you'd s
     |azp     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
 
 1. Save the Authorization policy.
-> [!NOTE]
-> Due to a current bug in the Logic Apps UI you may have to save the authorization policy after each claim before adding another.
 
 > [!CAUTION]
 > Please pay attention to the details as minor differences can lead to problems later.
