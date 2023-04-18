@@ -10,7 +10,7 @@ author: jricketts
 ms.author: jricketts
 manager: martinco
 ms.reviewer: martinco
-ms.date: 04/14/2023
+ms.date: 04/18/2023
 ms.custom: it-pro
 ms.collection: 
 ---
@@ -31,9 +31,9 @@ ms.collection:
 
 |PCI-DSS Defined approach requirements|Azure AD guidance and recommendations|
 |-|-|
-|**5.2.1** An anti-malware solution(s) is deployed on all system components, except for those system components identified in periodic evaluations per Requirement 5.2.3 that concludes the system components are not at risk from malware.|Deploy Conditional Access policies that require device compliance. [Use compliance policies to set rules for devices you manage with Intune](/mem/intune/protect/device-compliance-get-started) </br> Integrate device compliance state with anti-malware solutions. [Enforce compliance for Microsoft Defender for Endpoint with Conditional Access in Intune](/mem/intune/protect/advanced-threat-protection) </br> [Mobile Threat Defense integration with Intune](/mem/intune/protect/mobile-threat-defense)|
+|**5.2.1** An anti-malware solution(s) is deployed on all system components, except for those system components identified in periodic evaluations per Requirement 5.2.3 that concludes the system components aren't at risk from malware.|Deploy Conditional Access policies that require device compliance. [Use compliance policies to set rules for devices you manage with Intune](/mem/intune/protect/device-compliance-get-started) </br> Integrate device compliance state with anti-malware solutions. [Enforce compliance for Microsoft Defender for Endpoint with Conditional Access in Intune](/mem/intune/protect/advanced-threat-protection) </br> [Mobile Threat Defense integration with Intune](/mem/intune/protect/mobile-threat-defense)|
 |**5.2.2** The deployed anti-malware solution(s): </br> Detects all known types of malware. Removes, blocks, or contains all known types of malware.|Not applicable to Azure AD.|
-|**5.2.3** Any system components that are not at risk for malware are evaluated periodically to include the following: </br> A documented list of all system components not at risk for malware. </br> Identification and evaluation of evolving malware threats for those system components. </br> Confirmation whether such system components continue to not require anti-malware protection.|Not applicable to Azure AD.|
+|**5.2.3** Any system components that aren't at risk for malware are evaluated periodically to include the following: </br> A documented list of all system components not at risk for malware. </br> Identification and evaluation of evolving malware threats for those system components. </br> Confirmation whether such system components continue to not require anti-malware protection.|Not applicable to Azure AD.|
 |**5.2.3.1** The frequency of periodic evaluations of system components identified as not at risk for malware is defined in the entity’s targeted risk analysis, which is performed according to all elements specified in Requirement 12.3.1.|Not applicable to Azure AD.|
 
 ## 5.3 Anti-malware mechanisms and processes are active, maintained, and monitored.
@@ -45,7 +45,7 @@ ms.collection:
 |**5.3.2.1** If periodic malware scans are performed to meet Requirement 5.3.2, the frequency of scans is defined in the entity’s targeted risk analysis, which is performed according to all elements specified in Requirement 12.3.1.|Not applicable to Azure AD.|
 |**5.3.3** For removable electronic media, the anti-malware solution(s): </br> Performs automatic scans of when the media is inserted, connected, or logically mounted, </br> OR </br> Performs continuous behavioral analysis of systems or processes when the media is inserted, connected, or logically mounted.|Not applicable to Azure AD.|
 |**5.3.4** Audit logs for the anti-malware solution(s) are enabled and retained in accordance with Requirement 10.5.1.|Not applicable to Azure AD.|
-|**5.3.5** Anti-malware mechanisms cannot be disabled or altered by users, unless specifically documented, and authorized by management on a case-by-case basis for a limited time period.|Not applicable to Azure AD.|
+|**5.3.5** Anti-malware mechanisms can't be disabled or altered by users, unless specifically documented, and authorized by management on a case-by-case basis for a limited time period.|Not applicable to Azure AD.|
 
 ## 5.4 Anti-phishing mechanisms protect users against phishing attacks.
 
@@ -55,13 +55,13 @@ ms.collection:
 
 ## Next steps
 
-PCI-DSS requirements **3**, **4**, **9**, and **12** are not addressed or met by Azure AD, therefore there are no corresponding articles. To see all requirements, go to pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
+PCI-DSS requirements **3**, **4**, **9**, and **12** aren't addressed or met by Azure AD, therefore there are no corresponding articles. To see all requirements, go to pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
 
 To configure Azure AD to comply with PCI-DSS, see the following articles. 
 
 * [Requirement 1: Install and Maintain Network Security Controls](pci-requirement-1.md) 
 * [Requirement 2: Apply Secure Configurations to All System Components](pci-requirement-2.md)
-* [Requirement 5: Protect All Systems and Networks from Malicious Software](pci-requirement-5.md) (You are here)
+* [Requirement 5: Protect All Systems and Networks from Malicious Software](pci-requirement-5.md) (You're here)
 * [Requirement 6: Develop and Maintain Secure Systems and Software](pci-requirement-6.md)
 * [Requirement 7: Restrict Access to System Components and Cardholder Data by Business Need to Know](pci-requirement-7.md)
 * [Requirement 8: Identify Users and Authenticate Access to System Components](pci-requirement-8.md)
