@@ -203,6 +203,32 @@ Routing metrics such as count, latency, and failure rate can be viewed in the [A
 
 For information about viewing and managing metrics with Azure Monitor, see [Get started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md). For a full list of routing metrics available for Azure Digital Twins, see [Azure Digital Twins routing metrics](how-to-monitor.md#routing-metrics).
 
+Test graph:
+
+```mermaid
+
+graph LR
+
+  subgraph Oro
+
+    Primary[Primary Model] --> Diff[Diff Engine]
+
+    Verification[Verification Model] --> Diff
+
+  end
+
+  SourceA(Source A) --> Primary
+
+  SourceB(Source B) --> Verification
+
+  Diff --> Metrics(Azure Monitor)
+
+  Diff --> Datastore("Data Store (e.g. Kusto)")
+
+  Primary --> Commerce
+
+```
+
 ## Next steps
 
 Read about the different types of event messages you can receive:
