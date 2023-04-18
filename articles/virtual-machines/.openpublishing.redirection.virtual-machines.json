@@ -1656,6 +1656,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/linux/create-vm-rest-api.md",
+            "redirect_url": "/rest/api/compute/virtual-machines/create-or-update?tabs=HTTP#create-a-vm-with-ssh-authentication",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/linux/nsg-quickstart.md",
             "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
             "redirect_document_id": false
