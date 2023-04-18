@@ -12,11 +12,6 @@ items:
     href: overview-what-is-private-access.md
   - name: What is Microsoft Entra Internet Access?
     href: overview-what-is-internet-access.md
-- name: Quickstarts
-  expanded: false
-  items:
-  - name: Install the Global Secure Access Connector
-    href: quickstart-install-connector.md
 - name: Tutorials
   expanded: false
   items:
@@ -46,8 +41,11 @@ items:
     - name: Configure traffic forwarding
       href: how-to-configure-traffic-forwarding.md
     - name: Configure devices
-      href: how-to-configure-devices.md
-    - name: Configure branch Office locations
+      expanded: false
+      items:
+      - name: Install Windows client
+        href: how-to-install-windows-client.md
+    - name: Configure branch office locations
       expanded: false
       items:
       - name: List all branch office locations

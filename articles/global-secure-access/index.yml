@@ -20,6 +20,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: What is Security Service Edge (SSE)?
+            url: overview-what-is-security-service-edge.md
           - text: What is Global Secure Access?
             url: overview-what-is-global-secure-access.md
           - text: What is Microsoft Entra Private Access?
@@ -33,8 +35,6 @@ landingContent:
         links:
           - text: Get started with Global Secure Access
             url: how-to-get-started-with-global-secure-access.md
-          - text: Install Global Secure Access connector
-            url: quickstart-install-connector.md
 
   - title: Security at the edge
     linkLists:
@@ -53,8 +53,8 @@ landingContent:
             url: how-to-deploy-on-premises-connectors.md
           - text: Configure traffic forwarding
             url: how-to-configure-traffic-forwarding.md
-          - text: Configure devices
-            url: how-to-configure-devices.md
+          - text: Install the Windows client
+            url: how-to-install-windows-client.md
           - text: Create branch Office locations
             url: how-to-create-branch-office-location.md
 
