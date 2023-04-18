@@ -3,7 +3,7 @@ title: Set up Azure Backup Server for Azure VMware Solution
 description: Set up your Azure VMware Solution environment to back up virtual machines using Azure Backup Server.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 03/01/2023
+ms.date: 04/20/2023
 ---
 
 # Set up Azure Backup Server for Azure VMware Solution
@@ -37,7 +37,7 @@ This article helps you prepare your Azure VMware Solution environment to back up
 
 ## Limitations
 
-- •	If you're using *Azure Backup Server V3*, then you must install [Update Rollup 2](https://support.microsoft.com/topic/update-rollup-2-for-microsoft-azure-backup-server-v3-350de164-0ae4-459a-8acf-7777dbb7fd73). New installations from the Azure portal now use *Azure Backup Server V4* that supports vSphere, version *6.5* to *8.0*.
+- If you're using *Azure Backup Server V3*, then you must install [Update Rollup 2](https://support.microsoft.com/topic/update-rollup-2-for-microsoft-azure-backup-server-v3-350de164-0ae4-459a-8acf-7777dbb7fd73). New installations from the Azure portal now use *Azure Backup Server V4* that supports vSphere, version *6.5* to *8.0*.
 - You can't back up user snapshots before the first Azure Backup Server backup. After Azure Backup Server finishes the first backup, then you can back up user snapshots.
 - Azure Backup Server can't protect VMware vSphere VMs with pass-through disks and physical raw device mappings (pRDMs).
 - Azure Backup Server can't detect or protect VMware vSphere vApps.
@@ -228,7 +228,8 @@ If you downloaded the software package to a different server, copy the files to 
 1. Once extracted, select the option to **Execute setup.exe** and then select **Finish**.
 
 > [!TIP]
-> You can also locate the setup.exe file from the folder where you extracted the software package.
+>- You can also locate the setup.exe file from the folder where you extracted the software package.
+>- To use your own SQL Server instance, ensure that you're using the supported SQL Server versions - SQL Server 2022 and 2019.
 
 ### Install the software package
 

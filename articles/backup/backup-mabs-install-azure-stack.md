@@ -2,7 +2,7 @@
 title: Install Azure Backup Server on Azure Stack
 description: In this article, learn how to use Azure Backup Server to protect or back up workloads in Azure Stack.
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 04/20/2023
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -310,16 +310,19 @@ Once you know the state of the Azure connectivity and of the Azure subscription,
 
 If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
 
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* IP addresses
-  * 20.190.128.0/18
-  * 40.126.0.0/18
+- **URLs**
+  - `www.msftncsi.com`
+  - `*.Microsoft.com`
+  - `*.WindowsAzure.com`
+  - `*.microsoftonline.com`
+  - `*.windows.net`
+  - `www.msftconnecttest.com`
+  - `*.blob.core.windows.net`
+  - `*.queue.core.windows.net`
+  - `*.blob.storage.azure.net`
+- **IP addresses**
+  - `20.190.128.0/18`
+  - `40.126.0.0/18`
 
 
 Once connectivity to Azure is restored to the Azure Backup Server, the Azure subscription state determines the operations that can be performed. Once the server is **Connected**, use the table in [Network connectivity](backup-mabs-install-azure-stack.md#network-connectivity) to see the available operations.

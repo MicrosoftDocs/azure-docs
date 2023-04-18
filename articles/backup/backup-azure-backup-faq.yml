@@ -4,7 +4,7 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: backup
-  ms.date: 03/01/2023
+  ms.date: 04/20/2023
   author: jyothisuri
   ms.author: jsuri
 
@@ -127,6 +127,8 @@ sections:
           Windows Server 2016 64 bit | Standard, Datacenter, Essentials | With the latest service packs/updates.
           Windows Storage Server 2016 64 bit | Standard, Workgroup | With the latest service packs/updates.
           Windows Storage Server 2012 R2 64 bit | Standard, Workgroup, Essential | With the latest service packs/updates.
+          Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | With the latest service packs/updates.
+          Windows Server 2012 64 bit | Datacenter, Foundation, Standard | With the latest service packs/updates.
           Windows Storage Server 2012 64 bit | Standard, Workgroup | With the latest service packs/updates.
           
           

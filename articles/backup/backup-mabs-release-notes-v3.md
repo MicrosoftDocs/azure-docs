@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Azure Backup Server v3
 description: This article provides the information about the known issues and workarounds for Microsoft Azure Backup Server (MABS) v3.
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 04/20/2023
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 author: jyothisuri
 ms.author: jsuri
@@ -14,13 +14,16 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 
 ## MABS V4 known issues and workarounds 
 
-Currently, there are no known issues with MABS V4. 
+If you're protecting Windows Server 2012 and 2012 R2, you need to install Visual C++ redistributable 2015 manually on the protected server. You can download [Visual C++ Redistributable for Visual Studio 2015 from Official Microsoft Download Center](https://www.microsoft.com/en-in/download/details.aspx?id=48145).
 
 ## MABS V3 known issues and workarounds
 
 ### Backup and recovery fails for clustered workloads
 
 **Description:** Backup/restore fails for clustered data sources such as Hyper-V cluster or SQL cluster (SQL Always On) or Exchange in database availability group (DAG) after upgrading MABS V2 to MABS V3.
+
+>[!Note] 
+>This issue is fixed in MABS V4.
 
 **Work around:** To prevent this, open SQL Server Management Studio (SSMS)) and run the following SQL script on the DPM DB:
 
