@@ -1438,6 +1438,14 @@ productDirectory:
         - security
       url: dedicated-hsm/index.yml
     # Card
+    - title: Microsoft Defender for External Attack Surface Management
+      summary: Safeguard the digital experience by discovering all internet-exposed resources
+      imageSrc: ./media/index/Defender-easm.svg
+      azureCategories:
+        - security
+        - management-and-governance
+      url: external-attack-surface-management/index.md
+    # Card
     - title: Key Vault
       summary: Safeguard and maintain control of keys and other secrets
       imageSrc: https://static.docs.com/ui/media/product/azure/key-vault.svg
