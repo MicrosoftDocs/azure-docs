@@ -25,7 +25,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Deprecation of legacy compliance standards across cloud environments](#deprecation-of-legacy-compliance-standards-across-cloud-environments) | April 2023 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2023 |
 | [New Azure Active Directory authentication-related recommendations for Azure Data Services](#new-azure-active-directory-authentication-related-recommendations-for-azure-data-services) | April 2023 |
-| [Release of Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM)](#release-of-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm) | May 2023 |
+| [Release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM)](#release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm) | May 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | June 2023 |
 
 ### Changes in the recommendation "Machines should be configured securely"
@@ -150,7 +150,7 @@ Learn how to [Customize the set of standards in your regulatory compliance dashb
 | Azure Database for MySQL should have an Azure Active Directory administrator provisioned | Provision an Azure AD administrator for your Azure Database for MySQL to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services | Based on policy: [An Azure Active Directory administrator should be provisioned for MySQL servers](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f146412e9-005c-472b-9e48-c87b72ac229e) |
 | Azure Database for PostgreSQL should have an Azure Active Directory administrator provisioned | Provision an Azure AD administrator for your Azure Database for PostgreSQL to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services | Based on policy: [An Azure Active Directory administrator should be provisioned for PostgreSQL servers](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb4dec045-250a-48c2-b5cc-e0c4eec8b5b4) |
 
-### Release of Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM)
+### Release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM)
 
 **Estimated date for change: May 2023**
 
