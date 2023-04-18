@@ -139,7 +139,7 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
 
 ## Grant service permission to the virtual network
 
-The following procedures describe granting Azure Spring Apps **[Owner](../role-based-access-control/built-in-roles.md#owner)** permission on your virtual network, in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
+The following procedures describe granting Azure Spring Apps the **[Owner](../role-based-access-control/built-in-roles.md#owner)** permission on your virtual network, in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
 
 > [!NOTE]
 > The minimal required permissons are **[User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator)** **and** **[Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor)**. You can grant role assignments to both of them if not able to grant **Owner** permission.
