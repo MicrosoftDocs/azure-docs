@@ -22,7 +22,7 @@ This quickstart demonstrates how to query using Lucene Index.
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Deploy an Azure Managed Instance for Apache Cassandra cluster. You can do this via the [portal](create-cluster-portal.md) - Lucene indexes will be enabled by default.
-- Connect to your cluster from [CQLSH](https://learn.microsoft.com/en-us/azure/managed-instance-apache-cassandra/create-cluster-portal#connecting-from-cqlsh).
+- Connect to your cluster from [CQLSH](create-cluster-portal.md#connecting-from-cqlsh).
 
 ## Create keyspace and table with Lucene Index
 
@@ -61,7 +61,7 @@ This quickstart demonstrates how to query using Lucene Index.
        };
     ```
 
-## Insert data
+## Create data and search
 
 Insert the following sample tweets:
 
@@ -72,8 +72,6 @@ Insert the following sample tweets:
     INSERT INTO tweets (id,user,body,time,latitude,longitude) VALUES (4,'quetzal','Click my link, like my stuff!', '2023-04-01T11:21:59.001+0000', 40.3930, -3.7328);
     INSERT INTO tweets (id,user,body,time,latitude,longitude) VALUES (5,'quetzal','Click my link, like my stuff!', '2023-04-01T11:21:59.001+0000', 40.3930, -3.7329);
 ```
-
-## Search data
 
 1. The index you created earlier will index all the columns in the table with the specified types, and it will be refreshed once per second. Alternatively, you can explicitly refresh all the index shards with an empty search with consistency ALL:
 
