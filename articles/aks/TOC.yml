@@ -11,8 +11,14 @@
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
       displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul, github, actions
-    - name: Solution architectures
-      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=/azure/aks/breadcrumb/toc.json&toc=/azure/aks/toc.json?WT.mc_id=AKSDOCSTOC
+    - name: Getting started
+      items:
+        - name: Well-architected considerations
+          href: /azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service?bc=/azure/aks/breadcrumb/toc.json&toc=/azure/aks/toc.json?WT.mc_id=AKSDOCSTOC
+        - name: Plan your implementation
+          href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=/azure/aks/breadcrumb/toc.json&toc=/azure/aks/toc.json?WT.mc_id=AKSDOCSTOC
+        - name: Optimize costs
+          href: best-practices-cost.md
 - name: Quickstarts
   expanded: true
   items:
@@ -403,7 +409,7 @@
               href: configure-azure-cni.md
             - name: Use Azure CNI for dynamic IP allocation and enhanced subnet support
               href: configure-azure-cni-dynamic-ip-allocation.md
-            - name: Use Azure CNI Overlay (Preview)
+            - name: Use Azure CNI Overlay
               href: azure-cni-overlay.md
         - name: DNS
           items:

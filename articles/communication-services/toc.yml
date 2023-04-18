@@ -121,7 +121,7 @@ items:
         - name: Create an access token
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting chat to your app
-          href: quickstarts/chat/meeting-interop.md   
+          href: quickstarts/chat/meeting-interop.md
     - name: Use UI components for chat
       href: quickstarts/ui-library/get-started-chat-ui-library.md
   - name: Phone calling
@@ -306,6 +306,10 @@ items:
       href: tutorials/file-sharing-tutorial.md
     - name: Integrate with data loss prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
+    - name: Connect to Teams
+      items:
+      - name: Enable inline image interoperability in your chat app
+        href: tutorials/chat-interop/meeting-interop-features-inline-image.md
     - name: Mobile integrations
       items:
       - name: Enable push notifications in your chat app

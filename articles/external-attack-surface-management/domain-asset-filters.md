@@ -4,7 +4,7 @@ titleSuffix: Defender EASM domain asset filters
 description: This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management for domain assets specifically, including operators and applicable field values.
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 12/14/2022
 ms.topic: how-to
 ---
@@ -15,7 +15,7 @@ These filters specifically apply to domain assets. Use these filters when search
 
 ## Defined value filters  
 
-The following filters provide a drop-down list of options to select. The available values are pre-defined. 
+The following filters provide a drop-down list of options to select. The available values are predefined. 
 
 |       Filter name      |     Description                                                                                                |     Value format example                                                                     |     Applicable operators          |
 |------------------------|----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|-----------------------------------|
@@ -26,7 +26,7 @@ The following filters provide a drop-down list of options to select. The availab
 
 ## Free form filters  
 
-The following filters require that the user manually enters the value with which they want to search. This list is organized by the number of applicable operators for each filter, then alphabetically. Please note that many of these values are case-sensitive. 
+The following filters require that the user manually enters the value with which they want to search. This list is organized according to the number of applicable operators for each filter, then alphabetically. Note that many values are case-sensitive. 
 
 |       Filter name                  |     Description                                                                              |     Value format example                                                                           |     Applicable operators                                                                                                                                                                                                                            |
 |------------------------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
