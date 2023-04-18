@@ -374,9 +374,9 @@
       href: defender-for-apis-introduction.md
     - name: Support and prerequisites
       href: defender-for-apis-prepare.md
-    - name: Deploy Defender for APIs
+    - name: Onboard Defender for APIs
       href: defender-for-apis-deploy.md
-    - name: Investigate recommendations, alerts, and risks
+    - name: Investigate findings, recommendations, alerts
       href: defender-for-apis-posture.md
     - name: Manage Defender for APIs
       href: defender-for-apis-manage.md
