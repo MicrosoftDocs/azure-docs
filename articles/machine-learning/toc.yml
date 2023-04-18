@@ -673,7 +673,7 @@
     - name: Training with UI
       href: how-to-train-with-ui.md
     - name: Using secrets in training 
-     href: how-to-use-secrets-in-runs.md
+      href: how-to-use-secrets-in-runs.md
     - name: Custom Training
       items:
       - name: scikit-learn
