@@ -108,7 +108,7 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 ### [Terraform](#tab/Terraform)
 
-The following Terraform script shows how to set up an Azure Spring Apps app with an Azure Cosmos DB account.
+The following Terraform script shows how to set up an app on Azure Spring Apps with an Azure Cosmos DB account.
 
 ```terraform
 provider "azurerm" {
