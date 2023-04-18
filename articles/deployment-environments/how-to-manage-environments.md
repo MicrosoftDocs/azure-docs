@@ -1,15 +1,16 @@
 ---
 title: Manage your environment
 titleSuffix: Azure Deployment Environments
-description: Learn how to manage your Azure Deployment Environments Preview deployment environment in the developer portal or by using the Azure CLI.
+description: Learn how to manage your Azure Deployment Environments deployment environment in the developer portal or by using the Azure CLI.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/28/2023
 ---
 
-# Manage your environment
+# Manage your deployment environment
 
 In Azure Deployment Environments Preview, a development infrastructure admin gives developers access to projects and the environment types that are associated with them. After a developer has access, they can create deployment environments based on the pre-configured environment types. The permissions that the creator of the environment and the rest of team have to access the environment's resources are defined in the specific environment type.
 

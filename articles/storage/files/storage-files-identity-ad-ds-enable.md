@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 03/28/2023
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
 recommendations: false
@@ -52,7 +52,7 @@ The AD DS account created by the cmdlet represents the storage account. If the A
 > The `Join-AzStorageAccount` cmdlet will create an AD account to represent the storage account (file share) in AD. You can choose to register as a computer account or service logon account, see [FAQ](./storage-files-faq.md#security-authentication-and-access-control) for details. Service logon account passwords can expire in AD if they have a default password expiration age set on the AD domain or OU. Because computer account password changes are driven by the client machine and not AD, they don't expire in AD, although client computers change their passwords by default every 30 days.
 > For both account types, we recommend you check the password expiration age configured and plan to [update the password of your storage account identity](storage-files-identity-ad-ds-update-password.md) of the AD account before the maximum password age. You can consider [creating a new AD Organizational Unit in AD](/powershell/module/activedirectory/new-adorganizationalunit) and disabling password expiration policy on [computer accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) or service logon accounts accordingly.
 
-**You must run the script below in PowerShell 5.1 on a device that's domain joined to your on-premises AD DS, using an on-premises AD DS credential that's synced to your Azure AD.** To follow the [Least privilege principle](../../role-based-access-control/best-practices.md), the on-premises AD DS credential must have the following Azure roles:
+**You must run the script below in PowerShell 5.1 on a device that's domain joined to your on-premises AD DS, using an on-premises AD DS credential.** To follow the [Least privilege principle](../../role-based-access-control/best-practices.md), the on-premises AD DS credential must have the following Azure roles:
 
 - **Reader** on the resource group where the target storage account is located.
 - **Contributor** on the storage account to be joined to AD DS.

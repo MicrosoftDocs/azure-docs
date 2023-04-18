@@ -1,5 +1,5 @@
 ---
-title: Require MFA for guest users with Conditional Access - Azure Active Directory
+title: Require MFA for guest users with Conditional Access
 description: Create a custom Conditional Access policy requiring guest users perform multifactor authentication
 
 services: active-directory

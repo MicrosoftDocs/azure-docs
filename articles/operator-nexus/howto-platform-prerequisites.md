@@ -3,7 +3,7 @@ title: "Azure Operator Nexus: Before you start platform deployment pre-requisite
 description: Learn the prerequisite steps for deploying the Operator Nexus platform software.
 author: surajmb #Required; your GitHub user alias, with correct capitalization.
 ms.author: surmb #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: azure-operator-nexus #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 03/13/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.

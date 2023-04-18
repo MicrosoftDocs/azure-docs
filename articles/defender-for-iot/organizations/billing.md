@@ -16,6 +16,8 @@ If you would like to evaluate Defender for IoT, you can use a trial commitment f
 
 - **For OT networks**, use a trial to deploy one or more Defender for IoT sensors on your network to monitor traffic, analyze data, generate alerts, learn about network risks and vulnerabilities, and more. An OT trial supports 1,000 [committed devices](#defender-for-iot-committed-devices), which are the number of devices you want to monitor in your network.
 
+    The trial for OT networks is free of charge for the first 30 days. Any usage beyond 30 days incurs a charge based on the monthly plan for 1,000 devices. For more information, see [the Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
+
 - **For Enterprise IoT networks**, use a trial to view alerts, recommendations, and vulnerabilities in Microsoft 365. An Enterprise IoT trial is not limited to a specific number of devices.
 
 ## Defender for IoT committed devices
@@ -25,6 +27,9 @@ When onboarding or editing a monthly or annual Defender for IoT plan, we recomme
 You're billed based on the number of committed devices associated with each subscription.
 
 [!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
+
+[Configure Windows Endpoint monitoring](configure-windows-endpoint-monitoring.md)
+[Configure DNS servers for reverse lookup resolution for OT monitoring](configure-reverse-dns-lookup.md)
 
 ## Billing cycles and changes in your plans
 

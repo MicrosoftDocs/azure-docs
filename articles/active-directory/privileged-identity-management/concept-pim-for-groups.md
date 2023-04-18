@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management (PIM) for Groups (preview) - Azure Active Directory
+title: Privileged Identity Management (PIM) for Groups (preview)
 description: How to manage Azure AD Privileged Identity Management (PIM) for Groups.
 services: active-directory
 documentationcenter: ''

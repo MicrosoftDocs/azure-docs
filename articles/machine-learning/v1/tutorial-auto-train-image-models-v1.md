@@ -18,8 +18,8 @@ ms.custom: UpdateFrequency5, devx-track-python, automl, sdkv2, event-tier1-build
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](tutorial-auto-train-image-models-v1.md)
-> * [v2 (current version)](../tutorial-auto-train-image-models.md)
-	
+> * [v2 (current version)](../tutorial-auto-train-image-models.md?view=azureml-api-2&preserve-view=true)
+    
 
 >[!IMPORTANT]
 > The features presented in this article are in preview. They should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features that might change at any time.
@@ -41,7 +41,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
+* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
 
 * Python 3.7 or 3.8 are supported for this feature
 

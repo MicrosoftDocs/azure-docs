@@ -6,11 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.author: aashishb
-author: aashishb
+ms.author: deeikele
+author: deeikele
 ms.reviewer: larryfr
 ms.date: 10/20/2022
 ms.custom: cliv1, sdkv1, event-tier1-build-2022, ignite-2022
+monikerRange: 'azureml-api-1'
 ---
 
 # Regenerate storage account access keys

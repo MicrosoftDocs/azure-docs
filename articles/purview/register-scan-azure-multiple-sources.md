@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 02/27/2023
+ms.date: 03/17/2023
 ms.custom: template-how-to
 ---
 
@@ -183,7 +183,7 @@ Once your data source has the  **Data Use Management** option set to **Enabled**
 ### Create a policy
 To create an access policy on an entire Azure subscription or resource group, follow these guides:
 * [DevOps policy covering all sources in a subscription or resource group](./how-to-policies-devops-resource-group.md#create-a-new-devops-policy)
-* [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md#create-and-publish-a-data-owner-policy) 
+* [Provision read/modify access to all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md#create-and-publish-a-data-owner-policy) 
 
 
 ## Next steps

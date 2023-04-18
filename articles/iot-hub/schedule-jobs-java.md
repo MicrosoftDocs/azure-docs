@@ -26,7 +26,7 @@ A job wraps one of these actions and tracks the execution against a set of devic
 
 To learn more about each of these capabilities, see:
 
-* Device twin and properties: [Get started with device twins](iot-hub-java-java-twin-getstarted.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
+* Device twin and properties: [Get started with device twins](device-twins-java.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
 
 * Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: Use direct methods](./quickstart-control-device.md?pivots=programming-language-java)
 

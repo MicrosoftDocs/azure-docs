@@ -162,6 +162,9 @@ You'll deploy Defender for Endpoint to your Linux machines in one of these ways,
 - [Enable for multiple subscriptions in the Azure portal dashboard](#enable-for-multiple-subscriptions-in-the-azure-portal-dashboard)
 - Enable for multiple subscriptions with a PowerShell script
 
+> [!NOTE]
+> When you enable automatic deployment, Defender for Endpoint for Linux installation will abort on machines with pre-existing security solutions using [fanotify](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements).
+> After you validate potential compatibility issues, we recommend that you manually install Defender for Endpoint on these servers.
 
 ##### Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows
 
@@ -190,7 +193,6 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     Microsoft Defender for Cloud will:
 
     - Automatically onboard your Linux machines to Defender for Endpoint
-    - Ignore any machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud
 
     Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 12 hours. For new machines created after the integration has been enabled, onboarding takes up to an hour.
@@ -226,7 +228,6 @@ If you've never enabled the integration for Windows, endpoint protection enables
     Microsoft Defender for Cloud will:
 
     - Automatically onboard your Windows and Linux machines to Defender for Endpoint
-    - Ignore any Linux machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud
 
     Onboarding might take up to 1 hour.

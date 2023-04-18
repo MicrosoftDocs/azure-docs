@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance Java | Microsoft Docs
 description: Application performance monitoring for Azure app services using Java. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 03/22/2023
 ms.devlang: java
 ms.custom: "devx-track-java"
 ms.reviewer: abinetabate

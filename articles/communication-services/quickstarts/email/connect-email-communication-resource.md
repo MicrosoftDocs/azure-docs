@@ -6,14 +6,11 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 04/15/2022
+ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Quickstart: How to connect a verified email domain with Azure Communication Service resource
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 In this quick start, you'll learn about how to connect a verified domain in Azure Communication Services to send email.
 
@@ -41,7 +38,7 @@ In this quick start, you'll learn about how to connect a verified domain in Azur
 
 5. Click Connect
  
-    :::image type="content" source="./media/email-domains-connected.png" alt-text="Screenshot that shows one of the verified email domain is now connected." lightbox="media/email-domains-connected-expanded.png":::
+    :::image type="content" source="./media/email-domains-connected.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="media/email-domains-connected-expanded.png":::
 
 ## Disconnect an email domain from the Communication Service Resource
 

@@ -25,7 +25,7 @@ This article is an introduction to managing APIs, products, subscriptions, and o
 
 * An API Management instance. If needed, ask an administrator to [create one](get-started-create-service-instance.md).
 * A workspace. If needed, ask an administrator of your API Management instance to [create one](how-to-create-workspace.md).
-* Permissions to collaborate in the workspace. If needed, ask a workspace owner to assign you appropriate [roles](api-management-role-based-access-control.md#built-in-workspace-roles) in the workspace.
+* Permissions to collaborate in the workspace. If needed, ask an administrator of your API Management instance to assign you appropriate [roles](api-management-role-based-access-control.md#built-in-workspace-roles) in the service and the workspace.
 
 ## Go to the workspace - portal
 

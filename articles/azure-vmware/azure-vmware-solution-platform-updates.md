@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 2/27/2023
+ms.date: 3/16/2023
 ---
 
 # What's new in Azure VMware Solution
@@ -14,9 +14,9 @@ Microsoft will regularly apply important updates to the Azure VMware Solution fo
 
 ## February 2023
 
-All new Azure VMware Solution private clouds are being deployed with NSX-T Data Center version 3.2.2. NSX-T Data Center versions in existing private clouds will be upgraded to NSX-T Data Center version 3.2.2 through April 2023.
+All new Azure VMware Solution private clouds are being deployed with VMware NSX-T Data Center version 3.2.2. NSX-T Data Center versions in existing private clouds will be upgraded to NSX-T Data Center version 3.2.2 through April 2023.
 
-VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html) like, Replicated Assisted vMotion (RAV), Mobility Optimized Networking (MON). HCX Enterprise is now automatically installed for all new HCX add-on requests, and existing HCX Advanced customers can upgrade to HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/install-vmware-hcx).
+VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html) like, Replicated Assisted vMotion (RAV), and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
 
 **Log analytics - monitor Azure VMware Solution**
 
@@ -149,7 +149,7 @@ Azure VMware Solution will apply the [VMware ESXi 6.7, Patch Release ESXi670-202
 Documented workarounds for the vSphere stack, as per [VMSA-2021-0002](https://www.vmware.com/security/advisories/VMSA-2021-0002.html), will also be applied **through March 15, 2021**.
  
    >[!NOTE]
-   >This is non-disruptive and should not impact Azure VMware Services or workloads. During maintenance, various VMware alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
+   >This is non-disruptive and should not impact the Azure VMware Solution service or workloads. During maintenance, various VMware vSphere alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
 
 ## Post update
 Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.

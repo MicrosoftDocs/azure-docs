@@ -7,7 +7,7 @@ author: maud-lv
 ms.author: malev
 ms.date: 12/13/2022
 ms.devlang: azurecli
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-azurecli
 --- 
 
 # Quickstart: Create an Azure Managed Grafana instance using the Azure CLI

@@ -18,7 +18,7 @@ These features include:
 
 |Feature  |Description  |
 |---------|---------|
-|[Log streaming](log-streaming.md) | View streaming console logs from a container in near real-time. |
+|[Log streaming](log-streaming.md) | View streaming system and console logs from a container in near real-time. |
 |[Container console](container-console.md) | Connect to the Linux console in your containers to debug your application from inside the container. |
 |[Azure Monitor metrics](metrics.md)| View and analyze your application's compute and network usage through metric data. |
 |[Application logging](logging.md) | Monitor, analyze and debug your app using log data.|

@@ -12,7 +12,7 @@ This article lists the protocols that are supported by default in Microsoft Defe
 
 ## Supported protocols for OT device discovery
 
-Defender for IoT can detect the following protocols when identifying assets and devices in your network:
+OT network sensors can detect the following protocols when identifying assets and devices in your network:
 
 |Brand / Vendor |Protocols  |
 |---------|---------|
@@ -46,6 +46,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Siemens**     | CAMP<br> PCS7<br> PCS7 WinCC – Historian<br> Profinet DCP<br> Profinet Realtime<br> Siemens PHD<br> Siemens S7<br> Siemens S7-Plus<br> Siemens SICAM<br> Siemens WinCC        |
 |**Toshiba**     |Toshiba Computer Link         |
 |**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> FA-M3<br> Vnet/IP      |
+
 
 [!INCLUDE [active-monitoring-protocols](includes/active-monitoring-protocols.md)]
 

@@ -80,7 +80,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 }
 ```
 
-### Notes
+### Limitations
 Known issues on Linux:
 1. Stress effect may not be terminated correctly if AzureChaosAgent is unexpectedly killed.
 2. Linux CPU fault is only tested on Ubuntu 16.04-LTS and Ubuntu 18.04-LTS.
@@ -125,6 +125,9 @@ Known issues on Linux:
   ]
 }
 ```
+
+### Limitations
+Currently, the Windows agent doesn't reduce memory pressure when other applications increase their memory usage. If the overall memory usage exceeds 100%, the Windows agent may crash.
 
 ## Virtual memory pressure
 
@@ -1222,6 +1225,40 @@ Configuring the shutdown fault:
     }
   ]
 }
+```
+
+## Disable Autoscale
+
+| Property | Value |
+| --- | --- |
+| Capability name | DisaleAutoscale |
+| Target type | Microsoft-AutoscaleSettings |
+| Description | Disables the [autoscale service](/azure/azure-monitor/autoscale/autoscale-overview). When autoscale is disabled, resources such as Virtual Machine Scale Sets, Web apps, Service bus, and [more](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale) aren't automatically added or removed based on the load of the application.
+| Prerequisites | The autoScalesetting resource that's enabled on the resource must be onboarded to Chaos Studio.
+| Urn | urn:csci:microsoft:autoscalesettings:disableAutoscale/1.0 |
+| Fault type | Continuous |
+| Parameters (key, value) |   |
+| enableOnComplete | Boolean. Configures whether autoscaling will be re-enabled once the action is done. Default is `true`. |
+
+
+```json
+{
+  "name": "BranchOne", 
+  "actions": [ 
+    { 
+    "type": "continuous", 
+    "name": "urn:csci:microsoft:autoscaleSetting:disableAutoscale/1.0", 
+    "parameters": [ 
+     { 
+      "key": "enableOnComplete", 
+      "value": "true" 
+      }                 
+  ],                                 
+   "duration": "PT2M", 
+   "selectorId": "Selector1",           
+  } 
+ ] 
+} 
 ```
 
 ## Key Vault Deny Access

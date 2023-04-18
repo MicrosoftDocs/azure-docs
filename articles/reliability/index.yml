@@ -20,6 +20,10 @@ landingContent:
         links:
           - text: Azure reliability overview
             url: overview.md
+          - text: Azure reliability guidance by service
+            url: reliability-guidance-overview.md
+          - text: Azure Service Manager Retirement
+            url: asm-retirement.md
   # Card
   - title: Availability zone support
     linkLists:

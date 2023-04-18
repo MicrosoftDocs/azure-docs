@@ -2,8 +2,8 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 03/15/2023
-ms.reviewer: geg
+ms.date: 04/05/2023
+ms.reviewer: sharrai
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -16,12 +16,12 @@ Azure Backup now supports _Enhanced policy_ that's needed to support new Azure o
 
 >[!Important]
 >- [Default policy](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) will not support protecting newer Azure offerings, such as [Trusted Launch VM](backup-support-matrix-iaas.md#tvm-backup), [Ultra SSD](backup-support-matrix-iaas.md#vm-storage-support), [Shared disk](backup-support-matrix-iaas.md#vm-storage-support), and Confidential Azure VMs.
->- Enhanced policy currently doesn't support protecting Ultra SSD. You can use [selective disk backup (preview)](selective-disk-backup-restore.md) to exclude these disks, and then configure backup.
+>- Enhanced policy now supports protecting Ultra SSD (preview). To enroll your subscription for this feature, [fill this form](https://forms.office.com/r/1GLRnNCntU).
 >- Backups for VMs having [data access authentication enabled disks](../virtual-machines/windows/download-vhd.md?tabs=azure-portal#secure-downloads-and-uploads-with-azure-ad) will fail.
 
 You must enable backup of Trusted Launch VM through enhanced policy only. Enhanced policy provides the following features:
 
-- Supports *Multiple Backups Per Day* (in preview).
+- Supports *Multiple Backups Per Day*.
 - Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details for Managed Disk Snapshots](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot showing the enhanced backup policy options.":::
@@ -43,7 +43,7 @@ Follow these steps:
 
    :::image type="content" source="./media/backup-azure-vms-enhanced-policy/choose-backup-policies-option.png" alt-text="Screenshot showing to choose the backup policies option.":::
 
-3. Click **+Add**.
+3. Select **+Add**.
 
    :::image type="content" source="./media/backup-azure-vms-enhanced-policy/add-backup-policy.png" alt-text="Screenshot showing to add a backup policy.":::
 
@@ -65,8 +65,13 @@ Follow these steps:
    - **Retention range**: Options for retention range are auto-selected based on backup frequency you choose. The default retention for daily, weekly, monthly, and yearly backup points are set to 180 days, 12 weeks, 60 months, and 10 years respectively. You can customize these values as required.
    
    :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot showing to configure the enhanced backup policy.":::
-   
-6. Click **Create**.
+
+   >[!Note]
+   >The maximum limit of instant recovery point retention range depends on the number of snapshots you take per day. If the snapshot count is more (for example, every *4 hours* frequency in *24 hours* duration - *6* scheduled snapshots), then the maximum allowed days for retention reduces.
+   >
+   >However, if you choose lower RPO of *12 hours*, the snapshot retention is increased to *30 days*.  
+
+6. Select **Create**.
 
 >[!Note]
 >- The support for Enhanced policy is available in all Azure Public and US Government regions.

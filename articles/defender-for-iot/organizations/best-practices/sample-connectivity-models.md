@@ -2,7 +2,7 @@
 title: Sample OT  network connectivity models - Microsoft Defender for IoT
 description: This article describes sample connectivity methods for Microsoft Defender for IoT OT sensor connections.
 ms.date: 11/08/2022
-ms.topic: best-practice
+ms.topic: install-set-up-deploy
 ---
 
 # Sample OT network connectivity models

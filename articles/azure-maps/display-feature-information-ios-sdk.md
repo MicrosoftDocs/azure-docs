@@ -1,8 +1,8 @@
 ---
 title: Display feature information in iOS maps | Microsoft Azure Maps
 description: Learn how to display information when users interact with map features. Use the Azure Maps iOS SDK to display toast messages and other types of messages.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -30,7 +30,7 @@ source.add(feature: feature)
 
 See the [Create a data source](create-data-source-ios-sdk.md) documentation for ways to create and add data to the map.
 
-When a user interacts with a feature on the map, events can be used to react to those actions. A common scenario is to display a message made of the metadata properties of a feature the user interacted with. The `azureMap(_:didTapOn:)` event is the main event used to detect when the user tapped a feature on the map. There's also an `azureMap(_:didLongPressOn:)` event. When adding a delegate to the map, it can be limited to a single layer by passing in the ID of a layer to limit it to. If no layer ID is passed in, tapping any feature on the map, regardless of which layer it is in, would fire this event. The following code creates a symbol layer to render point data on the map, then adds a delegate, limited to this symbol layer, which handle `azureMap(_:didTapOn:)` event.
+When a user interacts with a feature on the map, events can be used to react to those actions. A common scenario is to display a message made of the metadata properties of a feature the user interacted with. The `azureMap(_:didTapOn:)` event is the main event used to detect when the user tapped a feature on the map. There's also an `azureMap(_:didLongPressOn:)` event. When adding a delegate to the map, it can be limited to a single layer by passing in the ID of a layer to limit it to. If no layer ID is passed in, tapping any feature on the map, regardless of which layer it is in, would fire this event. The following code creates a symbol layer to render point data on the map, then adds a delegate, limited to this symbol layer, which handles the `azureMap(_:didTapOn:)` event.
 
 ```swift
 // Create a symbol and add it to the map.
@@ -77,7 +77,7 @@ In addition to alerts, there are many other ways to present the metadata propert
 
 ## Display a popup
 
-The Azure Maps iOS SDK provides a `Popup` class that makes it easy to create UI annotation elements that are anchored to a position on the map. For popups, you have to pass in a self-sizing view into the `content` option of the popup. Here is a simple view example that displays dark text on top of a white background.
+The Azure Maps iOS SDK provides a `Popup` class that makes it easy to create UI annotation elements that are anchored to a position on the map. For popups, you have to pass in a self-sizing view into the `content` option of the popup. Here's a simple view example that displays dark text on top of a white background.
 
 ```swift
 class PopupTextView: UIView {

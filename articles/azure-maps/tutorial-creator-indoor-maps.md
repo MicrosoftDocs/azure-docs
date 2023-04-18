@@ -27,10 +27,10 @@ This tutorial describes how to create indoor maps for use in Microsoft Azure Map
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-2. A [subscription key]
-3. A [Creator resource]
-4. Download the [Sample drawing package]
+* An [Azure Maps account]
+* A [subscription key]
+* A [Creator resource]
+* Download the [Sample drawing package]
 
 This tutorial uses the [Postman] application, but you can use a different API development environment.
 
@@ -163,7 +163,7 @@ To convert a drawing package:
 5. Enter the following URL to the [Conversion service] (replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key and `udid` with the `udid` of the uploaded package):
 
     ```http
-    https://us.atlas.microsoft.com/conversions?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0&udid={udid}&inputType=DWG&outputOntology=facility-2.0
+    https://us.atlas.microsoft.com/conversions?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2023-03-01-preview&udid={udid}&inputType=DWG&dwgPackageVersion=2.0
     ```
 
 6. Select **Send**.
@@ -248,7 +248,7 @@ To create a dataset:
 5. Enter the following URL to the [Dataset service]. The request should look like the following URL (replace `{conversionId`} with the `conversionId` obtained in [Check drawing package conversion status](#check-the-drawing-package-conversion-status)):
 
     ```http
-    https://us.atlas.microsoft.com/datasets?api-version=2.0&conversionId={conversionId}&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://us.atlas.microsoft.com/datasets?api-version=2023-03-01-preview&conversionId={conversionId}&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 6. Select **Send**.
@@ -274,7 +274,7 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 5. Enter the `status URL` you copied in [Create a dataset](#create-a-dataset). The request should look like the following URL:
 
     ```http
-    https://us.atlas.microsoft.com/datasets/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://us.atlas.microsoft.com/datasets/operations/{operationId}?api-version=2023-03-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 6. Select **Send**.
@@ -302,7 +302,7 @@ To create a tileset:
 5. Enter the following URL to the [Tileset service]. The request should look like the following URL (replace `{datasetId`} with the `datasetId` obtained in the [Check the dataset creation status](#check-the-dataset-creation-status) section above:
 
     ```http
-    https://us.atlas.microsoft.com/tilesets?api-version=2022-09-01-preview&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/tilesets?api-version=2023-03-01-preview&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. Select **Send**.
@@ -328,7 +328,7 @@ To check the status of the tileset creation process and retrieve the `tilesetId`
 5. Enter the `status URL` you copied in [Create a tileset](#create-a-tileset). The request should look like the following URL:
 
     ```http
-    https://us.atlas.microsoft.com/tilesets/operations/{operationId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://us.atlas.microsoft.com/tilesets/operations/{operationId}?api-version=2023-03-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 6. Select **Send**.
@@ -371,7 +371,7 @@ For more information, see [Map configuration] in the indoor maps concepts articl
 > [Use the Azure Maps Indoor Maps module with custom styles](how-to-use-indoor-module.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Creator resource]: how-to-manage-creator.md
 [Sample drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip
 [Postman]: https://www.postman.com

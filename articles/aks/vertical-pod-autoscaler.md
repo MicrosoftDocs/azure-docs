@@ -3,7 +3,7 @@ title: Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/12/2023
+ms.date: 03/17/2023
 ---
 
 # Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
@@ -393,50 +393,6 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
     The results show the `target` attribute specifies that for the container to run optimally, it doesn't need to change the CPU or the memory target. Your results may vary where the target CPU and memory recommendation are higher.
 
     The Vertical Pod Autoscaler uses the `lowerBound` and `upperBound` attributes to decide whether to delete a Pod and replace it with a new Pod. If a Pod has requests less than the lower bound or greater than the upper bound, the Vertical Pod Autoscaler deletes the Pod and replaces it with a Pod that meets the target attribute.
-
-## Metrics server VPA throttling
-
-With AKS clusters version 1.24 and higher, vertical pod autoscaling is enabled for the metrics server. VPA enables you to adjust the resource limit when the metrics server is experiencing consistent CPU and memory resource constraints.
-
-If the metrics server throttling rate is high and the memory usage of its two pods are unbalanced, this indicates the metrics server requires more resources than the default values specified.
-
-To update the coefficient values, create a ConfigMap in the overlay *kube-system* namespace to override the values in the metrics server specification. Perform the following steps to update the metrics server.
-
-1. Create a ConfigMap file named *metrics-server-config.yaml* and copy in the following manifest.
-
-    ```yml
-    apiVersion: v1 
-    kind: ConfigMap 
-    metadata: 
-      name: metrics-server-config 
-      namespace: kube-system 
-      labels: 
-        kubernetes.io/cluster-service: "true" 
-        addonmanager.kubernetes.io/mode: EnsureExists 
-    data: 
-      NannyConfiguration: |- 
-        apiVersion: nannyconfig/v1alpha1 
-        kind: NannyConfiguration 
-        baseCPU: 100m 
-        cpuPerNode: 1m 
-        baseMemory: 100Mi 
-        memoryPerNode: 8Mi 
-    ```
-
-    In this ConfigMap example, it changes the resource limit and request to the following:
-
-    * cpu: (100+1n) millicore
-    * memory: (100+8n) mebibyte
-
-    Where *n* is the number of nodes.
-
-2. Create the ConfigMap using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
-
-    ```bash
-    kubectl apply -f metrics-server-config.yaml
-    ```
-
-Be cautious of the *baseCPU*, *cpuPerNode*, *baseMemory*, and the *memoryPerNode* as the ConfigMap won't be validated by AKS. As a recommended practice, increase the value gradually to avoid unnecessary resource consumption. Proactively monitor resource usage when updating or creating the ConfigMap. A large number of resource requests could negatively impact the node.  
 
 ## Next steps
 

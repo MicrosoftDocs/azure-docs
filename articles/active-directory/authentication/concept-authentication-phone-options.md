@@ -1,5 +1,5 @@
 ---
-title: Phone authentication methods - Azure Active Directory
+title: Phone authentication methods
 description: Learn about using phone authentication methods in Azure Active Directory to help improve and secure sign-in events
 
 services: active-directory

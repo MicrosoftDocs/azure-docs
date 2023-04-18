@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: quickstart
 ms.custom: quickstart, mode-other
-ms.date: 07/12/2021
+ms.date: 03/20/2023
 ms.author: malev
 #Customer intent: As a JavaScript developer, I want to manage all my app settings in one place.
 ---
@@ -17,22 +17,17 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [LTS versions of Node.js](https://nodejs.org/en/about/releases/). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
 
-## Create an App Configuration store
+## Add a key-value
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-7. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
-
-    | Key | Value |
-    |---|---|
-    | TestApp:Settings:Message | Data from Azure App Configuration |
-
-    Leave **Label** and **Content Type** empty for now.
-
-8. Select **Apply**.
+| Key | Value |
+|---|---|
+| TestApp:Settings:Message | Data from Azure App Configuration |
 
 ## Setting up the Node.js app
 

@@ -7,6 +7,7 @@ ms.service: service-connector
 ms.topic: quickstart
 ms.date: 08/09/2022
 ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create a service connection in Container Apps with the Azure CLI

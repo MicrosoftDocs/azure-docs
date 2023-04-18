@@ -364,7 +364,7 @@ void printReverseBatchAddresses(ReverseSearchAddressBatchResult batchResult)
 The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 
 [authentication]: azure-maps-authentication.md
 [Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources

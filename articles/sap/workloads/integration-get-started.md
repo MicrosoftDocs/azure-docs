@@ -41,7 +41,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
 | [App Development and DevOps](#app-development-and-devops) | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
 | [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud and more. |
-| [Threat Monitoring with Microsoft Sentinel for SAP](#microsoft-sentinel) | Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time. |
+| [Threat Monitoring with Microsoft Sentinel for SAP](#microsoft-sentinel) | Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time with this [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution. |
 | [SAP Business Technology Platform (BTP)](#sap-btp) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
 
 ### Microsoft Office
@@ -168,7 +168,7 @@ Also see the following SAP resources:
 
 ### Microsoft Sentinel
 
-For more information about threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
+For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
 
 - [SAP security content reference](../../sentinel/sap/sap-solution-security-content.md)
 - [How to use Microsoft Sentinel's SOAR capabilities with SAP](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-microsoft-sentinel-s-soar-capabilities-with-sap/ba-p/3251485)

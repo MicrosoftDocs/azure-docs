@@ -68,6 +68,9 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 
 * An account with Global Administrator privileges.
 
+### Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Plan your self-service password reset deployment](https://go.microsoft.com/fwlink/?linkid=2221501) guide when signed in to the Microsoft 365 Admin Center.  To review best practices without signing in and activating automated setup features, go to the [M365 Setup portal](https://go.microsoft.com/fwlink/?linkid=2221600).
 
 ### Training resources
 

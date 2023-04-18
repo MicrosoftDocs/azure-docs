@@ -1,5 +1,5 @@
 ---
-title: How to find your tenant ID - Azure Active Directory
+title: How to find your tenant ID
 description: Instructions about how to find and Azure Active Directory tenant ID to an existing Azure subscription.
 services: active-directory
 author: barclayn

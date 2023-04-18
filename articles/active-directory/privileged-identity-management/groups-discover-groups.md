@@ -1,5 +1,5 @@
 ---
-title: Bring groups into Privileged Identity Management (preview) - Azure Active Directory
+title: Bring groups into Privileged Identity Management (preview)
 description: Learn how to bring groups into Privileged Identity Management (preview).
 services: active-directory
 documentationcenter: ''

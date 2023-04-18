@@ -1,22 +1,25 @@
 ---
-title: Generalize a VM before creating an image
-description: Generalized a VM to remove machine specific information before creating an image. 
+title: Deprovision or generalize a VM before creating an image
+description: Generalized or deprovision VM to remove machine specific information before creating an image. 
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/13/2022
+ms.date: 03/15/2023
 ms.author: cynthn
 ms.custom: portal
 
 ---
 
-# Remove machine specific information by generalizing a VM before creating an image
+# Remove machine specific information by deprovisioning or generalizing a VM before creating an image
 
-Generalizing a VM is not necessary for creating an image in an [Azure Compute Gallery](shared-image-galleries.md#generalized-and-specialized-images) unless you specifically want to create a generalized image. Generalizing is required when creating a managed image outside of a gallery.
+Generalizing or deprovisioning a VM is not necessary for creating an image in an [Azure Compute Gallery](shared-image-galleries.md#generalized-and-specialized-images) unless you specifically want to create an image that has no machine specific information, like user accounts. Generalizing is still required when creating a managed image outside of a gallery.
 
-Generalizing removes machine specific information so the image can be used to create multiple VMs. Once the VM has been generalized, you need to let the platform know so that the boot sequence can be set correctly. 
+Generalizing removes machine specific information so the image can be used to create multiple VMs. Once the VM has been generalized or deprovisioned, you need to let the platform know so that the boot sequence can be set correctly. 
+
+> [!IMPORTANT]
+> Once you mark a VM as `generalized` in Azure, you cannot restart the VM.
 
 
 ## Linux
@@ -72,7 +75,7 @@ Sysprep removes all your personal account and security information, and then pre
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep support for server roles](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) and [Unsupported scenarios](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). 
 
 > [!IMPORTANT]
-> After you have run Sysprep on a VM, that VM is considered *generalized* and cannot be restarted. The process of generalizing a VM is not reversible. If you need to keep the original VM functioning, you should create a [copy of the VM](./windows/create-vm-specialized.md#option-3-copy-an-existing-azure-vm) and generalize its copy. 
+> After you have run Sysprep on a VM, that VM is considered *generalized* and cannot be restarted. The process of generalizing a VM is not reversible. If you need to keep the original VM functioning, you should create a snapshot of the OS disk, create a VM from the snapshot, and then and generalize that copy of the VM 
 >
 > Sysprep requires the drives to be fully decrypted. If you have enabled encryption on your VM, disable encryption before you run Sysprep.
 >
@@ -91,7 +94,7 @@ To generalize your Windows VM, follow these steps:
 
 5. Then change the directory to %windir%\system32\sysprep, and then run:
    ```
-   sysprep.exe /oobe /generalize /mode:vm /shutdown
+   sysprep.exe /oobe /generalize /shutdown
    ```
 6. The VM will shut down when Sysprep is finished generalizing the VM. Do not restart the VM.
  
@@ -114,3 +117,7 @@ Once Sysprep has finished, set the status of the virtual machine to **Generalize
 ```azurepowershell-interactive
 Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
 ```
+
+## Next steps
+
+- Learn more about [Azure Compute Gallery](shared-image-galleries.md).

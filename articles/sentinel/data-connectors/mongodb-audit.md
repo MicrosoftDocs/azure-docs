@@ -3,7 +3,7 @@ title: "MongoDB Audit connector for Microsoft Sentinel"
 description: "Learn how to install the connector MongoDB Audit to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,8 +16,6 @@ MongoDB data connector provides the capability to ingest [MongoDBAudit](https://
 
 | Connector attribute | Description |
 | --- | --- |
-| **Kusto function alias** | MongoDBAudit |
-| **Kusto function url** | https://aka.ms/sentinel-mongodbaudit-parser |
 | **Log Analytics table(s)** | MongoDBAudit_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -37,7 +35,7 @@ MongoDBAudit
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-mongodbaudit-parser) to create the Kusto Functions alias, **MongoDBAudit**
+   >  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias SentinelOne and load the function code. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Install and onboard the agent for Linux or Windows
 

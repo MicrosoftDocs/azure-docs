@@ -17,7 +17,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 To generate actionable insights data related to growers, farms, and fields should be organized in a well defined manner. Firms operating in the agriculture industry often perform longitudinal studies and need high quality data to generate insights. Data Manager for Agriculture  organizes agronomic data in the below manner.
 
->:::image type="content" source="./media/data-model.png" alt-text="Screenshot showing farm hierarchy model.":::
+:::image type="content" source="./media/data-model.png" alt-text="Screenshot showing farm hierarchy model.":::
 
 ## Understanding farm hierarchy
 

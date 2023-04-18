@@ -23,7 +23,7 @@ Administrators who sign in for the first time should verify that they have acces
 
 ### First-time sign in and activation checklist
 
-Before signing in to the sensor console, administrator users should have access to:
+Before administrators sign in to the sensor console, administrator users should have access to:
 
 - The sensor IP address that was defined during the installation.
 
@@ -70,8 +70,6 @@ The console supports the following certificate types:
 
   > [!IMPORTANT]
   > We recommend that you don't use the default self-signed certificate. The certificate is not secure and should be used for test environments only. The owner of the certificate can't be validated, and the security of your system can't be maintained. Never use this option for production networks.
-
-For more information about working with certificates, see [Manage certificates](how-to-manage-individual-sensors.md#manage-certificates).
 
 ### Sign in and activate the sensor
 
@@ -131,9 +129,9 @@ For information about uploading a new certificate, supported certificate paramet
 
 ### Activation expirations
 
-After activating a sensor, cloud-connected and locally-managed sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active.
+After you've activated your sensor, cloud-connected and locally managed sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active.
 
-If you're updating an OT sensor from a legacy version, you'll need to re-activate your updated sensor. For more information, see [Update legacy OT sensor software](update-ot-software.md#update-legacy-ot-sensor-software).
+If you're updating an OT sensor from a legacy version, you'll need to re-activate your updated sensor. 
 
 For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md) and [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md).
 
@@ -226,7 +224,7 @@ You can access console tools from the side menu.  Tools help you:
 | Tools| Description |
 | -----------|--|
 | Overview | View a dashboard with high-level information about your sensor deployment, alerts, traffic, and more. |
-| Device map | View the network devices, device connections, Purdue levels, and device properties in a map. Various zoom, highlight, and filter options are available to help you gain the insight you need. For more information, see [Investigate devices on a device map](how-to-work-with-the-sensor-device-map.md) |
+| Device map | View the network devices, device connections, Purdue levels, and device properties in a map. Various zooms, highlight, and filter options are available to help you gain the insight you need. For more information, see [Investigate devices on a device map](how-to-work-with-the-sensor-device-map.md) |
 | Device inventory | The Device inventory displays a list of device attributes that this sensor detects. Options are available to: <br /> - Sort, or filter the information according to the table fields, and see the filtered information displayed. <br /> - Export information to a CSV file. <br /> - Import Windows registry details. For more information, see [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md).|
 | Alerts | Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that requires your attention.  For more information, see [View and manage alerts on your OT sensor](how-to-view-alerts.md).|
 

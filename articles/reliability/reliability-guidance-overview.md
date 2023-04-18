@@ -1,20 +1,23 @@
 ---
 title: Reliability guidance overview for Microsoft Azure products and services
-description: Reliability guidance overview for Microsoft Azure products and services
+description: Reliability guidance overview for Microsoft Azure products and services. View Azure service specific reliability guides and Azure Service Manager Retirement guides.
 author: anaharris-ms
 ms.service: reliability
 ms.topic: conceptual
-ms.date: 02/03/2023
+ms.date: 03/31/2023
 ms.author: anaharris
 ms.custom: subject-reliability
 ---
 
 # Reliability guidance overview 
 
-Azure reliability guidance is a collection of service-specific reliability guides. Each guide can cover both intra-regional resiliency with [availability zones](availability-zones-overview.md) and information on [cross-region resiliency with disaster recovery](cross-region-replication-azure.md). For a more detailed overview of reliability principles in Azure, see [Reliability in Microsoft Azure Well-Architected Framework](/azure/architecture/framework/resiliency/).
+Azure reliability guidance contains the following:
+
+- **Service-specific reliability guides**. Each guide can cover both intra-regional resiliency with [availability zones](availability-zones-overview.md) and information on [cross-region resiliency with disaster recovery](cross-region-replication-azure.md). For a more detailed overview of reliability principles in Azure, see [Reliability in Microsoft Azure Well-Architected Framework](/azure/architecture/framework/resiliency/).
+
+- **Azure Service Manager (ASM) Retirement guides**. ASM is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations, and has been in use since 2011. ASM is retiring in August 2024, and customers can now migrate to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview). ARM provides a management layer that enables you to create, update, and delete resources in your Azure account. You can use management features like access control, locks, and tags to secure and organize your resources after deployment.
 
 ## Azure services reliability guides
-
 
 ### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
 
@@ -31,6 +34,7 @@ Azure reliability guidance is a collection of service-specific reliability guide
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 [Azure SQL](/azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 [Azure Storage: Blob Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+[Azure Storage Mover](reliability-azure-storage-mover.md)|
 [Azure Virtual Machine Scale Sets](../virtual-machines/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 [Azure Virtual Machines](../virtual-machines/virtual-machines-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 [Azure Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
@@ -44,7 +48,7 @@ Azure reliability guidance is a collection of service-specific reliability guide
 [Azure App Configuration](../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability)|
 [Azure App Service](./reliability-app-service.md)|
 [Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Batch](../batch/create-pool-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+[Azure Batch](reliability-batch.md)|
 [Azure Bot Service](reliability-bot.md)|
 [Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 [Azure Cognitive Search](../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
@@ -78,6 +82,12 @@ Azure reliability guidance is a collection of service-specific reliability guide
 [Azure Virtual WAN](../virtual-wan/virtual-wan-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)|
 [Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 
+
+## Azure Service Manager Retirement
+
+Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations, and has been in use since 2011. ASM is retiring in August 2024, and customers can now migrate to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview). 
+
+For more information on specific retirement dates and migration documentation, see [Azure Service Manager Retirement](./asm-retirement.md).
 ## Next steps
 
 

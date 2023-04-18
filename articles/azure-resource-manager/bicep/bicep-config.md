@@ -2,6 +2,7 @@
 title: Bicep config file
 description: Describes the configuration file for your Bicep deployments
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 02/21/2023
 ---
 
@@ -38,7 +39,7 @@ You can enable preview features by adding:
 ```json
 {
   "experimentalFeaturesEnabled": {
-    "userDefineTypes": true,
+    "userDefinedTypes": true,
     "extensibility": true
   }
 }

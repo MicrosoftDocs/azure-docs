@@ -24,7 +24,7 @@ This article provides step-by-step procedure to perform Stop and Start of the si
 
 To complete this how-to guide, you need:
 
--   You must have an Azure Database for MySQL Single Server.
+-   You must have an Azure Database for MySQL single server.
 
 > [!NOTE]
 > Refer to the limitation of using [stop/start](concepts-servers.md#limitations-of-stopstart-operation)

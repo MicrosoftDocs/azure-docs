@@ -11,8 +11,7 @@ ms.author: tomkerkhove
 
 The Kubernetes Event-driven Autoscaling (KEDA) add-on integrates with features provided by Azure and open source projects.
 
->[!WARNING]
-> The managed KEDA addon will not be supported in K8s version 1.26 at GA. Please follow the [release notes](https://github.com/Azure/AKS/releases) to be notified when it will be supported.
+[!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

@@ -2,7 +2,7 @@
 title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 ms.topic: troubleshooting
-ms.date: 12/28/2022
+ms.date: 03/29/2023
 ms.service: backup
 ms.custom: engagement-fy23
 author: jyothisuri
@@ -227,6 +227,12 @@ AzureBackup workload extension operation failed. | The VM is shut down, or the V
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
 The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Azure Active Directory services.| <li> If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access. <li> Ensure DNS is resolving Azure endpoints. <li> Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work. <li> Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
+
+### UserErrorOperationNotAllowedDatabaseMirroringEnabled
+
+| Error message | Possible cause | Recommended action |
+| --- | --- | --- |
+| Backup of databases participating in a database mirroring session is not supported by AzureWorkloadBackup. | When you've the mirrioring operation enabled on a SQL database, this error appears. Currently, Azure Backup doesn't support databases with this feature enabled.       |      You can remove the database mirroring session of the database for the operation to complete successfully. Alternatively, if the database is already protected, do *Stop backup* operation on the database. |
 
 ## Re-registration failures
 

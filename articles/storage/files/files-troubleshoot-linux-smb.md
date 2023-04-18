@@ -64,8 +64,10 @@ Upgrade the Linux kernel to the following versions that have a fix for this prob
 ### Cause
 By default, mounting Azure file shares on Linux by using SMB doesn't enable support for symbolic links (symlinks). You might see an error like this:
 
+```bash
+sudo ln -s linked -n t
 ```
-ln -s linked -n t
+```output
 ln: failed to create symbolic link 't': Operation not supported
 ```
 
@@ -74,13 +76,13 @@ The Linux SMB client doesn't support creating Windows-style symbolic links over 
 
 To use symlinks, add the following to the end of your SMB mount command:
 
-```
+```bash
 ,mfsymlinks
 ```
 
 So the command looks something like:
 
-```
+```bash
 sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsymlinks
 ```
 
@@ -115,7 +117,7 @@ sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,pa
 
 File I/Os on the mounted filesystem start giving "Host is down" or "Permission denied" errors. Linux dmesg logs on the client show repeated errors like:
 
-```
+```output
 Status code returned 0xc000006d STATUS_LOGON_FAILURE
 cifs_setup_session: 2 callbacks suppressed
 CIFS VFS: \\contoso.file.core.windows.net Send error in SessSetup = -13

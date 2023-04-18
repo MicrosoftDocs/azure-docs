@@ -358,12 +358,14 @@ Now that you've learned about Dapr and some of the challenges it solves:
 
 - Try [Deploying a Dapr application to Azure Container Apps using the Azure CLI][dapr-quickstart] or [Azure Resource Manager][dapr-arm-quickstart].
 - Walk through a tutorial [using GitHub Actions to automate changes for a multi-revision, Dapr-enabled container app][dapr-github-actions].
+- Learn how to [perform event-driven work using Dapr bindings][dapr-bindings-tutorial]
 
 <!-- Links Internal -->
 
 [dapr-quickstart]: ./microservices-dapr.md
 [dapr-arm-quickstart]: ./microservices-dapr-azure-resource-manager.md
 [dapr-github-actions]: ./dapr-github-actions.md
+[dapr-bindings-tutorial]: ./microservices-dapr-bindings.md
 
 <!-- Links External -->
 

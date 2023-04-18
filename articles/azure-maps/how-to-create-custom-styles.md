@@ -2,8 +2,8 @@
 title: Create custom styles for indoor maps
 titleSuffix: Azure Maps Creator
 description: Learn how to use Maputnik with Azure Maps Creator to create custom styles for your indoor maps.
-author: eriklindeman
-ms.author: eriklind
+author: brendansco
+ms.author: Brendanc
 ms.date: 9/23/2022
 ms.topic: how-to
 ms.service: azure-maps
@@ -93,7 +93,7 @@ The base map drop-down list on the visual editor toolbar presents a list of base
 
 #### Save custom styles
 
-Once you have made all of the desired changes to your styles, save the changes to your Creator resource. You can overwrite your style with the changes or create a new style.
+Once you have made the desired changes to your styles, save the changes to your Creator resource. You can overwrite your style with the changes or create a new style.
 
 To save your changes, select the **Save** button on the toolbar.
 
@@ -241,9 +241,9 @@ Now when you select that unit in the map, the pop-up menu will have the new laye
 [Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Creators Rest API]: /rest/api/maps-creator/
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [manifest]: drawing-requirements.md#manifest-file-requirements
 [unitProperties]: drawing-requirements.md#unitproperties
-[categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json
+[categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json
 [Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
 [map configuration]: creator-indoor-maps.md#map-configuration

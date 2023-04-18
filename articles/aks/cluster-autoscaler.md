@@ -30,7 +30,7 @@ Both the horizontal pod autoscaler and cluster autoscaler can also decrease the 
 The cluster autoscaler may be unable to scale down if pods can't move, such as in the following situations:
 
 * A pod is directly created and isn't backed by a controller object, such as a deployment or replica set.
-* A pod disruption budget (PDB) is too restrictive and doesn't allow the number of pods to be fall below a certain threshold.
+* A pod disruption budget (PDB) is too restrictive and doesn't allow the number of pods to fall below a certain threshold.
 * A pod uses node selectors or anti-affinity that can't be honored if scheduled on a different node.
 
 For more information about how the cluster autoscaler may be unable to scale down, see [What types of pods can prevent the cluster autoscaler from removing a node?][autoscaler-scaledown].

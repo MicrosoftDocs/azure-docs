@@ -175,8 +175,6 @@ landingContent:
     linkLists:
       - linkListType: tutorial      
         links:
-          - text: Visualize data anomalies on Event Hubs data streams
-            url: event-hubs-tutorial-visualize-anomalies.md
           - text: Process Event Hubs for Apache Kafka events using Stream Analytics
             url: event-hubs-kafka-stream-analytics.md
           - text: Stream data into Azure Databricks using Event Hubs

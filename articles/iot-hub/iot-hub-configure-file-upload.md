@@ -1,13 +1,12 @@
 ---
-title: Use the Azure portal to configure file upload | Microsoft Docs
+title: Use the Azure portal to configure file upload
 description: How to use the Azure portal to configure your IoT hub to enable file uploads from connected devices. Includes information about configuring the destination Azure storage account.
 author: kgremban
 
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 07/20/2021
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: how-to
+ms.date: 07/20/2021
 ---
 
 # Configure IoT Hub file uploads using the Azure portal

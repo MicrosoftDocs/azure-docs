@@ -40,6 +40,8 @@ See [Azure VM sizes with no local temporary disk](../azure-vms-no-temp-disk.yml)
 
 Azure Disk Encryption is also not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines that do not meet these minimum memory requirements:
 
+### Memory requirements
+
 | Virtual machine | Minimum memory requirement |
 |--|--|
 | Linux VMs when only encrypting data volumes| 2 GB |
@@ -57,7 +59,6 @@ Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux dist
 ![Venn Diagram of Linux server distributions that support Azure Disk Encryption](./media/disk-encryption/ade-supported-distros.png)
 
 Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption; of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
-
 
 | Publisher | Offer | SKU | URN | Volume type supported for encryption |
 | --- | --- |--- | --- |
@@ -126,7 +127,6 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 > - ADE support for a particular offer type does not extend beyond the end-of-life date provided by the publisher. 
 > - The legacy ADE solution (using AAD credentials) is not recommended for new VMs and is not compatible with RHEL versions later than RHEL 7.8 or with Phyton 3 as default.
 
-
 ## Additional VM requirements
 
 Azure Disk Encryption requires the dm-crypt and vfat modules to be present on the system. Removing or disabling vfat from the default image will prevent the system from reading the key volume and obtaining the key needed to unlock the disks on subsequent reboots. System hardening steps that remove the vfat module from the system or enforce expanding the OS mountpoints/folders on data drives are not compatible with Azure Disk Encryption. 
@@ -143,14 +143,15 @@ Make sure the /etc/fstab settings are configured properly for mounting. To confi
 Here is an example of the commands used to mount the data disks and create the necessary /etc/fstab entries:
 
 ```bash
-UUID0="$(blkid -s UUID -o value /dev/sda1)"
-UUID1="$(blkid -s UUID -o value /dev/sda2)"
-mkdir /data0
-mkdir /data1
-echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab
-echo "UUID=$UUID1 /data1 ext4 defaults,nofail 0 0" >>/etc/fstab
-mount -a
+sudo UUID0="$(blkid -s UUID -o value /dev/sda1)"
+sudo UUID1="$(blkid -s UUID -o value /dev/sda2)"
+sudo mkdir /data0
+sudo mkdir /data1
+sudo echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab
+sudo echo "UUID=$UUID1 /data1 ext4 defaults,nofail 0 0" >>/etc/fstab
+sudo mount -a
 ```
+
 ## Networking requirements
 
 To enable the Azure Disk Encryption feature, the Linux VMs must meet the following network endpoint configuration requirements:
@@ -176,7 +177,6 @@ The following table defines some of the common terms used in Azure disk encrypti
 | DM-Crypt |[DM-Crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) is the Linux-based, transparent disk-encryption subsystem that's used to enable disk encryption on Linux VMs. |
 | Key encryption key (KEK) | The asymmetric key (RSA 2048) that you can use to protect or wrap the secret. You can provide a hardware security module (HSM)-protected key or software-protected key. For more information, see the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation and [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md). |
 | PowerShell cmdlets | For more information, see [Azure PowerShell cmdlets](/powershell/azure/). |
-
 
 ## Next steps
 

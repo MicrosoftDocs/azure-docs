@@ -4,8 +4,7 @@ description: Change the pricing and scale tier for IoT Hub to get more messaging
 author: kgremban
 
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.date: 02/07/2023
 ms.author: kgremban
 ---

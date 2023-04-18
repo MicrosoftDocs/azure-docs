@@ -332,7 +332,7 @@ helm repo update
 # Install the cert-manager Helm chart
 helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
-  --version $CERT_MANAGER_TAG \
+  --version=$CERT_MANAGER_TAG \
   --set installCRDs=true \
   --set nodeSelector."kubernetes\.io/os"=linux \
   --set image.repository=$ACR_URL/$CERT_MANAGER_IMAGE_CONTROLLER \
@@ -444,11 +444,11 @@ In the following example, traffic is routed as such:
     spec:
       ingressClassName: nginx
       tls:
-     - hosts:
+      - hosts:
         - hello-world-ingress.MY_CUSTOM_DOMAIN
         secretName: tls-secret
       rules:
-     - host: hello-world-ingress.MY_CUSTOM_DOMAIN
+      - host: hello-world-ingress.MY_CUSTOM_DOMAIN
         http:
           paths:
           - path: /hello-world-one(/|$)(.*)
@@ -483,11 +483,11 @@ In the following example, traffic is routed as such:
     spec:
       ingressClassName: nginx
       tls:
-     - hosts:
+      - hosts:
         - hello-world-ingress.MY_CUSTOM_DOMAIN
         secretName: tls-secret
       rules:
-     - host: hello-world-ingress.MY_CUSTOM_DOMAIN
+      - host: hello-world-ingress.MY_CUSTOM_DOMAIN
         http:
           paths:
           - path: /static(/|$)(.*)
