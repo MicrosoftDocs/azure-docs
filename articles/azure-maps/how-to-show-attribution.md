@@ -70,4 +70,3 @@ https://atlas.microsoft.com/map/attribution?subscription-key={Your-Azure-Maps-Su
 [TilesetID]: /rest/api/maps/render-v2/get-map-attribution#tilesetid
 [Web]: how-to-use-map-control.md
 [Zoom levels and tile grid]: zoom-levels-and-tile-grid.md
-s
