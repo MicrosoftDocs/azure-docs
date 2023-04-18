@@ -79,8 +79,8 @@ The migration to the Resource Manager deployment model and virtual network is sp
 | Step    | Performed through  | Estimated time  | Downtime  |
 |---------|--------------------|-----------------|-----------|
 | [Step 1 - Update and locate the new virtual network](#update-and-verify-virtual-network-settings) | Azure portal | 15 minutes | |
-| [Step 2 - Perform offline migration](#perform-offline-migration) | PowerShell | 1 – 3 hours on average | One domain controller is available once this command is completed. | |
-| [Step 3 - Test and wait for the replica domain controller](#test-and-verify-connectivity-after-the-migration)| PowerShell and Azure portal | 1 hour or more, depending on the number of tests | Both domain controllers are available and should function normally, downtime ends. | N/A. Once the first VM is successfully migrated, there's no option for rollback or restore. |
+| [Step 2 - Perform offline migration](#perform-offline-migration) | PowerShell | 1 – 3 hours on average | One domain controller is available once this command is completed. |
+| [Step 3 - Test and wait for the replica domain controller](#test-and-verify-connectivity-after-the-migration)| PowerShell and Azure portal | 1 hour or more, depending on the number of tests | Both domain controllers are available and should function normally, downtime ends. |
 | [Step 4 - Optional configuration steps](#optional-post-migration-configuration-steps) | Azure portal and VMs | N/A | |
 
 > [!IMPORTANT]
