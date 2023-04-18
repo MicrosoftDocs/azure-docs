@@ -20,7 +20,7 @@ This article describes how to use the Azure CLI to deploy an Azure virtual machi
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 - Azure Cloud Shell or the Azure CLI.
 
