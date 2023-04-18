@@ -14,6 +14,6 @@ In this article you'll learn about the latest updates for the Remote Desktop app
 > [!IMPORTANT]
 > We're no longer updating the Remote Desktop app for Windows with new features.
 >
-> For the best Azure Virtual Desktop experience that includes the latest features and updates, we recommend you download the [Azure Virtual Desktop app for Windows](users/connect-windows-azure-virtual-desktop-app.md) instead.
+> For the best Azure Virtual Desktop experience that includes the latest features and updates, we recommend you download the [Azure Virtual Desktop Store app for Windows](users/connect-windows-azure-virtual-desktop-app.md) instead.
 
 [!INCLUDE [include-whats-new-client-microsoft-store](includes/include-whats-new-client-microsoft-store.md)]

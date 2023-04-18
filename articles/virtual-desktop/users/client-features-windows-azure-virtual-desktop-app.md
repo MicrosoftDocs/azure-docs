@@ -1,19 +1,19 @@
 ---
-title: Use features of the Azure Virtual Desktop app for Windows (preview) - Azure Virtual Desktop
-description: Learn how to use features of the Azure Virtual Desktop app for Windows (preview) when connecting to Azure Virtual Desktop.
+title: Use features of the Azure Virtual Desktop Store app for Windows (preview) - Azure Virtual Desktop
+description: Learn how to use features of the Azure Virtual Desktop Store app for Windows (preview) when connecting to Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 10/04/2022
 ms.author: daknappe
 ---
 
-# Use features of the Azure Virtual Desktop app for Windows (preview)
+# Use features of the Azure Virtual Desktop Store app for Windows (preview)
 
 > [!IMPORTANT]
-> The Azure Virtual Desktop app for Windows is currently in PREVIEW.
+> The Azure Virtual Desktop Store app for Windows is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Once you've connected to Azure Virtual Desktop using the Azure Virtual Desktop app for Windows (preview), it's important to know how to use the features. This article shows you how to use the features available in the Azure Virtual Desktop app for Windows. If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Azure Virtual Desktop app for Windows](connect-windows-azure-virtual-desktop-app.md).
+Once you've connected to Azure Virtual Desktop using the Azure Virtual Desktop Store app for Windows (preview), it's important to know how to use the features. This article shows you how to use the features available in the Azure Virtual Desktop Store app for Windows. If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows](connect-windows-azure-virtual-desktop-app.md).
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md). For more information about the differences between the clients, see [Compare the Remote Desktop clients](../compare-remote-desktop-clients.md).
 
@@ -124,7 +124,7 @@ The following table shows which mouse operations map to which gestures:
 
 ### Keyboard
 
-There are several keyboard shortcuts you can use to help use some of the features. Some of these are for controlling how the Azure Virtual Desktop app displays the session. These are:
+There are several keyboard shortcuts you can use to help use some of the features. Some of these are for controlling how the Azure Virtual Desktop Store app displays the session. These are:
 
 | Key combination | Description |
 |--|--|
@@ -156,13 +156,13 @@ You can manually set which keyboard language to use in the remote session by fol
 
 ### Folder redirection
 
-The Azure Virtual Desktop app can make local folders available in your remote session. This is known as *folder redirection*. This means you can open files from and save files to your Windows PC with your remote session. Redirected folders appear as a network drive in Windows Explorer.
+The Azure Virtual Desktop Store app can make local folders available in your remote session. This is known as *folder redirection*. This means you can open files from and save files to your Windows PC with your remote session. Redirected folders appear as a network drive in Windows Explorer.
 
 Folder redirection can't be configured using the Azure Virtual Desktop app. This behavior is configured by your admin in Azure Virtual Desktop. By default, all local drives are redirected to a remote session.
 
 ### Redirect devices, audio, and clipboard
 
-The Azure Virtual Desktop app can make your local clipboard and local devices available in your remote session where you can copy and paste text, images, and files. The audio from the remote session can also be redirected to your local device. However, redirection can't be configured using the Azure Virtual Desktop app. This behavior is configured by your admin in Azure Virtual Desktop. Here's a list of some of the devices and resources that can be redirected. For the full list, see [Compare the features of the Remote Desktop clients when connecting to Azure Virtual Desktop](../compare-remote-desktop-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json#redirections-comparison).
+The Azure Virtual Desktop Store app can make your local clipboard and local devices available in your remote session where you can copy and paste text, images, and files. The audio from the remote session can also be redirected to your local device. However, redirection can't be configured using the Azure Virtual Desktop app. This behavior is configured by your admin in Azure Virtual Desktop. Here's a list of some of the devices and resources that can be redirected. For the full list, see [Compare the features of the Remote Desktop clients when connecting to Azure Virtual Desktop](../compare-remote-desktop-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json#redirections-comparison).
 
 - Printers
 - USB devices
@@ -174,7 +174,7 @@ The Azure Virtual Desktop app can make your local clipboard and local devices av
 
 ## Update the Azure Virtual Desktop app
 
-Updates for the Azure Virtual Desktop app are available in the Microsoft Store. You can also check for updates through the app directly.
+Updates for the Azure Virtual Desktop Store app are available in the Microsoft Store. You can also check for updates through the app directly.
 
 To check for updates through the app:
 
@@ -186,11 +186,11 @@ To check for updates through the app:
 
 1. If there's an update to either app available, select **Update**. The apps can be updated in any order.
 
-While installing an update, the Azure Virtual Desktop app may close. Once the update is complete, you can reopen the app and continue where you left off. For more information about how to get updates in the Microsoft Store, see [Get updates for apps and games in Microsoft Store](https://support.microsoft.com/account-billing/get-updates-for-apps-and-games-in-microsoft-store-a1fe19c0-532d-ec47-7035-d1c5a1dd464f) and [Turn on automatic app updates](https://support.microsoft.com/windows/turn-on-automatic-app-updates-70634d32-4657-dc76-632b-66048978e51b).
+While installing an update, the Azure Virtual Desktop Store app may close. Once the update is complete, you can reopen the app and continue where you left off. For more information about how to get updates in the Microsoft Store, see [Get updates for apps and games in Microsoft Store](https://support.microsoft.com/account-billing/get-updates-for-apps-and-games-in-microsoft-store-a1fe19c0-532d-ec47-7035-d1c5a1dd464f) and [Turn on automatic app updates](https://support.microsoft.com/windows/turn-on-automatic-app-updates-70634d32-4657-dc76-632b-66048978e51b).
 
 ## App display modes
 
-You can configure the Azure Virtual Desktop app to be displayed in light or dark mode, or match the mode of your system:
+You can configure the Azure Virtual Desktop Store app to be displayed in light or dark mode, or match the mode of your system:
 
 1. Open the **Azure Virtual Desktop** app on your device.
 
@@ -215,7 +215,7 @@ If you want to help us test new builds before they're released, you should downl
 > [!NOTE]
 > Insider releases shouldn't be used in production.
 
-Insider releases are made available in the Azure Virtual Desktop app once you've configured it to use Insider releases. To configure the app to use Insider releases:
+Insider releases are made available in the Azure Virtual Desktop Store app once you've configured it to use Insider releases. To configure the app to use Insider releases:
 
 1. Open the **Azure Virtual Desktop** app on your device.
 
@@ -227,15 +227,15 @@ Insider releases are made available in the Azure Virtual Desktop app once you've
 
 1. Open the **Azure Virtual Desktop** app. The title in the top left-hand corner should be **Azure Virtual Desktop (Insider)**:
 
-   :::image type="content" source="../media/client-features-windows-azure-virtual-desktop-app/azure-virtual-desktop-app-windows-insider.png" alt-text="A screenshot of the Azure Virtual Desktop app with Insider features enabled. The title is highlighted in a red box.":::
+   :::image type="content" source="../media/client-features-windows-azure-virtual-desktop-app/azure-virtual-desktop-app-windows-insider.png" alt-text="A screenshot of the Azure Virtual Desktop Store app with Insider features enabled. The title is highlighted in a red box.":::
 
-If you already have configured the Azure Virtual Desktop app to use Insider releases, you can check for updates to ensure you have the latest Insider release by checking for updates in the normal way. For more information, see [Update the Azure Virtual Desktop app](#update-the-azure-virtual-desktop-app).
+If you already have configured the Azure Virtual Desktop Store app to use Insider releases, you can check for updates to ensure you have the latest Insider release by checking for updates in the normal way. For more information, see [Update the Azure Virtual Desktop app](#update-the-azure-virtual-desktop-app).
 
 ## Admin management
 
 ### Enterprise deployment
 
-To deploy the Azure Virtual Desktop app in an enterprise, you can use Microsoft Intune or Configuration Manager. For more information, see:
+To deploy the Azure Virtual Desktop Store app in an enterprise, you can use Microsoft Intune or Configuration Manager. For more information, see:
 
 - [Add Microsoft Store apps to Microsoft Intune](/mem/intune/apps/store-apps-microsoft).
 
@@ -243,7 +243,7 @@ To deploy the Azure Virtual Desktop app in an enterprise, you can use Microsoft 
 
 ### URI to subscribe to a workspace
 
-The Azure Virtual Desktop app supports Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or Remote App.
+The Azure Virtual Desktop Store app supports Uniform Resource Identifier (URI) schemes to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or Remote App.
 
 For more information, see [Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop](../uri-scheme.md).
 
@@ -251,7 +251,7 @@ For more information, see [Uniform Resource Identifier schemes with the Remote D
 
 The Azure Virtual Desktop (HostApp) is a platform component containing a set of predefined user interfaces and APIs that Azure Virtual Desktop developers can use to deploy and manage Remote Desktop connections to their Azure Virtual Desktop resources. If this application is required on a device for another application to work correctly, it will automatically be downloaded by the Azure Virtual Desktop app. There should be no need for user interaction.
 
-The purpose of the Azure Virtual Desktop (HostApp) is to provide core functionality to the Azure Virtual Desktop app in the Microsoft Store. This is known as the *Hosted App Model*. For more information, see [Hosted App Model](https://blogs.windows.com/windowsdeveloper/2020/03/19/hosted-app-model/).
+The purpose of the Azure Virtual Desktop (HostApp) is to provide core functionality to the Azure Virtual Desktop Store app in the Microsoft Store. This is known as the *Hosted App Model*. For more information, see [Hosted App Model](https://blogs.windows.com/windowsdeveloper/2020/03/19/hosted-app-model/).
 
 ## Provide feedback
 

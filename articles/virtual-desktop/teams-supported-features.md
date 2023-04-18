@@ -45,7 +45,7 @@ The following table lists the minimum required versions for each Teams feature. 
 - [Teams WebRTC Redirector Service](https://aka.ms/msrdcwebrtcsvc/msi)
 - [Teams desktop app](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm)
 
-|Supported features|Windows Desktop client and Azure Virtual Desktop app version |macOS client version|WebRTC Redirector Service version|Teams version|
+|Supported features|Windows Desktop client and Azure Virtual Desktop Store app version |macOS client version|WebRTC Redirector Service version|Teams version|
 |---|---|---|---|---|
 |Audio/video call|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
 |Screen share|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|

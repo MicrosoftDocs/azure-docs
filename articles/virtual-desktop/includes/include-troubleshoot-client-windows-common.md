@@ -37,7 +37,7 @@ The logs are in the .ETL file format. You can convert these to .CSV or .XML to m
 
 ### Client stops responding or can't be opened
 
-If the Remote Desktop client for Windows or Azure Virtual Desktop app for Windows stops responding or can't be opened, you may need to reset user data. If you can open the client, you can reset user data from the **About** menu, or if you can't open the client, you can reset user data from the command line. The default settings for the client will be restored and you'll be unsubscribed from all workspaces.
+If the Remote Desktop client for Windows or Azure Virtual Desktop Store app for Windows stops responding or can't be opened, you may need to reset user data. If you can open the client, you can reset user data from the **About** menu, or if you can't open the client, you can reset user data from the command line. The default settings for the client will be restored and you'll be unsubscribed from all workspaces.
 
 To reset user data from the client:
 

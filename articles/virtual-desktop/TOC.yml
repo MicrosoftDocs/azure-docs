@@ -342,7 +342,7 @@
         items:
         - name: Windows Desktop client
           href: ./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
-        - name: Azure Virtual Desktop app for Windows
+        - name: Azure Virtual Desktop Store app for Windows
           href: ./users/connect-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
         - name: Web client
           href: ./users/connect-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
@@ -360,7 +360,7 @@
         items:
         - name: Windows Desktop client
           href: ./users/client-features-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
-        - name: Azure Virtual Desktop app for Windows
+        - name: Azure Virtual Desktop Store app for Windows
           href: ./users/client-features-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
         - name: Web client
           href: ./users/client-features-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json

@@ -31,7 +31,7 @@ landingContent:
         links:
           - text: Windows Desktop client
             url: connect-windows.md
-          - text: Azure Virtual Desktop app for Windows
+          - text: Azure Virtual Desktop Store app for Windows
             url: connect-windows-azure-virtual-desktop-app.md
           - text: Web client
             url: connect-web.md
@@ -53,7 +53,7 @@ landingContent:
         links:
           - text: Windows Desktop client
             url: client-features-windows.md
-          - text: Azure Virtual Desktop app for Windows
+          - text: Azure Virtual Desktop Store app for Windows
             url: client-features-windows-azure-virtual-desktop-app.md
           - text: Web client
             url: client-features-web.md

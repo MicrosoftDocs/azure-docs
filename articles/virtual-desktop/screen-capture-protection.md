@@ -20,7 +20,7 @@ Screen capture protection is configured on the session host level and enforced o
 
 You must connect to Azure Virtual Desktop with one of the following clients to use support screen capture protection:
 
-- The Remote Desktop client for Windows and the Azure Virtual Desktop app support screen capture protection for full desktops. You can also use them with RemoteApps when using the client on Windows 11, version 22H2 or later.
+- The Remote Desktop client for Windows and the Azure Virtual Desktop Store app support screen capture protection for full desktops. You can also use them with RemoteApps when using the client on Windows 11, version 22H2 or later.
 - The Remote Desktop client for macOS (version 10.7.0 or later) supports screen capture protection for both RemoteApps and full desktops.
 
 ## Configure screen capture protection

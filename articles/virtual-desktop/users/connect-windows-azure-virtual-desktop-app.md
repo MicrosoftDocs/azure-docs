@@ -1,19 +1,19 @@
 ---
-title: Connect to Azure Virtual Desktop with the Azure Virtual Desktop app for Windows (preview) - Azure Virtual Desktop
-description: Learn how to connect to Azure Virtual Desktop using the Azure Virtual Desktop app for Windows from the Microsoft Store.
+title: Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows (preview) - Azure Virtual Desktop
+description: Learn how to connect to Azure Virtual Desktop using the Azure Virtual Desktop Store app for Windows from the Microsoft Store.
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 03/09/2023
 ms.author: daknappe
 ---
 
-# Connect to Azure Virtual Desktop with the Azure Virtual Desktop app for Windows (preview)
+# Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows (preview)
 
 > [!IMPORTANT]
-> The Azure Virtual Desktop app for Windows is currently in PREVIEW.
+> The Azure Virtual Desktop Store app for Windows is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Azure Virtual Desktop app is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Azure Virtual Desktop app (preview) for Windows from the Microsoft Store.
+The Azure Virtual Desktop Store app is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app (preview) for Windows from the Microsoft Store.
 
 You can find a list of all the Remote Desktop clients you can use to connect to Azure Virtual Desktop at [Remote Desktop clients overview](remote-desktop-clients-overview.md).
 
@@ -29,9 +29,9 @@ Before you can access your resources, you'll need to meet the prerequisites:
    
 ## Download and install the Azure Virtual Desktop app
 
-The Azure Virtual Desktop app is available from the Microsoft Store. To download and install it, follow these steps:
+The Azure Virtual Desktop Store app is available from the Microsoft Store. To download and install it, follow these steps:
 
-1. Go to the [Azure Virtual Desktop app in the Microsoft Store](https://aka.ms/AVDStoreClient).
+1. Go to the [Azure Virtual Desktop Store app in the Microsoft Store](https://aka.ms/AVDStoreClient).
 
 1. Select **Install** to start downloading the app and installing it.
 
@@ -86,4 +86,4 @@ If you want to help us test new builds before they're released, you should downl
 
 ## Next steps
 
-To learn more about the features of the **Azure Virtual Desktop** app, check out [Use features of the Azure Virtual Desktop app when connecting to Azure Virtual Desktop](client-features-windows.md).
+To learn more about the features of the **Azure Virtual Desktop** app, check out [Use features of the Azure Virtual Desktop Store app when connecting to Azure Virtual Desktop](client-features-windows.md).
