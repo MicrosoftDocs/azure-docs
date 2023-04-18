@@ -10,7 +10,7 @@ author: jricketts
 ms.author: jricketts
 manager: martinco
 ms.reviewer: martinco
-ms.date: 04/14/2023
+ms.date: 04/18/2023
 ms.custom: it-pro
 ms.collection: 
 ---
@@ -48,7 +48,7 @@ ms.collection:
 |**10.3.1** Read access to audit logs files is limited to those with a job-related need.|Privileged users can query logs from Azure AD. [Least privileged roles by task in Azure AD](../roles/delegate-by-task.md)|
 |**10.3.2** Audit log files are protected to prevent modifications by individuals.|In Azure AD, you can’t wipe or modify logs. </br> When audit logs are exported to systems such as Azure Log Analytics Workspace, storage accounts, or third-party SIEM systems, monitor them for access.|
 |**10.3.3** Audit log files, including those for external-facing technologies, are promptly backed up to a secure, central, internal log server(s) or other media that is difficult to modify.|In Azure AD, you can’t wipe or modify logs. </br> When audit logs are exported to systems such as Azure Log Analytics Workspace, storage accounts, or third-party SIEM systems, monitor them for access.|
-|**10.3.4** File integrity monitoring or change-detection mechanisms is used on audit logs to ensure that existing log data cannot be changed without generating alerts.|In Azure AD, you can’t wipe or modify logs. </br> When audit logs are exported to systems such as Azure Log Analytics Workspace, storage accounts, or third-party SIEM systems, monitor them for access.|
+|**10.3.4** File integrity monitoring or change-detection mechanisms is used on audit logs to ensure that existing log data can't be changed without generating alerts.|In Azure AD, you can’t wipe or modify logs. </br> When audit logs are exported to systems such as Azure Log Analytics Workspace, storage accounts, or third-party SIEM systems, monitor them for access.|
 
 ## 10.4 Audit logs are reviewed to identify anomalies or suspicious activity.
 
@@ -71,20 +71,20 @@ ms.collection:
 |PCI-DSS Defined approach requirements|Azure AD guidance and recommendations|
 |-|-|
 |**10.6.1** System clocks and time are synchronized using time-synchronization technology.|Learn about the time synchronization mechanism in Azure services. [Time synchronization for financial services in Azure](https://azure.microsoft.com/blog/time-synchronization-for-financial-services-in-azure/)|
-|**10.6.2** Systems are configured to the correct and consistent time as follows: </br> One or more designated time servers are in use. </br> Only the designated central time server(s) receives time from external sources. </br> Time received from external sources is based on International Atomic Time or Coordinated Universal Time (UTC). </br> The designated time server(s) accept time updates only from specific industry-accepted external sources. </br> Where there is more than one designated time server, the time servers peer with one another to keep accurate time. </br> Internal systems receive time information only from designated central time server(s).|Learn about the time synchronization mechanism in Azure services. [Time synchronization for financial services in Azure](https://azure.microsoft.com/blog/time-synchronization-for-financial-services-in-azure/)|
+|**10.6.2** Systems are configured to the correct and consistent time as follows: </br> One or more designated time servers are in use. </br> Only the designated central time server(s) receives time from external sources. </br> Time received from external sources is based on International Atomic Time or Coordinated Universal Time (UTC). </br> The designated time server(s) accept time updates only from specific industry-accepted external sources. </br> Where there's more than one designated time server, the time servers peer with one another to keep accurate time. </br> Internal systems receive time information only from designated central time server(s).|Learn about the time synchronization mechanism in Azure services. [Time synchronization for financial services in Azure](https://azure.microsoft.com/blog/time-synchronization-for-financial-services-in-azure/)|
 |**10.6.3** Time synchronization settings and data are protected as follows: </br> Access to time data is restricted to only personnel with a business need. </br> Any changes to time settings on critical systems are logged, monitored, and reviewed.|Azure AD relies on time synchronization mechanisms in Azure. </br> Azure procedures synchronize servers and network devices with NTP Stratum 1-time servers synchronized to global positioning system (GPS) satellites. Synchronization occurs every five minutes. Azure ensures service hosts sync time. [Time synchronization for financial services in Azure](https://azure.microsoft.com/blog/time-synchronization-for-financial-services-in-azure/) </br> Hybrid components in Azure AD, such as Azure AD Connect servers, interact with on-premises infrastructure. The customer owns time synchronization of on-premises servers. |
 
 ## 10.7 Failures of critical security control systems are detected, reported, and responded to promptly.
 
 |PCI-DSS Defined approach requirements|Azure AD guidance and recommendations|
 |-|-|
-|**10.7.2** Additional requirement for service providers only: Failures of critical security control systems are detected, alerted, and addressed promptly, including but not limited to failure of the following critical security control systems: </br> Network security controls </br> IDS/IPS </br> File integrity monitoring (FIM) </br> Anti-malware solutions </br> Physical access controls </br> Logical access controls </br> Audit logging mechanism </br> Segmentation controls (if used)|Azure AD relies on time synchronization mechanisms in Azure. </br> Azure supports real-time event analysis in its operational environment. Internal Azure infrastructure systems generate near real-time event alerts about potential compromise.|
+|**10.7.2** *Additional requirement for service providers only*: Failures of critical security control systems are detected, alerted, and addressed promptly, including but not limited to failure of the following critical security control systems: </br> Network security controls </br> IDS/IPS </br> File integrity monitoring (FIM) </br> Anti-malware solutions </br> Physical access controls </br> Logical access controls </br> Audit logging mechanism </br> Segmentation controls (if used)|Azure AD relies on time synchronization mechanisms in Azure. </br> Azure supports real-time event analysis in its operational environment. Internal Azure infrastructure systems generate near real-time event alerts about potential compromise.|
 |**10.7.2** Failures of critical security control systems are detected, alerted, and addressed promptly, including but not limited to failure of the following critical security control systems: </br> Network security controls </br> IDS/IP </br> Change-detection mechanisms </br> Anti-malware solutions </br> Physical access controls </br> Logical access controls </br> Audit logging mechanisms </br> Segmentation controls (if used) </br> Audit log review mechanisms </br> Automated security testing tools (if used)|See, [Azure AD security operations guide](../fundamentals/security-operations-introduction.md) |
 |**10.7.3**  Failures of any critical security controls systems are responded to promptly, including but not limited to: </br> Restoring security functions. </br> Identifying and documenting the duration (date and time from start to end) of the security failure. </br> Identifying and documenting the cause(s) of failure and documenting required remediation. </br> Identifying and addressing any security issues that arose during the failure. </br> Determining whether further actions are required as a result of the security failure. </br> Implementing controls to prevent the cause of failure from reoccurring. </br> Resuming monitoring of security controls.|See, [Azure AD security operations guide](../fundamentals/security-operations-introduction.md)|
 
 ## Next steps
 
-PCI-DSS requirements **3**, **4**, **9**, and **12** are not addressed or met by Azure AD, therefore there are no corresponding articles. To see all requirements, go to pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
+PCI-DSS requirements **3**, **4**, **9**, and **12** aren't addressed or met by Azure AD, therefore there are no corresponding articles. To see all requirements, go to pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
 
 To configure Azure AD to comply with PCI-DSS, see the following articles. 
 
@@ -94,7 +94,7 @@ To configure Azure AD to comply with PCI-DSS, see the following articles.
 * [Requirement 6: Develop and Maintain Secure Systems and Software](pci-requirement-6.md) 
 * [Requirement 7: Restrict Access to System Components and Cardholder Data by Business Need to Know](pci-requirement-7.md) 
 * [Requirement 8: Identify Users and Authenticate Access to System Components](pci-requirement-8.md) 
-* [Requirement 10: Log and Monitor All Access to System Components and Cardholder Data](pci-requirement-10.md) (You are here)
+* [Requirement 10: Log and Monitor All Access to System Components and Cardholder Data](pci-requirement-10.md) (You're here)
 * [Requirement 11: Test Security of Systems and Networks Regularly](pci-requirement-11.md)
 * [Information Supplement: Multi-Factor Authentication](azure-ad-pci-dss-mfa.md) 
 * [Azure AD PCI-DSS Guidance](azure-ad-pci-dss-guidance.md)
