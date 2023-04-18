@@ -50,7 +50,7 @@ If your storage account VNet is enabled or if there are any firewall constraints
 
 A workaround is to manually create a project using the same settings as the project being shared.
 
-## User sharing requirements
+### User sharing requirements
 
 Users sharing the project need to create a project [**`ListAccountSAS`**](/rest/api/storagerp/storage-accounts/list-account-sas) to configure the storage account CORS and a [**`ListServiceSAS`**](/rest/api/storagerp/storage-accounts/list-service-sas) to generate a SAS token for *read*, *write* and *list* container's file in addition to blob storage data *update* permissions.
 
