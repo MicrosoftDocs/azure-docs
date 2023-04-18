@@ -32,15 +32,11 @@ landingContent:
         links:
           - text: Samples by app type and language
             url: quickstart-app-samples-all.md 
-      - linkListType: how-to-guide
-        links:
-          - text: PLACEHOLDER for dev guides 
-            url: quickstart-app-samples-all.md  
   - title: Create and edit user flows
     linkLists:
       - linkListType: concept
         links:
-          - text: Self-service sign-up for customers
+          - text: Designing the flow of of sign-in steps
             url: concept-user-flows-customers.md
       - linkListType: how-to-guide
         links:
@@ -56,7 +52,7 @@ landingContent:
         links:
           - text: Language specific branding
             url: how-to-customize-languages-customers.md            
-  - title: Manage external users (Azure AD B2B)
+  - title: Azure AD for partners (Azure AD B2B)
     linkLists:
       - linkListType: overview
         links:
