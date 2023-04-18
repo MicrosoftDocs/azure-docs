@@ -69,7 +69,7 @@ Create three virtual networks using the portal. Each virtual network has a tag o
 
 1. Select **Next** or the **IP addresses** tab and configure the following network address spaces:
 
-     :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-ip.png" alt-text="Screenshot of create a virtual network ip addresses page.":::
+     :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-ip.png" alt-text="Screenshot of create a virtual network IP addresses page.":::
 
     | Setting | Value |
     | -------- | ----- |
