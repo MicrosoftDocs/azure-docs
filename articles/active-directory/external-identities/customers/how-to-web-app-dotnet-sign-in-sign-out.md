@@ -16,11 +16,11 @@ ms.custom: it-pro
 
 # Sign in and sign out from an ASP.NET Core application with CIAM
 
-In the [previous article](./how-to-webapp-dotnet-sign-in-prepare-app.md), an ASP.NET Core project was created and configured for authentication. This how-to will install the required packages, add code that implements authentication to the sign in and sign out experience. Finally, you will sign-in and sign-out of the application.
+In the [previous article](./how-to-web-app-dotnet-sign-in-prepare-app.md), an ASP.NET Core project was created and configured for authentication. This how-to will install the required packages, add code that implements authentication to the sign in and sign out experience. Finally, you will sign-in and sign-out of the application.
 
 ## Prerequisites
 
-- Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](./how-to-webapp-dotnet-sign-in-prepare-app.md).
+- Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](./how-to-web-app-dotnet-sign-in-prepare-app.md).
 
 ## Install identity packages
 

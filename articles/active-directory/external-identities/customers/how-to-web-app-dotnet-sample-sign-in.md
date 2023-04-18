@@ -31,10 +31,13 @@ In this article:
 
 ## Prerequisites
 
+- Although any IDE that supports Vanilla JS applications can be used, Visual Studio Code is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 - A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet).
-- [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://developer.microsoft.com/identity/customers). 
 
+## Register the web app
+
+[!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 
 ## Add app client secret 
 
@@ -63,21 +66,17 @@ To get the web app sample code, you can do either of the following tasks:
     git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
     ``` 
 
-Once downloaded, change to the directory that contains the ASP.NET sample app:
+## Configure the application
+
+1. Navigate to the directory that contains the ASP.NET sample app:
 
 ```powershell
 cd 1-Authentication\1-sign-in-aspnet-core-mvc
 ```
 
-## Register the web app
-
-[!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
-
-## Configure the application
-
-1. Navigate to and open the *appsettings.json* file.
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ciam-aspnet-webapp` app copied from the Microsoft Entra admin center.
-1. Find the key `Enter_the_Tenant_Id_Here` and replace the existing value with your Azure AD tenant/directory ID.
+1. Open the *appsettings.json* file.
+1. Find the `Enter_the_Application_Id_Here` value and replace it with the application ID (clientId) of the app registered in the Microsoft Entra admin center.
+1. Find the `Enter_the_Tenant_Id_Here` value and replace it with your Azure AD tenant/directory ID.
 
 ## Run the code sample
 
@@ -87,12 +86,12 @@ cd 1-Authentication\1-sign-in-aspnet-core-mvc
     dotnet run
     ```
 1. Open your web browser and navigate to `https://localhost:7274`.
-1. Sign-in with an account registered to the CIAM tenant.
+1. Sign-in with an account registered to the CIAM tenant. <!-- More specificity needed here that it should ideally be done in an incognito window with a different email address or one to set up user flow.-->
 1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
 
     :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into a node web app.":::
 
-1. To sign-out from the application, select the **Sign out button**
+1. To sign-out from the application, select the **Sign out button**.
 
 ## Next steps
 
