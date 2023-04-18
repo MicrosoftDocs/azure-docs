@@ -1,7 +1,7 @@
 ---
 title: How to secure a single page application with user sign-in
 titleSuffix: Azure Maps
-description: How to configure a single page application which supports Azure AD single-sign-on with Azure Maps Web SDK.
+description: How to configure a single page application that supports Azure AD single-sign-on with Azure Maps Web SDK.
 author: eriklindeman
 ms.author: eriklind
 ms.date: 06/12/2020
@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Secure a single page application with user sign-in
 
-The following guide pertains to an application which is hosted on a content server or has minimal web server dependencies. The application provides protected resources secured only to Azure AD users. The objective of the scenario is to enable the web application to authenticate to Azure AD and call Azure Maps REST APIs on behalf of the user.
+The following guide pertains to an application that is hosted on a content server or has minimal web server dependencies. The application provides protected resources secured only to Azure AD users. The objective of the scenario is to enable the web application to authenticate to Azure AD and call Azure Maps REST APIs on behalf of the user.
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
@@ -26,7 +26,7 @@ Create the web application in Azure AD for users to sign in. The web application
     > [!div class="mx-imgBorder"]
     > ![App registration](./media/how-to-manage-authentication/app-registration.png)
 
-2. Enter a **Name**, choose a **Support account type**, provide a redirect URI which will represent the url which Azure AD will issue the token and is the url where the map control is hosted. For a detailed sample please see [Azure Maps Azure AD samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant). Then select **Register**.  
+2. Enter a **Name**, choose a **Support account type**, provide a redirect URI that represents the url which Azure AD issues the token and is the url where the map control is hosted. For a detailed sample, see [Azure Maps Azure AD samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant). Then select **Register**.  
 
 3. To assign delegated API permissions to Azure Maps, go to the application. Then under **App registrations**, select **API permissions** > **Add a permission**. Under **APIs my organization uses**, search for and select **Azure Maps**.
 
