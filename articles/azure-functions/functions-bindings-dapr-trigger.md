@@ -488,10 +488,11 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
+::: zone pivot="programming-language-csharp"
+
 See the [Example section](#examples) for complete examples.
 
 ## Usage
-::: zone pivot="programming-language-csharp"
 The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
 
 # [In-process](#tab/in-process)
@@ -510,29 +511,33 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 ::: zone-end
 
 <!--Any of the below pivots can be combined if the usage info is identical.-->
-::: zone pivot="programming-language-java"
-
-<!--Any usage information from the Java tab in ## Usage. -->
-::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-<!--Any usage information from the JavaScript tab in ## Usage. -->
-::: zone-end
-::: zone pivot="programming-language-powershell"
+See the [Example section](#examples) for complete examples.
 
-<!--Any usage information from the PowerShell tab in ## Usage. -->
+## Usage
+The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+
 ::: zone-end
+
 ::: zone pivot="programming-language-python"
 
-<!--Any usage information from the Python tab in ## Usage. -->
+See the [Example section](#examples) for complete examples.
+
+## Usage
+The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+
 ::: zone-end
 
 <!---## Extra sections Put any sections with content that doesn't fit into the above section headings down here. This will likely get moved to another article after the refactor. -->
+
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 
 ## host.json properties
 
 The [host.json] file contains settings that control Dapr trigger behavior. See the [host.json settings](functions-bindings-dapr.md#hostjson-settings) section for details regarding available settings.
 
+::: zone-end
 
 ## Next steps
 - [Pull in Dapr state and secrets](./functions-bindings-dapr-input.md)
