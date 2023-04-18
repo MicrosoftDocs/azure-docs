@@ -1009,8 +1009,6 @@
         href: ./extensions/chef.md
       - name: Stackify Retrace
         href: ./extensions/stackify-retrace-linux.md
-      - name: Symantec
-        href: ./extensions/symantec.md
     - name: Restrict extension installation
       items:
       - name: Linux
