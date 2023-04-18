@@ -145,7 +145,7 @@ For data that you can't directly stream to an event hub, you can write to Azure 
 
 ## Query events from your Event Hubs
 
-Use the process data query function to see the content of events sent to your event hub.
+Use the process data query function to see the contents of monitoring events sent to your event hub.
 
 Follow the steps below to query your event data using the Azure portal:
 1. Select **Process data** from your event hub.
