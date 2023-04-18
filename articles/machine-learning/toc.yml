@@ -716,7 +716,9 @@
     - name: What is a pipeline
       href: concept-ml-pipelines.md
     - name: What is a component
+      href: concept-component.md
     - name: What is Designer
+      href: concept-designer.md
   - name: How to create pipelines with components
     items: 
     - name: Create ML pipelines using components (Python SDK v2)
