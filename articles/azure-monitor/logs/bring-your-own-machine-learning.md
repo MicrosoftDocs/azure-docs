@@ -58,7 +58,7 @@ You can implement custom machine learning models and build your own machine lear
 
 There are three approaches to making data in Azure Monitor Logs available to your machine learning pipeline:
 
-- **Run queries on top of Azure Monitor Logs data** - [Integrate a notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md) or run a script or application using libraries like [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) or [MSTICPY](https://msticpy.readthedocs.io/en/latest/) to retrieve data from Azure Monitor Logs in a Pandas DataFrame. The data you retrieve is available in an in-memory object, without exporting data out of your Log Analytics workspace.   
+- **Run queries on top of Azure Monitor Logs data** - [Integrate a notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md) or run a script or application using libraries like [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) or [MSTICPY](https://msticpy.readthedocs.io/en/latest/) to retrieve data from Azure Monitor Logs in a Pandas DataFrame. The data you query is retrieved to an in-memory object on your server, without exporting the data out of your Log Analytics workspace.   
 - **Export data out of Azure Monitor Logs** - Usually to blob storage account in JSON format. 
 - **Hybrid pipeline** - Export data for model training and run queries on top of Azure Monitor Logs data for scoring.
 
