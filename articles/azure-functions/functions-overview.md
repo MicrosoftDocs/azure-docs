@@ -55,7 +55,9 @@ The Azure Functions Core Tools provides a local development and runtime environm
 
 ## Quickstart templates
 
-To make it easy to get started writing your function code, Azure Functions provides a set of code templates in each natively supported language. You can use these templates to create new functions using any supported trigger. To learn how to use language-specific templates, see [Getting started with Azure Functions](./functions-get-started.md), and choose the option for your programming language at the top of the article. 
+To make it easy to get started writing your function code, Azure Functions provides a set of code templates in each natively supported language. You can use these templates to create new functions using any supported trigger. 
+
+To learn how to use language-specific templates, see [Getting started with Azure Functions](./functions-get-started.md), and choose the option for your programming language at the top of the article. 
 
 ## Scenarios
 
