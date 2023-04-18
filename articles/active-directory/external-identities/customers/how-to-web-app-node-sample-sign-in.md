@@ -70,7 +70,7 @@ To get the web app sample code, you can do either of the following tasks:
 
 - [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) or clone the sample web application from GitHub by running the following command:
 
-    ```powershell
+    ```console
         git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
     ```
 If you choose to download the `.zip` file, extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
