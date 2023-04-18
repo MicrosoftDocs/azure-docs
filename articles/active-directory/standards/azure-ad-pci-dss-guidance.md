@@ -144,7 +144,7 @@ PCI compliance is the responsibility of entities that process payment card trans
 
 These entities ensure payment card transactions are processed securely and are PCI-DSS compliant. All entities involved in payment card transactions have a role to help ensure PCI compliance.
 
-Azure PCI DSS compliance status doesn't automatically translate to PCI-DSS validation for the services you build or host on Azure. You ensure that you achieve compliance with PCI-DSS requirements. Azure provides the Azure PCI-DSS Shared Responsibility Matrix which specifies areas of responsibility for each PCI DSS requirement, or if the responsibility is shared. See [PCI DSS overview](../../compliance/offerings/offering-pci-dss.md) for access instructions.
+Azure PCI DSS compliance status doesn't automatically translate to PCI-DSS validation for the services you build or host on Azure. You ensure that you achieve compliance with PCI-DSS requirements. 
 
 ### Establish continuous processes to maintain compliance
 
