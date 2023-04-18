@@ -23,20 +23,17 @@ Create the web application in Azure AD for users to sign in. The web application
 
 1. In the Azure portal, in the list of Azure services, select **Azure Active Directory** > **App registrations** > **New registration**.  
 
-    > [!div class="mx-imgBorder"]
-    > ![App registration](./media/how-to-manage-authentication/app-registration.png)
+    :::image type="content" source="./media/how-to-manage-authentication/app-registration.png" alt-text="Screenshot showing the new registration page in the App registrations blade in Azure Active Directory.":::
 
 2. Enter a **Name**, choose a **Support account type**, provide a redirect URI that represents the url which Azure AD issues the token and is the url where the map control is hosted. For a detailed sample, see [Azure Maps Azure AD samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant). Then select **Register**.  
 
 3. To assign delegated API permissions to Azure Maps, go to the application. Then under **App registrations**, select **API permissions** > **Add a permission**. Under **APIs my organization uses**, search for and select **Azure Maps**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Add app API permissions](./media/how-to-manage-authentication/app-permissions.png)
+    :::image type="content" source="./media/how-to-manage-authentication/app-permissions.png" alt-text="Screenshot showing a list of APIs my organization uses.":::
 
 4. Select the check box next to **Access Azure Maps**, and then select **Add permissions**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
+    :::image type="content" source="./media/how-to-manage-authentication/select-app-permissions.png" alt-text="Screenshot showing the request app API permissions screen.":::
 
 5. Enable `oauth2AllowImplicitFlow`. To enable it, in the **Manifest** section of your app registration, set `oauth2AllowImplicitFlow` to `true`.
 
@@ -62,7 +59,7 @@ Create the web application in Azure AD for users to sign in. The web application
     ```
 
 7. Configure Azure role-based access control (Azure RBAC) for users or groups. See the [following sections to enable Azure RBAC](#grant-role-based-access-for-users-to-azure-maps).
-   
+
 [!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
 
 ## Next steps
