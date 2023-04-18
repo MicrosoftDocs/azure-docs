@@ -1167,7 +1167,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-logic-apps
-    title: Azure Logic Apps
+    title: Power Platform
 - id: acs-azcli-js-csharp-java-python-swift-android
   title: Programming languages
   prompt: Choose a programming language
