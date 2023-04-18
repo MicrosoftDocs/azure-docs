@@ -22,6 +22,7 @@ Azure Data Manager for Energy Preview is updated on an ongoing basis. To stay up
 - Plans for changes
 
 <hr width = 100%>
+
 ## April 2023
 
 ### Monitoring and investigating actions with Audit logs
