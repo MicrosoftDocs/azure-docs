@@ -19,9 +19,9 @@ items:
     
 - name: Concepts
   items:
-  - name: Spacecraft object
+  - name: Spacecraft
     href: spacecraft-object.md
-  - name: Contact object
+  - name: Contact
     href: concepts-contact.md
   - name: Contact profile
     href: concepts-contact-profile.md
@@ -30,8 +30,6 @@ items:
   items:
   - name: Prepare network to send and receive data
     href: prepare-network.md
-  - name: License your spacecraft
-    href: license-spacecraft.md
   - name: Integrate partner network ground stations
     href: partner-network-integration.md 
   - name: Configure the RF chain

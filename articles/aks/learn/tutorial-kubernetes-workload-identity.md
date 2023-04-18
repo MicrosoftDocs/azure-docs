@@ -67,13 +67,13 @@ The following output example resembles successful creation of the resource group
 
 To install the aks-preview extension, run the following command:
 
-```azurecli
+```azurecli-interactive
 az extension add --name aks-preview
 ```
 
 Run the following command to update to the latest version of the extension released:
 
-```azurecli
+```azurecli-interactive
 az extension update --name aks-preview
 ```
 
@@ -112,7 +112,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `-n`, which is the name of the cluster and `-g`, the resource group name:
 
-```bash
+```azurecli-interactive
 export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
 ```
 
@@ -146,7 +146,7 @@ export FICID="fic-test-fic-name"
 
 Use the Azure CLI [az keyvault create][az-keyvault-create] command to create a Key Vault in the resource group created earlier.
 
-```azurecli
+```azurecli-interactive
 az keyvault create --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --name "${KEYVAULT_NAME}"
 ```
 
@@ -159,7 +159,7 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 To add a secret to the vault, you need to run the Azure CLI [az keyvault secret set][az-keyvault-secret-set] command to create it. The password is the value you specified for the environment variable `KEYVAULT_SECRET_NAME` and stores the value of **Hello!** in it.
 
-```azurecli
+```azurecli-interactive
 az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET_NAME}" --value 'Hello!' 
 ```
 
@@ -173,21 +173,21 @@ export KEYVAULT_URL="$(az keyvault show -g ${RESOURCE_GROUP} -n ${KEYVAULT_NAME}
 
 Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "${SUBSCRIPTION}"
 ```
 
-```azurecli
+```azurecli-interactive
 az identity create --name "${UAID}" --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --subscription "${SUBSCRIPTION}"
 ```
 
 Next, you need to set an access policy for the managed identity to access the Key Vault secret by running the following commands:
 
-```bash
+```azurecli-interactive
 export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${UAID}" --query 'clientId' -otsv)"
 ```
 
-```azurecli
+```azurecli-interactive
 az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
 ```
 
@@ -195,7 +195,7 @@ az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn 
 
 Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the default value for the cluster name and the resource group name.
 
-```azurecli
+```azurecli-interactive
 az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
 ```
 
@@ -225,7 +225,7 @@ Serviceaccount/workload-identity-sa created
 
 Use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the managed identity, the service account issuer, and the subject.
 
-```azurecli
+```azurecli-interactive
 az identity federated-credential create --name ${FICID} --identity-name ${UAID} --resource-group ${RESOURCE_GROUP} --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
 ```
 
@@ -300,7 +300,7 @@ kubectl delete pod quick-start
 kubectl delete sa "${SERVICE_ACCOUNT_NAME}" --namespace "${SERVICE_ACCOUNT_NAMESPACE}"
 ```
 
-```azurecli
+```azurecli-interactive
 az group delete --name "${RESOURCE_GROUP}"
 ```
 

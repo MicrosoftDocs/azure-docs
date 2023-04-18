@@ -2,13 +2,13 @@
 title: Quickstart for Azure App Configuration with .NET Core | Microsoft Docs
 description: In this quickstart, create a .NET Core app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
-author: maud-lv
+author: mcleanbyron
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other
 ms.date: 03/20/2023
-ms.author: malev
+ms.author: mcleans
 #Customer intent: As a .NET Core developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a .NET Core app with App Configuration

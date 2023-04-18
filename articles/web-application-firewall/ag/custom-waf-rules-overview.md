@@ -14,9 +14,9 @@ ms.custom: devx-track-azurepowershell
 
 The Azure Application Gateway Web Application Firewall (WAF) v2 comes with a pre-configured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you may want to write your own rules to augment the core rule set (CRS) rules. Your custom rules can either block, allow, or log requested traffic based on matching criteria. If the WAF policy is set to detection mode, and a custom block rule is triggered, the request is logged and no blocking action is taken.
 
-Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If these conditions are met, an action is taken (to allow, block, or log). If a custom rule is triggered, and an allow or block action is taken, no further custom or managed rules are evaluated.
+Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If these conditions are met, an action is taken (to allow, block, or log). If a custom rule is triggered, and an allow or block action is taken, no further custom or managed rules are evaluated. Custom rules can be enabled/disabled on demand.
 
-For example, you can block all requests from an IP address in the range 192.168.5.0/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.0/24), and the action is to block the traffic. You also set the rule's name and priority.
+For example, you can block all requests from an IP address in the range 192.168.5.0/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.0/24), and the action is to block the traffic. You also set the rule's name, priority and enabled/disabled state.
 
 Custom rules support using compounding logic to make more advanced rules that address your security needs. For example, ((Condition 1 **and** Condition 2) **or** Condition 3). This means that if Condition 1 **and** Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rule.
 
@@ -44,14 +44,16 @@ $AllowRule = New-AzApplicationGatewayFirewallCustomRule `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Allow
+   -Action Allow `
+   -State Enabled
 
 $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Name example2 `
    -Priority 2 `
    -RuleType MatchRule `
    -MatchCondition $condition `
-   -Action Block
+   -Action Block `
+   -State Enabled
 ```
 
 The previous `$BlockRule` maps to the following custom rule in Azure Resource Manager:
@@ -63,6 +65,7 @@ The previous `$BlockRule` maps to the following custom rule in Azure Resource Ma
         "priority": 2,
         "ruleType": "MatchRule",
         "action": "Block",
+        "state": "Enabled",
         "matchConditions": [
           {
             "matchVariables": [
@@ -92,6 +95,10 @@ This custom rule contains a name, priority, an action, and the array of matching
 ### Name [optional]
 
 The name of the rule.  It appears in the logs.
+
+### Enable rule [optional]
+
+Turn this rule on/off. Custom rules are enabled by default.
 
 ### Priority [required]
 
