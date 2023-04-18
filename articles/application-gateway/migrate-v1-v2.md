@@ -168,7 +168,8 @@ Here are a few scenarios where your current application gateway (Standard) may r
 
    Update your clients to use the IP address(es) associated with the newly created v2 application gateway. We recommend that you don't use IP addresses directly. Consider using the DNS name label (for example, yourgateway.eastus.cloudapp.azure.com) associated with your application gateway that you can CNAME to your own custom DNS zone (for example, contoso.com).
 ## Application Gateway V2 Pricing
-The pricing models are different for Application gatewway v1 and v2 SKUs. Please see the Application Gateway pricing page to learn more.
+
+The pricing models are different for Application gatewway v1 and v2 SKUs. Please review the price at [Application Gateway pricing](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) page before migrating. Learn more on how to manage costs for your Application gateway V1 to V2 migration here.
 
 ## Common questions
 
