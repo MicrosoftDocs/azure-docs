@@ -40,14 +40,22 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: ITT TARTOK
-            url: overview-customers-ciam.md
+          - text: Self-service sign-up for customers
+            url: concept-user-flows-customers.md
+      - linkListType: how-to-guide
+        links:
+          - text: Add a sign-up and sign-in user flow
+            url: how-to-user-flow-sign-up-sign-in-customers.md            
   - title: Customize branding
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
-          - text: About Azure AD for customers
-            url: overview-customers-ciam.md
+          - text: Customize the default branding
+            url: how-to-customize-branding-customers.md
+      - linkListType: how-to-guide
+        links:
+          - text: Language specific branding
+            url: how-to-customize-languages-customers.md            
   - title: Manage external users (Azure AD B2B)
     linkLists:
       - linkListType: overview
