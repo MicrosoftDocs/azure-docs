@@ -5,7 +5,7 @@ description: Learn how to copy a blob from a source object URL in Azure Storage 
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 04/11/2023
+ms.date: 04/18/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -27,9 +27,9 @@ To work with the code examples in this article, make sure you have:
 - Permissions to perform a copy operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url#authorization)
     - [Put Block From URL](/rest/api/storageservices/put-block-from-url#authorization)
-- Packages installed to your project directory. These examples use **azure-storage-blob**. If you're using `DefaultAzureCredential` for authorization, you also need **azure-identity**. To learn more about setting up your project, see [Get Started with Azure Storage and Java](storage-blob-dotnet-get-started.md#set-up-your-project). To see the necessary `using` directives, see [Code samples](#code-samples).
+- Packages installed to your project directory. These examples use **azure-storage-blob**. If you're using `DefaultAzureCredential` for authorization, you also need **azure-identity**. To learn more about setting up your project, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md#set-up-your-project). To see the necessary `using` directives, see [Code samples](#code-samples).
 
-## About copying blobs from a source object URL
+## About copying a blob from a source object URL
 
 The `Put Blob From URL` operation creates a new block blob where the contents of the blob are read from a given URL. The operation completes synchronously.
 
@@ -58,37 +58,21 @@ For large objects, you may choose to work with individual blocks. The following 
 
 - [stageBlockFromUrl](/java/api/com.azure.storage.blob.specialized.blockblobclient#method-details)
 
-## Copy a blob within the same storage account
+## Copy a blob from a source within Azure
 
-If you're copying a blob within the same storage account, access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key. 
+If you're copying a blob from a source within Azure, access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key. 
 
-The following example shows a scenario for copying a source blob within the same storage account. The [uploadFromUrl](/java/api/com.azure.storage.blob.specialized.blockblobclient#method-details) method can optionally accept a Boolean parameter to indicate whether an existing blob should be overwritten, as shown in the example.
+The following example shows a scenario for copying a source blob within Azure. The [uploadFromUrl](/java/api/com.azure.storage.blob.specialized.blockblobclient#method-details) method can optionally accept a Boolean parameter to indicate whether an existing blob should be overwritten, as shown in the example.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/PutBlobFromURL.cs" id="Snippet_CopyWithinAccount_PutBlobFromURL":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyFromAzure_PutBlobFromURL":::
 
 The [uploadFromUrlWithResponse](/java/api/com.azure.storage.blob.specialized.blockblobclient#method-details) method can also accept a [BlobUploadFromUrlOptions](/java/api/com.azure.storage.blob.options.blobuploadfromurloptions) parameter to specify further options for the operation.
 
-## Copy a blob from another storage account
-
-If the source is a blob in another storage account, the source blob must either be public, or authorized via Azure AD or SAS token. The SAS token needs to include the **Read ('r')** permission. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
-
-The following example shows a scenario for copying a blob from another storage account:
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/PutBlobFromURL.cs" id="Snippet_CopyAcrossAccounts_PutBlobFromURL":::
-
-If you already have a SAS token, you can construct the URI for the source blob as follows:
-
-```csharp
-// Append the SAS token to the URI - include ? before the SAS token
-var sourceBlobSASURI = new Uri(
-    $"https://{srcAccountName}.blob.core.windows.net/{srcContainerName}/{srcBlobName}?{sasToken}");
-```
-
-## Copy a blob from a source outside of Azure
+## Copy a blob from an external source
 
 You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following example shows a scenario for copying a blob from an accessible source object URL.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/PutBlobFromURL.cs" id="Snippet_CopyFromExternalSource_PutBlobFromURL":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyFromExternalSource_PutBlobFromURL":::
 
 ## Resources
 
@@ -103,6 +87,6 @@ The Azure SDK for Java contains libraries that build on top of the Azure REST AP
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/PutBlobFromURL.cs)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java)
 
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
