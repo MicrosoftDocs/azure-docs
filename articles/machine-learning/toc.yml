@@ -671,7 +671,7 @@
     - name: Training with CLI and SDK
       href: how-to-train-model.md
     - name: Training with UI
-     href: how-to-train-with-ui.md
+      href: how-to-train-with-ui.md
     - name: Using secrets in training 
      href: how-to-use-secrets-in-runs.md
     - name: Custom Training
@@ -707,7 +707,7 @@
     - name: Debug jobs
       href: how-to-interactive-jobs.md
     - name: Schedule jobs
-     href: how-to-schedule-pipeline-job.md
+      href: how-to-schedule-pipeline-job.md
     - name: Common issues and FAQ
 - name: How-to guides
   items:
