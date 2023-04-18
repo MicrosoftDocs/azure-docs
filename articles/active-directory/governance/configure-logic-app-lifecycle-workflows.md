@@ -38,7 +38,7 @@ Making an Azure Logic app compatible to run with the **Custom Task Extension** r
 - Configure the logic app trigger
 - Configure the callback action (Only applicable to the callback scenario.)
 - Enable system assigned managed identity (Always required for Normal security token type extensions. This is also the default for callback scenarios with custom task extensions. For more information on this, and other, custom task extension deployment scenarios, see: [Custom task extension deployment scenarios](lifecycle-workflow-extensibility.md#custom-task-extension-deployment-scenarios).)
-- Configure AuthZ policies.
+- Configure AuthZ policies
 
 To configure those you follow these steps:
 
