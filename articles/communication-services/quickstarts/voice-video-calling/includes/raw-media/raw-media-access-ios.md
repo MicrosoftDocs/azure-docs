@@ -28,7 +28,7 @@ Accessing raw audio media gives you access to the incoming call's audio stream, 
 
 Make an options object specifying the raw stream properties we want to send. 
 
-    ```swift
+```swift
     let options = RawOutgoingAudioStreamOptions()
     let properties = RawOutgoingAudioProperties()
     properties.sampleRate = .hz44100
@@ -36,12 +36,12 @@ Make an options object specifying the raw stream properties we want to send.
     properties.channelMode = .mono
     properties.audioFormat = .pcm16Bit
     options.rawOutgoingAudioProperties = properties
-    ```
+```
 
 Create a `RawOutgoingAudioStream` and attach it to join call options and the stream automatically starts when call is connected.
 
-    ```swift 
-    let options = // JoinCallOptions() or StartCallOptions()
+```swift 
+    let options = JoinCallOptions() // or StartCallOptions()
 
     let outgoingAudioOptions = OutgoingAudioOptions()
     self.rawOutgoingAudioStream = RawOutgoingAudioStream(rawOutgoingAudioStreamOptions: rawOutgoingOptions)
@@ -50,18 +50,18 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
 
     // Start or Join call passing the options instance.
 
-    ```
+```
 
 ### Attach Stream to a call
 
 Or you can also attach the stream to an existing `Call` instance instead:
 
-    ```swift
+```swift
 
     call.startAudio(self.rawOutgoingAudioStream) { error in 
         // Stream attached to `Call`.
     }
-    ```
+```
 
 
 ### Start sending Raw Samples
@@ -69,28 +69,28 @@ Or you can also attach the stream to an existing `Call` instance instead:
 We can only start sending data once the stream state is `AudioStreamState.started`. 
 To observe the audio stream state change, we implement the `RawOutgoingAudioStreamDelegate`. And set it as the stream delegate.
 
-    ```swift
+```swift
     func rawOutgoingAudioStream(_ rawOutgoingAudioStream: RawOutgoingAudioStream,
                                 didOutgoingAudioStreamStateChanged args: OutgoingAudioStreamStateChangedEventArgs) {
         // When value is `AudioStreamState.started` we will be able to send audio samples.
     }
 
     self.rawOutgoingAudioStream.delegate = DelegateImplementer()
-    ```
+```
 
 or use closure based 
 
-    ```swift
+```swift
     self.rawOutgoingAudioStream.events.onStateChanged = { args in
         // When value is `AudioStreamState.started` we will be able to send audio samples.
     }
-    ```
+```
 
 When the stream started, we can start sending [`AVAudioPCMBuffer`](https://developer.apple.com/documentation/avfaudio/avaudiopcmbuffer) audio samples to the call. 
 
 The audio buffer format should match the specified stream properties.
 
-    ```swift
+```swift
     protocol SamplesProducer {
         func produceSample(_ currentSample: Int, 
                         options: RawOutgoingAudioStreamOptions) -> AVAudioPCMBuffer
@@ -167,7 +167,7 @@ The audio buffer format should match the specified stream properties.
                                     sampleRate: properties.sampleRate.valueInHz,
                                     channels: channelCount,
                                     interleaved: channelCount > 1)!
-            self?.timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
+            self.timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] _ in
                 guard let self = self else { return }
                 let sample = self.producer.produceSamples(self.currentSample, options: self.options)
                 let rawBuffer = RawAudioBuffer()
@@ -193,13 +193,13 @@ The audio buffer format should match the specified stream properties.
             stop()
         }
     }
-    ```
+```
 
 ### Capturing Microphone Samples
 
 Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) we can capture microphone frames by tapping into the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode). And capturing the microphone data and being able to use raw audio functionality, we're able to process the audio before sending it to a call. 
 
-    ```swift 
+```swift 
     import AVFoundation
     import AzureCommunicationCalling
 
@@ -268,7 +268,7 @@ Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaud
             audioEngine.stop()
         }
     }
-    ```
+```
 
 With this small sample, we learned how we can capture the microphone [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) data and send those samples to a call using raw outgoing audio feature.
 
@@ -279,38 +279,38 @@ We can also receive the call audio stream samples as [`AVAudioPCMBuffer`](https:
 
 Create a `RawIncomingAudioStreamOptions` object specifying the raw stream properties we want to receive.
 
-    ```swift
+```swift
     let options = RawIncomingAudioStreamOptions()
     let properties = RawIncomingAudioProperties()
     properties.audioFormat = .pcm16Bit
     properties.sampleRate = .hz44100
     properties.channelMode = .stereo
     options.rawIncomingAudioProperties = properties
-    ```
+```
 
 Create a `RawOutgoingAudioStream` and attach it to join call options
 
-    ```swift 
-    let options = // JoinCallOptions() or StartCallOptions()
+```swift 
+    let options =  JoinCallOptions() // or StartCallOptions()
     let incomingAudioOptions = IncomingAudioOptions()
 
     self.rawIncomingStream = RawIncomingAudioStream(rawIncomingAudioStreamOptions: audioStreamOptions)
     incomingAudioOptions.incomingAudioStream = self.rawIncomingStream
     options.incomingAudioOptions = incomingAudioOptions
-    ```
+```
 
 Or we can also attach the stream to an existing `Call` instance instead:
 
-    ```swift
+```swift
 
     call.startAudio(self.rawIncomingStream) { error in 
         // Stream attached to `Call`.
     }
-    ```
+```
 
 For starting to receive raw audio buffer from the incoming stream implement the `RawIncomingAudioStreamDelegate`:
 
-    ```swift
+```swift
     class RawIncomingReceiver: NSObject, RawIncomingAudioStreamDelegate {
         func rawIncomingAudioStream(_ rawIncomingAudioStream: RawIncomingAudioStream,
                                     didChangeState args: AudioStreamStateChangedEventArgs) {
@@ -324,11 +324,11 @@ For starting to receive raw audio buffer from the incoming stream implement the 
     }
 
     self.rawIncomingStream.delegate = RawIncomingReceiver()
-    ```
+```
 
 or
 
-    ```swift
+```swift
     rawIncomingAudioStream.events.mixedAudioBufferReceived = { args in
         // Receive raw audio buffers(AVAudioPCMBuffer) and process them using AVAudioEngine API's.
     }
@@ -336,7 +336,7 @@ or
     rawIncomingAudioStream.events.onStateChanged = { args in
         // To be notified when stream started and stopped.
     }
-    ```
+```
 
 ## Raw Video Access
 
