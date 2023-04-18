@@ -36,8 +36,8 @@ Users receive a notification in Outlook mobile to approve or deny sign-in, or th
 
   | Operating system | Outlook version |
   |:----------------:|:---------------:|
-  |Android           | 4.2309.1        |
-  |iOS               | 4.2309.0        |
+  |Android           | 4.2310.1        |
+  |iOS               | 4.2312.1        |
 
 ## Enable Authenticator Lite
 
