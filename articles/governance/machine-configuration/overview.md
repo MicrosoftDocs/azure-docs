@@ -1,11 +1,8 @@
 ---
 title: Understand Azure Automanage Machine Configuration
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
-author: timwarner-msft
 ms.date: 03/02/2023
 ms.topic: conceptual
-ms.author: timwarner
-ms.service: machine-configuration
 ---
 # Understand the machine configuration feature of Azure Automanage
 
@@ -245,6 +242,9 @@ for communication to the machine configuration service. Apply tag with the name
 applied before or after machine configuration policy definitions are applied to
 the machine.
 
+> [!IMPORTANT]
+> In order to communicate over private link for custom packages, the link to the location of the package must be added to the list of allowed URLS. 
+
 Traffic is routed using the Azure
 [virtual public IP address](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 to establish a secure, authenticated channel with Azure platform resources.
@@ -398,10 +398,10 @@ Capture information from log files using
 following example Bash script can be helpful.
 
 ```bash
-linesToIncludeBeforeMatch=0
-linesToIncludeAfterMatch=10
-logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
-egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
+LINES_TO_INCLUDE_BEFORE_MATCH=0
+LINES_TO_INCLUDE_AFTER_MATCH=10
+LOGPATH=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
+egrep -B $LINES_TO_INCLUDE_BEFORE_MATCH -A $LINES_TO_INCLUDE_AFTER_MATCH 'DSCEngine|DSCManagedEngine' $LOGPATH | tail
 ```
 
 ### Agent files
@@ -413,6 +413,24 @@ view the folder locations given below.
 Windows: `c:\programdata\guestconfig\configuration`
 
 Linux: `/var/lib/GuestConfig/Configuration`
+
+
+### Open-source nxtools module functionality
+
+A new open-source [nxtools module](https://github.com/azure/nxtools#getting-started) has been released to help make managing Linux systems easier for PowerShell users.
+
+The module will help in managing common tasks such as these:
+
+-	User and group management
+-	File system operations (changing mode, owner, listing, set/replace content)
+-	Service management (start, stop, restart, remove, add)
+- Archive operations (compress, extract)
+-	Package management (list, search, install, uninstall packages)
+
+The module includes class-based DSC resources for Linux, as well as built-in machine-configuration packages.
+
+To provide feedback about this functionality, open an issue on the documentation. We currently _don't_ accept PRs for this project, and support is best effort.
+
 
 ## Machine configuration samples
 

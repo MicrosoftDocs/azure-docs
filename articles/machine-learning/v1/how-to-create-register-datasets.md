@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy21q1, data4ml, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, contperf-fy21q1, data4ml, event-tier1-build-2022, ignite-2022, devx-track-arm-template
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
@@ -18,7 +18,7 @@ ms.date: 09/28/2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](how-to-create-register-datasets.md)
-> * [v2 (current version)](../how-to-create-data-assets.md)
+> * [v2 (current version)](../how-to-create-data-assets.md?view=azureml-api-2&preserve-view=true)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 

@@ -1,7 +1,7 @@
 ---
 title: What's new in the Remote Desktop Microsoft Store client - Azure Virtual Desktop
 description: Learn about recent changes to the Remote Desktop Microsoft Store client
-ms.topic: conceptual
+ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
 ms.date: 01/04/2023

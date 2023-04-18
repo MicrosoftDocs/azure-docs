@@ -4,7 +4,7 @@ description: This article tells how to use Update management center (preview) us
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 02/20/2023
+ms.date: 03/31/2023
 ms.topic: conceptual
 ---
 
@@ -21,7 +21,7 @@ Support for Azure REST API to manage Azure Arc-enabled servers is available thro
 To trigger an update assessment on your Azure Arc-enabled server, specify the following POST request:
 
 ```rest
-POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/provider/Microsoft.HybridCompute/machines/machineName/assessPatches?api-version=2020-08-15-preview`
+POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/assessPatches?api-version=2020-08-15-preview`
 {
 }
 ```
@@ -31,7 +31,7 @@ POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/provider/
 To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
-az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/provider/Microsoft.HybridCompute/machines/machineName/assessPatches?api-version=2020-08-15-preview --body @body.json
+az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/assessPatches?api-version=2020-08-15-preview --body @body.json
 ```
 
 The format of the request body for version 2020-08-15 is as follows:
@@ -43,20 +43,13 @@ The format of the request body for version 2020-08-15 is as follows:
 
 # [Azure PowerShell](#tab/powershell)
 
-To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
+To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMethod-Path](/powershell/module/az.accounts/invoke-azrestmethod) cmdlet.
 
 ```azurepowershell
-Invoke-AzRestMethod
-  -ResourceGroupName resourceGroupName 
-  -Name "machineName" 
-  -ResourceProviderName "Microsoft.HybridCompute" 
-  -ResourceType "machines" 
-  -ApiVersion 2020-08-15-preview
-  -Payload '{      
-      }' 
-  -Method POST
+Invoke-AzRestMethod-Path
+  "/subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.HybridCompute/machines/machinename/assessPatches?api-version=2020-08-15-preview" 
+  -Payload '{}' -Method POST
 ```
-
 ---
 
 ## Update deployment
@@ -64,7 +57,7 @@ Invoke-AzRestMethod
 To trigger an update deployment to your Azure Arc-enabled server, specify the following POST request:
 
 ```rest
-POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/provider/Microsoft.HybridCompute/machines/machineName/installPatches?api-version=2020-08-15-preview`
+POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/installPatches?api-version=2020-08-15-preview`
 ```
 
 #### Request body
@@ -154,12 +147,8 @@ To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMeth
 
 ```azurepowershell
 Invoke-AzRestMethod
-  -ResourceGroupName resourceGroupName 
-  -Name "machineName" 
-  -ResourceProviderName "Microsoft.HybridCompute" 
-  -ResourceType "machines" 
-  -ApiVersion 2020-08-15-preview
-  -Payload '{      
+-Path "/subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.HybridCompute/machines/machinename/installPatches?api-version=2020-08-15-preview"
+-Payload '{      
         "maximumDuration": "PT120M",
         "rebootSetting": "IfRequired",
         "windowsParameters": {

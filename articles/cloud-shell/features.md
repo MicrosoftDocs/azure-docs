@@ -1,15 +1,8 @@
 ---
-author: sdwheeler
 description: Overview of features in Azure Cloud Shell
-manager: mkluck
-ms.author: sewhee
 ms.contributor: jahelmic
 ms.date: 03/03/2023
-ms.service: cloud-shell
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.workload: infrastructure-services
-services: Azure
 tags: azure-resource-manager
 title: Azure Cloud Shell features
 ---

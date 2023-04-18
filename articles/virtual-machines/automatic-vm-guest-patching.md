@@ -275,12 +275,12 @@ Automatic updates are disabled in most scenarios, and patch installation is done
 - For Ubuntu VMs, the default automatic updates are disabled automatically when Automatic VM Guest Patching completes enablement.
 - For RHEL, automatic updates need to be manually disabled. Execute:
 
-```
-systemctl stop packagekit
+```bash
+sudo systemctl stop packagekit
 ```
 
-```
-systemctl mask packagekit
+```bash
+sudo systemctl mask packagekit
 ```
 
 To verify whether automatic VM guest patching has completed and the patching extension is installed on the VM, you can review the VM's instance view. If the enablement process is complete, the extension will be installed and the assessment results for the VM will be available under `patchStatus`. The VM's instance view can be accessed through multiple ways as described below.

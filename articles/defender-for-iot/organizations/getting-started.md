@@ -5,11 +5,11 @@ ms.topic: get-started
 ms.date: 12/25/2022
 ---
 
-# Quickstart: Get started with OT network security monitoring
+# Add an OT plan to your Azure subscription
 
-This quickstart describes how to set up a trial plan for OT security monitoring with Microsoft Defender for IoT.
+This article describes how to set up a trial plan for OT security monitoring with Microsoft Defender for IoT.
 
-A trial plan for OT monitoring provides 30-day support for 1000 devices. Use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
+A trial plan for OT monitoring provides 30-day support for 1000 devices. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
 
 ## Prerequisites
 
@@ -19,19 +19,11 @@ Before you start, make sure that you have:
 
 - Access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
 
-## Identify and plan your OT solution architecture
+- A plan for your Defender for IoT deployment, such as any system requirements, [traffic mirroring](best-practices/traffic-mirroring-methods.md), any [SSL/TLS certificates](ot-deploy/create-ssl-certificates.md), and so on. For more information, see [Plan your OT monitoring system](best-practices/plan-corporate-monitoring.md).
 
-We recommend that you identify system requirements and plan your OT network monitoring architecture before you start, even if you're starting with a trial subscription.
+    If you want to use on-premises sensors, make sure that you have the [hardware appliances](ot-appliance-sizing.md) for those sensors and any administrative user permissions.
 
-- Make sure that you have network switches that support [traffic monitoring](best-practices/traffic-mirroring-methods.md) via a SPAN port and TAPs  (Test Access Points).
-
-- Research your own network architecture and decide which and how much data you'll want to monitor. Check any requirements for creating certificates and other details, and [understand where on your network](best-practices/understand-network-architecture.md) you'll want to place your OT network sensors.
-
-- If you want to use on-premises sensors, make sure that you have the [hardware appliances](ot-appliance-sizing.md) for those sensors and any administrative user permissions.
-
-For more information, see the [OT monitoring predeployment checklist](pre-deployment-checklist.md).
-
-## Add a trial Defender for IoT plan for OT networks
+## Add a trial plan
 
 This procedure describes how to add a trial Defender for IoT plan for OT networks to an Azure subscription.
 
@@ -62,14 +54,5 @@ Your new plan is listed under the relevant subscription on the **Plans and prici
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Onboard and activate a virtual OT sensor](tutorial-onboarding.md)
-
-> [!div class="nextstepaction"]
-> [Use a pre-configure physical appliance](ot-pre-configured-appliances.md)
-
-> [!div class="nextstepaction"]
-> [Understand Defender for IoT subscription billing](billing.md)
-
-> [!div class="nextstepaction"]
-> [Defender for IoT pricing](https://azure.microsoft.com/pricing/details/iot-defender/)
+> [!div class="step-by-step"]
+> [Defender for IoT OT deployment path »](ot-deploy/ot-deploy-path.md)

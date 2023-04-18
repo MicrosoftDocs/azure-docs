@@ -7,24 +7,23 @@ ms.topic: install-set-up-deploy
 
 # Install Microsoft Defender for IoT on-premises management console software
 
+This article is one in a series of articles describing the [deployment path](air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
+
+:::image type="content" source="../media/deployment-paths/management-install.png" alt-text="Diagram of a progress bar with Install software highlighted." border="false" lightbox="../media/deployment-paths/management-install.png":::
+
 Use the procedures in this article when installing Microsoft Defender for IoT software on an on-premises management console. You might be reinstalling software on a [pre-configured appliance](../ot-pre-configured-appliances.md), or you may be installing software on your own appliance.
+
+[!INCLUDE [caution do not use manual configurations](../includes/caution-manual-configurations.md)]
 
 ## Prerequisites
 
-Before installing Microsoft Defender for IoT, make sure that you have:
+Before installing Defender for IoT software on your on-premises management console, make sure that you have:
 
-- [Traffic mirroring configured in your network](../best-practices/traffic-mirroring-methods.md)
-- An [OT plan in Defender for IoT](../how-to-manage-subscriptions.md) on your Azure subscription
-- An OT sensor [onboarded to Defender for IoT](../onboard-sensors.md) in the Azure portal
-- [OT monitoring software installed on an OT network sensor](install-software-ot-sensor.md)
+- An [OT plan in Defender for IoT](../getting-started.md) on your Azure subscription.
 
-Each appliance type also comes with its own set of instructions that are required before installing Defender for IoT software. Make sure that you've completed any specific procedures required for your appliance before installing Defender for IoT software.
+- Access to the Azure portal as a [Security Reader](../../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../../role-based-access-control/built-in-roles.md#owner) user
 
-For more information, see:
-
-- The [OT monitoring appliance catalog](../appliance-catalog/index.yml)
-- [Which appliances do I need?](../ot-appliance-sizing.md)
-- [OT monitoring with virtual appliances](../ot-virtual-appliances.md)
+- A [physical or virtual appliance prepared](prepare-management-appliance.md)for your on-premises management console.
 
 ## Download software files from the Azure portal
 
@@ -35,11 +34,16 @@ Select **Getting started** > **On-premises management console** and select the s
 > [!IMPORTANT]
 > If you're updating software from a previous version, alternately use the options from the **Sites and sensors** > **Sensor update (Preview)** menu. Use this option especially when you're updating your on-premises management console together with connected OT sensors. For more information, see [Update Defender for IoT OT monitoring software](../update-ot-software.md).
 
+[!INCLUDE [root-of-trust](../includes/root-of-trust.md)]
+
 ## Install on-premises management console software
 
 This procedure describes how to install OT management software on an on-premises management console, for a physical or virtual appliance.
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+
+> [!NOTE]
+> Towards the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
 
 **To install the software**:
 
@@ -47,20 +51,18 @@ The installation process takes about 20 minutes. After the installation, the sys
 
     - **Physical media** – burn the ISO file to your external storage, and then boot from the media.
 
-        -	DVDs: First burn the software to the DVD as an image
-        -	USB drive: First make sure that you’ve created a bootable USB drive with software such as [Rufus](https://rufus.ie/en/), and then save the software to the USB drive. USB drives must have USB version 3.0 or later.
+        - DVDs: First burn the software to the DVD as an image
+        - USB drive: First make sure that you’ve created a bootable USB drive with software such as [Rufus](https://rufus.ie/en/), and then save the software to the USB drive. USB drives must have USB version 3.0 or later.
 
         Your physical media must have a minimum of 4-GB storage.
 
     - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
 1. The initial console window lists installation languages. Select the language you want to use. For example:
-1. 
+
    :::image type="content" source="../media/tutorial-install-components/on-prem-language-select.png" alt-text="Screenshot of selecting your preferred language for the installation process.":::
 
-1. The console lists a series of installation options. Select the option that best matches your requirements. <!--these are the old hw profiles. how to match them up?--> For example:
-
-   :::image type="content" source="../media/tutorial-install-components/on-prem-install-screen.png" alt-text="Screenshot of selecting your management release version.":::
+1. The console lists a series of installation options. Select the option that best matches your requirements. <!--these are the old hw profiles. how to match them up?-->
 
     The installation wizard starts running. This step takes several minutes to complete, and includes system reboots. <!--how many?-->
 
@@ -90,7 +92,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. When prompted, enter `Y` to accept the settings. The installation process runs for about 10 minutes.
 
-1. When the installation process is complete, an appliance ID is displayed with a set of credentials for the *cyberx* privileged user. Save the credentials carefully as they won't be displayed again.
+1. <a name="users"></a>When the installation process is complete, an appliance ID is displayed with a set of credentials for the *cyberx* privileged user. Save the credentials carefully as they won't be displayed again.
 
     When you're ready, press **ENTER** to continue. An appliance ID is displayed with a set of credentials for the *support* privileged user. Save these credentials carefully as well, as they won't be displayed again either.
 
@@ -102,57 +104,43 @@ The installation process takes about 20 minutes. After the installation, the sys
 
     Sign in using one of the privileged user credentials you'd saved earlier. Alternately, browse to the on-premises management console's IP address in a browser, and sign in to the UI using one of the privileged user credentials.
 
-### Add a secondary NIC after installation (optional)
+## Configure network adapters for a VM deployment
 
-You can enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. When you use a secondary NIC, the first is dedicated for end-users, and the secondary supports the configuration of a gateway for routed networks.
+After deploying an on-premises management console sensor on a [virtual appliance](../ot-virtual-appliances.md), configure at least one network adapter on your VM to connect to both the on-premises management console UI and to any connected OT sensors. If you've added a secondary NIC to separate between the two connections, configure two separate network adapters.
 
-:::image type="content" source="../media/tutorial-install-components/secondary-nic.png" alt-text="Diagram that shows the overall architecture of the secondary NIC." border="false":::
+**On your virtual machine**:
 
-Both NICs will support the user interface (UI). If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC.
+1. Open your VM settings for editing.
+1. Together with the other hardware defined for your VM, such as memory, CPUs, and hard disk, add the following network adapters:
 
-This procedure describes how to add a secondary NIC if you've already installed your on-premises management console.
+    |Adapters  |Description  |
+    |---------|---------|
+    |**Single network adapter**     |   To use a single network adapter, add **Network adapter 1** to connect to the on-premises management console UI and any connected OT sensors.      |
+    |**Secondary NIC**     |   To use a secondary NIC in addition to your main network adapter, add: <br> <br> - **Network adapter 1** to connect to the on-premises management console UI <br>  - **Network adapter 2**, to connect to connected OT sensors     |
 
-**To add a secondary NIC**:
+For more information, see:
 
-1. Use the network reconfigure command:
+- Your virtual machine software documentation
+- [On-premises management console (VMware ESXi)](../appliance-catalog/virtual-management-vmware.md)
+- [On-premises management console (Microsoft Hyper-V hypervisor)](../appliance-catalog/virtual-management-hyper-v.md)
+- [Networking requirements](../networking-requirements.md)
 
-    ```bash
-    sudo cyberx-management-network-reconfigure
-    ```
+## Find a port on your appliance
 
-1. Enter the following responses to the following questions:
-
-    :::image type="content" source="../media/tutorial-install-components/network-reconfig-command.png" alt-text="Screenshot of the required answers to configure your appliance. ":::
-
-    | Parameters | Response to enter |
-    |--|--|
-    | **Management Network IP address** | `N` |
-    | **Subnet mask** | `N` |
-    | **DNS** | `N` |
-    | **Default gateway IP Address** | `N` |
-    | **Sensor monitoring interface** <br>Optional. Relevant when sensors are on a different network segment.| `Y`, and select a possible value |
-    | **An IP address for the sensor monitoring interface** | `Y`, and enter an IP address that's  accessible by the sensors|
-    | **A subnet mask for the sensor monitoring interface** | `Y`, and enter an IP address that's  accessible by the sensors|
-    | **Hostname** | Enter the hostname |
-
-1. Review all choices and enter `Y` to accept the changes. The system reboots.
-
-### Find a port on your appliance
-
-If you're having trouble locating the physical port on your appliance, you can use the following command to find your port:
+If you're having trouble locating the physical port on your appliance, sign into the on-premises management console and run the following command to find your port:
 
 ```bash
 sudo ethtool -p <port value> <time-in-seconds>
 ```
 
-This command will cause the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes, allowing you to find the port on the back of your appliance.
-
-[!INCLUDE [caution do not use manual configurations](../includes/caution-manual-configurations.md)]
+This command causes the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes, allowing you to find the port on the back of your appliance.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Validate after installing software](post-install-validation-ot-software.md)
+For more information, see [Troubleshoot the on-premises management console](../how-to-troubleshoot-on-premises-management-console.md).
 
-> [!div class="nextstepaction"]
-> [Troubleshooting](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+> [!div class="step-by-step"]
+> [« Prepare an on-premises management console appliance](prepare-management-appliance.md)
+
+> [!div class="step-by-step"]
+> [Activate and set up an on-premises management console »](activate-deploy-management.md)

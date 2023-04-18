@@ -30,10 +30,10 @@ ms.author: danlep
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-|thumbprint|The thumbprint for the client certificate.|Either `thumbprint` or `certificate-id` can be present.|N/A|
-|certificate-id|The certificate resource name.|Either `thumbprint` or `certificate-id` can be present.|N/A|
-|body|Client certificate as a byte array. Use if the certificate isn't retrieved from the built-in certificate store.|No|N/A|
-|password|Password for the client certificate.|Use if certificate specified in `body` is password protected.|N/A|
+|thumbprint|The thumbprint for the client certificate. Policy expressions are allowed. |Either `thumbprint` or `certificate-id` can be present.|N/A|
+|certificate-id|The certificate resource name. Policy expressions are allowed.|Either `thumbprint` or `certificate-id` can be present.|N/A|
+|body|Client certificate as a byte array. Use if the certificate isn't retrieved from the built-in certificate store. Policy expressions are allowed.|No|N/A|
+|password|Password for the client certificate. Policy expressions are allowed.|Use if certificate specified in `body` is password protected.|N/A|
 
 ## Usage
 

@@ -1,0 +1,9 @@
+{
+    "redirections": [    
+        {
+            "source_path_from_root": "/articles/aks/stop-api-upgrade.md",
+            "redirect_url": "/azure/aks/upgrade-cluster",
+            "redirect_document_id": false
+        }
+    ]
+}

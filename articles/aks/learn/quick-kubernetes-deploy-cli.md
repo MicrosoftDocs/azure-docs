@@ -139,8 +139,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 
 1. Create a file named `azure-vote.yaml` and copy in the following manifest.
 
-    * If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system.
-
+    
     ```yaml
     apiVersion: apps/v1
     kind: Deployment

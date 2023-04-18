@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/08/2022
 ms.author: allensu
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-bicep
 # Customer intent: I want to create a NAT gateway using Bicep so that I can provide outbound connectivity for my virtual machines.
 ---
 

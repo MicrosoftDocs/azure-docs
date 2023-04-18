@@ -18,6 +18,9 @@ The [Spark Connector](quickstart-spark.md) allows you to communicate with Azure 
 > [!TIP]
 > This article documents the use of global throughput control groups in the Azure Cosmos DB Spark Connector, but the functionality is also available in the [Java SDK](./sdk-java-v4.md). In the SDK, you can also use Local Throughput Control groups to limit the RU consumption in the context of a single client connection instance. For example, you can apply this to different operations within a single microservice, or maybe to a single data loading program. Take a look at a code snippet [here](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/src/samples/java/com/azure/cosmos/ThroughputControlCodeSnippet.java) for how to build a CosmosAsyncClient with both local and global control groups.
 
+> [!WARNING]
+> Please note that throughput control is not yet supported for gateway mode.
+
 ## Why is throughput control important?
 
  Having throughput control helps to isolate the performance needs of applications running against a container, by limiting the amount of [request units](../request-units.md) that can be consumed by a given Spark client. 

@@ -3,7 +3,7 @@ title: What's New - Anomaly Detector
 description: This article is regularly updated with news about the Azure Cognitive Services Anomaly Detector.
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: overview
+ms.topic: whats-new
 ms.date: 12/15/2022
 ---
 
@@ -11,12 +11,12 @@ ms.date: 12/15/2022
 
 Learn what's new in the service. These items include release notes, videos, blog posts, papers, and other types of information. Bookmark this page to keep up to date with the service.
 
-We've also added links to some user-generated content. Those items will be marked with **[UGC]** tag. Some of them are hosted on websites that are external to Microsoft and Microsoft is not responsible for the content there. Use discretion when you refer to these resources. Contact AnomalyDetector@microsoft.com or raise an issue on GitHub if you'd like us to remove the content.
+We have also added links to some user-generated content. Those items will be marked with **[UGC]** tag. Some of them are hosted on websites that are external to Microsoft and Microsoft isn't responsible for the content there. Use discretion when you refer to these resources. Contact AnomalyDetector@microsoft.com or raise an issue on GitHub if you'd like us to remove the content.
 
 ## Release notes
 
 ### Jan 2023
-* Multivariate Anomaly Detection will begin charging as of January 10th, 2023. For pricing details see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).
+* Multivariate Anomaly Detection will begin charging as of January 10th, 2023. For pricing details, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).
 
 ### Dec 2022
 * Multivariate Anomaly Detection SDK is updated to match with GA API for four languages.
@@ -36,7 +36,7 @@ We've also added links to some user-generated content. Those items will be marke
 
 ### June 2022
 
-* New blog released: [4 sets of best practices to use Multivariate Anomaly Detector when monitoring your equipment](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/4-sets-of-best-practices-to-use-multivariate-anomaly-detector/ba-p/3490848#footerContent).
+* New blog released: [Four sets of best practices to use Multivariate Anomaly Detector when monitoring your equipment](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/4-sets-of-best-practices-to-use-multivariate-anomaly-detector/ba-p/3490848#footerContent).
 
 ### May 2022
 
