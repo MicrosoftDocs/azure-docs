@@ -20,11 +20,11 @@ Azure Maps has been available since May 2018. Azure Maps has been providing fres
 
 ## Add a business place or a residential address
 
-You may want to provide feedback about a missing point of interest or a residential address. There are two ways to do so. Open the Azure Map data feedback site, search for the missing location's coordinates, and then select "Add a place"
+You may want to provide feedback about a missing point of interest or a residential address. There are two ways to do so. Open the Azure Map data feedback site, search for the missing location's coordinates, and then select **Add a place**.
 
   ![search missing location](./media/how-to-use-feedback-tool/search-poi.png)
 
-Or, you can interact with the map. Select the location to drop a pin at the coordinate then select "Add a place".
+Or, you can interact with the map. Select the location to drop a pin at the coordinate then select **Add a place**.
 
   ![add pin](./media/how-to-use-feedback-tool/add-poi.png)
 
@@ -34,35 +34,33 @@ Once selected, you're directed to a form to provide the corresponding details fo
 
 ## Fix a business place or a residential address
 
-The feedback site also allows you to search and locate a business place or an address. You can provide feedback to fix the address or the pin location, if they aren't correct. To provide feedback to fix the address, use the search bar to search for a business place or residential address. Select the location of your interest from the results list, then "Fix this place".
+The feedback site also allows you to search and locate a business place or an address. You can provide feedback to fix the address or the pin location, if they aren't correct. To provide feedback to fix the address, use the search bar to search for a business place or residential address. Select the location of your interest from the results list, then **Fix this place**.
 
   ![search place to fix](./media/how-to-use-feedback-tool/fix-place.png)
 
-To provide feedback to fix the address, fill out the "Fix a place" form, then select **Submit**.
+To provide feedback to fix the address, fill out the **Fix a place** form, then select **Submit**.
 
   ![fix form](./media/how-to-use-feedback-tool/fix-form.png)
 
-If the pin location for the place is wrong, select the "The pin location is incorrect" checkbox. Move the pin to the correct location, and then select **Submit**.
+If the pin location for the place is wrong, select the **The pin location is incorrect** checkbox. Move the pin to the correct location, and then select **Submit**.
 
   ![move pin location](./media/how-to-use-feedback-tool/move-pin.png)
 
 ## Add a comment
 
-In addition to letting you search for a location, the feedback tool also lets you add a free form text comment for details related to the location. To add a comment, search for the location or select the location, write a comment in the "Add a comment" field then "Submit".
+In addition to letting you search for a location, the feedback tool also lets you add a free form text comment for details related to the location. To add a comment, search for the location or select the location, write a comment in the **Add a comment** field then **Submit**.
 
   ![add comment](./media/how-to-use-feedback-tool/add-comment.png)
 
 ## Track status
 
-You can also track the status of your request by checking the "I want to track status" box and providing your email while making a request. You receive a tracking link in the email that provides an up-to-date status of your request.
+You can also track the status of your request by selecting the **I want to track status** box and providing your email while making a request. You receive a tracking link in the email that provides an up-to-date status of your request.
 
   ![feedback status](./media/how-to-use-feedback-tool/feedback-status.png)
 
 ## Next steps
 
-To post any technical questions related to Azure Maps, visit:
-
-* [Microsoft Q & A]
+For any technical questions related to Azure Maps, see [Microsoft Q & A].
 
 [Azure Maps Data feedback site]: https://feedback.azuremaps.com
 [Microsoft Q & A]: /answers/topics/azure-maps.html
