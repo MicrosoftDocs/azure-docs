@@ -33,7 +33,7 @@ az group create --name rg-oracle --location eastus
 ```
 
 > [!Note]
-> The example in this quickstart creates a resource group and VM in the East US location. This location supports the Standard_DS2_v2 SKU type. If you create your resource group and VM in a different region location, you might have to select a different SKU type. You can use the `HERE` command to find SKUs supported for your VM region location.
+> This quickstart creates a Standard_DS2_v2 SKU VM in the East US region. To view the list of supported SKUs by region, use the [az vm list-skus](/cli/azure/vm#az-vm-list-skus) command.
 
 ## Create virtual machine
 
@@ -70,7 +70,7 @@ After you create the VM, Azure CLI displays information similar to the following
 
 ## Create disk for Oracle data files
 
-Create and attach a new disk for Oracle data files and a fast recovery area (FRA) with the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach) command. 
+Create and attach a new disk for Oracle data files and a fast recovery area (FRA) with the [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) command. 
 
 The following example creates a disk named **oradata01**.
 
@@ -88,13 +88,13 @@ az vm disk attach \
 
 In this task, you must configure some external endpoints for the database listener to use by setting up the Azure network security group (NSG) that protects the VM. 
 
-1. Create the NSG for the VM with the [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) command. This command creates the **vmoracle19cNSG** NSG for rules to control access to the VM:
+1. Create the NSG for the VM with the [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) command. This command creates the **vmoracle19cNSG** NSG for rules to control access to the VM:
 
    ```azurecli-interactive
    az network nsg create --resource-group rg-oracle --name vmoracle19cNSG
    ```
 
-1. Create an NSG rule with the [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) command. This command creates the **allow-oracle** NSG rule to open the endpoint for remote access to the Oracle database:
+1. Create an NSG rule with the [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) command. This command creates the **allow-oracle** NSG rule to open the endpoint for remote access to the Oracle database:
 
    ```azurecli-interactive
    az network nsg rule create \
@@ -118,7 +118,7 @@ In this task, you must configure some external endpoints for the database listen
        --destination-port-range 5502
    ```
 
-1. As needed, use the [az network public-ip show](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) command to get the public IP address of your VM:
+1. As needed, use the [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) command to get the public IP address of your VM:
 
    ```azurecli-interactive
    az network public-ip show \
@@ -431,6 +431,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-- Protect your database in Azure with [Oracle backup strategies](./oracle-database-backup-strategies.md)
-- Explore [Oracle solutions on Azure](./oracle-overview.md) 
-- [Install and configure Oracle Automated Storage Management](configure-oracle-asm.md)
+- Protect your database in Azure with [Oracle backup strategies](/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies)
+- Explore [Oracle solutions on Azure](/azure/virtual-machines/workloads/oracle/oracle-overview) 
+- [Install and configure Oracle Automated Storage Management](/azure/virtual-machines/workloads/oracle/configure-oracle-asm)
