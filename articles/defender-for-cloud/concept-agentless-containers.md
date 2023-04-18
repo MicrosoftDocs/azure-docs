@@ -106,16 +106,25 @@ Agentless information in Defender CSPM is updated once an hour through a snapsho
 
 ## FAQs
 
-**What do I do if I have stopped clusters?**
+### Why don't I see results from my clusters?
+
+If you don't see results from your clusters, check the following:
+
+- Do you have [stopped clusters](#what-do-i-do-if-i-have-stopped-clusters)?
+- Are your clusters [Read only (locked)](#what-do-i-do-if-i-have-read-only-clusters-locked)?
+
+### What do I do if I have stopped clusters?
 
 We suggest that you rerun the cluster to solve this issue.
 
-**What do I do if I have Read only clusters (locked)?**
+### What do I do if I have Read only clusters (locked)?
 
 We suggest that you do one of the following:
 
 - Remove the lock.
 - Perform the bind operation manually by doing an API request.
+
+Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
 
 ## Next steps
 
