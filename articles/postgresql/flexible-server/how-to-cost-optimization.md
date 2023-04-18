@@ -31,7 +31,7 @@ Azure Postgres reserved capacity pricing allows committing to a specific capacit
 
 To learn more, refer [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-## 2. Scale compute Up/Down
+## 2. Scale compute up/down
 
 Scaling up or down the resources of an Azure Database for PostgreSQL server can help you optimize costs. Adjust the vCores and storage as needed to only pay for necessary resources. Scaling can be done through the Azure portal, Azure CLI, or Azure REST API. Scaling compute resources up or down can be done at any time and requires server restart. It's good practice to monitor your database usage patterns and adjust the resources accordingly to optimize costs and ensure performance. For more details, please refer Compute and Storage options in Azure Database for PostgreSQL - Flexible Server.
 
@@ -82,11 +82,11 @@ Creating a test server in a cost-efficient Azure region can be a cost-saving str
 1. Migrate test data: Migrate the test data to the new Flexible Server instance. You can use tools such as pg_dump and pg_restore to export and import databases.
 1. Monitor performance: Monitor the performance of the test server and adjust the resources as needed to ensure optimal performance.
 
-By creating a test server in a cost-efficient Azure region, you can reduce the cost of running your test server and minimize the cost of running Azure Database for PostgreSQL. It is important to evaluate the impact of the region on your test server's performance and your organization's specific regional requirements. This ensures that network latency and data transfer costs are acceptable for your use case. For more details, refer Azure Database for PostgreSQL pricing.
+By creating a test server in a cost-efficient Azure region, you can reduce the cost of running your test server and minimize the cost of running Azure Database for PostgreSQL. It is important to evaluate the impact of the region on your test server's performance and your organization's specific regional requirements. This ensures that network latency and data transfer costs are acceptable for your use case.
 
 To learn more, refer [Azure regions](/azure/architecture/framework/cost/design-regions)
 
-## 7. Starting and Stopping servers
+## 7. Starting and stopping servers
 
 Starting and stopping servers can be a cost-saving strategy for Azure Database for PostgreSQL Flexible Server. By only running the server when you need it, you can reduce the cost of running Azure Database for PostgreSQL. Here are a few steps to help you start and stop servers and save costs:
 
@@ -127,12 +127,12 @@ As you design your application database on Azure Database for PostgerSQL Flexibl
 **Cost vs security**
 > Increasing security of the workload will increase cost.
 
-**Cost vs performance efficiency**
+**Cost vs operational excellence**
 > Investing in systems monitoring and automation might increase the cost initially but over time will reduce cost.
 
 ## Next steps
 
-To learn more about Cost optimization, see:
+To learn more about cost optimization, see:
 
 * [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview)
 * [Tradeoffs for cost](/azure/architecture/framework/cost/tradeoffs)
