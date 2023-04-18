@@ -167,6 +167,8 @@ Here are a few scenarios where your current application gateway (Standard) may r
 * **Your clients connect to the frontend IP address of your application gateway**.
 
    Update your clients to use the IP address(es) associated with the newly created v2 application gateway. We recommend that you don't use IP addresses directly. Consider using the DNS name label (for example, yourgateway.eastus.cloudapp.azure.com) associated with your application gateway that you can CNAME to your own custom DNS zone (for example, contoso.com).
+## Application Gateway V2 Pricing
+The pricing models are different for Application gatewway v1 and v2 SKUs. Please see the Application Gateway pricing page to learn more.
 
 ## Common questions
 
