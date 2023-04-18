@@ -1,7 +1,7 @@
 ---
 title: Install Microsoft Defender for IoT on-premises management console software - Microsoft Defender for IoT
 description: Learn how to install Microsoft Defender for IoT on-premises management console software. Use this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
-ms.date: 12/13/2022
+ms.date: 04/18/2023
 ms.topic: install-set-up-deploy
 ---
 
@@ -100,9 +100,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. When you're ready, press **ENTER** to continue.
 
-    You're prompted to sign in and the installation is complete.
-
-    Sign in using one of the privileged user credentials you'd saved earlier. Alternately, browse to the on-premises management console's IP address in a browser, and sign in to the UI using one of the privileged user credentials.
+    The installation is complete and you're prompted to sign in. SIgn in using one of the privileged user credentials you'd saved from the previous step. At this point, you can also browse to the on-premises management consoles's IP address in a browser and sign in there.
 
 ## Configure network adapters for a VM deployment
 
