@@ -62,7 +62,7 @@ This solution requires a reverse proxy, such as:
 - Reverse proxy Server using NGINX (VM-based)
 - Reverse proxy Server using HAProxy (VM-based)
 
-Example of reverse proxy Server using NGINX (VM-based) configuration:
+Example of reverse proxy Server using NGINX (VM-based) configuration to load balance tcp traffic:
 
 ```conf
 # Nginx.conf  
