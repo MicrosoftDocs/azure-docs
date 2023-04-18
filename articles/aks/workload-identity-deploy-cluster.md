@@ -1,21 +1,21 @@
 ---
-title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity (preview)
-description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity (preview).
+title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity
+description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity.
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 04/18/2023
 ---
 
-# Deploy and configure workload identity (preview) on an Azure Kubernetes Service (AKS) cluster
+# Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this article, you will:
 
-* Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect Issuer and an Azure AD workload identity (preview)
+* Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect Issuer and an Azure AD workload identity
 * Grant access to your Azure Key Vault
 * Create an Azure Active Directory (Azure AD) workload identity and Kubernetes service account
 * Configure the managed identity for token federation.
 
-This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you aren't familiar with Azure AD workload identity (preview), see the following [Overview][workload-identity-overview] article.
+This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you aren't familiar with Azure AD workload identity, see the following [Overview][workload-identity-overview] article.
 
 - This article requires version 2.40.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
