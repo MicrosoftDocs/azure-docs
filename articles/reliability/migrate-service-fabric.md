@@ -1,8 +1,8 @@
 ---
-title: Migrate a Service Fabric cluster to availability zone support 
-description: Learn how to migrate both managed and non-managed Service Fabric clusters to availability zone support.
+title: Migrate an Azure Service Fabric cluster to availability zone support 
+description: Learn how to migrate both managed and non-managed Azure Service Fabric clusters to availability zone support.
 author: tomvcassidy
-ms.service: azure
+ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 03/23/2023
 ms.author: tomcassidy
@@ -12,18 +12,16 @@ ms.custom: references_regions
 
 # Migrate your Service Fabric cluster to availability zone support
  
-This guide describes how to migrate Service Fabric clusters from non-availability zone support to availability support. We'll take you through the different options for migration. A Service Fabric cluster distributed across Availability Zones ensures high availability of the cluster state.
+This guide describes how to migrate Service Fabric clusters from non-availability zone support to availability support. We'll take you through the different options for migration. A Service Fabric cluster distributed across availability Zones ensures high availability of the cluster state.
 
-You can migrate both managed and non-managed clusters. Both will be covered in this article.
+You can migrate both managed and non-managed clusters. Both are covered in this article.
 
-For non-managed clusters, we will discuss two different scenarios:
-  * Migrating a cluster with a Standard SKU load balancer and IP resource. This configuration supports Availability Zones without needing to create new resources.
-  * Migrating a cluster with a Basic SKU load balancer and IP resource. This configuration doesn't support Availability Zones and requires the creation of new resources.
+For non-managed clusters, we discuss two different scenarios:
+
+  * Migrating a cluster with a Standard SKU load balancer and IP resource. This configuration supports availability zones without needing to create new resources.
+  * Migrating a cluster with a Basic SKU load balancer and IP resource. This configuration doesn't support availability zones and requires the creation of new resources.
 
 See the appropriate sections under each header for your Service Fabric cluster scenario.
-
-> [!NOTE]
-> Availability Zone spanning is only available on Standard SKU clusters. This is true for both managed and non-managed clusters.
 
 > [!NOTE]
 > The benefit of spanning the primary node type across availability zones is only seen for three zones and not just two. This is true for both managed and non-managed clusters.
@@ -34,32 +32,37 @@ Sample templates are available at [Service Fabric cross availability zone templa
 
 ### Service Fabric managed clusters
 
-* Standard SKU cluster
+Required:
+
+* Standard SKU cluster.
 * Three [availability zones in the region](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
-While only the above items are required, the recommended topology for managed cluster is outlined below:
 
-* The cluster SKU must be Standard
+Recommended:
+
+* The cluster SKU must be Standard.
 * Primary node type should have at least nine nodes for best resiliency, but supports minimum number of six.
 * Secondary node type(s) should have at least six nodes for best resiliency, but supports minimum number of three.
 
 ### Service Fabric non-managed clusters
 
-While only the below items are required for each scenario, the recommended topology for non-managed cluster is outlined below:
+Required: N/A.
 
-* The cluster reliability level set to `Platinum`
-* A single public IP resource using Standard SKU
-* A single load balancer resource using Standard SKU
-* A network security group (NSG) referenced by the subnet in which you deploy your virtual machine scale sets
+Recommended:
+
+* The cluster reliability level set to `Platinum`.
+* A single public IP resource using Standard SKU.
+* A single load balancer resource using Standard SKU.
+* A network security group (NSG) referenced by the subnet in which you deploy your Virtual Machine Scale Sets.
 
 #### Existing Standard SKU load balancer and IP resource
 
-There are no prerequisities for this scenario, as it assumes you have the existing required resources.
+There are no prerequisites for this scenario, as it assumes you have the existing required resources.
 
 #### Basic SKU load balancer and IP resource
 
-* A new load balancer using the Standard SKU, distinct from your existing Basic SKU load balancer
-* A new IP resource using the Standard SKU, distinct from your existing Basic SKU IP resource
+* A new load balancer using the Standard SKU, distinct from your existing Basic SKU load balancer.
+* A new IP resource using the Standard SKU, distinct from your existing Basic SKU IP resource.
 
 > [!NOTE]
 > It isn't possible to upgrade your existing resources from a Basic SKU to a Standard SKU, so new resources are required.
@@ -68,28 +71,26 @@ There are no prerequisities for this scenario, as it assumes you have the existi
 
 ### Service Fabric managed cluster
 
-Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer but won't affect cluster health. This occurs when a new Public IP needs to be created in order to make the networking resilient to Zone failures. Please plan the migration accordingly.
+Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer, but won't affect cluster health. The loss of external connectivity occurs when a new Public IP needs to be created in order to make the networking resilient to zone failures. Plan the migration accordingly.
 
 ### Service Fabric non-managed cluster
 
-Downtime for migrating Service Fabric non-managed clusters will vary widely based on the number of VMs and Upgrade Domains (UDs) in your cluster. UDs are logical groupings of VMs that determine the order in which upgrades are pushed to the VMs in your cluster. The downtime will also be affected by the upgrade mode of your cluster, which handles how upgrade tasks for the UDs in your cluster are processed. The `sfZonalUpgradeMode` property, which controls the upgrade mode, is covered in more detail in the appropriate section below.
+Downtime for migrating Service Fabric non-managed clusters vary widely based on the number of VMs and Upgrade Domains (UDs) in your cluster. UDs are logical groupings of VMs that determine the order in which upgrades are pushed to the VMs in your cluster. The downtime is also affected by the upgrade mode of your cluster, which handles how upgrade tasks for the UDs in your cluster are processed. The `sfZonalUpgradeMode` property, which controls the upgrade mode, is covered in more detail in the following sections.
 
-## Migration options for Service Fabric managed clusters
+## Migration for Service Fabric managed clusters
 
-### Migration option: create new primary and secondary node types that span Availability Zones
+### Create new primary and secondary node types that span availability zones
 
-#### When to use this option
+There's only one method for migrating a non-availability zone enabled Service Fabric managed cluster to an availability zone enabled state.
 
-There is only one method for migrating a non-AZ enabled Service Fabric managed cluster to an AZ-enabled state. If your cluster is a manged cluster, you'll need to follow the steps below.
+**To migrate your Service Fabric managed cluster:**
 
-#### How to migrate your Service Fabric managed cluster
-
-1. Start with determining if there will be a new IP required and what resources need to be migrated to become zone resilient. To get the current Availability Zone resiliency state for the resources of the managed cluster use the following  API call:
+1. Determine whether a new IP is required and what resources need to be migrated to become zone resilient. To get the current availability zone resiliency state for the resources of the managed cluster, use the following API call:
 
    ```http
    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/getazresiliencystatus?api-version=2022-02-01-preview
    ```
-   Or you can use the Az Module as follows:
+   Or, you can use the Az Module as follows:
    ```
    Select-AzSubscription -SubscriptionId {subscriptionId}
    Invoke-AzResourceAction -ResourceId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName} -Action getazresiliencystatus -ApiVersion 2022-02-01-preview
@@ -118,57 +119,58 @@ There is only one method for migrating a non-AZ enabled Service Fabric managed c
    }
    ```
 
-   If the Public IP resource is not zone resilient, migration of the cluster will cause a brief loss of external connectivity. This is due to the migration setting up new Public IP and updating the cluster FQDN to the new IP. If the Public IP resource is zone resilient, migration will not modify the Public IP resource or FQDN and there will be no external connectivity impact.
+   If the Public IP resource isn't zone resilient, migration of the cluster causes a brief loss of external connectivity. The loss of connectivity is due to the migration setting up new Public IP and updating the cluster FQDN to the new IP. If the Public IP resource is zone resilient, migration will not modify the Public IP resource or FQDN and there will be no external connectivity impact.
    
 1. Initiate conversion of the underlying storage account created for managed cluster from LRS to ZRS using [customer-initiated conversion](../storage/common/redundancy-migration.md#customer-initiated-conversion). The resource group of storage account that needs to be migrated would be of the form "SFC_ClusterId"(ex SFC_9240df2f-71ab-4733-a641-53a8464d992d) under the same subscription as the managed cluster resource.
 
-1. Add a new primary node type which spans across availability zones
-
-   This step will trigger the resource provider to perform the migration of the primary node type and Public IP along with a cluster FQDN DNS update, if needed, to become zone resilient. Use the above API to understand implication of this step.
-
-* Use apiVersion 2022-02-01-preview or higher.
-* Add a new primary node type to the cluster with zones parameter set to ["1", "2", "3"] as show below:
-```json
-{
-  "apiVersion": "2022-02-01-preview",
-  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-  "location": "[resourcegroup().location]",
-  "dependsOn": [
-    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-  ],
-  "properties": {
-    ...
-    "isPrimary": true,
-    "zones": ["1", "2", "3"]
-    ...
-  }
-}
-```
-
-1. Add secondary node type which spans across availability zones.
-   This step will add a secondary node type which spans across availability zones similar to the primary node type. Once created, customers need to migrate existing services from the old node types to the new ones by [using placement properties](../service-fabric/service-fabric-cluster-resource-manager-cluster-description.md).
-
-* Use apiVersion 2022-02-01-preview or higher.
-* Add a new secondary node type to the cluster with zones parameter set to ["1", "2", "3"] as show below:
-
-   ```json
-   {
-     "apiVersion": "2022-02-01-preview",
-     "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-     "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-     "location": "[resourcegroup().location]",
-     "dependsOn": [
-       "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-     ],
-     "properties": {
-       ...
-       "isPrimary": false,
-       "zones": ["1", "2", "3"]
-       ...
-     }
-   }
-   ```
+1. Add a new primary node type, which spans across availability zones.
+    
+    This step triggers the resource provider to perform the migration of the primary node type and Public IP along with a cluster FQDN DNS update, if needed, to become zone resilient. Use the above API to understand implication of this step.
+    
+    * Use apiVersion 2022-02-01-preview or higher.
+    * Add a new primary node type to the cluster with zones parameter set to ["1", "2", "3"] as show below:
+    
+        ```json
+        {
+          "apiVersion": "2022-02-01-preview",
+          "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+          "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+          "location": "[resourcegroup().location]",
+          "dependsOn": [
+            "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+          ],
+          "properties": {
+            ...
+            "isPrimary": true,
+            "zones": ["1", "2", "3"]
+            ...
+          }
+        }
+        ```
+    
+1. Add secondary node type, which spans across availability zones.
+   This step adds a secondary node type, which spans across availability zones similar to the primary node type. Once created, customers need to migrate existing services from the old node types to the new ones by [using placement properties](../service-fabric/service-fabric-cluster-resource-manager-cluster-description.md).
+    
+    * Use apiVersion 2022-02-01-preview or higher.
+    * Add a new secondary node type to the cluster with zones parameter set to ["1", "2", "3"] as show below:
+    
+       ```json
+       {
+         "apiVersion": "2022-02-01-preview",
+         "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+         "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+         "location": "[resourcegroup().location]",
+         "dependsOn": [
+           "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+         ],
+         "properties": {
+           ...
+           "isPrimary": false,
+           "zones": ["1", "2", "3"]
+           ...
+         }
+       }
+       ```
 
 1. Start removing older non az spanning node types from the cluster
 
@@ -176,7 +178,7 @@ There is only one method for migrating a non-AZ enabled Service Fabric managed c
 
 1. Mark the cluster resilient to zone failures
 
-   This step helps in future deployments, since it ensures all future deployments of node types span across availability zones and thus cluster remains tolerant to AZ failures. Set `zonalResiliency: true` in the cluster ARM template and do a deployment to mark cluster as zone resilient and ensure all new node type deployments span across availability zones. 
+   This step helps in future deployments, since it ensures that all future deployments of node types span across availability zones and so the cluster remains tolerant to zone failures. Set `zonalResiliency: true` in the cluster ARM template and do a deployment to mark the cluster as zone resilient and ensure all new node type deployments span across availability zones. 
 
    ```json
    {
@@ -185,11 +187,11 @@ There is only one method for migrating a non-AZ enabled Service Fabric managed c
      "zonalResiliency": "true"
    }
    ```
-   You can also see the updated status in portal under Overview -> Properties similar to `Zonal resiliency True`, once complete.
+   You can also see the updated status in portal under **Overview > Properties** similar to `Zonal resiliency True`, once complete.
 
 1. Validate all the resources are zone resilient
 
-   To validate the Availability Zone resiliency state for the resources of the managed cluster use the following GET API call:
+   To validate the availability zone resiliency state for the resources of the managed cluster use the following GET API call:
 
    ```http
    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/getazresiliencystatus?api-version=2022-02-01-preview
@@ -217,16 +219,18 @@ There is only one method for migrating a non-AZ enabled Service Fabric managed c
     "isClusterZoneResilient": true
    }
    ```
+    
+  If you run into any problems, reach out to support for assistance.
 
-If you run into any problems reach out to support for assistance.
 
-## Migration options for for Service Fabric non-managed clusters
 
-### Migration option: enable multiple Availability Zones in a single virtual machine scale set
+## Migration options for Service Fabric non-managed clusters
+
+### Migration option 1: enable multiple Availability Zones in a single Virtual Machine Scale Set
 
 #### When to use this option
 
-This solution allows users to span three Availability Zones in the same node type. This is the recommended deployment topology as it enables you to deploy across availability zones while maintaining a single virtual machine scale set..
+This solution allows users to span three Availability Zones in the same node type. This is the recommended deployment topology as it enables you to deploy across availability zones while maintaining a single Virtual Machine Scale Set.
 
 A full sample template is available on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
 
@@ -234,11 +238,11 @@ You should use this option when you have an existing Service Fabric non-managed 
 
 #### How to migrate your Service Fabric non-managed cluster with existing Standard SKU load balancer and IP resources
 
-##### Configuring zones on a virtual machine scale set
+**To enable zones on a Virtual Machine Scale Set:**
 
-To enable zones on a virtual machine scale set, include the following three values in the virtual machine scale set resource:
+Include the following three values in the Virtual Machine Scale Set resource:
 
-* The first value is the `zones` property, which specifies the Availability Zones that are in the virtual machine scale set.
+* The first value is the `zones` property, which specifies the Availability Zones that are in the Virtual Machine Scale Set.
 * The second value is the `singlePlacementGroup` property, which must be set to `true`. The scale set that's spanned across three Availability Zones can scale up to 300 VMs even with `singlePlacementGroup = true`.
 * The third value is `zoneBalance`, which ensures strict zone balancing. This value should be `true`. This ensures that the VM distributions across zones are not unbalanced, which means that when one zone goes down, the other two zones have enough VMs to keep the cluster running.
 
@@ -263,30 +267,32 @@ You don't need to configure the `FaultDomain` and `UpgradeDomain` overrides.
 >[!NOTE]
 >
 > * Service Fabric clusters should have at least one primary node type. The durability level of primary node types should be Silver or higher.
-> * An Availability Zone spanning virtual machine scale set should be configured with at least three Availability Zones, no matter the durability level.
-> * An Availability Zone spanning virtual machine scale set with Silver or higher durability should have at least 15 VMs.
-> * An Availaibility Zone spanning virtual machine scale set with Bronze durability should have at least six VMs.
+> * An availability zone spanning Virtual Machine Scale Set should be configured with at least three Availability Zones, no matter the durability level.
+> * An availability zone spanning Virtual Machine Scale Set with Silver or higher durability should have at least 15 VMs.
+> * An availability zone spanning Virtual Machine Scale Set with Bronze durability should have at least six VMs.
 
 ##### Enable support for multiple zones in the Service Fabric node type
 
-The Service Fabric node type must be enabled to support multiple Availability Zones.
+To support multiple availability zones, the Service Fabric node type must be enabled.
 
 * The first value is `multipleAvailabilityZones`, which should be set to `true` for the node type.
 
-* The second value is `sfZonalUpgradeMode` and is optional. This property can't be modified if a node type with multiple Availability Zones is already present in the cluster. This property controls the logical grouping of VMs in UDs.
-  * If this value is set to `Parallel`: VMs under the node type are grouped into UDs and ignore the zone info in five UDs. This setting causes UDs across all zones to be upgraded at the same time. This deployment mode is faster for upgrades, we don't recommend it because it goes against the SDP guidelines, which state that the updates should be applied to one zone at a time.
-  * If this value is omitted or set to `Hierarchical`: VMs are grouped to reflect the zonal distribution in up to 15 UDs. Each of the three zones has five UDs. This ensures that the zones are updated one at a time, moving to next zone only after completing five UDs within the first zone. This update process is safer for the cluster and the user application.
+* The second value is `sfZonalUpgradeMode` and is optional. This property can't be modified if a node type with multiple availability zones is already present in the cluster. This property controls the logical grouping of VMs in UDs.
+  
+  * If this value is set to `Parallel`: VMs under the node type are grouped into UDs and ignore the zone info in five UDs. This setting causes UDs across all zones to be upgraded at the same time. Although this deployment mode is faster for upgrades, we don't recommend it because it goes against the SDP guidelines, which state that the updates should be applied to one zone at a time.
 
-  This property only defines the upgrade behavior for Service Fabric application and code upgrades. The underlying virtual machine scale set upgrades are still parallel in all Availability Zones. This property doesn't affect the UD distribution for node types that don't have multiple zones enabled.
+  * If this value is omitted or set to `Hierarchical`: VMs are grouped to reflect the zonal distribution in up to 15 UDs. Each of the three zones has five UDs. This ensures that the zones are updated one at a time, moving to next zone only after completing five UDs within the first zone. The update process is safer for the cluster and the user application.
 
-* The third value is `vmssZonalUpgradeMode`, is optional and can be updated at anytime. This property defines the upgrade scheme for the virtual machine scale set to happen in parallel or sequentially across Availability Zones.
-  * If this value is set to `Parallel`: All scale set updates happen in parallel in all zones. This deployment mode is faster for upgrades, we don't recommend it because it goes against the SDP guidelines, which state that the updates should be applied to one zone at a time.
+  This property only defines the upgrade behavior for Service Fabric application and code upgrades. The underlying Virtual Machine Scale Set upgrades are still parallel in all Availability Zones. This property doesn't affect the UD distribution for node types that don't have multiple zones enabled.
+
+* The third value is `vmssZonalUpgradeMode`, is optional and can be updated at any time. This property defines the upgrade scheme for the Virtual Machine Scale Set to happen in parallel or sequentially across Availability Zones.
+  * If this value is set to `Parallel`: All scale set updates happen in parallel in all zones. This deployment mode is faster for upgrades, and so we don't recommend it because it goes against the SDP guidelines, which state that the updates should be applied to one zone at a time.
   * If this value is omitted or set to `Hierarchical`: This ensures that the zones are updated one at a time, moving to next zone only after completing five UDs within the first zone. This update process is safer for the cluster and the user application.
 
 >[!IMPORTANT]
 >The Service Fabric cluster resource API version should be 2020-12-01-preview or later.
 >
->The cluster code version should be atleast 8.1.321 or later.
+>The cluster code version should be at least 8.1.321 or later.
 
 ```json
 {
@@ -317,7 +323,7 @@ The Service Fabric node type must be enabled to support multiple Availability Zo
 > * The `multipleAvailabilityZones` property on the node type can only be defined when the node type is created and can't be modified later. Existing node types can't be configured with this property.
 > * When `sfZonalUpgradeMode` is omitted or set to `Hierarchical`, the cluster and application deployments will be slower because there are more upgrade domains in the cluster. It's important to correctly adjust the upgrade policy timeouts to account for the upgrade time required for 15 upgrade domains. The upgrade policy for both the app and the cluster should be updated to ensure that the deployment doesn't exceed the Azure Resource Service deployment time limit of 12 hours. This means that deployment shouldn't take more than 12 hours for 15 UDs (that is, shouldn't take more than 40 minutes for each UD).
 > * Set the cluster reliability level to `Platinum` to ensure that the cluster survives the one zone-down scenario.
-> * Upgrading the DurabilityLevel for a nodetype with multipleAvailabilityZones, is not supported. Please create a new nodetype with the higher durability instead.
+> * Upgrading the DurabilityLevel for a nodetype with multipleAvailabilityZones, is not supported. Please create a new node type with the higher durability instead.
 > * SF supports just 3 AvailabilityZones. Any higher number is not supported right now.
 
 >[!TIP]
@@ -331,12 +337,12 @@ The [Scale up a Service Fabric cluster primary node type](../service-fabric/serv
 
 * Migration from a node type that uses basic load balancer and IP resources: This process is already described in [a sub-section below](#how-to-migrate-your-service-fabric-non-managed-cluster-with-basic-sku-load-balancer-and-ip-resources) for the solution with one node type per Availability Zone.
 
-  For the new node type, the only difference is that there's only one virtual machine scale set and one node type for all Availability Zones instead of one each per Availability Zone.
+  For the new node type, the only difference is that there's only one Virtual Machine Scale Set and one node type for all Availability Zones instead of one each per Availability Zone.
 * Migration from a node type that uses the Standard SKU load balancer and IP resources with an NSG: Follow the same procedure described previously. However, there's no need to add new load balancer, IP, and NSG resources. The same resources can be reused in the new node type.
 
 If you run into any problems reach out to support for assistance.
 
-### Migration option: deploy zones by pinning one virtual machine scale set to each zone
+### Migration option 2: deploy zones by pinning one Virtual Machine Scale Set to each zone
 
 #### When to use this option
 
@@ -346,20 +352,20 @@ To span a Service Fabric cluster across Availability Zones, you must create a pr
 
 The recommended topology for the primary node type requires this:
 * Three node types marked as primary
-  * Each node type should be mapped to its own virtual machine scale set located in a different zone.
-  * Each virtual machine scale set should have at least five nodes (Silver Durability).
+  * Each node type should be mapped to its own Virtual Machine Scale Set located in a different zone.
+  * Each Virtual Machine Scale Set should have at least five nodes (Silver Durability).
 
 You should use this option when you have an existing Service Fabric non-managed cluster with the Standard SKU load balancer and IP Resources that you want to migrate. If your existing non-managed cluster has Basic SKU resources, you should see the Basic SKU migration option below.
 
 #### How to migrate your Service Fabric non-managed cluster with existing Standard SKU load balancer and IP resources
 
-##### Enable zones on a virtual machine scale set
+##### Enable zones on a Virtual Machine Scale Set
 
-To enable a zone on a virtual machine scale set, include the following three values in the virtual machine scale set resource:
+To enable a zone on a Virtual Machine Scale Set, include the following three values in the Virtual Machine Scale Set resource:
 
-* The first value is the `zones` property, which specifies which Availability Zone the virtual machine scale set is deployed to.
+* The first value is the `zones` property, which specifies which Availability Zone the Virtual Machine Scale Set is deployed to.
 * The second value is the `singlePlacementGroup` property, which must be set to `true`.
-* The third value is the `faultDomainOverride` property in the Service Fabric virtual machine scale set extension. This property should include only the zone in which this virtual machine scale set will be placed. Example: `"faultDomainOverride": "az1"`. All virtual machine scale set resources must be placed in the same region because Azure Service Fabric clusters don't have cross-region support.
+* The third value is the `faultDomainOverride` property in the Service Fabric Virtual Machine Scale Set extension. This property should include only the zone in which this Virtual Machine Scale Set will be placed. Example: `"faultDomainOverride": "az1"`. All Virtual Machine Scale Set resources must be placed in the same region because Azure Service Fabric clusters don't have cross-region support.
 
 ```json
 {
@@ -477,16 +483,16 @@ You should use this option when you have an existing Service Fabric non-managed 
 
 To migrate a cluster that's using a load balancer and IP with a basic SKU, you must first create an entirely new load balancer and IP resource using the standard SKU. It isn't possible to update these resources.
 
-Reference the new load balancer and IP in the new cross-Availability Zone node types that you want to use. In the previous example, three new virtual machine scale set resources were added in zones 1, 2, and 3. These virtual machine scale sets reference the newly created load balancer and IP and are marked as primary node types in the Service Fabric cluster resource.
+Reference the new load balancer and IP in the new cross-Availability Zone node types that you want to use. In the previous example, three new Virtual Machine Scale Set resources were added in zones 1, 2, and 3. These Virtual Machine Scale Sets reference the newly created load balancer and IP and are marked as primary node types in the Service Fabric cluster resource.
 
 1. To begin, add the new resources to your existing Azure Resource Manager template. These resources include:
 
    * A public IP resource using Standard SKU
    * A load balancer resource using Standard SKU
-   * An NSG referenced by the subnet in which you deploy your virtual machine scale sets
+   * An NSG referenced by the subnet in which you deploy your Virtual Machine Scale Sets
    * Three node types marked as primary
-     * Each node type should be mapped to its own virtual machine scale set located in a different zone.
-     * Each virtual machine scale set should have at least five nodes (Silver Durability).
+     * Each node type should be mapped to its own Virtual Machine Scale Set located in a different zone.
+     * Each Virtual Machine Scale Set should have at least five nodes (Silver Durability).
 
    An example of these resources can be found in the [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Ubuntu-2-NodeType-Secure).
 
@@ -519,7 +525,7 @@ Reference the new load balancer and IP in the new cross-Availability Zone node t
    }
    ```
 
-1. After the nodes are all disabled, the system services will run on the primary node type, which is spread across zones. You can then remove the disabled nodes from the cluster. After the nodes are removed, you can remove the original IP, load balancer, and virtual machine scale set resources.
+1. After the nodes are all disabled, the system services will run on the primary node type, which is spread across zones. You can then remove the disabled nodes from the cluster. After the nodes are removed, you can remove the original IP, load balancer, and Virtual Machine Scale Set resources.
 
    ```powershell
    foreach($name in $nodeNames){
