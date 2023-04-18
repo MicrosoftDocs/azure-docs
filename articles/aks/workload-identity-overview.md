@@ -70,7 +70,7 @@ The following diagram summarizes the authentication sequence using OpenID Connec
 
 ### Webhook Certificate Auto Rotation
 
-Similar to other webhook addons, the certificate will be rotated by cluster certificate [auto rotation](https://learn.microsoft.com/azure/aks/certificate-rotation#certificate-auto-rotation) operation.
+Similar to other webhook addons, the certificate will be rotated by cluster certificate [auto rotation][auto-rotation] operation.
 
 ## Service account labels and annotations
 
@@ -149,3 +149,4 @@ The following table summarizes our migration or deployment recommendations for w
 [deploy-configure-workload-identity-new-cluster]: workload-identity-deploy-cluster.md
 [tutorial-use-workload-identity]: ./learn/tutorial-kubernetes-workload-identity.md
 [workload-identity-migration-sidecar]: workload-identity-migrate-from-pod-identity.md
+[auto-rotation]: certificate-rotation.md#certificate-auto-rotation
