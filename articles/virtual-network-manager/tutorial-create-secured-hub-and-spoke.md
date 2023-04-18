@@ -209,7 +209,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
     | ------- | ----- |
     | Configurations | Select **Include connectivity configurations in your goal state** . |
     | Connectivity configurations | Select **cc-learn-prod-eastus-001**.  |
-    | Target regions | Select **East US** as the deployment region. |:
+    | Target regions | Select **East US** as the deployment region. |
 
 
 1. Select **Next** and then select **Deploy** to complete the deployment.
