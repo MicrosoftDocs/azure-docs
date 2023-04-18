@@ -175,8 +175,21 @@ microsoft.graph.accessPackageCustomExtensionStage.assignmentRequestRemoved
 ``
 
 The following flow diagram shows the entitlement management callout to Logic Apps workflow:
-:::image type="content" source="media/entitlement-management-logic-apps/extensibility-diagram-flow.png" alt-text="A screenshot of the extensibility user diagram." lightbox="media/entitlement-management-logic-apps/extensibility-diagram-flow.png":::
+:::image type="content" source="media/entitlement-management-logic-apps/extensibility-diagram-flow.png" alt-text="A diagram of the entitlement management call to the logic apps workflow." lightbox="media/entitlement-management-logic-apps/extensibility-diagram-flow.png":::
  
+The diagram flow diagram shows:
+
+1. The user creates a custom endpoint able to receive the call from the Identity Service
+1. The identity service makes a test call to confirm the endpoint can be called by the Identity Service
+1. The User calls Graph API to request to add a user to an access package
+1. The Identity Service is added to the queue triggering the backend workflow
+1. Entitlement Management Service request processing calls the logic app with the request payload
+1. Workflow expects the accepted code
+1. The Entitlement Management Service waits for the blocking custom action to resume
+1. The customer system calls the request resume API to the identity service to resume processing the request
+1. The identity service adds the  resume request message to the Entitlement Management Service queue resuming the backend workflow
+1. The Entitlement Management Service is resumed from the blocked state
+
 An example of a resume request payload is:
 
 ``` http
