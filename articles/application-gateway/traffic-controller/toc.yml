@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About traffic controllers
+  - name: What is Traffic Controller?
     href: overview.md
 - name: Quickstarts
   items:
@@ -12,6 +12,8 @@
   items:
   - name: How Traffic Controller works
     href: concepts-how-traffic-controller-works.md
+  - name: Frequently Asked Questions (FAQ)
+    href: faq.yml
 - name: How-to guides
   items:
   - name: Backend MTLS
