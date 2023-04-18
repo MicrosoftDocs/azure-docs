@@ -20,7 +20,144 @@ The Azure Communication Services Calling SDK offers APIs that allow apps to gene
 
 This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-android) for Android.
 
-## Overview of virtual video streams
+## Raw Audio Access 
+Accessing raw audio media gives you access to the incoming call's audio stream, along with the ability to view and send custom outgoing audio streams during a call.
+
+### Creating Stream and Attach to a call
+
+Make an options object specifying the raw stream properties we want to send. 
+
+    ```java
+    RawOutgoingAudioProperties outgoingAudioProperties = new RawOutgoingAudioProperties()
+                .setAudioFormat(AudioFormat.PCM16_BIT)
+                .setSampleRate(AudioSampleRate.HZ44100)
+                .setChannelMode(AudioChannelMode.STEREO)
+                .setDataPerBlockInMs(DataPerBlock.IN_MS20);
+
+    RawOutgoingAudioStreamOptions outgoingAudioOptions = new RawOutgoingAudioStreamOptions()
+                .setRawOutgoingAudioProperties(outgoingAudioProperties);
+    ```
+
+Create a `RawOutgoingAudioStream` and attach it to join call options and the stream will automatically starts when call is connected.
+
+    ```java 
+    JoinCallOptions options = // JoinCallOptions() or StartCallOptions()
+
+    OutgoingAudioOptions outgoingAudioOptions = new OutgoingAudioOptions();
+    RawOutgoingAudioStream rawOutgoingAudioStream = new RawOutgoingAudioStream(outgoingAudioOptions);
+
+    outgoingAudioOptions.setOutgoingAudioStream(rawOutgoingAudioStream);
+    options.setOutgoingAudioOptions(outgoingAudioOptions);
+
+    // Start or Join call with those call options.
+
+    ```
+
+Or you can also attach the stream to an existing `Call` instance instead:
+
+    ```java
+    CompletableFuture<Void> result = call.startAudio(context, rawOutgoingAudioStream);
+    ```
+
+### Start sending Raw Samples
+
+We will only be able to start sending data once the stream state is `AudioStreamState.STARTED`. 
+To observe the audio stream state change add a listener to the `OnStateChangedListener` event.
+
+    ```java
+    private void onStateChanged(PropertyChangedEvent propertyChangedEvent) {
+        // When value is `AudioStreamState.STARTED` we'll be able to send audio samples.
+    }
+
+    rawOutgoingAudioStream.addOnStateChangedListener(this::onStateChanged)
+    ```
+
+When the stream started we can start sending [`java.nio.ByteBuffer`](https://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html) audio samples to the call.
+
+The audio buffer format should match the specified stream properties.
+
+    ```java
+    Thread thread = new Thread(){
+        public void run(){
+            RawAudioBuffer buffer;
+            Calendar nextDeliverTime = Calendar.getInstance();
+            RawOutgoingAudioOptions options = outgoingAudioOptions;
+            while (true)
+            {
+                nextDeliverTime.add(Calendar.MILLISECOND, 20);
+                byte data[] = new byte[outgoingAudioStream.getExpectedBufferSizeInBytes()];
+                //can grab microphone data from AudioRecord
+                ByteBuffer dataBuffer = ByteBuffer.allocateDirect(outgoingAudioStream.getExpectedBufferSizeInBytes());
+                dataBuffer.rewind();
+                buffer = new RawAudioBuffer(dataBuffer);
+                outgoingAudioStream.sendOutgoingAudioBuffer(buffer);
+                long wait = nextDeliverTime.getTimeInMillis() - Calendar.getInstance().getTimeInMillis();
+                if (wait > 0)
+                {
+                    try {
+                        Thread.sleep(wait);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+        }
+    };
+    thread.start();
+    ```
+
+### Receiving Raw Incoming Audio
+
+We can also receive the call audio stream samples as [`java.nio.ByteBuffer`](https://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html) if we want to process the audio before playback.
+
+
+Create a `RawIncomingAudioStreamOptions` object specifying the raw stream properties we want to receive.
+
+    ```java
+    RawIncomingAudioStreamOptions options = new RawIncomingAudioStreamOptions();
+    RawIncomingAudioProperties properties = new RawIncomingAudioProperties()
+                .setAudioFormat(AudioFormat.PCM16_BIT)
+                .setSampleRate(AudioSampleRate.HZ44100)
+                .setChannelMode(AudioChannelMode.STEREO);
+    options.setRawIncomingAudioProperties(properties);
+    ```
+
+Create a `RawIncomingAudioStream` and attach it to join call options
+
+    ```java
+    JoinCallOptions options = // JoinCallOptions() or StartCallOptions()
+    IncomingAudioOptions incomingAudioOptions = new IncomingAudioOptions();
+
+    RawIncomingAudioStream rawIncomingAudioStream = new RawIncomingAudioStream(audioStreamOptions);
+    incomingAudioOptions.setIncomingAudioStream(rawIncomingAudioStream);
+    options.setIncomingAudioOptions(incomingAudioOptions);
+    ```
+
+Or we can also attach the stream to an existing `Call` instance instead:
+
+    ```java
+
+    CompletableFuture<Void> result = call.startAudio(context, rawIncomingAudioStream);
+    ```
+
+To start receiving raw audio buffers from the incoming stream add listeners to the incoming stream state and
+buffer received events.
+
+    ```java
+    private void onStateChanged(PropertyChangedEvent propertyChangedEvent) {
+        // When value is `AudioStreamState.STARTED` we'll be able to receive samples.
+    }
+
+    private void onMixedAudioBufferReceived(IncomingMixedAudioEvent incomingMixedAudioEvent) {
+        // Received a raw audio buffers(java.nio.ByteBuffer).
+    }
+
+    rawIncomingAudioStream.addOnStateChangedListener(this::onStateChanged);
+    rawIncomingAudioStream.addMixedAudioBufferReceivedListener(this::onMixedAudioBufferReceived);
+    ```
+
+## Raw Video Access
 
 Because the app will generate the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 

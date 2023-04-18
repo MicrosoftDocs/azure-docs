@@ -32,7 +32,7 @@ Make an options object specifying the raw stream properties we want to send.
     let options = RawOutgoingAudioStreamOptions()
     let properties = RawOutgoingAudioProperties()
     properties.sampleRate = .hz44100
-    properties.dataPerBlockInMs = .inMs20
+    properties.dataPerBlock = .inMs20
     properties.channelMode = .mono
     properties.audioFormat = .pcm16Bit
     options.rawOutgoingAudioProperties = properties
@@ -282,8 +282,7 @@ Create a `RawIncomingAudioStreamOptions` object specifying the raw stream proper
     properties.audioFormat = .pcm16Bit
     properties.sampleRate = .hz44100
     properties.channelMode = .stereo
-    opt.rawIncomingAudioProperties = properties
-    return options
+    options.rawIncomingAudioProperties = properties
     ```
 
 Create a `RawOutgoingAudioStream` and attach it to join call options
@@ -336,7 +335,7 @@ or
     }
     ```
 
-## Overview of virtual video streams
+## Raw Video Access
 
 Because the app will generate the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 
