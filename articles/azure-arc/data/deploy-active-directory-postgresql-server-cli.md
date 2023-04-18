@@ -4,6 +4,7 @@ description: Explains how to deploy Active Directory integrated Azure Arc-enable
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-postgresql
+ms.custom: devx-track-azurecli
 author: hasani-h
 ms.author: hasaniholder
 ms.reviewer: mikeray
@@ -95,4 +96,3 @@ az postgres server-arc update
 
 ## Next steps
 - **Try it out.** Get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM. 
-

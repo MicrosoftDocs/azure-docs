@@ -25,12 +25,6 @@
     href: tutorial-enrich-ip-information.md
   - name: Detect Log4j vulnerability exploits
     href: tutorial-log4j-detection.md
-  - name: Get started with notebooks and MSTICPy
-    href: notebook-get-started.md
-  - name: Create a Power BI report from Microsoft Sentinel
-    href: powerbi.md
-  - name: Deploy and monitor decoy honeytokens
-    href: monitor-key-vault-honeytokens.md
   - name: Build and monitor Zero Trust
     href: sentinel-solution.md
   - name: Integrate with Microsoft Defender for IoT
@@ -815,6 +809,8 @@
       href: get-visibility.md
     - name: Use Azure Monitor workbooks
       href: ./monitor-your-data.md
+    - name: Create a Power BI report
+      href: powerbi.md
   - name: Detect threats and analyze data
     items:
     - name: MITRE ATT&CK coverage
@@ -847,6 +843,8 @@
       href: work-with-anomaly-rules.md
     - name: Configure multistage attack (Fusion) rules
       href: configure-fusion-rules.md
+    - name: Deploy and monitor decoy honeytokens
+      href: monitor-key-vault-honeytokens.md
     - name: Handle false positives
       href: false-positives.md
     - name: Create incidents from Microsoft Security alerts
@@ -863,6 +861,8 @@
     items:
     - name: Hunt with Jupyter notebooks
       items:
+      - name: Get started with notebooks and MSTICPy
+        href: notebook-get-started.md
       - name: Launch Jupyter notebook
         href: notebooks-hunt.md      
       - name: Advanced MSTICPy settings for Jupyter notebooks

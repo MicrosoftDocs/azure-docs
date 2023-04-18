@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/09/2021
 ms.author: halkazwini
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Manage network security group flow logs using the Azure CLI

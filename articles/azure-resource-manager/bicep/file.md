@@ -2,6 +2,7 @@
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 07/06/2022
 ---
 
