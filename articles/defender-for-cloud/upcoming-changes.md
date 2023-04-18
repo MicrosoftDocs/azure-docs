@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Deprecation of legacy compliance standards across cloud environments](#deprecation-of-legacy-compliance-standards-across-cloud-environments) | April 2023 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2023 |
 | [New Azure Active Directory authentication-related recommendations for Azure Data Services](#new-azure-active-directory-authentication-related-recommendations-for-azure-data-services) | April 2023 |
+| [Release of Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM)](#release-of-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm) | May 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | June 2023 |
 
 ### Changes in the recommendation "Machines should be configured securely"
@@ -82,7 +83,7 @@ Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com
 
 **Estimated date for change: April 2023**
 
-We are announcing the full deprecation of support of [`PCI DSS`](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
+We're announcing the full deprecation of support of [`PCI DSS`](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
 
 Legacy PCI DSS v3.2.1 and legacy SOC TSP are set to be fully deprecated and replaced by [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative.
 Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
@@ -133,7 +134,7 @@ We've improved the coverage of the V2 identity recommendations by scanning all A
 
 **Estimated date for change: April 2023**
 
-We are announcing the full deprecation of support of [`PCI DSS`](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
+We're announcing the full deprecation of support of [`PCI DSS`](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
 
 Legacy PCI DSS v3.2.1 and legacy SOC TSP are set to be fully deprecated and replaced by [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [`PCI DSS v4`](/azure/compliance/offerings/offering-pci-dss) initiative.
 Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
@@ -145,21 +146,22 @@ Learn how to [Customize the set of standards in your regulatory compliance dashb
 | Recommendation Name | Recommendation Description | Policy |
 |--|--|--|
 | Azure SQL Managed Instance authentication mode should be Azure Active Directory Only | Disabling local authentication methods and allowing only Azure Active Directory Authentication improves security by ensuring that Azure SQL Managed Instances can exclusively be accessed by Azure Active Directory identities. Learn more at: aka.ms/adonlycreate | [Azure SQL Managed Instance should have Azure Active Directory Only Authentication enabled](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f78215662-041e-49ed-a9dd-5385911b3a1f) |
-| Azure Synapse Workspace authentication mode should be Azure Active Directory Only | Azure Active Directory (AAD) only authentication methods improves security by ensuring that Synapse Workspaces exclusively require AAD identities for authentication. Learn more at: https://aka.ms/Synapse | [Synapse Workspaces should use only Azure Active Directory identities for authentication](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2158ddbe-fefa-408e-b43f-d4faef8ff3b8) |
+| Azure Synapse Workspace authentication mode should be Azure Active Directory Only | Azure Active Directory (Azure AD) only authentication methods improves security by ensuring that Synapse Workspaces exclusively require Azure AD identities for authentication. Learn more at: https://aka.ms/Synapse | [Synapse Workspaces should use only Azure Active Directory identities for authentication](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2158ddbe-fefa-408e-b43f-d4faef8ff3b8) |
 | Azure Database for MySQL should have an Azure Active Directory administrator provisioned | Provision an Azure AD administrator for your Azure Database for MySQL to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services | Based on policy: [An Azure Active Directory administrator should be provisioned for MySQL servers](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f146412e9-005c-472b-9e48-c87b72ac229e) |
 | Azure Database for PostgreSQL should have an Azure Active Directory administrator provisioned | Provision an Azure AD administrator for your Azure Database for PostgreSQL to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services | Based on policy: [An Azure Active Directory administrator should be provisioned for PostgreSQL servers](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb4dec045-250a-48c2-b5cc-e0c4eec8b5b4) |
 
-### General Availability (GA) release of Vulnerability Assessment power by Microsoft Defender Vulnerability Management (MDVM)
+### Release of Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM)
 
 **Estimated date for change: May 2023**
 
-We are announcing that Vulnerability Assessment for images in Azure container registries will be  powered by Microsoft Defender Vulnerability Management (MDVM); As part of these changes, the following new container recommendations will be released as General Availability (GA):
+We're announcing the release of Vulnerability Assessment for images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM). This change includes the General Availability (GA) release of two new container recommendations:
+
 |Recommendation | Description | Assessment Key|
 |--|--|--|
 | Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)|Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks | XXX
 | Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans container images running on your Kubernetes clusters for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. | XXX
 
-In addition, the current existing container recommendations will be renamed as follows:
+In addition, the release includes renaming the current existing container recommendations as follows:
 
 - Container registry images should have vulnerability findings resolved (powered by Qualys)
 - Running container images should have vulnerability findings resolved   (powered by Qualys)
@@ -167,15 +169,13 @@ In addition, the current existing container recommendations will be renamed as f
 Learn more about [Microsoft Defender Vulnerability Management (MDVM)](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management?view=o365-worldwide).
 
 
-
-
 ### DevOps Resource Deduplication for Defender for DevOps
 
 **Estimated date for change: June 2023**
 
-To improve the Defender for DevOps user experience and enable further integration with Defender for Coud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant. 
+To improve the Defender for DevOps user experience and enable further integration with Defender for Cloud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant. 
 
-If you do not have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they do not want to keep by navigating to Defender for Cloud Environment Settings. 
+If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings. 
 
 Customers will have until June 30, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps.
 
