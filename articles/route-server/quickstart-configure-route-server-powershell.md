@@ -144,7 +144,7 @@ RouteServerIps : {10.5.10.4, 10.5.10.5}
 
 If you have an ExpressRoute and an Azure VPN gateway in the same virtual network and you want them to exchange routes, you can enable route exchange on the Azure Route Server.
 
-[!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-active-active.md)]
+[!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
 
 1. To enable route exchange between Azure Route Server and the gateway(s), use [Update-AzRouteServer](/powershell/module/az.network/update-azrouteserver) with the *-AllowBranchToBranchTraffic* flag:
 

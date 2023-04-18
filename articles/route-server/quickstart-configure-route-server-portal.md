@@ -92,7 +92,7 @@ You'll need the Azure Route Server's peer IPs and ASN to complete the configurat
 
 If you have an ExpressRoute gateway and/or VPN gateway and you want them to exchange routes with the Route Server, you can enable route exchange.
 
-[!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-active-active.md)]
+[!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
 
 1. Go to [Route Server](./overview.md) in the Azure portal and select the Route Server you want to configure.
 
