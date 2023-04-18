@@ -247,7 +247,7 @@ This topology supports business requirements where attribute mapping and provisi
 
 ### Deployment topology 3: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (no cross-domain visibility)
 
-Use this topology to manage multiple independent child AD domains belonging to the same forest, if managers always exist in the same domain as the user and your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* does not require a forest-wide lookup. It also offers the flexibility of delegating the administration of each provisioning job by domain boundary. 
+Use this topology to manage multiple independent child AD domains belonging to the same forest, if managers always exist in the same domain as the user and your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* doesn't require a forest-wide lookup. It also offers the flexibility of delegating the administration of each provisioning job by domain boundary. 
 
 For example: In the diagram below, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Delegated administration of the provisioning app is possible so that *EMEA administrators* can independently manage the provisioning configuration of users belonging to the EMEA region.  
 
