@@ -6,6 +6,7 @@ author: johndowns
 ms.service: frontdoor
 ms.topic: sample
 ms.workload: infrastructure-services
+ms.custom: devx-track-terraform
 ms.date: 11/22/2022
 ms.author: jodowns
 zone_pivot_groups: front-door-tiers
