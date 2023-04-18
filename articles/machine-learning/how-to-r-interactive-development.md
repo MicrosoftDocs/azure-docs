@@ -108,7 +108,7 @@ When your data is stored in a data asset [created in Azure Machine Learning](how
 
     [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=read-uri)]
 
-Alternatively, you can use a Datastore URI to access different files on a registed Datastore, and read this into an R `data.frame`.
+Alternatively, you can use a Datastore URI to access different files on a registered Datastore, and read this into an R `data.frame`.
 
  1. Create a Datastore URI, using your own values in the following format:
  
