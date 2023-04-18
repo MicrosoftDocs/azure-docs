@@ -57,7 +57,7 @@ Security DevOps uses the following Open Source tools:
 
     ```yml
     name: MSDO windows-latest
-        on:
+    on:
           push:
             branches: [ main ]
           pull_request:
