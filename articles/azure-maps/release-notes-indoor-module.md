@@ -59,6 +59,9 @@ This document contains information about new features and other changes to the A
     levelControl: new LevelControl({ levelLabel: 'name' })
   });
   ```
+### Changes (0.2.1)
+
+-  non level-bound features are now displayed
 
 ### Bug fixes (0.2.1)
 
