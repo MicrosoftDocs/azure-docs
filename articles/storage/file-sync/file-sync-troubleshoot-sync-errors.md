@@ -980,6 +980,158 @@ No action required. This error should automatically resolve. If the error persis
 
 If the error persists for more than a day, create a support request.
 
+<a id="-2147024809"></a>**An internal error occurred.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80070057 |
+| **HRESULT (decimal)** | -2147024809 |
+| **Error string** | ERROR_INVALID_PARAMETER |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80302 |
+| **HRESULT (decimal)** | -2134375678 |
+| **Error string** | ECS_E_UNKNOWN_HTTP_SERVER_ERROR |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x8004100c |
+| **HRESULT (decimal)** | -2147217396 |
+| **Error string** | SYNC_E_DESERIALIZATION |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8022d |
+| **HRESULT (decimal)** | -2134375891 |
+| **Error string** | ECS_E_SYNC_METADATA_UNCOMMITTED_TX_LIMIT_REACHED |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83097 |
+| **HRESULT (decimal)** | -2134364009 |
+| **Error string** | ECS_E_QUEUE_CLIENT_EXCEPTION |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80245 |
+| **HRESULT (decimal)** | -2134375867 |
+| **Error string** | ECS_E_EPOCH_CHANGE_DETECTED |
+| **Remediation required** | No |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80072ef3 |
+| **HRESULT (decimal)** | -2147012877 |
+| **Error string** | WININET_E_INCORRECT_HANDLE_STATE |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for several days, create a support request.
+
+<a id="-2146233079"></a>**An internal error occurred.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80131509 |
+| **HRESULT (decimal)** | -2146233079 |
+| **Error string** | COR_E_INVALIDOPERATION |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x718 |
+| **HRESULT (decimal)** | N/A |
+| **Error string** | ERROR_NOT_ENOUGH_QUOTA |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80131622 |
+| **HRESULT (decimal)** | -2146232798 |
+| **Error string** | COR_E_OBJECTDISPOSED |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80004002 |
+| **HRESULT (decimal)** | -2147467262 |
+| **Error string** | E_NOINTERFACE |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x800700a1 |
+| **HRESULT (decimal)** | -2147024735 |
+| **Error string** | ERROR_BAD_PATHNAME |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x8007054f |
+| **HRESULT (decimal)** | -2147023537 |
+| **Error string** | ERROR_INTERNAL_ERROR |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80131501 |
+| **HRESULT (decimal)** | -2146233087 |
+| **Error string** | COR_E_SYSTEM |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80131620 |
+| **HRESULT (decimal)** | -2146232800 |
+| **Error string** | COR_E_IO |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80070026 |
+| **HRESULT (decimal)** | -2147024858 |
+| **Error string** | COR_E_ENDOFSTREAM |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80070554 |
+| **HRESULT (decimal)** | -2147023532 |
+| **Error string** | ERROR_NO_SUCH_PACKAGE |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80131537 |
+| **HRESULT (decimal)** | -2146233033 |
+| **Error string** | COR_E_FORMAT |
+| **Remediation required** | Maybe |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x1f |
+| **HRESULT (decimal)** | 31 |
+| **Error string** | ERROR_GEN_FAILURE |
+| **Remediation required** | Maybe |
+
+If the error persists for more than a day, create a support request.
+
+<a id="-2147467261"></a>**An internal error occurred.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80004003 |
+| **HRESULT (decimal)** | -2147467261 |
+| **Error string** | E_POINTER |
+| **Remediation required** | Yes |
+
+Please upgrade to the latest file sync agent version. If the error persists after upgrading the agent, create a support request.
+
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
 # [Portal](#tab/azure-portal)
