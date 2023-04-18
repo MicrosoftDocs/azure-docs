@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory and PCI-DSS Requirement 11
-description: Learn PCI-DSS defined approach requirements with Azure AD guidance and recommendations
+description: Learn PCI-DSS defined approach requirements for regular testing of security and network security
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
