@@ -475,6 +475,9 @@ items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
       href: logs/data-platform-logs.md
+    - name: Best practices
+      displayName: Logs, WAF, well architected framework
+      href: best-practices-logs.md
     - name: Log Analytics workspaces
       items:
         - name: Overview
