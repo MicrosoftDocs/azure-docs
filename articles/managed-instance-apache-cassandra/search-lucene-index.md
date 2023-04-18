@@ -24,7 +24,7 @@ This quickstart demonstrates how to query using Lucene Index.
 - Deploy an Azure Managed Instance for Apache Cassandra cluster. You can do this via the [portal](create-cluster-portal.md) - Lucene indexes will be enabled by default.
 - Connect to your cluster from [CQLSH](https://learn.microsoft.com/en-us/azure/managed-instance-apache-cassandra/create-cluster-portal#connecting-from-cqlsh).
 
-## Create keyspace and table
+## Create keyspace and table with Lucene Index
 
 1. In your `CQLSH` command window, create a keyspace and table as below:
     
@@ -41,8 +41,6 @@ This quickstart demonstrates how to query using Lucene Index.
           longitude FLOAT
        );
     ```
-
-## Create custom secondary index using Lucene
 
 1. Now create a custom secondary index on the table using Lucene Index:
 
@@ -65,7 +63,7 @@ This quickstart demonstrates how to query using Lucene Index.
 
 ## Insert data
 
-1. Insert the following sample tweets:
+Insert the following sample tweets:
 
 ```SQL
     INSERT INTO tweets (id,user,body,time,latitude,longitude) VALUES (1,'theo','Make money fast, 5 easy tips', '2023-04-01T11:21:59.001+0000', 0.0, 0.0);
