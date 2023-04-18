@@ -1,9 +1,9 @@
 ---
 title: "Tutorial: Run a parallel workload using the .NET API"
-description: Learn how to transcode media files in parallel with ffmpeg in Azure Batch using the Batch .NET client library.
+description: Learn how to transcode media files in parallel using ffmpeg in Azure Batch with the Batch .NET client library.
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/18/2023
+ms.date: 04/19/2023
 ms.custom: "mvc, devx-track-csharp"
 ---
 
@@ -319,12 +319,12 @@ When no longer needed, delete the resource group, Batch account, and storage acc
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Add an application package to your Batch account
-> * Authenticate with Batch and Storage accounts
-> * Upload input files to Storage
-> * Create a pool of compute nodes to run an application
-> * Create a job and tasks to process input files
-> * Monitor task execution
-> * Retrieve output files
+> * Add an application package to your Batch account.
+> * Authenticate with Batch and Storage accounts.
+> * Upload input files to Storage.
+> * Create a pool of compute nodes to run an application.
+> * Create a job and tasks to process input files.
+> * Monitor task execution.
+> * Retrieve output files.
 
 For more examples of using the .NET API to schedule and process Batch workloads, see the [Batch C# samples on GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp).
