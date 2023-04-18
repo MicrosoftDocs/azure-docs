@@ -1,0 +1,26 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions about Azure Traffic Controller
+  description: Find answers to frequently asked questions about Azure Traffic Controller.
+  services: application-gateway
+  author: greglin
+  ms.service: application-gateway
+  ms.subservice: traffic-controller
+  ms.topic: article
+  ms.date: 5/1/2023
+  ms.author: greglin
+    
+title: Frequently asked questions about Traffic Controller
+summary: The following are common questions asked about Azure Traffic Controller.
+
+sections:
+  - name: General
+    questions:
+      - question: What is Traffic Controller?
+        answer: Traffic Controller offers various layer 7 load-balancing capabilities for your container applications. This service is highly available, scalable, and fully managed by Azure.
+
+  - name: Performance
+    questions:
+      - question: How does Application Gateway support high availability and scalability?
+        answer: Traffic Controller automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region does not support zones, fault domains and update domains be used to help mitigate impact during planned maintainence and unexpected failures.
+          
