@@ -86,7 +86,7 @@ The following steps are required to migrate to the new communication mode:
 1. Use one of the following options to update your workloads to use the new communication mode.
    - Create new pools with the `targetNodeCommunicationMode` set to *simplified* and validate that the new pools are working correctly. Migrate your workload to the new pools and delete any earlier pools.
    - Update existing pools `targetNodeCommunicationMode` property to *simplified* and then resize all existing pools to zero nodes and scale back out.
-1. Use the [Get Pool](/rest/api/batchservice/pool/get) API, [List Pool](/rest/api/batchservice/pool/list) API, or the Azure Portal to confirm the `currentNodeCommunicationMode` is set to the desired communication mode of *simplified*.
+1. Use the [Get Pool](/rest/api/batchservice/pool/get) API, [List Pool](/rest/api/batchservice/pool/list) API, or the Azure portal to confirm the `currentNodeCommunicationMode` is set to the desired communication mode of *simplified*.
 1. Modify all applicable networking configuration to the simplified communication rules, at the minimum (note any extra rules needed as discussed above):
    - Inbound:
      - None
@@ -116,7 +116,7 @@ The following are examples of how to create a Batch pool with simplified compute
 
 ### Azure portal
 
-First, sign in to the [Azure Portal](https://portal.azure.com). Then, navigate to the **Pools** blade of your Batch account and select the **Add** button. Under **OPTIONAL SETTINGS**, you can select **Simplified** as an option from the pull-down of **Node communication mode** as shown:
+First, sign in to the [Azure portal](https://portal.azure.com). Then, navigate to the **Pools** blade of your Batch account and select the **Add** button. Under **OPTIONAL SETTINGS**, you can select **Simplified** as an option from the pull-down of **Node communication mode** as shown:
 
    :::image type="content" source="media/simplified-compute-node-communication/add-pool-simplified-mode.png" alt-text="Screenshot that shows creating a pool with simplified mode.":::
 
