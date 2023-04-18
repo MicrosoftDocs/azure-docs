@@ -20,8 +20,8 @@ content package, and append a tag to the machines that should require code to be
 
 To use the Signature Validation feature, run the `Protect-GuestConfigurationPackage` cmdlet to sign
 the package before it's published. This cmdlet requires a 'Code Signing' certificate. If you don't
-have a 'Code Signing' certificate, please use the script below to create a self-signed certificate
-for testing purposes to follow along with the example.
+have a 'Code Signing' certificate, use the following script to create a self-signed certificate for
+testing purposes to follow along with the example.
 
 ## Windows signature validation
 

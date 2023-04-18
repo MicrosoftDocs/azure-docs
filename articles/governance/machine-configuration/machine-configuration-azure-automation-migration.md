@@ -15,9 +15,9 @@ AADSC). When possible, you should plan to move your content and machines to the 
 article provides guidance on developing a migration strategy from Azure Automation to machine
 configuration.
 
-New features in machine configuration address top asks from customers:
+New features in machine configuration address customer requests:
 
-- Increased size limit for configurations ( 100MB )
+- Increased size limit for configurations to 100 MB
 - Advanced reporting through Azure Resource Graph including resource ID and state
 - Manage multiple configurations for the same machine
 - When machines drift from the desired state, you control when remediation occurs
@@ -61,8 +61,8 @@ configuration.
 
 You can only export configuration scripts from Azure Automation. It isn't possible to export node
 configurations, or compiled MOF files. If you published MOF files directly into the Automation
-Account and no longer have access to the original file, you must recompile from your private
-configuration scripts. If you can't find the original configuration, you must re-author it.
+Account and no longer have access to the original file, you need to recompile from your private
+configuration scripts. If you can't find the original configuration, you must reauthor it.
 
 To export configuration scripts from Azure Automation, first identify the Azure Automation account
 that has the configurations and the name of the Resource Group the Automation Account is deployed
@@ -147,7 +147,7 @@ After you've discovered your accounts and the number of configurations, you migh
 all configurations to a local folder on your machine. To automate this process, pipe the output of
 each command in the earlier examples to the next command.
 
-The example exports 5 configurations. The output pattern is the only indicator of success.
+The example exports five configurations. The output pattern is the only indicator of success.
 
 ```azurepowershell-interactive
 Get-AzAutomationAccount |
@@ -173,7 +173,7 @@ configuration per machine. To take advantage of the expanded capabilities offere
 configuration, you can divide large configuration files into many smaller configurations where each
 handles a specific scenario.
 
-There is no orchestration in machine configuration to control the order of how configurations are
+There's no orchestration in machine configuration to control the order of how configurations are
 sorted. Keep steps in a configuration together in one package if they're required to happen
 sequentially.
 
@@ -184,12 +184,11 @@ configurations require which modules and versions. You must have the modules in 
 environment to create a new machine configuration package. To create a list of modules you need for
 migration, use PowerShell to query Azure Automation for the name and version of modules.
 
-If you are using modules that are custom authored and only exist in your private development
+If you're using modules that are custom authored and only exist in your private development
 environment, it isn't possible to export them from Azure Automation.
 
 If you can't find a custom module in your environment that's required for a configuration and in
-the account, you won't be able to compile the configuration. This means you won't be able to
-migrate the configuration.
+the account, you can't compile the configuration. Therefore, you can't migrate the configuration.
 
 #### List modules imported in Azure Automation
 
@@ -235,8 +234,8 @@ xRemoteDesktopAdmin        1.1.0.0
 
 If the modules were imported from the PowerShell Gallery, you can pipe the output from
 `Find-Module` directly to `Install-Module`. Piping the output across commands provides a solution
-to load a developer environment with all modules currently in an Automation Account that are
-available publicly in the PowerShell Gallery.
+to load a developer environment with all modules currently in an Automation Account if they're
+available in the PowerShell Gallery.
 
 You can use the same approach to pull modules from a custom NuGet feed if you have registered the
 feed in your local environment as a [PowerShellGet repository][04].
@@ -314,10 +313,10 @@ function New-TaskResolvedInPWSH7 {
 }
 ```
 
-#### Will I have to add the Reasons property to Get-TargetResource in all modules I migrate?
+#### Do I need to add the Reasons property to Get-TargetResource in all modules I migrate?
 
 Implementing the [Reasons property][09] provides a better experience when viewing the results of a
-configuration assignment from the Azure Portal. If the `Get` method in a module doesn't include
+configuration assignment from the Azure portal. If the `Get` method in a module doesn't include
 **Reasons**, generic output is returned with details from the properties returned by the `Get`
 method. Therefore, it's optional for migration.
 
@@ -348,22 +347,22 @@ Azure Automation State Configuration.
 ### Hybrid machines
 
 Machines outside of Azure [can be registered to Azure Automation State Configuration][13], but they
-don't have a machine resource in Azure. The connection to Azure Automation is handled by the Local
-Configuration Manager (LCM) service inside the machine. The record of the node is managed as a
-resource in the Azure Automation provider type.
+don't have a machine resource in Azure. The Local Configuration Manager (LCM) service inside the
+machine handles the connection to Azure Automation. The record of the node is managed as a resource
+in the Azure Automation provider type.
 
 Before removing a machine from Azure Automation State Configuration, onboard each node as an
-[Azure Arc-enabled server][14]. Onboarding to Azure Arc creates a machine resource in Azure so the
-machine can be managed by Azure Policy. The machine can be onboarded to Azure Arc at any time, but
-you can use Azure Automation State Configuration to automate the process.
+[Azure Arc-enabled server][14]. Onboarding to Azure Arc creates a machine resource in Azure so
+Azure Policy can manage the machine. The machine can be onboarded to Azure Arc at any time, but you
+can use Azure Automation State Configuration to automate the process.
 
 You can register a machine to Azure Arc-enabled servers by using PowerShell DSC. For details, view
 the page [How to install the Connected Machine agent using Windows PowerShell DSC][15]. Remember
 however, that Azure Automation State Configuration can manage only one configuration per machine,
-per Automation Account. This means you have the option to export, test, and prepare your content
-for machine configuration, and then switch the node configuration in Azure Automation to onboard to
-Azure Arc. As the last step, remove the node registration from Azure Automation State Configuration
-and move forward only managing the machine state through machine configuration.
+per Automation Account. You can export, test, and prepare your content for machine configuration,
+and then switch the node configuration in Azure Automation to onboard to Azure Arc. As the last
+step, remove the node registration from Azure Automation State Configuration and move forward only
+managing the machine state through machine configuration.
 
 ## Troubleshooting issues when exporting content
 

@@ -142,7 +142,7 @@ include a filter for tags. The **Tag** parameter of `New-GuestConfigurationPolic
 array of hash tables containing individual tag entries. The tags are added to the **if** section of
 the policy definition and can't be modified by a policy assignment.
 
-An example snippet of a policy definition that filters for tags is given below.
+An example snippet of a policy definition that filters for tags follows.
 
 ```json
 "if": {
@@ -227,7 +227,7 @@ New-GuestConfigurationPolicy @PolicyParam
 ### Publish the Azure Policy definition
 
 Finally, you can publish the policy definitions using the `New-AzPolicyDefinition` cmdlet. The
-below commands will publish your machine configuration policy to the policy center.
+below commands publish your machine configuration policy to the policy center.
 
 To run the `New-AzPolicyDefinition` command, you need access to create policy definitions in Azure.
 The specific authorization requirements are documented in the [Azure Policy Overview][06] page. The
@@ -237,7 +237,7 @@ recommended built-in role is `Resource Policy Contributor`.
 New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies\auditIfNotExists.json'
 ```
 
-Or, if this is a deploy if not exist policy (DINE) please use
+Or, if the policy is a deploy if not exist policy (DINE) use this command:
 
 ```azurepowershell-interactive
 New-AzPolicyDefinition -Name 'mypolicydefinition' -Policy '.\policies\deployIfNotExists.json'
@@ -267,12 +267,12 @@ the following explanations.
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what's currently published.
 - **contentUri**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a URI to
-  the location of the package. Including a package version in the file name will ensure the value
-  of this property changes in each release.
-- **contentHash**: This property is updated automatically by the `New-GuestConfigurationPolicy`
-  cmdlet. It's a hash value of the package created by `New-GuestConfigurationPackage`. The property
-  must be correct for the `.zip` file you publish. If only the **contentUri** property is updated,
-  the Extension won't accept the content package.
+  the location of the package. Including a package version in the file name ensures the value of
+  this property changes in each release.
+- **contentHash**: The `New-GuestConfigurationPolicy` cmdlet updates this property automatically.
+  It's a hash value of the package created by `New-GuestConfigurationPackage`. The property must be
+  correct for the `.zip` file you publish. If only the **contentUri** property is updated, the
+  Extension rejects the content package.
 
 The easiest way to release an updated package is to repeat the process described in this article
 and specify an updated version number. That process guarantees all properties have been correctly

@@ -30,7 +30,7 @@ Operating systems where the module can be installed:
 - Windows
 
 The module can be installed on a machine running PowerShell 7.x. Install the versions of PowerShell
-listed below.
+listed in the following table for your operating system.
 
 |    OS     |   PowerShell Version   |
 | --------- | ---------------------- |
@@ -39,8 +39,8 @@ listed below.
 
 The **GuestConfiguration** module requires the following software:
 
-- Azure PowerShell 5.9.0 or higher. The required Az modules are installed automatically with the
-  **GuestConfiguration** module, or you can follow [these instructions][03].
+- Azure PowerShell 5.9.0 or higher. The required Az PowerShell modules are installed automatically
+  with the **GuestConfiguration** module, or you can follow [these instructions][03].
 
 
 ### Install the module from the PowerShell Gallery

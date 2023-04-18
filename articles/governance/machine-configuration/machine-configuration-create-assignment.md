@@ -30,13 +30,14 @@ To modify the example for other resource types such as [Arc-enabled servers][06]
 type to the name of the resource provider. For Arc-enabled servers, the resource provider is
 `Microsoft.HybridCompute/machines`.
 
-Replace the following "<>" fields with values specific to you environment:
+Replace the following "<>" fields with values specific to your environment:
 
-- `<vm_name>`: Name of the machine resource where the configuration will be applied
-- `<configuration_name>`: Name of the configuration to apply
-- `<vm_location>`: Azure region where the machine configuration assignment will be created
-- `<Url_to_Package.zip>`: For custom content package, an HTTPS link to the `.zip` file
-- `<SHA256_hash_of_package.zip>`: For custom content package, a SHA256 hash of the `.zip` file
+- `<vm_name>`: Specify the name of the machine resource to apply the configuration on.
+- `<configuration_name>`: Specify the name of the configuration to apply.
+- `<vm_location>`: Specify the Azure region to create the  machine configuration assignment in.
+- `<Url_to_Package.zip>`: Specify an HTTPS link to the `.zip` file for your custom content package.
+- `<SHA256_hash_of_package.zip>`: Specify the SHA256 hash of the `.zip` file for your custom
+  content package.
 
 ## Assign a configuration using an Azure Resource Manager template
 
@@ -229,7 +230,7 @@ resource "azurerm_virtual_machine_configuration_policy_assignment" "AzureWindows
 ## Next steps
 
 - Read the [machine configuration overview][12].
-- Setup a custom machine configuration package [development environment][13].
+- Set up a custom machine configuration package [development environment][13].
 - [Create a package artifact][14] for machine configuration.
 - [Test the package artifact][15] from your development environment.
 - [Publish the package artifact][03] so it's accessible to your machines.

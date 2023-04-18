@@ -48,8 +48,8 @@ module loading to only the path where the package was extracted.
 This change has multiple benefits:
 
 - It's possible to use different module versions for each configuration, on the same machine.
-- When a configuration is no longer needed on a machine, the entire folder where it was extracted
-  is safely deleted by the agent without the need to manage shared dependencies across
+- When a configuration is no longer needed on a machine, the agent safely deletes the entire folder
+  where the configuration was extracted. You don't need to manage shared dependencies across
   configurations.
 - It's not required to manage multiple versions of any module in a central service.
 
@@ -75,21 +75,21 @@ limit on the size of the MOF file within the package.
 
 ## Configuration mode is set in the package artifact
 
-When creating the configuration package, the mode is set using the following options:
+When you create the configuration package, the mode is set using the following options:
 
 - `Audit` - Verifies the compliance of a machine. No changes are made.
 - `AuditandSet` - Verifies and remediates the compliance state of the machine. Changes are made if
   the machine isn't compliant.
 
 The mode is set in the package rather than in the [Local Configuration Manager][09] service because
-it can be different per configuration, when multiple configurations are assigned.
+each configuration may be applied with a different mode.
 
 ## Parameter support through Azure Resource Manager
 
 Parameters set by the **configurationParameter** property array in
 [machine configuration assignments][10] overwrite the static text within a configuration MOF file
-when the file is stored on a machine. Parameters allow for customization and changes to be
-controlled by an operator from the service API without needing to run commands within the machine.
+when the file is stored on a machine. Parameters enable customization and an operator to control
+changes from the service API without needing to run commands within the machine.
 
 Parameters in Azure Policy that pass values to machine configuration assignments must be **string**
 type. It isn't possible to pass arrays through parameters, even if the DSC resource supports
@@ -156,7 +156,7 @@ return @{
 }
 ```
 
-When using command-line tools to get information that will return in `Get`, you might find the tool
+When using command-line tools to get information that returns in `Get`, you might find the tool
 returns output you didn't expect. Even though you capture the output in PowerShell, output might
 also have been written to standard error. To avoid this issue, consider redirecting output to null.
 
@@ -305,7 +305,7 @@ following known compatibility issues.
   Instead, switch to **PSDscResources**.
 - Don't use the `WindowsFeature`, `WindowsFeatureSet`, `WindowsOptionalFeature`, and
   `WindowsOptionalFeatureSet` resources in **PsDscResources**. There's a known issue loading the
-  **DISM** module in PowerShell 7.1.3 on Windows Server, that will require an update.
+  **DISM** module in PowerShell 7.1.3 on Windows Server that requires an update.
 
 The `nx*` resources for Linux that were included in the [DSC for Linux][15] repository were written
 in a combination of the languages C and Python. Because the path forward for DSC on Linux is to use
@@ -321,7 +321,7 @@ DSC versions, so don't try to manage the same settings.
 ## Next steps
 
 - Read the [machine configuration overview][01].
-- Setup a custom machine configuration package [development environment][18].
+- Set up a custom machine configuration package [development environment][18].
 - [Create a package artifact][07] for machine configuration.
 - [Test the package artifact][19] from your development environment.
 - Use the `GuestConfiguration` module to [create an Azure Policy definition][20] for at-scale

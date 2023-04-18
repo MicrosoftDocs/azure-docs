@@ -1,6 +1,6 @@
 ---
 title: How to publish custom machine configuration package artifacts
-description: Learn how to publish a machine configuration package file top Azure blob storage and get a SAS token for secure access.
+description: Learn how to publish a machine configuration package file to Azure blob storage and get a SAS token for secure access.
 ms.date: 07/25/2022
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
@@ -43,10 +43,10 @@ New-AzStorageAccount @newAccountParams |
     New-AzStorageContainer -Name guestconfiguration -Permission Blob
 ```
 
-To publish your configuration package to Azure blob storage, you can follow the below steps which
-leverages the Az.Storage module.
+To publish your configuration package to Azure blob storage, you can follow these steps, which use
+the **Az.Storage** module.
 
-First, obtain the context of the storage account in which the package will be stored. This example
+First, obtain the context of the storage account you want to store the package in. This example
 creates a context by specifying a connection string and saves the context in the variable
 `$Context`.
 
@@ -73,7 +73,7 @@ Set-AzStorageBlobContent @setParams
 
 Optionally, you can add a SAS token in the URL to ensure the content package is accessed securely.
 The below example generates a blob SAS token with read access and returns the full blob URI with
-the shared access signature token. In this example, this includes a time limit of 3 years.
+the shared access signature token. In this example, the token has a time limit of three years.
 
 ```azurepowershell-interactive
 $StartTime = Get-Date

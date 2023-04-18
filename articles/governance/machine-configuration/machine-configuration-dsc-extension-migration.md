@@ -28,12 +28,12 @@ Before you begin, it's a good idea to read the conceptual overview information a
 Configurations are deployed through the DSC extension for Linux in a "push" model, where the
 operation is completed asynchronously. The deployment doesn't return until the configuration has
 finished running inside the virtual machine. After deployment, no further information is returned
-to ARM. The monitoring and drift are managed within the machine.
+to Resource Manager. The monitoring and drift are managed within the machine.
 
 Machine configuration processes configurations in a "pull" model. The extension is deployed to a
 virtual machine and then jobs are executed based on machine configuration assignment details. It
 isn't possible to view the status while the configuration in real time as it's being applied inside
-the machine. It's possible to watch and correct drift from Azure Resource Manager (ARM) after the
+the machine. It's possible to watch and correct drift from Azure Resource Manager after the
 configuration is applied.
 
 The DSC extension included **privateSettings** where secrets could be passed to the configuration,
@@ -46,14 +46,14 @@ Machine configuration uses DSC version 3 with PowerShell version 7. DSC version 
 older versions of DSC in [Linux][02]. The implementations are separate. However, there's no
 conflict detection.
 
-For machines that will only exist for days or weeks, update the deployment templates and switch
+For machines only intended to exist for days or weeks, update the deployment templates and switch
 from the DSC extension to machine configuration. After testing, use the updated templates to build
 future machines.
 
 If a machine is planned to exist for months or years, you might choose to change which
 configuration features of Azure manage the machine to take advantage of new features.
 
-It isn't advised to have both platforms manage the same configuration.
+Using both platforms to manage the same configuration isn't advised.
 
 ## Understand migration
 
@@ -104,12 +104,12 @@ Then, add a [machine configuration assignment][06] that associates the new confi
 
 The modules that shipped with DSC for Linux on GitHub were created in the C programming language.
 In the latest version of DSC, which is used by the machine configuration feature, modules for Linux
-are written in PowerShell classes. This means that none of the original resources are compatible
-with the new platform.
+are written in PowerShell classes. None of the original resources are compatible with the new
+platform.
 
-As a result, new Linux packages will require custom module development.
+As a result, new Linux packages require custom module development.
 
-Linux content authored using Chef Inspec remains supported but should only be used for legacy
+Linux content authored using Chef Inspec is still supported but should only be used for legacy
 configurations.
 
 #### Updated nx\* module functionality
@@ -117,28 +117,28 @@ configurations.
 A new open-source [nxtools module][07] has been released to help make managing Linux systems easier
 for PowerShell users.
 
-The module will help in managing common tasks such as:
+The module helps with managing common tasks such as:
 
--	User and group management
--	File system operations (changing mode, owner, listing, set/replace content)
--	Service management (start, stop, restart, remove, add)
-- Archive operations (compress, extract)
--	Package management (list, search, install, uninstall packages)
+- Managing users and groups
+- Performing file system operations
+- Managing services
+- Performing archive operations
+- Managing packages
 
-The module includes class-based DSC resources for Linux, as well as built-in machine configuration
+The module includes class-based DSC resources for Linux and built-in machine configuration
 packages.
 
 To give feedback about this functionality, open an issue on the documentation. We currently _don't_
 accept PRs for this project, and support is best effort.
 
-#### Will I have to add the Reasons property to custom resources?
+#### Do I need to add the Reasons property to custom resources?
 
 Implementing the [Reasons property][08] provides a better experience when viewing the results of
-a configuration assignment from the Azure Portal. If the `Get` method in a module doesn't include
+a configuration assignment from the Azure portal. If the `Get` method in a module doesn't include
 **Reasons**, generic output is returned with details from the properties returned by the `Get`
 method. Therefore, it's optional for migration.
 
-### Removing a configuration the was assigned in Linux by DSC extension
+### Removing a configuration the DSC extension assigned in Linux
 
 In previous versions of DSC, the DSC extension assigned a configuration through the Local
 Configuration Manager (LCM). It's recommended to remove the DSC extension and reset the LCM.

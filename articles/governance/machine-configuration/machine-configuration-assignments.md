@@ -38,13 +38,12 @@ more information, see [getting compliance data][02].
 
 ### Deletion of guest assignments from Azure Policy
 
-When an Azure Policy assignment is deleted, if a machine configuration assignment was created by
-the policy, the machine configuration assignment is also deleted.
+When an Azure Policy assignment is deleted, if the policy created a machine configuration
+assignment, the machine configuration assignment is also deleted.
 
-When an Azure Policy assignment is deleted, if a machine configuration assignment was created by
-the policy, you'll need to manually delete the corresponding machine configuration assignment. This
-can be done by navigating to the guest assignments page on Azure portal and deleting the assignment
-there.
+When an Azure Policy assignment is deleted, you need to manually delete any machine configuration
+assignments the policy created. You can do so by navigating to the guest assignments page on Azure
+portal and deleting the assignment there.
 
 ## Manually creating machine configuration assignments
 
@@ -118,7 +117,7 @@ $guestAssignment | Remove-AzResource
 ## Next steps
 
 - Read the [machine configuration overview][03].
-- Setup a custom machine configuration package [development environment][04].
+- Set up a custom machine configuration package [development environment][04].
 - [Create a package artifact][05] for machine configuration.
 - [Test the package artifact][06] from your development environment.
 - Use the **GuestConfiguration** module to [create an Azure Policy definition][07] for at-scale

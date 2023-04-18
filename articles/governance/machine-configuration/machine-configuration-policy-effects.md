@@ -21,7 +21,7 @@ Before you begin, it's a good idea to read the overview page for [machine config
 > Custom machine configuration policy definitions using `AuditIfNotExists` as well as
 > `DeployIfNotExists` are in Generally Available (GA) support status.
 
-## How remediation (Set) is managed by machine configuration
+## How machine configuration manages remediation (Set)
 
 Machine configuration uses the policy effect [DeployIfNotExists][02] for definitions that deliver
 changes inside machines. Set the properties of a policy assignment to control how [evaluation][03]
@@ -34,19 +34,19 @@ delivers configurations automatically or on-demand.
 There are three available assignment types when guest assignments are created. The property is
 available as a parameter of machine configuration definitions that support `DeployIfNotExists`.
 
-|    Assignment type    |                                                                                         Behavior                                                                                         |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Audit`               | Report on the state of the machine, but don't make changes.                                                                                                                              |
-| `ApplyAndMonitor`     | Applied to the machine once and then monitored for changes. If the configuration drifts and becomes `NonCompliant`, it won't be automatically corrected unless remediation is triggered. |
-| `ApplyAndAutoCorrect` | Applied to the machine. If it drifts, the local service inside the machine makes a correction at the next evaluation.                                                                    |
+|    Assignment type    |                                                                                       Behavior                                                                                        |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Audit`               | Report on the state of the machine, but don't make changes.                                                                                                                           |
+| `ApplyAndMonitor`     | Applied to the machine once and then monitored for changes. If the configuration drifts and becomes `NonCompliant`, it isn't automatically corrected unless remediation is triggered. |
+| `ApplyAndAutoCorrect` | Applied to the machine. If it drifts, the local service inside the machine makes a correction at the next evaluation.                                                                 |
 
 When a new policy assignment is assigned to an existing machine, a guest assignment is
-automatically created to audit the state of the configuration first. This gives you information you
-can use to make decide which machines need remediation.
+automatically created to audit the state of the configuration first. The audit gives you
+information you can use to decide which machines need remediation.
 
 ## Remediation on-demand (ApplyAndMonitor)
 
-By default, machine configuration assignments operates in a remediation on demand scenario. The
+By default, machine configuration assignments operate in a remediation on demand scenario. The
 configuration is applied and then allowed to drift out of compliance.
 
 The compliance status of the guest assignment is `Compliant` unless either:
@@ -58,11 +58,11 @@ When either of those conditions are met, the agent reports the status as `NonCom
 automatically remediate.
 
 To enable this behavior, set the [assignmentType property][05] of the machine configuration
-assignment to `ApplyandMonitor`. Each time the assignment is processed within the machine, for each
-resource the [Test][06] method returns `true` the agent reports `Compliant` or if the method
-returns `false` the agent reports `NonCompliant`.
+assignment to `ApplyandMonitor`. Each time the assignment is processed within the machine, the
+agent reports `Compliant` for each resource when the [Test][06] method returns `$true` or
+`NonCompliant` if the method returns `$false`.
 
-## Continuous remediation (AutoCorrect)
+## Continuous remediation (autocorrect)
 
 Machine configuration supports the concept of _continuous remediation_. If the machine drifts out
 of compliance for a configuration, the next time it's evaluated the configuration is corrected
@@ -71,8 +71,8 @@ configuration. There's no way to report when a drift was automatically corrected
 continuous remediation.
 
 To enable this behavior, set the [assignmentType property][05] of the machine configuration
-assignment to `ApplyandAutoCorrect`. Each time the assignment is processed within the machine, for
-each resource the [Test][06] method returns `false`, the [Set][07] method runs automatically.
+assignment to `ApplyandAutoCorrect`. Each time the assignment is processed within the machine, the
+[Set][07] method runs automatically for each resource the [Test][06] method returns `false`.
 
 ## Disable remediation
 
@@ -95,27 +95,28 @@ automatically applied to machines.
 By default, enforcement is set to `Enabled`. Azure Policy automatically applies the configuration
 when a new machine is deployed. It also applies the configuration when the properties of a machine
 in the scope of an Azure Policy assignment with a policy in the category `Guest Configuration` is
-updated. Update operations include actions that occur in Azure Resource Manager such as adding or
-changing a tag, and for virtual machines, changes such as resizing or attaching a disk.
+updated. Update operations include actions that occur in Azure Resource Manager, like adding or
+changing a tag. Update operations also include changes for virtual machines like resizing or
+attaching a disk.
 
 Leave enforcement enabled if the configuration should be remediated when changes occur to the
 machine resource in Azure. Changes happening inside the machine don't trigger automatic remediation
 as long as they don't change the machine resource in Azure Resource Manager.
 
 If enforcement is set to `Disabled`, the configuration assignment audits the state of the machine
-until the behavior is changed by a [remediation task][09]. By default, machine configuration
-definitions update the [assignmentType property][05] from `Audit` to `ApplyandMonitor` so the
-configuration is applied one time and then it won't apply again until a remediation is triggered.
+until a [remediation task][09] changes the behavior. By default, machine configuration definitions
+update the [assignmentType property][05] from `Audit` to `ApplyandMonitor` so the configuration is
+applied one time and then it isn't applied again until a remediation is triggered.
 
 ## Optional: Remediate all existing machines
 
 If an Azure Policy assignment is created from the Azure portal, on the "Remediation" tab a checkbox
 labeled "Create a remediation task" is available. When the box is checked, after the policy
-assignment is created any resources that evaluate to `NonCompliant` are automatically corrected
-by remediation tasks.
+assignment is created remediation tasks automatically correct any resources that evaluate to
+`NonCompliant`.
 
 The effect of this setting for machine configuration is that you can deploy a configuration across
-many machines by assigning a policy. You won't also have to run the remediation task manually for
+many machines by assigning a policy. You don't also have to run the remediation task manually for
 machines that aren't compliant.
 
 ## Manually trigger remediation outside of Azure Policy
@@ -134,15 +135,15 @@ report on compliance status and allow drift or to automatically correct.
 
 ## Understanding combinations of settings
 
-|          ~           |        Audit        |                                        ApplyandMonitor                                         |                                            ApplyandAutoCorrect                                            |
-| -------------------- | ------------------- | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Enforcement Enabled  | Only reports status | Configuration applied on VM Create and re-applied on Update but otherwise allowed to drift     | Configuration applied on VM Create, reapplied on Update, and corrected on next interval if drift occurs   |
-| Enforcement Disabled | Only reports status | Configuration applied but allowed to drift                                                     | Configuration applied on VM Create or Update and corrected on next interval if drift occurs               |
+|          ~           |        Audit        |                                      ApplyandMonitor                                      |                                           ApplyandAutoCorrect                                           |
+| -------------------- | ------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Enforcement Enabled  | Only reports status | Configuration applied on VM Create and reapplied on Update but otherwise allowed to drift | Configuration applied on VM Create, reapplied on Update, and corrected on next interval if drift occurs |
+| Enforcement Disabled | Only reports status | Configuration applied but allowed to drift                                                | Configuration applied on VM Create or Update and corrected on next interval if drift occurs             |
 
 ## Next steps
 
 - Read the [machine configuration overview][01].
-- Setup a custom machine configuration package [development environment][11].
+- Set up a custom machine configuration package [development environment][11].
 - [Create a package artifact][12] for machine configuration.
 - [Test the package artifact][13] from your development environment.
 - Use the **GuestConfiguration** module to [create an Azure Policy definition][14] for at-scale

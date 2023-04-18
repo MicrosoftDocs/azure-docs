@@ -32,9 +32,9 @@ Examples of each scenario are provided in the following table.
 | [Configuration management][05] | You want a complete representation of a server, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website."                                                                                                                                |
 | [Compliance][06]               | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they're deployed.                                                                  | "All machines should use TLS 1.2. Audit existing machines so I can release change where it's needed, in a controlled way, at scale. For new machines, enforce the setting when they're deployed." |
 
-You can view the per-setting results from configurations in the [Guest assignments page][07]. If the
-configuration is orchestrated by an Azure Policy assignment, you can select the "Last evaluated
-resource" link on the ["Compliance details" page][07].
+You can view the per-setting results from configurations in the [Guest assignments page][07]. If an
+Azure Policy assignment orchestrated the configuration is orchestrated, you can select the "Last
+evaluated resource" link on the ["Compliance details" page][07].
 
 [A video walk-through of this document is available][08]. (Update coming soon)
 
@@ -92,7 +92,7 @@ built-in content, machine configuration handles loading these tools automaticall
 
 | Operating system |                 Validation tool                 |                                                                         Notes                                                                          |
 | ---------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Windows          | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                  |
+| Windows          | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. Doesn't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                |
 | Linux            | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. PowerShell isn't added to system path.                                                              |
 | Linux            | [Chef InSpec][16]                               | Installs Chef InSpec version 2.2.61 in default location and adds it to system path. It installs InSpec's dependencies, including Ruby and Python, too. |
 
@@ -101,7 +101,7 @@ built-in content, machine configuration handles loading these tools automaticall
 The machine configuration agent checks for new or changed guest assignments every 5 minutes. Once a
 guest assignment is received, the settings for that configuration are rechecked on a 15-minute
 interval. If multiple configurations are assigned, each is evaluated sequentially. Long-running
-configurations impact the interval for all configurations, because the next won't run until the
+configurations affect the interval for all configurations, because the next can't run until the
 prior configuration has finished.
 
 Results are sent to the machine configuration service when the audit completes. When a policy
@@ -132,8 +132,8 @@ compatible. The following table shows a list of supported operating systems on A
 
 \* Red Hat CoreOS isn't supported.
 
-Custom virtual machine images are supported by machine configuration policy definitions as long as
-they're one of the operating systems in the table above.
+Machine configuration policy definitions support custom virtual machine images as long as they're
+one of the operating systems in the previous table.
 
 ## Network requirements
 
@@ -205,7 +205,7 @@ access to Azure datacenters on port `443`*. If a network in Azure doesn't allow 
 configure exceptions with [Network Security Group][18] rules. The [service tags][19]
 `AzureArcInfrastructure` and `Storage` can be used to reference the guest configuration and Storage
 services rather than manually maintaining the [list of IP ranges][20] for Azure datacenters. Both
-tags are required because machine configuration content packages are hosted by Azure Storage.
+tags are required because Azure Storage hosts the machine configuration content packages.
 
 ### Communicate over Private Link in Azure
 
@@ -236,9 +236,9 @@ configuration scenarios.
 
 ### Communicate over Private Link outside of Azure
 
-When using [private link with Arc-enabled servers][24], built-in policy packages will automatically
-be downloaded over the private link. You don't need to set any tags on the Arc-enabled server to
-enable this feature.
+When you use [private link with Arc-enabled servers][24], built-in policy packages are
+automatically downloaded over the private link. You don't need to set any tags on the Arc-enabled
+server to enable this feature.
 
 ## Assigning policies to machines outside of Azure
 
@@ -273,15 +273,15 @@ Customers designing a highly available solution should consider the redundancy p
 requirements for [virtual machines][28] because guest assignments are extensions of machine
 resources in Azure. When guest assignment resources are provisioned into an Azure region that's
 [paired][29], you can view guest assignment reports if at least one region in the pair is
-available. If the Azure region isn't paired and it becomes unavailable, then it isn't possible to
-access reports for a guest assignment until the region is restored.
+available. When the Azure region isn't paired and it becomes unavailable, you can't access reports
+for a guest assignment. When the region is restored, you can access the reports again.
 
 It's best practice to assign the same policy definitions with the same parameters to all machines
 in the solution for highly available applications. This is especially true for scenarios where
 virtual machines are provisioned in [Availability Sets][30] behind a load balancer solution. A
 single policy assignment spanning all machines has the least administrative overhead.
 
-For machines protected by [Azure Site Recovery][31], ensure that machines in the primary and
+For machines protected by [Azure Site Recovery][31], ensure that the machines in the primary and
 secondary site are within scope of Azure Policy assignments for the same definitions. Use the same
 parameter values for both sites.
 
@@ -389,7 +389,8 @@ egrep -B $LINES_TO_INCLUDE_BEFORE_MATCH -A $LINES_TO_INCLUDE_AFTER_MATCH 'DSCEng
 ### Agent files
 
 The machine configuration agent downloads content packages to a machine and extracts the contents.
-To verify what content has been downloaded and stored, view the folder locations given below.
+To verify what content has been downloaded and stored, view the folder locations in the following
+list.
 
 - Windows: `C:\ProgramData\guestconfig\configuration`
 - Linux: `/var/lib/GuestConfig/Configuration`
@@ -400,15 +401,15 @@ To verify what content has been downloaded and stored, view the folder locations
 A new open-source [nxtools module][37] has been released to help make managing Linux systems easier
 for PowerShell users.
 
-The module will help in managing common tasks such as:
+The module helps in managing common tasks such as:
 
--	User and group management
--	File system operations (changing mode, owner, listing, set/replace content)
--	Service management (start, stop, restart, remove, add)
-- Archive operations (compress, extract)
--	Package management (list, search, install, uninstall packages)
+- Managing users and groups
+- Performing file system operations
+- Managing services
+- Performing archive operations
+- Managing packages
 
-The module includes class-based DSC resources for Linux, as well as built-in machine configuration
+The module includes class-based DSC resources for Linux and built-in machine configuration
 packages.
 
 To provide feedback about this functionality, open an issue on the documentation. We currently

@@ -17,7 +17,7 @@ the most recent developments, this article provides you with information about:
 - Known issues
 - Bug fixes
 
-For information on release notes for the connected machine agent, please see
+For information on release notes for the connected machine agent, see
 [What's new with the connected machine agent][01].
 
 ## Release notes
@@ -26,7 +26,7 @@ For information on release notes for the connected machine agent, please see
 
 #### New Features
 
-- In this release we've added support for Linux distributions such as Red Hat Enterprise Linux
+- In this release, we've added support for Linux distributions such as Red Hat Enterprise Linux
   (RHEL) 9, Mariner 1&2, Alma 9, and Rocky 9.
 
 #### Fixed
@@ -40,14 +40,15 @@ In this release, various improvements were made.
 
 - You can now restrict which URLs can be used to download machine configuration packages by setting
   the `allowedGuestConfigPkgUrls` tag on the server resource and providing a comma-separated list of
-  URL patterns to allow. If the tag exists, the agent will only allow custom packages to be
+  URL patterns to allow. If the tag exists, the agent only allows custom packages to be
   downloaded from the specified URLs. Built-in packages are unaffected by this feature.
 
 ## Fixed
 
 - Resolves local elevation of privilege vulnerability [CVE-2022-38007][03].
 - If you're currently running an older version of the AzurePolicyforLinux extension, use the
-  PowerShell or Azure CLI commands below to update your extension to the latest version.
+  PowerShell or Azure CLI commands in the following examples to update your extension to the latest
+  version.
 
 ```azurepowershell-interactive
 $params = @{

@@ -10,9 +10,8 @@ ms.topic: how-to
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
-When auditing and configuring both Windows and Linux, machine configuration uses a
-[Desired State Configuration][02] (DSC). The DSC configuration defines the condition that the
-machine should be in.
+Machine configuration uses [Desired State Configuration][02] (DSC) when auditing and configuring
+both Windows and Linux. The DSC configuration defines the condition that the machine should be in.
 
 > [!IMPORTANT]
 > Custom packages that audit the state of an environment and apply configurations are in Generally
@@ -34,13 +33,13 @@ non-Azure machine.
 
 ## Install PowerShell 7 and required PowerShell modules
 
-First, follow the steps in [How to setup a machine configuration authoring environment][03].
-They'll help you to install the required version of PowerShell for your OS, the
+First, follow the steps in [How to set up a machine configuration authoring environment][03]. Those
+steps help you to install the required version of PowerShell for your OS, the
 **GuestConfiguration** module, and the **PSDesiredStateConfiguration** module.
 
 ## Author a configuration
 
-Before creating a configuration package, author and compile a DSC configuration. If needed, example
+Before you create a configuration package, author and compile a DSC configuration. Example
 configurations are available for Windows and Linux.
 
 > [!IMPORTANT]
@@ -49,7 +48,7 @@ configurations are available for Windows and Linux.
 
 An example is provided in the DSC [Getting started document][04] for Windows.
 
-For Linux, you'll need to create a custom DSC resource module using [PowerShell classes][05]. The
+For Linux, you need to create a custom DSC resource module using [PowerShell classes][05]. The
 article [Writing a custom DSC resource with PowerShell classes][05] includes a full example of a
 custom resource and configuration tested with machine configuration.
 
@@ -58,7 +57,7 @@ custom resource and configuration tested with machine configuration.
 Once the MOF is compiled, the supporting files must be packaged together. The completed package is
 used by machine configuration to create the Azure Policy definitions.
 
-The `New-GuestConfigurationPackage` cmdlet creates the package. Modules that are needed by the
+The `New-GuestConfigurationPackage` cmdlet creates the package. Modules required by the
 configuration must be in available in `$Env:PSModulePath` for the development environment so the
 commands in the module can add them to the package.
 
@@ -74,7 +73,7 @@ Parameters of the `New-GuestConfigurationPackage` cmdlet when creating Windows c
 This step doesn't require elevation. The **Force** parameter is used to overwrite existing
 packages, if you run the command more than once.
 
-The following commands create a package artifacts:
+The following commands create a package artifact:
 
 ```powershell
 # Create a package that will only audit compliance

@@ -31,12 +31,13 @@ Before you can begin testing, you need to [set up your authoring environment][01
 You can test the package from your workstation or continuous integration and continuous deployment
 (CI/CD) environment. The **GuestConfiguration** module includes the same agent for your development
 environment as is used inside Azure or Arc enabled machines. The agent includes a stand-alone
-instance of PowerShell 7.1.3 for Windows and 7.2.0-preview.7 for Linux. This ensures the script
-environment where the package is tested will be consistent with machines you manage using machine
-configuration.
+instance of PowerShell 7.1.3 for Windows and 7.2.0-preview.7 for Linux. The stand-alone instance
+ensures the script environment where the package is tested is consistent with machines you manage
+using machine configuration.
 
 The agent service in Azure and Arc-enabled machines is running as the `LocalSystem` account in
-Windows and Root in Linux. Run the commands below in privileged security context for best results.
+Windows and Root in Linux. Run the commands in this article in a privileged security context for
+best results.
 
 To run PowerShell as `LocalSystem` in Windows, use the SysInternals tool [PSExec][03].
 
@@ -112,7 +113,7 @@ In Linux, by running PowerShell using sudo.
 sudo pwsh -command 'Start-GuestConfigurationPackageRemediation -Path ./MyConfig.zip'
 ```
 
-The command won't return output unless errors occur. To troubleshoot details about events occurring
+The command only returns output when errors occur. To troubleshoot details about events occurring
 during `Set`, use the `-verbose` parameter.
 
 After running the command `Start-GuestConfigurationPackageRemediation`, you can run the command
