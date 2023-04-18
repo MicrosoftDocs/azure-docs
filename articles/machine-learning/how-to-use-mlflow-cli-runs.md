@@ -17,7 +17,7 @@ ms.devlang: azurecli
 # Track ML experiments and models with MLflow
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you're using:"]
-> * [v1](./v1/how-to-use-mlflow.md)
+> * [v1](./v1/how-to-use-mlflow.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-use-mlflow-cli-runs.md)
 
 __Tracking__ refers to process of saving all experiment's related information that you may find relevant for every experiment you run. Such metadata varies based on your project, but it may include:
@@ -133,7 +133,7 @@ All Azure Machine Learning environments already have MLflow installed for you, s
 
 1. Create a `conda.yml` file with the dependencies you need:
 
-    :::code language="yaml" source="~/azureml-examples-main//sdk/python/using-mlflow/deploy/environment/conda.yml" highlight="7-8" range="1-12":::
+    :::code language="yaml" source="~/azureml-examples-main//sdk/python/using-mlflow/deploy/environment/conda.yaml" highlight="7-8" range="1-12":::
     
 1. Reference the environment in the job you're using.
 

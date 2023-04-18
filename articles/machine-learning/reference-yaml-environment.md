@@ -73,7 +73,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: Docker image plus conda file
 
-:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yaml":::
 
 ## Next steps
 

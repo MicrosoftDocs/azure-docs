@@ -4,7 +4,7 @@ description: Learn about the Azure cloud environments where Defender for Cloud c
 ms.topic: limits-and-quotas
 author: bmansheim
 ms.author: benmansheim
-ms.date: 03/08/2023
+ms.date: 04/13/2023
 ---
 
 # Support matrices for Defender for Cloud
@@ -31,6 +31,7 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 |Azure Database for MySQL*|-|✔|-|
 |Azure Database for PostgreSQL*|-|✔|-|
 |Azure Event Hubs namespace|✔|-|-|
+|Azure Files|✔|✔|-|
 |Azure Functions app|✔|-|-|
 |Azure Key Vault|✔|✔|-|
 |Azure Kubernetes Service|✔|✔|-|
@@ -40,7 +41,6 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 |Azure SQL Managed Instance|✔|✔|[Defender for Azure SQL](defender-for-sql-introduction.md)|
 |Azure Service Bus namespace|✔|-|-|
 |Azure Service Fabric account|✔|-|-|
-|Azure Storage accounts|✔|✔|-|
 |Azure Stream Analytics|✔|-|-|
 |Azure Subscription|✔ **|✔|-|
 |Azure Virtual Network</br> (incl. subnets, NICs, and network security groups)|✔|-|-|
@@ -68,7 +68,7 @@ Microsoft Defender for Cloud is available in the following Azure cloud environme
 | **Microsoft Defender plans and extensions**                                                                                                                   |                |                                |                                |
 | - [Microsoft Defender for Servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA                             |
 | - [Microsoft Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available                  |
-| - [Microsoft Defender for CSPM](./concept-cloud-security-posture-management.md) | GA | Not Available | Not Available |
+| - [Microsoft Defender CSPM](./concept-cloud-security-posture-management.md) | GA | Not Available | Not Available |
 | - [Microsoft Defender for DNS](./defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | GA                             |
 | - [Microsoft Defender for Kubernetes](./defender-for-kubernetes-introduction.md) <sup>[1](#footnote1)</sup>                                                   | GA             | GA                             | GA                             |
 | - [Microsoft Defender for Containers](./defender-for-containers-introduction.md) <sup>[7](#footnote7)</sup>                                                  | GA             | GA                             | GA                             |

@@ -122,6 +122,8 @@ items:
       href: insights-permissions.md
 - name: How-to guides
   items:
+  - name: Use the governance portal
+    href: use-microsoft-purview-governance-portal.md
   - name: Sources
     items:
     - name: Azure Multiple Source
@@ -186,6 +188,8 @@ items:
         href: register-scan-power-bi-tenant-cross-tenant.md
       - name: Troubleshoot Power BI scans
         href: register-scan-power-bi-tenant-troubleshoot.md
+      - name: Available Power BI metadata
+        href: available-metadata.md
     - name: Salesforce
       href: register-scan-salesforce.md
     - name: SAP Business Warehouse
@@ -223,7 +227,7 @@ items:
               href: manage-integration-runtimes.md
             - name: Self-hosted integration runtime auto-update and expiration
               href: self-hosted-integration-runtime-version.md
-            - name: Troubleshoot SHIR Self-hosted integration runtime
+            - name: Troubleshoot self-hosted integration runtime
               href: scanning-shir-troubleshooting.md
         - name: Scan
           items:
@@ -237,7 +241,7 @@ items:
             href: how-to-monitor-data-map-population.md
           - name: Troubleshoot scans & connections
             href: troubleshoot-connections.md
-          - name: Troubleshoot SHIR Self-hosted integration runtime
+          - name: Troubleshoot self-hosted integration runtime
             href: scanning-shir-troubleshooting.md
         - name: Classify
           items:
@@ -453,8 +457,6 @@ items:
   items:
     - name: Product glossary reference
       href: reference-azure-purview-glossary.md
-    - name: Available source metadata
-      href: available-metadata.md
     - name: Supported browsers
       href: supported-browsers.md
     - name: Limits
