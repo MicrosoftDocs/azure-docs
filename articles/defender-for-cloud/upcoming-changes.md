@@ -46,7 +46,7 @@ Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com
 
 **Estimated date for change: April 2023**
 
-We are announcing the full deprecation of support of [`PCI DSS`](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
+We're announcing the full deprecation of support of [`PCI DSS`](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
 
 Legacy PCI DSS v3.2.1 and legacy SOC TSP are set to be fully deprecated and replaced by [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative.
 Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
@@ -74,7 +74,7 @@ We've improved the coverage of the V2 identity recommendations by scanning all A
 
 **Estimated date for change: April 2023**
 
-We are announcing the full deprecation of support of [`PCI DSS`](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
+We're announcing the full deprecation of support of [`PCI DSS`](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
 
 Legacy PCI DSS v3.2.1 and legacy SOC TSP are set to be fully deprecated and replaced by [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [`PCI DSS v4`](/azure/compliance/offerings/offering-pci-dss) initiative.
 Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
@@ -117,11 +117,11 @@ The following security recommendations will be released as GA and replace the V1
 
 **Estimated date for change: June 2023**
 
-To improve the Defender for DevOps user experience and enable further integration with Defender for Coud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant. 
+To improve the Defender for DevOps user experience and enable further integration with Defender for Cloud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant. 
 
-If you do not have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they do not want to keep by navigating to Defender for Cloud Environment Settings. 
+If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings. 
 
-Customers will have until June 30, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps.
+Customers will have until June 30, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists, will remain onboarded to Defender for DevOps.
 
 
 ## Next steps
