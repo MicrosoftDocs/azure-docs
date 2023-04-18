@@ -20,7 +20,7 @@ This article describes how to use the Azure CLI to deploy an Azure virtual machi
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](/azure/includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 - Azure Cloud Shell or the Azure CLI.
 
@@ -223,6 +223,9 @@ In this task, you must configure some external endpoints for the database listen
    echo "/dev/sdc1               /u02                    ext4    defaults        0 0" >> /etc/fstab
    ```
    
+   > [!Important]
+   > This command mounts the /etc/fstab file without a specified UUID for the mount point, which can prevent successful reboot of the disk. Before you attempt to reboot the disk, update the /etc/fstab entry to include a UUID for the mount point.
+
 1. Update the **/etc/hosts** file with the public IP address and address hostname. Change the `<Public IP>` and `<VMname>` portions to reflect your actual values:
   
    ```bash
@@ -375,7 +378,7 @@ The Oracle database by default doesn't automatically start when you restart the 
    sed -i 's/:N/:Y/' /etc/oratab
    ```
 
-1. Create a file named **/etc/init.d/dbora** and copy the bash command in the file:
+1. Create a file named **/etc/init.d/dbora** and paste the following bash command into the file:
 
    ```bash
    #!/bin/sh
@@ -432,7 +435,7 @@ The Oracle database by default doesn't automatically start when you restart the 
 After you finish exploring your first Oracle database on Azure and the VM is no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and all related resources.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name rg-oracle
 ```
 
 ## Next steps
