@@ -27,9 +27,9 @@ Parameters on the query determine:
 
 Results are tabular, composed of fields of either all "retrievable" fields, or limited to just those fields specified in the **`$select`** parameters. Rows are the matching documents.
 
-You can limit which fields are included in search results. While a search document might consist of a large number of fields, typically only a few are needed to represent each document in the result set. On a query request, append `$select=<field list>` to specify which "retrievable" fields should be includde in the response.
+You can choose which fields are in search results. While a search document might have a large number of fields, typically only a few are needed to represent each document in results. On a query request, append `$select=<field list>` to specify which "retrievable" fields should appear in the response.
 
-Fields that work best include those that contrast and differentiate among documents, providing sufficient information to invite a click-through response on the part of the user. On an e-commerce site, it might be a product name, description, brand, color, size, price, and rating. For the built-in hotels-sample index, it might be the "select" fields in the following example:
+Pick fields that offer contrast and differentiation among documents, providing sufficient information to invite a click-through response on the part of the user. On an e-commerce site, it might be a product name, description, brand, color, size, price, and rating. For the built-in hotels-sample index, it might be the "select" fields in the following example:
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
@@ -41,7 +41,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
 > [!NOTE]
-> If want image files in a result, such as a product photo or logo, store them outside of Azure Cognitive Search, but add a field in your index to reference the image URL in the search document. Sample indexes that support images in the results include the **realestate-sample-us** demo (a built-in sample dataset that you can build easily in the Import Data wizard), and the [New York City Jobs demo app](https://aka.ms/azjobsdemo).
+> For images in results, such as a product photo or logo, store them outside of Azure Cognitive Search, but add a field in your index to reference the image URL in the search document. Sample indexes that demonstrate images in the results include the **realestate-sample-us** demo (a built-in sample dataset that you can build easily in the Import Data wizard), and the [New York City Jobs demo app](https://aka.ms/azjobsdemo).
 
 ### Tips for unexpected results
 
@@ -103,7 +103,13 @@ Notice that document 2 is fetched twice. This is because the new document 5 has 
 
 ## Ordering results
 
-In a full text search query, results can be ranked by a search score, a semantic reranker score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request that specifies an explicit sort order.
+In a full text search query, results can be ranked by:
+
++ a search score
++ a semantic reranker scores
++ a sort order on a "sortable" field
+
+You can boost hits found in specific fields by adding a scoring profile.
 
 ### Order by search score
 
