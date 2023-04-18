@@ -35,7 +35,9 @@ The information in this article assumes that your Azure Machine Learning workspa
 
 ## Limitations
 
-If you're using Azure Databricks through an Azure Machine Learning pipeline (for example, the [DatabrickStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep) class), you must use a workspace that allows public access. This can be either a workspace that isn't configured with a private link or a workspace with a private link that is [configured to allow public access](how-to-configure-private-link.md#enable-public-access).
+Scenarios where the Azure Machine Learning control plane needs to communicate with the Azure Databricks control plane are not supported. Currently the only scenario we have identified where this is a problem is when using the [DatabrickStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep) in a machine learning pipeline. To work around this limitation, allows public access to your workspace. This can be either using a workspace that isn't configured with a private link or a workspace with a private link that is [configured to allow public access](how-to-configure-private-link.md#enable-public-access).
+
+This limitation i
 
 ## Create a private endpoint for Azure Machine Learning
 
