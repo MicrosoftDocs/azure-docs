@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 ## Prerequisite
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Before you can complete steps in this tutorial, you must first [create an Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance. The instance needs to included the **Connectitivity** and **Security admin** features. This tutorial used a Virtual Network Manager instance named **vnm-learn-eastus-001**.
+* Before you can complete steps in this tutorial, you must first [create an Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance. The instance needs to included the **Connectivity** and **Security admin** features. This tutorial used a Virtual Network Manager instance named **vnm-learn-eastus-001**.
 
 ## Create virtual networks
 
@@ -73,7 +73,7 @@ This procedure walks you through creating three virtual networks that will be co
     | ------- | ----- |
     | Subscription | Select the same subscription you selected in step 3. |
     | Resource group | Select the **rg-learn-eastus-001**. |
-    | Name | Enter **vnet-learn-prod-eastus-002** and **vnet-learn-hub-eastus-001** for each additional virtual network. |
+    | Name | Enter **vnet-learn-prod-eastus-002** and **vnet-learn-hub-eastus-001** for the two virtual networks. |
     | Region | Select **(US) East US** |
     | vnet-learn-prod-eastus-002 IP addresses | IPv4 address space: 10.1.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.1.0.0/24|
     | vnet-learn-hub-eastus-001 IP addresses | IPv4 address space: 10.2.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.2.0.0/24|
@@ -145,7 +145,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     :::image type="content" source="media/create-virtual-network-manager-portal/effective-virtual-networks.png" alt-text="Screenshot of Effective virtual networks page with results of conditional statement.":::
 
 1. Select **Save** to deploy the group membership. It can take up to one minute for the policy to take effect and be added to your network group.
-1. On the **Network Group** page under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy. You'll note the **Source** is listed as **azpol-learn-prod-eastus-001**.
+1. On the **Network Group** page under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy. The **Source** is listed as **azpol-learn-prod-eastus-001**.
 
     :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of dynamic group membership under Group Membership.":::
 
@@ -165,7 +165,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | Description | *(Optional)* Provide a description about this connectivity configuration. |
 
 
-1. On the **Topology** tab, select **Hub and Spoke**. This will reveal other settings.
+1. On the **Topology** tab, select **Hub and Spoke**. This reveals other settings.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/hub-configuration.png" alt-text="Screenshot of selecting a hub for the connectivity configuration.":::
 
@@ -186,7 +186,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
     | Setting | Value |
     | ------- | ----- |
-    | Direct Connectivity | Select the checkbox for **Enable connectivity within network group**. This setting will allow spoke virtual networks in the network group in the same region to communicate with each other directly. |
+    | Direct Connectivity | Select the checkbox for **Enable connectivity within network group**. This setting allows spoke virtual networks in the network group in the same region to communicate with each other directly. |
     | Global Mesh | Leave **Enable mesh connectivity across regions** option **unchecked**. This setting isn't required as both spokes are in the same region  |
     | Hub as gateway | Select the checkbox for **Hub as a gateway**. |    
 
@@ -195,7 +195,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
 ## Deploy the connectivity configuration
 
-Make sure the virtual network gateway has been successfully deployed before deploying the connectivity configuration. If you deploy a hub and spoke configuration with **Use the hub as a gateway** enabled and there's no gateway, the deployment will fail. For more information, see [use hub as a gateway](concept-connectivity-configuration.md#use-hub-as-a-gateway).
+Make sure the virtual network gateway has been successfully deployed before deploying the connectivity configuration. If you deploy a hub and spoke configuration with **Use the hub as a gateway** enabled and there's no gateway, the deployment fails. For more information, see [use hub as a gateway](concept-connectivity-configuration.md#use-hub-as-a-gateway).
 
 1. Select **Deployments** under *Settings*, then select **Deploy configuration**.
 
@@ -216,7 +216,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-confirmation.png" alt-text="Screenshot of deployment confirmation message.":::
 
-1. The deployment will display in the list for the selected region. The deployment of the configuration can take a few minutes to complete.
+1. The deployment displays in the list for the selected region. The deployment of the configuration can take a few minutes to complete.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-in-progress.png" alt-text="Screenshot of configuration deployment in progress status.":::
 
@@ -272,7 +272,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
 ### Verify from a virtual network
 
-1. Go to **vnet-learn-hub-eastus-001** virtual network and select **Network Manager** under **Settings**. You'll see the **cc-learn-prod-eastus-001** connectivity configuration applied in the **Connectivity configurations** tab.
+1. Go to **vnet-learn-hub-eastus-001** virtual network and select **Network Manager** under **Settings**. The **Connectivity configurations** tab lists **cc-learn-prod-eastus-001** connectivity configuration applied in the 
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vnet-connectivity-configuration.png" alt-text="Screenshot of connectivity configuration applied to the virtual network.":::
 
@@ -280,25 +280,21 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/verify-security-admin-configuration.png" alt-text="Screenshot of security admin configuration applied to the virtual network."::: 
 
-1. Select **Peerings** under **Settings** to list the virtual network peerings created by Virtual Network Manager. It's name starts with **ANM_**. 
+1. Select **Peerings** under **Settings** to list the virtual network peerings created by Virtual Network Manager. Its name starts with **ANM_**. 
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vnet-peerings.png" alt-text="Screenshot of virtual network peerings created by Virtual Network Manager." lightbox="media/tutorial-create-secured-hub-and-spoke/vnet-peerings-large.png":::
 
 ### Verify from a VM
 
-1. Deploy a test Windows VM into **vnet-learn-prod-eastus-001**.
+1. [Deploy a test virtual machine](../virtual-machines/linux/quick-create-portal.md) into **vnet-learn-prod-eastus-001**.
 
-1. Go to the test VM created in *vnet-learn-prod-eastus-001* and select **Networking** under *Settings*. Select **Outbound port rules** and you'll see the security admin rule applied.
+1. Go to the test VM created in *vnet-learn-prod-eastus-001* and select **Networking** under *Settings*. Select **Outbound port rules** and verify the **DENY_INTERNET** rule is applied.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vm-security-rules.png" alt-text="Screenshot of test VM's network security rules.":::
 
-1. Select the network interface name.
+1. Select the network interface name and select **Effective routes** under **Help** to verify the routes for the virtual network peerings.The `10.2.0.0/16` route with the **Next Hop Type** of `VNet peering` is the route to the hub virtual network.
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vm-network-settings.png" alt-text="Screenshot of test VM's network settings.":::
-
-1. Then select **Effective routes** under *Help* to see the routes for the virtual network peerings. The `10.3.0.0/16` route with the next hop of `VNetGlobalPeering` is the route to the hub virtual network. The `10.5.0.0/16` route with the next hop of `ConnectedGroup` is route to the other spoke virtual network. All spokes virtual network is in a *ConnectedGroup* when **Transitivity** is enabled.
-
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/effective-routes.png" alt-text="Screenshot of effective routes from test VM network interface." lightbox="./media/tutorial-create-secured-hub-and-spoke/effective-routes-expanded.png" :::
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/effective-routes.png" alt-text="Screenshot of effective routes from test VM network interface." :::
 
 ## Clean up resources
 
