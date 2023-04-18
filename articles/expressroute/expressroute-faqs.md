@@ -104,9 +104,10 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 ### Public peering
 
-Public peering has been disabled on new ExpressRoute circuits. Azure services are now available on Microsoft peering. If you have a circuit that was created before public peering was deprecated, you can choose to use Microsoft peering or public peering, depending on the services that you want.
+Public peering is no longer available on new ExpressRoute circuits and is scheduled for retirement on March 31, 2024. Access to Azure services can be done through Microsoft peering. To avoid disruption to your services, you should migrate to Microsoft peering before the retirement date. 
 
-For more information and configuration steps for public peering, see [ExpressRoute public peering](about-public-peering.md).
+* For more information, see [Migrate from public peering to Microsoft peering](how-to-move-peering.md). 
+* For a comparison between the different peering types, see [Peering comparison](about-public-peering.md#compare).
 
 ### Why I see 'Advertised public prefixes' status as 'Validation needed', while configuring Microsoft peering?
 
@@ -185,7 +186,7 @@ If your service provider can establish two Ethernet virtual circuits over the ph
 
 No. We don't support layer 2 connectivity extensions into Azure.
 
-### Can I've more than one ExpressRoute circuit in my subscription?
+### Can I have more than one ExpressRoute circuit in my subscription?
 
 Yes. You can have more than one ExpressRoute circuit in your subscription. The default limit is set to 50. You can contact Microsoft Support to increase the limit, if needed.
 
@@ -440,8 +441,8 @@ Your existing circuit will continue advertising the prefixes for Microsoft 365. 
 
 * Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 won't have any prefixes advertised until a route filter is attached to the circuit. You'll see no prefixes by default.
 
-### If I have multiple Virtual Networks (Vnets) connected to the same ExpressRoute circuit, can I use ExpressRoute for Vnet-to-Vnet connectivity?
-Vnet-to-Vnet connectivity over ExpressRoute isn't recommended. To achieve this, configure [Virtual Network Peering](../virtual-network/virtual-network-peering-overview.md?msclkid=b64a7b6ac19e11eca60d5e3e5d0764f5).
+### If I have multiple Virtual Networks (VNets) connected to the same ExpressRoute circuit, can I use ExpressRoute for VNet-to-VNet connectivity?
+VNet-to-VNet connectivity over ExpressRoute isn't recommended. To achieve this, configure [Virtual Network Peering](../virtual-network/virtual-network-peering-overview.md?msclkid=b64a7b6ac19e11eca60d5e3e5d0764f5).
 
 ## <a name="expressRouteDirect"></a>ExpressRoute Direct
 

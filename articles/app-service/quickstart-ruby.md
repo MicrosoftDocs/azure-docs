@@ -263,13 +263,7 @@ The Ruby sample code is running in an Azure App Service Linux web app.
 
 ### [Azure CLI](#tab/cli)
 
-1. From Azure Cloud Shell, launch a text editor - such as `nano` or `vim` - to edit the file in `app/controllers/application_controller.rb`.
-   
-    ```bash
-    nano app/controllers/application_controller.rb
-    ```
-
-1. Edit the *ApplicationController* class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
+1. From Azure Cloud Shell, launch a text editor and edit the file `app/controllers/application_controller.rb`. Edit the *ApplicationController* class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
 
     ```ruby
     class ApplicationController < ActionController::Base

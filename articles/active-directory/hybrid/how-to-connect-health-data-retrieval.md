@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect Health instructions data retrieval | Microsoft Docs
+title: Azure AD Connect Health instructions data retrieval
 description: This page describes how to retrieve data from Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''

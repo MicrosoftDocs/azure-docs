@@ -4,7 +4,6 @@ description: Learn how to set up continuous integration and continuous deploymen
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/20/2023
-ms.custom: devx-track-azurepowershell
 ---
 # How to set up a CI/CD pipeline for Azure Data Lake Analytics  
 

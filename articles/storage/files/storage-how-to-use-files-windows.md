@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.date: 07/19/2022
 ms.author: kendownie
 ms.subservice: files 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Mount SMB Azure file share on Windows

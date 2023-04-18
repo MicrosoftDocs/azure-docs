@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 04/04/2023
 ms.devlang: csharp
 ---
 
@@ -220,6 +220,7 @@ Some settings in `ConnectionPolicy` have been renamed or replaced by `CosmosClie
 |`SetCurrentLocation`|`CosmosClientOptions.ApplicationRegion` can be used to achieve the same effect.|
 |`PreferredLocations`|`CosmosClientOptions.ApplicationPreferredRegions` can be used to achieve the same effect.|
 |`UserAgentSuffix`|`CosmosClientBuilder.ApplicationName` can be used to achieve the same effect.|
+|`UseMultipleWriteLocations`|Removed. The SDK automatically detects if the account supports multiple write endpoints.|
 
 ### Indexing policy
 

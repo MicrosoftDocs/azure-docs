@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Shibumi | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Shibumi'
 description: Learn how to configure single sign-on between Azure Active Directory and Shibumi.
 services: active-directory
 author: jeevansd

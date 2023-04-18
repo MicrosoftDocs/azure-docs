@@ -8,6 +8,7 @@ ms.date: 02/27/2023
 ms.topic: sample
 ms.service: azure-cdn
 ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ms.tool: azure-cli
 ---
 

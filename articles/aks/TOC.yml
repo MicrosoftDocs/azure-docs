@@ -11,8 +11,14 @@
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
       displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul, github, actions
-    - name: Solution architectures
-      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=/azure/aks/breadcrumb/toc.json&toc=/azure/aks/toc.json?WT.mc_id=AKSDOCSTOC
+    - name: Getting started
+      items:
+        - name: Well-architected considerations
+          href: /azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service?bc=/azure/aks/breadcrumb/toc.json&toc=/azure/aks/toc.json?WT.mc_id=AKSDOCSTOC
+        - name: Plan your implementation
+          href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=/azure/aks/breadcrumb/toc.json&toc=/azure/aks/toc.json?WT.mc_id=AKSDOCSTOC
+        - name: Optimize costs
+          href: best-practices-cost.md
 - name: Quickstarts
   expanded: true
   items:
@@ -47,6 +53,8 @@
           href: quickstart-helm.md
         - name: Develop with Dapr
           href: quickstart-dapr.md
+        - name: Use Draft and the DevX extension for Visual Studio Code (preview)
+          href: draft-devx-extension-aks.md
     - name: Subscribe to AKS events with Event Grid
       href: quickstart-event-grid.md
 - name: Tutorials
@@ -199,8 +207,10 @@
           href: aks-diagnostics.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
-        - name: Use Vertical Pod Autoscaler (preview)
+        - name: Use Vertical Pod Autoscaler
           href: vertical-pod-autoscaler.md
+        - name: Configure Metrics Server VPA
+          href: use-metrics-server-vertical-pod-autoscaler.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop/Deallocate nodes with Scale-down Mode
@@ -349,7 +359,7 @@
           items:
             - name: Create an OIDC Issuer for your cluster
               href: use-oidc-issuer.md
-            - name: Workload identity (preview)
+            - name: Workload identity
               items:
                 - name: Overview
                   href: workload-identity-overview.md
@@ -359,7 +369,7 @@
                   href: workload-identity-migrate-from-pod-identity.md
             - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
-            - name: Isolate pod compute resources
+            - name: Use Pod Sandboxing (preview)
               href: use-pod-sandboxing.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md
@@ -399,7 +409,7 @@
               href: configure-azure-cni.md
             - name: Use Azure CNI for dynamic IP allocation and enhanced subnet support
               href: configure-azure-cni-dynamic-ip-allocation.md
-            - name: Use Azure CNI Overlay (Preview)
+            - name: Use Azure CNI Overlay
               href: azure-cni-overlay.md
         - name: DNS
           items:
@@ -540,6 +550,8 @@
               href: dapr-settings.md
             - name: Migrate from Dapr OSS to the Dapr extension
               href: dapr-migration.md
+            - name: Deploy and run workflows with the Dapr extension
+              href: dapr-workflow.md
             - name: Troubleshoot the Dapr extension
               href: dapr-troubleshooting.md
         - name: Use GitOps
@@ -589,8 +601,6 @@
         - name: Azure DevOps Project
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-        - name: Deployment Center Launcher
-          href: deployment-center-launcher.md
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
         - name: Configure automated deployments (preview)

@@ -2,8 +2,8 @@
 title: Handle map events in iOS maps
 titleSuffix: Microsoft Azure Maps
 description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps iOS SDK to handle events.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -16,7 +16,7 @@ This article shows you how to use the maps events manager.
 
 ## Interact with the map
 
-The map manages all events through its `events` property accepting delegates, which conform to the `AzureMapDelegate` protocol. The following table lists all of the supported map events represented as methods of the `AzureMapDelegate` protocol.
+The map manages all events through its `events` property accepting delegates, which conform to the `AzureMapDelegate` protocol. The following table lists all supported map events represented as methods of the `AzureMapDelegate` protocol.
 
 | Method                 | Description |
 |------------------------|-------------|
@@ -70,7 +70,7 @@ For more information, see the [Navigating the map](how-to-use-ios-map-control-li
 
 ## Scope feature events to layer
 
-When adding a delegate to the map, layer IDs can be passed in as a second parameter. When layers are passed in, the events will only fire if the event occurs on that layer. Events scoped to layers are supported by the symbol, bubble, line, and polygon layers.
+When adding a delegate to the map, layer IDs can be passed in as a second parameter. When layers are passed in, the event only fires if it occurs on that layer. Events scoped to layers are supported by the symbol, bubble, line, and polygon layers.
 
 ```swift
 class ShowScopedEventsHandlingViewController: UIViewController, AzureMapDelegate {

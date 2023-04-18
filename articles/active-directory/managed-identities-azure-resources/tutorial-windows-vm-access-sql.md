@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use a managed identity to access Azure SQL Database - Windows - Azure AD'
+title: 'Tutorial: Use a managed identity to access Azure SQL Database - Windows'
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure SQL Database.
 services: active-directory
 documentationcenter: ''
@@ -111,7 +111,7 @@ using Microsoft.Data.SqlClient;
 try
 {
 //
-// Open a connection to the server using Active Direcotry Managed Identity authentication.
+// Open a connection to the server using Active Directory Managed Identity authentication.
 //
 string connectionString = "Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>; Authentication=Active Directory Managed Identity; Encrypt=True";
 SqlConnection conn = new SqlConnection(connectionString);

@@ -7,7 +7,7 @@ ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
 ms.date: 08/18/2022
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, devx-track-azurepowershell
 ---
 
 # Configure Bring Your Own Storage (BYOS) for Application Insights Profiler and Snapshot Debugger
@@ -323,7 +323,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are thre
 
 For general Profiler troubleshooting, refer to the [Profiler Troubleshoot documentation](profiler-troubleshooting.md).
 
-For general Snapshot Debugger troubleshooting, refer to the [Snapshot Debugger Troubleshoot documentation](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot).
+For general Snapshot Debugger troubleshooting, refer to the [Snapshot Debugger Troubleshoot documentation](/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot.md).
 
 ## Frequently asked questions
 

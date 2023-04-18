@@ -1,10 +1,11 @@
 ---
-title: Access control and security for DPS by using shared access signatures | Microsoft Docs
-description: Concepts - how to control access to Azure IoT Hub Device Provisioning Service (DPS) for backend apps. Includes information about security tokens.
+title: Access control and security for DPS with security tokens
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Control access to Azure IoT Hub Device Provisioning Service (DPS) for backend apps by using shared access signatures and security tokens.
 author: kgremban
+
 ms.service: iot-dps
-services: iot-dps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/22/2021
 ms.author: kgremban
 ms.custom: "devx-track-js, devx-track-csharp"

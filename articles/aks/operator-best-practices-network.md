@@ -116,11 +116,12 @@ The *ingress resource* is a YAML manifest of `kind: Ingress`. It defines the hos
 The following example YAML manifest would distribute traffic for *myapp.com* to one of two services, *blogservice* or *storeservice*. The customer is directed to one service or the other based on the URL they access.
 
 ```yaml
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
  name: myapp-ingress
-   annotations: kubernetes.io/ingress.class: "PublicIngress"
 spec:
+ ingressClassName: PublicIngress
  tls:
  - hosts:
    - myapp.com
@@ -131,12 +132,14 @@ spec:
       paths:
       - path: /blog
         backend:
-         serviceName: blogservice
-         servicePort: 80
+         service
+           name: blogservice
+           port: 80
       - path: /store
         backend:
-         serviceName: storeservice
-         servicePort: 80
+         service
+           name: storeservice
+           port: 80
 ```
 
 ### Ingress controller

@@ -89,6 +89,9 @@ The status of items that appear in this table may change over time as support co
 ## Performance
 NFS Azure file shares are only offered on premium file shares, which store data on solid-state drives (SSD). The IOPS and throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing.md#provisioned-model) section of the **Understanding billing** article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size, while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress may face additional latencies due to the high number of open and close operations.
 
+> [!NOTE]
+> You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance with nconnect](nfs-nconnect-performance.md).
+
 ## Workloads
 > [!IMPORTANT]
 > Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](files-troubleshoot-linux-nfs.md) for a list of known issues.
@@ -96,7 +99,7 @@ NFS Azure file shares are only offered on premium file shares, which store data 
 NFS has been validated to work well with workloads such as SAP application layer, database backups, database replication, messaging queues, home directories for general purpose file servers, and content repositories for application workloads.
 
 The following workloads have known issues:
-- Oracle Database will experience incompatibility with its dNFS feature.
+- Oracle Database will experience incompatibility with its `dNFS` feature.
 
 
 ## Next steps

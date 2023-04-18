@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: User sign-in | Microsoft Docs'
+title: 'Azure AD Connect: User sign-in'
 description: Azure AD Connect user sign-in for custom settings.
 services: active-directory
 documentationcenter: ''

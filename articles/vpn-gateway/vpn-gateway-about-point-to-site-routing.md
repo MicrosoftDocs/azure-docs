@@ -16,7 +16,7 @@ This article helps you understand how Azure Point-to-Site VPN routing behaves. P
 If you make a change to the topology of your network and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
 
 > [!NOTE]
-> This article applies to IKEv2 only.
+> This article applies to IKEv2 and OpenVPN only.
 >
 
 ## <a name="diagrams"></a>About the diagrams

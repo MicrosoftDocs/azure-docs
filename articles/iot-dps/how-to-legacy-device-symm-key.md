@@ -1,13 +1,13 @@
 ---
-title: Tutorial - Provision devices using a symmetric key enrollment group in Azure IoT Hub Device Provisioning Service
+title: Tutorial - Provision devices using a symmetric key enrollment group in DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
 description: This tutorial shows how to use symmetric keys to provision devices through an enrollment group in your Device Provisioning Service (DPS) instance
 author: kgremban
+
 ms.author: kgremban
-ms.date: 10/14/2022
+ms.date: 03/09/2023
 ms.topic: tutorial
 ms.service: iot-dps
-services: iot-dps
-manager: lizross
 zone_pivot_groups: iot-dps-set1
 ---
 
@@ -84,7 +84,7 @@ An enrollment group that uses [symmetric key attestation](concepts-symmetric-key
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section, you'll prepare a development environment that's used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device during the device's boot sequence.
+In this section, you'll prepare a development environment that's used to build the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device during the device's boot sequence.
 
 1. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
@@ -92,7 +92,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 1. Copy the tag name for the latest release of the Azure IoT C SDK.
 
-1. In a Windows command prompt, run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository (replace `<release-tag>` with the tag you copied in the previous step).
+1. In a Windows command prompt, run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step, for example: `lts_01_2023`.
 
     ```cmd
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -152,7 +152,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
+2. Clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-node.git --recursive
@@ -164,11 +164,14 @@ In this section, you'll prepare a development environment that's used to build t
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python.git) GitHub repository using the following command:
+2. Clone the [Azure IoT Device SDK for Python](https://github.com/Azure/azure-iot-sdk-python/tree/v2) GitHub repository using the following command:
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
-    ```
+   ```cmd
+   git clone -b v2 https://github.com/Azure/azure-iot-sdk-python.git --recursive
+   ```
+
+   >[!NOTE]
+   >The samples used in this tutorial are in the **v2** branch of the azure-iot-sdk-python repository. V3 of the Python SDK is available to use in beta. For information about updating V2 code samples to use a V3 release of the Python SDK, see [Azure IoT Device SDK for Python migration guide](https://github.com/Azure/azure-iot-sdk-python/blob/main/migration_guide_provisioning.md).
 
 ::: zone-end
 
@@ -176,7 +179,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java.git) GitHub repository using the following command:
+2. Clone the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -193,27 +196,11 @@ In this section, you'll prepare a development environment that's used to build t
 
 ## Create a symmetric key enrollment group
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your Device Provisioning Service instance.
+[!INCLUDE [iot-dps-enrollment-group-key.md](../../includes/iot-dps-enrollment-group-key.md)]
 
-1. Select the **Manage enrollments** tab and then select **+ Add enrollment group** at the top of the page.
+When you create the enrollment group, DPS generates a **primary key** and **secondary key**, then adds them to the enrollment entry. Your symmetric key enrollment group appears  under the **Group name** column in the **Enrollment Groups** tab.
 
-1. On **Add Enrollment Group**, enter the following information:
-
-   * **Group name**: Enter **mylegacydevices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
-
-   * **Attestation Type**: Select **Symmetric Key**.
-
-   * **Auto Generate Keys**: Check this box.
-
-   * **Select how you want to assign devices to hubs**: Select **Static configuration** so you can assign to a specific hub.
-
-   * **Select the IoT hubs this group can be assigned to**: Select one of the IoT hubs from the drop-down list.
-
-     :::image type="content" source="./media/how-to-legacy-device-symm-key/add-symmetric-key-enrollment-group.png" alt-text="Screenshot that shows adding a symmetric key enrollment group to DPS.":::
-
-1. Select **Save**. When you save the enrollment, IoT Hub generates a **Primary Key** and **Secondary Key**, then adds them to the enrollment entry. Your symmetric key enrollment group appears as **mylegacydevices** under the *Group Name* column in the *Enrollment Groups* tab.
-
-1. Open the enrollment and copy the value of the **Primary Key**. This key is your master group key.
+Open the enrollment and copy the value of the **Primary Key**. This key is your master group key.
 
 ## Choose a unique registration ID for the device
 
@@ -419,7 +406,7 @@ To update and run the provisioning sample with your device information:
 3. Open a command prompt and go to the *SymmetricKeySample* in the cloned sdk repository:
 
     ```cmd
-    cd .\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample
+    cd .\azure-iot-sdk-csharp\provisioning\device\samples\how to guides\SymmetricKeySample
     ```
 
 4. In the *SymmetricKeySample* folder, open *Parameters.cs* in a text editor. This file shows the parameters that are supported by the sample. Only the first three required parameters will be used in this article when running the sample. Review the code in this file. No changes are needed.
@@ -447,7 +434,7 @@ To update and run the provisioning sample with your device information:
 7. You should see something similar to the following output. A "TestMessage" string is sent to the hub as a test message.
 
      ```output
-    D:\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample>dotnet run --s 0ne00000A0A --i sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
+    D:\azure-iot-sdk-csharp\provisioning\device\samples\how to guides\SymmetricKeySample>dotnet run --i 0ne00000A0A --r sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
 
     Initializing the device provisioning client...
     Initialized for registration Id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6.
@@ -700,7 +687,7 @@ To update and run the provisioning sample with your device information:
 5. Open a command prompt for building. Go to the provisioning sample project folder of the Java SDK repository.
 
     ```cmd
-    cd azure-iot-sdk-java\provisioning\provisioning-samples\provisioning-symmetrickey-individual-sample
+    cd azure-iot-sdk-java\provisioning\provisioning-device-client-samples\provisioning-symmetrickey-individual-sample
     ```
 
 6. Build the sample.
@@ -763,35 +750,32 @@ To update and run the provisioning sample with your device information:
 
 In this tutorial, you used the *Static configuration* allocation policy to assign devices that register through the enrollment group to the same IoT hub. However, for allocations where a device might be provisioned to one of several IoT hubs, you can examine the enrollment group's registration records to see which IoT hub the device was provisioned to:
 
-1. In Azure portal, go to your DPS instance.
+1. In the Azure portal, go to your DPS instance.
 
 1. In the **Settings** menu, select **Manage enrollments**.
 
-1. Select **Enrollment Groups**.
+1. Select **Enrollment groups**.
 
-1. Select the enrollment group you used for this tutorial, *mylegacydevices*.
+1. Select the enrollment group you created for this tutorial.
 
-1. On the **Enrollment Group Details** page, select the **Registration Records** tab.
+1. On the **Enrollment Group Details** page, select **Registration status**.
 
-1. Find the device ID for your device **Device Id** column and note down the IoT hub in the **Assigned IoT Hub** column. The device ID is the same as the registration ID, *sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6*. (For devices that register through an enrollment group, the device ID registered to IoT Hub is always the same as the registration ID.)
+1. Find the device ID for your device **Device Id** column and note down the IoT hub in the **Assigned IoT hub** column.
 
-    :::image type="content" source="./media/how-to-legacy-device-symm-key/enrollment-group-registration-records.png" alt-text="Screenshot that shows the enrollment group registration records on Azure portal.":::
-
-     You can select the record to see more details like the initial twin assigned to the device.
+   You can select the device record to see more details like the initial twin assigned to the device.
 
 To verify the device on your IoT hub:
 
-1. In Azure portal, go to the IoT hub that your device was assigned to.
+1. In the Azure portal, go to the IoT hub that your device was assigned to.
 
 1. In the **Device management** menu, select **Devices**.
 
-1. If your device was provisioned successfully, its device ID, *sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6*, should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh**.
+1. If your device was provisioned successfully, its device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh**.
 
     :::image type="content" source="./media/how-to-legacy-device-symm-key/hub-registration.png" alt-text="Device is registered with the IoT hub":::
 
 > [!NOTE]
 > If you changed the *initial device twin state* from the default value in the enrollment group, a device can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
->
 
 ## Provision more devices (optional)
 
@@ -809,44 +793,37 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ### Delete your enrollment group
 
-1. Close the device client sample output window on your machine.
+Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records will count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
 
-1. From the left-hand menu in the Azure portal, select **All resources**.
-
-1. Select your DPS instance.
+1. In the Azure portal, go to your DPS instance.
 
 1. In the **Settings** menu, select **Manage enrollments**.
 
-1. Select the **Enrollment Groups** tab.
+1. Select the **Enrollment groups** tab.
 
-1. Select the enrollment group you used for this tutorial, *mylegacydevices*.
+1. Select the name of the enrollment group you used for this tutorial to open its details page.
 
-1. On the **Enrollment Group Details** page, select the **Registration Records** tab. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete Registrations** at the top of the page to delete the registration records.
+1. On the **Enrollment details** page, select **Registration status**. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete ** at the top of the page to delete the registration records.
 
-    > [!IMPORTANT]
-    > Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records will count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
+1. Go back to the **Manage enrollments** page.
 
-1. Go back to the **Manage Enrollments** page and make sure the **Enrollment Groups** tab is selected.
-
-1. Select the check box next to the *GROUP NAME* of the enrollment group you used for this tutorial, *mylegacydevices*.
+1. Select the check box next to the name of the enrollment group you used for this tutorial.
 
 1. At the top of the page, select  **Delete**.
 
 ### Delete device registration(s) from IoT Hub
 
-1. From the left-hand menu in the Azure portal, select **All resources**.
+1. In the Azure portal, go to the IoT hub that your device was assigned to.
 
-2. Select your IoT hub.
+1. Select **Devices** from the **Device management** section of the navigation menu.
 
-3. In the **Explorers** menu, select **IoT devices**.
+1. Select the check box next to the device Id of the device(s) you registered in this tutorial.
 
-4. Select the check box next to the *DEVICE ID* of the device(s) you registered in this tutorial. For example, *sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6*.
-
-5. At the top of the page, select  **Delete**.
+1. At the top of the page, select  **Delete**.
 
 ## Next steps
 
-In this tutorial, you provisioned multiple devices to your IoT hub using an enrollment group. Next, learn how to provision IoT devices across multiple hubs.
+In this tutorial, you provisioned multiple devices to a single IoT hub using an enrollment group. Next, learn how to provision IoT devices across multiple hubs.
 
 > [!div class="nextstepaction"]
 > [Use custom allocation policies](tutorial-custom-allocation-policies.md)
