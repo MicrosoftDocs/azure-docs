@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory PCI-DSS Multi-Factor Authentication guidance
+title: Azure Active Directory PCI-DSS Multi-Factor Authentication Guidance
 description: Learn the authentication methods supported by Azure AD to meet PCI MFA requirements
 services: active-directory 
 ms.service: active-directory
