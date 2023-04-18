@@ -6,7 +6,7 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: reference
-ms.date: 03/07/2023
+ms.date: 04/10/2023
 #Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
@@ -24,9 +24,21 @@ Microsoft Purview classifies data by using [RegEx](https://wikipedia.org/wiki/Re
 
 ## Bloom Filter based classifications
 
-### City, Country, and Place
+### World Cities, Country
 
-The City, Country, and Place filters have been prepared using best datasets available for preparing the data.
+The City and Country classifier identifies the data based on their full names as well as short codes.
+
+#### Keywords
+- burg
+- city
+- cities
+- city names
+- cosmopolis
+- metropolis
+- municipality
+- place
+- town
+-------------------------------------
 
 ## Machine Learning based classifications
 
@@ -35,10 +47,9 @@ The City, Country, and Place filters have been prepared using best datasets avai
 
 ### Person's Name
 
-Person Name machine learning model has been trained using global datasets of names in English language.
+Person Name machine learning model has been trained using global datasets of names in English language. Microsoft Purview classifies full names stored in the same column as well as first and last names in separate columns.
 
-> [!NOTE]
-> Microsoft Purview classifies full names stored in the same column as well as first/last names in separate columns.
+-------------------------------------
 
 ### Person's Address
 Person's address classification is used to detect full address stored in a single column containing the following elements: House number, Street Name, City, State, Country, Zip Code. Person's Address classifier uses machine learning model that is trained on the global addresses data set in English language.
@@ -52,6 +63,8 @@ Currently the address model supports the following formats in the same column:
 - street, city, pincode or zipcode
 - landmark, city
 
+-------------------------------------
+
 ### Person's Gender
 Person's Gender machine learning model has been trained using US Census data and other public data sources in English language. It supports classifying 50+ genders out of the box.
 
@@ -60,6 +73,7 @@ Person's Gender machine learning model has been trained using US Census data and
 - gender
 - orientation
 
+-------------------------------------
 
 ### Person's Age
 Person's Age machine learning model detects age of an individual specified in various different formats. The qualifiers for days, months, and years must be in English language.
@@ -109,6 +123,8 @@ Person's Age machine learning model detects age of an individual specified in va
 - {%y}y {%w}w
 - {%y}.{%m}
 - {%y}.{%yd}
+
+-------------------------------------
 
 ## RegEx Classifications
 
