@@ -72,7 +72,7 @@ Heavy data processing, internal errors, and insufficient compute resources can c
    Extended sessions can minimize history loads, which can slow down processing.
 
 3. Check for performance and scalability bottlenecks. 
-   Application performance depends on many factors. For example, high CPU usage, or large memory consumption can result in delays. Please read [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md) for detailed guidance.
+   Application performance depends on many factors. For example, high CPU usage, or large memory consumption can result in delays. Read [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md) for detailed guidance.
 
 ## Sample Queries
 
@@ -136,7 +136,7 @@ traces
 
 ### Control queue / Partition ID logs
 
-The following query searches for activity associated with an instanceId's control queue. You'll need to provide the value for the instanceID in `orchestrationInstanceID` as well as the query's start time in `start`.
+The following query searches for all activity associated with an instanceId's control queue. You'll need to provide the value for the instanceID in `orchestrationInstanceID` and the query's start time in `start`.
 
 ```kusto
 let orchestrationInstanceID = "XXXXXX"; // edit this
