@@ -1,7 +1,7 @@
 ---
 title: Remediation options for machine configuration
 description: Azure Policy's machine configuration feature offers options for continuous remediation or control using remediation tasks.
-ms.date: 07/25/2022
+ms.date: 04/18/2023
 ms.topic: how-to
 ---
 # Remediation options for machine configuration

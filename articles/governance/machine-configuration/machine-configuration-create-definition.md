@@ -1,7 +1,7 @@
 ---
 title: How to create custom machine configuration policy definitions
 description: Learn how to create a machine configuration policy.
-ms.date: 10/17/2022
+ms.date: 04/18/2023
 ms.topic: how-to
 ---
 # How to create custom machine configuration policy definitions

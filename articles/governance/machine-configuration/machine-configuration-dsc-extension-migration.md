@@ -1,7 +1,7 @@
 ---
 title: Planning a change from Desired State Configuration extension for Linux to machine configuration
 description: Guidance for moving from Desired State Configuration extension to the machine configuration feature of Azure Policy.
-ms.date: 07/25/2022
+ms.date: 04/18/2023
 ms.topic: how-to
 ---
 # Planning a change from Desired State Configuration extension for Linux to machine configuration

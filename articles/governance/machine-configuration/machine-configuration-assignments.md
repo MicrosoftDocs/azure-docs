@@ -1,7 +1,7 @@
 ---
 title: Understand machine configuration assignment resources
 description: Machine configuration creates extension resources named machine configuration assignments that map configurations to machines.
-ms.date: 01/12/2023
+ms.date: 04/18/2023
 ms.topic: conceptual
 ---
 # Understand machine configuration assignment resources

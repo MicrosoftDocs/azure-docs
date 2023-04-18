@@ -1,7 +1,7 @@
 ---
 title: How to test machine configuration package artifacts
 description: The experience creating and testing packages that audit or apply configurations to machines.
-ms.date: 07/25/2022
+ms.date: 04/18/2023
 ms.topic: how-to
 ---
 # How to test machine configuration package artifacts

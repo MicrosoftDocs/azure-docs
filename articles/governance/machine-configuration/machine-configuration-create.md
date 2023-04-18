@@ -1,7 +1,7 @@
 ---
 title: How to create custom machine configuration package artifacts
 description: Learn how to create a machine configuration package file.
-ms.date: 02/14/2023
+ms.date: 04/18/2023
 ms.topic: how-to
 ---
 # How to create custom machine configuration package artifacts

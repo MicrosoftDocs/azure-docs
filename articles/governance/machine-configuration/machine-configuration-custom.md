@@ -1,7 +1,7 @@
 ---
 title: Changes to behavior in PowerShell Desired State Configuration for machine configuration
 description: This article describes the platform used to deliver configuration changes to machines through Azure Policy.
-ms.date: 07/15/2022
+ms.date: 04/18/2023
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 ---
