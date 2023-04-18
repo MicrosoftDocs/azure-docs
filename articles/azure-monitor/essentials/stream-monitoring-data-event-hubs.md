@@ -37,7 +37,7 @@ Before you configure streaming for any data source, you need to [create an Event
 ## Stream diagnostics data
 
 Use diagnostics setting to stream logs and metrics to Event Hubs.
-For information on how to set up diagnostic settings, see [Create diagnostic settings](./diagnostic-settings?tabs=portal#create-diagnostic-settings)
+For information on how to set up diagnostic settings, see [Create diagnostic settings](./diagnostic-settings.md?tabs=portal#create-diagnostic-settings)
 
 The following JSON is an example of metrics data sent to an event hub:
 
