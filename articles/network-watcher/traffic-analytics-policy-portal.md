@@ -6,7 +6,7 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 04/18/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -45,7 +45,7 @@ To assign policy and audit your flow logs, use the following steps:
 
 1. Select **Review + create** and then **Create**.
 
-    :::image type="content" source="./media/traffic-analytics-policy-portal/assign-audit-policy.png" alt-text="Screenshot of Basics tab to assign an audit policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/assign-audit-policy.png":::
+    :::image type="content" source="./media/traffic-analytics-policy-portal/assign-audit-policy.png" alt-text="Screenshot of Basics tab to assign an audit policy in the Azure portal.":::
 
     > [!NOTE]
     > This policy doesn't require any parameters. It also doesn't contain any role definitions so you don't need create role assignments for the managed identity in the **Remediation** tab.
@@ -64,7 +64,7 @@ There are two *deployIfNotExists* policies available to configure NSG flow logs:
 
 - **Configure network security groups to use specific workspace, storage account and flow log retention policy for traffic analytics**: This policy flags the network security group that doesn't have traffic analytics enabled. For a flagged network security group, either the corresponding NSG flow logs resource doesn't exist or the NSG flow logs resource exist but traffic analytics isn't enabled on it. You can create a *remediation* task if you want the policy to affect existing resources.
  
-Remediation can be assigned while assigning policy or after policy is assigned and evaluated. Remediation enables traffic analytics on all the flagged resources with the provided parameters. If a network security group already has flow logs enabled into a particular storage ID but it doesn't have traffic analytics enabled, then remediation will enable traffic analytics on this network security group with the provided parameters. If the storage ID provided in the parameters is different from the one enabled for flow logs, then the latter gets overwritten with the provided storage ID in the remediation task. If you don't want to overwrite, use **Configure network security groups to enable traffic analytics** policy.
+    Remediation can be assigned while assigning policy or after policy is assigned and evaluated. Remediation enables traffic analytics on all the flagged resources with the provided parameters. If a network security group already has flow logs enabled into a particular storage ID but it doesn't have traffic analytics enabled, then remediation will enable traffic analytics on this network security group with the provided parameters. If the storage ID provided in the parameters is different from the one enabled for flow logs, then the latter gets overwritten with the provided storage ID in the remediation task. If you don't want to overwrite, use **Configure network security groups to enable traffic analytics** policy.
 
 - **Configure network security groups to enable traffic analytics**: This policy is similar to the previous policy except that during remediation, it doesn't overwrite flow logs settings on the flagged network security groups that have flow logs enabled but traffic analytics disabled with the parameter provided in the policy assignment.
 
