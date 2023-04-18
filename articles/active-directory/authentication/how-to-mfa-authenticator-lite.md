@@ -50,7 +50,8 @@ By default, Authenticator Lite is [Microsoft managed](concept-authentication-def
 
 To enable Authenticator Lite in the Azure portal, complete the following steps:
 
-  1. In the Azure portal, click Security > Authentication methods > Microsoft Authenticator.
+  1. In the Azure portal, click Azure Active Directory > Security > Authentication methods > Microsoft Authenticator.
+     In the Entra admin center, on the sidebar select Azure Active Directory > Protect & Secure > Authentication methods > Microsoft Authenticator.
 
   2. On the Enable and Target tab, click Yes and All users to enable the policy for everyone or add selected users and groups. Set the Authentication mode for these users/groups to Any or Push.
 
