@@ -29,9 +29,7 @@ In order to use MMR for Azure Virtual Desktop, you need:
 
 To use MMR video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
 
-To use MMR WebRTC call redirection, you must install the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
-
-<!--Which version?-->
+To use MMR WebRTC call redirection, you must install the Windows Desktop client, version 1.2.4237 or later with Insider releases enabled.
 
 > [!NOTE]
 > MMR isn't supported on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.

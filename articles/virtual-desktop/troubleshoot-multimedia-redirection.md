@@ -20,7 +20,7 @@ manager: femila
 >
 >Multimedia redirection video playback redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 > 
->Multimedia redirection call redirection (preview) on Azure Virtual Desktop is only available for the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
+>Multimedia redirection call redirection (preview) on Azure Virtual Desktop is only available for the Windows Desktop client, version 1.2.4237 or later with Insider releases enabled.
 
 This article describes known issues and troubleshooting instructions for multimedia redirection (MMR) for Azure Virtual Desktop.
 

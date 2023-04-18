@@ -29,7 +29,7 @@ Before you can use multimedia redirection on Azure Virtual Desktop, you'll need 
 
 To use MMR video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
 
-To use MMR WebRTC call redirection, you must install the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
+To use MMR WebRTC call redirection, you must install the Windows Desktop client, version 1.2.4237 or later with Insider releases enabled.
 
 ## Install the multimedia redirection extension
 
