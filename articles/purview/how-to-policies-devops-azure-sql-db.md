@@ -11,8 +11,6 @@ ms.custom:
 ---
 # Provision access to system metadata in Azure SQL Database
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 [DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly from the Microsoft Purview governance portal, and after they are saved, they get automatically published and then enforced by the data source. Microsoft Purview policies only manage access for Azure AD principals.
 
 This how-to guide covers how to configure Azure SQL Database to enforce policies created in Microsoft Purview. It covers the configuration steps for Azure SQL Database and the ones in Microsoft Purview to provision access to Azure SQL Database system metadata (DMVs and DMFs) using the DevOps policies actions *SQL Performance Monitoring* or *SQL Security Auditing*.

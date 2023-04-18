@@ -1,8 +1,8 @@
 ---
 title: Share an Azure Managed Grafana dashboard or panel
 description: Learn how to share a Grafana dashboard with internal and external stakeholders, such as customers or partners.
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: managed-grafana
 ms.topic: how-to 
 ms.date: 03/01/2023

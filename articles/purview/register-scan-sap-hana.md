@@ -16,9 +16,9 @@ This article outlines how to register SAP HANA, and how to authenticate and inte
 
 ## Supported capabilities
 
-|**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**| **Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No|No | No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No|No | No | No |
 
 When scanning SAP HANA source, Microsoft Purview supports extracting technical metadata including:
 
@@ -77,8 +77,9 @@ GRANT SELECT ON SCHEMA _SYS_BIC TO <user>;
 
 This section describes how to register a SAP HANA in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
 
-1. Go to your Microsoft Purview account.
-
+1. Open the Microsoft Purview governance portal by:
+    - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+    - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 1. Select **Data Map** on the left pane.
 
 1. Select **Register**.

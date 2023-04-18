@@ -192,6 +192,8 @@ A function app and related resources are created in Azure when you first deploy 
     
     The deployment packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). The code runs from the deployment package in Azure.
 
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 
 [!INCLUDE [functions-streaming-logs-cli-qs](../../includes/functions-streaming-logs-cli-qs.md)]
