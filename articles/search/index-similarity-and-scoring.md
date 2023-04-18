@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 04/18/2023
 ---
 
 # Relevance and scoring in Azure Cognitive Search
@@ -41,7 +41,12 @@ If you want to break the tie among repeating scores, you can add an **$orderby**
 
 ## Scoring algorithms in Search
 
-Azure Cognitive Search provides the `BM25Similarity` ranking algorithm. On older search services, you might be using `ClassicSimilarity`.
+Azure Cognitive Search provides the following scoring algorithms:
+
+| Algorithm | Usage | Range |
+|-----------|-------------|-------|
+| BM25Similarity | Built-in algorithm on all search services created after July 2020. You can tune relevance ranking, but on newer services, changing the algorithm isn't supported. | Unbounded range |
+|ClassicSimilarity | Used on older search services. You can [opt-in for BM25](index-ranking-similarity.md). | 0 < 1.00 |
 
 Both BM25 and Classic are TF-IDF-like retrieval functions that use the term frequency (TF) and the inverse document frequency (IDF) as variables to calculate relevance scores for each document-query pair, which is then used for ranking results. While conceptually similar to classic, BM25 is rooted in probabilistic information retrieval that produces more intuitive matches, as measured by user research. 
 

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/02/2022
+ms.date: 04/18/2023
 ---
 
 # How to work with search results in Azure Cognitive Search
@@ -66,7 +66,7 @@ Count won't be affected by routine maintenance or other workloads on the search 
 
 ## Paging results
 
-By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic search. Otherwise, the top 50 are an arbitrary order for exact match queries (where "@searchScore=1.0").
+By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic search. Otherwise, the top 50 are an arbitrary order for exact match queries (where uniform "@searchScore=1.0" indicates arbitrary ranking).
 
 To control the paging of all documents returned in a result set, add `$top` and `$skip` parameters to the query request. The following list explains the logic.
 
@@ -109,9 +109,11 @@ Sorting methodologies aren't designed to be used together. For example, if you'r
 
 ### Ordering by search score
 
-For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term.
+For full text search queries, results are automatically [ranked by a search score](index-similarity-and-scoring.md), calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term.
 
-The "@search.score" range is 0 up to (but not including) 1.00. A "@search.score" equal to 1.00 indicates an unscored or unranked result set, where the 1.0 score is uniform across all results. Unscored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`). If you need to impose a ranking structure over unscored results, an **`$orderby`** expression will help you achieve that objective.
+The "@search.score" range is either unbounded, or 0 up to (but not including) 1.00 on older services. 
+
+For either algorithm, a "@search.score" equal to 1.00 indicates an unscored or unranked result set, where the 1.0 score is uniform across all results. Unscored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`). If you need to impose a ranking structure over unscored results, an **`$orderby`** expression will help you achieve that objective.
 
 Search scores convey general sense of relevance, reflecting the strength of match relative to other documents in the same result set. But scores aren't always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
 
