@@ -32,7 +32,7 @@ View fired and resolved Prometheus alerts in the Azure portal with other alert t
 2. A browser tab will be opened taking you to the [Azure Managed Grafana](../../managed-grafana/overview.md) instance connected to your Azure Monitor Workspace. 
 3. Grafana will be opened in Explore mode, presenting the chart for your alert rule expression query which triggered the alert, around the alert firing time. You can further explore the query in Grafana to identify the reason causing the alert to fire.
 
-> [!NOTES]
+> [!NOTE]
 > 1. If there is no Azure Managed Grafana connected to your Azure Monitor Workspace, a link to Grafana will not be available.
 > 2. In order to view the alert query in Explore mode, you must have either a Grafana Admin or Grafana Editor role permissions. If you don't have the needed permissions, you will get a respective Grafana error.
 
