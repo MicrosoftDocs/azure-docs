@@ -29,7 +29,7 @@
       - name: Windows Desktop client
         href: whats-new-client-windows.md
       - name: Azure Virtual Desktop Store app
-        href: ../whats-new-client-windows-azure-virtual-desktop-app.md
+        href: whats-new-client-windows-azure-virtual-desktop-app.md
       - name: macOS client
         href: whats-new-client-macos.md
       - name: iOS/iPadOS client
