@@ -164,4 +164,4 @@ When the Pre-Call diagnostic test runs, behind the scenes it uses calling minute
 - [Check your network condition with the diagnostics tool](../developer-tools/network-diagnostic.md)
 - [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
 - [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
-- [Consume call logs with Azure Monitor](../analytics/call-logs-azure-monitor.md)
+- [Consume call logs with Azure Monitor](../analytics/logs/voice-and-video-logs.md)
