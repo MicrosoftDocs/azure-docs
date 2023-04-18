@@ -475,8 +475,8 @@
       displayName:
       href:
     - name: Bookmark your favorite data assets
-      displayName:
-      href:
+      displayName: Create data assets
+      href: how-to-create-data-assets.md
     - name: Access data during interactive development
       displayName:
       href:
