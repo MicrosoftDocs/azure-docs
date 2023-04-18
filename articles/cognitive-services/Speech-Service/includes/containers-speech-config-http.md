@@ -14,13 +14,13 @@ Speech containers provide websocket-based query endpoint APIs that are accessed 
 > When you use the Speech service with containers, be sure to use host authentication. If you configure the key and region, requests will go to the public Speech service. Results from the Speech service might not be what you expect. Requests from disconnected containers will fail.
 
 ::: zone pivot="programming-language-csharp"
-Change from using this Azure-cloud initialization call:
+Instead of using this Azure-cloud initialization config:
 
 ```csharp
 var config = SpeechConfig.FromSubscription(...);
 ```
 
-To using this call with the container [host](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost):
+Use this config with the container [host](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost):
 
 ```csharp
 var config = SpeechConfig.FromHost(
@@ -29,13 +29,13 @@ var config = SpeechConfig.FromHost(
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-Change from using this Azure-cloud initialization call:
+Instead of using this Azure-cloud initialization config:
 
 ```cpp
 auto speechConfig = SpeechConfig::FromSubscription(...);
 ```
 
-To using this call with the container [host](/cpp/cognitive-services/speech/speechconfig#fromhost):
+Use this config with the container [host](/cpp/cognitive-services/speech/speechconfig#fromhost):
 
 ```cpp
 auto speechConfig = SpeechConfig::FromHost("http://localhost:5000");
@@ -43,13 +43,13 @@ auto speechConfig = SpeechConfig::FromHost("http://localhost:5000");
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-Change from using this Azure-cloud initialization call:
+Instead of using this Azure-cloud initialization config:
 
 ```go
 speechConfig, err := speech.NewSpeechConfigFromSubscription(...)
 ```
 
-To using this call with the container host:
+Use this config with the container host:
 
 ```go
 speechConfig, err := speech.NewSpeechConfigFromHost("http://localhost:5000")
@@ -57,13 +57,13 @@ speechConfig, err := speech.NewSpeechConfigFromHost("http://localhost:5000")
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Change from using this Azure-cloud initialization call:
+Instead of using this Azure-cloud initialization config:
 
 ```java
 SpeechConfig speechConfig = SpeechConfig.fromSubscription(...);
 ```
 
-To using this call with the container [host](/java/api/com.microsoft.cognitiveservices.speech.speechconfig#com-microsoft-cognitiveservices-speech-speechconfig-fromhost(java-net-uri)):
+Use this config with the container [host](/java/api/com.microsoft.cognitiveservices.speech.speechconfig#com-microsoft-cognitiveservices-speech-speechconfig-fromhost(java-net-uri)):
 
 ```java
 SpeechConfig speechConfig = SpeechConfig.fromHost("http://localhost:5000");
@@ -71,13 +71,13 @@ SpeechConfig speechConfig = SpeechConfig.fromHost("http://localhost:5000");
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-Change from using this Azure-cloud initialization call:
+Instead of using this Azure-cloud initialization config:
 
 ```javascript
 const speechConfig = sdk.SpeechConfig.fromSubscription(...);
 ```
 
-To using this call with the container [host](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#microsoft-cognitiveservices-speech-sdk-speechconfig-fromhost):
+Use this config with the container [host](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#microsoft-cognitiveservices-speech-sdk-speechconfig-fromhost):
 
 ```javascript
 const speechConfig = sdk.SpeechConfig.fromHost("http://localhost:5000");
@@ -85,13 +85,13 @@ const speechConfig = sdk.SpeechConfig.fromHost("http://localhost:5000");
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-Change from using this Azure-cloud initialization call:
+Instead of using this Azure-cloud initialization config:
 
 ```objectivec
 SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:...];
 ```
 
-To using this call with the container [host](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost):
+Use this config with the container [host](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost):
 
 ```objectivec
 SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithHost:"http://localhost:5000"];
@@ -99,13 +99,13 @@ SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithH
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
-Change from using this Azure-cloud initialization call:
+Instead of using this Azure-cloud initialization config:
 
 ```swift
 let speechConfig = SPXSpeechConfiguration(subscription: "", region: "");
 ```
 
-To using this call with the container [host](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost):
+Use this config with the container [host](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost):
 
 ```swift
 let speechConfig = SPXSpeechConfiguration(host: "http://localhost:5000");
@@ -113,14 +113,14 @@ let speechConfig = SPXSpeechConfiguration(host: "http://localhost:5000");
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-Change from using this Azure-cloud initialization call:
+Instead of using this Azure-cloud initialization config:
 
 ```python
 speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
 ```
 
-To using this call with the container [endpoint](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig):
+Use this config with the container [endpoint](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig):
 
 ```python
 speech_config = speechsdk.SpeechConfig(

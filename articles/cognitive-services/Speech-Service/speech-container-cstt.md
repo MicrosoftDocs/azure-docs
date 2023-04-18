@@ -89,7 +89,7 @@ Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the
 ![Screenshot that shows Custom Speech model details.](media/custom-speech/custom-speech-model-details.png)
 
 
-# [Base model ID](#tab/custom-model)
+# [Base model ID](#tab/base-model)
 
 You can get the available base model information by using option `BaseModelLocale={LOCALE}`. This option gives you a list of available base models on that locale under your billing account. 
 
