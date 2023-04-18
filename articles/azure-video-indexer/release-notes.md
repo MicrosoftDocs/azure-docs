@@ -15,7 +15,7 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 
 * [Important notice](#important-notice) about planned changes
 * The latest releases
-* Known issuesf
+* Known issues
 * Bug fixes
 * Deprecated functionality
 
