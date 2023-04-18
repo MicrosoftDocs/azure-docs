@@ -62,6 +62,19 @@ The Speech containers send billing information to Azure by using a Speech resour
 
 Speech containers aren't licensed to run without being connected to Azure for metering. You must configure your container to communicate billing information with the metering service at all times. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). 
 
+## Container recipes and other container services
+
+You can use container recipes to create containers that can be reused. Containers can be built with some or all configuration settings so that they are not needed when the container is started. For container recipes see the following Azure Cognitive Services articles:
+- [Create containers for reuse](../containers/container-reuse-recipe.md)
+- [Deploy and run container on Azure Container Instance](../containers/azure-container-instance-recipe.md)
+- [Deploy a language detection container to Azure Kubernetes Service](../containers/azure-kubernetes-recipe.md)
+- [Use Docker Compose to deploy multiple containers](../containers/docker-compose-recipe.md)
+
+For information about other container services, see the following Azure Cognitive Services articles:
+- [Tutorial: Create a container image for deployment to Azure Container Instances](../../container-instances/container-instances-tutorial-prepare-app.md)
+- [Quickstart: Create a private container registry using the Azure CLI](../../container-registry/container-registry-get-started-azure-cli.md)
+- [Tutorial: Prepare an application for Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md)
+
 ## Next steps
 
 * [Install and run Speech containers](speech-container-howto.md)

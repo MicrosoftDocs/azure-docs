@@ -34,7 +34,7 @@ The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-
 | Version | Path |
 |-----------|------------|
 | Latest | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest`<br/><br/>The `latest` tag pulls the `en-US` locale and `en-us-arianeural` voice. |
-| 3.12.0 | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:3.12.0-amd64-mr-in` |
+| 2.12.0 | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:2.12.0-amd64-mr-in` |
 
 All tags, except for `latest`, are in the following format and are case sensitive:
 

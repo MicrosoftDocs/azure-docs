@@ -14,10 +14,10 @@ The following table represents the various `docker run` parameters and their cor
 |---------|---------|
 | `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which Docker uses to persist the custom model. An example is `c:\CustomSpeech` where the `c:\` drive is located on the host machine. |
 | `{MODEL_ID}` | The custom speech or base model ID. For more information, see [Get the model ID](#get-the-model-id). |
-| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). |
-| `{API_KEY}` | The API key is required. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). |
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [billing arguments](../speech-container-howto.md#billing-arguments). |
+| `{API_KEY}` | The API key is required. For more information, see [billing arguments](../speech-container-howto.md#billing-arguments). |
 
-When you run the custom speech-to-text container, configure the port, memory, and CPU according to the custom speech-to-text container [requirements and recommendations](speech-container-howto.md#container-requirements-and-recommendations).
+When you run the custom speech-to-text container, configure the port, memory, and CPU according to the custom speech-to-text container [requirements and recommendations](../speech-container-howto.md#container-requirements-and-recommendations).
 
 Here's an example `docker run` command with placeholder values. You must specify the `VOLUME_MOUNT`, `MODEL_ID`, `ENDPOINT_URI`, and `API_KEY` values:
 
@@ -41,4 +41,4 @@ This command:
 * If the custom model was previously downloaded, the `ModelId` is ignored.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-For more information about `docker run` with Speech containers, see [Install and run Speech containers with Docker](speech-container-howto.md#run-the-container).
+For more information about `docker run` with Speech containers, see [Install and run Speech containers with Docker](../speech-container-howto.md#run-the-container).
