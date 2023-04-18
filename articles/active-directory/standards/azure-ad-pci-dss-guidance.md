@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory PCI-DSS Guidance
+title: Azure Active Directory PCI-DSS guidance
 description: Guidance on meeting payment card industry (PCI) compliance with Azure AD
 services: active-directory 
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: 
 ---
 
-# Azure Active Directory PCI-DSS Guidance
+# Azure Active Directory PCI-DSS guidance
 
 The PCI Security Standards Council (PCI SSC) creates and promotes the use of data security standards and resources through the Payment Card Industry Data Security Standard (PCI-DSS) to ensure secure payments. This document provides guidance to organizations using Azure Active Directory (Azure AD) to meet PCI compliance. 
 Organizations are responsible for their PCI compliance. Their IT teams, SecOps teams, and Solutions Architects are responsible for creating and maintaining systems, products and networks that handle, process and store payment card information.
@@ -211,7 +211,7 @@ PCI-DSS requirements **3**, **4**, **9**, and **12** aren't addressed or met by 
 
 To configure Azure AD to comply with PCI-DSS, see the following articles. 
 
-* [Azure AD PCI-DSS Guidance](azure-ad-pci-dss-guidance.md) (You're here)
+* [Azure AD PCI-DSS guidance](azure-ad-pci-dss-guidance.md) (You're here)
 * [Requirement 1: Install and Maintain Network Security Controls](pci-requirement-1.md)
 * [Requirement 2: Apply Secure Configurations to All System Components](pci-requirement-2.md)
 * [Requirement 5: Protect All Systems and Networks from Malicious Software](pci-requirement-5.md)
@@ -220,5 +220,5 @@ To configure Azure AD to comply with PCI-DSS, see the following articles.
 * [Requirement 8: Identify Users and Authenticate Access to System Components](pci-requirement-8.md)
 * [Requirement 10: Log and Monitor All Access to System Components and Cardholder Data](pci-requirement-10.md)
 * [Requirement 11: Test Security of Systems and Networks Regularly](pci-requirement-11.md)
-* [Azure AD PCI-DSS Multi-Factor Authentication Guidance](azure-ad-pci-dss-mfa.md)
+* [Azure AD PCI-DSS Multi-Factor Authentication guidance](azure-ad-pci-dss-mfa.md)
 
