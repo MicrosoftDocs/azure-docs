@@ -37,6 +37,5 @@ View fired and resolved Prometheus alerts in the Azure portal with other alert t
 > 2. In order to view the alert query in Explore mode, you must have either a Grafana Admin or Grafana Editor role permissions. If you don't have the needed permissions, you will get a respective Grafana error.
 
 ## Next steps
-
 - [Create a Prometheus rule group](../essentials/prometheus-rule-groups.md).
 
