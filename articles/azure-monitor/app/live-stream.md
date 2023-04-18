@@ -34,7 +34,7 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 ## Get started
 
 > [!IMPORTANT]
-> To enable Application Insights, ensure that it's activated in the Azure portal and your app is using a recent version of  [Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package. Without the NuGet package, some telemetry is sent to Application Insights, but that telemetry won't show in Live Metrics.
+> To enable Application Insights, ensure that it's activated in the Azure portal and your app is using a recent version of the [Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package. Without the NuGet package, some telemetry is sent to Application Insights, but that telemetry won't show in Live Metrics.
 
 1. Follow language-specific guidelines to enable Live Metrics:
    * [ASP.NET](./asp-net.md): Live Metrics is enabled by default.

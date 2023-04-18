@@ -19,8 +19,8 @@ In this article, you will:
 
 ## Prerequisites
 
-- Profiler supports .NET Framework and .NET Core applications.
-  - Verify you're using [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. 
+- Profiler supports .NET Framework and .NET applications.
+  - Verify you're using [.NET Framework 4.6.2](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. 
   - Confirm that the deployed OS is `Windows Server 2012 R2` or later. 
 - [An Azure Service Fabric managed cluster](../../service-fabric/quickstart-managed-cluster-portal.md).
 
