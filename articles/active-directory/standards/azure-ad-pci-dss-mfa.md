@@ -1,6 +1,6 @@
 ---
-title: Information Supplement, Multi-Factor Authentication
-description: Learn the authentication methods supported by Azure AD to meet PCI MFA requirements.
+title: Azure Active Directory PCI-DSS Multi-Factor Authentication guidance
+description: Learn the authentication methods supported by Azure AD to meet PCI MFA requirements
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -15,7 +15,8 @@ ms.custom: it-pro
 ms.collection: 
 ---
 
-# Information Supplement: Multi-Factor Authentication
+# Azure Active Directory PCI-DSS Multi-Factor Authentication guidance 
+**Information Supplement: Multi-Factor Authentication v 1.0**
 
 Use the following table of authentication methods supported by Azure Active Directory (Azure AD) to meet requirements in the PCI Security Standards Council [Information Supplement, Multi-Factor Authentication v 1.0](https://listings.pcisecuritystandards.org/pdfs/Multi-Factor-Authentication-Guidance-v1.pdf).
 
