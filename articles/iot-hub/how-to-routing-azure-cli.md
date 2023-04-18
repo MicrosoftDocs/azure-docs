@@ -4,6 +4,7 @@ titleSuffix: Azure IoT Hub
 description: Learn how to create and delete routes and endpoints in Azure IoT Hub by using the message-endpoints and message-routes Azure CLI commands.
 author: kgremban
 ms.service: iot-hub
+ms.custom: devx-track-azurecli
 services: iot-hub
 ms.topic: how-to
 ms.date: 02/03/2023

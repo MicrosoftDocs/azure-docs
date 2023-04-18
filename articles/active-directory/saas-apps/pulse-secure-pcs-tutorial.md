@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Pulse Secure PCS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Pulse Secure PCS'
 description: Learn how to configure single sign-on between Azure Active Directory and Pulse Secure PCS.
 services: active-directory
 author: jeevansd

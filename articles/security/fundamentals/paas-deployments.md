@@ -12,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2022
+ms.date: 03/31/2023
 ms.author: terrylan
 
 ---
@@ -25,7 +25,7 @@ This article provides information that helps you:
 - Change your security focus from a network-centric to an identity-centric perimeter security approach
 - Implement general PaaS security best practices recommendations
 
-[Develop secure applications on Azure](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/) is a general guide to the security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
+[Develop secure applications on Azure](../develop/secure-develop.md) is a general guide to the security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
 
 ## Cloud security advantages
 It's important to understand the [division of responsibility](shared-responsibility.md) between you and Microsoft. On-premises, you own the whole stack but as you move to the cloud some responsibilities transfer to Microsoft.
@@ -83,7 +83,7 @@ If possible, use alternate approaches like using virtual private networks in an 
 
 Use platform-supplied authentication and authorization mechanisms instead of custom code. The reason is that developing custom authentication code can be error prone. Most of your developers are not security experts and are unlikely to be aware of the subtleties and the latest developments in authentication and authorization. Commercial code (for example, from Microsoft) is often extensively security reviewed.
 
-Use two-factor authentication. Two-factor authentication is the current standard for authentication and authorization because it avoids the security weaknesses inherent in username and password types of authentication. Access to both the Azure management (portal/remote PowerShell) interfaces and customer-facing services should be designed and configured to use [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Use two-factor authentication. Two-factor authentication is the current standard for authentication and authorization because it avoids the security weaknesses inherent in username and password types of authentication. Access to both the Azure management (portal/remote PowerShell) interfaces and customer-facing services should be designed and configured to use Azure AD Multi-Factor Authentication.
 
 Use standard authentication protocols, such as OAuth2 and Kerberos. These protocols have been extensively peer reviewed and are likely implemented as part of your platform libraries for authentication and authorization.
 
@@ -96,10 +96,10 @@ The following table lists the STRIDE threats and gives some example mitigations 
 | --- | --- | --- |
 | Spoofing | Authentication | Require HTTPS connections. |
 | Tampering | Integrity | Validate TLS/SSL certificates. |
-| Repudiation | Non-repudiation | Enable Azure [monitoring and diagnostics](/azure/architecture/best-practices/monitoring). |
-| Information disclosure | Confidentiality | Encrypt sensitive data at rest by using [service certificates](/rest/api/appservice/certificates). |
+| Repudiation | Non-repudiation | Enable Azure monitoring and diagnostics. |
+| Information disclosure | Confidentiality | Encrypt sensitive data at rest by using service certificates. |
 | Denial of service | Availability | Monitor performance metrics for potential denial-of-service conditions. Implement connection filters. |
-| Elevation of privilege | Authorization | Use [Privileged Identity Management](../../active-directory/privileged-identity-management/subscription-requirements.md). |
+| Elevation of privilege | Authorization | Use Privileged Identity Management. |
 
 ## Develop on Azure App Service
 [Azure App Service](../../app-service/overview.md) is a PaaS offering that lets you create web and mobile apps for any platform or device and connect to data anywhere, in the cloud or on-premises. App Service includes the web and mobile capabilities that were previously delivered separately as Azure Websites and Azure Mobile Services. It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service brings a rich set of capabilities to web, mobile, and integration scenarios.
@@ -119,7 +119,7 @@ Following are best practices for using App Service.
 **Detail**: [App Service Environment](../../app-service/environment/intro.md) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).
 
 **Best practice**: Monitor the security state of your App Service environments.
-**Detail**: Use Microsoft Defender for Cloud to monitor your App Service environments. When Defender for Cloud identifies potential security vulnerabilities, it creates [recommendations](../../security-center/asset-inventory.md) that guide you through the process of configuring the needed controls.
+**Detail**: Use [Microsoft Defender for Cloud to monitor your App Service environments](../../security-center/asset-inventory.md). When Defender for Cloud identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.
 
 ## Azure Cloud Services
 [Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) is an example of a PaaS. Like Azure App Service, this technology is designed to support applications that are scalable, reliable, and inexpensive to operate. In the same way that App Service is hosted on virtual machines (VMs), so too is Azure Cloud Services. However, you have more control over the VMs. You can install your own software on VMs that use Azure Cloud Services, and you can access them remotely.
@@ -143,7 +143,7 @@ Application Insights has extensive tools for interacting with the data that it c
 ## Perform security penetration testing
 Validating security defenses is as important as testing any other functionality. Make [penetration testing](pen-testing.md) a standard part of your build and deployment process. Schedule regular security tests and vulnerability scanning on deployed applications, and monitor for open ports, endpoints, and attacks.
 
-Fuzz testing is a method for finding program failures (code errors) by supplying malformed input data to program interfaces (entry points) that parse and consume this data. [Microsoft Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/) is a cloud-based tool that you can use to look for bugs and other security vulnerabilities in your software before you deploy it to Azure. The tool is designed to catch vulnerabilities before you deploy software so you don't have to patch a bug, deal with crashes, or respond to an attack after the software is released.
+Fuzz testing is a method for finding program failures (code errors) by supplying malformed input data to program interfaces (entry points) that parse and consume this data.
 
 ## Next steps
 In this article, we focused on security advantages of an Azure PaaS deployment and security best practices for cloud applications. Next, learn recommended practices for securing your PaaS web and mobile solutions using specific Azure services. We'll start with Azure App Service, Azure SQL Database and Azure Synapse Analytics, Azure Storage, and Azure Cloud Services. As articles on recommended practices for other Azure services become available, links will be provided in the following list:
@@ -154,9 +154,9 @@ In this article, we focused on security advantages of an Azure PaaS deployment a
 - [Azure Cloud Services](../../cloud-services/security-baseline.md)
 - Azure Cache for Redis
 - Azure Service Bus
-- [Web Application Firewall](../../web-application-firewall/overview.md)
+- Web Application Firewall
 
-See [Develop secure applications on Azure](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/) for security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
+See [Develop secure applications on Azure](../develop/secure-dev-overview.md) for security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
 
 See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure.
 

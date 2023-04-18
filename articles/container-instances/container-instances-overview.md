@@ -39,7 +39,7 @@ Historically, containers have offered application dependency isolation and resou
 
 ### Customer data
 
-The ACI service stores the minimum customer data required to ensure your container groups are running as expected. Storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in [Geo](https://azure.microsoft.com/global-infrastructure/geographies/). Please get in touch with Azure Support to learn more.
+The Azure Container Instances service doesn't store customer data. It does, however, store the subscription IDs of the Azure subscription used to create resources. Storing subscription IDs is required to ensure your container groups continue running as expected.
 
 ## Custom sizes
 
@@ -72,6 +72,9 @@ Azure Container Instances supports scheduling of [multi-container groups](contai
 ## Virtual network deployment
 
 Azure Container Instances enables [deployment of container instances into an Azure virtual network](container-instances-vnet.md). When deployed into a subnet within your virtual network, container instances can communicate securely with other resources in the virtual network, including those that are on premises (through [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)).
+
+## Confidential container deployment
+Confidential containers on ACI enables you to run containers in a trusted execution environment (TEE) that provides hardware-based confidentiality and integrity protections for your container workloads. Confidential containers on ACI can protect data-in-use and encrypts data being processed in memory. Confidential Containers on ACI is supported as a SKU that you can select when deploying your workload. For more information, see [confidential container groups](./container-instances-confidential-overview.md).
 
 ## Considerations
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/21/2023
+ms.date: 02/23/2023
 ms.author: gasinh
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -21,6 +21,10 @@ Before you create an external-access security plan, review the following two art
 
 * [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
 * [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
+
+## Before you begin
+
+This article is number 3 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series. 
 
 ## Security plan documentation
 
@@ -135,16 +139,16 @@ Generally, organizations customize policy, however consider the following parame
 
 ## Access control methods
 
-Some features, for example entitlement management, are available with an Azure AD Premium 2 (P2) license. Microsoft 365 E5 and Office 365 E5 licenses include Azure AD P2 licenses. Learn more in the following entitlement management section.
+Some features, for example entitlement management, are available with an Azure AD Premium 2 (P2) license. Microsoft 365 E5 and Office 365 E5 licenses include Azure AD Premium P2 licenses. Learn more in the following entitlement management section.
 
 > [!NOTE]
-> Licenses are for one user. Therefore users, administrators, and business owners can have delegated access control. This scenario can occur with Azure AD P2 or Microsoft 365 E5, and you don't have to enable licenses for all users. The first 50,000 external users are free. If you don't enable P2 licenses for other internal users, they can't use entitlement management. 
+> Licenses are for one user. Therefore users, administrators, and business owners can have delegated access control. This scenario can occur with Azure AD Premium P2 or Microsoft 365 E5, and you don't have to enable licenses for all users. The first 50,000 external users are free. If you don't enable P2 licenses for other internal users, they can't use entitlement management. 
 
 Other combinations of Microsoft 365, Office 365, and Azure AD have functionality to manage external users. See, [Microsoft 365 guidance for security & compliance](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance).
 
-## Govern access with Azure AD P2 and Microsoft 365 or Office 365 E5
+## Govern access with Azure AD Premium P2 and Microsoft 365 or Office 365 E5
 
-Azure AD P2 and Microsoft 365 E5 have all the security and governance tools.
+Azure AD Premium P2, included in Microsoft 365 E5, has additional security and governance capabilities.
 
 ### Provision, sign-in, review access, and deprovision access
 
@@ -174,7 +178,7 @@ Use entitlement management to provision and deprovision access to groups and tea
 
 Learn more: [Create a new access package in entitlement management](../governance/entitlement-management-access-package-create.md) 
 
-## Governance with Azure AD P1, Microsoft 365, Office 365 E3
+## Manage access with Azure AD P1, Microsoft 365, Office 365 E3
 
 ### Provision, sign-in, review access, and deprovision access
 
@@ -196,13 +200,26 @@ Items in bold are recommended actions.
 | Conditional Access policies| Conditional Access policies for access control|N/A|N/A|N/A|
 | Other methods|N/A| Restrict SharePoint site access with security groups<br>Disallow direct sharing| **Restrict external invitations from a team**|N/A|
 
-### Next steps
+## Next steps
 
-* [Determine your security posture for external access](1-secure-access-posture.md)
-* [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
-* [Securing external access with groups](4-secure-access-groups.md)
-* [Transition to governed collaboration with Azure Active Directory B2B collaboration](5-secure-access-b2b.md)
-* [Manage external access with entitlement management](6-secure-access-entitlement-managment.md)
-* [Secure access with Conditional Access policies](7-secure-access-conditional-access.md)
-* [Control access with sensitivity labels](8-secure-access-sensitivity-labels.md)
-* [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
+Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
+
+1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+
+2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
+
+3. [Create a security plan for external access to resources](3-secure-access-plan.md) (You're here)
+
+4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
+
+5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
+
+6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
+
+7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md)
+
+8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
+
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+
+10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)

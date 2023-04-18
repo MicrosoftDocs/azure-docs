@@ -13,6 +13,9 @@ ms.reviewer: mimckitt
 
 # Add a custom image to an Azure scale set template
 
+> [!NOTE]
+> This document covers Virtual Machine Scale Sets running in Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+
 This article shows how to modify the [basic scale set template](virtual-machine-scale-sets-mvss-start.md) to deploy from custom image.
 
 ## Change the template definition

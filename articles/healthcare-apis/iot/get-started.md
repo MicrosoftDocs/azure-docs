@@ -1,24 +1,25 @@
 ---
-title: Get started with the MedTech service in Azure Health Data Services
-description: This article describes how to get started with the MedTech service in Azure Health Data Services.
+title: Get started with the MedTech service - Azure Health Data Services
+description: This article describes how to get started with the MedTech service.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/20/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ms.custom: mode-api
 ---
 
-# Get started with the MedTech service in the Azure Health Data Services
+# Get started with the MedTech service 
 
-This article will show you how to get started with the Azure MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). There are six steps you need to follow to be able to deploy and process MedTech service to ingest data from a device using Azure Event Hubs service, persist the data to Azure Fast Healthcare Interoperability Resources (FHIR&#174;) service as Observation resources, and link FHIR service Observations to user and device resources. This article provides an architecture overview to help you follow the six steps of the implementation process.
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-## Architecture overview of the MedTech service
+This article will show you how to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). There are six steps you need to follow to be able to deploy the MedTech service.
 
-The following diagram outlines the basic architectural path that enables the MedTech service to receive data from a device and send it to the FHIR service. This diagram shows how the six-step implementation process is divided into three key development stages: deployment, post-deployment, and data processing.
+The following diagram outlines the basic architectural path that enables the MedTech service to receive data from a device and send it to the FHIR service. This diagram shows how the six-step implementation process is divided into three key deployment stages: deployment, post-deployment, and data processing.
 
-:::image type="content" source="media/get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architectural overview." lightbox="media/get-started/get-started-with-iot.png":::
+:::image type="content" source="media/get-started/get-started-with-iot.png" alt-text="Diagram showing the MedTech service architectural overview." lightbox="media/get-started/get-started-with-iot.png":::
 
 Follow these six steps to set up and start using the MedTech service.
 
@@ -71,17 +72,17 @@ The MedTech service must be configured to ingest data it will receive from an ev
 
 Once you have starting using the portal and added the MedTech service to your workspace, you must then configure the MedTech service to ingest data from an event hub. For more information about configuring the MedTech service to ingest data, see [Configure the MedTech service to ingest data](deploy-new-config.md).
 
-### Configuring device mappings
+### Configuring the device mapping
 
-You must configure the MedTech service to map it to the device you want to receive data from. Each device has unique settings that the MedTech service must use. For more information on how to use device mappings, see [How to use device mappings](how-to-configure-device-mappings.md).
+You must configure the MedTech service to map it to the device you want to receive data from. Each device has unique settings that the MedTech service must use. For more information on how to use the device mapping, see [How to use device mappings](how-to-configure-device-mappings.md).
 
 - Azure Health Data Services provides an open source tool you can use called [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper). The IoMT Connector Data Mapper will help you map your device's data structure to a form that the MedTech service can use. For more information on device content mapping, see [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/main/docs/Configuration.md#device-content-mapping). 
 
 - When you're deploying the MedTech service, you must set specific device mapping properties. For more information on device mapping properties, see [Configure the device mapping properties](deploy-new-config.md).
 
-### Configuring destination mappings
+### Configuring the FHIR destination mapping
 
-Once your device's data is properly mapped to your device's data format, you must then map it to an Observation in the FHIR service. For an overview of FHIR destination mappings, see [How to use the FHIR destination mappings](how-to-configure-fhir-mappings.md).
+Once your device's data is properly mapped to your device's data format, you must then map it to an Observation in the FHIR service. For an overview of the FHIR destination mapping, see [How to use the FHIR destination mappings](how-to-configure-fhir-mappings.md).
 
 For step-by-step destination property mapping, see [Configure destination properties](deploy-new-config.md).
 
@@ -111,25 +112,25 @@ For more information about assigning roles to the FHIR services, see [Configure 
 
 For more information about application roles, see [Authentication and Authorization for Azure Health Data Services](../authentication-authorization.md).
 
-## Step 5: Send the data for processing
+## Step 5: Send the device data for processing
 
-When the MedTech service is deployed and connected to the Event Hubs and FHIR services, it's ready to process data from a device and translate it into a FHIR service Observation. There are three parts of the sending process.
+When the MedTech service is deployed and connected to the Event Hubs and FHIR services, it's ready to process device data and transform it into FHIR Observations. There are three parts of the sending process.
 
-### Data sent from Device to Event Hubs
+### Device data sent to Event Hubs
 
-The data is sent to an Event Hubs instance so that it can wait until the MedTech service is ready to receive it. The data transfer needs to be asynchronous because it's sent over the Internet and delivery times can't be precisely measured. Normally the data won't sit on an event hub longer than 24 hours.
+The device data is sent to an Event Hubs instance so that it can wait until the MedTech service is ready to receive it. The device data transfer needs to be asynchronous because it's sent over the Internet and delivery times can't be precisely measured. Normally the data won't sit on an event hub longer than 24 hours.
 
 For more information about Event Hubs, see [Event Hubs](../../event-hubs/event-hubs-about.md).
 
 For more information on Event Hubs data retention, see [Event Hubs quotas](../../event-hubs/event-hubs-quotas.md)
 
-### Data Sent from Event Hubs to the MedTech service
+### Device data sent from Event Hubs to the MedTech service
 
-MedTech requests the data from the Event Hubs instance and the data is sent from the event hub to the MedTech service. This procedure is called ingestion.
+MedTech requests the device data from the Event Hubs instance and the device data is sent from the event hub to the MedTech service. This procedure is called ingestion.
 
-### The MedTech service processes the data
+### The MedTech service processes the device data
 
-The MedTech service processes the data in five steps: 
+The MedTech service processes the device data in five steps: 
 
 - Ingest
 - Normalize
@@ -139,15 +140,15 @@ The MedTech service processes the data in five steps:
 
 If the processing was successful and you didn't get any error messages, your device data is now a FHIR service [Observation](http://hl7.org/fhir/observation.html) resource.
 
-For more information on the MedTech service device message data transformation, see [Understand the MedTech service device message data transformation](understand-service.md).
+For more information on the MedTech service device data transformation, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
 
-## Step 6: Verify the processed data
+## Step 6: Verify the processed device data
 
-You can verify that the data was processed correctly by checking to see if there's now a new Observation resource in the FHIR service. If the data isn't mapped or if the mapping isn't authored properly, the data will be skipped. If there are any problems, check the [device mapping](how-to-configure-device-mappings.md) or the [FHIR destination mapping](how-to-configure-fhir-mappings.md).
+You can verify that the device data was processed correctly by checking to see if there's now a new Observation resource in the FHIR service. If the device data isn't mapped or if the mapping isn't authored properly, the device data will be skipped. If there are any problems, check the [device mapping](overview-of-device-mapping.md) or the [FHIR destination mapping](overview-of-fhir-destination-mapping.md).
 
 ### Metrics
 
-You can verify that the data is correctly persisted into the FHIR service by using the [MedTech service metrics](how-to-configure-metrics.md) in the Azure portal.
+You can verify that the device data is correctly persisted in the FHIR service by using the [MedTech service metrics](how-to-configure-metrics.md) in the Azure portal.
 
 ## Next steps
 

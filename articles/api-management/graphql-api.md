@@ -7,7 +7,7 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 10/27/2022
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Import a GraphQL API

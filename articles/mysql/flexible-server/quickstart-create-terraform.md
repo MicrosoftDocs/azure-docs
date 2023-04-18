@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use Terraform to create an Azure Database for MySQL - Flexible Server'
-description: Learn how to deploy a database for Azure Database for MySQL Flexible Server using Terraform
+description: Learn how to deploy a database for Azure Database for MySQL - Flexible Server using Terraform
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -125,4 +125,4 @@ Get-AzMySqlFlexibleServerDatabase `
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect Azure Database for MySQL Flexible Server with private access](./quickstart-create-connect-server-vnet.md)
+> [Connect Azure Database for MySQL - Flexible Server with private access](./quickstart-create-connect-server-vnet.md)

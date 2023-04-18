@@ -22,7 +22,7 @@ sections:
       questions:
         - question: How can I get access to Azure Data Manager for Energy Preview?
           answer: >
-            Azure Data Manager for Energy Preview is available to all customers and partners with a valid subscription. Customers can create an instance by going directly to the Azure Marketplace and searching for "Microsoft Energy Data Services."
+            Azure Data Manager for Energy Preview is available to all customers and partners with a valid subscription. Customers can create an instance by going directly to the Azure Marketplace and searching for "Microsoft Energy Data Services".
 
 
     - name: Data Residency
@@ -35,11 +35,31 @@ sections:
       questions:
         - question: Where can I learn about the pricing for Azure Data Manager for Energy Preview?
           answer: >
-            Pricing for Azure Data Manager for Energy Preview will be made available on Azure.com via the Product Pricing Page. 
-
-        - question: When will billing begin for Azure Data Manager for Energy Preview?
+            Pricing for Azure Data Manager for Energy Preview is available [here](https://aka.ms/adme-pricing). 
+          
+        - question: How is Azure Data Manager for Energy priced?
           answer: >
-            Azure Data Manager for Energy Preview is currently free and billing will begin February 15th, 2023.
+            Azure Data Manager for Energy includes a fixed instance fee. This base instance price includes the capacity which can scale up to allow for peak workloads and a higher number of data partition needs.
+
+        - question: Does Azure Data Manager for Energy charge even if the instance is idle and not being used?
+          answer: >
+            Yes, the fixed instance fee for Azure Data Manager for Energy Preview is applicable for all active instances and will be charged even if the instance is idle or running with no usage. 
+
+        - question: Are there any data storage charges?
+          answer: >
+            Standard Azure Storage rates would apply. This is free to customers during the Preview period. 
+
+        - question: Are there any data transfer charges?
+          answer: >
+            Standard Azure data transfer rates would apply. This is free to customers during the Preview period. 
+           
+        - question: Will I be charged for Azure Data Manager for Energy separately from the applications used on top of the platform?
+          answer: >
+            Pricing for Azure Data Manager for Energy will be separate from other applications built or utilized on the platform.  
+                  
+        - question: Will prices differ regionally?
+          answer: >
+            Pricing for Azure Data Manager for Energy will vary by region. Please select the region and currency using the pricing filters in the pricing calculator for regional differences.  
 
     - name: Support policies
       questions:
@@ -55,5 +75,5 @@ sections:
             
         - question: Can I move an Azure Data Manager for Energy Preview resource from one subscription or resource group to another? 
           answer: > 
-            Today, you can't move an Azure Data Manager for Energy Preview resource from one subscription or resource group to another. Instead you can, delete the existing Azure Data Manager for Energy Preview instance in the current resource group or subscription. Create a new Azure Data Manager for Energy Preview instance in the target resource group or subscription. Next, reingest the data into the new Microsoft Energy Data Service instance.
+            Today, you can't move an Azure Data Manager for Energy Preview resource from one subscription or resource group to another. Instead you can, delete the existing Azure Data Manager for Energy Preview instance in the current resource group or subscription. Create a new Azure Data Manager for Energy Preview instance in the target resource group or subscription. Next, reingest the data into the new Azure Data Manager for Energy Preview instance.
 

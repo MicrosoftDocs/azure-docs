@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.date: 01/03/2023
 ms.author: kendownie
 ms.subservice: files
-ms.custom: engagement-fy23, mode-ui, devx-track-azurecli 
+ms.custom: engagement-fy23, mode-ui, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure Files so I can determine whether I want to subscribe to the service.
 ---

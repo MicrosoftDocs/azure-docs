@@ -117,9 +117,18 @@ If you do not already have a directory server, and wish to try out this feature,
 
 If you have already downloaded the provisioning agent and configured it for another on-premises application, then continue reading in the next section.
 
-1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the virtual machine or on-premises Windows Server that has connectivity to the LDAP directory server.
+  1.  In the Azure portal, select **Azure Active Directory**.
+  2.  On the left, select **Azure AD Connect**.
+  3.  On the left, select **Cloud sync**.
+ 
+ :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-1.png":::
+
+ 4. On the left, select **Agent**.
+ 5. Select **Download on-premises agent**, and select **Accept terms & download**.
+
      >[!NOTE]
-     >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All of these scenarios should not be managed on the same agent. 
+     >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
+
  1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
  1. When the provisioning agent wizard opens, continue to the **Select Extension** tab and select **On-premises application provisioning** when prompted for the extension you want to enable.
  1. The provisioning agent will use the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.

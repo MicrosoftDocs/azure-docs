@@ -1,6 +1,6 @@
 ---
 title: InfiniBand driver extension - Azure Linux VMs 
-description: Microsoft Azure Extension for installing InfiniBand Drivers on H- and N-series compute VMs running Linux.
+description: Microsoft Azure Extension for installing InfiniBand Drivers on HB- and N-series compute VMs running Linux.
 services: virtual-machines
 documentationcenter: ''
 editor: ''
@@ -11,7 +11,7 @@ ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 1/13/2022
+ms.date: 03/13/2023
 ms.custom: devx-track-azurepowershell
 ms.author: mamccrea
 author: mamccrea
@@ -19,9 +19,9 @@ author: mamccrea
 
 # InfiniBand Driver Extension for Linux
 
-This extension installs InfiniBand OFED drivers on InfiniBand and SR-IOV-enabled ('r' sizes) [H-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs running Linux. Depending on the VM family, the extension installs the appropriate drivers for the Connect-X NIC. It does not install the InfiniBand ND drivers on the non-SR-IOV enabled [H-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
+This extension installs InfiniBand OFED drivers on InfiniBand and SR-IOV-enabled ('r' sizes) [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs running Linux. Depending on the VM family, the extension installs the appropriate drivers for the Connect-X NIC. It does not install the InfiniBand ND drivers on the non-SR-IOV enabled [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
 
-Instructions on manual installation of the OFED drivers are available in [Enable InfiniBand on HPC VMs](../workloads/hpc/enable-infiniband.md#manual-installation).
+Instructions on manual installation of the OFED drivers are available in [Enable InfiniBand on HPC VMs](enable-infiniband.md#manual-installation).
 
 An extension is also available to install InfiniBand drivers for [Windows VMs](hpc-compute-infiniband-windows.md).
 
@@ -187,7 +187,7 @@ The following table describes the meaning and recommended action based on the ex
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file a support incident through the [Azure support site](https://azure.microsoft.com/support/options/). For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
 
 ## Next steps
-For more information about InfiniBand-enabled ('r' sizes), see [H-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
+For more information about InfiniBand-enabled ('r' sizes), see [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
 
 > [!div class="nextstepaction"]
 > [Learn more about Linux VMs extensions and features](features-linux.md)

@@ -29,12 +29,17 @@ az group create --name myResourceGroup --location eastus
 
 Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss). The following example creates a scale set named *myScaleSet* that is set to automatically update as changes are applied, and generates SSH keys if they don't exist in *~/.ssh/id_rsa*. A 32-Gb data disk is attached to each VM instance, and the Azure [Custom Script Extension](../virtual-machines/extensions/custom-script-linux.md) is used to prepare the data disks with [az vmss extension set](/cli/azure/vmss/extension):
 
+> [!IMPORTANT]
+> Make sure to select supported Operating System with ADE.
+> [Supported OS for ADE](/azure/virtual-machines/linux/disk-encryption-overview#supported-operating-systems).
+
 ```azurecli-interactive
 # Create a scale set with attached data disk
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image UbuntuLTS \
+  --orchestration-mode Flexible \
+  --image <SKU Linux Image> \
   --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --generate-ssh-keys \
@@ -134,7 +139,7 @@ az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 
 When VM instances are encrypted, the status code reports *EncryptionState/encrypted*, as shown in the following example output:
 
-```console
+```output
 [
   {
     "disks": [

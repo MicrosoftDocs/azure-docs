@@ -24,7 +24,7 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 
 * An application deployed to Azure Spring Apps. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 * An Azure Database for MySQL Flexible Server instance.
-* [Azure CLI](/cli/azure/install-azure-cli) version 2.41.0 or higher.
+* [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 
 ## Prepare your Java project
 
@@ -49,19 +49,27 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 
 ### [Service Connector](#tab/Service-Connector)
 
-To configure your Spring app to connect to an Azure Database for MySQL Flexible Server with a system-assigned managed identity, use the `az spring connection create` command, as shown in the following example.
+Follow these steps to configure your Spring app to connect to an Azure Database for MySQL Flexible Server with a system-assigned managed identity.
 
-```azurecli
-az spring connection create mysql-flexible \
-    --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
-    --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
-    --app $APP_NAME \
-    --deployment $DEPLOYMENT_NAME \
-    --target-resource-group $MYSQL_RESOURCE_GROUP \
-    --server $MYSQL_SERVER_NAME \
-    --database $DATABASE_NAME \
-    --system-assigned-identity
-```
+1. Install the Service Connector passwordless extension for the Azure CLI.
+
+   ```azurecli
+   az extension add --name serviceconnector-passwordless --upgrade
+   ```
+   
+1. Run the `az spring connection create` command, as shown in the following example.
+
+   ```azurecli
+   az spring connection create mysql-flexible \
+       --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
+       --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
+       --app $APP_NAME \
+       --deployment $DEPLOYMENT_NAME \
+       --target-resource-group $MYSQL_RESOURCE_GROUP \
+       --server $MYSQL_SERVER_NAME \
+       --database $DATABASE_NAME \
+       --system-assigned-identity
+   ```
 
 ### [Service Binding](#tab/Service-Binding)
 

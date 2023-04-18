@@ -1,22 +1,18 @@
 ---
-title: "Tutorial: Migrate SQL Server to Azure SQL Database (preview) offline in Azure Data Studio"
+title: "Tutorial: Migrate SQL Server to Azure SQL Database offline in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
-description: Learn how to migrate on-premises SQL Server to Azure SQL Database (preview) offline by using Azure Data Studio and Azure Database Migration Service.
-services: dms
+description: Learn how to migrate on-premises SQL Server to Azure SQL Database offline by using Azure Data Studio and Azure Database Migration Service.
 author: croblesm
 ms.author: roblescarlos
-manager: 
-ms.reviewer: 
-ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: tutorial
 ms.date: 01/12/2023
+ms.service: dms
+ms.topic: tutorial
+ms.custom: seo-lt-2019
 ---
 
-# Tutorial: Migrate SQL Server to Azure SQL Database (preview) offline in Azure Data Studio
+# Tutorial: Migrate SQL Server to Azure SQL Database offline in Azure Data Studio
 
-You can use Azure Database Migration Service and the Azure SQL Migration extension for Azure Data Studio to migrate databases from an on-premises instance of SQL Server to Azure SQL Database (preview) offline and with minimal downtime.
+You can use Azure Database Migration Service and the Azure SQL Migration extension for Azure Data Studio to migrate databases from an on-premises instance of SQL Server to Azure SQL Database offline and with minimal downtime.
 
 In this tutorial, learn how to migrate the example AdventureWorks2019 database from an on-premises instance of SQL Server to an instance of Azure SQL Database by using the Azure SQL Migration extension for Azure Data Studio. This tutorial uses offline migration mode, which considers an acceptable downtime during the migration process.
 
@@ -61,6 +57,12 @@ Before you begin the tutorial:
 
 - If you're using Azure Database Migration Service for the first time, make sure that the Microsoft.DataMigration [resource provider is registered in your subscription](quickstart-create-data-migration-service-portal.md#register-the-resource-provider).
 
+> [!NOTE]
+> Make sure to migrate the database schema from source to target by using the [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio before selecting the list of tables to migrate.
+>
+> If no tables exists on the Azure SQL Database target, or no tables are selected before starting the migration. The **Next** button isn't available to select to initiate the migration task.
+>
+
 ## Open the Migrate to Azure SQL wizard in Azure Data Studio
 
 To open the Migrate to Azure SQL wizard:
@@ -89,7 +91,7 @@ To open the Migrate to Azure SQL wizard:
 
 1. In **Step 2: Assessment results and recommendations**, complete the following steps:
 
-   1. In **Choose your Azure SQL target**, select **Azure SQL Database (PREVIEW)**.
+   1. In **Choose your Azure SQL target**, select **Azure SQL Database**.
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/assessment-target-selection.png" alt-text="Screenshot that shows selecting the Azure SQL Database target.":::
 
@@ -115,7 +117,7 @@ To open the Migrate to Azure SQL wizard:
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-collected.png" alt-text="Screenshot that shows performance data collected.":::
 
-   1. In the selected **Azure SQL Database (PREVIEW)** target, select **View details** to open the detailed SKU recommendation report:
+   1. In the selected **Azure SQL Database** target, select **View details** to open the detailed SKU recommendation report:
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-view-details.png" alt-text="Screenshot that shows the View details link for the target database recommendations.":::
 
@@ -169,6 +171,8 @@ To open the Migrate to Azure SQL wizard:
 
 > [!NOTE]
 > If no tables are selected or if a username and password aren't entered, the **Next** button isn't available to select.
+>
+> Make sure to migrate the database schema from source to target by using the [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) in Azure Data Studio before selecting the list of tables to migrate.
 
 ## Create a Database Migration Service instance
 

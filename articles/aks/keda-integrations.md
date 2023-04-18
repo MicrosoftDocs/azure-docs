@@ -1,7 +1,6 @@
 ---
 title: Integrations with Kubernetes Event-driven Autoscaling (KEDA) on Azure Kubernetes Service (AKS) (Preview)
 description: Integrations with Kubernetes Event-driven Autoscaling (KEDA) on Azure Kubernetes Service (AKS) (Preview).
-services: container-service
 author: tomkerkhove
 ms.topic: article
 ms.date: 05/24/2022
@@ -11,6 +10,8 @@ ms.author: tomkerkhove
 # Integrations with Kubernetes Event-driven Autoscaling (KEDA) on Azure Kubernetes Service (AKS) (Preview)
 
 The Kubernetes Event-driven Autoscaling (KEDA) add-on integrates with features provided by Azure and open source projects.
+
+[!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

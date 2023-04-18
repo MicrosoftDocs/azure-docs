@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 03/20/2022
+ms.date: 02/17/2023
 ---
 
 # Concepts for Microsoft Purview data owner policies (preview)
@@ -88,7 +88,7 @@ Then let’s assume that user ‘user1’, who is part of two groups:
 *Finance-analyst* and *Finance-contractors*, executes a call to blob read API. Since both policies will be applicable, Microsoft Purview will choose the most restrictive one, which is *Deny* of *Read*. Thus, the access request will be denied.
 
 > [!Note]
-> Currently, the only supported effect is **Allow**.
+> As mentioned in the Effect section above, currently, the only supported effect is **Allow**. The above example is to explain how multiple policies on a single asset are evaluated.
 
 ## Policy publishing
 

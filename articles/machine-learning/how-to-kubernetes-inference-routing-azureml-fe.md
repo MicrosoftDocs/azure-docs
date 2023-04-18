@@ -1,6 +1,6 @@
 ---
 title: Inference router and connectivity requirements
-description: Learn about what is AzureML inference router, how autoscaling works, and how to configure and meet inference requests performance (# of requests per second and latency)
+description: Learn about what is Azure Machine Learning inference router, how autoscaling works, and how to configure and meet inference requests performance (# of requests per second and latency)
 titleSuffix: Azure Machine Learning
 author: bozhong68
 ms.author: bozhlin
@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---
 
-# AzureML inference router and connectivity requirements
+# Azure Machine Learning inference router and connectivity requirements
 
-AzureML inference router is a critical component for real-time inference with Kubernetes cluster. In this article, you can learn about:
+Azure Machine Learning inference router is a critical component for real-time inference with Kubernetes cluster. In this article, you can learn about:
 
-  * What is AzureML inference router
+  * What is Azure Machine Learning inference router
   * How autoscaling works
   * How to configure and meet inference request performance (# of requests per second and latency)
   * Connectivity requirements for AKS inferencing cluster
 
-## What is AzureML inference router
+## What is Azure Machine Learning inference router
 
-AzureML inference router is the front-end component (`azureml-fe`) which is deployed on AKS or Arc Kubernetes cluster at AzureML extension deployment time. It has following functions:
+Azure Machine Learning inference router is the front-end component (`azureml-fe`) which is deployed on AKS or Arc Kubernetes cluster at Azure Machine Learning extension deployment time. It has following functions:
   
   * Routes incoming inference requests from cluster load balancer or ingress controller to corresponding model pods.
   * Load-balance all incoming inference requests with smart coordinated routing.
@@ -45,14 +45,14 @@ The following diagram illustrates this flow:
 
 :::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/request-handling-architecture.png" alt-text="Diagram illustrating the flow of requests between components.":::
 
-As you can see from above diagram, by default 3 `azureml-fe` instances are created during AzureML extension deployment, one instance acts as coordinating role, and the other instances serve incoming inference requests. The coordinating instance has all information about model pods and makes decision about which model pod to serve incoming request, while the serving `azureml-fe` instances are responsible for routing the request to selected model pod and propagate the response back to the original user.
+As you can see from above diagram, by default 3 `azureml-fe` instances are created during Azure Machine Learning extension deployment, one instance acts as coordinating role, and the other instances serve incoming inference requests. The coordinating instance has all information about model pods and makes decision about which model pod to serve incoming request, while the serving `azureml-fe` instances are responsible for routing the request to selected model pod and propagate the response back to the original user.
 
 ## Autoscaling
 
-AzureML inference router handles autoscaling for all model deployments on the Kubernetes cluster. Since all inference requests go through it, it has the necessary data to automatically scale the deployed model(s).
+Azure Machine Learning inference router handles autoscaling for all model deployments on the Kubernetes cluster. Since all inference requests go through it, it has the necessary data to automatically scale the deployed model(s).
 
 > [!IMPORTANT]
-> * **Do not enable Kubernetes Horizontal Pod Autoscaler (HPA) for model deployments**. Doing so would cause the two auto-scaling components to compete with each other. Azureml-fe is designed to auto-scale models deployed by AzureML, where HPA would have to guess or approximate model utilization from a generic metric like CPU usage or a custom metric configuration.
+> * **Do not enable Kubernetes Horizontal Pod Autoscaler (HPA) for model deployments**. Doing so would cause the two auto-scaling components to compete with each other. Azureml-fe is designed to auto-scale models deployed by Azure Machine Learning, where HPA would have to guess or approximate model utilization from a generic metric like CPU usage or a custom metric configuration.
 > 
 > * **Azureml-fe does not scale the number of nodes in an AKS cluster**, because this could lead to unexpected cost increases. Instead, **it scales the number of replicas for the model** within the physical cluster boundaries. If you need to scale the number of nodes within the cluster, you can manually scale the cluster or [configure the AKS cluster autoscaler](../aks/cluster-autoscaler.md).
 
@@ -108,8 +108,8 @@ The `azureml-fe` can reach 5K requests per second (QPS) with good latency, havin
 >If you have RPS requirements higher than 10K, consider the following options:
 >
 >* Increase resource requests/limits for `azureml-fe` pods; by default it has 2 vCPU and 1.2G memory resource limit.
->* Increase the number of instances for `azureml-fe`. By default, AzureML creates 3 or 1 `azureml-fe` instances per cluster.
->   * This instance count depends on your configuration of `inferenceRouterHA` of the [AzureML entension](how-to-deploy-kubernetes-extension.md#review-azureml-extension-configuration-settings).
+>* Increase the number of instances for `azureml-fe`. By default, Azure Machine Learning creates 3 or 1 `azureml-fe` instances per cluster.
+>   * This instance count depends on your configuration of `inferenceRouterHA` of the [Azure Machine Learning entension](how-to-deploy-kubernetes-extension.md#review-azure-machine-learning-extension-configuration-settings).
 >   * The increased instance count cannot be persisted, since it will be overwritten with your configured value once the extension is upgraded.
 >* Reach out to Microsoft experts for help.
 
@@ -127,7 +127,7 @@ The following diagram shows the connectivity requirements for AKS inferencing. B
 
 For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
-For accessing Azure ML services behind a firewall, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
+For accessing Azure Machine Learning services behind a firewall, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 
 ### Overall DNS resolution requirements
 

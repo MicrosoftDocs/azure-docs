@@ -139,8 +139,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 
 1. Create a file named `azure-vote.yaml` and copy in the following manifest.
 
-    * If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system.
-
+    
     ```yaml
     apiVersion: apps/v1
     kind: Deployment
@@ -297,7 +296,7 @@ This quickstart is for introductory purposes. For guidance on a creating full so
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubeconfig-file]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/

@@ -10,7 +10,7 @@
     href: require-tou.md
 - name: Tutorials
   items:
-  - name: Require Azure AD Multi-Factor Authentication
+  - name: Require Azure AD Multifactor Authentication
     href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Concepts
   expanded: false
@@ -39,6 +39,8 @@
     href: service-dependencies.md
   - name: Filter for applications
     href: concept-filter-for-applications.md
+  - name: Token protection
+    href: concept-token-protection.md
   - name: Location conditions
     href: location-condition.md
   - name: Workload identities
@@ -96,8 +98,6 @@
       href: howto-conditional-access-policy-location.md
     - name: Block access
       href: howto-conditional-access-policy-block-access.md
-    - name: Require MFA for Intune enrollment
-      href: /mem/intune/enrollment/multi-factor-authentication?toc=/azure/active-directory/conditional-access/TOC.json
     - name: Require authentication strength for external users
       href: howto-conditional-access-policy-authentication-strength-external.md
   - name: Configure resilience defaults
@@ -120,6 +120,8 @@
       href: troubleshoot-conditional-access-what-if.md
     - name: Troubleshoot continuous access evaluation
       href: howto-continuous-access-evaluation-troubleshoot.md
+  - name: Approved client app migration
+    href: migrate-approved-client-app.md
   - name: Custom controls
     href: controls.md
   - name: Classic policies

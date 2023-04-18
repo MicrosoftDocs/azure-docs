@@ -20,15 +20,10 @@ This article describes the following methods for reducing OT network alert fatig
 
 ## Prerequisites
 
-- To create alert comments or custom alert rules on an OT network sensor, you must have:
+- To create alert comments or custom alert rules on an OT network sensor, you must have an OT network sensor installed and access to the sensor as an **Admin** user.
 
-    - An OT network sensor installed
-    - Access to the sensor as an **Admin** user.
-
-- To create alert exclusion rules on an on-premises management console, you must have:
-
-    - An on-premises management console installed
-    - Access to the on-premises management console as an **Admin** user.
+- To create a DNS allowlist on an OT sensor, you must have an OT network sensor installed and access to the sensor as a **Support** user.
+- To create alert exclusion rules on an on-premises management console, you must have an on-premises management console installed and access to the on-premises management console as an **Admin** user.
 
 For more information, see [Install OT agentless monitoring software](how-to-install-software.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -89,6 +84,40 @@ Disable custom alert rules to prevent them from running without deleting them al
 
 In the **Custom alert rules** page, select one or more rules, and then select  **Disable**, **Enable**, or **Delete** in the toolbar as needed.
 
+## Allow internet connections on an OT network
+
+Decrease the number of unauthorized internet alerts by creating an allowlist of domain names on your OT sensor. When a DNS allowlist is configured, the sensor checks each unauthorized internet connectivity attempt against the list before triggering an alert. If the domain's FQDN is included in the allowlist, the sensor doesn’t trigger the alert and allows the traffic automatically.
+
+All OT sensor users can view a currently configured list of domains in a [data mining report](how-to-create-data-mining-queries.md), including the FQDNs, resolved IP addresses, and the last resolution time.
+
+
+**To define a DNS allowlist:**
+
+1. Sign into your OT sensor as the *support* user and select the **Support** page.
+
+1. In the search box, search for **DNS** and then locate the engine with the **Internet Domain Allowlist** description.
+
+1. Select **Edit** :::image type="icon" source="media/how-to-generate-reports/manage-icon.png" border="false"::: for the **Internet Domain Allowlist** row. For example:
+
+    :::image type="content" source="media/how-to-accelerate-alert-incident-response/dns-edit-configuration.png" alt-text="Screenshot of how to edit configurations for DNS in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/dns-edit-configuration.png":::
+
+1. In the **Edit configuration** pane > **Fqdn allowlist** field, enter one or more domain names. Separate multiple domain names with commas. Your sensor won't generate alerts for unauthorized internet connectivity attempts on the configured domains.
+
+1. Select **Submit** to save your changes.
+
+
+**To view the current allowlist in a data mining report:**
+
+When selecting a category in your [custom data mining report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report), make sure to select **Internet Domain Allowlist** under the **DNS** category. 
+
+For example:
+
+:::image type="content" source="media/how-to-accelerate-alert-incident-response/data-mining-allowlist.png" alt-text="Screenshot of how to generate a custom data mining report for the allowlist in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/data-mining-allowlist.png":::
+
+The generated data mining report shows a list of the allowed domains and each IP address that’s being resolved for those domains. The report also includes the TTL, in seconds, during which those IP addresses won't trigger an internet connectivity alert. For example:
+
+:::image type="content" source="media/how-to-accelerate-alert-incident-response/data-mining-report-allowlist.png" alt-text="Screenshot of data mining report of allowlist in the sensor console." lightbox="media/how-to-accelerate-alert-incident-response/data-mining-report-allowlist.png":::
+
 ## Create alert exclusion rules on an on-premises management console
 
 Create alert exclusion rules to instruct your sensors to ignore specific traffic on your network that would otherwise trigger an alert.
@@ -129,21 +158,6 @@ For more information, see
 [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md).
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-
-> [!div class="nextstepaction"]
-> [View and manage alerts on your OT sensor](how-to-view-alerts.md)
-
-> [!div class="nextstepaction"]
-> [Forward alert information](how-to-forward-alert-information-to-partners.md)
-
-> [!div class="nextstepaction"]
-> [OT monitoring alert types and descriptions](alert-engine-messages.md)
-
-> [!div class="nextstepaction"]
-> [View and manage alerts on the the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)
