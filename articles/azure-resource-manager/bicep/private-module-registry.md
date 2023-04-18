@@ -58,7 +58,7 @@ After setting up the container registry, you can publish files to it. Use the [p
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
+Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 -DocumentationUri https://www.contoso.com/exampleregistry.html
 ```
 
 # [Azure CLI](#tab/azure-cli)
