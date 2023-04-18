@@ -26,8 +26,8 @@ You can achieve zero downtime with [blue-green deployment strategy](concepts-blu
 Blue-green deployment eliminates downtime by running two deployment versions, and only one of the deployments can serve production traffic at any time. Blue-green deployment can enable zero downtime by allowing you to switch to the other deployment version if something bad happens to the live one. 
 
 When you perform a blue-green switch, Azure Spring Apps does the following operations underlyingly:
-1. Override eureka registry status to **OUT_OF_SERVICE** for instances under `staging` deployment, if eureka client is enabled for the deployment
-2. Override eureka registry status to **UP** for instances under `production` deployment, if eureka client is enabled for the deployment
+1. Override eureka registry status to **UP** for instances under `production` deployment, if eureka client is enabled for the deployment
+2. Override eureka registry status to **OUT_OF_SERVICE** for instances under `staging` deployment, if eureka client is enabled for the deployment
 3. Update ingress rules to route public traffic to instances under `production` deployment, if public endpoint is enabled for the app 
 
 > [!NOTE]
@@ -42,12 +42,15 @@ When you deploy a new version to an existing deployment, or restart a deployment
 > [!WARNING]
 > For single replica deployment, you may see downtime during deployment update. To ensure application availability, it's highly suggested to deploy at least two replicas for your production workload.   
 
+> [!NOTE]
+> To gracefully start or shutdown your application, you need to configure proper [health probes](./how-to-configure-health-probes-graceful-termination.md) for your deployments. Kubernetes will check these probes during the rolling update process, and Nginx ingress controller routes traffic to instances with succeeded readiness probe.
 
 Also, When scale in your application instances, Azure Spring Apps underlyingly use K8S's [preStop](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) to gracefully shutdown the pods. In the hook, the following operations are performed for a shutting down application container:
 1. Override the instance's eureka registry status to **OUT_OF_SERVICE**, if eureka client is enabled
-2. Wait some seconds to continue serve traffic (from nginx or other apps if any) before K8S kills the application container 
+2. Wait some seconds to continue serve traffic (from Nginx or other apps if any) before K8S kills the application container 
 
 
 ## Next steps
 
 * [Blue-green deployment strategies in Azure Spring Apps](concepts-blue-green-deployment-strategies.md)
+* [How to configure health probes and graceful termination periods for apps hosted in Azure Spring Apps](how-to-configure-health-probes-graceful-termination.md)
