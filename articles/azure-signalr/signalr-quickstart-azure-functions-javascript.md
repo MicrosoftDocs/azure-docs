@@ -150,7 +150,13 @@ When you run the `func new` command from the root directory of the project, the 
     ]
   }
   ```
+1. Edit *negotiate/index.js* and replace the content with the following JavaScript code:
 
+```js
+module.exports = async function (context, req, connectionInfo) {
+    context.res.body = connectionInfo;
+};
+```
 ### Create a broadcast function.
 
 1. Run the following command to create the `broadcast` function.
