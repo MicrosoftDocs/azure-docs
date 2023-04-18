@@ -180,9 +180,9 @@ We recommend the following production configuration:
 
 |Requirement|Recommendation|
 |:-|:-|
-|Number of Azure AD Connect provisioning agents to deploy|Two (for high availability and failover)
-|Number of provisioning connector apps to configure|One app per child domain|
-|Server host for Azure AD Connect provisioning agent|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers</br>Can coexist with Azure AD Connect service|
+|Number of Azure AD Connect provisioning agents to deploy.|Two (for high availability and failover).
+|Number of provisioning connector apps to configure.|One app per child domain.|
+|Server host for Azure AD Connect provisioning agent.|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers.</br>Can coexist with Azure AD Connect service.|
 
 ![Flow to on-premises agents](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
 
@@ -194,9 +194,9 @@ We recommend the following production configuration:
 
 |Requirement|Recommendation|
 |:-|:-|
-|Number of Azure AD Connect provisioning agents to deploy on-premises|Two per disjoint Active Directory forest|
-|Number of provisioning connector apps to configure|One app per child domain|
-|Server host for Azure AD Connect provisioning agent|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers</br>Can coexist with Azure AD Connect service|
+|Number of Azure AD Connect provisioning agents to deploy on-premises|Two per disjoint Active Directory forest.|
+|Number of provisioning connector apps to configure|One app per child domain.|
+|Server host for Azure AD Connect provisioning agent.|Windows Server 2016 with line of sight to geolocated Active Directory domain controllers.</br>Can coexist with Azure AD Connect service.|
 
 ![Single cloud HR app tenant disjoint Active Directory forest](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)
 
