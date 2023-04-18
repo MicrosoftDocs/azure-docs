@@ -1,5 +1,5 @@
 ---
-title: Deploy Defender for APIs 
+title: Enable Defender for APIs 
 description: Learn about deploying the Defender for APIs plan in Defender for Cloud
 author: elazark
 ms.author: elkrieger
@@ -7,7 +7,7 @@ ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023
 ---
-# Deploy Defender for APIs 
+# Onboard Defender for APIs
 
 This article describes how to deploy the [Microsoft Defender for APIs](defender-for-apis-introduction.md) plan in Microsoft Defender for Cloud. Defender for APIs is currently in preview.
 
@@ -43,11 +43,10 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
     - **Not applicable resources**: API resources that aren't applicable for protection.
 
 1. In **Unhealthy resources**, select the APIs that you want to protect with Defender for APIs.
-
-    :::image type="content" source="media/defender-for-apis-deploy/fix-resources.png" alt-text="Graphic showing how to fix unhealthy resources.":::
-
 1. Select **Fix**. 
 1. In **Fixing resources**, review the selected APIs, and select **Fix resources**.
+
+    :::image type="content" source="media/defender-for-apis-deploy/fix-resources.png" alt-text="Graphic showing how to fix unhealthy resources.":::
 
 
 ## Track onboarded API resources
