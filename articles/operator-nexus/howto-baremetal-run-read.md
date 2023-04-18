@@ -104,7 +104,7 @@ In the response, an HTTP status code of 202 is returned as the operation is perf
 
 Sample output looks something as below. It prints the top 4K characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
 
-```azurecli
+```output
   ====Action Command Output====
   + hostname
   rack1compute01
