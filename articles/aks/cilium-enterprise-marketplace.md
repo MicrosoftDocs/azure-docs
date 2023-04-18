@@ -17,7 +17,7 @@ Isovalent Cilium Enterprise on Azure Marketplace is a powerful tool for securing
 
 Isovalent Cilium Enterprise is a network security platform for modern cloud-native workloads that provides visibility, security, and compliance across Kubernetes clusters. It uses eBPF technology to deliver network and application-layer security, while also providing observability and tracing for Kubernetes workloads. Azure Marketplace is an online store for buying and selling cloud computing solutions that allows you to deploy Isovalent Cilium Enterprise to Azure with ease. 
 
-:::image type="content" source="./media/cilium-enterprise-marketplace/cilium-enterprise-diagram.png" alt-text="Diagram of Isovalent Cilium Enterprise":::
+:::image type="content" source="./media/cilium-enterprise-marketplace/cilium-enterprise-diagram.png" alt-text="Diagram of Isovalent Cilium Enterprise.":::
 
 > [!IMPORTANT]
 > Isovalent Cilium Enterprise is currently in PREVIEW.
