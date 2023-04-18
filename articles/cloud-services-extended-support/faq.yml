@@ -84,7 +84,7 @@ sections:
       - question: |
           How can I get the deployment ID for my Cloud Service (extended support)
         answer: |
-          Deployment ID aka Private ID can be accessed using the [CloudServiceInstanceView](/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview) API. It is also available on the Azure portal under the Role and Instances blade of the Cloud Service (extended support)
+          Deployment ID, also known as Private ID, can be accessed using the [CloudServiceInstanceView](/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview) API. It is also available on the Azure portal under the Role and Instances blade of the Cloud Service (extended support)
           
       - question: |
           Are there any pricing differences between Cloud Services (classic) and Cloud Services (extended support)?
