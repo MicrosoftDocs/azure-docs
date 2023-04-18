@@ -89,7 +89,7 @@ To create and configure your hierarchy of IoT Edge devices, you'll use the *az i
 
 We'll create a group of nested edge devices with containing a parent device with one child device.
 
-1. Before we use the *az iot edge* command, we need to define the deployment manifest for the top layer, and lower layer devices. Create a file named **deploymentTopLayer.json** and add the following contents.
+1. Before you use the *az iot edge* command, you need to define the deployment manifest for the top layer, and lower layer devices. Create a file named **deploymentTopLayer.json** and add the following contents.
 
    ```json
    {
