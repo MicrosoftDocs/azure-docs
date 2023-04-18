@@ -18,16 +18,13 @@ In this quickstart, you learn how to deploy Project Health Insights using the Az
 
 Once deployment is complete, you can use the Azure portal to navigate to the newly created Project Health Insights, and retrieve the needed details  such your service URL, keys and manage your access controls.
 
-## Prerequisite 
-To deploy Project Health Insights, you must register your subscription. Let us know the Azure subscription ID you plan to use for Project Health Insights so that we can register necessary feature flags on our end.
-
 ## Deploy Project Health Insights
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Create a new **Resource group**.
-3. Add a new Cognitive Services account to your Resource group and search for **Project Health Insights**.
+3. Add a new Cognitive Services account to your Resource group and search for **Health Insights**.
 
-    ![Screenshot of how to create the new Project Health Insights service.](media/oncophenotype/deploy-to-azure/create-service.png) 
+    ![Screenshot of how to create the new Project Health Insights service.](media/create-service.png) 
 
     or Use this [link](https://portal.azure.com/#create/Microsoft.CognitiveServicesHealthInsights) to create a new Cognitive Services account.
 
@@ -37,11 +34,11 @@ To deploy Project Health Insights, you must register your subscription. Let us k
     - **Name**: Enter a Cognitive Services account name.
     - **Pricing tier**: Select your pricing tier.
 
-    ![Screenshot of how to create new Cognitive Services account.](media/oncophenotype/deploy-to-azure/create-health-insights.png) 
+    ![Screenshot of how to create new Cognitive Services account.](media/create-health-insights.png) 
 
 5. Navigate to your newly created service.
     
-    ![Screenshot of the Overview of Cognitive Services account.](media/oncophenotype/deploy-to-azure/created-health-insights.png) 
+    ![Screenshot of the Overview of Cognitive Services account.](media/created-health-insights.png) 
 
 ## Configure private endpoints
 
@@ -49,7 +46,7 @@ With private endpoints, the network traffic between the clients on the VNet and 
 
 Once the Cognitive Services account is successfully created, configure private endpoints from the Networking page under Resource Management. 
 
-![Screenshot of Private Endpoint.](media/oncophenotype/deploy-to-azure/private-endpoints.png) 
+![Screenshot of Private Endpoint.](media/private-endpoints.png) 
 
 ## Next steps
 

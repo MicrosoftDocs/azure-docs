@@ -95,14 +95,18 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
 1. Use the following commands to retrieve the Resource ID for your Log Analytics Workspace and Azure Spring Apps service instance:
 
-   ```bash
+   ```azurecli
    LOG_ANALYTICS_RESOURCE_ID=$(az monitor log-analytics workspace show \
        --resource-group <resource-group-name> \
-       --workspace-name <workspace-name> --query id --output tsv)
+       --workspace-name <workspace-name> \
+       --query id \
+       --output tsv)
 
-   SPRING_RESOURCE_ID=$(az spring show \
+   AZURE_SPRING_APPS_RESOURCE_ID=$(az spring show \
        --resource-group <resource-group-name> \
-       --name <Azure-Spring-Apps-service-instance-name> --query id --output tsv)
+       --name <Azure-Spring-Apps-service-instance-name> \
+       --query id \
+       --output tsv)
    ```
 
 1. Use the following command to configure diagnostic settings for the Azure Spring Apps Service:
@@ -110,7 +114,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
    ```azurecli
    az monitor diagnostic-settings create \
        --name "send-logs-and-metrics-to-log-analytics" \
-       --resource ${SPRING_RESOURCE_ID} \
+       --resource ${AZURE_SPRING_APPS_RESOURCE_ID} \
        --workspace ${LOG_ANALYTICS_RESOURCE_ID} \
        --logs '[
             {
@@ -317,7 +321,9 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> --query properties.url --output tsv)
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --query properties.url \
+       --output tsv)
 
    az spring gateway update \
        --resource-group <resource-group-name> \
@@ -378,7 +384,9 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> --query properties.url --output tsv)
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --query properties.url \
+       --output tsv)
 
    echo "https://${GATEWAY_URL}"
    ```
@@ -403,7 +411,9 @@ Use the following steps to configure API Portal.
    ```azurecli
    PORTAL_URL=$(az spring api-portal show \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> --query properties.url --output tsv)
+       --service <Azure-Spring-Apps-service-instance-name> \
+       --query properties.url \
+       --output tsv)
 
    echo "https://${PORTAL_URL}"
    ```

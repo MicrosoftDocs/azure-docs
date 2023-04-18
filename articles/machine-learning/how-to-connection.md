@@ -1,5 +1,5 @@
 ---
-title: Use connections
+title: Use connections (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use connections to connect to External data sources for training with Azure Machine Learning.
 services: machine-learning
@@ -15,7 +15,7 @@ ms.custom: data4ml
 # Customer intent: As an experienced data scientist with Python skills, I have data located in external sources outside of Azure. I need to make that data available to the Azure Machine Learning platform, to train my machine learning models.
 ---
 
-# Create connections
+# Create connections (preview)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -23,6 +23,8 @@ In this article, learn how to connect to data sources located outside of Azure, 
 - Snowflake DB
 - Amazon S3
 - Azure SQL DB
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -238,4 +240,4 @@ ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ## Next steps
 
-- [Import data assets](how-to-import-data-assets.md#import-data-assets)
+- [Import data assets](how-to-import-data-assets.md)
