@@ -35,7 +35,7 @@ Notes for jump host IP addresses
 - Get the Resource group name that you created for `Cluster` resource
 - The process applies keysets to all running BMMs.
 - The added users must be part of an Azure Active Directory (Azure AD) group. For more information, see [How to Manage Groups](../active-directory/fundamentals/how-to-manage-groups.md).
-- To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bareMetalMachineKeySets`. The options are `/read`. `/write` and `/delete`.
+- To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bareMetalMachineKeySets`. The options are `/read`, `/write` and `/delete`.
 
 
 ## Creating a bare metal machine keyset

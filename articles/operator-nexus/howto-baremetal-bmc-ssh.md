@@ -16,7 +16,7 @@ Please note this process is used in emergency situations when all other troubles
 
 There are rare situations where a user needs to investigate & resolve issues with a BMM and all other ways have been exhausted via Azure. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these BMMs.
 
-When the command runs, it executes on each of BMM in the Cluster. If a BMM is unavailable or powered off at the time of command execution, the status of the command will reflect which BMMs couldn't have the command executed. There's a reconciliation process that runs every four hours that will retry the command on any BMM that wasn't available at the time of the original command. Multiple commands execute in the order received.
+When the command runs, it executes on each of BMM in the Cluster. If a BMM is unavailable or powered off at the time of command execution, the status of the command will reflect which BMMs couldn't have the command executed. There's a reconciliation process that runs periodically that will retry the command on any BMM that wasn't available at the time of the original command. Multiple commands execute in the order received.
 
 There's a maximum number of 12 users defined per Cluster. Attempts to add more than 12 users will result in an error. Delete a user before adding another one when 12 already exists.
 
@@ -27,7 +27,7 @@ There's a maximum number of 12 users defined per Cluster. Attempts to add more t
 - The on-premise Cluster must have connectivity to Azure.
 - The process applies keysets to all running BMMs.
 - The users added must be part of an Azure Active Directory (Azure AD) group. For more information, see [How to Manage Groups](../active-directory/fundamentals/how-to-manage-groups.md).
-- To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bmcKeySets`. The options are `/read`. `/write` and `/delete`.
+- To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bmcKeySets`. The options are `/read`, `/write` and `/delete`.
 
 ## Creating a BMC keyset
 
