@@ -44,71 +44,67 @@ Each mid-call webhook callback sent by Call Automation uses a signed JSON Web To
 Below is a sample code by using `Microsoft.IdentityModel.Protocols.OpenIdConnect` to validate webhood event
 ## [csharp](#tab/csharp)
 ```csharp
-    using Microsoft.AspNetCore.Authentication.JwtBearer;
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.IdentityModel.Protocols;
-    using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-    using Microsoft.IdentityModel.Tokens;
-    using System;
-    using System.Linq;
-
-    public class Startup
+public class Program
     {
-        private IConfiguration Configuration { get; }
-
-        public Startup(IConfiguration configuration)
+        public static void Main(string[] args)
         {
-            Configuration = configuration;
-        }
-        
-        public void ConfigureServices(IServiceCollection services)
-        {
-            // Add JWT authentication
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {    
-                    var configurationManager = new ConfigurationManager<OpenIdConnectConfiguration>(
-                        Configuration["OpenIdConfigUrl"],
-                        new OpenIdConnectConfigurationRetriever());
-                    var configuration = configurationManager.GetConfigurationAsync().Result;
-
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKeys = configuration.SigningKeys,
-                        ValidateLifetime = true,
-                        ValidateIssuer = true,
-                        ValidIssuer = "https://acscallautomation.communication.microsoft.com",
-                        ValidateAudience = true,
-                        ValidAudience = Configuration["AllowedAudience"],
-                    };
-                });
-
-            services.AddControllers();
+            CreateHostBuilder(args).Build().Run();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            app.Use(async (context, next) =>
-            {
-                var authorizationHeader = context.Request.Headers["Authorization"].FirstOrDefault();
-                if (!string.IsNullOrEmpty(authorizationHeader))
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
                 {
-                    Console.WriteLine($"Authorization header: {authorizationHeader}");
-                }
+                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.ConfigureServices(services =>
+                    {
+                        // Add JWT authentication
+                        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                            .AddJwtBearer(options =>
+                            {
+                                var configurationManager = new ConfigurationManager<OpenIdConnectConfiguration>(
+                                    Configuration["OpenIdConfigUrl"],
+                                    new OpenIdConnectConfigurationRetriever());
+                                var configuration = configurationManager.GetConfigurationAsync().Result;
 
-                await next();
-            });
+                                options.TokenValidationParameters = new TokenValidationParameters
+                                {
+                                    ValidateIssuerSigningKey = true,
+                                    IssuerSigningKeys = configuration.SigningKeys,
+                                    ValidateLifetime = true,
+                                    ValidateIssuer = true,
+                                    ValidIssuer = "https://acscallautomation.communication.microsoft.com",
+                                    ValidateAudience = true,
+                                    ValidAudience = Configuration["AllowedAudience"],
+                                };
+                            });
 
-            app.UseRouting();     
-            app.UseAuthentication();
-            app.UseAuthorization();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-        }  
+                        services.AddControllers();
+                    })
+                    .Configure(app =>
+                    {
+                        app.Use(async (context, next) =>
+                        {
+                            var authorizationHeader = context.Request.Headers["Authorization"].FirstOrDefault();
+                            if (!string.IsNullOrEmpty(authorizationHeader))
+                            {
+                                Console.WriteLine($"Authorization header: {authorizationHeader}");
+                            }
+
+                            await next();
+                        });
+
+                        app.UseRouting();
+                        app.UseAuthentication();
+                        app.UseAuthorization();
+                        app.UseEndpoints(endpoints =>
+                        {
+                            endpoints.MapControllers();
+                        });
+                    });
+                });
     }
 ```
