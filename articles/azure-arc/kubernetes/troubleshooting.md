@@ -377,14 +377,14 @@ az k8s-extension create --resource-group <resource-group> --cluster-name <cluste
 
 The controllers installed in your Kubernetes cluster with the Microsoft Flux extension require CPU and memory resources to properly schedule on Kubernetes cluster nodes. This table shows the minimum memory and CPU resources that may be requested, along with the maximum limits for potential CPU and memory resource requirements.
 
-| Container Name | Minimum CPU | Minimum memory request | Maximum CPU | Maximum memory |
+| Container Name | Minimum CPU | Minimum memory | Maximum CPU | Maximum memory |
 | -------------- | ----------- | -------- |
 | fluxconfig-agent | 5 m | 30 Mi | 50 m | 150 Mi |
 | fluxconfig-controller | 5 m | 30 Mi | 100 m | 150 Mi |
 | fluent-bit | 5 m | 30 Mi | 20 m | 150 Mi |
 | helm-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
 | source-controller | 50 m | 64 Mi | 1000 m | 1 Gi |
-| kustomize-controller | 100 m | 64 Mi | 1000 m | 1 i |
+| kustomize-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
 | notification-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
 | image-automation-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
 | image-reflector-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
