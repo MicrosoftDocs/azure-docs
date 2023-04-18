@@ -19,7 +19,7 @@ Azure Monitor managed service for Prometheus allows you to collect and analyze m
 > Azure Monitor managed service for Prometheus is intended for storing information about service health of customer machines and applications. It is not intended for storing any data classified as Personal Identifiable Information (PII) or End User Identifiable Information (EUII). We strongly recommend that you do not send any sensitive information (usernames, credit card numbers etc.) into Azure Monitor managed service for Prometheus fields like metric names, label names, or label values.
 
 ## Data sources
-Azure Monitor managed service for Prometheus can currently collect data from any of the following data sources.
+Azure Monitor managed service for Prometheus can currently collect data from any of the following data sources:
 
 - Azure Kubernetes service (AKS)
 - Any Kubernetes cluster running self-managed Prometheus using [remote-write](https://aka.ms/azureprometheus-promio-prw).
@@ -44,6 +44,7 @@ See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for 
 
 - Azure monitor managed service for Prometheus is only supported in public clouds.
 - Private Links aren't supported for data collection into Azure monitor workspace.
+- Private AKS clusters on are not currently supported.
 - Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
 - Scraping and storing metrics at frequencies less than 1 second isn't supported.
 
@@ -61,6 +62,5 @@ Following are links to Prometheus documentation.
 ## Next steps
 
 - [Enable Azure Monitor managed service for Prometheus](prometheus-metrics-enable.md).
-- [Collect Prometheus metrics for your AKS cluster](../containers/container-insights-prometheus-metrics-addon.md).
 - [Configure Prometheus alerting and recording rules groups](prometheus-rule-groups.md).
 - [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).

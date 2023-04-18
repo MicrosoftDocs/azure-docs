@@ -139,12 +139,11 @@ The following metrics are collected by default from each default target. All oth
 ## Targets scraped for Windows
 
 Two default jobs can be run for Windows that scrape metrics required for the dashboards specific to Windows.
-
-> [!NOTE]
-> This requires an update in the ama-metrics-settings-configmap and installing windows-exporter on all Windows node pools. For more information, see the [enablement document](./prometheus-metrics-enable.md#enable-prometheus-metric-collection).
-
 - `windows-exporter` (`job=windows-exporter`)
 - `kube-proxy-windows` (`job=kube-proxy-windows`)
+
+> [!NOTE]
+> This requires applying or updating the `ama-metrics-settings-configmap` configmap and installing `windows-exporter` on all Windows nodes. For more information, see the [enablement document](./prometheus-metrics-enable.md#enable-prometheus-metric-collection).
 
 ## Metrics scraped for Windows
 
@@ -191,26 +190,26 @@ The following metrics are collected when windows-exporter and kube-proxy-windows
 
 ## Dashboards
 
-The following default dashboards are automatically provisioned and configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these dashboards can be found in [this GitHub folder](https://aka.ms/azureprometheus-mixins).
+The following default dashboards are automatically provisioned and configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these dashboards can be found in [this GitHub folder](https://aka.ms/azureprometheus-mixins). These are the standard open source community dashboards for monitoring Kubernetes clusters with Prometheus and Grafana.
 
-- Kubernetes / Compute Resources / Cluster
-- Kubernetes / Compute Resources / Namespace (Pods)
-- Kubernetes / Compute Resources / Node (Pods)
-- Kubernetes / Compute Resources / Pod
-- Kubernetes / Compute Resources / Namespace (Workloads)
-- Kubernetes / Compute Resources / Workload
-- Kubernetes / Kubelet
-- Node Exporter / USE Method / Node
-- Node Exporter / Nodes
-- Kubernetes / Compute Resources / Cluster (Windows)
-- Kubernetes / Compute Resources / Namespace (Windows)
-- Kubernetes / Compute Resources / Pod (Windows)
-- Kubernetes / USE Method / Cluster (Windows)
-- Kubernetes / USE Method / Node (Windows)
+- `Kubernetes / Compute Resources / Cluster`
+- `Kubernetes / Compute Resources / Namespace (Pods)`
+- `Kubernetes / Compute Resources / Node (Pods)`
+- `Kubernetes / Compute Resources / Pod`
+- `Kubernetes / Compute Resources / Namespace (Workloads)`
+- `Kubernetes / Compute Resources / Workload`
+- `Kubernetes / Kubelet`
+- `Node Exporter / USE Method / Node`
+- `Node Exporter / Nodes`
+- `Kubernetes / Compute Resources / Cluster (Windows)`
+- `Kubernetes / Compute Resources / Namespace (Windows)`
+- `Kubernetes / Compute Resources / Pod (Windows)`
+- `Kubernetes / USE Method / Cluster (Windows)`
+- `Kubernetes / USE Method / Node (Windows)`
 
 ## Recording rules
 
-The following default recording rules are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these recording rules can be found in [this GitHub folder](https://aka.ms/azureprometheus-mixins).
+The following default recording rules are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these recording rules can be found in [this GitHub folder](https://aka.ms/azureprometheus-mixins). These are the standard open source recording rules used in the dashboards above.
 
 - `cluster:node_cpu:ratio_rate5m`
 - `namespace_cpu:kube_pod_container_resource_requests:sum`
