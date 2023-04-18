@@ -64,7 +64,7 @@ The tags are also available [in JSON format](https://mcr.microsoft.com/v2/azure-
 
 ## Get the container image with docker pull
 
-You need the [prerequisites](speech-container-howto.md#prerequisites).
+You need the [prerequisites](speech-container-howto.md#prerequisites) including required hardware. Please also see the [recommended allocation of resources](speech-container-howto.md#container-requirements-and-recommendations) for each Speech container. 
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
 
@@ -178,8 +178,19 @@ For more information about `docker run` with Speech containers, see [Install and
 
 [Try the text-to-speech quickstart](get-started-text-to-speech.md) using host authentication instead of key and region.
 
-> [!IMPORTANT]
-> When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container [locale and voice](language-support.md?tabs=tts). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
+### SSML voice element
+
+When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The [locale of the voice](language-support.md?tabs=tts) must correspond to the locale of the container model. 
+
+For example, a model that was downloaded via the `latest` tag (defaults to "en-US") would have a voice name of `en-US-AriaNeural`.
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-AriaNeural">
+        This is the text that is spoken.
+    </voice>
+</speak>
+```
 
 ## Next steps
 

@@ -61,7 +61,7 @@ The tags are also available [in JSON format](https://mcr.microsoft.com/v2/azure-
 
 ## Get the container image with docker pull
 
-You need the [prerequisites](speech-container-howto.md#prerequisites).
+You need the [prerequisites](speech-container-howto.md#prerequisites) including required hardware. Please also see the [recommended allocation of resources](speech-container-howto.md#container-requirements-and-recommendations) for each Speech container. 
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
 

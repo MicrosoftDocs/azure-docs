@@ -66,7 +66,7 @@ The tags are also available [in JSON format](https://mcr.microsoft.com/v2/azure-
 
 ## Get the container image with docker pull
 
-You need the [prerequisites](speech-container-howto.md#prerequisites).
+You need the [prerequisites](speech-container-howto.md#prerequisites) including required hardware. Please also see the [recommended allocation of resources](speech-container-howto.md#container-requirements-and-recommendations) for each Speech container. 
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
 
@@ -91,7 +91,7 @@ When you run the Speech language identification container, configure the port, m
 Here's an example `docker run` command with placeholder values. You must specify the `ENDPOINT_URI` and `API_KEY` values:
 
 ```bash
-docker run --rm -it -p 5003:5003 --memory 1g --cpus 1 \
+docker run --rm -it -p 5000:5003 --memory 1g --cpus 1 \
 mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -102,7 +102,7 @@ This command:
 
 * Runs a Speech language identification container from the container image. 
 * Allocates 1 CPU core and 1 GB of memory.
-* Exposes TCP port 5003 and allocates a pseudo-TTY for the container.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 For more information about `docker run` with Speech containers, see [Install and run Speech containers with Docker](speech-container-howto.md#run-the-container).
