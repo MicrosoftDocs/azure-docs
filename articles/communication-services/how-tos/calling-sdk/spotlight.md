@@ -18,7 +18,7 @@ ms.custom: template-how-to
 
 In this article, you will learn how to implement Microsoft Teams spotlight capability with Azure Communication Services Calling SDKs. This capability allows users in the call or meeting to pin and unpin videos for everyone. 
 
-Since the video stream resolution of a participant is increased when spotlighted, it should be noted that the settings done on [Video Constraints](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/video-constraints) also applies to spotlight.
+Since the video stream resolution of a participant is increased when spotlighted, it should be noted that the settings done on [Video Constraints](../../concepts/concepts/voice-video-calling/video-constraints) also applies to spotlight.
 
 
 
@@ -32,24 +32,22 @@ Since the video stream resolution of a participant is increased when spotlighted
 
 Communication Services or Microsoft 365 users can call the spotlight APIs based on role type and conversation type
 **In a one to one call or a group call scenerio, the following APIs are supported for both Communication Services and Microsoft 365 users**
-|                                    | Organizer | Presenter | Attendee |
-|----------------------------------------------|--------|--------|--------|
+|| Organizer | Presenter | Attendee |
+|--------|--------|--------|--------|
 | startSpotlight | ✔️ | ✔️  | ✔️ |
 | stopSpotlight | ✔️ | ✔️ | ✔️ |
 | stopAllSpotlight |  ✔️ | ✔️ | ✔️ |
 | getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
 
 **For meeting scenerio the following APIs are supported for both Communication Services and Microsoft 365 users**
-|                                    | Organizer | Presenter | Attendee |
-|----------------------------------------------|--------|--------|--------|
+|| Organizer | Presenter | Attendee |
+|--------|--------|--------|--------|
 | startSpotlight | ✔️ | ✔️  |  |
 | stopSpotlight | ✔️ | ✔️ | ✔️ |
 | stopAllSpotlight |  ✔️ | ✔️ |  |
 | getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
 
-::: zone pivot="platform-web"
-[!INCLUDE [Spotlight Client-side JavaScript](./includes/spotlight/spotlight-web.md)]
-::: zone-end
+
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
