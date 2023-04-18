@@ -41,7 +41,7 @@ Make an options object specifying the raw stream properties we want to send.
 Create a `RawOutgoingAudioStream` and attach it to join call options and the stream automatically starts when call is connected.
 
 ```java 
-    JoinCallOptions options = // JoinCallOptions() or StartCallOptions()
+    JoinCallOptions options = JoinCallOptions() // or StartCallOptions()
 
     OutgoingAudioOptions outgoingAudioOptions = new OutgoingAudioOptions();
     RawOutgoingAudioStream rawOutgoingAudioStream = new RawOutgoingAudioStream(outgoingAudioOptions);
@@ -128,7 +128,7 @@ Create a `RawIncomingAudioStreamOptions` object specifying the raw stream proper
 Create a `RawIncomingAudioStream` and attach it to join call options
 
 ```java
-    JoinCallOptions options = // JoinCallOptions() or StartCallOptions()
+    JoinCallOptions options =  JoinCallOptions() // or StartCallOptions()
     IncomingAudioOptions incomingAudioOptions = new IncomingAudioOptions();
 
     RawIncomingAudioStream rawIncomingAudioStream = new RawIncomingAudioStream(audioStreamOptions);

@@ -70,7 +70,7 @@ Or you can also attach the stream to an existing `Call` instance instead:
 We can only start sending data once the stream state is `AudioStreamState.Started`. 
 To observe the audio stream state change, add a listener to the `OnStateChangedListener` event.
 
-    ```csharp
+```csharp
     unsafe private void AudioStateChanged(object sender, AudioStreamStateChanged args)
     {
         if (args.AudioStreamState == AudioStreamState.Started)
@@ -79,9 +79,9 @@ To observe the audio stream state change, add a listener to the `OnStateChangedL
         }
     }
     outgoingAudioStream.StateChanged += AudioStateChanged;
-    ```
+```
 
-When the stream started, we can start sending [`MemoryBuffer`](https://learn.microsoft.com/en-us/uwp/api/windows.foundation.memorybuffer?view=winrt-22621) audio samples to the call.
+When the stream started, we can start sending [`MemoryBuffer`](/uwp/api/windows.foundation.memorybuffer) audio samples to the call.
 
 The audio buffer format should match the specified stream properties.
 
@@ -120,7 +120,7 @@ The audio buffer format should match the specified stream properties.
 
 ### Receiving Raw Incoming Audio
 
-We can also receive the call audio stream samples as [`MemoryBuffer`](https://learn.microsoft.com/en-us/uwp/api/windows.foundation.memorybuffer?view=winrt-22621) if we want to process the call audio stream before playback.
+We can also receive the call audio stream samples as [`MemoryBuffer`](/uwp/api/windows.foundation.memorybuffer) if we want to process the call audio stream before playback.
 
 
 Create a `RawIncomingAudioStreamOptions` object specifying the raw stream properties we want to receive.
