@@ -53,7 +53,7 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 | OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 18.04+, SLES 15.4, WinServer 2016+  |
 | Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)  |
 
-> [!IMPORTANT] > This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
+[!IMPORTANT] This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
 
 ## Next steps
 
