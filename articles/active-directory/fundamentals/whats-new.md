@@ -171,7 +171,7 @@ For more information about Microsoft cloud settings for B2B collaboration., see:
 ### Modernizing Terms of Use Experiences
 
 **Type:** Plan for Change  
-**Service category:** Access Reviews                 
+**Service category:** Terms of use                  
 **Product capability:** AuthZ/Access Delegation        
 
 Starting July 2023, we're modernizing the following Terms of Use end user experiences with an updated PDF viewer, and moving the experiences from https://account.activedirectory.windowsazure.com to https://myaccount.microsoft.com:

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: workload-identities
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/27/2023
+ms.date: 04/07/2023
 ms.author: ryanwi
 ms.reviewer: shkhalid, udayh, cbrooks
 ms.custom: aaddev, references_regions
@@ -43,6 +43,12 @@ The creation of federated identity credentials is available on user-assigned man
 - Sweden Central
 - East Asia
 - Qatar Central
+- Brazil Southeast
+- Malaysia South
+- Poland Central
+- UK North
+- UK South2
+
 
 Support for creating federated identity credentials in these regions will be rolled out gradually except East Asia where support won't be provided.
 

@@ -2,7 +2,7 @@
 title: Use Container Storage Interface (CSI) driver for Azure Disks on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Disks in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 03/16/2023
+ms.date: 04/12/2023
 ---
 
 # Use the Azure Disks Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -11,17 +11,17 @@ The Azure Disks Container Storage Interface (CSI) driver is a [CSI specification
 
 The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
-To create an AKS cluster with CSI driver support, see [Enable CSI driver on AKS](csi-storage-drivers.md). This article describes how to use the Azure Disks CSI driver version 1.
+To create an AKS cluster with CSI driver support, see [Enable CSI driver on AKS](csi-storage-drivers.md). This article describes how to use the Azure Disk CSI driver version 1.
 
 > [!NOTE]
-> Azure Disks CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure Disks CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, submit a request: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview). This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Disk CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure Disk CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, submit a request: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview). This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
-## Azure Disks CSI driver features
+## Azure Disk CSI driver features
 
-In addition to in-tree driver features, Azure Disks CSI driver supports the following features:
+In addition to in-tree driver features, Azure Disk CSI driver supports the following features:
 
 - Performance improvements during concurrent disk attach and detach
   - In-tree drivers attach or detach disks in serial, while CSI drivers attach or detach disks in batch. There's significant improvement when there are multiple disks attaching to one node.
@@ -34,7 +34,7 @@ In addition to in-tree driver features, Azure Disks CSI driver supports the foll
 - [Resize disk PV without downtime](#resize-a-persistent-volume-without-downtime)
 
 > [!NOTE]
-> Depending on the VM SKU that's being used, the Azure Disks CSI driver might have a per-node volume limit. For some powerful VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
+> Depending on the VM SKU that's being used, the Azure Disk CSI driver might have a per-node volume limit. For some powerful VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
 
 ## Storage class driver dynamic disks parameters
 
@@ -69,7 +69,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes storage classes][kubernetes-storage-classes].
 
-When you use the Azure Disks CSI driver on AKS, there are two more built-in `StorageClasses` that use the Azure Disks CSI storage driver. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When you use the Azure Disk CSI driver on AKS, there are two more built-in `StorageClasses` that use the Azure Disk CSI storage driver. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
 - `managed-csi`: Uses Azure Standard SSD locally redundant storage (LRS) to create a managed disk.
 - `managed-csi-premium`: Uses Azure Premium LRS to create a managed disk.
@@ -145,7 +145,7 @@ storageclass.storage.k8s.io/azuredisk-csi-waitforfirstconsumer created
 
 ## Volume snapshots
 
-The Azure Disks CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). As part of this capability, the driver can perform either *full* or [*incremental* snapshots](../virtual-machines/disks-incremental-snapshots.md) depending on the value set in the `incremental` parameter (by default, it's true).
+The Azure Disk CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). As part of this capability, the driver can perform either *full* or [*incremental* snapshots](../virtual-machines/disks-incremental-snapshots.md) depending on the value set in the `incremental` parameter (by default, it's true).
 
 The following table provides details for all of the parameters.
 
@@ -158,6 +158,9 @@ The following table provides details for all of the parameters.
 |subscriptionID | Specify Azure subscription ID where Azure Disks will be created  | Azure subscription ID | No | If not empty, `resourceGroup` must be provided, `incremental` must set as `false`
 
 ### Create a volume snapshot
+
+> [!NOTE]
+> Before proceeding, ensure that the application is not writing data to the source disk.
 
 For an example of this capability, create a [volume snapshot class](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml) with the [kubectl apply][kubectl-apply] command:
 
@@ -379,7 +382,7 @@ allowVolumeExpansion: true
 
 ## Windows containers
 
-The Azure Disks CSI driver supports Windows nodes and containers. If you want to use Windows containers, follow the [Windows containers quickstart][aks-quickstart-cli] to add a Windows node pool.
+The Azure Disk CSI driver supports Windows nodes and containers. If you want to use Windows containers, follow the [Windows containers quickstart][aks-quickstart-cli] to add a Windows node pool.
 
 After you have a Windows node pool, you can now use the built-in storage classes like `managed-csi`. You can deploy an example [Windows-based stateful set](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into the file `data.txt` by running the following [kubectl apply][kubectl-apply] command:
 

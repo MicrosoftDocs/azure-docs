@@ -27,7 +27,7 @@ There are two architectures in Container Apps: the Consumption only architecture
 
 | Architecture Type | Description |
 |-----------|-------------|
-| Workload profiles architecture (preview) | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /27. |
+| Workload profiles architecture (preview) | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /27. <br /> <br /> As workload profiles are currently in preview, the number of supported regions is limited. To learn more, visit the [workload profiles overview](./workload-profiles-overview.md#supported-regions).|
 | Consumption only architecture | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /23. |
 
 ## Accessibility Levels
@@ -51,6 +51,9 @@ As you create a custom VNet, keep in mind the following situations:
 
   - You can define the subnet range used by the Container Apps environment.
   - You can restrict inbound requests to the environment exclusively to the VNet by deploying the environment as [internal](vnet-custom-internal.md).
+
+> [!NOTE]
+> When you provide your own virtual network, additional [managed resources](networking.md#managed-resources) are created, which incur billing.
 
 As you begin to design the network around your container app, refer to [Plan virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md) for important concerns surrounding running virtual networks on Azure.
 
@@ -125,6 +128,8 @@ As a Container Apps environment is created, you provide resource IDs for a singl
 
 If you're using the CLI, the parameter to define the subnet resource ID is `infrastructure-subnet-resource-id`. The subnet hosts infrastructure components and user app containers.
 
+In addition, if you're using the Azure CLI with the Consumption only architecture and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
+
 ### Subnet Address Range Restrictions
 
 Subnet address ranges can't overlap with the following ranges reserved by AKS:
@@ -140,8 +145,6 @@ In addition, Container Apps on the workload profiles architecture reserve the fo
 - 100.100.128.0/19
 - 100.100.160.0/19
 - 100.100.192.0/19
-
-If you're using the Azure CLI and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
 
 ## Routes
 
@@ -199,7 +202,7 @@ In addition to the [Azure Container Apps billing](./billing.md), you're billed f
 - Two standard [Load Balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or one standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment. Each load balancer has fewer than six rules. The cost of data processed (GB) includes both ingress and egress for management operations.
 
 #### Workload profiles architecture
-The name of the resource group created in the Azure subscription where your environment is hosted is prefixed with `me_` by default, and the resource group name *can* be customized during container app environment creation. For external environments, the resource group contains a public IP address used specifically for inbound connectivity to your external environment and a load balancer. For internal environments, the resource group only contains a Load Balancer.
+The name of the resource group created in the Azure subscription where your environment is hosted is prefixed with `ME_` by default, and the resource group name *can* be customized during container app environment creation. For external environments, the resource group contains a public IP address used specifically for inbound connectivity to your external environment and a load balancer. For internal environments, the resource group only contains a Load Balancer.
 
 In addition to the [Azure Container Apps billing](./billing.md), you're billed for:
 - One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for ingress in external environments and one standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

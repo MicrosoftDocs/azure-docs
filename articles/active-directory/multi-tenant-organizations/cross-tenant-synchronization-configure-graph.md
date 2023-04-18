@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 04/15/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -84,6 +84,8 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. In the target tenant, use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true) API to create a new partner configuration in a cross-tenant access policy between the target tenant and the source tenant. Use the source tenant ID in the request.
 
+    If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing configuration. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
+
     **Request**
 
     ```http
@@ -125,6 +127,8 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     ```
 
 1. Use the [Create identitySynchronization](/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-beta&preserve-view=true) API to enable user synchronization in the target tenant.
+
+    If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing policy. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
 
     **Request**
     
@@ -179,6 +183,8 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 ![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
 1. In the source tenant, use the [Create crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-beta&preserve-view=true) API to create a new partner configuration in a cross-tenant access policy between the source tenant and the target tenant. Use the target tenant ID in the request.
+
+    If you get an `Request_MultipleObjectsWithSameKeyValue` error, you might already have an existing configuration. For more information, see [Symptom - Request_MultipleObjectsWithSameKeyValue error](#symptom---request_multipleobjectswithsamekeyvalue-error).
 
     **Request**
 
@@ -756,6 +762,54 @@ Either the signed-in user doesn't have sufficient privileges, or you need to con
 1. Make sure you're assigned the required roles. See [Prerequisites](#prerequisites) earlier in this article.
 
 2. In [Microsoft Graph Explorer tool](https://aka.ms/ge), make sure you consent to the required permissions. See [Step 1: Sign in to tenants and consent to permissions](#step-1-sign-in-to-tenants-and-consent-to-permissions) earlier in this article.
+
+#### Symptom - Request_MultipleObjectsWithSameKeyValue error
+
+When you try to make a Graph API call, you receive an error message similar to the following:
+
+```
+code: Request_MultipleObjectsWithSameKeyValue
+message: Another object with the same value for property tenantId already exists.
+message: A conflicting object with one or more of the specified property values is present in the directory.
+```
+
+**Cause**
+
+You are likely trying to create a configuration or object that already exists, possibly from a previous configuration.
+
+**Solution**
+
+1. Verify your request syntax and that you are using the correct tenant ID.
+
+1. Make a `GET` request to list the existing object.
+
+1. If you have an existing object, instead of making a create request using `POST` or `PUT`, you might need to make an update request using `PATCH`, such as:
+
+    - [Update crossTenantAccessPolicyConfigurationPartner](/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-beta&preserve-view=true)
+    - [Update crossTenantIdentitySyncPolicyPartner](/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-beta&preserve-view=true)
+
+#### Symptom - Directory_ObjectNotFound error
+
+When you try to make a Graph API call, you receive an error message similar to the following:
+
+```
+code: Directory_ObjectNotFound
+message: Unable to read the company information from the directory.
+```
+
+**Cause**
+
+You are likely trying to update an object that doesn't exist using `PATCH`.
+
+**Solution**
+
+1. Verify your request syntax and that you are using the correct tenant ID.
+
+1. Make a `GET` request to verify the object doesn't exist.
+
+1. If object doesn't exist, instead of making an update request using `PATCH`, you might need to make a create request using `POST` or `PUT`, such as:
+
+    - [Create identitySynchronization](/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-beta&preserve-view=true)
 
 ## Next steps
 

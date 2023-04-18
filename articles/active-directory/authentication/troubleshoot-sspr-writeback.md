@@ -45,7 +45,11 @@ Azure [GOV endpoints](../../azure-government/compare-azure-government-global-azu
 * *\*.passwordreset.microsoftonline.us*
 * *\*.servicebus.usgovcloudapi.net*
 
-If you need more granularity, see the [list of Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated every Wednesday and goes into effect the next Monday.
+If you need more granularity, see the [list of Microsoft Azure IP Ranges and Service Tags for Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
+
+For Azure GOV, see the [list of Microsoft Azure IP Ranges and Service Tags for US Government Cloud](https://www.microsoft.com/download/details.aspx?id=57063).
+
+These files are updated weekly.
 
 To determine if access to a URL and port are restricted in an environment, run the following cmdlet:
 

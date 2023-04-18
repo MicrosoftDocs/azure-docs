@@ -7234,7 +7234,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md",
@@ -7552,6 +7552,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/roles/groups-pim-eligible.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/directory-administrative-units.md",
       "redirect_url": "/azure/active-directory/roles/administrative-units",
       "redirect_document_id": true
@@ -7668,8 +7673,8 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-groups-pim-eligible.md",
-      "redirect_url": "/azure/active-directory/roles/groups-pim-eligible",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-groups-remove-assignment.md",
