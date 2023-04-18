@@ -42,7 +42,7 @@ In this article, you’ll learn how to register an application in your customer 
 
 How to register your Single-page app?
 
-[!INCLUDE [How to register a SPA?](../customers/includes/register-app/register-client-app-common.md )]
+[!INCLUDE [How to register a SPA?](../customers/includes/register-app/register-client-app-common.md)]
 
 If you want to use Vanilla JS follow the steps below:
 
@@ -70,13 +70,13 @@ If you need an application or client secret, follow the steps below:
 
 [!INCLUDE [Client secret.](../customers/includes/register-app/add-app-client-secret.md)]
 
-Optionally if that client needs to call an API you can grant permissions: 
+Optionally, if that client needs to call an API you can grant permissions: 
 
 [!INCLUDE [Optional permissions.](../customers/includes/register-app/grant-api-permission-call-api.md)]
 
 # [Web API](#tab/webapi)
 
-How to register your Web app?
+How to register your Web API?
 
 [!INCLUDE [Register Web API.](../customers/includes/register-app/register-api-app.md)]
 
@@ -84,7 +84,11 @@ If you want to add permissions follow the steps below:
 
 [!INCLUDE [Add permissions.](../customers/includes/register-app/add-api-scopes.md)]
 
+# [DEsktop or Mobile app](#tab/desktop or mobile app)
 
+How to register your Desktop or Mobile app?
+
+[!INCLUDE [How to register a Desktop or Mobile app?](../customers/includes/register-app/register-client-app-common.md)]
 
 ## Next steps
  
