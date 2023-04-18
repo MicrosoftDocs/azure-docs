@@ -3,7 +3,7 @@ title: Azure Virtual Desktop personal desktop assignment type - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/13/2023
+ms.date: 04/18/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -62,8 +62,6 @@ New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtuali
 
 Unlike automatic assignment, when you use direct assignment, you must assign the user to both the personal desktop host pool and a specific session host before they can connect to their personal desktop. If the user is only assigned to a host pool without a session host assignment, they won't be able to access resources and will see an error message that says, "No resources available."
 
-
-
 To configure a host pool to require direct assignment of users to session hosts, run the following PowerShell cmdlet:
 
 ```powershell
@@ -83,16 +81,27 @@ New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtuali
 To directly assign a user to a session host in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Enter **Azure Virtual Desktop** into the search bar.
+
 1. Under **Services**, select **Azure Virtual Desktop**.
+
 1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+
 1. Select the host pool you want to assign users to.
+
 1. Next, go to the menu on the left side of the window and select **Application groups**.
+
 1. Select the name of the app group you want to assign users to, then select **Assignments** in the menu on the left side of the window.
+
 1. Select **+ Add**, then select the users or user groups you want to assign to this app group.
-1. Select **Assign VM** in the Information bar to assign a session host to a user.
+
+1.  Select **Assign VM** in the Information bar to assign a session host to a user.
+
 1. Select the session host you want to assign to the user, then select **Assign**. You can also select **Assignment** > **Assign user**.
+
 1. Select the user you want to assign the session host to from the list of available users.
+
 1. When you're done, select **Select**.
 
 #### [PowerShell](#tab/powershell)
@@ -106,35 +115,27 @@ Update-AzWvdSessionHost -HostPoolName $hostPoolName -Name $sessionHostName -Reso
 
 ## Unassign a personal desktop
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Enter **Azure Virtual Desktop** into the search bar.
-3. Under **Services**, select **Azure Virtual Desktop**.
-4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
-5. Select the host pool you want to assign users to.
-6. Next, go to the menu on the left side of the window and select **Application groups**.
-7. Select the name of the application group you want to assign users to, then select **Assignments** in the menu on the left side of the window.
-8. Select **+ Add**, then select the users or user groups you want to assign to this application group.
-9. Select **Assign VM** in the Information bar to assign a session host to a user.
-10. Select the session host you want to assign to the user, then select **Assign**. You can also select **Assignment** > **Assign user**.
-11. Select the user you want to assign the session host to from the list of available users.
-12. When you're done, select **Select**.
-To unassign a personal desktop:
-
 #### [Azure portal](#tab/azure)
 
 To unassign a personal desktop in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Enter **Azure Virtual Desktop** into the search bar.
+
 1. Under **Services**, select **Azure Virtual Desktop**.
+
 1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+
 1. Select the host pool you want to modify user assignment for.
+
 1. Next, go to the menu on the left side of the window and select **Session hosts**.
+
 1. Select the checkbox next to the session host you want to unassign a user from, select the ellipses at the end of the row, and then select **Unassign user**. You can also select **Assignment** > **Unassign user**.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the unassign user menu option from the ellipses menu for unassigning a personal desktop.](media/unassign.png)
-
+    
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the unassign user menu option from the assignment menu for unassigning a personal desktop.](media/unassign-2.png)
 
@@ -159,18 +160,21 @@ Invoke-AzRestMethod @unassignDesktopParams
 
 ## Reassign a personal desktop
 
-To reassign a personal desktop:
-
 #### [Azure portal](#tab/azure)
 
 To reassign a personal desktop in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Enter **Azure Virtual Desktop** into the search bar.
+
 1. Under **Services**, select **Azure Virtual Desktop**.
+
 1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
 1. Select the host pool you want to modify user assignment for.
+
 1. Next, go to the menu on the left side of the window and select **Session hosts**.
+
 1. Select the checkbox next to the session host you want to reassign to a different user, select the ellipses at the end of the row, and then select **Assign to a different user**. You can also select **Assignment** > **Assign to a different user**.
 
     > [!div class="mx-imgBorder"]
@@ -180,6 +184,7 @@ To reassign a personal desktop in the Azure portal:
     > ![A screenshot of the assign to a different user menu option from the assignment menu for reassigning a personal desktop.](media/reassign.png)
 
 1. Select the user you want to assign the session host to from the list of available users.
+
 1. When you're done, select **Select**.
 
 #### [PowerShell](#tab/powershell)
