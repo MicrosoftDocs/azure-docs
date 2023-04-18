@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 04/07/2023
+ms.date: 04/14/2023
 ms.custom: devx-track-arm-template
 ms.author: jasteppe
 ---
@@ -21,7 +21,7 @@ For enhanced workflows and ease of use, you can use the MedTech service to recei
 :::image type="content" source="media\device-messages-through-iot-hub\data-flow-diagram.png" border="false" alt-text="Diagram of the IoT device message flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\device-messages-through-iot-hub\data-flow-diagram.png":::
 
 > [!TIP]
-> To learn how the MedTech service transforms and persists device message data into the FHIR service as FHIR Observations, see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md).
+> To learn how the MedTech service transforms and persists device message data into the FHIR service as FHIR Observations, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
 
 In this tutorial, you learn how to:
 
