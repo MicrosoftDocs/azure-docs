@@ -4,8 +4,8 @@ description: Understand how the Azure Resource Graph service enables complex que
 ms.date: 06/15/2022
 ms.topic: overview
 ms.custom: devx-track-arm-template
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # What is Azure Resource Graph?
 
