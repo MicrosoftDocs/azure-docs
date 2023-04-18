@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/31/2023
+ms.date: 04/10/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
@@ -23,7 +23,7 @@ This article describes how to configure and setup a custom claims provider with 
 
 This how-to guide demonstrates the token issuance start event with a REST API running in Azure Functions and a sample OpenID Connect application. Before you start, take a look at following video, which demonstrates how to configure Azure AD custom claims provider with Function App:
 
-> [!VIDEO https://www.youtube.com/embed/r-JEsMBJ7GE]
+> [!VIDEO https://www.youtube.com/embed/fxQGVIwX8_4]
 
 ## Prerequisites
 
