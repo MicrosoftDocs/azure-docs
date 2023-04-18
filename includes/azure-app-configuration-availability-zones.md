@@ -15,8 +15,8 @@ Following are regions where App Configuration has enabled availability zone supp
 | Canada Central   | Germany West Central | UAE North     |        | Central India  |
 | Central US       | North Europe         |               |        | Japan East     |
 | East US          | Norway East          |               |        | Korea Central  |
-| East US 2        | Poland Central       |               |        | Southeast Asia |
-| South Central US | Sweden Central       |               |        | East Asia      |
-| West US 2        | Switzerland North    |               |        | China North 3  |
-| West US 3        | UK South             |               |        |                |
-|                  | West Europe          |               |        |                |
+| East US 2        | UK South             |               |        | Southeast Asia |
+| South Central US | West Europe          |               |        | East Asia      |
+| West US 2        | Sweden Central       |               |        | China North 3  |
+| West US 3        | Switzerland North    |               |        |                |
+|                  | Poland Central       |               |        |                |
