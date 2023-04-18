@@ -25,6 +25,11 @@ In this article, you prepare your Azure Active Directory (Azure AD) for customer
 > * Create a sign in and sign out user flow in Microsoft Entra admin center.
 > * Associate your web application with the user flow. 
 
+## Prerequisites
+
+- Completion of the prerequisites in [Sign in users in your own ASP.NET web application by using Microsoft Entra - Overview](./how-to-web-app-dotnet-sign-in-overview.md).
+- A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet).
+
 
 If you have already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your ASP.NET web app](how-to-web-app-dotnet-sign-in-prepare-app.md).
 
