@@ -4,8 +4,8 @@ description: This article explains two common ways to back up and restore databa
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: aditivgupta
+ms.author: adig
 ms.date: 06/20/2022
 ---
 
