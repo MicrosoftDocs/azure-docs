@@ -13,7 +13,6 @@ recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: mode-other
 zone_pivot_groups: programming-languages-set-translator
-ms.custom: mode-other
 ---
 
 # Get started with Document Translation
