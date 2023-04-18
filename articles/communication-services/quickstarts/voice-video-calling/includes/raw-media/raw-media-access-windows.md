@@ -20,7 +20,176 @@ The Azure Communication Services Calling SDK offers APIs that allow apps to gene
 
 This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-windows) for Windows.
 
-## Overview of virtual video streams
+## Raw Audio Access 
+Accessing raw audio media gives you access to the incoming call's audio stream, along with the ability to view and send custom outgoing audio streams during a call.
+
+### Creating Audio Stream
+
+Make an options object specifying the raw stream properties we want to send. 
+
+    ```csharp
+    RawOutgoingAudioProperties outgoingAudioProperties = new RawOutgoingAudioProperties()
+    {
+        AudioFormat = AudioFormat.Pcm16Bit,
+        SampleRate = AudioSampleRate.Hz48000,
+        ChannelMode = AudioChannelMode.Stereo,
+        DataPerBlock = DataPerBlock.InMs20
+    };
+
+    RawOutgoingAudioStreamOptions outgoingAudioOptions = new RawOutgoingAudioStreamOptions()
+    {
+        RawOutgoingAudioProperties = outgoingAudioProperties
+    };
+    ```
+
+Create a `RawOutgoingAudioStream` and attach it to join call options and the stream will automatically starts when call is connected.
+
+    ```csharp 
+    JoinCallOptions options =  JoinCallOptions(); // or StartCallOptions()
+
+    OutgoingAudioOptions outgoingAudioOptions = new OutgoingAudioOptions();
+    RawOutgoingAudioStream rawOutgoingAudioStream = new RawOutgoingAudioStream(outgoingAudioOptions);
+
+    outgoingAudioOptions.OutgoingAudioStream = rawOutgoingAudioStream;
+    options.OutgoingAudioOptions = outgoingAudioOptions;
+
+    // Start or Join call with those call options.
+
+    ```
+
+### Attach Stream to a call
+
+Or you can also attach the stream to an existing `Call` instance instead:
+
+    ```csharp
+    await call.StartAudio(rawOutgoingAudioStream);
+    ```
+
+### Start sending Raw Samples
+
+We will only be able to start sending data once the stream state is `AudioStreamState.Started`. 
+To observe the audio stream state change add a listener to the `OnStateChangedListener` event.
+
+    ```csharp
+    unsafe private void AudioStateChanged(object sender, AudioStreamStateChanged args)
+    {
+        if (args.AudioStreamState == AudioStreamState.Started)
+        {
+            // We can now start sending samples.
+        }
+    }
+    outgoingAudioStream.StateChanged += AudioStateChanged;
+    ```
+
+When the stream started we can start sending [`MemoryBuffer`](https://learn.microsoft.com/en-us/uwp/api/windows.foundation.memorybuffer?view=winrt-22621) audio samples to the call.
+
+The audio buffer format should match the specified stream properties.
+
+    ```csharp
+    void Start()
+    {
+        RawOutgoingAudioProperties properties = outgoingAudioStream.RawOutgoingAudioProperties;
+            RawAudioBuffer buffer;
+            new Thread(() =>
+            {
+                DateTime nextDeliverTime = DateTime.Now;
+                while (true)
+                {
+                    MemoryBuffer memoryBuffer = new MemoryBuffer((uint)outgoingAudioStream.ExpectedBufferSizeInBytes);
+                    using (IMemoryBufferReference reference = memoryBuffer.CreateReference())
+                    {
+                        byte* dataInBytes;
+                        uint capacityInBytes;
+
+                        ((IMemoryBufferByteAccess)reference).GetBuffer(out dataInBytes, out capacityInBytes);
+
+                        // Use AudioGraph here to grab data from microphone if you want microphone data
+                    }
+                    nextDeliverTime = nextDeliverTime.AddMilliseconds(20);
+                    buffer = new RawAudioBuffer(memoryBuffer);
+                    outgoingAudioStream.SendOutgoingAudioBuffer(buffer);
+                    TimeSpan wait = nextDeliverTime - DateTime.Now;
+                    if (wait > TimeSpan.Zero)
+                    {
+                        Thread.Sleep(wait);
+                    }
+                }
+            }).Start();
+    }
+    ```
+
+### Receiving Raw Incoming Audio
+
+We can also receive the call audio stream samples as [`MemoryBuffer`](https://learn.microsoft.com/en-us/uwp/api/windows.foundation.memorybuffer?view=winrt-22621) if we want to process the call audio stream before playback.
+
+
+Create a `RawIncomingAudioStreamOptions` object specifying the raw stream properties we want to receive.
+
+    ```csharp
+    RawIncomingAudioProperties properties = new RawIncomingAudioProperties()
+    {
+        AudioFormat = AudioFormat.Pcm16Bit,
+        SampleRate = AudioSampleRate.Hz44100,
+        ChannelMode = AudioChannelMode.Stereo
+    };
+
+    RawIncomingAudioStreamOptions options = new RawIncomingAudioStreamOptions()
+    {
+        RawIncomingAudioProperties = properties
+    };
+
+    ```
+
+Create a `RawIncomingAudioStream` and attach it to join call options
+
+    ```csharp
+    JoinCallOptions options =  JoinCallOptions(); // or StartCallOptions()
+
+    RawIncomingAudioStream rawIncomingAudioStream = new RawIncomingAudioStream(audioStreamOptions);
+    IncomingAudioOptions incomingAudioOptions = new IncomingAudioOptions()
+    {
+        IncomingAudioStream = rawIncomingAudioStream
+    };
+
+    options.IncomingAudioOptions = incomingAudioOptions;
+    ```
+
+Or we can also attach the stream to an existing `Call` instance instead:
+
+    ```csharp
+
+    await call.startAudio(context, rawIncomingAudioStream);
+    ```
+
+To start receiving raw audio buffers from the incoming stream add listeners to the incoming stream state and
+buffer received events.
+
+    ```csharp
+    unsafe private void OnAudioStateChanged(object sender, AudioStreamStateChanged args)
+    {
+        if (args.AudioStreamState == AudioStreamState.Started)
+        {
+            // When value is `AudioStreamState.STARTED` we'll be able to receive samples.
+        }
+    }
+
+    private void OnRawIncomingMixedAudioBufferAvailable(object sender, IncomingMixedAudioEventArgs args)
+    {
+        // Received a raw audio buffers(MemoryBuffer).
+        using (IMemoryBufferReference reference = args.IncomingAudioBuffer.Buffer.CreateReference())
+        {
+           byte* dataInBytes;
+           uint capacityInBytes;
+           ((IMemoryBufferByteAccess)reference).GetBuffer(out dataInBytes, out capacityInBytes);
+           //process the data using AudioGraph class
+        }
+    }
+
+    rawIncomingAudioStream.StateChanged += OnAudioStateChanged;
+    rawIncomingAudioStream.MixedAudioBufferReceived += OnRawIncomingMixedAudioBufferAvailable;
+    ```
+
+## Raw Video Access
 
 Because the app will generate the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 

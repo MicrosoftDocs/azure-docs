@@ -24,7 +24,7 @@ This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../
 ## Raw Audio Access 
 Accessing raw audio media gives you access to the incoming call's audio stream, along with the ability to view and send custom outgoing audio streams during a call.
 
-### Creating Stream and Attach to a call
+### Creating Audio Stream
 
 Make an options object specifying the raw stream properties we want to send. 
 
@@ -51,6 +51,8 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
     // Start or Join call passing the options instance.
 
     ```
+
+### Attach Stream to a call
 
 Or you can also attach the stream to an existing `Call` instance instead:
 
