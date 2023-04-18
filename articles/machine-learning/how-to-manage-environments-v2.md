@@ -2,7 +2,6 @@
 title: 'Manage Azure Machine Learning environments with the CLI & SDK (v2)'
 titleSuffix: Azure Machine Learning
 description: Learn how to manage Azure Machine Learning environments using Python SDK and Azure CLI extension for Machine Learning.
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to

@@ -20,6 +20,8 @@
       href: whats-new-webrtc.md
     - name: Multimedia redirection (MMR)
       href: whats-new-multimedia-redirection.md
+    - name: MSIXMGR tool
+      href: whats-new-msixmgr.md
     - name: Remote Desktop clients
       items:
       - name: Windows Desktop client
@@ -34,6 +36,8 @@
         href: whats-new-client-android-chrome-os.md
       - name: Microsoft Store client
         href: whats-new-client-microsoft-store.md
+    - name: Documentation
+      href: whats-new-documentation.md
 - name: Tutorials
   expanded: true
   items:
