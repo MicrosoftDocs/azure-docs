@@ -22,26 +22,11 @@ To exchange messages that have different XML or JSON formats in an Azure Logic A
 
 To visually create and edit a map, you can use Visual Studio Code with the Data Mapper extension within the context of a Standard logic app project. The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
 
-After you create your map, you can directly call that map from a workflow in your logic app project or from a workflow in the Azure portal. For this task, add the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** to your workflow. To use this action in the Azure portal, add the map to either of the following resources:
+After you create your map, you can directly call that map from a workflow in your logic app project or from a workflow in the Azure portal. For this task, you can use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT** in your workflow.
 
-- An integration account for a Consumption or Standard logic app resource
-- The Standard logic app resource itself
+This how-to guide shows how to create a blank data map, choose your source and target schemas, select schema elements to start mapping, create various mappings, save and test your map, and then call the map from a workflow in your logic app project.
 
-This how-to guide shows how to complete the following tasks:
-
-- Create a blank data map.
-- Specify the source and target schemas to use.
-- Navigate the map.
-- Select the target and source elements to map.
-- Create a direct mapping between elements.
-- Create a complex mapping between elements.
-- Create a loop between arrays.
-- Crete an if condition between elements.
-- Save the map.
-- Test the map.
-- Call the map from a workflow in your logic app project.
-
-## Limitations
+## Limitations and known issues
 
 - The Data Mapper extension currently works only in Visual Studio Code running on Windows operating systems.
 
@@ -53,9 +38,7 @@ This how-to guide shows how to complete the following tasks:
 
 - The map layout and item position are currently automatic and read only.
 
-## Known issues
-
-The Data Mapper extension currently works only with schemas in flat folder-structured projects.
+- The Data Mapper extension currently works only with schemas in flat folder-structured projects.
 
 ## Prerequisites
 
