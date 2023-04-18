@@ -646,12 +646,12 @@
         - name: Understand charts and metrics
           href: how-to-understand-automated-ml.md
         - name: Use ONNX model in .NET application
-         href: how-to-use-automl-onnx-model-dotnet.md
+          href: how-to-use-automl-onnx-model-dotnet.md
         - name: Inference image models with ONNX model
           displayName: automl, image, image model, computer vision
-         href: how-to-inference-onnx-automl-image-models.md
+          href: how-to-inference-onnx-automl-image-models.md
        # v1
-       - name: Local inference using ONNX
+        - name: Local inference using ONNX
           displayName: SDK, automl
           href: ./v1/how-to-inference-onnx-automl-image-models-v1.md
         - name: Troubleshoot automated ML
