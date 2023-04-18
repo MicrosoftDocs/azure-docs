@@ -18,7 +18,7 @@ ms.custom: template-how-to
 
 In this article, you'll learn how to implement Microsoft Teams spotlight capability with Azure Communication Services Calling SDKs. This capability allows users in the call or meeting to pin and unpin videos for everyone. 
 
-Since the video stream resolution of a participant is increased when spotlighted, it should be noted that the settings done on [Video Constraints](../../concepts/concepts/voice-video-calling/video-constraints) also apply to spotlight.
+Since the video stream resolution of a participant is increased when spotlighted, it should be noted that the settings done on [Video Constraints](../../concepts/voice-video-calling/video-constraints) also apply to spotlight.
 
 
 ## Prerequisites
@@ -30,7 +30,7 @@ Since the video stream resolution of a participant is increased when spotlighted
 
 Communication Services or Microsoft 365 users can call the spotlight APIs based on role type and conversation type
 **In a one to one call or a group call scenario, the following APIs are supported for both Communication Services and Microsoft 365 users**
-|                                    | Organizer | Presenter | Attendee |
+|APIs| Organizer | Presenter | Attendee |
 |----------------------------------------------|--------|--------|--------|
 | startSpotlight | ✔️ | ✔️  | ✔️ |
 | stopSpotlight | ✔️ | ✔️ | ✔️ |
@@ -38,7 +38,7 @@ Communication Services or Microsoft 365 users can call the spotlight APIs based 
 | getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
 
 **For meeting scenario the following APIs are supported for both Communication Services and Microsoft 365 users**
-|                                    | Organizer | Presenter | Attendee |
+|APIs| Organizer | Presenter | Attendee |
 |----------------------------------------------|--------|--------|--------|
 | startSpotlight | ✔️ | ✔️  |  |
 | stopSpotlight | ✔️ | ✔️ | ✔️ |
