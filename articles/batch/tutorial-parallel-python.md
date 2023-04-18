@@ -27,9 +27,9 @@ In this tutorial, you convert MP4 media files in parallel to MP3 format using th
 
 * [Python version 3.7+](https://www.python.org/downloads/)
 
-* [pip](https://pip.pypa.io/en/stable/installing/) package manager
+* [pip](https://pip.pypa.io/en/stable/installation/) package manager
 
-* An Azure Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts for [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
+* An Azure Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstart guides for [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
 ## Sign in to Azure
 
@@ -47,7 +47,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 git clone https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial.git
 ```
 
-Navigate to the directory that contains the file `batch_python_tutorial_ffmpeg.py`.
+Navigate to the directory that contains the file *batch_python_tutorial_ffmpeg.py*.
 
 In your Python environment, install the required packages using `pip`.
 
@@ -59,9 +59,9 @@ Open the file *config.py*. Update the Batch and storage account credential strin
 
 
 ```Python
-_BATCH_ACCOUNT_NAME = 'mybatchaccount'
+_BATCH_ACCOUNT_NAME = 'yourbatchaccount'
 _BATCH_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxE+yXrRvJAqT9BlXwwo1CwF+SwAYOxxxxxxxxxxxxxxxx43pXi/gdiATkvbpLRl3x14pcEQ=='
-_BATCH_ACCOUNT_URL = 'https://mybatchaccount.mybatchregion.batch.azure.com'
+_BATCH_ACCOUNT_URL = 'https://yourbatchaccount.yourbatchregion.batch.azure.com'
 _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
@@ -101,7 +101,7 @@ Go to your Batch account in the Azure portal to monitor the pool, compute nodes,
 
 When tasks are running, the heat map is similar to the following:
 
-![Pool heat map](./media/tutorial-parallel-python/pool.png)
+:::image type="content" source="./media/tutorial-parallel-python/pool.png" alt-text="Screenshot of Pool heat map.":::
 
 Typical execution time is approximately *5 minutes* when you run the application in its default configuration. Pool creation takes the most time. 
 
@@ -134,7 +134,7 @@ batch_client = batch.BatchServiceClient(
 
 ### Upload input files
 
-The app uses the `blob_client` reference create a storage container for the input MP4 files and a container for the task output. Then, it calls the `upload_file_to_container` function to upload MP4 files in the local `InputFiles` directory to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
+The app uses the `blob_client` reference create a storage container for the input MP4 files and a container for the task output. Then, it calls the `upload_file_to_container` function to upload MP4 files in the local *InputFiles* directory to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
 
 ```python
 blob_client.create_container(input_container_name, fail_on_exist=False)
@@ -266,11 +266,11 @@ When no longer needed, delete the resource group, Batch account, and storage acc
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Authenticate with Batch and Storage accounts
-> * Upload input files to Storage
-> * Create a pool of compute nodes to run an application
-> * Create a job and tasks to process input files
-> * Monitor task execution
-> * Retrieve output files
+> * Authenticate with Batch and Storage accounts.
+> * Upload input files to Storage.
+> * Create a pool of compute nodes to run an application.
+> * Create a job and tasks to process input files.
+> * Monitor task execution.
+> * Retrieve output files.
 
 For more examples of using the Python API to schedule and process Batch workloads, see the [Batch Python samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch) on GitHub.
