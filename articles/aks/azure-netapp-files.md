@@ -485,7 +485,7 @@ After the PVC is created, a pod can be spun up to access the Azure NetApp Files 
     spec:
       containers:
       - name: nginx
-        image: mcr.microsoft.com/oss/nginx/nginx:latest1.15.5-alpine
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
         resources:
           requests:
             cpu: 100m
