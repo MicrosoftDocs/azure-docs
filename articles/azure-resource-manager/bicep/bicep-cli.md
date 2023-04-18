@@ -193,6 +193,12 @@ The local cache is found in:
     /home/<username>/.bicep
     ```
 
+- On Mac
+
+    ```path
+    ~/.bicep
+    ```
+
 The `restore` command doesn't refresh the cache if a module is already cached. To fresh the cache, you can either delete the module path from the cache or use the `--force` switch with the `restore` command.
 
 ## upgrade
