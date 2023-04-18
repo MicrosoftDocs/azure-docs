@@ -425,8 +425,6 @@ items:
         href: how-tos/calling-sdk/transfer-calls.md
       - name: Join a Teams meeting
         href: how-tos/calling-sdk/teams-interoperability.md
-      - name: Spotlight
-        href: how-tos/calling-sdk/spotlight.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
       - name: Check if user is running supported browser
