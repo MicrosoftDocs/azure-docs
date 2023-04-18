@@ -61,17 +61,14 @@ landingContent:
       - linkListType: overview
         links:
           - text: External Identities overview
-            url: ../../active-directory/external-identities/external-identities-overview.md
+            url: ../../external-identities/external-identities-overview.md
       - linkListType: concept
         links:
           - text: B2B collaboration overview
-            url: ../../active-directory/external-identities/what-is-b2b.md
+            url: ../../external-identities/what-is-b2b.md
           - text: B2B direct connect overview
-            url: ../../active-directory/external-identities/b2b-direct-connect-overview.md
-      - linkListType: how-to
-        links:
-          - text: self-service sign-up user flows
-            url: ../../active-directory/external-identities/self-service-sign-up-user-flow.md
+            url: ../../external-identities/b2b-direct-connect-overview.md
+     
 
   
 
