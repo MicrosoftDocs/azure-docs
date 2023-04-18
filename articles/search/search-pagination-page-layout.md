@@ -106,10 +106,10 @@ Notice that document 2 is fetched twice. This is because the new document 5 has 
 In a full text search query, results can be ranked by:
 
 + a search score
-+ a semantic reranker scores
++ a semantic reranker score
 + a sort order on a "sortable" field
 
-You can boost hits found in specific fields by adding a scoring profile.
+You can also boost any matches found in specific fields by adding a scoring profile.
 
 ### Order by search score
 
@@ -141,7 +141,7 @@ String fields (Edm.String, Edm.ComplexType subfields) are sorted in either [ASCI
 
 + Strings that lead with diacritics appear last (Äpfel, Öffnen, Üben)
 
-### Use a scoring profile to influence relevance
+### Boost relevance using a scoring profile
 
 Another approach that promotes order consistency is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The extra scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
 
