@@ -2,7 +2,6 @@
 title: What's new for centrally managed Azure Hybrid Benefit
 description: Learn about what's new for centrally managed Azure Hybrid Benefit.
 author: bandersmsft
-ms.service: virtual-machines
 ms.topic: whats-new
 ms.service: cost-management-billing
 ms.subservice: ahb
