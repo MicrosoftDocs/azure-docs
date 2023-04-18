@@ -169,14 +169,14 @@ items:
       - name: Management
         displayName: .NET, Azure.ResourceManager.DeviceProvisioningServices, Azure.ResourceManager.DeviceProvisioningServices.Models
         href: /dotnet/api/overview/azure/resourcemanager.deviceprovisioningservices-readme
-  - name: Java SDKs
+  - name: Python SDKs
     items:
       - name: Device
-        displayName: Java, com.microsoft.azure.sdk.iot.provisioning.device
-        href: /java/api/com.microsoft.azure.sdk.iot.provisioning.device
-      - name: Service
-        displayName: Java, com.microsoft.azure.sdk.iot.provisioning.service
-        href: /java/api/com.microsoft.azure.sdk.iot.provisioning.service
+        displayName: Python, azure.iot.device.aio.provisioningdeviceclient
+        href: /python/api/azure-iot-device/azure.iot.device.aio.provisioningdeviceclient
+      - name: Management
+        displayName: Python, azure-mgmt-iothubprovisioningservices
+        href: /python/api/azure-mgmt-iothubprovisioningservices
   - name: Node.js SDKs
     items:
       - name: Device
@@ -188,20 +188,20 @@ items:
       - name: Management
         displayName: Node.js, @azure/arm-deviceprovisioningservices
         href: /javascript/api/overview/azure/arm-deviceprovisioningservices-readme
-  - name: Python SDKs
+  - name: Java SDKs
     items:
       - name: Device
-        displayName: Python, azure.iot.device.aio.provisioningdeviceclient
-        href: /python/api/azure-iot-device/azure.iot.device.aio.provisioningdeviceclient
-      - name: Management
-        displayName: Python, azure-mgmt-iothubprovisioningservices
-        href: /python/api/azure-mgmt-iothubprovisioningservices
+        displayName: Java, com.microsoft.azure.sdk.iot.provisioning.device
+        href: /java/api/com.microsoft.azure.sdk.iot.provisioning.device
+      - name: Service
+        displayName: Java, com.microsoft.azure.sdk.iot.provisioning.service
+        href: /java/api/com.microsoft.azure.sdk.iot.provisioning.service
   - name: C SDKs and libraries
     displayName: C, Provisioning Client SDK
     href: https://github.com/Azure/azure-iot-sdk-c/blob/main/readme.md
-  - name: REST API
-    displayName: REST, /rest/api/iot-dps/dps-certificate, /rest/api/iot-dps/iot-dps-resource, /rest/api/iot-dps/operations, /rest/api/iot-dps/device/runtime-registration, /rest/api/iot-dps/service/device-registration-state, /rest/api/iot-dps/service/enrollment-group, /rest/api/iot-dps/service/individual-enrollment 
-    href: /rest/api/iot-dps
+  - name: REST APIs
+    displayName: REST, /rest/api/iot-dps/
+    href: /rest/api/iot-dps/
   - name: Resource Manager template
     href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
 - name: Resources
