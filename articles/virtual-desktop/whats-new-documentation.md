@@ -1,7 +1,7 @@
 ---
 title: What's new in documentation - Azure Virtual Desktop
 description: Learn about new and updated articles to the Azure Virtual Desktop documentation
-ms.topic: whats-new
+ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 04/18/2023
