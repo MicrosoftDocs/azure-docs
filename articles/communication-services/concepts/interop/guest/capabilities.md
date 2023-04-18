@@ -163,7 +163,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Honor setting "Teams Q&A"                                                                                           |   No API available |
 |                   | Honor setting "Meeting reactions"                                                                                   |   No API available |
 | DevOps            | [Azure Metrics](../../metrics.md)                                                                                   | ✔️ |
-|                   | [Azure Monitor](../../logging-and-diagnostics.md)                                                                   | ✔️ |
+|                   | [Azure Monitor](../../analytics/logs/voice-and-video-logs.md)                                                                   | ✔️ |
 |                   | [Azure Communication Services Insights](../../analytics/insights/voice-and-video-insights.md)                                                | ✔️ |
 |                   | [Azure Communication Services Voice and video calling events](../../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |
@@ -185,7 +185,7 @@ The following table shows supported server-side capabilities available in Azure 
 | --- | --- |
 | [Manage ACS call recording](../../voice-video-calling/call-recording.md)                                                        | ❌ |
 | [Azure Metrics](../../metrics.md)                                                                                               | ✔️ |
-| [Azure Monitor](../../logging-and-diagnostics.md)                                                                                  | ✔️ |
+| [Azure Monitor](../../analytics/logs/voice-and-video-logs.md)                                                                                  | ✔️ |
 | [Azure Communication Services Insights](../../analytics/insights/voice-and-video-insights.md)                                                            | ✔️ |
 | [Azure Communication Services Voice and video calling events](../../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 

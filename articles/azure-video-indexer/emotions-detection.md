@@ -6,15 +6,15 @@ author: juliako
 ms.author: juliako
 manager: femila
 ms.service: azure-video-indexer
-ms.date: 06/15/2022
+ms.date: 04/17/2023
 ms.topic: article
 ---
 
 # Emotions detection
 
-Emotion detection is an Azure Video Indexer AI feature that automatically detects emotions a video's transcript lines. Each sentence can either be detected as "Anger", "Fear", "Joy", "Neutral", and "Sad". The model works on text only (labeling emotions in video transcripts.) This model doesn't infer the emotional state of people, may not perform where input is ambiguous or unclear, like sarcastic remarks. Thus, the model shouldn't be used for things like assessing employee performance or the emotional state of a person.  
+Emotions detection is an Azure Video Indexer AI feature that automatically detects emotions in video's transcript lines. Each sentence can either be detected as "Anger", "Fear", "Joy", "Sad", or none of the above if no other emotion was detected.
 
-The model doesn't have context of the input data, which can impact its accuracy. To increase the accuracy, it's recommended for the input data to be in a clear and unambiguous format. 
+The model works on text only (labeling emotions in video transcripts.) This model doesn't infer the emotional state of people, may not perform where input is ambiguous or unclear, like sarcastic remarks. Thus, the model shouldn't be used for things like assessing employee performance or the emotional state of a person.  
 
 ## Prerequisites  
 
@@ -67,11 +67,6 @@ During the emotions detection procedure, the transcript of the video is processe
 |Transcription API |The audio file is sent to Cognitive Services and the translated transcribed output is returned. If a language has been specified, it is processed. |
 |Emotions detection  |Each sentence is sent to the emotions detection model. The model produces the confidence level of each emotion. If the confidence level exceeds a specific threshold, and there is no ambiguity between positive and negative emotions, the emotion is detected. In any other case, the sentence is labeled as neutral.|
 |Confidence level |The estimated confidence level of the detected emotions is calculated as a range of 0 to 1. The confidence score represents the certainty in the accuracy of the result. For example, an 82% certainty is represented as an 0.82 score. |
-
-## Example use cases 
-
-* Personalization of keywords to match customer interests, for example websites about England posting promotions about English movies or festivals. 
-* Deep-searching archives for insights on specific keywords to create feature stories about companies, personas or technologies, for example by a news agency. 
 
 ## Considerations and limitations when choosing a use case 
 
