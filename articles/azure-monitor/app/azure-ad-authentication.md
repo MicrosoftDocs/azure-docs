@@ -278,7 +278,7 @@ tracer = Tracer(
 )
 ...
 ```
-
+---
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 -
 
