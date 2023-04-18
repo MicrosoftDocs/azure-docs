@@ -25,7 +25,7 @@ Updates in April include:
 - [Deprecation of App Service language monitoring policies](#deprecation-of-app-service-language-monitoring-policies)
 - [New alert in Defender for Resource Manager](#new-alert-in-defender-for-resource-manager)
 - [Three alerts in the Defender for Resource Manager plan have been deprecated](#three-alerts-in-the-defender-for-resource-manager-plan-have-been-deprecated)
-- [Alerts automatic export to Log Analytics workspace have been deprecated](#alerts-automatic-export-to-log-analytics-workspace-have-been-deprecated)|
+- [Alerts automatic export to Log Analytics workspace have been deprecated](#alerts-automatic-export-to-log-analytics-workspace-have-been-deprecated)
 
 ### Unified Disk Encryption recommendation (preview)
 
