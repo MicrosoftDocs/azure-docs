@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Operator Nexus```
-description: Find out about reliability in Azure Operator Nexus Network Cloud
+description: Find out about reliability in Azure Operator Nexus
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
