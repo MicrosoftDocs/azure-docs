@@ -70,6 +70,10 @@ Document Translation supports the following document file types:
 |Tab Separated Values/TAB|`tsv`/`tab`| A tab-delimited raw-data file used by spreadsheet programs.|
 |Text|`txt`| An unformatted text document.|
 
+## Request limits
+
+For detailed information regarding Azure Translator Service request limits *see* [**Document Translation request limits**](../request-limits.md#document-translation).
+
 ### Legacy file types
 
 Source file types are preserved during the document translation with the following **exceptions**:

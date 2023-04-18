@@ -35,6 +35,8 @@ For scripts based on graphic symbols, such as written Chinese and Japanese Kanji
 
 Calls to the **Detect** and **BreakSentence** methods aren't counted in the character consumption. However, we do expect calls to the Detect and BreakSentence methods to be reasonably proportionate to the use of other counted functions. If the number of Detect or BreakSentence calls exceeds the number of other counted methods by 100 times, Microsoft reserves the right to restrict your use of the Detect and BreakSentence methods.
 
+For detailed information regarding Azure Translator Service request limits *see* [**Text translation request limits**](request-limits.md#text-translation).
+
 ## Where can I see my monthly usage?
 
 The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) can be used to estimate your costs. You can also monitor, view, and add Azure alerts for your Azure services in your user account in the Azure portal:
@@ -45,7 +47,7 @@ The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) 
 
     :::image type="content" source="media/azure-portal-overview.png" alt-text="Screenshot of the subscription link on overview page in the Azure portal.":::
 
-2. In the left rail, make your selection under **Cost Management**:
+1. In the left rail, make your selection under **Cost Management**:
 
     :::image type="content" source="media/azure-portal-cost-management.png" alt-text="Screenshot of the cost management resources links in the Azure portal.":::
 

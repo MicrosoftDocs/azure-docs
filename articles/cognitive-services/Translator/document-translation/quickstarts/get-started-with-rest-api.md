@@ -13,6 +13,7 @@ recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: mode-other
 zone_pivot_groups: programming-languages-set-translator
+ms.custom: mode-other
 ---
 
 # Get started with Document Translation
@@ -111,6 +112,8 @@ For this project, you need a **source document** uploaded to your **source conta
 ## HTTP request
 
 A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the service creates a batch request. The translated documents are listed in your target container.
+
+For detailed information regarding Azure Translator Service request limits *see* [**Document Translation request limits**](../../request-limits.md#document-translation).
 
 ### Headers
 
