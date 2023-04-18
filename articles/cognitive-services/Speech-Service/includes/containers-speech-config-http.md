@@ -6,7 +6,6 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/06/2023
 ms.author: eur
-ms.custom: devx-track-csharp
 ---
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK. By default, the Speech SDK uses the public Speech service. To use the container, you need to change the initialization method.
@@ -127,10 +126,6 @@ To using this call with the container [endpoint](/python/api/azure-cognitiveserv
 speech_config = speechsdk.SpeechConfig(
     host="http://localhost:5000")
 ```
-::: zone-end
-
-::: zone pivot="programming-language-rest"
-Set the host to `"http://localhost:5000"`
 ::: zone-end
 
 ::: zone pivot="programming-language-cli"
