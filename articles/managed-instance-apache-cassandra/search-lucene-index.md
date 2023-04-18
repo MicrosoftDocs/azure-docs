@@ -11,7 +11,7 @@ ms.date: 04/17/2023
 
 Cassandra Lucene Index, derived from Stratio Cassandra, is a plugin for Apache Cassandra that extends its index functionality to provide full text search capabilities and free multivariable, geospatial and bitemporal search. It is achieved through an Apache Lucene based implementation of Cassandra secondary indexes, where each node of the cluster indexes its own data.
 
-This quickstart demonstrates how to query using Lucene Index.
+This quickstart demonstrates how to search using Lucene Index.
 
 > [!IMPORTANT]
 > Lucene Index is in public preview.
