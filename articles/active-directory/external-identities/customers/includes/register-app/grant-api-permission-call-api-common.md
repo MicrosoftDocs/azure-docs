@@ -3,28 +3,14 @@ author: kengaderdus
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: include
-ms.date: 03/30/2023
+ms.date: 04/30/2023
 ms.author: kengaderdus
 ---
-To grant your client app (*ciam-client-app*) API permissions, follow these steps:
-
 1. From the **App registrations** page, select the application that you created (such as *ciam-client-app*) to open its **Overview** page.
  
 1. Under **Manage**, select **API permissions**.
  
 1. Under **Configured permissions**, select **Add a permission**.
-
-1. Select **Microsoft APIs** tab.
-
-1. Under **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
-
-1. Select **Delegated permissions** option.
-
-1. Under **Select permissions** section, search for and select both **openid** and **offline_access** permissions.
-
-1. Select **Add permissions** button. 
- 
-1. Under **Configured permissions**, select **Add a permission** again.
 
 1. Select the **My APIs** tab.
  
