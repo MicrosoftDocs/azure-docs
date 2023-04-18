@@ -17,7 +17,7 @@ ms.subservice: calling
 
 Enable your customers to talk with your support agent on Teams through a call interface directly embedded into your web application. 
 
-## Architecture overview
+[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
 ## Prerequisites
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
