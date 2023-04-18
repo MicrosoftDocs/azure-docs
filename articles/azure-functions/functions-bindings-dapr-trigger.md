@@ -10,13 +10,24 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr trigger for Azure Functions
 
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+
 Azure Functions can be triggered using the following Dapr events.
 
 There are no templates for triggers in Dapr in the functions tooling today. Start your project with another trigger type (e.g. Storage Queues) and then modify the function.json or attributes.
 
-## Examples
+::: zone-end
+
+::: zone pivot="programming-language-java, programming-language-powershell"
+
+> [!IMPORTANT]
+> Dapr triggers for Java are currently under development and not available for Azure Functions.
+
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
+
+## Examples
 
 <!--Optional intro text goes here, followed by the C# modes include.-->
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
@@ -139,26 +150,202 @@ Here's C# script code that binds to a <insert>:
 
 ::: zone-end 
 
-::: zone pivot="programming-language-java"
-
-> [!IMPORTANT]
-> Dapr triggers for Java are currently under development.
-
-::: zone-end
 ::: zone pivot="programming-language-javascript"
+## Examples
 
-<!--Content and samples from the JavaScript tab in ##Examples go here.-->
+The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
+
+### Input Binding trigger
+
+Here's the _function.json_ file for `daprBindingTrigger`:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "daprBindingTrigger",
+      "bindingName": "%KafkaBindingName%",
+      "name": "triggerData"
+    }
+  ]
+}
+```
+
+Here's the JavaScript code for the Dapr input binding trigger:
+
+```javascript
+module.exports = async function (context) {
+    context.log("Hello from Kafka!");
+
+    context.log(`Trigger data: ${context.bindings.triggerData}`);
+};
+```
+
+### Service Invocation trigger
+
+Here's the _function.json_ file for `daprServiceInvocationTrigger`:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "daprServiceInvocationTrigger",
+      "name": "payload"
+    }
+  ]
+}
+```
+
+Here's the JavaScript code for the Dapr service invocation trigger:
+
+```javascript
+module.exports = async function (context) {
+    context.log("Node function processed a RetrieveOrder request from the Dapr Runtime.");
+
+    // print the fetched state value
+    context.log(context.bindings.data);
+};
+```
+
+
+### Topic trigger
+
+Here's the _function.json_ file for `daprTopicTrigger`:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "daprTopicTrigger",
+      "pubsubname": "messagebus",
+      "topic": "B",
+      "name": "subEvent"
+    }
+  ]
+}
+```
+
+Here's the JavaScript code for the Dapr topic trigger:
+
+```javascript
+module.exports = async function (context) {
+    context.log("Node function processed a PrintTopicMessage request from the Dapr Runtime.");
+    context.log(`Topic B received a message: ${context.bindings.subEvent.data}.`);
+};
+```
+
+
 ::: zone-end
-::: zone pivot="programming-language-powershell"
 
-> [!IMPORTANT]
-> Dapr triggers for Java are currently under development.
-
-::: zone-end
 ::: zone pivot="programming-language-python"
+## Examples
 
-<!--Content and samples from the Python tab in ##Examples go here.-->
+The following example shows a Dapr trigger binding. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+
+# [v2](#tab/python-v2)
+
+```python
+
+```
+
+# [v1](#tab/python-v1)
+
+### Input Binding trigger
+
+Here's the _function.json_ file for `daprBindingTrigger`:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "daprBindingTrigger",
+      "bindingName": "sample-topic",
+      "name": "triggerData",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+For more information about *function.json* file properties, see the [Configuration](#configuration) section explains these properties.
+
+Here's the Python code:
+
+```python
+import logging
+import json
+import azure.functions as func
+
+def main(triggerData: str) -> None:
+    logging.info('Hello from Kafka!')
+    logging.info('Trigger data: ' + triggerData)
+```
+
+### Service Invocation trigger
+
+Here's the _function.json_ file for `daprServiceInvocationTrigger`:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "daprServiceInvocationTrigger",
+      "name": "payload",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+Here's the Python code:
+
+```python
+import logging
+import json
+import azure.functions as func
+
+def main(payload, data: str) -> None:
+    logging.info('Python function processed a RetrieveOrder request from the Dapr Runtime.')
+    logging.info(data)
+```
+
+### Topic trigger
+
+Here's the _function.json_ file for `daprTopicTrigger`:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "daprTopicTrigger",
+      "pubsubname": "messagebus",
+      "topic": "B",
+      "name": "subEvent",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+Here's the Python code:
+
+```python
+import logging
+import json
+import azure.functions as func
+
+def main(subEvent) -> None:
+    logging.info('Python function processed a PrintTopicMessage request from the Dapr Runtime.')
+    subEvent_json = json.loads(subEvent)
+    logging.info("Topic B received a message: " + subEvent_json["data"])
+```
+---
+
 ::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
@@ -233,31 +420,75 @@ C# script uses a _function.json_ file for configuration instead of attributes.
 ---
 
 ::: zone-end
-::: zone pivot="programming-language-java"
 
-<!--not supported yet -->
-::: zone-end
 ::: zone pivot="programming-language-javascript"
+
+## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
 
-<!-- suggestion |function.json property |Description| |---------|---------| | **type** | Required - must be set to `eventGridTrigger`. | | **direction** | Required - must be set to `in`. | | **name** | Required - the variable name used in function code for the parameter that receives the event data. | -->
+### Input Binding trigger
 
-::: zone-end
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**bindingName** | The name of the binding. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
 
-::: zone pivot="programming-language-powershell"
-<!--not supported yet -->
+### Service Invocation trigger
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprServiceInvocationTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**name** | The name of the variable that represents the Dapr data in function code. |
+
+
+### Topic trigger
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprTopicTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**pubsubname** |  |
+|**topic** |  |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
 ## Configuration
-The following table explains the binding configuration properties that you set in the function.json file.
+The following table explains the binding configuration properties that you set in the _function.json_ file.
 
-<!-- suggestion |function.json property |Description| |---------|---------| | **type** | Required - must be set to `eventGridTrigger`. | | **direction** | Required - must be set to `in`. | | **name** | Required - the variable name used in function code for the parameter that receives the event data. | -->
+### Input Binding trigger
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**bindingName** | The name of the binding. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+
+### Service Invocation trigger
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprServiceInvocationTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**name** | The name of the variable that represents the Dapr data in function code. |
+|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+
+### Topic trigger
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprTopicTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**pubsubname** |  |
+|**topic** |  |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+
 ::: zone-end
 
-See the Example section for complete examples.
+See the [Example section](#examples) for complete examples.
 
 ## Usage
 ::: zone pivot="programming-language-csharp"
@@ -297,8 +528,12 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 ::: zone-end
 
 <!---## Extra sections Put any sections with content that doesn't fit into the above section headings down here. This will likely get moved to another article after the refactor. -->
-## host.json settings
-<!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
+
+## host.json properties
+
+The [host.json] file contains settings that control Dapr trigger behavior. See the [host.json settings](functions-bindings-dapr.md#hostjson-settings) section for details regarding available settings.
+
+
 ## Next steps
 - [Pull in Dapr state and secrets](./functions-bindings-dapr-input.md)
 - [Send a value to a Dapr topic or output binding](./functions-bindings-dapr-output.md)
