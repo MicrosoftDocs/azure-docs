@@ -10,7 +10,7 @@ author: jricketts
 ms.author: jricketts
 manager: martinco
 ms.reviewer: martinco
-ms.date: 04/14/2023
+ms.date: 04/18/2023
 ms.custom: it-pro
 ms.collection: 
 ---
@@ -20,7 +20,7 @@ ms.collection:
 **Requirement 2: Apply Secure Configurations to All System Components**
 </br> **Defined approach requirements**
 
-## 2.1	Processes and mechanisms for applying secure configurations to all system components are defined and understood.
+## 2.1 Processes and mechanisms for applying secure configurations to all system components are defined and understood.
 
 |PCI-DSS Defined approach requirements|Azure AD guidance and recommendations|
 |-|-|
@@ -37,9 +37,9 @@ ms.collection:
 |**2.2.4** Only necessary services, protocols, daemons, and functions are enabled, and all unnecessary functionality is removed or disabled.|Review Azure AD settings and disable unused features. [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md) </br> [Azure AD security operations guide](../fundamentals/security-operations-introduction.md)|
 |**2.2.5** If any insecure services, protocols, or daemons are present: </br> Business justification is documented. </br> Additional security features are documented and implemented that reduce the risk of using insecure services, protocols, or daemons.|Review Azure AD settings and disable unused features. [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md) </br> [Azure AD security operations guide](../fundamentals/security-operations-introduction.md)|
 |**2.2.6** System security parameters are configured to prevent misuse.|Review Azure AD settings and disable unused features. [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md) </br> [Azure AD security operations guide](../fundamentals/security-operations-introduction.md)|
-|**2.2.7** All non-console administrative access is encrypted using strong cryptography.|Azure AD interfaces, such the management portal, Microsoft Graph, and PowerShell, are encrypted in transit using TLS. [Enable support for TLS 1.2 in your environment for Azure AD TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment?tabs=azure-monitor)|
+|**2.2.7** All nonconsole administrative access is encrypted using strong cryptography.|Azure AD interfaces, such the management portal, Microsoft Graph, and PowerShell, are encrypted in transit using TLS. [Enable support for TLS 1.2 in your environment for Azure AD TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment?tabs=azure-monitor)|
 
-## 2.3	Wireless environments are configured and managed securely.
+## 2.3 Wireless environments are configured and managed securely.
 
 |PCI-DSS Defined approach requirements|Azure AD guidance and recommendations|
 |-|-|
@@ -48,12 +48,12 @@ ms.collection:
 
 ## Next steps
 
-PCI-DSS requirements **3**, **4**, **9**, and **12** are not addressed or met by Azure AD, therefore there are no corresponding articles. To see all requirements, go to pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
+PCI-DSS requirements **3**, **4**, **9**, and **12** aren't addressed or met by Azure AD, therefore there are no corresponding articles. To see all requirements, go to pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
 
 To configure Azure AD to comply with PCI-DSS, see the following articles. 
 
 * [Requirement 1: Install and Maintain Network Security Controls](pci-requirement-1.md) 
-* [Requirement 2: Apply Secure Configurations to All System Components](pci-requirement-2.md) (You are here)
+* [Requirement 2: Apply Secure Configurations to All System Components](pci-requirement-2.md) (You're here)
 * [Requirement 5: Protect All Systems and Networks from Malicious Software](pci-requirement-5.md)
 * [Requirement 6: Develop and Maintain Secure Systems and Software](pci-requirement-6.md)
 * [Requirement 7: Restrict Access to System Components and Cardholder Data by Business Need to Know](pci-requirement-7.md)
