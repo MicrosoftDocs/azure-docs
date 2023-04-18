@@ -111,16 +111,17 @@ When your data is stored in a data asset [created in Azure Machine Learning](how
 Alternatively, you can use a Datastore URI to access different files on a registed Datastore, and read this into an R `data.frame`.
 
  1. Create a Datastore URI, using your own values in the following format:
-   ```r
+ 
+    ```r
     subscription <- '<subscription_id>'
     resource_group <- '<resource_group>'
     workspace <- '<workspace>'
     datastore_name <- '<datastore>'
     path_on_datastore <- '<path>'
-   
+    
     uri <- paste0("azureml://subscriptions/", subscription, "/resourcegroups/", resource_group, "/workspaces/", workspace, "/datastores/", datastore_name, "/paths/", path_on_datastore)
-   ```
-   
+    ```
+    
     > [!TIP]
     > Rather than remember the datastore URI format, you can copy-and-paste the datastore URI from the Studio UI, if you know the datastore where your file is located:
     > 1. Navigate to the file/folder you want to read into R
