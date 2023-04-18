@@ -1,6 +1,6 @@
 ---
 title: Create an Oracle database in an Azure VM
-description: Learn how to quickly configure and deploy an Oracle Database 12c database in your Azure environment by using the Azure CLI and the Azure portal.
+description: Learn how to quickly configure and deploy an Oracle Database 12c database in your Azure environment by using Azure Cloud Shell or the Azure CLI.
 author: dbakevlar
 ms.service: virtual-machines
 ms.subservice: oracle
@@ -18,9 +18,15 @@ ms.devlang: azurecli
 
 This article describes how to use the Azure CLI to deploy an Azure virtual machine (VM) from the [Oracle marketplace gallery image](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) to create an Oracle Database 19c database. After you deploy the server, you connect the server via SSH to configure the Oracle database. 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+## Prerequisites
 
-If you choose to install and use the Azure CLI locally, this quickstart requires the Azure CLI version 2.0.4 or later. Run the `az --version` command to identify your version. If you need to install or upgrade the version, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+- [!INCLUDE [quickstarts-free-trial-note](/azure/includes/quickstarts-free-trial-note.md)]
+
+- Azure Cloud Shell or the Azure CLI.
+
+   You can run the Azure CLI commands in this quickstart interactively in Azure Cloud Shell. To run the commands in Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also [run Cloud Shell from within the Azure portal](https://shell.azure.com). Cloud Shell always uses the latest version of the Azure CLI.
+
+   Alternatively, you can [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. The steps in this article require the Azure CLI version 2.0.4 or later. Run [az version](/cli/azure/reference-index?#az-version) to see your installed version and dependent libraries, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade. If you use a local installation, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
 ## Create resource group
 
