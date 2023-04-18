@@ -132,7 +132,7 @@ Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for
 | <kbd>ALT</kbd>+<kbd>PRINT SCREEN</kbd> | <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>-</kbd> (minus sign) | Takes a snapshot of the active window in the remote session, and places it in the clipboard. |
 
 > [!NOTE]
-> Keyboard shortcuts will not work when using Remote Desktop or RemoteApp sessions that are nested.
+> Keyboard shortcuts will not work when using remote desktop or RemoteApp sessions that are nested.
 
 ### Keyboard language
 
