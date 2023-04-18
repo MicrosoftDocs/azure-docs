@@ -31,6 +31,7 @@ The following table describes some of the ways that you can use Azure Monitor Lo
 | Import | Upload logs from a custom app via the [REST API](/azure/azure-monitor/logs/logs-ingestion-api-overview) or client library for [.NET](/dotnet/api/overview/azure/Monitor.Ingestion-readme), [Java](/java/api/overview/azure/monitor-ingestion-readme), [JavaScript](/javascript/api/overview/azure/monitor-ingestion-readme), or [Python](/python/api/overview/azure/monitor-ingestion-readme). |
 | Export | Configure [automated export of log data](./logs-data-export.md) to an Azure Storage account or Azure Event Hubs.<br>Build a workflow to retrieve log data and copy it to an external location by using [Azure Logic Apps](../../connectors/connectors-azure-monitor-logs.md). |
 | Bring your own analysis | Use [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) to [integrate a Log Analytics workspace with Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md#integrate-your-log-analytics-workspace-with-your-notebook) and create streamlined, multi-step processes on top of data you collect in Azure Monitor Logs. This is especially useful for purposes such as [building and running machine learning pipelines](../logs/bring-your-own-machine-learning.md#build-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), advanced analysis, and troubleshooting guides (TSGs) for Support needs. |
+
 ![Diagram that shows an overview of Azure Monitor Logs.](media/data-platform-logs/logs-overview.png)
 
 ## Data collection
