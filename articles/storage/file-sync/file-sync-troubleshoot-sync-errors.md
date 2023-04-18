@@ -834,7 +834,7 @@ No action required. This error should automatically resolve. If the error persis
 
 | Error | Code |
 |-|-|
-| **HRESULT** |  |
+| **HRESULT** | 0x80131505 |
 | **HRESULT (decimal)** | -2146233083 |
 | **Error string** | COR_E_TIMEOUT |
 | **Remediation required** | No |
