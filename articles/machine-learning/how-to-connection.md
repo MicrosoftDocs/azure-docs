@@ -42,7 +42,7 @@ In this article, learn how to connect to data sources located outside of Azure, 
 > 
 > If you have an older SDK package or CLI extension, please remove the old one and install the new one with the code shown in the tab section. Choose the code version that covers your situation:
 
-# [Version 1.5.0](#tab/version-1.5.0)
+# [Version 1.5.0](#tab/version-1.5.0-A)
 
 ```python
 pip uninstall azure-ai-ml
@@ -50,7 +50,7 @@ pip install azure-ai-ml
 pip show azure-ai-ml
 ```
 
-# [Version 2.15.1 or later](#tab/version-2.15.1-or-later)
+# [Version 2.15.1 or later](#tab/version-2.15.1-or-later-A)
 
 ```cli
 az extension remove -n ml
