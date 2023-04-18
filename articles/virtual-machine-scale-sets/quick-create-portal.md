@@ -5,8 +5,8 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
-ms.date: 11/22/2022
-ms.reviewer: mimckitt
+ms.date: 04/18/2023
+ms.reviewer: mimckitt, mattmcinnes
 ms.custom: mimckitt, mode-ui
 ---
 
