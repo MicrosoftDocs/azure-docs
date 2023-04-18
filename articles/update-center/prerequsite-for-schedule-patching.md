@@ -16,7 +16,7 @@ This article is an overview on how to configure Schedule patching and Automatic 
 
 Currently, you can enable [Automatic guest VM patching](../virtual-machines/automatic-vm-guest-patching.md) (Autopatch) by setting the patch mode to **Azure-orchestrated** or **AutomaticByPlatform** on Azure portal and using REST API respectively, where patches are automatically applied during off-peak hours. 
 
-For customizing control over your patch installation, you can use [schedule patching](updates-maintenance-schedules.md#scheduled-patching) to define your own maintenance window. You can [enable schedule patching](scheduled-patching.md#schedule-recurring-updates-on-single-vm) by setting the patch mode to **Azure orchestrated**, or **AutomaticByPlatform** and attaching a schedule to the Azure VM.
+For customizing control over your patch installation, you can use [schedule patching](updates-maintenance-schedules.md#scheduled-patching) to define your own maintenance window. You can [enable schedule patching](scheduled-patching.md#schedule-recurring-updates-on-single-vm) by setting the patch mode to **Azure orchestrated**, or **AutomaticByPlatform** and attach a schedule to the Azure VM.
 
 However, in certain cases, when you remove the schedule from a VM, there is a possibility that the VM may be autopatched for critical or security patches and subsequently rebooted. To avoid such accidental or unintentional patching, a new prerequisite has been introduced - **ByPassPlatformSafetyChecksOnUserSchedule**, a VM property that allows you to accurately determine the VMs that must be schedule patched or autopatched.
 
