@@ -1,5 +1,5 @@
 ---
-title: Durable Functions Troubleshooting Guide
+title: Durable Functions Troubleshooting Guide - Azure Functions
 description: Guide to troubleshoot common issues with durable functions.
 author: nytiannn
 ms.topic: conceptual
@@ -16,7 +16,7 @@ This article provides a guide for troubleshooting common scenarios in Durable Fu
 > [!NOTE]
 > Microsoft support engineers are available to assist in diagnosing issues with your application. If you're not able to diagnose your problem using this guide, you can file a support ticket by accessing the **New Support request** blade in the **Support + troubleshooting** section of your function app page in the Azure portal.
 
-![Screenshot of support request page in Azure Portal.](./media/durable-functions-troubleshooting-guide/durable-function-support-request.png)
+:::[Screenshot of support request page in Azure Portal.](./media/durable-functions-troubleshooting-guide/durable-function-support-request.png):::
 
 > [!TIP]
 > When debugging and diagnosing issues, it's recommended that you start by ensuring your app is using the latest Durable Functions extension version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the [Upgrade Durable Functions extension version](./durable-functions-extension-upgrade.md) article for instructions on how to upgrade your extension version. 
@@ -31,20 +31,20 @@ When you start an orchestration, a "start" message gets written to an internal q
 
 Use the following steps to troubleshoot orchestration instances that remain stuck indefinitely in the "Pending" state. 
 
-1. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errorswarnings).
+*  Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errorswarnings).
 
-2. Check the Azure Storage control queues assigned to the stuck orchestrator to see if its "start message" is still there For more information on control queues, see the [Azure Storage provider control queue documentation](durable-functions-azure-storage-provider.md#control-queues).
+*  Check the Azure Storage control queues assigned to the stuck orchestrator to see if its "start message" is still there For more information on control queues, see the [Azure Storage provider control queue documentation](durable-functions-azure-storage-provider.md#control-queues).
 
-3. Change your app's [platform configuration](../../app-service/configure-common.md#configure-general-settings) version to “64 Bit”. 
+*  Change your app's [platform configuration](../../app-service/configure-common.md#configure-general-settings) version to “64 Bit”. 
    Sometimes orchestrations don't start because the app is running out of memory. Switching to 64-bit process allows the app to allocate more total memory. This only applies to App Service Basic, Standard, Premium, and Elastic Premium plans. Free or Consumption plans **do not** support 64-bit processes. 
 
 ## Orchestration starts after a long delay
 
 Normally, orchestrations start within a few seconds after they're scheduled. However, there are certain cases where orchestrations may take longer to start. Use the following steps to troubleshoot when orchestrations take more than a few seconds to start executing.
 
-1. Refer to the [documentation on delayed orchestrations in Azure Storage](./durable-functions-azure-storage-provider.md#orchestration-start-delays) to check whether the delay may be caused by known limitations.
+*  Refer to the [documentation on delayed orchestrations in Azure Storage](./durable-functions-azure-storage-provider.md#orchestration-start-delays) to check whether the delay may be caused by known limitations.
 
-2. Check the Durable Task Framework traces for warnings or errors with the impacted orchestration instance ID. A sample query can be found in [Trace Errors/Warnings section](#trace-errorswarnings).
+*  Check the Durable Task Framework traces for warnings or errors with the impacted orchestration instance ID. A sample query can be found in [Trace Errors/Warnings section](#trace-errorswarnings).
 
 ## Orchestration doesn't complete / is stuck in the `Running` state
 
@@ -52,26 +52,26 @@ If an orchestration remains in the "Running" state for a long period of time, it
 
 Use the following steps to troubleshoot stuck orchestrations:
 
-1. Try restarting the function app. This step can help if the orchestration gets stuck due to a transient bug or deadlock in either the app or the extension code.
+*  Try restarting the function app. This step can help if the orchestration gets stuck due to a transient bug or deadlock in either the app or the extension code.
 
-2. Check the Azure Storage account control queues to see if any queues are growing continuously. [This Azure Storage messaging KQL query](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) can help identify problems with dequeuing orchestration messages. If the problem impacts only a single control queue, it might indicate a problem that exists only on a specific app instance, in which case scaling up or down to move off the unhealthy VM instance could help.
+*  Check the Azure Storage account control queues to see if any queues are growing continuously. [This Azure Storage messaging KQL query](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) can help identify problems with dequeuing orchestration messages. If the problem impacts only a single control queue, it might indicate a problem that exists only on a specific app instance, in which case scaling up or down to move off the unhealthy VM instance could help.
 
-3. Use the Application Insights query in the [Azure Storage Messaging section](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) to filter on that queue name as the Partition ID and look for any problems related to that control queue partition.
+*  Use the Application Insights query in the [Azure Storage Messaging section](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) to filter on that queue name as the Partition ID and look for any problems related to that control queue partition.
 
-4. Check the guidance in [Durable Functions Best Practice and Diagnostic Tools](./durable-functions-best-practice-reference.md). Some problems may be caused by known Durable Functions anti-patterns.
+*  Check the guidance in [Durable Functions Best Practice and Diagnostic Tools](./durable-functions-best-practice-reference.md). Some problems may be caused by known Durable Functions anti-patterns.
 
-5. Check the [Durable Functions Versioning documentation](durable-functions-versioning.md). Some problems may be caused by breaking changes to in-flight orchestration instances.
+*  Check the [Durable Functions Versioning documentation](durable-functions-versioning.md). Some problems may be caused by breaking changes to in-flight orchestration instances.
 
 ## Orchestration runs slowly
 
 Heavy data processing, internal errors, and insufficient compute resources can cause orchestrations to execute slower than normal. Use the following steps to troubleshoot orchestrations that are taking longer than expected to execute:
 
-1. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errorswarnings).
+*  Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errorswarnings).
 
-2. If your app utilizes the .NET in-process model, consider enabling [extended sessions](./durable-functions-azure-storage-provider.md#extended-sessions). 
+*  If your app utilizes the .NET in-process model, consider enabling [extended sessions](./durable-functions-azure-storage-provider.md#extended-sessions). 
    Extended sessions can minimize history loads, which can slow down processing.
 
-3. Check for performance and scalability bottlenecks. 
+*  Check for performance and scalability bottlenecks. 
    Application performance depends on many factors. For example, high CPU usage, or large memory consumption can result in delays. Read [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md) for detailed guidance.
 
 ## Sample Queries
