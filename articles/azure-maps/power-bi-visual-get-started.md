@@ -34,7 +34,7 @@ The Azure Maps Power BI visual connects to cloud service hosted in Azure to retr
 Other than the scenarios previously described, no other data overlaid on the map is sent to the Azure Maps servers. All rendering of data happens locally within the client.
 
 > [!TIP]
-> Your firewall may need updated to allow access to the Azure Maps platform using either or both of the following URLs:
+> If using the Azure Maps [Geographic API endpoints], your firewall may need to be updated to allow access to the Azure Maps platform using either or both of the following URLs:
 >
 > - `https://us.atlas.microsoft.com`
 > - `https://eu.atlas.microsoft.com`
@@ -186,6 +186,7 @@ Customize the visual:
 > [!div class="nextstepaction"]
 > [Customize visualization titles, backgrounds, and legends]
 
+[Geographic API endpoints]: geographic-scope.md#geographic-api-endpoint-mapping
 [Azure Maps Web SDK supported browsers]: supported-browsers.md
 [controls]: #controls
 [Customize visualization titles, backgrounds, and legends]: /power-bi/visuals/power-bi-visualization-customize-title-background-and-legend
