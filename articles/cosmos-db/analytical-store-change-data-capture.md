@@ -36,7 +36,7 @@ In addition to providing incremental data feed from analytical store to diverse 
 - Multiple change feeds on the same container can be consumed simultaneously
 
 > [!IMPORTANT]
-> Please note that "from the beginning" means that all data and all transactions since the container creation are availble for CDC, including deletes and updates.
+> Please note that "from the beginning" means that all data and all transactions since the container creation are availble for CDC, including deletes and updates. To ingest and process deletes and updates, you have to use specific settings in your CDC processes in Azure Synapse or Azure Data Factory. For more information, click [here](get-started-change-data-capture.md)
 
 ## Features
 
