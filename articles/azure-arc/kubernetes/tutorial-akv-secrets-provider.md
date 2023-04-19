@@ -74,7 +74,7 @@ You can install the Azure Key Vault Secrets Provider extension on your connected
    az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider
    ```
 
-You should see output similar to this example. Note that it may take several minutes before the secrets provider Helm chart is deployed to the cluster.
+You should see output similar to this example. It may take several minutes before the secrets provider Helm chart is deployed to the cluster.
 
 ```json
 {
@@ -382,7 +382,7 @@ The following configuration settings are frequently used with the Azure Key Vaul
 | Configuration Setting | Default | Description |
 | --------- | ----------- | ----------- |
 | enableSecretRotation | false | Boolean type. If `true`, periodically updates the pod mount and Kubernetes Secret with the latest content from external secrets store |
-| rotationPollInterval | 2m | If `enableSecretRotation` is `true`, specifies the secret rotation poll interval duration. This duration can be adjusted based on how frequently the mounted contents for all pods and Kubernetes secrets need to be resynced to the latest. |
+| rotationPollInterval | 2 m | If `enableSecretRotation` is `true`, specifies the secret rotation poll interval duration. This duration can be adjusted based on how frequently the mounted contents for all pods and Kubernetes secrets need to be resynced to the latest. |
 | syncSecret.enabled | false | Boolean input. In some cases, you may want to create a Kubernetes Secret to mirror the mounted content. If `true`, `SecretProviderClass` allows the `secretObjects` field to define the desired state of the synced Kubernetes Secret objects. |
 
 These settings can be specified when the extension is installed by using the `az k8s-extension create` command:
