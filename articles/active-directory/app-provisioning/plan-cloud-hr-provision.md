@@ -245,9 +245,9 @@ This topology supports business requirements where attribute mapping and provisi
 > [!NOTE] 
 > If you do not have a test AD domain and use a TEST OU container in AD, then you may use this topology to create two separate apps *HR2AD (Prod)* and *HR2AD (Test)*. Use the *HR2AD (Test)* app to test your attribute mapping changes before promoting it to the *HR2AD (Prod)* app.  
 
-### Deployment topology 3: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (no cross-domain visibility)
+### Deployment topology three: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (no cross-domain visibility)
 
-Use this topology to manage multiple independent child AD domains belonging to the same forest, if managers always exist in the same domain as the user and your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* doesn't require a forest-wide lookup. It also offers the flexibility of delegating the administration of each provisioning job by domain boundary. 
+Use topology three to manage multiple independent child AD domains belonging to the same forest. Make sure that managers always exist in the same domain as the user. Also make sure that your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName*, and *mail* don't require a forest-wide lookup. Topology three offers the flexibility of delegating the administration of each provisioning job by domain boundary. 
 
 For example: In the diagram below, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Delegated administration of the provisioning app is possible so that *EMEA administrators* can independently manage the provisioning configuration of users belonging to the EMEA region.  
 
@@ -262,9 +262,9 @@ For example: In the diagram below, the provisioning apps are set up for each geo
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 
-### Deployment topology 4: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (with cross-domain visibility)
+### Deployment topology four: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (with cross-domain visibility)
 
-Use this topology to manage multiple independent child AD domains belonging to the same forest, if a user's manager may exist in the different domain and your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* requires a forest-wide lookup. 
+Use topology four to manage multiple independent child AD domains belonging to the same forest. Be aware that a user's manager may exist in a different domain. Also be aware that your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* require a forest-wide lookup. 
 
 For example: In the diagram below, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Cross-domain manager references and forest-wide lookup are handled by enabling referral chasing on the provisioning agent. 
 
