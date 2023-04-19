@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 There are four disk types of Azure managed disks: Azure ultra disks, premium SSD, standard SSD, and standard HDD. You can switch between premium SSD, standard SSD, and standard HDD based on your performance needs. You are not yet able to switch from or to an ultra disk, you must deploy a new one.
 
-This functionality is not supported for unmanaged disks. But you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
+This functionality is not supported for unmanaged disks. But you can easily convert an unmanaged disk to a managed disk with [CLI](linux/convert-unmanaged-to-managed-disks.md) or [PowerShell](windows/convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
 
 
 ## Before you begin
@@ -26,11 +26,11 @@ Because conversion requires a restart of the virtual machine (VM), schedule the 
 ## Restrictions
 
 - You can only change disk type once per day.
-- You can only change the disk type of managed disks. If your disk is unmanaged, [convert it to a managed disk](convert-unmanaged-to-managed-disks.md) to switch between disk types.
+- You can only change the disk type of managed disks. If your disk is unmanaged, convert it to a managed disk with [CLI](linux/convert-unmanaged-to-managed-disks.md) or [PowerShell](windows/convert-unmanaged-to-managed-disks.md) to switch between disk types.
 
 ## Switch all managed disks of a VM between from one account to another
 
-This example shows how to convert all of a VM's disks to premium storage. However, by changing the $storageType variable in this example, you can convert the VM's disks type to standard SSD or standard HDD. To use Premium managed disks, your VM must use a [VM size](../sizes.md) that supports Premium storage. This example also switches to a size that supports premium storage:
+This example shows how to convert all of a VM's disks to premium storage. However, by changing the $storageType variable in this example, you can convert the VM's disks type to standard SSD or standard HDD. To use Premium managed disks, your VM must use a [VM size](sizes.md) that supports Premium storage. This example also switches to a size that supports premium storage:
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -109,10 +109,14 @@ az vm show -n $vmName -g $rgName --query storageProfile.osDisk.managedDisk -o ts
 az vm start --name $vmName --resource-group $rgName
 ```
 
+# [Portal](#tab/azure-portal)
+
+Use either PowerShell or CLI.
+
 ---
 ## Switch individual managed disks between Standard and Premium
 
-For your dev/test workload, you might want a mix of Standard and Premium disks to reduce your costs. You can choose to upgrade only those disks that need better performance. This example shows how to convert a single VM disk from Standard to Premium storage. However, by changing the $storageType variable in this example, you can convert the VM's disks type to standard SSD or standard HDD. To use Premium managed disks, your VM must use a [VM size](../sizes.md) that supports Premium storage. This example also shows how to switch to a size that supports Premium storage:
+For your dev/test workload, you might want a mix of Standard and Premium disks to reduce your costs. You can choose to upgrade only those disks that need better performance. This example shows how to convert a single VM disk from Standard to Premium storage. However, by changing the $storageType variable in this example, you can convert the VM's disks type to standard SSD or standard HDD. To use Premium managed disks, your VM must use a [VM size](sizes.md) that supports Premium storage. This example also shows how to switch to a size that supports Premium storage:
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -196,6 +200,10 @@ Follow these steps:
 1. Select **Save**, and close the disk pane.
 
 The disk type conversion is instantaneous. You can start your VM after the conversion.
+
+# [Portal](#tab/azure-portal)
+
+Use either PowerShell or CLI.
 
 ---
 
