@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other
 ---
-# How to focce calling traffic to be relayed and proxyed across your own servers
+# How to force calling traffic to be relayed and proxyed across your own servers
 
 In certain situations it might be useful to have all your client traffic be proxyed to a TURN server that you can control. This tutorial will walk you through the process to ena. When the SDK is initializing you can provide the details of your TURN servers that you would like the traffic to route to. When this is enabled all the media traffic (audio/video/screen sharing) will flow through the provided TURN servers instead of the Azure Communication Services defaults. Once your provide your TURN server details while initializing the `CallClient`, all the calls to and from this `CallClient` will be using the provided TURN servers. Below is a guide on how to do provide your TURN configurations to the WebJS SDK.
 
@@ -72,10 +72,10 @@ const callClient = new CallClient({
 > [!NOTE]
 > If any of the URLs provided are invalid or don't have one of these schemas - 'turn:', 'turns:', 'stun:', the `CallClient` initialization will fail and will throw errors accordingly. The error messages thrown should help you troubleshoot if you run into issues.
 
-The API reference for the `CallClientOptions` object, and the `networkConfiguration` property within it can be found here - [CallClientOptions](https://learn.microsoft.com/en-gb/javascript/api/azure-communication-services/@azure/communication-calling/callclientoptions?view=azure-communication-services-js).
+The API reference for the `CallClientOptions` object, and the `networkConfiguration` property within it can be found here - [CallClientOptions](/javascript/api/azure-communication-services/@azure/communication-calling/callclientoptions?view=azure-communication-services-js).
 
 ## Setting up a TURN server in Azure
-You can create a Linux virtual machine in the Azure portal using this guide - [Quickstart: Create a Linux virtual machine in the Azure portal](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu), and deploy a TURN server using [coturn](https://github.com/coturn/coturn), a free and open source implementation of a TURN and STUN server for VoIP and WebRTC.
+You can create a Linux virtual machine in the Azure portal using this guide - [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu), and deploy a TURN server using [coturn](https://github.com/coturn/coturn), a free and open source implementation of a TURN and STUN server for VoIP and WebRTC.
 Best spot to start from - [coturn turnserver README](https://github.com/coturn/coturn/blob/master/README.turnserver)
 
 Once you've setup a TURN server, you can test it using the WebRTC Trickle ICE page - [Trickle ICE](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/).
