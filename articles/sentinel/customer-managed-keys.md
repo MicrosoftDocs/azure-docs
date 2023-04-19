@@ -16,7 +16,7 @@ This article provides background information and steps to configure a [customer-
 
 - The CMK capability requires a Log Analytics dedicated cluster with at least a 500 GB/day commitment tier. Multiple workspaces can be linked to the same dedicated cluster, and they will share the same customer-managed key.
 
-- After you complete the steps in this guide and before you use the workspace, for onboarding confirmation, contact the [Microsoft Sentinel Product Group](mailto:azuresentinelCMK@microsoft.com).
+- After you complete the steps in this guide and before you use the workspace, you must contact the [Microsoft Sentinel Product Group](mailto:azuresentinelCMK@microsoft.com) for onboarding confirmation.
 
 - Learn about [Log Analytics Dedicated Cluster Pricing](../azure-monitor/logs/logs-dedicated-clusters.md#cluster-pricing-model).
 
@@ -43,6 +43,7 @@ This article provides background information and steps to configure a [customer-
 - Changing the customer-managed key to another key (with another URI) currently *isn't supported*. You should change the key by [rotating it](../azure-monitor/logs/customer-managed-keys.md#key-rotation).
 
 - Before you make any CMK changes to a production workspace or to a Log Analytics cluster, contact the [Microsoft Sentinel Product Group](mailto:azuresentinelCMK@microsoft.com).
+- CMK enabled workspaces don't support [search jobs](investigate-large-datasets.md).
 
 ## How CMK works 
 
@@ -97,7 +98,11 @@ Follow the instructions to [Register the Azure Cosmos DB Resource Provider](../c
 
 Make sure to add access from Azure Cosmos DB to your Azure Key Vault instance. Follow the Azure Cosmos DB instructions to [add an access policy to your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#add-access-policy) with an Azure Cosmos DB principal.
 
-### STEP 5: Onboard the workspace to Microsoft Sentinel via the onboarding API
+### STEP 5: Contact the Microsoft Sentinel Product group to confirm onboarding 
+
+You must confirm onboarding of your CMK enabled workspace by contacting the [Microsoft Sentinel Product Group](mailto:azuresentinelCMK@microsoft.com).
+
+### STEP 6: Onboard the workspace to Microsoft Sentinel via the onboarding API
 
 Onboard the workspace to Microsoft Sentinel via the [Onboarding API](https://github.com/Azure/Azure-Sentinel/raw/master/docs/Azure%20Sentinel%20management.docx).
 
