@@ -282,31 +282,17 @@ and upload it to your Azure storage account.
 
 1. Select **New step** and enter **Azure Blob Storage** in the search box.
 
-1. Select the **Create blob (V2)** action and complete the authentication fields.
+1. Select the **Create blob (V2)** action.
 
-   :::image type="content" source="../media/connectors/blob-storage-auth.png" alt-text="Screenshot of Azure Blob Storage authentication window.":::
+1. If you're using the Azure storage step for the first time, you need to enter your storage resource authentication:
 
-1. If you're using the Azure storage step for the first time, you need to enter your resource credentials:
+1. In the **Authentication type** field, choose **Azure AD Integrated** and then select the **Sign in** button.
 
-   * **Authentication type**. Choose **Access Key**.
-   * **Azure Storage account name or blob endpoint**. Select **Add a custom item** and enter your **Storage account name**.
-   * **Azure Storage Account Access Key**. Enter your primary or secondary Azure storage **Access key**.
+   :::image type="content" source="../media/connectors/storage-aad-auth.png" alt-text="Screenshot of Azure Blob Storage authentication window.":::
 
-    You can retrieve your storage **Access keys** and **Storage account name** from the Azure portal:
+1. Choose the Azure Active Directory (Azure AD) account associated with your Azure blob storage and Translator resource accounts.
 
-      * Navigate to your storage account in the Azure portal
-      * From the left sidebar under **Security + networking**, select **Access keys**.
-      * Your **Storage account name** is near the top of the page, select the copy icon and paste the name a convenient location like *Microsoft Notepad*.
-      * Select the **Show** button for one of your keys, then select the copy icon and paste the name in the same location as the account name.
-      * Return to your Power Automate flow and paste the storage account name and key that you saved in the previous steps in the **Storage account name or blob endpoint** field.
-
-         :::image type="content" source="../media/connectors/storage-access-keys.png" alt-text="Screenshot of storage account access keys in the Azure portal.":::
-
-1. After you have completed the **Azure Blob Storage** fields, select **Create**
-
-   :::image type="content" source="../media/connectors/complete-storage-auth.png" alt-text="Screenshot of the authenticate blob storage window.":::
-
-1. The **Create blob** step now appears. Complete the fields as follows:
+1. After you have completed the **Azure Blob Storage** authentication, the **Create blob** step appears. Complete the fields as follows:
 
    * **Storage account name or blob endpoint**. Select **Enter custom value** and enter your storage account name.
    * **Folder path**. Select the folder icon and select your source document container.
