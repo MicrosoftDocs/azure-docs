@@ -71,8 +71,8 @@ The API allows applications to gather data points that describe user perceived r
 
 second conversion
 
-| **API Rating Categories** | **Cutoff Value\*** | **Input Range** | **Comments**                                                                                                                                                                                                                                                               |
-|---------------------------|--------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **API Rating Categories** | **Cutoff Value\*** | **Input Range** | Comments
+|---------------------------|--------------------|-----------------|------------|
 | Overall Call              | 2                  | 1 - 5           | Survey’s a calling participant’s overall quality experience on a scale of 1-5 where 1 indicates an imperfect call experience and 5 indicates a perfect call. The cutoff value of 2 means that a customer response of 1 or 2 indicates a less than perfect call experience. |
 | Audio                     | 2                  | 1 – 5           | A response of 1 indicates an imperfect audio experience and 5 indicates no audio issues were experienced.                                                                                                                                                                  |
 | Video                     | 2                  | 1 – 5           | A response of 1 indicates an imperfect video experience and 5 indicates no video issues were experienced.                                                                                                                                                                  |
