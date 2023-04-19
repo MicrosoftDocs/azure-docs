@@ -102,6 +102,6 @@ $contenturi = New-AzStorageBlobSASToken @tokenParams
 [01]: ./overview.md
 [02]: ../../storage/common/storage-sas-overview.md
 [03]: ../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network
-[04]: ./machine-configuration-create-test.md
-[05]: ./machine-configuration-create-definition.md
+[04]: ./how-to-test-package.md
+[05]: ./how-to-create-policy-definition.md
 [06]: ../policy/assign-policy-portal.md

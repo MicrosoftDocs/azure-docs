@@ -128,11 +128,11 @@ After running the command `Start-GuestConfigurationPackageRemediation`, you can 
 - Learn how to view [compliance details for machine configuration][08] policy assignments.
 
 <!-- Reference link definitions -->
-[01]: ./machine-configuration-create-setup.md
-[02]: ./machine-configuration-create.md
+[01]: ./how-to-set-up-authoring-environment.md
+[02]: ./how-to-create-package.md
 [03]: /sysinternals/downloads/psexec
 [04]: https://www.sudo.ws/docs/man/sudo.man/
-[05]: ./machine-configuration-create-publish.md
-[06]: ./machine-configuration-create-definition.md
+[05]: ./how-to-publish-package.md
+[06]: ./how-to-create-policy-definition.md
 [07]: ../policy/assign-policy-portal.md
 [08]: ../policy/how-to/determine-non-compliance.md

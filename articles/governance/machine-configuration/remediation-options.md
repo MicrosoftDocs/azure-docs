@@ -162,9 +162,9 @@ report on compliance status and allow drift or to automatically correct.
 [08]: ../policy/concepts/assignment-structure.md#enforcement-mode
 [09]: ../policy/how-to/remediate-resources.md
 [10]: /rest/api/guestconfiguration/guest-configuration-assignments/get#compliancestatus
-[11]: ./machine-configuration-create-setup.md
-[12]: ./machine-configuration-create.md
-[13]: ./machine-configuration-create-test.md
-[14]: ./machine-configuration-create-definition.md
+[11]: ./how-to-set-up-authoring-environment.md
+[12]: ./how-to-create-package.md
+[13]: ./how-to-test-package.md
+[14]: ./how-to-create-policy-definition.md
 [15]: ../policy/assign-policy-portal.md
 [16]: ../policy/how-to/determine-non-compliance.md

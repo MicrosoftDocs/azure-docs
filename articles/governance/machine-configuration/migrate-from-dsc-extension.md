@@ -163,14 +163,14 @@ Use the `Remove.py` script as documented in
 <!-- Reference link definitions -->
 [01]: ./overview.md
 [02]: /powershell/dsc/getting-started/lnxgettingstarted
-[03]: ./machine-configuration-create.md
-[04]: ./machine-configuration-create.md#author-a-configuration
+[03]: ./how-to-create-package.md
+[04]: ./how-to-create-package.md#author-a-configuration
 [05]: ../../virtual-machines/extensions/dsc-template.md
-[06]: ./machine-configuration-assignments.md
+[06]: ./assignments.md
 [07]: https://github.com/azure/nxtools#getting-started
-[08]: ./machine-configuration-custom.md#special-requirements-for-get
+[08]: ./dsc-in-machine-configuration.md#special-requirements-for-get
 [09]: https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer
-[10]: ./machine-configuration-create-test.md
-[11]: ./machine-configuration-create-publish.md
-[12]: ./machine-configuration-create-definition.md
+[10]: ./how-to-test-package.md
+[11]: ./how-to-publish-package.md
+[12]: ./how-to-create-policy-definition.md
 [13]: ../policy/assign-policy-portal.md
