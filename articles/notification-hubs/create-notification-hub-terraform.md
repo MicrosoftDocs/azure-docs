@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Create an Azure Notification Hub using Terraform'
-description: 'In this article, you create an Azure Notification Hub using Terraform'
+title: 'Quickstart: Create an Azure notification hub using Terraform'
+description: In this article, you create an Azure notification hub using Terraform
 services: notification-hubs
 author: TomArcherMsft
 ms.topic: quickstart
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, ai-gen-docs
 ms.service: notification-hubs
 ms.author: tarcher
-ms.date: 4/13/2023
+ms.date: 4/14/2023
 ---
 
-# Quickstart: Create an Azure Notification Hub using Terraform
+# Quickstart: Create an Azure notification hub using Terraform
 
 This article uses Terraform to create an Azure Notification Hubs namespace and a notification hub. The name of each resource is randomly generated to avoid naming conflicts.
 

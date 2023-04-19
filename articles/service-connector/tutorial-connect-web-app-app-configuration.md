@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Connect a web app to Azure App Configuration with Service Connector'
 description: Learn how you can connect an ASP.NET Core application hosted in Azure Web Apps to App Configuration using Service Connector'
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 10/24/2022
