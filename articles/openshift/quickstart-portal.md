@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
-ms.date: 02/14/2023
+ms.date: 04/18/2023
 ms.custom: mode-ui
 ---
 
