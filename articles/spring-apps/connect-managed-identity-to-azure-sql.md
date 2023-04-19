@@ -26,12 +26,12 @@ This article shows you how to create a managed identity for an app deployed to A
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
-* Follow the [Spring Data JPA tutorial](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server) to provision an Azure SQL Database and get it work with a Java app locally
-* Follow the [Azure Spring Apps system-assigned managed identity tutorial](./how-to-enable-system-assigned-managed-identity.md) to provision an an in Azure Spring Apps with MI enabled
+* Follow the [Spring Data JPA tutorial](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server) to provision an Azure SQL Database and get it work with a Java app locally.
+* Follow the [Azure Spring Apps system-assigned managed identity tutorial](./how-to-enable-system-assigned-managed-identity.md) to provision an app in Azure Spring Apps with managed identity enabled.
 
 ## Connect to Azure SQL Database with a managed identity
 
-You can connect your application deployed to Azure Spring Apps to an Azure SQL Database with a managed identity by following manual steps or using [Service Connector](../service-connector/overview.md).
+You can connect your application to an Azure SQL Database with a managed identity by following manual steps or using [Service Connector](../service-connector/overview.md).
 
 ### [Manual configuration](#tab/manual)
 
@@ -40,14 +40,14 @@ You can connect your application deployed to Azure Spring Apps to an Azure SQL D
 Connect to your SQL server and run the following SQL query:
 
 ```sql
-CREATE USER [<MIName>] FROM EXTERNAL PROVIDER;
-ALTER ROLE db_datareader ADD MEMBER [<MIName>];
-ALTER ROLE db_datawriter ADD MEMBER [<MIName>];
-ALTER ROLE db_ddladmin ADD MEMBER [<MIName>];
+CREATE USER [<managed-identity-name>] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [<managed-identity-name>];
+ALTER ROLE db_datawriter ADD MEMBER [<managed-identity-name>];
+ALTER ROLE db_ddladmin ADD MEMBER [<managed-identity-name>];
 GO
 ```
 
-The value of the `<MIName>` placeholder follows the rule `<service-instance-name>/apps/<app-name>`; for example: `myspringcloud/apps/sqldemo`. You can also query the MIName with Azure CLI:
+The value of the `<managed-identity-name>` placeholder follows the rule `<service-instance-name>/apps/<app-name>`; for example: `myspringcloud/apps/sqldemo`. You can also use the following command to query the managed identity name with Azure CLI:
 
 ```azurecli
 az ad sp show --id <identity-object-ID> --query displayName
@@ -106,7 +106,7 @@ Configure your app deployed to Azure Spring Apps to connect to an Azure SQL Data
 
 ## Build and deploy the app to Azure Spring Apps
 
-Rebuild the app and deploy it to the Azure Spring Apps provisioned in the second bullet point under Prerequisites. Now you have a Spring Boot application, authenticated by a managed identity, that uses JPA to store and retrieve data from an Azure SQL Database in Azure Spring Apps.
+Rebuild the app and deploy it to the Azure Spring Apps provisioned in the second bullet point under Prerequisites. You now have a Spring Boot application, authenticated by a managed identity, that uses JPA to store and retrieve data from an Azure SQL Database in Azure Spring Apps.
 
 ## Next steps
 
