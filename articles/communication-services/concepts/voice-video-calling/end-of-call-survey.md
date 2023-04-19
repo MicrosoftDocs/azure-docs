@@ -102,7 +102,7 @@ about their audio, video, and screen share experience. You can also
 customize input ranges to suit your needs. The default input range is 1
 to 5 for Overall Call, <span class="mark">Audio</span>, Video, and
 Screenshare. However, each API value can be customized from a minimum of
-0 to maximum of 100.
+0 to maximum of 100. 
 
 ### Customization options
 
