@@ -416,7 +416,7 @@ The "Delete Staging Deployment" action allows you to delete the deployment not r
 
 ## Deploy with Maven Plugin
 
-Another option is to use the [Maven Plugin](./quickstart.md) for deploying the Jar and updating App settings. The command `mvn azure-spring-apps:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
+Another option is to use the [Maven Plugin](./how-to-maven-deploy-apps.md) for deploying the Jar and updating App settings. The command `mvn azure-spring-apps:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
 
 ```yaml
 name: AzureSpringApps
