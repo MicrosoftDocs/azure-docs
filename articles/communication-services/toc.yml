@@ -212,6 +212,8 @@ items:
         href: how-tos/calling-sdk/record-calls.md
       - name: Raise Hand
         href: how-tos/calling-sdk/raise-hand.md
+      - name: Spotlight
+        href: how-tos/calling-sdk/spotlight.md
       - name: Show transcription state
         href: how-tos/calling-sdk/call-transcription.md
       - name: Manage role assignment
@@ -334,6 +336,8 @@ items:
     items:
     - name: Add emergency calling to your app
       href: quickstarts/telephony/emergency-calling.md
+    - name: Validate a domain for direct routing
+      href: how-tos/telephony/domain-validation.md
     - name: Phone numbers
       items:
       - name: Port a phone number into Azure

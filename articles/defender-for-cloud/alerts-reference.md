@@ -2,7 +2,7 @@
 title: Reference table for all security alerts in Microsoft Defender for Cloud
 description: This article lists the security alerts visible in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 04/16/2023
+ms.date: 04/18/2023
 ---
 
 # Security alerts - a reference guide
@@ -593,7 +593,7 @@ Defender for Cloud's supported kill chain intents are based on [version 9 of the
 
 ## Defender for Servers alerts to be deprecated
 
-The following tables include the Defender for Servers security alerts [to be deprecated in April, 2023](upcoming-changes.md#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers).
+The following tables include the Defender for Servers security alerts [to be deprecated in April, 2023](release-notes.md#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers).
 
 ### Linux alerts to be deprecated
 
