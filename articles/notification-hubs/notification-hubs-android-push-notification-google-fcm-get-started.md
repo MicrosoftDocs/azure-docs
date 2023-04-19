@@ -129,6 +129,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     ```gradle
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
+    implementation 'com.google.firebase:firebase-iid:21.1.0'
     ```
 
 2. Add the following plug-in at the end of the file if it's not already there. 

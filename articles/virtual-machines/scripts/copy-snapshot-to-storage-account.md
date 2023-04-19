@@ -4,14 +4,14 @@ description: Azure CLI Script Sample - Export/Copy snapshot as VHD to a storage 
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
 ms.date: 02/23/2022
 ms.author: ramankum
-ms.custom: "mvc,seodec18"
+ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
 # Export/Copy a snapshot to a storage account in different region with CLI
@@ -20,7 +20,7 @@ This script exports a managed snapshot to a storage account in different region.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

@@ -37,7 +37,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Virtual Network NAT
-            url: /learn/modules/intro-to-azure-virtual-network-nat
+            url: /training/modules/intro-to-azure-virtual-network-nat
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: https://azure.microsoft.com/updates/?category=networking&query=Virtual%20Network%20NAT
       - linkListType: video
         links:
           - text: How to get better outbound connectivity using Azure NAT Gateway
@@ -74,14 +78,24 @@ landingContent:
         links:
           - text: Troubleshoot NAT gateway
             url: troubleshoot-nat.md
+          - text: Troubleshoot NAT gateway connectivity
+            url: troubleshoot-nat-connectivity.md
+          - text: Troubleshoot NAT gateway connectivity with Azure services
+            url: troubleshoot-nat-and-azure-services.md
 
   # Card (optional)
-  - title: Architectural Guidance
+  - title: Learn about Virtual Network NAT architecture
     linkLists:
       - linkListType: overview
         links:
           - text: Architecture Framework for NAT gateway
             url: /azure/architecture/networking/guide/well-architected-network-address-translation-gateway
+
+      - linkListType: concept
+        links:
+          - text: Azure NAT Gateway considerations for multitenancy
+            url: /azure/architecture/guide/multitenant/service/nat-gateway
+           
  
    # Card (optional)
   - title: Security

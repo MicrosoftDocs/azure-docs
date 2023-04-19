@@ -145,7 +145,7 @@ In this quickstart, you transferred files between a local file system and Azure 
 > [Manage block blobs with PowerShell](blob-powershell.md)
 
 > [!div class="nextstepaction"]
-> [Azure PowerShell samples for Azure Blob storage](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Azure PowerShell samples for Azure Blob storage](storage-samples-blobs-powershell.md?toc=/azure/storage/blobs/toc.json)
 
 ### Microsoft Azure PowerShell Storage cmdlets reference
 
@@ -153,4 +153,4 @@ In this quickstart, you transferred files between a local file system and Azure 
 
 ### Microsoft Azure Storage Explorer
 
-- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=/azure/storage/blobs/toc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.

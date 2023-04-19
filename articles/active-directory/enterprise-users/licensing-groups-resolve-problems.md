@@ -1,12 +1,12 @@
 ---
 
-title: Resolve group license assignment problems - Azure Active Directory | Microsoft Docs
+title: Resolve group license assignment problems
 description: How to identify and resolve license assignment problems when you're using Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to

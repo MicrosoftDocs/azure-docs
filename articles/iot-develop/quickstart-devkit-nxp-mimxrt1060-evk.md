@@ -6,8 +6,8 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 11/16/2021
-ms.custom: mode-other, contperf-fy22q3
+ms.date: 10/21/2022
+ms.custom: mode-other, engagement-fy23
 zone_pivot_groups: iot-develop-nxp-toolset
 
 # Owner: timlt
@@ -51,6 +51,7 @@ You'll complete the following tasks:
     * USB 2.0 A male to Micro USB male cable
     * Wired Ethernet access
     * Ethernet cable
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -236,7 +237,7 @@ In this section, you use IAR EW IDE to modify a configuration file for Azure IoT
 
 1. Expand the project, then expand the **Sample** subfolder and open the *sample_config.h* file.
 
-1. Near the top of the file uncomment the `#define ENABLE_DPS_SAMPLE` directive.
+1. Near the top of the file, uncomment the `#define ENABLE_DPS_SAMPLE` directive.
 
     ```c
     #define ENABLE_DPS_SAMPLE
@@ -308,7 +309,7 @@ Keep the terminal open to monitor device output in the following steps.
 
 * MCUXpresso IDE (MCUXpresso), version 11.3.1 or later. Download and install a [free copy of MCUXPresso](https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE).
 
-* Download the [MIMXRT1060-EVK SDK 2.9.0 or later](https://mcuxpresso.nxp.com/en/builder). After you sign in, the website lets you build a custom SDK archive to download. After you select the EVK MIMXRT1060 board and click the option to build the SDK, you can download the zip archive.  The only SDK component to include is the preselected **SDMMC Stack**.
+* Download the [MIMXRT1060-EVK SDK 2.9.0 or later](https://mcuxpresso.nxp.com/en/builder). After you sign in, the website lets you build a custom SDK archive to download. After you select the EVK MIMXRT1060 board and select the option to build the SDK, you can download the zip archive.  The only SDK component to include is the preselected **SDMMC Stack**.
 
 * Download the NXP MIMXRT1060-EVK MCUXpresso sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
@@ -342,7 +343,7 @@ In this section, you prepare your environment, and use MCUXpresso to build and r
 
     :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/mcu-load-project.png" alt-text="Screenshot showing a loaded project in MCUXpresso.":::
 
-1. Near the top of the file uncomment the `#define ENABLE_DPS_SAMPLE` directive.
+1. Near the top of the file, uncomment the `#define ENABLE_DPS_SAMPLE` directive.
 
     ```c
     #define ENABLE_DPS_SAMPLE
@@ -383,7 +384,7 @@ In this section, you prepare your environment, and use MCUXpresso to build and r
     > [!NOTE]
     > The terminal window appears in the lower half of the IDE and might initially display garbage characters until you download and run the sample.
 
-1. Select the **Start Debugging project [project name]** toolbar button.  This downloads the project to the device, and runs it.
+1. Select the **Start Debugging project [project name]** toolbar button.  This action downloads the project to the device, and runs it.
 
 1. After the code hits a break in the IDE, select the **Resume (F8)** toolbar button.
 
@@ -508,10 +509,10 @@ If you experience issues building the device code, flashing the device, or conne
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
-If you need help debugging the application, see the selections under **Help** in **IAR EW for ARM**.  
+If you need help with debugging the application, see the selections under **Help** in **IAR EW for ARM**.  
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
-If you need help debugging the application, in MCUXpresso open the **Help > MCUXPresso IDE User Guide** and see the content on Azure RTOS debugging. 
+If you need help with debugging the application, in MCUXpresso open the **Help > MCUXPresso IDE User Guide** and see the content on Azure RTOS debugging. 
 :::zone-end
 
 ## Clean up resources

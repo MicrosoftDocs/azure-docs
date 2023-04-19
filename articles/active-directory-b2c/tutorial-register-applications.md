@@ -3,15 +3,15 @@ title: "Tutorial: Register a web application in Azure Active Directory B2C"
 titleSuffix: Azure AD B2C
 description: Follow this tutorial to learn how to register a web application in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2022
+ms.date: 10/26/2022
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 ---
 
@@ -19,7 +19,7 @@ ms.subservice: B2C
 
 Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal. 
 
-A "web application" refers to a traditional web application that performs most of the application logic on the server. They may be built using frameworks like ASP.NET Core, Maven (Java), Flask (Python), and Express (Node.js).
+A "web application" refers to a traditional web application that performs most of the application logic on the server. They may be built using frameworks like ASP.NET Core, Spring (Java), Flask (Python), and Express (Node.js).
 
 > [!IMPORTANT]
 > If you're using a single-page application ("SPA") instead (e.g. using Angular, Vue, or React), learn [how to register a single-page application](tutorial-register-spa.md).

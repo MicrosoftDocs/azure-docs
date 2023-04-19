@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 07/05/2021
+ms.date: 09/26/2022
 ms.author: jianleishen
 ---
 
@@ -106,7 +106,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
 1. On the home page, select **Orchestrate**.
 
-   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
+   :::image type="content" source="./media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the ADF home page.":::
 
 1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 

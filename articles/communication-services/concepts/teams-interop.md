@@ -12,13 +12,6 @@ ms.subservice: teams-interop
 
 # Teams interoperability
 
-> [!IMPORTANT]
-> Teams external users interoperability for Teams meetings is now generally available to all Communication Services applications and Teams organizations.
->
-> Support for Teams users in Azure Communication Services SDK is in public preview and available to Web-based applications.
->
-> Preview APIs and SDKs are provided without a service-level agreement and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Azure Communication Services can be used to build custom applications and experiences that enable interaction with Microsoft Teams users over voice, video, chat, and screen sharing. The [Communication Services UI Library](ui-library/ui-library-overview.md) provides customizable, production-ready UI components that can be easily added to these applications. The following video demonstrates some of the capabilities of Teams interoperability:
 
 <br>
@@ -38,6 +31,7 @@ Applications can implement both authentication models and leave the choice of au
 |---|---|---|
 |Target user base|Customers|Enterprise|
 |Identity provider|Any|Azure Active Directory|
+| Display name |Any with the suffix "(External)"| Azure Active Directory user's value of the property "Display name" |
 |Authentication & authorization|Custom*| Azure Active Directory and custom*|
 |Calling available via | Communication Services Calling SDKs | Communication Services Calling SDKs |
 |Chat is available via | Communication Services Chat SDKs | Graph API |
@@ -87,13 +81,16 @@ All usage of Azure Communication Service APIs and SDKs increments [Azure Communi
 
 If your Azure application has a user spend 10 minutes in a meeting with a user of Microsoft Teams, those two users combined consumed 20 calling minutes. The 10 minutes exercised through the custom application and using Azure APIs and SDKs will be billed to your resource. However, the 10 minutes consumed by the user in the native Teams application is covered by the applicable Teams license and is not metered by Azure.
 
+## Trademark and brand guideline
+Third parties must follow the [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks) when using Microsoft Teams trademarks or product logos in advertising or promotional materials. In general, wordmarks can be used to truthfully convey information about your product or service, as long as customers and the public will not be confused into believing Microsoft is affiliated with or endorses your product or service. However, our logos, app, product icons, illustrations, photographs, videos, and designs can never be used without an express license. To get more details about branding, read [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks).
+
 ## Teams in Government Clouds (GCC)
 Azure Communication Services interoperability isn't compatible with Teams deployments using [Microsoft 365 government clouds (GCC)](/MicrosoftTeams/plan-for-government-gcc) at this time.
 
 ## Next steps
 
 Find more details for External user interoperability:
-- [Get access tokens for external user](../quickstarts/access-tokens.md)
+- [Get access tokens for external user](../quickstarts/identity/access-tokens.md)
 - [Join Teams meeting call as a external user](../quickstarts/voice-video-calling/get-started-teams-interop.md)
 - [Join Teams meeting chat as a external user](../quickstarts/chat/meeting-interop.md)
 

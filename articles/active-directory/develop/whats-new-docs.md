@@ -2,15 +2,15 @@
 title: "What's new in the Microsoft identity platform docs"
 description: "New and updated documentation for the Microsoft identity platform."
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 
-ms.date: 08/01/2022
+ms.date: 04/03/2023
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.author: marsma
+ms.author: henrymbugua
 ms.custom: has-adal-ref
 ---
 
@@ -18,44 +18,55 @@ ms.custom: has-adal-ref
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
-## July 2022
+## March 2023
 
 ### New articles
 
-- [Configure SAML app multi-instancing for an application in Azure Active Directory](reference-app-multi-instancing.md)
+- [Configure a SAML app to receive tokens with claims from an external store (preview)](custom-extension-configure-saml-app.md)
+- [Configure a custom claim provider token issuance event (preview)](custom-extension-get-started.md)
+- [Custom claims provider (preview)](custom-claims-provider-overview.md)
+- [Custom claims providers](custom-claims-provider-reference.md)
+- [Custom authentication extensions (preview)](custom-extension-overview.md)
+- [Troubleshoot your custom claims provider API (preview)](custom-extension-troubleshoot.md)
+- [Understanding application-only access](app-only-access-primer.md)
 
 ### Updated articles
 
-- [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)
-- [Application configuration options](msal-client-application-configuration.md)
-- [A web API that calls web APIs: Code configuration](scenario-web-api-call-api-app-configuration.md)
-- [Claims mapping policy type](reference-claims-mapping-policy-type.md)
-- [Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- [ADAL to MSAL migration guide for Python](migrate-python-adal-msal.md)
+- [Handle errors and exceptions in MSAL for Python](msal-error-handling-python.md)
+- [How to migrate a JavaScript app from ADAL.js to MSAL.js](msal-compare-msal-js-and-adal-js.md)
 - [Microsoft identity platform access tokens](access-tokens.md)
-- [Single-page application: Sign-in and Sign-out](scenario-spa-sign-in.md)
-- [Tutorial: Add sign-in to Microsoft to an ASP.NET web app](tutorial-v2-asp-webapp.md)
+- [Microsoft Enterprise SSO plug-in for Apple devices (preview)](apple-sso-plugin.md)
+- [Restrict your Azure AD app to a set of users in an Azure AD tenant](howto-restrict-your-app-to-a-set-of-users.md)
+- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
+- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
+- [Tutorial: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application](tutorial-v2-windows-uwp.md)
 
-## June 2022
+## February 2023
 
-### Updated articles
+### New articles
 
-- [Add app roles to your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md)
-- [Azure AD Authentication and authorization error codes](reference-aadsts-error-codes.md)
-- [Microsoft identity platform refresh tokens](refresh-tokens.md)
-- [Single-page application: Acquire a token to call an API](scenario-spa-acquire-token.md)
-- [Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app](tutorial-v2-nodejs-desktop.md)
-
-## May 2022
+- [Frequently asked questions about workload identities license plans](workload-identities-faqs.md)
 
 ### Updated articles
 
-- [Developer guide to Conditional Access authentication context](developer-guide-conditional-access-authentication-context.md)
-- [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
-- [Protected web API: App registration](scenario-protected-web-api-app-registration.md)
-- [Quickstart: Sign in users and call the Microsoft Graph API from an Android app](mobile-app-quickstart-portal-android.md)
-- [Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app](mobile-app-quickstart-portal-ios.md)
-- [Set up your application's Azure AD test environment](test-setup-environment.md)
-- [Single sign-on SAML protocol](single-sign-on-saml-protocol.md)
-- [Single sign-on with MSAL.js](msal-js-sso.md)
-- [Tutorial: Sign in users and acquire a token for Microsoft Graph in a Node.js & Express web app](tutorial-v2-nodejs-webapp-msal.md)
-- [What's new for authentication?](reference-breaking-changes.md)
+- [Configure the role claim issued in the SAML token](active-directory-enterprise-app-role-management.md)
+- [Microsoft identity platform and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)
+- [Overview of shared device mode](msal-shared-devices.md)
+- [Run automated integration tests](test-automate-integration-testing.md)
+- [Tutorial: Sign in users and call Microsoft Graph in Windows Presentation Foundation (WPF) desktop app](tutorial-v2-windows-desktop.md)
+
+## January 2023
+
+### New articles
+
+- [Customize claims issued in the JSON web token (JWT) for enterprise applications](active-directory-jwt-claims-customization.md)
+
+### Updated articles
+
+- [Access Azure AD protected resources from an app in Google Cloud](workload-identity-federation-create-trust-gcp.md)
+- [Configure SAML app multi-instancing for an application in Azure Active Directory](reference-app-multi-instancing.md)
+- [Customize browsers and WebViews for iOS/macOS](customize-webviews.md)
+- [Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- [Enable cross-app SSO on Android using MSAL](msal-android-single-sign-on.md)
+- [Using redirect URIs with the Microsoft Authentication Library (MSAL) for iOS and macOS](redirect-uris-ios.md)

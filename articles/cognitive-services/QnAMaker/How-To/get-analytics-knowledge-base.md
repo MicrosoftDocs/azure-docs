@@ -34,6 +34,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled Applicat
     | join kind= inner (
     traces | extend id = operation_ParentId
     ) on id
+    | where message == "QnAMaker GenerateAnswer"
     | extend question = tostring(customDimensions['Question'])
     | extend answer = tostring(customDimensions['Answer'])
     | extend score = tostring(customDimensions['Score'])

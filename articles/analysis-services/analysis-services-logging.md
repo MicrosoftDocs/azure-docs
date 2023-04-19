@@ -1,10 +1,10 @@
 ---
-title: Diagnostic logging for Azure Analysis Services | Microsoft Docs
+title: Learn about diagnostic logging for Azure Analysis Services | Microsoft Docs
 description: Describes how to setup up logging to monitoring your Azure Analysis Services server.
 author: minewiskan
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 01/27/2023
 ms.author: owend
 ms.reviewer: minewiskan 
 ms.custom: devx-track-azurepowershell
@@ -70,7 +70,7 @@ The Metrics category logs the same [Server metrics](analysis-services-monitor.md
 
 1. In [Azure portal](https://portal.azure.com) > server, click **Diagnostic settings** in the left navigation, and then click **Turn on diagnostics**.
 
-    ![Turn on resource logging for Azure Cosmos DB in the Azure portal](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
+    ![Screenshot showing Turn on diagnostics in the Azure portal.](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
 2. In **Diagnostic settings**, specify the following options: 
 
@@ -152,7 +152,7 @@ Metrics and server events are integrated with xEvents in your Log Analytics work
 
 To view your diagnostic data, in Log Analytics workspace, open **Logs**  from the left menu.
 
-![Log Search options in the Azure portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
+![Screenshot showing log Search options in the Azure portal.](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
 In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiagnostics includes Engine and Service events. Notice a query is created on-the-fly. The EventClass\_s field contains xEvent names, which may look familiar if you've used xEvents for on-premises logging. Click **EventClass\_s** or one of the event names and Log Analytics workspace continues constructing a query. Be sure to save your queries to reuse later.
 
@@ -160,7 +160,7 @@ In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiag
 
 #### Example 1
 
-The following query returns durations for each query end/refresh end event for a model database and server. If scaled out, the results are broken out by replica because the replica number is included in ServerName_s. Grouping by RootActivityId_g reduces the row count retrieved from the Azure Diagnostics REST API and helps stay within the limits as described in [Log Analytics Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
+The following query returns durations for each query end/refresh end event for a model database and server. If scaled out, the results are broken out by replica because the replica number is included in ServerName_s. Grouping by RootActivityId_g reduces the row count retrieved from the Azure Diagnostics REST API and helps stay within the limits as described in Log Analytics Rate limits.
 
 ```Kusto
 let window = AzureDiagnostics
@@ -212,6 +212,7 @@ There are hundreds of queries you can use. To learn more about queries, see [Get
 In this quick tutorial, you create a storage account in the same subscription and resource group as your Analysis Service server. You then use Set-AzDiagnosticSetting to turn on diagnostics logging, sending output to the new storage account.
 
 ### Prerequisites
+
 To complete this tutorial, you must have the following resources:
 
 * An existing Azure Analysis Services server. For instructions on creating a server resource, see [Create a server in Azure portal](analysis-services-create-server.md), or [Create an Azure Analysis Services server by using PowerShell](analysis-services-create-powershell.md).

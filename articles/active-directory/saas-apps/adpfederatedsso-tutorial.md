@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/03/2022
+ms.date: 03/07/2023
 ms.author: jeedes
 ---
 
@@ -50,6 +50,8 @@ To configure the integration of ADP into Azure AD, you need to add ADP from the 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **ADP** in the search box.
 1. Select **ADP** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for ADP
 
@@ -151,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Configure your ADP service(s) for federated access
 
->[!Important]
+> [!Important]
 > Your employees who require federated access to your ADP services must be assigned to the ADP service app and subsequently, users must be reassigned to the specific ADP service.
 Upon receipt of confirmation from your ADP representative, configure your ADP service(s) and assign/manage users to control user access to the specific ADP service.
 
@@ -161,6 +163,8 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **ADP** in the search box.
 1. Select **ADP** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 1. In the Azure portal, on your **ADP** application integration page, click on **Properties tab** and perform the following steps:  
 
     ![Single sign-on linked properties tab](./media/adpfederatedsso-tutorial/application.png)
@@ -214,6 +218,37 @@ Upon receipt of confirmation from your ADP representative, configure your ADP se
     1. Test is successful when users access the ADP service app on the gallery and can access their ADP service.
 
 1. On confirmation of a successful test, assign the federated ADP service to individual users or user groups, which is explained later in the tutorial and roll it out to your employees.
+
+### Configure ADP to support multiple instances in the same tenant
+
+1. Go to **Basic SAML Configuration** section and enter any instance specific URL in the **Identifier (Entity ID)** textbox. 
+
+    > [!NOTE]
+    > Please note that this can be any random value which you feel relevant for your instance.
+
+    ![Screenshot shows how to configure another test instance value.](./media/adpfederatedsso-tutorial/append.png "Test")
+
+1. To support multiple instances in the same tenant, please follow the below steps:
+
+    ![Screenshot shows how to configure audience claim value.](./media/adpfederatedsso-tutorial/audience.png "Claim")
+
+    1. Navigate to **Attributes & Claims** section > **Advanced settings** > **Advanced SAML claims options** and click **Edit**.
+
+    1. Enable **Append application ID to issuer** checkbox.
+
+    1. Enable **Override audience claim** checkbox.
+
+    1. In the **Audience claim value** textbox, enter `https://fed.adp.com` and click **Save**.
+
+1. Navigate to **Properties** tab under Manage section and copy **Application ID** from the Azure portal.
+
+    ![Screenshot shows how to copy application value from properties tab.](./media/adpfederatedsso-tutorial/app.png "Tab")
+
+1. Download and open the **Federation Metadata XML** file from the Azure portal and edit the **entityID** value by adding **Application ID** manually at the end.
+
+    ![Screenshot shows how to add the application value in the federation file.](./media/adpfederatedsso-tutorial/federation.png "File")
+    
+1. **Save** the xml file and use in the ADP side.
 
 ### Create ADP test user
 

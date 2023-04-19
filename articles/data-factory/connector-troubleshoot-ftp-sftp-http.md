@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 07/29/2022
+ms.date: 03/27/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -37,7 +37,7 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 ## SFTP
 
-#### Error code: SftpOperationFail
+### Error code: SftpOperationFail
 
 - **Message**: `Failed to '%operation;'. Check detailed error from SFTP.`
 
@@ -206,6 +206,14 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Recommendation**: Get a valid fingerprint using the Host Key Name in `real finger-print` from the error message in the SFTP server. You can run the command to get the fingerprint on your SFTP server. For example: run `ssh-keygen -E md5 -lf <keyFilePath>` in Linux server to get the fingerprint. The command may vary among different server types.
 
+### Error code: UnsupportedCompressionTypeWhenDisableChunking
+
+- **Message**: `"Disable chunking" is not compatible with "ZipDeflate" decompression.`
+
+- **Cause**: **Disable chunking** is not compatible with **ZipDeflate** decompression.
+
+- **Recommendation**: Load the binary data to a staging area (for example: Azure Blob Storage) and decompress them in another copy activity.
+
 ## HTTP
 
 ### Error code: HttpFileFailedToRead
@@ -215,6 +223,14 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 - **Cause**: This error occurs when a data factory or a Synapse pipeline talks to the HTTP server, but the HTTP request operation fails.
 
 - **Recommendation**:  Check the HTTP status code in the error message, and fix the remote server issue.
+
+### Error code: HttpSourceUnsupportedStatusCode
+
+- **Message**: `Http source doesn't support HTTP Status Code '%code;'.`
+
+- **Cause**: This error happens when Azure Data Factory requests HTTP source but gets unexpected status code.
+
+- **Recommendation**: For more information about HTTP status code, see this [document](/troubleshoot/developer/webapps/iis/www-administration-management/http-status-code).
 
 ## Next steps
 

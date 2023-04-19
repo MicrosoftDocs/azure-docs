@@ -5,9 +5,9 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 08/03/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Connect to and manage HDFS in Microsoft Purview
@@ -16,18 +16,20 @@ This article outlines how to register Hadoop Distributed File System (HDFS), and
 
 ## Supported capabilities
 
-|**Metadata Extraction**|**Full Scan**|**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No| No | No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No| No | No | No|
 
 When scanning HDFS source, Microsoft Purview supports extracting technical metadata including HDFS:
 
 - Namenode
-- Folder
-- File
-- Resource set
+- Folders
+- Files
+- Resource sets
 
 When setting up scan, you can choose to scan the entire HDFS or selective folders. Learn about the supported file format [here](microsoft-purview-connector-overview.md#file-types-supported-for-scanning).
+
+The connector uses *webhdfs* protocol to connect to HDFS and retrieve metadata. MapR Hadoop distribution is not supported.
 
 ## Prerequisites
 

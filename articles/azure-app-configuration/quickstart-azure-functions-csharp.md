@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 06/02/2021
+ms.date: 03/20/2023
 ms.author: zhenlwa
 #Customer intent: As an Azure Functions developer, I want to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -17,30 +17,25 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio](https://visualstudio.microsoft.com/vs) with the **Azure development** workload.
 - [Azure Functions tools](../azure-functions/functions-develop-vs.md), if you don't have it installed with Visual Studio already.
 
-## Create an App Configuration store
+## Add a key-value
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-7. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
-
-    | Key | Value |
-    |---|---|
-    | TestApp:Settings:Message | Data from Azure App Configuration |
-
-    Leave **Label** and **Content Type** empty for now.
-
-8. Select **Apply**.
+| Key                        | Value                               |
+| -------------------------- | ----------------------------------- |
+| *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
 ## Create a Functions app
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
 ## Connect to an App Configuration store
-This project will use [dependency injection in .NET Azure Functions](/azure/azure-functions/functions-dotnet-dependency-injection) and add Azure App Configuration as an extra configuration source. Azure Functions support running [in-process](/azure/azure-functions/functions-dotnet-class-library) or [isolated-process](/azure/azure-functions/dotnet-isolated-process-guide). Pick the one that matches your requirements.
+This project will use [dependency injection in .NET Azure Functions](../azure-functions/functions-dotnet-dependency-injection.md) and add Azure App Configuration as an extra configuration source. Azure Functions support running [in-process](../azure-functions/functions-dotnet-class-library.md) or [isolated-process](../azure-functions/dotnet-isolated-process-guide.md). Pick the one that matches your requirements.
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add following NuGet packages to your project.
     ### [In-process](#tab/in-process)

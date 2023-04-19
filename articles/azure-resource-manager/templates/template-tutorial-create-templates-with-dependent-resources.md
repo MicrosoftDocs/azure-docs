@@ -4,6 +4,7 @@ description: Learn how to create an Azure Resource Manager template (ARM templat
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
+ms.custom: devx-track-arm-template
 ms.author: jgao
 ---
 
@@ -24,7 +25,7 @@ This tutorial covers the following tasks:
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-For a Microsoft Learn module that covers resource dependencies, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+For a Learn module that covers resource dependencies, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
 
 ## Prerequisites
 

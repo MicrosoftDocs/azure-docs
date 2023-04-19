@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Explorer blob versioning guide | Microsoft Docs
+title: Azure Storage Explorer blob versioning guide
 description: Blob versioning guidance for Azure Storage Explorer
 services: storage
 author: JasonYeMSFT

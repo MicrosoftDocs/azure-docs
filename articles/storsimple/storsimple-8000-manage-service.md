@@ -12,13 +12,13 @@ ms.service: storsimple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Deploy the StorSimple Device Manager service for StorSimple 8000 series devices
 
-[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

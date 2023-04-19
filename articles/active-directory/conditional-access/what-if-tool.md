@@ -1,16 +1,16 @@
 ---
-title: The Conditional Access What If tool - Azure Active Directory
+title: The Conditional Access What If tool
 description: Learn how you can understand the impact of your Conditional Access policies on your environment.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 08/16/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ---

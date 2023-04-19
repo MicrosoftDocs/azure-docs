@@ -4,10 +4,6 @@ description: "This article describes how to improve the resiliency of Azure Stre
 
 services: stream-analytics
 ms.service: stream-analytics
-
-author: fleid
-ms.author: fleide
-
 ms.topic: how-to
 ms.custom: "asaql"
 ms.date: 12/10/2021

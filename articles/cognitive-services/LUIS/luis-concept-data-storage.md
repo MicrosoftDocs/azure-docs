@@ -15,6 +15,9 @@ ms.date: 12/07/2020
 
 # Data storage and removal in Language Understanding (LUIS) Cognitive Services
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 LUIS stores data encrypted in an Azure data store corresponding to [the region](luis-reference-regions.md) specified by the key. 
 
 * Data used to train the model such as entities, intents, and utterances will be saved in LUIS for the lifetime of the application. If an owner or contributor deletes the app, this data will be deleted with it. If an application hasn't been used in 90 days, it will be deleted. 

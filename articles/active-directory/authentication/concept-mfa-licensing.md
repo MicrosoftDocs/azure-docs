@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
@@ -59,6 +59,7 @@ The following table provides a list of the features that are available in the va
 | Access Reviews | | | | | ● |
 | Entitlements Management | | | | | ● |
 | Privileged Identity Management (PIM), just-in-time access | | | | | ● |
+| Lifecycle Workflows (preview) | | | | | ● |
 
 ## Compare multi-factor authentication policies
 
@@ -97,7 +98,7 @@ After you have purchased the required Azure AD tier, [plan and deploy Azure AD M
 
 ### Azure AD Free tier
 
-All users in an Azure AD Free tenant can use Azure AD Multi-Factor Authentication by using security defaults. The mobile authentication app is the only method that can be used for Azure AD Multi-Factor Authentication when using Azure AD Free security defaults.
+All users in an Azure AD Free tenant can use Azure AD Multi-Factor Authentication by using security defaults. The mobile authentication app and SMS methods can be used for Azure AD Multi-Factor Authentication when using Azure AD Free security defaults.
 
 * [Learn more about Azure AD security defaults](../fundamentals/concept-fundamentals-security-defaults.md)
 * [Enable security defaults for users in Azure AD Free](../fundamentals/concept-fundamentals-security-defaults.md#enabling-security-defaults)

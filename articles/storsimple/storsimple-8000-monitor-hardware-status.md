@@ -12,11 +12,13 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2018
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use the StorSimple Device Manager service to monitor hardware components and status
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 This article describes the various physical and logical components in your on-premises StorSimple 8000 series device. It also explains how to monitor the device component status by using the **Status and hardware health** blade in the StorSimple Device Manager service.

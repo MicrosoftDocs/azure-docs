@@ -30,8 +30,8 @@ If the speaker continues then to say "Let's get started," a new offset is calcul
 |---------|---------|---------|---------|
 |RECOGNIZING     |OK         |71500000         |3100000         |
 |RECOGNIZING     |OK now         |71500000         |10300000         |
-|RECOGNIZING     |OK, now let's         |71500000         |14700000         |
-|RECOGNIZING     |OK, now let's get started.         |71500000         |18500000         |
+|RECOGNIZING     |OK now let's         |71500000         |14700000         |
+|RECOGNIZING     |OK now let's get started         |71500000         |18500000         |
 |RECOGNIZED     |OK, now let's get started.         |71500000         |20600000         |
 
 The total duration of the second utterance was 2.06 seconds. It was recognized at 7.15 to 9.21 seconds offset from the start of the audio stream being recognized (00:00:07.150 --> 00:00:09.210). 

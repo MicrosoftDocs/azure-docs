@@ -1,7 +1,7 @@
 ---
 title: Azure Diagnostics Extension for Windows 
 description: Monitor Azure Windows VMs using the Azure Diagnostics Extension
-author: johnkemnetz
+author: mamccrea
 manager: ashwink
 ms.service: virtual-machines
 ms.subservice: extensions
@@ -9,10 +9,9 @@ ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
-ms.author: johnkem 
-ms.custom:  devx-track-azurepowershell, devx-track-azurecli 
+ms.author: mamccrea
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 # Azure Diagnostics Extension for Windows VMs
 
@@ -82,6 +81,10 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 [See this article](../../azure-monitor/agents/diagnostics-extension-troubleshooting.md) for a more comprehensive troubleshooting guide for the Azure Diagnostics extension.
+
+#### Error: "Profile operation failed"
+
+To enable profiling, please follow [Enable Profiler for web apps on an Azure virtual machine](../../azure-monitor/profiler/profiler-vm.md#enable-profiler-for-web-apps-on-an-azure-virtual-machine).
 
 ### Support
 

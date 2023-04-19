@@ -1,6 +1,6 @@
 ---
-title: Connect to Dynamics 365
-description: Create and manage Dynamics 365 in workflows using Azure Logic Apps.
+title: Connect to Dynamics 365 (Deprecated)
+description: Connect to your Dynamics 365 database from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
@@ -9,7 +9,7 @@ ms.date: 08/05/2022
 tags: connectors
 ---
 
-# Connect to Dynamics 365 from workflows in Azure Logic Apps
+# Connect to Dynamics 365 from workflows in Azure Logic Apps (Deprecated)
 
 > [!IMPORTANT]
 > The Dynamics 365 connector is officially deprecated and is no longer available. Instead, use the 

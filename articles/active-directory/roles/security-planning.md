@@ -1,11 +1,11 @@
 ---
 
-title: Secure access practices for administrators in Azure AD | Microsoft Docs
+title: Secure access practices for administrators in Azure AD
 description: Ensure that your organization's administrative access and administrator accounts are secure. For system architects and IT pros who configure Azure AD, Azure, and Microsoft Online Services. 
 services: active-directory 
 keywords: 
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.author: rolyon
 ms.date: 04/19/2022
 ms.topic: conceptual

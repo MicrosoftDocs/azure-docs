@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel Solution for SAP container configuration file reference
+title: Microsoft Sentinel solution for SAP® applications container configuration file reference
 description: Description of settings available in systemconfig.ini file
 author: MSFTandrelom
 ms.author: andrelom
@@ -179,6 +179,10 @@ extractuseremail = <True/False>
 apiretry = <True/False>
 auditlogforcexal = <True/False>
 auditlogforcelegacyfiles = <True/False>
+azure_resource_id = <Azure _ResourceId>
+# Used to force a specific resource group for the SAP tables in Log Analytics, useful for applying RBAC on SAP data
+# example - /subscriptions/1234568-qwer-qwer-qwer-123456789/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.compute/virtualmachines/VIRTUAL_MACHINE_NAME
+# for more information - https://learn.microsoft.com/azure/azure-monitor/logs/log-standard-columns#_resourceid.
 
 timechunk = <value>
 # Default timechunk value is 60 (minutes). For certain tables, the data connector retrieves data from the ABAP server using timechunks (collecting all events that occurred within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
@@ -210,13 +214,15 @@ PAHI_FULL = <True/False>
 AGR_AGRS_FULL = <True/False>
 USRSTAMP_FULL = <True/False>
 USRSTAMP_INCREMENTAL = <True/False>
+SNCSYSACL_FULL = <True/False> (Preview)
+USRACL_FULL = <True/False> (Preview)
 ```
 ## Next steps
 
-Learn more about the Microsoft Sentinel Solution for SAP:
+Learn more about the Microsoft Sentinel solution for SAP® applications:
 
-- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
@@ -226,13 +232,13 @@ Learn more about the Microsoft Sentinel Solution for SAP:
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel Solution for SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel solution for SAP® applications solution deployment](sap-deploy-troubleshoot.md)
 - [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 
-- [Microsoft Sentinel Solution for SAP data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 

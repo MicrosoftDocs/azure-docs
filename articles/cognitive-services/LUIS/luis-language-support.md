@@ -15,6 +15,9 @@ ms.date: 01/18/2022
 
 # Language and region support for LUIS
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 LUIS has a variety of features within the service. Not all features are at the same language parity. Make sure the features you are interested in are supported in the language culture you are targeting. A LUIS app is culture-specific and cannot be changed once it is set.
 
 ## Multilingual LUIS apps

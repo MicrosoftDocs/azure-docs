@@ -4,11 +4,13 @@ description: Describes StorSimple alert conditions and severity, how to configur
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 03/14/2019
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use the StorSimple Device Manager service to view and manage StorSimple alerts
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

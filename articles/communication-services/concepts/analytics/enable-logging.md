@@ -26,8 +26,7 @@ The following are instructions for configuring your Azure Monitor resource to st
 
 These instructions apply to the following Communications Services logs:
 
-- [Call Summary and Call Diagnostic logs](call-logs-azure-monitor.md) Preview
-
+- [Call Summary and Call Diagnostic logs](logs/voice-and-video-logs.md) 
 ## Access Diagnostic Settings
 
 To access Diagnostic Settings for your Communications Services, start by navigating to your Communications Services home page within Azure portal:
@@ -66,6 +65,6 @@ They're all viable and flexible options that can adapt to your specific storage 
 
 ## Log Analytics Workspace for additional analytics features
 
-By choosing to send your logs to a [Log Analytics workspace](../../../azure-monitor/logs/log-analytics-overview.md) destination, you enable more features within Azure Monitor generally and for your Communications Services. Log Analytics is a tool within Azure portal used to create, edit, and run [queries](../../../azure-monitor/logs/queries.md) with data in your Azure Monitor logs and metrics and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md), [alerts](../../../azure-monitor/alerts/alerts-log.md), [notification actions](../../../azure-monitor/alerts/action-groups.md), [REST API access](https://dev.loganalytics.io/), and many others.
+By choosing to send your logs to a [Log Analytics workspace](../../../azure-monitor/logs/log-analytics-overview.md) destination, you enable more features within Azure Monitor generally and for your Communications Services. Log Analytics is a tool within Azure portal used to create, edit, and run [queries](../../../azure-monitor/logs/queries.md) with data in your Azure Monitor logs and metrics and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md), [alerts](../../../azure-monitor/alerts/alerts-log.md), [notification actions](../../../azure-monitor/alerts/action-groups.md), [REST API access](/rest/api/loganalytics/), and many others.
 
-For your Communications Services logs, we've provided a useful [default query pack](../../../azure-monitor/logs/query-packs.md#default-query-pack) to provide an initial set of insights to quickly analyze and understand your data. These query packs are described here: [Log Analytics for Communications Services](log-analytics.md). We've also created many insights and visualizations using workbooks, which are described in: [Workbooks for Communications Services logs](insights.md).
+For your Communications Services logs, we've provided a useful [default query pack](../../../azure-monitor/logs/query-packs.md#default-query-pack) to provide an initial set of insights to quickly analyze and understand your data. These query packs are described here: [Log Analytics for Communications Services](query-call-logs.md).

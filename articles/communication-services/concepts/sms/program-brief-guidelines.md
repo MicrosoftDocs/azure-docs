@@ -13,8 +13,6 @@ ms.service: azure-communication-services
 ms.subservice: sms
 ---
 # Short Code Program Brief Filling Guidelines
-[!INCLUDE [Short code eligibility notice](../../includes/public-preview-include.md)]
-
 [!INCLUDE [Short code eligibility notice](../../includes/public-preview-include-short-code-eligibility.md)]
 
 Azure Communication Services allows you to apply for a short code for SMS programs. In this document, we'll review the guidelines on how to fill out a program brief for short code registration. A program brief application consists of 4 sections:
@@ -47,7 +45,7 @@ A random short code is a 5–6-digit phone number that is randomly selected and 
 A vanity short code is a 5–6-digit phone number that is chosen by you for your program. You can look up the list of available short codes in the [US Short Codes directory](https://usshortcodedirectory.com/).
 Additionally, you may pick a number that the customer can spell out on their phone dial pad as an alphanumeric equivalent – for example, Contoso can use OFFERS (633377). 
 
-When you select a vanity short code, you are required to input a prioritized list of vanity short codes that you’d like to use for your program. The alternatives in the list will be used if the first short code in your list is not available to lease. 
+When you select a vanity short code, you are required to input a prioritized list of vanity short codes that you’d like to use for your program. The alternatives in the list will be used if the first short code in your list isn't available to lease. 
 Example: 234567, 234578, 234589.
 
 > [!Note]
@@ -96,10 +94,10 @@ Your terms of service must contain ALL of the following:
 > [!Note]
 > If you don’t have a URL of the website, mockups, or design, please send an email with the screenshots to phone@microsoft.com with "[CompanyName - ProgramName] Short Code Request".
 
-### Program Sign up type and URL 
+### Program Sign-up type and URL 
 This field captures the call-to-action, an instruction for the customers to take action for ensuring that the customer consents to receive text messages, and understands the nature of the program. Call-to-action can be over SMS, Interactive Voice Response (IVR), website, or point of sale. Carriers require that all short code program brief applications are submitted with mock ups for the call-to-action.
 
-In these fields, you must provide a URL of the website where customers will discover the program, URL for screenshots of the website, URL of mockup of the website, or URL with the design. If the program sign up type is SMS, then you must provide the keywords the customer will send to the short code for opting in. 
+In these fields, you must provide a URL of the website where customers will discover the program, URL for screenshots of the website, URL of mockup of the website, or URL with the design. If the program sign-up type is SMS, then you must provide the keywords the customer will send to the short code for opting in. 
 
 > [!Note]
 > If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com with Subject "[CompanyName - ProgramName] Short Code Request".
@@ -121,7 +119,7 @@ In these fields, you must provide a URL of the website where customers will disc
 ##### Examples:
 **SMS**
 
-Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Contoso purchase. Txt OFF to stop, HELP for terms and conditions.
+Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Contoso purchase. Msg&Data Rates May Apply. Txt HELP or terms&conditions. Txt STOP to opt-out.
 
 **Web opt-in**
 
@@ -133,8 +131,14 @@ Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Cont
 
 **IVR**
 
-To sign up for our last-minute travel deals, Press 1.  Message and data rates may apply Visit margiestravel.com for privacy and terms and conditions.
+*Example 1:*
+ 
+**Agent** - To sign up for our last-minute travel deals, Press 1.  Message and data rates may apply. Visit margiestravel.com for privacy and terms and conditions.
 
+*Example 2:*
+
+**Contoso bot** - Would you like to receive appointment reminders through text message to the phone number you've saved in your account? Messages and data rates may apply. If you want to opt in, say YES, say NO to skip.  
+**End-User** - YES
 ## Contact Details
 
 ### Point of contact email address
@@ -143,50 +147,53 @@ You need to provide information about your company and point of contact. Status 
 ### Customer care
 Customer care contact information must be clear and readily available to help customers understand program details as well as their status with the program. Customer care information should result in customers receiving help.
 
-In these fields, you are required to provide the customer care email address and a customer care phone number where customers can reach out to receive help.
+In these fields, you're required to provide the customer care email address and a customer care phone number where customers can reach out to receive help.
 
 ## Volume 
 ### Messages sent per user
-In this field, you are required to provide an approximate number of messages that will be sent out per customer monthly.
+In this field, you're required to provide an approximate number of messages that will be sent out per customer monthly.
 
 ### Replies per user 
-In this field, you are required to provide an approximate number of replies you expect to get per customer.
+In this field, you're required to provide an approximate number of replies you expect to get per customer.
 
 ### Expected total messages sent
-In this field, you are required to provide an estimate of total messages sent per month.
+In this field, you're required to provide an estimate of total messages sent per month.
 
 ### Traffic spikes
-In this field, you are required to provide information on traffic spikes and their expected timing.
+In this field, you're required to provide information on traffic spikes and their expected timing.
 Example: Traffic spikes are expected for delivery notifications program around holidays like Christmas.
 
 ## Templates
+
+Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you'll be asked for your preference to manage opt-outs. If you opt-in, the opt-out management service will automatically use your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
+
 ### Opt-in confirmation message
 CTIA requires that the customer must actively opt into short code programs by sending a keyword from their mobile device to the short code, providing consent on website, IVR, etc.
 
-In this field, you are required to provide a sample of the confirmation message that is sent to the customer upon receiving their consent. 
+In this field, you're required to provide a sample of the confirmation message that is sent to the customer upon receiving their consent. 
 
-**Example:** Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.
+**Example:** Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt out.
 
 ### Help message response
 Message senders are required to respond to messages containing the HELP keyword with the program name and further information about how to contact the message sender.
 
-In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the HELP keyword. 
+In this field, you're required to provide a sample of the response message that is sent to the customer upon receiving the HELP keyword. 
 
-**Example:** Thanks for texting Contoso! Call 1-800-800-8000 for support.
+**Example:** Contoso Appointment reminders: Get help at support@contoso.com or 1-800 123 4567.Msg&Data Rates May Apply. Txt HELP for help. Txt STOP to opt out.
 
 ### Opt-out message
 Message senders are required to have mechanisms to opt customers out of the program and respond to messages containing the STOP keyword with the program name and confirmation that no additional messages will be sent. 
 
-In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the STOP keyword. 
+In this field, you're required to provide a sample of the response message that is sent to the customer upon receiving the STOP keyword. 
 
-**Example:** Contoso Alerts: You’re opted out and will receive no further messages.
+**Example:** Contoso Appointment reminders: You’re opted out and will receive no further messages.
 
-Please see our [guide on opt-outs](./sms-faq.md#how-does-azure-communication-services-handle-opt-outs-for-toll-free-numbers) to learn about how Azure Communication Services handles opt-outs.
+Please see our [guide on opt-outs](./sms-faq.md#opt-out-handling) to learn about how Azure Communication Services handles opt-outs.
 
 ### Example messages
 Message senders are required to disclose all the types/categories of messages with samples that will be sent over the short code.
 
-In this field, you are required to provide a sample message for each content type you intend on using the short code for. 
+In this field, you're required to provide a sample message for each content type you intend on using the short code for. 
 
 #### Example flow:
 - **Contoso**: Contoso: Your reservation has been confirmed for 30th February 2022. Txt R to reschedule. Txt HELP or STOP. Msg&Data rates may apply.

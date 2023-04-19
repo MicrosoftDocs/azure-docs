@@ -28,29 +28,65 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 |Element |Page layout version range |jQuery version  |Handlebars Runtime version |Handlebars Compiler version |
 |---------|---------|------|--------|----------|
-|multifactor |>= 1.2.4 | 3.5.1 | 4.7.6 |4.7.7 |
+|multifactor |>= 1.2.8 | 3.5.1 | 4.7.7 |4.7.7 |
+|            |>= 1.2.4 | 3.5.1 | 4.7.6 |4.7.7 |
 |            |< 1.2.4 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|selfasserted |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|selfasserted |>= 2.1.11 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|unifiedssp |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|unifiedssp |>= 2.1.7 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|globalexception |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|globalexception |>= 1.2.3 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|providerselection |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|providerselection |>= 1.2.3 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|claimsconsent |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|claimsconsent |>= 1.2.2 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 1.2.2 | 3.5.1 |4.7.7 |4.7.7 |
 |            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|unifiedssd |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|unifiedssd |>= 1.2.3 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
 
 ## Self-asserted page (selfasserted)
+
+**2.1.20**
+- Fixed an XSS issue on input from textbox
+
+**2.1.19**
+- Fixed accessibility bugs
+- Handle Undefined Error message for existing user sign up
+- Move Password Mismatch Error to Inline instead of Page Level
+- Accessibility changes related to High Contrast button display and anchor focus improvements
+
+**2.1.18**
+- Add asterisk for required fields
+- TOTP Store Icons position fixes for Classic Template
+- Activate input items only when verification code is verified
+- Add Alt Text for Background Image
+- Added customization for server errors by TOTP verification
+
+**2.1.17**
+- Add descriptive error message and fixed forgotPassword link
+- Make checkbox as group
+- Enforce Validation Error Update on control change and enable continue on email verified
+- Added additional field to error code to validation failure response
+	
+**2.1.16**
+- Fixed "Claims for verification control have not been verified" bug while verifying code.
+- Hide error message on validation succeeds and send code to verify
+
+**2.1.15**
+- Fixed QR code generation bug due to QR text length
 
 **2.1.14**
 - Fixed WCAG 2.1 accessibility bug for the TOTP multifactor authentication screens.
@@ -151,6 +187,12 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 > [!TIP]
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
+**2.1.9**
+- Fix accessibility bugs
+- Accessibility changes related to High Contrast button display and anchor focus improvements
+	
+**2.1.8**
+- Add descriptive error message and fixed forgotPassword link!
 
 **2.1.7**
 

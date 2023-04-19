@@ -49,6 +49,9 @@ The service levels range from DW100c to DW30000c.
 
 The maximum service level is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
+> [!NOTE]
+> Synapse Dedicated SQL pool is an evergreen platform service. Under [shared responsibility model in the cloud](../../security/fundamentals/shared-responsibility.md#division-of-responsibility), Microsoft continues to invest in advancements to underlying software and hardware which host dedicated SQL pool. As a result, the number of nodes or the type of computer hardware which underpins a given performance level (SLO) may change. The number of compute nodes listed here are provided as a reference, and shouldn't be used for sizing or performance purposes. Irrespective of number of nodes or underlying infrastructure, Microsoft's goal is to deliver performance in accordance with SLO; hence, we recommend that all sizing exercises must use cDWU as a guide. For more information on SLO and compute Data Warehouse Units, see [Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW)](what-is-a-data-warehouse-unit-dwu-cdwu.md#service-level-objective).
+
 ## Concurrency maximums for workload groups
 
 With the introduction of [workload groups](sql-data-warehouse-workload-isolation.md), the concept of concurrency slots no longer applies.  Resources per request are allocated on a percentage basis and specified in the workload group definition.  However, even with the removal of concurrency slots, there are minimum amounts of resources needed per queries based on the service level.  The below table defined the minimum amount of resources needed per query across service levels and the associated concurrency that can be achieved.

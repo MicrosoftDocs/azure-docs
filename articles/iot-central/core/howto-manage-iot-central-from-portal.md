@@ -69,7 +69,7 @@ When you configure a data export in your IoT Central application, you can choose
 IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To create the managed identity for your application, you use either the Azure portal or the REST API.
 
 > [!NOTE]
-> You can only add a managed identity to an IoT Central application that was created in a region. All new applications are created in a region. To learn more, see [Updates](https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/).
+> You can only add a managed identity to an IoT Central application that was created in a region. All new applications are created in a region.
 
 When you configure a managed identity, the configuration includes a *scope* and a *role*:
 
@@ -86,6 +86,9 @@ You can configure role assignments in the Azure portal or use the Azure CLI:
 ## Monitor application health
 
 You can use the set of metrics provided by IoT Central to assess the health of devices connected to your IoT Central application and the health of your running data exports.
+
+> [!NOTE]
+> IoT Central applications have an internal [audit log](howto-use-audit-logs.md) to track activity within the application. 
 
 Metrics are enabled by default for your IoT Central application and you access them from the [Azure portal](https://portal.azure.com/). The [Azure Monitor data platform exposes these metrics](../../azure-monitor/essentials/data-platform-metrics.md) and provides several ways for you to interact with them. For example, you can use charts in the Azure portal, a REST API, or queries in PowerShell or the Azure CLI.
 

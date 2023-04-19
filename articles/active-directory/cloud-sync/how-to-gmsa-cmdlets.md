@@ -3,11 +3,11 @@ title: 'Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets'
 description: Learn how to use the Azure AD Connect cloud provisioning agent gMSA powershell cmdlets.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/01/2022
+ms.date: 01/11/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

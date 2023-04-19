@@ -17,7 +17,7 @@
 For the latest CUDA drivers and supported operating systems, visit the [NVIDIA](https://developer.nvidia.com/cuda-zone) website. Ensure that you install or upgrade to the latest supported CUDA drivers for your distribution. 
 
 > [!NOTE]
-> The latest supported CUDA drivers for NC-series VMs is currently 470.82.01. Later driver versions are not supported on the K80 cards in NC.
+> The latest supported CUDA drivers for original NC-series SKU VMs is currently 470.82.01. Later driver versions are not supported on the K80 cards in NC.
 > 
 
 > [!TIP]
@@ -32,11 +32,10 @@ The GRID drivers redistributed by Azure do not work on most non-NV series VMs li
 
 |Distribution|Driver|
 | --- | -- |
-|Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS<br/><br/>Red Hat Enterprise Linux 7.9<br/><br/>SUSE Linux Enterprise Server 15 SP2+, 15 SP2 | NVIDIA GRID 14.1, driver branch [R510](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+|Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS<br/><br/>Red Hat Enterprise Linux 7.9<br/><br/>SUSE Linux Enterprise Server 15 SP2+, 15 SP2 | NVIDIA vGPU 15.2, driver branch [R525](https://go.microsoft.com/fwlink/?linkid=874272)(.exe) <br/><br/> NVIDIA vGPU 15.1, driver branch [R525](https://download.microsoft.com/download/c/e/9/ce913061-ccf1-4c88-94ff-294e48c55439/NVIDIA-Linux-x86_64-525.85.05-grid-azure.run)(.exe)|
 
 > [!Note]
 >The Azure NVads A10 v5 VMs only support GRID 14.1(510.73) or higher driver versions. 
->Ubuntu 20.04 is not yet supported on Azure NVads A10 v5 VMs
 
 
 Visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) for the complete list of all previous Nvidia GRID driver links.

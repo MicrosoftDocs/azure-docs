@@ -3,7 +3,7 @@ title: Azure Kinect Sensor SDK download
 description: Learn how to download and install the Azure Kinect Sensor SDK on Windows and Linux.
 author: Brent-A
 ms.author: brenta
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect,sdk, download update, latest, available, install

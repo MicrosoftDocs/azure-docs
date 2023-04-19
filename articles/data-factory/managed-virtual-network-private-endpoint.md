@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 06/24/2022
+ms.date: 02/22/2023
 ---
 
 # Azure Data Factory managed virtual network
@@ -74,6 +74,8 @@ A private endpoint uses a private IP address in the managed virtual network to e
 
 Only a managed private endpoint in an approved state can send traffic to a specific private link resource.
 
+> [!NOTE]
+> Custom DNS is not supported in managed virtual network.
 
 ## Interactive authoring
 
@@ -113,12 +115,14 @@ Unlike copy activity, pipeline and external activity have a default time to live
 ### Comparison of different TTL
 The following table lists the differences between different types of TTL：
 
-| | Interactive authoring | Copy compute scale | Pipeline & External compute scale |
+| Feature | Interactive authoring | Copy compute scale | Pipeline & External compute scale |
 | ----------------- | ---------- | -------- | --------------- |
 | When to take effect |	Immediately after enablement | First activity execution | First activity execution |
 | Can be disabled | Y | Y | N |
 | Reserved compute is configurable | N | Y | N |
 
+> [!NOTE]
+> You can't enable TTL in default auto-resolve Azure integration runtime. You can create a new Azure integration runtime for it.
 
 ## Create a managed virtual network via Azure PowerShell
 
@@ -175,6 +179,7 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 
 The following services have native private endpoint support. They can be connected through private link from a Data Factory managed virtual network:
 
+- Azure Databricks
 - Azure Functions (Premium plan)
 - Azure Key Vault
 - Azure Machine Learning
@@ -212,6 +217,10 @@ When you create a linked service for Key Vault, there's no integration runtime r
 The column **Using private endpoint** is always shown as blank even if you create a private endpoint for HDInsight by using a private link service and a load balancer with port forwarding.
 
 :::image type="content" source="./media/managed-vnet/akv-pe.png" alt-text="Screenshot that shows a private endpoint for Key Vault.":::
+
+### Fully Qualified Domain Name ( FQDN ) of Azure HDInsight
+
+If you created a custom private link service, FQDN should end with **azurehdinsight.net**  without leading *privatelink* in domain name when you create a private end point. If you use privatelink in domain name, make sure it is valid and you are able to resolve it.  
 
 ### Access constraints in managed virtual network with private endpoints
 You're unable to access each PaaS resource when both sides are exposed to Private Link and a private endpoint. This issue is a known limitation of Private Link and private endpoints.

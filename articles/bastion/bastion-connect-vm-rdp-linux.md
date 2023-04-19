@@ -5,7 +5,7 @@ description: Learn how to use Azure Bastion to connect to Linux VM using RDP.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/08/2022
+ms.date: 10/18/2022
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
@@ -35,6 +35,8 @@ In order to make a connection, the following roles are required:
 * Reader role on the virtual machine
 * Reader role on the NIC with private IP of the virtual machine
 * Reader role on the Azure Bastion resource
+* Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
+
 
 ### Ports
 
@@ -49,4 +51,4 @@ To connect to the Linux VM via RDP, you must have the following ports open on yo
 
 ## Next steps
 
-Read the [Bastion FAQ](bastion-faq.md).
+Read the [Bastion FAQ](bastion-faq.md) for more information.

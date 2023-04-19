@@ -2,6 +2,7 @@
 title: Scope on extension resource types (Bicep)
 description: Describes how to use the scope property when deploying extension resource types with Bicep.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 07/12/2022
 ---
 
@@ -16,9 +17,9 @@ This article shows how to set the scope for an extension resource type when depl
 > [!NOTE]
 > The scope property is only available to extension resource types. To specify a different scope for a resource type that isn't an extension type, use a [module](modules.md).
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about extension resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
+If you would rather learn about extension resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/training/modules/child-extension-bicep-templates).
 
 ## Apply at deployment scope
 

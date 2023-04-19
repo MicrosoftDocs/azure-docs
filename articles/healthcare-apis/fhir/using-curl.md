@@ -2,11 +2,11 @@
 title: Access Azure Health Data Services with cURL
 description: This article explains how to access Azure Health Data Services with cURL
 services: healthcare-apis
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 06/06/2022
-ms.author: ginle
+ms.author: kesheth
 ---
 
 # Access the Azure Health Data Services with cURL

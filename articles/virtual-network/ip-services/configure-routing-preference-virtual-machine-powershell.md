@@ -7,7 +7,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
 ms.date: 10/01/2021
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-azurepowershell
 ---
 
 # Tutorial: Configure routing preference for a VM using Azure PowerShell
@@ -107,4 +107,3 @@ Remove-AzResourceGroup -Name 'TutorVMRoutePref-rg'
 Advance to the next article to learn how to create a virtual machine with mixed routing preference:
 > [!div class="nextstepaction"]
 > [Configure both routing preference options for a virtual machine](routing-preference-mixed-network-adapter-portal.md)
-

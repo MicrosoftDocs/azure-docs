@@ -1,22 +1,22 @@
 ---
-title: Create or insert data into Azure Cosmos DB Cassandra API from Spark
-description: This article details how to insert sample data into Azure Cosmos DB Cassandra API tables
+title: Create or insert data into Azure Cosmos DB for Apache Cassandra from Spark
+description: This article details how to insert sample data into Azure Cosmos DB for Apache Cassandra tables
 author: TheovanKraay
 ms.author: thvankra
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 09/24/2018
-
 ---
 
-# Create/Insert data into Azure Cosmos DB Cassandra API from Spark
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# Create/Insert data into Azure Cosmos DB for Apache Cassandra from Spark
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
  
-This article describes how to insert sample data into a table in Azure Cosmos DB Cassandra API from Spark.
+This article describes how to insert sample data into a table in Azure Cosmos DB for Apache Cassandra from Spark.
 
-## Cassandra API configuration
+## API for Cassandra configuration
 Set below spark configuration in your notebook cluster. It's one time activity.
 
 ```scala
@@ -40,7 +40,7 @@ Set below spark configuration in your notebook cluster. It's one time activity.
 ```
 
 > [!NOTE]
-> If you are using Spark 3.x, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
+> If you are using Spark 3.x, you do not need to install the Azure Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
 
 > [!WARNING]
 > The Spark 3 samples shown in this article have been tested with Spark **version 3.2.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.2.0**. Later versions of Spark and/or the Cassandra connector may not function as expected.
@@ -77,7 +77,7 @@ booksDF.show
 > [!NOTE]
 > "Create if not exists" functionality, at a row level, is not yet supported.
 
-### Persist to Azure Cosmos DB Cassandra API
+### Persist to Azure Cosmos DB for Apache Cassandra
 
 When saving data, you can also set time-to-live and consistency policy settings as shown in the following example:
 
@@ -126,9 +126,9 @@ booksRDD.take(2).foreach(println)
 > [!NOTE]
 > Create if not exists functionality is not yet supported.
 
-### Persist to Azure Cosmos DB Cassandra API
+### Persist to Azure Cosmos DB for Apache Cassandra
 
-When saving data to Cassandra API, you can also set time-to-live and consistency policy settings as shown in the following example:
+When saving data to API for Cassandra, you can also set time-to-live and consistency policy settings as shown in the following example:
 
 ```scala
 import com.datastax.spark.connector.writer._
@@ -147,7 +147,7 @@ select * from books;
 
 ## Next steps
 
-After inserting data into the Azure Cosmos DB Cassandra API table, proceed to the following articles to perform other operations on the data stored in Cosmos DB Cassandra API:
+After inserting data into the Azure Cosmos DB for Apache Cassandra table, proceed to the following articles to perform other operations on the data stored in Azure Cosmos DB for Apache Cassandra:
  
 * [Read operations](spark-read-operation.md)
 * [Upsert operations](spark-upsert-operations.md)

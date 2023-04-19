@@ -1,8 +1,8 @@
 ---
 title: Microsoft OPC Publisher command-line arguments
 description: This article provides an overview of the OPC Publisher Command-line Arguments.
-author: jehona-m
-ms.author: jemorina
+author: hansgschossmann
+ms.author: johanng
 ms.service: industrial-iot
 ms.topic: reference
 ms.date: 3/22/2021

@@ -12,11 +12,13 @@ ms.service: storsimple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/23/2018
+ms.date: 08/22/2022
 ms.author: alkohli
 
 ---
 # StorSimple 8000 Series Update 4 release notes
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

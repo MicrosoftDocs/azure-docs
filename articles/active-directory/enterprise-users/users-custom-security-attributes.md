@@ -1,10 +1,11 @@
 ---
-title: Assign or remove custom security attributes for a user (Preview) - Azure Active Directory
-description: Assign or remove custom security attributes for a user in Azure Active Directory. 
+title: Assign, update, list, or remove custom security attributes for a user (Preview)
+description: Assign, update, list, or remove custom security attributes for a user in Azure Active Directory. 
 services: active-directory 
 author: rolyon
+manager: amycolannino
 ms.author: rolyon
-ms.date: 06/24/2022
+ms.date: 02/20/2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -14,13 +15,13 @@ ms.reviewer:
 ms.collection: M365-identity-device-management
 ---
 
-# Assign or remove custom security attributes for a user (Preview)
+# Assign, update, list, or remove custom security attributes for a user (Preview)
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-[Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Azure Active Directory (Azure AD), part of Microsoft Entra, are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. For example, you can assign custom security attribute to filter your employees or to help determine who gets access to resources. This article describes how to assign, update, remove, or filter custom security attributes for Azure AD.
+[Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Azure Active Directory (Azure AD), part of Microsoft Entra, are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. For example, you can assign custom security attribute to filter your employees or to help determine who gets access to resources. This article describes how to assign, update, list, or remove custom security attributes for Azure AD.
 
 ## Prerequisites
 
@@ -35,7 +36,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
     
 ## Assign custom security attributes to a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Make sure that you have defined custom security attributes. For more information, see [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md).
 
@@ -63,7 +64,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 ## Update custom security attribute assignment values for a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Users**.
 
@@ -79,31 +80,17 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 1. When finished, select **Save**.
 
-## Remove custom security attribute assignments from a user
-
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
-
-1. Select **Azure Active Directory** > **Users**.
-
-1. Find and select the user that has the custom security attribute assignments you want to remove.
-
-1. In the Manage section, select **Custom security attributes (preview)**.
-
-1. Add check marks next to all the custom security attribute assignments you want to remove.
-
-1. Select **Remove assignment**.
-
 ## Filter users based on custom security attributes
 
 You can filter the list of custom security attributes assigned to users on the All users page.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Users**.
 
-1. Select **Add filters** to open the Pick a field pane.
+1. Select **Add filter** to open the Add filter pane.
 
-1. For **Filters**, select **Custom security attribute**.
+1. Select **Custom security attributes**.
 
 1. Select your attribute set and attribute name.
 
@@ -115,18 +102,23 @@ You can filter the list of custom security attributes assigned to users on the A
 
 1. To apply the filter, select **Apply**.
 
+## Remove custom security attribute assignments from a user
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select **Azure Active Directory** > **Users**.
+
+1. Find and select the user that has the custom security attribute assignments you want to remove.
+
+1. In the Manage section, select **Custom security attributes (preview)**.
+
+1. Add check marks next to all the custom security attribute assignments you want to remove.
+
+1. Select **Remove assignment**.
+
 ## PowerShell
 
 To manage custom security attribute assignments for users in your Azure AD organization, you can use PowerShell. The following commands can be used to manage assignments.
-
-#### Get the custom security attribute assignments for a user
-
-Use the [Get-AzureADMSUser](/powershell/module/azuread/get-azureadmsuser) command to get the custom security attribute assignments for a user.
-
-```powershell
-$user1 = Get-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -Select CustomSecurityAttributes
-$user1.CustomSecurityAttributes
-```
 
 #### Assign a custom security attribute with a multi-string value to a user
 
@@ -168,25 +160,18 @@ $attributesUpdate = @{
 Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttributes $attributesUpdate 
 ```
 
-## Microsoft Graph API
-
-To manage custom security attribute assignments for users in your Azure AD organization, you can use the Microsoft Graph API. The following API calls can be made to manage assignments. For more information, see [Assign, update, or remove custom security attributes using the Microsoft Graph API](/graph/custom-security-attributes-examples).
-
 #### Get the custom security attribute assignments for a user
 
-Use the [Get a user](/graph/api/user-get?view=graph-rest-beta&preserve-view=true) API to get the custom security attribute assignments for a user.
+Use the [Get-AzureADMSUser](/powershell/module/azuread/get-azureadmsuser) command to get the custom security attribute assignments for a user.
 
-```http
-GET https://graph.microsoft.com/beta/users/{id}?$select=customSecurityAttributes
+```powershell
+$user1 = Get-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -Select CustomSecurityAttributes
+$user1.CustomSecurityAttributes
 ```
 
-If there are no custom security attributes assigned to the user or if the calling principal does not have access, the response will look like:
+## Microsoft Graph API
 
-```http
-{
-    "customSecurityAttributes": null
-}
-```
+To manage custom security attribute assignments for users in your Azure AD organization, you can use the Microsoft Graph API. The following API calls can be made to manage assignments. For more information, see [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples).
 
 #### Assign a custom security attribute with a string value to a user
 
@@ -353,6 +338,61 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
+#### Get the custom security attribute assignments for a user
+
+Use the [Get user](/graph/api/user-get?view=graph-rest-beta&preserve-view=true) API to get the custom security attribute assignments for a user.
+
+```http
+GET https://graph.microsoft.com/beta/users/{id}?$select=customSecurityAttributes
+```
+
+If there are no custom security attributes assigned to the user or if the calling principal does not have access, the response will look like:
+
+```http
+{
+    "customSecurityAttributes": null
+}
+```
+
+#### List all users with a custom security attribute assignment that equals a value
+
+Use the [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true) API to list all users with a custom security attribute assignment that equals a value. The following example retrieves users with a custom security attribute named `AppCountry` with a value that equals `Canada`. The filter value is case sensitive. You must add `ConsistencyLevel=eventual` in the request or the header. You must also include `$count=true` to ensure the request is routed correctly.
+
+- Attribute set: `Marketing`
+- Attribute: `AppCountry`
+- Filter: AppCountry eq 'Canada'
+
+```http
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry eq 'Canada'
+ConsistencyLevel: eventual
+```
+
+#### List all users with a custom security attribute assignment that starts with a value
+
+Use the [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true) API to list all users with a custom security attribute assignment that starts with a value. The following example retrieves users with a custom security attribute named `EmployeeId` with a value that starts with `GS`. The filter value is case sensitive. You must add `ConsistencyLevel=eventual` in the request or the header. You must also include `$count=true` to ensure the request is routed correctly.
+
+- Attribute set: `Marketing`
+- Attribute: `EmployeeId`
+- Filter: EmployeeId startsWith 'GS'
+
+```http
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Marketing/EmployeeId,'GS')
+ConsistencyLevel: eventual
+```
+
+#### List all users with a custom security attribute assignment that does not equal a value
+
+Use the [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true) API to list all users with a custom security attribute assignment that does not equal a value. The following example retrieves users with a custom security attribute named `AppCountry` with a value that does not equal `Canada`. The filter value is case sensitive. You must add `ConsistencyLevel=eventual` in the request or the header. You must also include `$count=true` to ensure the request is routed correctly.
+
+- Attribute set: `Marketing`
+- Attribute: `AppCountry`
+- Filter: AppCountry ne 'Canada'
+
+```http
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry ne 'Canada'
+ConsistencyLevel: eventual
+```
+
 #### Remove a single-valued custom security attribute assignment from a user
 
 Use the [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) API to remove a single-valued custom security attribute assignment from a user by setting the value to null.
@@ -397,42 +437,6 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
-#### Filter all users with an attribute that equals a value
-
-Use the [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true) API to filter all users with an attribute that equals a value. The following example, retrieves users with an `AppCountry` attribute that equals `Canada`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
-
-- Attribute set: `Marketing`
-- Attribute: `AppCountry`
-- Filter: AppCountry eq 'Canada'
-
-```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry%20eq%20'Canada'
-```
-
-#### Filter all users with an attribute that starts with a value
-
-Use the [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true) API to filter all users with an attribute that starts with a value. The following example, retrieves users with an `EmployeeId` attribute that starts with `111`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
-
-- Attribute set: `Marketing`
-- Attribute: `EmployeeId`
-- Filter: EmployeeId startsWith '111'
-
-```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Marketing/EmployeeId,'111')
-```
-
-#### Filter all users with an attribute that does not equal a value
-
-Use the [List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true) API to filter all users with an attribute that does not equal a value. The following example, retrieves users with a `AppCountry` attribute that does not equal `Canada`. This query will also retrieve users that do not have the `AppCountry` attribute assigned. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
-
-- Attribute set: `Marketing`
-- Attribute: `AppCountry`
-- Filter: AppCountry ne 'Canada'
-
-```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry%20ne%20'Canada'
-```
-
 ## Frequently asked questions
 
 **Where are custom security attributes for users supported?**
@@ -470,5 +474,5 @@ No, custom security attributes are not supported in B2C tenants and are not rela
 ## Next steps
 
 - [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md)
-- [Assign or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md)
+- [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md)
 - [Troubleshoot custom security attributes in Azure AD](../fundamentals/custom-security-attributes-troubleshoot.md)

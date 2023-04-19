@@ -22,7 +22,7 @@ You'll need the following:
 - Permission on your Azure subscription to create a storage account and add role assignments.
 - A domain account to join computers to the domain and open an elevated PowerShell prompt.
 - The subscription ID of your Azure subscription where your storage account will be.
-- A computer joined to your domain for installing and running PowerShell modules that will join a storage account to your domain. This device will need to be running a [Supported version of Windows](/powershell/scripting/install/installing-powershell-on-windows.md#supported-versions-of-windows). Alternatively, you can use a session host.
+- A computer joined to your domain for installing and running PowerShell modules that will join a storage account to your domain. This device will need to be running a [Supported version of Windows](/powershell/scripting/install/installing-powershell-on-windows#supported-versions-of-windows). Alternatively, you can use a session host.
 
 > [!IMPORTANT]
 > If users have previously signed in to the session hosts you want to use, local profiles will have been created for them and must be deleted first by an administrator for their profile to be stored in a Profile Container.
@@ -102,7 +102,7 @@ To use Active Directory accounts for the share permissions of your file share, y
    ```
 
    > [!TIP]
-   > If your Azure account has access to multiple tenants and/or subscriptions, you will need to select the correct subscription by setting your context. For more information, see [Azure PowerShell context objects](/powershell/azure/context-persistence.md)
+   > If your Azure account has access to multiple tenants and/or subscriptions, you will need to select the correct subscription by setting your context. For more information, see [Azure PowerShell context objects](/powershell/azure/context-persistence)
 
 1. Join the storage account to your domain by running the commands below, replacing the values for `$subscriptionId`, `$resourceGroupName`, and `$storageAccountName` with your values. You can also add the parameter `-OrganizationalUnitDistinguishedName` to specify an Organizational Unit (OU) in which to place the computer account.
  
@@ -140,7 +140,7 @@ To use Active Directory accounts for the share permissions of your file share, y
 
 1. In the box for **Azure Active Directory Domain Services**, select **Set up**.
 
-1. Tick the box to **Enable Azure Active Directory Domain Services (Azure AD DS) for this file share**, then select **Save**. An Organizational Unit (OU) called **AzureFilesConfig** will be created at the root of your domain and a computer account named the same as the storage account will be created in that OU. 
+1. Tick the box to **Enable Azure Active Directory Domain Services (Azure AD DS) for this file share**, then select **Save**. An Organizational Unit (OU) called **AzureFilesConfig** will be created at the root of your domain and a user account named the same as the storage account will be created in that OU. This account will be used as the Azure Files service account.
 
 ---
 
@@ -195,10 +195,10 @@ To set the correct NTFS permissions on the folder:
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ(truncated)== /user:Azure\fsprofile
      ```
 
-1. Run the following commands to set permissions on the share that allow your Azure Virtual Desktop users to create their own profile while blocking access to the profiles of other users. You should use an Active Directory security group that contains the users you want to use Profile Container. In the commands below, replace `<mounted-drive-letter>` with the letter of the drive you used to map the drive and `<upn>` with the UPN name of the Active Directory group or user that will require access to the share.
+1. Run the following commands to set permissions on the share that allow your Azure Virtual Desktop users to create their own profile while blocking access to the profiles of other users. You should use an Active Directory security group that contains the users you want to use Profile Container. In the commands below, replace `<mounted-drive-letter>` with the letter of the drive you used to map the drive and `<DOMAIN\GroupName>` with the domain and sAMAccountName of the Active Directory group that will require access to the share. You can also specify the user principal name (UPN) of a user.
 
    ```cmd
-   icacls <mounted-drive-letter>: /grant "<upn>:(M)"
+   icacls <mounted-drive-letter>: /grant "<DOMAIN\GroupName>:(M)"
    icacls <mounted-drive-letter>: /grant "Creator Owner:(OI)(CI)(IO)(M)"
    icacls <mounted-drive-letter>: /remove "Authenticated Users"
    icacls <mounted-drive-letter>: /remove "Builtin\Users"
@@ -207,7 +207,7 @@ To set the correct NTFS permissions on the folder:
    For example:
 
    ```cmd
-   icacls y: /grant "avdusers@contoso.com:(M)"
+   icacls y: /grant "CONTOSO\AVDUsers:(M)"
    icacls y: /grant "Creator Owner:(OI)(CI)(IO)(M)"
    icacls y: /remove "Authenticated Users"
    icacls y: /remove "Builtin\Users"
@@ -239,7 +239,7 @@ You have now finished the setting up Profile Container. If you are installing Pr
 
 ## Validate profile creation 
 
-Once you've installed and configured Profile Container, you can test your deployment by signing in with a user account that's been assigned an app group or desktop on the host pool. 
+Once you've installed and configured Profile Container, you can test your deployment by signing in with a user account that's been assigned an application group or desktop on the host pool. 
 
 If the user has signed in before, they'll have an existing local profile that they'll use during this session. Either delete the local profile first, or create a new user account to use for tests.
 

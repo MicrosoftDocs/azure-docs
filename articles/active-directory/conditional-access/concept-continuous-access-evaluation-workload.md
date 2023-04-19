@@ -4,13 +4,13 @@ description: Respond to changes to applications with continuous access evaluatio
 
 services: active-directory
 ms.service: active-directory
-ms.subservice: conditional-access
+ms.subservice: workload-identities
 ms.topic: conceptual
 ms.date: 07/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: vmahtani
 
 ms.collection: M365-identity-device-management

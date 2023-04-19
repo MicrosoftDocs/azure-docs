@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure HelloID for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure HelloID for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to HelloID.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: ffd450a5-03ec-4364-8921-5c468e119c4d
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

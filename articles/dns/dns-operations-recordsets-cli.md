@@ -1,15 +1,15 @@
 ---
 title: Manage DNS records in Azure DNS using the Azure CLI
 description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS.
-author: rohinkoul
+author: greg-lindsay
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ms.workload: infrastructure-services
-ms.date: 04/28/2021
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 ---
 
 # Manage DNS records and recordsets in Azure DNS using the Azure CLI
@@ -191,7 +191,7 @@ To remove a DNS record from an existing record set, use `az network dns record-s
 
 This command deletes a DNS record from a record set. If the last record in a record set is deleted, the record set itself is also deleted. To keep the empty record set instead, use the `--keep-empty-record-set` option.
 
-When using the `az network dns record-set <record-type> add-record` command, you need to specify the record getting deleted and the zone to delete from. These parameters are described in [Create a DNS record](#create-a-dns-record) and [Create records of other types](#create-records-of-other-types) above.
+When you use the `az network dns record-set <record-type> add-record` command, you need to specify the record getting deleted and the zone to delete from. These parameters are described in [Create a DNS record](#create-a-dns-record) and [Create records of other types](#create-records-of-other-types) above.
 
 The following example deletes the A record with value '1.2.3.4' from the record set named *www* in the zone *contoso.com*, in the resource group *MyResourceGroup*.
 

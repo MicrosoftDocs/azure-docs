@@ -9,8 +9,7 @@ manager: barbkess
 editor: ''
 
 ms.assetid:
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: app-service
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na

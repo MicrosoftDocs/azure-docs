@@ -1,6 +1,6 @@
 ---
-author: mmacy
-ms.author: marsma
+author: davidmu1
+ms.author: davidmu
 ms.date: 03/04/2021
 ms.service: active-directory
 ms.subservice: develop

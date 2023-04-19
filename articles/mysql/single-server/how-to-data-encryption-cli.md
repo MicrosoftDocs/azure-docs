@@ -7,12 +7,14 @@ author: mksuni
 ms.author: sumuth
 ms.topic: how-to
 ms.date: 06/20/2022
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 
 # Data encryption for Azure Database for MySQL by using the Azure CLI
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Learn how to use the Azure CLI to set up and manage data encryption for your Azure Database for MySQL.
 
@@ -283,4 +285,3 @@ Additionally, you can use Azure Resource Manager templates to enable data encryp
 * [Validating data encryption for Azure Database for MySQL](how-to-data-encryption-validation.md)
 * [Troubleshoot data encryption in Azure Database for MySQL](how-to-data-encryption-troubleshoot.md)
 * [Data encryption with customer-managed key concepts](concepts-data-encryption-mysql.md).
-

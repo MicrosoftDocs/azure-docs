@@ -1,7 +1,7 @@
 ---
-title: "Recipe: Predictive maintenance with the Cognitive Services for Big Data"
+title: "Recipe: Predictive maintenance with the Cognitive Services for big data"
 titleSuffix: Azure Cognitive Services
-description: This quickstart shows how to perform distributed anomaly detection with the Cognitive Services for Big Data
+description: This quickstart shows how to perform distributed anomaly detection with the Cognitive Services for big data
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.devlang: python
-ms.custom: devx-track-python
+ms.custom: devx-track-python, ignite-2022
 ---
 
-# Recipe: Predictive maintenance with the Cognitive Services for Big Data
+# Recipe: Predictive maintenance with the Cognitive Services for big data
 
-This recipe shows how you can use Azure Synapse Analytics and Cognitive Services on Apache Spark for predictive maintenance of IoT devices. We'll follow along with the [CosmosDB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample. To keep things simple, in this recipe we'll read the data straight from a CSV file rather than getting streamed data through CosmosDB and Synapse Link. We strongly encourage you to look over the Synapse Link sample.
+This recipe shows how you can use Azure Synapse Analytics and Cognitive Services on Apache Spark for predictive maintenance of IoT devices. We'll follow along with the [Azure Cosmos DB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample. To keep things simple, in this recipe we'll read the data straight from a CSV file rather than getting streamed data through Azure Cosmos DB and Synapse Link. We strongly encourage you to look over the Synapse Link sample.
 
 ## Hypothetical scenario
 
@@ -147,4 +147,4 @@ If successful, your output will look like this:
 
 ## Next steps
 
-Learn how to do predictive maintenance at scale with Azure Cognitive Services, Azure Synapse Analytics, and Azure CosmosDB. For more information, see the full sample on [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples).
+Learn how to do predictive maintenance at scale with Azure Cognitive Services, Azure Synapse Analytics, and Azure Cosmos DB. For more information, see the full sample on [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples).

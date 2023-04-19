@@ -4,11 +4,11 @@ metadata:
   description: This document describes frequently asked questions for cloud sync.
   services: active-directory
   author: billmath
-  manager: karenhoran
+  manager: amycolannino
   ms.service: active-directory
   ms.workload: identity
   ms.topic: faq
-  ms.date: 12/13/2021
+  ms.date: 02/08/2023
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management

@@ -5,12 +5,12 @@ author: alkohli
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/19/2022
 ms.author: alkohli
 ---
 # StorSimple Virtual Array system requirements
 
-[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
 
 ## Overview
 
@@ -24,7 +24,6 @@ The system requirements include:
 The StorSimple system requirements information published in this article applies to StorSimple Virtual Arrays only.
 
 * For 8000 series devices, go to [System requirements for your StorSimple 8000 series device](./storsimple-8000-system-requirements.md).
-* For 7000 series devices, go to [System requirements for your StorSimple 5000-7000 series device](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
 ## Software requirements
 The software requirements include the information on the supported web browsers, SMB versions, virtualization platforms and the minimum virtual device requirements.

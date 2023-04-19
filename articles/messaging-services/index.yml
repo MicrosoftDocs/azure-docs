@@ -8,19 +8,15 @@ metadata:
   title: Azure messaging services documentation
   description: Learn how to use Azure Event Grid, Azure Event Hubs, Azure Service Bus, and Azure Relay to deliver event messages.
   services: multiple
-  ms.service: multiple
+  ms.service: event-grid 
   ms.topic: hub-page
   author: spelluru
   ms.author: spelluru
-  ms.date: 03/15/2020
+  ms.date: 11/17/2022
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
-    # Card
-    - title: Choose between Azure messaging services
-      itemType: overview
-      url: ../event-grid/compare-messaging-services.md
     # Card
     - title: What is Event Grid?
       itemType: overview

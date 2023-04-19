@@ -1,10 +1,10 @@
 ---
-title: Security alerts for Azure AD roles in PIM - Azure AD | Microsoft Docs
+title: Security alerts for Azure AD roles in PIM
 description: Configure security alerts for Azure AD roles Privileged Identity Management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory

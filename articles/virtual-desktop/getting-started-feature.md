@@ -11,7 +11,7 @@ ms.custom: mode-portal
 
 # Deploy Azure Virtual Desktop with the getting started feature
 
-You can quickly deploy Azure Virtual Desktop with the *getting started* feature in the Azure portal. This can be used in smaller scenarios with a few users and apps, or you can use it to evaluate Azure Virtual Desktop in larger enterprise scenarios. It works with existing Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS) deployments, or it can deploy Azure AD DS for you. Once you've finished, a user will be able to sign in to a full virtual desktop session, consisting of one host pool (with one or more session hosts), one app group, and one user. To learn about the terminology used in Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
+You can quickly deploy Azure Virtual Desktop with the *getting started* feature in the Azure portal. This can be used in smaller scenarios with a few users and apps, or you can use it to evaluate Azure Virtual Desktop in larger enterprise scenarios. It works with existing Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS) deployments, or it can deploy Azure AD DS for you. Once you've finished, a user will be able to sign in to a full virtual desktop session, consisting of one host pool (with one or more session hosts), one application group, and one user. To learn about the terminology used in Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
 
 Joining session hosts to Azure Active Directory with the getting started feature is not supported. If you want to want to join session hosts to Azure Active Directory, follow the [tutorial to create a host pool](create-host-pools-azure-marketplace.md).
 
@@ -237,7 +237,7 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
 
 ## Connect to the desktop
 
-Once the deployment has completed successfully, if you created a test account or assigned an existing user during deployment, you can connect to it following the steps for one of the supported Remote Desktop clients. For example, you can follow the steps to [Connect with the Windows Desktop client](user-documentation/connect-windows-7-10.md).
+Once the deployment has completed successfully, if you created a test account or assigned an existing user during deployment, you can connect to it following the steps for one of the supported Remote Desktop clients. For example, you can follow the steps to [Connect with the Windows Desktop client](users/connect-windows.md).
 
 If you didn't create a test account or assigned an existing user during deployment, you'll need to add users to the **AVDValidationUsers** security group before you can connect.
 
@@ -341,6 +341,6 @@ To delete the resource groups:
 
 ## Next steps
 
-If you want to publish apps as well as the full virtual desktop, see the tutorial to [Manage app groups with the Azure portal](manage-app-groups.md).
+If you want to publish apps as well as the full virtual desktop, see the tutorial to [Manage application groups with the Azure portal](manage-app-groups.md).
 
 If you'd like to learn how to deploy Azure Virtual Desktop in a more in-depth way, with less permission required, or programmatically, check out our series of tutorials, starting with [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).

@@ -1,10 +1,10 @@
 ---
-title: Approve requests for Azure resource roles in PIM - Azure AD | Microsoft Docs
+title: Approve requests for Azure resource roles in PIM
 description: Learn how to approve or deny requests for Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na

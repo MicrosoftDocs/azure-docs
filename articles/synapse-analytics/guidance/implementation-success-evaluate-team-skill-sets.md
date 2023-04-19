@@ -1,8 +1,8 @@
 ---
 title: "Synapse implementation success methodology: Evaluate team skill sets"
 description: "Learn how to evaluate your team of skilled resources that will implement your Azure Synapse solution."
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -132,9 +132,9 @@ The *Azure DevOps engineer* is responsible for designing and implementing strate
 
 ## Learning resources and certifications
 
-If you're interested to learn about Microsoft Certifications that may help assess your team's readiness, browse the available certifications for [Azure Synapse Analytics](/learn/certifications/browse/?expanded=azure&products=azure-synapse-analytics).
+If you're interested to learn about Microsoft Certifications that may help assess your team's readiness, browse the available certifications for [Azure Synapse Analytics](/certifications/browse/?expanded=azure&products=azure-synapse-analytics).
 
-To complete online, self-paced training, browse the available learning paths and modules for [Azure Synapse Analytics](/learn/browse/?filter-products=synapse&products=azure-synapse-analytics).
+To complete online, self-paced training, browse the available learning paths and modules for [Azure Synapse Analytics](/training/browse/?filter-products=synapse&products=azure-synapse-analytics).
 
 ## Next steps
 

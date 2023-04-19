@@ -1,10 +1,10 @@
 ---
-title: Renew Azure AD role assignments in PIM - Azure Active Directory | Microsoft Docs
+title: Renew Azure AD role assignments in PIM
 description: Learn how to extend or renew Azure Active Directory role assignments in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity

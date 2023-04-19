@@ -4,12 +4,11 @@ description: Learn about troubleshooting Azure Windows VM extension failures
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: devx-track-arm-template
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: windows
 ms.date: 03/29/2016 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Troubleshooting Azure Windows VM extension failures
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -162,6 +161,9 @@ It could happen that you're creating an Azure VM based on a specialized Disk com
 The same can happen when you create a generalized image from an existing Azure VM. We invite you to remove extensions to avoid inconsistent state from the extensions.
 
 
+## Known issues
+
+
 ### PowerShell isn't recognized as an internal or external command
 
 You notice the following error entries in the RunCommand extension's output:
@@ -248,10 +250,5 @@ Your VM is probably missing the Baltimore CyberTrust Root certificate in "Truste
 **Solution**
 
 Open the certificates console with certmgr.msc, and check if the certificate is there.
-If it's not, please install it from https://cacert.omniroot.com/bc2025.crt
 
 Another possible issue is that the certificate chain is broken by a third party SSL Inspection tool, like ZScaler. That kind of tool should be configured to bypass SSL inspection.
-
-
-
-

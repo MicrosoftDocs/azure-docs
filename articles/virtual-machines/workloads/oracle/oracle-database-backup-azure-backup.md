@@ -4,12 +4,12 @@ description: Learn how to back up and recover an Oracle Database using the Azure
 author: cro27
 ms.service: virtual-machines
 ms.subservice: oracle
+ms.custom: devx-track-azurecli
 ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar 
-
 ---
 
 # Back up and recover an Oracle Database on an Azure Linux VM using Azure Backup
@@ -24,7 +24,7 @@ This article demonstrates the use of Azure Backup to take disk snapshots of the 
 > * Restore and recover the database from a recovery point
 > * Restore the VM from from a recovery point
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 12.1 or higher.
 
@@ -84,7 +84,7 @@ Perform the following steps for each database on the VM:
 1. Before you connect, you need to set the environment variable ORACLE_SID by running the `oraenv` script which will prompt you to enter the ORACLE_SID name:
     
     ```bash
-    $ . oraenv
+    . oraenv
     ```
 
 1.   Add the Azure Files share as an additional database archive log file destination
@@ -775,7 +775,7 @@ Later in this article, you'll learn how to test the recovery process. Before you
     >
 
     ```bash
-    $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
+    scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
     ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -808,7 +808,7 @@ Replace myRecoveryPointName with the name of the recovery point that you obtaine
 
 The script is downloaded and a password is displayed, as in the following example:
 
-```bash
+```output
    File downloaded: vmoracle19c_eus_4598131610710119312_456133188157_6931c635931f402eb543ee554e1cf06f102c6fc513d933.py. Use password c4487e40c760d29
 ```
 
@@ -821,7 +821,7 @@ The following example shows how you to use a secure copy (scp) command to move t
 >
 
 ```bash
-$ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
+scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
 ```
 ---
 
@@ -897,7 +897,7 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
 
     To exit, enter **q**, and then search for the mounted volumes. To create a list of the added volumes, at a command prompt, enter **df -h**.
     
-    ```
+    ```output
     [root@vmoracle19c restore]# df -h
     Filesystem      Size  Used Avail Use% Mounted on
     devtmpfs        3.8G     0  3.8G   0% /dev
@@ -942,8 +942,8 @@ Now the database has been restored you must recover the database. Please follow 
 1. You may find that the instance is running as the auto start has attempted to start the database on VM boot. However the database requires recovery and is likely to be at mount stage only, so a preparatory shutdown is run first followed by starting to mount stage.
 
     ```bash
-    $ sudo su - oracle
-    $ sqlplus / as sysdba
+    sudo su - oracle
+    sqlplus / as sysdba
     SQL> shutdown immediate
     SQL> startup mount
     ```
@@ -1052,7 +1052,7 @@ Now the database has been restored you must recover the database. Please follow 
    ```
    Copy the logfile path and file name for the CURRENT online log, in this example it is `/u02/oradata/ORATEST1/redo01.log`. Switch back to the ssh session running the recover command, input the logfile information and press return:
 
-   ```bash
+   ```output
    Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
    /u02/oradata/ORATEST1/redo01.log
    ```
@@ -1083,7 +1083,7 @@ Now the database has been restored you must recover the database. Please follow 
 
 1. Unmount the restore point.
 
-   When all databases on the VM have been successfully recovered you may unmount the restore point. This can be done on the VM using the `unmount` command or in Azure portal from the File Recovery blade. You can also unmount the recovery volumes by running the python script again with the **-clean** option.
+   When all databases on the VM have been successfully recovered you may unmount the restore point. This can be done on the VM using the `unmount` command or in Azure portal from the File Recovery blade. You can also unmount the recovery volumes by running the Python script again with the **-clean** option.
 
    In the VM using unmount:
    ```bash

@@ -20,10 +20,10 @@ To test your deployed models within [Language Studio](https://aka.ms/LanguageStu
 
 4. Select the deployment you want to query/test from the dropdown.
 
-5. Enter the text you want to submit in the request, or upload a `.txt` document to use.
+5. Enter the text you want to submit in the request, or upload a `.txt` document to use. If you’re using one of the example datasets, you can use one of the included .txt files.
 
 6. Click on **Run the test** from the top menu.
 
-7. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab. The following example is for a multi label classification project. A single label classification project will only return one class in the result. 
+7. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab. The following example is for a single label classification project. A multi label classification project can return more than one class in the result. 
 
-    :::image type="content" source="../../media/test-model-results.png" alt-text="A screenshot showing model test results for a multi label classification project. The example is from CMU Movie Summary, CC BY-SA 3.0, modified by Microsoft" lightbox="../../media/test-model-results.png":::
+    :::image type="content" source="../../media/test-model-results.png" alt-text="A screenshot showing model test results for a single label classification project." lightbox="../../media/test-model-results.png":::

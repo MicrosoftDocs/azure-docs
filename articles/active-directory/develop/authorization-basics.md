@@ -4,16 +4,14 @@ description: Learn about the basics of authorization in the Microsoft identity p
 services: active-directory
 author: davidmu1
 manager: CelesteDG
- 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity 
-ms.date: 06/16/2022
+ms.date: 01/06/2023
 ms.custom: template-concept
 ms.author: davidmu
-ms.reviewer: johngarland, mamarxen, ianbe, marsma
-
+ms.reviewer: johngarland, mamarxen, ianbe
 #Customer intent: As an application developer, I want to understand the basic concepts of authorization in the Microsoft identity platform.
 ---
 
@@ -60,7 +58,7 @@ One method for achieving ABAC with Azure Active Directory is using [dynamic grou
 
 Authorization logic is often implemented within the applications or solutions where access control is required. In many cases, application development platforms offer middleware or other API solutions that simplify the implementation of authorization. Examples include use of the [AuthorizeAttribute](/aspnet/core/security/authorization/simple?view=aspnetcore-5.0&preserve-view=true) in ASP.NET or [Route Guards](./scenario-spa-sign-in.md?tabs=angular2#sign-in-with-a-pop-up-window) in Angular.
 
-For authorization approaches that rely on information about the authenticated entity, an application evaluates information exchanged during authentication. For example, by using the information that was provided within a [security token](./security-tokens.md)). For information not contained in a security token, an application might make extra calls to external resources.
+For authorization approaches that rely on information about the authenticated entity, an application evaluates information exchanged during authentication. For example, by using the information that was provided within a [security token](./security-tokens.md). For information not contained in a security token, an application might make extra calls to external resources.
 
 It's not strictly necessary for developers to embed authorization logic entirely within their applications. Instead, dedicated authorization services can be used to centralize authorization implementation and management.
 

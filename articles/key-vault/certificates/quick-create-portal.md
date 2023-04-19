@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 03/24/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
 ---

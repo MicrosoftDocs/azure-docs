@@ -1,11 +1,11 @@
 ---
 title: 'Troubleshoot Azure Managed Grafana'
 description: Troubleshoot Azure Managed Grafana issues related to fetching data, managing Managed Grafana dashboards, speed and more.
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.topic: troubleshooting
 ms.service: managed-grafana
-ms.date: 07/06/2022
+ms.date: 09/13/2022
 ---
 
 # Troubleshoot issues for Azure Managed Grafana
@@ -47,7 +47,7 @@ If you get an error while filling out the form to create the Managed Grafana ins
 Enter a name that:
 
 - Is unique in the entire Azure region. It can't already be used by another user.
-- Is 30 characters long or smaller
+- Is 23 characters long or smaller
 - Begins with a letter. The rest can only be alphanumeric characters or hyphens, and the name must end with an alphanumeric character.
 
 ### Solution 2: review deployment error
@@ -205,7 +205,15 @@ To check if your Managed Grafana instance already has a dashboard with the same 
 1. Rename the old or the new dashboard.
 1. You can also edit the UID of a JSON dashboard before importing it by editing the field named **uid** in the JSON file.
 
+## Nothing changes after updating the managed identity role assignment
+
+After disabling System-Assigned Managed Identity, the data source that has been configured with Managed Identity can still access the data from Azure services.
+
+### Solution: wait for the change to take effect
+
+Data sources configured with a managed identity may still be able to access data from Azure services for up to 24 hours. When a role assignment is updated in a managed identity for Azure Managed Grafana, this change can take up to 24 hours to be effective, due to limitations of managed identities.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure data sources](./how-to-data-source-plugins-managed-identity.md)
+> [Support](./find-help-open-support-ticket.md)

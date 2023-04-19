@@ -12,10 +12,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2016
+ms.date: 08/19/2022
 ms.author: manuaery
 ---
 # Use the device summary blade for StorSimple Device Manager connected to StorSimple Virtual Array
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
 
 ## Overview
 

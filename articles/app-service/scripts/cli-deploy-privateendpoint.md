@@ -4,6 +4,7 @@ description: Learn how to use the Azure CLI to deploy Private Endpoint for your 
 author: ericgre
 ms.assetid: a56faf72-7237-41e7-85ce-da8346f2bcaa
 ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: ericg
@@ -18,7 +19,7 @@ This sample script creates an app in App Service with its related resources, and
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

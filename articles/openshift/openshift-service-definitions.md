@@ -3,8 +3,8 @@ title: Azure Red Hat OpenShift service definition
 description: Azure Red Hat OpenShift service definition
 ms.service: azure-redhat-openshift
 ms.topic: article
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.date: 02/01/2022
 keywords: azure, openshift, aro, red hat, service, definition
 #Customer intent: I need to understand Azure Red Hat OpenShift service definitions to manage my subscription.

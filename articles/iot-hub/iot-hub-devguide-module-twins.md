@@ -1,12 +1,12 @@
 ---
-title: Understand Azure IoT Hub module twins | Microsoft Docs
-description: Developer guide - use module twins to synchronize state and configuration data between IoT Hub and your devices
+title: Understand Azure IoT Hub module twins
+description: This article describes how to use module twins to synchronize state and configuration data between IoT Hub and your devices
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 04/27/2022
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: concept-article
+ms.date: 04/27/2022
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -327,4 +327,4 @@ The module app can ignore all notifications with `$version` less or equal than t
 
 To try out some of the concepts described in this article, see the following IoT Hub tutorials:
 
-* [Get started with IoT Hub module identity and module twin using .NET back end and .NET device](iot-hub-csharp-csharp-module-twin-getstarted.md)
+* [Get started with IoT Hub module identity and module twin using .NET back end and .NET device](module-twins-dotnet.md)

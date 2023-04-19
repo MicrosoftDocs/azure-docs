@@ -4,13 +4,14 @@ description: A tutorial that walks you through the process of using a Linux VM s
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor: daveba
 
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
+ms.custom: devx-track-arm-template
 ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn

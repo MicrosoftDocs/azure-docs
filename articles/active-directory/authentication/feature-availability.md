@@ -6,12 +6,13 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 04/13/2023
+
 
 ms.author: justinha
 author: justinha
-manager: daveba
-ms.reviewer: michmcla
+manager: amycolannino
+ms.reviewer: mattsmith
 ms.collection: M365-identity-device-management
 ---
 
@@ -28,8 +29,9 @@ This following tables list Azure AD feature availability in Azure Government.
 |**Authentication, single sign-on, and MFA**|Cloud authentication (Pass-through authentication, password hash synchronization) | &#x2705; |
 || Federated authentication (Active Directory Federation Services or federation with other identity providers) | &#x2705; |
 || Single sign-on (SSO) unlimited | &#x2705; | 
-|| Multifactor authentication (MFA) | Hardware OATH tokens are not available. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address. Microsoft Authenticator only shows GUID and not UPN for compliance reasons. | 
+|| Multifactor authentication (MFA) | &#x2705; | 
 || Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | &#x2705; | 
+|| Certificate-based authentication | &#x2705; | 
 || Service-level agreement | &#x2705; | 
 |**Applications access**|SaaS apps with modern authentication (Azure AD application gallery apps, SAML, and OAUTH 2.0) | &#x2705; | 
 || Group assignment to applications | &#x2705; | 
@@ -69,9 +71,9 @@ This following tables list Azure AD feature availability in Azure Government.
 || Advanced security and usage reports | &#x2705; |
 || Identity Protection: vulnerabilities and risky accounts | &#x2705; |
 || Identity Protection: risk events investigation, SIEM connectivity | &#x2705; |
-|**Frontline workers**|SMS sign-in | Feature not available. |
-|| Shared device sign-out | Enterprise state roaming for Windows 10 devices is not available. |
-|| Delegated user management portal (My Staff) | Feature not available. |
+|**Frontline workers**|SMS sign-in | &#x2705; |
+|| Shared device sign-out | Enterprise state roaming for Windows 10 devices isn't available. |
+|| Delegated user management portal (My Staff) | &#10060; |
 
 
 ## Identity protection
@@ -79,11 +81,11 @@ This following tables list Azure AD feature availability in Azure Government.
 | Risk Detection | Availability |
 |----------------|:--------------------:|
 |Leaked credentials (MACE) | &#x2705; |
-|Azure AD threat intelligence | Feature not available. |
+|Azure AD threat intelligence | &#10060; |
 |Anonymous IP address | &#x2705; | 
 |Atypical travel | &#x2705; |
-|Anomalous Token | Feature not available. |
-|Token Issuer Anomaly| Feature not available. |
+|Anomalous Token | &#x2705; |
+|Token Issuer Anomaly| &#x2705; |
 |Malware linked IP address | &#x2705; |
 |Suspicious browser | &#x2705; |
 |Unfamiliar sign-in properties | &#x2705; |
@@ -95,7 +97,6 @@ This following tables list Azure AD feature availability in Azure Government.
 |New country | &#x2705; |
 |Activity from anonymous IP address | &#x2705; |
 |Suspicious inbox forwarding | &#x2705; |
-|Azure AD threat intelligence | Feature not available. |
 |Additional risk detected | &#x2705; |
 
 

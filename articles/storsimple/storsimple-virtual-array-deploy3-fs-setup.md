@@ -12,16 +12,17 @@ ms.service: storsimple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/25/2019
+ms.date: 08/19/2022
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ---
 # Deploy StorSimple Virtual Array - Set up as file server via Azure portal
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
+
 ![Diagram showing the steps needed to deploy a virtual array. The first part of the third step is labeled Set up as file server and is highlighted.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
 ## Introduction
-
-[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
 

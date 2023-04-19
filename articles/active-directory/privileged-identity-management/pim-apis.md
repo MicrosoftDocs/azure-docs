@@ -1,10 +1,10 @@
 ---
-title: API concepts in Privileged Identity management - Azure AD | Microsoft Docs
+title: API concepts in Privileged Identity management
 description: Information for understanding the APIs in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -46,7 +46,7 @@ Currently in general availability, this is the final iteration of the PIM API. B
 - Supporting app-only permissions.
 - New features such as approval and email notification configuration.
 
-In the current iteration, there is no API support for PIM alerts and privileged access groups.
+In the current iteration, there is no API support for PIM alerts and PIM for Groups.
 
 ## Current permissions required
 

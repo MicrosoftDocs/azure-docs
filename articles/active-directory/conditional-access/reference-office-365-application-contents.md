@@ -1,5 +1,5 @@
 ---
-title: Office 365 App in Conditional Access reference - Azure Active Directory
+title: Office 365 App in Conditional Access reference
 description: What are all of the services included in the Office 365 app in Azure AD Conditional Access
 
 services: active-directory
@@ -10,7 +10,7 @@ ms.date: 02/08/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management

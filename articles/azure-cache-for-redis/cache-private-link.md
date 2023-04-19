@@ -5,6 +5,7 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.service: cache
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 02/28/2022
 ---
@@ -20,6 +21,9 @@ You can restrict public access to the private endpoint of your cache by disablin
 >[!Important]
 > There is a `publicNetworkAccess` flag which is `Disabled` by default.
 > You can set the value to `Disabled` or `Enabled`. When set to enabled, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
+
+>[!Important]
+> Private endpoint is supported on cache tiers Basic, Standard, Premium, and Enterprise. We recommend using private endpoint instead of VNets. Private endpoints are easy to set up or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.
 >
 >
 
@@ -187,9 +191,9 @@ To create a private endpoint, follow these steps.
 1. In the **Resource** tab, select your subscription, choose the resource type as `Microsoft.Cache/Redis`, and then select the cache you want to connect the private endpoint to.
 
 1. Select the **Next: Configuration** button at the bottom of the page.
-
+1. Select the **Next: Virtual Network** button at the bottom of the page.
 1. In the **Configuration** tab, select the virtual network and subnet you created in the previous section.
-
+1. In the **Virtual Network** tab, select the virtual network and subnet you created in the previous section.
 1. Select the **Next: Tags** button at the bottom of the page.
 
 1. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource.

@@ -3,15 +3,16 @@ title: Manage instances in Durable Functions - Azure
 description: Learn how to manage instances in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, java, javascript, python
+ms.custom: ignite-2022
 #Customer intent: As a developer, I want to understand the options provided for managing my Durable Functions orchestration instances, so I can keep my orchestrations running efficiently and make improvements.
 ---
 
 # Manage instances in Durable Functions in Azure
 
-Orchestrations in Durable Functions are long-running stateful functions that can be started, queried, and terminated using built-in management APIs. Several other instance management APIs are also exposed by the Durable Functions [orchestration client binding](durable-functions-bindings.md#orchestration-client), such as sending external events to instances, purging instance history, etc. This article goes into the details of all supported instance management operations.
+Orchestrations in Durable Functions are long-running stateful functions that can be started, queried, suspended, resumed, and terminated using built-in management APIs. Several other instance management APIs are also exposed by the Durable Functions [orchestration client binding](durable-functions-bindings.md#orchestration-client), such as sending external events to instances, purging instance history, etc. This article goes into the details of all supported instance management operations.
 
 ## Start instances
 
@@ -206,7 +207,7 @@ The method returns an object with the following properties:
 * **LastUpdatedTime**: The time at which the orchestration last checkpointed.
 * **Input**: The input of the function as a JSON value. This field isn't populated if `showInput` is false.
 * **CustomStatus**: Custom orchestration status in JSON format.
-* **Output**: The output of the function as a JSON value (if the function has completed). If the orchestrator function failed, this property includes the failure details. If the orchestrator function was terminated, this property includes the reason for the termination (if any).
+* **Output**: The output of the function as a JSON value (if the function has completed). If the orchestrator function failed, this property includes the failure details. If the orchestrator function was suspended or terminated, this property includes the reason for the suspension or termination (if any).
 * **RuntimeStatus**: One of the following values:
   * **Pending**: The instance has been scheduled but has not yet started running.
   * **Running**: The instance has started running.
@@ -214,6 +215,7 @@ The method returns an object with the following properties:
   * **ContinuedAsNew**: The instance has restarted itself with a new history. This state is a transient state.
   * **Failed**: The instance failed with an error.
   * **Terminated**: The instance was stopped abruptly.
+  * **Suspended**: The instance was suspended and may be resumed at a later point in time.
 * **History**: The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`.
 
 > [!NOTE]
@@ -598,7 +600,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     client = df.DurableOrchestrationClient(starter)
 
     reason = "Found a bug"
-    return client.terminate(instance_id, reason)
+    return await client.terminate(instance_id, reason)
 ```
 
 # [Java](#tab/java)
@@ -620,6 +622,46 @@ A terminated instance will eventually transition into the `Terminated` state. Ho
 
 > [!NOTE]
 > Instance termination doesn't currently propagate. Activity functions and sub-orchestrations run to completion, regardless of whether you've terminated the orchestration instance that called them.
+
+## Suspend and Resume instances (preview)
+
+Suspending an orchestration allows you to stop a running orchestration. Unlike with termination, you have the option to resume a suspended orchestrator at a later point in time.
+
+The two parameters for the suspend API are an instance ID and a reason string, which are written to logs and to the instance status.
+
+# [C#](#tab/csharp)
+
+```csharp
+[FunctionName("SuspendResumeInstance")]
+public static async Task Run(
+    [DurableClient] IDurableOrchestrationClient client,
+    [QueueTrigger("suspend-resume-queue")] string instanceId)
+{
+    string suspendReason = "Need to pause workflow";
+    await client.SuspendAsync(instanceId, suspendReason);
+    
+    // ... wait for some period of time since suspending is an async operation...
+    
+    string resumeReason = "Continue workflow";
+    await client.ResumeAsync(instanceId, resumeReason);
+}
+```
+
+# [JavaScript](#tab/javascript)
+> [!NOTE]
+> This feature is currently not supported in JavaScript.
+# [Python](#tab/python)
+> [!NOTE]
+> This feature is currently not supported in Python.
+# [Java](#tab/java)
+> [!NOTE]
+> This feature is currently not supported in Java.
+
+---
+
+A suspended instance will eventually transition to the `Suspended` state. However, this transition will not happen immediately. Rather, the suspend operation will be queued in the task hub along with other operations for that instance. You can use the instance query APIs to know when a running instance has actually reached the Suspended state.
+
+When a suspended orchestrator is resumed, its status will change back to `Running`.
 
 ### Azure Functions Core Tools
 
@@ -694,7 +736,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     client = df.DurableOrchestrationClient(starter)
 
     event_data = [1, 2 ,3]
-    return client.raise_event(instance_id, 'MyEvent', event_data)
+    return await client.raise_event(instance_id, 'MyEvent', event_data)
 ```
 
 # [Java](#tab/java)
@@ -753,7 +795,7 @@ Here is an example HTTP-trigger function that demonstrates how to use this API:
 
 # [JavaScript](#tab/javascript)
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpSyncStart/index.js":::
 
 See [Start instances](#javascript-function-json) for the function.json configuration.
 
@@ -778,7 +820,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
     retry_interval_in_milliseconds = get_time_in_seconds(req, retry_interval)
     retry_interval_in_milliseconds = retry_interval_in_milliseconds if retry_interval_in_milliseconds != None else 1000
 
-    return client.wait_for_completion_or_create_check_status_response(
+    return await client.wait_for_completion_or_create_check_status_response(
         req,
         instance_id,
         timeout_in_milliseconds,
@@ -810,7 +852,7 @@ public HttpResponseMessage httpStartAndWait(
     try {
         String timeoutString = req.getQueryParameters().get("timeout");
         Integer timeoutInSeconds = Integer.parseInt(timeoutString);
-        OrchestrationMetadata orchestration = client.waitForInstanceStart(
+        OrchestrationMetadata orchestration = client.waitForInstanceCompletion(
                 instanceId,
                 Duration.ofSeconds(timeoutInSeconds),
                 true /* getInputsAndOutputs */);
@@ -818,7 +860,7 @@ public HttpResponseMessage httpStartAndWait(
                 .body(orchestration.getSerializedOutput())
                 .header("Content-Type", "application/json")
                 .build();
-    } catch (Exception timeoutEx) {
+    } catch (TimeoutException timeoutEx) {
         // timeout expired - return a 202 response
         return durableContext.createCheckStatusResponse(req, instanceId);
     }
@@ -827,7 +869,7 @@ public HttpResponseMessage httpStartAndWait(
 
 ---
 
-Call the function with the following line. Use 2 seconds for the timeout and 0.5 seconds for the retry interval:
+Call the function with the following line. Use 2 seconds for the timeout and 0.5 second for the retry interval:
 
 ```bash
 curl -X POST "http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5"
@@ -867,7 +909,9 @@ Transfer-Encoding: chunked
     "id": "d3b72dddefce4e758d92f4d411567177",
     "sendEventPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
     "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-    "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+    "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+    "suspendPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/suspend?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+    "resumePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/resume?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
 }
 ```
 
@@ -889,6 +933,8 @@ The methods return an object with the following string properties:
 * **SendEventPostUri**: The "raise event" URL of the orchestration instance.
 * **TerminatePostUri**: The "terminate" URL of the orchestration instance.
 * **PurgeHistoryDeleteUri**: The "purge history" URL of the orchestration instance.
+* **suspendPostUri**: The "suspend" URL of the orchestration instance.
+* **resumePostUri**: The "resume" URL of the orchestration instance.
 
 Functions can send instances of these objects to external systems to monitor or raise events on the corresponding orchestrations, as shown in the following examples:
 
@@ -906,7 +952,7 @@ public static void SendInstanceInfo(
 {
     HttpManagementPayload payload = client.CreateHttpManagementPayload(ctx.InstanceId);
 
-    // send the payload to Cosmos DB
+    // send the payload to Azure Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
 }
 ```
@@ -924,7 +970,7 @@ modules.exports = async function(context, ctx) {
 
     const payload = client.createHttpManagementPayload(ctx.instanceId);
 
-    // send the payload to Cosmos DB
+    // send the payload to Azure Cosmos DB
     context.bindings.document = JSON.stringify({
         id: ctx.instanceId,
         payload,
@@ -965,7 +1011,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.co
 If you have an orchestration failure for an unexpected reason, you can *rewind* the instance to a previously healthy state by using an API built for that purpose.
 
 > [!NOTE]
-> This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. For more information on error handling and retry policies, see the [Error handling](durable-functions-error-handling.md) article.
+> This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. Orchestrations in states other than `Failed` (e.g., `Running`, `Pending`, `Terminated`, `Completed`) cannot be "rewound". For more information on error handling and retry policies, see the [Error handling](durable-functions-error-handling.md) article.
 
 Use the `RewindAsync` (.NET) or `rewind` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to put the orchestration back into the *Running* state. This method will also rerun the activity or sub-orchestration execution failures that caused the orchestration failure.
 
@@ -1101,7 +1147,7 @@ import azure.durable_functions as df
 async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
     client = df.DurableOrchestrationClient(starter)
 
-    return client.purge_instance_history(instance_id)
+    return await client.purge_instance_history(instance_id)
 ```
 
 # [Java](#tab/java)
@@ -1206,7 +1252,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     created_time_to = datetime.today() + timedelta(days = -30)
     runtime_statuses = [OrchestrationRuntimeStatus.Completed]
 
-    return client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)
+    return await client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)
 ```
 
 # [Java](#tab/java)
@@ -1216,7 +1262,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 public void purgeInstances(
         @TimerTrigger(name = "purgeTimer", schedule = "0 0 12 * * *") String timerInfo,
         @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
-        ExecutionContext context) {
+        ExecutionContext context) throws TimeoutException {
     PurgeInstanceCriteria criteria = new PurgeInstanceCriteria()
             .setCreatedTimeFrom(Instant.now().minus(Duration.ofDays(60)))
             .setCreatedTimeTo(Instant.now().minus(Duration.ofDays(30)))

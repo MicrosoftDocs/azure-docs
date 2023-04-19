@@ -1,0 +1,101 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions on materialized views (preview)
+  titleSuffix: Azure Cosmos DB for Apache Cassandra
+  description: Frequently asked questions on materialized views in Azure Cosmos DB for Apache Cassandra (preview)
+  author: dileepraotv-github
+  ms.author: turao
+  ms.service: cosmos-db
+  ms.subservice: apache-cassandra
+  ms.topic: faq
+  ms.date: 02/08/2023
+title: Frequently asked questions on materialized views in Azure Cosmos DB for Apache Cassandra (preview)
+summary: |
+  [!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          What transformations/actions are supported by materialized views in Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          - Specifying a partition key that is different from the base table partition key.
+          - Support for projecting a selected subset of columns from the base table.
+          - Filtering rows from a base table in the materialized view based on conditions evaluated on primary key columns of the base table row. 
+            - Filters supported include: equalities, inequalities, and contains.
+      - question: |
+          What consistency levels are supported with materialized views in Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          Only eventual consistency is guaranteed on the materialized view. You may read stale rows when compared to data on base table due to retrying some operations on materialized views. 
+          
+          You can scale up or scale down the materialized view builder layer depending on your latency requirements for the view to be consistent with base table.
+      - question: |
+          Is there an autoscale layer for the materialized view builder instances in Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          Autoscaling for the materialized view builder isn't available right now. The materialized view builder instances can be manually scaled by modifying the instance count or size.
+      - question: |
+          What type of time to live (TTL) support do we have with materialized views in Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          Time to live (TTL) from base table rows is applied on the matching row in the materialized view. Setting table-level TTL on materialized views is currently not allowed.
+      - question: |
+          How can we troubleshoot materialized views that aren't up to date in Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          First, check if the materialized view builder instances are provisioned. Then, check if enough request units (RUs) are provisioned on the base table. Finally, check for service availability of the base table or materialized view.
+      - question: |
+          What type of monitoring is available with materialized views in addition to the existing monitoring for Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          The following metrics are available:
+
+          - **Max Materialized View Catchup Gap in Minutes**: The value `t` indicates rows written to base table in last `t` minutes that are yet to be propagated to the materialized view.
+            :::image type="content" source="media/materialized-views-faq/catchup-metrics.png" lightbox="media/materialized-views-faq/catchup-metrics.png" alt-text="Screenshot of the Catchup metrics for materialized views in Azure Cosmos DB for Apache Cassandra.":::
+          - **Read change feed cost**: Request units consumed on the base table to read data for the materialized view.
+            :::image type="content" source="media/materialized-views-faq/cpu-usage-metrics.png" lightbox="media/materialized-views-faq/cpu-usage-metrics.png" alt-text="Screenshot of the CPU Usage metrics for materialized views in Azure Cosmos DB for Apache Cassandra.":::
+          - **Write cost**: Request units consumed on the materialized view to transform and persist data that was read from the base table.
+            :::image type="content" source="media/materialized-views-faq/max-cpu-metrics.png" lightbox="media/materialized-views-faq/max-cpu-metrics.png" alt-text="Screenshot of the Memory metrics for materialized views in Azure Cosmos DB for Apache Cassandra.":::
+          - Other metrics related to typical resource consumption on materialized view builders. These metrics include **CPU** and **memory usage**.
+            :::image type="content" source="media/materialized-views-faq/memory-metrics.png" lightbox="media/materialized-views-faq/memory-metrics.png" alt-text="Screenshot of the Max CPU metrics for materialized views in Azure Cosmos DB for Apache Cassandra.":::
+      - question: |
+          What are the restore options available for materialized views in Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          Materialized views can't be restored. Hence, thee views need to be recreated once the base table is restored.
+      - question: |
+          Can you create more than one materialized view on a single base table in Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          Multiple materialized views can be created on the same base table. There's a service limit of five views per base table.
+      - question: |
+          How is uniqueness enforced and mappings managed on a materialized view in Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          The partition and clustering key of the base table are always part of the primary key of any materialized view defined. The primary key on the materialized views will enforce uniqueness after data repartitioning.
+      - question: |
+          Can we add or remove columns on the base table once a materialized view is defined in Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          You're able to add a column to the base table, but you can't remove a column. After a materialized view is created against a base table, `ALTER TABLE ADD`` operations aren't allowed on the base table. `ALTER TABLE ADD` operations are only allowed if none of the views have selected `*`` in their definition. 
+          
+          Apache Cassandra doesn't support dropping columns on the base table if it has a materialized view defined on it.
+      - question: |
+          Can we create materialized view on existing base tables in Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          No. Materialized views can't be created on a table that existed before the account was onboarded to support materialized views. 
+          
+          Materialized views can't be created on a table that existed before support for materialized views was enabled on the account. 
+          
+          To use materialized views, create a new table after the feature is enabled.
+      - question: |
+          What conditions can cause records to not make it to a materialized view in Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          Here are some of the identified cases where data from a base table can't be written to materialized view as they violate known constraints on a materialized view table:
+          
+          - Rows that don't satisfy partition key size (2 kb) limit in the materialized views
+          - Rows that don't satisfy clustering key size (1 kb) limit in materialized views
+
+          Currently, the builder drops these rows.
+      - question: |
+          Can we use materialized views with customer-managed keys in Azure Cosmos DB for Apache Cassandra?
+        answer: |
+          To create an account with support for both customer-managed keys and materialized views, create a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+additionalContent: |
+
+  ## Next steps
+  
+  > [!div class="nextstepaction"]
+  > [Learn more about materialized views](materialized-views.md)

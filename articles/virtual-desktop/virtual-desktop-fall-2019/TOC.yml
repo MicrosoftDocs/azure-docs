@@ -1,11 +1,11 @@
 - name: Azure Virtual Desktop (classic)
+  href: index.yml
+- name: Azure Virtual Desktop documentation
   href: ../index.yml
 - name: Overview
   items:
   - name: What is Azure Virtual Desktop?
-    href: ../overview.md
-  - name: Azure Virtual Desktop documentation
-    href: ../create-host-pools-azure-marketplace.md
+    href: ../overview.md?toc=%2Fazure%2Fvirtual-desktop%2Fvirtual-desktop-fall-2019%2Ftoc.json
 - name: Tutorials
   items:
   - name: 1. Create a tenant
@@ -14,7 +14,7 @@
     href: create-service-principal-role-powershell.md
   - name: 3. Create a host pool with the Azure Marketplace
     href: create-host-pools-azure-marketplace-2019.md
-  - name: 4. Manage app groups
+  - name: 4. Manage application groups
     href: manage-app-groups-2019.md
   - name: 5. Create a host pool to validate service updates
     href: create-validation-host-pool-2019.md
@@ -27,7 +27,7 @@
   - name: Connect to Azure Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
-        href: connect-windows-7-10-2019.md
+        href: connect-windows-2019.md
       - name: Connect with the web client
         href: connect-web-2019.md
       - name: Connect with the Android client
@@ -42,8 +42,6 @@
         href: create-host-pools-arm-template.md
       - name: PowerShell
         href: create-host-pools-powershell-2019.md
-      - name: Deploy a Windows 7 virtual machine
-        href: deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu-2019.md
       - name: Expand an existing host pool
@@ -96,8 +94,6 @@
     href: troubleshoot-set-up-issues-2019.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration-2019.md
-  - name: Troubleshoot Windows 7 virtual machines
-    href: troubleshoot-windows-7-vm.md
   - name: Troubleshoot the management tool
     href: troubleshoot-management-tool.md
   - name: Remote Desktop service connections
