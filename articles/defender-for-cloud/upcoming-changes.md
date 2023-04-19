@@ -118,14 +118,16 @@ The following security recommendations will be released as GA and replace the V1
 
 **Estimated date for change: May 2023**
 
-We're announcing the release of Vulnerability Assessment for images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM). This change includes the Public Preview release of two new container recommendations:
+We're announcing the release of Vulnerability Assessment for images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM).  Within Defender for CSPM, findings used in the Security Explorer and attack paths rely on MDVM vulnerability assessment instead of the Qualys platform.  
+
+This change includes the Public Preview release of two new container recommendations within Defender CSPM:
 
 |Recommendation | Description | Assessment Key|
 |--|--|--|
-| Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. | XXX
-| Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans container images running on your Kubernetes clusters for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. | XXX
+| Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. | c0b7cfc6-3172-465a-b378-53c7ff2cc0d5
+| Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images that are currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing attack surfaces for your containerized workloads within Kubernetes clusters. | XXX
 
-In addition, the release includes renaming the current existing container recommendations as follows:
+In addition, the release includes renaming the current existing container recommendations in Defender for Containers as follows:
 
 - Container registry images should have vulnerability findings resolved (powered by Qualys)
 - Running container images should have vulnerability findings resolved (powered by Qualys)
