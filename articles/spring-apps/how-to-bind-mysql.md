@@ -18,7 +18,7 @@ ms.custom: devx-track-java, event-tier1-build-2022, passwordless-java, service-c
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-With Azure Spring Apps, you can connect select Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to connect your application to your Azure Database for MySQL instance.
+With Azure Spring Apps, you can connect selected Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to connect your application to your Azure Database for MySQL instance.
 
 ## Prerequisites
 
@@ -183,4 +183,4 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
 
 ## Next steps
 
-In this article, you learned how to connect an application in Azure Spring Apps to an Azure Database for MySQL instance. To learn more about connecting services to an application, see [Connect an Azure Cosmos DB database to an application in Azure Spring Apps](./how-to-connect-cosmos.md).
+In this article, you learned how to connect an application in Azure Spring Apps to an Azure Database for MySQL instance. To learn more about connecting services to an application, see [Connect an Azure Cosmos DB database to an application in Azure Spring Apps](./how-to-bind-cosmos.md).
