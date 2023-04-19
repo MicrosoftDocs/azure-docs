@@ -620,7 +620,7 @@
 			<desc>Assigned SQL Enterprise licenses: 5 Assigned SQL Standard lic...</desc>
 			<rect x="0" y="419.25" width="156.438" height="53.0271" class="st36"/>
 			<text x="4" y="431.35" class="st43">Assigned SQL Enterprise licenses: 5<tspan x="4" dy="1.2em" class="st38">Assigned SQL Standard licenses: 8 </tspan><tspan
-						x="4" dy="1.2em" class="st38">NCL count: 28 </tspan><tspan x="4" dy="1.2em" class="st38">Unused NLCs: 0</tspan></text>		</g>
+						x="4" dy="1.2em" class="st38">NC count: 28 </tspan><tspan x="4" dy="1.2em" class="st38">Unused NCs: 0</tspan></text>		</g>
 		<g id="shape1245-230" transform="translate(346.875,-315.375)">
 			<title>Arrow Dyn Connector.1245</title>
 			<path d="M0 472.28 L0 402.53 A4.5 4.5 -180 0 0 -4.5 398.03 L-124.34 398.03" class="st44"/>
