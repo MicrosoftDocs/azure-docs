@@ -193,11 +193,11 @@ Keep in mind the following billing impacts when changing a blob's tier:
 
 The following table summarizes how tier changes are billed.
 
-| **Write charges (operation + access)** | **Read charges (operation + access)** |
+| Write charges (operation + access) | Read charges (operation + access) |
 | ----- | ----- |
-| Hot to cool<br>Hot to cold<br>Hot to archive<br> Cool to cold<br> Cool to archive <br> Cold to archive | Archive to cold <br> Archive to cool<br> Archive to hot<br> Cold to cool <br> Cold to hot<br> Cool to hot |cool to hot |
+| Hot to cool<br>Hot to cold<br>Hot to archive<br>Cool to cold<br>Cool to archive<br>Cold to archive | Archive to cold<br>Archive to cool<br>Archive to hot<br>Cold to cool<br>Cold to hot<br>Cool to hot<br>cool to hot |
 
-Changing the access tier for a blob when versioning is enabled, or if the blob has snapshots, may result in more charges. For information about blobs with versioning enabled, see [Pricing and billing](versioning-overview.md#pricing-and-billing) in the blob versioning documentation. For information about blobs with snapshots, see [Pricing and billing](snapshots-overview.md#pricing-and-billing) in the blob snapshots documentation.
+Changing the access tier for a blob when versioning is enabled, or if the blob has snapshots, might result in more charges. For information about blobs with versioning enabled, see [Pricing and billing](versioning-overview.md#pricing-and-billing) in the blob versioning documentation. For information about blobs with snapshots, see [Pricing and billing](snapshots-overview.md#pricing-and-billing) in the blob snapshots documentation.
 
 ## Cold tier (preview)
 
