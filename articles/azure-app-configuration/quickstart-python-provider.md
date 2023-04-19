@@ -171,6 +171,32 @@ Add the following key-values to the App Configuration store. For more informatio
     message found: True
     test.message found: False
     ```
+## Web app usage
+You can use Azure App Configuration in your existing python Web Apps by adding the following lines of code into your `settings.py` (For Django) or `app.py` (for Flask) files.
+```python
+selects = {SettingSelector(key_filter="<your-key-filter>")}
+config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"),
+                        selects=selects,
+                        trim_prefixes=["<prefix-to-trim>"])
+```
+### Configuration settings in Django
+To update individual configuration settings in the Django `settings.py` file, you can reference them from the provider object. e.g.,
+```python
+MESSAGE = config.get("message")
+```
+
+### Configuration settings in Flask
+You can update the in-built configuration object in Flask by passing your App Configuration Provider object to the `update` function of your flask app instance in `app.py`:
+```python
+# NOTE: This will override all existing configuration settings with the same key name.
+app.update(config)
+
+# Access a configuration setting directly from within flask configuration
+json_value = app.config.get("my_json")
+```
+
+
+Full code samples on how Azure App Configuration is used in python web apps can be found in the [Azure App Configuration Python Samples](https://github.com/Azure/AppConfiguration/tree/main/examples/Python) repo.
 
 ## Clean up resources
 
