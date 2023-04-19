@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/27/2023
+ms.date: 04/19/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
@@ -1097,7 +1097,7 @@ To identify languages with [Batch transcription REST API](batch-transcription.md
 > [!WARNING]
 > Batch transcription only supports language identification for base models. If both language identification and a custom model are specified in the transcription request, the service will fall back to use the base models for the specified candidate languages. This may result in unexpected recognition results.
 >
-> If your speech to text scenario requires both language identification and custom models, use [real-time speech to text](#using-speech-to-text-custom-models) instead of batch transcription.
+> If your speech to text scenario requires both language identification and custom models, use [real-time speech to text](#speech-to-text-custom-models) instead of batch transcription.
 
 The following example shows the usage of the `languageIdentification` property with four candidate languages. For more information about request properties see [Create a batch transcription](batch-transcription-create.md#request-configuration-options).
 
