@@ -285,10 +285,10 @@ updated.
 
 <!-- Reference link definitions -->
 [01]: ./overview.md
-[02]: ./machine-configuration-policy-effects.md
-[03]: ./machine-configuration-create-setup.md
-[04]: ./machine-configuration-create.md
-[05]: ./machine-configuration-create-test.md
+[02]: ./remediation-options.md
+[03]: ./how-to-set-up-authoring-environment.md
+[04]: ./how-to-create-package.md
+[05]: ./how-to-test-package.md
 [06]: ../policy/overview.md
 [07]: ../policy/assign-policy-portal.md
 [08]: ../policy/assign-policy-azurecli.md
