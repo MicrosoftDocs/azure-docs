@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-An Azure subscription. If you don't have one, create a free account before you begin.
+An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 This Azure account must have permissions to manage applications. Any of the following Azure AD roles include the required permissions:
 * Application administrator
@@ -41,7 +41,7 @@ If you haven't already created your own Microsoft Entra for Customers Tenant, [c
 [!INCLUDE [register-client-app-common](./includes/register-app/register-client-app-common.md)]
 
 ## Create a sign-in and sign-up user flow
-[!INCLUDE [register-client-app-common](./includes/register-app/register-client-app-common.md)]
+[!INCLUDE [register-client-app-common](./includes/register-app/create-sign-in-sign-out-user-flow.md)]
 
 ## Associate the application with your user flow
 [!INCLUDE [add-app-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
@@ -53,5 +53,5 @@ If you haven't already created your own Microsoft Entra for Customers Tenant, [c
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Start building your React Single Page Application](./how-to-spa-react-prepare-app.md))
+> [Start building your React Single Page Application](./how-to-spa-react-prepare-app.md)
 

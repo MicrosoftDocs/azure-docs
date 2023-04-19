@@ -27,7 +27,7 @@ In this article, you learn how to:
 > * Add authentication code to the application
 
 ## Prerequisites
-* Completion of the prerequisites and steps in [Prepare your customer tenant for building a React Single Page App (SPA) in Microsoft Entra](./how-to-spa-react-prepare-app.md))
+* Completion of the prerequisites and steps in [Prepare your customer tenant for building a React Single Page App (SPA) in Microsoft Entra](./how-to-spa-react-prepare-tenant.md))
 * Although any IDE that supports React applications can be used, Visual Studio Code is used for this guide. This can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 * [Node.js](https://nodejs.org/en/download/)
 
