@@ -2,11 +2,11 @@
 title: What are Azure Reservations?
 description: Learn about Azure Reservations and pricing to save on your reserved instances for virtual machines, SQL databases, Azure Cosmos DB, and other resource costs.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: bshy
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 12/06/2022
+ms.date: 04/14/2023
 ms.author: banders
 ---
 
@@ -105,7 +105,6 @@ Software plans:
 
 - **SUSE Linux** - A reservation covers the software plan costs. The discounts apply only to SUSE meters and not to the virtual machine usage.
 - **Red Hat Plans** - A reservation covers the software plan costs. The discounts apply only to RedHat meters and not to the virtual machine usage.
-- **Azure VMware Solution by CloudSimple** - A reservation covers the VMware CloudSimple Nodes. Additional software costs still apply.
 - **Azure Red Hat OpenShift** - A reservation applies to the OpenShift costs, not to Azure infrastructure costs.
 
 For Windows virtual machines and SQL Database, the reservation discount doesn't apply to the software costs. You can cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
