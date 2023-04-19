@@ -86,7 +86,7 @@ This sample listens to the channel "channel" at a localhost Redis instance at `1
 
 ### Language Samples PubSubTrigger
 
-#### [C#](#tab/csharp)
+#### [C#](#tab/csharp/)
 
 ```csharp
 [FunctionName(nameof(PubSubTrigger))]
@@ -98,7 +98,7 @@ public static void PubSubTrigger(
 }
 ```
 
-#### [Java](#tab/java)
+#### [Java](#tab/java/)
 
 ```java
 // TBD!
@@ -110,7 +110,7 @@ public static void PubSubTrigger(
 This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at `127.0.0.1:6379`.
 
 
-#### [C#](#tab/csharp)
+#### [C#](#tab/csharp/)
 
 ```csharp
 
@@ -123,7 +123,7 @@ public static void PubSubTrigger(
 }
 ```
 
-#### [Java](#tab/java)
+#### [Java](#tab/java/)
 
 ```java
 // TBD!
@@ -134,7 +134,7 @@ public static void PubSubTrigger(
 
 This sample listens to any keyevent notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at `127.0.0.1:6379`.
 
-#### [C#](#tab/csharp)
+#### [C#](#tab/csharp/)
 
 ```csharp
 [FunctionName(nameof(PubSubTrigger))]
@@ -146,7 +146,7 @@ public static void PubSubTrigger(
 }
 ```
 
-#### [Java](#tab/java)
+#### [Java](#tab/java/)
 
 ```java
 // TBD!
@@ -177,7 +177,7 @@ The `RedisListsTrigger` pops elements from a list and surfaces those elements to
 
 The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
 
-#### [C#](#tab/csharp)
+#### [C#](#tab/csharp/)
 
 ```csharp
 [FunctionName(nameof(ListsTrigger))]
@@ -189,7 +189,7 @@ public static void ListsTrigger(
 }
 ```
 
-#### [Java](#tab/java)
+#### [Java](#tab/java/)
 
 
 ```java
@@ -223,7 +223,7 @@ Each function creates a new random GUID to use as its consumer name within the g
 
 The following sample polls the key `streamTest` at a localhost Redis instance at `127.0.0.1:6379`:
 
-#### [C#](#tab/csharp)
+#### [C#](#tab/csharp/)
 
 ```csharp
 [FunctionName(nameof(StreamsTrigger))]
@@ -235,7 +235,7 @@ public static void StreamsTrigger(
 }
 ```
 
-#### [Java](#tab/java)
+#### [Java](#tab/java/)
 
 ```java
 // TBD
