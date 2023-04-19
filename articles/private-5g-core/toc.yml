@@ -50,13 +50,13 @@ items:
     href: policy-control.md
   - name: Default service and allow-all SIM policy
     href: default-service-sim-policy.md
-  - name: Monitor Azure Private 5G Core using Log Analytics
-    href: monitor-private-5g-core-with-log-analytics.md
-  - name: Local monitoring tools
+  - name: Monitor Azure Private 5G Core
     items:
-    - name: Distributed tracing
+    - name: Cloud monitoring with Azure Monitor platform metrics
+      href: monitor-private-5g-core-with-platform-metrics.md
+    - name: Local monitoring with distributed tracing
       href: distributed-tracing.md
-    - name: Packet core dashboards
+    - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
   - name: Reliability
     href: reliability-private-5g-core.md
@@ -134,12 +134,6 @@ items:
       href: manage-existing-sims.md
     - name: Manage SIM groups
       href: manage-sim-groups.md
-  - name: Log Analytics
-    items:
-    - name: Enable Log Analytics for a packet core instance
-      href: enable-log-analytics-for-private-5g-core.md
-    - name: Create an overview Log Analytics dashboard - ARM template
-      href: create-overview-dashboard.md
   - name: Packet capture
     items:
     - name: Perform data plane packet capture for a packet core instance
