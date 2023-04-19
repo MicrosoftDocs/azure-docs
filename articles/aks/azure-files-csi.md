@@ -359,6 +359,8 @@ provisioner: file.csi.azure.com
 allowVolumeExpansion: true
 parameters:
   protocol: nfs
+mountOptions:
+  - nconnect=4
 ```
 
 After editing and saving the file, create the storage class with the [kubectl apply][kubectl-apply] command:
