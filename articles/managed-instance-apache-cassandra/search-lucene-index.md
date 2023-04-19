@@ -27,7 +27,7 @@ Cassandra Lucene Index, derived from Stratio Cassandra, is a plugin for Apache C
 - Deploy an Azure Managed Instance for Apache Cassandra cluster. You can do this via the [portal](create-cluster-portal.md) - Lucene indexes will be enabled by default.
 - Connect to your cluster from [CQLSH](create-cluster-portal.md#connecting-from-cqlsh).
 
-## Create keyspace and table with Lucene Index
+## Create data with Lucene Index
 
 1. In your `CQLSH` command window, create a keyspace and table as below:
     
@@ -64,9 +64,7 @@ Cassandra Lucene Index, derived from Stratio Cassandra, is a plugin for Apache C
        };
     ```
 
-## Create data and search
-
-Insert the following sample tweets:
+1. Insert the following sample tweets:
 
 ```SQL
     INSERT INTO tweets (id,user,body,time,latitude,longitude) VALUES (1,'theo','Make money fast, 5 easy tips', '2023-04-01T11:21:59.001+0000', 0.0, 0.0);
@@ -76,13 +74,34 @@ Insert the following sample tweets:
     INSERT INTO tweets (id,user,body,time,latitude,longitude) VALUES (5,'quetzal','Click my link, like my stuff!', '2023-04-01T11:21:59.001+0000', 40.3930, -3.7329);
 ```
 
+## Controlling read consistency
+
+1. The index you created earlier will index all the columns in the table with the specified types, and it will be refreshed once per second. Alternatively, you can explicitly refresh all the index shards with an empty search with consistency ALL:
+
+    ```SQL
+        CONSISTENCY ALL
+        SELECT * FROM tweets WHERE expr(tweets_index, '{refresh:true}');
+        CONSISTENCY QUORUM
+    ```
+
 1. Now, you can search for tweets within a certain date range:
 
     ```SQL
         SELECT * FROM tweets WHERE expr(tweets_index, '{filter: {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"}}');
     ```
 
-1. Now, to search the top 100 more relevant tweets where body field contains the phrase “Click my link” within the aforementioned date range:
+1. This search can also be performed by forcing an explicit refresh of the involved index shards:
+
+    ```SQL
+        SELECT * FROM tweets WHERE expr(tweets_index, '{
+           filter: {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
+           refresh: true
+        }') limit 100;
+    ```
+
+## Search data
+
+1. To search the top 100 more relevant tweets where body field contains the phrase “Click my link” within the aforementioned date range:
 
     ```SQL
         SELECT * FROM tweets WHERE expr(tweets_index, '{
@@ -146,24 +165,6 @@ Insert the following sample tweets:
            ]
         }') limit 100;
     ```
-
-1. The index you created earlier will index all the columns in the table with the specified types, and it will be refreshed once per second. Alternatively, you can explicitly refresh all the index shards with an empty search with consistency ALL:
-
-    ```SQL
-        CONSISTENCY ALL
-        SELECT * FROM tweets WHERE expr(tweets_index, '{refresh:true}');
-        CONSISTENCY QUORUM
-    ```
-
-1. The same search can be performed forcing an explicit refresh of the involved index shards:
-
-    ```SQL
-        SELECT * FROM tweets WHERE expr(tweets_index, '{
-           filter: {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
-           refresh: true
-        }') limit 100;
-    ```
-
 
 
 ## Next steps
