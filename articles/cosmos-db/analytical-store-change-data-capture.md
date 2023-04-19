@@ -27,10 +27,10 @@ In addition to providing incremental data feed from analytical store to diverse 
 - Supports capturing deletes and intermediate updates
 - Ability to filter the change feed for a specific type of operation (**Insert** | **Update** | **Delete** | **TTL**)
 - Supports applying filters, projections and transformations on the Change feed via source query
+- Multiple change feeds on the same container can be consumed simultaneously
 - Each change in container appears exactly once in the change data capture feed, and the checkpoints are managed internally for you
 - Changes can be synchronized "from the Beginning” or “from a given timestamp” or “from now”
 - There's no limitation around the fixed data retention period for which changes are available
-- Multiple change feeds on the same container can be consumed simultaneously
 
 > [!IMPORTANT]
 > Please note that "from the beginning" means that all data and all transactions since the container creation are availble for CDC, including deletes and updates. To ingest and process deletes and updates, you have to use specific settings in your CDC processes in Azure Synapse or Azure Data Factory. These settings are turned off by default. For more information, click [here](get-started-change-data-capture.md)
@@ -60,6 +60,11 @@ WHERE Category = 'Urban'
 > [!NOTE]
 > If you would like to enable source-query based change data capture on Azure Data Factory data flows during preview, please email [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com) and share your **subscription Id** and **region**. This is not necessary to enable source-query based change data capture on an Azure Synapse data flow.
 
+### Multiple CDC processes
+
+You can create multiple processes to consume CDC in analytical store. This approach brings flexibility to support different scenarios and requirements. While one process may have no data transformations and multiple sinks, another one can have data flattening and one sink. And they can run in parallel.
+
+
 ### Throughput isolation, lower latency and lower TCO
 
 Operations on Cosmos DB analytical store don't consume the provisioned RUs and so don't affect your transactional workloads. change data capture with analytical store also has lower latency and lower TCO. The lower latency is attributed to analytical store enabling better parallelism for data processing and reduces the overall TCO enabling you to drive cost efficiencies in these rapidly shifting economic conditions.
@@ -83,10 +88,6 @@ You can use analytical store change data capture, if you're currently using or p
 ### Incremental feed to analytical platform of your choice
 
 Change data capture capability enables an end-to-end analytical solution providing you with the flexibility to use Azure Cosmos DB data with any of the supported sink types. For more information on supported sink types, see [data flow supported sink types](../data-factory/data-flow-sink.md#supported-sinks). Change data capture also enables you to bring Azure Cosmos DB data into a centralized data lake and join the data with data from other diverse sources. You can flatten the data, partition it, and apply more transformations either in Azure Synapse Analytics or Azure Data Factory.
-
-### Multiple CDC processes
-
-You can create multiple processes to consume CDC in analytical store. This approach brings flexibility to support different scenarios and requirements. While one process may have no data transformations and multiple sinks, another one can have data flattening and one sink. And they can run in parallel.
 
 ## Change data capture on Azure Cosmos DB for MongoDB containers
 
