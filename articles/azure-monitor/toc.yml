@@ -475,6 +475,9 @@ items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
       href: logs/data-platform-logs.md
+    - name: Best practices
+      displayName: Logs, WAF, well architected framework
+      href: best-practices-logs.md
     - name: Log Analytics workspaces
       items:
         - name: Overview
@@ -876,12 +879,16 @@ items:
         - name: Overview
           displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
           href: snapshot-debugger/snapshot-debugger.md
-        - name: Enable Snapshot Debugger for an App Service
-          href: snapshot-debugger/snapshot-debugger-app-service.md
-        - name: Enable Snapshot Debugger for a Function App
-          href: snapshot-debugger/snapshot-debugger-function-app.md
-        - name: Enable Snapshot Debugger for other environments
-          href: snapshot-debugger/snapshot-debugger-vm.md
+        - name: View snapshots
+          href: snapshot-debugger/snapshot-debugger-data.md
+        - name: Enable Snapshot Debugger
+          items:
+          - name: Enable Snapshot Debugger for an App Service
+            href: snapshot-debugger/snapshot-debugger-app-service.md
+          - name: Enable Snapshot Debugger for a Function App
+            href: snapshot-debugger/snapshot-debugger-function-app.md
+          - name: Enable Snapshot Debugger for other environments
+            href: snapshot-debugger/snapshot-debugger-vm.md
         - name: Upgrade Snapshot Debugger
           href: snapshot-debugger/snapshot-debugger-upgrade.md
         - name: Configure BYOS (Bring Your Own Storage)
@@ -1482,10 +1489,6 @@ items:
     items:
     - name: Azure Functions
       href: ../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json
-    - name: Release notes
-      items:
-      - name: Snapshot Debugger
-        href: snapshot-debugger/snapshot-collector-release-notes.md
   - name: Azure PowerShell
     items:
     - name: Azure Monitor

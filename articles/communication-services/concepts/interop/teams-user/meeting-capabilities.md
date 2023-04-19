@@ -42,6 +42,7 @@ The following list of capabilities is allowed when Teams user participates in Te
 | Screen sharing    | Share the entire screen from within the application                                                                 | ✔️        |
 |                   | Share a specific application (from the list of running applications)                                                | ✔️        |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️        |
+|                   | Receive your screen sharing stream                                                                                  | ❌        |
 |                   | Share content in "content-only" mode                                                                                | ✔️        |
 |                   | Receive video stream with content for "content-only" screen sharing experience                                      | ✔️        |
 |                   | Share content in "standout" mode                                                                                    | ❌        |
@@ -122,7 +123,7 @@ The following list of capabilities is allowed when Teams user participates in Te
 |                   | Honor setting "Mode for IP video"                                                                                   | ❌ |
 |                   | Honor setting "IP video"                                                                                            | ❌ |
 |                   | Honor setting "Local broadcasting"                                                                                  | ❌ |
-|                   | Honor setting "Media bit rate (Kbs)"                                                                                | ❌ |
+|                   | Honor setting "Media bit rate (kBps)"                                                                                | ❌ |
 |                   | Honor setting "Network configuration lookup"                                                                        | ❌ |
 |                   | Honor setting "Transcription"                                                                                       | No API available |
 |                   | Honor setting "Cloud recording"                                                                                     | No API available |
@@ -146,7 +147,7 @@ The following list of capabilities is allowed when Teams user participates in Te
 |                   | Honor setting "Teams Q&A"                                                                                           |   No API available |
 |                   | Honor setting "Meeting reactions"                                                                                   |   No API available |
 | DevOps            | [Azure Metrics](../../metrics.md)                                                                                   | ✔️ |
-|                   | [Azure Monitor](../../logging-and-diagnostics.md)                                                                   | ✔️ |
+|                   | [Azure Monitor](../../analytics/logs/voice-and-video-logs.md)                                                                  | ✔️ |
 |                   | [Azure Communication Services Insights](../../analytics/insights/voice-and-video-insights.md)                                                | ✔️ |
 |                   | [Azure Communication Services Voice and video calling events](../../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |
@@ -169,7 +170,7 @@ Teams meeting organizers can configure the Teams meeting options to adjust the e
 |[Allow camera for attendees](https://support.microsoft.com/office/manage-attendee-audio-and-video-permissions-in-teams-meetings-f9db15e1-f46f-46da-95c6-34f9f39e671a)|If Teams user is attendee, then this option controls whether Teams user can send local video |✔️|
 |[Record automatically](/graph/api/resources/onlinemeeting)|Records meeting when anyone starts the meeting. The user in the lobby does not start a recording.|✔️|
 |Allow meeting chat|If enabled, Teams users can use the chat associated with the Teams meeting.|✔️|
-|[Allow reactions](/microsoftteams/meeting-policies-in-teams-general#meeting-reactions)|If enabled, Teams users can use reactions in the Teams meeting. Azure Communication Services don't support reactions. |❌|
+|[Allow reactions](/microsoftteams/meeting-policies-in-teams-general#meeting-reactions)|If enabled, Teams users can use reactions in the Teams meeting. Azure Communication Services doesn't support reactions. |❌|
 |[RTMP-IN](/microsoftteams/stream-teams-meetings)|If enabled, organizers can stream meetings and webinars to external endpoints by providing a Real-Time Messaging Protocol (RTMP) URL and key to the built-in Custom Streaming app in Teams. |Not applicable|
 |[Provide CART Captions](https://support.microsoft.com/office/use-cart-captions-in-a-microsoft-teams-meeting-human-generated-captions-2dd889e8-32a8-4582-98b8-6c96cf14eb47)|Communication access real-time translation (CART) is a service in which a trained CART captioner listens to the speech and instantaneously translates all speech to text. As a meeting organizer, you can set up and offer CART captioning to your audience instead of the Microsoft Teams built-in live captions that are automatically generated.|❌|
 
