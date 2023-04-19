@@ -144,7 +144,7 @@ jdbc_df = spark.read \
 > - The format of `user` when using ActiveDirectoryPassword should be the UPN format, for example `username@domainname.com`. 
 >   - For **Scala**, the `com.microsoft.aad.adal4j` artifact will need to be installed.
 >   - For **Python**, the `adal` library will need to be installed.  This is available via pip.
-> - Check the [sample notebooks](https://github.com/microsoft/sql-spark-connector/tree/master/samples) for examples and for latest drivers and versions, visit [Apache Spark connector: SQL Server & Azure SQL](/sql/connect/spark/connector)
+> - Check the [sample notebooks](https://github.com/microsoft/sql-spark-connector/tree/master/samples) for examples and for latest drivers and versions, visit [Apache Spark connector: SQL Server & Azure SQL](/sql/connect/spark/connector).
 
 ## Support
 
