@@ -47,6 +47,8 @@ At its core, App Service is a service running on top of the Azure PaaS (platform
 - An operating system drive (`%SystemDrive%`), whose size varies depending on the size of the VM.
 - A resource drive (`%ResourceDrive%`) used by App Service internally.
 
+A best practice is to always use the environment variables `%SystemDrive%` and `%ResourceDrive%` instead of hard-coded file paths.  The root path returned from these two environment variables has shifted over time from `d:\` to `c:\`.  However, older applications hard-coded with file path references to `d:\` will continue to work because the App Service platform automatically remaps `d:\` to instead point at `c:\`.  As noted above, it is highly recommended to always use the environment variables when building file paths and avoid confusion over platform changes to the default root file path.
+
 It is important to monitor your disk utilization as your application grows. If the disk quota is reached, it can have adverse effects to your application. For example: 
 
 - The app may throw an error indicating not enough space on the disk.
