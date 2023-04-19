@@ -15,7 +15,7 @@ This article provides the properties and schema for Azure Data Manager for Agric
 
 ## Prerequisites
 
-It's important that you have the following prerequisites completed before you begin the steps of deploying the Events feature in Azure Health Data Services.
+It's important that you have the following prerequisites completed before you begin the steps of deploying the Events feature in Azure Data Manager for Agriculture.
 
 * [An active Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Microsoft Azure Event Hubs namespace and an event hub deployed in the Azure portal](../event-hubs/event-hubs-create.md)
