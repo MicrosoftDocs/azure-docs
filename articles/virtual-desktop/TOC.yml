@@ -26,8 +26,6 @@
       items:
       - name: Windows Desktop client
         href: whats-new-client-windows.md
-      - name: Windows Desktop client
-        href: whats-new-client-windows.md
       - name: Azure Virtual Desktop Store app
         href: whats-new-client-windows-azure-virtual-desktop-app.md
       - name: macOS client
@@ -422,6 +420,8 @@
     items:
     - name: Windows Desktop client
       href: troubleshoot-client-windows.md
+    - name: Azure Virtual Desktop Store app
+      href: troubleshoot-client-windows-azure-virtual-desktop-app.md
     - name: Web client
       href: troubleshoot-client-web.md
     - name: macOS client
