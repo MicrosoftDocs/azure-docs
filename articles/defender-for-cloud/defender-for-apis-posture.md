@@ -22,7 +22,7 @@ This article describes how to investigate API security findings, alerts, and sec
 1. Select **API security (Preview)**.
 1. In the **API Security** dashboard, select an API collection to drill down.  
 
-    :::image type="content" source="media/defender-for-apis-posture/api-collection.png" alt-text="Graphic showing the onboarded API collections.":::
+    :::image type="content" source="media/defender-for-apis-posture/api-collection.png" alt-text="Graphic showing the onboarded API collections.""lightbox="media/defender-for-apis-posture/api-collection-details.png":::
 
 1. In the API collection page, to drill down into an API endpoint, select the ellipses (...) > **View resource**.
 1. Review API endpoint status details. [Learn more about status settings](defender-for-apis-introduction.md#reviewing-inventory-and-insights).
@@ -44,12 +44,14 @@ When the Defender CSPM plan is enabled together with Defender for APIs, you can 
     1. To build your own query, in **What would you like to search?** select the **APIs** category. You can query:
         - API collections that contain one or more API endpoints.
         - API endpoints for Azure API Management operations.
+
+        :::image type="content" source="media/defender-for-apis-posture/api-insights.png" alt-text="Page showing predefined API query.":::
     
     The search result display each API resources with its associated insights, so that you can review, prioritize, and fix any issues.
 
     1. Alternatively, select the predefined query **Unauthenticated API endpoints containing sensitive data are outside the virtual network** > **Open query**. The query returns all unauthenticated API endpoints that contain sensitive data and aren't part of the Azure API management network.
     
-    :::image type="content" source="media/defender-for-apis-posture/predefined-query.png" alt-text="Page showing predefined API query.":::
+    :::image type="content" source="media/defender-for-apis-posture/predefined-query.png" alt-text="Page showing predefined API query.:::
     
 
 ## Next steps

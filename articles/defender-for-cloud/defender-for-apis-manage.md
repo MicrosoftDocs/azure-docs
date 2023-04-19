@@ -22,6 +22,9 @@ Defender for APIs is currently in preview.
 
     :::image type="content" source="media/defender-for-apis-manage/api-remove.png" alt-text="Page for removing an API from Defender for APIs.":::
 
+1. In the **Resource health** > **remove-resource** page > **Recommendations** tab, select the remove recommendation.
+
+    :::image type="content" source="media/defender-for-apis-manage/remove-resource.png" alt-text="Page for removing an API endpoint from Defender for APIs.":::
 
 ## Next steps
 
