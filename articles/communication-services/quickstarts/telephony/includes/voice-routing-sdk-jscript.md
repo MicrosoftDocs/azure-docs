@@ -24,6 +24,8 @@ ms.author: nikuklic
 
 Find the finalized code for the following procedures on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/direct-routing-quickstart).
 
+You can also find more usage examples for `SipRoutingClient` on [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-phonenumbers/src/samples/java/com/azure/communication/phonenumbers/siprouting/AsyncClientJavaDocCodeSnippets.java).
+
 ## Create a new Node.js application
 
 First, open your terminal or command window, create a new directory for your app, and go to it:
@@ -53,7 +55,7 @@ main();
 Use the `npm install` command to install the Azure Communication Services Phone Numbers client library for JavaScript:
 
 ``` console
-	npm install @azure/communication-phone-numbers --save
+   npm install @azure/communication-phone-numbers --save
 ```
 
 The `--save` option adds the library as a dependency in your *package.json* file.
@@ -97,10 +99,11 @@ Azure Communication Services direct routing allows communication with registered
 
 ### Create or update routes
 
-> [!NOTE]
-> The order of routes determines the priority of routes. The first route that matches the regex will be picked for a call.
+Provide routing rules for outbound calls. Each rule consists of two parts: a regex pattern that should match a dialed phone number and the FQDN of a registered trunk where call is routed.
 
-Provide routing rules for outbound calls. Each rule consists of two parts: a regex pattern that should match a dialed phone number and the FQDN of a registered trunk where call is routed. In this example, you create one route for numbers that start with `+1` and a second route for numbers that start with just `+`:
+The order of routes determines the priority of routes. The first route that matches the regex will be picked for a call.
+
+In this example, you create one route for numbers that start with `+1` and a second route for numbers that start with just `+`:
 
 ```javascript
    await client.setRoutes([
@@ -157,8 +160,5 @@ You can use the following example to delete a single trunk (SBC), if no voice ro
 Use the node command to run the code that you added to the `direct-routing-quickstart.js` file:
 
 ``` console
-	node direct-routing-quickstart.js
+   node direct-routing-quickstart.js
 ```
-
-> [!NOTE]
-> You can find more usage examples for `SipRoutingClient` on [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-phonenumbers/src/samples/java/com/azure/communication/phonenumbers/siprouting/AsyncClientJavaDocCodeSnippets.java).

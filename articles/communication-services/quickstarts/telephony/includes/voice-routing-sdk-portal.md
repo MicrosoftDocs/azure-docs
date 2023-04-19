@@ -19,6 +19,9 @@ ms.author: nikuklic
 - The fully qualified domain name (FQDN) and port number of a session border controller (SBC) in an operational telephony system.
 - The [verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN.
 
+> [!NOTE]
+> You can find more usage examples for `SipRoutingClient` on [GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.PhoneNumbers/README.md#siproutingclient).
+
 ## Add a session border controller
 
 1. On the left pane, under **Voice Calling - PSTN**, select **Direct routing**. On the **Session Border Controller** tab, select **Configure**.
@@ -66,8 +69,4 @@ To delete an SBC:
 1. Clear the FQDN and port fields for the SBC that you want to remove, and then select **Next**.
 1. On the **Voice Routes** tab, review the voice routing configuration. Make changes if needed, and then select **Save**.
 
-> [!NOTE]
-> When you remove an SBC that's associated with a voice route, you can choose a different SBC for the route on the **Voice Routes** tab. The voice route without an SBC will be deleted.
-
-> [!NOTE]
-> You can find more usage examples for `SipRoutingClient` on [GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.PhoneNumbers/README.md#siproutingclient).
+When you remove an SBC that's associated with a voice route, you can choose a different SBC for the route on the **Voice Routes** tab. The voice route without an SBC will be deleted.

@@ -42,8 +42,7 @@ If you're using a subdomain, make sure that this subdomain is also added and ver
 
    [![Screenshot of verifying a custom domain.](./media/direct-routing-verify-domain-2.png)](./media/direct-routing-verify-domain-2.png#lightbox)
 
-   > [!NOTE]
-   > It might take up to 30 minutes for a new DNS record to propagate on the internet.
+   It might take up to 30 minutes for a new DNS record to propagate on the internet.
 
 1. Select **Next**. If you set up everything correctly, **Domain status** should change to **Verified** next to the added domain.
 
