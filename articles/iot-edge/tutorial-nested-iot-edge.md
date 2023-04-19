@@ -313,7 +313,7 @@ To configure the IoT Edge runtime, you need to apply the configuration bundles t
    For example, to send the *parent-1* configuration bundle to the home directory on the *parent-1* VM, you could use a command like the following example:
 
    ```bash
-   `scp ./output/parent-1.tgz admin@parent-1-vm.westus.cloudapp.azure.com:~`
+   scp ./output/parent-1.tgz admin@parent-1-vm.westus.cloudapp.azure.com:~
    ```
 
 1. On each device, extract the configuration bundle archive. For example, use the *tar* command to extract the *parent-1* archive file:
