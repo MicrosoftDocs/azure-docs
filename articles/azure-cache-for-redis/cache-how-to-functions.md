@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 04/18/2023
+ms.date: 04/19/2023
 
 ---
 
@@ -100,32 +100,14 @@ public static void PubSubTrigger(
 
 ```java
 // TBD!
-```
-
-[JavaScript](#tab/javascript)
-
-```javascript
-// TBD!
-
-```
-
-[python](#tab/python)
-
-```python
-# TBD!
-```
-
-[PowerShell](#tab/azure-powershell)
-
-```powershell
-# TBD!
+// PubSubTrigger channel
 ```
 
 ---
 
 This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at `127.0.0.1:6379`.
 
-[C#](#tab/csharp)
+#### [C#](#tab/csharp)
 
 ```csharp
 
@@ -138,28 +120,11 @@ public static void PubSubTrigger(
 }
 ```
 
-[Java](#tab/java)
+#### [Java](#tab/java)
 
 ```java
 // TBD!
-```
-
-[JavaScript](#tab/javascript)
-
-```javascript
-// TBD!
-```
-
-[Python](#tab/python)
-
-```python
-# TBD!
-```
-
-[PowerShell](#tab/azure-powershell)
-
-```powershell
-# TBD!
+// PubSubTrigger myKey
 ```
 
 ---
@@ -182,24 +147,7 @@ public static void PubSubTrigger(
 
 ```java
 // TBD!
-```
-
-[JavaScript](#tab/javascript)
-
-```javascript
-// TBD!
-```
-
-[Python](#tab/python)
-
-```python
-# TBD!
-```
-
-[PowerShell](#tab/azure-powershell)
-
-```powershell
-# TBD!
+// PubSubTrigger keyevent
 ```
 
 ---
@@ -224,9 +172,10 @@ The `RedisListsTrigger` pops elements from a list and surfaces those elements to
 - (optional) `ListPopFromBeginning`: determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/).
   - Default: true
 
+The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
+
 [C#](#tab/csharp)
 
-The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`
 
 ```csharp
 [FunctionName(nameof(ListsTrigger))]
@@ -244,30 +193,7 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
 
 ```java
 // TBD
-```
-
-[JavaScript](#tab/javascript)
-
-The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
-
-```javascript
-// Coming Soon
-```
-
-[Python](#tab/python)
-
-The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
-
-```python
-# Coming soon
-```
-
-[PowerShell](#tab/azure-powershell)
-
-The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
-
-```powershell
-# Coming Soon
+// ListsTrigger listTest 
 ```
 
 ---
@@ -310,34 +236,9 @@ public static void StreamsTrigger(
 
 [Java](#tab/java)
 
-The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
-
 ```java
-Coming Soon
-```
-
-[JavaScript](#tab/javascript)
-
-The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
-
-```javascript
-Coming Soon
-```
-
-[Python](#tab/python)
-
-The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
-
-```python
-# Coming Soon
-```
-
-[PowerShell](#tab/azure-powershell)
-
-The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
-
-```powershell
-# coming soon
+// TBD
+// StreamsTrigger streamTest
 ```
 
 ---
@@ -345,6 +246,9 @@ The following sample polls the key "streamTest" at a localhost Redis instance at
 ### Return Values
 
 All triggers return a [`RedisMessageModel`](./src/Models/RedisMessageModel.cs) object that has two fields:
+
+- `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
+- `Message`: The pubsub message, list element, or stream element.
 
 [C#](#tab/csharp)
 
@@ -361,40 +265,14 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis
 
 [Java](#tab/java)
 
-The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
-
 ```java
-TBD
+// TBD
+// RedisMessageModel
 ```
 
-[JavaScript](#tab/javascript)
-
-The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
-
-```javascript
-Coming Soon
-```
-
-[Python](#tab/python)
-
-The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
-
-```python
-Coming soon
-```
-
-[PowerShell](#tab/azure-powershell)
-
-The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
-
-```powershell
-Coming Soon
-```
 
 ---
 
-- `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
-- `Message`: The pubsub message, list element, or stream element.
 
 ## Next steps
 
