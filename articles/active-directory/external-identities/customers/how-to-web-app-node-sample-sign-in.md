@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users in a sample Node.js web application by using Microsoft Entra
 
-This how-to guide uses a sample Node.js web application to show how to add authentication to a web application by using Microsoft Entra. The sample application enables users to sign in and sign out. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
+This how-to guide uses a sample Node.js web application to show how to add authentication to a web application by using Microsoft Entra. The sample application enables users to sign in and sign out. The sample web application uses [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
 
 In this article, you do the following tasks:
 
@@ -38,7 +38,7 @@ In this article, you do the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://developer.microsoft.com/identity/customers). 
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial). 
 
 <!--Awaiting this link http://developer.microsoft.com/identity/customers to go live on Developer hub-->
 
@@ -116,13 +116,13 @@ You can now test the sample Node.js web app. You need to start the Node.js serve
 
 1. After the page completes loading, select **Sign in** link. You're prompted to sign in.
 
-1. On the sign-in page, type your **Email address**, select **Next**, type your **Password**, then select **Sign in**. If you don't have an account, select **No account? Create one**, which starts the sign-up flow.
+1. On the sign-in page, type your **Email address**, select **Next**, type your **Password**, then select **Sign in**. If you don't have an account, select **No account? Create one** link, which starts the sign-up flow.
 
 1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. You see a page similar to the following screenshot. You see a similar page if you choose the sign-in option.
 
     :::image type="content" source="media/how-to-web-app-node-sample-sign-in/web-app-node-view-claims.png" alt-text="Screenshot of view I D token claims.":::
 
-1. Select **Sign out** to sign user out of the web app or select **View ID token claims** to view ID token claims returned by Microsoft Entra. 
+1. Select **Sign out** to sign the user out of the web app or select **View ID token claims** to view ID token claims returned by Microsoft Entra. 
 
 ## Next steps
 

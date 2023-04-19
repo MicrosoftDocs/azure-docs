@@ -195,7 +195,6 @@ This file has the following routes:
             //...
         ```
     
-    - To improve performance in token acquisition, only request `cloudDiscoveryMetadata` and `authorityMetadata` if the current MSAL configuration doesn't have them. 
 
 - `/redirect`:
     
