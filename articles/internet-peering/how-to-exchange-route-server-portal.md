@@ -61,7 +61,7 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
  
     * For Peering type, select **Direct**
     * For Microsoft network, select **AS8075 with exchange route server**. 
-    * Select SKU as **Basic Free**. Don't select premium free as it's reserved for special applications.
+    * For SKU, select **Premium Free**.
     * Select the **Metro** location where you want to set up peering.
 
 1. Under **Peering Connections**, select **Create new**

@@ -7,11 +7,11 @@ ms.date: 04/06/2023
 
 # Review TrackAvailability() test results
 
-This article explains how to review TrackAvailability() test results in the Azure portal and query the data using Log Analytics.
+This article explains how to review [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) test results in the Azure portal and query the data using [Log Analytics](../logs/log-analytics-overview.md#overview-of-log-analytics-in-azure-monitor).
+
 ## Prerequisites
 
 > [!div class="checklist"]
-> - [Azure subscription](https://azure.microsoft.com/free) and user account with the ability to create and delete resources
 > - [Workspace-based Application Insights resource](create-workspace-resource.md)
 > - Custom [Azure Functions app](../../azure-functions/functions-overview.md#introduction-to-azure-functions) running [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) with your own business logic
 

@@ -397,6 +397,8 @@
           href: how-to-prevent-data-loss-exfiltration.md
         - name: Configure network isolation with v2
           href: how-to-configure-network-isolation-with-v2.md
+        - name: Securely attach Azure Databricks
+          href: how-to-securely-attach-databricks.md
     # v1 for now - need PM update to v2
     - name: Data protection
       items:
@@ -493,7 +495,7 @@
         - name: Secure inferencing environment
           displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
           href: how-to-secure-kubernetes-inferencing-environment.md
-        - name: Secure Kubernetes online endpoint
+        - name: Configure a secure online endpoint with TLS/SSL
           displayName: AKS, Arc Kubernetes, HTTPS, TSL, SSL, Cname, DNS, Certificate, inference
           href: how-to-secure-kubernetes-online-endpoint.md
         - name: Troubleshoot Azure Machine Learning extension
@@ -592,6 +594,14 @@
         - name: Create data assets
           displayName: Create data assets
           href: how-to-create-data-assets.md
+        - name: Create data assets by importing data from external sources
+          items:
+            - name: Create connections to external data sources (preview)
+              displayName: Create connections to external data sources (preview)
+              href: how-to-connection.md
+            - name: Import data (preview)
+              displayName: Import data (preview)
+              href: how-to-import-data-assets.md
         - name: Access and explore your data
           items:
             - name: Access data during interactive development
@@ -1174,6 +1184,10 @@
       href: how-to-troubleshoot-online-endpoints.md
     - name: Troubleshoot batch endpoints
       href: how-to-troubleshoot-batch-endpoints.md
+    - name: Troubleshoot Kubernetes Compute
+      href: how-to-troubleshoot-kubernetes-compute.md
+    - name: Troubleshoot Azure Machine Learning extension
+      href: how-to-troubleshoot-kubernetes-extension.md
     # v1
     - name: Pipeline issues
       items:

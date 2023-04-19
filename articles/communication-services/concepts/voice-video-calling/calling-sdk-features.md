@@ -121,7 +121,7 @@ The following table represents the set of supported browsers, which are currentl
 | Platform     | Chrome | Safari | Edge  | Firefox |  Webview |
 | ------------ | ------ | ------ | ------ | ------- | ------- |
 | Android      | ✔️      | ❌      | ❌           | ❌      | ✔️ *    |
-| iOS          | ❌      | ✔️      | ❌           | ❌      | ✔️      |
+| iOS          | ✔️      | ✔️      | ❌           | ❌      | ✔️      |
 | macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      |
 | Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      |
