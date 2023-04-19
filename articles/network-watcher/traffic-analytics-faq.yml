@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
-  title: "Traffic analytics frequently asked questions"
+  title: "Traffic analytics FAQ"
   titleSuffix: Azure Network Watcher
-  description: Get answers to some of the most frequently asked questions about traffic analytics in Azure Network Watcher.
+  description: Get answers to the most frequently asked questions (FAQ) about traffic analytics in Azure Network Watcher.
   services: network-watcher
   author: halkazwini
   ms.service: network-watcher
@@ -10,7 +10,7 @@ metadata:
   ms.date: 04/19/2023
   ms.author: halkazwini
   ms.custom: engagement-fy23
-title: Traffic analytics frequently asked questions
+title: Traffic analytics frequently asked questions (FAQ)
 summary: |
   This article provides answers to the most frequently asked questions about traffic analytics in Azure Network Watcher.  
 
