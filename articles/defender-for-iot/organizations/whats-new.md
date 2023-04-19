@@ -52,7 +52,7 @@ For more information, see [Device data retention periods](references-data-retent
 
 The OT sensor version 22.3.6 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
 
-For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
+For more information, see [Deploy an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate).
 
 ### Activation files expiration updates
 
@@ -160,7 +160,15 @@ The **Device inventory** page on the Azure portal supports new grouping categori
 
 ### Focused inventory in the Azure device inventory (Public preview)
 
-The **Device inventory** page on the Azure portal now includes a network location indication for your devices, to help focus your device inventory on the devices within your IoT/OT scope. See and filter which devices are defined as *local* or *routed*, according to your configured subnets. The *Network location* filter is on by default, and the *Network location* column can be added by editing the columns in the device inventory. For more information, see [Subnet](configure-sensor-settings-portal.md#subnet).
+The **Device inventory** page on the Azure portal now includes a network location indication for your devices, to help focus your device inventory on the devices within your IoT/OT scope. 
+
+See and filter which devices are defined as *local* or *routed*, according to your configured subnets. The **Network location** filter is on by default. Add the **Network location** column by editing the columns in the device inventory.
+ 
+Configure your subnets either on the Azure portal or on your OT sensor. For more information, see:
+
+- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#subnet)
+- [Define OT and IoT subnets on the OT sensor](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets)
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
 
@@ -546,9 +554,9 @@ For more information, see:
 
 ### Sensor connections restored after certificate rotation
 
-Starting in version 22.2.3, after rotating your certificates, your sensor connections are automatically restored to your central manager, and you don't need to reconnect them manually.
+Starting in version 22.2.3, after rotating your certificates, your sensor connections are automatically restored to your on-premises management console, and you don't need to reconnect them manually.
 
-For more information, see [About certificates](how-to-deploy-certificates.md).
+For more information, see [Prepare CA-signed certificates](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates) and [Deploy an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate).
 
 ### Support diagnostic log enhancements (Public preview)
 
