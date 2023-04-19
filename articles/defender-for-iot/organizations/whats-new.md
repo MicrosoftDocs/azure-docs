@@ -52,7 +52,7 @@ For more information, see [Device data retention periods](references-data-retent
 
 The OT sensor version 22.3.6 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
 
-For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-deploy-certificates.md).
+For more information, see [Deploy an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate).
 
 ### Activation files expiration updates
 
@@ -554,9 +554,9 @@ For more information, see:
 
 ### Sensor connections restored after certificate rotation
 
-Starting in version 22.2.3, after rotating your certificates, your sensor connections are automatically restored to your central manager, and you don't need to reconnect them manually.
+Starting in version 22.2.3, after rotating your certificates, your sensor connections are automatically restored to your on-premises management console, and you don't need to reconnect them manually.
 
-For more information, see [About certificates](how-to-deploy-certificates.md).
+For more information, see [Prepare CA-signed certificates](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates) and [Deploy an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#deploy-an-ssltls-certificate).
 
 ### Support diagnostic log enhancements (Public preview)
 

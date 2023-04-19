@@ -594,6 +594,14 @@
         - name: Create data assets
           displayName: Create data assets
           href: how-to-create-data-assets.md
+        - name: Create data assets by importing data from external sources
+          items:
+            - name: Create connections to external data sources (preview)
+              displayName: Create connections to external data sources (preview)
+              href: how-to-connection.md
+            - name: Import data (preview)
+              displayName: Import data (preview)
+              href: how-to-import-data-assets.md
         - name: Access and explore your data
           items:
             - name: Access data during interactive development
@@ -602,12 +610,6 @@
             - name: Access data in jobs
               displayName: Access data in jobs
               href: how-to-read-write-data-v2.md
-            - name: Import data
-              displayName: Import data
-              href: how-to-import-data-assets.md
-            - name: Use connections
-              displayName: Use connections
-              href: how-to-connection.md
             - name: Working with Tables (mltable)
               displayName: Working with Tables (mltable)
               href: how-to-mltable.md
@@ -1086,8 +1088,6 @@
               href: how-to-use-pipeline-ui.md
             - name: How to use parallel job in pipeline
               href: how-to-use-parallel-job-in-pipeline.md
-            - name: How to use pipeline component in pipeline
-              href: how-to-use-pipeline-component.md
             # v1
             - name: Create ML pipelines (Python)
               href: ./v1/how-to-create-machine-learning-pipelines.md
@@ -1235,8 +1235,6 @@
           href: reference-yaml-model.md
         - name: Schedule
           href: reference-yaml-schedule.md
-        - name: Pipeline component
-          href: reference-yaml-component-pipeline.md
         - name: Compute
           items:
             - name: Compute cluster (AmlCompute)
