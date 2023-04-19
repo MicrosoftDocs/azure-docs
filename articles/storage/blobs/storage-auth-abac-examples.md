@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 04/11/2023
+ms.date: 04/19/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1936,6 +1936,10 @@ Use the values in the following table to build the expression portion of the con
 | | Key | `sensitivity` |
 | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | | Value | `high` |
+
+The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation:
+
+:::image type="content" source="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-read-tagged-users-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read access allowed over a specific private endpoint for tagged users." lightbox="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-read-tagged-users-portal.png":::
 
 #### [Azure portal: Code editor](#tab/azure-portal-code-editor)
 
