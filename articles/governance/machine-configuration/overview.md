@@ -437,9 +437,9 @@ Machine configuration built-in policy samples are available in the following loc
 <!-- Link reference definitions -->
 [01]: ../../azure-arc/servers/overview.md
 [02]: ../../azure-resource-manager/management/extension-resource-types.md
-[03]: machine-configuration-assignments.md#manually-creating-machine-configuration-assignments
+[03]: assignments.md#manually-creating-machine-configuration-assignments
 [04]: ../../automanage/index.yml
-[05]: machine-configuration-assignments.md
+[05]: assignments.md
 [06]: ../policy/assign-policy-portal.md
 [07]: ../policy/how-to/determine-non-compliance.md
 [08]: https://youtu.be/t9L8COY-BkM
@@ -467,8 +467,8 @@ Machine configuration built-in policy samples are available in the following loc
 [30]: ../../virtual-machines/availability.md#availability-sets
 [31]: ../../site-recovery/site-recovery-overview.md
 [32]: ../policy/troubleshoot/general.md
-[33]: ./machine-configuration-create-setup.md
-[34]: ./machine-configuration-create-test.md
+[33]: ./how-to-set-up-authoring-environment.md
+[34]: ./how-to-test-package.md
 [35]: ../../virtual-machines/windows/run-command.md
 [36]: ../../virtual-machines/linux/run-command.md
 [37]: https://github.com/azure/nxtools#getting-started
@@ -476,5 +476,5 @@ Machine configuration built-in policy samples are available in the following loc
 [39]: ../policy/samples/built-in-initiatives.md
 [40]: https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration
 [41]: https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules
-[42]: ./machine-configuration-create.md
-[43]: ./machine-configuration-create-definition.md
+[42]: ./how-to-create-package.md
+[43]: ./how-to-create-policy-definition.md

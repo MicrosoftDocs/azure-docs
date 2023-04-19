@@ -392,11 +392,11 @@ configuration stored in Azure Automation by making a REST request to the service
 [02]: /powershell/dsc/getting-started/wingettingstarted
 [03]: /powershell/dsc/getting-started/lnxgettingstarted
 [04]: /powershell/scripting/gallery/how-to/working-with-local-psrepositories
-[05]: ./machine-configuration-create.md
-[06]: ./machine-configuration-create.md#author-a-configuration
+[05]: ./how-to-create-package.md
+[06]: ./how-to-create-package.md#author-a-configuration
 [07]: /powershell/gallery/how-to/working-with-local-psrepositories
 [08]: https://github.com/Azure/azure-policy/blob/bbfc60104c2c5b7fa6dd5b784b5d4713ddd55218/samples/GuestConfiguration/package-samples/resource-modules/WindowsDscConfiguration/DscResources/WindowsDscConfiguration/WindowsDscConfiguration.psm1#L97
-[09]: ./machine-configuration-custom.md#special-requirements-for-get
+[09]: ./dsc-in-machine-configuration.md#special-requirements-for-get
 [10]: ../../azure-resource-manager/management/overview.md#terminology
 [11]: ../../automation/state-configuration/remove-node-and-configuration-package.md
 [12]: ../policy/assign-policy-portal.md
@@ -404,8 +404,8 @@ configuration stored in Azure Automation by making a REST request to the service
 [14]: ../../azure-arc/servers/overview.md
 [15]: ../../azure-arc/servers/onboard-dsc.md
 [16]: https://www.powershellgallery.com/packages/AADSCConfigContent/
-[17]: ./machine-configuration-create-test.md
-[18]: ./machine-configuration-create-publish.md
-[19]: ./machine-configuration-create-definition.md
+[17]: ./how-to-test-package.md
+[18]: ./how-to-publish-package.md
+[19]: ./how-to-create-policy-definition.md
 [20]: ../policy/assign-policy-portal.md
 [21]: ../policy/how-to/determine-non-compliance.md

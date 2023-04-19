@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022, ignite-2022, service-connect
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 Instead of manually configuring your Spring Boot applications, you can automatically bind select Azure services to your applications by using Azure Spring Apps. This article demonstrates how to bind your application to an Azure Cosmos DB database.
 
@@ -76,46 +76,50 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 ### [Service Connector](#tab/Service-Connector)
 
-1. Use the Azure CLI to configure your Spring app to connect to a Cosmos SQL Database with a system-assigned managed identity by using the `az spring connection create` command, as shown in the following example.
+#### Use the Azure CLI
 
-   > [!NOTE]
-   > Updating Azure Cosmos DB database settings can take a few minutes to complete.
+Use the following command to configure your Spring app to connect to a Cosmos SQL Database with a system-assigned managed identity:
 
-   ```azurecli
-   az spring connection create cosmos-sql \
-       --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
-       --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
-       --app $APP_NAME \
-       --deployment $DEPLOYMENT_NAME \
-       --target-resource-group $COSMOSDB_RESOURCE_GROUP \
-       --account $COSMOSDB_ACCOUNT_NAME \
-       --database $DATABASE_NAME \
-       --system-assigned-identity
-   ```
+> [!NOTE]
+> Updating Azure Cosmos DB database settings can take a few minutes to complete.
 
-   > [!NOTE]
-   > If you're using [Service Connector](../service-connector/overview.md) for the first time, start by running the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider.
-   >
-   > If you're using Cosmos Cassandra, use a `--key_space` instead of `--database`.
+```azurecli
+az spring connection create cosmos-sql \
+    --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
+    --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
+    --app $APP_NAME \
+    --deployment $DEPLOYMENT_NAME \
+    --target-resource-group $COSMOSDB_RESOURCE_GROUP \
+    --account $COSMOSDB_ACCOUNT_NAME \
+    --database $DATABASE_NAME \
+    --system-assigned-identity
+```
 
-   > [!TIP]
-   > Run the command `az spring connection list-support-types --output table` to get a list of supported target services and authentication methods for Azure Spring Apps. If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.
+> [!NOTE]
+> If you're using [Service Connector](../service-connector/overview.md) for the first time, start by running the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider.
+>
+> If you're using Cosmos Cassandra, use a `--key_space` instead of `--database`.
 
-1. Alternately, you can use the Azure portal to configure this connection by completing the following steps. The Azure portal provides the same capabilities as the Azure CLI and provides an interactive experience.
+> [!TIP]
+> Run the command `az spring connection list-support-types --output table` to get a list of supported target services and authentication methods for Azure Spring Apps. If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.
 
-   1. Select your Azure Spring Apps instance in the Azure portal and select **Apps** from the navigation menu. Choose the app you want to connect and select **Service Connector** on the navigation menu.
+#### Use the Azure portal
 
-   1. Select **Create**.
+Alternately, you can use the Azure portal to configure this connection by completing the following steps. The Azure portal provides the same capabilities as the Azure CLI and provides an interactive experience.
 
-   1. On the **Basics** tab, for service type, select Cosmos DB, then choose a subscription. For API type, select Core (SQL), choose a Cosmos DB account, and a database. For client type, select Java, then select **Next: Authentication**. If you haven't created your database yet, see [Quickstart: Create an Azure Cosmos DB account, database, container, and items from the Azure portal](../cosmos-db/nosql/quickstart-portal.md).
+1. Select your Azure Spring Apps instance in the Azure portal and select **Apps** from the navigation menu. Choose the app you want to connect and select **Service Connector** on the navigation menu.
 
-   1. On the **Authentication** tab, choose **Connection string**. Service Connector automatically retrieves the access key from your Cosmos DB account. Select **Next: Networking**.
+1. Select **Create**.
 
-   1. On the **Networking** tab, select **Configure firewall rules to enable access to target service**, then select **Next: Review + Create**.
+1. On the **Basics** tab, for service type, select Cosmos DB, then choose a subscription. For API type, select Core (SQL), choose a Cosmos DB account, and a database. For client type, select Java, then select **Next: Authentication**. If you haven't created your database yet, see [Quickstart: Create an Azure Cosmos DB account, database, container, and items from the Azure portal](../cosmos-db/nosql/quickstart-portal.md).
 
-   1. On the **Review + Create** tab, wait for the validation to pass and then select **Create**. The creation can take a few minutes to complete.
+1. On the **Authentication** tab, choose **Connection string**. Service Connector automatically retrieves the access key from your Cosmos DB account. Select **Next: Networking**.
 
-   1. Once the connection between your Spring apps and your Cosmos DB database has been generated, you can see it in the Service Connector page and select the unfold button to view the configured connection variables.
+1. On the **Networking** tab, select **Configure firewall rules to enable access to target service**, then select **Next: Review + Create**.
+
+1. On the **Review + Create** tab, wait for the validation to pass and then select **Create**. The creation can take a few minutes to complete.
+
+1. Once the connection between your Spring apps and your Cosmos DB database has been generated, you can see it in the Service Connector page and select the unfold button to view the configured connection variables.
 
 ### [Service Binding](#tab/Service-Binding)
 
@@ -152,7 +156,7 @@ Azure Cosmos DB has five different API types that support binding. The following
 
 ### [Terraform](#tab/Terraform)
 
-The following Terraform script shows how to set up an Azure Spring Apps app with an Azure Cosmos DB account.
+The following Terraform script shows how to set up an app deployed to Azure Spring Apps with an Azure Cosmos DB account.
 
 ```terraform
 provider "azurerm" {
