@@ -316,10 +316,9 @@ If you downloaded the software package to a different server, copy the files to 
 
 1. After the installation step finishes, select **Close**.
 
-### Install Update Rollup 2
+### Install Update Rollup 2 for Microsoft Azure Backup Server (MABS) version 3
 
-Installing the Update Rollup 2 for Azure Backup Server v3 is mandatory before you can protect the workloads.  You can find the bug fixes and installation instructions in the [knowledge base article](https://support.microsoft.com/help/5004579/).
-
+Installing the Update Rollup 2 for Microsoft Azure Backup Server (MABS) version 3 is mandatory for protecting the workloads.  You can find the bug fixes and installation instructions in the [knowledge base article](https://support.microsoft.com/help/5004579/).
 ## Add storage to Azure Backup Server
 
 Azure Backup Server v3 supports Modern Backup Storage that offers:
@@ -351,3 +350,5 @@ Now that you've covered how to set up Azure Backup Server for Azure VMware Solut
 
 - [Configuring backups for your Azure VMware Solution VMs](backup-azure-vmware-solution-virtual-machines.md).
 - [Protecting your Azure VMware Solution VMs with Microsoft Defender for Cloud integration](azure-security-integration.md).
+
+
