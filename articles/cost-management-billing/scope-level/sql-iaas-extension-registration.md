@@ -62,7 +62,7 @@ The most comprehensive way to register is at the overall customer level. For bot
 
 ### Turn on SQL IaaS Agent extension automatic registration
 
-You can use the self-serve registration capability, described at [Automatic registration with SQL IaaS Agent extension](/azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms).
+You can use the self-serve registration capability, described at [Automatic registration with SQL IaaS Agent extension](/sql-docs/azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms).
 
 Because of the way that roles and permissions work in Azure, including segregation of duties, you may not be able to access or complete the extension registration process yourself. If you're in that situation, you need find the subscription contributors for the scope you want to register. Then, get their help to complete the process.
 
