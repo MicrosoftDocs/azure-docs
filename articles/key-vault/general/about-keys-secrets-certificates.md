@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 12/12/2022
+ms.date: 04/18/2023
 ms.author: mbaldwin
 ---
 
@@ -71,7 +71,7 @@ Objects in Key Vault can be retrieved by specifying a version or by omitting ver
 > The values you provide for Azure resources or object IDs may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
 
 ### Vault-name and Object-name
-Objects are uniquely identified within Key Vault using a URL. No two objects in the system have the same URL, regardless of geo-location. The complete URL to an object is called the Object Identifier. The URL consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. The Object Name is case-insensitive and immutable. Identifiers that don't include the Object Version are referred to as Base Identifiers.  
+Objects are uniquely identified within Key Vault using a case-insensitive URL. No two objects in the system have the same URL, regardless of geo-location. The complete URL to an object is called the Object Identifier. The URL consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. The Object Name is case-insensitive and immutable. Identifiers that don't include the Object Version are referred to as Base Identifiers.  
 
 For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md)
 
