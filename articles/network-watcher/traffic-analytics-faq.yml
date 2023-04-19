@@ -30,7 +30,7 @@ sections:
           Your account must meet one of the following to enable traffic analytics:
           
           - Your account must have any one of the following Azure roles at the subscription scope: owner, contributor, or network contributor.
-          - If your account is not assigned to one of the previously listed roles, it must be assigned to a custom role that is assigned the following actions, at the subscription level.
+          - If your account isn't assigned to one of the previously listed roles, it must be assigned to a custom role that is assigned the following actions, at the subscription level.
                       
               - Microsoft.Network/applicationGateways/read
               - Microsoft.Network/connections/read
@@ -45,7 +45,7 @@ sections:
                   
           To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.md):
           
-          If you are not able to see the assignments, contact the respective subscription admin. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+          If you aren't able to see the assignments, contact the respective subscription admin. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
           
       - question: |
           Can the network security groups I enable flow logs for be in different regions than my workspace?
@@ -60,7 +60,7 @@ sections:
       - question: |
           Can I use an existing workspace?
         answer: |
-          Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about Kusto Query Language (KQL), see [Log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
+          Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you don't want to upgrade the workspace, you need to create a new one. For more information about Kusto Query Language (KQL), see [Log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
           
       - question: |
           Can my Azure storage account be in one subscription and my Log Analytics workspace be in a different subscription?
@@ -80,7 +80,7 @@ sections:
       - question: |
           What if I'm getting the status, “Failed to load,” under the NSG flow logs page?
         answer: |
-          The `Microsoft.Insights` provider must be registered for flow logging to work properly. If you are not sure whether the `Microsoft.Insights` provider is registered for your subscription, see [Azure portal](.//network-watcher-nsg-flow-logging-portal.md#register-insights-provider), [PowerShell](./network-watcher-nsg-flow-logging-powershell.md#register-insights-provider), or [Azure CLI](./network-watcher-nsg-flow-logging-cli.md#register-insights-provider) instructions on how to register it.
+          The `Microsoft.Insights` provider must be registered for flow logging to work properly. If you aren't sure whether the `Microsoft.Insights` provider is registered for your subscription, see [Azure portal](.//network-watcher-nsg-flow-logging-portal.md#register-insights-provider), [PowerShell](./network-watcher-nsg-flow-logging-powershell.md#register-insights-provider), or [Azure CLI](./network-watcher-nsg-flow-logging-cli.md#register-insights-provider) instructions on how to register it.
           
       - question: |
           I have configured the solution. Why am I not seeing anything on the dashboard?
@@ -102,14 +102,14 @@ sections:
         answer: |
           You might see this message because:
           - Traffic analytics was recently enabled, and might not yet have aggregated enough data for it to derive meaningful insights.
-          - You are using the free version of the Log Analytics workspace, and it exceeded the quota limits. You might need to use a workspace with a larger capacity.
+          - You're using the free version of the Log Analytics workspace, and it exceeded the quota limits. You might need to use a workspace with a larger capacity.
 
           Try the suggested solutions for the previous question. If problems persist, raise concerns in [Microsoft Q&A](/answers/topics/azure-network-watcher.html).
               
       - question: |
           What if I get this message: “Looks like we have resources data (Topology) and no flows information. For more information, click here to see resources data and refer to FAQ.”?
         answer: |
-          You are seeing the resources information on the dashboard; however, no flow-related statistics are present. Data might not be present because of no communication flows between the resources. Wait for 60 minutes, and recheck status. If the problem persists, and you're sure that communication flows among resources exist, raise concerns in [Microsoft Q&A](/answers/topics/azure-network-watcher.html).
+          You're seeing the resources information on the dashboard; however, no flow-related statistics are present. Data might not be present because of no communication flows between the resources. Wait for 60 minutes, and recheck status. If the problem persists, and you're sure that communication flows among resources exist, raise concerns in [Microsoft Q&A](/answers/topics/azure-network-watcher.html).
 
       - question: |
           Can I configure traffic analytics using PowerShell?
@@ -200,12 +200,12 @@ sections:
           How does traffic analytics decide that an IP is malicious? 
         answer: |
           Traffic analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems leverage diverse telemetry sources like Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build a lot of intelligence on top of it. 
-          Some of this data is Microsoft Internal. If a known IP is getting flagged as malicious, please raise a support ticket to know the details.
+          Some of this data is Microsoft Internal. If a known IP is getting flagged as malicious, raise a support ticket to know the details.
           
       - question: |
           How can I set alerts on traffic analytics data?
         answer: |
-          Traffic analytics does not have built-in support for alerts. However, since traffic analytics data is stored in Log Analytics, you can write custom queries and set alerts on them. 
+          Traffic analytics doesn't have built-in support for alerts. However, since traffic analytics data is stored in Log Analytics, you can write custom queries and set alerts on them. 
           Follow these steps:
           - You can use Log Analytics link in traffic analytics. 
           - Use the [traffic analytics schema](traffic-analytics-schema.md) to write your queries.
@@ -363,7 +363,7 @@ sections:
       - question: |
           Are Classic network security groups supported?
         answer: |
-          No, traffic analytics does not support classic network security groups. It is recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources will be [deprecated](../virtual-machines/classic-vm-deprecation.md). Refer this article to understand [how to migrate](../virtual-machines/migration-classic-resource-manager-overview.md).
+          No, traffic analytics doesn't support classic network security groups. It's recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources are [deprecated](../virtual-machines/classic-vm-deprecation.md). Refer this article to understand [how to migrate](../virtual-machines/migration-classic-resource-manager-overview.md).
       
       - question: |
           Why doesn't traffic analytics display data for my traffic analytics enabled network security groups? 
