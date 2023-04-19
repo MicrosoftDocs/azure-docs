@@ -1,14 +1,14 @@
 ---
 title: Create and manage registries (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how create registries with the CLI, Azure portal and Azure Machine Learning Studio 
+description: Learn how create registries with the CLI, REST API, Azure portal and Azure Machine Learning Studio 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: mabables
-author: ManojBableshwar
+ms.author: kritifaujdar
+author: fkriti
 ms.reviewer: larryfr
-ms.date: 09/21/2022
+ms.date: 04/12/2023
 ms.topic: how-to
 ms.custom: devx-track-python, ignite-2022
 ---
@@ -66,8 +66,8 @@ Create the YAML definition and name it `registry.yml`.
 
 ```YAML
 name: DemoRegistry1
-description: Basic registry with one primary region and to additional regions
 tags:
+  description: Basic registry with one primary region and to additional regions
   foo: bar
 location: eastus
 replication_locations:
@@ -118,7 +118,72 @@ You can create registries in Azure Machine Learning studio using the following s
 
 1. Review the information and select __Create__.
 
+
+
+# [REST API](#tab/rest)
+
+You will require the **curl** utility to  complete this step. The **curl** program is available in the [Windows Subsystem for Linux](/windows/wsl/install-win10) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`.  
+
+You will also require an authentication token for your account to complete the REST API call. You can use below command to retrieve the token:
+
+```azurecli
+az account get-access-token 
+```
+
+The response should provide an access token good for one hour. Make note of the token, as you will use it to authenticate all administrative requests.  Below is a sample response:
+
+```json
+{
+    "access_token": "YOUR-ACCESS-TOKEN",
+    "expiresOn": "<expiration-time>",
+    "subscription": "<subscription-id>",
+    "tenant": "your-tenant-id",
+    "tokenType": "Bearer"
+}
+```
+
+Run below command to create a registry. You can edit the Json to change the inputs as needed:
+ 
+```bash
+curl -X PUT https://management.azure.com/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.MachineLearningServices/registries/reg-from-rest?api-version=2022-12-01-preview -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>" -H 'Content-Type: application/json' -d ' 
+{
+    "properties":
+    {
+        "regionDetails": 
+        [
+            {
+                "location": "eastus",
+                "storageAccountDetails":
+                [
+                    {
+                        "systemCreatedStorageAccount": 
+                        {
+                            "storageAccountType": "Standard_LRS"
+                        }
+                    }
+                ],
+                "acrDetails": 
+                [
+                    {
+                        "systemCreatedAcrAccount":
+                        {
+                            "acrAccountSku": "Premium"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "identity": {
+        "type": "SystemAssigned"
+        },
+    "location": "eastus"
+}
+'
+```
+You should receive a `202 Accepted` response.
 ---
+
 
 ## Specify storage account type and SKU (optional)
 
@@ -136,8 +201,8 @@ Below is an example YAML that demonstrates this advanced storage configuration:
 
 ```YAML
 name: DemoRegistry2
-description: Registry with additional configuration for storage accounts
 tags:
+  description: Registry with additional configuration for storage accounts
   foo: bar
 location: eastus
 replication_locations:
