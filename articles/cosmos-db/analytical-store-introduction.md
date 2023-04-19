@@ -1,6 +1,6 @@
 ---
 title: What is Azure Cosmos DB analytical store?
-description: Learn about Azure Cosmos DB transactional (row-based) and analytical(column-based) store. Benefits of analytical store, performance impact for large-scale workloads, and auto sync of data from transactional store to analytical store  
+description: Learn about Azure Cosmos DB transactional (row-based) and analytical(column-based) store. Benefits of analytical store, performance impact for large-scale workloads, and auto sync of data from transactional store to analytical store.  
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -276,7 +276,7 @@ WITH (num varchar(100)) AS [IntToFloat]
 It is possible that an old document, with an incorrect schema, was used to create your container's analytical store base schema. Based on all the rules presented above, you may be receiving `NULL` for certain properties when querying your analytical store using Azure Synapse Link. To delete or update the problematic documents won't help because base schema reset isn't currently supported. The possible solutions are:
 
  * To migrate the data to a new container, making sure that all documents have the correct schema.
- * To abandon the property with the wrong schema and add a new one, with another name, that has the correct schema in all documents. Example: You have billions of documents in the **Orders** container where the **status** property is a string. But the first document in that container has **status** defined with integer. So, one document will have **status** correctly represented and all other documents will have `NULL`. You can add the **status2** property to all documents and start to use it, instead of the original property.
+ * To abandon the property with the wrong schema and add a new one with another name that has the correct schema in all documents. Example: You have billions of documents in the **Orders** container where the **status** property is a string. But the first document in that container has **status** defined with integer. So, one document will have **status** correctly represented and all other documents will have `NULL`. You can add the **status2** property to all documents and start to use it, instead of the original property.
 
 #### Full fidelity schema representation
 
@@ -482,7 +482,7 @@ It's possible to use full fidelity Schema for API for NoSQL accounts, instead of
 * Currently, if you want to use full fidelity schema with NoSQL or Gremlin API accounts, you have to set it at account level in the same CLI or PowerShell command that will enable Synapse Link at account level.
 * Currently Azure Cosmos DB for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts have full fidelity schema representation type.
 * It's not possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
-* Currently, containers schema in analytical store are defined when the container is created, even if Synapse Link has not been enabled in the database account.
+* Currently, containers schemas in analytical store are defined when the container is created, even if Synapse Link has not been enabled in the database account.
   * Containers or graphs created before Synapse Link was enabled with full fidelity schema at account level will have well-defined schema.
   * Containers or graphs created after Synapse Link was enabled with full fidelity schema at account level will have full fidelity schema.
  
@@ -569,7 +569,7 @@ Synapse Link, and analytical store by consequence, has different compatibility l
 * Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account.
 * Currently Continuous backup mode and Synapse Link aren't supported in the same database account. Customers have to choose one of these two features and this decision can't be changed.
 
-### Backup Polices
+### Backup policies
 
 There are two possible backup polices and to understand how to use them, the following details about Azure Cosmos DB backups are very important:
 
@@ -605,7 +605,7 @@ If you want to delete the original container but don't want to lose its analytic
 It's important to note that the data in the analytical store has a different schema than what exists in the transactional store. While you can generate snapshots of your analytical store data, and export it to any Azure Data service, at no RUs costs, we can't guarantee the use of this snapshot to back feed the transactional store. This process isn't supported.
 
 
-## Global Distribution
+## Global distribution
 
 If you have a globally distributed Azure Cosmos DB account, after you enable analytical store for a container, it will be available in all regions of that account.  Any changes to operational data are globally replicated in all regions. You can run analytical queries effectively against the nearest regional copy of your data in Azure Cosmos DB.
 
@@ -653,7 +653,7 @@ In order to get a high-level cost estimate to enable analytical store on an Azur
 
 Analytical store read operations estimates aren't included in the Azure Cosmos DB cost calculator since they are a function of your analytical workload. But as a high-level estimate, scan of 1 TB of data in analytical store typically results in 130,000 analytical read operations, and results in a cost of $0.065. As an example, if you use Azure Synapse serverless SQL pools to perform this scan of 1 TB, it will cost $5.00 according to [Azure Synapse Analytics pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics/). The final total cost for this 1 TB scan would be $5.065.
 
-While the above estimate is for scanning 1TB of data in analytical store, applying filters reduces the volume of data scanned and this determines the exact number of analytical read operations given the consumption pricing model. A proof-of-concept around the analytical workload would provide a more finer estimate of analytical read operations. This estimate doesn't include the cost of Azure Synapse Analytics.
+While the above estimate is for scanning 1TB of data in analytical store, applying filters reduces the volume of data scanned and this determines the exact number of analytical read operations given the consumption pricing model. A proof-of-concept around the analytical workload would provide a finer estimate of analytical read operations. This estimate doesn't include the cost of Azure Synapse Analytics.
 
 
 ## Next steps
