@@ -108,28 +108,18 @@ Now create and configure a source to flow data from the Azure Cosmos DB account'
 | Batchsize in bytes | Specify the size in bytes if you would like to batch the change data capture feeds |
 | Extra Configs | Extra Azure Cosmos DB analytical store configs and their values. (ex: `spark.cosmos.allowWhiteSpaceInFieldNames -> true`) |
 
-### Working with intermediate updates
+### Working with source options
   
-When you check the `Capture intermediate updates`, all versions of updates, and deletes are captured and persisted on the sink. This option creates and populates the `__usr_opType` field in sink with the following values:
+When you check any of the `Capture intermediate updates`, `Capture Deltes`, and `Capture Transactional store TTLs` options, your CDC process will create and populate the `__usr_opType` field in sink with the following values:
 
-| Value | Description |
-| --- | --- |
-| 1 | UPDATE |
-| 2 | INSERT |
-| 3 | USER_DELETE |
-
-### Working with intermediate updates and TTL  
+| Value | Description | Option
+| --- | --- | --- |
+| 1 | UPDATE | Capture Intermediate updates |
+| 2 | INSERT | There isn't an option for inserts, it's on by default |
+| 3 | USER_DELETE | Capture Deletes |
+| 4 | TTL_DELETE |  Capture Transactional store TTLs|
   
-If you have to identify the TTL deleted records from documents deleted by users or applications, you have check both `Capture intermediate updates` and `Capture Transactional store TTLs` options. This will creates and populates the `__usr_opType` field in sink with a fourth value:
-
-| Value | Description |
-| --- | --- |
-| 1 | UPDATE |
-| 2 | INSERT |
-| 3 | USER_DELETE |
-| 4 | TTL_DELETE |  
-  
-With this information you can create queries and processes to differentiate the deletes performed by an user or application from the deletes caused by TTL operations.
+If you have to differentiate the TTL deleted records from documents deleted by users or applications, you have check both `Capture intermediate updates` and `Capture Transactional store TTLs` options. Then you have to adapt your CDC processes or applications or queries to use `__usr_opType` according to what is necessary for your business needs.
   
   
 ## Create and configure sink settings for update and delete operations
