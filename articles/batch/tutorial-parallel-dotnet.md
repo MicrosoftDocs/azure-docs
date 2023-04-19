@@ -9,18 +9,18 @@ ms.custom: "mvc, devx-track-csharp"
 
 # Tutorial: Run a parallel workload with Azure Batch using the .NET API
 
-Use Azure Batch to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This tutorial walks through a C# example of running a parallel workload using Batch. You learn a common Batch application workflow and how to interact programmatically with Batch and Storage resources. You learn how to:
+Use Azure Batch to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This tutorial walks through a C# example of running a parallel workload using Batch. You learn a common Batch application workflow and how to interact programmatically with Batch and Storage resources.
 
 > [!div class="checklist"]
-> * Add an application package to your Batch account
-> * Authenticate with Batch and Storage accounts
-> * Upload input files to Storage
-> * Create a pool of compute nodes to run an application
-> * Create a job and tasks to process input files
-> * Monitor task execution
-> * Retrieve output files
+> * Add an application package to your Batch account.
+> * Authenticate with Batch and Storage accounts.
+> * Upload input files to Storage.
+> * Create a pool of compute nodes to run an application.
+> * Create a job and tasks to process input files.
+> * Monitor task execution.
+> * Retrieve output files.
 
-In this tutorial, you convert MP4 media files in parallel to MP3 format using the [ffmpeg](https://ffmpeg.org/) open-source tool. 
+In this tutorial, you convert MP4 media files to MP3 format, in parallel, by using the [ffmpeg](https://ffmpeg.org) open-source tool. 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,18 +41,20 @@ Sign in to [the Azure portal](https://portal.azure.com).
 Use the Azure portal to add ffmpeg to your Batch account as an [application package](batch-application-packages.md). Application packages help you manage task applications and their deployment to the compute nodes in your pool. 
 
 1. In the Azure portal, click **More services** > **Batch accounts**, and select the name of your Batch account.
+
 1. Click **Applications** > **Add**.
+
     :::image type="content" source="./media/tutorial-parallel-dotnet/add-application.png" alt-text="Screenshot of the Applications section of the batch account.":::
 
-1. Enter *ffmpeg* in the **Application Id** field, and a package version of *4.3.1* in the **Version** field. Select the ffmpeg zip file that you downloaded, and then select **OK**. The ffmpeg application package is added to your Batch account.
+1. Enter *ffmpeg* in the **Application Id** field, and a package version of *4.3.1* in the **Version** field. Select the ffmpeg zip file that you downloaded, and then select **Submit**. The ffmpeg application package is added to your Batch account.
 
     :::image type="content" source="./media/tutorial-parallel-dotnet/new-batch-application.png" alt-text="Screenshot of the ID and version fields in the Add application section.":::
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
-## Download and run the sample
+## Download and run the sample app
 
-### Download the sample
+### Download the sample app
 
 [Download or clone the sample app](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) from GitHub. To clone the sample app repo with a Git client, use the following command:
 
@@ -88,11 +90,11 @@ const string appPackageVersion = "4.3.1";
 
 Build and run the application in Visual Studio, or at the command line with the `dotnet build` and `dotnet run` commands. After running the application, review the code to learn what each part of the application does. For example, in Visual Studio:
 
-* Right-click the solution in Solution Explorer and select **Build Solution**. 
+1. Right-click the solution in Solution Explorer and select **Build Solution**. 
 
-* Confirm the restoration of any NuGet packages, if you're prompted. If you need to download missing packages, ensure the [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) is installed.
+1. Confirm the restoration of any NuGet packages, if you're prompted. If you need to download missing packages, ensure the [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) is installed.
 
-Then run it. When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. 
+1. Run the solution. When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. 
 
 ```
 Sample start: 11/19/2018 3:20:21 PM
