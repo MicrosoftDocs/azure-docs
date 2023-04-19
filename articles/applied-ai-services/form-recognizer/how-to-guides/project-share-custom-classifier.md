@@ -66,11 +66,11 @@ Follow these steps to share your project using Form Recognizer studio:
 
 1. In the Studio, select the **Custom extraction models** tile, under the custom models section.
 
-:::image type="content" source="../media/how-to/studio-custom-extraction.png" alt-text="Screenshot showing how to select a custom extraction model in the Studio.":::
+   :::image type="content" source="../media/how-to/studio-custom-extraction.png" alt-text="Screenshot showing how to select a custom extraction model in the Studio.":::
 
 1. On the custom extraction models page, select the desired model to share and then select the **Share** button.
 
-:::image type="content" source="../media/how-to/studio-project-share.png" alt-text="Screenshot showing how to select the desired model and select the share option.":::
+   :::image type="content" source="../media/how-to/studio-project-share.png" alt-text="Screenshot showing how to select the desired model and select the share option.":::
 
 1. On the share project dialog, copy the project token for the selected project.
 
@@ -84,11 +84,11 @@ Follow these steps to import a project using Form Recognizer studio.
 
 1. In the Studio, select the **Custom extraction models** tile, under the custom models section.
 
-:::image type="content" source="../media/how-to/studio-custom-extraction.png" alt-text="Screenshot: Select custom extraction model in the Studio.":::
+   :::image type="content" source="../media/how-to/studio-custom-extraction.png" alt-text="Screenshot: Select custom extraction model in the Studio.":::
 
 1. On the custom extraction models page, select the **Import** button.
 
-:::image type="content" source="../media/how-to/studio-project-import.png" alt-text="Screenshot: Select import within custom extraction model page.":::
+   :::image type="content" source="../media/how-to/studio-project-import.png" alt-text="Screenshot: Select import within custom extraction model page.":::
 
 1. On the import project dialog, paste the project token shared with you and select import.
 
