@@ -59,12 +59,10 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 | Internet exposed SQL on VM has a user account with commonly used username and known vulnerabilities (Preview) | SQL on VM is reachable from the internet, has a local user account with a commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs). <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md) |
 | SQL on VM has a user account with commonly used username and allows code execution on the VM (Preview) | SQL on VM has a local user account with a commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying VM. <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md)|
 | SQL on VM has a user account with commonly used username and known vulnerabilities (Preview) | SQL on VM has a local user account with a commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs). <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md)|
-| Managed database with excessive internet exposure allows basic (local user/password) authentication | Database can be accessed through the internet from any public IP and allows authentication using username and password (basic authentication mechanism) which exposes the DB to brute force attacks. |
-| Internet exposed VM has high severity vulnerabilities and a hosted database installed  | An attacker with network access to the DB machine can exploit the vulnerabilities and gain remote code execution.
+| Managed database with excessive internet exposure allows basic (local user/password) authentication (Preview) | Database can be accessed through the internet from any public IP and allows authentication using username and password (basic authentication mechanism) which exposes the DB to brute force attacks. |
+| Internet exposed VM has high severity vulnerabilities and a hosted database installed (Preview) | An attacker with network access to the DB machine can exploit the vulnerabilities and gain remote code execution.
 | Private Azure blob storage container replicates data to internet exposed and publicly accessible Azure blob storage container (Preview) | An internal Azure storage container replicates its data to another Azure storage container which is reachable from the internet and allows public access, and poses this data at risk. |
 | Internet exposed Azure Blob Storage container with sensitive data is publicly accessible (Preview) | A blob storage account container with sensitive data is reachable from the internet and allows public read access without authorization required. <br/> Prerequisite: [Enable data-aware security for storage accounts in Defender CSPM](data-security-posture-enable.md).|
-| Internet exposed managed database allows basic (local user/password) authentication (Preview) | A database can be accessed through the internet and allows authentication using username and password (basic authentication mechanism) which exposes the DB to brute force attacks. |
-| Internet exposed database server allows basic (user/password) authentication method (Preview) | Azure SQL database can be accessed through the internet and allows user/password authentication which exposes the DB to brute force attacks. |
 
 ### AWS data
 
@@ -75,7 +73,7 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 |Internet exposed SQL on EC2 instance has a user account with commonly used username and known vulnerabilities (Preview) | SQL on EC2 instance is reachable from the internet, has a local user account with a commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs). <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md) |
 |SQL on EC2 instance has a user account with commonly used username and allows code execution on the underlying compute (Preview) | SQL on EC2 instance has a local user account with commonly used username (which is prone to brute force attacks), and has vulnerabilities allowing code execution and lateral movement to the underlying compute. <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md) |
 | SQL on EC2 instance has a user account with commonly used username and known vulnerabilities (Preview) |SQL on EC2 instance [EC2Name] has a local user account with commonly used username (which is prone to brute force attacks), and has known vulnerabilities (CVEs). <br/> Prerequisite: [Enable Microsoft Defender for SQL servers on machines](defender-for-sql-usage.md)   |
-|Managed database with excessive internet exposure allows basic (local user/password) authentication | Database can be accessed through the internet from any public IP and allows authentication using username and password (basic authentication mechanism) which exposes the DB to brute force attacks. |
+|Managed database with excessive internet exposure allows basic (local user/password) authentication (Preview) | Database can be accessed through the internet from any public IP and allows authentication using username and password (basic authentication mechanism) which exposes the DB to brute force attacks. |
 |Internet exposed EC2 instance has high severity vulnerabilities and a hosted database installed (Preview) | An attacker with network access to the DB machine can exploit the vulnerabilities and gain remote code execution.
 | Private AWS S3 bucket replicates data to internet exposed and publicly accessible AWS S3 bucket (Preview) | An internal AWS S3 bucket replicates its data to another S3 bucket which is reachable from the internet and allows public access, and poses this data at risk. |
 | RDS snapshot is publicly available to all AWS accounts (Preview) | A snapshot of an RDS instance or cluster is publicly accessible by all AWS accounts. |
@@ -87,7 +85,6 @@ Prerequisite: [Enable agentless scanning](enable-vulnerability-assessment-agentl
 | Private AWS S3 bucket replicates data to internet exposed and publicly accessible AWS S3 bucket (Preview) | Private AWS S3 bucket is replicating data to internet exposed and publicly accessible AWS S3 bucket |
 | Private AWS S3 bucket with sensitive data replicates data to internet exposed and publicly accessible AWS S3 bucket (Preview) | Private AWS S3 bucket with sensitive data is replicating data to internet exposed and publicly accessible AWS S3 bucket|
 | RDS snapshot is publicly available to all AWS accounts (Preview) | RDS snapshot is publicly available to all AWS accounts |
-| Internet exposed database server allows basic (user/password) authentication method (Preview) | AWS RDS database can be accessed through the internet and allows user/password authentication which exposes the DB to brute force attacks. |
 
 ### Azure containers
 
@@ -131,8 +128,8 @@ This section  lists all of the cloud security graph components (connections and 
 | DEASM findings | Microsoft Defender External Attack Surface Management (DEASM) internet scanning findings | Public IP |
 | Privileged container | Indicates that a Kubernetes container runs in a privileged mode | Kubernetes container |
 | Uses host network | Indicates that a Kubernetes pod uses the network namespace of its host machine | Kubernetes pod |
-| Has high severity vulnerabilities | Indicates that a resource has high severity vulnerabilities | Azure VM, AWS EC2, Kubernetes image |
-| Vulnerable to remote code execution | Indicates that a resource has vulnerabilities allowing remote code execution | Azure VM, AWS EC2, Kubernetes image |
+| Has high severity vulnerabilities | Indicates that a resource has high severity vulnerabilities | Azure VM, AWS EC2, Container image |
+| Vulnerable to remote code execution | Indicates that a resource has vulnerabilities allowing remote code execution | Azure VM, AWS EC2, Container image |
 | Public IP metadata | Lists the metadata of an Public IP | Public IP |
 | Identity metadata | Lists the metadata of an identity | Azure AD Identity |
 
@@ -144,7 +141,7 @@ This section  lists all of the cloud security graph components (connections and 
 | Has permission to | Indicates that an identity has permissions to a resource or a group of resources | Azure AD user account, Managed Identity, IAM user, EC2 instance | All Azure & AWS resources|
 | Contains | Indicates that the source entity contains the target entity | Azure subscription, Azure resource group, AWS account, Kubernetes namespace, Kubernetes pod, Kubernetes cluster, GitHub owner, Azure DevOps project, Azure DevOps organization, Azure SQL server | All Azure & AWS resources, All Kubernetes entities, All DevOps entities, Azure SQL database |
 | Routes traffic to | Indicates that the source entity can route network traffic to the target entity | Public IP, Load Balancer, VNET, Subnet, VPC, Internet Gateway, Kubernetes service, Kubernetes pod| Azure VM, Azure VMSS, AWS EC2, Subnet, Load Balancer, Internet gateway, Kubernetes pod, Kubernetes service |
-| Is running | Indicates that the source entity is running the target entity as a process | Azure VM, EC2, Kubernetes container | SQL, Arc-Enabled SQL, Hosted MongoDB, Hosted MySQL, Hosted Oracle, Hosted PostgreSQL, Hosted SQL Server, Kubernetes image, Kubernetes pod |
+| Is running | Indicates that the source entity is running the target entity as a process | Azure VM, EC2, Kubernetes container | SQL, Arc-Enabled SQL, Hosted MongoDB, Hosted MySQL, Hosted Oracle, Hosted PostgreSQL, Hosted SQL Server, Container image, Kubernetes pod |
 | Member of | Indicates that the source identity is a member of the target identities group | Azure AD group, Azure AD user | Azure AD group |
 | Maintains | Indicates that the source Kubernetes entity manages the life cycle of the target Kubernetes entity | Kubernetes workload controller, Kubernetes replica set, Kubernetes stateful set, Kubernetes daemon set, Kubernetes jobs, Kubernetes cron job | Kubernetes pod |
 
