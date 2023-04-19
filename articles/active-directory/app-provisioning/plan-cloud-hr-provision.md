@@ -264,7 +264,7 @@ For example: In the diagram, the provisioning apps are set up for each geographi
 
 ### Deployment topology four: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (with cross-domain visibility)
 
-Use topology four to manage multiple independent child AD domains belonging to the same forest. Be aware that a user's manager may exist in a different domain. Also be aware that your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* require a forest-wide lookup. 
+Use topology four to manage multiple independent child AD domains belonging to the same forest. A user's manager may exist in a different domain. Also, your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* require a forest-wide lookup. 
 
 For example: In the diagram, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Cross-domain manager references and forest-wide lookup are handled by enabling referral chasing on the provisioning agent. 
 
