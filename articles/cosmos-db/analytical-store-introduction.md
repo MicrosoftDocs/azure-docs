@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB transactional (row-based) and analytica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2022
+ms.date: 04/18/2023
 ms.author: rosouz
 ms.custom: seo-nov-2020, devx-track-azurecli, ignite-2022
 ms.reviewer: mjbrown
@@ -446,24 +446,24 @@ the MongoDB `_id` field is fundamental to every collection in MongoDB and origin
 
 ###### Working with the MongoDB `_id` field in Spark
 
-```Python
-import org.apache.spark.sql.types._
-val simpleSchema = StructType(Array(
-    StructField("_id", StructType(Array(StructField("objectId",BinaryType,true)) ),true),
-    StructField("id", StringType, true)
-  ))
+The example below works on Spark 2.x and 3.x versions:
 
-df = spark.read.format("cosmos.olap")\
-    .option("spark.synapse.linkedService", "<enter linked service name>")\
-    .option("spark.cosmos.container", "<enter container name>")\
-    .schema(simpleSchema)
-    .load()
+```Scala
+val df = spark.read.format("cosmos.olap").option("spark.synapse.linkedService", "xxxx").option("spark.cosmos.container", "xxxx").load()
 
-df.select("id", "_id.objectId").show()
+val convertObjectId = udf((bytes: Array[Byte]) => {
+    val builder = new StringBuilder
+
+    for (b <- bytes) {
+        builder.append(String.format("%02x", Byte.box(b)))
+    }
+    builder.toString
+}
+ )
+
+val dfConverted = df.withColumn("objectId", col("_id.objectId")).withColumn("convertedObjectId", convertObjectId(col("_id.objectId"))).select("id", "objectId", "convertedObjectId")
+display(dfConverted)
 ```
-
-> [!NOTE]
-> This workaround was designed to work with Spark 2.4.
 
 ###### Working with the MongoDB `_id` field in SQL
 
@@ -552,8 +552,10 @@ After the analytical store is enabled, based on the data retention needs of the 
 
 Analytical store relies on Azure Storage and offers the following protection against physical failure:
 
- * By default, Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) accounts.
- * If any geo-region of the database account is configured for zone-redundancy, it is allocated in Zone-redundant Storage (ZRS) accounts. Customers need to enable Availability Zones on a region of their Azure Cosmos DB database account to have analytical data of that region stored in ZRS.
+ * By default, Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) accounts. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year.
+ * If any geo-region of the database account is configured for zone-redundancy, it is allocated in Zone-redundant Storage (ZRS) accounts. Customers need to enable Availability Zones on a region of their Azure Cosmos DB database account to have analytical data of that region stored in ZRS. ZRS offers durability for storage resources of at least 99.9999999999% (12 9's) over a given year.
+
+For more information about Azure Storage durability, click [here](https://learn.microsoft.com/azure/storage/common/storage-redundancy).
 
 ## Backup
 

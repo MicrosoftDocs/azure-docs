@@ -15,11 +15,11 @@ Use a device map to retrieve, analyze, and manage device information, either all
 
 To perform the procedures in this article, make sure that you have:
 
-- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](how-to-activate-and-set-up-your-sensor.md), with network traffic ingested
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](ot-deploy/activate-deploy-sensor.md), with network traffic ingested 
 
 - Access to your OT sensor or on-premises management console. Users with the **Viewer** role can view data on the map. To import or export data or edit the map view, you need access as a **Security Analyst** or **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-To view devices across multiple sensors in a zone, you'll also need an on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](how-to-activate-and-set-up-your-on-premises-management-console.md), with multiple sensors connected and assigned to sites and zones.
+To view devices across multiple sensors in a zone, you'll also need an on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](ot-deploy/activate-deploy-management.md), with multiple sensors connected and assigned to sites and zones.
 
 ## View devices on OT sensor device map
 

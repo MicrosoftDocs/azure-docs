@@ -52,6 +52,9 @@ As you create a custom VNet, keep in mind the following situations:
   - You can define the subnet range used by the Container Apps environment.
   - You can restrict inbound requests to the environment exclusively to the VNet by deploying the environment as [internal](vnet-custom-internal.md).
 
+> [!NOTE]
+> When you provide your own virtual network, additional [managed resources](networking.md#managed-resources) are created, which incur billing.
+
 As you begin to design the network around your container app, refer to [Plan virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md) for important concerns surrounding running virtual networks on Azure.
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Diagram of how Azure Container Apps environments use an existing V NET, or you can provide your own.":::
