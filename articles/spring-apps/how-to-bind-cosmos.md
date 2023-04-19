@@ -18,7 +18,7 @@ ms.custom: devx-track-java, event-tier1-build-2022, ignite-2022, service-connect
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-Instead of manually configuring your Spring Boot applications, you can automatically connect select Azure services to your applications by using Azure Spring Apps. This article demonstrates how to connect your application to an Azure Cosmos DB database.
+Instead of manually configuring your Spring Boot applications, you can automatically connect selected Azure services to your applications by using Azure Spring Apps. This article demonstrates how to connect your application to an Azure Cosmos DB database.
 
 ## Prerequisites
 
