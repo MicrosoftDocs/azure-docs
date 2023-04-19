@@ -49,6 +49,8 @@ AzureDiagnostics
 
 ## Next steps
 
+For more information about AKS metrics, logs, and other important values, see [Monitoring AKS data reference][monitoring-aks-data-reference].
+
 <!-- LINKS - external -->
 [kube-audit-overview]: https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/
 [kube-apiserver-overview]: https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/
@@ -61,3 +63,4 @@ AzureDiagnostics
 [cost-optimization-azure-monitor]: ../azure-monitor/best-practices-cost.md
 [azure-diagnostics-table]: /azure/azure-monitor/reference/tables/azurediagnostics
 [container-insights-overview]: ..//azure-monitor/containers/container-insights-overview.md
+[monitoring-aks-data-reference]: monitor-aks-reference.md
