@@ -75,7 +75,7 @@ sections:
       - question: |
           What if I can't configure a network security group for traffic analytics due to a "Not found" error?
         answer: |
-          Select a supported region. If you select a non-supported region, you receive a "Not found" error. For more information, see [Azure Network Watcher traffic analytics supported regions](./supported-region-traffic-analytics.md).
+          Select a supported region. If you select a non-supported region, you receive a "Not found" error. For more information, see [Traffic analytics supported regions](./supported-region-traffic-analytics.md).
 
       - question: |
           What if I'm getting the status, “Failed to load,” under the NSG flow logs page?
@@ -114,7 +114,7 @@ sections:
       - question: |
           Can I configure traffic analytics using PowerShell?
         answer: |
-          You can configure traffic analytics using Windows PowerShell version 6.2.1 and higher. To configure flow logging and traffic analytics for a specific network security group using PowerShell the Set cmdlet, see [Enable network security group flow logs and traffic analytics](./network-watcher-nsg-flow-logging-powershell.md#enable-network-security-group-flow-logs-and-traffic-analytics).
+          You can configure traffic analytics using Windows PowerShell version 6.2.1 and higher. To configure flow logging and traffic analytics for a specific network security group using PowerShell, see [Enable network security group flow logs and traffic analytics](./network-watcher-nsg-flow-logging-powershell.md#enable-network-security-group-flow-logs-and-traffic-analytics).
                     
       - question: |
           Can I configure traffic analytics using an Azure Resource Manager template or client?
