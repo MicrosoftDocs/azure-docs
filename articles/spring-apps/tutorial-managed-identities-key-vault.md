@@ -1,6 +1,6 @@
 ---
-title:  "Tutorial: Managed identity to connect Key Vault"
-description: Set up managed identity to connect Key Vault to an Azure Spring Apps app
+title:  "Tutorial: Connect Azure Spring Apps to Key Vault using managed identities"
+description: Set up managed identity to connect Key Vault to an app deployed to Azure Spring Apps
 author: karlerickson
 ms.author: karler
 ms.service: spring-apps
@@ -18,7 +18,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-This article shows you how to create a managed identity for an Azure Spring Apps app and use it to access Azure Key Vault.
+This article shows you how to create a managed identity for an app deployed to Azure Spring Apps and use it to access Azure Key Vault.
 
 Azure Key Vault can be used to securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets for your app. You can create a managed identity in Azure Active Directory (Azure AD), and authenticate to any service that supports Azure AD authentication, including Key Vault, without having to display credentials in your code.
 
@@ -156,7 +156,7 @@ This app has access to get secrets from Azure Key Vault. Use the Azure Key Vault
    vim src/main/resources/application.properties
    ```
 
-1. To use managed identity for Azure Spring Apps apps, add properties with the following content to the *src/main/resources/application.properties* file.
+1. To use managed identity for an app deployed to Azure Spring Apps, add properties with the following content to the *src/main/resources/application.properties* file.
 
 ### [System-assigned managed identity](#tab/system-assigned-managed-identity)
 
