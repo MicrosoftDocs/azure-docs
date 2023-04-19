@@ -1,7 +1,7 @@
 ---
-title: (Preview) SSH access to Azure Arc-enabled servers
+title: SSH access to Azure Arc-enabled servers
 description: Leverage SSH remoting to access and manage Azure Arc-enabled servers.
-ms.date: 04/12/2023
+ms.date: 04/30/2023
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -10,10 +10,6 @@ ms.custom: references_regions
 SSH for Arc-enabled servers enables SSH based connections to Arc-enabled servers without requiring a public IP address or additional open ports.
 This functionality can be used interactively, automated, or with existing SSH based tooling,
 allowing existing management tools to have a greater impact on Azure Arc-enabled servers.
-
-> [!IMPORTANT]
-> SSH for Arc-enabled servers is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Key benefits
 SSH access to Arc-enabled servers provides the following key benefits:
@@ -44,43 +40,15 @@ Authenticating with Azure AD credentials has additional requirements:
 SSH access to Arc-enabled servers is currently supported in all regions supported by Arc-Enabled Servers with the following exceptions:
  - Germany West Central
 
+### Supported operating systems
+ - Windows: Windows 7+ and Windows Server 2012+
+ - Linux: 
+   - CentOS: CentOS 7, CentOS 8
+   - RedHat Enterprise Linux (RHEL): RHEL 7.4 to RHEL 7.10, RHEL 8.3+
+   - SUSE Linux Enterprise Server (SLES): SLES 12, SLES 15.1+
+   - Ubuntu Server: Ubuntu Server 16.04 to Ubuntu Server 20.04
+
 ## Getting started
-
-### Install local command line tool
-This functionality is currently packaged in an Azure CLI extension and an Azure PowerShell module.
-#### [Install Azure CLI extension](#tab/azure-cli)
-
-```az extension add --name ssh```
-
-> [!NOTE]
-> The Azure CLI extension version must be greater than 1.1.0.
-
-#### [Install Azure PowerShell module](#tab/azure-powershell)
-
-```Install-Module -Name AzPreview -Scope CurrentUser -Repository PSGallery -Force```
-
----
-
-### Enable functionality on your Arc-enabled server
-In order to use the SSH connect feature, you must enable connections on the hybrid agent.
-
-> [!NOTE]
-> The following actions must be completed in an elevated terminal session.
-
-View your current incoming connections:
-
-```azcmagent config list```
-
-If you have existing ports, you'll need to include them in the following command.
-
-To add access to SSH connections, run the following:
-
-```azcmagent config set incomingconnections.ports 22<,other open ports,...>```
-
-If you're using a non-default port for your SSH connection, replace port 22 with your desired port in the previous command.
-
-> [!NOTE]
-> The following steps will not need to be run for most users.
 
 ### Register the HybridConnectivity resource provider
 > [!NOTE]
@@ -95,6 +63,9 @@ If the RP hasn't been registered, run the following:
 ```az provider register -n Microsoft.HybridConnectivity```
 
 This operation can take 2-5 minutes to complete.  Before moving on, check that the RP has been registered.
+
+> [!NOTE]
+> The following step will not need to be run for most users as it should complete automatically at first connection.
 
 ### Create default connectivity endpoint
 > [!NOTE]
@@ -112,6 +83,36 @@ Validate endpoint creation:
  ```
  az rest --method get --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview
  ```
+ 
+ ### Install local command line tool
+This functionality is currently packaged in an Azure CLI extension and an Azure PowerShell module.
+#### [Install Azure CLI extension](#tab/azure-cli)
+
+```az extension add --name ssh```
+
+> [!NOTE]
+> The Azure CLI extension version must be greater than 1.1.0.
+
+#### [Install Azure PowerShell module](#tab/azure-powershell)
+
+```Install-Module -Name AzPreview -Scope CurrentUser -Repository PSGallery -Force```
+
+---
+
+### Enable functionality on your Arc-enabled server
+In order to use the SSH connect feature, you must enable connections on the hybrid agent via Azure CLI or Azure PowerShell.
+
+#### [Azure CLI](#tab/azure-cli)
+
+```az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 --body '{\"properties\": {\"serviceName\": \"SSH\", \"port\": \"22\"}}'```
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+```Invoke-AzRestMethod -Method put -Path https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 -Payload '{\"properties\": {\"serviceName\": \"SSH\", \"port\": \"22\"}}'```
+
+---
+
+If you're using a non-default port for your SSH connection, replace port 22 with your desired port in the previous command.
 
 ## Examples
 To view examples, view the Az CLI documentation page for [az ssh](/cli/azure/ssh) or the Azure PowerShell documentation page for [Az.Ssh](/powershell/module/az.ssh).
