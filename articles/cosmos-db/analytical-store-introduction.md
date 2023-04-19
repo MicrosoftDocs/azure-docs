@@ -448,7 +448,7 @@ the MongoDB `_id` field is fundamental to every collection in MongoDB and origin
 
 The example below works on Spark 2.x and 3.x versions:
 
-```Python
+```Scala
 val df = spark.read.format("cosmos.olap").option("spark.synapse.linkedService", "xxxx").option("spark.cosmos.container", "xxxx").load()
 
 val convertObjectId = udf((bytes: Array[Byte]) => {
