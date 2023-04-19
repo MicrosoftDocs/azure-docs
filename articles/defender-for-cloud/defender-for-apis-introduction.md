@@ -9,9 +9,9 @@ ms.topic: overview
 
 # About Microsoft Defender for APIs
 
-Microsoft Defender for APIs is a plan provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md) that offers security protection for APIs.
+Microsoft Defender for APIs is a plan provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md) that offers full lifecycle protection, detection, and response coverage for APIs.
 
-Defender for APIs helps you to gain visibility into business-critical APIs. You can investigate your API security posture, prioritize vulnerabilities fixes, and detect active real-time threats.
+Defender for APIs helps you to gain visibility into business-critical APIs. You can investigate and understand your API security posture, prioritize vulnerabilities fixes, and quickly detect active real-time threats.
 
 
 > [!IMPORTANT]
@@ -23,15 +23,17 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 ## What can I do with Defender for APIs?
 
 - **Inventory**: In a single dashboard, get an aggregated view of all managed APIs.
-- **Security findings**: Analyze API security findings, including information about API traffic, authentication, and sensitive data.
+- **Security findings**: Analyze API security findings, including information about external, unused, or unauthenticated APIs.
 - **Security posture**: Review and implement security recommendations to improve API security posture, and harden at-risk surfaces.
+- **API data classification**: Classify APIs that receive or respond with sensitive data, to support risk prioritization.
 - **Real time threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP Top 10](https://owasp.org/www-project-top-ten/) critical threats.
 - **Defender CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your organization.
 - **Azure API Management integration**: With the Defender for APIs plan enabled, you can receive API security recommendations and alerts in the Azure API Management portal.
+- SIEM integration: Integrate with security information and event management (SIEM) systems, making it easier for security teams to investigate with existing threat response workflows. [Learn more](tutorial-security-incident.md)
 
-## Reviewing inventory and insights
+## Reviewing security findings
 
-Get security insights on onboarded APIs in the API Security dashboard. The dashboard provides information about API collections and endpoints, as well as security posture recommendations, and security alerts.
+Get security insights for onboarded APIs in the API Security dashboard. The dashboard provides information about API collections and endpoints, as well as security posture recommendations, and security alerts.
 
 
 **Dashboard information** | **Details**

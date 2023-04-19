@@ -26,29 +26,30 @@ Defender for APIs is in public preview in the Azure commercial cloud, in these r
 
 Review the latest cloud support information for Defender for Cloud plans and features in the [cloud support matrix](support-matrix-cloud-environment.md).
 
-> [!NOTE]
-> If an Azure API Management instance is [deployed to multiple Azure regions](/azure/api-management/api-management-howto-deploy-multi-region), Defender for APIs functionality is only available in the primary region.
 
 ## API support
 
-**Feature** | **Supported** 
+**Feature** | **Supported**
 --- | --- 
-API gateways | Azure API Management
-API types | REST API
+Availability | This feature is available in the Premium, Standard, Basic, and Developer tiers of API Management.
+API gateways | Azure API Management<br/><br/> Defender for APIs currently doesn't onboard APIs that are exposed using the API Management [self-hosted gateway](../api-management/self-hosted-gateway-overview.md) or managed using API Management [workspaces](../api-management/workspaces-overview.md). 
+API types | Currently, Defender for APIs discovers and analyzes REST APIs only.
+Multi-region support | Some ML-based detections and security insights (data classification, authentication check, unused and external APIs) for API Management instances with multi-region deployments aren't supported in secondary regions. In such cases, data residency requirements are still met. 
 
 ## Defender CSPM integration
 
 To explore API security risks using Cloud Security Explorer, the Defender Cloud Security Posture Management (CSPM) plan must be enabled. [Learn more](concept-cloud-security-posture-management.md).
 
 
-## Account/role requirements
+## Deployment requirement
 
-Account and role requirements for Defender for APIs are as follows.
+Deployment requirements for Defender for APIs are as follows.
 
-**Permission** | **Details**
+**Requirement** | **Details**
 --- | ---
+API Management instance | At least one API Management instance in an Azure subscription. Defender for APIs is enabled at the level of a subscription.<br/><br/> One or more supported APIs must be imported to the API Management instance.
 Azure account | You need an Azure account to sign into the Azure portal.
-Contributor role | To deploy Defender for APIs, you need the Contributor role on  the Azure subscriptions, resource groups, or Azure API Management instance that you want to secure. If you don't have the Contributor role, you need to enable these roles:<br/><br/> - Security Admin role for full access in Defender for Cloud.<br/> - Security Reader role to view inventory and recommendations in Defender for Cloud.
+Onboarding permissions | To enable and onboard Defender for APIs, you need the Owner or Contributor role on  the Azure subscriptions, resource groups, or Azure API Management instance that you want to secure. If you don't have the Contributor role, you need to enable these roles:<br/><br/> - Security Admin role for full access in Defender for Cloud.<br/> - Security Reader role to view inventory and recommendations in Defender for Cloud.
 
 ## Next steps
 
