@@ -90,17 +90,17 @@ This capability helps you get an overview regarding availability of your SAP sys
 
 #### Steps to use availability insights
 1.	Open the AMS instance of your choice and visit the insights tab under Monitoring on the left navigation pane. 
-<br/><img alt="Screenshot that shows the landing page of Insights on AMS" src="./media/enable-sap-insights/visitInsights-tab.png" width="100%">
+![Screenshot that shows the landing page of Insights on AMS](./media/enable-sap-insights/visitInsights-tab.png)
 1. If you have followed all [the steps mentioned](#steps-to-enable-insights-in-azure-monitor-for-sap-solutions), you should see the above screen asking for context to be set up. You can set the Time range, SID and the provider (optional, All selected by default).
 1.	On the top, you are able to see all the fired alerts related to SAP system and instance availability on this screen. 
-<br/><img alt="Screenshot of the overview page of availability insights" src="./media/enable-sap-insights/availability-overview.png" width="45%">
+![Screenshot of the overview page of availability insights](./media/enable-sap-insights/availability-overview.png)
 1.	If you are able to see SAP system availability trend, categorized by VM - SAP process list. If you have selected a fired alert in the previous step, you are able to see these trends in context with the fired alert. If not, this respects the time range you set on the main Time range filter. 
-<br/><img alt="Screenshot of the availability trends of availability insights" src="./media/enable-sap-insights/availability-trends.png" width="45%">
+![Screenshot of the availability trends of availability insights](./media/enable-sap-insights/availability-trends.png)
 1.	You can see the Azure virtual machine on which the process is hosted and the corresponding availability trends for the combination. To view detailed insights, click on the Investigate link.
 1.	It opens a context pane that shows you availability insights on the corresponding virtual machine and the SAP application.
 It has two categories of insights:
     * Azure platform: VM health events filtered by the time range set, either by the workbook filter or the selected alert. This also consists of VM availability metric trend for the chosen VM.
-    <br/><img alt="Screenshot of the VM health events of availability insights" src="./media/enable-sap-insights/availability-vm-health.png" width="40%">
+    ![Screenshot of the VM health events of availability insights](./media/enable-sap-insights/availability-vm-health.png)
     * SAP Application: Process availability and contextual insights on the process like error messages (SM21), Lock entries (SM12) and Canceled jobs (SM37) which can help you find issues that might exist in parallel in the system, at the point in time. 
 
 ### Performance Insights
@@ -109,12 +109,12 @@ This capability helps you get an overview regarding performance of your SAP syst
 #### Steps to use performance insights
 1.	Open the AMS instance of your choice and visit the insights tab under Monitoring on the left navigation pane. 
 2.	On the top, you are able to see all the fired alerts related to SAP application performance degradations.
-   <br/><img alt="Screenshot of the overview page of performance insights" src="./media/enable-sap-insights/performance-overview.png" width="50%">
+    ![Screenshot of the overview page of performance insights](./media/enable-sap-insights/performance-overview.png)
 3.	Next you are able to see key metrics related to performance issues and its trend dring the timerange you have chosen.
 4. To view detailed insights issues, you can either choose to investigate a fired alert or view insights for a key metric. 
-<br/><img alt="Screenshot of the context pane of performance insights" src="./media/enable-sap-insights/performance-detail-pane.png" width="33%">
+<br/><img alt="Screenshot of the context pane of performance insights" src="./media/enable-sap-insights/performance-detail-pane.png" width="32%">
 <img alt="Screenshot of the SAP pane of performance insights" src="./media/enable-sap-insights/performance-SAP-pane.png" width="33%">
-<img alt="Screenshot of the infra pane of performance insights" src="./media/enable-sap-insights/performance-azure-pane.png" width="33%">
+<img alt="Screenshot of the infra pane of performance insights" src="./media/enable-sap-insights/performance-azure-pane.png" width="32%">
 5.	On investigating, you see a context pane, which shows you four categories of metrics in context of the issue/key metric chosen. 
     * Issue/Key metric details
     * SAP application
