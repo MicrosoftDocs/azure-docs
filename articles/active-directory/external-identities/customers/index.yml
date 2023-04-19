@@ -31,7 +31,7 @@ landingContent:
       - linkListType: sample
         links:
           - text: Samples by app type and language
-            url: quickstart-app-samples-all.md 
+            url: samples-ciam-all.md 
   - title: Create and edit user flows
     linkLists:
       - linkListType: concept

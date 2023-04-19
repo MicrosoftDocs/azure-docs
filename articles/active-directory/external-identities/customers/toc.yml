@@ -17,7 +17,7 @@ items:
   expanded: true
   items: 
     - name: Samples by app type and language
-      href: quickstart-app-samples-all.md
+      href: samples-ciam-all.md
 - name: Concepts
   expanded: true
   items: 
