@@ -24,39 +24,39 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
 
 1. Use your favorite text editor to create a YAML file such as `code acstor-storagepool.yaml`.
 
-2. Paste in the following code. The storage pool `name` value can be whatever you want. 
+2. Paste in the following code. The storage pool `name` value can be whatever you want.
 
-```yml
-apiVersion: containerstorage.azure.com/v1alpha1
-kind: StoragePool
-metadata:
-  name: azuredisk
-  namespace: acstor
-spec:
-  poolType:
-    csi: {}
-  resources:
-    limits: {"storage": 5Ti}
-    requests: {"storage": 1Ti}
-```
+   ```yml
+   apiVersion: containerstorage.azure.com/v1alpha1
+   kind: StoragePool
+   metadata:
+     name: azuredisk
+     namespace: acstor
+   spec:
+     poolType:
+       csi: {}
+     resources:
+       limits: {"storage": 5Ti}
+       requests: {"storage": 1Ti}
+   ```
 
 3. Apply the YAML file to create the storage pool.
-
-```azurecli-interactive
-kubectl apply -f acstor-storagepool.yaml 
-```
-
-When storage pool creation is complete, you'll see a message like:
-
-```output
-storagepool.containerstorage.azure.com/azuredisk created
-```
-
-You can also run this command to check the status of the storage pool:
-
-```azurecli-interactive
-kubectl describe sp azuredisk -n acstor
-```
+   
+   ```azurecli-interactive
+   kubectl apply -f acstor-storagepool.yaml 
+   ```
+   
+   When storage pool creation is complete, you'll see a message like:
+   
+   ```output
+   storagepool.containerstorage.azure.com/azuredisk created
+   ```
+   
+   You can also run this command to check the status of the storage pool:
+   
+   ```azurecli-interactive
+   kubectl describe sp azuredisk -n acstor
+   ```
 
 ## Display the available storage classes
 
@@ -72,37 +72,37 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
 2. Paste in the following code. The PVC `name` value can be whatever you want.
 
-```yml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: azurediskpvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: azuredisk # or whatever your storage class is named
-  resources:
-    requests:
-      storage: 100Gi
-```
+   ```yml
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+     name: azurediskpvc
+   spec:
+     accessModes:
+       - ReadWriteOnce
+     storageClassName: azuredisk # or whatever your storage class is named
+     resources:
+       requests:
+         storage: 100Gi
+   ```
 
 3. Apply the YAML file to create the PVC.
-
-```azurecli-interactive
-kubectl apply -f acstor-pvc.yaml
-```
-
-You should see output similar to:
-
-```output
-persistentvolumeclaim/azurediskpvc created
-```
-
-You can verify the status of the PVC by running the following command:
-
-```azurecli-interactive
-kubectl describe pvc azurediskpvc
-```
+   
+   ```azurecli-interactive
+   kubectl apply -f acstor-pvc.yaml
+   ```
+   
+   You should see output similar to:
+   
+   ```output
+   persistentvolumeclaim/azurediskpvc created
+   ```
+   
+   You can verify the status of the PVC by running the following command:
+   
+   ```azurecli-interactive
+   kubectl describe pvc azurediskpvc
+   ```
 
 Once the PVC is created, it's ready for use by a pod.
 
@@ -114,53 +114,53 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
 
 2. Paste in the following code.
 
-```yml
-kind: Pod
-apiVersion: v1
-metadata:
-  name: fiopod
-spec:
-  nodeSelector:
-    openebs.io/engine: io.engine
-  volumes:
-    - name: azurediskpv
-      persistentVolumeClaim:
-        claimName: azurediskpvc
-  containers:
-    - name: fio
-      image: nixery.dev/shell/fio
-      args:
-        - sleep
-        - "1000000"
-      volumeMounts:
-        - mountPath: "/volume"
-        name: azurediskpv
-```
+   ```yml
+   kind: Pod
+   apiVersion: v1
+   metadata:
+     name: fiopod
+   spec:
+     nodeSelector:
+       openebs.io/engine: io.engine
+     volumes:
+       - name: azurediskpv
+         persistentVolumeClaim:
+           claimName: azurediskpvc
+     containers:
+       - name: fio
+         image: nixery.dev/shell/fio
+         args:
+           - sleep
+           - "1000000"
+         volumeMounts:
+           - mountPath: "/volume"
+           name: azurediskpv
+   ```
 
 3. Apply the YAML file to deploy the pod.
-
-```azurecli-interactive
-kubectl apply -f acstor-pod.yaml
-```
-
-You should see output similar to the following:
-
-```output
-pod/fiopod created
-```
+   
+   ```azurecli-interactive
+   kubectl apply -f acstor-pod.yaml
+   ```
+   
+   You should see output similar to the following:
+   
+   ```output
+   pod/fiopod created
+   ```
 
 4. Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
 
-```azurecli-interactive
-kubectl describe pod fiopod
-kubectl describe pvc azurediskpvc
-```
+   ```azurecli-interactive
+   kubectl describe pod fiopod
+   kubectl describe pvc azurediskpvc
+   ```
 
 5. Check fio testing to see its current status:
 
-```azurecli-interactive
-kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
-```
+   ```azurecli-interactive
+   kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
+   ```
 
 You now have a pod with storage that you can use for your Kubernetes workloads.
 
