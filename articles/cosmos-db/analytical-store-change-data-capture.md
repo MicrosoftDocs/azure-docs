@@ -87,6 +87,10 @@ You can use analytical store change data capture, if you're currently using or p
 
 Change data capture capability enables an end-to-end analytical solution providing you with the flexibility to use Azure Cosmos DB data with any of the supported sink types. For more information on supported sink types, see [data flow supported sink types](../data-factory/data-flow-sink.md#supported-sinks). Change data capture also enables you to bring Azure Cosmos DB data into a centralized data lake and join the data with data from other diverse sources. You can flatten the data, partition it, and apply more transformations either in Azure Synapse Analytics or Azure Data Factory.
 
+### Multiple CDC processes
+
+You can create multiple processes to consume CDC in analytical store. This approach brings flexibility to support different scenarios and requirements. While one process may have no data transformations and multiple sinks, another one can have data flattening and one sink. And they can run in parallel.
+
 ## Change data capture on Azure Cosmos DB for MongoDB containers
 
 The linked service interface for the API for MongoDB isn't available within Azure Data Factory data flows yet. You can use your API for MongoDB's account endpoint with the **Azure Cosmos DB for NoSQL** linked service interface as a work around until the Mongo linked service is directly supported.
