@@ -17,7 +17,7 @@ sections:
     questions:
       - question: Which Azure SQL resources are supported?
         answer: |
-          The centralized Azure Hybrid Benefit management experience is part of Cost Management + Billing. It automatically applies qualifying SQL Server licenses under Azure Hybrid Benefit to the following Azure resources. The total number of normalized core licenses (NCL) created by SQL license assignment for a specific scope is applied. For more information about NCL, see [How Azure applies assigned SQL licenses to hourly usage](manage-licenses-centrally.md).
+          The centralized Azure Hybrid Benefit management experience is part of Cost Management + Billing. It automatically applies qualifying SQL Server licenses under Azure Hybrid Benefit to the following Azure resources. The total number of normalized cores (NC) created by SQL license assignment for a specific scope is applied. For more information about NC, see [How Azure applies assigned SQL licenses to hourly usage](manage-licenses-centrally.md).
 
           - SQL databases
           - SQL elastic pools
