@@ -117,11 +117,11 @@ conceptualContent:
     ## CARD 2 ######################
     - title: Protect a web API
       links:
-        - text: Register an API with the identity platform
+        - text: Configure an application to expose a web API
           url: quickstart-configure-app-expose-web-apis.md
           itemType: quickstart
-        - text: Protect an API in code
-          url: web-api-quickstart.md
+        - text: Build a protected web API
+          url: web-api-tutorial-01-register-app.md
           itemType: quickstart
         - text: Call an API from a non-interactive app or script
           url: console-app-quickstart.md
