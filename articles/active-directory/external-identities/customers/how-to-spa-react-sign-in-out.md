@@ -242,4 +242,8 @@ reactspalocal/
 
 1. Save the file.
 
+1. All the required code snippets have been added, so the application can now be called and tested in a web browser.
+
+Navigate to the browser previously opened in Tutorial: Prepare an application for authentication. If your browser is closed, open a new window with the address http://localhost:3000/.
+
 
