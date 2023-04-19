@@ -27,7 +27,7 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and create a new resource group called *myVMSSResourceGroup*.   
 1. Under **Scale set details**, set *myScaleSet* for your scale set name and select a **Region** that is close to your area.
 1. Under **Orchestration**, select *Flexible*.
-1. Under **Instance details**, select a marketplace image for **Image**. In this example, we have chosen *Ubuntu Server 18.04 LTS*.
+1. Under **Instance details**, select a marketplace image for **Image**. Select any of the Supported Distros.
 1. Under **Administrator account** configure the admin username and set up an associated password or SSH public key. 
    - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
    - If you select a Linux OS disk image, you can instead choose **SSH public key**. You can use an existing key or create a new one. In this example, we will have Azure generate a new key pair for us. For more information on generating key pairs, see [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
