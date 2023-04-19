@@ -190,7 +190,7 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 
 * Intelsat
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
-* [Viasat](http://www.directcloud.viasatbusiness.com/)
+* [Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)
 
 | Location | Exchange | Connectivity providers |
 | --- | --- | --- |
