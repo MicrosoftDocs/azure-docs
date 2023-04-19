@@ -14,10 +14,10 @@ ms.author: mbaldwin
 
 # Azure Key Vault keys, secrets and certificates overview
 
-Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data: keys, secrets, and certificates. All keys, secrets, and certificates are generically referred to as Objects.
+Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data: keys, secrets, and certificates. Keys, secrets, and certificates are collectively referred to as "objects".
 
-## Object Identifiers
-Objects are uniquely identified within Key Vault using a case-insensitive identifier called the Object Identifier. No two objects in the system have the same identifier, regardless of geo-location. The identifier consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. Identifiers that don't include the Object Version are referred to as Base Identifiers. Key Vault Object Identifiers are also valid URL but should always be compared as case-insensitive strings.
+## Object identifiers
+Objects are uniquely identified within Key Vault using a case-insensitive identifier called the object identifier. No two objects in the system have the same identifier, regardless of geo-location. The identifier consists of a prefix that identifies the key vault, object type, user provided object name, and an object version. Identifiers that don't include the object version are referred to as "base identifiers". Key Vault object identifiers are also valid URLs, but should always be compared as case-insensitive strings.
 
 For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md)
 
@@ -36,13 +36,13 @@ Where:
 
 | Element | Description |  
 |-|-|  
-|`vault-name` or `hsm-name`|The name for a vault or a Managed HSM pool in the Microsoft Azure Key Vault service.<br /><br />Vault names and Managed HSM pool names are selected by the user and are globally unique.<br /><br />Vault name and Managed HSM pool name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and not consecutive -.|  
-|`object-type`|The type of the object, "keys",  "secrets", or 'certificates'.|  
-|`object-name`|An `object-name` is a user provided name for and must be unique within a Key Vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -.|  
-|`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object.|  
+| `vault-name` or `hsm-name` | The name for a key vault or a Managed HSM pool in the Microsoft Azure Key Vault service.<br /><br />Vault names and Managed HSM pool names are selected by the user and are globally unique.<br /><br />Vault name and Managed HSM pool name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and not consecutive -.|  
+| `object-type` | The type of the object, "keys",  "secrets", or "certificates".|  
+| `object-name` | An `object-name` is a user provided name for and must be unique within a key vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -.|  
+| `object-version `| An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object. |  
 
 ## DNS suffixes for object identifiers
-Key Vault resource provider supports two resource types: vaults and managed HSMs. This table shows the DNS suffix used by the data-plane endpoint for vaults and managed HSM pools in various cloud environments.
+The Azure Key Vault resource provider supports two resource types: vaults and managed HSMs. This table shows the DNS suffix used by the data-plane endpoint for vaults and managed HSM pools in various cloud environments.
 
 Cloud environment | DNS suffix for vaults | DNS suffix for managed HSMs
 ---|---|---
