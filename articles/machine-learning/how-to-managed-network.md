@@ -104,7 +104,7 @@ ml_client.workspaces.begin_update(ws)
 1. Choose managed network mode; Private with Internet outbound or Private only with approved outbound
 1. Create a workspace
 
-    :::image type="content" source="TBU" alt-text="" lightbox="":::
+    <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
 
 ---
 
@@ -165,7 +165,7 @@ ml_client.workspaces.begin_update(ws)
 1. Choose managed network mode; Private with Internet outbound or Private only with approved outbound
 1. Create a workspace
 
-    :::image type="content" source="TBU" alt-text="" lightbox="":::
+    <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
 ---
 
 ## Update existing workspaces with managed network isolation
@@ -238,13 +238,13 @@ ml_client.workspaces.begin_update(ws)
 1. Go to the networking blade and managed network tab.
 1. Change managed network mode to "private with internet outbound" or "private with allowed outbound"
 
-    :::image type="content" source="TBU" alt-text="" lightbox="":::
+    <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
 
 ---
 
 ## Configuration for using serverless spark compute
 
-You need to run the following commands to have network isolation for your [serverless spark jobs](https://learn.microsoft.com/azure/machine-learning/how-to-submit-spark-jobs).
+You need to run the following commands to have network isolation for your [serverless spark jobs](how-to-submit-spark-jobs.md).
 
 # [Azure CLI](#tab/cli)
 
@@ -272,7 +272,7 @@ ws = ml_client.workspaces.provision_network(workspace, true)
 1. Go to the networking blade and managed network tab.
 1. Check the box: Use serverless spark compute.
 
-    :::image type="content" source="TBU" alt-text="" lightbox="":::
+    <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
 
 ---
 
