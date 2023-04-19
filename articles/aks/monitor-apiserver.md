@@ -12,7 +12,7 @@ This article describes how to use [Azure Diagnostics][azure-diagnostics-overview
 
 ## Before you begin
 
-* A [Log Analytics workspace][log-analytics-workspace-overview]. If you already have a cluster monitored by [Container insights][container-insights-overview], consider using that one. For more information, see [Designing your Azure Monitor Logs deployment][design-log-analytics-deployment]. 
+* A [Log Analytics workspace][log-analytics-workspace-overview]. If you already have a cluster monitored by [Container insights][container-insights-overview], consider using that one. For more information, see [Designing your Azure Monitor Logs deployment][design-log-analytics-deployment].
 
 ## Collect Kubernetes audit logs
 
