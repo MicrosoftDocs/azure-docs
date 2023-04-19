@@ -7,19 +7,19 @@ author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/12/2023
+ms.date: 04/18/2023
 ---
 
 # Create a shared private link for a SQL Managed Instance from Azure Cognitive Search
 
-This article explains how to configure an outbound indexer connection in Azure Cognitive Search to a SQL Managed Instance over a private endpoint.
+This article explains how to configure an indexer in Azure Cognitive Search for a private connection to a SQL Managed Instance that runs within a virtual network.
 
 On a private connection to a SQL Managed Instance, the fully qualified domain name (FQDN) of the instance must include the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture). Currently, only the Azure Cognitive Search Management REST API provides a `resourceRegion` parameter for accepting the DNS zone specification.
 
-Although you can call the Management REST API directly, it's easier to use the Azure CLI `az rest` module to send Management REST API calls from a command line.
+Although you can call the Management REST API directly, it's easier to use the Azure CLI `az rest` module to send Management REST API calls from a command line. This article uses the Azure CLI with REST to set up the private link.
 
 > [!NOTE]
-> This article relies on Azure portal for obtaining properties and confirming steps. However, when creating the shared private link for SQL Managed Instance, be sure to use the REST API. Although the Networking tab lists `Microsoft.Sql/managedInstances` as an option, the portal doesn't currently support the extended URL format used by SQL Managed Instance.
+> This article refers to Azure portal for obtaining properties and confirming steps. However, when creating the shared private link for SQL Managed Instance, make sure you're using the REST API. Although the Networking tab lists `Microsoft.Sql/managedInstances` as an option, the portal doesn't currently support the extended URL format used by SQL Managed Instance.
 
 ## Prerequisites
 
@@ -27,21 +27,14 @@ Although you can call the Management REST API directly, it's easier to use the A
 
 + Azure Cognitive Search, Basic or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, use Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
 
-+ Azure SQL Managed Instance, configured to run in a virtual network, with a private endpoint created through Azure Private Link.
++ Azure SQL Managed Instance, configured to run in a virtual network.
 
 + You should have a minimum of Contributor permissions on both Azure Cognitive Search and SQL Managed Instance.
 
-## 1 - Private endpoint verification
+> [!NOTE]
+> Azure Private Link is used internally, at no charge, to set up the shared private link.
 
-Check whether the managed instance has a private endpoint.
-
-1. [Sign in to Azure portal](https://portal.azure.com/).
-
-1. Type "private link" in the top search bar, and then select **Private Link** to open the Private Link Center.
-
-1. Select **Private endpoints** to view existing endpoints. You should see your SQL Managed Instance in this list.
-
-## 2 - Retrieve connection information
+## 1 - Retrieve connection information
 
 Retrieve the FQDN of the managed instance, including the DNS zone. The DNS zone is part of the domain name of the SQL Managed Instance. For example, if the FQDN of the SQL Managed Instance is `my-sql-managed-instance.a1b22c333d44.database.windows.net`, the DNS zone is `a1b22c333d44`.
 
@@ -53,7 +46,7 @@ Retrieve the FQDN of the managed instance, including the DNS zone. The DNS zone 
 
 For more information about connection properties, see [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql#retrieve-connection-details-to-sql-managed-instance&preserve-view=true).
 
-## 3 - Create the body of the request
+## 2 - Create the body of the request
 
 1. Using a text editor, create the JSON for the shared private link.
 
@@ -79,7 +72,7 @@ For more information about connection properties, see [Create an Azure SQL Manag
 
 1. In the Azure CLI, type `dir` to note the current location of the file.
 
-## 4 - Create a shared private link
+## 3 - Create a shared private link
 
 1. From the command line, sign into Azure using `az login`.
 
@@ -89,7 +82,7 @@ For more information about connection properties, see [Create an Azure SQL Manag
 
 1. Call the `az rest` command to use the [Management REST API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) of Azure Cognitive Search. 
 
-   Because shared private link support for SQL managed instances is still in preview, you need a preview version of the REST API. You can use either `2021-04-01-preview` or `2020-08-01-preview`.
+   Because shared private link support for SQL managed instances is still in preview, you need a preview version of the REST API. Use `2021-04-01-preview` for this step`.
 
    ```azurecli
    az rest --method put --uri https://management.azure.com/subscriptions/{{search-service-subscription-ID}}/resourceGroups/{{search service-resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version=2021-04-01-preview --body @create-pe.json
@@ -105,7 +98,7 @@ For more information about connection properties, see [Create an Azure SQL Manag
 
 When you complete these steps, you should have a shared private link that's provisioned in a pending state. **It takes several minutes to create the link**. Once it's created, the resource owner needs to approve the request before it's operational.
 
-## 5 - Approve the private endpoint connection
+## 4 - Approve the private endpoint connection
 
 On the SQL Managed Instance side, the resource owner must approve the private connection request you created. 
 
@@ -117,13 +110,13 @@ On the SQL Managed Instance side, the resource owner must approve the private co
 
 After the private endpoint is approved, Azure Cognitive Search creates the necessary DNS zone mappings in the DNS zone that's created for it.
 
-## 6 - Check shared private link status
+## 5 - Check shared private link status
 
 On the Azure Cognitive Search side, you can confirm request approval by revisiting the Shared Private Access tab of the search service **Networking** page. Connection state should be approved.
 
    ![Screenshot of the Azure portal, showing an "Approved" shared private link resource.](media\search-indexer-howto-secure-access\new-shared-private-link-resource-approved.png)
 
-## 7 - Configure the indexer to run in the private environment
+## 6 - Configure the indexer to run in the private environment
 
 You can now configure an indexer and its data source to use an outbound private connection to your managed instance.
 
@@ -158,7 +151,7 @@ This article assumes Postman or equivalent tool, and uses the REST APIs to make 
     ```
 
    > [!NOTE]
-   > If you're familiar with data source definitions in Cognitive Search, you'll notice that data source properties don't vary when using a shared private link. That's because the private connection is detected and handled internally.
+   > If you're familiar with data source definitions in Cognitive Search, you'll notice that data source properties don't vary when using a shared private link. That's because Search will always use a shared private link on the connection if one exists.
 
 1. [Create the indexer definition](search-howto-create-indexers.md), setting the indexer execution environment to "private".
 
@@ -187,7 +180,7 @@ You can monitor the status of the indexer in Azure portal or by using the [Index
 
 You can use [**Search explorer**](search-explorer.md) in Azure portal to check the contents of the index.
 
-## 8 - Test the shared private link
+## 7 - Test the shared private link
 
 If you ran the indexer in the previous step and successfully indexed content from your managed instance, then the test was successful. However, if the indexer fails or there's no content in the index, you can modify your objects and repeat testing by choosing any client that can invoke an outbound request from an indexer. 
 
@@ -195,7 +188,7 @@ An easy choice is [running an indexer](search-howto-run-reset-indexers.md) in Az
 
 Here are some reminders for testing:
 
-+ If you use Postman or another web testing tool, use the [Management REST API](/rest/api/searchmanagement/) and a [preview API version](/rest/api/searchmanagement/management-api-versions) to create the shared private link. Use the [Search REST API](/rest/api/searchservice/) and a [stable API version](/rest/api/searchservice/search-service-api-versions) to create and invoke indexers and data sources.
++ If you use Postman or another web testing tool, use the [Management REST API](/rest/api/searchmanagement/) and the [2021-04-01-Preview API version](/rest/api/searchmanagement/management-api-versions) to create the shared private link. Use the [Search REST API](/rest/api/searchservice/) and a [stable API version](/rest/api/searchservice/search-service-api-versions) to create and invoke indexers and data sources.
 
 + You can use the Import data wizard to create an indexer, data source, and index. However, the generated indexer won't have the correct execution environment setting.
 

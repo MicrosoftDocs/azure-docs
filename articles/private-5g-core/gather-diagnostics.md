@@ -80,5 +80,5 @@ You must already have an AP5GC site deployed to collect diagnostics.
 
 To continue to monitor your 5G core:
 
-- [Enable log analytics](enable-log-analytics-for-private-5g-core.md)
-- [Monitor log analytics](monitor-private-5g-core-with-log-analytics.md)
+- [Monitor Azure Private 5G Core with Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md)
+- [Monitor Azure Private 5G Core with packet core dashboards](packet-core-dashboards.md)
