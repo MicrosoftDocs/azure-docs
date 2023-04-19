@@ -75,7 +75,7 @@ This table compares the advantages and limitations of the various machine learni
 
 ### Implement the steps of the machine learning lifecycle in Azure Monitor Logs
 
-Setting up a machine learning pipeline typically involves all or some of these tasks:
+Setting up a machine learning pipeline typically involves all or some of these steps:
  
 - Data exploration, including advanced analytics and visualization 
 - Model training 
