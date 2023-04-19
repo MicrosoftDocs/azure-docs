@@ -106,7 +106,7 @@ Configure your app deployed to Azure Spring Apps to connect to an Azure SQL Data
 
 ## Build and deploy the app to Azure Spring Apps
 
-Rebuild the app and deploy it to the Azure Spring Apps provisioned in the second bullet point under Prerequisites. You now have a Spring Boot application, authenticated by a managed identity, that uses JPA to store and retrieve data from an Azure SQL Database in Azure Spring Apps.
+Rebuild the app and deploy it to the Azure Spring Apps provisioned in the second bullet point under Prerequisites. You now have a Spring Boot application authenticated by a managed identity that uses JPA to store and retrieve data from an Azure SQL Database in Azure Spring Apps.
 
 ## Next steps
 
