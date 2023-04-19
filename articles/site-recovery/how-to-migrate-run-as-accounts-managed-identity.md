@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.author: ankitadutta
 ms.topic: how-to 
-ms.date: 02/23/2023
+ms.date: 04/04/2023
 ---
 
 # Migrate from a Run As account to Managed Identities 
