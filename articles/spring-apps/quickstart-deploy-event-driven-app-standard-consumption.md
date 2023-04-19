@@ -29,8 +29,11 @@ The sample project is an event-driven application that subscribes to a [Service 
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
 ::: zone pivot="sc-enterprise"
+
 - If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+
 ::: zone-end
 
 - [Azure CLI](/cli/azure/install-azure-cli). Version 2.45.0 or greater.
