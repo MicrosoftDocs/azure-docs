@@ -9,20 +9,19 @@ ms.custom: "mvc, devx-track-csharp"
 
 # Tutorial: Trigger a Batch job using Azure Functions
 
-In this tutorial, you'll learn how to trigger a Batch job using [Azure Functions](../azure-functions/functions-overview.md). We'll walk through an example in which documents added to an Azure Storage blob container have optical character recognition (OCR) applied to them via Azure Batch. To streamline the OCR processing, we will configure an Azure function that runs a Batch OCR job each time a file is added to the blob container. You learn how to:
+In this tutorial, you learn how to trigger a Batch job using [Azure Functions](../azure-functions/functions-overview.md). This article walks through an example that takes documents added to an Azure Storage blob container applies optical character recognition (OCR) by using Azure Batch. To streamline the OCR processing, this example configures an Azure function that runs a Batch OCR job each time a file is added to the blob container. You learn how to:
 
-> [!div class="checklist"]
-> * Use Batch Explorer to create pools and jobs
-> * Use Storage Explorer to create blob containers and a shared access signature (SAS)
-> * Create a blob-triggered Azure Function
-> * Upload input files to Storage
-> * Monitor task execution
-> * Retrieve output files
+  * Use Batch Explorer to create pools and jobs.
+  * Use Storage Explorer to create blob containers and a shared access signature (SAS).
+  * Create a blob-triggered Azure Function.
+  * Upload input files to Storage.
+  * Monitor task execution.
+  * Retrieve output files.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Batch account and a linked Azure Storage account. See [Create a Batch account](quick-create-portal.md#create-a-batch-account) for more information on how to create and link accounts.
+* An Azure Batch account and a linked Azure Storage account. For more information on how to create and link accounts, see [Create a Batch account](quick-create-portal.md#create-a-batch-account).
 * [Batch Explorer](https://azure.github.io/BatchExplorer/).
 * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -32,13 +31,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Batch pool and Batch job using Batch Explorer
 
-In this section, you'll use Batch Explorer to create the Batch pool and Batch job that will run OCR tasks.
+In this section, you use Batch Explorer to create the Batch pool and Batch job that runs OCR tasks.
 
 ### Create a pool
 
 1. Sign in to Batch Explorer using your Azure credentials.
 1. Create a pool by selecting **Pools** on the left side bar, then the **Add** button above the search form. 
-	1. Choose an ID and display name. We'll use `ocr-pool` for this example.
+	1. Choose an ID and display name. This example names the pool `ocr-pool`.
 	1. Set the scale type to **Fixed size**, and set the dedicated node count to 3.
 	1. Select **Ubuntuserver** > **18.04-lts** as the operating system.
 	1. Choose `Standard_f2s_v2` as the virtual machine size.
@@ -48,13 +47,13 @@ In this section, you'll use Batch Explorer to create the Batch pool and Batch jo
 ### Create a job
 
 1. Create a job on the pool by selecting **Jobs** on the left side bar, then the **Add** button above the search form.
-   1. Choose an ID and display name. We'll use `ocr-job` for this example.
+   1. Choose an ID and display name. This example uses `ocr-job`.
    1. Set the pool to `ocr-pool`, or whatever name you chose for your pool.
    1. Select **OK**.
 
 ## Create blob containers
 
-Here you'll create blob containers that will store your input and output files for the OCR Batch job. In this example, the input container is named `input` and is where all documents without OCR are initially uploaded for processing. The output container is named `output` and is where the Batch job writes processed documents with OCR.
+Here you create blob containers that store your input and output files for the OCR Batch job. In this example, the input container is named `input` and is where all documents without OCR are initially uploaded for processing. The output container is named `output` and is where the Batch job writes processed documents with OCR.
 
 1. Sign in to [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) using your Azure credentials.
 1. Using the storage account linked to your Batch account, create two blob containers (one for input files, one for output files) by following the steps at [Create a blob container](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
@@ -62,10 +61,10 @@ Here you'll create blob containers that will store your input and output files f
 
 ## Create an Azure Function
 
-In this section you'll create the Azure Function that triggers the OCR Batch job whenever a file is uploaded to your input container.
+In this section, you create the Azure Function that triggers the OCR Batch job whenever a file is uploaded to your input container.
 
 1. Follow the steps in [Create a function triggered by Azure Blob storage](../azure-functions/functions-create-storage-blob-triggered-function.md) to create a function.
-	1. For **runtime stack**, choose .NET. We'll write our function in C# to leverage the Batch .NET SDK.
+	1. For **runtime stack**, choose .NET. This example function uses C# to take advantage of the Batch .NET SDK.
 	1. When prompted for a storage account under **Hosting**, use the same storage account that you linked to your Batch account.
 	1. While creating the Azure Blob storage account trigger, be sure to set the path as `input/{name}` (to match the name of your input container).
 1. Once the blob-triggered function is created, select **Code + Test**. Use the [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) and [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) from GitHub in the Function. `function.proj` doesn't exist by default, so select the **Upload** button to upload it into your development workspace.
@@ -79,7 +78,7 @@ In this section you'll create the Azure Function that triggers the OCR Batch job
 
 Upload any or all of the scanned files from the [`input_files`](https://github.com/Azure-Samples/batch-functions-tutorial/tree/master/input_files) directory on GitHub to your input container. Monitor Batch Explorer to confirm that a task gets added to `ocr-pool` for each file. After a few seconds, the file with OCR applied is added to the output container. The file is then visible and retrievable on Storage Explorer.
 
-Additionally, you can watch the logs file at the bottom of the Azure Functions web editor window, where you'll see messages like this for every file you upload to your input container:
+Additionally, you can watch the logs file at the bottom of the Azure Functions web editor window, where you see messages like this for every file you upload to your input container:
 
 ```
 2019-05-29T19:45:25.846 [Information] Creating job...
@@ -97,7 +96,7 @@ To download the output files from Storage Explorer to your local machine, first 
 
 ## Clean up resources
 
-You are charged for the pool while the nodes are running, even if no jobs are scheduled. When you no longer need the pool, delete it with the following steps:
+You're charged for the pool while the nodes are running, even if no jobs are scheduled. When you no longer need the pool, delete it with the following steps:
 
 1. In the account view, select **Pools** and the name of the pool.
 1. Select **Delete**.
@@ -108,5 +107,4 @@ When you delete the pool, all task output on the nodes is deleted. However, the 
 
 For more examples of using the .NET API to schedule and process Batch workloads, see the samples on GitHub.
 
-> [!div class="nextstepaction"]
-> [Batch C# samples](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
+* [Batch C# samples](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
