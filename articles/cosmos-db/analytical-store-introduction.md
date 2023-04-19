@@ -207,8 +207,8 @@ df = spark.read\
   * MinKey/MaxKey 
 
 * When using DateTime strings that follow the ISO 8601 UTC standard, expect the following behavior:
-  * Spark pools in Azure Synapse represents these columns as `string`.
-  * SQL serverless pools in Azure Synapse represents these columns as `varchar(8000)`.
+  * Spark pools in Azure Synapse represent these columns as `string`.
+  * SQL serverless pools in Azure Synapse represent these columns as `varchar(8000)`.
 
 * Properties with `UNIQUEIDENTIFIER (guid)` types are represented as `string` in analytical store and should be converted to `VARCHAR` in **SQL** or to `string` in **Spark** for correct visualization.
 
@@ -230,8 +230,8 @@ The well-defined schema representation creates a simple tabular representation o
 
 * The first document defines the base schema and properties must always have the same type across all documents. The only exceptions are:
   * From `NULL` to any other data type. The first non-null occurrence defines the column data type. Any document not following the first non-null datatype won't be represented in analytical store.
-  * From `float` to `integer`. All documents will be represented in analytical store.
-  * From `integer` to `float`. All documents will be represented in analytical store. However, to read this data with Azure Synapse SQL serverless pools, you must use a WITH clause to convert the column to `varchar`. And after this initial conversion, it's possible to convert it again to a number. Please check the example below, where **num** initial value was an integer and the second one was a float.
+  * From `float` to `integer`. All documents are represented in analytical store.
+  * From `integer` to `float`. All documents are represented in analytical store. However, to read this data with Azure Synapse SQL serverless pools, you must use a WITH clause to convert the column to `varchar`. And after this initial conversion, it's possible to convert it again to a number. Please check the example below, where **num** initial value was an integer and the second one was a float.
 
 ```SQL
 SELECT CAST (num as float) as num
@@ -260,16 +260,16 @@ WITH (num varchar(100)) AS [IntToFloat]
 > If the Azure Cosmos DB analytical store follows the well-defined schema representation and the specification above is violated by certain items, those items won't be included in the analytical store.
 
 * Expect different behavior in regard to different types in well-defined schema:
-  * Spark pools in Azure Synapse represents these values as `undefined`.
-  * SQL serverless pools in Azure Synapse represents these values as `NULL`.
+  * Spark pools in Azure Synapse represent these values as `undefined`.
+  * SQL serverless pools in Azure Synapse represent these values as `NULL`.
 
 * Expect different behavior in regard to explicit `NULL` values:
-  * Spark pools in Azure Synapse reads these values as `0` (zero), and as `undefined` as soon as the column has a non-null value.
-  * SQL serverless pools in Azure Synapse reads these values as `NULL`.
+  * Spark pools in Azure Synapse read these values as `0` (zero), and as `undefined` as soon as the column has a non-null value.
+  * SQL serverless pools in Azure Synapse read these values as `NULL`.
     
 * Expect different behavior in regard to missing columns:
-  * Spark pools in Azure Synapse represents these columns as `undefined`.
-  * SQL serverless pools in Azure Synapse represents these columns as `NULL`.
+  * Spark pools in Azure Synapse represent these columns as `undefined`.
+  * SQL serverless pools in Azure Synapse represent these columns as `NULL`.
 
 ##### Representation challenges workarounds
 
@@ -480,7 +480,7 @@ It's possible to use full fidelity Schema for API for NoSQL accounts, instead of
 
 * Currently, if you enable Synapse Link in your NoSQL API account using the Azure Portal, it will be enabled as well-defined schema.
 * Currently, if you want to use full fidelity schema with NoSQL or Gremlin API accounts, you have to set it at account level in the same CLI or PowerShell command that will enable Synapse Link at account level.
-* Currently Azure Cosmso DB for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
+* Currently Azure Cosmos DB for MongoDB isn't compatible with this possibility of changing the schema representation. All MongoDB accounts have full fidelity schema representation type.
 * It's not possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
 * Currently, containers schema in analytical store are defined when the container is created, even if Synapse Link has not been enabled in the database account.
   * Containers or graphs created before Synapse Link was enabled with full fidelity schema at account level will have well-defined schema.
