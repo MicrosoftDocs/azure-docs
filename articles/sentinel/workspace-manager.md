@@ -10,7 +10,7 @@ ms.custom: template-how-to
 
 # Centrally manage multiple Microsoft Sentinel workspaces with Workspace Manager
 
-Learn how to centrally manage multiple Microsoft Sentinel workspaces within one or more Azure tenants with Workspace Manager. This article takes you through provisioning and usage of Workspace Manager to help you gain operational efficiency and operate at scale whether you're a global enterprise or a Managed Security Services Provider (MSSP).
+Learn how to centrally manage multiple Microsoft Sentinel workspaces within one or more Azure tenants with Workspace Manager. This article takes you through provisioning and usage of Workspace Manager. Whether you're a global enterprise or a Managed Security Services Provider (MSSP), Workspace Manager helps you gain operational efficiency and operate at scale.
 
 Here are the active content types supported with Workspace Manager:
 - Analytics rules
@@ -22,27 +22,27 @@ Here are the active content types supported with Workspace Manager:
 ## Prerequisites
 
 - A central Microsoft Sentinel Workspace and at least one member Microsoft Sentinel Workspace to be managed.
-- The Microsoft Sentinel Contributor role assignment is required on the central workspace (ie. where Workspace Manager is enabled on), and on the member workspace(s) the user needs to manage. Learn more about roles in Microsoft Sentinel.
-- If you are managing workspaces across multiple Azure AD tenants, you will need to enable Azure Lighthouse.
+- The Microsoft Sentinel Contributor role assignment is required on the central workspace (where Workspace Manager is enabled on), and on the member workspace(s) the user needs to manage. Learn more about roles in Microsoft Sentinel.
+- Enable Azure Lighthouse if you're' managing workspaces across multiple Azure AD tenants.
 
 
 ## Considerations
-The central workspace will be the environment where you consolidate content items and configurations to be published at scale to multiple member workspaces. You can create a new Microsoft Sentinel workspace or utilize an existing Microsoft Sentinel workspace to serve as the central workspace.
+Configure a central workspace to be the environment where you consolidate content items and configurations to be published at scale to member workspaces. Create a new Microsoft Sentinel workspace or utilize an existing one to serve as the central workspace.
 
 Depending on your scenario, consider these architectures:
-- Direct-link: This is the simplest setup, where all member workspaces are controlled by only one central workspace
-- Co-Management: This supports scenarios where a member workspace needs to be managed by more than one central workspace (eg. workspaces simultaneously managed by an in-house SOC team and an MSSP)
-- N-Tier: This supports complex scenarios where a central workspace controls another central workspace (eg. a conglomerate that manages multiple subsidiaries, where each subsidiary also manages multiple workspaces)
+- **Direct-link** is the least complex setup. Control all member workspaces with only one central workspace.
+- **Co-Management** supports scenarios where more than one central workspace needs to manage a member workspace. For example, workspaces simultaneously managed by an in-house SOC team and an MSSP.
+- **N-Tier** supports complex scenarios where a central workspace controls another central workspace. For example, a conglomerate that manages multiple subsidiaries, where each subsidiary also manages multiple workspaces.
 
 :::image type="content" source="media/workspace-manager/architectures.png" alt-text="A diagram showing various architecture choices for workspace manager in Microsoft Sentinel.":::
 
 ## Enable Workspace Manager on the central workspace
-Once you have decided which Microsoft Sentinel workspace should be the Workspace Manager, this needs to be explicitly enabled. 
+Enable the central workspace once you have decided which Microsoft Sentinel workspace should be the Workspace Manager. 
 
 1. Navigate to the **Settings** blade in the Parent workspace, and toggle "On" the Workspace Manager configuration setting.
     :::image type="content" source="media/workspace-manager/enable-workspace-manager.png" alt-text="A screenshot showing the Workspace manager configuration settings with the workspace parent toggle button highlighted.":::
 
-1. Once enabled, you will notice a new blade **Workspace manager (preview)** appear on the left menu under **Configuration**.
+1. Once enabled, a new blade **Workspace manager (preview)** appears on the left menu under **Configuration**.
     :::image type="content" source="media/workspace-manager/enable-workspace-manager-enabled.png" alt-text="A screenshot showing the Workspace manager configuration settings with the new workspace manager menu section highlighted.":::
 
 ## Onboard member workspaces
@@ -51,7 +51,7 @@ Member workspaces are the set of workspaces that will be managed by Workspace Ma
     :::image type="content" source="media/workspace-manager/add-workspace.png" alt-text="Screenshot shows the add workspace menu.":::
 1. Select the member workspace(s) you would like to onboard to Workspace Manager.
     :::image type="content" source="media/workspace-manager/add-workspace-select.png" alt-text="Screenshot shows the add workspace selection menu.":::
-1. Once successfully onboarded, you will notice the **Members** count increase and your member workspaces will be reflected in the **Workspaces** tab.
+1. Once successfully onboarded, the **Members** count increases and your member workspaces are reflected in the **Workspaces** tab.
     :::image type="content" source="media/workspace-manager/add-workspace-selected.png" alt-text="Screenshot shows the added workspaces and the Members count incremented to 2.":::
 
 ## Create a Group
@@ -66,40 +66,40 @@ Groups allow you to organize workspaces together based on business groups, verti
 1. In the **Create or update group** wizard, define a **Name** for the Group and optionally provide a Description as well.
     :::image type="content" source="media/workspace-manager/add-group-name.png" alt-text="Screenshot shows the group create or update configuration page.":::
 1. In the **Select workspaces** tab, click **Add** and select the member workspaces that you would like to add to the Group.
-1. In the **Select content** tab you will have 2 ways to add content items.
+1. In the **Select content** tab, you will have 2 ways to add content items.
     - Method 1: **Snapshot of all content** currently deployed in the central workspace. This point-in-time snapshot selects only active content, not templates.
     - Method 2: **Custom select** which content items should be added. 
     :::image type="content" source="media/workspace-manager/add-group-content.png" alt-text="Screenshot shows the group content selection.":::
-1. Once successfully created, you will notice the **Group count increase** and your Group will be reflected in the **Groups tab**.
+1. Once successfully created, the **Group count** increases and your Groups are reflected in the **Groups tab**.
 
 ## Publish the Group definition
-At this point, the content items selected have not been published to the member workspace(s) yet.
+At this point, the content items selected haven't been published to the member workspace(s) yet.
 
-1. To do so, click **Publish content** in the right flyout.
+1. Click **Publish content** in the right flyout.
     :::image type="content" source="media/workspace-manager/publish-group.png" alt-text="Screenshot shows the group publish window.":::
     Alternatively, to bulk Publish multiple Groups, multi-select the desired Groups and click on Publish.
     :::image type="content" source="media/workspace-manager/publish-groups.png" alt-text="Screenshot shows the multi-select group publishing window.":::
-1. The **Last publish status** column will update to reflect **In progress**.
+1. The **Last publish status** column updates to reflect **In progress**.
     :::image type="content" source="media/workspace-manager/publish-groups-inprogress.png" alt-text="Screenshot shows the multi group publishing progress column.":::
-1. If successful, the **Last publish status** will update to reflect **Succeeded**. The selected content items now exist in the member workspaces.
+1. If successful, the **Last publish status** updates to reflect **Succeeded**. The selected content items now exist in the member workspaces.
     :::image type="content" source="media/workspace-manager/publish-groups-success.png" alt-text="Screenshot shows the last published column with entries that succeeded.":::
-    If unsuccessful, the **Last publish status** will update to reflect **Failed**.
+    If unsuccessful, the **Last publish status** updates to reflect **Failed**.
 
 
 ### Troubleshooting
-To facilitate troubleshooting, you can click into the Failed hyperlink, this will open a Job failure details window. A status will be displayed for each content item and target workspace pair.
+To facilitate troubleshooting, click the **Failed** hyperlink, to open the Job failure details window. A status for each content item and target workspace pair is displayed.
 :::image type="content" source="media/workspace-manager/publish-groups-job-details.png" alt-text="Screenshot shows the job details of a group publishing failure event.":::
 
 Common reasons for failure include:
 - Content items referenced in the Group definition no longer exist at the time of Publish (have been deleted).
-- Permissions have changed at the time of Publish (the user is no longer a Microsoft Sentinel Contributor or does not have sufficient permissions on the member workspace anymore).
+- Permissions have changed at the time of Publish. For example, the user is no longer a Microsoft Sentinel Contributor or doesn't have sufficient permissions on the member workspace anymore.
 - A member workspace has been deleted.
 
 ### Known limitations
 - Playbooks attributed or attached to Analytics and Automation rules are not currently supported.
-- Workbooks stored in bring-your-own-storage are not currently supported.
-- Workspace Manager only manages content items published from the central workspace. It does not manage content created locally from member workspace(s).
-- Currently, deleting content residing in member workspace(s) centrally via Workspace Manager is not supported.
+- Workbooks stored in bring-your-own-storage aren't currently supported.
+- Workspace Manager only manages content items published from the central workspace. It doesn't manage content created locally from member workspace(s).
+- Currently, deleting content residing in member workspace(s) centrally via Workspace Manager isn't supported.
 
 ### API references
 - [Workspace Manager Assignment Jobs](/rest/api/securityinsights/preview/workspace-manager-assignment-jobs)
