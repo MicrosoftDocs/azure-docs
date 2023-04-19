@@ -63,27 +63,27 @@ The GitHub repository includes DB2server.rsp, a response (.rsp) file that enable
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Welcome                   |                                              | New Install                                                                                           |
 | Choose a Product          |                                              | DB2 Version 11.1.3.3. Server Editions with DB2 pureScale                                              |
-| Configuration             | Directory                                    | `/data1/opt/ibm/db2/V11`.1                                                                              |
+| Configuration             | Directory                                    | `/data1/opt/ibm/db2/V11.1`                                                                              |
 |                           | Select the installation type                 | Typical                                                                                               |
 |                           | I agree to the IBM terms                     | Checked                                                                                               |
 | Instance Owner            | Existing User For Instance, User name        | DB2sdin1                                                                                              |
 | Fenced User               | Existing User, User name                     | DB2sdfe1                                                                                              |
-| Cluster File System       | Shared disk partition device path            | `/dev/`dm-2                                                                                             |
-|                           | Mount point                                  | `/`DB2sd\_1804a                                                                                         |
-|                           | Shared disk for data                         | `/dev/`dm-1                                                                                             |
-|                           | Mount point (Data)                           | `/DB2fs/`datafs1                                                                                        |
-|                           | Shared disk for log                          | `/dev/`dm-0                                                                                             |
-|                           | Mount point (Log)                            | `/DB2fs/`logfs1                                                                                         |
-|                           | DB2 Cluster Services Tiebreaker. Device path | `/dev/`dm-3                                                                                             |
+| Cluster File System       | Shared disk partition device path            | `/dev/dm-2`                                                                                             |
+|                           | Mount point                                  | `/DB2sd_1804a`                                                                                         |
+|                           | Shared disk for data                         | `/dev/dm-1`                                                                                             |
+|                           | Mount point (Data)                           | `/DB2fs/datafs1`                                                                                        |
+|                           | Shared disk for log                          | `/dev/dm-0`                                                                                             |
+|                           | Mount point (Log)                            | `/DB2fs/logfs1`                                                                                         |
+|                           | DB2 Cluster Services Tiebreaker. Device path | `/dev/dm-3`                                                                                             |
 | Host List                 | d1 [eth1], d2 [eth1], cf1 [eth1], cf2[eth1] |                                                                                                       |
 |                           | Preferred primary CF                         | cf1                                                                                                   |
 |                           | Preferred secondary CF                       | cf2                                                                                                   |
 | Response File and Summary | first option                                 | Install DB2 Server Edition with the IBM DB2 pureScale feature and save my settings in a response file |
-|                           | Response file name                           | `/root/DB2server`.rsp                                                                                   |
+|                           | Response file name                           | `/root/DB2server.rsp`                                                                                   |
 
 ### Notes about this deployment
 
-- The values for /dev-dm0, /dev-dm1, /dev-dm2, and /dev-dm3 can change after a restart on the virtual machine where the setup takes place (d0 in the automated script). To find the right values, you can issue the following command before completing the response file on the server where the setup will run:
+- The values for `/dev-dm0`, `/dev-dm1`, `/dev-dm2`, and `/dev-dm3` can change after a restart on the virtual machine where the setup takes place (d0 in the automated script). To find the right values, you can issue the following command before completing the response file on the server where the setup will run:
 
    ```bash
    sudo ls -als /dev/mapper
