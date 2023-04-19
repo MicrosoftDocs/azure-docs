@@ -13,22 +13,34 @@ ms.topic: how-to
 ms.custom: 
 ---
 
-# Managed network isolation (preview)
+# Workspace managed network isolation (preview)
 
-This article explains how to use managed network isolation in Azure Machine Learning.
+Azure Machine Learning provides preview support for managed network isolation. Managed network isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed virtual network, instead of using your virtual network.
 
-## Workspace managed network isolation
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Managed network isolation streamlines and automates your network isolation configuration with workspace-level built-in Azure Machine Learning managed virtual network, instead of using your virtual network.
+When you enable managed network isolation, a managed virtual network is created for the workspace. Managed compute resources (compute clusters and compute instances) for the workspace automatically use this managed virtual network. The managed virtual network can use private endpoints for Azure resources that are used by your workspace, such as Azure Storage, Azure Key Vault, and Azure Container Registry. 
 
-:::image type="content" source="https://github.com/Azure/azureml-managed-network-isolation/blob/main/managedvnet_architecture.png" alt-text="Diagram of managed network isolation.":::
+The following diagram shows a managed virtual network uses private endpoints to communicate with the storage, key vault, and container registry used by the workspace.
 
-When you enable managed network isolation, you get Azure Machine Learning managed virtual network and your computing resources automatically use that virtual network. Managed network isolation has two modes:
+:::image type="content" source="./media/how-to-managed-network/managed-virtual-network-architecture.png" alt-text="Diagram of managed network isolation.":::
 
-* Allow internet outbound mode: Allow all internet outbound from AzureML managed VNet. You can have private endpoint connections to your private Azure resources. This is the mode if your ML engineers need access to machine learning artifacts on the Internet such as python packages, pretrained models.
-* Allow only approved outbound mode: You can allow outbound only to the approved outbound using private endpoint, FQDN and service tag. This is the mode if you want to minimize data exfiltration risk but you need to prepare all required machine learning artifacts in your private locations.
+There are two different configuration modes for outbound traffic from the managed virtual network:
 
-Managed virtual network is automatically used to provision your computing resources. Managed virtual network is pre-configured with [required default outbound rules](#list-of-required-outbound-rules) and private endpoint connections to your workspace default storage, container registry and key vault if they are private. After choosing the managed network isolation mode, you only need to consider additional outbound requirements.
+> [!TIP]
+> Regardless of the outbound mode you use, traffic to Azure resources can be configured to use a private endpoint. For example, you may allow all outbound traffic to the internet, but restrict communication with Azure resources by creating a private endpoint for that resource in the managed VNet
+
+| Outbound mode | Description | Scenarios |
+| ----- | ----- | ----- |
+| Allow internet outbound | Allow all internet outbound traffic from the managed VNet. | Recommended if you need access to machine learning artifacts on the Internet, such as python packages or pretrained models. |
+| Allow only approved outbound | Outbound traffic is allowed by specifying FQDNs and service tags. | Recommended if you want to minimize the risk of data exfiltration but you need to prepare all required machine learning artifacts in your private locations. |
+
+<!-- you get Azure Machine Learning managed virtual network and your computing resources automatically use that virtual network. Managed network isolation has two modes:
+
+* Allow internet outbound mode: Allow all internet outbound from Azure Machine Learning managed VNet. You can have private endpoint connections to your private Azure resources. This is the mode if your ML engineers need access to machine learning artifacts on the Internet such as python packages, pretrained models.
+* Allow only approved outbound mode: You can allow outbound only to the approved outbound using private endpoint, FQDN and service tag. This is the mode if you want to minimize data exfiltration risk but you need to prepare all required machine learning artifacts in your private locations. -->
+
+The managed virtual network is preconfigured with [required default outbound rules](#list-of-required-outbound-rules) and private endpoint connections to your workspace default storage, container registry and key vault if they're private. After choosing the managed network isolation mode, you only need to consider additional outbound requirements.
 
 ## Supported scenarios in preview and to be supported scenarios
 
@@ -51,11 +63,12 @@ In the `az ml workspace create` command, replace the following values:
 az ml workspace create --name ws --resource-group rg --managed-network allow_internet_outbound
 ```
 
-Recommend using yml file to have additional private endpoint outbound rules. You can find a sample yaml file from [here](https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-pe-outboundrule-Workspace.yaml).
-
-```azurecli
-az ml workspace create --name ws --resource-group rg --file add-pe-outboundrule-Workspace.yaml
-```
+> [!TIP]
+> We recommend using a yml file to have additional private endpoint outbound rules. You can find a sample yaml file at [https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-pe-outboundrule-Workspace.yaml](https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-pe-outboundrule-Workspace.yaml).
+>
+> ```azurecli
+> az ml workspace create --name ws --resource-group rg --file add-pe-outboundrule-Workspace.yaml
+> ```
 
 
 # [Python](#tab/python)
@@ -86,12 +99,14 @@ ml_client.workspaces.begin_update(ws)
 
 # [Studio](#tab/azure-studio)
 
-1. Sign in to the [Azure Portal](https://ms.azure.com), and choose Azure Machine Learning from Create a resource menu.
+1. Sign in to the [Azure portal](https://ms.azure.com), and choose Azure Machine Learning from Create a resource menu.
 1. Fill the information in Basics tab and move to Networking tab
 1. Choose managed network mode; Private with Internet outbound or Private only with approved outbound
 1. Create a workspace
 
     :::image type="content" source="TBU" alt-text="" lightbox="":::
+
+---
 
 ## Configure a workspace with allow only approved outbound mode
 
@@ -106,11 +121,12 @@ In the `az ml workspace create` command, replace the following values:
 az ml workspace create --name ws --resource-group rg --managed-network allow_only_approved_outbound
 ```
 
-Recommend using yml file to have additional outbound rules. You can find a sample yaml file from [here](https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-several-outboundrules-Workspace.yaml).
-
-```azurecli
-az ml workspace create --name ws --resource-group rg --file add-several-outboundrules-Workspace.yaml
-```
+> [!TIP]
+> We recommend using a yml file to have additional outbound rules. You can find a sample yaml file at [https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-several-outboundrules-Workspace.yaml](https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-several-outboundrules-Workspace.yaml).
+>
+> ```azurecli
+> az ml workspace create --name ws --resource-group rg --file add-several-outboundrules-Workspace.yaml
+> ```
 
 
 # [Python](#tab/python)
@@ -144,17 +160,18 @@ ml_client.workspaces.begin_update(ws)
 
 # [Studio](#tab/azure-studio)
 
-1. Sign in to the [Azure Portal](https://ms.azure.com), and choose Azure Machine Learning from Create a resource menu.
+1. Sign in to the [Azure portal](https://ms.azure.com), and choose Azure Machine Learning from Create a resource menu.
 1. Fill the information in Basics tab and move to Networking tab
 1. Choose managed network mode; Private with Internet outbound or Private only with approved outbound
 1. Create a workspace
 
     :::image type="content" source="TBU" alt-text="" lightbox="":::
+---
 
 ## Update existing workspaces with managed network isolation
 
 > [!WARNING]
-> You need to delete your all computing resources incl. compute instance, compute clsuter, serverless, serverless spark, managed online endpoint to enable managed network isolation.
+> You need to delete your all computing resources incl. compute instance, compute cluster, serverless, serverless spark, managed online endpoint to enable managed network isolation.
 
 # [Azure CLI](#tab/cli)
 
@@ -169,11 +186,25 @@ Update a workspace with allow only approved outbound mode
 az ml workspace update --name ws --resource-group rg --managed-network allow_internet_outbound
 ```
 
+> [!TIP]
+> We recommend using a yml file to have additional private endpoint outbound rules. You can find a sample yaml file at [https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-pe-outboundrule-Workspace.yaml](https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-pe-outboundrule-Workspace.yaml).
+>
+> ```azurecli
+> az ml workspace update --name ws --resource-group rg --file add-pe-outboundrule-Workspace.yaml
+> ```
+
 Update a workspace with allow only approved outbound mode
 
 ```azurecli
 az ml workspace update --name ws --resource-group rg --managed-network allow_only_approved_outbound
 ```
+
+> [!TIP]
+> We recommend using a yml file to have additional outbound rules. You can find a sample yaml file from [https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-several-outboundrules-Workspace.yaml](https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-several-outboundrules-Workspace.yaml).
+>
+> ```azurecli
+> az ml workspace update --name ws --resource-group rg --file add-several-outboundrules-Workspace.yaml
+> ```
 
 # [Python](#tab/python)
 
@@ -203,12 +234,13 @@ ml_client.workspaces.begin_update(ws)
 
 # [Studio](#tab/azure-studio)
 
-1. Sign in to the [Azure Portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
+1. Sign in to the [Azure portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
 1. Go to the networking blade and managed network tab.
 1. Change managed network mode to "private with internet outbound" or "private with allowed outbound"
 
     :::image type="content" source="TBU" alt-text="" lightbox="":::
 
+---
 
 ## Configuration for using serverless spark compute
 
@@ -236,23 +268,25 @@ ws = ml_client.workspaces.provision_network(workspace, true)
 
 # [Studio](#tab/azure-studio)
 
-1. Sign in to the [Azure Portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
+1. Sign in to the [Azure portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
 1. Go to the networking blade and managed network tab.
 1. Check the box: Use serverless spark compute.
 
     :::image type="content" source="TBU" alt-text="" lightbox="":::
 
+---
+
 ## List of required outbound rules
 
-* AzureActiveDirectory
-* AzureMachineLearning
-* BatchNodeManagement.region
-* AzureResourceManager
-* AzureFrontDoor
-* MicrosoftContainerRegistry
-* AzureMonitor
+* `AzureActiveDirectory`
+* `AzureMachineLearning`
+* `BatchNodeManagement.region`
+* `AzureResourceManager`
+* `AzureFrontDoor`
+* `MicrosoftContainerRegistry`
+* `AzureMonitor`
 
 ## Limitations
 
-* Once you enable managed network isolation of your workspace, you cannot disable it.
-* Managed virtual network uses private endpoint connection to access your private resources. Note that you cannot have a private endpoint and a service endpoint at the same time for your Azure resources such as a storage account. We recommend using private endpoints in all scenarios.
+* Once you enable managed network isolation of your workspace, you can't disable it.
+* Managed virtual network uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
