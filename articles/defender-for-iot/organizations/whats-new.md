@@ -20,7 +20,26 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
+| **Documentation** | [End-to-end deployment guides](#end-to-end-deployment-guides) |
 | **OT networks** | **Sensor version 22.3.8**: <br>- [Download WMI script from OT sensor console](#download-wmi-script-from-ot-sensor-console) <br>- [Automatically resolved OS notifications](#automatically-resolved-os-notifications) <br>- [UI enhancement when uploading SSL/TLS certificates](#ui-enhancement-when-uploading-ssltls-certificates) |
+
+### End-to-end deployment guides
+
+The Defender for IoT documentation now includes a new **Deploy** section, with a full set of deployment guides for the following scenarios:
+
+- [Standard deployment for OT monitoring](ot-deploy/ot-deploy-path.md)
+- [Air-gapped deployment for OT monitoring with an on-premises sensor management](ot-deploy/air-gapped-deploy.md)
+- [Enterprise IoT deployment](eiot-defender-for-endpoint.md)
+
+For example, the recommended deployment for OT monitoring includes the following steps, which are all detailed in our new articles:
+
+:::image type="content" source="media/deployment-paths/ot-deploy.png" alt-text="Diagram of an OT monitoring deployment path." border="false" lightbox="media/deployment-paths/ot-deploy.png":::
+
+The step-by-step instructions in each section are intended to help customers optimize for success and deploy for Zero Trust. Navigational elements on each page, including flow charts at the top and **Next steps** links at the bottom, indicate where you are in the process, what you’ve just completed, and what your next step should be. For example:
+
+:::image type="content" source="media/deployment-paths/progress-network-level-deployment.png" alt-text="Diagram of a progress bar with Site networking setup highlighted." border="false" lightbox="media/deployment-paths/progress-network-level-deployment.png":::
+
+For more information, see [Deploy Defender for IoT for OT monitoring](ot-deploy/ot-deploy-path.md).
 
 ### Download WMI script from OT sensor console
 
