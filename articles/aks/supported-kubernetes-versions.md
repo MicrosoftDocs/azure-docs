@@ -57,11 +57,11 @@ For the past release history, see [Kubernetes history](https://en.wikipedia.org/
 > [!NOTE]
 > Alias minor version requires Azure CLI version 2.37 or above as well as API version 20220201 or above. Use `az upgrade` to install the latest version of the CLI.
 
-With AKS, you can create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster will run the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will run **`1.21.7`**, which is the latest GA patch version of *1.21*.
+AKS allows you to create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster runs the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will run **`1.21.7`**, which is the latest GA patch version of *1.21*.
 
-When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` won't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` will trigger an upgrade to the latest GA `1.15` patch. If you wish to upgrade your patch version in the same minor version, please use [auto-upgrade](./auto-upgrade-cluster.md#using-cluster-auto-upgrade).
+When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` doesn't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` triggers an upgrade to the latest GA `1.15` patch.
 
-To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The `currentKubernetesVersion` property shows the whole Kubernetes version.
+To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The property `currentKubernetesVersion` shows the whole Kubernetes version.
 
 ```
 {
@@ -96,9 +96,7 @@ New minor version    |    Supported Version List
 -----------------    |    ----------------------
 1.17.a               |    1.17.a, 1.17.b, 1.16.c, 1.16.d, 1.15.e, 1.15.f
 
-Where ".letter" is representative of patch versions.
-
-When a new minor version is introduced, the oldest minor version and patch releases supported are deprecated and removed. For example, if the current supported version list is:
+When a new minor version is introduced, the oldest supported minor version and patch releases are deprecated and removed. For example, the current supported version list is:
 
 ```
 1.17.a

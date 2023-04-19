@@ -3,7 +3,7 @@ title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workl
 description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 04/18/2023
+ms.date: 04/19/2023
 ---
 
 # Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster
@@ -17,7 +17,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you aren't familiar with Azure AD workload identity, see the following [Overview][workload-identity-overview] article.
 
-- This article requires version 2.40.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This article requires version 2.47.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 - The identity you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 
@@ -45,8 +45,6 @@ export FEDERATED_IDENTITY_CREDENTIAL="myFedIdentity"
 Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
 ```azurecli-interactive
-az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}"
-
 az aks create -g "${RESOURCE_GROUP}" -n myAKSCluster --enable-oidc-issuer --enable-workload-identity
 ```
 
