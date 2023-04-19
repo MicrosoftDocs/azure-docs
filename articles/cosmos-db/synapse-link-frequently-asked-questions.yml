@@ -6,7 +6,7 @@ metadata:
   ms.author: rosouz
   ms.service: cosmos-db
   ms.topic: faq
-  ms.date: 01/05/2023
+  ms.date: 04/19/2023
   ms.custom: synapse-cosmos-db, ignite-2022
 title: Frequently asked questions about Azure Synapse Link for Azure Cosmos DB
 summary: |
@@ -78,9 +78,8 @@ sections:
       - question: |
           Can I disable analytical store on my Azure Cosmos DB containers?
         answer: |
-          Analytical store can be disabled in API for NoSQL containers using PowerShell, by updating `-AnalyticalStorageTtl` (analytical Time-To-Live) to `0`. Please note that currently this action can't be undone. If analytical store is disabled in a container, it can never be re-enabled.
-          Currently you can't be disabled in API for MongoDB collections.
-
+          Yes, analytical store can be disabled in API for NoSQL containers and in API for MongoDB collections, using PowerShell or CLI. Please note that currently this action can't be undone.
+          
       - question: |
           Is analytical store supported for Azure Cosmos DB containers with autoscale provisioned throughput?
         answer: |
