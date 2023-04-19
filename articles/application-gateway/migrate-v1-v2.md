@@ -35,8 +35,7 @@ An Azure PowerShell script is available that does the following:
 * [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 * To  migrate a TLS/SSL configuration, you must specify all the TLS/SSL certs used in your v1 gateway.
 * If you have FIPS mode enabled for your V1 gateway, it won't be migrated to your new v2 gateway. FIPS mode isn't supported in v2.
-* v2 doesn't support IPv6, so IPv6 enabled v1 gateways aren't migrated. If you run the script, it may not complete.
-* If the v1 gateway has only a private IP address, the script creates a public IP address and a private IP address for the new v2 gateway. v2 gateways currently don't support only private IP addresses.
+* In case of Private IP only V1 gateway, the script will generate a private and public IP address for the new V2 gateway. The Private IP only V2 gateway is currently in public preview. Once it becomes generally available, customers can utilize the script to transfer their private IP only V1 gateway to a private IP only V2 gateway.
 * Headers with names containing anything other than letters, digits, and hyphens are not passed to your application. This only applies to header names, not header values. This is a breaking change from v1.
 * NTLM and Kerberos authentication is not supported by Application Gateway v2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from v1 to v2 gateways if run.
 
@@ -168,6 +167,10 @@ Here are a few scenarios where your current application gateway (Standard) may r
 * **Your clients connect to the frontend IP address of your application gateway**.
 
    Update your clients to use the IP address(es) associated with the newly created v2 application gateway. We recommend that you don't use IP addresses directly. Consider using the DNS name label (for example, yourgateway.eastus.cloudapp.azure.com) associated with your application gateway that you can CNAME to your own custom DNS zone (for example, contoso.com).
+
+## ApplicationGateway V2 pricing
+
+The pricing models are different for the Application Gateway v1 and v2 SKUs. Please review the pricing at [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) page before migrating from V1 to V2.
 
 ## Common questions
 

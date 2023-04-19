@@ -11,10 +11,10 @@ ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.custom: devx-track-azurepowershell
 ms.workload: TBD
 ms.date: 08/22/2022
 ms.author: timlt
-
 ---
 # StorSimple 8000 series: a hybrid cloud storage solution
 

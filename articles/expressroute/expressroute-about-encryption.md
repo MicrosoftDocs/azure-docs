@@ -11,7 +11,7 @@ ms.author: duau
 ---
 # ExpressRoute encryption
  
-ExpressRoute supports a couple of encryption technologies to ensure confidentiality and integrity of the data traversing between your network and Microsoft's network.
+ExpressRoute supports a couple of encryption technologies to ensure confidentiality and integrity of the data traversing between your network and Microsoft's network. By default traffic over an ExpressRoute connection is not encrypted.
 
 ## Point-to-point encryption by MACsec FAQ
 
@@ -67,6 +67,8 @@ If Azure VPN gateway is used, check the [performance numbers here](../vpn-gatewa
 
 ## Next steps
 
-For more information about the MACsec configuration, see [Configure MACsec](expressroute-howto-macsec.md).
+* See [Configure IPsec](site-to-site-vpn-over-microsoft-peering.md) for more information about the IPsec configuration.
 
-For more information about the IPsec configuration, See [Configure IPsec](site-to-site-vpn-over-microsoft-peering.md).
+* For more information about the MACsec configuration, see [Configure MACsec](expressroute-howto-macsec.md).
+
+* For more information about the IPsec configuration, See [Configure IPsec](site-to-site-vpn-over-microsoft-peering.md).

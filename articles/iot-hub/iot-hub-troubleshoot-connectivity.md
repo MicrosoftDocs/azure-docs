@@ -195,4 +195,4 @@ To help improve the documentation for everyone, leave a comment in the feedback 
 
 * To learn more about resolving transient issues, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
-* To learn more about the Azure IoT device SDKs and managing retries, see [Retry patterns](../iot-develop/how-to-use-reliability-features-in-sdks.md#retry-patterns).
+* To learn more about the Azure IoT device SDKs and managing retries, see [Retry patterns](../iot-develop/concepts-manage-device-reconnections.md#retry-patterns).

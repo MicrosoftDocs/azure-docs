@@ -3,7 +3,7 @@ title: "Windows Forwarded Events connector for Microsoft Sentinel"
 description: "Learn how to install the connector Windows Forwarded Events to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -19,7 +19,7 @@ You can stream all Windows Event Forwarding (WEF) logs from the Windows Servers 
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | WindowsEvents<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 

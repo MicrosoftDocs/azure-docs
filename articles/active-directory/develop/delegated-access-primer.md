@@ -25,7 +25,7 @@ People frequently use different applications to access their data from cloud ser
 
 Use delegated access whenever you want to let a signed-in user work with their own resources or resources they can access. Whether it’s an admin setting up policies for their entire organization or a user deleting an email in their inbox, all scenarios involving user actions should use delegated access.
 
-![Diagram shows illustration of delegated permissions vs application permissions.](./media/permissions-consent-overview/delegated-app-only-permissions.png)
+![Diagram shows illustration of delegated access scenario.](./media/delegated-access-primer/delegated-access.png)
 
 In contrast, delegated access is usually a poor choice for scenarios that must run without a signed-in user, like automation. It may also be a poor choice for scenarios that involve accessing many users’ resources, like data loss prevention or backups. Consider using [application-only access](permissions-consent-overview.md) for these types of operations.
 

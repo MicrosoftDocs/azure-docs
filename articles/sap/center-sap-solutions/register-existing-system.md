@@ -35,13 +35,16 @@ In this how-to guide, you'll learn how to register an existing SAP system with *
     - Use a [**Storage** service tag with regional scope](../../virtual-network/service-tags-overview.md) to allow storage account connectivity to the Azure storage accounts in the same region as the VMs.
     - Allowlist the region-specific IP addresses for Azure Storage.
 - Register the **Microsoft.Workloads** Resource Provider in the subscription where you have the SAP system.
-- Check that your Azure account has **Azure Center for SAP solutions administrator** or equivalent role access on the subscription or resource groups where you have the SAP system resources.
-- A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** and **Tag Contributor** role access on the Compute resource group and **Reader** and **Tag Contributor** role access on the Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource.
+- Check that your Azure account has **Azure Center for SAP solutions administrator** and **Managed Identity Operator** or equivalent role access on the subscription or resource groups where you have the SAP system resources.
+- A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Compute resource group and **Reader** role access on the Virtual Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource.
 - Make sure ASCS, Application Server and Database virtual machines of the SAP system are in **Running** state.
-- sapcontrol and saphostctrl exe files must exist in the path /usr/sap/hostctrl/exe on ASCS, App server and Database.
+- sapcontrol and saphostctrl exe files must exist on ASCS, App server and Database.
+    - File path on Linux VMs: /usr/sap/hostctrl/exe
+    - File path on Windows VMs: C:\Program Files\SAP\hostctrl\exe\
 - Make sure the **sapstartsrv** process is running on all **SAP instances** and for **SAP hostctrl agent** on all the VMs in the SAP system.
-    - To start hostctrl sapstartsrv use the command: 'hostexecstart -start'
+    - To start hostctrl sapstartsrv use this command for Linux VMs: 'hostexecstart -start'
     - To start instance sapstartsrv use the command: 'sapcontrol -nr 'instanceNr' -function StartService S0S'
+    - To check status of hostctrl sapstartsrv use this command for Windows VMs: C:\Program Files\SAP\hostctrl\exe\saphostexec –status
 - For successful discovery and registration of the SAP system, ensure there is network connectivity between ASCS, App and DB VMs. 'ping' command for App instance hostname must be successful from ASCS VM. 'ping' for Database hostname must be successful from App server VM.
 - On App server profile, SAPDBHOST, DBTYPE, DBID parameters must have the right values configured for the discovery and registration of Database instance details.
 
@@ -67,7 +70,7 @@ The following SAP system configurations aren't supported in Azure Center for SAP
 
 ## Enable resource permissions
 
-When you register an existing SAP system as a VIS, Azure Center for SAP solutions service needs a **User-assigned managed identity** which has **Azure Center for SAP solutions service role** and **Tag Contributor** role access on the Compute (VMs, Disks, Load balancers) resource group and **Reader** role access on the Virtual Network resource group of the SAP system. Before you register an SAP system with Azure Center for SAP solutions, either [create a new user-assigned managed identity or update role access for an existing managed identity](#setup-user-assigned-managed-identity).
+When you register an existing SAP system as a VIS, Azure Center for SAP solutions service needs a **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Compute (VMs, Disks, Load balancers) resource group and **Reader** role access on the Virtual Network resource group of the SAP system. Before you register an SAP system with Azure Center for SAP solutions, either [create a new user-assigned managed identity or update role access for an existing managed identity](#setup-user-assigned-managed-identity).
 
 Azure Center for SAP solutions uses this user-assigned managed identity to install VM extensions on the ASCS, Application Server and DB VMs. This step allows Azure Center for SAP solutions to discover the SAP system components, and other SAP system metadata. User-assigned managed identity is required to enable SAP system monitoring and management capabilities.
 
@@ -76,17 +79,14 @@ Azure Center for SAP solutions uses this user-assigned managed identity to insta
 To provide permissions to the SAP system resources to a user-assigned managed identity:
 
 1. [Create a new user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity) if needed or use an existing one.
-1. [Assign **Azure Center for SAP solutions service role** and **Tag Contributor**](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#manage-access-to-user-assigned-managed-identities) role access to the user-assigned managed identity on the resource group(s) which have the Virtual Machines, Disks and Load Balancers of the SAP system and **Reader** role on the resource group(s) which have the Virtual Network components of the SAP system.
+1. [Assign **Azure Center for SAP solutions service role**](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#manage-access-to-user-assigned-managed-identities) role access to the user-assigned managed identity on the resource group(s) which have the Virtual Machines, Disks and Load Balancers of the SAP system and **Reader** role on the resource group(s) which have the Virtual Network components of the SAP system.
 1. Once the permissions are assigned, this managed identity can be used in Azure Center for SAP solutions to register and manage SAP systems.
-
-> [!NOTE]
-> User-assigned managed identity requires **Tag Contributor** role on VMs, Disks and Load Balancers of the SAP system to enable [Cost Analysis](view-cost-analysis.md) at SAP SID level.
 
 ## Register SAP system
 
 To register an existing SAP system in Azure Center for SAP solutions:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Make sure to sign in with an Azure account that has **Azure Center for SAP solutions administrator** role access to the subscription or resource groups where the SAP system exists. For more information, see the [resource permissions explanation](#enable-resource-permissions).
+1. Sign in to the [Azure portal](https://portal.azure.com). Make sure to sign in with an Azure account that has **Azure Center for SAP solutions administrator** and **Managed Identity Operator** role access to the subscription or resource groups where the SAP system exists. For more information, see the [resource permissions explanation](#enable-resource-permissions).
 1. Search for and select **Azure Center for SAP solutions** in the Azure portal's search bar.
 1. On the **Azure Center for SAP solutions** page, select **Register an existing SAP system**.
 
@@ -98,7 +98,7 @@ To register an existing SAP system in Azure Center for SAP solutions:
     1. For **SAP product**, select the SAP system product from the drop-down menu.
     1. For **Environment**, select the environment type from the drop-down menu. For example, production or non-production environments.
     1. For **Managed identity source**, select **Use existing user-assigned managed identity** option.
-    1. For **Managed identity name**, select a **User-assigned managed identity** which has **Azure Center for SAP solutions service role**, **Reader** and **Tag Contributor** role access to the [respective resources of this SAP system.](#enable-resource-permissions)
+    1. For **Managed identity name**, select a **User-assigned managed identity** which has **Azure Center for SAP solutions service role** and **Reader** role access to the [respective resources of this SAP system.](#enable-resource-permissions)
     1. Select **Review + register** to discover the SAP system and begin the registration process.
 
         :::image type="content" source="media/register-existing-system/registration-page.png" alt-text="Screenshot of Azure Center for SAP solutions registration page, highlighting mandatory fields to identify the existing SAP system." lightbox="media/register-existing-system/registration-page.png":::
@@ -123,41 +123,44 @@ This error happens when the Database identifier is incorrectly configured on the
 
 1. Stop the Application Server instance:
     
-    `sapcontrol -nr -function Stop`
+    `sapcontrol -nr <instance number> -function Stop`
 
 1. Stop the ASCS instance:
 
-    `sapcontrol -nr -function Stop`
+    `sapcontrol -nr <instance number> -function Stop`
 
 1. Open the Application Server profile.
 
 1. Add the profile parameter for the HANA Database: 
 
-    `rsdb/dbid = HanaDbSid`
+    `rsdb/dbid = <SID of HANA Database>`
 
 1. Restart the Application Server instance: 
 
-    `sapcontrol -nr -function Start`
+    `sapcontrol -nr <instance number> -function Start`
 
 1. Restart the ASCS instance: 
 
-    `sapcontrol -nr -function Start`
+    `sapcontrol -nr <instance number> -function Start`
 
 1. Delete the VIS resource whose registration failed.
 
 1. [Register the SAP system](#register-sap-system) again.
 
 ### Error - Azure VM Agent not in desired provisioning state
-This issue occurs when Azure VM agent's provisioning state is not as expected on the specified Virtual Machine. Expected state is **Ready**. Verify the agent status by checking the properties section in the VM overview page. To fix the VM Agent, 
+**Cause:** This issue occurs when Azure VM agent's provisioning state is not as expected on the specified Virtual Machine. Expected state is **Ready**. Verify the agent status by checking the properties section in the VM overview page. 
+
+**Solution:** To fix the Linux VM Agent, 
 1. Login to the VM using bastion or serial console.
-1. If the VM agent exists and is not running, then restart the waagent.
+2. If the VM agent exists and is not running, then restart the waagent.
   - sudo systemctl status waagent. 
-  - If the service is not running then restart this service. To restart use the following steps:
+3. If the service is not running then restart this service. To restart use the following steps:
   - sudo systemctl stop waagent
   - sudo systemctl start waagent
-  - If this does not solve the issue, try updating the VM Agent using [this document](../../virtual-machines/extensions/update-linux-agent.md)
-3. If the VM agent does not exist or needs to be re-installed, then follow [this documentation](../../virtual-machines/extensions/update-linux-agent.md).
+4. If this does not solve the issue, try updating the VM Agent using [this document](../../virtual-machines/extensions/update-linux-agent.md)
+5. If the VM agent does not exist or needs to be re-installed, then follow [this documentation](../../virtual-machines/extensions/update-linux-agent.md).
 
+To fix the Windows VM Agent, follow [Troubleshooting Azure Windows VM Agent](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent).
 
 ## Next steps
 

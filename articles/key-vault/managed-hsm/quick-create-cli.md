@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 03/21/2023
+ms.date: 03/24/2023
 ms.author: mbaldwin
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
@@ -37,10 +37,10 @@ az login
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *westus3* location.
+A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *eastus2* location.
 
 ```azurecli-interactive
-az group create --name "ContosoResourceGroup" --location westus3
+az group create --name "ContosoResourceGroup" --location eastus2
 ```
 
 ## Create a Managed HSM

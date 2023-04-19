@@ -37,8 +37,8 @@
       href: template-create-instance.md
     - name: Configure scoped synchronization using Azure AD PowerShell
       href: powershell-scoped-synchronization.md
-    - name: Create a resource forest and trust using Azure PowerShell
-      href: create-resource-forest-powershell.md
+    - name: Create a forest trust using Azure PowerShell
+      href: create-forest-trust-powershell.md
 - name: Concepts
   items:
     - name: Administration basics
@@ -47,12 +47,8 @@
       href: scenarios.md
     - name: Replica sets
       href: concepts-replica-sets.md
-    - name: Forests and trusts
-      items:
-        - name: Resource forests
-          href: concepts-resource-forest.md
-        - name: Forest trusts
-          href: concepts-forest-trust.md
+    - name: Forests trusts
+      href: concepts-forest-trust.md
     - name: How Azure AD DS synchronization works
       href: synchronization.md
     - name: How password hash synchronization works

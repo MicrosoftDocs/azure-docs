@@ -216,7 +216,7 @@ In this step, you **grant the frontend app access to the backend app** on the us
 
 1. In the **Authentication** page for the frontend app, select your frontend app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
 
-1. Select **Add a permission**, then select **My APIs** > **\<front-end-app-name>**.
+1. Select **Add a permission**, then select **My APIs** > **\<back-end-app-name>**.
 
 1. In the **Request API permissions** page for the backend app, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
@@ -230,7 +230,7 @@ In the Cloud Shell, run the following commands on the frontend app to add the `s
 
 ```azurecli-interactive
 authSettings=$(az webapp auth show -g myAuthResourceGroup -n <front-end-app-name>)
-authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope==openid offline_access api://<back-end-client-id>/user_impersonation"]}')
+authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid offline_access api://<back-end-client-id>/user_impersonation"]}')
 az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-name> --body "$authSettings"
 ```
 

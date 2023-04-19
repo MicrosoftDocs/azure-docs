@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 03/28/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: engagement-fy23
@@ -75,15 +75,7 @@ To enable Azure AD Kerberos authentication using the [Azure portal](https://port
 
    :::image type="content" source="media/storage-files-identity-auth-azure-active-directory-enable/enable-azure-ad-kerberos.png" alt-text="Screenshot of the Azure portal showing Active Directory configuration settings for a storage account. Azure AD Kerberos is selected." lightbox="media/storage-files-identity-auth-azure-active-directory-enable/enable-azure-ad-kerberos.png" border="true":::
 
-1. **Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you also need to specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlets from an on-premises AD-joined client:
-
-   ```PowerShell
-   $domainInformation = Get-ADDomain
-   $domainGuid = $domainInformation.ObjectGUID.ToString()
-   $domainName = $domainInformation.DnsRoot
-   ```
-
-   If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need line-of-sight to the on-premises AD.
+1. **Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you need to specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlet from an on-premises AD-joined client: `Get-ADDomain`. Your domain name should be listed in the output under `DNSRoot` and your domain GUID should be listed under `ObjectGUID`. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need line-of-sight to the on-premises AD.
 
 1. Select **Save**.
 
@@ -154,6 +146,9 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 5. Select **API permissions** in the left pane.
 6. Select **Grant admin consent**.
 7. Select **Yes** to confirm.
+
+  > [!IMPORTANT]
+  > If you're connecting to a storage account via a private endpoint/private link using Azure AD Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Azure AD application. For instructions, see the entry in our [troubleshooting guide](files-troubleshoot-smb-authentication.md#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
 
 ## Disable multi-factor authentication on the storage account
 

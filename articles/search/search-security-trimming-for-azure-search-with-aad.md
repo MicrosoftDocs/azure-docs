@@ -7,8 +7,8 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 01/30/2023
+ms.topic: how-to
+ms.date: 03/24/2023
 ms.custom: devx-track-csharp
 ---
 # Security filters for trimming Azure Cognitive Search results using Active Directory identities
@@ -16,6 +16,7 @@ ms.custom: devx-track-csharp
 This article demonstrates how to use Azure Active Directory (AD) security identities together with filters in Azure Cognitive Search to trim search results based on user group membership.
 
 This article covers the following tasks:
+
 > [!div class="checklist"]
 > - Create Azure AD groups and users
 > - Associate the user with the group you have created
@@ -30,7 +31,7 @@ This article covers the following tasks:
 
 Your index in Azure Cognitive Search must have a [security field](search-security-trimming-for-azure-search.md) to store the list of group identities having read access to the document. This use case assumes a one-to-one correspondence between a securable item (such as an individual's college application) and a security field specifying who has access to that item (admissions personnel).
 
-You must have Azure AD administrator permissions (Owner or administrator), required in this walkthrough for creating users, groups, and associations. 
+You must have Azure AD administrator permissions (Owner or administrator) to create users, groups, and associations. 
 
 Your application must also be registered with Azure AD as a multi-tenant app, as described in the following procedure.
 
@@ -38,15 +39,15 @@ Your application must also be registered with Azure AD as a multi-tenant app, as
 
 This step integrates your application with Azure AD for the purpose of accepting sign-ins of user and group accounts. If you aren't a tenant admin in your organization, you might need to [create a new tenant](../active-directory/develop/quickstart-create-new-tenant.md) to perform the following steps.
 
-1. In [Azure portal](https://portal.azure.com), find the Azure Active Directory resource for your subscription.
+1. In [Azure portal](https://portal.azure.com), find the Azure Active Directory tenant.
 
 1. On the left, under **Manage**, select **App registrations**, and then select **New registration**.
 
-1. Give the registration a name, perhaps a name that is similar to the search application name. Select **Register**.
+1. Give the registration a name, perhaps a name that's similar to the search application name. Select **Register**.
 
-1. Once the app registration is created, copy the Application ID. You'll need to provide this string to your application.
+1. Once the app registration is created, copy the Application (client) ID. You'll need to provide this string to your application.
 
-   If you're stepping through the [DotNetHowToSecurityTrimming](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK), paste this value into the **app.config** file.
+   If you're stepping through the [DotNetHowToSecurityTrimming](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSecurityTrimming), paste this value into the **app.config** file.
 
    Repeat for the Tenant ID.
 
@@ -62,7 +63,9 @@ This step integrates your application with Azure AD for the purpose of accepting
    - **Group.ReadWrite.All**
    - **User.ReadWrite.All**
 
-Microsoft Graph provides an API that allows programmatic access to Azure AD through a REST API. The code sample for this walkthrough uses the permissions to call the Microsoft Graph API for creating groups, users, and associations. The APIs are also used to cache group identifiers for faster filtering.
+    Microsoft Graph provides an API that allows programmatic access to Azure AD through a REST API. The code sample for this walkthrough uses the permissions to call the Microsoft Graph API for creating groups, users, and associations. The APIs are also used to cache group identifiers for faster filtering.
+
+1. Select **Grant admin consent for tenant** to complete the consent process.
 
 ## Create users and groups
 
@@ -143,7 +146,7 @@ IndexDocumentsResult result = searchClient.IndexDocuments(batch);
 
 ## Issue a search request
 
-For security trimming purposes, the values in your security field in the index are static values used for including or excluding documents in search results. For example, if the group identifier for Admissions is "A11B22C33D44-E55F66G77-H88I99JKK", any documents in an Azure Cognitive Search index having that identifier in the security filed are included (or excluded) in the search results sent back to the requestor.
+For security trimming purposes, the values in your security field in the index are static values used for including or excluding documents in search results. For example, if the group identifier for Admissions is "A11B22C33D44-E55F66G77-H88I99JKK", any documents in an Azure Cognitive Search index having that identifier in the security field are included (or excluded) in the search results sent back to the caller.
 
 To filter documents returned in search results based on groups of the user issuing the request, review the following steps.
 

@@ -4,27 +4,29 @@ description: An overview of the performance and benchmark of Azure SignalR Servi
 author: vicancy
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 03/23/2023
 ms.author: lianwei
 ---
 # Performance guide for Azure SignalR Service
 
 One of the key benefits of using Azure SignalR Service is the ease of scaling SignalR applications. In a large-scale scenario, performance is an important factor. 
 
-In this guide, we'll introduce the factors that affect SignalR application performance. We'll describe typical performance in different use-case scenarios. In the end, we'll introduce the environment and tools that you can use to generate a performance report.
+This article describes:
+
+* The factors that affect SignalR application performance. 
+* The typical performance in different use-case scenarios.
+* The environment and tools that you can use to generate a performance report.
 
 ## Quick evaluation using metrics
-   Before going through the factors that impact the performance, let's first introduce an easy way to monitor the pressure of your service. There's a metrics called **Server Load** on the Portal.
+
+You can easily monitor your service in the Azure portal. From the **Metrics** page of your SignalR instance, you can select the **Server Load** metrics to see the "pressure" of your service.
    
-  <kbd>![Screenshot of the Server Load metric of Azure SignalR on Portal. The metrics shows Server Load is at about 8 percent usage. ](./media/signalr-concept-performance/server-load.png  "Server Load")</kbd>
+<kbd>![Screenshot of the Server Load metric of Azure SignalR on Portal. The metrics shows Server Load is at about 8 percent usage. ](./media/signalr-concept-performance/server-load.png  "Server Load")</kbd>
 
-
-   It shows the computing pressure of your SignalR service. You could test on your own scenario and check this metrics to decide whether to scale up. The latency inside SignalR service would remain low if the Server Load is below 70%. 
+The chart shows the computing pressure of your SignalR service. You can test your scenario and check this metric to decide whether to scale up. The latency inside SignalR service remains low if the Server Load is below 70%. 
    
 > [!NOTE]
 > If you are using unit 50 or unit 100 **and** your scenario is mainly sending to small groups (group size <100) or single connection, you need to check [sending to small group](#small-group) or [sending to connection](#send-to-connection) for reference. In those scenarios there is large routing cost which is not included in the Server Load.
-   
-   Below are detailed concepts for evaluating performance.
 
 ## Term definitions
 
@@ -34,7 +36,7 @@ In this guide, we'll introduce the factors that affect SignalR application perfo
 
 *Bandwidth*: The total size of all messages in 1 second.
 
-*Default mode*: The default working mode when an Azure SignalR Service instance was created. Azure SignalR Service expects the app server to establish a connection with it before it accepts any client connections.
+*Default mode*: The default working mode when an Azure SignalR Service instance is created. Azure SignalR Service expects the app server to establish a connection with it before it accepts any client connections.
 
 *Serverless mode*: A mode in which Azure SignalR Service accepts only client connections. No server connection is allowed.
 
@@ -43,20 +45,20 @@ In this guide, we'll introduce the factors that affect SignalR application perfo
 Azure SignalR Service defines seven Standard tiers for different performance capacities. This
 guide answers the following questions:
 
--   What is the typical Azure SignalR Service performance for each tier?
+* What is the typical Azure SignalR Service performance for each tier?
 
--   Does Azure SignalR Service meet my requirements for message throughput (for example, sending 100,000 messages per second)?
+* Does Azure SignalR Service meet my requirements for message throughput (for example, sending 100,000 messages per second)?
 
--   For my specific scenario, which tier is suitable for me? Or how can I select the proper tier?
+* For my specific scenario, which tier is suitable for me? Or how can I select the proper tier?
 
--   What kind of app server (VM size) is suitable for me? How many of them should I deploy?
+* What kind of app server (VM size) is suitable for me? How many of them should I deploy?
 
 To answer these questions, this guide first gives a high-level explanation of the factors that affect performance. It then illustrates the maximum inbound and outbound messages for every tier for typical use cases: **echo**, **broadcast**, **send to group**, and **send to connection** (peer-to-peer chatting).
 
 This guide can't cover all scenarios (and different use cases, message sizes, message sending patterns, and so on). But it provides some methods to help you:
 
-- Evaluate your approximate requirement for the inbound or outbound messages.
-- Find the proper tiers by checking the performance table.
+* Evaluate your approximate requirement for the inbound or outbound messages.
+* Find the proper tiers by checking the performance table.
 
 ## Performance insight
 
@@ -66,7 +68,7 @@ This section describes the performance evaluation methodologies, and then lists 
 
 *Throughput* and *latency* are two typical aspects of performance checking. For Azure SignalR Service, each SKU tier has its own throughput throttling policy. The policy defines *the maximum allowed throughput (inbound and outbound bandwidth)* as the maximum achieved throughput when 99 percent of messages have latency that's less than 1 second.
 
-Latency is the time span from the connection sending the message to receiving the response message from Azure SignalR Service. Let's take **echo** as an example. Every client connection adds a time stamp in the message. The app server's hub sends the original message back to the client. So the propagation delay is easily calculated by every client connection. The time stamp is attached for every message in **broadcast**, **send to group**, and **send to connection**.
+Latency is the time span from the connection sending the message to receiving the response message from Azure SignalR Service. Take **echo** as an example. Every client connection adds a time stamp in the message. The app server's hub sends the original message back to the client. So the propagation delay is easily calculated by every client connection. The time stamp is attached for every message in **broadcast**, **send to group**, and **send to connection**.
 
 To simulate thousands of concurrent client connections, multiple VMs are created in a virtual private network in Azure. All of these VMs connect to the same Azure SignalR Service instance.
 
@@ -74,11 +76,31 @@ In the default mode of Azure SignalR Service, app server VMs are deployed in the
 
 ### Performance factors
 
-Theoretically, Azure SignalR Service capacity is limited by computation resources: CPU, memory, and network. For example, more connections to Azure SignalR Service cause the service to use more memory. For larger message traffic (for example, every message is larger than 2,048 bytes), Azure SignalR Service needs to spend more CPU cycles to process traffic. Meanwhile, Azure network bandwidth also imposes a limit for maximum traffic.
+The following factors affect SignalR performance.
 
-The transport type is another factor that affects performance. The three types are [WebSocket](https://en.wikipedia.org/wiki/WebSocket), [Server-Sent-Event](https://en.wikipedia.org/wiki/Server-sent_events), and [Long-Polling](https://en.wikipedia.org/wiki/Push_technology). 
+* SKU tier (CPU/memory)
+* Number of connections
+* Message size
+* Message send rate
+* Transport type (WebSocket, Server-Sent-Event, or Long-Polling)
+* Use-case scenario (routing cost)
+* App server and service connections (in server mode)
 
-WebSocket is a bidirectional and full-duplex communication protocol over a single TCP connection. Server-Sent-Event is a unidirectional protocol to push messages from server to client. Long-Polling requires the clients to periodically poll information from the server through an HTTP request. For the same API under the same conditions, WebSocket has the best performance, Server-Sent-Event is slower, and Long-Polling is the slowest. Azure SignalR Service recommends WebSocket by default.
+#### Computer resources
+
+Theoretically, Azure SignalR Service capacity is limited by compute resources: CPU, memory, and network. For example, more connections to Azure SignalR Service cause the service to use more memory. For larger message traffic (for example, every message is larger than 2,048 bytes), Azure SignalR Service needs to spend more CPU cycles to process traffic. Meanwhile, Azure network bandwidth also imposes a limit for maximum traffic.
+
+#### Transport type
+
+The transport type is another factor that affects performance. The three types are:
+
+* [WebSocket](https://en.wikipedia.org/wiki/WebSocket): WebSocket is a bidirectional and full-duplex communication protocol over a single TCP connection. 
+* [Server-Sent-Event](https://en.wikipedia.org/wiki/Server-sent_events): Server-Sent-Event is a unidirectional protocol to push messages from server to client. 
+* [Long-Polling](https://en.wikipedia.org/wiki/Push_technology): Long-Polling requires the clients to periodically poll information from the server through an HTTP request.
+
+For the same API under the same conditions, WebSocket has the best performance, Server-Sent-Event is slower, and Long-Polling is the slowest. Azure SignalR Service recommends WebSocket by default.
+
+#### Message routing cost
 
 The message routing cost also limits performance. Azure SignalR Service plays a role as a message router, which routes the message from a set of clients or servers to other clients or servers. A different scenario or API requires a different routing policy. 
 
@@ -86,43 +108,28 @@ For **echo**, the client sends a message to itself, and the routing destination 
 
 In the default mode, the app server might also become a bottleneck for certain scenarios. The Azure SignalR SDK has to invoke the hub, while it maintains a live connection with every client through heartbeat signals.
 
-In serverless mode, the client sends a message by HTTP post, which is not as efficient as WebSocket.
+In serverless mode, the client sends a message by HTTP post, which isn't as efficient as WebSocket.
 
-Another factor is protocol: JSON and [MessagePack](https://msgpack.org/index.html). MessagePack is smaller in size and delivered faster than JSON. MessagePack might not improve performance, though. The performance of Azure SignalR Service is not sensitive to protocols because it doesn't decode the message payload during message forwarding from clients to servers or vice versa.
+#### Protocol
 
-In summary, the following factors affect the inbound and outbound capacity:
-
--   SKU tier (CPU/memory)
-
--   Number of connections
-
--   Message size
-
--   Message send rate
-
--   Transport type (WebSocket, Server-Sent-Event, or Long-Polling)
-
--   Use-case scenario (routing cost)
-
--   App server and service connections (in server mode)
-
+Another factor is protocol: JSON and [MessagePack](https://msgpack.org/index.html). MessagePack is smaller in size and delivered faster than JSON. MessagePack might not improve performance, though. The performance of Azure SignalR Service isn't sensitive to protocols because it doesn't decode the message payload during message forwarding from clients to servers or vice versa.
 
 ### Finding a proper SKU
 
 How can you evaluate the inbound/outbound capacity or find which tier is suitable for a specific use case?
 
-Assume that the app server is powerful enough and is not the performance bottleneck. Then, check the maximum inbound and outbound bandwidth for every tier.
+Assume that the app server is powerful enough and isn't the performance bottleneck. Then, check the maximum inbound and outbound bandwidth for every tier.
 
 #### Quick evaluation
 
-Let's simplify the evaluation first by assuming some default settings: 
+For a quick evaluation, assume the following default settings: 
 
-- The transport type is WebSocket.
-- The message size is 2,048 bytes.
-- A message is sent every 1 second.
-- Azure SignalR Service is in the default mode.
+* The transport type is WebSocket.
+* The message size is 2,048 bytes.
+* A message is sent every 1 second.
+* Azure SignalR Service is in the default mode.
 
-Every tier has its own maximum inbound bandwidth and outbound bandwidth. A smooth user experience is not guaranteed after the inbound or outbound connection exceeds the limit.
+Every tier has its own maximum inbound bandwidth and outbound bandwidth. A smooth user experience isn't guaranteed after the inbound or outbound connection exceeds the limit.
 
 **Echo** gives the maximum inbound bandwidth because it has the lowest routing cost. **Broadcast** defines the maximum outbound message bandwidth.
 
@@ -147,21 +154,21 @@ Do *not* exceed the highlighted values in the following two tables.
   outboundBandwidth = outboundConnections * messageSize / sendInterval
 ```
 
-- *inboundConnections*: The number of connections sending the message.
+* *inboundConnections*: The number of connections sending the message.
 
-- *outboundConnections*: The number of connections receiving the message.
+* *outboundConnections*: The number of connections receiving the message.
 
-- *messageSize*: The size of a single message (average value). A small message that's less than 1,024 bytes has a performance impact that's similar to a 1,024-byte message.
+* *messageSize*: The size of a single message (average value). A small message that's less than 1,024 bytes has a performance impact that's similar to a 1,024-byte message.
 
-- *sendInterval*: The time of sending one message. Typically it's 1 second per message, which means sending one message every second. A smaller interval means sending more message in a time period. For example, 0.5 seconds per message means sending two messages every second.
+* *sendInterval*: The time of sending one message. Typically it's 1 second per message, which means sending one message every second. A smaller interval means sending more message in a time period. For example, 0.5 second per message means sending two messages every second.
 
-- *Connections*: The committed maximum threshold for Azure SignalR Service for every tier. If the connection number is increased further, it will suffer from connection throttling.
+* *Connections*: The committed maximum threshold for Azure SignalR Service for every tier. If the connection number is increased further, it suffers from connection throttling.
 
 #### Evaluation for complex use cases
 
 ##### Bigger message size or different sending rate
 
-The real use case is more complicated. It might send a message larger than 2,048 bytes, or the sending message rate is not one message per second. Let's take Unit100's broadcast as an example to find how to evaluate its performance.
+The real use case is more complicated. It might send a message larger than 2,048 bytes, or the sending message rate isn't one message per second. Let's take Unit100's broadcast as an example to find how to evaluate its performance.
 
 The following table shows a real use case of **broadcast**. But the message size, connection count, and message sending rate are different from what we assumed in the previous section. The question is how we can deduce any of those items (message size, connection count, or message sending rate) if we know only two of them.
 
@@ -192,7 +199,7 @@ Then pick up the proper tier from the maximum inbound/outbound bandwidth tables.
 > [!NOTE]
 > For sending a message to hundreds or thousands of small groups, or for thousands of clients sending a message to each other, the routing cost will become dominant. Take this impact into account.
 
-For the use case of sending a message to clients, make sure that the app server is *not* the bottleneck. The following "Case study" section gives guidelines about how many app servers you need and how many server connections you should configure.
+For the use case of sending a message to clients, make sure that the app server isn't* the bottleneck. The following "Case study" section gives guidelines about how many app servers you need and how many server connections you should configure.
 
 ## Case study
 
@@ -248,7 +255,7 @@ Even for this simple hub, the traffic pressure on the app server is prominent as
 
 #### Broadcast
 
-For **broadcast**, when the web app receives the message, it broadcasts to all clients. The more clients there are to broadcast, the more message traffic there is to all clients. See the following diagram.
+For **broadcast**, when the web app receives the message, it broadcasts to all clients. The more clients there are to broadcast, the more message traffic there's to all clients. See the following diagram.
 
 ![Traffic for the broadcast use case](./media/signalr-concept-performance/broadcast.png)
 
@@ -285,10 +292,10 @@ The **send to group** use case has a similar traffic pattern to **broadcast**. T
 Group member and group count are two factors that affect performance. To
 simplify the analysis, we define two kinds of groups:
 
-- **Small group**: Every group has 10 connections. The group number is equal to (max
+* **Small group**: Every group has 10 connections. The group number is equal to (max
 connection count) / 10. For example, for Unit1, if there are 1,000 connection counts, then we have 1000 / 10 = 100 groups.
 
-- **Big group**: The group number is always 10. The group member count is equal to (max
+* **Big group**: The group number is always 10. The group member count is equal to (max
 connection count) / 10. For example, for Unit1, if there are 1,000 connection counts, then every group has 1000 / 10 = 100 members.
 
 **Send to group** brings a routing cost to Azure SignalR Service because it has to find the target connections through a distributed data structure. As the sending connections increase, the cost increases.
@@ -402,10 +409,10 @@ The following table gives the suggested web app count for ASP.NET SignalR **send
 
 Clients and Azure SignalR Service are involved in serverless mode. Every client stands for a single connection. The client sends messages through the REST API to another client or broadcast messages to all.
 
-Sending high-density messages through the REST API is not as efficient as using WebSocket. It requires you to build a new HTTP connection every time, and that's an extra cost in serverless mode.
+Sending high-density messages through the REST API isn't as efficient as using WebSocket. It requires you to build a new HTTP connection every time, and that's an extra cost in serverless mode.
 
 #### Broadcast through REST API
-All clients establish WebSocket connections with Azure SignalR Service. Then some clients start broadcasting through the REST API. The message sending (inbound) is all through HTTP Post, which is not efficient compared with WebSocket.
+All clients establish WebSocket connections with Azure SignalR Service. Then some clients start broadcasting through the REST API. The message sending (inbound) is all through HTTP Post, which isn't efficient compared with WebSocket.
 
 |   Broadcast through REST API     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|

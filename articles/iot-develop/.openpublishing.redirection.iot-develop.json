@@ -434,6 +434,11 @@
       "source_path_from_root": "/articles/iot-develop/concepts-overview-connection-options.md",
       "redirect_url": "/azure/iot-develop/about-iot-develop",
       "redirect_document_id": false      
+    },
+    {
+      "source_path_from_root": "/articles/iot-develop/how-to-use-reliability-features-in-sdks.md",
+      "redirect_url": "/azure/iot-develop/concepts-manage-device-reconnections",
+      "redirect_document_id": false      
     }
   ]
 }

@@ -2,7 +2,7 @@
 title: Azure Blob storage trigger for Azure Functions
 description: Learn how to run an Azure Function as Azure Blob storage data changes.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 03/06/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -30,6 +30,23 @@ There are several ways to execute your function code based on changes to blobs i
 <sup>2</sup> High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md). 
+
+::: zone pivot="programming-language-python"  
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models. 
+
+> [!IMPORTANT]   
+> The Python v2 programming model is currently in preview.  
+::: zone-end   
 
 ## Example
 
@@ -193,8 +210,29 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows a blob trigger binding in a *function.json* file and [Python code](functions-reference-python.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+The following example shows a blob trigger binding. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="BlobTrigger1")
+@app.blob_trigger(arg_name="myblob", 
+                  path="PATH/TO/BLOB",
+                  connection="CONNECTION_SETTING")
+def test_function(myblob: func.InputStream):
+   logging.info(f"Python blob trigger function processed blob \n"
+                f"Name: {myblob.name}\n"
+                f"Blob Size: {myblob.length} bytes")
+```
+
+# [v1](#tab/python-v1)
+
+The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 Here's the *function.json* file:
 
 ```json
@@ -229,6 +267,9 @@ def main(myblob: func.InputStream):
 ```
 
 ::: zone-end  
+
+---
+
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
@@ -282,6 +323,21 @@ C# script uses a *function.json* file for configuration instead of attributes.
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ::: zone-end  
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using decorators, the following properties on the `blob_trigger` decorator define the Blob Storage trigger:
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
+|`path`  | The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
+|`connection` | The storage account connection string. |
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -289,7 +345,13 @@ The `@BlobTrigger` attribute is used to give you access to the blob that trigger
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
+::: zone-end
 
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
 |function.json property |Description|

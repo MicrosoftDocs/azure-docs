@@ -3,7 +3,7 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 03/16/2023
+ms.date: 04/10/2023
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
@@ -36,6 +36,8 @@ The following table provides a comparison of the five disk types to help you dec
 | **Usable as OS Disk?** | No | No | Yes | Yes | Yes |
 
 \* Only applies to disks with performance plus (preview) enabled.
+
+For a video that covers some high level differences for the different disk types, as well as some ways for determining what impacts your workload requirements, see [Block storage options with Azure Disk Storage and Elastic SAN](https://youtu.be/igfNfUvgaDw).
 
 ## Ultra disks
 
@@ -96,6 +98,8 @@ If you would like to start using ultra disks, see the article on [using Azure Ul
 Premium SSD v2 offers higher performance than Premium SSDs while generally being less costly than Ultra Disks. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. For example, a transaction-intensive database may need a large amount of IOPS at a small size, or a gaming application may need a large amount of IOPS but only during peak hours. Because of this, for most general purpose workloads, Premium SSD v2 can provide the best price performance. 
 
 Premium SSD v2 is suited for a broad range of workloads such as SQL server, Oracle, MariaDB, SAP, Cassandra, Mongo DB, big data/analytics, and gaming, on virtual machines or stateful containers.
+
+Premium SSD v2 support a 4k physical sector size by default, but can be configured to use a 512E sector size as well. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
 
 ### Differences between Premium SSD and Premium SSD v2
 
