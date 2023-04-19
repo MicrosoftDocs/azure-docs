@@ -76,7 +76,7 @@ The script needs to use the connection string for the Azure Storage account that
 1. On the page for the storage account, select **Access keys** from the left navigation under **Security + networking**.
 1. Under **key1**, select **Show** next to **Connection string**, and then select the **Copy** icon to copy the connection string.
 
-Paste the connection string into the following script to replace the `<storage-account-connection-string>` placeholder. Save the script as as a file named *main.py*.
+Paste the connection string into the following script to replace the `<storage-account-connection-string>` placeholder. Save the script as a file named *main.py*.
 
 >[!IMPORTANT]
 >Exposing account keys in the app source isn't recommended for Production usage. You should restrict access to credentials and refer to them in your code by using variables or a configuration file. It's best to store Batch and Storage account keys in Azure Key Vault.
@@ -140,7 +140,7 @@ The Data Factory pipeline uses your Batch and Storage account names, account key
 1. Under **Factory Resources**, select the **+** icon, and then select **Pipeline**.
 1. In the **Properties** pane on the right, change the name of the pipeline to *Run Python*.
 
-[ ![Screenshot of Data Factory Studio after you select Add pipeline.](media/run-python-batch-azure-data-factory/create-pipeline.png)](media/run-python-batch-azure-data-factory/create-pipeline.png#lightbox)
+   [ ![Screenshot of Data Factory Studio after you select Add pipeline.](media/run-python-batch-azure-data-factory/create-pipeline.png)](media/run-python-batch-azure-data-factory/create-pipeline.png#lightbox)
 
 1. In the **Activities** pane, expand **Batch Service**, and drag the **Custom** activity to the pipeline designer surface.
 1. Below the designer canvas, on the **General** tab, enter *testPipeline* under **Name**.
@@ -155,9 +155,7 @@ The Data Factory pipeline uses your Batch and Storage account names, account key
    - **Account name**: Enter your Batch account name.
    - **Batch URL**: Enter the account endpoint you copied from your Batch account, such as `https://batchdotnet.eastus.batch.azure.com`.
    - **Pool name**: Enter *custom-activity-pool*, the pool you created in Batch Explorer.
-   - **Storage account linked service name**: Select **New**.
-
-     On the **New linked service** screen, enter a **Name** for the linked storage service, such as *AzureBlobStorage1*, select your Azure subscription and linked storage account, and then select **Create**.
+   - **Storage account linked service name**: Select **New**. On the next screen, enter a **Name** for the linked storage service, such as *AzureBlobStorage1*, select your Azure subscription and linked storage account, and then select **Create**.
 
 1. At the bottom of the Batch **New linked service** screen, select **Test connection**. When the connection is successful, select **Create**.
 
@@ -165,9 +163,9 @@ The Data Factory pipeline uses your Batch and Storage account names, account key
 
 1. Select the **Settings** tab, and enter or select the following settings:
 
-   - **Command**: Enter *cmd /C python main.py*.
+   - **Command**: Enter `cmd /C python main.py`.
    - **Resource linked service**: Select the linked storage service you created, such as **AzureBlobStorage1**, and test the connection to make sure it's successful.
-   - **Folder path**: Select the folder icon next to the field, and then select the **input** container, and select **OK**. The files from this folder download from the container to the pool nodes before the Python script runs.
+   - **Folder path**: Select the folder icon, and then select the **input** container and select **OK**. The files from this folder download from the container to the pool nodes before the Python script runs.
 
    ![Screenshot of the Settings tab for the Batch job.](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 
