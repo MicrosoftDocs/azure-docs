@@ -68,8 +68,8 @@ To provision CMK, follow these steps: 
 3.  Register to the Azure Cosmos DB Resource Provider.
 
 4.  Add an access policy to your Azure Key Vault instance.
-
-5.  Onboard the workspace to Microsoft Sentinel via the [Onboarding API](https://github.com/Azure/Azure-Sentinel/raw/master/docs/Azure%20Sentinel%20management.docx).
+5.  Contact the Microsoft Sentinel Product group to confirm onboarding 
+6.  Onboard the workspace to Microsoft Sentinel via the [Onboarding API](https://github.com/Azure/Azure-Sentinel/raw/master/docs/Azure%20Sentinel%20management.docx).
 
 ### STEP 1: Create an Azure Key Vault and generate or import a key
 
