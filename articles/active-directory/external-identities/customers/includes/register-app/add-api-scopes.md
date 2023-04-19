@@ -13,7 +13,7 @@ ms.author: kengaderdus
 
 1. At the top of the page, next to **Application ID URI**, select the **Set** link to generate a URI that is unique for this app.
  
-1. Accept the proposed Application ID URI such as `https://{tenantName}.ciamlogin.com/{clientId}`, and select **Save**. When your web application requests an access token for the web API, it adds the URI as the prefix for each scope that you defined for the API.
+1. Accept the proposed Application ID URI such as `api://{clientId}`, and select **Save**. When your web application requests an access token for the web API, it adds the URI as the prefix for each scope that you define for the API.
  
 1. Under **Scopes defined by this API**, select **Add a scope**.
 1. For **Scope name**, enter *ToDoList.Read*.

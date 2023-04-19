@@ -13,7 +13,7 @@ ms.author: mimart
 ms.custom: it-pro
 
 ---
-# Solutions at a glance: Microsoft Entra External Identities for Customers
+# Solutions at a glance: Woodgrove Groceries demo
 
 Microsoft Entra Azure Active Directory offers customer solutions that let you quickly add intuitive, user-friendly sign-up and sign-up experiences for your customer apps. The Woodgrove Groceries demo environment illustrates several of the most common authentication experiences that can be configured for your customer-facing apps.
 

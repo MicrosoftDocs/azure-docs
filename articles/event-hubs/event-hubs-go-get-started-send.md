@@ -142,8 +142,11 @@ import (
 
 func main() {
 
+	// create a container client using a connection string and container name
+	checkClient, err := container.NewClientFromConnectionString("AZURE STORAGE CONNECTION STRING", "CONTAINER NAME", nil)
+	
 	// create a checkpoint store that will be used by the event hub
-	checkpointStore, err := checkpoints.NewBlobStoreFromConnectionString("AZURE STORAGE CONNECTION STRING", "BLOB CONTAINER NAME", nil)
+	checkpointStore, err := checkpoints.NewBlobStore(checkClient, nil)
 
 	if err != nil {
 		panic(err)
