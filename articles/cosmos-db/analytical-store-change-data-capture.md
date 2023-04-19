@@ -24,9 +24,9 @@ For more information on supported sink types in a mapping data flow, see [data f
 
 In addition to providing incremental data feed from analytical store to diverse targets, change data capture supports the following capabilities:
 
-- Supports applying filters, projections and transformations on the Change feed via source query
 - Supports capturing deletes and intermediate updates
 - Ability to filter the change feed for a specific type of operation (**Insert** | **Update** | **Delete** | **TTL**)
+- Supports applying filters, projections and transformations on the Change feed via source query
 - Each change in container appears exactly once in the change data capture feed, and the checkpoints are managed internally for you
 - Changes can be synchronized "from the Beginning” or “from a given timestamp” or “from now”
 - There's no limitation around the fixed data retention period for which changes are available
