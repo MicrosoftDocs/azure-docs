@@ -18,7 +18,7 @@ Use Change data capture (CDC) in Azure Cosmos DB analytical store as a source to
 
 
 > [!NOTE]
-> Please note that the linked service interface for Azure Cosmos DB for MongoDB API is not available on Dataflow yet. However, you would be able to use your account’s document endpoint with the “Azure Cosmos DB for NoSQL” linked service interface as a work around until the Mongo linked service is supported. On a NoSQL linked service, choose “Enter Manually” to provide the Cosmos DB account info and use account’s document endpoint (eg: https://<accturi>.documents.azure.com:443/) instead of the MongoDB endpoint (eg: mongodb://<accturi>.mongo.cosmos.azure.com:10255/)  
+> Please note that the linked service interface for Azure Cosmos DB for MongoDB API is not available on Dataflow yet. However, you would be able to use your account’s document endpoint with the “Azure Cosmos DB for NoSQL” linked service interface as a work around until the Mongo linked service is supported. On a NoSQL linked service, choose “Enter Manually” to provide the Cosmos DB account info and use account’s document endpoint (eg: https://<your-database-account-uri>.documents.azure.com:443/) instead of the MongoDB endpoint (eg: mongodb://<your-database-account-uri>.mongo.cosmos.azure.com:10255/)  
 
 ## Prerequisites
 
