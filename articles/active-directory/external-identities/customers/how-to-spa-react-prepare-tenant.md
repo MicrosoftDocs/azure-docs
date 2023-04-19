@@ -35,23 +35,23 @@ This Azure account must have permissions to manage applications. Any of the foll
 * Application developer
 * Cloud application administrator
 
-If you haven't already created your own Microsoft Entra for Customers Tenant, [create one now](./how-to-create-customer-tenant-portal.md). You can use an existing customer tenant if you have one.
+If you haven't already created your own Microsoft Entra for Customers Tenant, [create one now](https://aka.ms/ciam-hub-free-trial). You can use an existing customer tenant if you have one.
 
 ## Register the application and record identifiers
-[!INCLUDE [register-client-app-common](.\includes\register-app\register-client-app-common.md)]
+[!INCLUDE [register-client-app-common](./includes/register-app/register-client-app-common.md)]
 
 ## Create a sign-in and sign-up user flow
-[!INCLUDE [register-client-app-common](.\includes\register-app\register-client-app-common.md)]
+[!INCLUDE [register-client-app-common](./includes/register-app/register-client-app-common.md)]
 
 ## Associate the application with your user flow
-[!INCLUDE [add-app-user-flow](.\includes\configure-user-flow\add-app-user-flow.md)]
+[!INCLUDE [add-app-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 
 ## Creating a client secret
-[!INCLUDE [add-app-client-secret](.\includes\register-app\add-app-client-secret.md)]
+[!INCLUDE [add-app-client-secret](./includes/register-app/add-app-client-secret.md)]
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Start building your React Single Page Application](.\how-to-spa-react-prepare-app.md))
+> [Start building your React Single Page Application](./how-to-spa-react-prepare-app.md))
 
