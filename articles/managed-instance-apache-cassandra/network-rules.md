@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 The Azure Managed Instance for Apache Casandra service requires certain network rules to properly manage the service. By ensuring you have the proper rules exposed, you can keep your service secure and prevent operational issues.
 
 > [!WARNING]
-> If you modify firewall rules for an existing cluster, these rules might not be applied to existing connections. This may cause problems for automatic updates of the Cassandra Managed Instance nodes. We recommend double-checking connectivity after any major firewall updates.
+> We recommend exercising caution when applying changes to firewall rules for an existing cluster. For example, if rules are not applied correctly, they might not be applied to existing connections, so it may appear that firewall changes have not caused any problems, but automatic updates of the Cassandra Managed Instance nodes may subsequently fail. We recommend monitoring connectivity after any major firewall updates for some time to ensure there are no issues.
 
 ## Virtual network service tags
 
