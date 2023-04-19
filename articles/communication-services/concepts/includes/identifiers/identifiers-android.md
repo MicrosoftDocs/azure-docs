@@ -101,7 +101,7 @@ MicrosoftBotIdentifier gcchBotIdentifier = new MicrosoftBotIdentifier(bot.id, tr
 
 #### API reference
 
-[MicrosoftBotIdentifier](/java/api/com.azure.communication.common.microsoftbotidentifier?view=azure-java-preview)
+[MicrosoftBotIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/com/azure/android/communication/common/MicrosoftBotIdentifier.html)
 
 ### Unknown
 
