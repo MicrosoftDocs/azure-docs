@@ -15,9 +15,9 @@ ms.date: 02/28/2023
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application that lets you create and share documents that contain live code, equations, visualizations, and text. 
 
-By integrating Jupyter Notebook with a Log Analytics workspace, you can create a multi-step process, running code in each step based on the results of the previous step, [without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#build-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). You can use such streamlined, multi-step processes to build and run machine learning pipelines, and for other purposes, such as conducting advanced analysis and creating troubleshooting guides (TSGs) for support needs.
+By integrating Jupyter Notebook with a Log Analytics workspace, you can create a multi-step process, running code in each step based on the results of the previous step, [without exporting data out of Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). You can use such streamlined, multi-step processes to build and run machine learning pipelines, and for other purposes, such as conducting advanced analysis and creating troubleshooting guides (TSGs) for support needs.
 
-In this tutorial, you integrate Jupyter Notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline on data in Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#build-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). 
+In this tutorial, you integrate Jupyter Notebook with a Log Analytics workspace and train a custom machine learning model to detect log ingestion anomalies, based on historical data in Azure Monitor Logs. This is one of several ways you can [build your own machine learning pipeline on data in Azure Monitor Logs](../logs/bring-your-own-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). 
 
 > [!NOTE]
 > Azure Monitor Logs also provides [built-in KQL machine learning analysis capabilities](../logs/bring-your-own-machine-learning.md#machine-learning-in-azure-monitor-logs).  
@@ -65,7 +65,7 @@ In this tutorial, you need:
 |Azure Monitor|[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) |Lets you run KQL power queries and custom code, including custom machine learning algorithms, in any language. |
 ||[Azure Identity client library](/python/api/overview/azure/identity-readme)|Enables Azure SDK clients to authenticate with Azure Active Directory.|
 ||[Azure Monitor Ingestion client library](/python/api/overview/azure/monitor-ingestion-readme)| Lets you send custom logs to Azure Monitor using the Logs Ingestion API. Required to [Ingest anomalies into a custom table in your Log Analytics workspace (optional)](#ingest-anomalies-into-a-custom-table-in-your-log-analytics-workspace-optional)|
-||[Data collection rule](../essentials/data-collection-rule-overview.md), [data collection endpoint](../essentials/data-collection-endpoint-overview.md), and a [registered application](../logs/tutorial-logs-ingestion-portal.md#configure-the-application) | Required to [Ingest anomalies into a custom table in your Log Analytics workspace (optional)](#ingest-anomalies-into-a-custom-table-in-your-log-analytics-workspace-optional) |
+||[Data collection rule](../essentials/data-collection-rule-overview.md), [data collection endpoint](../essentials/data-collection-endpoint-overview.md), and a [registered application](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) | Required to [Ingest anomalies into a custom table in your Log Analytics workspace (optional)](#ingest-anomalies-into-a-custom-table-in-your-log-analytics-workspace-optional) |
 |Open source|[Jupyter Notebook](https://jupyter.org/) | Use Jupyter Notebook to run code and queries on log data in Azure Monitor Logs:<br>- Using Microsoft cloud services, such as [Azure Machine Learning](/azure/machine-learning/samples-notebooks) or [Azure Synapse](/azure/synapse-analytics/spark/apache-spark-notebook-concept), or public services.<br>- Locally, using Microsoft tools, such as [Azure Data Studio](/sql/azure-data-studio/notebooks/notebooks-guidance) or [Visual Studio](https://code.visualstudio.com/docs/datascience/jupyter-notebooks), or open source tools.<br> For more information, see [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft/).|
 ||[Pandas library](https://pandas.pydata.org/) |An open source data analysis and manipulation tool for Python. |
 ||[Plotly](https://plotly.com/python/)| An open source graphing library for Python. |
@@ -251,7 +251,7 @@ Use the gradient boosting regression model to predict ingestion in a new time ra
 
 Send the anomalies you identify to a custom table in your Log Analytics workspace to trigger alerts or to make them available for further analysis.   
 
-1. To send data to your Log Analytics workspace, you need a registered application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../../logs/tutorial-logs-ingestion-api.md).
+1. To send data to your Log Analytics workspace, you need a registered application, custom table, data collection endpoint, and data collection rule, as explained in [Send data to Azure Monitor Logs using REST API](../logs/tutorial-logs-ingestion-api.md).
 1. Define variables you need to pass in the call to the Logs Ingestion API:
 
     ```python
@@ -275,5 +275,5 @@ Send the anomalies you identify to a custom table in your Log Analytics workspac
 Learn more about how to: 
 
 - [Schedule a machine learning pipeline](../../machine-learning/how-to-schedule-pipeline-job.md).
-- [Split query execution into chunks](https://learn.microsoft.com/en-us/samples/azure/azure-sdk-for-python/query-azuremonitor-samples/).
+- [Split query execution into chunks](https://learn.microsoft.com/samples/azure/azure-sdk-for-python/query-azuremonitor-samples/).
 - [Detect and analyze anomalies using KQL](../logs/kql-machine-learning-azure-monitor.md).
