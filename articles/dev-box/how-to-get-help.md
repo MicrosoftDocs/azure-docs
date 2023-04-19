@@ -44,8 +44,11 @@ In the following table, select your role to see how to get help for urgent issue
 - **Internal troubleshooting** </br>
 Always use your internal troubleshooting processes before contacting support. As a dev infrastructure admin, you have access to all Dev Box resources through the Azure portal.
 - **Contact support** </br>
-If you can't resolve the issue, open a support request to contact Azure support: [Contact Microsoft Azure Support - Microsoft Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4).
-   - To learn more about support requests, refer to: [Create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+If you can't resolve the issue, open a support request to contact Azure support: 
+
+   **[Contact Microsoft Azure Support - Microsoft Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4).**
+
+- To learn more about support requests, refer to: [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 
 <!-- ----------------------------------------------------------------------------------------------------- -->
