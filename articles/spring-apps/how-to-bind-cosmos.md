@@ -191,4 +191,4 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
 
 ## Next steps
 
-In this article, you learned how to connect your application in Azure Spring Apps to an Azure Cosmos DB database. To learn more about connecting services to your application, see [Connect to an Azure Cache for Redis cache](./how-to-connect-redis.md).
+In this article, you learned how to connect your application in Azure Spring Apps to an Azure Cosmos DB database. To learn more about connecting services to your application, see [Connect to an Azure Cache for Redis cache](./how-to-bind-redis.md).
