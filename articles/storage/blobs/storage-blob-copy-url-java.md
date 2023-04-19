@@ -47,14 +47,14 @@ To learn more about the `Put Blob From URL` operation, including blob size limit
 
 This section gives an overview of methods provided by the Azure Storage client library for Java to perform a copy operation from a source object URL.
 
-The following method wraps the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) REST API operation, and creates a new block blob where the contents of the blob are read from a given URL:
+The following methods wrap the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) REST API operation, and create a new block blob where the contents of the blob are read from a given URL:
 
 - [uploadFromUrl](/java/api/com.azure.storage.blob.specialized.blockblobclient#method-details)
 - [uploadFromUrlWithResponse](/java/api/com.azure.storage.blob.specialized.blockblobclient#method-details)
 
 These methods are preferred for scenarios where you want to move data into a storage account and have a URL for the source object.
 
-For large objects, you may choose to work with individual blocks. The following method wraps the [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operation. This method creates a new block to be committed as part of a blob where the contents are read from a source URL:
+For large objects, you can work with individual blocks. The following method wraps the [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operation. This method creates a new block to be committed as part of a blob where the contents are read from a source URL:
 
 - [stageBlockFromUrl](/java/api/com.azure.storage.blob.specialized.blockblobclient#method-details)
 

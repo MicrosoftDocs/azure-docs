@@ -55,7 +55,7 @@ The following method wraps the [Copy Blob](/rest/api/storageservices/copy-blob) 
 
 - [beginCopy](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-details)
 
-The `beginCopy` method return a [SyncPoller](/java/api/com.azure.core.util.polling.syncpoller) to poll the progress of the copy operation. The poll response type is [BlobCopyInfo](/java/api/com.azure.storage.blob.models.blobcopyinfo). The `beginCopy` method is used when you want asynchronous scheduling for a copy operation.
+The `beginCopy` method returns a [SyncPoller](/java/api/com.azure.core.util.polling.syncpoller) to poll the progress of the copy operation. The poll response type is [BlobCopyInfo](/java/api/com.azure.storage.blob.models.blobcopyinfo). The `beginCopy` method is used when you want asynchronous scheduling for a copy operation.
 
 ## Copy a blob within the same storage account
 
