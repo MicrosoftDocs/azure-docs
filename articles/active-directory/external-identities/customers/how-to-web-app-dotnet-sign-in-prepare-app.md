@@ -1,5 +1,5 @@
 ---
-title: Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application 
+title: Sign in users in your own ASP.NET Core web application by using Microsoft Entra - Prepare your application 
 description: Create and prepare an ASP.NET Core web app for authentication
 services: active-directory
 author: cilwerner
@@ -11,16 +11,16 @@ ms.subservice: ciam
 ms.topic: how-to
 ms.date: 04/04/2023
 ms.custom: it-pro
-#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET Core web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application
+# Sign in users in your own ASP.NET Core web application by using Microsoft Entra - Prepare your application
 
-After registering an application and created a user flow in a CIAM tenant, an ASP.NET web application can be created using an integrated development environment (IDE). This how-to guide demonstrates how to create an ASP.NET Core Web App using an IDE.
+After registering an application and created a user flow in a CIAM tenant, an ASP.NET Core web application can be created using an integrated development environment (IDE). This how-to guide demonstrates how to create an ASP.NET Core web wpp using an IDE.
 
 ## Prerequisites
 
-- Completion of the prerequisites and steps in [Register an application in a CIAM tenant](./how-to-web-app-dotnet-sign-in-prepare-tenant.md).
+- Completion of the prerequisites and steps in [Sign in users in your own ASP.NET Core web application by using Microsoft Entra - Prepare your tenant](./how-to-web-app-dotnet-sign-in-prepare-tenant.md).
 - A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet).
 
 ## Create an ASP.NET Core project
@@ -79,4 +79,4 @@ After registering an application and created a user flow in a CIAM tenant, an AS
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in users in your own ASP.NET web application by using Microsoft Entra - Sign in and sign out ](how-to-web-app-dotnet-sign-in-sign-out.md)
+> [Sign in users in your own ASP.NET Core web application by using Microsoft Entra - Sign in and sign out ](how-to-web-app-dotnet-sign-in-sign-out.md)
