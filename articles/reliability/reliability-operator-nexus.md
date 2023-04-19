@@ -5,8 +5,8 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability
-ms.service:3
-ms.date: 04/17/2022
+ms.service: operator-nexus
+ms.date: 04/19/2023
 #Customer intent: I want to understand reliability support in Azure Operator Nexus Network Cloud so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
@@ -15,7 +15,7 @@ ms.date: 04/17/2022
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the supplemental terms of use.
 
-This article describes reliability support in Azure Operator Nexus and covers both intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure Operator Nexus and covers intra-regional resiliency with [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Availability zone support
 
@@ -26,7 +26,7 @@ There are three types of Azure services that support availability zones: zonal, 
 Azure Operator Nexus offers zone-redundant deployments by default for all SKU offerings. Operator Nexus Components, such as Cluster Manager, Fabric Controller, and Proxy services are all deployed on an Azure Kubernetes Service (AKS) cluster that's enabled with availability zones. Other service dependencies, such as Resource Provider as a Service (RPaaS), Storage Account Service, and KeyVault are also configured with zone-redundancy.
 
 >[!NOTE]
->Because Operator Nexus On-Premises Clusters are owned by the users, and not by Microsoft, they don't offer zone redundancy by default.  To enable zone-redundancy for on-premises clusters, you'll need to configure for availability zones at the tenant workload level.​
+>Operator Nexus On-Premises Clusters implements a multi-rack design that provides redundancy, allowing workloads to be deployed across multiple racks/nodes.  To enable zone-redundancy for on-premises clusters, you'll need to configure for availability zones at the tenant workload level.​ 
 
 ### Zone down experience
 
