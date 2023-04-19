@@ -4,7 +4,7 @@ description: Archive of the new features and documentation improvements for Azur
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: rymajidi, sngun
-ms.date: 01/06/2023
+ms.date: 04/04/2023
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
@@ -20,6 +20,8 @@ The following table lists a past history of the features of Azure Synapse Analyt
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- | 
+| July 2022 | **Apache Spark&trade; 3.2 for Synapse Analytics** | Apache Spark&trade; 3.2 for Synapse Analytics is now generally available. Review the [official release notes](https://spark.apache.org/releases/spark-release-3-2-0.html) and [migration guidelines between Spark 3.1 and 3.2](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-31-to-32) to assess potential changes to your applications. For more details, read [Apache Spark version support and Azure Synapse Runtime for Apache Spark 3.2](./spark/apache-spark-version-support.md). Highlights of what got better in Spark 3.2 in the [Azure Synapse Analytics July Update 2022](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-july-update-2022/ba-p/3535089#TOCREF_1).|
+| July 2022 | **Apache Spark in Azure Synapse Intelligent Cache feature** | Intelligent Cache for Spark automatically stores each read within the allocated cache storage space, detecting underlying file changes and refreshing the files to provide the most recent data. To learn more, see how to [Enable/Disable the cache for your Apache Spark pool](./spark/apache-spark-intelligent-cache-concept.md).|
 | June 2022 | **Map Data tool** | The Map Data tool is a guided process to help you create ETL mappings and mapping data flows from your source data to Synapse without writing code. To learn more about the Map Data tool, read [Map Data in Azure Synapse Analytics](./database-designer/overview-map-data.md).|
 | June 2022 | **User Defined Functions** | User defined functions (UDFs) are now generally available. To learn more, read [User defined functions in mapping data flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-user-defined-functions-preview-for-mapping-data/ba-p/3414628). |
 | May 2022 | **Azure Synapse Data Explorer connector for Power Automate, Logic Apps, and Power Apps** | The Azure Data Explorer connector for Power Automate enables you to orchestrate and schedule flows, send notifications, and alerts, as part of a scheduled or triggered task. To learn more, read [Azure Data Explorer connector for Microsoft Power Automate](/azure/data-explorer/flow) and [Usage examples for Azure Data Explorer connector to Power Automate](/azure/data-explorer/flow-usage). |

@@ -278,7 +278,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
       - device: ephemeral0.2
         filesystem: swap
     mounts:
-      - ["ephemeral0.1", "/mnt"]
+      - ["ephemeral0.1", "/mnt/resource"]
       - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
     EOF
     ```

@@ -154,14 +154,6 @@ cd azureml-examples/cli/endpoints/online/model-1
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
-<!-- Open a terminal in the Azure Machine Learning studio:
-
-1. Sign into [Azure Machine Learning studio](https://ml.azure.com).
-1. Select your workspace, if it isn't already open.
-1. On the left, select **Notebooks**.
-1. Select **Open terminal**.
- -->
-
 ### Download files from the examples repository
 
 If you cloned the examples repo, your local machine already has copies of the files for this example, and you can skip to the next section. If you didn't clone the repo, you can download it to your local machine.
@@ -381,6 +373,21 @@ This action opens up a window for you to specify details about your endpoint and
 
 ## Confirm your existing deployment
 
+One way to confirm your existing deployment is to invoke your endpoint so that it can score your model for a given input request. When you invoke your endpoint via the CLI or Python SDK, you may choose to specify the name of the deployment that will receive the incoming traffic.
+
+> [!NOTE]
+> Unlike the CLI or Python SDK, Azure Machine Learning studio requires you to specify a deployment when you invoke an endpoint.
+
+### Invoke endpoint with deployment name
+
+If you invoke the endpoint with the name of the deployment that will receive traffic, Azure Machine Learning will route the endpoint's traffic directly to the specified deployment and return its output. You can use the `--deployment-name` option [for CLI v2](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke-optional-parameters), or `deployment_name` option [for SDK v2](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-invoke) to specify the deployment.
+
+### Invoke endpoint without specifying deployment
+
+If you invoke the endpoint without specifying the deployment that will receive traffic, Azure Machine Learning will route the endpoint's incoming traffic to the deployment(s) in the endpoint based on traffic control settings.
+
+Traffic control settings allocate specified percentages of incoming traffic to each deployment in the endpoint. For example, if your traffic rules specify that a particular deployment in your endpoint will receive incoming traffic 40% of the time, Azure Machine Learning will route 40% of the endpoint's traffic to that deployment.
+
 # [Azure CLI](#tab/azure-cli)
 
 You can view the status of your existing endpoint and deployment by running:
@@ -574,9 +581,8 @@ Mirroring has the following limitations:
 Also note the following behaviors:
 
 * A deployment can be configured to receive only live traffic or mirrored traffic, not both.
-* When you invoke an endpoint, you can send traffic directly to a deployment by specifying the deployment's name, so that the endpoint returns the output of the deployment—whether it has been configured to receive mirrored traffic or live traffic. You can use the `--deployment-name` option [for CLI v2](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke-optional-parameters), or `deployment_name` option [for SDK v2](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-invoke) to specify the deployment.
-    > [!NOTE]
-    > When you specify the deployment to receive traffic, Azure Machine Learning will not mirror traffic to the shadow deployment. Azure Machine Learning mirrors traffic to the shadow deployment from traffic sent to the endpoint when you don't specify a deployment.
+* When you invoke an endpoint, you can specify the name of any of its deployments — even a shadow deployment — to return the prediction.
+* When you invoke an endpoint with the name of the deployment that will receive incoming traffic, Azure Machine Learning won't mirror traffic to the shadow deployment. Azure Machine Learning mirrors traffic to the shadow deployment from traffic sent to the endpoint when you don't specify a deployment.
 
 Now, let's set the green deployment to receive 10% of mirrored traffic. Clients will still receive predictions from the blue deployment only.
 
@@ -588,7 +594,7 @@ The following command mirrors 10% of the traffic to the `green` deployment:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green_with_mirror_traffic" :::
 
-You can test mirror traffic by invoking the endpoint several times:
+You can test mirror traffic by invoking the endpoint several times without specifying a deployment to receive the incoming traffic:
 
 ```azurecli
 for i in {1..20} ; do
@@ -612,7 +618,7 @@ The following command mirrors 10% of the traffic to the `green` deployment:
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=new_deployment_traffic)]
 
-You can test mirror traffic by invoking the endpoint several times:
+You can test mirror traffic by invoking the endpoint several times without specifying a deployment to receive the incoming traffic:
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=several_tests_to_mirror_traffic)]
 
 You can confirm that the specific percentage of the traffic was sent to the `green` deployment by seeing the logs from the deployment:
@@ -643,7 +649,9 @@ The endpoint details page now shows mirrored traffic allocation of 10% to the `g
 
 :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/endpoint-details-showing-mirrored-traffic-allocation.png" alt-text="Endpoint details page showing mirrored traffic allocation in the deployment summary." lightbox="media/how-to-safely-rollout-managed-endpoints/endpoint-details-showing-mirrored-traffic-allocation.png":::
 
-Now, when you send requests to the endpoint's URI, 10% of those requests will be routed to the `green` deployment. After testing, you can disable mirroring:
+To test mirrored traffic, see the Azure CLI or Python tabs to invoke the endpoint several times. Confirm that the specific percentage of the traffic was sent to the `green` deployment by seeing the logs from the deployment. You can access the deployment logs from the endpoint's **Deployment logs** tab. You can also use Metrics and Logs to monitor performance of the mirrored traffic. For more information, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
+
+After testing, you can disable mirroring:
 
 1. From the endpoint Details page, Select **Update traffic**.
 1. Slide the button next to **Enable mirrored traffic (Preview)** again to disable mirrored traffic.

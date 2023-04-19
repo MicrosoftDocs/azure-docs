@@ -6,6 +6,13 @@ ms.date: 03/16/2023
 ms.author: eur
 ---
 
+### 2023-April release
+	
+Add support for the latest model versions:
+- Custom speech-to-text 3.13.0
+- Speech-to-text 3.13.0
+- Neural text-to-speech 2.12.0
+
 ### 2023-March release
 	
 Add support for the latest model versions:
@@ -156,7 +163,7 @@ Bug fixes for [speech-language-detection](~/articles/cognitive-services/speech-s
 ### 2022-March release
 
 #### Custom speech-to-text Container v3.1.0
-Add support to [get display models](../../speech-container-howto.md#display-model-download-on-the-custom-speech-to-text-container).
+Add support to [get display models](../../speech-container-cstt.md#display-model-download).
 
 ### 2022-January release
 
