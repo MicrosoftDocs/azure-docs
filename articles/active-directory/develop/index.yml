@@ -157,18 +157,18 @@ conceptualContent:
 tools:
   title: Microsoft authentication libraries
   summary: >
-    The open-source Microsoft Authentication Library (MSAL) is hosted on GitHub. Built and supported by Microsoft,
-    we recommend MSAL for any app that uses theMicrosoft identity platform for authentication and authorization.
+    The open-source Microsoft Authentication Library (MSAL) is built and supported by Microsoft.
+    We recommend MSAL for any app that uses the Microsoft identity platform for authentication and authorization.
   items:
   ## ROW 1 ######################
   - title: .NET
     url: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
     imageSrc: /media/logos/logo_Csharp.svg
   - title: Android
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-android
+    url: /javascript/api/@azure/msal-angular
     imageSrc: ./media/hub/android.svg
   - title: Angular
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular
+    url: /javascript/api/@azure/msal-angular/
     imageSrc: ./media/hub/angular.svg
   ## ROW 2 ######################
   - title: iOS & macOS
@@ -178,11 +178,11 @@ tools:
     url: https://github.com/AzureAD/microsoft-authentication-library-for-java
     imageSrc: /media/logos/logo_java.svg
   - title: JavaScript
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser
+    url: /javascript/api/overview/msal-overview
     imageSrc: /media/logos/logo_js.svg
   ## ROW 3 ######################
   - title: Node.js
-    url: https://review.learn.microsoft.com/en-us/javascript/api/@azure/msal-node/?view=azure-node-latest&branch=main&viewFallbackFrom=msal-js-latest
+    url: /javascript/api/@azure/msal-node
     imageSrc: ./media/hub/node.svg
   - title: Python
     url: https://github.com/AzureAD/microsoft-authentication-library-for-python
