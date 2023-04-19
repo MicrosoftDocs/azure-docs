@@ -92,9 +92,9 @@ Depending on the tools or libraries you use and the way implement your machine l
 
 For example:
 
-- [Scikit Learn](https://scikit-learn.org/) uses Pandas DataFrames. 
+- [Scikit Learn](https://scikit-learn.org/) uses Pandas DataFrames 
 - [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-training#apache-sparkml-and-mllib) uses Spark DataFrames 
-- [Azure Machine Learning](/azure/machine-learning/v1/how-to-create-register-datasets) uses Azure Machine Learning datasets and other formats. 
+- [Azure Machine Learning](/azure/machine-learning/v1/how-to-create-register-datasets) uses Azure Machine Learning datasets and other formats 
 
 Here are some of the available conversion methods:
 
