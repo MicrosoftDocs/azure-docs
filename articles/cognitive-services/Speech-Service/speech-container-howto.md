@@ -205,6 +205,7 @@ Tu run disconnected containers (not connected to the internet), you must submit 
 
 * Review [configure containers](speech-container-configuration.md) for configuration settings.
 * Learn how to [use Speech service containers with Kubernetes and Helm](speech-container-howto-on-premises.md).
+* Deploy and run containers on [Azure Container Instance](../containers/azure-container-instance-recipe.md)
 * Use more [Azure Cognitive Services containers](../cognitive-services-container-support.md).
 
 

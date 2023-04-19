@@ -177,6 +177,7 @@ For more information about `docker run` with Speech containers, see [Install and
 
 ## Next steps
 
-* Use more [Azure Cognitive Services containers](../cognitive-services-container-support.md).
-
+* See the [Speech containers overview](speech-container-overview.md)
+* Review [configure containers](speech-container-configuration.md) for configuration settings
+* Use more [Azure Cognitive Services containers](../cognitive-services-container-support.md)
 

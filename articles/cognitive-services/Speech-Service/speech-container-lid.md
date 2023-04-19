@@ -125,8 +125,6 @@ Increasing the number of concurrent calls can affect reliability and latency. Fo
 
 ## Next steps
 
-* Review [configure containers](speech-container-configuration.md) for configuration settings.
-* Learn how to [use Speech service containers with Kubernetes and Helm](speech-container-howto-on-premises.md).
-* Use more [Azure Cognitive Services containers](../cognitive-services-container-support.md).
-
-
+* See the [Speech containers overview](speech-container-overview.md)
+* Review [configure containers](speech-container-configuration.md) for configuration settings
+* Use more [Azure Cognitive Services containers](../cognitive-services-container-support.md)
