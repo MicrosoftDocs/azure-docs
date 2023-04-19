@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/14/2023
+ms.date: 04/19/2023
 ms.author: kenwith
 ---
 
@@ -32,7 +32,7 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 1. Under **Manage**, select **Application proxy**.
 1. Select **Download connector service**.
 
-    ![Download connector service to see the Terms of Service](./media/active-directory-app-proxy-protect-ndes/application-proxy-download-connector-service.png)
+    ![Download connector service to see the Terms of Service](./media/app-proxy-protect-ndes/application-proxy-download-connector-service.png)
 
 1. Read the Terms of Service. When you're ready, select **Accept terms & Download**.
 1. Copy the Azure AD Application Proxy connector setup file to your NDES server. 
