@@ -7,10 +7,10 @@ ms.author: rosouz
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 04/18/2023
 ---
 
-# Get started with change data capture in the analytical store for Azure Cosmos DB
+# Get started with change data capture in the analytical store for Azure Cosmos DB (Preview)
 
 [!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
