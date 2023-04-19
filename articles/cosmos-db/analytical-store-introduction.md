@@ -448,7 +448,7 @@ the MongoDB `_id` field is fundamental to every collection in MongoDB and origin
 
 The example below works on Spark 2.x and 3.x versions:
 
-```Python
+```Scala
 val df = spark.read.format("cosmos.olap").option("spark.synapse.linkedService", "xxxx").option("spark.cosmos.container", "xxxx").load()
 
 val convertObjectId = udf((bytes: Array[Byte]) => {
@@ -552,8 +552,10 @@ After the analytical store is enabled, based on the data retention needs of the 
 
 Analytical store relies on Azure Storage and offers the following protection against physical failure:
 
- * By default, Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) accounts.
- * If any geo-region of the database account is configured for zone-redundancy, it is allocated in Zone-redundant Storage (ZRS) accounts. Customers need to enable Availability Zones on a region of their Azure Cosmos DB database account to have analytical data of that region stored in ZRS.
+ * By default, Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) accounts. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year.
+ * If any geo-region of the database account is configured for zone-redundancy, it is allocated in Zone-redundant Storage (ZRS) accounts. Customers need to enable Availability Zones on a region of their Azure Cosmos DB database account to have analytical data of that region stored in ZRS. ZRS offers durability for storage resources of at least 99.9999999999% (12 9's) over a given year.
+
+For more information about Azure Storage durability, click [here](https://learn.microsoft.com/azure/storage/common/storage-redundancy).
 
 ## Backup
 
