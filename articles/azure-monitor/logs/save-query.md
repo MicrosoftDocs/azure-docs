@@ -59,7 +59,7 @@ To resolve this error, close the **Save as query** dialog box and follow the ste
 
 ### Fix the "You need permissions to create resource groups in subscription 'xxxx'" error message
 
-If the default query pack doesn't exist and you try to save a query in it when you don't have the permissions to create resource groups, you'll receive an error message *You need permissions to create resource groups in subscription 'xxxx'*. 
+If the default query pack doesn't exist and you try to save a query in it when you don't have **Contributor** permissions for `DefaultQueryPack`, you'll receive an error message *You need permissions to create resource groups in subscription 'xxxx'*. 
 
 To resolve this error, a user with the permissions to create resource groups must save the query, because a resource group for the default query pack is automatically created when the first query is saved in the default query pack. For more information, see [Default query pack](query-packs.md#default-query-pack).
 
