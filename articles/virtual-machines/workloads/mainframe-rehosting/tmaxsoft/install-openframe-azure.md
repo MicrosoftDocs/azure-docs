@@ -17,7 +17,7 @@ Learn how to set up an OpenFrame environment on Azure suitable for development, 
 
 OpenFrame includes multiple components that create the mainframe emulation environment on Azure. For example, OpenFrame online services replace the mainframe middleware such as IBM Customer Information Control System (CICS), and OpenFrame Batch, with its TJES component, replaces the IBM mainframe's Job Entry Subsystem (JES).
 
-OpenFrame works with any relational database, including Oracle Database, Microsoft SQL Server, IBM Db2, and MySQL. This installation of OpenFrame uses the TmaxSoft Tibero relational database. Both OpenFrame and Tibero run on a Linux operating system. This tutorial installs CentOS 7.3, although you can use other supported Linux distributions.The OpenFrame application server and the Tibero database are installed on one virtual machine (VM).
+OpenFrame works with any relational database, including Oracle Database, Microsoft SQL Server, IBM Db2, and MySQL. This installation of OpenFrame uses the TmaxSoft Tibero relational database. Both OpenFrame and Tibero run on a Linux operating system. This tutorial installs CentOS 7.3, although you can use other supported Linux distributions. The OpenFrame application server and the Tibero database are installed on one virtual machine (VM).
 
 The tutorial steps you through the installation of the OpenFrame suite components. Some must be installed separately.
 
@@ -32,8 +32,8 @@ Main OpenFrame components:
 - ProSort, a sort tool for batch transactions.
 - OFCOBOL, a compiler that interprets the mainframe's COBOL programs.
 - OFASM, a compiler that interprets the mainframe's assembler programs.
-- OpenFrame Server Type C (OSC ), the solution that replaces the mainframe's middleware and IBM CICS.
-- Java Enterprise User Solution (JEUS ), a web application server that is certified for Java Enterprise Edition 6.
+- OpenFrame Server Type C (OSC), the solution that replaces the mainframe's middleware and IBM CICS.
+- Java Enterprise User Solution (JEUS), a web application server that is certified for Java Enterprise Edition 6.
 - OFGW, the OpenFrame gateway component that provides a 3270 listener.
 - OFManager, a solution that provides OpenFrame's operation and management functions in the web environment.
 
@@ -647,7 +647,7 @@ The Base application server is installed before the individual services that Ope
      cp /usr/lib/libtermcap.so.2 $TMAXDIR/lib
      ```
 
-     Startup Tmax Server using the following command:
+     Start up Tmax Server using the following command:
 
      ```bash
      tmboot
