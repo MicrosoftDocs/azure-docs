@@ -17,16 +17,8 @@ ms.custom: it-pro
 # Register your app in the customer tenant
 
 Azure AD for customers enables your organization to manage customers’ identities, and securely control access to your public facing applications and APIs. Applications where your customers can buy your products, subscribe to your services, or access their account and data.  Your customers only need to sign in on a device or a web browser once and have access to all your applications you granted them permissions.
-Integrating an application in your customer tenant is a four-step process:
 
-1. Create an application or use an existing one.
-2. Add Microsoft Authentication Library (MSAL).
-3. Register your application in Azure AD for customers.
-4. Create a user flow and associate it with the application you registered.
-
-:::image type="content" source="media/how-to-register-ciam-app/app-integration-in-customer-tenant.png" alt-text="Diagram showing the app integration process in the customer tenant.":::
-
-Azure AD for customers supports authentication for various modern application architectures. The interaction of each application type with the customer tenant is different, therefore, you must specify the type of application you want to register.
+Azure AD for customers supports authentication for various modern application architectures, for example Web app or Single-page app. The interaction of each application type with the customer tenant is different, therefore, you must specify the type of application you want to register.
 
 In this article, you’ll learn how to register an application in your customer tenant.
 
@@ -34,7 +26,6 @@ In this article, you’ll learn how to register an application in your customer 
 
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Your Azure AD for customers tenant. If you don't already have one, sign up for a [free trial](https://aka.ms/ciam-hub-free-trial).
-- Your application that uses Microsoft Authentication Library (MSAL).
 
 ## Choose your app type
 
