@@ -90,7 +90,7 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
 
 If you already have a virtual network to host an Azure Spring Apps instance, skip steps 1, 2, 3 and 4. You can start from step 5 to prepare subnets for the virtual network.
 
-1. Use the following command to cefine variables for your subscription, resource group, and Azure Spring Apps instance. Customize the values based on your real environment.
+1. Use the following command to define variables for your subscription, resource group, and Azure Spring Apps instance. Customize the values based on your real environment.
 
    ```azurecli
    SUBSCRIPTION='<subscription-id>'
