@@ -693,6 +693,10 @@
         href: flexible-server/howto-alert-on-metrics.md
       - name: Configure and access logs
         href: flexible-server/howto-configure-and-access-logs.md
+    - name: Cost optimization
+      items:
+      - name: How to optimize costs
+        href: flexible-server/how-to-cost-optimization.md
     - name: Troubleshooting guides
       href: flexible-server/how-to-troubleshooting-guides.md
 - name: Hyperscale (Citus)

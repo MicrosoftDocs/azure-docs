@@ -6,7 +6,7 @@ author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
 ms.date: 04/12/2023
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.topic: how-to
 ms.custom:
 - devx-track-csharp
