@@ -84,8 +84,6 @@ The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSC
 
 This sample listens to the channel "channel" at a localhost Redis instance at `127.0.0.1:6379`
 
-### Language Samples PubSubTrigger
-
 #### [C#](#tab/csharp/)
 
 ```csharp
@@ -102,13 +100,12 @@ public static void PubSubTrigger(
 
 ```java
 // TBD!
-// PubSubTrigger channel
+// PubSubTrigger "channel"
 ```
 
 ---
 
 This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at `127.0.0.1:6379`.
-
 
 #### [C#](#tab/csharp/)
 
@@ -127,12 +124,12 @@ public static void PubSubTrigger(
 
 ```java
 // TBD!
-// PubSubTrigger myKey
+// PubSubTrigger "myKey"
 ```
 
 ---
 
-This sample listens to any keyevent notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at `127.0.0.1:6379`.
+This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at `127.0.0.1:6379`.
 
 #### [C#](#tab/csharp/)
 
@@ -150,12 +147,12 @@ public static void PubSubTrigger(
 
 ```java
 // TBD!
-// PubSubTrigger keyevent
+// PubSubTrigger "keyevent"
 ```
 
 ---
 
-### `RedisListsTrigger`
+### RedisListsTrigger
 
 The `RedisListsTrigger` pops elements from a list and surfaces those elements to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/)/[`LMPOP`](https://redis.io/commands/lmpop/) to pop elements from the lists.
 
@@ -194,12 +191,12 @@ public static void ListsTrigger(
 
 ```java
 // TBD
-// ListsTrigger listTest 
+// ListsTrigger "listTest"
 ```
 
 ---
 
-### `RedisStreamsTrigger`
+### RedisStreamsTrigger
 
 The `RedisStreamsTrigger` pops elements from a stream and surfaces those elements to the function.
 The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
@@ -239,7 +236,7 @@ public static void StreamsTrigger(
 
 ```java
 // TBD
-// StreamsTrigger streamTest
+// StreamsTrigger "streamTest"
 ```
 
 ---
@@ -270,9 +267,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis
 // TBD
 // RedisMessageModel
 ```
-
 ---
-
 
 ## Next steps
 
