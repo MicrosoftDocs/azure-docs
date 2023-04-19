@@ -63,7 +63,7 @@ Refer to the JOSE specifications for relevant data types for keys, encryption, a
 
 ## Objects, identifiers, and versioning
 
-Objects stored in Key Vault are versioned whenever a new instance of an object is created. Each version is assigned a unique identifier and URL. When an object is first created, it's given a unique version identifier and marked as the current version of the object. Creation of a new instance with the same object name gives the new object a unique version identifier, causing it to become the current version.  
+Objects stored in Key Vault are versioned whenever a new instance of an object is created. Each version is assigned a unique object identifier. When an object is first created, it's given a unique version identifier and marked as the current version of the object. Creation of a new instance with the same object name gives the new object a unique version identifier, causing it to become the current version.  
 
 Objects in Key Vault can be retrieved by specifying a version or by omitting version to get latest version of the object. Performing operations on objects requires providing version to use specific version of the object.
 
@@ -71,7 +71,7 @@ Objects in Key Vault can be retrieved by specifying a version or by omitting ver
 > The values you provide for Azure resources or object IDs may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
 
 ### Vault-name and Object-name
-Objects are uniquely identified within Key Vault using a case-insensitive URL. No two objects in the system have the same URL, regardless of geo-location. The complete URL to an object is called the Object Identifier. The URL consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. The Object Name is case-insensitive and immutable. Identifiers that don't include the Object Version are referred to as Base Identifiers.  
+Objects are uniquely identified within Key Vault using a case-insensitive identifier called the Object Identifier. No two objects in the system have the same identifier, regardless of geo-location. The identifier consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. Identifiers that don't include the Object Version are referred to as Base Identifiers. Key Vault Object Identifiers are also valid URL but should always be compared as case-insensitive strings.
 
 For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md)
 
