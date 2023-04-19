@@ -70,7 +70,7 @@ Enterprise IoT network sensors can detect the following protocols when identifyi
 
 Asset vendors, partners, or platform owners can use Defender for IoT's Horizon Protocol SDK to secure any OT protocol used in IoT and ICS environments that's not isn't already supported by default.
 
-Horizon helps you to write plugins for OT sensors that enable Deep Packet Inspection (DPI) on the traffic and detect threats in realtime. Customize your plugins localize and customize text for alerts, events, and protocol parameters.
+Horizon helps you to write plugins for OT sensors that enable Deep Packet Inspection (DPI) on the traffic and detect threats in real-time. Customize your plugins localize and customize text for alerts, events, and protocol parameters.
 
 Horizon provides:
 
