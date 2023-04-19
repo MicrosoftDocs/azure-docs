@@ -190,12 +190,10 @@ Create a file named *queue.json* and paste the following configuration code into
             "type": "String"
         },
         "environment_name": {
-            "defaultValue": "",
             "type": "String"
         },
         "queueconnection": {
-            "defaultValue": "",
-            "type": "String"
+            "type": "secureString"
         }
     },
     "variables": {},
