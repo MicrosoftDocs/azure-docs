@@ -217,9 +217,9 @@ For high availability, you can deploy more than one Azure AD Connect provisionin
 
 Depending on the number of Active Directory domains involved in the inbound user provisioning configuration, you may consider one of the following deployment topologies. Each topology diagram uses an example deployment scenario to highlight configuration aspects. Use the example that closely resembles your deployment requirement to determine the configuration that meets your needs. 
 
-### Deployment topology 1: Single app to provision all users from Cloud HR to single on-premises Active Directory domain
+### Deployment topology one: Single app to provision all users from Cloud HR to single on-premises Active Directory domain
 
-This is the most common deployment topology. Use this topology, if you need to provision all users from Cloud HR to a single AD domain and same provisioning rules apply to all users. 
+Deployment topology one is the most common deployment topology. Use this topology, if you need to provision all users from Cloud HR to a single AD domain and same provisioning rules apply to all users. 
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png" alt-text="Screenshot of single app to provision users from Cloud HR to single AD domain" lightbox="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png":::
 
@@ -229,7 +229,7 @@ This is the most common deployment topology. Use this topology, if you need to p
 * When configuring the provisioning app, select the AD domain from the dropdown of registered domains. 
 * If you're using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
-### Deployment topology 2: Separate apps to provision distinct user sets from Cloud HR to single on-premises Active Directory domain
+### Deployment topology two: Separate apps to provision distinct user sets from Cloud HR to single on-premises Active Directory domain
 
 This topology supports business requirements where attribute mapping and provisioning logic differ based on user type (employee/contractor), user location or user's business unit. You can also use this topology to delegate the administration and maintenance of inbound user provisioning based on division or country.
 
