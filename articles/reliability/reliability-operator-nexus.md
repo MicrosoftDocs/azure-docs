@@ -26,7 +26,7 @@ There are three types of Azure services that support availability zones: zonal, 
 Azure Operator Nexus offers zone-redundant deployments by default for all SKU offerings. Operator Nexus Components, such as Cluster Manager, Fabric Controller, and Proxy services are all deployed on an Azure Kubernetes Service (AKS) cluster that's enabled with availability zones. Other service dependencies, such as Resource Provider as a Service (RPaaS), Storage Account Service, and KeyVault are also configured with zone-redundancy.
 
 >[!NOTE]
->Operator Nexus On-Premises Clusters implements a multi-rack design that provides redundancy, allowing workloads to be deployed across multiple racks/nodes.  To enable zone-redundancy for on-premises clusters, you'll need to configure for availability zones at the tenant workload level.​ 
+>Operator Nexus On-Premises Clusters implements a multi-rack design that provides physical redundancy at all levels of the stack. Each rack is designed as a failure domain or availability zone. Customer workloads can be deployed across multiple racks/nodes, essentially providing a similar multi-availability zone experience.
 
 ### Zone down experience
 
