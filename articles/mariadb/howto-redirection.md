@@ -91,7 +91,7 @@ The subsequent sections of the document will outline how to install the `mysqlnd
     mysqlnd_azure.enableRedirect = on/off/preferred
     ```
 
-### Windows(#tab/windows)
+### [Windows](#tab/windows)
 
 **Prerequisites**
 
