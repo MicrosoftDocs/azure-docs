@@ -40,7 +40,7 @@ There are three triggers supported in Azure Cache for Redis:
 
 Redis offers a built-in concept called [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/). When enabled, this feature publishes notifications of a wide range of cache actions to a dedicated pub/sub channel. Supported actions include actions that affect specific keys, called _keyspace notifications_, and specific commands, called _keyevent notifications_. A huge range of Redis actions are supported, such as `SET`, `DEL`, and `EXPIRE`. The full list can be found in the [keyspace notification documentation](https://redis.io/docs/manual/keyspace-notifications/).
 
-Keyspace and keyevent notifications are published with the following syntax:
+The `keyspace` and `keyevent` notifications are published with the following syntax:
 
 ```
 PUBLISH __keyspace@0__:<affectedKey> <command>
@@ -50,7 +50,7 @@ PUBLISH __keyevent@0__:<affectedCommand> <key>
 Because these events are published on pub/sub channels, the `RedisPubSubTrigger` is able to pick them up. See the [RedisPubSubTrigger](#redispubsubtrigger) section for more examples.
 
 > [!IMPORTANT]
-> In Azure Cache for Redis, keyspace events must be enabled before notifications are published. See [Advanced Settings](cache-configure.md#keyspace-notifications-advanced-settings) for more information.
+> In Azure Cache for Redis, `keyspace` events must be enabled before notifications are published. For more information, see [Advanced Settings](cache-configure.md#keyspace-notifications-advanced-settings).
 
 ## How to get started
 
@@ -59,9 +59,9 @@ See [Get started with Functions triggers in Azure Cache for Redis](cache-tutoria
 
 ## Prerequisites and limitations
 
-- The `RedisPubSubTrigger` is not capable of listening to [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) on clustered caches.
-- Basic tier functions do not support triggering on keyspace or keyevent notifications through the `RedisPubSubTrigger`.
-- The `RedisPubSubTrigger` is not supported with consumption functions.
+- The `RedisPubSubTrigger` isn't capable of listening to [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) on clustered caches.
+- Basic tier functions don't support triggering on `keyspace` or `keyevent` notifications through the `RedisPubSubTrigger`.
+- The `RedisPubSubTrigger` isn't supported with consumption functions.
 
 ## Trigger usage
 
@@ -70,16 +70,16 @@ See [Get started with Functions triggers in Azure Cache for Redis](cache-tutoria
 The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSCRIBE`](https://redis.io/commands/psubscribe/), and surfaces messages received on those channels to the function.
 
 > [!WARNING]
-> This trigger is not supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages.For consumption plans, there is a chance your function may miss certain messages published to the channel.
+> This trigger isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
 >
 
 > [!NOTE]
 > Functions with the `RedisPubSubTrigger` should not be scaled out to multiple instances.
-> Each instance will listen and process each pubsub message, resulting in duplicate processing.
+> Each instance listens and processes each pubsub message, resulting in duplicate processing.
 
 #### Inputs
 
-- `ConnectionString`: connection string to the redis cache (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).
+- `ConnectionString`: connection string to the redis cache (for example, `<cacheName>.redis.cache.windows.net:6380,password=...`).
 - `Channel`: name of the pubsub channel that the trigger should listen to.
 
 This sample listens to the channel "channel" at a localhost Redis instance at `127.0.0.1:6379`
@@ -158,7 +158,7 @@ The `RedisListsTrigger` pops elements from a list and surfaces those elements to
 
 #### Inputs
 
-- `ConnectionString`: connection string to the redis cache (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).
+- `ConnectionString`: connection string to the redis cache, for example`<cacheName>.redis.cache.windows.net:6380,password=...`.
 - `Keys`: Keys to read from, space-delimited.
   - Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/).
   - Listens to only the first key given in the argument using [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/) on Redis versions less than 7.0.
@@ -200,11 +200,11 @@ public static void ListsTrigger(
 
 The `RedisStreamsTrigger` pops elements from a stream and surfaces those elements to the function.
 The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
-Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function will not read the same messages from the stream.
+Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
 
 #### Inputs
 
-- `ConnectionString`: connection string to the redis cache (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).
+- `ConnectionString`: connection string to the redis cache, for example, `<cacheName>.redis.cache.windows.net:6380,password=...`.
 - `Keys`: Keys to read from, space-delimited.
   - Uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/).
 - (optional) `PollingIntervalInMs`: How often to poll Redis in milliseconds.
@@ -213,7 +213,7 @@ Each function creates a new random GUID to use as its consumer name within the g
   - Default: 100
 - (optional) `BatchSize`: Number of elements to pull from Redis at one time.
   - Default: 10
-- (optional) `ConsumerGroup`: The name of the consumer group that the function will use.
+- (optional) `ConsumerGroup`: The name of the consumer group that the function uses.
   - Default: "AzureFunctionRedisExtension"
 - (optional) `DeleteAfterProcess`: If the listener will delete the stream entries after the function runs.
   - Default: false
