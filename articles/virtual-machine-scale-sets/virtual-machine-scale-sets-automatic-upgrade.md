@@ -207,7 +207,8 @@ The following example describes how to set automatic OS upgrades on a scale set 
          "useRollingUpgradePolicy": true,
          "disableAutomaticRollback": false 
       } 
-    } 
+    }
+   },
 "imagePublisher": {
    "type": "string",
    "defaultValue": "MicrosoftWindowsServer"
