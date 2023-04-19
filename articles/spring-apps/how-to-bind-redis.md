@@ -18,7 +18,7 @@ ms.custom: devx-track-java, event-tier1-build-2022, service-connector
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-Instead of manually configuring your Spring Boot applications, you can automatically connect select Azure services to your applications by using Azure Spring Apps. This article shows how to connect your application to Azure Cache for Redis.
+Instead of manually configuring your Spring Boot applications, you can automatically connect selected Azure services to your applications by using Azure Spring Apps. This article shows how to connect your application to Azure Cache for Redis.
 
 ## Prerequisites
 
@@ -159,4 +159,4 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
 
 ## Next steps
 
-In this article, you learned how to connect your application in Azure Spring Apps to Azure Cache for Redis. To learn more about connecting services to your application, see [Connect to an Azure Database for MySQL instance](./how-to-connect-mysql.md).
+In this article, you learned how to connect your application in Azure Spring Apps to Azure Cache for Redis. To learn more about connecting services to your application, see [Connect to an Azure Database for MySQL instance](./how-to-bind-mysql.md).
