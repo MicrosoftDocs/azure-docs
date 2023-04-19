@@ -734,7 +734,7 @@ items:
             href: app/java-spring-boot.md
           - name: Profiler
             href: app/java-standalone-profiler.md
-          - name: Get started supplemental
+          - name: Get started (supplemental)
             href: app/java-get-started-supplemental.md
           - name: Configuration
             items:
