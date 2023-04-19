@@ -184,7 +184,7 @@ config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRIN
 
 ### Configuration settings in Django
 
-To update individual configuration settings in the Django `settings.py` file, you can reference them from the provider object. e.g.,
+To update individual configuration settings in the Django `settings.py` file, you can reference them from the provider object. For example:
 ```python
 MESSAGE = config.get("message")
 ```
