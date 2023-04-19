@@ -239,7 +239,7 @@ This topology supports business requirements where attribute mapping and provisi
 * Setup two provisioning agent nodes for high availability and failover. 
 * Create an HR2AD provisioning app for each distinct user set that you want to provision. 
 * Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users to process each app. 
-* To handle the scenario where managers references need to be resolved across distinct user sets (e.g. contractors reporting to managers who are employees), you can create a separate HR2AD provisioning app for updating only the *manager* attribute. Set the scope of this app to all users. 
+* In the scenario where manager references need to be resolved across distinct user sets, create a separate HR2AD provisioning app. For example,  contractors reporting to managers who are employees. Use the separate app to update only the *manager* attribute. Set the scope of this app to all users. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 > [!NOTE] 
