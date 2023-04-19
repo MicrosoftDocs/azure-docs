@@ -88,9 +88,9 @@ az vm extension set \
 <!-- Reference link definitions -->
 [01]: ../../azure-arc/servers/agent-release-notes.md
 [03]: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-38007
-[04]: ./machine-configuration-create-setup.md
-[05]: ./machine-configuration-create.md
-[06]: ./machine-configuration-create-test.md
-[07]: ./machine-configuration-create-definition.md
+[04]: ./how-to-set-up-authoring-environment.md
+[05]: ./how-to-create-package.md
+[06]: ./how-to-test-package.md
+[07]: ./how-to-create-policy-definition.md
 [08]: ../policy/assign-policy-portal.md
 [09]: ../policy/how-to/determine-non-compliance.md
