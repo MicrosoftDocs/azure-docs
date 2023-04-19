@@ -30,10 +30,13 @@ In addition to providing incremental data feed from analytical store to diverse 
 - Supports applying filters, projections and transformations on the Change feed via source query
 - Supports capturing deletes and intermediate updates
 - Ability to filter the change feed for a specific type of operation (**Insert** | **Update** | **Delete** | **TTL**)
-- Each change in Container appears exactly once in the change data capture feed, and the checkpoints are managed internally for you
-- Changes can be synchronized from “the Beginning” or “from a given timestamp” or “from now”
+- Each change in container appears exactly once in the change data capture feed, and the checkpoints are managed internally for you
+- Changes can be synchronized "from the Beginning” or “from a given timestamp” or “from now”
 - There's no limitation around the fixed data retention period for which changes are available
 - Multiple change feeds on the same container can be consumed simultaneously
+
+> [!IMPORTANT]
+> Please note that "from the beginning" means that all data and all transactions since the container creation are availble for CDC, including deletes and updates.
 
 ## Features
 
