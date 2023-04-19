@@ -215,7 +215,7 @@ For high availability, you can deploy more than one Azure AD Connect provisionin
 
 ## Design HR provisioning app deployment topology
 
-Depending on the number of Active Directory domains involved in the inbound user provisioning configuration, you may consider one of the following deployment topologies. Each topology diagram uses an example deployment scenario to highlight configuration aspects. Use the example that closely resembles your deployment requirement to determine the configuration that will meet your needs. 
+Depending on the number of Active Directory domains involved in the inbound user provisioning configuration, you may consider one of the following deployment topologies. Each topology diagram uses an example deployment scenario to highlight configuration aspects. Use the example that closely resembles your deployment requirement to determine the configuration that meets your needs. 
 
 ### Deployment topology 1: Single app to provision all users from Cloud HR to single on-premises Active Directory domain
 
