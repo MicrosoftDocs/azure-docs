@@ -10,15 +10,23 @@ ms.date: 04/17/2023
 
 # Scale Dapr applications with KEDA scalers
 
-[Azure Container Apps automatically scales HTTP traffic to zero.](./scale-app.md) Since Dapr pub/sub and bindings are not HTTP traffic, you can use [KEDA scalers](https://keda.sh/) to scale out your application and its [Dapr](https://docs.dapr.io/) sidecar when it has scaled to zero with inbound events and messages. This guide demonstrates how to configure the scale rules of a Dapr pub/sub application with a KEDA messaging scaler. The scaler watches for incoming messages and scales the application in and out as needed. 
+[Azure Container Apps automatically scales HTTP traffic to zero.](./scale-app.md) Since Dapr pub/sub and bindings are not HTTP traffic, you can use [KEDA scalers](https://keda.sh/) to scale your application and its [Dapr](https://docs.dapr.io/) sidecar up and down based on the number of inbound events and messages waiting to be processed. 
 
-In this scenario, the application includes the following elements:
-1. A `checkout` publisher container app that continuously publishes messages to the `orders` Azure Service Bus.
+This guide demonstrates how to configure the scale rules of a Dapr pub/sub application with a KEDA messaging scaler. For context, refer to the corresponding sample pub/sub applications:
+- [Microservice communication using pub/sub sample application in **C#**](https://github.com/Azure-Samples/pubsub-dapr-csharp-servicebus)
+- [Microservice communication using pub/sub sample application in **JavaScript**](https://github.com/Azure-Samples/pubsub-dapr-nodejs-servicebus)
+- [Microservice communication using pub/sub sample application in **Python**](https://github.com/Azure-Samples/pubsub-dapr-python-servicebus)
+
+
+In the above samples, the application uses the following elements:
+1. The `checkout` publisher is an application that is meant to run indefinitely and never scale down to zero, despite never receiving any incoming HTTP traffic.
 1. The Dapr Azure Service Bus pub/sub component.
 1. An `order-processor` subscriber container app picks up messages received via the `orders` topic and processed as they arrive.
 1. The scale rule for Azure Service Bus, which is responsible for scaling up the `order-processor` service and its Dapr sidecar when messages start to arrive to the `orders` topic.
 
 :::image type="content" source="media/dapr-keda-scaling/scaling-dapr-apps-keda.png" alt-text="Diagram showing the scaling architecture of the order processing application.":::
+
+Let's take a look at how to apply the scaling rules in a Dapr application.
 
 ## Publisher container app
 
@@ -47,40 +55,9 @@ resource checkout 'Microsoft.App/containerApps@2022-03-01' = {
 }
 ```
 
-## Dapr Azure Service Bus component
-
-Next, take a look at the Dapr component for connecting to Azure Service Bus via a connection string.
-
-```bicep
-resource daprComponent 'daprComponents' = {
-    name: 'orderpubsub'
-    properties: {
-      componentType: 'pubsub.azure.servicebus'
-      version: 'v1'
-      secrets: [
-        {
-          name: 'sb-root-connectionstring'
-          value: '${listKeys('${sb.id}/AuthorizationRules/RootManageSharedAccessKey', sb.apiVersion).primaryConnectionString};EntityPath=orders'
-        }
-      ]
-      metadata: [
-        {
-          name: 'connectionString'
-          secretRef: 'sb-root-connectionstring'
-        }
-        {
-          name: 'consumerID'
-          value: 'orders'
-        }
-      ]
-      scopes: []
-    }
-  }
-```
-
 ## Subscriber container app
 
-The `order-processor` subscriber includes a custom scale rule on the resource for the type `azure-servicebus`. With this scale rule, KEDA scales out the container app and its Dapr sidecar. This scale behavior allows incoming messages to process as they arrive.
+The `order-processor` subscriber app below includes a custom scale rule that monitors a resource of type `azure-servicebus`. With this rule, the app (and its sidecar) will scale up and down as needed based on the number of pending messages in the Bus.
 
 ```bicep
 resource orders 'Microsoft.App/containerApps@2022-03-01' = {
@@ -136,8 +113,6 @@ resource orders 'Microsoft.App/containerApps@2022-03-01' = {
 }
 ```
 
-Behind the scenes, KEDA scales the `order-processor` in or out to meet demand.
-
 Notice the `messageCount` property on the scaler's configuration:
 
 ```bicep
@@ -165,9 +140,9 @@ Notice the `messageCount` property on the scaler's configuration:
 }
 ```
 
-This property tells KEDA how many messages each instance of the application to process at the same time. In this example, the value is set to `30`, making KEDA scale out the application to match the number of messages waiting in the topic.
+This property tells the scaler how many messages each instance of the application can process at the same time. In this example, the value is set to `30`, indicating that there should be one instance of the application created for each group of 30 messages waiting in the topic.
 
-For example, if five messages are waiting, KEDA scales the app out to five instances. In this scenario, `maxReplicas` is set to `10`, so KEDA scales up the `order-processor` container app to a max of 10 replicas.
+For example, if 150 messages are waiting, KEDA scales the app out to five instances. The `maxReplicas` property is set to `10`, meaning even if the number of messages in the topic was very large, the scaler will never create more than `10` instances of this application. This setting ensures you don't scale up too much and accrue too much cost.
 
 ## Next steps
 
