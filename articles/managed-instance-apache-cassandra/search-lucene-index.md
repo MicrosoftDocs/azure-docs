@@ -72,7 +72,7 @@ Cassandra Lucene Index, derived from Stratio Cassandra, is a plugin for Apache C
         INSERT INTO tweets (id,user,body,time,latitude,longitude) VALUES (3,'quetzal','Click my link, like my stuff!', '2023-04-02T11:21:59.001+0000', 0.0, 0.0);
         INSERT INTO tweets (id,user,body,time,latitude,longitude) VALUES (4,'quetzal','Click my link, like my stuff!', '2023-04-01T11:21:59.001+0000', 40.3930, -3.7328);
         INSERT INTO tweets (id,user,body,time,latitude,longitude) VALUES (5,'quetzal','Click my link, like my stuff!', '2023-04-01T11:21:59.001+0000', 40.3930, -3.7329);
-```
+    ```
 
 ## Control read consistency
 
