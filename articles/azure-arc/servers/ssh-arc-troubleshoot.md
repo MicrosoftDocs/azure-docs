@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot SSH access to Azure Arc-enabled servers issues
 description: This article tells how to troubleshoot and resolve issues with the SSH access to Arc-enabled servers.
-ms.date: 03/21/2022
+ms.date: 04/30/2023
 ms.topic: conceptual
 ---
 
@@ -10,23 +10,11 @@ ms.topic: conceptual
 This article provides information on troubleshooting and resolving issues that may occur while attempting to connect to Azure Arc enabled servers via SSH.
 For general information, see [SSH access to Arc enabled servers overview](./ssh-arc-overview.md).
 
-> [!IMPORTANT]
-> SSH for Arc-enabled servers is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Client-side issues
 These issues are due to errors that occur on the machine that the user is connecting from.
 
 ### Incorrect Azure subscription
-This occurs when the active subscription for Azure CLI isn't the same as the server that is being connected to.
-Possible errors:
- - "Unable to determine the target machine type as Azure VM or Arc Server"
- - "Unable to determine that the target machine is an Arc Server"
- - "Unable to determine that the target machine is an Azure VM"
- - "The resource \<name\> in the resource group \<resource group\> was not found"
-
-Resolution:
- - Run ```az account set -s <AzureSubscriptionId>``` where "AzureSubscriptionId" corresponds to the subscription that contains the target resource.
+If you receive an error "Authorization Error" or a "Resource Not Found" error for the target resource, check that the correct active subscription is setup using: `az account set -s` for Azure CLI or `Set-AzContext -Subscription` for Azure PowerShell.
 
 ### Unable to locate client binaries
 This issue occurs when the client side SSH binaries required to connect cannot be found.
@@ -48,18 +36,17 @@ Possible errors:
 
 Resolution:
  - Ensure that the SSHD service is running on the Arc-enabled server.
- - Ensure that port 22 (or other non-default port) is listed in allowed incoming connections. Run `azcmagent config list` on the Arc-enabled server in an elevated session. The ssh port (22) isn't set by default, so you must add it. This setting is used by other services, like admin center, so just add port 22 without deleting previously added ports.
+ - Ensure that the functionality is enabled on your Arc-enabled server on port 22 (or other non-default port) 
 
-   ```powershell
-   # Set 22 port:
-   azcmagent config list
-   azcmagent config get incomingconnections.ports
-   azcmagent config set incomingconnections.ports 22
-   azcmagent config
-   
-   # Add multiple ports:
-   azcmagent config set incomingconnections.ports 22,6516
-   ```
+#### [Azure CLI](#tab/azure-cli)
+
+```az rest --method put --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 --body '{\"properties\": {\"serviceName\": \"SSH\", \"port\": \"22\"}}'```
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+```Invoke-AzRestMethod -Method put -Path https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 -Payload '{\"properties\": {\"serviceName\": \"SSH\", \"port\": \"22\"}}'```
+
+---
    
 ## Azure permissions issues
 
@@ -76,7 +63,7 @@ Resolution:
  - Ensure that you have Contributor or Owner permissions on the resource you are connecting to.
  - If using Azure AD login, ensure you have the Virtual Machine User Login or the Virtual Machine Administrator Login roles
 
-### HybridConnectiviry RP was not registered
+### HybridConnectivity RP was not registered
 This issue occurs when the HybridConnectivity RP has not been registered for the subscription.
 Error:
  - Request for Azure Relay Information Failed: (NoRegisteredProviderFound) Code: NoRegisteredProviderFound
@@ -88,5 +75,5 @@ Resolution:
 
  ## Disable SSH to Arc-enabled servers
  This functionality can be disabled by completing the following actions:
-  - Remove the SSH port from the allowedincoming ports: ```azcmagent config set incomingconnections.ports <other open ports,...>```
+  - Remove the SSH port and functionality from the Arc-enabled server: ```az rest --method delete --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/SSH?api-version=2023-03-15 --body '{\"properties\": {\"serviceName\": \"SSH\", \"port\": \"22\"}}'```
   - Delete the default connectivity endpoint: ```az rest --method delete --uri https://management.azure.com/subscriptions/<subscription>/resourceGroups/<resourcegroup>/providers/Microsoft.HybridCompute/machines/<arc enabled server name>/providers/Microsoft.HybridConnectivity/endpoints/default?api-version=2021-10-06-preview```
