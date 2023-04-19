@@ -36,7 +36,6 @@ The Network Watcher Agent extension can be configured for the following Linux di
 | CentOS | 6.10 and 7 |
 
 > [!IMPORTANT]
-
 > Keep in consideration Red Hat Enterprise Linux 6.X and  Oracle Linux 6.x is already EOL. 
 > RHEL 6.10 has available [ELS support](https://www.redhat.com/en/resources/els-datasheet), which [will end on 06/2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
 > Oracle Linux version 6.10 has available [ELS support](https://www.oracle.com/a/ocom/docs/linux/oracle-linux-extended-support-ds.pdf), which [will end on 07/2024](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf).
