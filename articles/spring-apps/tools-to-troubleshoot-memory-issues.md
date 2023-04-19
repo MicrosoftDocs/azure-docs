@@ -69,9 +69,9 @@ For JVM memory, there are three metrics: `jvm.memory.used`, `jvm.memory.committe
 
 - `jvm.memory.max` is the maximum amount of JVM memory, not to be confused with the real available amount.
 
-  The value of `jvm.memory.max` can sometimes be confusing because it can be much higher than the available app memory. To clarify, `jvm.memory.max` is the sum of all maximum sizes of heap memory and the former permGen part of [non-heap memory](concepts-for-java-memory-management.md#non-heap-memory), regardless of the real available memory. For example, if an app is set with 1-GB memory in the Azure Spring Apps portal, then the default heap memory size is 0.5-GB. For more information, see the [Default maximum heap size](concepts-for-java-memory-management.md#default-maximum-heap-size) section of [Java memory management](concepts-for-java-memory-management.md).
+  The value of `jvm.memory.max` can sometimes be confusing because it can be much higher than the available app memory. To clarify, `jvm.memory.max` is the sum of all maximum sizes of heap memory and the former permGen part of [non-heap memory](concepts-for-java-memory-management.md#non-heap-memory), regardless of the real available memory. For example, if an app is set with 1 GB memory in the Azure Spring Apps portal, then the default heap memory size is 0.5 GB. For more information, see the [Default maximum heap size](concepts-for-java-memory-management.md#default-maximum-heap-size) section of [Java memory management](concepts-for-java-memory-management.md).
 
-  If the default *compressed class space* size is 1-GB, then the value of `jvm.memory.max` is larger than 1.5-GB regardless of whether the app memory size 1-GB. For more information, see [Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide: Other Considerations](https://docs.oracle.com/javase/9/gctuning/other-considerations.htm) in the Oracle documentation.
+  If the default *compressed class space* size is 1 GB, then the value of `jvm.memory.max` is larger than 1.5 GB regardless of whether the app memory size 1 GB. For more information, see [Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection Tuning Guide: Other Considerations](https://docs.oracle.com/javase/9/gctuning/other-considerations.htm) in the Oracle documentation.
 
 #### jvm.gc.memory.allocated/promoted
 
