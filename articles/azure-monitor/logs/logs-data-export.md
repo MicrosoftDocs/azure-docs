@@ -679,11 +679,26 @@ If the data export rule includes an unsupported table, the configuration will su
 | ACSRoomsIncomingOperations |  |
 | ACSSMSIncomingOperations |  |
 | ADAssessmentRecommendation |  |
+| AddonAzureBackupAlerts |  |
+| AddonAzureBackupJobs |  |
+| AddonAzureBackupPolicy |  |
+| AddonAzureBackupProtectedInstance |  |
+| AddonAzureBackupStorage |  |
 | ADFActivityRun |  |
+| ADFAirflowSchedulerLogs |  |
 | ADFAirflowTaskLogs |  |
+| ADFAirflowWebLogs |  |
 | ADFAirflowWorkerLogs |  |
 | ADFPipelineRun |  |
+| ADFSandboxActivityRun |  |
+| ADFSandboxPipelineRun |  |
 | ADFSSignInLogs |  |
+| ADFSSISIntegrationRuntimeLogs |  |
+| ADFSSISPackageEventMessageContext |  |
+| ADFSSISPackageEventMessages |  |
+| ADFSSISPackageExecutableStatistics |  |
+| ADFSSISPackageExecutionComponentPhases |  |
+| ADFSSISPackageExecutionDataStatistics |  |
 | ADFTriggerRun |  |
 | ADPAudit |  |
 | ADPDiagnostics |  |
@@ -696,7 +711,10 @@ If the data export rule includes an unsupported table, the configuration will su
 | ADTModelsOperation |  |
 | ADTQueryOperation |  |
 | ADXCommand |  |
+| ADXJournal |  |
 | ADXQuery |  |
+| ADXTableDetails |  |
+| ADXTableUsageStatistics |  |
 | AegDataPlaneRequests |  |
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
@@ -714,6 +732,10 @@ If the data export rule includes an unsupported table, the configuration will su
 | AgriFoodWeatherLogs |  |
 | AGSGrafanaLoginEvents |  |
 | AHDSMedTechDiagnosticLogs |  |
+| AirflowDagProcessingLogs |  |
+| AKSAudit |  |
+| AKSAuditAdmin |  |
+| AKSControlPlane |  |
 | Alert | Partial support. Data ingestion for Zabbix alerts isn't supported. |
 | AlertEvidence |  |
 | AlertInfo |  |
@@ -738,6 +760,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | AMSMediaAccountHealth |  |
 | AMSStreamingEndpointRequests |  |
 | ANFFileAccess |  |
+| Anomalies |  |
 | ApiManagementGatewayLogs |  |
 | AppAvailabilityResults |  |
 | AppBrowserTimings |  |
@@ -810,6 +833,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | CDBPartitionKeyRUConsumption |  |
 | CDBPartitionKeyStatistics |  |
 | CDBQueryRuntimeStatistics |  |
+| ChaosStudioExperimentEventLogs |  |
 | CIEventsAudit |  |
 | CIEventsOperational |  |
 | CloudAppEvents |  |
@@ -872,7 +896,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | EmailEvents |  |
 | EmailPostDeliveryEvents |  |
 | EmailUrlInfo |  |
-| Event | Partial support. Data arriving from the Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
+| Event | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | ExchangeAssessmentRecommendation |  |
 | ExchangeOnlineAssessmentRecommendation |  |
 | FailedIngestion |  |
@@ -913,6 +937,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | Heartbeat |  |
 | HuntingBookmark |  |
 | IdentityDirectoryEvents |  |
+| IdentityInfo |  |
 | IdentityLogonEvents |  |
 | IdentityQueryEvents |  |
 | InsightsMetrics | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
@@ -924,6 +949,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | KubeMonAgentEvents |  |
 | KubeNodeInventory |  |
 | KubePodInventory |  |
+| KubePVInventory |  |
 | KubeServices |  |
 | LAQueryLogs |  |
 | LogicAppWorkflowRuntime |  |
@@ -938,6 +964,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | MicrosoftHealthcareApisAuditLogs |  |
 | MicrosoftPurviewInformationProtection |  |
 | NetworkAccessTraffic |  |
+| NetworkMonitoring |  |
 | NSPAccessLogs |  |
 | NTAIpDetails |  |
 | NTANetAnalytics |  |
@@ -952,7 +979,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | OLPSupplyChainEntityOperations |  |
 | OLPSupplyChainEvents |  |
 | Operation | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
-| Perf | Partial support. Only Windows perf data is currently supported. Currently, the Linux perf data is missing in export. |
+| Perf |  |
 | PFTitleAuditLogs |  |
 | PowerBIActivity |  |
 | PowerBIAuditTenant |  |
@@ -991,13 +1018,17 @@ If the data export rule includes an unsupported table, the configuration will su
 | SQLSecurityAuditEvents |  |
 | SqlVulnerabilityAssessmentScanStatus |  |
 | StorageAntimalwareScanResults |  |
+| StorageBlobLogs |  |
 | StorageCacheOperationEvents |  |
 | StorageCacheUpgradeEvents |  |
 | StorageCacheWarningEvents |  |
+| StorageFileLogs |  |
 | StorageMalwareScanningResults |  |
 | StorageMoverCopyLogsFailed |  |
 | StorageMoverCopyLogsTransferred |  |
 | StorageMoverJobRunLogs |  |
+| StorageQueueLogs |  |
+| StorageTableLogs |  |
 | SucceededIngestion |  |
 | SynapseBigDataPoolApplicationsEnded |  |
 | SynapseBuiltinSqlPoolRequestsEnded |  |
@@ -1021,7 +1052,11 @@ If the data export rule includes an unsupported table, the configuration will su
 | TSIIngress |  |
 | UCClient |  |
 | UCDOAggregatedStatus |  |
+| UCClientReadinessStatus |  |
+| UCClientUpdateStatus |  |
+| UCDeviceAlert |  |
 | UCDOStatus |  |
+| UCServiceUpdateStatus |  |
 | Update | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
@@ -1031,10 +1066,10 @@ If the data export rule includes an unsupported table, the configuration will su
 | UserPeerAnalytics |  |
 | VIAudit |  |
 | VIIndexing |  |
+| W3CIISLog | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | WaaSDeploymentStatus |  |
 | WaaSInsiderStatus |  |
 | WaaSUpdateStatus |  |
-| W3CIISLog | Partial support. Data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
 | Watchlist |  |
 | WebPubSubConnectivity |  |
 | WebPubSubHttpRequest |  |

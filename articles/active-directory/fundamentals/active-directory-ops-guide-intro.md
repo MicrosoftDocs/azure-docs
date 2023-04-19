@@ -25,7 +25,7 @@ This operations reference guide describes the checks and actions you should take
 Some recommendations here might not be applicable to all customers’ environment, for example, AD FS best practices might not apply if your organization uses password hash sync.
 
 > [!NOTE]
-> These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their identity practices as Microsoft products and services evolve over time. Recommendations can change when organizations subscribe to a different Azure AD Premium license. For example, Azure AD Premium P2 will include more governance recommendations.
+> These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their identity practices as Microsoft products and services evolve over time. Recommendations can change when organizations subscribe to a different Azure AD Premium license.
 
 ## Stakeholders
 

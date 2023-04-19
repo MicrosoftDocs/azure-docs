@@ -39,13 +39,13 @@ Once the cluster is deployed run the following `kubectl` command to download and
 For Linux:
 
   ```
-  kubectl apply -f https://github.com/Azure/azure-container-networking/blob/master/npm/azure-npm.yaml
+  kubectl apply -f https://raw.githubusercontent.com/Azure/azure-container-networking/master/npm/azure-npm.yaml
   ```
 
 For Windows:
 
  ```
-  kubectl apply -f https://github.com/Azure/azure-container-networking/blob/master/npm/examples/windows/azure-npm.yaml
+  kubectl apply -f https://raw.githubusercontent.com/Azure/azure-container-networking/master/npm/examples/windows/azure-npm.yaml
   ```
 
 The solution is also open source and the code is available on the [Azure Container Networking repository](https://github.com/Azure/azure-container-networking/tree/master/npm).
