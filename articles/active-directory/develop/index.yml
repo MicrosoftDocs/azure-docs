@@ -188,7 +188,7 @@ tools:
     url: https://github.com/AzureAD/microsoft-authentication-library-for-python
     imageSrc: /media/logos/logo_python.svg
   - title: React
-    url: /@azure/msal-react package
+    url: /javascript/api/@azure/msal-react
     imageSrc: ./media/hub/react.svg
 ## BAND 4 - TOOLS END #######################################################################################################################################
 
