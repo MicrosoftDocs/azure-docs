@@ -75,7 +75,7 @@ To create a hierarchy of IoT Edge devices, you need:
 
 IoT Edge devices make up the layers of your hierarchy. This tutorial creates a hierarchy of two IoT Edge devices: the *top layer device* and the *lower layer device*. You can create more downstream devices as needed.
 
-To create and configure your hierarchy of IoT Edge devices, you'll use the [az iot edge devices create](/cli/azure/iot/edge/devices?view=azure-cli-latest#az-iot-edge-devices-create) Azure CLI command. The command simplifies the configuration of the hierarchy by automating and condensing several steps:
+To create and configure your hierarchy of IoT Edge devices, you'll use the [az iot edge devices create](/cli/azure/iot/edge/devices#az-iot-edge-devices-create) Azure CLI command. The command simplifies the configuration of the hierarchy by automating and condensing several steps:
 
    * Creates devices in your IoT Hub
    * Sets the parent-child relationships to authorize communication between devices
@@ -244,7 +244,7 @@ You'll create a group of nested edge devices with containing a parent device wit
 
    For more information on how to create a lower layer deployment manifest, see [Connect Azure IoT Edge devices to create a hierarchy](how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-lower-layer-devices).
 
-1. In the [Azure Cloud Shell](https://shell.azure.com/), use the [az iot edge devices create](/cli/azure/iot/edge/devices?view=azure-cli-latest#az-iot-edge-devices-create) Azure CLI command to create devices in IoT Hub and configuration bundles for each device in your hierarchy. Replace the following placeholders with the appropriate values:
+1. In the [Azure Cloud Shell](https://shell.azure.com/), use the [az iot edge devices create](/cli/azure/iot/edge/devices#az-iot-edge-devices-create) Azure CLI command to create devices in IoT Hub and configuration bundles for each device in your hierarchy. Replace the following placeholders with the appropriate values:
 
    | Placeholder | Description |
    |-------------|-------------|
