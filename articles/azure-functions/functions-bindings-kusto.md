@@ -3,9 +3,9 @@ title: Kusto bindings for Azure Functions overview (preview)
 description: Understand how to use Kusto bindings in Azure Functions.
 author: ramacg
 ms.topic: reference
-ms.date: 03/27/2023
-ms.author: ramacg
-ms.reviewer: 
+ms.date: 04/19/2023
+ms.author: shsagir
+ms.reviewer: ramacg
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

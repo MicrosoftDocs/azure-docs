@@ -1,18 +1,18 @@
 ---
-title: Connect a function app to Kusto with managed identity - Preview
-description: Use mnagaed identity in Kusto bindings
+title: Connect an Azure Functions app to Azure Data Explorer with managed identity (Preview)
+description: Use managed identity in Kusto bindings
 author: ramacg
 ms.topic: reference
-ms.date: 03/27/2023
-ms.author: ramacg
-ms.reviewer: 
+ms.date: 04/19/2023
+ms.author: shsagir
+ms.reviewer: ramacg
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
-# Tutorial: Connect a function app to Kusto with managed identity
+# Tutorial: Connect an Azure Functions app to Azure Data Explorer with managed identity (Preview)
 
-Azure Functions provides a [managed identity](../active-directory/managed-identities-azure-resources/overview.md), that can be used to access Kusto other Azure services. Managed identities makes it easy to centrally manage authentication without having to worry about storing Keys/Secrets in the code.
+Azure Functions provides a [managed identity](../active-directory/managed-identities-azure-resources/overview.md), that can be used to access Kusto or other Azure services. Managed identities make it easy to centrally manage authentication without having to worry about storing Keys/Secrets in the code.
 
-This document provides an overview of how to connect with Kusto using a user managed user identity. The following are the high level steps needed for setting up access and allowing bindings to ingest or query data from Kusto
+This document provides an overview of how to connect with Kusto using a user managed identity. The following are the high level steps needed for setting up access and allowing bindings to ingest or query data from Kusto.
 
 > [!div class="checklist"]
 >
@@ -37,7 +37,7 @@ The permissions to the database can be granted as explained [here](https://learn
 
 ## Enable user managed identity on Azure Function
 
-The created managed user identity can be attached as a user managed identity to the function
+The created managed user identity can be attached as a user managed identity to the Azure function.
 
 ![Attach a managed identity](./media/functions-identity-access-kusto-with-managed-identity/attach-managed-identity.png)
 

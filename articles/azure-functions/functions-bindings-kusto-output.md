@@ -3,9 +3,9 @@ title: Kusto output bindings for Azure Functions - Preview
 description: Understand usage of Kusto output bindings for Azure Functions (Ingest data to Kusto)
 author: ramacg
 ms.topic: reference
-ms.date: 03/27/2023
-ms.author: ramacg
-ms.reviewer: 
+ms.date: 04/19/2023
+ms.author: shsagir
+ms.reviewer: ramacg
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ## **Introduction**
 
-This document explains the usage of the output bindings that are suppported on  Azure functions for Kusto. Output bindings are used to ingest data to Kusto.
+This document explains the usage of the output bindings that are supported on  Azure functions for Kusto. Output bindings are used to ingest data to Kusto.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-kusto.md).
 
@@ -361,7 +361,7 @@ public class Product {
 
 ### HTTP trigger, write a record to a table
 
-The following example shows a Kusto output binding in a Java function that adds a product record to a table, using data provided in an HTTP POST request as a JSON body.  The function takes an additional dependency on the [com.fasterxml.jackson.core](https://github.com/FasterXML/jackson) library to parse the JSON body.
+The following example shows a Kusto output binding in a Java function that adds a product record to a table, using data provided in an HTTP POST request as a JSON body.  The function takes an another dependency on the [com.fasterxml.jackson.core](https://github.com/FasterXML/jackson) library to parse the JSON body.
 
 ```xml
 <dependency>
@@ -417,7 +417,7 @@ public class AddProduct {
 
 ### HTTP trigger, write to two tables
 
-The following example shows a Kusto output binding in a Java function that adds records to a database in two different tables (`Product` and `ProductChangeLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.  The function takes an additional dependency on the [com.fasterxml.jackson.core](https://github.com/FasterXML/jackson) library to parse the JSON body.
+The following example shows a Kusto output binding in a Java function that adds records to a database in two different tables (`Product` and `ProductChangeLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.  The function takes an another dependency on the [com.fasterxml.jackson.core](https://github.com/FasterXML/jackson) library to parse the JSON body.
 
 ```xml
 <dependency>
@@ -525,7 +525,7 @@ The examples refer to the tables `Products` and `ProductsChangeLog` (defined ear
 
 The following example shows a Kusto output binding in a function.json file and a JavaScript function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
 
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -819,11 +819,11 @@ The [C# library](functions-dotnet-class-library.md) uses the [KustoAttribute](ht
 | Attribute property |Description|
 |---------|---------|
 | **Database** | Required. The database against which the query has to be executed.  |
-| **Connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to lookup on the variable _**KustoConnectionString**_, at runtime this variable will be looked up against the environment.Documentation on connection string can be found at [Kusto connection strings](https://learn.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) e.g.:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` .|
+| **Connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable _**KustoConnectionString**_, at runtime this variable will be looked up against the environment.Documentation on connection string can be found at [Kusto connection strings](https://learn.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) for example:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` .|
 | **TableName** | Required. The table to ingest the data into.|
 | **MappingRef** | Optional. attribute to pass a [mapping ref](https://learn.microsoft.com/azure/data-explorer/kusto/management/create-ingestion-mapping-command) that is already defined in the Kusto cluster. |
 | **ManagedServiceIdentity** | Optional. A managed identity can be used to connect to Kusto. To use a System managed identity, use "system", any other identity names are interpreted as user managed identity |
-| **DataFormat** | Optional.The default dataformat is `multijson/json`. This can be set to _**text**_ formats supported in the datasource format [enumeration](https://learn.microsoft.com/azure/data-explorer/kusto/api/netfx/kusto-ingest-client-reference#enum-datasourceformat). Samples are validated and provided for csv and JSON formats. |
+| **DataFormat** | Optional. The default data format is `multijson/json`. This can be set to _**text**_ formats supported in the datasource format [enumeration](https://learn.microsoft.com/azure/data-explorer/kusto/api/netfx/kusto-ingest-client-reference#enum-datasourceformat). Samples are validated and provided for csv and JSON formats. |
 
 ::: zone-end  
 
@@ -837,10 +837,10 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 |---------|---------|
 | **name** | Required. The name of the variable that represents the query results in function code. |
 | **database** | Required. The database against which the query has to be executed. |
-| **connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to lookup on the variable _**KustoConnectionString**_, at runtime this variable will be looked up against the environment.Documentation on connection string can be found at [Kusto connection strings](https://learn.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) e.g.:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` |
+| **connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable _**KustoConnectionString**_, at runtime this variable will be looked up against the environment.Documentation on connection string can be found at [Kusto connection strings](https://learn.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) for example:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` |
 | **tableName** | Required. The table to ingest the data into.|
 | **mappingRef** | Optional. attribute to pass a [mapping ref](https://learn.microsoft.com/azure/data-explorer/kusto/management/create-ingestion-mapping-command) that is already defined in the Kusto cluster. |
-| **dataFormat** | Optional.The default dataformat is `multijson/json`. This can be set to _**text**_ formats supported in the datasource format [enumeration](https://learn.microsoft.com/azure/data-explorer/kusto/api/netfx/kusto-ingest-client-reference#enum-datasourceformat). Samples are validated and provided for csv and JSON formats. |
+| **dataFormat** | Optional. The default data format is `multijson/json`. This can be set to _**text**_ formats supported in the datasource format [enumeration](https://learn.microsoft.com/azure/data-explorer/kusto/api/netfx/kusto-ingest-client-reference#enum-datasourceformat). Samples are validated and provided for csv and JSON formats. |
 | **managedServiceIdentity** | A managed identity can be used to connect to Kusto. To use a System managed identity, use "system", any other identity names are interpreted as user managed identity|
 
 ::: zone-end
@@ -857,10 +857,10 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `out`. |
 |**name** |  Required. The name of the variable that represents the query results in function code. |
 | **database** | Required. The database against which the query has to be executed. |
-| **connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to lookup on the variable _**KustoConnectionString**_, at runtime this variable will be looked up against the environment.Documentation on connection string can be found at [Kusto connection strings](https://learn.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) e.g.:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` |
+| **connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable _**KustoConnectionString**_, at runtime this variable will be looked up against the environment.Documentation on connection string can be found at [Kusto connection strings](https://learn.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) for example:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` |
 | **tableName** | Required. The table to ingest the data into.|
 | **mappingRef** | Optional. attribute to pass a [mapping ref](https://learn.microsoft.com/azure/data-explorer/kusto/management/create-ingestion-mapping-command) that is already defined in the Kusto cluster. |
-| **dataFormat** | Optional.The default dataformat is `multijson/json`. This can be set to _**text**_ formats supported in the datasource format [enumeration](https://learn.microsoft.com/azure/data-explorer/kusto/api/netfx/kusto-ingest-client-reference#enum-datasourceformat). Samples are validated and provided for csv and JSON formats. |
+| **dataFormat** | Optional. The default data format is `multijson/json`. This can be set to _**text**_ formats supported in the datasource format [enumeration](https://learn.microsoft.com/azure/data-explorer/kusto/api/netfx/kusto-ingest-client-reference#enum-datasourceformat). Samples are validated and provided for csv and JSON formats. |
 | **managedServiceIdentity** | A managed identity can be used to connect to Kusto. To use a System managed identity, use "system", any other identity names are interpreted as user managed identity|
 ::: zone-end  
 
@@ -870,7 +870,7 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python,programming-language-java"
 
-The attribute's constructor takes the Database and the attributes TableName,MappingRef,DataFormat and the Connection setting name. The KQLCommand can be a KQL statement or a KQLFunction. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [Kusto connection strings](https://learn.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) e.g.:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` . Queries executed by the input binding are parameterized and the values provided in the KQLParameters are used at runtime.
+The attribute's constructor takes the Database and the attributes TableName,MappingRef,DataFormat and the Connection setting name. The KQLCommand can be a KQL statement or a KQLFunction. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [Kusto connection strings](https://learn.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) for example:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` . Queries executed by the input binding are parameterized and the values provided in the KQLParameters are used at runtime.
 
 ::: zone-end
 
