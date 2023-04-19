@@ -41,9 +41,9 @@ In the following table, select your role to see how to get help for urgent issue
 <!-- ----------------------------------------------------------------------------------------------------- -->
 ## Support for administrators - Urgent issues
 
-- **Internal troubleshooting** </br>
+#### 1. Internal troubleshooting
 Always use your internal troubleshooting processes before contacting support. As a dev infrastructure admin, you have access to all Dev Box resources through the Azure portal.
-- **Contact support** </br>
+#### 2. Contact support
 If you can't resolve the issue, open a support request to contact Azure support: 
 
    **[Contact Microsoft Azure Support - Microsoft Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4).**
@@ -54,22 +54,23 @@ If you can't resolve the issue, open a support request to contact Azure support:
 <!-- ----------------------------------------------------------------------------------------------------- -->
 ## Support for dev team leads - Urgent issues
 
-- **Internal troubleshooting** </br>
+#### 1. Internal troubleshooting
 Always use your internal troubleshooting processes before escalating an issue.
 As a DevCenter Project Admin, you can:
     - View the network connections attached to the dev center.
     - View the dev box definitions attached to the dev center.
     - Create, view, update, and delete dev box pools in the project. 
-- **Contact your dev infrastructure admin** </br>
+
+#### 2. Contact your dev infrastructure admin
 If you can't resolve the issue, escalate it to your dev infrastructure admin.
 
 <!-- ----------------------------------------------------------------------------------------------------- -->
 ## Support for developers - Urgent issues
 
-- **Internal troubleshooting** </br>
+#### 1. Internal troubleshooting
 Always use your internal troubleshooting processes before escalating an issue.
 As a developer, you can troubleshoot your dev boxes through the developer portal. You can create a dev box, start, stop, and delete your dev boxes. 
-- **Contact your dev team lead** </br>
+#### 2. Contact your dev team lead
 If you can't resolve the issue, escalate it to your dev team lead (DevCenter Project Admin).
 
 
@@ -78,10 +79,10 @@ If you can't resolve the issue, escalate it to your dev team lead (DevCenter Pro
 
 For issues that aren't urgent, get involved with the Microsoft Developer Community. You can discover how others are solving their issues, discuss approaches to working with Dev Box, and suggest new features and enhancements for the product.
 
-- **Find similar issues**
+#### Find similar issues
 The Microsoft Developer Community can provide useful information on non-urgent issues. Start by exploring existing feedback for the issue you’re experiencing: [Search Microsoft Developer Community](https://developercommunity.microsoft.com/devbox).
 
-- **Report an issue to the product team**
+#### Report an issue to the product team
 If you don’t see your issue in the discussion forum, you can report it to the product team through the Microsoft Developer Community portal: [Report to Microsoft Developer Community](https://developercommunity.microsoft.com/devbox/report).
 
 
