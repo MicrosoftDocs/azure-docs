@@ -177,6 +177,7 @@ If you'll be using a non-admin account to run your WEM scans, this procedure is 
 
 For more information, see:
 
+- [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
 - [View your device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 - [View your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Configure active monitoring for OT networks](configure-active-monitoring.md)

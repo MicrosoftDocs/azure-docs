@@ -156,11 +156,11 @@ third-party platform in the content artifact.
 <!-- Reference link definitions -->
 [01]: ./overview.md
 [02]: /powershell/dsc/overview
-[03]: ./machine-configuration-create-setup.md
+[03]: ./how-to-set-up-authoring-environment.md
 [04]: /powershell/dsc/getting-started/wingettingstarted#define-a-configuration-and-generate-the-configuration-document
 [05]: /powershell/dsc/resources/authoringResourceClass
 [06]: https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22
-[07]: ./machine-configuration-create-test.md
-[08]: ./machine-configuration-create-publish.md
-[09]: ./machine-configuration-create-definition.md
+[07]: ./how-to-test-package.md
+[08]: ./how-to-publish-package.md
+[09]: ./how-to-create-policy-definition.md
 [10]: ../policy/assign-policy-portal.md

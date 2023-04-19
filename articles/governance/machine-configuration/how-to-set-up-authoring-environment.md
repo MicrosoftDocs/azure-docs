@@ -72,7 +72,7 @@ Get-Command -Module 'GuestConfiguration'
 [01]: https://github.com/PowerShell/PowerShell/releases/tag/v7.1.3
 [02]: https://github.com/PowerShell/PowerShell/releases/tag/v7.2.4
 [03]: /powershell/azure/install-az-ps
-[04]: ./machine-configuration-create.md
-[05]: ./machine-configuration-create-test.md
-[06]: ./machine-configuration-create-definition.md
+[04]: ./how-to-create-package.md
+[05]: ./how-to-test-package.md
+[06]: ./how-to-create-policy-definition.md
 [07]: ../policy/assign-policy-portal.md
