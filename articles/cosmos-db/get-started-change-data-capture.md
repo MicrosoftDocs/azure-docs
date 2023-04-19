@@ -110,7 +110,7 @@ Now create and configure a source to flow data from the Azure Cosmos DB account'
 
 ### Transactional store TTLs and intermediate updates
   
-If you have to identify the TTL deleted records in your sink, you have check the `capture intermediate updates` and the Capture Transactional store TTLs` options. This will populate the `__usr_opType` field in sink with the following values:
+If you have to identify the TTL deleted records in your sink, you have check both `Capture intermediate updates` and `Capture Transactional store TTLs` options. This will populate the `__usr_opType` field in sink with the following values:
 
 | Value | Description |
 | --- | --- |
