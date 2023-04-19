@@ -35,7 +35,7 @@ sections:
         answer: |
           You can identify whether an account is restored and gets the restore details by using the [Azure portal](restore-account-continuous-backup.md#get-the-restore-details-portal), [Azure PowerShell](restore-account-continuous-backup.md#get-the-restore-details-powershell), and the [Azure CLI](restore-account-continuous-backup.md#get-the-restore-details-cli).          
       - question: |
-          What is the use of instanceId in the account definition?
+          What is the use of `instanceId` in the account definition?
         answer: |
           [!INCLUDE[](includes/continuous-backup-restore-frequently-asked-questions-instanceid.md)]         
       - question: |
