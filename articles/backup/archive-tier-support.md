@@ -86,7 +86,7 @@ Azure Backup now supports archive tiering for eligible recovery points in **Stop
 
 ## Archive tier pricing
 
-You can view the Archive tier pricing from our [pricing page](azure-backup-pricing.md).
+You can view the Archive tier pricing from our [pricing page](https://azure.microsoft.com/pricing/details/backup/).
 
 ## Frequently asked questions
 
