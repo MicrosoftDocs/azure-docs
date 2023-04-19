@@ -39,7 +39,7 @@ Other than the scenarios previously described, no other data overlaid on the map
 > - `https://us.atlas.microsoft.com`
 > - `https://eu.atlas.microsoft.com`
 
-For more information about privacy and terms of use related to the Azure Maps Power BI visual, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
+For more information about privacy and terms of use related to the Azure Maps Power BI visual, see [Microsoft Azure Legal Information].
 
 ## Use the Azure Maps Power BI visual
 
@@ -97,7 +97,7 @@ The following data buckets are available in the **Fields** pane of the Azure Map
 
 The **Map settings** section of the **Format** pane provide options for customizing how the map is displayed and reacts to updates.
 
-The **Map settings** section is divided into three subsections: [style](#style), [view](#view) and [controls](#controls).
+The **Map settings** section is divided into three subsections: [style], [view] and [controls].
 
 ### Style
 
@@ -105,7 +105,7 @@ The following settings are available in the **Style** section:
 
 | Setting     | Description  |
 |-------------|--------------|
-| Style       | The style of the map. The dropdown list contains [greyscale light][gs-light], [greyscale dark][gs-dark], [night][night], [road shaded relief][RSR], [satellite][satellite] and [satellite road labels][satellite RL]. |
+| Style       | The style of the map. The dropdown list contains [greyscale light], [greyscale dark], [night], [road shaded relief], [satellite] and [satellite road labels]. |
 | Show labels | A toggle switch that enables you to either show or hide map labels. For more information, see list item number five in the previous section. |
 
 ### View
@@ -129,7 +129,7 @@ The following settings are available in the **Controls** section:
 |--------------|--------------|
 | World wrap   | Allows the user to pan the map horizontally infinitely. |
 | Style picker | Adds a button to the map that allows the report readers to change the style of the map. |
-| Navigation   | Adds buttons to the map as another method to allow the report readers to zoom, rotate, and change the pitch of the map. See this document on [Navigating the map](map-accessibility.md#navigating-the-map) for details on all the different ways users can navigate the map. |
+| Navigation   | Adds buttons to the map as another method to allow the report readers to zoom, rotate, and change the pitch of the map. See this document on [Navigating the map] for details on all the different ways users can navigate the map. |
 | Selection    | Adds a button that allows the user to choose between different modes to select data on the map; circle, rectangle, polygon (lasso), or travel time or distance. To complete drawing a polygon; select the first point, or double-click on the last point on the map, or press the `c` key. |
 | Geocoding culture | The default, **Auto**, refers to the Western Address System. The only other option, **JA**, refers to the Japanese address system. In the western address system, you begin with the address details and then proceed to the larger categories such as city, state and postal code. In the Japanese address system, the larger categories are listed first and finish with the address details. |
 
@@ -154,11 +154,11 @@ At this time, Azure Maps is currently available in all countries and regions exc
 - South Korea
 - Azure Government (GCC + GCC High)
 
-For coverage details for the different Azure Maps services that power this visual, see the [Geographic coverage information](geographic-coverage.md) document.
+For coverage details for the different Azure Maps services that power this visual, see [Geographic coverage information].
 
 **Which web browsers are supported by the Azure Maps Power BI visual?**
 
-See this documentation for information on [Azure Maps Web SDK supported browsers](supported-browsers.md).
+For a list of supported browsers, see [Azure Maps Web SDK supported browsers].
 
 **How many data points can I visualize?**
 
@@ -173,22 +173,33 @@ Yes, addresses and other location strings can be used in the Azure Maps Power BI
 Learn more about the Azure Maps Power BI visual:
 
 > [!div class="nextstepaction"]
-> [Understanding layers in the Azure Maps Power BI visual](power-bi-visual-understanding-layers.md)
+> [Understanding layers in the Azure Maps Power BI visual]
 
 > [!div class="nextstepaction"]
-> [Manage the Azure Maps Power BI visual within your organization](power-bi-visual-manage-access.md)
+> [Manage the Azure Maps Power BI visual within your organization]
 
 Customize the visual:
 
 > [!div class="nextstepaction"]
-> [Tips and tricks for color formatting in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Tips and tricks for color formatting in Power BI]
 
 > [!div class="nextstepaction"]
-> [Customize visualization titles, backgrounds, and legends](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Customize visualization titles, backgrounds, and legends]
 
-[gs-light]: supported-map-styles.md#grayscale_light
-[gs-dark]: supported-map-styles.md#grayscale_dark
+[Azure Maps Web SDK supported browsers]: supported-browsers.md
+[controls]: #controls
+[Customize visualization titles, backgrounds, and legends]: /power-bi/visuals/power-bi-visualization-customize-title-background-and-legend
+[Geographic coverage information]: geographic-coverage.md
+[greyscale dark]: supported-map-styles.md#grayscale_dark
+[greyscale light]: supported-map-styles.md#grayscale_light
+[Manage the Azure Maps Power BI visual within your organization]: power-bi-visual-manage-access.md
+[Microsoft Azure Legal Information]: https://azure.microsoft.com/support/legal/
+[Navigating the map]: map-accessibility.md#navigating-the-map
 [night]:supported-map-styles.md#night
-[RSR]: supported-map-styles.md#road_shaded_relief
+[road shaded relief]: supported-map-styles.md#road_shaded_relief
+[satellite road labels]: supported-map-styles.md#satellite_road_labels
 [satellite]: supported-map-styles.md#satellite
-[satellite RL]: supported-map-styles.md#satellite_road_labels
+[style]: #style
+[Tips and tricks for color formatting in Power BI]: /power-bi/visuals/service-tips-and-tricks-for-color-formatting
+[Understanding layers in the Azure Maps Power BI visual]: power-bi-visual-understanding-layers.md
+[view]: #view
