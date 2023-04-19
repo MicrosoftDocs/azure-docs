@@ -13,6 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
+
 # Contents
 
 [1 Developing [1](#developing)](#developing)
@@ -130,6 +131,38 @@ export interface CallSurveyFeature extends CallFeature {
     submitSurvey(survey?: CallSurvey): void;
 
 }
+
+\`\`\`javascript
+
+call.feature(Features.CallSurvey).submitSurvey({
+
+                overallRating: { score: 3 }
+
+            }).then(() =&gt; console.log('survey submitted
+successfully'))
+
+\`\`\`
+
+\`\`\`typescript
+
+    const call: Call = callAgent.startCall(\['{target participant /
+callee MRI / number}'\]);
+
+call.on('stateChanged', callStateChangedHandler);
+
+const callStateChangedHandler = () =&gt; {
+
+    if (call.state === 'Disconnected') {
+
+        console.log('call end reason', call.callEndReason);
+
+            // TODO: Show the UI to collect the survey data
+
+       }
+
+};
+
+\`\`\`
 
 Code
 

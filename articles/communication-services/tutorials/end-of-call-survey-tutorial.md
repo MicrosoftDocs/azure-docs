@@ -35,13 +35,11 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 -	[Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 
 -	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
--	An active Log Analytics Workspace, also known as Azure Monitor Logs, to analyze your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
+-	An active Log Analytics Workspace, also known as Azure Monitor Logs, to ensure you do not lose your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
 
-
-## To store survey results
-
+<!-- need to update the version after beta release -->
 > [!IMPORTANT]
-> End of Call Survey is available starting on the version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Make sure to use that version or later when trying the instructions.
+> End of Call Survey is available starting on the version [1.13-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.13-beta.1) of the Calling SDK. Make sure to use that version or later when trying the instructions.
 
 ### Sample of API usage
 
