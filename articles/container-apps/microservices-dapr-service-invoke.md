@@ -705,4 +705,5 @@ azd down
 ## Next steps
 
 - Learn more about [deploying Dapr applications to Azure Container Apps](./microservices-dapr.md).
+- [Enable token authentication for Dapr requests.](./dapr-auth-token.md)
 - Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible).
