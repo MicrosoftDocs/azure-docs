@@ -28,38 +28,19 @@ Below is a sample Prometheus scrape config file:
 global:
   scrape_interval: 60s
 scrape_configs:
-- job_name: node
-  scrape_interval: 30s
-  scheme: http
-  kubernetes_sd_configs:
-    - role: endpoints
-      namespaces:
-        names:
-        - node-exporter
-  relabel_configs:
-    - source_labels: [__meta_kubernetes_endpoints_name]
-      action: keep
-      regex: "dev-cluster-node-exporter-release-prometheus-node-exporter"
-    - source_labels: [__metrics_path__]
-      regex: (.*)
-      target_label: metrics_path
-    - source_labels: [__meta_kubernetes_endpoint_node_name]
-      regex: (.*)
-      target_label: instance
-
-- job_name: kube-state-metrics
+- job_name: my_static_config
   scrape_interval: 30s
   static_configs:
-    - targets: ['dev-cluster-kube-state-metrics-release.kube-state-metrics.svc.cluster.local:8080']
+    - targets: ['my-static-service.svc.cluster.local:1234']
 
-- job_name: prometheus_ref_app
+- job_name: prometheus_example_app
   scheme: http
   kubernetes_sd_configs:
     - role: service
   relabel_configs:
     - source_labels: [__meta_kubernetes_service_name]
       action: keep
-      regex: "prometheus-reference-service"
+      regex: "prometheus-example-service"
 ```
 
 ## Validate the scrape config file
