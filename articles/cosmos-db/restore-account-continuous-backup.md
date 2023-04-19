@@ -151,7 +151,7 @@ Restore-AzCosmosDBAccount `
 If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass Disabled to the `PublicNetworkAccess` option to disable public network access for restored account.
 
  [NOTE]
-> For restoring with public network access disabled, you'll need to install the preview of powershell module of CosmosDB by executing `Install-Module -Name Az.CosmosDB -AllowPrerelease`. You would also require version x of the Powershell.
+> For restoring with public network access disabled, you'll need to install the preview of powershell module of CosmosDB by executing `Install-Module -Name Az.CosmosDB -AllowPrerelease`. You would also require version 5.1 of the Powershell.
 > 
 **Example 2:** Restoring specific collections and databases. This example restores the collections *MyCol1*, *MyCol2* from *MyDB1* and the entire database *MyDB2*, which, includes all the containers under it.
 
@@ -424,7 +424,7 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 If `public-network-access` is not set, restored account is accessible from public network, please ensure to pass Disabled to the `public-network-access` option to disable public network access for restored account.
 
 > [NOTE]
-> For restoring with public network access disabled, you'll need to install the preview of powershell module of CosmosDB by executing `az extension update --name cosmosdb-preview `. You would also require version x of the CLI.
+> For restoring with public network access disabled, you'll need to install the cosmosdb-preview 0.23.0 of CLI extension   by executing `az extension update --name cosmosdb-preview `. You would also require version 2.17.1 of the CLI.
 
 
 #### Create a new Azure Cosmos DB account by restoring only selected databases and containers from an existing database account
