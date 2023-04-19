@@ -40,27 +40,26 @@ To simplify the getting started experience with Azure Machine Learning, serverle
 
 Configuration settings for managed training with serverless compute includes:
 
-* Managed VNET - @@ what do we have to configure here?
+* Managed VNET - @@ what do we have to configure here? Specifically what's going out for BUILD public preview. what about nopublicIP?  
 * Workspace primary UAI+other UAIs @@ What does this mean?
 
-### Identity support and credential pass thru
+### Identity support and credential pass through
 
-* **User Identity Credential pass thru** : Serverless compute fully supports credential passthru. The user token of the user who is submitting the job is used for storage access. User credential pass thru is the default.
-    
+* **User credential pass through** : Serverless compute fully supports credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Azure Active directory login. User credential pass through is the default.
+
     ```yaml
     identity:
       type: user_identity
     ```
 
-* **User Assigned Managed Identity (UAI)** : Workspace primary user assigned managed identity can be used by serverless job run for storage access for training data.
+* **User-assigned managed identity** : Use this when your user account does not have access to the data or resources your job needs.  When you have a workspace created with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), specify the type as `managed`. 
 
     ```yaml
     identity:
       type: managed
     ```
 
-> [!NOTE]
-> The managed identity operator role includes the action *Microsoft.ManagedIdentity/userAssignedIdentities/assign/action* which is needed to assign UAI to the workspace.
+@@ IS THIS THE SAME AS --identity-type user_assigned??? if so why different names?  ALSO, does it only use this if the workspace is already configured with it?  I don't see how to specify the identity otherwise...
 
 ## Configure properties
 
