@@ -13,15 +13,68 @@ ms.topic: how-to
 ms.date: 04/30/2023
 ms.custom: developer
 
-#Customer intent: As a dev, I want to learn about how to Sign in users and call an API in your own Node.js web application by using Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, I want to learn about how to Sign in users and call an API in your own Node.js web application by using Azure Active Directory (Azure AD) for customers tenant.
 ---
 
 # Sign in users and call an API in your own Node.js web application by using Microsoft Entra
 
-ASP.NET API is a pre-requisite among others.
+In this article, you learn how to create your Node.js web app that calls your web API. You build the web API by using .NET. The web API needs to be secured by Microsoft Entra. To authorize access to a the web API, you serve requests that include a valid access token that's issued by Active Directory (Azure AD) for customers. 
 
+To simplify adding authentication and authorization, the Node.js client web app and .NET web API uses [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) and [Microsoft Identity Web](/articles/active-directory/develop/microsoft-identity-web.md) respectively.
+
+We've broken down this article into five separate articles so it's easy for you to follow:
+
+[Prepare your Azure AD for customers tenant](how-to-web-app-node-sign-in-call-api-prepare-tenant.md) tenant guides you how to register your API, client web app and configure user flows in the Microsoft Entra admin center.
+
+[Prepare your web application and API](how-to-web-app-node-sign-in-call-api-prepare-app.md) guides you how to set up your Node.js client app and web API.
+
+[Add sign-in and sign-out](how-to-web-app-node-sign-in-call-api-sign-in-out.md) guides you how to add authentication users to your client web application by using.
+
+[Acquire an access token](how-to-web-app-node-sign-in-call-api-acquire-access-token.md) guides you how to request for an access token with the required permissions/scopes. 
+
+[Call API](how-to-web-app-node-sign-in-call-api-call-api.md) guides you how to make an HTTP call to the web API by using the access tokes as a bearer token.
 
 ## Overview
 
+Token-based authentication ensures that requests to a web API are accompanied by a valid access token.
+
+The client web app completes the following events:
+
+- It authenticates users with Azure AD for customers.
+
+- It acquires an access token with the required permissions (scopes) for the web API endpoint.
+
+- It passes the access token as a bearer token in the authentication header of the HTTP request. It uses the format:
+
+    ```http
+    Authorization: Bearer <token>
+    ```
+The web API completes the following events:
+
+- It reads the bearer token from the authorization header of the HTTP request.
+
+- It validates the token.
+
+- It validates the permissions (scopes) in the token.
+
+- If the access toke is valid, the endpoint responds to the HTTP request, otherwise, it responds with a `401 Unauthorized` HTTP error. 
+
 ## Prerequisites
 
+- [Node.js](https://nodejs.org).
+
+- [.NET 7.0](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install) or later. 
+
+- [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
+
+- Azure AD for customers tenant. If you don't already have one, [sign up for free trial](https://aka.ms/ciam-hub-free-trial).
+
+
+If you want to run a sample Node.js web application that call a sample web API to get a feel of how things work, complete the steps in [Sign in users and call an API in sample Node.js web application by using Microsoft Entra](how-to-web-app-node-sample-sign-in-call-api.md).
+
+## Next steps
+
+Next, learn how to prepare your Azure AD for customers tenant.
+
+> [!div class="nextstepaction"]
+> [Prepare your Azure AD for customers tenant >](how-to-web-app-node-sign-in-call-api-prepare-tenant.md)

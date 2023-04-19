@@ -40,7 +40,7 @@ In this article, you’ll complete the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for free trial](http://developer.microsoft.com/identity/customers)
+- Azure AD for customers tenant. If you don't already have one, [sign up for free trial](https://aka.ms/ciam-hub-free-trial).
 
 ## Register a web application and a web API
 
