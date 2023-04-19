@@ -239,9 +239,9 @@ resource "azurerm_virtual_machine_configuration_policy_assignment" "AzureWindows
 - [Assign your custom policy definition][16] using Azure portal.
 
 <!-- Reference link definitions -->
-[01]: ./machine-configuration-assignments.md
-[02]: ./machine-configuration-create-definition.md
-[03]: ./machine-configuration-create-publish.md
+[01]: ./assignments.md
+[02]: ./how-to-create-policy-definition.md
+[03]: ./how-to-publish-package.md
 [04]: ../policy/samples/built-in-packages.md
 [05]: ../../azure-resource-manager/management/extension-resource-types.md
 [06]: ../../azure-arc/servers/overview.md
@@ -251,7 +251,7 @@ resource "azurerm_virtual_machine_configuration_policy_assignment" "AzureWindows
 [10]: /azure/developer/terraform/get-started-windows-powershell
 [11]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_configuration_policy_assignment
 [12]: ./overview.md
-[13]: ./machine-configuration-create-setup.md
-[14]: ./machine-configuration-create.md
-[15]: ./machine-configuration-create-test.md
+[13]: ./how-to-set-up-authoring-environment.md
+[14]: ./how-to-create-package.md
+[15]: ./how-to-test-package.md
 [16]: ../policy/assign-policy-portal.md

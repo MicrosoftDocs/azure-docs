@@ -132,8 +132,8 @@ requirement through the machine configuration extension.
 [01]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-push-certificate-windows
 [02]: ../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault
 [03]: ../policy/samples/built-in-policies.md#tags
-[04]: ./machine-configuration-create-test.md
-[05]: ./machine-configuration-create-publish.md
-[06]: ./machine-configuration-create-definition.md
+[04]: ./how-to-test-package.md
+[05]: ./how-to-publish-package.md
+[06]: ./how-to-create-policy-definition.md
 [07]: ../policy/assign-policy-portal.md
 [08]: ../policy/how-to/determine-non-compliance.md
