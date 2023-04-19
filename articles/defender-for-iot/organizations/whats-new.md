@@ -57,7 +57,7 @@ For more information, see [Device notification responses](how-to-work-with-the-s
 
 The OT sensor version 22.3.8 has an enhanced **SSL/TLS Certificates** configuration page for defining your SSL/TLS certificate settings and deploying a CA-signed certificate.
 
-For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssl/tls-certificates).
+For more information, see [Manage SSL/TLS certificates](how-to-manage-individual-sensors.md#manage-ssltls-certificates).
 
 ## March 2023
 
