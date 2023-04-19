@@ -42,9 +42,9 @@
             href: how-to-set-up-private-links.md
     - name: Use ISV solutions
       href: how-to-set-up-isv-solution.md
-    - name: Set-up sensors as a customer
+    - name: Set up sensors as a customer
       href: how-to-set-up-sensors-customer.md
-    - name: Set-up sensors as a partner
+    - name: Set up sensors as a partner
       href: how-to-set-up-sensors-partner.md
     - name: Use tissue sampling APIs
       href: how-to-use-nutrient-apis.md
