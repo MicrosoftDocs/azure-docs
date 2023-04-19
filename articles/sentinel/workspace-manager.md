@@ -48,14 +48,14 @@ Enable the central workspace once you have decided which Microsoft Sentinel work
 ## Onboard member workspaces
 Member workspaces are the set of workspaces that will be managed by Workspace Manager. You can onboard some or all of the workspaces in the tenant, and across multiple tenants as well (if Azure Lighthouse is enabled).
 1. Navigate to Workspace Manager and select "Add workspaces"
-    :::image type="content" source="media/workspace-manager/add-workspace.png" alt-text="Screenshot shows the add workspace menu.":::
+    :::image type="content" source="media/workspace-manager/add-workspace.png" alt-text="Screenshot shows the add workspace menu." lightbox="media/workspace-manager/add-workspace.png":::
 1. Select the member workspace(s) you would like to onboard to Workspace Manager.
     :::image type="content" source="media/workspace-manager/add-workspace-select.png" alt-text="Screenshot shows the add workspace selection menu.":::
 1. Once successfully onboarded, the **Members** count increases and your member workspaces are reflected in the **Workspaces** tab.
     :::image type="content" source="media/workspace-manager/add-workspace-selected.png" alt-text="Screenshot shows the added workspaces and the Members count incremented to 2.":::
 
 ## Create a Group
-Groups allow you to organize workspaces together based on business groups, verticals, geography, etc. These groups can be paired with a set of relevant content items, allowing users to distribute relevant content items to the relevant Groups.
+Groups allow you to organize workspaces together based on business groups, verticals, geography, etc. Use Groups to pair content items relevant to the workspaces in a group. 
 
 > [!TIP]
 > Before proceeding further, make sure that you have at least one active content item deployed in the central workspace. This will enable you to select content items from central to member workspace(s) in the subsequent steps.
@@ -67,8 +67,8 @@ Groups allow you to organize workspaces together based on business groups, verti
     :::image type="content" source="media/workspace-manager/add-group-name.png" alt-text="Screenshot shows the group create or update configuration page.":::
 1. In the **Select workspaces** tab, click **Add** and select the member workspaces that you would like to add to the Group.
 1. In the **Select content** tab, you will have 2 ways to add content items.
-    - Method 1: **Snapshot of all content** currently deployed in the central workspace. This point-in-time snapshot selects only active content, not templates.
-    - Method 2: **Custom select** which content items should be added. 
+- Method 1: **Snapshot of all content** currently deployed in the central workspace. This point-in-time snapshot selects only active content, not templates.
+- Method 2: **Custom select** which content items should be added. 
     :::image type="content" source="media/workspace-manager/add-group-content.png" alt-text="Screenshot shows the group content selection.":::
 1. Once successfully created, the **Group count** increases and your Groups are reflected in the **Groups tab**.
 
@@ -76,7 +76,9 @@ Groups allow you to organize workspaces together based on business groups, verti
 At this point, the content items selected haven't been published to the member workspace(s) yet.
 
 1. Click **Publish content** in the right flyout.
+
     :::image type="content" source="media/workspace-manager/publish-group.png" alt-text="Screenshot shows the group publish window.":::
+
     Alternatively, to bulk Publish multiple Groups, multi-select the desired Groups and click on Publish.
     :::image type="content" source="media/workspace-manager/publish-groups.png" alt-text="Screenshot shows the multi-select group publishing window.":::
 1. The **Last publish status** column updates to reflect **In progress**.
@@ -88,7 +90,7 @@ At this point, the content items selected haven't been published to the member w
 
 ### Troubleshooting
 To facilitate troubleshooting, click the **Failed** hyperlink, to open the Job failure details window. A status for each content item and target workspace pair is displayed.
-:::image type="content" source="media/workspace-manager/publish-groups-job-details.png" alt-text="Screenshot shows the job details of a group publishing failure event.":::
+:::image type="content" source="media/workspace-manager/publish-groups-job-details.png" alt-text="Screenshot shows the job details of a group publishing failure event." lightbox="media/workspace-manager/publish-groups-job-details.png":::
 
 Common reasons for failure include:
 - Content items referenced in the Group definition no longer exist at the time of Publish (have been deleted).
