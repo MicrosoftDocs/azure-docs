@@ -2,7 +2,7 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 04/06/2023
+ms.date: 04/15/2023
 ms.custom: references_regions
 ms.service: backup
 author: jyothisuri
@@ -79,6 +79,10 @@ When you move recovery points to archive, they're subjected to an early deletion
 ## Stop protection and delete data
 
 Stop protection and delete data deletes all recovery points. For recovery points in archive that haven't stayed for a duration of 180 days in archive tier, deletion of recovery points leads to early deletion cost.
+
+## Stop protection and retain data
+
+Azure Backup now supports archive tiering for eligible recovery points in **Stop protection and retain data** scenario. If the backup item is associated with a long term retention policy and it's moved to **Stop protection and retain data** state, you can choose to move all eligible recovery points to Vault-Archive tier. If backup item was associated with a short term retention policy and it's moved to **Stop protection & retain data** state, archive tiering isn't applicable.
 
 ## Archive tier pricing
 
