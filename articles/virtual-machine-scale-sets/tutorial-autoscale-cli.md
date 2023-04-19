@@ -110,7 +110,7 @@ sudo  stress-ng --cpu 10 --timeout 420s --metrics-brief &
 
 ```bash
 sudo zypper install stress-ng
-sudo stress-ng --cpu 10 --timeout 60s --metrics-brief
+sudo stress-ng --cpu 10 --timeout 420s --metrics-brief &
 ```
 ---
 
@@ -157,6 +157,7 @@ sudo  stress-ng --cpu 10 --timeout 420s --metrics-brief &
 sudo zypper install stress-ng
 sudo stress-ng --cpu 10 --timeout 420s --metrics-brief &
 ```
+---
 
 Again, when **stress** shows output similar to *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, press the *Enter* key to return to the prompt.
 
