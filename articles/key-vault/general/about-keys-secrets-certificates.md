@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 # Azure Key Vault keys, secrets and certificates overview
 
-Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data. Key Vault resource provider supports two resource types: vaults and managed HSMs.
+Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data: keys, secrets, and certificates. All keys, secrets, and certificates are generically referred to as Objects.
 
 ## Object Identifiers
 Objects are uniquely identified within Key Vault using a case-insensitive identifier called the Object Identifier. No two objects in the system have the same identifier, regardless of geo-location. The identifier consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. Identifiers that don't include the Object Version are referred to as Base Identifiers. Key Vault Object Identifiers are also valid URL but should always be compared as case-insensitive strings.
@@ -42,7 +42,7 @@ Where:
 |`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object.|  
 
 ## DNS suffixes for object identifiers
- This table shows the DNS suffix used by the data-plane endpoint for vaults and managed HSM pools in various cloud environments.
+Key Vault resource provider supports two resource types: vaults and managed HSMs. This table shows the DNS suffix used by the data-plane endpoint for vaults and managed HSM pools in various cloud environments.
 
 Cloud environment | DNS suffix for vaults | DNS suffix for managed HSMs
 ---|---|---
