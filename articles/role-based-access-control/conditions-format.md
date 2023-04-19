@@ -347,7 +347,7 @@ This section lists the function operators that are available to construct condit
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
 > | **Attributes support** <sup>1</sup>| [Encryption scope name](../storage/blobs/storage-auth-abac-attributes.md#encryption-scope-name)<br/>[Snapshot](../storage/blobs/storage-auth-abac-attributes.md#snapshot)<br/>[Version ID](../storage/blobs/storage-auth-abac-attributes.md#version-id) |
 
-<sup>1</sup> The `Exists` operator is supported for only these attributes in the visual ABAC condition builder in the Azure portal. You can add the `Exists` operator to any attribute using other tools, such as [PowerShell](conditions-role-assignments-powershell.md), the [Azure CLI](conditions-role-assignments-cli.md), the [REST API](conditions-role-assignments-powershell.md), and the condition code editor in the Azure portal, but the format and structure of the conditions will not validated in real time.
+<sup>1</sup> The `Exists` operator is supported for only these attributes in the visual ABAC condition builder in the Azure portal. You can add the `Exists` operator to any attribute using other tools, such as [PowerShell](conditions-role-assignments-powershell.md), the [Azure CLI](conditions-role-assignments-cli.md), the [REST API](conditions-role-assignments-powershell.md), and the condition code editor in the Azure portal.
 
 ## Logical operators
 
