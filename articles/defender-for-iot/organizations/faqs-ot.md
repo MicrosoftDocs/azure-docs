@@ -66,6 +66,10 @@ You can also use our [UI and CLI tools](how-to-troubleshoot-sensor.md#check-syst
 
 For more information, see [Troubleshoot the sensor](how-to-troubleshoot-sensor.md) and [Troubleshoot the on-premises management console](how-to-troubleshoot-on-premises-management-console.md).
 
+## I am seeing a warning that we have exceeded the maximum number of devices for the subscription. How do I resolve this?
+
+If the number of actual devices detected by Defender for IoT exceeds the number of committed devices currently listed on your subscription, a warning message will appear in Defender for IoT in the Azure portal, and you will need to edit your plan and update the number of committed devices on the relevant subscription. For more information, see [Edit a plan for OT networks](how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks).
+
 ## Next steps
 
 - [Tutorial: Get started with Microsoft Defender for IoT for OT security](tutorial-onboarding.md)

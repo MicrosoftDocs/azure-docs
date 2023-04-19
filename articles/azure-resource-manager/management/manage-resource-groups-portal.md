@@ -47,7 +47,7 @@ The resource group stores metadata about the resources. Therefore, when you spec
 
     ![browse resource groups](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
 
-3. To customize the information displayed for the resource groups, select **Edit columns**. The following screenshot shows the addition columns you could add to the display:
+3. To customize the information displayed for the resource groups, select **Edit columns**. The following screenshot shows the additional columns you could add to the display:
 
 ## Open resource groups
 

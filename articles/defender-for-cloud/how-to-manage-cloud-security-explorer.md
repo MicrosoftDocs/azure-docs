@@ -4,7 +4,7 @@ titleSuffix: Defender for Cloud
 description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 03/05/2023
+ms.date: 04/13/2023
 ---
 
 # Build queries with cloud security explorer
@@ -19,13 +19,12 @@ Learn more about [the cloud security graph, attack path analysis, and the cloud 
 
 ## Prerequisites
 
+- You must [enable Defender CSPM](enable-enhanced-security.md).
+    - For Agentless Container Posture, you must enable the following extensions:
+        - Agentless discovery for Kubernetes (preview)
+        - Container registries vulnerability assessments (preview)
+
 - You must [enable agentless scanning](enable-vulnerability-assessment-agentless.md).
-
-- You must [enable Defender for CSPM](enable-enhanced-security.md).
-
-- You must [enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. 
-
-    When you enable Defender for Containers, you also gain the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in the security explorer. 
 
 - Required roles and permissions: 
     - Security Reader

@@ -105,14 +105,14 @@ This single telemetry item represents an aggregate of 41 distinct metric measure
 
 If we examine our Application Insights resource in the **Logs (Analytics)** experience, the individual telemetry item would look like the following screenshot.
 
-![Screenshot that shows the Log Analytics query view.](./media/get-metric/log-analytics.png)
+:::image type="content" source="./media/get-metric/log-analytics.png" lightbox="./media/get-metric/log-analytics.png" alt-text="Screenshot that shows the Log Analytics query view.":::
 
 > [!NOTE]
 > While the raw telemetry item didn't contain an explicit sum property/field once ingested, we create one for you. In this case, both the `value` and `valueSum` property represent the same thing.
 
 You can also access your custom metric telemetry in the [_Metrics_](../essentials/metrics-charts.md) section of the portal as both a [log-based and custom metric](pre-aggregated-metrics-log-metrics.md). The following screenshot is an example of a log-based metric.
 
-![Screenshot that shows the Metrics explorer view.](./media/get-metric/metrics-explorer.png)
+:::image type="content" source="./media/get-metric/metrics-explorer.png" lightbox="./media/get-metric/metrics-explorer.png" alt-text="Screenshot that shows the Metrics explorer view.":::
 
 ### Cache metric reference for high-throughput usage
 
@@ -177,15 +177,15 @@ The examples in the previous section show zero-dimensional metrics. Metrics can 
 
 Running the sample code for at least 60 seconds results in three distinct telemetry items being sent to Azure. Each item represents the aggregation of one of the three form factors. As before, you can further examine in the **Logs (Analytics)** view.
 
-![Screenshot that shows the Log Analytics view of multidimensional metric.](./media/get-metric/log-analytics-multi-dimensional.png)
+:::image type="content" source="./media/get-metric/log-analytics-multi-dimensional.png" lightbox="./media/get-metric/log-analytics-multi-dimensional.png" alt-text="Screenshot that shows the Log Analytics view of multidimensional metric.":::
 
 In the metrics explorer:
 
-![Screenshot that shows Custom metrics.](./media/get-metric/custom-metrics.png)
+:::image type="content" source="./media/get-metric/custom-metrics.png" lightbox="./media/get-metric/custom-metrics.png" alt-text="Screenshot that shows Custom metrics.":::
 
 Notice that you can't split the metric by your new custom dimension or view your custom dimension with the metrics view.
 
-![Screenshot that shows splitting support.](./media/get-metric/splitting-support.png)
+:::image type="content" source="./media/get-metric/splitting-support.png" lightbox="./media/get-metric/splitting-support.png" alt-text="Screenshot that shows splitting support.":::
 
 By default, multidimensional metrics within the metric explorer aren't turned on in Application Insights resources.
 
@@ -198,11 +198,11 @@ After you've made that change and sent new multidimensional telemetry, you can s
 > [!NOTE]
 > Only newly sent metrics after the feature was turned on in the portal will have dimensions stored.
 
-![Screenshot that shows applying splitting.](./media/get-metric/apply-splitting.png)
+:::image type="content" source="./media/get-metric/apply-splitting.png" lightbox="./media/get-metric/apply-splitting.png" alt-text="Screenshot that shows applying splitting.":::
 
 View your metric aggregations for each `FormFactor` dimension.
 
-![Screenshot that shows form factors.](./media/get-metric/formfactor.png)
+:::image type="content" source="./media/get-metric/formfactor.png" lightbox="./media/get-metric/formfactor.png" alt-text="Screenshot that shows form factors.":::
 
 ### Use MetricIdentifier when there are more than three dimensions
 
