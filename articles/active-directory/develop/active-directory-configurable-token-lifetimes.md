@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 04/04/2023
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1
-ms.reviewer: ludwignick, sreyanthmora, marsma
+ms.reviewer: ludwignick, sreyanthmora
 ---
 # Configurable token lifetimes in the Microsoft identity platform (preview)
 
-You can specify the lifetime of an access, ID, or SAML token issued by the Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. However, we currently don't support configuring the token lifetimes for [managed identity service principals](../managed-identities-azure-resources/overview.md).
+You can specify the lifetime of an access, ID, or SAML token issued by the Microsoft identity platform. You can set token lifetimes for all apps in your organization or for a multi-tenant (multi-organization) application. We currently don't support configuring the token lifetimes for service principals or [managed identity service principals](../managed-identities-azure-resources/overview.md).
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they're assigned.
 
@@ -74,7 +74,7 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 
 Reducing the Access Token Lifetime property mitigates the risk of an access token or ID token being used by a malicious actor for an extended period of time. (These tokens cannot be revoked.) The trade-off is that performance is adversely affected, because the tokens have to be replaced more often.
 
-For an example, see [Create a policy for web sign-in](registration-config-change-token-lifetime-how-to.md).
+For an example, see [Create a policy for web sign-in](configure-token-lifetimes.md).
 
 Access, ID, and SAML2 token configuration are affected by the following properties and their respectively set values:
 
@@ -101,17 +101,14 @@ Refresh and session token configuration are affected by the following properties
 
 Non-persistent session tokens have a Max Inactive Time of 24 hours whereas persistent session tokens have a Max Inactive Time of 90 days. Anytime the SSO session token is used within its validity period, the validity period is extended another 24 hours or 90 days. If the SSO session token isn't used within its Max Inactive Time period, it's considered expired and will no longer be accepted. Any changes to this default period should be changed using [Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 
-You can use PowerShell to find the policies that will be affected by the retirement.  Use the [PowerShell cmdlets](configure-token-lifetimes.md#get-started) to see the all policies created in your organization, or to find which apps and service principals are linked to a specific policy.
+You can use PowerShell to find the policies that will be affected by the retirement.  Use the [PowerShell cmdlets](configure-token-lifetimes.md#get-started) to see the all policies created in your organization, or to find which apps are linked to a specific policy.
 
 ## Policy evaluation and prioritization
-You can create and then assign a token lifetime policy to a specific application, to your organization, and to service principals. Multiple policies might apply to a specific application. The token lifetime policy that takes effect follows these rules:
+You can create and then assign a token lifetime policy to a specific application and to your organization. Multiple policies might apply to a specific application. The token lifetime policy that takes effect follows these rules:
 
-* If a policy is explicitly assigned to the service principal, it's enforced.
-* If no policy is explicitly assigned to the service principal, a policy explicitly assigned to the parent organization of the service principal is enforced.
-* If no policy is explicitly assigned to the service principal or to the organization, the policy assigned to the application is enforced.
-* If no policy has been assigned to the service principal, the organization, or the application object, the default values are enforced. (See the table in [Configurable token lifetime properties](#configurable-token-lifetime-properties).)
-
-For more information about the relationship between application objects and service principal objects, see [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).
+* If a policy is explicitly assigned to the organization, it's enforced.
+* If no policy is explicitly assigned to the organization, the policy assigned to the application is enforced.
+* If no policy has been assigned to the organization or the application object, the default values are enforced. (See the table in [Configurable token lifetime properties](#configurable-token-lifetime-properties).)
 
 A token's validity is evaluated at the time the token is used. The policy with the highest priority on the application that is being accessed takes effect.
 
@@ -119,11 +116,11 @@ All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api
 
 ## REST API reference
 
-You can configure token lifetime policies and assign them to apps and service principals using Microsoft Graph. For more information, see the [tokenLifetimePolicy resource type](/graph/api/resources/tokenlifetimepolicy) and its associated methods.
+You can configure token lifetime policies and assign them to apps using Microsoft Graph. For more information, see the [tokenLifetimePolicy resource type](/graph/api/resources/tokenlifetimepolicy) and its associated methods.
 
 ## Cmdlet reference
 
-These are the cmdlets in the [Azure Active Directory PowerShell for Graph Preview module](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#service-principals).
+These are the cmdlets in the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation).
 
 ### Manage policies
 
@@ -131,29 +128,22 @@ You can use the following cmdlets to manage policies.
 
 | Cmdlet | Description | 
 | --- | --- |
-| [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Creates a new policy. |
-| [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Gets all Azure AD policies or a specified policy. |
-| [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) | Gets all apps and service principals that are linked to a policy. |
-| [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Updates an existing policy. |
-| [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Deletes the specified policy. |
+| [New-MgPolicyTokenLifetimePolicy](/powershell/module/microsoft.graph.identity.signins/new-mgpolicytokenlifetimepolicy) | Creates a new policy. |
+| [Get-MgPolicyTokenLifetimePolicy](/powershell/module/microsoft.graph.identity.signins/get-mgpolicytokenlifetimepolicy) | Gets all token lifetime policies or a specified policy. |
+| [Update-MgPolicyTokenLifetimePolicy](/powershell/module/microsoft.graph.identity.signins/update-mgpolicytokenlifetimepolicy) | Updates an existing policy. |
+| [Remove-MgPolicyTokenLifetimePolicy](/powershell/module/microsoft.graph.identity.signins/remove-mgpolicytokenlifetimepolicy) | Deletes the specified policy. |
 
 ### Application policies
 You can use the following cmdlets for application policies.</br></br>
 
 | Cmdlet | Description | 
 | --- | --- |
-| [Add-AzureADApplicationPolicy](/powershell/module/azuread/add-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Links the specified policy to an application. |
-| [Get-AzureADApplicationPolicy](/powershell/module/azuread/get-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Gets the policy that is assigned to an application. |
-| [Remove-AzureADApplicationPolicy](/powershell/module/azuread/remove-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Removes a policy from an application. |
+| [New-MgApplicationTokenLifetimePolicyByRef](/powershell/module/microsoft.graph.applications/new-mgapplicationtokenlifetimepolicybyref) | Links the specified policy to an application. |
+| [Get-MgApplicationTokenLifetimePolicyByRef](/powershell/module/microsoft.graph.applications/get-mgapplicationtokenlifetimepolicybyref) | Gets the policies that are assigned to an application. |
+| [Remove-MgApplicationTokenLifetimePolicyByRef](/powershell/module/microsoft.graph.applications/remove-mgapplicationtokenlifetimepolicybyref) | Removes a policy from an application. |
 
 ### Service principal policies
-You can use the following cmdlets for service principal policies.
-
-| Cmdlet | Description | 
-| --- | --- |
-| [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Links the specified policy to a service principal. |
-| [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Gets any policy linked to the specified service principal.|
-| [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Removes the policy from the specified service principal.|
+Service principal policies are not supported.
 
 ## Next steps
 

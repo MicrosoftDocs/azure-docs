@@ -4,7 +4,7 @@ description: Learn how to automatically provision and de-provision user accounts
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: d76e2482-4228-4907-8b4c-c75aa495a2ae
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -33,7 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * An administrator account with BIS.
-* Region and Country should be passed as 2 or 3 letter code and not full name.
+* Country/region should be passed as 2 or 3 letter code and not full name.
 * Make sure all existing account in BIS has data in sync with Azure AD to avoid duplicate account creation (for example, email in Azure AD should match with email in BIS).
 
 ## Step 1. Plan your provisioning deployment

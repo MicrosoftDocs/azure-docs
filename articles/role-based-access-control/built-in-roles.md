@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 02/24/2023
+ms.date: 03/31/2023
 ms.custom: generated
 ---
 
@@ -184,6 +184,12 @@ The following table provides a brief description of each built-in role. Click th
 > | [API Management Service Contributor](#api-management-service-contributor) | Can manage service and the APIs | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | [API Management Service Operator Role](#api-management-service-operator-role) | Can manage service but not the APIs | e022efe7-f5ba-4159-bbe4-b44f577e9b61 |
 > | [API Management Service Reader Role](#api-management-service-reader-role) | Read-only access to service and APIs | 71522526-b88f-4d52-b57f-d31fc3546d0d |
+> | [API Management Service Workspace API Developer](#api-management-service-workspace-api-developer) | Has read access to tags and products and write access to allow: assigning APIs to products, assigning tags to products and APIs. This role should be assigned on the service scope. | 9565a273-41b9-4368-97d2-aeb0c976a9b3 |
+> | [API Management Service Workspace API Product Manager](#api-management-service-workspace-api-product-manager) | Has the same access as API Management Service Workspace API Developer as well as read access to users and write access to allow assigning users to groups. This role should be assigned on the service scope. | d59a3e9c-6d52-4a5a-aeed-6bf3cf0e31da |
+> | [API Management Workspace API Developer](#api-management-workspace-api-developer) | Has read access to entities in the workspace and read and write access to entities for editing APIs. This role should be assigned on the workspace scope. | 56328988-075d-4c6a-8766-d93edd6725b6 |
+> | [API Management Workspace API Product Manager](#api-management-workspace-api-product-manager) | Has read access to entities in the workspace and read and write access to entities for publishing APIs. This role should be assigned on the workspace scope. | 73c2c328-d004-4c5e-938c-35c6f5679a1f |
+> | [API Management Workspace Contributor](#api-management-workspace-contributor) | Can manage the workspace and view, but not modify its members. This role should be assigned on the workspace scope. | 0c34c906-8d99-4cb7-8bb7-33f5b0a1a799 |
+> | [API Management Workspace Reader](#api-management-workspace-reader) | Has read-only access to entities in the workspace. This role should be assigned on the workspace scope. | ef1c2c96-4a77-49e8-b9a4-6179fe1d2fd2 |
 > | [App Configuration Data Owner](#app-configuration-data-owner) | Allows full access to App Configuration data. | 5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b |
 > | [App Configuration Data Reader](#app-configuration-data-reader) | Allows read access to App Configuration data. | 516239f1-63e1-4d78-a4de-a74fb236a071 |
 > | [Azure Relay Listener](#azure-relay-listener) | Allows for listen access to Azure Relay resources. | 26e0b698-aa6d-4085-9386-aadae190014d |
@@ -1064,7 +1070,7 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkSecurityGroups/securityRules/write | Creates a security rule or updates an existing security rule |
 > | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/write | Create or update the endpoint to the target resource. |
 > | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/read | Get or list of endpoints to the target resource. |
-> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action |  |
+> | [Microsoft.HybridConnectivity](resource-provider-operations.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action | List the managed proxy details to the resource. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/read | Retrieves the summary of the latest patch assessment operation |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/softwarePatches/read | Retrieves list of patches assessed during the last patch assessment operation |
@@ -1861,17 +1867,18 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
-> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/write | Create BackupVault operation creates an Azure resource of type 'Backup Vault' |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/write | Update BackupVault operation updates an Azure resource of type 'Backup Vault' |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/checkNameAvailability/action | Checks if the requested BackupVault Name is Available |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
-> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/operations/read |  |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1955,6 +1962,7 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.DataProtection/backupVaults/operationResults/read",
         "Microsoft.DataProtection/backupVaults/operationStatus/read",
         "Microsoft.DataProtection/locations/checkNameAvailability/action",
+        "Microsoft.DataProtection/locations/checkFeatureSupport/action",
         "Microsoft.DataProtection/backupVaults/read",
         "Microsoft.DataProtection/backupVaults/read",
         "Microsoft.DataProtection/locations/operationStatus/read",
@@ -2061,7 +2069,7 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
-> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/operations/read |  |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
@@ -2251,7 +2259,7 @@ Can view backup services, but can't make changes [Learn more](../backup/backup-r
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
-> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/operations/read |  |
+> | [Microsoft.DataProtection](resource-provider-operations.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6341,6 +6349,9 @@ Lets you manage the security-related policies of SQL servers and databases, but 
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/securityAlertPolicies/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/transparentDataEncryption/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/vulnerabilityAssessments/* |  |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/serverConfigurationOptions/read | Gets properties for the specified Azure SQL Managed Instance Server Configuration Option. |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/serverConfigurationOptions/write | Updates Azure SQL Managed Instance's Server Configuration Option properties for the specified instance. |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/locations/serverConfigurationOptionAzureAsyncOperation/read | Gets the status of Azure SQL Managed Instance Server Configuration Option Azure async operation. |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/advancedThreatProtectionSettings/read | Retrieve a list of server Advanced Threat Protection settings configured for a given server |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/advancedThreatProtectionSettings/write | Change the server Advanced Threat Protection settings for a given server |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/auditingSettings/* | Create and manage SQL server auditing setting |
@@ -6429,6 +6440,9 @@ Lets you manage the security-related policies of SQL servers and databases, but 
         "Microsoft.Sql/managedInstances/securityAlertPolicies/*",
         "Microsoft.Sql/managedInstances/databases/transparentDataEncryption/*",
         "Microsoft.Sql/managedInstances/vulnerabilityAssessments/*",
+        "Microsoft.Sql/managedInstances/serverConfigurationOptions/read",
+        "Microsoft.Sql/managedInstances/serverConfigurationOptions/write",
+        "Microsoft.Sql/locations/serverConfigurationOptionAzureAsyncOperation/read",
         "Microsoft.Sql/servers/advancedThreatProtectionSettings/read",
         "Microsoft.Sql/servers/advancedThreatProtectionSettings/write",
         "Microsoft.Sql/servers/auditingSettings/*",
@@ -6793,7 +6807,7 @@ Delete private data from a Log Analytics workspace. [Learn more](../azure-monito
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/components/*/read |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/components/purge/action | Purging data from Application Insights |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/*/read | View log analytics data |
-> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/purge/action | Delete specified data from workspace |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/purge/action | Delete specified data by query from workspace. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -7177,6 +7191,8 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/action |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/delete |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/write |  |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/featurestores/read | Gets the Machine Learning Services FeatureStore(s) |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/featurestores/checkNameAvailability/read | Checks the Machine Learning Services FeatureStore name availability |
 > | **NotActions** |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/delete | Deletes the Machine Learning Services Workspace(s) |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/write | Creates or updates a Machine Learning Services Workspace(s) |
@@ -7203,7 +7219,9 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
         "Microsoft.MachineLearningServices/workspaces/*/read",
         "Microsoft.MachineLearningServices/workspaces/*/action",
         "Microsoft.MachineLearningServices/workspaces/*/delete",
-        "Microsoft.MachineLearningServices/workspaces/*/write"
+        "Microsoft.MachineLearningServices/workspaces/*/write",
+        "Microsoft.MachineLearningServices/featurestores/read",
+        "Microsoft.MachineLearningServices/featurestores/checkNameAvailability/read"
       ],
       "notActions": [
         "Microsoft.MachineLearningServices/workspaces/delete",
@@ -7594,6 +7612,9 @@ Lets you perform detect, verify, identify, group, and find similar operations on
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/identify/action | 1-to-many identification to find the closest matches of the specific query person face from a person group or large person group. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/group/action | Divide candidate faces into groups based on face similarity. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/findsimilars/action | Given query face's faceId, to search the similar-looking faces from a faceId array, a face list or a large face list. faceId |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/detectliveness/multimodal/action | <p>Performs liveness detection on a target face in a sequence of infrared, color and/or depth images, and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification cannot be made with the given inputs.</p> |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/detectliveness/singlemodal/action | <p>Performs liveness detection on a target face in a sequence of images of the same modality (e.g. color or infrared), and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification cannot be made with the given inputs.</p> |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/Face/detectlivenesswithverify/singlemodal/action | Detects liveness of a target face in a sequence of images of the same stream type (e.g. color) and then compares with VerifyImage to return confidence score for identity scenarios. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -7614,7 +7635,10 @@ Lets you perform detect, verify, identify, group, and find similar operations on
         "Microsoft.CognitiveServices/accounts/Face/verify/action",
         "Microsoft.CognitiveServices/accounts/Face/identify/action",
         "Microsoft.CognitiveServices/accounts/Face/group/action",
-        "Microsoft.CognitiveServices/accounts/Face/findsimilars/action"
+        "Microsoft.CognitiveServices/accounts/Face/findsimilars/action",
+        "Microsoft.CognitiveServices/accounts/Face/detectliveness/multimodal/action",
+        "Microsoft.CognitiveServices/accounts/Face/detectliveness/singlemodal/action",
+        "Microsoft.CognitiveServices/accounts/Face/detectlivenesswithverify/singlemodal/action"
       ],
       "notDataActions": []
     }
@@ -8831,6 +8855,306 @@ Read-only access to service and APIs [Learn more](../api-management/api-manageme
     }
   ],
   "roleName": "API Management Service Reader Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### API Management Service Workspace API Developer
+
+Has read access to tags and products and write access to allow: assigning APIs to products, assigning tags to products and APIs. This role should be assigned on the service scope. [Learn more](../api-management/api-management-role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/tags/read | Lists a collection of tags defined within a service instance. or Gets the details of the tag specified by its identifier. |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/tags/apiLinks/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/tags/operationLinks/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/tags/productLinks/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/products/read | Lists a collection of products in the specified service instance. or Gets the details of the product specified by its identifier. |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/products/apiLinks/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/read | Read metadata for an API Management Service instance |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Has read access to tags and products and write access to allow: assigning APIs to products, assigning tags to products and APIs. This role should be assigned on the service scope.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/9565a273-41b9-4368-97d2-aeb0c976a9b3",
+  "name": "9565a273-41b9-4368-97d2-aeb0c976a9b3",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ApiManagement/service/tags/read",
+        "Microsoft.ApiManagement/service/tags/apiLinks/*",
+        "Microsoft.ApiManagement/service/tags/operationLinks/*",
+        "Microsoft.ApiManagement/service/tags/productLinks/*",
+        "Microsoft.ApiManagement/service/products/read",
+        "Microsoft.ApiManagement/service/products/apiLinks/*",
+        "Microsoft.ApiManagement/service/read",
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "API Management Service Workspace API Developer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### API Management Service Workspace API Product Manager
+
+Has the same access as API Management Service Workspace API Developer as well as read access to users and write access to allow assigning users to groups. This role should be assigned on the service scope. [Learn more](../api-management/api-management-role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/users/read | Lists a collection of registered users in the specified service instance. or Gets the details of the user specified by its identifier. |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/tags/read | Lists a collection of tags defined within a service instance. or Gets the details of the tag specified by its identifier. |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/tags/apiLinks/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/tags/operationLinks/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/tags/productLinks/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/products/read | Lists a collection of products in the specified service instance. or Gets the details of the product specified by its identifier. |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/products/apiLinks/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/groups/users/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/read | Read metadata for an API Management Service instance |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Has the same access as API Management Service Workspace API Developer as well as read access to users and write access to allow assigning users to groups. This role should be assigned on the service scope.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d59a3e9c-6d52-4a5a-aeed-6bf3cf0e31da",
+  "name": "d59a3e9c-6d52-4a5a-aeed-6bf3cf0e31da",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ApiManagement/service/users/read",
+        "Microsoft.ApiManagement/service/tags/read",
+        "Microsoft.ApiManagement/service/tags/apiLinks/*",
+        "Microsoft.ApiManagement/service/tags/operationLinks/*",
+        "Microsoft.ApiManagement/service/tags/productLinks/*",
+        "Microsoft.ApiManagement/service/products/read",
+        "Microsoft.ApiManagement/service/products/apiLinks/*",
+        "Microsoft.ApiManagement/service/groups/users/*",
+        "Microsoft.ApiManagement/service/read",
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "API Management Service Workspace API Product Manager",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### API Management Workspace API Developer
+
+Has read access to entities in the workspace and read and write access to entities for editing APIs. This role should be assigned on the workspace scope. [Learn more](../api-management/api-management-role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/*/read |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/apis/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/apiVersionSets/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/policies/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/schemas/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/products/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/policyFragments/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/namedValues/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/tags/* |  |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Has read access to entities in the workspace and read and write access to entities for editing APIs. This role should be assigned on the workspace scope.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/56328988-075d-4c6a-8766-d93edd6725b6",
+  "name": "56328988-075d-4c6a-8766-d93edd6725b6",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ApiManagement/service/workspaces/*/read",
+        "Microsoft.ApiManagement/service/workspaces/apis/*",
+        "Microsoft.ApiManagement/service/workspaces/apiVersionSets/*",
+        "Microsoft.ApiManagement/service/workspaces/policies/*",
+        "Microsoft.ApiManagement/service/workspaces/schemas/*",
+        "Microsoft.ApiManagement/service/workspaces/products/*",
+        "Microsoft.ApiManagement/service/workspaces/policyFragments/*",
+        "Microsoft.ApiManagement/service/workspaces/namedValues/*",
+        "Microsoft.ApiManagement/service/workspaces/tags/*",
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "API Management Workspace API Developer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### API Management Workspace API Product Manager
+
+Has read access to entities in the workspace and read and write access to entities for publishing APIs. This role should be assigned on the workspace scope. [Learn more](../api-management/api-management-role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/*/read |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/products/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/subscriptions/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/groups/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/tags/* |  |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/notifications/* |  |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Has read access to entities in the workspace and read and write access to entities for publishing APIs. This role should be assigned on the workspace scope.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/73c2c328-d004-4c5e-938c-35c6f5679a1f",
+  "name": "73c2c328-d004-4c5e-938c-35c6f5679a1f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ApiManagement/service/workspaces/*/read",
+        "Microsoft.ApiManagement/service/workspaces/products/*",
+        "Microsoft.ApiManagement/service/workspaces/subscriptions/*",
+        "Microsoft.ApiManagement/service/workspaces/groups/*",
+        "Microsoft.ApiManagement/service/workspaces/tags/*",
+        "Microsoft.ApiManagement/service/workspaces/notifications/*",
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "API Management Workspace API Product Manager",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### API Management Workspace Contributor
+
+Can manage the workspace and view, but not modify its members. This role should be assigned on the workspace scope. [Learn more](../api-management/api-management-role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/* |  |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can manage the workspace and view, but not modify its members. This role should be assigned on the workspace scope.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/0c34c906-8d99-4cb7-8bb7-33f5b0a1a799",
+  "name": "0c34c906-8d99-4cb7-8bb7-33f5b0a1a799",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ApiManagement/service/workspaces/*",
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "API Management Workspace Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### API Management Workspace Reader
+
+Has read-only access to entities in the workspace. This role should be assigned on the workspace scope. [Learn more](../api-management/api-management-role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ApiManagement](resource-provider-operations.md#microsoftapimanagement)/service/workspaces/*/read |  |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Has read-only access to entities in the workspace. This role should be assigned on the workspace scope.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ef1c2c96-4a77-49e8-b9a4-6179fe1d2fd2",
+  "name": "ef1c2c96-4a77-49e8-b9a4-6179fe1d2fd2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ApiManagement/service/workspaces/*/read",
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "API Management Workspace Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -10959,7 +11283,7 @@ Microsoft Sentinel Contributor [Learn more](../sentinel/roles.md)
 > | [Microsoft.OperationsManagement](resource-provider-operations.md#microsoftoperationsmanagement)/solutions/read | Get exiting OMS solution |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/read | Run queries over the data in the workspace |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/*/read |  |
-> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get datasources under a workspace. |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get data source under a workspace. |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/querypacks/*/read |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/* |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/read | Read a private Workbook |
@@ -11077,12 +11401,12 @@ Microsoft Sentinel Reader [Learn more](../sentinel/roles.md)
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Search using new engine. |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/*/read | View log analytics data |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/LinkedServices/read | Get linked services under given workspace. |
-> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/savedSearches/read | Gets a saved search query |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/savedSearches/read | Gets a saved search query. |
 > | [Microsoft.OperationsManagement](resource-provider-operations.md#microsoftoperationsmanagement)/solutions/read | Get exiting OMS solution |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/read | Run queries over the data in the workspace |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/*/read |  |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/querypacks/*/read |  |
-> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get datasources under a workspace. |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get data source under a workspace. |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/read | Read a workbook |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/read | Read a private Workbook |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
@@ -11166,12 +11490,12 @@ Microsoft Sentinel Responder [Learn more](../sentinel/roles.md)
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/queryIndicators/action | Query Threat Intelligence Indicators |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Search using new engine. |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/*/read | View log analytics data |
-> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get datasources under a workspace. |
-> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/savedSearches/read | Gets a saved search query |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get data source under a workspace. |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/savedSearches/read | Gets a saved search query. |
 > | [Microsoft.OperationsManagement](resource-provider-operations.md#microsoftoperationsmanagement)/solutions/read | Get exiting OMS solution |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/read | Run queries over the data in the workspace |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/query/*/read |  |
-> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get datasources under a workspace. |
+> | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get data source under a workspace. |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/querypacks/*/read |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/workbooks/read | Read a workbook |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/myworkbooks/read | Read a private Workbook |

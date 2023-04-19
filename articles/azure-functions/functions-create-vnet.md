@@ -38,12 +38,12 @@ You create a C# function app in an [Elastic Premium plan](./functions-premium-pl
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     |**Publish**| Code | Choose to publish code files or a Docker container. |
     | **Runtime stack** | .NET | This tutorial uses .NET. |
-    | **Version** | 6 | This tutorial uses .NET 6.0 running [in the same process as the Functions host](./functions-dotnet-class-library.md). |
+    | **Version** | 6 (LTS) | This tutorial uses .NET 6.0 running [in the same process as the Functions host](./functions-dotnet-class-library.md). |
     |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
     |**Operating system**| Windows | This tutorial uses Windows but also works for Linux. |
-    | **[Plan](./functions-scale.md)** | Premium | Hosting plan that defines how resources are allocated to your function app. By default, when you select **Premium**, a new App Service plan is created. The default **Sku and size** is **EP1**, where *EP* stands for _elastic premium_. For more information, see the list of [Premium SKUs](./functions-premium-plan.md#available-instance-skus).<br/><br/>When you run JavaScript functions on a Premium plan, choose an instance that has fewer vCPUs. For more information, see [Choose single-core Premium plans](./functions-reference-node.md#considerations-for-javascript-functions).  |
+    | **[Plan](./functions-scale.md)** | Functions Premium | Hosting plan that defines how resources are allocated to your function app. By default, when you select **Premium**, a new App Service plan is created. The default **Sku and size** is **EP1**, where *EP* stands for _elastic premium_. For more information, see the list of [Premium SKUs](./functions-premium-plan.md#available-instance-skus).<br/><br/>When you run JavaScript functions on a Premium plan, choose an instance that has fewer vCPUs. For more information, see [Choose single-core Premium plans](./functions-reference-node.md#considerations-for-javascript-functions).  |
 
-1. Select **Next: Hosting**. On the **Hosting** page, enter the following settings.
+1. Select **Next: Storage**. On the **Storage** page, enter the following settings.
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
@@ -56,6 +56,7 @@ You create a C# function app in an [Elastic Premium plan](./functions-premium-pl
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
+    | **Enable public access** |  Off |  Deny public network access will block all incoming traffic except that comes from private endpoints.|
     | **Enable network injection** |  On | The ability to configure your application with VNet integration at creation appears in the portal window after this option is switched to **On**. |
     | **Virtual Network** | Create New | Select the **Create New** field. In the pop-out screen, provide a name for your virtual network and select **Ok**. Options to restrict inbound and outbound access to your function app on create are displayed. You must explicitly enable VNet integration in the **Outbound access** portion of the window to restrict outbound access. |
 

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 02/28/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ---
 
@@ -41,7 +41,7 @@ This property represents the operation being performed by the MedTech service wh
 |FHIRConversion|The data flow stage where the grouped-normalized data is transformed into an Observation resource.|
 
 > [!NOTE]
-> To learn about the MedTech service device message data transformation, see [Understand the MedTech service device message data transformation](understand-service.md).
+> To learn about the MedTech service device message data transformation, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
 
 ## MedTech service health check exceptions and fixes
 
@@ -313,7 +313,7 @@ The expression and line with the error are specified in the error message.
 **Fix**: On the Azure portal, go to your FHIR service, and assign the **FHIR Data Writer** role to your MedTech service (see [step-by-step instructions](deploy-new-deploy.md#grant-access-to-the-fhir-service)).
 
 > [!NOTE]
-> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket and attach copies of your device message, [device mapping, and FHIR destination mapping](how-to-create-mappings-copies.md) to your request to better help with issue determination.
+> If you're not able to fix your MedTech service issue using this troubleshooting guide, you can open an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket attaching copies of your device message and [device and FHIR destination mappings](how-to-use-mapping-debugger.md#overview-of-the-mapping-debugger) to your request to better help with issue determination.
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.author: greglin
 ms.date: 06/10/2022
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom: mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - ARM template

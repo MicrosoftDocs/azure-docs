@@ -50,19 +50,19 @@ In this section, you use the Python SDK to send messages from a device to your I
 
     **Windows**
     ```console
-    cd azure-iot-sdk-python\azure-iot-device\samples\pnp
+    cd azure-iot-sdk-python\samples
     ```
 
     **Linux or Raspberry Pi OS**
     ```console
-    cd azure-iot-sdk-python/azure-iot-device/samples/pnp
+    cd azure-iot-sdk-python/samples
     ```
 
 
 1. Install the Azure IoT Python SDK:
 
     ```console
-    pip3 install azure-iot-device
+    pip install azure-iot-device==3.0.0b2
     ```
 1. Set the following environment variables, to enable your device to connect to Azure IoT.
     * Set an environment variable called `IOTHUB_DEVICE_CONNECTION_STRING`. For the variable value, use the device connection string that you saved in the previous section.
@@ -94,7 +94,7 @@ In this section, you use the Python SDK to send messages from a device to your I
 1. Run the code for the following sample file.
 
     ```console
-    python3 temp_controller_with_thermostats.py
+    python iothub_simple_telemetry.py
     ```
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT Plug and Play, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
@@ -137,19 +137,18 @@ To view device telemetry with Azure CLI:
     ```output
     Starting event monitor, filtering on device: mydevice, use ctrl-c to stop...
     event:
-      component: thermostat1
-      interface: dtmi:com:example:TemperatureController;2
+      component: ''
+      interface: ''
       module: ''
       origin: mydevice
       payload:
-        temperature: 29
+        'Message #1'
     
     event:
-      component: thermostat2
-      interface: dtmi:com:example:TemperatureController;2
+      component: ''
+      interface: ''
       module: ''
       origin: mydevice
       payload:
-        temperature: 48
+        'Message #2'
     ```
-    
