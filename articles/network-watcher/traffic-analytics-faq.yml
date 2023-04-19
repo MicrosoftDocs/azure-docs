@@ -48,7 +48,7 @@ sections:
           If you aren't able to see the role assignments, contact the respective subscription admin. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
           
       - question: |
-          Can the network security groups I enable flow logs for be in different regions than my workspace?
+          Can I enable flow logs for network security groups that are in different regions than my workspace region?
         answer: |
           Yes, these network security groups can be in different regions than your Log Analytics workspace.
 
