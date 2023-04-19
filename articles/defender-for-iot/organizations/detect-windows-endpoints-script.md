@@ -20,7 +20,7 @@ The script described in this article returns the following details about each de
 - Installed programs
 - Last knowledge base update
 
-If an OT network sensor has already learned the device, running the script outlined in this article retrieves the device's information and enrichment data.
+If an OT network sensor has already detected the device, running the script outlined in this article retrieves the device's information and enrichment data.
 
 ## Prerequisites
 
