@@ -89,31 +89,38 @@ You can find this feature on the Azure portal, as shown in the following screens
 
 For further debugging, you can manually capture heap dumps and thread dumps, and use Java Flight Recorder (JFR). For more information, see [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps](how-to-capture-dumps.md).
 
-Heap dump records the state of the Java heap memory. Thread dump records the stacks of all live threads. These tools are available through the [Azure CLI](how-to-capture-dumps.md) and on the app page of the Azure portal, as shown in the following screenshot.
+Heap dumps record the state of the Java heap memory. Thread dumps record the stacks of all live threads. These tools are available through the Azure CLI and on the app page of the Azure portal, as shown in the following screenshot.
 
 :::image type="content" source="media/tools-to-troubleshoot-memory-issues/capture-dump-location.png" alt-text="Screenshot of Azure portal showing app overview page with Troubleshooting button highlighted." lightbox="media/tools-to-troubleshoot-memory-issues/capture-dump-location.png":::
 
-You can also use third party tools like [Memory Analyzer](https://www.eclipse.org/mat/) to analyze heap dumps.
+For more information, see [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps](how-to-capture-dumps.md). You can also use third party tools like [Memory Analyzer](https://www.eclipse.org/mat/) to analyze heap dumps.
 
 ## Modify configurations to fix problems
 
 Some issues you might identify include [container OOM](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#fix-app-restart-issues-due-to-oom), heap memory that's too large, and abnormal garbage collection. If you identify any of these issues, you may need to configure the maximum memory size in the JVM options. For more information, see the [Important JVM options](concepts-for-java-memory-management.md#important-jvm-options) section of [Java memory management](concepts-for-java-memory-management.md#important-jvm-options).
 
-This feature is available on Azure CLI and on the Azure portal.
+You can modify the JVM options by using the Azure portal or the Azure CLI.
 
-### Using portal to update jvm options:
+### [Azure portal](#tab/azure-portal)
+
+In the Azure portal, navigate to your app, then select **Configuration** from the **Settings** section of the navigation menu. On the **General Settings** tab, update the **JVM options** field, as shown in the following screenshot:
 
 :::image type="content" source="media/tools-to-troubleshoot-memory-issues/maxdirectmemorysize-location.png" alt-text="Screenshot of Azure portal showing app configuration page with JVM options highlighted." lightbox="media/tools-to-troubleshoot-memory-issues/maxdirectmemorysize-location.png":::
 
-### Using azure cli to update jvm options
+### [Azure CLI](#tab/azure-cli)
+
+Use the following command to update the JVM options for your app. Be sure to replace the placeholders with your actual values. For example, you can replace the *`<jvm-options>`* placeholder with a value such as `-Xms1024m -Xmx1536m`.
+
 ```azurecli
 az spring app update \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name> \
     --app <app-name> \
     --deployment <deployment-name> \
-    --jvm-options <-Xms1024m -Xmx1536m> \
+    --jvm-options <jvm-options> \
 ```
+
+---
 
 ## See also
 
