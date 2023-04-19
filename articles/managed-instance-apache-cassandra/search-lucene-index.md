@@ -16,6 +16,11 @@ Cassandra Lucene Index, derived from Stratio Cassandra, is a plugin for Apache C
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+> [!WARNING]
+> A limitation with Lucene index searches is that cross partition searches cannot be executed solely in the index (unlike elastic search or Solr). This can lead to issues with performance (memory and CPU load) for cross partition searches that may affect steady state workloads. 
+>
+> As such, where search requirements are significant, if you intend to use this feature in production, we recommend deploying a dedicated secondary data center to be used only for searches, with a minimal number of nodes, each having a high number of cores (minimum 16). The keyspaces in your primary (operational) data center should then be configured to replicate data to your secondary (search) data center. 
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -71,26 +76,10 @@ Insert the following sample tweets:
     INSERT INTO tweets (id,user,body,time,latitude,longitude) VALUES (5,'quetzal','Click my link, like my stuff!', '2023-04-01T11:21:59.001+0000', 40.3930, -3.7329);
 ```
 
-1. The index you created earlier will index all the columns in the table with the specified types, and it will be refreshed once per second. Alternatively, you can explicitly refresh all the index shards with an empty search with consistency ALL:
-
-    ```SQL
-        CONSISTENCY ALL
-        SELECT * FROM tweets WHERE expr(tweets_index, '{refresh:true}');
-        CONSISTENCY QUORUM
-    ```
-
 1. Now, you can search for tweets within a certain date range:
 
     ```SQL
         SELECT * FROM tweets WHERE expr(tweets_index, '{filter: {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"}}');
-    ```
-1. The same search can be performed forcing an explicit refresh of the involved index shards:
-
-    ```SQL
-        SELECT * FROM tweets WHERE expr(tweets_index, '{
-           filter: {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
-           refresh: true
-        }') limit 100;
     ```
 
 1. Now, to search the top 100 more relevant tweets where body field contains the phrase “Click my link” within the aforementioned date range:
@@ -158,7 +147,24 @@ Insert the following sample tweets:
         }') limit 100;
     ```
 
-For more in-depth information and samples see [Stratio's Cassandra Lucene Index](https://github.com/Stratio/cassandra-lucene-index/blob/branch-3.0.14/doc/documentation.rst). 
+1. The index you created earlier will index all the columns in the table with the specified types, and it will be refreshed once per second. Alternatively, you can explicitly refresh all the index shards with an empty search with consistency ALL:
+
+    ```SQL
+        CONSISTENCY ALL
+        SELECT * FROM tweets WHERE expr(tweets_index, '{refresh:true}');
+        CONSISTENCY QUORUM
+    ```
+
+1. The same search can be performed forcing an explicit refresh of the involved index shards:
+
+    ```SQL
+        SELECT * FROM tweets WHERE expr(tweets_index, '{
+           filter: {type: "range", field: "time", lower: "2023/03/01", upper: "2023/05/01"},
+           refresh: true
+        }') limit 100;
+    ```
+
+
 
 ## Next steps
 
