@@ -97,7 +97,7 @@ N/A
 When you upload a blob to Azure Storage, you have two options for setting the blob's tier on upload:
 
 - You can explicitly specify the tier in which the blob will be created. This setting overrides the default access tier for the storage account. You can set the tier for a blob or set of blobs on upload to hot, cool, cold or archive.
-- You can upload a blob without specifying a tier. In this case, the blob will be created in the default access tier specified for the storage account (either hot, cool, or cold).
+- You can upload a blob without specifying a tier. In this case, the blob will be created in the default access tier specified for the storage account (either hot or cool).
 
 If you are uploading a new blob that uses an encryption scope, you cannot change the access tier for that blob.
 

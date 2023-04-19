@@ -103,7 +103,7 @@ Changing the default access tier setting for a storage account applies to all bl
 When you create a legacy Blob Storage account, you must specify the default access tier setting as hot or cool at create time. There's no charge for changing the default account access tier setting to a cooler tier in a legacy Blob Storage account. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle to a warmer tier in a Blob Storage account. Microsoft recommends using general-purpose v2 storage accounts rather than Blob Storage accounts when possible.
 
 > [!NOTE]
-> The archive tier is not supported as the default access tier for a storage account.
+> The cold tier and the archive tier are not supported as the default access tier for a storage account.
 
 ## Setting or changing a blob's tier
 
@@ -118,12 +118,12 @@ After a blob is created, you can change its tier in either of the following ways
  
 - By calling the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a blob from one tier to another. Calling [Copy Blob](/rest/api/storageservices/copy-blob) is recommended for most scenarios where you're rehydrating a blob from the archive tier to an online tier, or moving a blob from cool or cold to hot. By copying a blob, you can avoid the early deletion penalty, if the required storage interval for the source blob hasn't yet elapsed. However, copying a blob results in capacity charges for two blobs, the source blob and the destination blob.
 
-Changing a blob's tier from hot to cool, cold or archive is instantaneous, as is changing from cold or cool to hot. Rehydrating a blob from the archive tier to an online tier such as the hot, cool, or cold tier can take up to 15 hours.
+Changing a blob's tier from a warmer tier to a cooler one is instantaneous, as is changing from cold or cool to hot. Rehydrating a blob from the archive tier to an online tier such as the hot, cool, or cold tier can take up to 15 hours.
 
 Keep in mind the following points when changing a blob's tier:
 
 - You can't call **Set Blob Tier** on a blob that uses an encryption scope. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
-- If a blob's tier is inferred as cool or cold based on the storage account's default access tier and the blob is moved to the archive tier, there's no early deletion charge.
+- If a blob's tier is inferred as cool based on the storage account's default access tier and the blob is moved to the archive tier, there's no early deletion charge.
 - If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
 
 ## Blob lifecycle management
@@ -193,9 +193,9 @@ Keep in mind the following billing impacts when changing a blob's tier:
 
 The following table summarizes how tier changes are billed.
 
-| | **Write charges (operation + access)** | **Read charges (operation + access)** |
-| ---- | ----- | ----- |
-| **Set Blob Tier** operation | Hot to cool<br> Hot to archive<br> Cool to cold<br> Cool to archive <br> Cold to archive | Archive to cold <br> Archive to cool<br> Archive to hot<br> Cold to cool <br> Cold to hot<br> Cool to hot |cool to hot |
+| **Write charges (operation + access)** | **Read charges (operation + access)** |
+| ----- | ----- |
+| Hot to cool<br>Hot to cold<br>Hot to archive<br> Cool to cold<br> Cool to archive <br> Cold to archive | Archive to cold <br> Archive to cool<br> Archive to hot<br> Cold to cool <br> Cold to hot<br> Cool to hot |cool to hot |
 
 Changing the access tier for a blob when versioning is enabled, or if the blob has snapshots, may result in more charges. For information about blobs with versioning enabled, see [Pricing and billing](versioning-overview.md#pricing-and-billing) in the blob versioning documentation. For information about blobs with snapshots, see [Pricing and billing](snapshots-overview.md#pricing-and-billing) in the blob snapshots documentation.
 
@@ -241,6 +241,7 @@ az feature show --namespace Microsoft.Storage --name ColdTier
 ### Limitations and known issues
 
 - The [change feed](storage-blob-change-feed.md) is not yet compatible with the cold tier.
+- [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
 - The default access tier setting of the account can't be set to cold tier.
 - blobs can't be set to the cold tier by using AzCopy. During the preview, you can set the blob's tier to the cold tier by using the Azure portal, PowerShell, or the Azure CLI.
 
