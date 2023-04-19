@@ -39,13 +39,6 @@ You, or your administrator, may need to update your firewall to allow access to 
 
 To learn more, about privacy and terms of use related to the Azure Maps Power BI visual see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
-## Azure Maps Power BI visual behavior and requirements
-
-There are a few considerations and requirements for the Azure Maps Power BI visual:
-
-- The Azure Maps Power BI visual must be enabled in Power BI Desktop. To enable Azure Maps Power BI visual, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual isn't available after enabling this setting, it's likely that a tenant admin switch in the Admin Portal needs to be enabled.
-- The data set must have fields that contain **latitude** and **longitude** information.
-
 ## Use the Azure Maps Power BI visual
 
 Once the Azure Maps Power BI visual is enabled, select the **Azure Maps** icon from the **Visualizations** pane.
