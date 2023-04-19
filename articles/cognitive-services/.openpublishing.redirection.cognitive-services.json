@@ -71,11 +71,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/reference/service-limits.md",
-            "redirect_url": "/azure/cognitive-services/language-service/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-analytics-for-health/reference/glossary.md",
             "redirect_url": "/azure/cognitive-services/language-service/overview",
             "redirect_document_id": false
