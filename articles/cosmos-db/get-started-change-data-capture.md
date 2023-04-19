@@ -108,18 +108,28 @@ Now create and configure a source to flow data from the Azure Cosmos DB account'
 | Batchsize in bytes | Specify the size in bytes if you would like to batch the change data capture feeds |
 | Extra Configs | Extra Azure Cosmos DB analytical store configs and their values. (ex: `spark.cosmos.allowWhiteSpaceInFieldNames -> true`) |
 
-### Transactional store TTLs and intermediate updates
+### Working with intermediate updates
   
-If you have to identify the TTL deleted records in your sink, you have check both `Capture intermediate updates` and `Capture Transactional store TTLs` options. This will populate the `__usr_opType` field in sink with the following values:
+When you check the `Capture intermediate updates`, all versions of updates, and deletes are captured and persisted on the sink. This option creates and populates the `__usr_opType` field in sink with the following values:
 
 | Value | Description |
 | --- | --- |
 | 1 | UPDATE |
 | 2 | INSERT |
 | 3 | USER_DELETE |
-| 4 | TTL_DELETE |
 
-With this information you can create queries and processes to differentiate updates, inserts, deletes performed by an user or application, and deletes caused by TTL operations.
+### Working with intermediate updates and TTL  
+  
+If you have to identify the TTL deleted records from documents deleted by an user or application, you have check both `Capture intermediate updates` and `Capture Transactional store TTLs` options. This will creates and populates the `__usr_opType` field in sink with a fourth value:
+
+| Value | Description |
+| --- | --- |
+| 1 | UPDATE |
+| 2 | INSERT |
+| 3 | USER_DELETE |
+| 4 | TTL_DELETE |  
+  
+With this information you can create queries and processes to differentiate the deletes performed by an user or application from the deletes caused by TTL operations.
   
   
 ## Create and configure sink settings for update and delete operations
