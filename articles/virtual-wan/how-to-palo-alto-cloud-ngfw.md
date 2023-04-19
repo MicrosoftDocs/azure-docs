@@ -16,6 +16,8 @@ ms.author: wellee
 > [!IMPORTANT] 
 > Palo Alto Cloud NGFW for Virtual WAN is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+## Background
+
 Palo Alto Networks Cloud NGFW is a cloud-native software-as-a-service security offering that can be deployed into the Virtual WAN hub as a bump-in-the-wire solution to inspect network traffic.
 
 Palo Alto Networks Cloud NGFW integration with Virtual WAN provides the following benefits to customers:
@@ -47,7 +49,7 @@ To create a new virtual WAN use the steps in the following article:
 * All other limitations in the [Routing Intent and Routing policies limitations section](how-to-routing-policies.md) apply to Palo Alto Networks Cloud NGFW deployments in Virtual WAN.
 
 ## Deploy virtual hub
-The follow steps describe how to deploy a Virtual Hub that can be used with Palo Alto Networks Cloud NGFW
+The follow steps describe how to deploy a Virtual Hub that can be used with Palo Alto Networks Cloud NGFW.
 
 1. Navigate to your Virutal WAN resource.
 1. On the left hand menu, select **Hubs** under connectivity.
@@ -63,6 +65,11 @@ The follow steps describe how to deploy a Virtual Hub that can be used with Palo
 
 ## Deploy Palo Alto Networks Cloud NGFW
 
+
+>[!NOTE]
+> Note that you must wait for the routing status of the hub to be "Provisioned" before deploying Cloud NGFW. 
+ 
+
 1. Navigate to your Virtual Hub and click on **SaaS solutions** under **Third-party providers**.
 1. Click **Create SaaS** and select **Palo Alto Networks Cloud NGFW (preview)**.
 1. Click **Create**.
@@ -71,7 +78,9 @@ The follow steps describe how to deploy a Virtual Hub that can be used with Palo
 
 ## Configure Routing
 
-After the Cloud NGFW is succesfully provisioned, you can now configure Virtual WAN to route traffic to your Cloud NGFW. 
+>[!NOTE]
+> Note that you cannot configure routing intent until the Cloud NGFW is succesfully provisioned.
+ 
 1. Navigate to your Virtual Hub and click on **Routing intent and policies** under **Routing**
 1. If you want to use Palo Alto Networks Cloud NGFW to inspect oubound Internet traffic (traffic between Virtual Networks or on-premises and the Internet), under **Internet traffic** select **SaaS solution**. For the **Next Hop resource**, select your Cloud NGFW resource.
  :::image type="content" source="./media/how-to-palo-alto-cloudngfw/internet-routing-policy.png" alt-text="Screenshot showing internet routing policy creation." lightbox="./media/how-to-palo-alto-cloudngfw/internet-routing-policy.png":::
@@ -97,8 +106,10 @@ The following steps describes how to delete a Cloud NGFW offer:
 1. Click on **Click here** under **Manage SaaS**.
         :::image type="content" source="./media/how-to-palo-alto-cloudngfw/manage-saas.png" alt-text="Screenshot showing how to manage your SaaS solution." lightbox="./media/how-to-palo-alto-cloudngfw/manage-saas.png":::
 1. Click on **Delete** in the upper left-hand corner of the page.
+    :::image type="content" source="./media/how-to-palo-alto-cloudngfw/delete-ngfw.png" alt-text="Screenshot showing delete Cloud NGFW options." lightbox="./media/how-to-palo-alto-cloudngfw/delete-ngfw.png":::
 1. After the delete operation is successful, navigate back to your Virtual Hub's **SaaS solutions** page.
 1. Click on the line that corresponds to your Cloud NGFW and click **Delete SaaS** on the upper left-hand corner of the page. Note that this option will not be available until Step 3 runs to completion. 
+:::image type="content" source="./media/how-to-palo-alto-cloudngfw/delete-saas.png" alt-text="Screenshot showing how todelete your SaaS solution." lightbox="./media/how-to-palo-alto-cloudngfw/delete-saas.png":::
 
 
 ## Troubleshooting 
@@ -106,12 +117,16 @@ The following steps describes how to delete a Cloud NGFW offer:
 The following section describes common issues seen when using Palo Alto Networks Cloud NGFW in Virtual WAN.
 
 
-### Troubleshooting Cloud NGFW creation
+### Troubleshooting Cloud NGFW creation 
 
 * Ensure Virtual Hubs are deployed in one of the following regions: Central US, East US, East US 2, West Europe or Australia East. Cloud NGFW will fail in other regions.
 * Ensure Virtual Hub was created with the Azure Resource Tag **"hubSaaSPreview" : "true"**. Hubs created without this tag are not eligible to be used with Cloud NGFW. These tags must be specified at hub creation time and cannot be provided after hub deployment which means you will need to create a new Virtual Hub.
+* Ensure the Routing status of the Virtual Hub is "Provisioned." Attempts to create Cloud NGFW prior to routing being provisioned will fail. 
 
-
+### Troubleshooting deletion
+* A SaaS solution cannot be deleted until the underlying Cloud NGFW resource is deleted. Therefore, delete the Cloud NGFW resource before deleting the SaaS solution resource.
+* A SaaS solution resource that is currently the next hop resource for routing intent cannot be deleted. Routing intent must be deleted before the SaaS solution resource an be removed.
+* Similarly, a Virtual Hub resource that has a SaaS solution cannot be deleted. The SaaS solution must be deleted before the Virtual Hub is deleted. 
 ### Troubleshooting Routing intent and policies
 
 * For more information about troubleshooting routing intent, please see [Routing Intent documentation](how-to-routing-policies.md). This document describes pre-requisites and common errors associated with configuring routing intent as well as troubleshooting tips.
