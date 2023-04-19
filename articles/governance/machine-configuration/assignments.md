@@ -129,9 +129,9 @@ $guestAssignment | Remove-AzResource
 [01]: https://youtu.be/DmCphySEB7A
 [02]: ../policy/how-to/get-compliance-data.md
 [03]: ./overview.md
-[04]: ./machine-configuration-create-setup.md
-[05]: ./machine-configuration-create.md
-[06]: ./machine-configuration-create-test.md
-[07]: ./machine-configuration-create-definition.md
+[04]: ./how-to-set-up-authoring-environment.md
+[05]: ./how-to-create-package.md
+[06]: ./how-to-test-package.md
+[07]: ./how-to-create-policy-definition.md
 [08]: ../policy/assign-policy-portal.md
 [09]: ../policy/how-to/determine-non-compliance.md
