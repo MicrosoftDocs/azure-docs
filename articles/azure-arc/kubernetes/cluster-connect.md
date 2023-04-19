@@ -1,6 +1,6 @@
 ---
 title: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters."
-ms.date: 01/18/2023
+ms.date: 04/19/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall."
@@ -160,10 +160,10 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a service account in any namespace (the following command creates it in the default namespace):
+1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, run this command to create a service account. This example creates the service account in the default namespace, but you can substitute any other namespace.
 
    ```console
-   kubectl create serviceaccount demo-user
+   kubectl create serviceaccount demo-user -n default
    ```
 
 1. Create ClusterRoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
@@ -198,10 +198,10 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a service account in any namespace (the following command creates it in the default namespace):
+1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, run this command to create a service account. This example creates the service account in the default namespace, but you can substitute any other namespace.
 
    ```console
-   kubectl create serviceaccount demo-user
+   kubectl create serviceaccount demo-user -n default
    ```
 
 1. Create ClusterRoleBinding or RoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
