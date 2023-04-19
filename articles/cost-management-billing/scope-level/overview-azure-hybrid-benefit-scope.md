@@ -33,8 +33,10 @@ At a high level, here's how centrally managed Azure Hybrid Benefit works:
 
 1. First, confirm that all your SQL Server VMs are visible to you and Azure by enabling automatic registration of the self-installed SQL server images with the IaaS extension. For more information, see [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk).
 1. Under **Cost Management + Billing** in the Azure portal, you (the billing administrator) choose the scope and coverage option for the number of qualifying licenses that you want to assign.  
-    :::image type="content" source="./media/overview-azure-hybrid-benefit-scope/set-scope-assign-licenses.png" alt-text="Screenshot showing setting a scope and assigning licenses." lightbox="./media/overview-azure-hybrid-benefit-scope/set-scope-assign-licenses.png" :::
 1. Select the date that you want to review the license assignment. For example, you might set to the to the agreement renewal or anniversary date, or the subscription renewal date, for the source of the licenses.
+
+:::image type="content" source="./media/overview-azure-hybrid-benefit-scope/set-scope-assign-licenses.png" alt-text="Screenshot showing setting a scope and assigning licenses." lightbox="./media/overview-azure-hybrid-benefit-scope/set-scope-assign-licenses.png" :::
+
 
 Let's break down the previous example.
 

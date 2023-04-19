@@ -4,7 +4,7 @@ description: This article provides a detailed explanation about how Azure applie
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2022
+ms.date: 04/19/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
