@@ -38,12 +38,14 @@ Identity related NuGet packages must be installed in the project for authenticat
 
 1. Navigate to *Controllers* and open *HomeController.cs*. 
 1. Authorization needs to be added to the controller, add `Microsoft.AspNetCore.Authorization` so that the top of the file is identical to the following snippet:
+
     ```cshtml
     using System.Diagnostics;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using aspnet_ciam_webapp.Models;
     ```
+
 1. Additionally, add the following attribute directly above the `HomeController` class definition:
 
     ```csharp
@@ -129,10 +131,11 @@ After installing the NuGet packages and adding necessary code for authentication
     dotnet run --launch-profile https
     ```
 
-1. You may need to enter the application URI into the browser, for example `https://localhost:{port}`. After the sign in window appears, select the account in which to sign in with.
-1. On the sign-in page, type your email address and enter your password. 
-    1. If you don't have an account, select **No account? Create one**, which starts the sign-up flow. After entering a one-time passcode, new password and more account details, this sign-up flow is completed. 
-1. Choose either **Yes** or **No** if a window appears asking whether to **Stay signed in**.
+1. Open a new private browser, and enter the application URI into the browser, for example `https://localhost:{port}`.
+1. Select **No account? Create one**, which starts the sign-up flow.
+1. In the **Create account** window, enter the email address registered to your CIAM tenant which will start the sign-up flow as a user for your application.
+1. After entering a one-time passcode from the CIAM tenant, enter a new password and more account details, this sign-up flow is completed.
+    1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The ASP.NET Welcome page appears in your browser as depicted in the following screenshot:
 
     :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into an ASP.NET web app.":::

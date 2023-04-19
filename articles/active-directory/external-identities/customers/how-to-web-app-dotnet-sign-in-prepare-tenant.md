@@ -1,6 +1,6 @@
 ---
 title: Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your tenant
-description: Learn about how to prepare your CIAM tenant for customers to sign in users in your own Node.js web application by using Microsoft Entra.
+description: Learn about how to prepare your CIAM tenant for customers to sign in users in your own ASP.NET web application by using Microsoft Entra.
 services: active-directory
 author: cilwerner
 manager: celestedg
@@ -20,16 +20,14 @@ ms.custom: developer
 In this article, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. To prepare your tenant:
 
 > [!div class="checklist"]
-> * Register a web application in the Microsoft Entra admin center. 
-> * Record the web application's unique identifiers
-> * Create a sign in and sign out user flow in Microsoft Entra admin center.
-> * Associate your web application with the user flow. 
+> * Register a web application in the Microsoft Entra admin center.
+> * Record the web application's unique identifiers.
+> * Create a sign in and sign out user flow in the Microsoft Entra admin center.
+> * Associate your web application with the user flow.
 
 ## Prerequisites
 
-- Completion of the prerequisites in [Sign in users in your own ASP.NET web application by using Microsoft Entra - Overview](./how-to-web-app-dotnet-sign-in-overview.md).
-- A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet).
-
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial).
 
 If you have already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your ASP.NET web app](how-to-web-app-dotnet-sign-in-prepare-app.md).
 
@@ -37,17 +35,17 @@ If you have already registered a web application in the Microsoft Entra admin ce
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 
-## Add app client secret 
+## Add app client secret
 
-[!INCLUDE [active-directory-b2c-add-client-secret](./includes/register-app/add-app-client-secret.md)] 
+[!INCLUDE [active-directory-b2c-add-client-secret](./includes/register-app/add-app-client-secret.md)]
 
 ## Grant API permissions
 
-[!INCLUDE [active-directory-b2c-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)] 
+[!INCLUDE [active-directory-b2c-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)]
 
-## Create a user flow 
+## Create a user flow
 
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)] 
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)]
 
 ## Associate the web application with the user flow
 

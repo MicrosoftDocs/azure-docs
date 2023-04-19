@@ -23,9 +23,9 @@ This how-to guide uses a sample ASP.NET web application to show the fundamentals
 In this article:
 
 > [!div class="checklist"]
-> * Register a web application in the Microsoft Entra admin center
+> * Register a web application in the Microsoft Entra admin center.
 > * Create a sign in and sign out user flow in Microsoft Entra admin center.
-> * Associate your web application with the user flow. 
+> * Associate your web application with the user flow.
 > * Update a sample ASP.NET web application using your own Azure Active Directory (Azure AD) for customers tenant details.
 > * Run and test the sample web application.
 
@@ -34,23 +34,22 @@ In this article:
 - Although any IDE that supports Vanilla JS applications can be used, Visual Studio Code is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 - A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial).
-- A separate email account that can be used to test the user flow and sign-in experience.
 
 ## Register the web app
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 
-## Add app client secret 
+## Add app client secret
 
-[!INCLUDE [active-directory-b2c-add-client-secret](./includes/register-app/add-app-client-secret.md)] 
+[!INCLUDE [active-directory-b2c-add-client-secret](./includes/register-app/add-app-client-secret.md)]
 
 ## Grant API permissions
 
-[!INCLUDE [active-directory-b2c-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)] 
+[!INCLUDE [active-directory-b2c-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)]
 
-## Create a user flow 
+## Create a user flow
 
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)] 
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)]
 
 ## Associate the web application with the user flow
 
@@ -60,12 +59,12 @@ In this article:
 
 To get the web app sample code, you can do either of the following tasks:
 
-- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/archive/refs/heads/main.zip). Extract the sample app file to a folder where the total length of the path is 260 or fewer characters
+- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/archive/refs/heads/main.zip). Extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
 - Clone the sample web application from GitHub by running the following command:
 
     ```powershell
     git clone https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial.git
-    ``` 
+    ```
 
 ## Configure the application
 
@@ -86,8 +85,9 @@ To get the web app sample code, you can do either of the following tasks:
     ```powershell
     dotnet run
     ```
-1. Open your web browser and navigate to `https://localhost:7274`.
-1. Sign-in with an account registered to the CIAM tenant. <!-- More specificity needed here that it should ideally be done in an incognito window with a different email address or one to set up user flow.-->
+
+1. Open your web browser and navigate to `https://localhost:7274`. This has already been configured in the code sample
+1. Sign-in with an account registered to the CIAM tenant. 
 1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
 
     :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into a node web app.":::
