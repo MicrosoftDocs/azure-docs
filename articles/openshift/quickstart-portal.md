@@ -56,7 +56,7 @@ Register the `Microsoft.RedHatOpenShift` resource provider. For instructions on 
 
 6.	On the **Networking** tab, configure the required options.
 
-   **Note**: Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets: one for the control plane and one for worker nodes.
+       **Note**: Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets: one for the control plane and one for worker nodes.
 
 ![**Networking** tab on Azure portal](./media/Networking.png)
 
