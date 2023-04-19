@@ -17,9 +17,9 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Standard consumption (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
-This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps with the Standard consumption plan.
+This article explains how to deploy a Spring Boot event-driven application to Azure Spring Apps.
 
 The sample project is an event-driven application that subscribes to a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md#queues) named `lower-case`, and then handles the message and sends another message to another queue named `upper-case`. To make the app simple, message processing just converts the message to uppercase. The following diagram depicts this process:
 
@@ -28,6 +28,13 @@ The sample project is an event-driven application that subscribes to a [Service 
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+::: zone pivot="sc-enterprise"
+
+- If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
+
+::: zone-end
+
 - [Azure CLI](/cli/azure/install-azure-cli). Version 2.45.0 or greater.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
@@ -46,7 +53,7 @@ Use the following steps to prepare the sample locally.
 
    ```bash
    cd ASA-Samples-Event-Driven-Application
-   ./mvnw clean package -DskipTests
+   mvn clean package -DskipTests
    ```
 
 ## Prepare the cloud environment
@@ -54,6 +61,8 @@ Use the following steps to prepare the sample locally.
 The main resources you need to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
 
 1. Use the following commands to create variables for the names of your resources and for other settings as needed. Resource names in Azure must be unique.
+
+::: zone pivot="sc-consumption-plan"
 
    ```azurecli
    RESOURCE_GROUP=<event-driven-app-resource-group-name>
@@ -63,6 +72,20 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
    AZURE_SPRING_APPS_INSTANCE=<Azure-Spring-Apps-instance-name>
    APP_NAME=<event-driven-app-name>
    ```
+
+::: zone-end
+
+::: zone pivot="sc-standard,sc-enterprise"
+
+   ```azurecli
+   RESOURCE_GROUP=<event-driven-app-resource-group-name>
+   LOCATION=<desired-region>
+   SERVICE_BUS_NAME_SPACE=<event-driven-app-service-bus-namespace>
+   AZURE_SPRING_APPS_INSTANCE=<Azure-Spring-Apps-instance-name>
+   APP_NAME=<event-driven-app-name>
+   ```
+
+::: zone-end
 
 1. Sign in to Azure by using the following command:
 
@@ -121,6 +144,8 @@ Create a Service Bus instance by using the following steps.
        --name upper-case
    ```
 
+::: zone pivot="sc-consumption-plan"
+
 ## Create an Azure Container Apps environment
 
 The Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
@@ -151,6 +176,8 @@ Use the following steps to create the environment:
    az containerapp env create --name ${AZURE_CONTAINER_APPS_ENVIRONMENT}
    ```
 
+::: zone-end
+
 ## Create the Azure Spring Apps instance
 
 An Azure Spring Apps Standard consumption plan instance hosts the Spring event-driven app. Use the following steps to create the service instance and then create an app inside the instance.
@@ -167,6 +194,8 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
    ```azurecli
    az provider register --namespace Microsoft.AppPlatform
    ```
+
+::: zone pivot="sc-consumption-plan"
 
 1. Get the Azure Container Apps environment resource ID by using the following command:
 
@@ -185,6 +214,31 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
        --managed-environment ${MANAGED_ENV_RESOURCE_ID} \
        --sku standardGen2
    ```
+
+::: zone-end
+
+::: zone pivot="sc-standard"
+
+1. Use the following command to create your Azure Spring Apps instance.
+
+   ```azurecli
+   az spring create \
+       --name ${AZURE_SPRING_APPS_INSTANCE}
+   ```
+
+::: zone-end
+
+::: zone pivot="sc-enterprise"
+
+1. Use the following command to create your Azure Spring Apps instance.
+
+   ```azurecli
+   az spring create \
+       --name ${AZURE_SPRING_APPS_INSTANCE} \
+       --sku Enterprise
+   ```
+
+::: zone-end
 
 1. Create an app in the Azure Spring Apps instance by using the following command:
 
@@ -252,8 +306,23 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
+::: zone pivot="sc-standard,sc-enterprise"
+
+To learn how to use more Azure Spring capabilities, advance to the quickstart series that deploys a sample application to Azure Spring Apps:
+
+> [!div class="nextstepaction"]
+> [Introduction to the sample app](./quickstart-sample-app-introduction.md)
+
+::: zone-end
+
+::: zone pivot="sc-consumption-plan"
+
+To learn how to set up autoscale for applications in Azure Spring Apps Standard consumption plan, advance to the quickstart:
+
 > [!div class="nextstepaction"]
 > [Set up autoscale for applications in Azure Spring Apps Standard consumption plan](./quickstart-apps-autoscale-standard-consumption.md)
+
+::: zone-end
 
 For more information, see the following articles:
 
