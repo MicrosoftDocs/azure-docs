@@ -65,7 +65,7 @@ See [Get started with Functions triggers in Azure Cache for Redis](cache-tutoria
 
 ## Trigger usage
 
-### `RedisPubSubTrigger`
+### RedisPubSubTrigger
 
 The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSCRIBE`](https://redis.io/commands/psubscribe/), and surfaces messages received on those channels to the function.
 
@@ -83,6 +83,8 @@ The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSC
 - `Channel`: name of the pubsub channel that the trigger should listen to.
 
 This sample listens to the channel "channel" at a localhost Redis instance at `127.0.0.1:6379`
+
+### Language Samples PubSubTrigger
 
 #### [C#](#tab/csharp)
 
@@ -106,6 +108,7 @@ public static void PubSubTrigger(
 ---
 
 This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at `127.0.0.1:6379`.
+
 
 #### [C#](#tab/csharp)
 
