@@ -4,16 +4,13 @@ description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
 ms.custom: event-tier1-build-2022
-ms.date: 11/10/2022
+ms.date: 4/14/2023
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure SQL bindings for Azure Functions overview (preview)
-
-> [!NOTE]
-> The Azure SQL trigger is only supported on **Premium and Dedicated** plans. Consumption is not supported. Azure SQL input/output bindings are supported for all plans.
 
 This set of articles explains how to work with [Azure SQL](/azure/azure-sql/index) bindings in Azure Functions. Azure Functions supports input bindings, output bindings, and a function trigger for the Azure SQL and SQL Server products.
 
@@ -177,7 +174,7 @@ Add the Java library for SQL bindings to your functions project with an update t
 <dependency>
     <groupId>com.microsoft.azure.functions</groupId>
     <artifactId>azure-functions-java-library-sql</artifactId>
-    <version>0.1.1</version>
+    <version>2.0.0-preview</version>
 </dependency>
 ```
 
@@ -190,7 +187,7 @@ Azure SQL bindings for Azure Functions have a required property for the connecti
 - `Authentication` allows a function to connect to Azure SQL with Azure Active Directory, including [Active Directory Managed Identity](./functions-identity-access-azure-sql-with-managed-identity.md)
 - `Command Timeout` allows a function to wait for specified amount of time in seconds before terminating a query (default 30 seconds)
 - `ConnectRetryCount` allows a function to automatically make additional reconnection attempts, especially applicable to Azure SQL Database serverless tier (default 1)
-
+- `Pooling` allows a function to reuse connections to the database, which can improve performance (default `true`). Additional settings for connection pooling include `Connection Lifetime`, `Max Pool Size`, and `Min Pool Size`. Learn more about connection pooling in the [ADO.NET documentation](/sql/connect/ado-net/sql-server-connection-pooling)
 
 ## Considerations
 
