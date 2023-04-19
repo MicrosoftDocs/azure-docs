@@ -34,7 +34,7 @@ A common way you can improve this security is by implementing an API KEY mechani
 Each mid-call webhook callback sent by Call Automation uses a signed JSON Web Token (JWT) in the Authentication header of the inbound HTTPS request. You can use standard Open ID Connect (OIDC) JWT validation techniques to ensure the integrity of the token as follows. The lifetime of the JWT is five (5) minutes and a new token is created for every event sent to the callback URI.
 
 1. Obtain the Open ID configuration URL: https://[YourACSResourceName].communication.azure.com/calling/.well-known/acsopenidconfiguration
-2. Install the [Open ID Connect NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocols.OpenIdConnect) package .
+2. Install the [Microsoft.AspNetCore.Authentication.JwtBearer Nuget](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer) package.
 3. Configure your application to validate the JWT using the NuGet package and the configuration of your ACS resource. You will need the `issuer` and the `audience` values as these will be present in the JWT payload.
 4. Validate the issuer, audience and the JWT token.
 - The issuer is https://acscallautomation.communication.microsoft.com
@@ -44,67 +44,57 @@ Each mid-call webhook callback sent by Call Automation uses a signed JSON Web To
 Below is a sample code by using `Microsoft.IdentityModel.Protocols.OpenIdConnect` to validate webhood event
 ## [csharp](#tab/csharp)
 ```csharp
-public class Program
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Protocols;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using Microsoft.IdentityModel.Tokens;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Add ACS CallAutomation OpenID configuration
+var configurationManager = new ConfigurationManager<OpenIdConnectConfiguration>(
+            builder.Configuration["OpenIdConfigUrl"],
+            new OpenIdConnectConfigurationRetriever());
+var configuration = configurationManager.GetConfigurationAsync().Result;
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
     {
-        public static void Main(string[] args)
+        options.TokenValidationParameters = new TokenValidationParameters
         {
-            CreateHostBuilder(args).Build().Run();
-        }
+            IssuerSigningKeys = configuration.SigningKeys,
+            ValidIssuer = "https://acscallautomation.communication.microsoft.com",
+            ValidAudience = builder.Configuration["AllowedAudience"]
+        };
+    });
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-                })
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.ConfigureServices(services =>
-                    {
-                        // Add JWT authentication
-                        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                            .AddJwtBearer(options =>
-                            {
-                                var configurationManager = new ConfigurationManager<OpenIdConnectConfiguration>(
-                                    Configuration["OpenIdConfigUrl"],
-                                    new OpenIdConnectConfigurationRetriever());
-                                var configuration = configurationManager.GetConfigurationAsync().Result;
+builder.Services.AddAuthorization();
 
-                                options.TokenValidationParameters = new TokenValidationParameters
-                                {
-                                    ValidateIssuerSigningKey = true,
-                                    IssuerSigningKeys = configuration.SigningKeys,
-                                    ValidateLifetime = true,
-                                    ValidateIssuer = true,
-                                    ValidIssuer = "https://acscallautomation.communication.microsoft.com",
-                                    ValidateAudience = true,
-                                    ValidAudience = Configuration["AllowedAudience"],
-                                };
-                            });
+var app = builder.Build();
 
-                        services.AddControllers();
-                    })
-                    .Configure(app =>
-                    {
-                        app.Use(async (context, next) =>
-                        {
-                            var authorizationHeader = context.Request.Headers["Authorization"].FirstOrDefault();
-                            if (!string.IsNullOrEmpty(authorizationHeader))
-                            {
-                                Console.WriteLine($"Authorization header: {authorizationHeader}");
-                            }
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-                            await next();
-                        });
+app.UseHttpsRedirection();
 
-                        app.UseRouting();
-                        app.UseAuthentication();
-                        app.UseAuthorization();
-                        app.UseEndpoints(endpoints =>
-                        {
-                            endpoints.MapControllers();
-                        });
-                    });
-                });
-    }
+app.MapPost("/api/callback", () =>
+{
+    // Your implemenation on the callback event
+    return Results.Ok();
+})
+.RequireAuthorization()
+.WithName("callback")
+.WithOpenApi();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.Run();
 ```
