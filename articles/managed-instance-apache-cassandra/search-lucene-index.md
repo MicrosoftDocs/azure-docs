@@ -76,7 +76,7 @@ Cassandra Lucene Index, derived from Stratio Cassandra, is a plugin for Apache C
 
 ## Control read consistency
 
-1. The index you created earlier will index all the columns in the table with the specified types, and it will be refreshed once per second. Alternatively, you can explicitly refresh all the index shards with an empty search with consistency ALL:
+1. The index you created earlier will index all the columns in the table with the specified types, and the read index used for searching will be refreshed once per second. Alternatively, you can explicitly refresh all the index shards with an empty search with consistency ALL:
 
     ```SQL
         CONSISTENCY ALL

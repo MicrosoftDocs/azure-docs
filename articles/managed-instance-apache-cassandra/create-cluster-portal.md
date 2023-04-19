@@ -180,6 +180,9 @@ The service allows update to Cassandra YAML configuration on a datacenter via th
 
 1. For non-production environments, you can pause/de-allocate resources in the cluster in order to avoid being charged for them (you will continue to be charged for storage). First change cluster type to `NonProduction`, then `deallocate`.
 
+> [!WARNING] 
+> Do not execute any schema or write operations during de-allocation - this can lead to data loss and in rare cases schema corruption requiring manual intervention from the support team.
+
    :::image type="content" source="./media/create-cluster-portal/pause-cluster.png" alt-text="Screenshot of pausing a cluster." lightbox="./media/create-cluster-portal/pause-cluster.png" border="true":::
 
 ## Troubleshooting
