@@ -169,10 +169,14 @@
     href: microsoft-365-defender-sentinel-integration.md
   - name: Integrate SAP
     items:
-    - name: Solution overview
+    - name: SAP solution overview
       href: sap/solution-overview.md
-    - name: Working with the solution across multiple workspaces
+    - name: Working with the SAP solution across multiple workspaces
       href: sap/cross-workspace.md
+    - name: SAP BTP solution
+      items:
+      - name: Overview
+        href: sap/sap-btp-solution-overview.md
 - name: How-tos
   items:
   - name: Plan architecture
@@ -959,7 +963,7 @@
       href: offboard.md
   - name: Integrate SAP
     items: 
-    - name: Deployment guide
+    - name: SAP solution deployment guide
       items: 
       - name: Deployment overview
         href: sap/deployment-overview.md
@@ -992,6 +996,10 @@
         href: sap/configure-audit-log-rules.md
       - name: Select SAP ingestion profile
         href: sap/select-ingestion-profiles.md 
+    - name: SAP BTP solution
+      items:
+      - name: Deploy SAP BTP
+        href: sap/deploy-sap-btp-solution.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot CEF/Syslog data collection
@@ -1007,7 +1015,7 @@
 - name: Reference
   items:
   - name: SAP solution
-    items:
+    items:    
     - name: SAP solution data reference
       href: sap/sap-solution-log-reference.md
     - name: SAP solution content overview
@@ -1022,6 +1030,10 @@
       href: sap/reference-update.md
     - name: Systemconfig.ini file reference
       href: sap/reference-systemconfig.md
+    - name: SAP BTP
+      items:
+      - name: SAP BTP solution content overview
+        href: sap/sap-btp-security-content.md
   - name: Service limits
     href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
