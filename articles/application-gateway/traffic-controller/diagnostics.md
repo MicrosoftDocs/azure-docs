@@ -15,7 +15,7 @@ ms.author: greglin
 
 Learn how to troubleshoot common problems in Traffic Controller.
 
-You can monitor Azure Application Gateway resources in the following ways:
+You can monitor Azure Traffic Controller resources in the following ways:
 
 * Logs: Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
