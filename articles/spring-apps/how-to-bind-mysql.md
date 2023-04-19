@@ -1,6 +1,6 @@
 ---
-title: How to bind an Azure Database for MySQL instance to your application in Azure Spring Apps
-description: Learn how to bind an Azure Database for MySQL instance to your application in Azure Spring Apps
+title: How to connect an Azure Database for MySQL instance to your application in Azure Spring Apps
+description: Learn how to connect an Azure Database for MySQL instance to your application in Azure Spring Apps
 author: karlerickson
 ms.service: spring-apps
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.author: karler
 ms.custom: devx-track-java, event-tier1-build-2022, passwordless-java, service-connector
 ---
 
-# Bind an Azure Database for MySQL instance to your application in Azure Spring Apps
+# Connect an Azure Database for MySQL instance to your application in Azure Spring Apps
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -18,7 +18,7 @@ ms.custom: devx-track-java, event-tier1-build-2022, passwordless-java, service-c
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-With Azure Spring Apps, you can bind select Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to bind your application to your Azure Database for MySQL instance.
+With Azure Spring Apps, you can connect select Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to connect your application to your Azure Database for MySQL instance.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 
-## Bind your app to the Azure Database for MySQL instance
+## Connect your app to the Azure Database for MySQL instance
 
 ### [Service Connector](#tab/Service-Connector)
 
@@ -183,4 +183,4 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
 
 ## Next steps
 
-In this article, you learned how to bind an application in Azure Spring Apps to an Azure Database for MySQL instance. To learn more about binding services to an application, see [Bind an Azure Cosmos DB database to an application in Azure Spring Apps](./how-to-bind-cosmos.md).
+In this article, you learned how to connect an application in Azure Spring Apps to an Azure Database for MySQL instance. To learn more about connecting services to an application, see [Connect an Azure Cosmos DB database to an application in Azure Spring Apps](./how-to-connect-cosmos.md).
