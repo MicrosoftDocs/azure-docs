@@ -31,9 +31,9 @@ Use Change data capture (CDC) in Azure Cosmos DB analytical store as a source to
 
 First, enable Azure Synapse Link at the account level and then enable analytical store for the containers that's appropriate for your workload.
 
-1. Enable Azure Synapse Link: [Enable Azure Synapse Link for an Azure Cosmos DB account](configure-synapse-link.md#enable-synapse-link) |
+1. Enable Azure Synapse Link: [Enable Azure Synapse Link for an Azure Cosmos DB account](configure-synapse-link.md#enable-synapse-link) 
 
-1. Enable analytical store for your container\[s\]:
+1. Enable analytical store for your containers:
 
     | Option | Guide |
     | --- | --- |
