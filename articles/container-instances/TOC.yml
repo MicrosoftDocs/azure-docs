@@ -67,6 +67,7 @@
     href: container-instances-resource-and-quota-limits.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
+    href: confidential-containers-attestation-concepts.md
   - name: Security
     items:
      - name: Security baseline
