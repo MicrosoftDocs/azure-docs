@@ -50,6 +50,7 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 \*\* Azure Active Directory (Azure AD) recommendations are available only for subscriptions with [enhanced security features enabled](enable-enhanced-security.md).
 
 
+
 ## Supported operating systems
 
 Defender for Cloud depends on the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) or the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md). Make sure that your machines are running one of the supported operating systems as described on the following pages:
