@@ -84,7 +84,7 @@ The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSC
 
 This sample listens to the channel "channel" at a localhost Redis instance at `127.0.0.1:6379`
 
-[C#](#tab/csharp)
+#### [C#](#tab/csharp)
 
 ```csharp
 [FunctionName(nameof(PubSubTrigger))]
@@ -96,7 +96,7 @@ public static void PubSubTrigger(
 }
 ```
 
-[Java](#tab/java)
+#### [Java](#tab/java)
 
 ```java
 // TBD!
@@ -131,7 +131,7 @@ public static void PubSubTrigger(
 
 This sample listens to any keyevent notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at `127.0.0.1:6379`.
 
-[C#](#tab/csharp)
+#### [C#](#tab/csharp)
 
 ```csharp
 [FunctionName(nameof(PubSubTrigger))]
@@ -143,7 +143,7 @@ public static void PubSubTrigger(
 }
 ```
 
-[Java](#tab/java)
+#### [Java](#tab/java)
 
 ```java
 // TBD!
@@ -174,7 +174,7 @@ The `RedisListsTrigger` pops elements from a list and surfaces those elements to
 
 The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
 
-[C#](#tab/csharp)
+#### [C#](#tab/csharp)
 
 ```csharp
 [FunctionName(nameof(ListsTrigger))]
@@ -186,7 +186,7 @@ public static void ListsTrigger(
 }
 ```
 
-[Java](#tab/java)
+#### [Java](#tab/java)
 
 
 ```java
@@ -218,9 +218,9 @@ Each function creates a new random GUID to use as its consumer name within the g
 - (optional) `DeleteAfterProcess`: If the listener will delete the stream entries after the function runs.
   - Default: false
 
-[C#](#tab/csharp)
+The following sample polls the key `streamTest` at a localhost Redis instance at `127.0.0.1:6379`:
 
-The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
+#### [C#](#tab/csharp)
 
 ```csharp
 [FunctionName(nameof(StreamsTrigger))]
@@ -232,7 +232,7 @@ public static void StreamsTrigger(
 }
 ```
 
-[Java](#tab/java)
+#### [Java](#tab/java)
 
 ```java
 // TBD
@@ -248,7 +248,7 @@ All triggers return a [`RedisMessageModel`](./src/Models/RedisMessageModel.cs) o
 - `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
 - `Message`: The pubsub message, list element, or stream element.
 
-##### [C#](#tab/csharp)
+#### [C#](#tab/csharp)
 
 ```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.Redis
@@ -261,13 +261,12 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis
 }
 ```
 
-##### [Java](#tab/java)
+#### [Java](#tab/java)
 
 ```java
 // TBD
 // RedisMessageModel
 ```
-
 
 ---
 
