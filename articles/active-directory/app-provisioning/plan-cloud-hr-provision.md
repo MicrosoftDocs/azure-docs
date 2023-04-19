@@ -113,7 +113,7 @@ The following example describes the end-to-end user provisioning solution archit
 The following key steps are indicated in the diagram:  
 
 1. **HR team** performs the transactions in the cloud HR app tenant.
-2. **Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes that need to be processed for sync with Active Directory.
+2. **Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes to process for sync with Active Directory.
 3. **Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload that contains Active Directory account create, update, enable, and disable operations.
 4. **Azure AD Connect provisioning agent** uses a service account to manage Active Directory account data.
 5. **Azure AD Connect** runs delta [sync](../hybrid/how-to-connect-sync-whatis.md) to pull updates in Active Directory.
