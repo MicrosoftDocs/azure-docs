@@ -291,7 +291,6 @@ Similarly, you can change, add, and remove other style modifiers.
 > [!div class="nextstepaction"]
 > [Data service]
 
-- To learn more about Azure Maps Data service, see the [Data service].
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Render - Get Map Image]: /rest/api/maps/render/getmapimage
