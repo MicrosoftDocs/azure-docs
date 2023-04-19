@@ -37,68 +37,123 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 -	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
 -	An active Log Analytics Workspace, also known as Azure Monitor Logs, to ensure you do not lose your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
 
-<!-- need to update the version after beta release -->
+
 > [!IMPORTANT]
 > End of Call Survey is available starting on the version [1.13-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.13-beta.1) of the Calling SDK. Make sure to use that version or later when trying the instructions.
 
-### Sample of API usage
+## Sample of API usage
+
+We encourage you to use the default rating scale. However, you have the option to submit a survey with custom rating scale. You can check out the [sample application](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/blob/main/Project/src/MakeCall/CallSurvey.js) for the complete API usage.  You will need the call object to submit the call survey. You will have the call object when you start or receive a call. The code snip below shows an example of one-to-one call. After the end of the call, show the survey option.
 
 
+```typescript
+    const call: Call = callAgent.startCall(['{target participant / callee MRI / number}']);
+    call.on('stateChanged', callStateChangedHandler);
+    const callStateChangedHandler = () => {
+        if (call.state === 'Disconnected') {
+            console.log('call end reason', call.callEndReason);
+            // TODO: Show the UI to collect the survey data
+        }
+    };
+```
 
+When the participant submits the survey, then call the submit survey API with survey data.
 
-#### Rate call only - no custom data
+### Rate call only - no custom scale
 
 ```javascript
 call.feature(Features.CallSurvey).submitSurvey({
-                overallRating: { score: 3 }
-            }).then(() => console.log('survey submitted successfully'))
+    overallRating: { score: 5 }, // issues are optional
+    videoRating: { score: 4, issues: ['LowQuality'] },
+    screenshareRating: { score: 4, issues: ['LargeDelay'] }
+}).then(() => console.log('survey submitted successfully'));
 ```
 
+At least one of the four categories (overallRating, audioRating, videoRating or screenshareRating) is required.
 
 
+### Rate call only - with custom scale and issues
 
-#### Rate call only - with custom scale
-``` javascript
-call.feature(Features.CallSurvey).submitSurvey({
-                overallRating: {
-                    score: 1, // my score
-                    scale: { // my custom scale
-                        lowerBound: 0,
-                        upperBound: 2,
-                        lowScoreThreshold: 1
-                    },
-                    issues: ['HadToRejoin'] // my issues
-                }
-            }).then(() => console.log('survey submitted successfully'))
-```
-
-#### Rate audio / video call with sample issue
-``` javascript
-call.feature(Features.CallSurvey).submitSurvey({
-                overallRating: { score: 3 },
-                audioRating: { score : 4 },
-                videoRating: { score : 3, issues: ['Freezes'] }
-            }).then(() => console.log('survey submitted successfully'))
-```
-#### Handle errors that the SDK can throw
 ```javascript
 call.feature(Features.CallSurvey).submitSurvey({
-                overallRating: { score: 3 }
-            }).catch((e) => console.log('error when submitting survey: ' + e ))
+    overallRating: {
+        score: 1, // my score
+        scale: { // my custom scale
+            lowerBound: 0,
+            upperBound: 1,
+            lowScoreThreshold: 0
+        },
+        issues: ['HadToRejoin'] // my issues, check the table below for all available issues
+    }
+}).then(() => console.log('survey submitted successfully'));
 ```
 
-### Check for different types of errors
+### Rate audio / video call with sample issue
+``` javascript
+call.feature(Features.CallSurvey).submitSurvey({
+    overallRating: { score: 3 },
+    audioRating: { score: 4 },
+    videoRating: { score: 3, issues: ['Freezes'] }
+}).then(() => console.log('survey submitted successfully'))
+```
+
+### Handle Errors that SDK can throw
+ ``` javascript 
+call.feature(Features.CallSurvey).submitSurvey({
+    overallRating: { score: 3 }
+}).catch((e) => console.log('error when submitting survey: ' + e))
+```
+
+
+
+## Find different types of errors
+
+### Failures while submitting survey:
+
+API will return the error messages when data validation failed or unable to submit the survey.
 -	At least one survey rating is required.
 -	In default scale X should be 1 to 5. - where X is either of
-    - overallRating.score
-    - audioRating.score
-    - videoRating.score
-    - screenshareRating.score
+- overallRating.score
+- 	audioRating.score
+- videoRating.score
+- screenshareRating.score
 -	${propertyName}: ${rating.score} should be between ${rating.scale?.lowerBound} and ${rating.scale?.upperBound}. ;
 -	${propertyName}: ${rating.scale?.lowScoreThreshold} should be between ${rating.scale?.lowerBound} and ${rating.scale?.upperBound}. ;
 -	${propertyName} lowerBound: ${rating.scale?.lowerBound} and upperBound: ${rating.scale?.upperBound} should be between 0 and 100. ;
--	event discarded ACS failed to submit survey
+-	event discarded [ACS failed to submit survey, due to network or other error]
 
+## All possible values
+
+### Default survey API configuration
+
+| API Rating Categories | Cutoff Value* | Input Range | Comments |
+| ----------- | ----------- | -------- | -------- | 
+| Overall Call | 2 | 1 - 5 | Surveys a calling participant’s overall quality experience on a scale of 1-5 where 1 indicates an imperfect call experience and 5 indicates a perfect call. The cutoff value of 2 means that a customer response of 1 or 2 indicates a less than perfect call experience.  |
+| Audio |   2 | 1 - 5  | A response of 1 indicates an imperfect audio experience and 5 indicates no audio issues were experienced.  |
+| Video |   2 | 1 - 5 |  A response of 1 indicates an imperfect video experience and 5 indicates no video issues were experienced. |
+| Screenshare | 2 | 1 - 5   |  A response of 1 indicates an imperfect screen share experience and 5 indicates no screen share issues were experienced. |
+
+
+### Additional survey tags
+| Rating Categories | Optional Tags |
+| ----------- | ----------- |
+|  Overall Call  |    `CallCannotJoin` `CallCannotInvite` `HadToRejoin` `CallEndedUnexpectedly`  `OtherIssues`    |
+| Audio   |  `NoLocalAudio` `NoRemoteAudio` `Echo` `AudioNoise`  `LowVolume`  `AudioStoppedUnexpectedly` `DistortedSpeech` `AudioInterruption`  `OtherIssues`   |
+|   Video |    `NoVideoReceived` `NoVideoSent` `LowQuality` `Freezes` `StoppedUnexpectedly` `DarkVideoReceived` `AudioVideoOutOfSync` `OtherIssues`   |
+| Screenshare   |  `NoContentLocal` `NoContentRemote` `CannotPresent` `LowQuality` `Freezes` `StoppedUnexpectedly` `LargeDelay` `OtherIssues`     |
+
+
+### Customization options
+
+
+| API Rating Categories | Cutoff Value* | Input Range |
+| ----------- | ----------- | -------- |  
+| Overall Call   |   0 - 100    |  0 - 100     |     
+|  Audio  |   0 - 100    |   0 - 100    |     
+|  Video  |    0 - 100   |   0 - 100    |     
+|  Screenshare  |   0 - 100    |   0 - 100    |     
+
+-	***Note**: A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
 
 ## Collect survey data
@@ -109,29 +164,9 @@ call.feature(Features.CallSurvey).submitSurvey({
 
 ### View survey data with a Log Analytics workspace
 
-You need to enable a Log Analytics Workspace to both store the log data of your surveys and access survey results. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). Follow the steps to add a diagnostic setting. Select the “CALL DIAGNOSTICS???” data source when choosing category details. Also, choose “Send to Log Analytics workspace” as your destination detail.
+You need to enable a Log Analytics Workspace to both store the log data of your surveys and access survey results. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). Follow the steps to add a diagnostic setting. Select the “ACSCallSurvey” data source when choosing category details. Also, choose “Send to Log Analytics workspace” as your destination detail.
 
 -	You can also integrate your Log Analytics workspace with Power BI, see: [Integrate Log Analytics with Power BI](../../../articles/azure-monitor/logs/log-powerbi.md)
-
-
-### Default survey analytics queries
-
-You can use the following sample query in your Log Analytics workspace or Power BI.
-
-
-### Export survey data
-
-If you want to export your survey data, you can instead choose to send the log data of your surveys to Event Hubs, see: [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). Follow the steps to add a diagnostic setting. Again, select the “CALL DIAGNOSTICS???” data source when choosing category details. Then, choose “Stream to an event hub” as your destination detail.
-
-You can only view your survey data if you have enabled a Diagnostic Setting to capture your survey data. To learn how to use the End of Call Survey and view your survey data, see: **Tutorial Link**
-
-### Survey data format
-
-Survey data will be in the following table format in the ranges and values that were submitted.
-
-
-
-## Debug support?
 
 
 ## Best Practices
@@ -155,12 +190,8 @@ Surveying Guidelines
 -	The order of your questions matters. We recommend you randomize the sequence of optional tags in Question 2 in case respondents focus most of their feedback on the first prompt they visually see.
 -	Consider using surveys for separate ACS Resources in controlled experiments to identify release impacts.  
 
-## Frequently Asked Questions (FAQs)
--	When can I use the API?
-- How long will it take for survey data to be available in Azure?
 
 ## Next Steps
--	Learn more about the End of Call Survey, see: 
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
