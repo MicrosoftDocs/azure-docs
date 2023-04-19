@@ -13,6 +13,9 @@ ms.custom: ignite-fall-2021
 
 The Azure Managed Instance for Apache Casandra service requires certain network rules to properly manage the service. By ensuring you have the proper rules exposed, you can keep your service secure and prevent operational issues.
 
+> [!WARNING]
+> If you modify firewall rules *after* successful deployment of an existing cluster, these rules might not be applied to existing connections. This may cause problems for automatic updates of the Cassandra Managed Instance nodes. We recommend double-checking connectivity after any major firewall updates.
+
 ## Virtual network service tags
 
 If you are using Azure Firewall to restrict outbound access, we highly recommend using [virtual network service tags](../virtual-network/service-tags-overview.md). Below are the tags required to make Azure Managed Instance for Apache Cassandra function properly.
