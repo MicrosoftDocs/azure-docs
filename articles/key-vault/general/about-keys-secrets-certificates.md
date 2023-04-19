@@ -16,6 +16,31 @@ ms.author: mbaldwin
 
 Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data. Key Vault resource provider supports two resource types: vaults and managed HSMs.
 
+## Object Identifiers
+Objects are uniquely identified within Key Vault using a case-insensitive identifier called the Object Identifier. No two objects in the system have the same identifier, regardless of geo-location. The identifier consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. Identifiers that don't include the Object Version are referred to as Base Identifiers. Key Vault Object Identifiers are also valid URL but should always be compared as case-insensitive strings.
+
+For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md)
+
+An object identifier has the following general format (depending on container type):  
+
+- **For Vaults**:
+`https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+
+- **For Managed HSM pools**:
+`https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+
+> [!NOTE]
+> See [Object type support](#object-types) for types of objects supported by each container type.
+
+Where:  
+
+| Element | Description |  
+|-|-|  
+|`vault-name` or `hsm-name`|The name for a vault or a Managed HSM pool in the Microsoft Azure Key Vault service.<br /><br />Vault names and Managed HSM pool names are selected by the user and are globally unique.<br /><br />Vault name and Managed HSM pool name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and not consecutive -.|  
+|`object-type`|The type of the object, "keys",  "secrets", or 'certificates'.|  
+|`object-name`|An `object-name` is a user provided name for and must be unique within a Key Vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -.|  
+|`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object.|  
+
 ## DNS suffixes for object identifiers
  This table shows the DNS suffix used by the data-plane endpoint for vaults and managed HSM pools in various cloud environments.
 
@@ -69,31 +94,6 @@ Objects in Key Vault can be retrieved by specifying a version or by omitting ver
 
 > [!NOTE]
 > The values you provide for Azure resources or object IDs may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
-
-### Vault-name and Object-name
-Objects are uniquely identified within Key Vault using a case-insensitive identifier called the Object Identifier. No two objects in the system have the same identifier, regardless of geo-location. The identifier consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. Identifiers that don't include the Object Version are referred to as Base Identifiers. Key Vault Object Identifiers are also valid URL but should always be compared as case-insensitive strings.
-
-For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md)
-
-An object identifier has the following general format (depending on container type):  
-
-- **For Vaults**:
-`https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
-
-- **For Managed HSM pools**:
-`https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
-
-> [!NOTE]
-> See [Object type support](#object-types) for types of objects supported by each container type.
-
-Where:  
-
-| Element | Description |  
-|-|-|  
-|`vault-name` or `hsm-name`|The name for a vault or a Managed HSM pool in the Microsoft Azure Key Vault service.<br /><br />Vault names and Managed HSM pool names are selected by the user and are globally unique.<br /><br />Vault name and Managed HSM pool name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and not consecutive -.|  
-|`object-type`|The type of the object, "keys",  "secrets", or 'certificates'.|  
-|`object-name`|An `object-name` is a user provided name for and must be unique within a Key Vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -.|  
-|`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object.|  
 
 ## Next steps
 
