@@ -169,6 +169,8 @@
       href: concept-data-security-posture.md
     - name: Support and prerequisites
       href: concept-data-security-posture-prepare.md
+  - name: Improve your container security posture
+    href: concept-agentless-containers.md
   - name: Security recommendations
     items:
     - name: Reference list of Azure recommendations

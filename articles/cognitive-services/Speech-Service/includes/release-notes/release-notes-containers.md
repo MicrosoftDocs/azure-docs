@@ -163,7 +163,7 @@ Bug fixes for [speech-language-detection](~/articles/cognitive-services/speech-s
 ### 2022-March release
 
 #### Custom speech-to-text Container v3.1.0
-Add support to [get display models](../../speech-container-howto.md#display-model-download-on-the-custom-speech-to-text-container).
+Add support to [get display models](../../speech-container-cstt.md#display-model-download).
 
 ### 2022-January release
 

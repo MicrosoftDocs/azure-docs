@@ -23,10 +23,14 @@ This article provides information about limitations and known issues related to 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
 ### Firefox Known Issues
-Firefox desktop browser support is now available in public preview. Known issues currently known when using Firefox are:
+Firefox desktop browser support is now available in public preview. Known issues are:
 - Enumerating speakers is not available: If you're using Firefox, your app won't be able to enumerate or select speakers through the Communication Services device manager. In this scenario, you must select devices via the operating system. 
 - Virtual cameras are not currently supported when making Firefox desktop audio\video calls. 
 
+### iOS Chrome Known Issues
+iOS Chrome browser support is now available in public preview. Known issues are:
+- No outgoing and incoming audio when switching browser to background or locking the device
+- No incoming/outgoing audio coming from bluetooth headset. When a user connects bluetooth headset in the middle of ACS call, the audio still comes out from the speaker until the user locks and unlocks the phone. We have seen this issue on older iOS versions (15.6, 15.7), and it is not reproducible on iOS 16.
 
 ### iOS 16 introduced bugs when putting browser in the background during a call
 The iOS 16 release has introduced a bug that can stop the ACS audio\video call when using Safari mobile browser. Apple is aware of this issue and is looking for a fix on their side. The impact could be that an ACS call might stop working during a call and the only resolution to get it working again is to have the end customer restart their phone. 
@@ -48,9 +52,9 @@ Chrome version 98 introduced a regression with abnormal generation of video keyf
 ### No incoming audio during a call
 
 Occasionally, a user in an ACS call may not be able to hear the audio from remote participants.
-There is a related [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1402250) bug which causes this issue, the issue can be mitigated by reconnecting the PeerConnection. We've added this workaround since SDK 1.9.1 (stable) and SDK 1.10.0 (beta)
+There is a related [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1402250) bug that causes this issue, the issue can be mitigated by reconnecting the PeerConnection. We've added this workaround since SDK 1.9.1 (stable) and SDK 1.10.0 (beta)
 
-On Android Chrome, if a user joins ACS call several times, the incoming audio can also disappear. The user will not be able to hear the audio from other participants until the page is refreshed. We've fixed this issue in SDK 1.10.1-beta.1, and improved the audio resource usage.
+On Android Chrome, if a user joins ACS call several times, the incoming audio can also disappear. The user is not able to hear the audio from other participants until the page is refreshed. We've fixed this issue in SDK 1.10.1-beta.1, and improved the audio resource usage.
 
 ### Some Android devices failing call scenarios except for group calls.
 
@@ -59,7 +63,7 @@ A number of specific Android devices fail to start, accept calls, and meetings. 
 
 ### Android Chrome mutes the call after browser goes to background for one minute
 
-On Android Chrome, if a user is on an ACS call and puts the browser into background for one minute. The microphone will lose access and the other participants in the call won't hear the audio from the user. Once the user brings the browser to foreground, microphone will be available again. Related chromium bugs [here](https://bugs.chromium.org/p/chromium/issues/detail?id=1027446) and [here](https://bugs.chromium.org/p/webrtc/issues/detail?id=10940)
+On Android Chrome, if a user is on an ACS call and puts the browser into background for one minute. The microphone will lose access and the other participants in the call won't hear the audio from the user. Once the user brings the browser to foreground, microphone is available again. Related chromium bugs [here](https://bugs.chromium.org/p/chromium/issues/detail?id=1027446) and [here](https://bugs.chromium.org/p/webrtc/issues/detail?id=10940)
 
 ### The user has dropped the call but is still on the participant list.
 
@@ -83,7 +87,7 @@ This problem can occur if another application or the operating system takes over
 - A user plays a YouTube video, for example, or starts a FaceTime call. Switching to another native application can capture access to the microphone or camera.
 - A user enables Siri, which will capture access to the microphone.
 
-On iOS for example, while on an ACS call, if a PSTN call comes in, then a microphoneMutedUnexepectedly bad UFD will be raised and audio will stop flowing in the ACS call and the call will be marked as muted. Once the PSTN call is over, the user will have to go and unmute the ACS call for audio to start flowing again in the ACS call. In the case of Android Chrome when a PSTN call comes in, audio will stop flowing in the ACS call and the ACS call will not be marked as muted. In this case, there is no microphoneMutedUnexepectedly UFD event. Once the PSTN call is finished, Android Chrome will regain audio automatically and audio will start flowing normally again in the ACS call.
+On iOS, for example, while on an ACS call, if a PSTN call comes in, then a microphoneMutedUnexepectedly bad UFD will be raised and audio will stop flowing in the ACS call and the call will be marked as muted. Once the PSTN call is over, the user will have to go and unmute the ACS call for audio to start flowing again in the ACS call. In the case of Android Chrome when a PSTN call comes in, audio will stop flowing in the ACS call and the ACS call will not be marked as muted. In this case, there is no microphoneMutedUnexepectedly UFD event. Once the PSTN call is finished, Android Chrome will regain audio automatically and audio will start flowing normally again in the ACS call.
 
 In case camera is on and an interruption occurs, ACS call may or may not lose the camera. If lost then camera will be marked as off and user will have to go turn it back on after the interruption has released the camera.
 
