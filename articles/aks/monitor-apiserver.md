@@ -60,3 +60,4 @@ AzureDiagnostics
 [create-diagnostic settings]: ../azure-monitor/essentials/diagnostic-settings.md#create-diagnostic-settings
 [cost-optimization-azure-monitor]: ../azure-monitor/best-practices-cost.md
 [azure-diagnostics-table]: /azure/azure-monitor/reference/tables/azurediagnostics
+[container-insights-overview]: ..//azure-monitor/containers/container-insights-overview.md
