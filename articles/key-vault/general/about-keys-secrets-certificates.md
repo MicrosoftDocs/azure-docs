@@ -16,8 +16,8 @@ ms.author: mbaldwin
 
 Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data. Key Vault resource provider supports two resource types: vaults and managed HSMs.
 
-## DNS suffixes for base URL
- This table shows the base URL DNS suffix used by the data-plane endpoint for vaults and managed HSM pools in various cloud environments.
+## DNS suffixes for object identifiers
+ This table shows the DNS suffix used by the data-plane endpoint for vaults and managed HSM pools in various cloud environments.
 
 Cloud environment | DNS suffix for vaults | DNS suffix for managed HSMs
 ---|---|---
@@ -27,9 +27,9 @@ Azure US Government | .vault.usgovcloudapi.net | Not supported
 Azure German Cloud | .vault.microsoftazure.de | Not supported
 
 ## Object types
- This table shows object types and their suffixes in the base URL.
+ This table shows object types and their suffixes in the object identifier.
 
-Object type|URL Suffix|Vaults|Managed HSM Pools
+Object type|Identifier Suffix|Vaults|Managed HSM Pools
 --|--|--|--
 **Cryptographic keys**||
 HSM-protected keys|/keys|Supported|Supported
