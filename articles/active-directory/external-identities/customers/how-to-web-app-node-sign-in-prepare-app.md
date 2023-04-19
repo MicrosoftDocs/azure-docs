@@ -91,7 +91,7 @@ In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `expres
         </table>
         <a href="/">Go back</a>
     ```
-    We use this view to display ID token claims that Azure AD for customers returns to this app when successfully user signs in.  
+    We use this view to display ID token claims that Azure AD for customers returns to this app after a user successfully signs in.  
 
 1. In your code editor, open `views/error.hbs` file, then add the following code:
 
