@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 03/22/2023
+ms.date: 04/17/2023
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -111,6 +111,8 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 ## HTTP requests
 
 A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the service creates a batch request. The translated documents are listed in your target container.
+
+For detailed information regarding Azure Translator Service request limits, _see_ [**Document Translation request limits**](../../request-limits.md#document-translation).
 
 ### HTTP headers
 
@@ -1272,22 +1274,6 @@ func main() {
 
 ---
 
-## Content limits
-
-This table lists the limits for data that you send to Document Translation:
-
-|Attribute | Limit|
-|---|---|
-|Document size| ≤ 40 MB |
-|Total number of files.|≤ 1000 |
-|Total content size in a batch | ≤ 250 MB|
-|Number of target languages in a batch| ≤ 10 |
-|Size of Translation memory file| ≤ 10 MB|
-
-Document Translation can't be used to translate secured documents such as those with an encrypted password or with restricted access to copy content.
-
-## Troubleshooting
-
 ### Common HTTP status codes
 
 | HTTP status code | Description | Possible reason |
@@ -1307,5 +1293,3 @@ Document Translation can't be used to translate secured documents such as those 
 
 > [!div class="nextstepaction"]
 > [Create a customized language system using Custom Translator](../../custom-translator/overview.md)
->
->

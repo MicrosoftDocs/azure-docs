@@ -19,22 +19,7 @@ Use this article to learn which natural languages are supported by document and 
 
 # [Document summarization](#tab/document-summarization)
 
-## Languages supported by extractive document summarization
-
-| Language              | Language code |      Notes          |
-|-----------------------|---------------|---------------------|
-| Chinese-Simplified    | `zh-hans`     |  `zh` also accepted |
-| English               | `en`          |                     |
-| French                | `fr`          |                     |
-| German                | `de`          |                     |
-| Italian               | `it`          |                     |
-| Japanese              | `ja`          |                     |
-| Korean                | `ko`          |                     |
-| Spanish               | `es`          |                     |
-| Portuguese (Brazil)   | `pt-BR`       |                     |
-| Portuguese (Portugal) | `pt-PT`       |  `pt` also accepted |
-
-## Languages supported by abstractive document summarization (preview)
+## Languages supported by extractive and abstractive document summarization
 
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|

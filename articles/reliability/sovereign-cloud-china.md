@@ -61,6 +61,14 @@ This section outlines variations and considerations when using Networking servic
 |---------|--------|------------|
 | Private Link| <li>For Private Link services availability, see [Azure Private Link availability](../private-link/availability.md).<li>For Private DNS zone names, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md#government). |
 
+### Azure Container Apps
+
+This section outlines variations and considerations when using Azure Container Apps services. 
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| Azure Monitor| The Azure Monitor integration is not supported in Azure China |
+
 
 ## Azure in China REST endpoints
 
@@ -98,6 +106,8 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | Azure Bot Services | <\*.botframework.com> | <\*.botframework.azure.cn> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
 | Sign in with PowerShell: <br>- Azure classic portal <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |
+| Azure Container Apps Default Domain | \*.azurecontainerapps.io | No default domain is provided for external enviromment. The [custom domain](/azure/container-apps/custom-domains-certificates) is required.  |
+| Azure Container Apps Event Stream Endpoint | \<region\>.azurecontainerapps.dev | \<region\>.chinanorth3.azurecontainerapps-dev.cn  |
 
 ### Application Insights
 

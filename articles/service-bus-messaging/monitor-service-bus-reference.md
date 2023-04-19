@@ -53,6 +53,9 @@ The following two types of errors are classified as **user errors**:
 > [!IMPORTANT]
 > Values for messages, active, dead-lettered, scheduled, completed, and abandoned messages are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
 
+> [!NOTE]
+> When a client tries to get the info about a queue or topic, the Service Bus service returns some static information like name, last updated time, created time, requires session or not etc., and some dynamic information like message counts. If the request gets throttled, the service returns the static information and empty dynamic information. That's why message counts are shown as 0 when the namespace is being throttled. This behavior is by design. 
+
 ### Connection metrics
 
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
@@ -87,7 +90,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
 
 |Dimension name|Description|
 | ------------------- | ----------------- |
-|Entity Name| Service Bus supports messaging entities under the namespace. With the 'Incoming Requests' metric, the Entity Name dimension will see a value of '-NamespaceOnlyMetric-' in addition to all your queues and topics. This represents request which were made at the namespace level. Examples include a  request to list all queues/topics under the namespace or requests to entities which failed authentication or authorization.|
+|Entity Name| Service Bus supports messaging entities under the namespace. With the 'Incoming Requests' metric, the Entity Name dimension will have a value of '-NamespaceOnlyMetric-' in addition to all your queues and topics. This represents the request, which was made at the namespace level. Examples include a  request to list all queues/topics under the namespace or requests to entities that failed authentication or authorization.|
 
 ## Resource logs
 This section lists the types of resource logs you can collect for Azure Service Bus.
