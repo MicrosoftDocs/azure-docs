@@ -82,7 +82,10 @@ Stop protection and delete data deletes all recovery points. For recovery points
 
 ## Stop protection and retain data
 
-Azure Backup now supports archive tiering for eligible recovery points in **Stop protection and retain data** scenario. If the backup item is associated with a long term retention policy and it's moved to **Stop protection and retain data** state, you can choose to move all eligible recovery points to Vault-Archive tier. If backup item was associated with a short term retention policy and it's moved to **Stop protection & retain data** state, archive tiering isn't applicable.
+Azure Backup now supports tiering to archive when you choose to *Stop protection and retain data*. If the backup item is associated with a long term retention policy and is moved to *Stop protection and retain data* state, you can choose to move recommended recovery points to vault-archive tier.
+
+>[!Note]
+>For Azure VM backups, moving recommended recovery points to vault-archive saves costs. For other supported workloads, you can choose to move all eligible recovery points to archive to save costs. If backup item is associated with a short term retention policy and it's moved to *Stop protection & retain data* state, you can't tier the recovery points to archive.
 
 ## Archive tier pricing
 
