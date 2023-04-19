@@ -4,8 +4,8 @@ description: In this quickstart, you follow the steps to enable the Resource Gra
 ms.date: 06/15/2022
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurepowershell
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
 

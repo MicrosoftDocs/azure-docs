@@ -797,9 +797,9 @@
       - name: ARM template
         displayName: Create VM, Create, ARM
         href: ./linux/create-ssh-secured-vm-from-template.md
-      - name: REST
+      - name: REST with SSH
         displayName: Create VM, Create, REST
-        href: ./linux/create-vm-rest-api.md
+        href: /rest/api/compute/virtual-machines/create-or-update?tabs=HTTP#create-a-vm-with-ssh-authentication
       - name: LAMP stack
         href: ./linux/tutorial-lamp-stack.md
       - name: Continuous delivery
