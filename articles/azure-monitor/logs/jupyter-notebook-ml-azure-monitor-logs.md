@@ -194,14 +194,14 @@ Let's experiment with two types of regression models and check which of the mode
     - One-hot encoding categorical variables, which in our case are our data types. 
     - Scales numerical features - in our case, hourly usage - to the 0-1 range.
 
-    The linear pipeline score for this model is: 
+    The linear regression score for this model is: 
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-linear-pipeline-score.png" alt-text="Printout of the scoring results of the linear regression model."::: 
 
 1. Now, let's train and evaluate a [gradient boosting regression model](https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_regression.html).
 
 
-    The linear pipeline score for this model is: 
+    The gradient boosting regression score for this model is: 
 
     :::image type="content" source="media/jupyter-notebook-ml-azure-monitor-logs/machine-learning-azure-monitor-logs-gradient-boosting-regression-score.png" alt-text="Printout of the scoring results of the gradient boosting regression model."::: 
 
