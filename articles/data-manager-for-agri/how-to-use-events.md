@@ -52,17 +52,18 @@ To learn more about how to apply filters, see <a href = "https://docs.microsoft.
 ## Subscribing to events
 You can subscribe to Data Manager for Agriculture events by using Azure portal or Azure Resource Manager client. Each of these provide the user with a set of functionalities. Refer to following resources to know more about each method.
 
-1.  <a href = "https://docs.microsoft.com/azure/event-grid/subscribe-through-portal#:~:text=Create%20event%20subscriptions%201%20Select%20All%20services.%202,event%20types%20option%20checked.%20...%20More%20items..." target = "_blank"> Subscribe to events using portal </a>
-2. <a href = "https://docs.microsoft.com/azure/event-grid/sdk-overview" target = "_blank"> Subscribe to events using the ARM template client </a>
+<a href = "https://docs.microsoft.com/azure/event-grid/subscribe-through-portal#:~:text=Create%20event%20subscriptions%201%20Select%20All%20services.%202,event%20types%20option%20checked.%20...%20More%20items..." target = "_blank"> Subscribe to events using portal </a>
+
+<a href = "https://docs.microsoft.com/azure/event-grid/sdk-overview" target = "_blank"> Subscribe to events using the ARM template client </a>
 
 ## Practices for consuming events
 
 Applications that handle Data Manager for Agriculture events should follow a few recommended practices:
 
-1. Check that the eventType is one you're prepared to process, and don't assume that all events you receive are the types you expect.
-2. As messages can arrive out of order, use the modifiedTime and etag fields to understand the order of events for any particular object.
-3. Data Manager for Agriculture events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries or availability of subscriptions, duplicate messages may occasionally occur. To learn more about message delivery and retry, see <a href = "https://docs.microsoft.com/azure/event-grid/delivery-and-retry" target = "_blank">Event Grid message delivery and retry </a>
-4. Ignore fields you don't understand. This practice will help keep you resilient to new features that might be added in the future.
+* Check that the eventType is one you're prepared to process, and don't assume that all events you receive are the types you expect.
+* As messages can arrive out of order, use the modifiedTime and etag fields to understand the order of events for any particular object.
+* Data Manager for Agriculture events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries or availability of subscriptions, duplicate messages may occasionally occur. To learn more about message delivery and retry, see <a href = "https://docs.microsoft.com/azure/event-grid/delivery-and-retry" target = "_blank">Event Grid message delivery and retry </a>
+* Ignore fields you don't understand. This practice will help keep you resilient to new features that might be added in the future.
 
 
 ### Available event types
@@ -106,7 +107,7 @@ Applications that handle Data Manager for Agriculture events should follow a few
 |Microsoft.AgFoodPlatform.SensorPlacementModelJobStatusChangedV2|Published when Sensor Placement Model Job status is changed
 
 
-### Event Properties
+### Event properties
 
 Each Azure Data Manager for Agriculture event has two parts, the first part is common across events and the second, data object contains properties specific to each event. 
 
@@ -396,7 +397,7 @@ Property|	Type|	Description
 |:-----| :----| :----|
 managementZoneId| string | Management Zone ID associated with the zone.
 partyId| string | User-defined ID of associated field.
-| ID |	string|	Id of the party it belongs tos
+| ID |	string|	Id of the party it belongs to
 status|	string|	Contains the user defined status of the resource. 
 actionType| string| Indicates the change that triggered publishing of the event. Applicable values are created, updated, deleted.	
 modifiedDateTime| date-time|Date-time when resource was last modified, sample format: yyyy-MM-ddTHH:mm:ssZ.
@@ -478,7 +479,7 @@ name| string| User-defined name of the nutrient analysis.
 
 
 ## Sample events
-For Sample events, refer to [this](./sample_events.md) page
+For Sample events, refer to [this](./sample-events.md) page
 
 ## Next steps
 * For an introduction to Azure Event Grid, see [What is Event Grid?](../event-grid/overview.md)

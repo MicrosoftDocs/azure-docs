@@ -58,3 +58,5 @@
     items:
     - name: Region availability
       href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-manager-for-agri&regions=all
+    - name: Sample events
+      href: sample-events.md
