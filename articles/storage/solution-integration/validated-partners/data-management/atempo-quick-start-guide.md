@@ -59,7 +59,7 @@ Use the following methods to identify the bandwidth headroom that is free to con
 This documentation assumes that you already have a Miria Server and Miria Data Mover installed and running. Reference the following documentation for detailed information on how to install Miria Server and Data Mover
 
 - [Miria Server and Data Movers deployment and initial configuration](https://www.atempo.com/privatedocs/Miria_2022_Migration_Documentation.pdf)
-- [Details on platforms and OS versions supported by Miria](http://atempo.com/ressource/miria-compatibility-guide)
+- [Details on platforms and OS versions supported by Miria](https://usergroup.atempo.com/wp-content/uploads/2021/08/COMPATIBILITY-GUIDE_MIRIA_2021.pdf)
 
 The following section guides you in successive steps:
 
@@ -84,7 +84,7 @@ This section provides a brief guide for how to add Azure BLOB to an on-premises-
 - Select the region
 - Select Standard or Premium performance, depending on your needs
 - Select the Redundancy that meets your data protection requirements
-:::image type="content" source="./media/atempo-quick-start-guide/storagecreation.png" alt-text="Screenshot of the "Basics" panel for creating a new storage account":::
+:::image type="content" source="./media/atempo-quick-start-guide/storagecreation.png" alt-text="Screenshot of the Basics panel for creating a new storage account":::
 
 3. Next, we recommend the default settings from the Advanced screen
 :::image type="content" source="./media/atempo-quick-start-guide/advanced.png" alt-text="Screenshot of the Advanced Options panel when creating a new storage account":::
@@ -114,7 +114,7 @@ This section provides a brief guide for how to add Azure BLOB to an on-premises-
 :::image type="content" source="./media/atempo-quick-start-guide/blockblobconfig.png" alt-text="Screenshot of the selection of Azure Block Blob Configuration option":::
 
 4. Select a Storage Manager name (here SM_Azure) and replace placeholder with your Account name in the Network address field:
-:::image type="content" source="./media/atempo-quick-start-guide/storagemanager.png" alt-text="Screenshot of the Storage Manager Configuration panel when creating a new source for migration":::
+:::image type="content" source="./media/atempo-quick-start-guide/storagemanagerconfig.png" alt-text="Screenshot of the Storage Manager Configuration panel when creating a new source for migration":::
 
 5. In the Default proxy platform drop-down list, select the desired Data Mover or Data Mover Pool (here WIN-H9K5NN91J0H) used to reach out to your Azure storage
 :::image type="content" source="./media/atempo-quick-start-guide/platformdropdown.png" alt-text="Screenshot of the Platform Drop Down selection UI in the Miria software":::
@@ -128,7 +128,7 @@ Once the Storage Manager is successfully created, we need to create the Miria co
 :::image type="content" source="./media/atempo-quick-start-guide/storagemanageraddcontainer.png" alt-text="Screenshot of the Add a Storage Manager Container UI in the Miria software":::
 
 8. Select a Storage Manager Container name (here SMC_Azure) and activate the toggle Available as Source to support future workflows.  Name the source platform (here Azure)
-:::image type="content" source="./media/atempo-quick-start-guide/storagemanagerconteinerconfig.png" alt-text="Screenshot of the Configure Container UI inside the Miria software":::
+:::image type="content" source="./media/atempo-quick-start-guide/storagemanagercontainerconfig.png" alt-text="Screenshot of the Configure Container UI inside the Miria software":::
 
 9. Scroll down to Available as Source toggle and select "Enabled" to support future workflows using this SMC as a source. Name the source platform (here Azure).
 :::image type="content" source="./media/atempo-quick-start-guide/availibleassource.png" alt-text="Screenshot of the selection toggle to enable this container as a source":::
