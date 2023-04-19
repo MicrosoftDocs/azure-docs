@@ -11,7 +11,7 @@ ms.custom: template-how-to-pattern
 
 # Get support for Microsoft Dev Box
 
-There are multiple channels available to give you help and support in Microsoft Dev Box. The support channel you choose depends on your role and your access to existing Dev Box resources. The fastest way top get help is to use the correct channel.
+There are multiple channels available to give you help and support in Microsoft Dev Box. The support channel you choose depends on your role and your access to existing Dev Box resources. The fastest way to get help is to use the correct channel.
 
 <!--
 In the following table, select your role to see how to get help for urgent issues. For non-urgent issues, select an option.
@@ -57,9 +57,9 @@ If you can't resolve the issue, open a support request to contact Azure support:
 #### 1. Internal troubleshooting
 Always use your internal troubleshooting processes before escalating an issue.
 As a DevCenter Project Admin, you can:
-    - View the network connections attached to the dev center.
-    - View the dev box definitions attached to the dev center.
-    - Create, view, update, and delete dev box pools in the project. 
+- View the network connections attached to the dev center.
+- View the dev box definitions attached to the dev center.
+- Create, view, update, and delete dev box pools in the project. 
 
 #### 2. Contact your dev infrastructure admin
 If you can't resolve the issue, escalate it to your dev infrastructure admin.
@@ -80,7 +80,9 @@ If you can't resolve the issue, escalate it to your dev team lead (DevCenter Pro
 For issues that aren't urgent, get involved with the Microsoft Developer Community. You can discover how others are solving their issues, discuss approaches to working with Dev Box, and suggest new features and enhancements for the product.
 
 #### Find similar issues
-The Microsoft Developer Community can provide useful information on non-urgent issues. Start by exploring existing feedback for the issue you’re experiencing: [Search Microsoft Developer Community](https://developercommunity.microsoft.com/devbox).
+The Microsoft Developer Community can provide useful information on non-urgent issues. 
+
+Start by exploring existing feedback for the issue you’re experiencing: [Search Microsoft Developer Community](https://developercommunity.microsoft.com/devbox).
 
 #### Report an issue to the product team
 If you don’t see your issue in the discussion forum, you can report it to the product team through the Microsoft Developer Community portal: [Report to Microsoft Developer Community](https://developercommunity.microsoft.com/devbox/report).
