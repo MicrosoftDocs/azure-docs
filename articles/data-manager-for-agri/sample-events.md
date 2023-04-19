@@ -11,7 +11,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 # Azure Data Manager for Agriculture sample events 
 This article provides the Azure Data Manager for Agriculture events samples. To learn more about our event properties that are provided with Azure Event Grid see our [how to use events](./how-to-use-events.md) page.
  
-The event samples given on this page represents an event notification.
+The event samples given on this page represent an event notification.
 
 1. **Event type: Microsoft.AgFoodPlatform.PartyChanged**
 
