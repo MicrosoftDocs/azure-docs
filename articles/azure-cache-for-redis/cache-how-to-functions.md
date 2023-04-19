@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 04/17/2023
+ms.date: 04/18/2023
 
 ---
 
@@ -84,7 +84,7 @@ The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSC
 
 This sample listens to the channel "channel" at a localhost Redis instance at `127.0.0.1:6379`
 
-#### [C#](#tab/C#)
+[C#](#tab/csharp)
 
 ```csharp
 [FunctionName(nameof(PubSubTrigger))]
@@ -96,26 +96,26 @@ public static void PubSubTrigger(
 }
 ```
 
-#### [Java](#tab/Java)
+[Java](#tab/java)
 
 ```java
 // TBD!
 ```
 
-#### [JavaScript](#tab/JavaScript)
+[JavaScript](#tab/javascript)
 
 ```javascript
 // TBD!
 
 ```
 
-#### [Python](#tab/Python)
+[python](#tab/python)
 
 ```python
 # TBD!
 ```
 
-#### [PowerShell](#tab/Powershell)
+[PowerShell](#tab/azure-powershell)
 
 ```powershell
 # TBD!
@@ -125,7 +125,7 @@ public static void PubSubTrigger(
 
 This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at `127.0.0.1:6379`.
 
-#### [C#](#tab/Csharp)
+[C#](#tab/csharp)
 
 ```csharp
 
@@ -138,25 +138,25 @@ public static void PubSubTrigger(
 }
 ```
 
-#### [Java](#tab/Java)
+[Java](#tab/java)
 
 ```java
 // TBD!
 ```
 
-#### [JavaScript](#tab/JavaScript)
+[JavaScript](#tab/javascript)
 
 ```javascript
 // TBD!
 ```
 
-#### [Python](#tab/Python)
+[Python](#tab/python)
 
 ```python
 # TBD!
 ```
 
-#### [PowerShell](#tab/Powershell)
+[PowerShell](#tab/azure-powershell)
 
 ```powershell
 # TBD!
@@ -166,7 +166,7 @@ public static void PubSubTrigger(
 
 This sample listens to any keyevent notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at `127.0.0.1:6379`.
 
-#### [C#](#tab/Csharp)
+[C#](#tab/csharp)
 
 ```csharp
 [FunctionName(nameof(PubSubTrigger))]
@@ -178,25 +178,25 @@ public static void PubSubTrigger(
 }
 ```
 
-#### [Java](#tab/Java)
+[Java](#tab/java)
 
 ```java
 // TBD!
 ```
 
-#### [JavaScript](#tab/JavaScript)
+[JavaScript](#tab/javascript)
 
 ```javascript
 // TBD!
 ```
 
-#### [Python](#tab/Python)
+[Python](#tab/python)
 
 ```python
 # TBD!
 ```
 
-#### [PowerShell](#tab/Powershell)
+[PowerShell](#tab/azure-powershell)
 
 ```powershell
 # TBD!
@@ -224,7 +224,7 @@ The `RedisListsTrigger` pops elements from a list and surfaces those elements to
 - (optional) `ListPopFromBeginning`: determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/).
   - Default: true
 
-#### [C#](#tab/Csharp)
+[C#](#tab/csharp)
 
 The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -238,7 +238,7 @@ public static void ListsTrigger(
 }
 ```
 
-#### [Java](#tab/Java)
+[Java](#tab/java)
 
 The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -246,7 +246,7 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
 // TBD
 ```
 
-#### [JavaScript](#tab/JavaScript)
+[JavaScript](#tab/javascript)
 
 The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -254,7 +254,7 @@ The following sample polls the key "listTest" at a localhost Redis instance at `
 // Coming Soon
 ```
 
-#### [Python](#tab/Python)
+[Python](#tab/python)
 
 The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -262,7 +262,7 @@ The following sample polls the key "listTest" at a localhost Redis instance at `
 # Coming soon
 ```
 
-#### [PowerShell](#tab/Powershell)
+[PowerShell](#tab/azure-powershell)
 
 The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -294,7 +294,7 @@ Each function creates a new random GUID to use as its consumer name within the g
 - (optional) `DeleteAfterProcess`: If the listener will delete the stream entries after the function runs.
   - Default: false
 
-#### [C#](#tab/Csharp)
+[C#](#tab/csharp)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -308,7 +308,7 @@ public static void StreamsTrigger(
 }
 ```
 
-#### [Java](#tab/Java)
+[Java](#tab/java)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -316,7 +316,7 @@ The following sample polls the key "streamTest" at a localhost Redis instance at
 Coming Soon
 ```
 
-#### [JavaScript](#tab/JavaScript)
+[JavaScript](#tab/javascript)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -324,7 +324,7 @@ The following sample polls the key "streamTest" at a localhost Redis instance at
 Coming Soon
 ```
 
-#### [Python](#tab/Python)
+[Python](#tab/python)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -332,7 +332,7 @@ The following sample polls the key "streamTest" at a localhost Redis instance at
 # Coming Soon
 ```
 
-#### [PowerShell](#tab/Powershell)
+[PowerShell](#tab/azure-powershell)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -346,7 +346,7 @@ The following sample polls the key "streamTest" at a localhost Redis instance at
 
 All triggers return a [`RedisMessageModel`](./src/Models/RedisMessageModel.cs) object that has two fields:
 
-#### [C#](#tab/Csharp)
+[C#](#tab/csharp)
 
 ```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.Redis
@@ -359,7 +359,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis
 }
 ```
 
-#### [Java](#tab/Java)
+[Java](#tab/java)
 
 The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -367,7 +367,7 @@ The following sample polls the key "listTest" at a localhost Redis instance at `
 TBD
 ```
 
-#### [JavaScript](#tab/JavaScript)
+[JavaScript](#tab/javascript)
 
 The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -375,7 +375,7 @@ The following sample polls the key "listTest" at a localhost Redis instance at `
 Coming Soon
 ```
 
-#### [Python](#tab/Python)
+[Python](#tab/python)
 
 The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
@@ -383,7 +383,7 @@ The following sample polls the key "listTest" at a localhost Redis instance at `
 Coming soon
 ```
 
-#### [PowerShell](#tab/Powershell)
+[PowerShell](#tab/azure-powershell)
 
 The following sample polls the key "listTest" at a localhost Redis instance at `127.0.0.1:6379`
 
