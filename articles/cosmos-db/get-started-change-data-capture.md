@@ -120,7 +120,7 @@ When you check the `Capture intermediate updates`, all versions of updates, and 
 
 ### Working with intermediate updates and TTL  
   
-If you have to identify the TTL deleted records from documents deleted by an user or application, you have check both `Capture intermediate updates` and `Capture Transactional store TTLs` options. This will creates and populates the `__usr_opType` field in sink with a fourth value:
+If you have to identify the TTL deleted records from documents deleted by users or applications, you have check both `Capture intermediate updates` and `Capture Transactional store TTLs` options. This will creates and populates the `__usr_opType` field in sink with a fourth value:
 
 | Value | Description |
 | --- | --- |
