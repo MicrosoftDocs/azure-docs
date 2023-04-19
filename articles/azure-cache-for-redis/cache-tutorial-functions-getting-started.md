@@ -231,6 +231,10 @@ You will see several prompts on information to configure the new functions app:
 - Choose an existing storage account or create a new one
 - Create a new Application Insights resource (we’ll use this to confirm the trigger is working)
 
+> [!IMPORTANT]
+> Redis triggers are not currently supported on consumption functions.
+>
+
 Wait a few minutes for the new Function App to be created. It will now show up in the drop down under **Function App** in your subscription. Right click on the new function app and select **Deploy to Function App…**
 
 <!-- ![Image](Media/DeployToFunction.png) -->
