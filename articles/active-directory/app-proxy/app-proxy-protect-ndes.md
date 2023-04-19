@@ -60,7 +60,7 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 
 1. Select **Enterprise applications**.
 
-   ![ensure that you're engaging the right stakeholders](./media/active-directory-app-proxy-protect-ndes/azure-active-directory-enterprise-applications.png)
+   ![ensure that you're engaging the right stakeholders](./media/active-directory-app-proxy-protect-ndes/enterprise-applications.png)
 
 1. Select **+New Application**, and then select **On-premises application**. 
 
