@@ -72,7 +72,7 @@ items:
               items: 
                 - name: Node/Express​ - Sign in users
                   href: https://learn.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview
-                - name: ASP.NET - Sign in users
+                - name: ASP.NET - Sign in users and call an API
                   href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
             - name: Web API
               items: 

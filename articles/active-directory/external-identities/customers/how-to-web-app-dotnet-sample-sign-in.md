@@ -39,6 +39,16 @@ In this article:
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 
+## Define the platform and URLs
+
+1. In the Microsoft Entra admin center, under **Manage**, select **App registrations**, and then select the application that was previously created.
+1. In the left menu, under **Manage**, select **Authentication**.
+1. In **Platform configurations**, select **Add a platform**, and then select **Web**.
+1. Under **Redirect URIs**, enter `https://localhost:7274/signin-oidc`. This is defined in the code sample which you'll download shortly.
+1. Under **Front-channel logout URL**, enter the following URL for signing out, `https://localhost:7274/signout-oidc`.
+1. Under **Implicit grant and hybrid flows**, select the **ID tokens** checkbox.
+1. Select **Configure**.
+
 ## Add app client secret
 
 [!INCLUDE [active-directory-b2c-add-client-secret](./includes/register-app/add-app-client-secret.md)]
@@ -86,19 +96,18 @@ To get the web app sample code, you can do either of the following tasks:
     dotnet run
     ```
 
-1. Open your web browser and navigate to `https://localhost:7274`. This has already been configured in the code sample
-1. Sign-in with an account registered to the CIAM tenant. 
+1. Open your web browser and navigate to `https://localhost:7274`.
+1. Sign-in with an account registered to the CIAM tenant.
 1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
 
-    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into a node web app.":::
+    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into a ASP.NET web app.":::
 
 1. To sign-out from the application, select the **Sign out button**.
 
 ## Next steps
 
-Learn how to: 
-
-- [Enable password reset](how-to-enable-password-reset-customers.md)
-- [Customize the default branding](how-to-customize-branding-customers.md)
-- [Configure sign-in with Google](how-to-google-federation-customers.md)
-- [Sign in users in your own ASP.NET web application by using Microsoft Entra](how-to-web-app-dotnet-sign-in-overview.md)
+> [!div class="nextstepaction"]
+> [Enable password reset](how-to-enable-password-reset-customers.md)
+> [Customize the default branding](how-to-customize-branding-customers.md)
+> [Configure sign-in with Google](how-to-google-federation-customers.md)
+> [Sign in users in your own ASP.NET web application by using Microsoft Entra](how-to-web-app-dotnet-sign-in-overview.md)

@@ -29,7 +29,7 @@ In this article, you prepare your Azure Active Directory (Azure AD) for customer
 
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial).
 
-If you have already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your ASP.NET web app](how-to-web-app-dotnet-sign-in-prepare-app.md).
+If you have already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md).
 
 ## Register the web app
 
@@ -54,4 +54,4 @@ If you have already registered a web application in the Microsoft Entra admin ce
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Prepare your ASP.NET web app](how-to-web-app-dotnet-sign-in-prepare-app.md)
+> [Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md)

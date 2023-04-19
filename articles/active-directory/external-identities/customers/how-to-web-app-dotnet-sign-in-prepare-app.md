@@ -1,5 +1,5 @@
 ---
-title: Prepare an ASP.NET Core web app for authentication with CIAM
+title: Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application 
 description: Create and prepare an ASP.NET Core web app for authentication
 services: active-directory
 author: cilwerner
@@ -14,9 +14,9 @@ ms.custom: it-pro
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Prepare an ASP.NET Core application for authentication
+# Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application
 
-After registering an application and created a user flow in a CIAM tenant, an ASP.NET web application can be created using an integrated development environment (IDE). This how-to guide demonstrates how to create an ASP.NET Core Web App using an IDE. 
+After registering an application and created a user flow in a CIAM tenant, an ASP.NET web application can be created using an integrated development environment (IDE). This how-to guide demonstrates how to create an ASP.NET Core Web App using an IDE.
 
 ## Prerequisites
 
@@ -79,4 +79,4 @@ After registering an application and created a user flow in a CIAM tenant, an AS
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign-in and sign-out](how-to-web-app-dotnet-sign-in-sign-out.md)
+> [Sign in users in your own ASP.NET web application by using Microsoft Entra - Sign in and sign out ](how-to-web-app-dotnet-sign-in-sign-out.md)
