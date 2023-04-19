@@ -98,19 +98,19 @@ Use the following guidance as a recommended starting point for event collection.
 
 | Query   | Description |
 |:---|:---|
-| Event | All Windows events |
-| Event | where EventLevelName == "Error"` |All Windows events with severity of error |
-| Event | summarize count() by Source` |Count of Windows events by source |
-| Event | where EventLevelName == "Error" | summarize count() by Source` |Count of Windows error events by source |
+| `Event` | All Windows events |
+| `Event | where EventLevelName == "Error"` |All Windows events with severity of error |
+| `Event | summarize count() by Source` |Count of Windows events by source |
+| `Event | where EventLevelName == "Error" | summarize count() by Source` |Count of Windows error events by source |
 
 ### Sample log queries: Syslog events
 
 | Query    | Description |
 |:---|:---|
-| Syslog |All Syslogs |
-| Syslog | where SeverityLevel == "error"` |All Syslog records with severity of error |
-| Syslog | summarize AggregatedValue = count() by Computer` |Count of Syslog records by computer |
-| Syslog | summarize AggregatedValue = count() by Facility` |Count of Syslog records by facility |
+| `Syslog` |All Syslogs |
+| `Syslog | where SeverityLevel == "error"` |All Syslog records with severity of error |
+| `Syslog | summarize AggregatedValue = count() by Computer` |Count of Syslog records by computer |
+| `Syslog | summarize AggregatedValue = count() by Facility` |Count of Syslog records by facility |
 
 ## Collect performance counters
 Performance data from the client can be sent to either [Azure Monitor Metrics](../essentials/data-platform-metrics.md) or [Azure Monitor Logs](../logs/data-platform-logs.md), and you typically send them to both destinations. If you enabled VM insights, a common set of performance counters is collected in Logs to support its performance charts. You can't modify this set of counters, but you can create other DCRs to collect more counters and send them to different destinations.
@@ -130,24 +130,24 @@ For guidance on creating a DCR to collect performance counters, see [Collect eve
  Destination | Description |
 |:---|:---|
 | Metrics    | Host metrics are automatically sent to Azure Monitor Metrics. You can use a DCR to collect client metrics so that they can be analyzed together with [metrics explorer](../essentials/metrics-getting-started.md) or used with [metrics alerts](../alerts/alerts-create-new-alert-rule.md?tabs=metric). This data is stored for 93 days. |
-| Logs | Performance data stored in Azure Monitor Logs can be stored for extended periods. The data can be analyzed along with your event data by using [log queries](../logs/log-query-overview.md) with [Log Analytics](../logs/log-analytics-overview.md) or [log query alerts](../alerts/alerts-create-new-alert-rule.md?tabs=log). You can also correlate data by using complex logic across multiple machines, regions, and subscriptions.<br><br>Performance data is sent to the following tables:<br>VM insights - [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics)<br>Other performance data - [Perf](/azure/azure-monitor/reference/tables/perf) |
+| Logs | Performance data stored in Azure Monitor Logs can be stored for extended periods. The data can be analyzed along with your event data by using [log queries](../logs/log-query-overview.md) with [Log Analytics](../logs/log-analytics-overview.md) or [log query alerts](../alerts/alerts-create-new-alert-rule.md?tabs=log). You can also correlate data by using complex logic across multiple machines, regions, and subscriptions.<br><br>Performance data is sent to the following tables:<br>- VM insights: [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics)<br>- Other performance data: [Perf](/azure/azure-monitor/reference/tables/perf) |
 
 ### Sample log queries
 The following samples use the `Perf` table with custom performance data. For information on performance data collected by VM insights, see [How to query logs from VM insights](../vm/vminsights-log-query.md#performance-records).
 
 | Query  | Description |
 |:---|:---|
-| Perf | All Performance data |
-| Perf | where Computer == "MyComputer"` |All Performance data from a particular computer |
-| Perf | where CounterName == "Current Disk Queue Length"` |All Performance data for a particular counter |
-| Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" | summarize AVGCPU = avg(CounterValue) by Computer` |Average CPU Utilization across all computers |
-| Perf | where CounterName == "% Processor Time" | summarize AggregatedValue = max(CounterValue) by Computer` |Maximum CPU Utilization across all computers |
-| Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" | summarize AggregatedValue = avg(CounterValue) by InstanceName` |Average Current Disk Queue length across all the instances of a given computer |
-| Perf | where CounterName == "Disk Transfers/sec" | summarize AggregatedValue = percentile(CounterValue, 95) by Computer` |95th Percentile of Disk Transfers/Sec across all computers |
-| Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer` |Hourly average of CPU usage across all computers |
-| Perf | where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" | summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName` | Hourly 70 percentile of every % percent counter for a particular computer |
-| Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" | summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer` |Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
-| Perf | where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master"` | All Performance data from the Database performance object for the master database from the named SQL Server instance INST2. | 
+| `Perf` | All Performance data |
+| `Perf | where Computer == "MyComputer"` |All Performance data from a particular computer |
+| `Perf | where CounterName == "Current Disk Queue Length"` |All Performance data for a particular counter |
+| `Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" | summarize AVGCPU = avg(CounterValue) by Computer` |Average CPU Utilization across all computers |
+| `Perf | where CounterName == "% Processor Time" | summarize AggregatedValue = max(CounterValue) by Computer` |Maximum CPU Utilization across all computers |
+| `Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" | summarize AggregatedValue = avg(CounterValue) by InstanceName` |Average Current Disk Queue length across all the instances of a given computer |
+| `Perf | where CounterName == "Disk Transfers/sec" | summarize AggregatedValue = percentile(CounterValue, 95) by Computer` |95th Percentile of Disk Transfers/Sec across all computers |
+| `Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer` |Hourly average of CPU usage across all computers |
+| `Perf | where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" | summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName` | Hourly 70 percentile of every % percent counter for a particular computer |
+| `Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" | summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer` |Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
+| `Perf | where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master"` | All Performance data from the Database performance object for the master database from the named SQL Server instance INST2. | 
 
 ## Collect text logs
 Some applications write events written to a text log stored on the virtual machine. Create a [custom table and DCR](../agents/data-collection-text-log.md) to collect this data. You define the location of the text log, its detailed configuration, and the schema of the custom table. There's a cost for the ingestion and retention of this data in the workspace.
@@ -157,8 +157,8 @@ The column names used here are examples only. The column names for your log will
 
 | Query      | Description |
 |:---|:---|
-| MyApp_CL | summarize count() by code` | Count the number of events by code. |
-| MyApp_CL | where status == "Error" | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)` | Create an alert rule on any error event. |
+| `MyApp_CL | summarize count() by code` | Count the number of events by code. |
+| `MyApp_CL | where status == "Error" | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)` | Create an alert rule on any error event. |
 
 ## Collect IIS logs
 IIS running on Windows machines writes logs to a text file. Configure IIS log collection by using [Collect IIS logs with Azure Monitor Agent](../agents/data-collection-iis.md). There's a cost for the ingestion and retention of this data in the workspace.
@@ -169,8 +169,8 @@ Records from the IIS log are stored in the [W3CIISLog](/azure/azure-monitor/refe
 
 | Query       | Description |
 |:---|:---|
-| W3CIISLog | where csHost=="www.contoso.com" | summarize count() by csUriStem` | Count the IIS log entries by URL for the host www.contoso.com. |
-| W3CIISLog | summarize sum(csBytes) by Computer` | Review the total bytes received by each IIS machine. |
+| `W3CIISLog | where csHost=="www.contoso.com" | summarize count() by csUriStem` | Count the IIS log entries by URL for the host www.contoso.com. |
+| `W3CIISLog | summarize sum(csBytes) by Computer` | Review the total bytes received by each IIS machine. |
 
 ## Monitor a service or daemon
 To monitor the status of a Windows service or Linux daemon, enable the [Change Tracking and Inventory](../../automation/change-tracking/overview.md) solution in [Azure Automation](../../automation/automation-intro.md).
@@ -191,7 +191,7 @@ When you enable Change Tracking and Inventory, two new tables are created in you
 
 ### Sample log queries
 
-- List all services and daemons that have recently started.
+- **List all services and daemons that have recently started.**
     
     ```kusto
     ConfigurationChange
@@ -200,8 +200,7 @@ When you enable Change Tracking and Inventory, two new tables are created in you
     | sort by Computer, SvcName
     ```
 
-- Alert when a specific service stops.
-Use this query in a log alert rule.
+- **Alert when a specific service stops.** Use this query in a log alert rule.
     
     ```kusto
     ConfigurationData
@@ -212,8 +211,7 @@ Use this query in a log alert rule.
     | summarize AggregatedValue = count() by Computer, SvcName, SvcDisplayName, SvcState, bin(TimeGenerated, 15m)
     ```
 
-- Alert when one of a set of services stops.
-Use this query in a log alert rule.
+- **Alert when one of a set of services stops.** Use this query in a log alert rule.
 
     ```kusto
     let services = dynamic(["omskd","cshost","schedule","wuauserv","heathservice","efs","wsusservice","SrmSvc","CertSvc","wmsvc","vpxd","winmgmt","netman","smsexec","w3svc","sms_site_vss_writer","ccmexe","spooler","eventsystem","netlogon","kdc","ntds","lsmserv","gpsvc","dns","dfsr","dfs","dhcp","DNSCache","dmserver","messenger","w32time","plugplay","rpcss","lanmanserver","lmhosts","eventlog","lanmanworkstation","wnirm","mpssvc","dhcpserver","VSS","ClusSvc","MSExchangeTransport","MSExchangeIS"]);
@@ -232,7 +230,7 @@ Port monitoring verifies that a machine is listening on a particular port. Two p
 ### Dependency agent tables
 If you're using VM insights with **Processes and dependencies collection** enabled, you can use [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) to analyze connections and ports on the machine. The `VMBoundPort` table is updated every minute with each process running on the computer and the port it's listening on. You can create a log query alert similar to the missing heartbeat alert to find processes that have stopped or to alert when the machine isn't listening on a particular port.
 
-- Review the count of ports open on your VMs to assess which VMs have configuration and security vulnerabilities.
+- **Review the count of ports open on your VMs to assess which VMs have configuration and security vulnerabilities.**
 
     ```kusto
     VMBoundPort
@@ -242,14 +240,14 @@ If you're using VM insights with **Processes and dependencies collection** enabl
     | order by OpenPorts desc
     ```
 
-- List the bound ports on your VMs to assess which VMs have configuration and security vulnerabilities.
+- **List the bound ports on your VMs to assess which VMs have configuration and security vulnerabilities.**
 
     ```kusto
     VMBoundPort
     | distinct Computer, Port, ProcessName
     ```
 
-- Analyze network activity by port to determine how your application or service is configured.
+- **Analyze network activity by port to determine how your application or service is configured.**
 
     ```kusto
     VMBoundPort
@@ -259,7 +257,7 @@ If you're using VM insights with **Processes and dependencies collection** enabl
     | order by Machine, Computer, Port, Ip, ProcessName
     ```
 
-- Review bytes sent and received trends for your VMs.
+- **Review bytes sent and received trends for your VMs.**
 
     ```kusto
     VMConnection
@@ -268,7 +266,7 @@ If you're using VM insights with **Processes and dependencies collection** enabl
     | render timechart
     ```
 
-- Use connection failures over time to determine if the failure rate is stable or changing.
+- **Use connection failures over time to determine if the failure rate is stable or changing.**
 
     ```kusto
     VMConnection
@@ -280,7 +278,7 @@ If you're using VM insights with **Processes and dependencies collection** enabl
     | render timechart
     ```
 
-- Link status trends to analyze the behavior and connection status of a machine.
+- **Link status trends to analyze the behavior and connection status of a machine.**
 
     ```kusto
     VMConnection
