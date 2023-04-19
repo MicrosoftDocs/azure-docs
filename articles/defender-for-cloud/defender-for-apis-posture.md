@@ -22,10 +22,10 @@ This article describes how to investigate API security findings, alerts, and sec
 1. Select **API security (Preview)**.
 1. In the **API Security** dashboard, select an API collection to drill down.  
 
-    :::image type="content" source="media/defender-for-apis-posture/api-collection.png" alt-text="Graphic showing the onboarded API collections.""lightbox="media/defender-for-apis-posture/api-collection-details.png":::
+    :::image type="content" source="media/defender-for-apis-posture/api-collection.png" alt-text="Graphic showing the onboarded API collections."lightbox="media/defender-for-apis-posture/api-collection-details.png":::
 
 1. In the API collection page, to drill down into an API endpoint, select the ellipses (...) > **View resource**.
-1. Review API endpoint status details. [Learn more about status settings](defender-for-apis-introduction.md#reviewing-inventory-and-insights).
+1. Review API endpoint status details. [Learn more about status settings](defender-for-apis-introduction.md#reviewing-security-findings).
 1. In the **Resource health** page > **Recommendations** for the endpoint, review recommendation details and status.
 1. In **Alerts**, review security alerts for the endpoint. Defender for Endpoint monitors API traffic to and and from endpoints, to provide runtime protection against suspicious behavior and malicious attacks.
 
@@ -51,7 +51,7 @@ When the Defender CSPM plan is enabled together with Defender for APIs, you can 
 
     1. Alternatively, select the predefined query **Unauthenticated API endpoints containing sensitive data are outside the virtual network** > **Open query**. The query returns all unauthenticated API endpoints that contain sensitive data and aren't part of the Azure API management network.
     
-    :::image type="content" source="media/defender-for-apis-posture/predefined-query.png" alt-text="Page showing predefined API query.:::
+    :::image type="content" source="media/defender-for-apis-posture/predefined-query.png" alt-text="Page showing predefined API query":::
     
 
 ## Next steps
