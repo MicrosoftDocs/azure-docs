@@ -29,11 +29,8 @@ The sample project is an event-driven application that subscribes to a [Service 
 ## Prerequisites
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-
 ::: zone pivot="sc-enterprise"
-
 - If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
-
 ::: zone-end
 
 - [Azure CLI](/cli/azure/install-azure-cli). Version 2.45.0 or greater.
@@ -243,16 +240,30 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
 
 1. Create an app in the Azure Spring Apps instance by using the following command:
 
+::: zone pivot="sc-consumption-plan,sc-standard"
    ```azurecli
    az spring app create \
        --service ${AZURE_SPRING_APPS_INSTANCE} \
        --name ${APP_NAME} \
        --cpu 1 \
-       --memory 2 \
+       --memory 2Gi \
        --instance-count 2 \
        --runtime-version Java_17 \
        --assign-endpoint true
    ```
+::: zone-end
+
+::: zone pivot="sc-enterprise"
+   ```azurecli
+   az spring app create \
+       --service ${AZURE_SPRING_APPS_INSTANCE} \
+       --name ${APP_NAME} \
+       --cpu 1 \
+       --memory 2Gi \
+       --instance-count 2 \
+       --assign-endpoint true
+   ```
+::: zone-end
 
 ## Bind the Service Bus to Azure Spring Apps and deploy the app
 
