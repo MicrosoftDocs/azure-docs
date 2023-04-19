@@ -1,24 +1,24 @@
 ---
 title: 'Tutorial: Run a Python script through Azure Data Factory'
-description: Learn how to use Batch Explorer, Azure Storage Explorer, and a Python script to run a Batch workload through an Azure Data Factory pipeline.
+description: Learn how to use Batch Explorer, Azure Storage Explorer, and Python scripts to run Batch workloads through Azure Data Factory pipelines.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/17/2023
 ms.custom: mvc, devx-track-python
 ---
 
-# Tutorial: Run a Python script through Data Factory
+# Tutorial: Use Batch Explorer, Storage Explorer, and Python to run a Batch job through Data Factory
 
-This tutorial walks you through developing and running a Python script that creates an Azure Batch data manipulation workload. An Azure Data Factory pipeline runs the script on Batch nodes to get comma-separated value (CSV) input from an Azure Blob Storage container, manipulate the data, and write the output to a different storage container.
+This tutorial walks you through creating and running an Azure Data Factory pipeline that runs an Azure Batch data manipulation workload. A Python script runs on the Batch nodes to get comma-separated value (CSV) input from an Azure Blob Storage container, manipulate the data, and write the output to a different storage container. You use Batch Explorer to create a Batch pool and nodes, and Azure Storage Explorer to work with storage containers.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Use Batch Explorer to create a Batch pool and nodes.
-> - Create storage containers by using Azure Storage Explorer.
-> - Develop and run a Python script that runs a Batch workload.
-> - Create a Data Factory pipeline that runs the Python script on the Batch nodes and storage containers.
-> - Use Batch Explorer to look at output log files.
+> - Use Storage Explorer to create storage containers and upload files.
+> - Develop a Python script that runs a Batch workload.
+> - Create a Data Factory pipeline that runs the Batch workload.
+> - Use Batch Explorer to look at the output log files.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ Use Batch Explorer to create a pool of compute nodes to run your workload.
 1. Select your Batch account.
 1. Select **Pools** on the left sidebar, and then select the **+** icon to add a pool.
 
-   ![Screenshot of creating a pool in Batch Explorer.](media/run-python-batch-azure-data-factory/batch-explorer-add-pool.png)
+[ ![Screenshot of creating a pool in Batch Explorer.](media/run-python-batch-azure-data-factory/batch-explorer-add-pool.png)](media/run-python-batch-azure-data-factory/batch-explorer-add-pool.png#lightbox)
 
 1. Complete the **Add a pool to the account** form as follows:
 
@@ -46,27 +46,26 @@ Use Batch Explorer to create a pool of compute nodes to run your workload.
    - Under **Dedicated nodes**, enter *2*.
    - For **Select an operating system configuration**, select the **Data science** tab, and then select **Dsvm Win 2019**.
    - For **Choose a virtual machine size**, select **Standard_F2s_v2**.
-   - Scroll down to **Start Task** and select **Add a start task**.
-     On the start task screen, under **Command line**, enter *cmd /c "pip install azure-storage-blob pandas"*. That command installs the `azure-storage-blob` package on each node as it starts up. Then select **Select**.
+   - For **Start Task**, select **Add a start task**.
+     On the start task screen, under **Command line**, enter `cmd /c "pip install azure-storage-blob pandas"`, and then select **Select**. This command installs the `azure-storage-blob` package on each node as it starts up.
 
 1. Select **Save and close**.
 
 ## Use Storage Explorer to create blob containers
 
-In Storage Explorer, create blob containers to store the input and output files for the Batch OCR job.
+Use Storage Explorer to create blob containers to store input and output files, and upload your input files.
 
 1. Sign in to Storage Explorer with your Azure credentials.
 1. In the left sidebar, locate and expand the storage account that's linked to your Batch account. 
 1. Right-click **Blob Containers**, and select **Create Blob Container**, or select **Create Blob Container** from **Actions** at the bottom of the sidebar.
-1. Enter *input* in the input field.
+1. Enter *input* in the entry field.
 1. Create another blob container named *output*.
 1. Select the **input** container, and then select **Upload** > **Upload files** in the right pane.
-1. On the **Upload files** screen, under **Selected files**, select the ellipsis **...** next to the field.
+1. On the **Upload files** screen, under **Selected files**, select the ellipsis **...** next to the entry field.
 1. Browse to the location of your downloaded *iris.csv* file, and select **Open**.
-1. Select **Upload**, and wait for the upload to succeed.
+1. Select **Upload**.
 
-   ![Screenshot of Storage Explorer with the containers and blobs created.](media/run-python-batch-azure-data-factory/storage-explorer.png)
-
+[ ![Screenshot of Storage Explorer with containers and blobs created in the storage account.](media/run-python-batch-azure-data-factory/storage-explorer.png)](media/run-python-batch-azure-data-factory/storage-explorer.png#lightbox)
 ## Develop a Python script
 
 The following Python script loads the *iris.csv* dataset from your Storage Explorer **input** container, manipulates the data, and saves the results to the **output** container.
@@ -77,7 +76,10 @@ The script needs to use the connection string for the Azure Storage account that
 1. On the page for the storage account, select **Access keys** from the left navigation under **Security + networking**.
 1. Under **key1**, select **Show** next to **Connection string**, and then select the **Copy** icon to copy the connection string.
 
-Paste the connection string into the script to replace the `<storage-account-connection-string>` placeholder. Save the script as *main.py*.
+Paste the connection string into the following script to replace the `<storage-account-connection-string>` placeholder. Save the script as as a file named *main.py*.
+
+>[!IMPORTANT]
+>Exposing account keys in the app source isn't recommended for Production usage. You should restrict access to credentials and refer to them in your code by using variables or a configuration file. It's best to store Batch and Storage account keys in Azure Key Vault.
 
 ``` python
 # Load libraries
@@ -105,13 +107,13 @@ with open(outputBlobName, "rb") as data:
     blob.upload_blob(data, overwrite=True)
 ```
 
-Run the script locally to test and validate functionality. The script should produce an output file named *iris_setosa.csv* that contains only the data records that have Species = "setosa".
+Run the script locally to test and validate functionality. 
 
 ``` bash
 python main.py
 ```
 
-When the script works correctly, upload the *main.py* script file to your Storage Explorer **input** container. 
+The script should produce an output file named *iris_setosa.csv* that contains only the data records that have Species = setosa. When the script works correctly, upload the *main.py* script file to your Storage Explorer **input** container.
 
 ## Set up a Data Factory pipeline
 
@@ -119,7 +121,7 @@ Create and validate a Data Factory pipeline that uses your Python script.
 
 ### Get account information
 
-The Data Factory pipeline needs to use your Batch and Storage account names, account key values, and Batch account endpoint. To get this information from the [Azure portal](https://portal.azure.com):
+The Data Factory pipeline uses your Batch and Storage account names, account key values, and Batch account endpoint. To get this information from the [Azure portal](https://portal.azure.com):
 
 1. From the Azure Search bar, search for and select your Batch account name.
 1. On your Batch account page, select **Keys** from the left navigation.
@@ -138,7 +140,7 @@ The Data Factory pipeline needs to use your Batch and Storage account names, acc
 1. Under **Factory Resources**, select the **+** icon, and then select **Pipeline**.
 1. In the **Properties** pane on the right, change the name of the pipeline to *Run Python*.
 
-   ![Screenshot of Data Factory Studio with Create pipeline selected.](media/run-python-batch-azure-data-factory/create-pipeline.png)
+[ ![Screenshot of Data Factory Studio after you select Add pipeline.](media/run-python-batch-azure-data-factory/create-pipeline.png)](media/run-python-batch-azure-data-factory/create-pipeline.png#lightbox)
 
 1. In the **Activities** pane, expand **Batch Service**, and drag the **Custom** activity to the pipeline designer surface.
 1. Below the designer canvas, on the **General** tab, enter *testPipeline* under **Name**.
@@ -148,9 +150,9 @@ The Data Factory pipeline needs to use your Batch and Storage account names, acc
 1. Select the **Azure Batch** tab, and then select **New**.
 1. Complete the **New linked service** screen as follows:
 
-   - **Name**: Enter a name for the linked service, such as **AzureBatch1**
-   - **Access key**: Enter the primary access key you copied from your Batch account
-   - **Account name**: Enter your Batch account name
+   - **Name**: Enter a name for the linked service, such as **AzureBatch1**.
+   - **Access key**: Enter the primary access key you copied from your Batch account.
+   - **Account name**: Enter your Batch account name.
    - **Batch URL**: Enter the account endpoint you copied from your Batch account, such as `https://batchdotnet.eastus.batch.azure.com`.
    - **Pool name**: Enter *custom-activity-pool*, the pool you created in Batch Explorer.
    - **Storage account linked service name**: Select **New**.
@@ -164,8 +166,8 @@ The Data Factory pipeline needs to use your Batch and Storage account names, acc
 1. Select the **Settings** tab, and enter or select the following settings:
 
    - **Command**: Enter *cmd /C python main.py*.
-   - **Resource linked service**: Select the storage service you created, such as **AzureBlobStorage1**, and test the connection to make sure it's successful.
-   - **Folder path**: Select the folder icon next to the field, and then select the **input** storage blob container, and select **OK**. The selected files download from the container to the pool nodes before the Python script runs.
+   - **Resource linked service**: Select the linked storage service you created, such as **AzureBlobStorage1**, and test the connection to make sure it's successful.
+   - **Folder path**: Select the folder icon next to the field, and then select the **input** container, and select **OK**. The files from this folder download from the container to the pool nodes before the Python script runs.
 
    ![Screenshot of the Settings tab for the Batch job.](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 
@@ -174,11 +176,11 @@ The Data Factory pipeline needs to use your Batch and Storage account names, acc
 1. Select **Publish all** to publish the pipeline.
 1. Select **Add trigger**, and then select **Trigger now** to run the pipeline, or **New/Edit** to schedule it.
 
-![Screenshot of Validate, Debug, Publish all, and Add trigger selections in Data Factory.](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
+   ![Screenshot of Validate, Debug, Publish all, and Add trigger selections in Data Factory.](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
 
 ## Use Batch Explorer to view log files
 
-If your pipeline produces warnings or errors, you can look at the *stdout.txt* and *stderr.txt* output files for more information.
+If your pipeline produces warnings or errors, you can use Batch Explorer to look at the *stdout.txt* and *stderr.txt* output files for more information.
 
 1. In Batch Explorer, select **Jobs** from the left sidebar.
 1. Select the **adfv2-custom-activity-pool** job.
@@ -189,7 +191,7 @@ If your pipeline produces warnings or errors, you can look at the *stdout.txt* a
 
 Batch accounts, jobs, and tasks are free, but compute nodes incur charges even if they're not running Batch jobs. It's best to allocate node pools only as needed, and delete the pools when you're done with them. Deleting pools deletes all task output on the nodes, and the nodes themselves.
 
-Input and output files remain in the storage account and can incur charges. When you no longer need the files, you can delete the containers, storage account, and Batch account.
+Input and output files remain in the storage account and can incur charges. When you no longer need the files, you can delete the files or containers. When you no longer need your Batch account or linked storage account, you can delete them.
 
 ## Next steps
 
