@@ -111,7 +111,7 @@ To complete this article:
       "location": "[parameters('location')]",
       "properties": {
         "accessPolicies": [],
-        "enableRbacAuthorization": false,
+        "enableRbacAuthorization": true,
         "enableSoftDelete": true,
         "softDeleteRetentionInDays": "90",
         "enabledForDeployment": false,
