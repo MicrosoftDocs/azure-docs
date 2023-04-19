@@ -74,7 +74,7 @@ Cassandra Lucene Index, derived from Stratio Cassandra, is a plugin for Apache C
     INSERT INTO tweets (id,user,body,time,latitude,longitude) VALUES (5,'quetzal','Click my link, like my stuff!', '2023-04-01T11:21:59.001+0000', 40.3930, -3.7329);
 ```
 
-## Controlling read consistency
+## Control read consistency
 
 1. The index you created earlier will index all the columns in the table with the specified types, and it will be refreshed once per second. Alternatively, you can explicitly refresh all the index shards with an empty search with consistency ALL:
 
