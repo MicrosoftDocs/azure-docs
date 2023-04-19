@@ -68,7 +68,7 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 
    * **Name**: Enter a name for the application.
    * **Internal Url**: Enter the internal URL/FQDN of your NDES server on which you installed the connector.
-   * **Pre Authentication**: Select **Passthrough**. It’s not possible to use any form of pre-authentication. The protocol used for Certificate Requests (SCEP) doesn't provide such option.
+   * **Pre Authentication**: Select **Passthrough**. It’s not possible to use any form of pre authentication. The protocol used for Certificate Requests (SCEP) doesn't provide such option.
    * Copy the provided **External URL** to your clipboard.
 
 1. Select **+Add** to save your application.
