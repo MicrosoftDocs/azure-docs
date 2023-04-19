@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 03/10/2023
+ms.date: 04/19/2023
 ms.author: owenrichards
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
