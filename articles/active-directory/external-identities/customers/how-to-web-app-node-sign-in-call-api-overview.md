@@ -1,6 +1,6 @@
 ---
-title: TODO
-description: TODO
+title: Sign in users and call an API in your own Node.js web application by using Microsoft Entra
+description: Learn how to sign in users and call an API in your own Node.js web application by using Microsoft Entra
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -13,9 +13,15 @@ ms.topic: how-to
 ms.date: 04/30/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample Electron desktop app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, I want to learn about how to Sign in users and call an API in your own Node.js web application by using Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# TODO
+# Sign in users and call an API in your own Node.js web application by using Microsoft Entra
 
 ASP.NET API is a pre-requisite among others.
+
+
+## Overview
+
+## Prerequisites
+

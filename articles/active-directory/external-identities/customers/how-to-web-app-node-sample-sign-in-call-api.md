@@ -153,30 +153,34 @@ To use your app registration in the web API sample:
 
 1. Select the **Sign In** button. You're prompted to sign in.
 
-SCREENSHOT HERE
+    :::image type="content" source="media/how-to-web-app-node-sample-sign-in-call-api/web-app-node-sign-in.png" alt-text="Screenshot of sign in into a node web app.":::
 
 1. On the sign-in page, type your **Email address**, select **Next**, type your **Password**, then select **Sign in**. If you don't have an account, select **No account? Create one** link, which starts the sign-up flow.
 
 1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. You see a page similar to the following screenshot. You see a similar page if you choose the sign-in option.
 
-SCREENSHOT HERE
+    :::image type="content" source="media/how-to-web-app-node-sample-sign-in-call-api/sign-in-call-api-view-todo.png" alt-text="Screenshot of sign in into a node web app and call an A P I.":::
 
 ### Call API
 
-To call the ASP.NET API, select the **View your todolist** link.
+1. To call the API, select the **View your todolist** link. You see a page similar to the following screenshot.
+    
+    :::image type="content" source="media/how-to-web-app-node-sample-sign-in-call-api/sign-in-call-api-manipulate-todo.png" alt-text="Screenshot of manipulate A P I to do list.":::
 
-ANOTHER SCREENSHOT HERE - for the create, delete, read API
+1. Manipulate the to-do list by creating adding and removing items.
 
-explain that in each operation
+You trigger an API call each time you view, add or remove a task. Each time you trigger an API call, the client web app acquires an access token with the required permissions (scopes) to call an API endpoint. For example, to read a task, the client web app must acquire an access token with `Todolist.Read` permission/scope.
+
+On the web API side, the endpoint must validate that the permissions/scopes present in the access token that the client app presents. If the access toke is valid, the endpoint responds to the HTTP request, otherwise, it responds with a `401 Unauthorized` HTTP error. 
 
 ## Next steps
 
 Learn how to: 
 
-- [Enable password reset](how-to-enable-password-reset-customers.md)
+- [Sign in users and call an API in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-call-api-overview.md).
 
-- [Customize the default branding](how-to-customize-branding-customers.md)
+- [Enable password reset](how-to-enable-password-reset-customers.md).
 
-- [Configure sign-in with Google](how-to-google-federation-customers.md)
+- [Customize the default branding](how-to-customize-branding-customers.md).
 
-- [Sign in users and call an API in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-call-api-overview.md)
+- [Configure sign-in with Google](how-to-google-federation-customers.md).
