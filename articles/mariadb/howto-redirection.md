@@ -5,7 +5,7 @@ ms.service: mariadb
 author: savjani
 ms.author: pariks
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 04/19/2023
 ---
 
 # Connect to Azure Database for MariaDB with redirection
@@ -51,9 +51,9 @@ If you are using an older version of the mysqlnd_azure extension (version 1.0.0-
 
 The subsequent sections of the document will outline how to install the `mysqlnd_azure` extension using PECL and set the value of this parameter.
 
-### Ubuntu Linux
+### [Ubuntu Linux](#tab/linux)
 
-#### Prerequisites 
+**Prerequisites**
 
 - PHP versions 7.2.15+ and 7.3.2+
 - PHP PEAR 
@@ -69,7 +69,7 @@ The subsequent sections of the document will outline how to install the `mysqlnd
 2. Locate the extension directory (`extension_dir`) by running the below:
 
     ```bash
-    php -i | grep "extension_dir"
+    sudo php -i | grep "extension_dir"
     ```
 
 3. Change directories to the returned folder and ensure `mysqlnd_azure.so` is located in this folder.
@@ -77,23 +77,23 @@ The subsequent sections of the document will outline how to install the `mysqlnd
 4. Locate the folder for .ini files by running the below:
 
     ```bash
-    php -i | grep "dir for additional .ini files"
+    sudo hp -i | grep "dir for additional .ini files"
     ```
 
 5. Change directories to this returned folder.
 
 6. Create a new .ini file for `mysqlnd_azure`. Make sure the alphabet order of the name is after that of mysqnld, since the modules are loaded according to the name order of the ini files. For example, if `mysqlnd` .ini is named `10-mysqlnd.ini`, name the mysqlnd ini as `20-mysqlnd-azure.ini`.
 
-7. Within the new .ini file, add the following lines to enable redirection.
+7. Within the new `.ini` file, add the following lines to enable redirection.
 
-    ```bash
+    ```config
     extension=mysqlnd_azure
     mysqlnd_azure.enableRedirect = on/off/preferred
     ```
 
-### Windows
+### Windows(#tab/windows)
 
-#### Prerequisites 
+**Prerequisites**
 
 - PHP versions 7.2.15+ and 7.3.2+
 - php-mysql
@@ -125,16 +125,20 @@ The subsequent sections of the document will outline how to install the `mysqlnd
 
 7. Modify the `php.ini` file and add the following extra lines to enable redirection.
 
-    Under the Dynamic Extensions section: 
-    ```cmd
+    Under the Dynamic Extensions section:
+
+    ```config
     extension=mysqlnd_azure
     ```
 
-    Under the Module Settings section:     
-    ```cmd 
+    Under the Module Settings section:
+
+    ```cpnfig
     [mysqlnd_azure]
     mysqlnd_azure.enableRedirect = on/off/preferred
     ```
+
+---
 
 ### Confirm redirection
 
