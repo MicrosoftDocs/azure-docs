@@ -115,7 +115,7 @@ open-source editor to edit the profile. To learn more, see [Azure Cloud Shell ed
 Use the built-in Cloud Shell editor to edit the profile:
 
 ```powershell
-Code $Profile
+code $Profile
 ```
 
 ## Next steps

@@ -3,12 +3,12 @@ title: Grant limited access to data with shared access signatures (SAS)
 titleSuffix: Azure Storage
 description: Learn about using shared access signatures (SAS) to delegate access to Azure Storage resources, including blobs, queues, tables, and files.
 services: storage
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 02/16/2023
-ms.author: jammart
+ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ---

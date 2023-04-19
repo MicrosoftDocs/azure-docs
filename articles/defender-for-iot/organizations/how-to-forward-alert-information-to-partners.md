@@ -302,26 +302,13 @@ If your forwarding alert rules aren't working as expected, check the following d
 
 - **Certificate validation**. Forwarding rules for [Syslog CEF](#syslog-server-actions), [Microsoft Sentinel](integrate-overview.md#microsoft-sentinel), and [QRadar](tutorial-qradar.md) support encryption and certificate validation.
 
-    If your OT sensors or on-premises management console are configured to [validate certificates](how-to-deploy-certificates.md#verify-crl-server-access) and the certificate can't be verified, the alerts aren't forwarded.
+    If your OT sensors or on-premises management console are configured to [validate certificates](ot-deploy/create-ssl-certificates.md#verify-crl-server-access) and the certificate can't be verified, the alerts aren't forwarded.
 
     In these cases, the sensor or on-premises management console is the session's client and initiator. Certificates are typically received from the server or use asymmetric encryption, where a specific certificate is provided to set up the integration.
 
 - **Alert exclusion rules**. If you have exclusion rules configured on your on-premises management console, your sensors might be ignoring the alerts you're trying to forward. For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Microsoft Defender for IoT alerts](alerts.md)
-
-> [!div class="nextstepaction"]
-> [View and manage alerts on your OT sensor](how-to-view-alerts.md)
-
-> [!div class="nextstepaction"]
-> [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-
-> [!div class="nextstepaction"]
-> [OT monitoring alert types and descriptions](alert-engine-messages.md)
-
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for IoT alerts](alerts.md)

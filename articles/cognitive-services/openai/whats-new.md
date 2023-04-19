@@ -7,21 +7,20 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: overview
-ms.date: 03/27/2023
+ms.topic: whats-new
+ms.date: 03/21/2023
 recommendations: false
 keywords:  
 ---
 
 # What's new in Azure OpenAI Service
 
+## April 2023
+
+- **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#deploy-a-customized-model).
+
+
 ## March 2023
-
-### Fine-tuned model change
-
-Deployed customized models (fine-tuned models) that are inactive for greater than 90 days will now automatically have their deployments deleted. **The underlying fine-tuned model is retained and can be redeployed at any time**. Once a fine-tuned model is deployed, it will continue to incur an hourly hosting cost regardless of whether you're actively using the model. To learn more about planning and managing costs with Azure OpenAI, refer to our [cost management guide](/azure/cognitive-services/openai/how-to/manage-costs#base-series-and-codex-series-fine-tuned-models).
-
-### New Features
 
 - **GPT-4 series models are now available in preview on Azure OpenAI**. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4). These models are currently available in the East US and South Central US regions.
 

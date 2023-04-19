@@ -133,7 +133,7 @@ const emailClient = new EmailClient(endpoint, credential);
 Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 
 ```javascript
-const { EmailClient } = require("@azure/communication-email");
+const { EmailClient, KnownEmailSendStatus } = require("@azure/communication-email");
 const { AzureKeyCredential } = require("@azure/core-auth");
 require("dotenv").config();
 
@@ -154,6 +154,7 @@ To send an email message, call the `beginSend` function from the EmailClient. Th
 ```javascript
 
 async function main() {
+  const POLLER_WAIT_TIME = 10
   try {
     const message = {
       senderAddress: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
@@ -216,6 +217,9 @@ use the node command to run the code you added to the send-email.js file.
 ```console
 node ./send-email.js
 ```
+
+If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](#throw-an-exception-when-email-sending-tier-limit-is-reached).
+
 ### Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email)
@@ -308,3 +312,39 @@ const response = await emailClient.send(message);
 For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
 
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-attachments)
+
+### Throw an exception when email sending tier limit is reached
+
+The Email API has throttling with limitations on the number of email messages that you can send. Email sending has limits applied per minute and per hour as mentioned in [API Throttling and Timeouts](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, additional email sends with `send` calls will receive an error response of “429: Too Many Requests”. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](https://learn.microsoft.com/javascript/api/overview/azure/logger-readme) to capture these response codes.
+
+There are per minute and per hour [limits to the amount of emails you can send using the Azure Communication Email Service](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, any further `beginSend` calls will recieve a `429: Too Many Requests` response. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](https://learn.microsoft.com/javascript/api/overview/azure/logger-readme) to capture these response codes.
+
+Alternatively, you can manually define a custom policy as shown below.
+
+```javascript
+const catch429Policy = {
+  name: "catch429Policy",
+  async sendRequest(request, next) {
+    const response = await next(request);
+    if (response.status === 429) {
+      throw new Error(response);
+    }
+    return response;
+  }
+};
+```
+
+Add this policy to your email client. This will ensure that 429 response codes throw an exception rather than being retried.
+
+```java
+const clientOptions = {
+  additionalPolicies: [
+    {
+      policy: catch429Policy,
+      position: "perRetry"
+    }
+  ]
+}
+
+const emailClient = new EmailClient(connectionString, clientOptions);
+```

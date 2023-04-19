@@ -10,7 +10,7 @@ ms.author: lagayhar
 ms.reviewer: franksolomon
 ms.date: 02/09/2023
 ms.topic: how-to
-
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 
@@ -58,13 +58,41 @@ Job history documents, which may contain personal user information, are stored i
 
 Azure Machine Learning studio provides a unified view of your machine learning resources - for example, notebooks, data assets, models, and jobs. Azure Machine Learning studio emphasizes preservation of a record of your data and experiments. You can delete computational resources such as pipelines and compute resources with the browser. For these resources, navigate to the resource in question and choose **Delete**.
 
-You can unregister data assets and archive jobs, but these operations don't delete the data. To entirely remove the data, data assets and job data require deletion at the storage level. Storage level deletion happens in the portal, as described earlier. Azure Machine Learning Studio can handle individual deletion. Job deletion deletes the data of that job.
+You can unregister data assets and archive jobs, but these operations don't delete the data. To entirely remove the data, data assets and job data require deletion at the storage level. Storage level deletion happens in the portal, as described earlier. Azure Machine Learning studio can handle individual deletion. Job deletion deletes the data of that job.
 
-Azure Machine Learning Studio can handle training artifact downloads from experimental jobs. Choose the relevant **Job**. Choose **Output + logs**, and navigate to the specific artifacts you wish to download. Choose **...** and **Download**, or select **Download all**.
+Azure Machine Learning studio can handle training artifact downloads from experimental jobs. Choose the relevant **Job**. Choose **Output + logs**, and navigate to the specific artifacts you wish to download. Choose **...** and **Download**, or select **Download all**.
 
 To download a registered model, navigate to the **Model** and choose **Download**.
 
 :::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Screenshot of studio model page with download option highlighted.":::
+
+:::moniker range="azureml-api-1"
+## Export and delete resources using the Python SDK
+
+You can download the outputs of a particular job using: 
+
+```python
+# Retrieved from Azure Machine Learning web UI
+run_id = 'aaaaaaaa-bbbb-cccc-dddd-0123456789AB'
+experiment = ws.experiments['my-experiment']
+run = next(run for run in ex.get_runs() if run.id == run_id)
+metrics_output_port = run.get_pipeline_output('metrics_output')
+model_output_port = run.get_pipeline_output('model_output')
+
+metrics_output_port.download('.', show_progress=True)
+model_output_port.download('.', show_progress=True)
+```
+
+The following machine learning resources can be deleted using the Python SDK: 
+
+| Type | Function Call | Notes | 
+| --- | --- | --- |
+| `Workspace` | [`delete`](/python/api/azureml-core/azureml.core.workspace.workspace#delete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` to cascade the delete |
+| `Model` | [`delete`](/python/api/azureml-core/azureml.core.model%28class%29#delete--) | | 
+| `ComputeTarget` | [`delete`](/python/api/azureml-core/azureml.core.computetarget#delete--) | |
+| `WebService` | [`delete`](/python/api/azureml-core/azureml.core.webservice%28class%29) | |
+
+:::moniker-end
 
 ## Next steps
 

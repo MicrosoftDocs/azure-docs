@@ -30,6 +30,10 @@ items:
   items:
   - name: Deploy a private mobile network and site - ARM template
     href: deploy-private-mobile-network-with-site-arm-template.md
+  - name: Deploy a private mobile network and site - command line
+    href: deploy-private-mobile-network-with-site-command-line.md
+  - name: Deploy a private mobile network and site - PowerShell
+    href: deploy-private-mobile-network-with-site-powershell.md
 - name: Tutorials
   items:
   - name: Create an example policy control configuration set
@@ -44,15 +48,15 @@ items:
     href: statement-of-compliance.md
   - name: Policy control
     href: policy-control.md
-  - name: Default service and SIM policy
+  - name: Default service and allow-all SIM policy
     href: default-service-sim-policy.md
-  - name: Monitor Azure Private 5G Core using Log Analytics
-    href: monitor-private-5g-core-with-log-analytics.md
-  - name: Local monitoring tools
+  - name: Monitor Azure Private 5G Core
     items:
-    - name: Distributed tracing
+    - name: Cloud monitoring with Azure Monitor platform metrics
+      href: monitor-private-5g-core-with-platform-metrics.md
+    - name: Local monitoring with distributed tracing
       href: distributed-tracing.md
-    - name: Packet core dashboards
+    - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
   - name: Reliability
     href: reliability-private-5g-core.md
@@ -68,6 +72,10 @@ items:
       href: complete-private-mobile-network-prerequisites.md
     - name: Commission the AKS cluster
       href: commission-cluster.md
+  - name: Request support
+    items:
+    - name: How to open a support request 
+      href: open-support-request.md
   - name: Private mobile networks
     items:
     - name: Collect the required information to deploy a private mobile network
@@ -126,12 +134,6 @@ items:
       href: manage-existing-sims.md
     - name: Manage SIM groups
       href: manage-sim-groups.md
-  - name: Log Analytics
-    items:
-    - name: Enable Log Analytics for a packet core instance
-      href: enable-log-analytics-for-private-5g-core.md
-    - name: Create an overview Log Analytics dashboard - ARM template
-      href: create-overview-dashboard.md
   - name: Packet capture
     items:
     - name: Perform data plane packet capture for a packet core instance

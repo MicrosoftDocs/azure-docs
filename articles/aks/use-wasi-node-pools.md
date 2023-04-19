@@ -169,7 +169,7 @@ spec:
       runtimeClassName: wasmtime-slight-v1
       containers:
         - name: hello-slight
-          image: ghcr.io/deislabs/containerd-wasm-shims/examples/slight-rust-hello:latest
+          image: ghcr.io/deislabs/containerd-wasm-shims/examples/slight-rust-hello:v0.3.3
           command: ["/"]
           resources:
             requests:
