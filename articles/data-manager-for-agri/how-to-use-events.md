@@ -27,8 +27,11 @@ Data Manager for Agriculture events allow applications to react to creation, del
 Azure Functions, Azure Logic Apps, or even to your own http listener can subscribe to these events. Azure Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering.
 
 Here are example scenarios for consuming events in our service:
-1. When downloading satellite or weather data or executing jobs, you can use events to respond to changes in job status. You can minimize long polling can and decreasing the number of API calls to the service. You can also get prompt notification of job completion. All our asynchronous ingestion jobs are capable of supporting events. > [!NOTE]
+1. When downloading satellite or weather data or executing jobs, you can use events to respond to changes in job status. You can minimize long polling can and decreasing the number of API calls to the service. You can also get prompt notification of job completion. All our asynchronous ingestion jobs are capable of supporting events. 
+
+> [!NOTE]
 > Events related to ISV solutions flow are not currently supported.
+
 2. If there are modifications to data-plane resources such as party, fields, farms and other similar elements, you can react to changes and you can trigger workflows.
 
 ## Filtering events
@@ -38,13 +41,13 @@ For instance, for the PartyChanged event, to receive notifications for changes f
 
 EndsWith- /Party1234 
 The subject for this event is of the format 
-``` "/parties/Party1234"```
+```"/parties/Party1234"```
 
 Subjects in an event schema provide 'starts with' and 'exact match' filters as well.
 
 Similarly, to filter the same event for a group of party IDs, use the Advanced filter on partyId field in the event data object. In a single subscription, you may add five advanced filters with a limit of 25 values for each key filtered.
 
-To learn more about how to apply filters, see <a href = "https://docs.microsoft.com/azure/event-grid/how-to-filter-events" target = "_blank"> Filter events for Event Grid </a>
+To learn more about how to apply filters, see <a href = "https://docs.microsoft.com/azure/event-grid/how-to-filter-events" target = "_blank"> filter events for Event Grid. </a>
 
 ## Subscribing to events
 You can subscribe to Data Manager for Agriculture events by using Azure portal or Azure Resource Manager client. Each of these provide the user with a set of functionalities. Refer to following resources to know more about each method.
@@ -62,7 +65,7 @@ Applications that handle Data Manager for Agriculture events should follow a few
 4. Ignore fields you don't understand. This practice will help keep you resilient to new features that might be added in the future.
 
 
-### **Available event types**
+### Available event types
 
 |Event Name | Description|
 |:-----|:----|
@@ -149,7 +152,7 @@ description|	string|	Textual description of the resource.
 name|	string|	Name to identify resource.
 partyId| string| ID of the party it belongs to.
 
-For device Data Model, and Sensor Data Model events, the data object contains following properties:
+For device data model, and sensor data model events, the data object contains following properties:
 
 |Property | Type| Description|
 |:-----| :----| :----|
@@ -164,7 +167,7 @@ eTag| string| Implements optimistic concurrency.
 description| string| Textual description of the resource.
 name| string| Name to identify resource.
 
-For Device events, the data object contains following properties:
+For device events, the data object contains following properties:
 
 |Property | Type| Description|
 |:-----| :----| :----|
@@ -181,7 +184,7 @@ eTag|	string|	Implements optimistic concurrency.
 description|	string|	Textual description of the resource.
 name|	string|	Name to identify resource.
 
-For Sensor events, the data object contains following properties:
+For sensor events, the data object contains following properties:
 
 |Property | Type| Description|
 |:-----| :----| :----|
@@ -199,7 +202,7 @@ eTag|	string|	Implements optimistic concurrency.
 description|	string|	Textual description of the resource.
 name|	string|	Name to identify resource.
 
-For Sensor Mapping events, the data object contains following properties:
+For sensor mapping events, the data object contains following properties:
 
 |Property | Type| Description|
 |:-----| :----| :----|
@@ -217,7 +220,7 @@ eTag|	string|	Implements optimistic concurrency.
 description|	string|	Textual description of the resource.
 name|	string|	Name to identify resource.
 
-For Sensor Partner Integration events, the data object contains following properties:
+For sensor partner integration events, the data object contains following properties:
 
 |Property | Type| Description|
 |:-----| :----| :----|
@@ -250,7 +253,7 @@ Boundary events have the following data object:
 |description    |   string      |    Textual description of the resource.    |
 |properties   |   string      |    It contains user defined key – value pair.    |
 
-Seasonal Field events have the following data object:
+Seasonal field events have the following data object:
 
 Property|	Type|	Description
 |:-----| :----| :----|
