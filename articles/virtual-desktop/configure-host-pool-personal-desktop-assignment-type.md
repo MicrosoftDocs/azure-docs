@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Desktop personal desktop assignment type - Azure
+title: Azure Virtual Desktop assign personal desktops - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
 ---
-# Configure personal desktop host pool assignment
+# Assign personal desktops
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
@@ -20,7 +20,13 @@ You can configure the assignment type of your personal desktop host pool to adju
 
 ## Prerequisites
 
-This article assumes you've already downloaded and installed the Azure Virtual Desktop PowerShell module. If you haven't, follow the instructions in [Set up the PowerShell module](powershell-module.md).
+If you're using either the Azure portal or PowerShell method, you'll need the following things:
+
+- An Azure Virtual Desktop deployment with at least one host pool
+- A host pool with more than one session host inside of it
+- An Azure account with administrator permissions
+
+If you're assigning desktops with PowerShell, you'll need to [download and install the Azure Virtual Desktop PowerShell module](powershell-module.md) if you haven't already.
 
 ### Define variables
 
