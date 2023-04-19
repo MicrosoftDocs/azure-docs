@@ -15,7 +15,7 @@ ms.author: nikuklic
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Active Azure Communication Services resource. [Create a Communication Services resource](../../../quickstarts/create-communication-resource.md).
+- An active Communication Services resource. [Create a Communication Services resource](../../../quickstarts/create-communication-resource.md).
 - The fully qualified domain name (FQDN) and port number of a session border controller (SBC) in an operational telephony system.
 - The [verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN.
 
@@ -52,7 +52,7 @@ Give your voice route a name, specify the number pattern by using regular expres
 
 For more information about regular expressions, see [.NET regular expressions overview](/dotnet/standard/base-types/regular-expressions).
 
-You can select multiple SBCs for a single pattern. In such a case, the routing algorithm chooses them in random order. You can also specify the exact number pattern more than once. The higher row will have higher priority. If all SBCs associated with that row aren't available, the next row will be selected. This way, you create complex routing scenarios.
+You can select multiple SBCs for a single pattern. In such a case, the routing algorithm chooses them in random order. You can also specify the exact number pattern more than once. The higher row has higher priority. If all SBCs associated with that row aren't available, the next row is selected. This way, you create complex routing scenarios.
 
 ## Remove a direct routing configuration
 

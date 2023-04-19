@@ -15,20 +15,20 @@ ms.author: nikuklic
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Azure Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - Active LTS and Maintenance LTS versions of [Node.js](https://nodejs.org/) for your operating system.
 - The fully qualified domain name (FQDN) and port number of a session border controller (SBC) in an operational telephony system.
 - The [verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN.
 
 ## Final code
 
-Find the finalized code for the following procedures on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/direct-routing-quickstart).
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/direct-routing-quickstart).
 
 You can also find more usage examples for `SipRoutingClient` on [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-phonenumbers/src/samples/java/com/azure/communication/phonenumbers/siprouting/AsyncClientJavaDocCodeSnippets.java).
 
-## Create a new Node.js application
+## Create a Node.js application
 
-First, open your terminal or command window, create a new directory for your app, and go to it:
+Open your terminal or command window, create a new directory for your app, and go to it:
 
 ``` console
     mkdir direct-routing-quickstart && cd direct-routing-quickstart
@@ -99,7 +99,7 @@ Azure Communication Services direct routing allows communication with registered
 
 ### Create or update routes
 
-Provide routing rules for outbound calls. Each rule consists of two parts: a regex pattern that should match a dialed phone number and the FQDN of a registered trunk where call is routed.
+Provide routing rules for outbound calls. Each rule consists of two parts: a regex pattern that should match a dialed phone number, and the FQDN of a registered trunk where the call is routed.
 
 The order of routes determines the priority of routes. The first route that matches the regex will be picked for a call.
 
@@ -123,7 +123,7 @@ In this example, you create one route for numbers that start with `+1` and a sec
 
 ## Update a direct routing configuration
 
-You can update the properties of a specific trunk by overwriting the record with the same FQDN. For example, you can set new SBC port value:
+You can update the properties of a specific trunk by overwriting the record with the same FQDN. For example, you can set a new SBC port value:
 
 ``` javascript
   await client.setTrunk({
@@ -132,8 +132,7 @@ You can update the properties of a specific trunk by overwriting the record with
   });
 ```
 
-> [!IMPORTANT]
->You use the same method to create and update routing rules. When you update routes, send all of them in a single update. The new routing configuration fully overwrites the former one.
+You use the same method to create and update routing rules. When you update routes, send all of them in a single update. The new routing configuration fully overwrites the former one.
 
 ## Remove a direct routing configuration
 
@@ -157,7 +156,7 @@ You can use the following example to delete a single trunk (SBC), if no voice ro
 
 ## Run the code
 
-Use the node command to run the code that you added to the `direct-routing-quickstart.js` file:
+Use the `node` command to run the code that you added to the `direct-routing-quickstart.js` file:
 
 ``` console
    node direct-routing-quickstart.js
