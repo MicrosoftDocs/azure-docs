@@ -4,7 +4,7 @@ description: Learn how to configure and use Azure Container Storage with Azure K
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/17/2023
+ms.date: 04/19/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -150,7 +150,7 @@ The initial install uses Azure Arc CLI commands to download a new extension. The
 az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myContainerStorageRG --name azurecontainerstorage --extension-type microsoft.azstor --scope cluster --release-train staging --release-namespace acstor
 ```
 
-Installation takes 10-15 minutes to complete. You can check if the installation completed correctly by running the following command and ensuring that `provisioningState` says Succeeded:
+Installation takes 10-15 minutes to complete. You can check if the installation completed correctly by running the following command and ensuring that `provisioningState` says **Succeeded**:
 
 ```azurecli-interactive
 az k8s-extension list --cluster-name myAKSCluster --resource-group myContainerStorageRG --cluster-type managedClusters
@@ -158,9 +158,9 @@ az k8s-extension list --cluster-name myAKSCluster --resource-group myContainerSt
 
 ## Create a storage pool utilizing Azure Disks
 
-Now you can create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a yaml file. Follow these steps to create a storage pool for Azure managed disks. 
+Now you can create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML file. Follow these steps to create a storage pool for Azure managed disks. 
 
-1. Run `code acstor-storagepool.yaml` to create a yaml file.
+1. Run `code acstor-storagepool.yaml` to create a YAML file.
 
 2. Paste in the following code. The `name` value can be whatever you want. 
 
@@ -178,7 +178,7 @@ spec:
        requests: {"storage": 5Ti}
 ```
 
-3. Apply the yaml file to create the storage pool.
+3. Apply the YAML file to create the storage pool.
 
 ```azurecli-interactive
 kubectl apply -f acstor-storagepool.yaml 
@@ -211,7 +211,7 @@ azurecontainerstorage-single-replica
 
 A persistent volume claim is used to automatically provision storage based on a storage class. Follow these steps to create a persistent volume claim. 
 
-1. Run `code acstor-pvc.yaml` to create a yaml file.
+1. Run `code acstor-pvc.yaml` to create a YAML file.
 
 2. Paste in the following code. The `name` value can be whatever you want. 
 
@@ -229,7 +229,7 @@ spec:
          storage: 100Gi
 ```
 
-3. Apply the yaml file to create the persistent volume claim.
+3. Apply the YAML file to create the persistent volume claim.
 
 ```azurecli-interactive
 kubectl apply -f acstor-pvc.yaml
@@ -247,13 +247,13 @@ You can verify the status of the persistent volume claim by running the followin
 kubectl describe pvc azurediskpvc
 ```
 
-Once the persistent volume claim is created, it's ready to mount onto a pod.
+Once the persistent volume claim is created, it's ready for use by a pod.
 
 ## Deploy a pod and attach a persistent volume
 
 Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, and specify a mount path for the persistent volume.
 
-1. Run `code acstor-pod.yaml` to create a yaml file.
+1. Run `code acstor-pod.yaml` to create a YAML file.
 
 2. Paste in the following code.
 
@@ -280,7 +280,7 @@ spec:
           name: azurediskpv
 ```
 
-3. Apply the yaml file to deploy the pod.
+3. Apply the YAML file to deploy the pod.
 
    ```azurecli-interactive
    kubectl apply -f acstor-pod.yaml
