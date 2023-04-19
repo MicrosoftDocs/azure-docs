@@ -1,5 +1,5 @@
 ---
-title: Get started with SAP and Azure integration scenarios
+title: Get started with SAP and Microsoft integration scenarios
 description: Learn about the various integration points in the Microsoft ecosystem for SAP workloads.
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
