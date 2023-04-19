@@ -160,6 +160,7 @@ Lifecycle management supports tiering and deletion of current versions, previous
 | Action                                  | Current Version                            | Snapshot      | Previous Versions |
 |-----------------------------------------|--------------------------------------------|---------------|-------------------|
 | tierToCool                              | Supported for `blockBlob`                  | Supported     | Supported         |
+| tierToCold                              | Supported for `blockBlob`                  | Supported     | Supported         |
 | enableAutoTierToHotFromCool<sup>1</sup> | Supported for `blockBlob`                  | Not supported | Not supported     |
 | tierToArchive<sup>4</sup>               | Supported for `blockBlob`                  | Supported     | Supported         |
 | delete<sup>2,3</sup>                    | Supported for `blockBlob` and `appendBlob` | Supported     | Supported         |
