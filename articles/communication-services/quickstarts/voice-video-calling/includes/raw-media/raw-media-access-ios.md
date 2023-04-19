@@ -123,19 +123,16 @@ The audio buffer format should match the specified stream properties.
 
         let factor: Double = ((2 as Double) * Double.pi) / (sampleRate.valueInHz/Double(frequency))
         var interval = 0
-        var sampleIdx = 0
-        for _ in 0..<Int(buffer.frameCapacity) {
-            for _ in 0..<Int(channelMode.numberOfChannels) {
-                let sample = sin(factor * Double(currentSample + interval))
-                // Scale to maximum amplitude. Int16.max is 37,767.
-                let value = Int16(sample * Double(Int16.max))
-                guard let underlyingByteBuffer = buffer.mutableAudioBufferList.pointee.mBuffers.mData else {
-                    continue
-                }
-                underlyingByteBuffer.assumingMemoryBound(to: Int16.self).advanced(by: sampleIdx).pointee = value
-                sampleIdx += 1
+        for sampleIdx in 0..<Int(buffer.frameCapacity * channelMode.numberOfChannels) {
+            let sample = sin(factor * Double(currentSample + interval))
+            // Scale to maximum amplitude. Int16.max is 37,767.
+            let value = Int16(sample * Double(Int16.max))
+            
+            guard let underlyingByteBuffer = buffer.mutableAudioBufferList.pointee.mBuffers.mData else {
+                continue
             }
-            interval += 2
+            underlyingByteBuffer.assumingMemoryBound(to: Int16.self).advanced(by: sampleIdx).pointee = value
+            interval += channelMode == .mono ? 2 : 1
         }
 
         return buffer
