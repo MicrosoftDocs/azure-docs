@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/11/2023
+ms.date: 04/19/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
@@ -345,7 +345,9 @@ This section lists the function operators that are available to construct condit
 > | **Operator** | `Exists` |
 > | **Description** | Checks if the specified attribute exists. |
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
-> | **Attributes support** | [Encryption scope name](../storage/blobs/storage-auth-abac-attributes.md#encryption-scope-name)<br/>[Snapshot](../storage/blobs/storage-auth-abac-attributes.md#snapshot)<br/>[Version ID](../storage/blobs/storage-auth-abac-attributes.md#version-id) |
+> | **Attributes support** <sup>1</sup>| [Encryption scope name](../storage/blobs/storage-auth-abac-attributes.md#encryption-scope-name)<br/>[Snapshot](../storage/blobs/storage-auth-abac-attributes.md#snapshot)<br/>[Version ID](../storage/blobs/storage-auth-abac-attributes.md#version-id) |
+
+<sup>1</sup> The `Exists` operator is supported for only these attributes in the visual ABAC condition builder in the Azure portal. To add the exists operator to an attribute when building an expression in a condition, select the supported source and attribute, then select the box next to **Exists**.You can add the `Exists` operator to any attribute using other tools, such as [PowerShell](conditions-role-assignments-powershell.md), the [Azure CLI](conditions-role-assignments-cli.md), the [REST API](conditions-role-assignments-powershell.md), and the condition code editor in the Azure portal, but the format and structure of the conditions will not validated in real time.
 
 ## Logical operators
 

@@ -1399,7 +1399,7 @@ Use the values in the following table to build the expression portion of the con
 > | Operator | [DateTimeGreaterThan](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
 > | Value | `2023-05-01T13:00:00.000Z` |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation:
+The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-utcnow-containers-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access allowed after a specific date and time." lightbox="./media/storage-auth-abac-examples/environ-utcnow-containers-read-portal.png":::
 
@@ -1510,7 +1510,7 @@ Use the values in the following table to build the expression portion of the con
 > | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | `/subscriptions/<your subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default` |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation:
+The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-subnet-containers-read-write-delete-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access to specific containers allowed from a specific subnet." lightbox="./media/storage-auth-abac-examples/environ-subnet-containers-read-write-delete-portal.png":::
 
@@ -1646,7 +1646,7 @@ Use the values in the following table to build the expression portion of the con
 > | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | | Value | `high` |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation:
+The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring any private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
@@ -1770,7 +1770,7 @@ Use the values in the following table to build the expression portion of the con
 > | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringnotequals) |
 > | | Value | `container1` |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation:
+The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers with private endpoint environment attribute." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png":::
 
@@ -1937,7 +1937,7 @@ Use the values in the following table to build the expression portion of the con
 | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | | Value | `high` |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation:
+The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-read-tagged-users-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read access allowed over a specific private endpoint for tagged users." lightbox="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-read-tagged-users-portal.png":::
 
