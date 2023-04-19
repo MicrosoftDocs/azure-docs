@@ -147,7 +147,7 @@ Once you know which resources you'd like to group, use the following steps to ta
 2.	Select **Properties** in the resource menu.
 3.	Find the **Resource ID** property and copy its value.
 4.	Open **All resources** or the resource group that has the resources you want to link.
-5.	Select the checkboxes for every resource you want to link and click the **Assign tags** command.
+5.	Select the checkboxes for every resource you want to link and then select the **Assign tags** command.
 6.	Specify a tag key of "cm-resource-parent" (make sure it's typed correctly) and paste the resource ID from step 3.
 7.	Wait 24 hours for new usage to be sent to Cost Management with the tags. (Keep in mind resources must be actively running with charges for tags to be updated in Cost Management.)
 8.	Open the [Resources view](https://aka.ms/costanalysis/resources) in the cost analysis preview.
@@ -190,7 +190,7 @@ Cost insights surface important details about your subscriptions, like potential
 
 ## View cost for your resources
 
-Cost analysis is available from every management group, subscription, resource group, and billing scope in the Azure portal and the Microsoft 365 admin center.  To make cost data more readily accessible for resource owners, you can now find a **View cost** link at the top-right of every resource overview screen, in **Essentials**. Clicking the link will open classic cost analysis with a resource filter applied.
+Cost analysis is available from every management group, subscription, resource group, and billing scope in the Azure portal and the Microsoft 365 admin center.  To make cost data more readily accessible for resource owners, you can now find a **View cost** link at the top-right of every resource overview screen, in **Essentials**. Select the link to open classic cost analysis with a resource filter applied.
 
 The view cost link is enabled by default in the [Azure preview portal](https://preview.portal.azure.com).
 

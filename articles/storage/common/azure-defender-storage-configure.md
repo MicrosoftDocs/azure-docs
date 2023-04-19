@@ -312,7 +312,7 @@ Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.s
 
 #### Bicep template
 
-To enable and configure Microsoft Defender for Storage at the subscription level with per-transaction pricing using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
+To enable and configure Microsoft Defender for Storage at the storage account level using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
 
 ```bicep
 param accountName string
@@ -345,7 +345,7 @@ Learn more about the [Bicep template AzAPI reference](/azure/templates/microsoft
 
 ### REST API
 
-To enable and configure Microsoft Defender for Storage at the subscription level using REST API, create a PUT request with this endpoint. Replace the `subscriptionId` , `resourceGroupName`, and `accountName` in the endpoint URL with your own Azure subscription ID, resource group and storage account names accordingly.
+To enable and configure Microsoft Defender for Storage at the storage account level using REST API, create a PUT request with this endpoint. Replace the `subscriptionId` , `resourceGroupName`, and `accountName` in the endpoint URL with your own Azure subscription ID, resource group and storage account names accordingly.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/StorageAccounts?api-version=2023-01-01
