@@ -87,8 +87,9 @@ az spring app create \
     --service <your-Azure-Spring-Apps-instance-name> \
     --name "springapp" \
     --assign-endpoint true \
+    --runtime-version Java_17 \
     --system-assigned
-export SERVICE_IDENTITY=$(az spring app show \
+export MANAGED_IDENTITY_PRINCIPAL_ID=$(az spring app show \
     --resource-group "<your-resource-group-name>" \
     --service "<your-Azure-Spring-Apps-instance-name>" \
     --name "springapp" \
@@ -102,7 +103,7 @@ First, create a user-assigned managed identity in advance with its resource ID s
 :::image type="content" source="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png" alt-text="Screenshot of Azure portal showing the Managed Identity Properties screen with 'Resource ID', 'Principle ID' and 'Client ID' highlighted." lightbox="media/tutorial-managed-identities-key-vault/app-user-managed-identity-key-vault.png":::
 
 ```bash
-export SERVICE_IDENTITY=<principal-ID-of-user-assigned-managed-identity>
+export MANAGED_IDENTITY_PRINCIPAL_ID=<principal-ID-of-user-assigned-managed-identity>
 export USER_IDENTITY_RESOURCE_ID=<resource-ID-of-user-assigned-managed-identity>
 ```
 
@@ -114,6 +115,7 @@ az spring app create \
     --service <your-Azure-Spring-Apps-instance-name> \
     --name "springapp" \
     --user-assigned $USER_IDENTITY_RESOURCE_ID \
+    --runtime-version Java_17 \
     --assign-endpoint true
 az spring app show \
     --resource-group <your-resource-group-name> \
@@ -132,12 +134,12 @@ Use the following command to grant proper access in Key Vault for your app:
 ```azurecli
 az keyvault set-policy \
     --name "<your-keyvault-name>" \
-    --object-id ${SERVICE_IDENTITY} \
+    --object-id ${MANAGED_IDENTITY_PRINCIPAL_ID} \
     --secret-permissions set get list
 ```
 
 > [!NOTE]
-> For system-assigned managed identity case, use `az keyvault delete-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENTITY}` to remove the access for your app after system-assigned managed identity is disabled.
+> For system-assigned managed identity case, use `az keyvault delete-policy --name "<your-keyvault-name>" --object-id ${MANAGED_IDENTITY_PRINCIPAL_ID}` to remove the access for your app after system-assigned managed identity is disabled.
 
 ## Build a sample Spring Boot app with Spring Boot starter
 
@@ -146,7 +148,7 @@ This app has access to get secrets from Azure Key Vault. Use the Azure Key Vault
 1. Use the following command to generate a sample project from `start.spring.io` with Azure Key Vault Spring Starter.
 
    ```bash
-   curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault -d baseDir=springapp -d bootVersion=2.7.2 -d javaVersion=1.8 | tar -xzvf -
+   curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault -d baseDir=springapp -d bootVersion=2.7.9 -d javaVersion=17 -d type=maven-project | tar -xzvf -
    ```
 
 1. Specify your Key Vault in your app.
@@ -206,7 +208,7 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Cli
            return connectionString;
        }
 
-       public void run(String... varl) throws Exception {
+       public void run(String... args) throws Exception {
            System.out.println(String.format("\nConnection String stored in Azure Key Vault:\n%s\n",connectionString));
        }
    }
