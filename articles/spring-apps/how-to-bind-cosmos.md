@@ -1,6 +1,6 @@
 ---
-title: Bind an Azure Cosmos DB to your application in Azure Spring Apps
-description: Learn how to bind Azure Cosmos DB to your application in Azure Spring Apps
+title: Connect an Azure Cosmos DB to your application in Azure Spring Apps
+description: Learn how to connect Azure Cosmos DB to your application in Azure Spring Apps
 author: karlerickson
 ms.service: spring-apps
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.author: karler
 ms.custom: devx-track-java, event-tier1-build-2022, ignite-2022, service-connector
 ---
 
-# Bind an Azure Cosmos DB database to your application in Azure Spring Apps
+# Connect an Azure Cosmos DB database to your application in Azure Spring Apps
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -18,7 +18,7 @@ ms.custom: devx-track-java, event-tier1-build-2022, ignite-2022, service-connect
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-Instead of manually configuring your Spring Boot applications, you can automatically bind select Azure services to your applications by using Azure Spring Apps. This article demonstrates how to bind your application to an Azure Cosmos DB database.
+Instead of manually configuring your Spring Boot applications, you can automatically connect select Azure services to your applications by using Azure Spring Apps. This article demonstrates how to connect your application to an Azure Cosmos DB database.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 
-## Bind your app to the Azure Cosmos DB
+## Connect your app to the Azure Cosmos DB
 
 ### [Service Connector](#tab/Service-Connector)
 
@@ -191,4 +191,4 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
 
 ## Next steps
 
-In this article, you learned how to bind your application in Azure Spring Apps to an Azure Cosmos DB database. To learn more about binding services to your application, see [Bind to an Azure Cache for Redis cache](./how-to-bind-redis.md).
+In this article, you learned how to connect your application in Azure Spring Apps to an Azure Cosmos DB database. To learn more about connecting services to your application, see [Connect to an Azure Cache for Redis cache](./how-to-connect-redis.md).
