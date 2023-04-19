@@ -2,8 +2,8 @@
 title: Add a 3D column layer to an Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
 description: In this article, you will learn how to use the 3D column layer in an Azure Maps Power BI visual.
-author: eriklindeman
-ms.author: eriklind
+author: deniseatmicrosoft
+ms.author: limingchen
 ms.date: 11/29/2021
 ms.topic: how-to
 ms.service: azure-maps
