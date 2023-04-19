@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.topic: tutorial
 ms.date: 06/28/2022
 ms.author: allensu
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 # Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ---
 

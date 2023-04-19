@@ -2,7 +2,7 @@
 title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 01/18/2023
+ms.date: 04/11/2023
 ---
 
 # Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -16,9 +16,9 @@ To create an AKS cluster with CSI drivers support, see [Enable CSI drivers on AK
 > [!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
-## Azure Files CSI driver new features
+## Azure File CSI driver new features
 
-In addition to the original in-tree driver features, Azure Files CSI driver supports the following new features:
+In addition to the original in-tree driver features, Azure File CSI driver supports the following new features:
 
 - Network File System (NFS) version 4.1
 - [Private endpoint][private-endpoint-overview]
@@ -81,7 +81,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 > [!NOTE]
 > Azure Files supports Azure Premium Storage. The minimum premium file share capacity is 100 GiB.
 
-When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that uses the Azure Files CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that uses the Azure File CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
 - `azurefile-csi`: Uses Azure Standard Storage to create an Azure Files share.
 - `azurefile-csi-premium`: Uses Azure Premium Storage to create an Azure Files share.
@@ -158,7 +158,7 @@ The output of the command resembles the following example:
 storageclass.storage.k8s.io/my-azurefile created
 ```
 
-The Azure Files CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares.
+The Azure File CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares.
 
 > [!NOTE]
 > This driver only supports snapshot creation, restore from snapshot is not supported by this driver. Snapshots can be restored from Azure portal or CLI. For more information about creating and restoring a snapshot, see [Overview of share snapshots for Azure Files][share-snapshots-overview].
@@ -415,9 +415,8 @@ spec:
   volumeClaimTemplates:
     - metadata:
         name: persistent-storage
-        annotations:
-          volume.beta.kubernetes.io/storage-class: azurefile-csi-nfs
       spec:
+        storageClassName: azurefile-csi-nfs
         accessModes: ["ReadWriteMany"]
         resources:
           requests:
@@ -451,7 +450,7 @@ accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-55660
 
 ## Windows containers
 
-The Azure Files CSI driver also supports Windows nodes and containers. To use Windows containers, follow the [Windows containers quickstart](./learn/quick-windows-container-deploy-cli.md) to add a Windows node pool.
+The Azure File CSI driver also supports Windows nodes and containers. To use Windows containers, follow the [Windows containers quickstart](./learn/quick-windows-container-deploy-cli.md) to add a Windows node pool.
 
 After you have a Windows node pool, use the built-in storage classes like `azurefile-csi` or create a custom one. You can deploy an example [Windows-based stateful set](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into a file `data.txt` by running the [kubectl apply][kubectl-apply] command:
 

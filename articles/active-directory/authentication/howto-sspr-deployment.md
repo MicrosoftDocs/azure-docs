@@ -38,6 +38,9 @@ To quickly see SSPR in action and then come back to understand additional deploy
 > [!div class="nextstepaction"]
 > [Enable self-service password reset (SSPR)](tutorial-enable-sspr.md)
 
+> [!TIP]
+> As a companion to this article, we recommend using the [Plan your self-service password reset deployment guide](https://go.microsoft.com/fwlink/?linkid=2221501) when signed in to the Microsoft 365 Admin Center. This guide will customize your experience based on your environment. To review best practices without signing in and activating automated setup features, go to the [M365 Setup portal](https://go.microsoft.com/fwlink/?linkid=2221600). 
+
 ## Learn about SSPR
 
 Learn more about SSPR. See [How it works: Azure AD self-service password reset](./concept-sspr-howitworks.md).
