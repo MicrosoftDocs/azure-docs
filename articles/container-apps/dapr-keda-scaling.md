@@ -13,9 +13,9 @@ ms.date: 04/17/2023
 [Azure Container Apps automatically scales HTTP traffic to zero.](./scale-app.md) However, to scale non-HTTP traffic (like [Dapr](https://docs.dapr.io/) pub/sub and bindings), you can use [KEDA scalers](https://keda.sh/) to scale your application and its Dapr sidecar up and down, based on the number of pending inbound events and messages. 
 
 This guide demonstrates how to configure the scale rules of a Dapr pub/sub application with a KEDA messaging scaler. For context, refer to the corresponding sample pub/sub applications:
-- [Microservice communication using pub/sub sample application in **C#**](https://github.com/Azure-Samples/pubsub-dapr-csharp-servicebus)
-- [Microservice communication using pub/sub sample application in **JavaScript**](https://github.com/Azure-Samples/pubsub-dapr-nodejs-servicebus)
-- [Microservice communication using pub/sub sample application in **Python**](https://github.com/Azure-Samples/pubsub-dapr-python-servicebus)
+- [Microservice communication using pub/sub in **C#**](https://github.com/Azure-Samples/pubsub-dapr-csharp-servicebus)
+- [Microservice communication using pub/sub in **JavaScript**](https://github.com/Azure-Samples/pubsub-dapr-nodejs-servicebus)
+- [Microservice communication using pub/sub in **Python**](https://github.com/Azure-Samples/pubsub-dapr-python-servicebus)
 
 
 In the above samples, the application uses the following elements:
@@ -113,7 +113,9 @@ resource orders 'Microsoft.App/containerApps@2022-03-01' = {
 }
 ```
 
-Notice the `messageCount` property on the scaler's configuration:
+## How the scaler works
+
+Notice the `messageCount` property on the scaler's configuration in the subscriber app:
 
 ```bicep
 {
