@@ -19,15 +19,15 @@ Use Azure Batch to run large-scale parallel and high-performance computing (HPC)
 > * Monitor task execution.
 > * Retrieve output files.
 
-In this tutorial, you convert MP4 media files in parallel to MP3 format using the [ffmpeg](https://ffmpeg.org/) open-source tool. 
+In this tutorial, you convert MP4 media files to MP3 format, in parallel, by using the [ffmpeg](https://ffmpeg.org/) open-source tool. 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* [Python version 3.7+](https://www.python.org/downloads/)
+* [Python version 3.7 or later](https://www.python.org/downloads/)
 
-* [pip](https://pip.pypa.io/en/stable/installation/) package manager
+* [pip package manager](https://pip.pypa.io/en/stable/installation/)
 
 * An Azure Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstart guides for [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
@@ -37,9 +37,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 
-## Download and run the sample
+## Download and run the sample app
 
-### Download the sample
+### Download the sample app
 
 [Download or clone the sample app](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) from GitHub. To clone the sample app repo with a Git client, use the following command:
 
@@ -55,7 +55,7 @@ In your Python environment, install the required packages using `pip`.
 pip install -r requirements.txt
 ```
 
-Open the file *config.py*. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
+Use a code editor to open the file *config.py*. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
 
 
 ```Python
