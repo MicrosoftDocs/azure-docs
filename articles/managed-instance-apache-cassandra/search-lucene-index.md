@@ -17,7 +17,7 @@ Cassandra Lucene Index, derived from Stratio Cassandra, is a plugin for Apache C
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!WARNING]
-> A limitation with Lucene index searches is that cross partition searches cannot be executed solely in the index (unlike elastic search or Solr). This can lead to issues with performance (memory and CPU load) for cross partition searches that may affect steady state workloads. 
+> A limitation with the Lucene index plugin is that cross partition searches cannot be executed solely in the index - Cassandra needs to send the query to each node. This can lead to issues with performance (memory and CPU load) for cross partition searches that may affect steady state workloads. 
 >
 > As such, where search requirements are significant, if you intend to use this feature in production, we recommend deploying a dedicated secondary data center to be used only for searches, with a minimal number of nodes, each having a high number of cores (minimum 16). The keyspaces in your primary (operational) data center should then be configured to replicate data to your secondary (search) data center. 
 
