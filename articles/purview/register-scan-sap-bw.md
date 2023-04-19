@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to
 ---
 
@@ -41,6 +41,10 @@ When scanning SAP BW source, Microsoft Purview supports extracting technical met
 - Aggregate
 - Dimension
 - Time dimension
+
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 
