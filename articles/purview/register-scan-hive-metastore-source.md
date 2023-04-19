@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -178,6 +178,9 @@ Use the following steps to scan Hive Metastore databases to automatically identi
         Usage of `NOT` and special characters isn't acceptable.
 
     1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's machine for the scanning processes to use. This value is dependent on the size of Hive Metastore database to be scanned.
+
+        > [!Note]
+        > As a thumb rule, please provide 1GB memory for every 1000 tables.
 
     :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="Screenshot that shows boxes for scan details." border="true":::
 

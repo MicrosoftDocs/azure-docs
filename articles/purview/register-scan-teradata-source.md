@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 04/20/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -35,7 +35,7 @@ When scanning Teradata source, Microsoft Purview supports:
     - Stored procedures including the parameter dataset and result set
     - Functions including the parameter dataset
 
-- Fetching static lineage on assets relationships among tables, views and stored procedures.
+- Fetching static lineage on assets relationships among tables and views.
 
 When setting up scan, you can choose to scan an entire Teradata server, or scope the scan to a subset of databases matching the given name(s) or name pattern(s).
 

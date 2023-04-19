@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 02/16/2023
+ms.date: 04/20/2023
 ms.custom: template-how-to
 ---
 
@@ -144,6 +144,9 @@ Use the following steps to scan Azure Databricks to automatically identify asset
       `/mnt/ADLS2=abfss://samplelocation1@azurestorage1.dfs.core.windows.net/;/mnt/Blob=wasbs://samplelocation2@azurestorage2.blob.core.windows.net`
 
     1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's machine for the scanning processes to use. This value is dependent on the size of Hive Metastore database to be scanned.
+
+        > [!Note]
+        > As a thumb rule, please provide 1GB memory for every 1000 tables.
 
     :::image type="content" source="media/register-scan-azure-databricks/scan.png" alt-text="Screenshot of setting up Azure Databricks scan." border="true":::
 
