@@ -18,7 +18,7 @@ ms.custom: it-pro
 
 After registration is complete, a React project can be created using an integrated development environment (IDE). This tutorial demonstrates how to create a single-page React application using npm and create files needed for authentication and authorization.
 
-In this tutorial:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a new React project
@@ -27,7 +27,7 @@ In this tutorial:
 > * Add authentication code to the application
 
 ## Prerequisites
-* Completion of the prerequisites and steps in 
+* Completion of the prerequisites and steps in [Prepare your customer tenant for building a React Single Page App (SPA) in Microsoft Entra](.\how-to-spa-react-prepare-app.md))
 * Although any IDE that supports React applications can be used, Visual Studio Code is used for this guide. This can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 * [Node.js](https://nodejs.org/en/download/)
 
