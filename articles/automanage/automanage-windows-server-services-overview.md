@@ -70,7 +70,7 @@ It's important to consider up front, which Automanage for Windows Server capabil
 
 | Image                                                               | Capabilities                                        |
 | ------------------------------------------------------------------- | --------------------------------------------------- |
-| Windows Server 2022  Datacenter: Azure Edition (Desktop experience) | SMB over QUIC, Extended network for Azure           |
+| Windows Server 2022  Datacenter: Azure Edition (Desktop experience) | Hotpatch, SMB over QUIC, Extended network for Azure           |
 | Windows Server 2022 Datacenter: Azure Edition (Core)                | Hotpatch, SMB over QUIC, Extended network for Azure |
 
 ### Creating a VM
