@@ -240,7 +240,7 @@ The following example deploys to the default production deployment in Azure Spri
 > The package search pattern should only return exactly one package. If the build task produces multiple JAR packages such as *sources.jar* and *javadoc.jar*, you need to refine the search pattern so that it only matches the application binary artifact.
 
 ```yml
-name: AzureSpringCloud
+name: AzureSpringApps
 on: push
 env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
@@ -254,10 +254,11 @@ jobs:
       - name: Checkout GitHub Action
         uses: actions/checkout@v2
         
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Set up Java 11
+        uses: actions/setup-java@v3
         with:
-          java-version: 1.8
+          distribution: 'temurin'
+          java-version: '11'
 
       - name: maven build, clean
         run: |
@@ -282,7 +283,7 @@ jobs:
 The following example deploys to the default production deployment in Azure Spring Apps using source code.
 
 ```yml
-name: AzureSpringCloud
+name: AzureSpringApps
 on: push
 env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
@@ -315,7 +316,7 @@ jobs:
 The following example deploys to the default production deployment in Azure Spring Apps with an existing container image.
 
 ```yml
-name: AzureSpringCloud
+name: AzureSpringApps
 on: push
 env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
@@ -418,7 +419,7 @@ The "Delete Staging Deployment" action allows you to delete the deployment not r
 Another option is to use the [Maven Plugin](./quickstart.md) for deploying the Jar and updating App settings. The command `mvn azure-spring-apps:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
 
 ```yaml
-name: AzureSpringCloud
+name: AzureSpringApps
 on: push
 
 jobs:
@@ -428,10 +429,11 @@ jobs:
 
     - uses: actions/checkout@main
 
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+    - name: Set up Java 11
+      uses: actions/setup-java@v3
       with:
-        java-version: 1.8
+        distribution: 'temurin'
+        java-version: '11'
 
     - name: maven build, clean
       run: |
