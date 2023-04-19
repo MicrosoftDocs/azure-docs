@@ -1,18 +1,19 @@
 ---
-title: Enable SAP Insights
-description: Learn to enable SAP Insights on your AMS instance.
+title: Enable Insights to troubleshoot SAP workload issues
+description: Learn to enable SAP Insights on your AMS instance to troubleshoot SAP workload issues.
 author: akarshprabhu
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to
-ms.date: 04/01/2023
+ms.date: 05/01/2023
 ms.author: akak
 #Customer intent: I am an SAP BASIS or cloud infrastructure team member, I want to enable SAP Insights on my Azure monitor for SAP Instance.
 ---
 
-# Enable Insights in Azure Monitor for SAP solutions (preview)
+# Enable Insights to troubleshoot SAP workload issues (preview)
 
-[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-Azure-monitor.md)]
+> [!Important]
+>  The Insights feature is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The Insights capability in Azure Monitor for SAP Solutions helps you troubleshoot Availability and Performance issues on your SAP workloads. It helps you correlate key SAP components issues with SAP logs and Azure platform metrics and health events. 
 In this how-to-guide, learn to enable Insights in Azure Monitor for SAP solutions. You can use SAP Insights with only the latest version of the service, *Azure Monitor for SAP solutions* and not *Azure Monitor for SAP solutions (classic)*
@@ -37,10 +38,9 @@ To enable Insights for Azure Monitor for SAP solutions, you need to:
 ### Run a PowerShell script for access
 
 > [!Note]
-> This step gives your Azure Monitor for SAP solutions(AMS) instance access to Azure resource graph. With this access your AMS instance are able to pull ARM IDs of virtual machines on which the linked SAP systems are hosted. This will help your AMS instance correlate issues you face with Azure infrastructure telemetry, giving you an end-to-end troubleshooting experience. 
+> This step gives your Azure Monitor for SAP solutions(AMS) instance access to Azure resource graph. With this access your AMS instance will be able to pull ARM IDs of virtual machines on which the linked SAP systems are hosted. This will help your AMS instance correlate issues you face with Azure infrastructure telemetry, giving you an end-to-end troubleshooting experience. 
 
-> [!Important]
-> To run this script succesfully, ensure you have Contributor + User Access Admin or Owner access on all subscriptions in the list. See [steps to assign Azure roles](../../role-based-access-control/role-assignments-steps.md).
+
 1. Download the onboarding script [from github](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/blob/main/Scripts/AMS_AIOPS_SETUP.ps1)
 2. Go to the Azure portal and select the Cloud Shell tab from the menu bar at the top. Refer [this guide](../../cloud-shell/quickstart) to get started with Cloud Shell. 
 3. Switch from Bash to PowerShell.
@@ -57,6 +57,9 @@ $armId = "<AMS ARM ID>"
 ```PowerShell
 $subscriptions = "<Subscription ID 1>","<Subscription ID 2>"
 ```
+> [!Important]
+> To run this script succesfully, ensure you have Contributor + User Access Admin or Owner access on all subscriptions in the list. See [steps to assign Azure roles](../../role-based-access-control/role-assignments-steps.md).
+
 8.	Run the script uploaded from step 6 using the command:
    * If $subscriptions was set: 
 ```PowerShell
@@ -70,11 +73,9 @@ $subscriptions = "<Subscription ID 1>","<Subscription ID 2>"
 ### Unprotect the GetEnvironment method
 
 Follow steps to unprotect methods from the [NetWeaver provider configuration page](provider-netweaver.md#prerequisite-unprotect-methods-for-metrics). 
+<br/>If you have already followed these steps during Netweaver provider setup, you can skip this section. Please ensure you have unprotected the GetEnvironment method in particular for this capability to work properly. 
 
-> [!Note]
-> If you have already followed these steps during Netweaver provider setup, you can skip them. Please ensure you have unprotected the GetEnvironment method in particular here. 
-
-> [!Note]
+> [!Important]
 > You might have to wait for up to 2hrs for your AMS to start receiving the VM details that it monitors.
 
 ## Using Insights on Azure Monitor for SAP Solutions(AMS)
@@ -82,8 +83,13 @@ We have two categories of issues we help you get insights for.
 1. [Availability issues](#availability-insights)
 1. [Performance degradations](#performance-insights)
 
+#### Scope of the preview
+We have insights only for a limited set of issues as part of the preview. We will be extending this to majority of the issues supported by AMS alerts before this capability is Generally Available(GA). 
+* Availability insights lets you detect and troubleshoot unavailability of Netweaver system, instance and HANA DB. 
+* Performance insights are provided for NetWeaver metrics - High response time(ST03) and Long running batch jobs. 
+
 > [!Important]
-> As a user of the Insights capability, you will require reader access on all virtual machines on which the SAP systems are hosted that you are trying to monitor using AMS. This is make sure that you are able to view Azure monitor metrics and Resource health events in context of SAP issues. See [steps to assign Azure roles](../../role-based-access-control/role-assignments-steps.md).
+> As a user of the Insights capability, you will require reader access on all virtual machines on which the SAP systems are hosted that you are trying to monitor using AMS. This is to make sure that you are able to view Azure monitor metrics and Resource health events of these virtual machines in context of SAP issues. See [steps to assign Azure roles](../../role-based-access-control/role-assignments-steps.md).
 
 ### Availability Insights
 This capability helps you get an overview regarding availability of your SAP system in one place. You can also correlate SAP availability with Azure platform VM availability and its health events easing the overall root-causing process. 
