@@ -81,7 +81,7 @@ To enable the Azure Communications Gateway application, add the application ID o
 
 1. Optionally, check the application ID of the service principal to confirm that you're adding the right application.
     1. Search for `AzureCommunicationsGateway` with the search bar: it's under the **Azure Active Directory** subheading.
-    1. On the overview page, check that the value of **Object ID** is `8502a0ec-c76d-412f-836c-398018e2312b`.
+    1. On the overview page, check that the value of **Application ID** is `8502a0ec-c76d-412f-836c-398018e2312b`.
 1. Log into the [Operator Connect portal](https://operatorconnect.microsoft.com/operator/configuration).
 1. Add a new **Application Id**, pasting in the following value. This value is the application ID for Azure Communications Gateway.
     ```
