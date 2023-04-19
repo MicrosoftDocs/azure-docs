@@ -64,6 +64,6 @@ landingContent:
       - text: SQL Server HADR vs Azure Hybrid Benefit
         url: sql-server-hadr-licenses.md
     - linkListType: video
-       links:
-         - text: How to Leverage Centrally-managed Azure Hybrid Benefit
-           url: https://aka.ms/azure/pricing/CM_AHB_SQL/DevVideo
+      links:
+      - text: How to Leverage Centrally-managed Azure Hybrid Benefit
+        url: https://aka.ms/azure/pricing/CM_AHB_SQL/DevVideo
