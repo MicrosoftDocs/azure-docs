@@ -95,7 +95,6 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
        --system-assigned-identity
    ```
 
-
    > [!NOTE]
    > If you're using [Service Connector](../service-connector/overview.md) for the first time, start by running the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider.
    >
