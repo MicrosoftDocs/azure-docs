@@ -2,7 +2,7 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 04/24/2023
 ms.reviewer: sharrai
 ms.service: backup
 author: jyothisuri
@@ -34,6 +34,11 @@ The following screenshot shows _Multiple Backups_ occurred in a day.
 >The above screenshot shows that one of the backups is transferred to Vault-Standard tier.
 
 ## Create an Enhanced policy and configure VM backup
+
+**Choose a client**
+
+# [Azure portal](#tab/azure-portal)
+
 
 Follow these steps:
 
@@ -72,6 +77,176 @@ Follow these steps:
    >However, if you choose lower RPO of *12 hours*, the snapshot retention is increased to *30 days*.  
 
 6. Select **Create**.
+
+
+# [PowerShell](#tab/powershell)
+
+To create an enhanced backup policy or update the policy, run the following cmdlets:
+
+**Step 1: Create tbe backup policy**
+
+```azurepowershell
+$SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -
+```
+
+The parameter `ScheduleRunFrequency:Hourly` now also be an acceptable value for Azure VM workload.
+
+Also, the output object for this cmdlet contains the following additional fields for Azure VM workload, if you're creating hourly policy.
+
+- `[-ScheduleWindowStartTime <DateTime>]`
+- `[-ScheduleRunTimezone <String>]`
+- `[-ScheduleInterval <Int>]`
+- `[-ScheduleWindowDuration <Int>]`
+
+**Step 2: Set the backup schedule objects**
+
+```azurepowershell
+$startTime = Get-Date -Date "2021-12-22T06:10:00.00+00:00"
+$SchPol.ScheduleRunStartTime = $startTime
+$SchPol.ScheduleInterval = 6
+$SchPol.ScheduleWindowDuration = 12
+$SchPol.ScheduleRunTimezone = "PST"
+
+```
+
+This sample cmdlet, contains the following parameters:
+
+- `$ScheduleInterval`: Defines the difference (in hours) between two successive backups per day. Currently, the acceptable values are *4*, *6*, *8* and *12*.
+
+- `$ScheduleWindowStartTime`: The time at which the first backup job is triggered, in case of *hourly backups*. The current limits (in policy's timezone) are:
+  - `Minimum: 00:00`
+  - `Maximum:19:30`
+
+- `$ScheduleRunTimezone`: Specifies the timezone in which backups are scheduled. The default schedule is *UTC*.
+
+- `$ScheduleWindowDuration`: The time span (in hours measured from the Schedule Window Start Time) beyond which backup jobs shouldn't be triggered. The current limits are:
+  - `Minimum: 4`
+  - `Maximum:23`
+
+**Step 3: Create the backup retention policy**
+
+```azurepowershell
+Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType AzureVM -ScheduleRunFrequency "Hourly" 
+```
+
+- The parameter `ScheduleRunFrequency:Hourly` is also an acceptable value for Azure VM workload.
+- If `ScheduleRunFrequency` is hourly, you don't need to enter a value for `RetentionTimes` to the policy object.
+
+**Step 4: Set the backup retention policy object**
+
+```azurepowershell
+$RetPol.DailySchedule.DurationCountInDays = 365
+
+```
+
+**Step 5: Save the policy configuration**
+
+```azurepowershell
+AzRecoveryServicesBackupProtectionPolicy
+New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType AzureVM -RetentionPolicy $RetPol -SchedulePolicy $SchPol
+
+```
+
+For Enhanced policy, the allowed values for snapshot retention are from *1* day to *30* days.
+
+**Step 6: Update snapshot retention duration**
+
+```azurepowershell
+$bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+$bkpPol.SnapshotRetentionInDays=10
+Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId <VaultId>
+
+```
+### List enhanced backup policies
+
+To view the existing enhanced policies, run the following cmdlet:
+
+```azurepowershell
+Get-AzRecoveryServicesBackupProtectionPolicy -PolicySubType "Enhanced"
+
+```
+
+
+For `Get-AzRecoveryServicesBackupProtectionPolicy`:
+- Add the parameter `PolicySubType`. The allowed values are `Enhanced` and `Standard`. If you don't specify a value for this parameter, all policies (standard and enhanced) get listed.
+- The applicable parameter sets are `NoParamSet`, `WorkloadParamSet`, `WorkloadBackupManagementTypeParamSet`.
+- For non-VM workloads, allowed value is `Standard` only.
+
+>[!Note]
+>You can retrieve the sub type of policies. To list Standard backup policies, specify `Standard` as the value of this parameter. To list Enhanced backup policies for Azure VMs, specify `Enhanced` as the value of this parameter.
+
+
+
+
+
+### Configure backup
+
+To configure backup of a Trusted launch VM or assign a new policy to the VM, run the following cmdlet:
+
+```azurepowershell
+$targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault"
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1" -VaultId $targetVault.ID
+
+```
+
+For parameter `Enable-AzRecoveryServicesBackupProtection`, the additional validations are:
+
+- Trusted lauch VM can only be backed up using Enhanced policies
+- A non-trusted launch VM that was earlier using standard policy can't use Enhanced policy. This is applicable during the preview of enhanced policy feature. Afterwards, this migration will be allowed.
+- A VM that is using Enhanced policy can't be updated to use Standard policy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# [CLI](#tab/cli)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+...
 
 >[!Note]
 >- The support for Enhanced policy is available in all Azure Public and US Government regions.
