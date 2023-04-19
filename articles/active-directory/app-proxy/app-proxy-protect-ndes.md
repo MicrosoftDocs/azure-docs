@@ -51,7 +51,7 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 1. At the end of the setup, a note is shown for environments with an outbound proxy. To configure the Azure AD Application Proxy connector to work through the outbound proxy, run the provided script, such as `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
 1. On the Application proxy page in the Azure portal, the new connector is listed with a status of *Active*, as shown in the following example:
 
-    ![The new Azure AD Application Proxy connector shown as active in the Azure portal](./media/active-directory-app-proxy-protect-ndes/connected-app-proxy.png)
+    ![The new Azure AD Application Proxy connector shown as active in the Azure portal](./media/app-proxy-protect-ndes/connected-app-proxy.png)
 
     > [!NOTE]
     > To provide high availability for applications authenticating through the Azure AD Application Proxy, you can install connectors on multiple VMs. Repeat the same steps listed in the previous section to install the connector on other servers joined to the Azure AD DS managed domain.
@@ -60,7 +60,7 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 
 1. Select **Enterprise applications**.
 
-   ![ensure that you're engaging the right stakeholders](./media/active-directory-app-proxy-protect-ndes/enterprise-applications.png)
+   ![ensure that you're engaging the right stakeholders](./media/app-proxy-protect-ndes/enterprise-applications.png)
 
 1. Select **+New Application**, and then select **On-premises application**. 
 
