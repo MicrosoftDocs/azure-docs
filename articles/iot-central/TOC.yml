@@ -193,8 +193,6 @@
               href: core/howto-transform-data-internally.md
             - name: Troubleshoot data export
               href: core/troubleshoot-data-export.md
-            - name: Export data to cloud destinations (legacy)
-              href: core/howto-export-data-legacy.md           
         - name: Export data and visualize with Databricks
           href: core/howto-create-custom-analytics.md
         - name: Transform data internally on ingress

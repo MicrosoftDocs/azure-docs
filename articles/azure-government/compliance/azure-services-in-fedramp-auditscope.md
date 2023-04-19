@@ -7,7 +7,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 03/21/2023
+ms.date: 04/02/2023
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -36,7 +36,7 @@ For current Azure Government regions and available services, see [Products avail
 > [!NOTE]
 >
 > - Some Azure services deployed in Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
-> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](../documentation-government-overview-dod.md#azure-government-dod-regions-il5-audit-scope).**
+> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
 
 **Azure Government Secret** maintains:
 
@@ -266,8 +266,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 
 > [!NOTE]
 >
-> - Some services deployed in Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
-> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](../documentation-government-overview-dod.md#azure-government-dod-regions-il5-audit-scope).**
+> - Some services deployed in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
+> - For DoD IL5 PA compliance scope in Azure Government DoD regions US DoD Central and US DoD East (US DoD regions), see **[Azure Government DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
 
 | Service | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5 | DoD IL6 |
 | ------- |:------------:|:-------:|:-------:|:-------:|:-------:|

@@ -1,6 +1,6 @@
 ---
-title: "Lookout (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Lookout (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Lookout (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Lookout (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Lookout (using Azure Function) connector for Microsoft Sentinel
+# Lookout (using Azure Functions) connector for Microsoft Sentinel
 
 The [Lookout](https://lookout.com) data connector provides the capability to ingest [Lookout](https://enterprise.support.lookout.com/hc/en-us/articles/115002741773-Mobile-Risk-API-Guide#commoneventfields) events into Microsoft Sentinel through the Mobile Risk API. Refer to [API documentation](https://enterprise.support.lookout.com/hc/en-us/articles/115002741773-Mobile-Risk-API-Guide) for more information. The [Lookout](https://lookout.com) data connector provides ability to get events which helps to examine potential security risks and more.
 
@@ -33,7 +33,7 @@ Lookout_CL
 
 ## Prerequisites
 
-To integrate with Lookout (using Azure Function) make sure you have: 
+To integrate with Lookout (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **Mobile Risk API Credentials/permissions**: **EnterpriseName** & **ApiKey** are required for Mobile Risk API. [See the documentation to learn more about API](https://enterprise.support.lookout.com/hc/en-us/articles/115002741773-Mobile-Risk-API-Guide). Check all [requirements and follow  the instructions](https://enterprise.support.lookout.com/hc/en-us/articles/115002741773-Mobile-Risk-API-Guide#authenticatingwiththemobileriskapi) for obtaining credentials.

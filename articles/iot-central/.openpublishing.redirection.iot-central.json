@@ -437,52 +437,57 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-use-data-export.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-legacy",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-export-data-blob-storage-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-legacy",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-export-data-event-hubs-service-bus-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-legacy",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-export-data-blob-storage.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-legacy",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-export-data-event-hubs-service-bus.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-legacy",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-export-data-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-legacy",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-export-data.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-legacy",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-export-data-blob-storage.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-legacy",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-export-data.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-legacy",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-export-data-event-hubs-service-bus.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-legacy",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-export-data-legacy.md",
+      "redirect_url": "/azure/iot-central/core/howto-export-to-blob-storage",
       "redirect_document_id": false
     },
     {

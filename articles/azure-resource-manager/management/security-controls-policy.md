@@ -6,7 +6,7 @@ ms.topic: sample
 author: tfitzmac
 ms.author: tomfitz
 ms.service: azure-resource-manager
-ms.custom: subject-policy-compliancecontrols
+ms.custom: subject-policy-compliancecontrols, devx-track-arm-template
 ---
 # Azure Policy Regulatory Compliance controls for Azure Resource Manager
 

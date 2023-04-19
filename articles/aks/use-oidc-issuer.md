@@ -2,7 +2,7 @@
 title: Create an OpenID Connect provider for your Azure Kubernetes Service (AKS) cluster
 description: Learn how to configure the OpenID Connect (OIDC) provider for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 02/21/2023
+ms.date: 04/04/2023
 ---
 
 # Create an OpenID Connect provider on Azure Kubernetes Service (AKS)
@@ -12,9 +12,12 @@ ms.date: 02/21/2023
 AKS rotates the key automatically and periodically. If you don't want to wait, you can rotate the key manually and immediately. The maximum lifetime of the token issued by the OIDC provider is one day.
 
 > [!WARNING]
-> Enable or disable OIDC Issuer changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If your application pods using a service token remain in a failed state after you enable or disable the OIDC Issuer, we recommend you manually restart the pods.
+> Enable OIDC Issuer on existing cluster changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If your application pods using a service token remain in a failed state after you enable the OIDC Issuer, we recommend you manually restart the pods.
 
 In this article, you learn how to create, update, and manage the OIDC Issuer for your cluster.
+
+> [!Important]
+> After enabling OIDC issuer on the cluster, it's not supported to disable it. 
 
 ## Prerequisites
 

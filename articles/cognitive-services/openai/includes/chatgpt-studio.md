@@ -77,7 +77,7 @@ By default there are three panels: assistant setup, chat session, and settings. 
 
 5. Enter a follow-up question like: "which models support 4K?"
 
-    :::image type="content" source="../media/quickstarts/xbox.png" alt-text="Screenshot of follow-up question and answer in playground." lightbox="../media/quickstarts/xbox.png":::
+    :::image type="content" source="../media/quickstarts/models.png" alt-text="Screenshot of follow-up question and answer in playground." lightbox="../media/quickstarts/models.png":::
 
 6. Now that you have a basic conversation select **View code** from under **Assistant setup** and you'll have a replay of the code behind the entire conversation so far:
 
@@ -119,4 +119,4 @@ Once you're done testing out the ChatGPT playground, if you want to clean up and
 ## Next steps
 
 * Learn more about how to work with ChatGPT and the new `gpt-35-turbo` model with the [ChatGPT how-to guide](../how-to/chatgpt.md).
-* For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
+* For more examples check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

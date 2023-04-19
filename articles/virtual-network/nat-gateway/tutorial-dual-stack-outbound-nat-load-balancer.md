@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
 ms.date: 02/05/2023
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-azurecli
 ---
 
 # Tutorial: Configure dual stack outbound connectivity with a NAT gateway and a public load balancer

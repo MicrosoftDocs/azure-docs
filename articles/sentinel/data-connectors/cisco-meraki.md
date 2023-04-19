@@ -3,7 +3,7 @@ title: "Cisco Meraki connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cisco Meraki to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,8 +16,6 @@ The [Cisco Meraki](https://meraki.cisco.com/) connector allows you to easily con
 
 | Connector attribute | Description |
 | --- | --- |
-| **Kusto function alias** | CiscoMeraki |
-| **Kusto function url** | https://aka.ms/sentinel-ciscomeraki-parser |
 | **Log Analytics table(s)** | meraki_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -56,11 +54,7 @@ To integrate with Cisco Meraki make sure you have:
 ## Vendor installation instructions
 
 
->This data connector depends on a parser (based on a Kusto Function) to work as expected. You have 2 options to get this parser into workspace
-
-> 1. If you have installed this connector via Meraki solution in ContentHub then navigate to parser definition from your workspace (Logs --> Functions --> CiscoMeraki --> Load the function code) to add your Meraki device list in the query and save the function.
-
-> 2. If you have not installed the Meraki solution from ContentHub then [Follow the steps](https://aka.ms/sentinel-ciscomeraki-parser) to use the Kusto function alias, **CiscoMeraki**
+**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias CiscoMeraki and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/CiscoMeraki/Parsers/CiscoMeraki.txt). The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Install and onboard the agent for Linux
 

@@ -19,7 +19,7 @@ ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](how-to-train-scikit-learn.md)
-> * [v2 (current version)](../how-to-train-scikit-learn.md)
+> * [v2 (current version)](../how-to-train-scikit-learn.md?view=azureml-api-2&preserve-view=true)
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning.
 

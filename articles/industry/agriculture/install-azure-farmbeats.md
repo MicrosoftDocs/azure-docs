@@ -11,7 +11,10 @@ ms.author: atinb
 
 This article describes how to install Azure FarmBeats in your Azure subscription.
 
-Azure FarmBeats is a business-to-business offering available in Azure Marketplace. It enables aggregation of agriculture data sets across providers and generation of actionable insights. Azure FarmBeats does this by enabling you to build artificial intelligence (AI) or machine learning (ML) models based on fused data sets. The two main components of Azure FarmBeats are:
+Azure FarmBeats is a business-to-business offering available in Azure Marketplace. It enables aggregation of agriculture data sets across providers and generation of actionable insights. Azure FarmBeats does so by enabling you to build artificial intelligence (AI) or machine learning (ML) models based on fused data sets. The two main components of Azure FarmBeats are:
+
+> [!NOTE]
+> Azure FarmBeats is on path to be retired. We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 - **Data hub**: An API layer that enables aggregation, normalization, and contextualization of various agriculture data sets across different providers.
 
@@ -74,11 +77,11 @@ You'll need to complete the following steps before you start the actual installa
 
 You'll need the following permissions in the Azure tenant to install Azure FarmBeats:
 
-- Tenant - AAD app creator
+- Tenant - Azure AD app creator
 - Subscription - Owner
 - Resource Group in which FarmBeats is being installed - Owner
 
-The first two permissions are needed for [creating the AAD application](#create-an-aad-application) step. If needed, you can get someone with the appropriate permissions to create the AAD application.
+The first two permissions are needed for [creating the Azure AD application](#create-an-aad-application) step. If needed, you can get someone with the appropriate permissions to create the Azure AD application.
 
 The person running the FarmBeats install from marketplace needs to be an owner of the Resource Group in which FarmBeats is being installed. For subscription owners, this happens automatically when Resource Group is created. For others, please pre-create the Resource Group and ask the Subscription owner to make you an owner of the Resource Group.
 
@@ -92,14 +95,14 @@ Make a note of the **Azure Subscription ID** and the **Azure Region**.
 
 ### Create an AAD application
 
-Azure FarmBeats require Azure Active Directory application creation and registration. To successfully run the AAD creation script, the following permissions are needed:
+Azure FarmBeats require Azure Active Directory application creation and registration. To successfully run the Azure AD creation script, the following permissions are needed:
 
-- Tenant - AAD app creator
+- Tenant - Azure AD app creator
 - Subscription - Owner
 
 Run the following steps in a Cloud Shell instance using the PowerShell environment. First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 
-1. Download the AAD app generator script
+1. Download the Azure AD app generator script
 
     ```azurepowershell-interactive
         wget -q https://aka.ms/FarmBeatsAADScript -O ./create_aad_script.ps1
@@ -111,7 +114,7 @@ Run the following steps in a Cloud Shell instance using the PowerShell environme
         cd
     ```
 
-3. Run the AAD script
+3. Run the Azure AD script
 
     ```azurepowershell-interactive
         ./create_aad_script.ps1
@@ -119,13 +122,13 @@ Run the following steps in a Cloud Shell instance using the PowerShell environme
 
 4. The script asks for the following three inputs:
 
-    - **FarmBeats Website Name**: This is the unique URL prefix for your FarmBeats web application. In case the prefix is already taken, the script will error out. Once installed, your FarmBeats deployment will be accessible from https://\<FarmBeats-website-name>.azurewebsites.net and the swagger APIs will be at https://\<FarmBeats-website-name>-api.azurewebsites.net
+    - **FarmBeats Website Name** is the unique URL prefix for your FarmBeats web application. In case the prefix is already taken, the script will error out. Once installed, your FarmBeats deployment will be accessible from https://\<FarmBeats-website-name>.azurewebsites.net and the swagger APIs will be at https://\<FarmBeats-website-name>-api.azurewebsites.net
 
     - **Azure login ID**: Provide Azure login ID for the user who you want to be added as admin of FarmBeats. This user can then grant access to access FarmBeats web application to other users. The login ID is generally of the form john.doe@domain.com. Azure UPN is also supported.
 
     - **Subscription ID**: This is the ID of the subscription in which you want to install Azure FarmBeats
 
-5. The AAD script takes around 2 minutes to run and outputs values on screen as well as to a json file in the same directory. If you had someone else run the script, ask them to share this output with you.
+5. The Azure AD script takes around 2 minutes to run and outputs values on screen as well as to a json file in the same directory. If you had someone else run the script, ask them to share this output with you.
 
 ### Create Sentinel account
 
@@ -155,7 +158,7 @@ You're now ready to install FarmBeats. Follow the steps below to start the insta
 
     ![Basics Tab](./media/install-azure-farmbeats/create-azure-farmbeats-basics.png)
 
-6. Copy the individual entries from the output of [AAD script](#create-an-aad-application) to the inputs in the AAD application section.
+6. Copy the individual entries from the output of [Azure AD script](#create-an-aad-application) to the inputs in the Azure AD application section.
 
 7. Enter the [Sentinel account](#create-sentinel-account) user name and password in the Sentinel Account section. Select **Next** to move to the **Review + Create** tab.
 

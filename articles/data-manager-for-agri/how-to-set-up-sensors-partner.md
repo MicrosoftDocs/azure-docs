@@ -4,9 +4,9 @@ description: Provides guidance to set up your sensors as a partner
 author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 02/14/2023
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Sensor partner integration flow
@@ -17,7 +17,7 @@ The below section of this document talks about the onboarding steps needed to in
 
 Onboarding covers the steps required by both customers & partners to integrate with Data Manager for Agriculture and start receiving/sending sensor telemetry respectively.
 
->:::image type="content" source="./media/sensor-partners-flow.png" alt-text="Screenshot showing sensor partners flow.":::
+:::image type="content" source="./media/sensor-partners-flow.png" alt-text="Screenshot showing sensor partners flow.":::
 
 From the above figure, the blocks highlighted in white are the steps taken by a partner, and the ones highlighted in black are done by customers.
 

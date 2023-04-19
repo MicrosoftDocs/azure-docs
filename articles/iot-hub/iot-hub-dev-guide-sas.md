@@ -151,7 +151,7 @@ using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 
-public static string generateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
+public static string GenerateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
 {
     TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
     string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);

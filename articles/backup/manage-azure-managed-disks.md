@@ -2,7 +2,7 @@
 title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 03/27/2023
 author: jyothisuri
 ms.author: jsuri
 ms.service: backup
@@ -49,7 +49,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 
 This section describes several Azure Backup supported management operations that make it easy to manage Azure Managed disks.
 
-### Stop Protection (Preview)
+### Stop Protection
 
 
 There are three ways by which you can stop protecting an Azure Disk:
@@ -66,7 +66,7 @@ There are three ways by which you can stop protecting an Azure Disk:
 
 1. From the list of disk backup instances, select the instance that you want to retain.
 
-1. Select **Stop Backup (Preview)**.
+1. Select **Stop Backup**.
 
    :::image type="content" source="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop-inline.png" alt-text="Screenshot showing the selection of the Azure disk backup instance to be stopped." lightbox="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop-expanded.png":::
  

@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # Configure Azure resource role settings in Privileged Identity Management
 
-In Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define role assignment properties: MFA and approval requirements for activation, assignment maximum duration, notification settings, and more. Use the following steps to configure role settings and setup the approval workflow to specify who can approve or deny requests to elevate privilege.
+In Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define role assignment properties: MFA and approval requirements for activation, assignment maximum duration, notification settings, and more. Use the following steps to configure role settings and set up the approval workflow to specify who can approve or deny requests to elevate privilege.
 
-You need to have Owner or User Access Administrator role to manage PIM role settings for the resource. Role settings are defined per role and per resource: all assignments for the same role follow the same role settings. Role settings of one role are independent from role settings of another role. Role settings of one resource are independent from role settings of another resource, and role settings configured on a higher level, such as "Subscription" for example, are not inherited on a lower level, such as "Resource Group" for example.
+You need to have Owner or User Access Administrator role to manage PIM role settings for the resource. Role settings are defined per role and per resource: all assignments for the same role follow the same role settings. Role settings of one role are independent from role settings of another role. Role settings of one resource are independent from role settings of another resource, and role settings configured on a higher level, such as "Subscription" for example, aren't inherited on a lower level, such as "Resource Group" for example.
 
 PIM role settings are also known as “PIM Policies”.
 
@@ -54,11 +54,12 @@ Use the **Activation maximum duration** slider to set the maximum time, in hours
 
 ### On activation, require multi-factor authentication 
 
-You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
+You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication helps safeguard access to data and applications, providing another layer of security by using a second form of authentication. 
 
-User may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
-
-For more information, see [Multifactor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
+> [!NOTE]
+> User may not be prompted for multi-factor authentication if they authenticated with strong credentials, or provided multi-factor authentication earlier in this session. If your goal is to ensure that users have to provide authentication during activation, you can use [On activation, require Azure AD Conditional Access authentication context](pim-how-to-change-default-settings.md#on-activation-require-azure-ad-conditional-access-authentication-context-public-preview) together with [Authentication Strengths](../authentication/concept-authentication-strengths.md) to require users to authenticate during activation using methods different from the one they used to sign-in to the machine. For example, if users sign-in to the machine using Windows Hello for Business, you can use “On activation, require Azure AD Conditional Access authentication context” and Authentication Strengths to require users to do Passwordless sign-in with Microsoft Authenticator when they activate the role. After the user provides Passwordless sign-in with Microsoft Authenticator once in this example, they'll be able to do their next activation in this session without additional authentication because Passwordless sign-in with Microsoft Authenticator will already be part of their token. 
+> 
+> It's recommended to enable Azure AD Multi-Factor Authentication for all users. For more information, see [Plan an Azure Active Directory Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 ### On activation, require Azure AD Conditional Access authentication context (Public Preview)
 
@@ -71,6 +72,15 @@ To enforce this requirement, you need to:
 1.	Configure authentication context in PIM settings for the role.
 
 :::image type="content" source="media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png" alt-text="Screenshot of the Edit role settings Attestation Reader page." lightbox="media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png":::
+
+> [!NOTE]
+> If PIM settings have **“On activation, require Azure AD Conditional Access authentication context”** configured, the Conditional Access policies define conditions a user needs to meet to satisfy the access requirements. This means that security principals with permissions to manage Conditional Access policies such as Conditional Access Administrators or Security Administrators may change requirements, remove them, or block eligible users from activating the role. Security principals that can manage the Conditional Access policies should be considered highly privileged and protected accordingly. 
+
+> [!NOTE]
+> We recommend creating and enabling a Conditional Access policy for the authentication context before the authentication context is configured in PIM settings. As a backup protection mechanism, if there are no Conditional Access policies in the tenant that target authentication context configured in PIM settings, during PIM role activation, Azure AD Multi-Factor Authentication is required as the [On activation, require multi-factor authentication](pim-resource-roles-configure-role-settings.md#on-activation-require-multi-factor-authentication) setting would be set. This backup protection mechanism is designed to solely protect from a scenario when PIM settings were updated before the Conditional Access policy is created, due to a configuration mistake. This backup protection mechanism won't be triggered if the Conditional Access policy is turned off, in report-only mode, or has eligible user excluded from the policy. 
+
+> [!NOTE]
+> **“On activation, require Azure AD Conditional Access authentication context”** setting defines authentication context, requirements for which users will need to satisfy when they activate the role. After the role is activated, this does not prevent user from using another browsing session, device, location, etc. to use permissions. For example, users may use an Intune compliant device to activate the role, then after the role is activated sign-in to the same user account from another device that is not Intune compliant, and use the previously activated role from there. To protect from this situation, you may scope Conditional Access policies enforcing certain requirements to eligible users directly. For example you can require users eligible for certain roles to always use Intune compliant devices. 
 
 To learn more about Conditional Access authentication context, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
 

@@ -29,6 +29,10 @@ To install Oracle Data Guard, you need to create two Azure VMs on the same avail
 
 The Marketplace image that you use to create the VMs is Oracle:oracle-database-19-3:oracle-database-19-0904:latest.
 
+> [!NOTE]
+> Be aware of versions that are End Of Life (EOL) and no longer supported by Redhat. Uploaded images that are, at or beyond EOL will be supported on a reasonable business effort basis. Link to Redhat's [Product Lifecycle](https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204)
+
+
 ### Sign in to Azure 
 
 Sign in to your Azure subscription by using the [az login](/cli/azure/reference-index) command and follow the on-screen directions.
@@ -112,7 +116,11 @@ Create 2 VMs by using the [az vm create](/cli/azure/vm) command.
 
 The following example creates two VMs named `OracleVM1` and `OracleVM2`. 
 
+> [!NOTE]
+> Be aware of versions that are End Of Life (EOL) and no longer supported by Redhat. Uploaded images that are, at or beyond EOL will be supported on a reasonable business effort basis. Link to Redhat's [Product Lifecycle](https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
+
 Create OracleVM1 (primary):
+
 ```azurecli
 az vm create \
   --resource-group $RESOURCE_GROUP \
@@ -172,17 +180,12 @@ az network bastion create \
 We will access the OracleVM1 using the Bastion service from the Azure portal by navigating a web browser to:
 https://portal.azure.com
 
-In the search textbox at the top of the window, search for OracleVM1 and click it from the list to launch.
+1. In the search textbox at the top of the window, search for OracleVM1 and select it from the list to launch.
 
-  <insert image>
-
-At the top of the screen, click Connect and select Bastion.
+1. At the top of the screen, select **Connect** and then select **Bastion**.
     
-  <insert image>
+1. Enter the Username and Password and select **Connect**.
 
-Enter the Username and Password and click the Connect button.
-      
-  <insert image>    
 
 ### Configure OracleVM1 (primary)
 ```bash
@@ -203,13 +206,13 @@ The Oracle software is already installed on the Marketplace image, so the next s
 Switch to the Oracle superuser:
 
 ```bash
-$ sudo su - oracle
+sudo su - oracle
 ```
 
 Create the database:
 
 ```bash
-$ dbca -silent \
+dbca -silent \
    -createDatabase \
    -datafileDestination /u01/app/oracle/cdb1 \
    -templateName General_Purpose.dbc \
@@ -281,7 +284,7 @@ export ORACLE_SID=cdb1
 ### Enable archive log mode on myVM1 (primary)
 
 ```bash
-$ sqlplus / as sysdba
+sqlplus / as sysdba
 SQL> SELECT log_mode FROM v$database;
 
 LOG_MODE
@@ -377,7 +380,7 @@ ADR_BASE_LISTENER = /u01/app/oracle
 Enable Data Guard Broker:
 
 ```bash
-$ sqlplus / as sysdba
+sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> CREATE pfile FROM spfile;
 SQL> EXIT;
@@ -390,23 +393,17 @@ scp -p $ORACLE_HOME/dbs/initcdb1.ora oracle@OracleVM2:$ORACLE_HOME/dbs/
 Start the listener:
 
 ```bash
-$ lsnrctl stop
-$ lsnrctl start
+ lsnrctl stop
+ lsnrctl start
 ```
 
 ### Set up service on OracleVM2 (standby)
 
-Return to the tab with the Azure portal.  Search for OracleVM2 and click it.
+1. Return to the tab with the Azure portal.  Search for OracleVM2 and select it.
 
-  <insert image>
+1. At the top of the screen, select **Connect** and then select **Bastion**.
 
-At the top of the screen, click Connect and select Bastion.
-
-  <insert image>
-
-Enter the Username and Password and click the Connect button.
-      
-  <insert image>
+1. Enter the Username and Password and select **Connect**.
       
 ### Disable the Firewall on OracleVM2 (standby)
 ```bash
@@ -424,7 +421,7 @@ Change the <b>oracle</b> user password to: <b>OracleLab123</b>  (enter again to 
 
 Switch to the <b>oracle</b> superuser:
 ```bash
-$ sudo su – oracle
+$ sudo su - oracle
 ```
 
 Set the ORACLE_SID and ORACLE_HOME variables:
@@ -495,8 +492,8 @@ ADR_BASE_LISTENER = /u01/app/oracle
 Start the listener:
 
 ```bash
-$ lsnrctl stop
-$ lsnrctl start
+ lsnrctl stop
+ lsnrctl start
 ```
 
 
@@ -527,8 +524,8 @@ $ orapwd file=/u01/app/oracle/product/19.0.0/dbhome_1/dbs/orapwcdb1 password=Ora
 Start the database on OracleVM2:
 
 ```bash
-$ export ORACLE_SID=cdb1
-$ sqlplus / as sysdba
+ export ORACLE_SID=cdb1
+ sqlplus / as sysdba
 
 SQL> CREATE spfile from pfile;
 SQL> STARTUP NOMOUNT PFILE='/tmp/initcdb1_stby.ora';
@@ -567,7 +564,7 @@ RMAN> EXIT;
 
 Enable Data Guard Broker:
 ```bash
-$ sqlplus / as sysdba
+sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
@@ -692,7 +689,6 @@ You can now connect to the standby database.
 Start SQL*Plus:
 
 ```bash
-
 $ sqlplus sys/OracleLab123@cdb1_stby
 SQL*Plus: Release 19.0.0.0 Production on Wed May 10 14:18:31 2022
 
@@ -735,7 +731,6 @@ Once again, you should now be able to connect to the primary database.
 Start SQL*Plus:
 
 ```bash
-
 $ sqlplus sys/OracleLab123@cdb1
 SQL*Plus: Release 19.0.0.0 Production on Wed May 10 14:18:31 2022
 

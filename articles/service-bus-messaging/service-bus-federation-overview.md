@@ -50,7 +50,7 @@ A subscription with a respective rule can be easily added to any topic using the
 ```azurecli
 
 az servicebus topic subscription rule create --resource-group myresourcegroup \
-   --namespace mynamespace --topic-name mytopic 
+   --namespace mynamespace --topic-name mytopic \
    --subscription-name replication --name replication \
    --action-sql-expression "set replication = 1" \
    --filter-sql-expression "replication IS NULL"
