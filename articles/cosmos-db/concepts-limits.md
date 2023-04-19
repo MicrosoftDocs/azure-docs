@@ -97,13 +97,13 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 
 Azure Cosmos DB maintains a resource provider that offers a management layer to create, update, and delete resources in your Azure Cosmos DB account. The resource provider interfaces with the overall Azure Resource Management layer, which is the deployment and management service for Azure. You can [create and manage Azure Cosmos DB resources](how-to-manage-database-account.md) using the Azure portal, Azure PowerShell, Azure CLI, Azure Resource Manager and Bicep templates, Rest API, Azure Management SDKs as well as 3rd party tools such as Terraform and Pulumi.
 
-This management layer can also be accessed from the Azure Cosmos DB data plane SDKs used in your applications to create and manage resources within an account. Data plane SDKs also make control plane requests during inital connection to the service to do things like enumerating databases and containers, as well as requesting account keys for authentication.
+This management layer can also be accessed from the Azure Cosmos DB data plane SDKs used in your applications to create and manage resources within an account. Data plane SDKs also make control plane requests during initial connection to the service to do things like enumerating databases and containers, as well as requesting account keys for authentication.
 
 Each account for Azure Cosmos DB has a `master partition` which contains all of the metadata for an account. It also has a small amount of throughput to support control plane operations. Control plane requests that create, read, update or delete this metadata consumes this throughput. When the amount of throughput consumed by control plane operations exceeds this amount, operations are rate-limited, same as data plane operations within Azure Cosmos DB. However, unlike throughput for data operations, throughput for the master partition cannot be increased.
 
 Some control plane operations do not consume master partition throughput, such as Get or List Keys. However, unlike requests on data within your Azure Cosmos DB account, resource providers within Azure are not designed for high request volumes. **Control plane operations that exceed the documented limits at sustained levels over consecutive 5-minute periods here may experience request throttling as well failed or incomplete operations on Azure Cosmos DB resources**. 
 
-Control plane operations can be monitored by navigating the the Insights tab for an Azure Cosmos DB account. To learn more see [Monitor Control Plane Requests](use-metrics.md#monitor-control-plane-requests). Users can also customize these use Azure Monitor and create a workbook to monitor [Metadata Requests](monitor-reference.md#request-metrics) and set alerts on them.
+Control plane operations can be monitored by navigating the Insights tab for an Azure Cosmos DB account. To learn more see [Monitor Control Plane Requests](use-metrics.md#monitor-control-plane-requests). Users can also customize these, use Azure Monitor and create a workbook to monitor [Metadata Requests](monitor-reference.md#request-metrics) and set alerts on them.
 
 ### Resource limits
 
@@ -263,7 +263,7 @@ The following table lists the limits specific to MongoDB feature support. Other 
 | Maximum level of nesting for embedded objects / arrays on index definitions | 6 |
 | Idle connection timeout for server side connection closure ² | 30 minutes |
 
-¹ Large document sizes up to 16 MB require feature enablement in Azure Portal. Read the [feature documentation](../cosmos-db/mongodb/feature-support-42.md#data-types) to learn more.
+¹ Large document sizes up to 16 MB require feature enablement in Azure portal. Read the [feature documentation](../cosmos-db/mongodb/feature-support-42.md#data-types) to learn more.
 
 ² We recommend that client applications set the idle connection timeout in the driver settings to 2-3 minutes because the [default timeout for Azure LoadBalancer is 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md).  This timeout ensures that an intermediate load balancer idle doesn't close connections between the client machine and Azure Cosmos DB.
 
