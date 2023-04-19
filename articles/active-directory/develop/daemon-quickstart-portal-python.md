@@ -6,7 +6,7 @@ author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/22/2022
 ROBOTS: NOINDEX
@@ -139,7 +139,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-
 > result = app.acquire_token_silent(config["scope"], account=None)
 > 
 > if not result:
->     logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
+>     logging.info("No suitable token exists in cache. Let's get a new one from Azure AD.")
 >     result = app.acquire_token_for_client(scopes=config["scope"])
 > ```
 > 

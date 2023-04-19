@@ -1,15 +1,16 @@
 ---
 title: Backend Pool Management
 titleSuffix: Azure Load Balancer
-description: Get started learning how to configure and manage the backend pool of an Azure Load Balancer
+description: Get started learning how to configure and manage the backend pool of an Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 02/03/2023
 ms.author: mbender 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, FY23 content-maintenance
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ---
+
 # Backend pool management
 
 The backend pool is a critical component of the load balancer. The backend pool defines the group of resources that will serve traffic for a given load-balancing rule.
@@ -221,7 +222,8 @@ az vm create \
   * Load balancers or services such as Application Gateway can’t be placed in the backend pool of the load balancer
   * Inbound NAT Rules can’t be specified by IP address
   * You can configure IP based and NIC based backend pools for the same load balancer. You can’t create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.
-  * A virtual machine in the same virtual network as an internal load balancer can't access the frontend of the ILB and its backend VMs simultaneously 
+  * A virtual machine in the same virtual network as an internal load balancer can't access the frontend of the ILB and its backend VMs simultaneously.
+  * Internet routing preference IPs are currently not supported with IP based backend pools. Any Internet routing preference IPs in IP based backend pools will be billed and routed via the default Microsoft global network.
 
 >[!Important]
 > When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. For secure by default configuration and applications with demanding outbound needs, configure the backend pool by NIC.

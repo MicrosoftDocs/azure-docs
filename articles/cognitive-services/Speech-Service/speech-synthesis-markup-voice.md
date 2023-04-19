@@ -24,11 +24,13 @@ At least one `voice` element must be specified within each SSML [speak](speech-s
 
 You can include multiple `voice` elements in a single SSML document. Each `voice` element can specify a different voice. You can also use the same voice multiple times with different settings, such as when you [change the silence duration](speech-synthesis-markup-structure.md#add-silence) between sentences.
 
+
 Usage of the `voice` element's attributes are described in the following table.
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
 | `name`    | The voice used for text-to-speech output. For a complete list of supported prebuilt voices, see [Language support](language-support.md?tabs=tts).| Required|
+| `effect` |The audio effect processor that's used to optimize the quality of the synthesized speech output for specific scenarios on devices. <br/><br/>For some scenarios in production environments, the auditory experience may be degraded due to the playback distortion on certain devices. For example, the synthesized speech from a car speaker may sound dull and muffled due to environmental factors such as speaker response, room reverberation, and background noise. The passenger might have to turn up the volume to hear more clearly. To avoid manual operations in such a scenario, the audio effect processor can make the sound clearer by compensating the distortion of playback.<br/><br/>The following values are supported:<br/><ul><li>`eq_car` – Optimize the auditory experience when providing high-fidelity speech in cars, buses, and other enclosed automobiles.</li><li>`eq_telecomhp8k` – Optimize the auditory experience for narrowband speech in telecom or telephone scenarios. We recommend a sampling rate of 8 kHz. If the sample rate isn't 8 kHz, the auditory quality of the output speech won't be optimized.</li></ul><br/>If the value is missing or invalid, this attribute will be ignored and no effect will be applied.|  Optional |
 
 ### Voice examples
 
@@ -72,6 +74,18 @@ This example uses a custom voice named "my-custom-voice".
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="my-custom-voice">
+        This is the text that is spoken.
+    </voice>
+</speak>
+```
+
+#### Audio effect example
+
+You use the `effect` attribute to optimize the auditory experience for scenarios such as cars and telecommunications. The following SSML example uses the `effect` attribute with the configuration in car scenarios.
+    
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural" effect="eq_car">
         This is the text that is spoken.
     </voice>
 </speak>

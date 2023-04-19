@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: todorgb
 ms.author: todorb
-ms.date: 02/1/2023
+ms.date: 02/15/2023
 ---
 
 # Azure Government authorized reseller list
@@ -107,6 +107,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
 |[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com)|
+|[Cloud Unity LLC](https://cloudunity.com)|
 |[CNSS - Cherokee Nation System Solutions LLC](https://cherokee-federal.com/about/cherokee-nation-system-solutions)|
 |[Cobalt](https://www.cobalt.net/)|
 |[CodeLynx, LLC](http://www.codelynx.com/)|
@@ -114,7 +115,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Competitive Innovations, LLC](https://www.cillc.com)|
 |[CompuNet Inc.](https://compunet.biz/)|
 |[Computer Solutions Inc.](http://cs-inc.co/)|
-|[Computex Technology Solutions](http://www.computex-inc.com/)|
 |[Communication Square LLC](https://www.communicationsquare.com)|
 |[ConvergeOne](https://www.convergeone.com)|
 |[Copper River Technologies, LLC](http://www.copperrivertech.com/)|
@@ -148,7 +148,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Dell Federal Services](https://www.dellemc.com/en-us/industry/federal/federal-government-it.htm#)|
 |[Dell Marketing LP](https://www.dell.com/)|
 |[Delphi Technology Solutions](https://delphi-ts.com/)|
-|[Derek Coleman & Associates Corporation](https://www.dcassociatesgroup.com/index.html)|
+|[Derek Coleman & Associates Corporation](https://www.dcassociatesgroup.com/)|
 |[Developing Today LLC](https://www.developingtoday.net/)|
 |[DevHawk, LLC](https://www.devhawk.io)|
 |Diamond Capture Associates LLC|
@@ -325,7 +325,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[PA-Group](https://pa-group.us/)|
 |[Palecek Consulting Group](https://www.pcgit.net)|
 |[Pangea Group Inc.](http://www.pangea-group.com)|
-|[Parachute Technology](https://www.parachutech.com)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|
 |[Patrocinium Systems, Inc.](https://www.patrocinium.com)|
 |[PCM](https://www.pcm.com/)|
@@ -510,8 +509,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Pax8](https://www.pax8.com/en-us/microsoft/)|
 |[Synnex](https://www.synnexcorp.com)|
 |[Tech Data Corporation](https://www.techdata.com/)|
-|[Tech Data Government Solutions, LLC](https://gov.as.techdata.com/en-us/Pages/default.aspx)|
-
 
 ## Approved LSPs
 
@@ -551,6 +548,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[DLT](https://www.dlt.com/)|
 |[Dox Electornics Inc.](https://www.doxnet.com)|
 |[ECF Data, LLC](https://www.ecfdata.com)|
+|[ECS Federal, LLC](https://ecstech.com/)|
 |[Enlighten IT Consulting](https://www.eitccorp.com/)|
 |[eTrepid Inc.](https://www.etrepid.com/)|
 |[F1 Soluitions Inc](https://www.f1networks.com)|
@@ -582,11 +580,13 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[R3, LLC](https://www.r3-it.com/)|
 |[Red River](https://www.redriver.com)|
+|[RSMUS, LLC](https://rsmus.com)|
 |[SAIC](https://www.saic.com)|
 |[SentinelBlue LLC](https://www.sentinelblue.com/)|
 |[Smartronix](https://www.smartronix.com)|
 |[Strategic Communications](https://yourstrategic.com/)|
 |[Summit 7 Systems, Inc.](https://www.summit7.us/)|
+|[SysArc Inc.](https://www.sysarc.com)|
 |[TechTrend, Inc](https://techtrend.us)|
 |[VLCM](https://www.vlcmtech.com)|
 |[VC3](https://www.vc3.com)|

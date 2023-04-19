@@ -1,5 +1,5 @@
 ---
-title: Move an Azure virtual network to another Azure region using the Azure portal.
+title: Move an Azure virtual network to another Azure region - Azure portal.
 description: Move an Azure virtual network from one Azure region to another by using a Resource Manager template and the Azure portal.
 author: asudbring
 ms.service: virtual-network

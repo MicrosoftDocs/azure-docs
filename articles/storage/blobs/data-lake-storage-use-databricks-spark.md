@@ -7,7 +7,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/01/2023
+ms.date: 02/07/2023
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python, py-fresh-zinc
@@ -39,10 +39,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - Create a service principal, create a client secret, and then grant the service principal access to the storage account.
 
   See [Tutorial: Connect to Azure Data Lake Storage Gen2](/azure/databricks/getting-started/connect-to-azure-storage) (Steps 1 through 3). After completing these steps, make sure to paste the tenant ID, app ID, and client secret values into a text file. You'll need those soon.
-
-- An Azure Databricks workspace. See [Create an Azure Databricks workspace](/azure/databricks/getting-started/#--create-an-azure-databricks-workspace).
-
-- An Azure Databricks cluster. See [Create a cluster](/azure/databricks/getting-started/quick-start#step-1-create-a-cluster).
 
 ## Download the flight data
 
@@ -78,26 +74,21 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
 
    - Replace the `<container-name>` placeholder with the name of a container in your storage account.
 
+## Create an Azure Databricks workspace, cluster, and notebook
+
+1. Create an Azure Databricks workspace. See [Create an Azure Databricks workspace](/azure/databricks/getting-started/#--create-an-azure-databricks-workspace).
+
+2. Create a cluster. See [Create a cluster](/azure/databricks/getting-started/quick-start#step-1-create-a-cluster).
+
+3. Create a notebook. See [Create a notebook](/azure/databricks/notebooks/notebooks-manage#--create-a-notebook). Choose Python as the default language of the notebook.
+
 ## Create a container and mount it
 
-In this section, you'll create a container and a folder in your storage account.
+1. In the **Cluster** drop-down list, make sure that the cluster you created earlier is selected.
 
-1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks service that you created, and select **Launch Workspace**.
+2. Click **Create**. The notebook opens with an empty cell at the top.
 
-2. In the sidebar, select **Workspace**.
-
-3. In the Workspace folder, select **Create > Notebook**.
-
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of create notebook option.](./media/data-lake-storage-use-databricks-spark/create-notebook.png)
-
-4. In the **Create Notebook** dialog, enter a name and then select **Python** in the **Default Language** drop-down list. This selection determines the default language of the notebook.
-
-5. In the **Cluster** drop-down list, make sure that the cluster you created earlier is selected.
-
-6. Click **Create**. The notebook opens with an empty cell at the top.
-
-7. Copy and paste the following code block into the first cell, but don't run this code yet.
+3. Copy and paste the following code block into the first cell, but don't run this code yet.
 
     ```python
     configs = {"fs.azure.account.auth.type": "OAuth",
@@ -113,9 +104,9 @@ In this section, you'll create a container and a folder in your storage account.
     extra_configs = configs)
     ```
 
-18. In this code block, replace the `appId`, `clientSecret`, `tenant`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `container-name` placeholder value with the name of the container.
+4. In this code block, replace the `appId`, `clientSecret`, `tenant`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `container-name` placeholder value with the name of the container.
 
-19. Press the **SHIFT + ENTER** keys to run the code in this block.
+5. Press the **SHIFT + ENTER** keys to run the code in this block.
 
    Keep this notebook open as you will add commands to it later.
 

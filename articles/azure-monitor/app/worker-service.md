@@ -232,6 +232,7 @@ The full example is shared at this [GitHub page](https://github.com/microsoft/Ap
     ```csharp
         using Microsoft.ApplicationInsights;
         using Microsoft.ApplicationInsights.DataContracts;
+        using Microsoft.ApplicationInsights.WorkerService;
         using Microsoft.Extensions.DependencyInjection;
         using Microsoft.Extensions.Logging;
         using System;
@@ -250,7 +251,7 @@ The full example is shared at this [GitHub page](https://github.com/microsoft/Ap
                     // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
                     // Hence instrumentation key/ connection string and any changes to default logging level must be specified here.
                     services.AddLogging(loggingBuilder => loggingBuilder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("Category", LogLevel.Information));
-                    services.AddApplicationInsightsTelemetryWorkerService("instrumentation key here");
+                    services.AddApplicationInsightsTelemetryWorkerService((ApplicationInsightsServiceOptions options) => options.ConnectionString = "InstrumentationKey=<instrumentation key here>");
     
                     // To pass a connection string
                     // - aiserviceoptions must be created
@@ -314,7 +315,36 @@ The following sections list the full telemetry automatically collected by Applic
 
 ### ILogger logs
 
-Logs emitted via `ILogger` with the severity Warning or greater are automatically captured. Follow [ILogger docs](ilogger.md#logging-level) to customize which log levels are captured by Application Insights.
+Logs emitted via `ILogger` with the severity Warning or greater are automatically captured. To change this behavior, explicitly override the logging configuration for the provider `ApplicationInsights`, as shown in the following code. The following configuration allows Application Insights to capture all `Information` logs and more severe logs.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  }
+}
+```
+
+It's important to note that the following example doesn't cause the Application Insights provider to capture `Information` logs. It doesn't capture it because the SDK adds a default logging filter that instructs `ApplicationInsights` to capture only `Warning` logs and more severe logs. Application Insights requires an explicit override.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information"
+    }
+  }
+}
+```
+
+For more information, follow [ILogger docs](/dotnet/core/extensions/logging#configure-logging) to customize which log levels are captured by Application Insights.
 
 ### Dependencies
 
@@ -539,7 +569,7 @@ This section provides answers to common questions.
 
 | .NET Core app scenario | Package  |
 |---------|---------|
-| Without HostedServices                              | AspNetCore                     |
+| Without HostedServices                              | WorkerService                     |
 | With HostedServices                                 | AspNetCore (not WorkerService) |
 | With HostedServices, monitoring only HostedServices | WorkerService (rare scenario)  |
 
@@ -557,7 +587,7 @@ Visual Studio IDE onboarding is currently supported only for ASP.NET/ASP.NET Cor
 
 ### Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
 
-No. [Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) currently supports .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) only.
+No. [Azure Monitor Application Insights Agent](./application-insights-asp-net-agent.md) currently supports .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) only.
 
 ### Are all features supported if I run my application in Linux?
 

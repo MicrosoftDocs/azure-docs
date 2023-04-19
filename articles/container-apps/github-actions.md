@@ -4,6 +4,7 @@ description: Learn to automatically create new revisions in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/09/2022
 ms.author: cshoe
@@ -150,7 +151,7 @@ The GitHub workflow requires a secret named `AZURE_CREDENTIALS` to authenticate 
 
     ```azurecli
     az ad sp create-for-rbac \
-      --name my-container-app \
+      --name my-app-credentials \
       --role contributor \
       --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/my-container-app-rg \
       --sdk-auth \

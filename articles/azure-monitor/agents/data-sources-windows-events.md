@@ -17,13 +17,13 @@ Windows event logs are one of the most common [data sources](../agents/agent-dat
 
 ## Configure Windows event logs
 
-Configure Windows event logs from the [Agents configuration menu](../agents/agent-data-sources.md#configure-data-sources) for the Log Analytics workspace.
+Configure Windows event logs from the [Legacy agents management menu](../agents/agent-data-sources.md#configure-data-sources) for the Log Analytics workspace.
 
 Azure Monitor only collects events from Windows event logs that are specified in the settings. You can add an event log by entering the name of the log and selecting **+**. For each log, only the events with the selected severities are collected. Check the severities for the particular log that you want to collect. You can't provide any other criteria to filter events.
 
 As you enter the name of an event log, Azure Monitor provides suggestions of common event log names. If the log you want to add doesn't appear in the list, you can still add it by entering the full name of the log. You can find the full name of the log by using event viewer. In event viewer, open the **Properties** page for the log and copy the string from the **Full Name** field.
 
-[![Screenshot that shows the Windows event logs tab on the Agents configuration screen.](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
+[![Screenshot that shows the Windows event logs tab on the Legacy agents management screen.](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
 > [!IMPORTANT]
 > You can't configure collection of security events from the workspace by using the Log Analytics agent. You must use [Microsoft Defender for Cloud](../../security-center/security-center-enable-data-collection.md) or [Microsoft Sentinel](../../sentinel/connect-windows-security-events.md) to collect security events. The [Azure Monitor agent](azure-monitor-agent-overview.md) can also be used to collect security events.

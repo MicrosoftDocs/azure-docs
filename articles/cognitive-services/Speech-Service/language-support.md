@@ -23,6 +23,9 @@ You can also get a list of locales and voices supported for each specific region
 
 Language support varies by Speech service functionality. 
 
+> [!NOTE]
+> See [Speech Containers](speech-container-overview.md#available-speech-containers) and [Embedded Speech](embedded-speech.md#models-and-voices) separately for their supported languages.
+
 **Choose a Speech feature**
 
 # [Speech-to-text](#tab/stt)
@@ -72,7 +75,7 @@ Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. 
 
 Please note that the following neural voices are retired.
 
-- The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30, 2021, all requests with previous versions will not succeed.
+- The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-ntts.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30, 2021, all requests with previous versions will not succeed.
 - The `en-US-JessaNeural` voice is retired and replaced by `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria." 
 
 ### Custom Neural Voice

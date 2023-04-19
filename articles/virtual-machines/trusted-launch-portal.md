@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 03/22/2022
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Deploy a VM with trusted launch enabled
@@ -25,6 +25,7 @@ ms.custom: template-how-to, devx-track-azurecli
     - Configure prerequisites to enable Guest Attestation on Trusted Launch enabled VMs 
 
     - Configure machines to automatically install the Azure Monitor and Azure Security agents on virtual machines 
+- Make sure that the firewall policies are allowing access to *.attest.azure.net
 
  
 ## Deploy a trusted launch VM

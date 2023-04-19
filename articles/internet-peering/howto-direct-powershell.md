@@ -1,6 +1,6 @@
 ---
 title: Create or modify a Direct peering - PowerShell
-description: Create or modify a Direct peering using PowerShell
+description: Create or modify a Direct peering using PowerShell.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering

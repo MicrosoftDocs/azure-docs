@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Claromentis | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Claromentis'
 description: Learn how to configure single sign-on between Azure Active Directory and Claromentis.
 services: active-directory
 author: jeevansd

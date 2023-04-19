@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 The Azurite open-source emulator provides a free local environment for testing your Azure Blob, Queue Storage, and Table Storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and macOS.
 
-Azurite is the future storage emulator platform. Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md). Azurite will continue to be updated to support the latest versions of Azure Storage APIs.
+Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md), and continues to be updated to support the latest versions of Azure Storage APIs.
 
 There are several different ways to install and run Azurite on your local system. Select any of these tabs.
 
@@ -23,7 +23,7 @@ There are several different ways to install and run Azurite on your local system
 
 ### [Visual Studio](#tab/visual-studio)
 
-Azurite is automatically available with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). If you're running an earlier version of Visual Studio, you'll need to install Azurite by using either Node Package Manager, DockerHub, or by cloning the Azurite GitHub repository. 
+Azurite is automatically available with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). If you're running an earlier version of Visual Studio, you can install Azurite by using either Node Package Manager, DockerHub, or by cloning the Azurite GitHub repository. 
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -96,22 +96,30 @@ npm install -g
 
 ### [Visual Studio](#tab/visual-studio)
 
-With a few configurations, Azure Functions or ASP.NET projects start Azurite automatically. For all other project types, you'll have to start Azurite from the command line. 
+To use Azurite with most project types in Visual Studio, you first need to run the Azurite executable. Once the executable is running, Azurite listens for connection requests from the application. To learn more, see [Running Azurite from the command line](#running-azurite-from-the-command-line).
+
+For **Azure Functions** projects and **ASP.NET** projects, you can choose to configure the project to start Azurite automatically. This configuration is done during the project setup. While this project configuration starts Azurite automatically, Visual Studio doesn't expose detailed Azurite configuration options. To customize detailed Azurite configuration options, [run the Azurite executable](#running-azurite-from-the-command-line) before launching Visual Studio.
+
+To learn more about configuring **Azure Functions** projects and **ASP.NET** projects to start Azurite automatically, see the following guidance:
+
+- [Running Azurite from an Azure Functions project](#running-azurite-from-an-azure-functions-project)
+- [Running Azurite from an ASP.NET project](#running-azurite-from-an-aspnet-project)
 
 #### Running Azurite from the command line
 
-You can find the Azurite executable file in the extensions folder of your Visual Studio installation. The specific location can vary based on which version of Visual Studio is installed. For example, if you've installed Visual Studio 2022 professional edition on a Windows computer or Virtual Machine (VM), you would find the Azurite executable file at this location: 
+You can find the Azurite executable file in the extensions folder of your Visual Studio installation. The specific location varies based on which version of Visual Studio is installed. The following table shows the location of the Azurite executable for different versions of Visual Studio running on a Windows machine:
 
-`C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator`.  
+| Visual Studio version | Azurite executable location |
+| --- | --- |
+| Visual Studio Professional 2022 | `C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator` |
+| Visual Studio Enterprise 2022 | `C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator` | 
 
-If you use the enterprise version of the Visual Studio, please open the following location:
-
-`C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator`.  
-
-Open the required location and start the `azurite.exe`. After you run the executable file, Azurite listens for connections. 
+Navigate to the appropriate location and start `azurite.exe`. After you run the executable file, Azurite listens for connections. 
 
 > [!div class="mx-imgBorder"]
 > ![Azurite command-line output](media/storage-use-azurite/azurite-command-line-output-vs.png)
+
+To learn more about available command line options to configure Azurite, see [Command line options](#command-line-options).
 
 #### Running Azurite from an Azure Functions project
 
@@ -133,7 +141,7 @@ In the **Configure Storage Azurite emulator** dialog box, set the **Connection s
 
 :::image type="content" source="./media/storage-use-azurite/azurite-aspnet-connection-string.png" alt-text="A screenshot showing how to configure a connection string to use Azurite with an ASP.NET project." lightbox="media/storage-use-azurite/azurite-aspnet-connection-string.png":::
 
-When the configuration completes, select **Close** and the Azurite emulator starts automatically. The output looks similar to the following screenshot:
+When the configuration completes, select **Close**, and the Azurite emulator starts automatically. The output looks similar to the following screenshot:
 
 :::image type="content" source="./media/storage-use-azurite/azurite-aspnet-output.png" alt-text="A screenshot showing output after connecting an ASP.NET project to the Azurite emulator." lightbox="media/storage-use-azurite/azurite-aspnet-output.png":::
 
@@ -165,7 +173,7 @@ Launch Azurite by issuing the following command:
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 ```
 
-This command tells Azurite to store all data in a particular directory, *c:\azurite*. If the `--location` option is omitted, it will use the current working directory.
+This command tells Azurite to store all data in a particular directory, *c:\azurite*. If the `--location` option is omitted, it uses the current working directory.
 
 ### [Docker Hub](#tab/docker-hub)
 
@@ -204,7 +212,7 @@ To get started immediately with the command line, create a directory called *c:\
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 ```
 
-This command tells Azurite to store all data in a particular directory, *c:\azurite*. If the `--location` option is omitted, it will use the current working directory.
+This command tells Azurite to store all data in a particular directory, *c:\azurite*. If the `--location` option is omitted, it uses the current working directory.
 
 ---
 
@@ -223,7 +231,7 @@ azurite --help
 
 ### Blob listening host
 
-**Optional** - By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--blobHost` switch to set the address to your requirements.
+**Optional** - By default, Azurite listens to 127.0.0.1 as the local server. Use the `--blobHost` switch to set the address to your requirements.
 
 Accept requests on the local machine only:
 
@@ -242,7 +250,7 @@ azurite --blobHost 0.0.0.0
 
 ### Blob listening port configuration
 
-**Optional** - By default, Azurite will listen for the Blob service on port 10000. Use the `--blobPort` switch to specify the listening port that you require.
+**Optional** - By default, Azurite listens for the Blob service on port 10000. Use the `--blobPort` switch to specify the listening port that you require.
 
 > [!NOTE]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
@@ -263,7 +271,7 @@ The port in use is displayed during Azurite startup.
 
 ### Queue listening host
 
-**Optional** - By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--queueHost` switch to set the address to your requirements.
+**Optional** - By default, Azurite listens to 127.0.0.1 as the local server. Use the `--queueHost` switch to set the address to your requirements.
 
 Accept requests on the local machine only:
 
@@ -282,7 +290,7 @@ azurite --queueHost 0.0.0.0
 
 ### Queue listening port configuration
 
-**Optional** - By default, Azurite will listen for the Queue service on port 10001. Use the `--queuePort` switch to specify the listening port that you require.
+**Optional** - By default, Azurite listens for the Queue service on port 10001. Use the `--queuePort` switch to specify the listening port that you require.
 
 > [!NOTE]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
@@ -303,7 +311,7 @@ The port in use is displayed during Azurite startup.
 
 ### Table listening host
 
-**Optional** - By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--tableHost` switch to set the address to your requirements.
+**Optional** - By default, Azurite listens to 127.0.0.1 as the local server. Use the `--tableHost` switch to set the address to your requirements.
 
 Accept requests on the local machine only:
 
@@ -322,7 +330,7 @@ azurite --tableHost 0.0.0.0
 
 ### Table listening port configuration
 
-**Optional** - By default, Azurite will listen for the Table service on port 10002. Use the `--tablePort` switch to specify the listening port that you require.
+**Optional** - By default, Azurite listens for the Table service on port 10002. Use the `--tablePort` switch to specify the listening port that you require.
 
 > [!NOTE]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
@@ -343,7 +351,7 @@ The port in use is displayed during Azurite startup.
 
 ### Workspace path
 
-**Optional** - Azurite stores data to the local disk during execution. Use the `-l` or `--location` switch to specify a path as the workspace location. By default, the current process working directory will be used. Note the lowercase 'l'.
+**Optional** - Azurite stores data to the local disk during execution. Use the `-l` or `--location` switch to specify a path as the workspace location. By default, the current process working directory is used. Note the lowercase 'l'.
 
 ```console
 azurite -l c:\azurite
@@ -417,7 +425,7 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 > [!NOTE]
 > OAuth requires an HTTPS endpoint. Make sure HTTPS is enabled by providing `--cert` switch along with the `--oauth` switch.
 
-Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite will do basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite won't check the token signature or permissions.
+Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite performs basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite doesn't check the token signature or permissions.
 
 ### Skip API Version Check
 
@@ -429,7 +437,7 @@ azurite --skipApiVersionCheck
 
 ### Disable Production Style Url
 
-**Optional**. When using the fully qualified domain name instead of the IP in request Uri host, by default Azurite will parse the storage account name from request Uri host. You can force the parsing of the storage account name from request Uri path by using `--disableProductStyleUrl`:
+**Optional**. When using the fully qualified domain name instead of the IP in request Uri host, by default Azurite parses the storage account name from request Uri host. You can force the parsing of the storage account name from request Uri path by using `--disableProductStyleUrl`:
 
 ```cmd
 azurite --disableProductStyleUrl
@@ -630,14 +638,14 @@ In Storage Explorer, connect to Azurite by following these steps:
 
 #### Connect to Azurite using HTTPS
 
-By default Storage Explorer won't open an HTTPS endpoint that uses a self-signed certificate. If you're running Azurite with HTTPS, you're likely using a self-signed certificate. In Storage Explorer, import SSL certificates via the **Edit** -> **SSL Certificates** -> **Import Certificates** dialog.
+By default, Storage Explorer doesn't open an HTTPS endpoint that uses a self-signed certificate. If you're running Azurite with HTTPS, you're likely using a self-signed certificate. In Storage Explorer, import SSL certificates via the **Edit** -> **SSL Certificates** -> **Import Certificates** dialog.
 
 ##### Import Certificate to Storage Explorer
 
 1. Find the certificate on your local machine.
 1. In Storage Explorer, go to **Edit** -> **SSL Certificates** -> **Import Certificates** and import your certificate.
 
-If you don't import a certificate, you'll get an error:
+If you don't import a certificate, you get an error:
 
 `unable to verify the first certificate` or `self signed certificate in chain`
 
@@ -718,7 +726,7 @@ set AZURITE_ACCOUNTS="account1:key1:key2"
 
 You could add more accounts. See the [Custom storage accounts and keys](#custom-storage-accounts-and-keys) section of this article.
 
-Start Azurite and use a customized connection string to access your account. The example connection string below assumes that the default ports are used. 
+Start Azurite and use a customized connection string to access your account. In the following example, the connection string assumes that the default ports are used. 
 
 ```
 DefaultEndpointsProtocol=http;AccountName=account1;AccountKey=key1;BlobEndpoint=http://account1.blob.localhost:10000;QueueEndpoint=http://account1.queue.localhost:10001;TableEndpoint=http://account1.table.localhost:10002;
@@ -728,7 +736,7 @@ Don't access default account in this way with Azure Storage Explorer. There's a 
 
 By default, when using Azurite with a production-style URL, the account name should be the host name in fully qualified domain name such as "http://devstoreaccount1.blob.localhost:10000/container". To use production-style URL with account name in the URL path such as "http://foo.bar.com:10000/devstoreaccount1/container", make sure to use the `--disableProductStyleUrl` parameter when you start Azurite.
 
-If use `host.docker.internal` as request Uri host (For example: `http://host.docker.internal:10000/devstoreaccount1/container`), Azurite will always get the account name from the request Uri path. This is true regardless of whether you use the `--disableProductStyleUrl` parameter when you start Azurite. 
+If you use `host.docker.internal` as request Uri host (For example: `http://host.docker.internal:10000/devstoreaccount1/container`), Azurite gets the account name from the request Uri path. This behavior is true regardless of whether you use the `--disableProductStyleUrl` parameter when you start Azurite. 
 
 ### Scaling and performance
 

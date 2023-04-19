@@ -1,11 +1,10 @@
 ---
 title: Azure Peering Service overview
-description: Learn about Azure Peering Service
+description: Learn about Azure Peering Service.
 services: peering-service
 author: halkazwini
 ms.service: peering-service
 ms.topic: overview
-ms.workload: Infrastructure-services
 ms.date: 01/19/2023
 ms.author: halkazwini
 ms.custom: template-overview, engagement-fy23

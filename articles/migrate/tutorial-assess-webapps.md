@@ -4,7 +4,7 @@ description: Learn how to create assessment for Azure App Service in Azure Migra
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 06/27/2022
+ms.date: 02/28/2023
 ms.custom: engagement-fy23
 ---
 
@@ -142,5 +142,5 @@ P1v3  | 16
 
 ## Next steps
 
-- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-migrate-webapps.md).
+- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-modernize-asp-net-appservice-code.md).
 - [Learn more](concepts-azure-webapps-assessment-calculation.md) about how Azure App Service assessments are calculated.

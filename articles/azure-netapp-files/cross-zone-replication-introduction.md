@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 02/17/2023
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -37,12 +37,18 @@ The preview of cross-zone replication is available in the following regions:
 * France Central 
 * Germany West Central 
 * Japan East
+* Korea Central
 * North Europe
 * Norway East 
+* Qatar Central
 * South Africa North
 * Southeast Asia
 * South Central US 
+* Sweden Central
+* Switzerland North
+* UAE North
 * UK South
+* US Gov Virginia
 * West Europe
 * West US 2 
 * West US 3 

@@ -65,8 +65,14 @@ The following example creates the root container synchronously:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="CreateRootContainer":::
 
-## See also
+## Resources
 
-- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
-- [Create Container operation](/rest/api/storageservices/create-container)
-- [Delete Container operation](/rest/api/storageservices/delete-container)
+To learn more about creating a container using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for creating a container use the following REST API operation:
+
+- [Create Container](/rest/api/storageservices/create-container) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]

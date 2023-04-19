@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IWT Procurement Suite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IWT Procurement Suite'
 description: Learn how to configure single sign-on between Azure Active Directory and IWT Procurement Suite.
 services: active-directory
 author: jeevansd

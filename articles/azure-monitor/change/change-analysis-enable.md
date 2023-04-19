@@ -18,7 +18,7 @@ The Change Analysis service:
     - Easily navigate through all resource changes.
     - Identify relevant changes in the troubleshooting or monitoring context.
 
-Register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription to make the resource properties and configuration change data available. The `Microsoft.ChangeAnalysis` resource is automatically registered as you either: 
+Register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource Manager subscription to make the resource properties and configuration change data available. The `Microsoft.ChangeAnalysis` resource provider is automatically registered as you either: 
 - Enter any UI entry point, like the Web App **Diagnose and Solve Problems** tool, or 
 - Bring up the Change Analysis standalone tab.
 
@@ -93,5 +93,5 @@ foreach ($webapp in $webapp_list)
 
 - Learn about [visualizations in Change Analysis](change-analysis-visualizations.md)
 - Learn how to [troubleshoot problems in Change Analysis](change-analysis-troubleshoot.md)
-- Enable Application Insights for [Azure App Services apps](../../azure-monitor/app/azure-web-apps.md).
+- Enable Application Insights for [Azure web apps](../../azure-monitor/app/azure-web-apps.md).
 - Enable Application Insights for [Azure VM and Azure virtual machine scale set IIS-hosted apps](../../azure-monitor/app/azure-vm-vmss-apps.md).

@@ -15,6 +15,8 @@ ms.custom: cogserv-non-critical-speech
 
 # Troubleshoot a Custom Commands application at runtime
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 This article describes how to debug when you see errors while running Custom Commands application. 
 
 ## Connection failed
@@ -27,18 +29,18 @@ If your run Custom Commands application from [client application (with Speech SD
 | [1002](#error-1002) | The server returned status code '404' when status code '101' was expected. |
 
 ### Error 401
-- The region specified in client application does not match with the region of the custom command application
+- The region specified in client application doesn't match with the region of the custom command application
 
 - Speech resource Key is invalid
     
     Make sure your speech resource key is correct.
 
 ### Error 1002 
-- Your custom command application is not published
+- Your custom command application isn't published
     
     Publish your application in the portal.
 
-- Your custom command applicationId is not valid
+- Your custom command applicationId isn't valid
 
     Make sure your custom command application ID is correct.
  custom command application outside your speech resource
@@ -50,15 +52,15 @@ For more information on troubleshooting the connection issues, reference [Window
 
 ## Dialog is canceled
 
-When running your Custom Commands application, the dialog would be canceled when some errors occur.
+When your Custom Commands application is running, the dialog would be canceled when some errors occur.
 
-- If you are testing the application in the portal, it would directly display the cancellation description and play out an error earcon. 
+- If you're testing the application in the portal, it would directly display the cancellation description and play out an error earcon. 
 
-- If you are running the application with [Windows Voice Assistant Client](./how-to-custom-commands-developer-flow-test.md), it would play out an error earcon. You can find the **Event: CancelledDialog** under the **Activity Logs**.
+- If you're running the application with [Windows Voice Assistant Client](./how-to-custom-commands-developer-flow-test.md), it would play out an error earcon. You can find the **Event: CancelledDialog** under the **Activity Logs**.
 
-- If you are following our client application example [client application (with Speech SDK)](./how-to-custom-commands-setup-speech-sdk.md), it would play out an error earcon. You can find the **Event: CancelledDialog** under the **Status**.
+- If you're following our client application example [client application (with Speech SDK)](./how-to-custom-commands-setup-speech-sdk.md), it would play out an error earcon. You can find the **Event: CancelledDialog** under the **Status**.
 
-- If you are building your own client application, you can always design your desired logics to handle the CancelledDialog events.
+- If you're building your own client application, you can always design your desired logics to handle the CancelledDialog events.
 
 The CancelledDialog event consists of cancellation code and description, as listed below:
 
@@ -67,14 +69,14 @@ The CancelledDialog event consists of cancellation code and description, as list
 | [MaxTurnThresholdReached](#no-progress-was-made-after-the-max-number-of-turns-allowed) | No progress was made after the max number of turns allowed |
 | [RecognizerQuotaExceeded](#recognizer-usage-quota-exceeded) | Recognizer usage quota exceeded |
 | [RecognizerConnectionFailed](#connection-to-the-recognizer-failed) | Connection to the recognizer failed |
-| [RecognizerUnauthorized](#this-application-cannot-be-accessed-with-the-current-subscription) | This application cannot be accessed with the current subscription |
+| [RecognizerUnauthorized](#this-application-cant-be-accessed-with-the-current-subscription) | This application can't be accessed with the current subscription |
 | [RecognizerInputExceededAllowedLength](#input-exceeds-the-maximum-supported-length) | Input exceeds the maximum supported length for the recognizer |
 | [RecognizerNotFound](#recognizer-not-found) | Recognizer not found |
 | [RecognizerInvalidQuery](#invalid-query-for-the-recognizer) | Invalid query for the recognizer |
 | [RecognizerError](#recognizer-return-an-error) | Recognizer returns an error |
 
 ### No progress was made after the max number of turns allowed
-The dialog is canceled when a required slot is not successfully updated after certain number of turns. The build-in max number is 3.
+The dialog is canceled when a required slot isn't successfully updated after certain number of turns. The build-in max number is 3.
 
 ### Recognizer usage quota exceeded
 Language Understanding (LUIS) has limits on resource usage. Usually "Recognizer usage quota exceeded error" can be caused by: 
@@ -82,7 +84,7 @@ Language Understanding (LUIS) has limits on resource usage. Usually "Recognizer 
 
     Add a prediction resource to your Custom Commands application: 
     1. go to **Settings**, LUIS resource
-    1. Choose a prediction resource from **Prediction resource**, or click **Create new resource** 
+    1. Choose a prediction resource from **Prediction resource**, or select **Create new resource** 
 
 - Your LUIS prediction resource exceeds the limit
 
@@ -93,8 +95,8 @@ For more details on LUIS resource limits, refer [Language Understanding resource
 ### Connection to the recognizer failed
 Usually it means transient connection failure to Language Understanding (LUIS) recognizer. Try it again and the issue should be resolved.
 
-### This application cannot be accessed with the current subscription
-Your subscription is not authorized to access the LUIS application. 
+### This application can't be accessed with the current subscription
+Your subscription isn't authorized to access the LUIS application. 
 
 ### Input exceeds the maximum supported length
 Your input has exceeded 500 characters. We only allow at most 500 characters for input utterance.
@@ -106,7 +108,7 @@ Your input has exceeded 500 characters. We only allow at most 500 characters for
 The LUIS recognizer returned an error when trying to recognize your input.
 
 ### Recognizer not found
-Cannot find the recognizer type specified in your custom commands dialog model. Currently, we only support [Language Understanding (LUIS) Recognizer](https://www.luis.ai/).
+Can't find the recognizer type specified in your custom commands dialog model. Currently, we only support [Language Understanding (LUIS) Recognizer](https://www.luis.ai/).
 
 ## Other common errors
 ### Unexpected response
@@ -114,7 +116,7 @@ Unexpected responses may be caused multiple things.
 A few checks to start with:
 - Yes/No Intents in example sentences
 
-    As we currently don't support Yes/No Intents except when using with confirmation feature. All the Yes/No Intents defined in example sentences would not be detected.
+    As we currently don't support Yes/No Intents except when using with confirmation feature. All the Yes/No Intents defined in example sentences wouldn't be detected.
 
 - Similar intents and examples sentences among commands
 

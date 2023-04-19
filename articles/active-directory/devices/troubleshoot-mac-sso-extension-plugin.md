@@ -93,8 +93,8 @@ Work with your MDM administrator (or Device Management team) to ensure that the 
 
 The following table provides specific MDM installation guidance depending on which OS you're deploying the extension to:
 
-- [**iOS/iPadOS**: Deploy the Microsoft Enterprise SSO plug-in](/mem/intune/configuration/use-enterprise-sso-plug-in-macos-with-intune)
-- [**macOS**: Deploy the Microsoft Enterprise SSO plug-in](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-with-intune)
+- [**iOS/iPadOS**: Deploy the Microsoft Enterprise SSO plug-in](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-with-intune)
+- [**macOS**: Deploy the Microsoft Enterprise SSO plug-in](/mem/intune/configuration/use-enterprise-sso-plug-in-macos-with-intune)
 
 > [!IMPORTANT]
 > Although, any MDM is supported for deploying the SSO Extension, many organizations implement [**device-based conditional access polices**](../conditional-access/concept-conditional-access-grant.md#require-device-to-be-marked-as-compliant) by way of evaluating MDM compliance policies. If a third-party MDM is being used, ensure that the MDM vendor supports [**Intune Partner Compliance**](/mem/intune/protect/device-compliance-partners) if you would like to use device-based Conditional Access policies. When the SSO Extension is deployed via Intune or an MDM provider that supports Intune Partner Compliance, the extension can pass the device certificate to Azure AD so that device authentication can be completed.   
@@ -212,7 +212,7 @@ Once deployed the **Microsoft Enterprise SSO Extension for Apple devices** suppo
 
 ### Bootstrapping
 
-By default, only MSAL apps invoke the SSO Extension, and then in turn the Extension acquires a shared credential (PRT) from Azure AD. However, the **Safari** browser application or other **Non-MSAL** applications can be configured to acquire the PRT. See [Allow users to sign in from unknown applications and the Safari browser](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-unknown-applications-and-the-safari-browser). After the SSO extension acquires a PRT, it will store the credential in the user's login Keychain. Next, check to ensure that the PRT is present in the user's keychain:
+By default, only MSAL apps invoke the SSO Extension, and then in turn the Extension acquires a shared credential (PRT) from Azure AD. However, the **Safari** browser application or other **Non-MSAL** applications can be configured to acquire the PRT. See [Allow users to sign in from applications that don't use MSAL and the Safari browser](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-applications-that-dont-use-msal-and-the-safari-browser). After the SSO extension acquires a PRT, it will store the credential in the user's login Keychain. Next, check to ensure that the PRT is present in the user's keychain:
 
 #### Checking keychain access for PRT
 
@@ -359,8 +359,8 @@ During the MDM configuration of the Microsoft Enterprise SSO Extension, an optio
 
 | Callout | Feature flag | Description |
 |:---------:|:---------|:---------|
-|**1**|**[browser_sso_interaction_enabled](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-unknown-applications-and-the-safari-browser)**|Non-MSAL or Safari browser can bootstrap a PRT   |
-|**2**|**[browser_sso_disable_mfa](../develop/apple-sso-plugin.md#disable-asking-for-mfa-during-initial-bootstrapping)**|During bootstrapping of the PRT credential, by default MFA is required. Notice this configuration is set to **null** which means that the default configuration will be enforced|
+|**1**|**[browser_sso_interaction_enabled](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-applications-that-dont-use-msal-and-the-safari-browser)**|Non-MSAL or Safari browser can bootstrap a PRT   |
+|**2**|**browser_sso_disable_mfa**|(Now deprecated) During bootstrapping of the PRT credential, by default MFA is required. Notice this configuration is set to **null** which means that the default configuration will be enforced|
 |**3**|**[disable_explicit_app_prompt](../develop/apple-sso-plugin.md#disable-oauth-2-application-prompts)**|Replaces **prompt=login** authentication requests from applications to reduce prompting|
 |**4**|**[AppPrefixAllowList](../develop/apple-sso-plugin.md#enable-sso-for-all-apps-with-a-specific-bundle-id-prefix)**|Any Non-MSAL application that has a Bundle ID that starts with **`com.micorosoft.`** can be intercepted and handled by the SSO extension broker   |
 

@@ -23,7 +23,7 @@ Learn how to access Advisor through the Azure portal, get recommendations, and i
 
 1. The Advisor dashboard will display a summary of your recommendations for all selected subscriptions.  You can choose the subscriptions that you want recommendations to be displayed for using the subscription filter dropdown.
 
-1. To get recommendations for a specific category, click one of the tabs: **Reliability**, **Security**, **Performance**, or **Cost**. 
+1. To get recommendations for a specific category, click one of the tabs: **Reliability**, **Security**, **Performance**, **Operational Excellence**, or **Cost**. 
 
    ![Azure Advisor dashboard](./media/advisor-overview/advisor-dashboard.png)
 

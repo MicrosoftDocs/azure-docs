@@ -2,14 +2,24 @@
 title: Onboard a management group to Microsoft Defender for Cloud
 description: Learn how to use a supplied Azure Policy definition to enable Microsoft Defender for Cloud for all the subscriptions in a management group.
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 02/21/2023
 ---
 
 # Enable Defender for Cloud on all subscriptions in a management group
 
 You can use Azure Policy to enable Microsoft Defender for Cloud on all the Azure subscriptions within the same management group (MG). This is more convenient than accessing them individually from the portal, and works even if the subscriptions belong to different owners. 
 
-To onboard a management group and all its subscriptions:
+## Prerequisites
+
+Enable the resource provider `_Microsoft.Security_` for the management group using the following Azure CLI command:
+
+```azurecli
+az provider register --namespace Microsoft.Security --management-group-id …
+```
+
+## Onboard a management group and all its subscriptions
+
+**To onboard a management group and all its subscriptions**:
 
 1. As a user with **Security Admin** permissions, open Azure Policy and search for the definition `Enable Microsoft Defender for Cloud on your subscription`.
 
@@ -47,7 +57,7 @@ There are various ways you might choose to modify the Azure Policy definition:
     The supplied definition, defines *either* of the 'pricing' settings below as compliant. Meaning that a subscription set to 'standard' or 'free' is compliant.
 
     > [!TIP]
-    > When any Microsoft Defender plan is enabled, it's described in a policy definition as being on the 'Standard' setting. When it's disabled, it's 'Free'. To learn about the differences between these plans, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md). 
+    > When any Microsoft Defender plan is enabled, it's described in a policy definition as being on the 'Standard' setting. When it's disabled, it's 'Free'. To learn about the differences between these plans, see [Microsoft Defender for Cloud's Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads). 
 
     ```
     "existenceCondition": {

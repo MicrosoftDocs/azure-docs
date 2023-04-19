@@ -40,7 +40,7 @@ See [here](https://www.npmjs.com/package/@azure/communication-calling-effects) f
 > [!NOTE]
 > Currently there are two available video effects:
 > - Background blur
-> - Background replacement with an image
+> - Background replacement with an image (the aspect ratio should be 16:9 to be compatible)
 
 To use video effects with the Azure Communication Calling SDK, once you've created a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to start/stop video effects:
 ```js
@@ -90,6 +90,7 @@ You need to provide the URL of the image you want as the background to this effe
 > [!NOTE]
 > Current supported image formats are: png, jpg, jpeg, tiff, bmp.
 >
+> Current supported aspect ratio is 16:9.
 
 ```js
 const backgroundImage = 'https://linkToImageFile'; 

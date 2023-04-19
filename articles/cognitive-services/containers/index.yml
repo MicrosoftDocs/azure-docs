@@ -42,8 +42,6 @@ landingContent:
           text: Read OCR
         - url: ../computer-vision/spatial-analysis-container.md
           text: Spatial analysis
-        - url: ../face/overview.md
-          text: Face
 - title: Language containers
   linkLists:
       - linkListType: how-to-guide
@@ -64,13 +62,13 @@ landingContent:
   linkLists:
       - linkListType: how-to-guide
         links:
-        - url: ../speech-service/speech-container-howto.md?tabs=stt
+        - url: ../speech-service/speech-container-stt.md
           text: Speech to text
-        - url: ../speech-service/speech-container-howto.md?tabs=cstt
+        - url: ../speech-service/speech-container-cstt.md
           text: Custom Speech to text
-        - url: ../speech-service/speech-container-howto.md?tabs=ntts
+        - url: ../speech-service/speech-container-ntts.md
           text: Neural text to speech
-        - url: ../speech-service/speech-container-howto.md?tabs=lid
+        - url: ../speech-service/speech-container-lid.md
           text: Speech language identification
 - title: Decision container
   linkLists:

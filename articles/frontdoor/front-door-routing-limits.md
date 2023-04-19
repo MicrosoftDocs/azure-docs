@@ -1,12 +1,11 @@
 ---
-title: Azure Front Door - routing limits | Microsoft Docs
+title: Routing limits
+titleSuffix: Azure Front Door
 description: This article helps you understand the composite limits around routing for Azure Front Door.
 services: front-door
-documentationcenter: ''
 author: johndowns
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/08/2022
 ms.author: jodowns

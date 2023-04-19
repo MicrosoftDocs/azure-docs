@@ -65,7 +65,7 @@ To improve the tutorial experience, you can learn industry-standard terminology 
 
 Set up a SAML federation trust between the BIG-IP to allow the Azure AD BIG-IP to hand off the pre-authentication and [Conditional Access](../conditional-access/overview.md) to Azure AD, before it grants access to the published VPN service.
 
-1. Sign in to the Azure AD portal with application admin rights.
+1. Sign in to the Azure portal with application admin rights.
 2. From the left navigation pane, select the **Azure Active Directory service**.
 3. Go to **Enterprise Applications** and from the top ribbon select **New application**.
 4. In the gallery, search for F5 and select **F5 BIG-IP APM Azure AD integration**.

@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Adobe Identity Management for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Adobe Identity Management for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Adobe Identity Management.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 6ae05dc7-1265-44b4-a20c-512b5218b9d1
 ms.service: active-directory

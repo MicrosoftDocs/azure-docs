@@ -2,9 +2,7 @@
 title: 'Generate & export certificates for P2S: MakeCert'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a self-signed root certificate, export a public key, and generate client certificates using MakeCert.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020

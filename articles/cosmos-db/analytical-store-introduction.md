@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB transactional (row-based) and analytica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2022
+ms.date: 04/18/2023
 ms.author: rosouz
 ms.custom: seo-nov-2020, devx-track-azurecli, ignite-2022
 ms.reviewer: mjbrown
@@ -228,7 +228,7 @@ There are two types of schema representation in the analytical store. These type
 
 The well-defined schema representation creates a simple tabular representation of the schema-agnostic data in the transactional store. The well-defined schema representation has the following considerations:
 
-* The first document defines the base schema and property must always have the same type across all documents. The only exceptions are:
+* The first document defines the base schema and properties must always have the same type across all documents. The only exceptions are:
   * From `NULL` to any other data type. The first non-null occurrence defines the column data type. Any document not following the first non-null datatype won't be represented in analytical store.
   * From `float` to `integer`. All documents will be represented in analytical store.
   * From `integer` to `float`. All documents will be represented in analytical store. However, to read this data with Azure Synapse SQL serverless pools, you must use a WITH clause to convert the column to `varchar`. And after this initial conversion, it's possible to convert it again to a number. Please check the example below, where **num** initial value was an integer and the second one was a float.
@@ -271,6 +271,12 @@ WITH (num varchar(100)) AS [IntToFloat]
   * Spark pools in Azure Synapse will represent these columns as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
+##### Representation challenges workarounds
+
+It is possible that an old document, with an incorrect schema, was used to create your container's analytical store base schema. Based on all the rules presented above, you may be receiving `NULL` for certain properties when querying your analytical store using Azure Synapse Link. To delete or update the problematic documents won't help because base schema reset isn't currently supported. The possible solutions are:
+
+ * To migrate the data to a new container, making sure that all documents have the correct schema.
+ * To abandon the property with the wrong schema and add a new one, with another name, that has the correct schema in all documents. Example: You have billions of documents in the **Orders** container where the **status** property is a string. But the first document in that container has **status** defined with integer. So, one document will have **status** correctly represented and all other documents will have `NULL`. You can add the **status2** property to all documents and start to use it, instead of the original property.
 
 #### Full fidelity schema representation
 
@@ -440,21 +446,25 @@ the MongoDB `_id` field is fundamental to every collection in MongoDB and origin
 
 ###### Working with the MongoDB `_id` field in Spark
 
-```Python
-import org.apache.spark.sql.types._
-val simpleSchema = StructType(Array(
-    StructField("_id", StructType(Array(StructField("objectId",BinaryType,true)) ),true),
-    StructField("id", StringType, true)
-  ))
+The example below works on Spark 2.x and 3.x versions:
 
-df = spark.read.format("cosmos.olap")\
-    .option("spark.synapse.linkedService", "<enter linked service name>")\
-    .option("spark.cosmos.container", "<enter container name>")\
-    .schema(simpleSchema)
-    .load()
+```Scala
+val df = spark.read.format("cosmos.olap").option("spark.synapse.linkedService", "xxxx").option("spark.cosmos.container", "xxxx").load()
 
-df.select("id", "_id.objectId").show()
+val convertObjectId = udf((bytes: Array[Byte]) => {
+    val builder = new StringBuilder
+
+    for (b <- bytes) {
+        builder.append(String.format("%02x", Byte.box(b)))
+    }
+    builder.toString
+}
+ )
+
+val dfConverted = df.withColumn("objectId", col("_id.objectId")).withColumn("convertedObjectId", convertObjectId(col("_id.objectId"))).select("id", "objectId", "convertedObjectId")
+display(dfConverted)
 ```
+
 ###### Working with the MongoDB `_id` field in SQL
 
 ```SQL
@@ -542,8 +552,10 @@ After the analytical store is enabled, based on the data retention needs of the 
 
 Analytical store relies on Azure Storage and offers the following protection against physical failure:
 
- * By default, Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) accounts.
- * If any geo-region of the database account is configured for zone-redundancy, it is allocated in Zone-redundant Storage (ZRS) accounts. Customers need to enable Availability Zones on a region of their Azure Cosmos DB database account to have analytical data of that region stored in ZRS.
+ * By default, Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) accounts. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year.
+ * If any geo-region of the database account is configured for zone-redundancy, it is allocated in Zone-redundant Storage (ZRS) accounts. Customers need to enable Availability Zones on a region of their Azure Cosmos DB database account to have analytical data of that region stored in ZRS. ZRS offers durability for storage resources of at least 99.9999999999% (12 9's) over a given year.
+
+For more information about Azure Storage durability, click [here](https://learn.microsoft.com/azure/storage/common/storage-redundancy).
 
 ## Backup
 
@@ -610,6 +622,9 @@ Analytical store partitioning is completely independent of partitioning in�
 * **Data encryption at rest** - Your analytical store encryption is enabled by default.
 
 * **Data encryption with customer-managed keys** - You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. Azure Synapse Link only supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You must configure your account's managed identity in your Azure Key Vault access policy before [enabling Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) on your account. To learn more, see how to [Configure customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) article.
+
+> [!NOTE]
+> If you change your database account from First Party to System or User Assigned Identy, and enable Azure Synapse Link in your database account, you won't be able to return to First Party identity since you can't disable Synapse Link from your database account.
 
 ## Support for multiple Azure Synapse Analytics runtimes
 

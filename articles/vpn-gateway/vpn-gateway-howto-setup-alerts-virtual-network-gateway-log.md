@@ -2,9 +2,7 @@
 title: 'Configure alerts on diagnostic resource log events'
 titleSuffix: Azure VPN Gateway
 description: Learn how to set up alerts based on resource log events from Azure VPN Gateway, using Azure Monitor Log Analytics.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 07/25/2022
@@ -19,7 +17,7 @@ For steps, see [Create Azure Monitor log alert rules and manage alert instances]
 
 ## Resource logs
 
-The following resource logs are available in Azure:
+The following resource logs are available* in Azure:
 
 |***Name*** | ***Description*** |
 |--- | --- |
@@ -28,6 +26,8 @@ The following resource logs are available in Azure:
 |RouteDiagnosticLog | Logs changes to static routes and BGP events that occur on the gateway |
 |IKEDiagnosticLog | Logs IKE control messages and events on the gateway |
 |P2SDiagnosticLog | Logs point-to-site control messages and events on the gateway. Connection source info is provided for IKEv2 and OpenVPN connections only |
+
+*Note that for Policy Based gateways, only GatewayDiagnosticLog and RouteDiagnosticLog are available.
 
 ## Next steps
 

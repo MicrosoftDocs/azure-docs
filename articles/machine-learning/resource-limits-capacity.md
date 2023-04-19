@@ -56,6 +56,12 @@ This section lists basic limits and throttling thresholds in Azure Machine Learn
 | Number of input datasets |200 |
 | Number of output datasets |20 |
 
+## Custom environments
+| Limit | Value |
+| --- | --- |
+| Number of files in Docker build context | 100 |
+| Total files size in Docker build context | 1 MB |
+
 ## Metrics
 | Limit | Value |
 | --- | --- |

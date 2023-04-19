@@ -26,7 +26,7 @@ Before you start, make sure that you have:
     - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](iot-solution.md)
     - [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
 
-- An alert details page open, accessed either from the Defender for IoT **Alerts** page in the [Azure portal](how-to-manage-cloud-alerts.md), a Defender for IoT [device details page](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory), or a Microsoft Sentinel [incident](/azure/sentinel/investigate-incidents).
+- An alert details page open, accessed either from the Defender for IoT **Alerts** page in the [Azure portal](how-to-manage-cloud-alerts.md), a Defender for IoT [device details page](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory), or a Microsoft Sentinel [incident](../../sentinel/investigate-incidents.md).
 
 ## Investigate an alert from the Azure portal
 
@@ -37,7 +37,7 @@ For example:
 :::image type="content" source="media/respond-ot-alert/change-alert-status.png" alt-text="Screenshot of changing an alert status on the Azure portal.":::
 
 > [!IMPORTANT]
-> If you're integrating with Microsoft Sentinel, make sure to manage your alert status only from the [incident](/azure/sentinel/investigate-incidents) in Microsoft Sentinel. Alerts statuses are not synchronized from Defender for IoT to Microsoft Sentinel.
+> If you're integrating with Microsoft Sentinel, make sure to manage your alert status only from the [incident](../../sentinel/investigate-incidents.md) in Microsoft Sentinel. Alerts statuses are not synchronized from Defender for IoT to Microsoft Sentinel.
 
 
 After updating the status, check the alert details page for the following details to aid in your investigation:
@@ -115,7 +115,7 @@ Triage alerts on a regular basis to prevent alert fatigue in your network and en
 
 **To triage alerts**:
 
-1. In Defender for IoT in the Azure portal, go to the **Alerts** page. By default, alerts are sorted by the **Last detection** column, from most recent to oldest alert, so that you can first see the latest alerts in your network.
+1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, go to the **Alerts** page. By default, alerts are sorted by the **Last detection** column, from most recent to oldest alert, so that you can first see the latest alerts in your network.
 
 1. Use other filters, such as **Sensor** or **Severity** to find specific alerts.
 
@@ -131,5 +131,3 @@ For high severity alerts, you may want to take action immediately.
 
 > [!div class="nextstepaction"]
 > [Enhance security posture with security recommendations](recommendations.md)
-
-

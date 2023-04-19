@@ -1,6 +1,6 @@
 ﻿---
 title: Convert a legacy Direct peering to an Azure resource - Azure portal
-description: Convert a legacy Direct peering to an Azure resource using the Azure portal
+description: Convert a legacy Direct peering to an Azure resource using the Azure portal.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
