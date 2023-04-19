@@ -70,3 +70,5 @@ landingContent:
         links:
           - text: Troubleshoot Traffic Controller
             url: troubleshooting-guide.md
+          - text: Diagnostic Logs
+            url: diagnostics.md
