@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to
 ---
 
@@ -26,7 +26,7 @@ When scanning SAP HANA source, Microsoft Purview supports extracting technical m
 - Databases
 - Schemas
 - Tables including the columns, foreign keys, indexes, and unique constraints
-- Views including the columns
+- Views including the columns. Note SAP HANA Calculation Views are not supported now.
 - Stored procedures including the parameter dataset and result set
 - Functions including the parameter dataset
 - Sequences
