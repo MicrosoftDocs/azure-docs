@@ -1,5 +1,5 @@
 ---
-title: Sign in users to a Vanilla JS Single-page application using Microsoft Entra - Prepare your tenant
+title: Sign in users to a vanilla JavaScript Single-page application using Microsoft Entra - Prepare your tenant
 description: Learn how to register a vanilla JavaScript single-page app (SPA) with your CIAM tenant.
 services: active-directory
 author: OwenRichards1
@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 04/19/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
 ---
 
-# Sign in users to a Vanilla JS Single-page application using Microsoft Entra - Prepare your tenant
+# Sign in users to a vanilla JS Single-page application using Microsoft Entra - Prepare your tenant
 
 This article describes how to register a single-page application (SPA) with your CIAM tenant. A user flow is also created and associated with the SPA, allowing users to sign in and sign out of the application.
 
@@ -50,4 +50,4 @@ In this article:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Prepare your Vanilla JS SPA >](how-to-single-page-app-vanillajs-prepare-app.md)
+> [Prepare your Vanilla JS SPA](how-to-single-page-app-vanillajs-prepare-app.md)

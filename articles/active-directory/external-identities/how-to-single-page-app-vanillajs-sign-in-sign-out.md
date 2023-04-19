@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 04/19/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -23,16 +23,16 @@ When the application has been created, the user interface for the application ca
 > [!div class="checklist"]
 >
 > * Create the project
-> * Create the index.html & styles.css file
+> * Create the *index.html* & *styles.css* file
 > * Create the app.js file
 
 ## Prerequisites
 
 * Completion of the prerequisites and steps in [Create components for authentication and authorization](how-to-single-page-app-vanillajs-configure-authentication.md).
 
-## Create the index.html file
+## Create the *index.html* file
 
-*Index.html* is the main page of the application and is the first page that is loaded when the application is started. It's also the page that is loaded when the user select the **Sign Out** button.
+The main page of the application, *index.html* is the first page that is loaded when the application is started. It's also the page that is loaded when the user select the **Sign Out** button.
 
 1. Right-click the project folder and select **New File**. Name the file *index.html*.
 1. Open *index.html* and add the following code snippet:
@@ -105,7 +105,7 @@ When the application has been created, the user interface for the application ca
 
 1. Save the file.
 
-## Create the signout.html file
+## Create the *signout.html* file
 
 1. Right-click the project folder and select **New File**. Name the file *signout.html*.
 1. Open *signout.html* and add the following code snippet:
@@ -134,7 +134,7 @@ When the application has been created, the user interface for the application ca
 
 1. Save the file.
 
-## Create the ui.js file
+## Create the *ui.js* file
 
 1. Right-click the project folder and select **New File**. Name the file *ui.js*.
 1. Open *ui.js* and add the following code snippet:
@@ -187,7 +187,7 @@ When the application has been created, the user interface for the application ca
 
 ## Create the styles.css file
 
-1. Right-click the project folder and select **New File**. Name the file **styles.css**.
+1. Right-click the project folder and select **New File**. Name the file *styles.css*.
 1. Open *styles.css* and add the following code snippet:
 
     ```css
@@ -206,20 +206,20 @@ When the application has been created, the user interface for the application ca
 
 ## Run your project and sign in
 
-All the required code snippets have been added, so the application can now be called and tested in a web browser.
+Now that all the required code snippets have been added, the application can be called and tested in a web browser.
 
-1. Open a new terminal by selecting Terminal > New Terminal.
+1. Open a new terminal by selecting **Terminal** > **New Terminal**.
 1. Run the following command to start your express web server.
 
     ```powershell
     npm start
     ```
 
-1. Open a web browser and navigate to the port specified in [Prepare a Single-page application for authentication](how-to-single-page-app-vanillajs-sign-in-sign-out.md). For example, <http://localhost:3000/>.
+1. Open a web browser and navigate to the port specified in [Prepare a Single-page application for authentication](how-to-single-page-app-vanillajs-sign-in-sign-out.md). For example, `http://localhost:3000/`.
 
 <!-- SCREENSHOT -->
 
-1. Select the Sign In button. For the purposes of this tutorial, choose the Sign in using Popup option.
+1. When signing in, for the purposes of this how-to guide, choose the **Sign in using Popup** option.
 
 <!-- SCREENSHOT -->
 
@@ -231,19 +231,19 @@ All the required code snippets have been added, so the application can now be ca
 
 <!-- SCREENSHOT -->
 
-1. For Stay signed in, you can select either No or Yes.
+1. For Stay signed in, you can select either **Yes** or **No**.
 
 <!-- SCREENSHOT -->
 
-1. The app will now ask for permission to sign-in and access data. Select Accept to continue.
+1. The app will now ask for permission to sign-in and access data. Select **Accept** to continue.
 
 <!-- SCREENSHOT -->
 
-1. The SPA will now display a button saying Request Profile Information. Select it to display the Microsoft Graph profile data acquired from the Microsoft Graph API.
+1. The SPA will now display a button saying **Request Profile Information**. Select it to display the Microsoft Graph profile data acquired from the Microsoft Graph API.
 
 <!-- SCREENSHOT -->
 
-1. To sign out of the application, select the Sign Out button.
+1. To sign out of the application, select the **Sign Out** button.
 
 <!-- SCREENSHOT -->
 

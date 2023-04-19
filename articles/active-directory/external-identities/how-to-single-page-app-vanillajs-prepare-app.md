@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Prepare a Single-page application for authentication
 
-After registration is complete, a Vanilla JavaScript single-page application (SPA) can be created using an integrated development environment (IDE). This article describes how to create a single-page application (SPA) using `npm` and create a server file to host the application.
+After registration is complete, a vanilla JavaScript (JS) single-page application (SPA) can be created using an integrated development environment (IDE). This article describes how to create a single-page application (SPA) using `npm` and create a server file to host the application.
 
 In this article:
 
@@ -38,7 +38,7 @@ In this article:
 
 1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.
-1. Run the following command to create a new Vanilla JS project
+1. Run the following command to create a new vanilla JS project
 
     ```powershell
     npm init -y
@@ -54,8 +54,8 @@ In this article:
 
 **Express** is a web application framework for Node.js. It's used to create a server that hosts the application. **Morgan** is the middleware that logs HTTP requests to the console. The server file is used to configure the application and host it.
 
-1. Right-click the project folder and select **New File**. Name the file **server.js**.
-1. Add the following code snippet to the **server.js** file:
+1. Right-click the project folder and select **New File**. Name the file *server.js*.
+1. Add the following code snippet to the *server.js* file:
 
     ```javascript
     const express = require('express');

@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/13/2023
+ms.date: 04/19/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -119,7 +119,7 @@ In this article:
 
 ## Creating the redirection file
 
-1. Right-click the **public** folder and select **New File**. Name the file *authRedirect.js*.
+1. Right-click the *public* folder and select **New File**. Name the file *authRedirect.js*.
 1. Open *authConfig.js* and add the following code snippet:
 
     ```javascript

@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.date: 04/17/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js web app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample Vanilla JS SPA to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
 # Sign in users in a sample Vanilla JS SPA by using Microsoft Entra
@@ -27,14 +27,14 @@ In this article:
 > * Register a web application in the Microsoft Entra admin center.
 > * Create a sign in and sign out user flow in Microsoft Entra admin center.
 > * Associate your web application with the user flow.
-> * Update a sample Node.js web application using your own Azure Active Directory (Azure AD) for customers tenant details.
+> * Update a vanilla JavaScript SPA web application using your own Azure Active Directory (Azure AD) for customers tenant details.
 > * Run and test the sample web application.
 
 ## Prerequisites
 
 * Although any IDE that supports Vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 * [Node.js](https://nodejs.org/en/download/).
-* Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://developer.microsoft.com/identity/customers).
+* Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial).
 
 ## Register the SPA in the Microsoft Entra admin center
 
@@ -73,10 +73,11 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
 ## Install project dependencies
 
-1. Open a terminal window in the root directory of the sample project:
+1. Open a terminal window in the root directory of the sample project, and enter the following snippet to navigate to the project folder:
 
     ```powershell
         cd 1-Authentication\0-sign-in-vanillajs\App
+    ```
 
 1. Install the project dependencies:
 
@@ -84,7 +85,7 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
         npm install
     ```
 
-## Configure the sample web app
+## Configure the sample SPA
 
 1. Open the `config.js`.
 1. Replace the following values with the values from the Admin center.
@@ -100,7 +101,7 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
     ```powershell
         cd 1-Authentication\0-sign-in-vanillajs\App
-     ```
+    ```
 
 1. Run the sample web app:
 
@@ -112,18 +113,18 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
 All the required code snippets have been added, so the application can now be called and tested in a web browser.
 
-1. Open a new terminal by selecting Terminal > New Terminal.
+1. Open a new terminal by selecting **Terminal** > **New Terminal**.
 1. Run the following command to start your express web server.
 
     ```powershell
     npm start
     ```
 
-1. Open a web browser and navigate to the port specified in [Prepare a Single-page application for authentication](how-to-single-page-app-vanillajs-prepare-app.md). For example, <http://localhost:3000/>.
+1. Open a web browser and navigate to the port specified in [Prepare a Single-page application for authentication](how-to-single-page-app-vanillajs-prepare-app.md). For example, `http://localhost:3000/ `.
 
 <!-- SCREENSHOT -->
 
-1. Select the Sign In button. For the purposes of this tutorial, choose the Sign in using Popup option.
+1. When signing in, for the purposes of this how-to guide, choose the **Sign in using Popup** option..
 
 <!-- SCREENSHOT -->
 
@@ -135,7 +136,7 @@ All the required code snippets have been added, so the application can now be ca
 
 <!-- SCREENSHOT -->
 
-1. For Stay signed in, you can select either No or Yes.
+1. To stay signed in, you can select either Yes or No.
 
 <!-- SCREENSHOT -->
 
