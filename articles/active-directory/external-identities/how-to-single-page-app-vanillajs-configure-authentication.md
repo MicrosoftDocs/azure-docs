@@ -90,17 +90,7 @@ In this article:
     const loginRequest = {
         scopes: [],
     };
-        
-        /**
-         * An optional silentRequest object can be used to achieve silent SSO
-         * between applications by providing a "login_hint" property.
-         */
-        
-        // const silentRequest = {
-        //   scopes: ["openid", "profile"],
-        //   loginHint: "example@domain.net"
-        // };
-    
+            
     // exporting config object for jest
     if (typeof exports !== 'undefined') {
         module.exports = {
@@ -174,25 +164,6 @@ In this article:
             updateTable();
         } else {
             selectAccount();
-    
-            /**
-             * If you already have a session that exists with the authentication server, you can use the ssoSilent() API
-             * to make request for tokens without interaction, by providing a "login_hint" property. To try this, comment the 
-             * line above and uncomment the section below.
-             */
-    
-            // myMSALObj.ssoSilent(silentRequest).
-            //     then(() => {
-            //         const currentAccounts = myMSALObj.getAllAccounts();
-            //         username = currentAccounts[0].username;
-            //         welcomeUser(username);
-            //         updateTable();
-            //     }).catch(error => {
-            //         console.error("Silent Error: " + error);
-            //         if (error instanceof msal.InteractionRequiredAuthError) {
-            //             signIn();
-            //         }
-            //     });
         }
     }
     
