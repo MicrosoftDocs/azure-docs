@@ -2,8 +2,8 @@
 title: 'Quickstart: Create a lab in Azure DevTest Labs using Terraform'
 description: 'In this article, you create a Windows virtual machine in a lab within Azure DevTest Labs using Terraform'
 ms.topic: quickstart
-ms.date: 2/27/2023
-ms.custom: devx-track-terraform
+ms.date: 4/14/2023
+ms.custom: devx-track-terraform, ai-gen-docs
 author: TomArcherMsft
 ms.author: tarcher
 ---

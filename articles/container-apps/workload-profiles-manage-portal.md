@@ -72,6 +72,8 @@ The following regions support workload profiles during preview:
 
 1. In the *Select a workload profile size* window, select a profile from the list.
 
+    :::image type="content" source="media/workload-profiles/azure-container-apps-add-workload-profile-size.png" alt-text="Screenshot of the window to select a workload profile size.":::
+
     General purpose profiles offer a balanced mix cores vs memory for most applications.
   
     Memory optimized profiles offer specialized hardware with increased memory capabilities.

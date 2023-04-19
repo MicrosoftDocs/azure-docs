@@ -397,6 +397,8 @@
           href: how-to-prevent-data-loss-exfiltration.md
         - name: Configure network isolation with v2
           href: how-to-configure-network-isolation-with-v2.md
+        - name: Securely attach Azure Databricks
+          href: how-to-securely-attach-databricks.md
     # v1 for now - need PM update to v2
     - name: Data protection
       items:
@@ -592,6 +594,14 @@
         - name: Create data assets
           displayName: Create data assets
           href: how-to-create-data-assets.md
+        - name: Create data assets by importing data from external sources
+          items:
+            - name: Create connections to external data sources (preview)
+              displayName: Create connections to external data sources (preview)
+              href: how-to-connection.md
+            - name: Import data (preview)
+              displayName: Import data (preview)
+              href: how-to-import-data-assets.md
         - name: Access and explore your data
           items:
             - name: Access data during interactive development
@@ -600,12 +610,6 @@
             - name: Access data in jobs
               displayName: Access data in jobs
               href: how-to-read-write-data-v2.md
-            - name: Import data
-              displayName: Import data
-              href: how-to-import-data-assets.md
-            - name: Use connections
-              displayName: Use connections
-              href: how-to-connection.md
             - name: Working with Tables (mltable)
               displayName: Working with Tables (mltable)
               href: how-to-mltable.md
