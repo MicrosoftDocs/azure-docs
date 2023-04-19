@@ -112,7 +112,8 @@ To complete this article:
       "properties": {
         "accessPolicies": [],
         "enableRbacAuthorization": false,
-        "enableSoftDelete": false,
+        "enableSoftDelete": true,
+        "softDeleteRetentionInDays": "90",
         "enabledForDeployment": false,
         "enabledForDiskEncryption": false,
         "enabledForTemplateDeployment": false,
