@@ -176,7 +176,6 @@ The following sample polls the key `listTest` at a localhost Redis instance at `
 
 [C#](#tab/csharp)
 
-
 ```csharp
 [FunctionName(nameof(ListsTrigger))]
 public static void ListsTrigger(
@@ -189,7 +188,6 @@ public static void ListsTrigger(
 
 [Java](#tab/java)
 
-The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`
 
 ```java
 // TBD
@@ -250,7 +248,7 @@ All triggers return a [`RedisMessageModel`](./src/Models/RedisMessageModel.cs) o
 - `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
 - `Message`: The pubsub message, list element, or stream element.
 
-[C#](#tab/csharp)
+##### [C#](#tab/csharp)
 
 ```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.Redis
@@ -263,7 +261,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis
 }
 ```
 
-[Java](#tab/java)
+##### [Java](#tab/java)
 
 ```java
 // TBD
