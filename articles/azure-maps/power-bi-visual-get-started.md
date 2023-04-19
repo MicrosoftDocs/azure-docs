@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
-description: In this article, you'll learn how to use Azure Maps Power BI visual.
+description: This article, discusses how to use Azure Maps Power BI visual.
 author: eriklindeman
 ms.author: eriklind
 ms.date: 11/29/2021
@@ -31,13 +31,15 @@ The Azure Maps Power BI visual connects to cloud service hosted in Azure to retr
 - Data in the Location, Latitude, and Longitude buckets may be sent to Azure to retrieve map coordinates (a process called geocoding).
 - Telemetry data may be collected on the health of the visual (for example, crash reports), if the telemetry option in Power BI is enabled.
 
-Other than the scenarios described above, no other data overlaid on the map is sent to the Azure Maps servers. All rendering of data happens locally within the client.
+Other than the scenarios previously described, no other data overlaid on the map is sent to the Azure Maps servers. All rendering of data happens locally within the client.
 
-You, or your administrator, may need to update your firewall to allow access to the Azure Maps platform that uses the following URL.
+> [!TIP]
+> Your firewall may need updated to allow access to the Azure Maps platform using either or both of the following URLs:
+>
+> - `https://us.atlas.microsoft.com`
+> - `https://eu.atlas.microsoft.com`
 
-> `https://atlas.microsoft.com`
-
-To learn more, about privacy and terms of use related to the Azure Maps Power BI visual see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
+For more information about privacy and terms of use related to the Azure Maps Power BI visual, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
 ## Use the Azure Maps Power BI visual
 
@@ -45,13 +47,15 @@ Once the Azure Maps Power BI visual is enabled, select the **Azure Maps** icon f
 
 :::image type="content" source="media/power-bi-visual/azure-maps-in-visualizations-pane.png" alt-text="A screenshot the Azure Maps visual button on the Visualizations pane in of Power BI.":::
 
-Power BI creates an empty Azure Maps visual design canvas. While in preview, another disclaimer is displayed.
+Power BI creates an empty Azure Maps visual design canvas.
 
 :::image type="content" source="media/power-bi-visual/visual-initial-load.png" alt-text="A screenshot of Power BI desktop with the Azure Maps visual loaded in its initial state." lightbox="media/power-bi-visual/visual-initial-load.png":::
 
 Take the following steps to load the Azure Maps visual:
 
-1. In the **Fields** pane, drag data fields that contain latitude and longitude coordinate information into the **Latitude** and/or **Longitude** buckets. This is the minimal data needed to load the Azure Maps visual.
+1. Performing one of the two following actions in the **Fields** pane provides the minimal data needed to load the Azure Maps visual:
+    1. Drag data fields containing latitude and longitude coordinate information into the **Latitude** and/or **Longitude** buckets.
+    1. Drag data fields containing geospatial data to the **Location** bucket.
 
     :::image type="content" source="media/power-bi-visual/bubble-layer.png" alt-text="A screenshot of the Azure Maps visual displaying points as bubbles on the map after latitude and longitude fields are provided." lightbox="media/power-bi-visual/bubble-layer.png":::
 
@@ -64,9 +68,9 @@ Take the following steps to load the Azure Maps visual:
 
 3. To scale the data relatively, drag a measure into the **Size** bucket of the **Fields** pane. In this example, we're using **Sales** column.  
 
-    :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png" alt-text="A screenshot of the Azure Maps visual displaying points as colored and scaled bubbles on the map demonstrating the size field." lightbox="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png":::
+    :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png" alt-text="A screenshot of the Azure Maps visual displaying points as colored and scaled bubbles on the map that demonstrate the size field." lightbox="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png":::
 
-4. Use the options in the **Format** pane to customize how data is rendered. The following image is the same map as above, but with the bubble layers fill transparency option set to 50% and the high-contrast outline option enabled.  
+4. Use the options in the **Format** pane to customize how data is rendered. The following image is the same map as shown previously, but with the bubble layers fill transparency option set to 50% and the high-contrast outline option enabled.  
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-styled.png" alt-text="A screenshot of the Azure Maps visual displaying points as bubbles on the map with a custom style." lightbox="media/power-bi-visual/bubble-layer-styled.png":::
 
@@ -82,9 +86,10 @@ The following data buckets are available in the **Fields** pane of the Azure Map
 
 | Field     | Description  |
 |-----------|--------------|
+| Location  | Used to enter easily understandable geographical data such as country, state, and city.  |
 | Latitude  | The field used to specify the latitude value of the data points. Latitude values should be between -90 and 90 in decimal degrees format.  |
 | Longitude | The field used to specify the longitude value of the data points. Longitude values should be between -180 and 180 in decimal degrees format.  |
-| Legend    | The field used to categorize the data and assign a unique color for data points in each category. When this bucket is filled, a **Data colors** section will appear in the **Format** pane that allows adjustments to the colors. |
+| Legend    | The field used to categorize the data and assign a unique color for data points in each category. When this bucket is filled, a **Data colors** section appears in the **Format** pane that allows adjustments to the colors. |
 | Size      | The measure used for relative sizing of data points on the map.   |
 | Tooltips  | Other data fields to display in tooltips when shapes are hovered. |
 
@@ -109,7 +114,7 @@ The following settings available in the **View** section enable the user to spec
 
 | Setting          | Description   |
 |------------------|---------------|
-| Auto zoom        | Automatically zooms the map into the data loaded through the **Fields** pane of the visual. As the data changes, the map will update its position accordingly. When **Auto zoom** is set to **Off**, the remaining settings in this section become active that enable to user to define the default map view. |
+| Auto zoom        | Automatically zooms the map into the data loaded through the **Fields** pane of the visual. As the data changes, the map updates its position accordingly. When **Auto zoom** is set to **Off**, the remaining settings in this section become active that enable to user to define the default map view. |
 | Zoom             | The default zoom level of the map. Can be a number between 0 and 22. |
 | Center latitude  | The default latitude of the center of the map. |
 | Center longitude | The default longitude of the center of the map. |
@@ -161,7 +166,7 @@ This visual supports up to 30,000 data points.
 
 **Can addresses or other location strings be used in this visual?**
 
-The initial preview of this visual only supports latitude and longitude values in decimal degrees. A future update will add support for addresses and other location strings.
+Yes, addresses and other location strings can be used in the Azure Maps Power BI visual.
 
 ## Next steps
 
