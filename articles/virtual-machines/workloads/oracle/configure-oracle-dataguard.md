@@ -499,7 +499,7 @@ Start the listener:
 
 ### Restore the database to OracleVM2 (standby)
 
-      Create the parameter file <b>/tmp/initcdb1_stby.ora</b> with the following contents:
+Create the parameter file <b>/tmp/initcdb1_stby.ora</b> with the following contents:
 
 ```bash
 *.db_name='cdb1'
