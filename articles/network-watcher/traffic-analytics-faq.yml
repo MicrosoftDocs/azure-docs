@@ -45,7 +45,7 @@ sections:
                   
           To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.md):
           
-          If you aren't able to see the assignments, contact the respective subscription admin. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+          If you aren't able to see the role assignments, contact the respective subscription admin. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
           
       - question: |
           Can the network security groups I enable flow logs for be in different regions than my workspace?
@@ -114,7 +114,7 @@ sections:
       - question: |
           Can I configure traffic analytics using PowerShell?
         answer: |
-          You can configure traffic analytics using Windows PowerShell version 6.2.1 and higher. To configure flow logging and traffic analytics for a specific network security group using PowerShell the Set cmdlet, see [Enable Network Security Group Flow logs and Traffic Analytics](./network-watcher-nsg-flow-logging-powershell.md#enable-network-security-group-flow-logs-and-traffic-analytics).
+          You can configure traffic analytics using Windows PowerShell version 6.2.1 and higher. To configure flow logging and traffic analytics for a specific network security group using PowerShell the Set cmdlet, see [Enable network security group flow logs and traffic analytics](./network-watcher-nsg-flow-logging-powershell.md#enable-network-security-group-flow-logs-and-traffic-analytics).
                     
       - question: |
           Can I configure traffic analytics using an Azure Resource Manager template or client?
