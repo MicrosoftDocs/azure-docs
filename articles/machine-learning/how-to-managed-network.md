@@ -19,6 +19,8 @@ Azure Machine Learning provides preview support for managed network isolation. M
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+## Managed network architecture
+
 When you enable managed network isolation, a managed virtual network is created for the workspace. Managed compute resources (compute clusters and compute instances) for the workspace automatically use this managed virtual network. The managed virtual network can use private endpoints for Azure resources that are used by your workspace, such as Azure Storage, Azure Key Vault, and Azure Container Registry. 
 
 The following diagram shows a managed virtual network uses private endpoints to communicate with the storage, key vault, and container registry used by the workspace.
