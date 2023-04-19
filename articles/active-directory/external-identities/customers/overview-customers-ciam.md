@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: overview
-ms.date: 04/02/2023
+ms.date: 04/17/2023
 ms.author: mimart
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about identity solutions for customer-facing apps
 ---
 
-# What is Microsoft Entra External Identities for Customers?
+# What is Azure Active Directory for customers?
 
-Microsoft Entra External Identities for Customers is a seamless way to add secure, customized sign-in to your customer-facing apps. For businesses that want to provide their customers with apps for buying products, subscribing to services, or accessing their account data, Microsoft Entra offers robust customer identity and access management (CIAM). This built-in solution lets you easily integrate your apps and get all the security, reliability, and scalability benefits of Microsoft Entra.
+Azure Active Directory (Azure AD) for customers is a seamless way to add secure, customized sign-in to your customer-facing apps. For businesses that want to provide their customers with apps for buying products, subscribing to services, or accessing their account data, Microsoft Entra offers robust customer identity and access management (CIAM). This built-in solution lets you easily integrate your apps and get all the security, reliability, and scalability benefits of Microsoft Entra.
 
 :::image type="content" source="media/overview-customers-ciam/overview-diagram.png" alt-text="Diagram showing an overview customer identity and access management." border="false":::
 
@@ -46,23 +46,21 @@ Microsoft Entra External Identities for Customers is a seamless way to add secur
 > Customer identity and access management (CIAM) is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Technical overview of Microsoft Entra External Identities for Customers
+## Technical overview of Azure AD for customers
 
-Microsoft Entra External Identities for Customers represents the convergence of business-to-consumer (B2B) features into the Microsoft Entra platform. Microsoft Entra External Identities for Customers is specifically intended for businesses that want to make applications available to their customers, using the Microsoft Entra platform for identity and access. 
+Azure AD for customers represents the convergence of business-to-consumer (B2B) features into the Microsoft Entra platform. This solution is specifically intended for businesses that want to make applications available to their customers, while using the Microsoft Entra platform for identity and access.
 
 ### Microsoft Entra workforce and customer tenants
 
-With the introduction of Microsoft Entra External Identities for Customers, Microsoft Entra now offers two different types of tenants that you can create and manage:
+With the introduction of Azure AD for customers, Microsoft Entra now offers two different types of tenants that you can create and manage:
 
 - A **workforce tenant** contains your employees and the apps and resources that are internal to your organization. If you've worked with Azure Active Directory, this is the type of tenant you're already familiar with. You might already have an existing workforce tenant for your organization. 
 
 - A **customer tenant** represents your customer-facing app, resources, and directory of customer accounts. A customer tenant is distinct and separate from your workforce tenant.
 
-Because Microsoft Entra External Identities for Customers is built on the underlying Microsoft Entra platform, there are some feature differences.
-
 ### Components of a customer tenant
 
-A customer tenant is the first resource you need to create to get started with Microsoft Entra External Identities for Customers. To establish a CIAM solution for a customer-facing app or service, you create a new customer tenant. A customer tenant contains:
+A customer tenant is the first resource you need to create to get started with Azure AD for customers. To establish a CIAM solution for a customer-facing app or service, you create a new customer tenant. A customer tenant contains:
 
 - **A directory**: The directory stores your users' credentials and profile data. When a user signs up for your app, a local account is created for the user in your customer tenant.
 
