@@ -235,7 +235,7 @@ items:
     - name: Java
       href: https://github.com/Azure/azure-iot-sdk-java#samples
     - name: Python
-      href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
+      href: https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples
     - name: iOS Platform
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Terraform modules
