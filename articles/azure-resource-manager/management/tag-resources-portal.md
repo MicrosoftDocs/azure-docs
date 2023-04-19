@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions with Azure portal
 description: Shows how to use Azure portal to apply tags to Azure resources.
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 04/19/2023
 ---
 
 # Apply tags with Azure portal

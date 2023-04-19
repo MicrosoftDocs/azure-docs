@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions with Azure PowerShell
 description: Shows how to use Azure PowerShell to apply tags to Azure resources.
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 04/19/2023
 ---
 
 # Apply tags with Azure PowerShell
@@ -37,6 +37,7 @@ If you run the command again, but this time with different tags, notice that the
 
 ```azurepowershell-interactive
 $tags = @{"Team"="Compliance"; "Environment"="Production"}
+$resource = Get-AzResource -Name demostorage -ResourceGroup demoGroup
 New-AzTag -ResourceId $resource.id -Tag $tags
 ```
 
@@ -52,6 +53,7 @@ To add tags to a resource that already has tags, use `Update-AzTag`. Set the `-O
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
+$resource = Get-AzResource -Name demostorage -ResourceGroup demoGroup
 Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Merge
 ```
 
@@ -71,6 +73,7 @@ Each tag name can have only one value. If you provide a new value for a tag, it 
 
 ```azurepowershell-interactive
 $tags = @{"Status"="Green"}
+$resource = Get-AzResource -Name demostorage -ResourceGroup demoGroup
 Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Merge
 ```
 
@@ -88,6 +91,7 @@ When you set the `-Operation` parameter to `Replace`, the new set of tags replac
 
 ```azurepowershell-interactive
 $tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
+$resource = Get-AzResource -Name demostorage -ResourceGroup demoGroup
 Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Replace
 ```
 
@@ -194,6 +198,7 @@ To remove specific tags, use `Update-AzTag` and set `-Operation` to `Delete`. Pa
 
 ```azurepowershell-interactive
 $removeTags = @{"Project"="ECommerce"; "Team"="Web"}
+$resource = Get-AzResource -Name demostorage -ResourceGroup demoGroup
 Update-AzTag -ResourceId $resource.id -Tag $removeTags -Operation Delete
 ```
 

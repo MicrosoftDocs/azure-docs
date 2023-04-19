@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Describes the conditions and limitations for using tags with Azure resources.
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 04/19/2023
 ---
 
 # Use tags to organize your Azure resources and management hierarchy
