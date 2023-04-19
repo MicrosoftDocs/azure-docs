@@ -13,7 +13,7 @@
   - name: How Traffic Controller works
     href: concepts-how-traffic-controller-works.md
   - name: Diagnostic Logs
-    href: diagnostics.yml
+    href: diagnostics.md
   - name: Frequently Asked Questions (FAQ)
     href: faq.yml
 - name: How-to guides
