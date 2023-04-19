@@ -1,6 +1,6 @@
 ---
-title: Bind Azure Cache for Redis to your application in Azure Spring Apps
-description: Learn how to bind Azure Cache for Redis to your application in Azure Spring Apps
+title: Connect Azure Cache for Redis to your application in Azure Spring Apps
+description: Learn how to connect Azure Cache for Redis to your application in Azure Spring Apps
 author: karlerickson
 ms.service: spring-apps
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.author: karler
 ms.custom: devx-track-java, event-tier1-build-2022, service-connector
 ---
 
-# Bind Azure Cache for Redis to your application in Azure Spring Apps
+# Connect Azure Cache for Redis to your application in Azure Spring Apps
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -18,7 +18,7 @@ ms.custom: devx-track-java, event-tier1-build-2022, service-connector
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-Instead of manually configuring your Spring Boot applications, you can automatically bind select Azure services to your applications by using Azure Spring Apps. This article shows how to bind your application to Azure Cache for Redis.
+Instead of manually configuring your Spring Boot applications, you can automatically connect select Azure services to your applications by using Azure Spring Apps. This article shows how to connect your application to Azure Cache for Redis.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 1. Update the current deployment using `az spring app update` or create a new deployment using `az spring app deployment create`.
 
-## Bind your app to the Azure Cache for Redis
+## Connect your app to the Azure Cache for Redis
 
 ### [Service Connector](#tab/Service-Connector)
 
@@ -159,4 +159,4 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
 
 ## Next steps
 
-In this article, you learned how to bind your application in Azure Spring Apps to Azure Cache for Redis. To learn more about binding services to your application, see [Bind to an Azure Database for MySQL instance](./how-to-bind-mysql.md).
+In this article, you learned how to connect your application in Azure Spring Apps to Azure Cache for Redis. To learn more about connecting services to your application, see [Connect to an Azure Database for MySQL instance](./how-to-connect-mysql.md).
