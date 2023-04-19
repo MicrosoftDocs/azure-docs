@@ -16,9 +16,6 @@ ms.date: 04/03/2023
 
 Change data capture (CDC) in [Azure Cosmos DB analytical store](analytical-store-introduction.md) allows you to efficiently consume a continuous and incremental feed of changed (inserted, updated, and deleted) data from analytical store. The change data capture feature of the analytical store is seamlessly integrated with Azure Synapse and Azure Data Factory, providing you with a scalable no-code experience for high data volume. As the change data capture feature is based on analytical store, it [doesn't consume provisioned RUs, doesn't affect your transactional workloads](analytical-store-introduction.md#decoupled-performance-for-analytical-workloads), provides lower latency, and has lower TCO.
 
-> [!IMPORTANT]
-> This feature is currently in preview.
-
 The change data capture feature in Azure Cosmos DB analytical store can write to various sinks using an Azure Synapse or Azure Data Factory data flow.
 
 :::image type="content" source="media\analytical-store-change-data-capture\overview-diagram.svg" alt-text="Diagram of the analytical store in Azure Cosmos DB and how it, with change data capture, can write to various first and third-party target services.":::
@@ -36,7 +33,7 @@ In addition to providing incremental data feed from analytical store to diverse 
 - Multiple change feeds on the same container can be consumed simultaneously
 
 > [!IMPORTANT]
-> Please note that "from the beginning" means that all data and all transactions since the container creation are availble for CDC, including deletes and updates. To ingest and process deletes and updates, you have to use specific settings in your CDC processes in Azure Synapse or Azure Data Factory. For more information, click [here](get-started-change-data-capture.md)
+> Please note that "from the beginning" means that all data and all transactions since the container creation are availble for CDC, including deletes and updates. To ingest and process deletes and updates, you have to use specific settings in your CDC processes in Azure Synapse or Azure Data Factory. These settings are turned off by default. For more information, click [here](get-started-change-data-capture.md)
 
 ## Features
 
