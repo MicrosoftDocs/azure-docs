@@ -10,6 +10,14 @@ ms.reviewer: mmcc
 
 # Get Started (Supplemental)
 
+## Azure App Service
+
+For more information, see [Application monitoring for Azure App Service and Java](./azure-web-apps-java.md).
+
+## Azure Functions
+
+For more information, see [Monitoring Azure Functions with Azure Monitor Application Insights](./monitor-functions.md#distributed-tracing-for-java-applications-preview).
+
 ## Containers
 
 ### Docker entry point
@@ -49,15 +57,6 @@ ENTRYPOINT["java", "-javaagent:applicationinsights-agent-3.4.11.jar", "-jar", "a
 
 If you're using a third-party container image that you can't modify, mount the Application Insights Java agent jar into the container from outside. Set the environment variable for the container
 `JAVA_TOOL_OPTIONS=-javaagent:/path/to/applicationinsights-agent.jar`.
-
-
-## Azure App Service
-
-For more information, see [Application monitoring for Azure App Service and Java](./azure-web-apps-java.md).
-
-## Azure Functions
-
-For more information, see [Monitoring Azure Functions with Azure Monitor Application Insights](./monitor-functions.md#distributed-tracing-for-java-applications-preview).
 
 ## Spring Boot
 
