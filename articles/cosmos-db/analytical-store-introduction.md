@@ -21,7 +21,7 @@ Azure Cosmos DB transactional store is schema-agnostic, and it allows you to ite
 
 The multi-model operational data in an Azure Cosmos DB container is internally stored in an indexed row-based "transactional store". Row store format is designed to allow fast transactional reads and writes in the order-of-milliseconds response times, and operational queries. If your dataset grows large, complex analytical queries can be expensive in terms of provisioned throughput on the data stored in this format. High consumption of provisioned throughput in turn, impacts the performance of transactional workloads that are used by your real-time applications and services.
 
-Traditionally, to analyze large amounts of data, operational data is extracted from Azure Cosmos DB's transactional store and stored in a separate data layer. For example, the data is stored in a data warehouse or data lake in a suitable format. This data is later used for large-scale analytics and analyzed using  compute engine such as the Apache Spark clusters. This separation of analytical storage and compute layers from operational data results in additional latency, because the ETL(Extract, Transform, Load) pipelines are run less frequently to minimize the potential impact on your transactional workloads.
+Traditionally, to analyze large amounts of data, operational data is extracted from Azure Cosmos DB's transactional store and stored in a separate data layer. For example, the data is stored in a data warehouse or data lake in a suitable format. This data is later used for large-scale analytics and analyzed using  compute engines such as the Apache Spark clusters. The separation of analytical from operational data results in delays for analysts that want to use the most recent data.
 
 The ETL pipelines also become complex when handling updates to the operational data when compared to handling only newly ingested operational data. 
 
@@ -57,7 +57,7 @@ There's no impact on the performance of your transactional workloads due to anal
 
 ## Auto-Sync
 
-Auto-Sync refers to the fully managed capability of Azure Cosmos DB where the inserts, updates, deletes to operational data are automatically synced from transactional store to analytical store in near real time. Auto-sync latency is usually within 2 minutes. In cases of shared throughput database with a large number of containers, auto-sync latency of individual containers could be higher and take up to 5 minutes. We would like to learn more how this latency fits your scenarios. For that, please reach out to the [Azure Cosmos DB Team](mailto:cosmosdbsynapselink@microsoft.com).
+Auto-Sync refers to the fully managed capability of Azure Cosmos DB where the inserts, updates, deletes to operational data are automatically synced from transactional store to analytical store in near real time. Auto-sync latency is usually within 2 minutes. In cases of shared throughput database with a large number of containers, auto-sync latency of individual containers could be higher and take up to 5 minutes.
 
 At the end of each execution of the automatic sync process, your transactional data will be immediately available for Azure Synapse Analytics runtimes:
 
@@ -100,9 +100,9 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 
 * Sample scenarios:
-  * If your document's first level has 2000 properties, only the first 1000 will be represented.
-  * If your documents have five levels with 200 properties in each one, all properties will be represented.
-  * If your documents have 10 levels with 400 properties in each one, only the two first levels will be fully represented in analytical store. Half of the third level will also be represented.
+  * If your document's first level has 2000 properties, the sync process will represent the first 1000 of them.
+  * If your documents have five levels with 200 properties in each one, the sync process will represent all properties.
+  * If your documents have 10 levels with 400 properties in each one, the sync process will fully represent the two first levels and only half of the third level.
 
 * The hypothetical document below contains four properties and three levels.
   * The levels are `root`, `myArray`, and the nested structure within the `myArray`.
@@ -207,18 +207,18 @@ df = spark.read\
   * MinKey/MaxKey 
 
 * When using DateTime strings that follow the ISO 8601 UTC standard, expect the following behavior:
-  * Spark pools in Azure Synapse will represent these columns as `string`.
-  * SQL serverless pools in Azure Synapse will represent these columns as `varchar(8000)`.
+  * Spark pools in Azure Synapse represents these columns as `string`.
+  * SQL serverless pools in Azure Synapse represents these columns as `varchar(8000)`.
 
 * Properties with `UNIQUEIDENTIFIER (guid)` types are represented as `string` in analytical store and should be converted to `VARCHAR` in **SQL** or to `string` in **Spark** for correct visualization.
 
-* SQL serverless pools in Azure Synapse support result sets with up to 1000 columns, and exposing nested columns also counts towards that limit. Please consider this information when designing your data architecture and modeling your transactional data.
+* SQL serverless pools in Azure Synapse support result sets with up to 1000 columns, and exposing nested columns also counts towards that limit. It is a good practice to consider this information in your transactional data architecture and modeling.
 
 * If you rename a property, in one or many documents, it will be considered a new column. If you execute the same rename in all documents in the collection, all data will be migrated to the new column and the old column will be represented with `NULL` values.
 
 ### Schema representation
 
-There are two types of schema representation in the analytical store. These types define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
+There are two methods of schema representation in the analytical store, valid for all containers in the database account. They have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
 
 * Well-defined schema representation, default option for API for NoSQL and Gremlin accounts. 
 * Full fidelity schema representation, default option for API for MongoDB accounts.
@@ -260,16 +260,16 @@ WITH (num varchar(100)) AS [IntToFloat]
 > If the Azure Cosmos DB analytical store follows the well-defined schema representation and the specification above is violated by certain items, those items won't be included in the analytical store.
 
 * Expect different behavior in regard to different types in well-defined schema:
-  * Spark pools in Azure Synapse will represent these values as `undefined`.
-  * SQL serverless pools in Azure Synapse will represent these values as `NULL`.
+  * Spark pools in Azure Synapse represents these values as `undefined`.
+  * SQL serverless pools in Azure Synapse represents these values as `NULL`.
 
 * Expect different behavior in regard to explicit `NULL` values:
-  * Spark pools in Azure Synapse will read these values as `0` (zero). And it will change to `undefined` as soon as the column has a non-null value.
-  * SQL serverless pools in Azure Synapse will read these values as `NULL`.
+  * Spark pools in Azure Synapse reads these values as `0` (zero), and as `undefined` as soon as the column has a non-null value.
+  * SQL serverless pools in Azure Synapse reads these values as `NULL`.
     
 * Expect different behavior in regard to missing columns:
-  * Spark pools in Azure Synapse will represent these columns as `undefined`.
-  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
+  * Spark pools in Azure Synapse represents these columns as `undefined`.
+  * SQL serverless pools in Azure Synapse represents these columns as `NULL`.
 
 ##### Representation challenges workarounds
 
