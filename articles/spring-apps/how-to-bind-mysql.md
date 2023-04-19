@@ -51,7 +51,7 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 
 Follow these steps to configure your Spring app to connect to an Azure Database for MySQL Flexible Server with database username and password.
 
-1. Run the `az spring connection create` command, as shown in the following example. Please replace the variables in the example with your actual resource names.
+1. Run the `az spring connection create` command, as shown in the following example. Please replace the variables in the example with actual values.
 
    ```azurecli
    az spring connection create mysql-flexible \
