@@ -175,6 +175,17 @@ The table below contains all of the unicode characters Azure File Sync does not 
 
 Sync sessions might fail for various reasons including the server being restarted or updated, VSS snapshots, etc. Although this error looks like it requires follow-up, it's safe to ignore this error unless it persists over a period of several hours.
 
+<a id="-2134375780"></a>**The file sync session was cancelled by the volume snapshot sync session that runs once a day to sync files with open handles.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c8029c |
+| **HRESULT (decimal)** | -2134375780 |
+| **Error string** | ECS_E_SYNC_CANCELLED_BY_VSS |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for more than a day, create a support request.
+
 <a id="-2147012889"></a>**A connection with the service could not be established.**
 
 | Error | Code |
@@ -203,6 +214,13 @@ Sync sessions might fail for various reasons including the server being restarte
 | **HRESULT** | 0xc00000c4 |
 | **HRESULT (decimal)** | -1073741628 |
 | **Error string** | UNEXPECTED_NETWORK_ERROR |
+| **Remediation required** | Yes |
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80072ee2 |
+| **HRESULT (decimal)** | -2147012894 |
+| **Error string** | WININET_E_TIMEOUT |
 | **Remediation required** | Yes |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
@@ -533,20 +551,6 @@ This error can happen if your organization is using a TLS terminating proxy or i
 
 By setting this registry value, the Azure File Sync agent will accept any locally trusted TLS/SSL certificate when transferring data between the server and the cloud service.
 
-<a id="-2147012894"></a>**A connection with the service could not be established.**  
-
-| Error | Code |
-|-|-|
-| **HRESULT** | 0x80072ee2 |
-| **HRESULT (decimal)** | -2147012894 |
-| **Error string** | WININET_E_TIMEOUT |
-| **Remediation required** | Yes |
-
-[!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
-
-> [!Note]  
-> Once network connectivity to the Azure File Sync service is restored, sync might not resume immediately. By default, Azure File Sync will initiate a sync session every 30 minutes if no changes are detected within the server endpoint location. To force a sync session, restart the Storage Sync Agent (FileSyncSvc) service, or make a change to a file or directory within the server endpoint location.
-
 <a id="-2147012721"></a>**Sync failed because the server was unable to decode the response from the Azure File Sync service**  
 
 | Error | Code |
@@ -632,7 +636,9 @@ This error occurs because the server endpoint deletion failed and the endpoint i
 | **Error string** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
 | **Remediation required** | Yes |
 
-Sync sessions fail with one of these errors because either the volume has insufficient disk space or disk quota limit is reached. This error commonly occurs because files outside the server endpoint are using up space on the volume. Free up space on the volume by adding additional server endpoints, moving files to a different volume, or increasing the size of the volume the server endpoint is on. If a disk quota is configured on the volume using [File Server Resource Manager](/windows-server/storage/fsrm/fsrm-overview) or [NTFS quota](/windows-server/administration/windows-commands/fsutil-quota), increase the quota limit.
+Sync sessions fail with one of these errors because either the volume has insufficient disk space or disk quota limit is reached. This error commonly occurs because files outside the server endpoint are using up space on the volume. Check the available disk space on the server. You can free up space on the volume by adding additional server endpoints, moving files to a different volume, or increasing the size of the volume the server endpoint is on. If a disk quota is configured on the volume using [File Server Resource Manager](/windows-server/storage/fsrm/fsrm-overview) or [NTFS quota](/windows-server/administration/windows-commands/fsutil-quota), increase the quota limit.
+
+If cloud tiering is enabled for the server endpoint, verify the files are syncing to the Azure file share to avoid running out of disk space.
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**The service isn't yet ready to sync with this server endpoint.**  
 
@@ -1225,6 +1231,61 @@ Check if the Azure file share exists in the storage account.
 | **Remediation required** | No |
 
 No action required. This error should automatically resolve. If the error persists for several days, create a support request.
+
+<a id="-2134347516"></a>**The volume is offline. Either it is removed, not ready or not connected.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c87104 |
+| **HRESULT (decimal)** | -2134347516 |
+| **Error string** | ECS_E_VOLUME_OFFLINE |
+| **Remediation required** | Yes |
+
+Please verify the volume where the server endpoint is located is attached to the server.
+
+<a id="-2134364007"></a>**Private endpoint configuration access blocked.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83099 |
+| **HRESULT (decimal)** | -2134364007 |
+| **Error string** | ECS_E_PRIVATE_ENDPOINT_ACCESS_BLOCKED |
+| **Remediation required** | Yes |
+
+Check the private endpoint configuration and allow access to the file sync service. [Learn more](file-sync-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
+
+<a id="-2134375864"></a>**Sync needs to reconcile the server and Azure file share data before files can be uploaded.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80248 |
+| **HRESULT (decimal)** | -2134375864 |
+| **Error string** | ECS_E_REPLICA_RECONCILIATION_NEEDED |
+| **Remediation required** | No |
+
+No action required. This error should automatically resolve. If the error persists for several days, create a support request.
+
+<a id="0x4c3"></a>**Multiple connections to a server or shared resource by the same user, using more than one user name, are not allowed.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x4c3 |
+| **HRESULT (decimal)** | N/A |
+| **Error string** | ERROR_SESSION_CREDENTIAL_CONFLICT |
+| **Remediation required** | Yes |
+
+Disconnect all previous connections to the server or shared resource and try again.
+
+<a id="-2134376368"></a>**The server's SSL certificate is invalid or expired.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80050 |
+| **HRESULT (decimal)** | -2134376368 |
+| **Error string** | ECS_E_SERVER_INVALID_OR_EXPIRED_CERTIFICATE |
+| **Remediation required** | Yes |
+
+Run the following PowerShell command on the server to reset the certificate: `Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>`
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
