@@ -33,7 +33,7 @@ There are three triggers supported in Azure Cache for Redis:
 |Streams | Yes  | Yes  |  Yes  |
 
 > [!IMPORTANT]
-> The Pub/Sub trigger is not supported with consumption functions.
+> Redis triggers are not currently supported on consumption functions.
 >
 
 ## Triggering on keyspace notifications
