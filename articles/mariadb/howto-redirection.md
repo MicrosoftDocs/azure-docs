@@ -49,7 +49,7 @@ If you're using an older version of the mysqlnd_azure extension (version 1.0.0-1
 |`on` or `1`|- If the connection doesn't use SSL on the driver side, no connection is made. The following error is returned: *"mysqlnd_azure.enableRedirect is on, but SSL option isn't set in connection string. Redirection is only possible with SSL."*<br>- If SSL is used on the driver side, but redirection isn't supported on the server, the first connection gets aborted. The following error is returned: *"Connection aborted because redirection isn't enabled on the MariaDB server or the network package doesn't meet redirection protocol."*<br>- If the MariaDB server supports redirection, but the redirected connection failed for any reason, also abort the first proxy connection. Return the error of the redirected connection.|
 |`preferred` or `2`<br> (default value)|- mysqlnd_azure uses redirection if possible.<br>- If the connection doesn't use SSL on the driver side, the server doesn't support redirection, or the redirected connection fails to connect for any nonfatal reason while the proxy connection is still a valid one, it falls back to the first proxy connection.|
 
-The subsequent sections of the document outlines how to install the `mysqlnd_azure` extension using PECL and set the value of this parameter.
+The subsequent sections of the document outline how to install the `mysqlnd_azure` extension using PECL and set the value of this parameter.
 
 ### [Ubuntu Linux](#tab/linux)
 
