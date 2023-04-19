@@ -63,7 +63,7 @@ Based on the sensors that customers use and their respective sensor partner’s 
 
 Customers who choose to onboard to a specific partner will know the app ID of that specific partner. Now using the app ID customer will need to do the following things in sequence.
 
-1. **Consent** – Since the partner’s app resides in a different tenant and the customer wants the partner to access certain APIs in their Data Manager for Agriculture instance, the customers are required to call a specific endpoint (https://login.microsoft.com/common/adminconsent/clientId=[client_id]) and replace the [client_id] with the partners’ app ID. This enables the customers’ Azure Active Directory to recognize this APP ID whenever they use it for role assignment.
+1. **Consent** – Since the partner’s app resides in a different tenant and the customer wants the partner to access certain APIs in their Data Manager for Agriculture instance, the customers are required to call a specific endpoint `https://login.microsoft.com/common/adminconsent/clientId=[client_id]` and replace the [client_id] with the partners’ app ID. This enables the customers’ Azure Active Directory to recognize this APP ID whenever they use it for role assignment.
 
 2. **Identity Access Management (IAM)** – As part of Identity access management, customers will create a new role assignment to the above app ID which was provided consent. Data Manager for Agriculture will create a new role called Sensor Partner (In addition to the existing Admin, Contributor, Reader roles). Customers will choose the sensor partner role and add the partner app ID and provide access.
 
