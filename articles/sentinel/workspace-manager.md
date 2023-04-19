@@ -21,9 +21,9 @@ Here are the active content types supported with Workspace Manager:
 
 ## Prerequisites
 
-- A central Microsoft Sentinel Workspace and at least one member Microsoft Sentinel Workspace to be managed.
-- The Microsoft Sentinel Contributor role assignment is required on the central workspace (where Workspace Manager is enabled on), and on the member workspace(s) the user needs to manage. Learn more about roles in Microsoft Sentinel.
-- Enable Azure Lighthouse if you're' managing workspaces across multiple Azure AD tenants.
+- At least two Microsoft Sentinel workspaces. One to be the manager and at least one member to be managed.
+- The [Microsoft Sentinel Contributor role assignment](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) is required on the central workspace (where Workspace Manager is enabled on), and on the member workspace(s) the user needs to manage. To learn more about roles in Microsoft Sentinel, see [Roles and permissions in Microsoft Sentinel](roles.md).
+- Enable Azure Lighthouse if you're' managing workspaces across multiple Azure AD tenants. To learn more, see [Manage Microsoft Sentinel workspaces at scale](/azure/lighthouse/how-to/manage-sentinel-workspaces).
 
 
 ## Considerations
@@ -63,13 +63,16 @@ Groups allow you to organize workspaces together based on business groups, verti
 
 1. To create a Group, click **Add** and **Group** or select Workspaces and click **Group from selected**.
     :::image type="content" source="media/workspace-manager/add-group.png" alt-text="Screenshot shows the add group menu.":::
+
 1. In the **Create or update group** wizard, define a **Name** for the Group and optionally provide a Description as well.
     :::image type="content" source="media/workspace-manager/add-group-name.png" alt-text="Screenshot shows the group create or update configuration page.":::
+
 1. In the **Select workspaces** tab, click **Add** and select the member workspaces that you would like to add to the Group.
 1. In the **Select content** tab, you will have 2 ways to add content items.
-- Method 1: **Snapshot of all content** currently deployed in the central workspace. This point-in-time snapshot selects only active content, not templates.
-- Method 2: **Custom select** which content items should be added. 
+    - Method 1: **Snapshot of all content** currently deployed in the central workspace. This point-in-time snapshot selects only active content, not templates.
+    - Method 2: **Custom select** which content items should be added. 
     :::image type="content" source="media/workspace-manager/add-group-content.png" alt-text="Screenshot shows the group content selection.":::
+
 1. Once successfully created, the **Group count** increases and your Groups are reflected in the **Groups tab**.
 
 ## Publish the Group definition
@@ -81,8 +84,10 @@ At this point, the content items selected haven't been published to the member w
 
     To bulk Publish, multi-select the desired Groups and click on Publish.
     :::image type="content" source="media/workspace-manager/publish-groups.png" alt-text="Screenshot shows the multi-select group publishing window.":::
+
 1. The **Last publish status** column updates to reflect **In progress**.
     :::image type="content" source="media/workspace-manager/publish-groups-inprogress.png" alt-text="Screenshot shows the multi group publishing progress column.":::
+
 1. If successful, the **Last publish status** updates to reflect **Succeeded**. The selected content items now exist in the member workspaces.
     :::image type="content" source="media/workspace-manager/publish-groups-success.png" alt-text="Screenshot shows the last published column with entries that succeeded.":::
 
