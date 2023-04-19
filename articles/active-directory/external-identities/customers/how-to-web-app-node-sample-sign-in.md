@@ -70,7 +70,7 @@ To get the web app sample code, you can do either of the following tasks:
 
 - [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) or clone the sample web application from GitHub by running the following command:
 
-    ```powershell
+    ```console
         git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
     ```
 If you choose to download the `.zip` file, extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
@@ -79,12 +79,12 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
 1. Open a console window, and change to the directory that contains the Node.js sample app:
 
-    ```powershell
+    ```console
         cd 1-Authentication\5-sign-in-express\App
     ```
 1. Run the following commands to install app dependencies:
 
-    ```powershell
+    ```console
         npm install && npm update
     ```
 
@@ -106,7 +106,7 @@ You can now test the sample Node.js web app. You need to start the Node.js serve
 
 1. In your terminal, run the following command:
 
-    ```powershell
+    ```console
         npm start 
     ```
 

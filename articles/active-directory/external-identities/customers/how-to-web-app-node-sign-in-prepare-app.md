@@ -52,16 +52,8 @@ Create a folder to host your node application, such as `ciam-sign-in-node-expres
 
 In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express-session`, `hbs`, `http-errors`, `morgan` and `@azure/msal-node` packages by running the following commands:
 
-```powershell
-    npm install express
-    npm install dotenv
-    npm install hbs
-    npm install express-session
-    npm install @azure/msal-node
-    npm install axios
-    npm install cookie-parser
-    npm install http-errors
-    npm install morgan 
+```console
+    npm install express dotenv hbs express-session axios cookie-parser http-errors @azure/msal-node   
 ```
 
 ## Build app UI components
