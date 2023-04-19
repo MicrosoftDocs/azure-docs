@@ -56,9 +56,6 @@ The following release notes are for version 16.0.0.0 of the Azure File Sync agen
 	- Azure File Sync is now a zone-redundant service which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or Geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see: [Azure Storage redundancy](../common/storage-redundancy.md).
 	> [!Note]
 	> Azure File Sync is zone-redundant in all regions that [support zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support) except US Gov Virginia.
-
-- Sync upload performance improvements
-	- Sync upload performance has been improved. This improvement will mainly benefit file share migrations (initial upload) and high churn events on the server in which a large number of files need to be uploaded. 
  
 - Immediately run server change enumeration to detect files changes that were missed on the server
 	- Azure File Sync uses the [Windows USN journal](/windows/win32/fileio/change-journals) feature on Windows Server to immediately detect files that were changed and upload them to the Azure file share. If files changed are missed due to journal wrap or other issues, the files will not sync to the Azure file share until the changes are detected. Azure File Sync has a server change enumeration job that runs every 24 hours on the server endpoint path to detect changes that were missed by the USN journal. If you don't want to wait until the next server change enumeration job runs, you can now use the Invoke-StorageSyncServerChangeDetection PowerShell cmdlet to immediately run server change enumeration on a server endpoint path.
@@ -70,6 +67,8 @@ The following release notes are for version 16.0.0.0 of the Azure File Sync agen
 		```
 	> [!Note]
 	> By default, the server change enumeration scan will only check the modified timestamp. To perform a deeper check, use the -DeepScan parameter.
+
+- Bug fix for the PowerShell script FileSyncErrorsReport.ps1
 
 - Miscellaneous reliability and telemetry improvements for cloud tiering and sync
 

@@ -73,6 +73,8 @@ After the Managed (Automatic) Spark compute resource tear-down happens, submissi
 > - the *Cold start* will need about ten to fifteen minutes.
 > - the *Warm start*, using same conda package, will need about one minute.
 > - the *Warm start*, with a different conda package, will also need about ten to fifteen minutes.
+> - If the package that you're installing is large or takes a long time to install, it might affect the Spark instance's startup time.
+> - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
 
 ## Attached Synapse Spark pool
 

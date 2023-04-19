@@ -29,7 +29,7 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 ::: zone pivot="sc-enterprise"
 
 - An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
-- [Azure CLI version 2.30.0 or higher](/cli/azure/install-azure-cli).
+- [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-app-user-identity-extension](includes/install-app-user-identity-extension.md)]
 
 ::: zone-end
@@ -37,7 +37,7 @@ If you're unfamiliar with managed identities for Azure resources, see the [Manag
 ::: zone pivot="sc-standard"
 
 - An already provisioned Azure Spring Apps instance. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
-- [Azure CLI version 2.30.0 or higher](/cli/azure/install-azure-cli).
+- [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli).
 - [!INCLUDE [install-app-user-identity-extension](includes/install-app-user-identity-extension.md)]
 
 ::: zone-end
