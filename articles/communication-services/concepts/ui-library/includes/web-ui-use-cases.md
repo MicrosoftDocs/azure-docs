@@ -43,6 +43,10 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 | ------------ | ------------------------------------------------ |
 | Chat types   | Join a Microsoft Teams meeting chat                        |
 |              | Join an Azure Communication Services chat thread |
+| Teams interoperability  | Send and receive chat messages                                               |
+|  | Send typing indicators                                            |
+|                     | Receive rich text messages              |
+|                     | Receive inline images*              |
 | Chat actions | Send a chat message                                |
 |              | Receive a chat message                             |
 | Chat events  | Show typing indicators                                |
@@ -50,6 +54,12 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 |              | Show when a participant is added or removed                        |
 |              | Show changes to the chat title                               |
 | Participants | Show a participant roster                               |
+
+*Inline images are images that are copied and pasted directly into the send box of Teams client. For images that were uploaded via "Upload from this device" menu or via drag-and-drop (such as dragging images directly to the send box) in the Teams, they are not supported at this moment. To copy an image, the Teams user can either use their operating system's context menu to copy the image file then paste it into the send box of their Teams client, or use keyboard shortcuts instead. To learn more about this, please refer to the storybook page for [Teams Inline Image](https://azure.github.io/communication-ui-library/?path=/docs/examples-teamsinterop-inlineimage--inline-image#inline-images)
+
+*Certain GIF encodings may not be supported by the UI library at this time, the user might receive a static image instead and this is a known issue. 
+
+*Inline image support is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Supported identities
 
