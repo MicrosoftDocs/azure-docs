@@ -72,7 +72,7 @@ Use this method for automated deployment of the Confluence Audit data connector 
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-confluenceauditapi-azuredeploy)
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 > **NOTE:** Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group.
-3. Enter the **ConfluenceAccessToken**, **ConfluenceUsername**, **ConfluenceHomeSiteName** (short site name part, as example HOMESITENAME from https://HOMESITENAME.atlassian.net) and deploy. 
+3. Enter the **ConfluenceAccessToken**, **ConfluenceUsername**, **ConfluenceHomeSiteName** (short site name part, as example HOMESITENAME from `https://HOMESITENAME.atlassian.net`) and deploy. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
 
