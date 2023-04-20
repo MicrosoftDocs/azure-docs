@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Add sign in to a Node.js/Express web app"
-description: Learn how to run a sample Node.js/Express web app to sign in users
+title: "Quickstart: Add sign in to a JavaScript SPA"
+description: Learn how to run a sample JavaScript SPA to sign in users
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -13,16 +13,16 @@ ms.topic: portal
 ms.date: 05/05/2023
 ---
 
-# Portal quickstart for Node.js/Express web app
+# Portal quickstart for JavaScript application
 
-> In this quickstart, you download and run a code sample that demonstrates how a Node.js/Express web app can sign in users with Azure Active Directory for customers.
+> In this quickstart, you download and run a code sample that demonstrates how a JavaScript SPA can sign in users with Azure Active Directory for customers.
 >
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > 1. Make sure you've installed [Node.js](https://nodejs.org/en/download/).
 >
-> 1. Unzip the sample, `cd` into the folder that contains `package.json`, then run the following commands:
+> 1. Unzip the sample, `cd` into the app root folder, then run the following commands:
 >     ```console
->     npm install && npm start
+>     cd App && npm install && npm start
 >     ```
 > 1. Open your browser, visit `http://locahost:3000`, select **Sign-in**, then follow the prompts.
 >
