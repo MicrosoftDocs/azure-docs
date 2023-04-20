@@ -22,10 +22,12 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> Microsoft does not provide support for images you share to the community.
 > 
->To publish a community gallery, you'll need to enable the preview feature using the azure CLI: `az feature register --name CommunityGalleries --namespace Microsoft.Compute` or PowerShell: `Register-AzProviderFeature -FeatureName "CommunityGalleries" -ProviderNamespace "Microsoft.Compute"`. For more information on enabling preview features and checking the status, see   [Set up preview features in your Azure subscription](../azure-resource-manager/management/preview-features.md). Creating VMs from community gallery images is open to all Azure users. 
+> [!INCLUDE [community-gallery-artifacts](./includes/community-gallery-artifacts.md)]
 > 
-> During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you currently can't migrate a regular gallery to a community gallery.
+> To publish a community gallery, you'll need to enable the preview feature using the Azure CLI: `az feature register --name CommunityGalleries --namespace Microsoft.Compute` or PowerShell: `Register-AzProviderFeature -FeatureName "CommunityGalleries" -ProviderNamespace "Microsoft.Compute"`. For more information on enabling preview features and checking the status, see [Set up preview features in your Azure subscription](../azure-resource-manager/management/preview-features.md). Creating VMs from community gallery images is open to all Azure users. 
 > 
 > You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
 
@@ -50,10 +52,6 @@ There are some limitations for sharing your gallery to the community:
 - The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery is not supported, however once the image is in the home region it can be replicated to other regions
 - To find images shared to the community from the Azure portal, you need to go through the VM create or scale set creation pages. You can't search the portal or Azure Marketplace for the images
 
-> [!IMPORTANT]
-> Microsoft does not provide support for images you share to the community.
-> 
-> [!INCLUDE [community-gallery-artifacts](./includes/community-gallery-artifacts.md)]
 
 ## How sharing with the community works
 
