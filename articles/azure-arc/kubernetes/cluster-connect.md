@@ -1,6 +1,6 @@
 ---
 title: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters."
-ms.date: 04/19/2023
+ms.date: 04/20/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "With cluster connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall."
@@ -160,17 +160,18 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, run this command to create a service account. This example creates the service account in the default namespace, but you can substitute any other namespace.
+1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, run this command to create a service account. This example creates the service account in the default namespace, but you can substitute any other namespace for `default`.
 
    ```console
    kubectl create serviceaccount demo-user -n default
    ```
 
-1. Create ClusterRoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
+1. Create ClusterRoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). If you used a different namespace in the first command, substitute it here for `default`.
 
     ```console
     kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --serviceaccount default:demo-user
     ```
+“kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --serviceaccount <custom-namespace-of-CX>:demo-user”
 
 1. Create a service account token:
 
