@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 04/20/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -125,7 +125,7 @@ By default, storage accounts accept connections from clients on any network. You
 
 ## Grant access from a virtual network
 
-You can configure storage accounts to allow access only from specific subnets. The allowed subnets may belong to a VNet in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant.
+You can configure storage accounts to allow access only from specific subnets. The allowed subnets may belong to a VNet in the same subscription or a different subscription, including those belonging to a different Azure Active Directory tenant. With global service endpoints, the allowed subnets can also be in different regions from the storage account.
 
 You can enable a [Service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Storage within the VNet. The service endpoint routes traffic from the VNet through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the storage account that allow requests to be received from specific subnets in a VNet. Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
 
@@ -145,7 +145,7 @@ Storage account and the virtual networks granted access may be in different subs
 
 ### Available virtual network regions
 
-Service endpoints for Azure Storage work between virtual networks and service instances in any region.
+Service endpoints for Azure Storage work between virtual networks and storage service instances in any region.
 
 Configuring service endpoints between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md) can be an important part of your disaster recovery plan. Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
@@ -153,13 +153,16 @@ When planning for disaster recovery during a regional outage, you should create 
 
 #### Azure Storage global service endpoints
 
-Global service endpoints for Azure became generally available in April of 2023. With global service endpoints, subnets will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
+Global service endpoints for Azure became generally available in April of 2023. With global service endpoints, subnets will no longer use a public IP address to communicate with any storage account, including those in another region. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
-To use global service endpoints, it might be necessary to delete existing **Microsoft.Storage** endpoints and recreate them as global (**Microsoft.Storage.Global**).
+> [!IMPORTANT]
+> Local and global service endpoints cannot coexist on the same subnet.
+>
+> To replace existing service endpoints with global ones, delete the existing **Microsoft.Storage** endpoints and recreate them as global endpoints (**Microsoft.Storage.Global**).
 
 ### Managing virtual network rules
 
-You can manage virtual network rules for storage accounts through the Azure portal, PowerShell, or CLIv2. 
+You can manage virtual network rules for storage accounts through the Azure portal, PowerShell, or CLIv2.
 
 > [!NOTE]
 > If you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants.
