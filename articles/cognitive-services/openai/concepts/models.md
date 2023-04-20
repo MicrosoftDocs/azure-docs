@@ -191,7 +191,7 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | text-davinci-002 | East US, South Central US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-003 | East US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-fine-tune-002<sup>1</sup>  | N/A | Currently unavailable |  |  |
-| gpt-35-turbo<sup>3</sup> (ChatGPT) (preview) | East US, South Central US | N/A | 4,096 | Sep 2021 |
+| gpt-35-turbo<sup>3</sup> (ChatGPT) (preview) | East US, South Central US, West Europe | N/A | 4,096 | Sep 2021 |
 
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
 <br><sup>2</sup> East US was previously available, but due to high demand this region is currently unavailable for new customers to use for fine-tuning. Please use the South Central US, and West Europe regions for fine-tuning.
