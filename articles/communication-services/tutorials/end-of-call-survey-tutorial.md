@@ -155,7 +155,7 @@ API will return the error messages when data validation failed or unable to subm
 
 -	***Note**: A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
-
+<!-- 
 ## Collect survey data
 
 > [!IMPORTANT]
@@ -167,7 +167,7 @@ API will return the error messages when data validation failed or unable to subm
 You need to enable a Log Analytics Workspace to both store the log data of your surveys and access survey results. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). Follow the steps to add a diagnostic setting. Select the “ACSCallSurvey” data source when choosing category details. Also, choose “Send to Log Analytics workspace” as your destination detail.
 
 -	You can also integrate your Log Analytics workspace with Power BI, see: [Integrate Log Analytics with Power BI](../../../articles/azure-monitor/logs/log-powerbi.md)
-
+ -->
 
 ## Best Practices
 Here are our recommended survey flows and suggested question prompts for consideration. Your development can use our recommendation or use customized question prompts and flows for your visual interface.
@@ -191,10 +191,10 @@ Surveying Guidelines
 -	Consider using surveys for separate ACS Resources in controlled experiments to identify release impacts.  
 
 
-## Next Steps
+<!-- ## Next Steps
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
--	Create your own queries in Log Analytics, see: [Get Started Queries](../../../articles/azure-monitor/logs/get-started-queries.md)
+-	Create your own queries in Log Analytics, see: [Get Started Queries](../../../articles/azure-monitor/logs/get-started-queries.md) -->
 
 

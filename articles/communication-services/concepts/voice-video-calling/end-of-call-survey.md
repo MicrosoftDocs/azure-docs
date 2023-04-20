@@ -107,7 +107,7 @@ Screenshare. However, each API value can be customized from a minimum of
 
 -	***Note**: A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
-## Store and view survey data:
+<!-- ## Store and view survey data:
 
 > [!IMPORTANT]
 > You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services, see: **[Enable logging in Diagnostic Settings](../analytics/enable-logging.md)**
@@ -118,7 +118,7 @@ You can only view your survey data if you have enabled a Diagnostic Setting to c
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
--	Create your own queries in Log Analytics, see: [Get Started Queries](../../../../articles/azure-monitor/logs/get-started-queries.md)
+-	Create your own queries in Log Analytics, see: [Get Started Queries](../../../../articles/azure-monitor/logs/get-started-queries.md) -->
 
 
 
