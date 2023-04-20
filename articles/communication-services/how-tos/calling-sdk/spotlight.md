@@ -9,7 +9,7 @@ ms.subservice: teams-interop
 ms.topic: how-to 
 ms.date: 03/01/2023
 ms.custom: template-how-to
-
+zone_pivot_groups: acs-plat-web
 ---
 
 # Spotlight states
@@ -48,7 +48,9 @@ Communication Services or Microsoft 365 users can call the spotlight APIs based 
 | stopAllSpotlight |  ✔️ | ✔️ |  |
 | getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
 
-[!INCLUDE [Spotlight Client-side JavaScript](includes/spotlight/spotlight-web.md)]
+::: zone pivot="platform-web"
+[!INCLUDE [Spotlight Client-side JavaScript](./includes/spotlight/spotlight-web.md)]
+::: zone-end
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
