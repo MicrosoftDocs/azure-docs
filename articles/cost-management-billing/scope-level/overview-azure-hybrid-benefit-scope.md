@@ -4,7 +4,7 @@ description: Azure Hybrid Benefit is a licensing benefit that lets you bring you
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/19/2023
+ms.date: 04/20/2023
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -79,7 +79,7 @@ Resource-level Azure Hybrid Benefit management can cover all of those points, to
 You get the following benefits:
 
 - **A simpler, more scalable approach with better control** - The billing administrator directly assigns available licenses to one or more Azure scopes. The original approach, at a large scale, involves coordinating Azure Hybrid Benefit usage across many resources and DevOps owners.
-- **An easy-to-use way to optimize costs** - An Administrator can monitor Azure Hybrid Benefit utilization and directly adjust licenses assigned to Azure. Track SQL Server license utilization and optimize costs with tools and resources to proactively identify other licenses to maximize savings and receive notifications when licenses agreements need to be refreshed. For example, an administrator might see an opportunity to save more money by assigning more licenses to Azure. Then they speak with their procurement department to confirm license availability. Finally, they can easily assign the licenses to Azure and start saving.
+- **An easy-to-use way to optimize costs** - An Administrator can monitor Azure Hybrid Benefit utilization and directly adjust licenses assigned to Azure. Track SQL Server license utilization and optimize costs to proactively identify other licenses. It helps to maximize savings and receive notifications when license agreements need to be refreshed. For example, an administrator might see an opportunity to save more money by assigning more licenses to Azure. Then they speak with their procurement department to confirm license availability. Finally, they can easily assign the licenses to Azure and start saving.
 - **A better method to manage costs during usage spikes** - You can easily scale up the same resource or add more resources during temporary spikes. You don't need to assign more SQL Server licenses (for example, closing periods or increased holiday shopping). For short-lived workload spikes, pay-as-you-go charges for the extra capacity might cost less than acquiring more licenses to use Azure Hybrid Benefit for the capacity. When you manage the benefit at a scope, rather than at a resource-level, helps you to decide based on aggregate usage.
 - **Clear separation of duties to sustain compliance** - In the resource-level Azure Hybrid Benefit model, resource owners might select Azure Hybrid Benefit when there are no licenses available. Or, they might *not* select the benefit when there *are* licenses available. Scope-level management of Azure Hybrid Benefit solves this situation. The billing admins that manage the benefit centrally are positioned to confirm with procurement and software asset management departments how many licenses are available to assign to Azure. The following diagram illustrates the point.
 
@@ -91,9 +91,7 @@ Both SQL Server Enterprise (core) and SQL Server Standard (core) licenses with S
 
 One rule to understand: One SQL Server Enterprise Edition license has the same coverage as _four_ SQL Server Standard Edition licenses, across all qualified Azure SQL resource types.
 
-To explain how it works further, the term _normalized core_ or NC is used. In alignment with the rule, one SQL Server Standard core license produces one NC. One SQL Server Enterprise core license produces four NCs. For example, if you assign four SQL Server Enterprise core licenses and seven SQL Server Standard core licenses, your total coverage and Azure Hybrid Benefit discounting power is equal to 23 NCs (4\*4+7\*1).
-
-The following table summarizes how many NCs you need to fully discount the SQL Server license cost for different resource types. Scope-level management of Azure Hybrid Benefit strictly applies the rules in the product terms, summarized as follows.
+The following table summarizes how many normalized cores (NCs) you need to fully discount the SQL Server license cost for different resource types. Scope-level management of Azure Hybrid Benefit strictly applies the rules in the product terms, summarized as follows.
 
 | **Azure Data Service** | **Service tier** | **Required number of NCs** |
 | --- | --- | --- |
@@ -109,7 +107,7 @@ The following table summarizes how many NCs you need to fully discount the SQL S
 
 ¹ *Azure Hybrid Benefit isn't available in the serverless compute tier of Azure SQL Database.*
 
-² *Subject to a minimum of four vCores per Virtual Machine, which translates to four NC if Standard edition is used, and 16 NC if Enterprise edition is used.*
+² *Subject to a minimum of four vCores per Virtual Machine, which translates to four NCs if Standard edition is used, and 16 NCs if Enterprise edition is used.*
 
 ## Ongoing scope-level management
 

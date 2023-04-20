@@ -5,7 +5,7 @@ author: bandersmsft
 ms.topic: whats-new
 ms.service: cost-management-billing
 ms.subservice: ahb
-ms.date: 04/18/2023
+ms.date: 04/20/2023
 ms.author: banders
 ms.reviewer: chrisrin
 ---
