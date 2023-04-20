@@ -9,14 +9,14 @@ ms.custom: mvc, devx-track-python
 
 # Tutorial: Use Batch Explorer, Storage Explorer, and Python to run a Batch job through Data Factory
 
-This tutorial walks you through creating and running an Azure Data Factory pipeline that runs an Azure Batch data manipulation workload. A Python script runs on the Batch nodes to get comma-separated value (CSV) input from an Azure Blob Storage container, manipulate the data, and write the output to a different storage container. You use Batch Explorer to create a Batch pool and nodes, and Azure Storage Explorer to work with storage containers and files.
+This tutorial walks you through creating and running an Azure Data Factory pipeline that runs an Azure Batch workload. A Python script runs on the Batch nodes to get comma-separated value (CSV) input from an Azure Blob Storage container, manipulate the data, and write the output to a different storage container. You use Batch Explorer to create a Batch pool and nodes, and Azure Storage Explorer to work with storage containers and files.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Use Batch Explorer to create a Batch pool and nodes.
 > - Use Storage Explorer to create storage containers and upload files.
-> - Develop a Python script that runs a Batch workload.
+> - Develop a Python script that does a Batch data manipulation task.
 > - Create a Data Factory pipeline that runs the Batch workload.
 > - Use Batch Explorer to look at the output log files.
 
@@ -62,8 +62,7 @@ Use Storage Explorer to create blob containers to store input and output files, 
 1. Create another blob container named *output*.
 1. Select the **input** container, and then select **Upload** > **Upload files** in the right pane.
 1. On the **Upload files** screen, under **Selected files**, select the ellipsis **...** next to the entry field.
-1. Browse to the location of your downloaded *iris.csv* file, and select **Open**.
-1. Select **Upload**.
+1. Browse to the location of your downloaded *iris.csv* file, select **Open**, and then select **Upload**.
 
 [ ![Screenshot of Storage Explorer with containers and blobs created in the storage account.](media/run-python-batch-azure-data-factory/storage-explorer.png)](media/run-python-batch-azure-data-factory/storage-explorer.png#lightbox)
 ## Develop a Python script
@@ -76,7 +75,7 @@ The script needs to use the connection string for the Azure Storage account that
 1. On the page for the storage account, select **Access keys** from the left navigation under **Security + networking**.
 1. Under **key1**, select **Show** next to **Connection string**, and then select the **Copy** icon to copy the connection string.
 
-Paste the connection string into the following script to replace the `<storage-account-connection-string>` placeholder. Save the script as a file named *main.py*.
+Paste the connection string into the following script, replacing the `<storage-account-connection-string>` placeholder. Save the script as a file named *main.py*.
 
 >[!IMPORTANT]
 >Exposing account keys in the app source isn't recommended for Production usage. You should restrict access to credentials and refer to them in your code by using variables or a configuration file. It's best to store Batch and Storage account keys in Azure Key Vault.
