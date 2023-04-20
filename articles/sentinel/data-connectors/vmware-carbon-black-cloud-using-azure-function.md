@@ -57,7 +57,7 @@ CarbonBlackNotifications_CL
 
 To integrate with VMware Carbon Black Cloud (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **VMware Carbon Black API Key(s)**: Carbon Black API and/or SIEM Level API Key(s) are required. See the documentation to learn more about the [Carbon Black API](https://developer.carbonblack.com/reference/carbon-black-cloud/cb-defense/latest/rest-api/).
  - A Carbon Black **API** access level API ID and Key is required for [Audit](https://developer.carbonblack.com/reference/carbon-black-cloud/cb-defense/latest/rest-api/#audit-log-events) and [Event](https://developer.carbonblack.com/reference/carbon-black-cloud/platform/latest/data-forwarder-config-api/) logs. 
  - A Carbon Black **SIEM** access level  API ID and Key is required for [Notification](https://developer.carbonblack.com/reference/carbon-black-cloud/cb-defense/latest/rest-api/#notifications) alerts.
