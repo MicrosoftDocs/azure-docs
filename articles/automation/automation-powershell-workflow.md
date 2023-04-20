@@ -3,7 +3,7 @@ title: Learn PowerShell Workflow for Azure Automation
 description: This article teaches you the differences between PowerShell Workflow and PowerShell and concepts applicable to Automation runbooks.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/16/2022
+ms.date: 04/12/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -153,7 +153,7 @@ For more information on using InlineScript, see [Running Windows PowerShell Comm
 
 One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script.
 
-You can use the `Parallel` keyword to create a script block with multiple commands that run concurrently. This uses the following syntax shown below. In this case, Activity1 and Activity2 starts at the same time. Activity3 starts only after both Activity1 and Activity2 have completed.
+You can use the `Parallel` keyword to create a script block with multiple commands that run concurrently. This uses the following syntax shown below. In this case, Activity1 and Activity2 start at the same time. Activity3 starts only after both Activity1 and Activity2 have completed.
 
 ```powershell
 Parallel
@@ -286,7 +286,7 @@ workflow CreateTestVms
 ```
 
 > [!NOTE]
-> For non-graphical PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account. Use of these cmdlets is not required if you are authenticating using a Run As account configured with a service principal.
+> For non-graphical PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
 
 For more information about checkpoints, see [Adding Checkpoints to a Script Workflow](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574114(v=ws.11)).
 

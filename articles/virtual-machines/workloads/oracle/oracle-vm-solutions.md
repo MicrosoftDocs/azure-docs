@@ -6,23 +6,23 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 05/12/2020
+ms.date: 04/11/2023
 ms.author: kegorman
 
 ---
 # Oracle VM images and their deployment on Microsoft Azure
 
-**Applies to:** :heavy_check_mark: Linux VMs 
+**Applies to:** :heavy_check_mark: Linux VMs
 
-This article covers information about Oracle solutions based on virtual machine images published by Oracle in the Azure Marketplace. If you are interested in cross-cloud application solutions with Oracle Cloud Infrastructure, see [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](oracle-oci-overview.md).
+This article covers information about Oracle solutions based on virtual machine (VM) images published by Oracle in the Azure Marketplace. If you're interested in cross-cloud application solutions with Oracle Cloud Infrastructure, see [Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure](oracle-oci-overview.md).
 
 To get a list of currently available images, run the following command:
 
 ```azurecli-interactive
-az vm image list --publisher oracle -o table --all
+az vm image list --publisher oracle --output table --all
 ```
 
-As of April 2023 the following images are available:
+As of April 2023, the following images are available:
 
 ```output
 Architecture    Offer                         Publisher    Sku                       Urn                                                                 Version
@@ -216,92 +216,98 @@ x64             weblogic-141100-jdk8-rhel76   Oracle       owls-141100-jdk8-rhel
 x64             weblogic-141100-jdk8-rhel76   Oracle       owls-141100-jdk8-rhel76   Oracle:weblogic-141100-jdk8-rhel76:owls-141100-jdk8-rhel76:1.1.3    1.1.3
 ```
 
-These images are considered "Bring Your Own License" and as such you will only be charged for compute, storage, and networking costs incurred by running a VM.  It is assumed you are properly licensed to use Oracle software and that you have a current support agreement in place with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. See the published [Oracle and Microsoft](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) note for details on license mobility.
+These images are bring-your-own-license. You're charged only for compute, storage, and networking costs incurred by running a VM.  You must have the proper licensed to use Oracle software and have a current support agreement in place with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. For more information about license mobility, see [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html).
 
-Individuals can also choose to base their solutions on a custom image they create from scratch in Azure or upload a custom image from their on premises environment.
+You can also choose to base your solutions on a custom image that you create from scratch in Azure or upload a custom image from your on-premises environment.
 
 ## Oracle database VM images
 
-Oracle supports running Oracle Database 12.1 and higher Standard and Enterprise editions in Azure on virtual machine images based on Oracle Linux.  For the best performance for production workloads of Oracle Database on Azure, be sure to properly size the VM image and use Premium SSD or Ultra SSD Managed Disks. For instructions on how to quickly get an Oracle Database up and running in Azure using the Oracle published VM image, [try the Oracle Database Quickstart walkthrough](oracle-database-quick-create.md).
+Oracle supports running Oracle Database 12.1 and higher Standard and Enterprise editions in Azure on VM images based on Oracle Linux. For the best performance for production workloads of Oracle Database on Azure, be sure to properly size the VM image and use Premium SSD or Ultra SSD Managed Disks. For instructions on how to quickly get an Oracle Database up and running in Azure using the Oracle published VM image, see [Create an Oracle Database in an Azure VM](oracle-database-quick-create.md).
 
 ### Attached disk configuration options
 
-Attached disks rely on the Azure Blob storage service. Each standard disk is capable of a theoretical maximum of approximately 500 input/output operations per second (IOPS). Our premium disk offering is preferred for high-performance database workloads and can achieve up to 5000 IOps per disk. You can use a single disk if that meets your performance needs. However, you can improve the effective IOPS performance if you use multiple attached disks, spread database data across them, and then use Oracle Automatic Storage Management (ASM). See [Oracle Automatic Storage overview](https://www.oracle.com/technetwork/database/index-100339.html) for more Oracle ASM specific information. For an example of how to install and configure Oracle ASM on a Linux Azure VM, see the [Installing and Configuring Oracle Automated Storage Management](configure-oracle-asm.md) tutorial.
+Attached disks rely on the Azure Blob storage service. Each standard disk is capable of a theoretical maximum of approximately 500 input/output operations per second (IOPS). Our premium disk offering is preferred for high-performance database workloads and can achieve up to 5000 IOPS per disk.
+
+You can use a single disk if that meets your performance needs. However, you can improve the effective IOPS performance if you use multiple attached disks, spread database data across them, and then use Oracle Automatic Storage Management (ASM). For more information, see [The Foundation for Oracle Storage Management](https://www.oracle.com/technetwork/database/index-100339.html). For an example of how to install and configure Oracle ASM on a Linux Azure VM, see [Set up Oracle ASM on an Azure Linux virtual machine](configure-oracle-asm.md).
 
 ### Shared storage configuration options
 
-Azure NetApp Files was designed to meet the core requirements of running high-performance workloads like databases in the cloud, and provides;
+Azure NetApp Files was designed to run high-performance workloads like databases in the cloud. The service provides the following advantages:
 
 - Azure native shared NFS storage service for running Oracle workloads either through VM native NFS client, or Oracle dNFS
 - Scalable performance tiers that reflect the real-world range of IOPS demands
 - Low latency
-- High availability, high durability and manageability at scale, typically demanded by mission critical enterprise workloads (like SAP and Oracle)
+- High availability, high durability, and manageability at scale, typically demanded by mission critical enterprise workloads, like SAP and Oracle
 - Fast and efficient backup and recovery, to achieve the most aggressive RTO and RPO SLAs
 
-These capabilities are possible because Azure NetApp Files is based on NetApp® ONTAP® all-flash systems running within Azure data center environment – as an Azure Native service. The result is an ideal database storage technology that can be provisioned and consumed just like other Azure storage options. See [Azure NetApp Files documentation](../../../azure-netapp-files/index.yml) for more information on how to deploy and access Azure NetApp Files NFS volumes. See [Oracle on Azure Deployment Best Practice Guide Using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) for best practice recommendations for operating an Oracle database on Azure NetApp Files.
+These capabilities are possible because Azure NetApp Files is based on NetApp® ONTAP® all-flash systems that run in Azure data center environment as an Azure Native service. The result is an ideal database storage technology that can be provisioned and consumed just like other Azure storage options. For more information on how to deploy and access Azure NetApp Files NFS volumes, see [Azure NetApp Files](../../../azure-netapp-files/index.yml). For best practice recommendations for operating an Oracle database on Azure NetApp Files, see [Oracle Databases on Microsoft Azure](https://www.netapp.com/us/media/tr-4780.pdf).
 
-## Licensing Oracle Database & software on Azure
+## Licensing Oracle Database and software on Azure
 
-Microsoft Azure is an authorized cloud environment for running Oracle Database. The Oracle Core Factor table is not applicable when licensing Oracle databases in the cloud. Instead, when using VMs with Hyper-Threading Technology enabled for Enterprise Edition databases, count two vCPUs as equivalent to one Oracle Processor license if hyperthreading is enabled (as stated in the policy document). The policy details can be found at [Licensing Oracle Software in the Cloud Computing Environment](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Oracle databases generally require higher memory and IO. For this reason, [Memory Optimized VMs](../../sizes-memory.md) are recommended for these workloads. To optimize your workloads further, [Constrained Core vCPUs](../../constrained-vcpu.md) are recommended for Oracle Database workloads that require high memory, storage, and I/O bandwidth, but not a high core count.
+Microsoft Azure is an authorized cloud environment for running Oracle Database. The Oracle Core Factor table isn't applicable when licensing Oracle databases in the cloud. Instead, when using VMs with Hyper-Threading Technology enabled for Enterprise Edition databases, count two vCPUs as equivalent to one Oracle Processor license if hyperthreading is enabled, as stated in the policy document. The policy details can be found at [Licensing Oracle Software in the Cloud Computing Environment](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
 
-When migrating Oracle software and workloads from on-premises to Microsoft Azure, Oracle provides license mobility as stated in the [Oracle on Azure FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
+Oracle databases generally require higher memory and I/O. For this reason, we recommend [Memory Optimized VMs](../../sizes-memory.md) for these workloads. To optimize your workloads further, we recommend [Constrained Core vCPUs](../../constrained-vcpu.md) for Oracle Database workloads that require high memory, storage, and I/O bandwidth, but not a high core count.
+
+When you migrate Oracle software and workloads from on-premises to Microsoft Azure, Oracle provides license mobility as stated in [Oracle and Microsoft Strategic Partnership FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html).
 
 ## High availability and disaster recovery considerations
 
-When using Oracle databases in Azure, you are responsible for implementing a high availability and disaster recovery solution to avoid any downtime.
+When using Oracle databases in Azure, you're responsible for implementing a high availability and disaster recovery solution to avoid any downtime.
 
-High availability and disaster recovery for Oracle Database Enterprise Edition (without relying on Oracle RAC) can be achieved on Azure using [Data Guard, Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html), or [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), with two databases on two separate virtual machines. Both virtual machines should be in the same [virtual network](../../../virtual-network/index.yml) to ensure they can access each other over the private persistent IP address.  Additionally, we recommend placing the virtual machines in the same availability set to allow Azure to place them into separate fault domains and upgrade domains. Should you want to have geo-redundancy, set up the two databases to replicate between two different regions and connect the two instances with a VPN Gateway.
+You can implement high availability and disaster recovery for Oracle Database Enterprise Edition by using [Data Guard, Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html), or [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate). The approach requires two databases on two separate VMs, which should be in the same [virtual network](../../../virtual-network/index.yml) to ensure they can access each other over the private persistent IP address.
 
-The tutorial [Implement Oracle Data Guard on Azure](configure-oracle-dataguard.md) walks you through the basic setup procedure on Azure.  
+We recommend placing the VMs in the same availability set to allow Azure to place them into separate fault domains and upgrade domains. If you want to have geo-redundancy, set up the two databases to replicate between two different regions and connect the two instances with a VPN Gateway. To walk through the basic setup procedure on Azure, see [Implement Oracle Data Guard on an Azure Linux virtual machine](configure-oracle-dataguard.md).
 
-With Oracle Data Guard, high availability can be achieved with a primary database in one virtual machine, a secondary (standby) database in another virtual machine, and one-way replication set up between them. The result is read access to the copy of the database. With Oracle GoldenGate, you can configure bi-directional replication between the two databases. To learn how to set up a high-availability solution for your databases using these tools, see [Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html) and [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) documentation at the Oracle website. If you need read-write access to the copy of the database, you can use [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
+With Oracle Data Guard, you can achieve high availability with a primary database in one VM, a secondary (standby) database in another VM, and one-way replication set up between them. The result is read access to the copy of the database. With Oracle GoldenGate, you can configure bi-directional replication between the two databases. To learn how to set up a high-availability solution for your databases using these tools, see [Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html) and [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html). If you need read-write access to the copy of the database, you can use [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
-The tutorial [Implement Oracle GoldenGate on Azure](configure-oracle-golden-gate.md) walks you through the basic setup procedure on Azure.
+To walk through the basic setup procedure on Azure, see [Implement Oracle Golden Gate on an Azure Linux VM](configure-oracle-golden-gate.md).
 
-In addition to having an HA and DR solution architected in Azure, you should have a backup strategy in place to restore your database. The tutorial [Backup and recover an Oracle Database](./oracle-overview.md) walks you through the basic procedure for establishing a consistent backup.
+In addition to having a high availability and disaster recovery solution architected in Azure, you should have a backup strategy in place to restore your database. To walk through the basic procedure for establishing a consistent backup, see [Overview of Oracle Applications and solutions on Azure](./oracle-overview.md).
 
 ## Support for JD Edwards
 
-According to Oracle Support note [Doc ID 2178595.1](https://support.oracle.com/knowledge/JD%20Edwards%20EnterpriseOne/2178595_1.html), JD Edwards EnterpriseOne versions 9.2 and above are supported on **any public cloud offering** that meets their specific `Minimum Technical Requirements` (MTR).  You need to create custom images that meet their MTR specifications for OS and software application compatibility.
+According to Oracle Support, JD Edwards EnterpriseOne versions 9.2 and above are supported on *any public cloud offering* that meets their specific Minimum Technical Requirements (MTR). You need to create custom images that meet their MTR specifications for operating system and software application compatibility. For more information, see [Doc ID 2178595.1](https://support.oracle.com/knowledge/JD%20Edwards%20EnterpriseOne/2178595_1.html).
 
-## Oracle WebLogic Server virtual machine offers
+## Oracle WebLogic Server VM offers
 
-Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Marketplace in the form of a collection of Azure Application offers.  These offers are described in the article [Oracle WebLogic Server Azure Applications](oracle-weblogic.md).
+Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Marketplace in the form of Azure Application offers. For more information about these offers, see [What are solutions for running Oracle WebLogic Server](oracle-weblogic.md).
 
-### Oracle WebLogic Server virtual machine images
+### Oracle WebLogic Server VM images
 
-- **Clustering is supported on Enterprise Edition only.** You are licensed to use WebLogic clustering only when using the Enterprise Edition of Oracle WebLogic Server. Do not use clustering with Oracle WebLogic Server Standard Edition.
+- **Clustering is supported on Enterprise Edition only.** You're licensed to use WebLogic clustering only when you use the Enterprise Edition of Oracle WebLogic Server. Don't use clustering with Oracle WebLogic Server Standard Edition.
 - **UDP multicast is not supported.** Azure supports UDP unicasting, but not multicasting or broadcasting. Oracle WebLogic Server is able to rely on Azure UDP unicast capabilities. For best results relying on UDP unicast, we recommend that the WebLogic cluster size is kept static, or kept with no more than 10 managed servers.
-- **Oracle WebLogic Server expects public and private ports to be the same for T3 access (for example, when using Enterprise JavaBeans).** Consider a multi-tier scenario where a service layer (EJB) application is running on an Oracle WebLogic Server cluster consisting of two or more VMs, in a virtual network named *SLWLS*. The client tier is in a different subnet in the same virtual network, running a simple Java program trying to call EJB in the service layer. Because it is necessary to load balance the service layer, a public load-balanced endpoint needs to be created for the virtual machines in the Oracle WebLogic Server cluster. If the private port that you specify is different from the public port (for example, 7006:7008), an error such as the following occurs:
+- **Oracle WebLogic Server expects public and private ports to be the same for T3 access, for example, when using Enterprise JavaBeans.** Consider a multi-tier scenario where a service layer (EJB) application is running on an Oracle WebLogic Server cluster consisting of two or more VMs, in a virtual network named *SLWLS*. The client tier is in a different subnet in the same virtual network, running a simple Java program trying to call EJB in the service layer. Because you must load balance the service layer, a public load-balanced endpoint needs to be created for the VMs in the Oracle WebLogic Server cluster. If the private port that you specify is different from the public port, for example, 7006:7008, an error such as the following occurs:
 
-```output
-   [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
+  ```output
+  [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
 
-   Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
-```
+  Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
+  ```
 
-   This is because for any remote T3 access, Oracle WebLogic Server expects the load balancer port and the WebLogic managed server port to be the same. In the preceding case, the client is accessing port 7006 (the load balancer port) and the managed server is listening on 7008 (the private port). This restriction is applicable only for T3 access, not HTTP.
+  This error occurs because for any remote T3 access, Oracle WebLogic Server expects the load balancer port and the WebLogic managed server port to be the same. In the preceding case, the client is accessing port 7006, which is the load balancer port, and the managed server is listening on 7008, which is the private port. This restriction is applicable only for T3 access, not HTTP.
 
-   To avoid this issue, use one of the following workarounds:
+  To avoid this issue, use one of the following workarounds:
 
-- Use the same private and public port numbers for load balanced endpoints dedicated to T3 access.
-- Include the following JVM parameter when starting Oracle WebLogic Server:
+  - Use the same private and public port numbers for load balanced endpoints dedicated to T3 access.
+  - Include the following JVM parameter when starting Oracle WebLogic Server:
 
-```config
-   -Dweblogic.rjvm.enableprotocolswitch=true
-```
+  ```config
+  -Dweblogic.rjvm.enableprotocolswitch=true
+  ```
 
-For related information, see KB article **860340.1** at [support.oracle.com](https://support.oracle.com).
+- **Dynamic clustering and load balancing limitations.** Suppose you want to use a dynamic cluster in Oracle WebLogic Server and expose it through a single, public load-balanced endpoint in Azure. This approach can be done as long as you use a fixed port number for each of the managed servers, not dynamically assigned from a range, and don't start more managed servers than there are machines the administrator is tracking. That is, there's no more than one managed server per VM.
 
-- **Dynamic clustering and load balancing limitations.** Suppose you want to use a dynamic cluster in Oracle WebLogic Server and expose it through a single, public load-balanced endpoint in Azure. This can be done as long as you use a fixed port number for each of the managed servers (not dynamically assigned from a range) and do not start more managed servers than there are machines the administrator is tracking. That is, there is no more than one managed server per virtual machine). If your configuration results in more Oracle WebLogic Servers being started than there are virtual machines (that is, where multiple Oracle WebLogic Server instances share the same virtual machine), then it is not possible for more than one of those instances of Oracle WebLogic Servers to bind to a given port number. The others on that virtual machine fail.
+  If your configuration results in more Oracle WebLogic Servers being started than there are VMs, it isn't possible for more than one of those instances of Oracle WebLogic Servers to bind to a given port number. That is, if multiple Oracle WebLogic Server instances share the same virtual machine, the others on that VM fail.
 
-   If you configure the admin server to automatically assign unique port numbers to its managed servers, then load balancing is not possible because Azure does not support mapping from a single public port to multiple private ports, as would be required for this configuration.
-- **Multiple instances of Oracle WebLogic Server on a virtual machine.** Depending on your deployment’s requirements, you might consider running multiple instances of Oracle WebLogic Server on the same virtual machine, if the virtual machine is large enough. For example, on a midsize virtual machine, which contains two cores, you could choose to run two instances of Oracle WebLogic Server. However, we still recommend that you avoid introducing single points of failure into your architecture, which would be the case if you used just one virtual machine that is running multiple instances of Oracle WebLogic Server. Using at least two virtual machines could be a better approach, and each virtual machine could then run multiple instances of Oracle WebLogic Server. Each instance of Oracle WebLogic Server could still be part of the same cluster. However, it is currently not possible to use Azure to load-balance endpoints that are exposed by such Oracle WebLogic Server deployments within the same virtual machine, because Azure load balancer requires the load-balanced servers to be distributed among unique virtual machines.
+  If you configure the admin server to automatically assign unique port numbers to its managed servers, then load balancing isn't possible because Azure doesn't support mapping from a single public port to multiple private ports, as would be required for this configuration.
+
+- **Multiple instances of Oracle WebLogic Server on a VM.** Depending on your deployment requirements, you might consider running multiple instances of Oracle WebLogic Server on the same VM, if the VM is large enough. For example, on a midsize VM, which contains two cores, you could choose to run two instances of Oracle WebLogic Server. However, we still recommend that you avoid introducing single points of failure into your architecture. Running multiple instances of Oracle WebLogic Server on just one VM would be such a single point.
+
+  Using at least two VMs could be a better approach. Each VM can run multiple instances of Oracle WebLogic Server. Each instance of Oracle WebLogic Server could still be part of the same cluster. However, it's currently not possible to use Azure to load-balance endpoints that are exposed by such Oracle WebLogic Server deployments within the same VM. Azure Load Balancer requires the load-balanced servers to be distributed among unique VMs.
 
 ## Next steps
 
-You now have an overview of current Oracle solutions based on virtual machine images in Microsoft Azure. Your next step is to deploy your first Oracle database on Azure.
+You now have an overview of current Oracle solutions based on VM images in Microsoft Azure. Your next step is to deploy your first Oracle database on Azure.
 
 > [!div class="nextstepaction"]
 > [Create an Oracle database on Azure](oracle-database-quick-create.md)
