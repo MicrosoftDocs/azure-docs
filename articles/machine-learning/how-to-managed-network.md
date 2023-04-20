@@ -288,6 +288,10 @@ ws = ml_client.workspaces.provision_network(workspace, true)
 * `MicrosoftContainerRegistry`
 * `AzureMonitor`
 
+## List of recommended outbound rules
+
+TBD
+
 ## Limitations
 
 * Once you enable managed network isolation of your workspace, you can't disable it.
