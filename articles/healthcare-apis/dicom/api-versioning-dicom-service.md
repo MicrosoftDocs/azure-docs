@@ -38,7 +38,7 @@ The OpenAPI Doc for the supported versions can be found at the following url:
 ## DICOM Conformance Statement
 All versions of the DICOM APIs will always conform to the DICOMweb™ Standard specifications, but different versions may expose different APIs.  See the specific version of the conformance statement for details:
 
-* [DICOM Conformance Statement v1](dicom-services-conformance-statement-v1.md)
+* [DICOM Conformance Statement v1](dicom-services-conformance-statement.md)
 * [DICOM Conformance Statement v2](dicom-services-conformance-statement-v2.md)
 
 
