@@ -101,7 +101,7 @@ The following shows a Dapr binding trigger in a _function.json_ file and code th
 }
 ```
 
-Here's C# script code that binds to a <insert>:
+Here's the C# script code:
 
 ```csharp
 
@@ -119,7 +119,7 @@ The following shows a Dapr binding trigger in a _function.json_ file and code th
 }
 ```
 
-Here's C# script code that binds to a <insert>:
+Here's the C# script code:
 
 ```csharp
 
@@ -139,7 +139,7 @@ The following shows a Dapr binding trigger in a _function.json_ file and code th
 }
 ```
 
-Here's C# script code that binds to a <insert>:
+Here's the C# script code:
 
 ```csharp
 
