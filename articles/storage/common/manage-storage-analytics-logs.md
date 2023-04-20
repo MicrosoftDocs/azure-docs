@@ -44,7 +44,7 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 3. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
 
    > [!div class="mx-imgBorder"]
-   > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)
+   > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics-retention.png)
 
 4. To retain logs, ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control. The default for new storage accounts is seven days.  If you do not want to set a retention policy, leave the **Delete data** checkbox unchecked. If there is no retention policy, it is up to you to delete the log data.
 
@@ -56,6 +56,9 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
    The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Azure Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
 
    For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
+   
+   > [!NOTE]
+   > For classic storage accounts, the $logs container appears only in Azure Storage Explorer. The $logs container isn't visible from storage browser or the container view that is available in the Azure portal.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -106,22 +109,9 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).
 
-### [.NET v12 SDK](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
-
-### [.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-var storageAccount = CloudStorageAccount.Parse(connStr);  
-var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();
-
-serviceProperties.Logging.LoggingOperations = LoggingOperations.All;  
-serviceProperties.Logging.RetentionDays = 2;
-
-queueClient.SetServiceProperties(serviceProperties);  
-```
 
 ---
 
@@ -141,7 +131,7 @@ Log data can accumulate in your account over time which can increase the cost of
 3. Ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control.
 
    > [!div class="mx-imgBorder"]
-   > ![Modify the retention period in the Azure portal](./media/manage-storage-analytics-logs/modify-retention-period.png)
+   > ![Modify the retention period in the Azure portal](./media/manage-storage-analytics-logs/enable-diagnostics-retention.png)
 
    The default number of days for new storage accounts is seven days. If you do not want to set a retention policy, leave the **Delete data** checkbox unchecked. If there is no retention policy, it is up to you to delete the monitoring data.
 
@@ -200,7 +190,7 @@ Log data can accumulate in your account over time which can increase the cost of
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/).
 
-### [.NET v12 SDK](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 The following example prints to the console the retention period for blob and queue storage services.
 
@@ -209,37 +199,6 @@ The following example prints to the console the retention period for blob and qu
 The following example changes the retention period to 4 days.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ModifyRetentionPeriod":::
-
-### [.NET v11 SDK](#tab/dotnet11)
-
-The following example prints to the console the retention period for blob and queue storage services.
-
-```csharp
-var storageAccount = CloudStorageAccount.Parse(connectionString);
-
-var blobClient = storageAccount.CreateCloudBlobClient();
-var queueClient = storageAccount.CreateCloudQueueClient();
-
-var blobserviceProperties = blobClient.GetServiceProperties();
-var queueserviceProperties = queueClient.GetServiceProperties();
-
-Console.WriteLine("Retention period for logs from the blob service is: " +
-   blobserviceProperties.Logging.RetentionDays.ToString());
-
-Console.WriteLine("Retention period for logs from the queue service is: " +
-   queueserviceProperties.Logging.RetentionDays.ToString());
-```
-
-The following example changes the retention period for logs for the blob and queue storage services to 4 days.
-
-```csharp
-
-blobserviceProperties.Logging.RetentionDays = 4;
-queueserviceProperties.Logging.RetentionDays = 4;
-
-blobClient.SetServiceProperties(blobserviceProperties);
-queueClient.SetServiceProperties(queueserviceProperties);  
-```
 
 ---
 

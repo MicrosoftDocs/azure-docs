@@ -12,7 +12,7 @@ ms.author: prsriva
 ---
 # Examples of an attestation policy for TPM endpoint
 
-Attestation policy is used to process the attestation evidence and determine whether Azure Attestation will issue an attestation token. Attestation token generation can be controlled with custom policies. Below are some examples of an attestation policy. 
+Attestation policy is used to process the attestation evidence and determine whether Azure Attestation will issue an attestation token. Attestation token generation can be controlled with custom policies. 
 
 ## Sample policy for TPM using Policy version 1.0
 

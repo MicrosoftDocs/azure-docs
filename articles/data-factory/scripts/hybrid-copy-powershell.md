@@ -7,7 +7,7 @@ ms.topic: article
 ms.author: jianleishen
 author: jianleishen
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 01/27/2022
+ms.date: 02/08/2023
 ---
 
 # Use PowerShell to create a data factory pipeline to copy data from SQL Server to Azure

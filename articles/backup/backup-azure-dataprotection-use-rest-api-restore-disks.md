@@ -4,6 +4,8 @@ description: In this article, learn how to restore Azure Disks using Azure Data 
 ms.topic: conceptual
 ms.date: 10/06/2021
 ms.assetid: 30f4e7ff-2a55-4a85-be44-55feedc24607
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure Disks using Azure Data Protection REST API

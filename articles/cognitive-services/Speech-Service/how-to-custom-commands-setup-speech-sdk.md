@@ -16,6 +16,8 @@ ms.custom: cogserv-non-critical-speech, devx-track-csharp
 
 # Integrate with a client application using Speech SDK
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 In this article, you learn how to make requests to a published Custom Commands application from the Speech SDK running in an UWP application. In order to establish a connection to the Custom Commands application, you need:
 
 - Publish a Custom Commands application and get an application identifier (App ID)

@@ -1,9 +1,11 @@
 ---
 title: Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Azure CNI Powered by Cilium.
-services: container-service
+author: asudbring
+ms.author: allensu
+ms.subservice: aks-networking
 ms.topic: article
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.date: 10/24/2022
 ---
 
@@ -43,15 +45,19 @@ Azure CNI powered by Cilium currently has the following limitations:
 * Available only for Linux and not for Windows.
 * Cilium L7 policy enforcement is disabled.
 * Hubble is disabled.
+* Not yet configured for compatibility with Istio ([Istio issue #27619](https://github.com/istio/istio/issues/27619)).
 * Kubernetes services with `internalTrafficPolicy=Local` aren't supported ([Cilium issue #17796](https://github.com/cilium/cilium/issues/17796)).
 * Multiple Kubernetes services can't use the same host port with different protocols (for example, TCP or UDP) ([Cilium issue #14287](https://github.com/cilium/cilium/issues/14287)).
 * Network policies may be enforced on reply packets when a pod connects to itself via service cluster IP ([Cilium issue #19406](https://github.com/cilium/cilium/issues/19406)).
 
 ## Prerequisites
 
-* Azure CLI version 2.41.0 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI][/cli/azure/install-azure-cli].
-* Azure CLI with aks-preview extension 0.5.109 or later.
+* Azure CLI version 2.41.0 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI with aks-preview extension 0.5.135 or later.
 * If using ARM templates or the REST API, the AKS API version must be 2022-09-02-preview or later.
+
+> [!NOTE]
+> Previous AKS API versions (2022-09-02preview to 2023-01-02preview) used the field [`networkProfile.ebpfDataplane=cilium`](https://github.com/Azure/azure-rest-api-specs/blob/06dbe269f7d9c709cc225c92358b38c3c2b74d60/specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2022-09-02-preview/managedClusters.json#L6939-L6955). AKS API versions since 2023-02-02preview use the field [`networkProfile.networkDataplane=cilium`](https://github.com/Azure/azure-rest-api-specs/blob/06dbe269f7d9c709cc225c92358b38c3c2b74d60/specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2023-02-02-preview/managedClusters.json#L7152-L7173) to enable Azure CNI Powered by Cilium.
 
 ## Install the aks-preview Azure CLI extension
 
@@ -107,44 +113,30 @@ az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --na
 az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name podsubnet --address-prefixes <address prefix, example: 10.241.0.0/16> -o none 
 ```
 
-Create the cluster using `--enable-cilium-dataplane`:
+Create the cluster using `--network-dataplane cilium`:
 
 ```azurecli-interactive
 az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
   --max-pods 250 \
-  --node-count 2 \
   --network-plugin azure \
   --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
   --pod-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/podsubnet \
-  --enable-cilium-dataplane
+  --network-dataplane cilium
 ```
+
+> [!NOTE]
+> The `--network-dataplane cilium` flag replaces the deprecated `--enable-ebpf-dataplane` flag used in earlier versions of the aks-preview CLI extension.
 
 ### Option 2: Assign IP addresses from an overlay network
 
-Run these commands to create a resource group and VNet with a single subnet:
-
-```azurecli-interactive
-# Create the resource group
-az group create --name <resourceGroupName> --location <location>
-```
-
-```azurecli-interactive
-# Create a VNet with a subnet for nodes and a subnet for pods
-az network vnet create -g <resourceGroupName> --location <location> --name <vnetName> --address-prefixes <address prefix, example: 10.0.0.0/8> -o none 
-az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name nodesubnet --address-prefixes <address prefix, example: 10.240.0.0/16> -o none 
-```
-
-Then create the cluster using `--enable-cilium-dataplane`:
+Run this commands to create a cluster with an overlay network and Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
 
 ```azurecli-interactive
 az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
-  --max-pods 250 \
-  --node-count 2 \
   --network-plugin azure \
   --network-plugin-mode overlay \
   --pod-cidr 192.168.0.0/16 \
-  --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
-  --enable-cilium-dataplane
+  --network-dataplane cilium
 ```
 
 ## Frequently asked questions
@@ -156,6 +148,10 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 - *Can I use `CiliumNetworkPolicy` custom resources instead of Kubernetes `NetworkPolicy` resources?*
 
     `CiliumNetworkPolicy` custom resources aren't officially supported. We recommend that customers use Kubernetes `NetworkPolicy` resources to configure network policies.
+
+- *Does AKS configure CPU or memory limits on the Cilium daemonset?*
+
+    No, AKS does not configure CPU or memory limits on the Cilium daemonset because Cilium is a critical system component for pod networking and network policy enforcement.
 
 ## Next steps
 

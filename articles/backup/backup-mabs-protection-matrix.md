@@ -3,9 +3,9 @@ title: MABS (Azure Backup Server) V3 UR1 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server protects.
 ms.date: 08/08/2022
 ms.topic: conceptual
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # MABS (Azure Backup Server) V3 UR1 (and later) protection matrix

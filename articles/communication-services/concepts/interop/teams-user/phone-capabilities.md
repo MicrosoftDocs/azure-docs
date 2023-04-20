@@ -10,7 +10,7 @@ ms.author: tchladek
 ms.date: 12/01/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: calling
+ms.subservice: teams-interop
 ---
 # Phone capabilities for Teams user in Calling SDK
 
@@ -115,7 +115,7 @@ The following list of capabilities is supported for scenarios where at least one
 | Teams dial out plan policies | Start a phone call honoring dial plan policy                                                              |   ❌      |
 | DevOps            | [Azure Metrics](../../metrics.md)                                                                                   | ✔️ |
 |                   | [Azure Monitor](../../logging-and-diagnostics.md)                                                                   | ✔️ |
-|                   | [Azure Communication Services Insights](../../analytics/insights.md)                                                | ✔️ |
+|                   | [Azure Communication Services Insights](../../analytics/insights/voice-and-video-insights.md)                                                | ✔️ |
 |                   | [Azure Communication Services Voice and video calling events](../../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ |

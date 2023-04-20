@@ -2,12 +2,12 @@
 title: Azure CLI - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks with the Azure CLI.
 author: roygara
-ms.date: 03/15/2022
+ms.date: 02/22/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-
+ms.custom: devx-track-azurecli
 ---
 
 # Use the Azure CLI to enable server-side encryption with customer-managed keys for managed disks
@@ -20,8 +20,6 @@ Azure Disk Storage allows you to manage your own keys when using server-side enc
 
 For now, customer-managed keys have the following restrictions:
 
-- If this feature is enabled for your disk, you cannot disable it.
-    If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
 ## Create resources
@@ -41,7 +39,7 @@ rgName=yourResourceGroupName
 vmName=yourVMName
 location=westcentralus
 vmSize=Standard_DS3_V2
-image=UbuntuLTS 
+image=LinuxImageURN 
 diskEncryptionSetName=yourDiskencryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
@@ -68,11 +66,11 @@ rgName=yourResourceGroupName
 vmssName=yourVMSSName
 location=westcentralus
 vmSize=Standard_DS3_V2
-image=UbuntuLTS 
+image=LinuxImageURN 
 diskEncryptionSetName=yourDiskencryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
-az vmss create -g $rgName -n $vmssName --image UbuntuLTS --upgrade-policy automatic --admin-username azureuser --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 64 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
+az vmss create -g $rgName -n $vmssName --image $image --upgrade-policy automatic --admin-username azureuser --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 64 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
 ### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM

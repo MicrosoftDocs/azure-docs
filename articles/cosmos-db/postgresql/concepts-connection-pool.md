@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 01/30/2023
 ---
 
-# Azure Cosmos DB for PostgreSQL connection pooling
+# Connection pooling in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

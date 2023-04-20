@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 08/09/2022
-ms.custom: devx-track-python, devx-track-azurepowershell, synapse, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Create a trigger that runs a pipeline on a schedule
@@ -206,7 +206,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a sche
 
 ### Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ### Sample Code
 

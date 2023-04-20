@@ -3,9 +3,6 @@ title: Planning a change from Desired State Configuration extension for Linux to
 description: Guidance for moving from Desired State Configuration extension to the machine configuration feature of Azure Policy.
 ms.date: 07/25/2022
 ms.topic: how-to
-ms.service: machine-configuration
-ms.author: timwarner
-author: timwarner-msft
 ---
 # Planning a change from Desired State Configuration extension for Linux to machine configuration
 
@@ -119,6 +116,22 @@ with the new platform.
 As a result, new Linux packages will require custom module development.
 
 Linux content authored using ChefInspec remains supported but should only be used for legacy configurations. 
+
+#### Updated "nx" module functionality 
+
+A new "nx" module will be released with the purpose of making managing Linux systems easier for PowerShell users. 
+
+The module will help in managing common tasks such as:
+
+- User and group management
+- File system operations (changing mode, owner, listing, set/replace content)
+- Service management (start, stop, restart, remove, add)
+- Archive operations (compress, extract)
+- Package Management (list, search, install, uninstall packages)
+
+The module will include class based DSC resources for Linux, as well as built-in Machine Configuration packages.
+
+To provide feedback on the above listed fuctionality, please open an issue on the documentation and we will respond accordingly.
 
 #### Will I have to add "Reasons" property to custom resources?
 

@@ -4,9 +4,6 @@
   items:
   - name: What is Service Bus Messaging?
     href: service-bus-messaging-overview.md
-  - name: Compare messaging services
-    href: ../event-grid/compare-messaging-services.md
-    maintainContext: true
   - name: Use Service Bus with Java Message Service (JMS) 2.0
     href: how-to-use-java-message-service-20.md
 - name: Quickstarts
@@ -215,6 +212,8 @@
       href: migrate-jms-activemq-to-servicebus.md
     - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
       href: deprecate-service-bus-management.md
+    - name: Migrate to Passwordless Connections
+      href: service-bus-migrate-azure-credentials.md
   - name: Monitor
     items:
     - name: End-to-end tracing and diagnostics

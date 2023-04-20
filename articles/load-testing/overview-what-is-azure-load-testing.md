@@ -11,9 +11,9 @@ adobe-target: true
 ms.custom: contperf-fy22q4
 ---
 
-# What is Azure Load Testing Preview?
+# What is Azure Load Testing?
 
-Azure Load Testing Preview is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications, regardless of where they're hosted. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity. 
+Azure Load Testing is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications, regardless of where they're hosted. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity. 
 
 Quickly [create a load test for your web application by using a URL](./quickstart-create-and-run-load-test.md), and without prior knowledge of testing tools. Azure Load Testing abstracts the complexity and infrastructure to run your load test at scale.
 
@@ -23,12 +23,9 @@ You can [automate regression testing](#enable-automated-load-testing) by running
 
 Azure Load Testing enables you to test private application endpoints or applications that you host on-premises. For more information, see the [scenarios for deploying Azure Load Testing in a virtual network](./concept-azure-load-testing-vnet-injection.md).
 
-For more advanced load testing scenarios, you can [create a load test by reusing an existing Apache JMeter test script](how-to-create-and-run-load-test-with-jmeter-script.md), a popular open-source load and performance tool. For example, your test plan might consist of multiple application requests, or uses input data and parameters to make the test more dynamic.
+For more advanced load testing scenarios, you can [create a load test by reusing an existing Apache JMeter test script](how-to-create-and-run-load-test-with-jmeter-script.md), a popular open-source load and performance tool. For example, your test plan might consist of multiple application requests, you want to call non-HTTP endpoints, or you're using  input data and parameters to make the test more dynamic.
 
 Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Identify performance bottlenecks by using high-scale load tests
 
@@ -56,7 +53,7 @@ You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workfl
 
 Azure Load Testing test engines abstract the required infrastructure for [running a high-scale load test](./how-to-high-scale-load.md). The test engines run the Apache JMeter script to simulate a large number of virtual users simultaneously accessing your application endpoints. When you create a load test based on a URL, Azure Load Testing automatically generates a JMeter test script for you. To scale out the load test, you can configure the number of test engines.
 
-Azure Load Testing uses Apache JMeter version 5.4.3 for running load tests. You can use Apache JMeter plugins from https://jmeter-plugins.org or [upload your own plugin code](./how-to-use-jmeter-plugins.md).
+Azure Load Testing uses Apache JMeter version 5.5 for running load tests. You can use Apache JMeter plugins from https://jmeter-plugins.org or [upload your own plugin code](./how-to-use-jmeter-plugins.md). Azure Load Testing supports all communication protocols that JMeter supports. For example, to load test a database connection or message queue.
 
 The application can be hosted anywhere: in Azure, on-premises, or in other clouds. To load test services that have no public endpoint, [deploy Azure Load Testing in a virtual network](./how-to-test-private-endpoint.md).
 
@@ -70,7 +67,7 @@ Azure Load Testing automatically incorporates best practices for Azure networkin
 
 Data stored in your Azure Load Testing resource is automatically encrypted with keys managed by Microsoft (service-managed keys). This data includes, for example, your Apache JMeter script.
 
-:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.svg" lightbox="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.svg" alt-text="Diagram that shows the Azure Load Testing architecture.":::
+:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" lightbox="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture-large.png" alt-text="Diagram that shows the Azure Load Testing architecture.":::
 
 > [!NOTE]
 > The overview image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components. Learn more about the [supported Azure resource types](./resource-supported-azure-resource-types.md).

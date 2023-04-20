@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with RStudio Server Pro | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with RStudio Server Pro'
 description: Learn how to configure single sign-on between Azure Active Directory and RStudio Server Pro.
 services: active-directory
 author: jeevansd

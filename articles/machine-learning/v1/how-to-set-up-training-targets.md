@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Configure and submit training jobs
@@ -69,7 +69,7 @@ experiment = Experiment(workspace=ws, name=experiment_name)
 
 ## Select a compute target
 
-Select the compute target where your training script will run on. If no compute target is specified in the ScriptRunConfig, or if `compute_target='local'`, Azure ML will execute your script locally. 
+Select the compute target where your training script will run on. If no compute target is specified in the ScriptRunConfig, or if `compute_target='local'`, Azure Machine Learning will execute your script locally. 
 
 The example code in this article assumes that you have already created a compute target `my_compute_target` from the "Prerequisites" section.
 
@@ -81,7 +81,7 @@ The example code in this article assumes that you have already created a compute
 ## Create an environment
 Azure Machine Learning [environments](../concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
 
-You can either define your own environment, or use an Azure ML curated environment. [Curated environments](../how-to-use-environments.md#use-a-curated-environment) are predefined environments that are available in your workspace by default. These environments are backed by cached Docker images which reduce the job preparation cost. See [Azure Machine Learning Curated Environments](../resource-curated-environments.md) for the full list of available curated environments.
+You can either define your own environment, or use an Azure Machine Learning curated environment. [Curated environments](../how-to-use-environments.md#use-a-curated-environment) are predefined environments that are available in your workspace by default. These environments are backed by cached Docker images which reduce the job preparation cost. See [Azure Machine Learning Curated Environments](../resource-curated-environments.md) for the full list of available curated environments.
 
 For a remote compute target, you can use one of these popular curated environments to start with:
 
@@ -194,11 +194,11 @@ See these notebooks for examples of configuring jobs for various training scenar
     If you are submitting a user-created environment with your job, consider using the latest version of azureml-core in that environment. Versions >= 1.18.0 of azureml-core already pin PyJWT < 2.0.0. If you need to use a version of azureml-core < 1.18.0 in the environment you submit, make sure to specify PyJWT < 2.0.0 in your pip dependencies.
 
 
- * **ModuleErrors (No module named)**:  If you are running into ModuleErrors while submitting experiments in Azure ML, the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML installs the package in the environment used for your training job.
+ * **ModuleErrors (No module named)**:  If you are running into ModuleErrors while submitting experiments in Azure Machine Learning, the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure Machine Learning installs the package in the environment used for your training job.
 
-    If you are using Estimators to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter. If you have your own Azure ML Environment object that you want to override the default image used by the estimator, you can specify that environment via the `environment` parameter of the estimator constructor.
+    If you are using Estimators to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter. If you have your own Azure Machine Learning Environment object that you want to override the default image used by the estimator, you can specify that environment via the `environment` parameter of the estimator constructor.
     
-    Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
+    Azure Machine Learning maintained docker images and their contents can be seen in [Azure Machine Learning Containers](https://github.com/Azure/AzureML-Containers).
     Framework-specific dependencies  are listed in the respective framework documentation:
     *  [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer#remarks)
     * [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch#remarks)
@@ -206,7 +206,7 @@ See these notebooks for examples of configuring jobs for various training scenar
     *  [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn#remarks)
     
     > [!Note]
-    > If you think a particular package is common enough to be added in Azure ML maintained images and environments please raise a GitHub issue in [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
+    > If you think a particular package is common enough to be added in Azure Machine Learning maintained images and environments please raise a GitHub issue in [Azure Machine Learning Containers](https://github.com/Azure/AzureML-Containers). 
  
 * **NameError (Name not defined), AttributeError (Object has no attribute)**: This exception should come from your training scripts. You can look at the log files from Azure portal to get more information about the specific name not defined or attribute error. From the SDK, you can use `run.get_details()` to look at the error message. This will also list all the log files generated for your job. Please make sure to take a look at your training script and fix the error before resubmitting your job. 
 
@@ -214,7 +214,7 @@ See these notebooks for examples of configuring jobs for various training scenar
 * **Job or experiment deletion**:  Experiments can be archived by using the [Experiment.archive](/python/api/azureml-core/azureml.core.experiment%28class%29#archive--) 
 method, or from the Experiment tab view in Azure Machine Learning studio client via the "Archive experiment" button. This action hides the experiment from list queries and views, but does not delete it.
 
-    Permanent deletion of individual experiments or jobs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](how-to-export-delete-data.md).
+    Permanent deletion of individual experiments or jobs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](../how-to-export-delete-data.md).
 
 * **Metric Document is too large**: Azure Machine Learning has internal limits on the size of metric objects that can be logged at once from a training job. If you encounter a "Metric Document is too large" error when logging a list-valued metric, try splitting the list into smaller chunks, for example:
 
@@ -223,7 +223,7 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
     run.log_list("my metric name", my_metric[N:])
     ```
 
-    Internally, Azure ML concatenates the blocks with the same metric name into a contiguous list.
+    Internally, Azure Machine Learning concatenates the blocks with the same metric name into a contiguous list.
 
 * **Compute target takes a long time to start**: The Docker images for compute targets are loaded from Azure Container Registry (ACR). By default, Azure Machine Learning creates an ACR that uses the *basic* service tier. Changing the ACR for your workspace to standard or premium tier may reduce the time it takes to build and load images. For more information, see [Azure Container Registry service tiers](../../container-registry/container-registry-skus.md).
 

@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: 
@@ -36,7 +36,7 @@ To reduce the configuration administrative effort, you should first consider the
 > Configuring selective password hash synchronization directly influences password writeback. Password changes or password resets that are initiated in Azure Active Directory write back to on-premises Active Directory only if the user is in scope for password hash synchronization.
 
 > [!IMPORTANT]
-> Selective password hash synchronization is supported in 1.6.2.4 or later. If you are using a version lower than that, please upgrade to the latest version.
+> Selective password hash synchronization is supported in Azure AD Connect 1.6.2.4 or later. If you are using a version lower than that, upgrade to the latest version.
 
 ### The adminDescription attribute
 

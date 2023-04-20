@@ -23,7 +23,7 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 ## Prerequisites
 
 * A deployed Azure Spring Apps instance.
-* An Azure Cache for Redis service instance.
+* An Azure Cosmos DB account and a database.
 * The Azure Spring Apps extension for the Azure CLI.
 
 If you don't have a deployed Azure Spring Apps instance, follow the steps in the [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
@@ -38,7 +38,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
      <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-starter-data-cosmos</artifactId>
-         <version>4.3.0</version>
+         <version>4.7.0</version>
      </dependency>
      ```
 
@@ -66,7 +66,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
      <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
-         <version>4.3.0</version>
+         <version>4.7.0</version>
      </dependency>
      ```
 

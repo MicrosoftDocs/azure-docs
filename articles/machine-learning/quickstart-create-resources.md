@@ -55,7 +55,7 @@ Create a *compute instance* to use this development environment for the rest of 
 1. If you didn't just create a workspace in the previous section, sign in to [Azure Machine Learning studio](https://ml.azure.com) now, and select your workspace.
 1. On the left side, select **Compute**.
 
-    :::image type="content" source="media/quickstart-create-resources/compute-section.png" alt-text="Screenshot: shows Compute section on left hand side of screen.":::
+    :::image type="content" source="media/quickstart-create-resources/compute-section.png" alt-text="Screenshot: shows Compute section on left hand side of screen." lightbox="media/quickstart-create-resources/compute-section.png":::
 
 1. Select **+New** to create a new compute instance.
 1. Supply a name, Keep all the defaults on the first page.
@@ -89,7 +89,7 @@ The studio is your web portal for Azure Machine Learning. This portal combines n
 
 Review the parts of the studio on the left-hand navigation bar:
 
-* The **Author** section of the studio contains multiple ways to get started in creating machine learning models.  You can:
+* The **Authoring** section of the studio contains multiple ways to get started in creating machine learning models.  You can:
 
     * **Notebooks** section allows you to create Jupyter Notebooks, copy sample notebooks, and run notebooks and Python scripts.
     * **Automated ML** steps you through creating a machine learning model without writing code.

@@ -3,11 +3,11 @@ title: Azure Enterprise REST APIs
 description: This article describes the REST APIs for use with your Azure enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/27/2022
+ms.date: 02/14/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: racheg
+ms.reviewer: banders
 ---
 
 # Azure Enterprise REST APIs
@@ -46,6 +46,11 @@ In the Manage API Access Keys window, you can perform the following tasks:
 - Generate and view primary and secondary access keys
 - View start and end dates for access keys
 - Disable access keys
+
+> [!NOTE]
+> 1. If you are on Enrollment Admin, then you can generate the keys from only Usage & Charges blade at enrollment level but not at Accounts & department level.
+> 2. If you are an Department owner only, then you can generate the keys at Department level and at the Account level for which you are an account owner for.
+> 3. If you are Account owner only, then you can generate the keys at Acount level only. 
 
 ### Generate the primary or secondary API key
 

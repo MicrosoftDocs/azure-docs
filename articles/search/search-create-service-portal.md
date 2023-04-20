@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/13/2022
+ms.date: 01/25/2023
 ---
 
 # Create an Azure Cognitive Search service in the portal
@@ -17,7 +17,7 @@ ms.date: 10/13/2022
 
 If you have an Azure subscription, including a [trial subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), you can create a search service for free. Free services have limitations, but you can complete all of the quickstarts and most tutorials.
 
-The easiest way to create search service is using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), the [Management REST API](/rest/api/searchmanagement/), an [Azure Resource Manager service template](https://azure.microsoft.com/resources/templates/azure-search-create/), or a [Bicep file](search-get-started-bicep.md).
+The easiest way to create search service is using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md#create-or-delete-a-service), [Azure CLI](search-manage-azure-cli.md#create-or-delete-a-service), the [Management REST API](search-manage-rest.md#create-or-update-a-service), an [Azure Resource Manager service template](search-get-started-arm.md), or a [Bicep file](search-get-started-bicep.md).
 
 [![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -26,18 +26,16 @@ The easiest way to create search service is using the [Azure portal](https://por
 The following service properties are fixed for the lifetime of the service. Because they're fixed, consider the usage implications as you fill in each property:
 
 + Service name becomes part of the URL endpoint ([review tips for helpful service names](#name-the-service)).
-+ [Tier](search-sku-tier.md) (Basic, Standard, and so forth) determines the underlying physical hardware and billing. Some features are tier-constrained.
++ [Tier](search-sku-tier.md) (Free, Basic, Standard, and so forth) determines the underlying physical hardware and billing. Some features are tier-constrained.
 + [Service region](#choose-a-region) can determine the availability of certain scenarios. If you need high availability or [AI enrichment](cognitive-search-concept-intro.md), you'll need to create the resource in a region that provides the feature. 
 
 ## Subscribe (free or paid)
 
-To try search for free, you have two options:
+To try search for free, [open a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and then create your search service using the **Free** tier. Because the tier is fixed, it will never transition to become a billable tier.
 
-+ [Open a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and use free credits to try out paid Azure services. After credits are used up, keep the account and continue to use free Azure services, such as Websites. Your credit card is never charged unless you explicitly change your settings and ask to be charged.
+Alternatively, you can use free credits to try out paid Azure services, which means you can create your search service at **Basic** or above to get more capacity. Your credit card is never charged unless you explicitly change your settings and ask to be charged. Another approach is to [activate Azure credits in a Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). A Visual Studio subscription gives you credits every month you can use for paid Azure services. 
 
-+ Alternatively, [activate Azure credits in a Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). A Visual Studio subscription gives you credits every month you can use for paid Azure services. 
-
-Paid (or billable) search becomes effective when you choose a billable tier (Basic or above) when creating the resource.
+Paid (or billable) search occurs when you choose a billable tier (Basic or above) when creating the resource on a billable Azure subscription.
 
 ## Find the Azure Cognitive Search offering
 
@@ -47,7 +45,7 @@ Paid (or billable) search becomes effective when you choose a billable tier (Bas
 
 1. Use the search bar to find "Azure Cognitive Search" or navigate to the resource through **Web** > **Azure Cognitive Search**.
 
-:::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Create a resource in the portal" border="true":::
+:::image type="content" source="media/search-create-service-portal/find-search3.png" lightbox="media/search-create-service-portal/find-search3.png" alt-text="Screenshot of the Create Resource page in the portal." border="true":::
 
 ## Choose a subscription
 
@@ -59,11 +57,11 @@ A resource group is a container that holds related resources for your Azure solu
 
 If you aren't combining resources into a single group, or if existing resource groups are filled with resources used in unrelated solutions, create a new resource group just for your Azure Cognitive Search resource. 
 
-:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Create a new resource group" border="true":::
+:::image type="content" source="media/search-create-service-portal/new-resource-group.png" lightbox="media/search-create-service-portal/new-resource-group.png" alt-text="Screenshot of the Create Resource Group page in the portal." border="true":::
 
 Over time, you can track current and projected costs all-up or you can view charges for individual resources. The following screenshot shows the kind of cost information you can expect to see when you combine multiple resources into one group.
 
-:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Manage costs at the resource group level" border="true":::
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" lightbox="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Screenshot of the manage costs page in the portal." border="true":::
 
 > [!TIP]
 > Resource groups simplify cleanup because deleting a group deletes all of the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over.
@@ -93,19 +91,19 @@ Two notable exceptions might lead to provisioning one or more search services in
 
 + [Outbound connections from Cognitive Search to Azure Storage](search-indexer-securing-resources.md). You might want storage in a different region if you're enabling a firewall.
 
-+ Business continuity and disaster recovery (BCDR) requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each search service.
++ Business continuity and disaster recovery (BCDR) requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Central US, for each search service.
 
 Some features are subject to regional availability. If you require any of following features, choose a region that provides them:
 
 + [AI enrichment](cognitive-search-concept-intro.md) requires Cognitive Services to be in the same physical region as Azure Cognitive Search. There are just a few regions that *don't* provide both. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page indicates a common regional presence by showing two stacked check marks. An unavailable combination has a missing check mark. The time piece icon indicates future availability.
 
-  :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Regional availability" border="true":::
+  :::image type="content" source="media/search-create-service-portal/region-availability.png" lightbox="media/search-create-service-portal/region-availability.png" alt-text="Screenshot of the regional availability page." border="true":::
 
 + Semantic search is [currently in preview in selected regions](https://azure.microsoft.com/global-infrastructure/services/?products=search), such as "Australia East" in the above screenshot. 
 
 Other features that have regional constraints:
 
-+ ["Availability Zones" in Scale for Performance](search-performance-optimization.md#availability-zones)
++ [Availability Zones](search-reliability.md#availability-zones)
 + [Azure roles for data plane operations](search-security-rbac.md) (Azure public cloud only)
 
 ## Choose a tier
@@ -114,7 +112,7 @@ Azure Cognitive Search is currently offered in [multiple pricing tiers](https://
 
 Basic and Standard are the most common choices for production workloads, but initially many customers start with the Free service for evaluation purposes. Among the billable tiers, key differences are partition size and speed, and limits on the number of objects you can create.
 
-:::image type="content" source="media/search-create-service-portal/select-pricing-tier.png" alt-text="Screenshot of Select a pricing tier page" border="true":::
+:::image type="content" source="media/search-create-service-portal/select-pricing-tier.png" lightbox="media/search-create-service-portal/select-pricing-tier.png" alt-text="Screenshot of Select a pricing tier page." border="true":::
 
 Remember, a pricing tier can't be changed once the service is created. If you need a higher or lower tier, you'll have to re-create the service.
 
@@ -122,21 +120,26 @@ Remember, a pricing tier can't be changed once the service is created. If you ne
 
 After you've provided the necessary inputs, go ahead and create the service. 
 
-:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Review and create the service" border="true":::
+:::image type="content" source="media/search-create-service-portal/new-service3.png" lightbox="media/search-create-service-portal/new-service3.png" alt-text="Screenshot of the Review and create the service page." border="true":::
 
 Your service is deployed within minutes. You can monitor progress through Azure notifications. Consider pinning the service to your dashboard for easy access in the future.
 
-:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Monitor and pin the service" border="true":::
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" lightbox="media/search-create-service-portal/monitor-notifications.png" alt-text="Screenshot of the monitor and pin the service page." border="true":::
 
-## Get a key and URL endpoint
+## Configure authentication
 
-Unless you're using the portal, programmatic access to your new service requires that you provide the URL endpoint and an authenticated connection. [Azure role-based access control with Azure Active Directory](search-security-rbac.md) is in public preview. [Key-based authentication](search-security-api-keys.md) is the default. It's also the only generally available authentication methodology for inbound connections to a search service. 
+Unless you're using the portal, programmatic access to your new service requires that you provide the URL endpoint and an authenticated connection. You can use either or both of these options:
 
-1. On the **Overview** page, locate and copy the URL endpoint on the right side of the page.
++ [Connect using key-based authentication](search-security-api-keys.md)
++ [Connect using Azure roles](search-security-rbac.md) 
 
-1. On the **Keys** page, copy either one of the admin keys (they're equivalent). Admin API keys are required for creating, updating, and deleting objects on your service. In contrast, query keys provide read-access to index content.
+1. When setting up a programmatic connection, you'll need the search service endpoint. On the **Overview** page, locate and copy the URL endpoint on the right side of the page.
 
-   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Service overview page with URL endpoint" border="false":::
+   :::image type="content" source="media/search-create-service-portal/get-endpoint.png" lightbox="media/search-create-service-portal/get-endpoint.png" alt-text="Screenshot of the service overview page with URL endpoint." border="true":::
+
+1. To set authentication options, use the **Keys** page. Most quickstarts and tutorials use API keys for simplicity, but if you're setting up a service for production workloads, consider using Azure roles. You can copy keys from this page.
+
+   :::image type="content" source="media/search-create-service-portal/set-authentication-options.png" lightbox="media/search-create-service-portal/set-authentication-options.png" alt-text="Screenshot of the keys page with authentication options." border="true":::
 
 An endpoint and key aren't needed for portal-based tasks. The portal is already linked to your Azure Cognitive Search resource with admin rights. For a portal walkthrough, start with [Quickstart: Create an Azure Cognitive Search index in the portal](search-get-started-portal.md).
 
@@ -150,14 +153,14 @@ After a search service is provisioned, you can [scale it to meet your needs](sea
 
 Adding resources increases your monthly bill. The [pricing calculator](https://azure.microsoft.com/pricing/calculator/) can help you understand the billing ramifications of adding resources. Remember that you can adjust resources based on load. For example, you might increase resources to create a full initial index, and then reduce resources later to a level more appropriate for incremental indexing.
 
-> [!Important]
+> [!IMPORTANT]
 > A service must have [2 replicas for read-only SLA and 3 replicas for read/write SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Go to your search service page in the Azure portal.
 1. In the left-navigation pane, select **Settings** > **Scale**.
 1. Use the slidebar to add resources of either type.
 
-:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Add capacity through replicas and partitions" border="true":::
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" lightbox="media/search-create-service-portal/settings-scale.png" alt-text="Screenshot of the add capacity page." border="true":::
 
 ## When to add a second service
 

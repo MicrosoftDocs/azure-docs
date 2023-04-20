@@ -3,7 +3,7 @@ title: Defender for DevOps | Defender for Cloud in the Field
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about Defender for Cloud integration with Defender for DevOps.
 ms.topic: reference
-ms.date: 11/08/2022
+ms.date: 01/24/2023
 ---
 
 # Defender for DevOps | Defender for Cloud in the Field
@@ -28,7 +28,7 @@ ms.date: 11/08/2022
 - [08:22](/shows/mdc-in-the-field/defender-for-devops#time=08m22s) -  Demonstration
 
 ## Recommended resources
-  - [Learn more](/azure/defender-for-cloud/defender-for-devops-introduction) about Defender for DevOps.
+  - [Learn more](./defender-for-devops-introduction.md) about Defender for DevOps.
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
   - For more about [Microsoft Security](https://msft.it/6002T9HQY)

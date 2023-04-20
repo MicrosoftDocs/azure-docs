@@ -3,9 +3,8 @@ title: Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentine
 description: Learn how to deploy a log forwarder, consisting of a Syslog daemon and the Log Analytics agent, as part of the process of ingesting Syslog and CEF logs to Microsoft Sentinel.
 author: limwainstein
 ms.topic: how-to
-ms.date: 12/23/2021
+ms.date: 01/09/2023
 ms.author: lwainstein
-ms.custom: ignite-fall-2021
 ---
 
 # Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel
@@ -212,7 +211,7 @@ Choose a syslog daemon to see the appropriate description.
         Contents of the `security-config-omsagent.conf` file:
 
         ```bash
-        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};destination oms_destination {tcp(\"127.0.0.1\" port(25226));};
+        filter f_oms_filter {match("CEF\|ASA" ) ;};destination oms_destination {tcp("127.0.0.1" port(25226));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
 

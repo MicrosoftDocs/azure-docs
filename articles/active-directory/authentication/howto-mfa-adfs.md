@@ -1,12 +1,12 @@
 ---
-title: Secure resources with Azure AD MFA and ADFS - Azure Active Directory
+title: Secure resources with Azure AD MFA and ADFS
 description: This is the Azure AD Multi-Factor Authentication page that describes how to get started with Azure AD MFA and AD FS in the cloud.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha

@@ -81,10 +81,6 @@ You can add the extension to your project by explicitly installing the [NuGet pa
 
 ::: zone-end
 
----
-
-::: zone-end
-
 ## Example
 
 Unless otherwise noted, these examples are specific to version 2.x and later version of the Functions runtime.
@@ -218,7 +214,6 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 ```
 
 ---
-
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript"

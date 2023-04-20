@@ -1,7 +1,8 @@
 ---
 title: "Azure RBAC for Azure Arc-enabled Kubernetes clusters"
-ms.date: 11/28/2022
+ms.date: 03/13/2023
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 
@@ -261,8 +262,8 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
         ```console
         sudo mkdir -p /etc/guard
-        kubectl get secrets azure-arc-guard-manifests -n kube-system -o json | jq '.data."guard-authn-webhook.yaml"' | base64 -d > /etc/guard/guard-authn-webhook.yaml
-        kubectl get secrets azure-arc-guard-manifests -n kube-system -o json | jq '.data."guard-authz-webhook.yaml"' | base64 -d > /etc/guard/guard-authz-webhook.yaml
+        kubectl get secrets azure-arc-guard-manifests -n kube-system -o json | jq -r '.data."guard-authn-webhook.yaml"' | base64 -d > /etc/guard/guard-authn-webhook.yaml
+        kubectl get secrets azure-arc-guard-manifests -n kube-system -o json | jq -r '.data."guard-authz-webhook.yaml"' | base64 -d > /etc/guard/guard-authz-webhook.yaml
         ```
 
     1. Open the `apiserver` manifest in edit mode:
@@ -491,7 +492,11 @@ After the proxy process is running, you can open another tab in your console to 
    --auth-provider-arg=apiserver-id=<serverApplicationId>
    ```
 
-1. Open the *kubeconfig* file that you created earlier. Under `contexts`, verify that the context associated with the cluster points to the user credentials that you created in the previous step.
+1. Open the *kubeconfig* file that you created earlier. Under `contexts`, verify that the context associated with the cluster points to the user credentials that you created in the previous step. To set the current context to these user credentials, run the following command:
+
+   ```console
+   kubectl config set-context --current=true --user=<testuser>@<mytenant.onmicrosoft.com>
+   ```
 
 1. Add the **config-mode** setting under `user` > `config`:
   
@@ -580,10 +585,10 @@ Follow the instructions to sign in again. An error message states that you're su
 
 ## Configure just-in-time cluster access with Azure AD
 
-Another option for cluster access control is to use [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) for just-in-time requests.
+Another option for cluster access control is to use [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) for just-in-time requests.
 
 >[!NOTE]
-> [Azure AD PIM](/azure/active-directory/privileged-identity-management/pim-configure) is an Azure AD Premium capability that requires a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
+> [Azure AD PIM](../../active-directory/privileged-identity-management/pim-configure.md) is an Azure AD Premium capability that requires a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
 
 To configure just-in-time access requests for your cluster, complete the following steps:
 

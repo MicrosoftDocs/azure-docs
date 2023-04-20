@@ -1,5 +1,5 @@
 ---
-title: 'Lifecycle workflows FAQs - Azure AD (preview)'
+title: 'Lifecycle workflows FAQs (preview)'
 description: Frequently asked questions about Lifecycle workflows (preview).
 services: active-directory
 author: amsliu
@@ -22,6 +22,9 @@ In this article you will find questions to commonly asked questions about [Lifec
 ### Can I create custom workflows for guests?
 
 Yes, custom workflows can be configured for members or guests in your tenant. Workflows can run for all types of external guests, external members, internal guests and internal members.
+
+### Why do I see "Lifecycle Management" instead of "Lifecycle Workflows"?
+For a small portion of our customers, Lifecycle Workflows may still be listed under the former name Lifecycle Management in the audit logs and enterprise applications.
 
 ### Do I need to map employeeHireDate in provisioning apps like WorkDay?
 

@@ -9,7 +9,7 @@ ms.author: heidist
 tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/21/2022
+ms.date: 01/12/2023
 ---
 # Service administration for Azure Cognitive Search in the Azure portal
 
@@ -62,8 +62,8 @@ Several aspects of a search service are determined when the service is provision
 Service administration includes the following tasks:
 
 * [Adjust capacity](search-capacity-planning.md) by adding or removing replicas and partitions
-* [Rotate API keys](search-security-api-keys.md) used for admin and query operations
-* [Control access to admin operations](search-security-rbac.md) through role-based security
+* [Manage API keys](search-security-api-keys.md) used for content access
+* [Manage Azure roles](search-security-rbac.md) used for content and service access
 * [Configure IP firewall rules](service-configure-firewall.md) to restrict access by IP address
 * [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network
 * [Monitor service health and operations](monitor-azure-cognitive-search.md): storage, query volumes, and latency
@@ -78,9 +78,9 @@ You can also use the management client libraries in the Azure SDKs for .NET, Pyt
 
 ## Data collection and retention
 
-Because Azure Cognitive Search is a [monitored resource](/azure/azure-monitor/monitor-reference), you can review the built-in [**activity logs**](/azure/azure-monitor/essentials/activity-log) and [**platform metrics**](/azure/azure-monitor/essentials/data-platform-metrics#types-of-metrics) for insights into service operations. Activity logs and the data used to report on platform metrics are retained for the periods described in the following table.
+Because Azure Cognitive Search is a [monitored resource](../azure-monitor/monitor-reference.md), you can review the built-in [**activity logs**](../azure-monitor/essentials/activity-log.md) and [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md#types-of-metrics) for insights into service operations. Activity logs and the data used to report on platform metrics are retained for the periods described in the following table.
 
-If you opt in for [**resource logging**](/azure/azure-monitor/essentials/resource-logs), you'll specify durable storage over which you'll have full control over data retention and data access through Kusto queries. For more information on how to set up resource logging in Cognitive Search, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
+If you opt in for [**resource logging**](../azure-monitor/essentials/resource-logs.md), you'll specify durable storage over which you'll have full control over data retention and data access through Kusto queries. For more information on how to set up resource logging in Cognitive Search, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
 
 Internally, Microsoft collects telemetry data about your service and the platform. It's stored internally in Microsoft data centers and made globally available to Microsoft support engineers when you open a support ticket.
 
@@ -92,22 +92,24 @@ Internally, Microsoft collects telemetry data about your service and the platfor
 | Telemetry | One and a half years |
 
 > [!NOTE]
-> This section is about monitoring data. For questions about customer data and privacy, see the ["Data residency"](search-security-overview.md#data-residency) section of the security overview article.
+> See the ["Data residency"](search-security-overview.md#data-residency) section of the security overview article for more information about data location and privacy.
 
 ## Administrator permissions
 
 When you open the search service overview page, the Azure role assigned to your account determines what portal content is available to you. The overview page at the beginning of the article shows the portal content available to an Owner or Contributor.
 
-Control plane roles include the following items:
+Azure roles used for service administration include:
 
 * Owner
 * Contributor (same as Owner, minus the ability to assign roles)
-* Reader (access to service information and the Monitoring tab)
+* Reader (provides access to service information in the Essentials section and in the Monitoring tab)
 
-If you want a combination of control plane and data plane permissions, consider Search Service Contributor. For more information, see [Built-in roles](search-security-rbac.md#built-in-roles-used-in-search).
+By default, all search services start with at least one Owner. Owners, service administrators, and co-administrators have permission to create other administrators and other role assignments.
+
+Also by default, search services start with API keys for content-related tasks that an Owner or Contributor might perform in the portal. However, it's possible to turn off [API key authentication](search-security-api-keys.md) and use [Azure role-based access control](search-security-rbac.md#built-in-roles-used-in-search) exclusively. If you turn off API keys, be sure to set up data access role assignments so that all features in the portal remain operational.
 
 > [!TIP]
-> By default, any Owner or Co-owner can create or delete services. To prevent accidental deletions, you can  [lock resources](../azure-resource-manager/management/lock-resources.md).
+> By default, any owner or administrator can create or delete services. To prevent accidental deletions, you can [lock resources](../azure-resource-manager/management/lock-resources.md).
 
 ## Next steps
 

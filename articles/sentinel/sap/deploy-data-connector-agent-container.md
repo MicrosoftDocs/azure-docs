@@ -1,6 +1,6 @@
 ---
 title: Deploy and configure the container hosting the SAP data connector agent
-description: This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
+description: This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel solution for SAP® applications.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
@@ -9,15 +9,17 @@ ms.date: 04/12/2022
 
 # Deploy and configure the container hosting the SAP data connector agent
 
-This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
+This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel solution for SAP® applications.
 
 ## Deployment milestones
 
-Deployment of the Microsoft Sentinel Solution for SAP is divided into the following sections
+Deployment of the Microsoft Sentinel solution for SAP® applications is divided into the following sections
 
 1. [Deployment overview](deployment-overview.md)
 
 1. [Deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+
+1. [Work with the solution across multiple workspaces](cross-workspace.md) (PREVIEW)
 
 1. [Prepare SAP environment](preparing-sap.md)
 
@@ -25,7 +27,7 @@ Deployment of the Microsoft Sentinel Solution for SAP is divided into the follow
 
 1. [Deploy SAP security content](deploy-sap-security-content.md)
 
-1. [Configure Microsoft Sentinel Solution for SAP](deployment-solution-configuration.md)
+1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
 
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
@@ -34,7 +36,7 @@ Deployment of the Microsoft Sentinel Solution for SAP is divided into the follow
 
 ## Data connector agent deployment overview
 
-For the Microsoft Sentinel Solution for SAP to operate correctly, you must first get your SAP data into Microsoft Sentinel. To accomplish this, you need to deploy the solution's SAP data connector agent.
+For the Microsoft Sentinel solution for SAP® applications to operate correctly, you must first get your SAP data into Microsoft Sentinel. To accomplish this, you need to deploy the solution's SAP data connector agent.
 
 The data connector agent runs as a container on a Linux virtual machine (VM). This VM can be hosted either in Azure, in a third-party cloud, or on-premises. We recommend that you install and configure this container using a *kickstart* script; however, you can choose to [deploy the container manually](?tabs=deploy-manually#deploy-the-data-connector-agent-container).
 
@@ -132,7 +134,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
     ```bash
     wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh --cloud fairfax
     ```
-    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the amount of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the number of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
 2. **Follow the on-screen instructions** to enter your SAP and key vault details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
@@ -210,7 +212,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
     ./sapcon-sentinel-kickstart.sh --keymode kvsi --appid aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --appsecret ssssssssssssssssssssssssssssssssss -tenantid bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb -kvaultname <key vault name>
     ```
 
-    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the amount of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the number of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
 1. **Follow the on-screen instructions** to enter the requested details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
@@ -245,7 +247,7 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
     ./sapcon-sentinel-kickstart.sh --keymode cfgf
     ```
 
-    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the amount of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. You can supply additional parameters to the script to minimize the number of prompts or to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
 1. **Follow the on-screen instructions** to enter the requested details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
@@ -308,6 +310,6 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
 ## Next steps
 
-Once the connector is deployed, proceed to deploy Microsoft Sentinel Solution for SAP content:
+Once the connector is deployed, proceed to deploy Microsoft Sentinel solution for SAP® applications content:
 > [!div class="nextstepaction"]
 > [Deploy SAP security content](deploy-sap-security-content.md)

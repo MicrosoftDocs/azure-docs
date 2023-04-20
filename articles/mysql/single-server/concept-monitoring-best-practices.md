@@ -7,10 +7,10 @@ ms.topic: conceptual
 author: mksuni 
 ms.author: sumuth
 ms.custom:
-ms.date: 06/20/2022
+ms.date: 01/27/2023
 ---
 
-# Best practices for monitoring Azure Database for MySQL - Single server
+# Best practices for monitoring Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 

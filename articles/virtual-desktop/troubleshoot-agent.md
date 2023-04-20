@@ -3,7 +3,7 @@ title: Troubleshoot Azure Virtual Desktop Agent Issues - Azure
 description: How to resolve common Azure Virtual Desktop Agent and connectivity issues.
 author: sefriend
 ms.topic: troubleshooting
-ms.date: 05/26/2022
+ms.date: 02/18/2023
 ms.author: sefriend
 manager: clarkn
 ---
@@ -109,9 +109,7 @@ To resolve this issue, check that you can reach the two endpoints referred to as
 
 On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703 with **RD Gateway Url: is not accessible** in the description, the agent is unable to reach the gateway URLs. To successfully connect to your session host, you must allow network traffic to the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Azure Virtual Desktop.
 
-To resolve this issue, verify that your firewall and/or DNS settings are not blocking these URLs:
-1. [Use Azure Firewall to protect Azure Virtual Desktop deployments.](../firewall/protect-azure-virtual-desktop.md).
-1. Configure your [Azure Firewall DNS settings](../firewall/dns-settings.md).
+To resolve this issue, verify access these to the required URLs by running the [Required URL Check tool](required-url-check-tool.md). If you're using Azure Firewall, see [Use Azure Firewall to protect Azure Virtual Desktop deployments.](../firewall/protect-azure-virtual-desktop.md) and [Azure Firewall DNS settings](../firewall/dns-settings.md) for more information on how to configure it for Azure Virtual Desktop.
 
 ## Error: 3019
 
@@ -348,18 +346,15 @@ You must generate a new registration key that is used to re-register your sessio
 
 By reinstalling the most updated version of the agent and boot loader, the side-by-side stack and Geneva monitoring agent automatically get installed as well. To reinstall the agent and boot loader:
 
-1. Sign in to your session host VM as an administrator and use the correct version of the agent installer for the operating system of your session host VM:
-    1. For Windows 10 and Windows 11:
-        1. [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
-        1. [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
-    1. For Windows 7:
-        1. [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm)
-        1. [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3)
+1. Sign in to your session host VM as an administrator and run the agent installer and bootloader for your session host VM:
+   
+   - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
+   
+   - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
 
    > [!TIP]
    > For each of the the agent and boot loader installers you downloaded, you may need to unblock them. Right-click each file and select **Properties**, then select **Unblock**, and finally select **OK**.
 
-1. Run the agent installer
 1. When the installer asks you for the registration token, paste the registration key from your clipboard.
 
    > [!div class="mx-imgBorder"]
@@ -368,13 +363,31 @@ By reinstalling the most updated version of the agent and boot loader, the side-
 1. Run the boot loader installer.
 1. Restart your session VM. 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+1. In the search bar, enter **Azure Virtual Desktop** and select the matching service entry.
 1. Select **Host pools** and select the name of the host pool that your session host VM is in.
 1. Select **Session Hosts** to see the list of all session hosts in that host pool.
 1. You should now see the session host registered in the host pool with the status **Available**. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of available session host](media/hostpool-portal.png)
+
+## Remove DisableRegistryTools registry key
+
+If you've performed all four steps but the agent still doesn't work, that may be because the DisableRegistryTools registry key is enabled in one of the following locations:
+
+- HKU:\DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\DisableRegistryTools = 1 
+- HKU:\S-1-5-18\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\DisableRegistryTools = 1 
+- HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\DisableRegistryTools = 1
+
+This registry key prevents the agent from installing the side-by-side stack, which results in an installMSIException error. This error leads to the session hosts being stuck in an unavailable state.
+
+To resolve this issue, you'll need to remove the key:
+
+1. Remove the DisableRegistryTools key from the three previously listed locations.
+1. Uninstall and remove the affected side-by-side stack installation from the **Apps & Features** folder.
+1. Remove the affected side-by-side stack's registry keys.
+1. Restart your VM.
+1. Start the agent and let it auto-install the side-by-side stack.
 
 ## Next steps
 

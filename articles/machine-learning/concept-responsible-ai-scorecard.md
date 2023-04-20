@@ -23,6 +23,8 @@ Our Responsible AI dashboard is designed for machine learning professionals and 
 
 One of the biggest benefits of using the Azure Machine Learning ecosystem is related to the archival of model and data insights in the Azure Machine Learning Run History (for quick reference in future). As a part of that infrastructure and to accompany machine learning models and their corresponding Responsible AI dashboards, we introduce the Responsible AI scorecard to empower ML professionals to generate and share their data and model health records easily.
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Who should use a Responsible AI scorecard?
 
 - If you're a data scientist or a machine learning professional, after training your model and generating its corresponding Responsible AI dashboard(s) for assessment and decision-making purposes, you can extract those learnings via our PDF scorecard and share the report easily with your technical and non-technical stakeholders to build trust and gain their approval for deployment.  

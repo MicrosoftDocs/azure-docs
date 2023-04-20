@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Domo | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Domo'
 description: Learn how to configure single sign-on between Azure Active Directory and Domo.
 services: active-directory
 author: jeevansd

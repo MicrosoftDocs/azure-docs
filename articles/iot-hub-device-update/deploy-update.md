@@ -6,6 +6,7 @@ ms.author: vimeht
 ms.date: 10/31/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
+ms.custom: devx-track-azurecli
 ---
 
 # Deploy an update by using Device Update for Azure IoT Hub
@@ -72,7 +73,7 @@ An Azure CLI environment:
 1. Schedule your deployment to start immediately or in the future.
 
    > [!TIP]
-   > By default, the **Start** date and time is 24 hours from your current time. Be sure to select a different date and time if you want the deployment to begin earlier.
+   > By default, the **Start** date and time is set to Immediately. Be sure to select a different date and time if you want the deployment to begin later.
 
    :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Screenshot that shows the Create deployment screen" lightbox="media/deploy-update/create-deployment.png":::
 
@@ -91,6 +92,25 @@ An Azure CLI environment:
    :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows the update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
 
 # [Azure CLI](#tab/cli)
+
+ 
+
+The [`az iot du device group list`](/cli/azure/iot/du/device/group#az-iot-du-device-group-list) to verify the best available update for your group. The command takes the following arguments:
+
+* `--account`: The Device Update account name.
+* `--instance`: The Device Update instance name.
+* `--group-id`: The device group ID that you're targeting with this deployment. This ID is the value of the **ADUGroup** tag, or `$default` for devices with no tag.
+* `--best-updates`: This flag indicates the command should fetch the best available updates for the device group including a count of how many devices need each update. 
+* `--resource-group -g': Device Update account resource group name.
+* '--update-compliance': This flag indicates the command should fetch device group update compliance information such as how many devices are on their latest update, how many need new updates, and how many are in progress on receiving a new update.
+
+```azurecli
+az iot du device group list \
+    --account <Device Update account name> \
+    --instance <Device Update instance name>\
+    --gid <device group id>\
+    --best-updates {false, true}
+```
 
 Use [az iot du device deployment create](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-create) to create a deployment for a device group.
 

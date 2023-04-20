@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 12/19/2019
+ms.date: 01/24/2023
 
 ---
 
@@ -31,7 +31,6 @@ You can discover the following insights by using Bing Visual Search:
 | Insight                              | Description |
 |--------------------------------------|-------------|
 | Visually similar images              | A list of images that are visually similar to the input image. |
-| Visually similar products            | Products that are visually similar to the product shown.            |
 | Shopping sources                     | Places where you can buy the item shown in the input image.            |
 | Related searches                     | Related searches made by others or that are based on the contents of the image.            |
 | Webpages that include the image     | Webpages that include the input image.            |

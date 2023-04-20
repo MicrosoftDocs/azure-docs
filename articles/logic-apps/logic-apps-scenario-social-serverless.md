@@ -41,16 +41,11 @@ For a video walkthrough that shows how to create this solution,
 
 ## Trigger on customer data
 
-1. In the Azure portal or Visual Studio, 
-create a blank logic app. 
+1. In the Azure portal or Visual Studio, create a blank logic app workflow.
 
-   If you're new to logic apps, 
-   review the [quickstart for the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-   or the [quickstart for Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+   If you're new to logic apps, review the [quickstart for the Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md) or the [quickstart for Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. In Logic App Designer, find and add the 
-Twitter trigger that has this action: 
-**When a new tweet is posted**
+2. In workflow designer, find and add the Twitter trigger that has this action: **When a new tweet is posted**
 
 3. Set up the trigger to listen for 
 tweets based on a keyword or hashtag.
@@ -72,7 +67,7 @@ so that you can better understand the sentiments expressed.
 To detect the sentiment behind some text, 
 you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
 
-1. In Logic App Designer, under the trigger, choose **New step**.
+1. In workflow designer, under the trigger, choose **New step**.
 
 2. Find the **Text Analytics** connector.
 
@@ -129,7 +124,7 @@ in the logic app that you're building.
 
 ## Add Azure function to logic app
 
-1. In Logic App Designer, under the **Detect Sentiment** action, 
+1. In workflow designer, under the **Detect Sentiment** action, 
 choose **New step**.
 
 2. Find the **Azure Functions** connector, 

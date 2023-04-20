@@ -1,11 +1,10 @@
 ---
-title: Protecting managed security service provider (MSSPs) intellectual property in Microsoft Sentinel | Microsoft Docs
+title: Protecting managed security service provider (MSSPs) intellectual property in Microsoft Sentinel
 description: Learn about how  managed security service providers (MSSPs) can protect the intellectual property they've created in Microsoft Sentinel.
-author: batamig
+author: limwainstein
 ms.topic: conceptual
-ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
-ms.author: bagol
+ms.date: 01/09/2023
+ms.author: lwainstein
 ---
 
 # Protecting MSSP intellectual property in Microsoft Sentinel

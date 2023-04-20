@@ -1,5 +1,5 @@
 ---
-title: Find help and get support for Azure Active Directory - Azure Active Directory | Microsoft Docs
+title: Find help and get support for Azure Active Directory
 description: Instructions about how to get help and open a support request for Azure Active Directory.
 services: active-directory
 author: shlipsey3                

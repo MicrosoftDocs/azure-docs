@@ -1,6 +1,7 @@
 ---
 author: larryfr
 ms.service: machine-learning
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 05/10/2022
 ms.author: larryfr
@@ -109,13 +110,12 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
         
     If curl HTTPs fails (e.g. timeout) but HTTP works, please check that certificate is valid.
 
-
     If this fails to resolve to A record, verify if the resolution works from Azure DNS(168.63.129.16). 
     ```bash
     dig @168.63.129.16 endpointname.westcentralus.inference.ml.azure.com
     ```
-
-    If this succeeds then troubleshoot conditional forwarder for private link on custom DNS.
+    
+    If this succeeds then you can troubleshoot conditional forwarder for private link on custom DNS.
 
 ### Online deployments can't be scored
 

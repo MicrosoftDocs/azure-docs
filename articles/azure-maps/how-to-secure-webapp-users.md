@@ -2,8 +2,8 @@
 title: How to secure a web application with interactive single-sign-in
 titleSuffix: Azure Maps
 description: How to configure a web application which supports Azure AD single-sign-on with Azure Maps Web SDK using OpenID Connect protocol.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 06/12/2020
 ms.topic: how-to
 ms.service: azure-maps

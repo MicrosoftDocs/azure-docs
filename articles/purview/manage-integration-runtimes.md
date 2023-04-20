@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/05/2022
+ms.date: 03/01/2023
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -52,9 +52,9 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 > For your source, **[refer to each source article for prerequisite details.](azure-purview-connector-overview.md)**
 > Any requirements will be listed in the **Prerequisites** section.
 
-- Self-hosted integration runtime requires a 64-bit Operating System with .NET Framework 4.7.2 or above. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
+- To add and manage a SHIR in Microsoft Purview, you'll need [data source administrator permissions](catalog-permissions.md) in Microsoft Purview.
 
-- Ensure Visual C++ Redistributable for Visual Studio 2015 or higher is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](/cpp/windows/latest-supported-vc-redist#visual-studio-2015-2017-2019-and-2022).
+- Self-hosted integration runtime requires a 64-bit Operating System with .NET Framework 4.7.2 or above. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
 
 - The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space. For the details of system requirements, see [Download](https://www.microsoft.com/download/details.aspx?id=39717).
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
@@ -75,6 +75,9 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 To create and set up a self-hosted integration runtime, use the following procedures.
 
 ### Create a self-hosted integration runtime
+
+>[!NOTE]
+> To add or manage a SHIR in Microsoft Purview, you'll need [data source administrator permissions](catalog-permissions.md) in Microsoft Purview.
 
 1. On the home page of the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
 
@@ -106,21 +109,25 @@ To create and set up a self-hosted integration runtime, use the following proced
 
    :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="successfully registered.":::
 
+You can register multiple nodes for a self-hosted integration runtime using the same key. Learn more from [High availability and scalability](#high-availability-and-scalability).
+
 ## Manage a self-hosted integration runtime
 
-You can edit a self-hosted integration runtime by navigating to **Integration runtimes** in the **Management center**, selecting the IR and then selecting edit. You can now update the description, copy the key, or regenerate new keys.
+You can edit a self-hosted integration runtime by navigating to **Integration runtimes** in the Microsoft Purview governance portal, hover on the IR then select the **Edit** button. 
 
-:::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime.png" alt-text="edit IR.":::
+- In the **Settings** tab, you can update the description, copy the key, or regenerate new keys. 
+- In the **Nodes** tab, you can see a list of the registered nodes, along with the status, IP address, and the option of node deletion. Learn more from [High availability and scalability](#high-availability-and-scalability).
+- In the **Version** tab, you can see the IR version status. Learn more from [Self-hosted integration runtime auto-update and expire notification](self-hosted-integration-runtime-version.md).
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime-settings.png" alt-text="edit IR details.":::
 
-You can delete a self-hosted integration runtime by navigating to **Integration runtimes** in the Management center, selecting the IR and then selecting **Delete**. Once an IR is deleted, any ongoing scans relying on it will fail.
+You can delete a self-hosted integration runtime by navigating to **Integration runtimes**, hover on the IR then select the **Delete** button. 
 
 ### Notification area icons and notifications
 
 If you move your cursor over the icon or message in the notification area, you can see details about the state of the self-hosted integration runtime.
 
-:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::||
+:::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/system-tray-notifications.png" alt-text="Notifications in the notification area":::
 
 ### Service account for Self-hosted integration runtime
 
@@ -133,6 +140,18 @@ Make sure the account has the permission of Log-on as a service. Otherwise self-
 :::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/shir-service-account-permission.png" alt-text="Screenshot of Local Security Policy - User Rights Assignment":::
 
 :::image type="content" source="../data-factory/media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png" alt-text="Screenshot of Log on as a service user rights assignment":::
+
+## High availability and scalability
+
+You can associate a self-hosted integration runtime with multiple on-premises machines or virtual machines in Azure. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes are:
+
+- Higher availability of the self-hosted integration runtime so that it's no longer the single point of failure for scan. This availability helps ensure continuity when you use up to four nodes.
+- Run more concurrent scans. Each self-hosted integration runtime can empower many scans at the same time, auto determined based on the machine's CPU/memory. You can install more nodes if you have more concurrency need. Each scan will be executed on one of the nodes. Having more nodes doesn't improve the performance of a single scan execution.
+
+You can associate multiple nodes by installing the self-hosted integration runtime software from [Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Then, register it by using the same authentication key.
+
+> [!NOTE]
+> Before you add another node for high availability and scalability, ensure that the **Remote access to intranet** option is enabled on the first node. To do so, select **Microsoft Integration Runtime Configuration Manager** > **Settings** > **Remote access to intranet**.
 
 ## Networking requirements
 
@@ -155,7 +174,7 @@ Here are the domains and outbound ports that you need to allow at both **corpora
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.frontend.clouddatahub.net` | 443 | Required to connect to the Microsoft Purview service. Currently wildcard is required as there's no dedicated resource. |
-| `*.servicebus.windows.net` | 443            | Required for setting up scan in the Microsoft Purview governance portal. This endpoint is used for interactive authoring from UI, for example, test connection, browse folder list and table list to scope scan. Currently wildcard is required as there's no dedicated resource. |
+| `*.servicebus.windows.net` | 443            | Required for setting up scan in the Microsoft Purview governance portal. This endpoint is used for interactive authoring from UI, for example, test connection, browse folder list and table list to scope scan. To avoid using wildcard, see [Get URL of Azure Relay](#get-url-of-azure-relay).|
 | `<purview_account>.purview.azure.com` | 443 | Required to connect to Microsoft Purview service. If you use Purview [Private Endpoints](catalog-private-link.md), this endpoint is covered by *account private endpoint*.  |
 | `<managed_storage_account>.blob.core.windows.net` | 443 | Required to connect to the Microsoft Purview managed Azure Blob storage account. If you use Purview [Private Endpoints](catalog-private-link.md), this endpoint is covered by *ingestion private endpoint*. |
 | `<managed_storage_account>.queue.core.windows.net` | 443 | Required to connect to the Microsoft Purview managed Azure Queue storage account. If you use Purview [Private Endpoints](catalog-private-link.md), this endpoint is covered by *ingestion private endpoint*. |
@@ -163,7 +182,7 @@ Here are the domains and outbound ports that you need to allow at both **corpora
 | `login.windows.net`<br>`login.microsoftonline.com` | 443 | Required to sign in to the Azure Active Directory. |
 
 > [!NOTE]
->  As currently Azure Relay doesn't support service tag, you have to use service tag AzureCloud or Internet in NSG rules for the communication to Azure Relay. For the communication to Microsoft Purview.
+>  As currently Azure Relay doesn't support service tag, you have to use service tag AzureCloud or Internet in NSG rules for the communication to Azure Relay.
 
 Depending on the sources you want to scan, you also need to allow other domains and outbound ports for other Azure or external sources. A few examples are provided here:
 
@@ -180,6 +199,21 @@ For some cloud data stores such as Azure SQL Database and Azure Storage, you may
 
 > [!IMPORTANT]
 > In most environments, you will also need to make sure that your DNS is correctly configured. To confirm, you can use **nslookup** from your SHIR machine to check connectivity to each of the domains. Each nslookup should return the IP of the resource. If you are using [Private Endpoints](catalog-private-link.md), the private IP should be returned and not the Public IP. If no IP is returned, or if when using Private Endpoints the public IP is returned, you need to address your DNS/VNet association, or your Private Endpoint/VNet peering.
+
+### Get URL of Azure Relay
+
+One required domain and port that need to be put in the allowlist of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection and browse folder/table list. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime. Follow these steps:
+
+1. Go to the Microsoft Purview governance portal -> Data map -> Integration runtimes, and edit your self-hosted integration runtime.
+2. In Edit page, select **Nodes** tab.
+3. Select **View Service URLs** to get all FQDNs.
+
+   :::image type="content" source="media/manage-integration-runtimes/get-azure-relay-urls.png" alt-text="Screenshot that shows how to get Azure Relay URLs for an integration runtime.":::
+
+4. You can add these FQDNs in the allowlist of firewall rules.
+
+> [!NOTE]
+> For the details related to Azure Relay connections protocol, see [Azure Relay Hybrid Connections protocol](../azure-relay/relay-hybrid-connections-protocol.md).
 
 ## Proxy server considerations
 

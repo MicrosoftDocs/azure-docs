@@ -180,6 +180,8 @@
         - name: Validation issues
           href: data-box-disk-troubleshoot.md
         - name: Data upload issues
+          href: data-box-disk-troubleshoot-data-upload.md
+        - name: Upload logs
           href: data-box-disk-troubleshoot-upload.md 
       - name: Contact Support
         href: data-box-disk-contact-microsoft-support.md  
@@ -262,6 +264,8 @@
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
+    - name: Data Box Event Grid schema
+      href: ../event-grid/event-schema-data-box.md
   - name: Resources
     items:
     - name: Data Box product

@@ -1,5 +1,5 @@
 ---
-title: Provisioning logs in Azure Active Directory | Microsoft Docs
+title: Provisioning logs in Azure Active Directory
 description: Overview of the provisioning logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3
@@ -8,10 +8,9 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/04/2022
+ms.date: 03/31/2023
 ms.author: sarahlipsey
 ms.reviewer: arvinh
-
 ms.collection: M365-identity-device-management
 ---
 # Provisioning logs in Azure Active Directory
@@ -85,6 +84,7 @@ The **Identity** filter enables you to specify the name or the identity that you
 You can search by the name or ID of the object. The ID varies by scenario.
 - If you're provisioning an object *from Azure AD to Salesforce*, the **source ID** is the object ID of the user in Azure AD. The **target ID** is the ID of the user at Salesforce.
 - If you're provisioning *from Workday to Azure AD*, the **source ID** is the Workday worker employee ID. The **target ID** is the ID of the user in Azure AD.
+- If you're provisioning users for [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md), the **source ID** is ID of the user in the source tenant. The **target ID** is ID of the user in the target tenant.
 
 > [!NOTE]
 > The name of the user might not always be present in the **Identity** column. There will always be one ID. 
@@ -124,7 +124,7 @@ In addition to the filters of the default view, you can set the following filter
 
 - **Target System**: You can specify where the identity is getting provisioned to. For example, when you're provisioning an object from Azure AD to ServiceNow, the target system is ServiceNow. 
 
-- **Application**: You can show only records of applications with a display name that contains a specific string.
+- **Application**: You can show only records of applications with a display name or object ID that contains a specific string. For [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md), use the object ID of the configuration and not the application ID.
 
 ## Analyze the provisioning logs
 
@@ -230,6 +230,23 @@ Use the following table to better understand how to resolve errors that you find
 |SystemForCrossDomainIdentity<br>ManagementMultipleEntriesInResponse| A GET request to retrieve a user or group received multiple users or groups in the response. The system expects to receive only one user or group in the response. For example, if you do a [GET Group request](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group) to retrieve a group, provide a filter to exclude members, and your System for Cross-Domain Identity Management (SCIM) endpoint returns the members, you'll get this error.|
 |SystemForCrossDomainIdentity<br>ManagementServiceIncompatible|The Azure AD provisioning service is unable to parse the response from the third party application. Work with the application developer to ensure that the SCIM server is compatible with the [Azure AD SCIM client](../app-provisioning/use-scim-to-provision-users-and-groups.md#understand-the-azure-ad-scim-implementation).|
 |SchemaPropertyCanOnlyAcceptValue|The property in the target system can only accept one value, but the property in the source system has multiple. Ensure that you either map a single-valued attribute to the property that is throwing an error, update the value in the source to be single-valued, or remove the attribute from the mappings.|
+
+
+## Error codes for cross-tenant synchronization
+
+Use the following table to better understand how to resolve errors that you find in the provisioning logs for [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md). For any error codes that are missing, provide feedback by using the link at the bottom of this page.
+
+> [!div class="mx-tableFixed"]
+> | Error code | Cause | Solution |
+> | --- | --- | --- |
+> | AzureActiveDirectoryCannotUpdateObjectsOriginatedInExternalService | The synchronization engine could not update one or more user properties in the target tenant.<br/><br/>The operation failed in Microsoft Graph API because of Source of Authority (SOA) enforcement. Currently, the following properties show up in the list:<br/>`Mail`<br/>`showInAddressList` | In some cases (for example when `showInAddressList` property is part of the user update), the synchronization engine might automatically retry the (user) update without the offending property. Otherwise, you will need to update the property directly in the target tenant. |
+> | AzureDirectoryB2BManagementPolicyCheckFailure | The cross-tenant synchronization policy allowing automatic redemption failed.<br/><br/>The synchronization engine checks to ensure that the administrator of the target tenant has created an inbound cross-tenant synchronization policy allowing automatic redemption. The synchronization engine also checks if the administrator of the source tenant has enabled an outbound policy for automatic redemption. | Ensure that the automatic redemption setting has been enabled for both the source and target tenants. For more information, see [Automatic redemption setting](../multi-tenant-organizations/cross-tenant-synchronization-overview.md#automatic-redemption-setting). |
+> | AzureActiveDirectoryQuotaLimitExceeded | The number of objects in the tenant exceeds the directory limit.<br/><br/>Azure AD has limits for the number of objects that can be created in a tenant. | Check whether the quota can be increased. For information about the directory limits and steps to increase the quota, see [Azure AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md). |
+> |InvitationCreationFailure| The Azure AD provisioning service attempted to invite the user in the target tenant. That invitation failed.| Navigate to the user settings page in Azure AD > external users > collaboration restrictions and ensure that collaboration with that tenant is enabled.|
+> |AzureActiveDirectoryInsufficientRights|When a B2B user in the target tenant has a role other than User, Helpdesk Admin, or User Account Admin, they cannot be deleted.| Remove the role(s) on the user in the target tenant in order to successfully delete the user in the target tenant.|
+> |AzureActiveDirectoryForbidden|External collaboration settings have blocked invitations.|Navigate to user settings and ensure that [external collaboration settings](../external-identities/external-collaboration-settings-configure.md) are permitted.|
+> |InvitationCreationFailureInvalidPropertyValue|Potential causes:<br/>* The Primary SMTP Address is an invalid value.<br/>* UserType is neither guest nor member<br/>* Group email Address is not supported | Potential solutions:<br/>* The Primary SMTP Address has an invalid value. Resolving this issue will likely require updating the mail property of the source user. For more information, see [Prepare for directory synchronization to Microsoft 365](https://aka.ms/DirectoryAttributeValidations)<br/>* Ensure that the userType property is provisioned as type guest or member. This can be fixed by checking your attribute mappings to understand how the userType attribute is mapped.<br/>* The email address address of the user matches with the email address of a group in the tenant. Update the email address for one of the two objects.|
+> |InvitationCreationFailureAmbiguousUser| The invited user has a proxy address that matches an internal user in the target tenant. The proxy address must be unique. | To resolve this error, delete the existing internal user in the target tenant or remove this user from sync scope.|
 
 ## Next steps
 

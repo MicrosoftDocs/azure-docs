@@ -1,5 +1,5 @@
 ---
-title: Dynamic groups and B2B collaboration - Azure Active Directory | Microsoft Docs
+title: Dynamic groups and B2B collaboration
 description: Shows how to use Azure AD dynamic groups with Azure Active Directory B2B collaboration 
 
 services: active-directory
@@ -8,8 +8,8 @@ ms.subservice: B2B
 ms.topic: how-to
 ms.date: 10/13/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
 ms.reviewer: mal
 

@@ -52,5 +52,5 @@ Install the [X2Go client](https://wiki.x2go.org/doku.php/doc:installation:x2gocl
 
 ## Next steps
 
-- [As an educator, configure X2Go on a template VM](how-to-enable-remote-desktop-linux.md#x2go-setup)
+- [As an educator, configure X2Go on a template VM](how-to-enable-remote-desktop-linux.md#setting-up-x2go)
 - [As a student, stop the VM](how-to-use-lab.md#start-or-stop-the-vm)

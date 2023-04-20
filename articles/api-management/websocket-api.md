@@ -14,7 +14,7 @@ ms.custom: template-how-to, ignite-fall-2021
 
 With API Management’s WebSocket API solution, API publishers can quickly add a WebSocket API in API Management via the Azure portal, Azure CLI, Azure PowerShell, and other Azure tools. 
 
-You can secure WebSocket APIs by applying existing access control policies, like [JWT validation](./api-management-access-restriction-policies.md#ValidateJWT). You can also test WebSocket APIs using the API test consoles in both Azure portal and developer portal. Building on existing observability capabilities, API Management provides metrics and logs for monitoring and troubleshooting WebSocket APIs. 
+You can secure WebSocket APIs by applying existing access control policies, like [JWT validation](validate-jwt-policy.md). You can also test WebSocket APIs using the API test consoles in both Azure portal and developer portal. Building on existing observability capabilities, API Management provides metrics and logs for monitoring and troubleshooting WebSocket APIs. 
 
 In this article, you will:
 > [!div class="checklist"]
@@ -117,7 +117,7 @@ Below are the current restrictions of WebSocket support in API Management:
 * WebSocket APIs are not supported yet in the [self-hosted gateway](./self-hosted-gateway-overview.md).
 * 200 active connections limit per unit.
 * WebSocket APIs support the following valid buffer types for messages: Close, BinaryFragment, BinaryMessage, UTF8Fragment, and UTF8Message.
-* Currently, the [set-header](api-management-transformation-policies.md#SetHTTPheader) policy doesn't support changing certain well-known headers, including `Host` headers, in onHandshake requests.
+* Currently, the [set-header](set-header-policy.md) policy doesn't support changing certain well-known headers, including `Host` headers, in onHandshake requests.
 * During the TLS handshake with a WebSocket backend, API Management validates that the server certificate is trusted and that its subject name matches the hostname. With HTTP APIs, API Management validates that the certificate is trusted but doesn’t validate that hostname and subject match.
 
 ### Unsupported policies

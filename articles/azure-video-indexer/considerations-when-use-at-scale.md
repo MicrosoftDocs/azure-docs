@@ -47,7 +47,7 @@ Starting August 1st 2021, Azure Video Indexer enabled [Reserved Units](/azure/me
 
 ## Respect throttling
 
-Azure Video Indexer is built to deal with indexing at scale, and when you want to get the most out of it you should also be aware of the system's capabilities and design your integration accordingly. You don't want to send an upload request for a batch of videos just to discover that some of the movies didn't upload and you are receiving an HTTP 429 response code (too many requests). It can happen due to the fact that you sent more requests than the [limit of movies per minute we support](upload-index-videos.md#uploading-considerations-and-limitations). Azure Video Indexer adds a `retry-after` header in the HTTP response, the header specifies when you should attempt your next retry. Make sure you respect it before trying your next request.
+Azure Video Indexer is built to deal with indexing at scale, and when you want to get the most out of it you should also be aware of the system's capabilities and design your integration accordingly. You don't want to send an upload request for a batch of videos just to discover that some of the movies didn't upload and you are receiving an HTTP 429 response code (too many requests). It can happen if the number of requests exceeds our API request limit of 10 requests per second or 60 requests per minute. Azure Video Indexer adds a `retry-after` header in the HTTP response, the header specifies when you should attempt your next retry. Make sure you respect it before trying your next request.
 
 :::image type="content" source="./media/considerations-when-use-at-scale/respect-throttling.jpg" alt-text="Design your integration well, respect throttling":::
 

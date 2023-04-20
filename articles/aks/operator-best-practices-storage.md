@@ -2,7 +2,6 @@
 title: Best practices for storage and backup
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for storage, data encryption, and backups in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
 ms.date: 11/30/2022
 
@@ -135,8 +134,8 @@ This article focused on storage best practices in AKS. For more information abou
 <!-- LINKS - Internal -->
 [aks-concepts-storage]: concepts-storage.md
 [vm-sizes]: ../virtual-machines/sizes.md
-[dynamic-disks]: azure-disks-dynamic-pv.md
-[dynamic-files]: azure-files-dynamic-pv.md
+[dynamic-disks]: azure-disk-csi.md
+[dynamic-files]: azure-files-csi.md
 [reclaim-policy]: concepts-storage.md#storage-classes
 [aks-concepts-storage-pvcs]: concepts-storage.md#persistent-volume-claims
 [aks-concepts-storage-classes]: concepts-storage.md#storage-classes

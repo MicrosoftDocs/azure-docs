@@ -3,7 +3,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: include 
-ms.date: 08/06/2021
+ms.date: 01/24/2023
 ---
 
 ### Join groups
@@ -18,7 +18,7 @@ Format:
 }
 ```
 
-* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. For details, see  [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
 ### Leave groups
 
@@ -32,7 +32,7 @@ Format:
 }
 ```
 
-* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. For details, see [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
 ### Publish messages
 
@@ -49,14 +49,15 @@ Format:
 }
 ```
 
-* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
-* `noEcho` is optional. If set to true, this message is not echoed back to the same connection. If not set, the default value is false.
-* `dataType` can be one of `json`, `text`, or `binary`:
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. For details, see [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
+* `noEcho` is optional. If set to true, this message isn't echoed back to the same connection. If not set, the default value is false.
+* `dataType` can be set to `json`, `text`, or `binary`:
      * `json`: `data` can be any type that JSON supports and will be published as what it is; If `dataType` isn't specified, it defaults to `json`.
      * `text`: `data` should be in string format, and the string data will be published;
      * `binary`: `data` should be in base64 format, and the binary data will be published;
 
 #### Case 1: publish text data:
+
 ```json
 {
     "type": "sendToGroup",
@@ -67,7 +68,8 @@ Format:
 }
 ```
 
-* What subprotocol client in this group `<group_name>` receives:
+* The subprotocol clients in `<group_name>` receive:
+
 ```json
 {
     "type": "message",
@@ -77,9 +79,11 @@ Format:
     "data" : "text data"
 }
 ```
-* What the raw client in this group `<group_name>` receives is string data `text data`.
+
+* The simple WebSocket clients in `<group_name>` receive the string `text data`.
 
 #### Case 2: publish JSON data:
+
 ```json
 {
     "type": "sendToGroup",
@@ -91,7 +95,8 @@ Format:
 }
 ```
 
-* What subprotocol client in this group `<group_name>` receives:
+* The subprotocol clients in `<group_name>` receive:
+
 ```json
 {
     "type": "message",
@@ -103,10 +108,11 @@ Format:
     }
 }
 ```
-* What the raw client in this group `<group_name>` receives is serialized string data `{"hello": "world"}`.
 
+* The simple WebSocket clients in `<group_name>` receive the serialized string `{"hello": "world"}`.
 
 #### Case 3: publish binary data:
+
 ```json
 {
     "type": "sendToGroup",
@@ -117,7 +123,8 @@ Format:
 }
 ```
 
-* What subprotocol client in this group `<group_name>` receives:
+* The subprotocol clients in `<group_name>` receive:
+
 ```json
 {
     "type": "message",
@@ -127,7 +134,8 @@ Format:
     "data" : "<base64_binary>", 
 }
 ```
-* What the raw client in this group `<group_name>` receives is the **binary** data in the binary frame.
+
+* The simple WebSocket clients in `<group_name>` receive the **binary** data in the binary frame.
 
 ### Send custom events
 
@@ -143,14 +151,16 @@ Format:
 }
 ```
 
-* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. For details, see [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
 `dataType` can be one of `text`, `binary`, or `json`:
-* `json`: data can be any type json supports and will be published as what it is; If `dataType` is not specified, it defaults to `json`.
-* `text`: data should be in string format, and the string data will be published;
-* `binary`: data should be in base64 format, and the binary data will be published;
+
+* `json`: data can be any type json supports and will be published as what it is; The default is `json`.
+* `text`: data is in string format, and the string data will be published;
+* `binary`: data is in base64 format, and the binary data will be published;
 
 #### Case 1: send event with text data:
+
 ```json
 {
     "type": "event",
@@ -161,7 +171,7 @@ Format:
 }
 ```
 
-What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `text/plain` for `dataType`=`text`
+The upstream event handler receives data similar to:
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -184,6 +194,8 @@ text data
 
 ```
 
+The `Content-Type` for the CloudEvents HTTP request is `text/plain` when `dataType` is `text`.
+
 #### Case 2: send event with JSON data:
 ```json
 {
@@ -197,7 +209,7 @@ text data
 }
 ```
 
-What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `application/json` for `dataType`=`json`
+The upstream event handler receives data similar to:
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -222,6 +234,8 @@ ce-eventName: <event_name>
 
 ```
 
+The `Content-Type` for the CloudEvents HTTP request is `application/json` when `dataType` is `json`
+
 #### Case 3: send event with binary data:
 ```json
 {
@@ -233,7 +247,7 @@ ce-eventName: <event_name>
 }
 ```
 
-What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `application/octet-stream` for `dataType`=`binary`
+The upstream event handler receives data similar to:
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -256,6 +270,6 @@ binary
 
 ```
 
-The WebSocket frame can be `text` format for text message frames or UTF8 encoded binaries for `binary` message frames.
+The `Content-Type` for the CloudEvents HTTP request is `application/octet-stream` when `dataType` is `binary`.  The WebSocket frame can be `text` format for text message frames or UTF8 encoded binaries for `binary` message frames.
 
-Service declines the client if the message does not match the described format.
+The Web PubSub service declines the client if the message doesn't match the described format.

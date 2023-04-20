@@ -5,19 +5,22 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 12/27/2022
+ms.date: 02/27/2023
 ms.author: jasteppe
 ---
 
 # The MedTech service and Microsoft Teams notifications
 
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
+
 In this article, we'll explore using the MedTech service and Microsoft Teams for notifications.
 
 ## The MedTech service and Teams notifications reference architecture
 
-When combining the MedTech service, a Fast Healthcare Interoperability Resources (FHIR&#174;) service, and Teams, you can enable multiple care solutions.
+When combining the MedTech service, a FHIR service, and Teams, you can enable multiple care solutions.
 
-Below is the MedTech service to Teams notifications conceptual architecture for enabling the MedTech service, the FHIR service, and the Teams Patient App.
+The diagram is a MedTech service to Teams notifications conceptual architecture for enabling the MedTech service, the FHIR service, and the Teams Patient App.
 
 You can even embed Power BI Dashboards inside the Microsoft Teams client. For more information on embedding Power BI in Microsoft Team visit [here](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 
@@ -42,6 +45,6 @@ In this article, you've learned about the MedTech service and Teams notification
 For an overview of the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [The MedTech service overview](overview.md)
+> [What is the MedTech service?](overview.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

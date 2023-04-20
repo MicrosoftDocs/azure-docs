@@ -1,7 +1,7 @@
 ---
-title: What is custom text classification (preview) in Azure Cognitive Services for Language?
+title: Custom text classification - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Learn how use custom text classification.
+description: Customize an AI model to classify documents and other content using Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme

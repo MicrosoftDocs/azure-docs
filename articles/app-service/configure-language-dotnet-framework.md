@@ -25,7 +25,7 @@ In App Service, the Windows instances already have all the supported .NET Framew
 For CLR 4 runtime versions (.NET Framework 4 and above):
 
 ```CMD
-ls "D:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\"
+ls "D:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework"
 ```
 
 Latest .NET Framework version may not be immediately available.
@@ -33,7 +33,7 @@ Latest .NET Framework version may not be immediately available.
 For CLR 2 runtime versions (.NET Framework 3.5 and below):
 
 ```CMD
-ls "D:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\"
+ls "D:\Program Files (x86)\Reference Assemblies\Microsoft\Framework"
 ```
 
 ## Show current .NET Framework runtime version

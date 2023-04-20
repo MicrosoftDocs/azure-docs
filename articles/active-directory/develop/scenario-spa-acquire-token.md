@@ -2,7 +2,7 @@
 title: Acquire a token to call a web API (single-page apps)
 description: Learn how to build a single-page application (acquire a token to call an API)
 services: active-directory
-author: negoe
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/10/2022
-ms.author: negoe
+ms.author: henrymbugua
+s.reviewer: negoe
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---

@@ -1,16 +1,12 @@
 ---
-title: Troubleshooting connectivity problems between Azure VMs | Microsoft Docs
+title: Troubleshooting connectivity problems between Azure VMs
 description: Learn how to troubleshoot and resolve the connectivity problems that you might experience between Azure VMs.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: dcscontentpm
-editor: ''
 tags: azure-resource-manager
-
 ms.service: virtual-network
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: allensu
