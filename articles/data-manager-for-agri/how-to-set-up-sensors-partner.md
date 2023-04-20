@@ -17,7 +17,7 @@ The below section of this document talks about the onboarding steps needed to in
 
 Onboarding covers the steps required by both customers & partners to integrate with Data Manager for Agriculture and start receiving/sending sensor telemetry respectively.
 
->:::image type="content" source="./media/sensor-partners-flow.png" alt-text="Screenshot showing sensor partners flow.":::
+:::image type="content" source="./media/sensor-partners-flow.png" alt-text="Screenshot showing sensor partners flow.":::
 
 From the above figure, the blocks highlighted in white are the steps taken by a partner, and the ones highlighted in black are done by customers.
 
