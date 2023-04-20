@@ -25,7 +25,7 @@ In Confidential Containers on ACI you can use an attestation token to verify tha
 
 Expanding upon this concept of attestation. Full attestation captures all the components that are part of the Trusted Execution Environment that is remotely verifiable. To achieve full attestation, in Confidential Containers, we have introduced the notion of a cce policy, which defines a set of rules, which is enforced in the utility VM. The security policy is encoded in the attestation report as an SHA-256 digest stored in the HostData attribute, as provided to the PSP by the host operating system during the VM boot-up. This means that the security policy enforced by the utility VM is immutable throughout the lifetime of the utility VM.
 
-The exhaustive list of attributes that are part of the SEV-SNP attestation can be found [here](https://www.amd.com/system/files/TechDocs/SEV-SNP%20PSP%20API%20Specification.pdf).
+The exhaustive list of attributes that are part of the SEV-SNP attestation can be found [here](https://www.amd.com/system/files/TechDocs/56860.pdf).
 
 Some important fields to consider in an attestation token returned by [Microsoft Azure Attestation ( MAA )](../attestation/overview.md) 
 
