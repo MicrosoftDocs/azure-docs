@@ -31,9 +31,15 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 - **Azure API Management integration**: With the Defender for APIs plan enabled, you can receive API security recommendations and alerts in the Azure API Management portal.
 - **SIEM integration**: Integrate with security information and event management (SIEM) systems, making it easier for security teams to investigate with existing threat response workflows. [Learn more](tutorial-security-incident.md).
 
-## Reviewing security findings
+## Reviewing the API inventory and security findings
 
-Get security insights for onboarded APIs in the API Security dashboard. The dashboard provides information about API collections and endpoints, as well as security posture recommendations, and security alerts.
+Review the inventory and security insights for onboarded APIs in the API Security dashboard. The dashboard shows the number of onboarded dvices, broken down by API collections, endpoints, and Azure API Management services. 
+
+:::image type="content" source="media/defender-for-apis-introduction/inventory.png" alt-text="Page for reviewing the onboarded API inventory":::
+
+Select an API collection and drill down to reviewed onboarded API endpoints and security findings.
+
+:::image type="content" source="media/defender-for-apis-introduction/endpoint-details.png" alt-text="Page for reviewing the API endpoint details":::
 
 
 **Dashboard information** | **Details**
@@ -73,7 +79,9 @@ Act on recommendations and alerts to mitigate threats. Defender for Cloud alerts
 
 [Cloud Security Graph](concept-attack-path.md) in the Defender CSPM plan analyses assets and connections across your organization, to expose risks, vulnerabilities, and possible lateral movement paths. 
 
-When Defender for APIs is enabled together with the Defender CSPM plan, you can use Cloud Security Explorer to proactive and efficiently query your organizational security graph to navigate, identify, and remediate API assets, security issues, and risks.
+When Defender for APIs is enabled together with the Defender CSPM plan, you can use Cloud Security Explorer to proactive and efficiently query your organizational graph to navigate, identify, and remediate API assets, security issues, and risks.
+
+:::image type="content" source="media/defender-for-apis-introduction/cloud-security-explorer.png" alt-text="Page for reviewing API information in Cloud Security Explorer.":::
 
 ## Next steps
 
