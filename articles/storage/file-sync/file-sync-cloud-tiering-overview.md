@@ -94,7 +94,7 @@ Disks that have server endpoints can run out of space due to various reasons, ev
 - Slow or delayed sync causing files not to be tiered
 - Excessive recalls of tiered files
 
-When the disk space runs out, Azure File Sync may not function correctly and can even become unusable. While it's not possible for Azure File Sync to completely prevent these occurrences, the low disk space mode (available in Azure File Sync agent versions starting from 15.1) is designed to prevent a server endpoint from reaching this situation.
+When the disk space runs out, Azure File Sync might not function correctly and can even become unusable. While it's not possible for Azure File Sync to completely prevent these occurrences, the low disk space mode (available in Azure File Sync agent versions starting from 15.1) is designed to prevent a server endpoint from reaching this situation.
 
 For server endpoints with cloud tiering enabled and volume free space policy set, if the free space on the volume drops below the calculated threshold, then the volume is in low disk space mode. 
  
