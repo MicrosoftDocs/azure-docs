@@ -124,7 +124,11 @@
     - name: Route traffic using route tables
       href: ../../virtual-network/tutorial-create-route-table-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Connect virtual networks
-      href: ../../virtual-network/tutorial-connect-virtual-networks-portal.md?toc=/azure/networking/fundamentals/toc.json
+      items:
+      - name: Connect virtual networks with peering
+        href: ../../virtual-network/tutorial-connect-virtual-networks-portal.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Create a hub and spoke topology with Virtual Network Manager
+        href: ../../virtual-network-manager/how-to-create-hub-and-spoke.md?toc=/azure/networking/fundamentals/toc.json
     - name: Private access to resources 
       href: ../../private-link/create-private-endpoint-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Connect on-premises network to a virtual network - VPN encryption

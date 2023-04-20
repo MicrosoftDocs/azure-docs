@@ -78,7 +78,7 @@ For more information, see [What is virtual network NAT gateway?](../../virtual-n
 
 :::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Virtual network NAT gateway":::
 
-### <a name="avnm"></a>Virtual Network Manager
+### <a name="avnm"></a>Azure Virtual Network Manager
 
 Azure Virtual Network Manager is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define network groups to identify and logically segment your virtual networks. Then you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once. For more information, see [What is Azure Virtual Network Manager?](../../virtual-network-manager/overview.md).
 
