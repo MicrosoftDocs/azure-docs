@@ -1,9 +1,7 @@
 ---
 title: azcmagent license CLI reference
 description: Syntax for the azcmagent license command line tool
-author: rpsqrd
 ms.topic: reference
-ms.author: ryanpu
 ms.date: 04/20/2023
 ---
 

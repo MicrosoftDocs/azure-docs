@@ -1,15 +1,13 @@
 ---
 title: azcmagent check CLI reference
 description: Syntax for the azcmagent check command line tool
-author: rpsqrd
 ms.topic: reference
-ms.author: ryanpu
 ms.date: 04/20/2023
 ---
 
 # azcmagent check
 
-Run a series of network connectivity checks to see if the agent can successfully communicate with required network endpoints. The command will output a table showing connectivity test results for each required endpoint, including whether the agent used a private endpoint and/or proxy server.
+Run a series of network connectivity checks to see if the agent can successfully communicate with required network endpoints. The command outputs a table showing connectivity test results for each required endpoint, including whether the agent used a private endpoint and/or proxy server.
 
 ## Usage
 

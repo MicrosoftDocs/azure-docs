@@ -1,9 +1,7 @@
 ---
 title: azcmagent disconnect CLI reference
 description: Syntax for the azcmagent disconnect command line tool
-author: rpsqrd
 ms.topic: reference
-ms.author: ryanpu
 ms.date: 04/20/2023
 ---
 
@@ -45,13 +43,13 @@ There are 4 ways to provide authentication credentials to the Azure connected ma
 
 ### Interactive browser login (Windows-only)
 
-This option is the default on Windows operating systems with a desktop experience. It will open the login page in your default web browser. This option may be required if your organization has configured conditional access policies that require you to log in from trusted machines.
+This option is the default on Windows operating systems with a desktop experience. The login page opens in your default web browser. This option may be required if your organization has configured conditional access policies that require you to log in from trusted machines.
 
 No flag is required to use the interactive browser login.
 
 ### Device code login
 
-This option generates a code that you can use to log in on a web browser on another device. This is the default option on Windows Server core editions and all Linux distributions. When you execute the connect command, you will have 5 minutes to open the specified login URL on an internet-connected device and complete the login flow.
+This option generates a code that you can use to log in on a web browser on another device. This is the default option on Windows Server core editions and all Linux distributions. When you execute the connect command, you have 5 minutes to open the specified login URL on an internet-connected device and complete the login flow.
 
 To authenticate with a device code, use the `--use-device-code` flag.
 
@@ -71,7 +69,7 @@ To authenticate with an access token, use the `--access-token [token]` flag.
 
 `--access-token`
 
-Specifies the Azure Active Directory access token used to create the Azure Arc-enabled server resource in Azure. See [authentication options](#authentication-options) for more information.
+Specifies the Azure Active Directory access token used to create the Azure Arc-enabled server resource in Azure. For more information, see [authentication options](#authentication-options).
 
 `-f`, `--force-local-only`
 
@@ -79,14 +77,14 @@ Disconnects the server without deleting the resource in Azure. Primarily used if
 
 `-i`, `--service-principal-id`
 
-Specifies the application ID of the service principal used to create the Azure Arc-enabled server resource in Azure. Must be used with the `--service-principal-secret` and `--tenant-id` flags. See [authentication options](#authentication-options) for more information.
+Specifies the application ID of the service principal used to create the Azure Arc-enabled server resource in Azure. Must be used with the `--service-principal-secret` and `--tenant-id` flags. For more information, see [authentication options](#authentication-options).
 
 `-p`, `--service-principal-secret`
 
-Specifies the service principal secret. Must be used with the `--service-principal-id` and `--tenant-id` flags. To avoid exposing the secret in console logs, it's recommended to pass in the service principal secret in a configuration file. See [authentication options](#authentication-options) for more information.
+Specifies the service principal secret. Must be used with the `--service-principal-id` and `--tenant-id` flags. To avoid exposing the secret in console logs, it's recommended to pass in the service principal secret in a configuration file. For more information, see [authentication options](#authentication-options).
 
 `--use-device-code`
 
-Generate an Azure Active Directory device login code that can be entered in a web browser on another computer to authenticate the agent with Azure. See [authentication options](#authentication-options) for more information.
+Generate an Azure Active Directory device login code that can be entered in a web browser on another computer to authenticate the agent with Azure. For more information, see [authentication options](#authentication-options).
 
 [!INCLUDE [common-flags](includes/azcmagent-common-flags.md)]

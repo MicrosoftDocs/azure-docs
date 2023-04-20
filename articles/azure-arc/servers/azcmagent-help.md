@@ -1,9 +1,7 @@
 ---
 title: azcmagent help CLI reference
 description: Syntax for the azcmagent help command line tool
-author: rpsqrd
 ms.topic: reference
-ms.author: ryanpu
 ms.date: 04/20/2023
 ---
 

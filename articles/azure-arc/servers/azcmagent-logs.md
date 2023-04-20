@@ -1,9 +1,7 @@
 ---
 title: azcmagent logs CLI reference
 description: Syntax for the azcmagent logs command line tool
-author: rpsqrd
 ms.topic: reference
-ms.author: ryanpu
 ms.date: 04/20/2023
 ---
 
@@ -39,7 +37,7 @@ Collect all log files on the system instead of just the most recent. Useful when
 
 `-o`, `--output`
 
-Specifies the path and name for the ZIP file. If this flag is not specified, the ZIP will be saved to the console's current directory with the name "azcmagent-_TIMESTAMP_-_COMPUTERNAME_.zip"
+Specifies the path and name for the ZIP file. If this flag is not specified, the ZIP is saved to the console's current directory with the name "azcmagent-_TIMESTAMP_-_COMPUTERNAME_.zip"
 
 Sample value: custom-logname.zip
 

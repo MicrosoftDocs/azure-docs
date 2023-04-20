@@ -1,9 +1,7 @@
 ---
 title: azcmagent config CLI reference
 description: Syntax for the azcmagent config command line tool
-author: rpsqrd
 ms.topic: reference
-ms.author: ryanpu
 ms.date: 04/20/2023
 ---
 
@@ -67,7 +65,7 @@ azcmagent config get config.mode
 
 ## azcmagent config info
 
-Describes available configuration properties and supported values. When run without specifying a specific property, the command will describe all available properties their supported values.
+Describes available configuration properties and supported values. When run without specifying a specific property, the command describes all available properties their supported values.
 
 ### Usage
 
@@ -143,10 +141,10 @@ azcmagent config set extensions.allowlist "Microsoft.Azure.Monitor/AzureMonitorW
 
 `-a`, `--add`
 
-Append the value to the list of existing values. If not specified, the default behavior is to replace the list of existing values. This flag is only supported for configuration properties that support more than one value. Cannot be used with the `--remove` flag.
+Append the value to the list of existing values. If not specified, the default behavior is to replace the list of existing values. This flag is only supported for configuration properties that support more than one value. Can't be used with the `--remove` flag.
 
 `-r`, `--remove`
 
-Remove the specified value from the list, retaining all other values. If not specified, the default behavior is to replace the list of existing values. This flag is only supported for configuration properties that support more than one value. Cannot be used in conjunction with the `--add` flag.
+Remove the specified value from the list, retaining all other values. If not specified, the default behavior is to replace the list of existing values. This flag is only supported for configuration properties that support more than one value. Can't be used in conjunction with the `--add` flag.
 
 [!INCLUDE [common-flags](includes/azcmagent-common-flags.md)]

@@ -133,7 +133,7 @@
   items:
   - name: azcmagent CLI
     items:
-    - name: Summary
+    - name: Overview
       href: azcmagent.md
     - name: azcmagent check
       href: azcmagent-check.md
