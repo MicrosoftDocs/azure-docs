@@ -185,7 +185,9 @@ curl -X PUT https://management.azure.com/subscriptions/<your-subscription-id>/re
 }
 '
 ```
+
 You should receive a `202 Accepted` response.
+
 ---
 
 
