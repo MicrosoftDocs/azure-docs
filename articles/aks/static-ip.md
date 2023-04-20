@@ -79,7 +79,7 @@ This article shows you how to create a static public IP address and assign it to
       loadBalancerIP: 40.121.183.52
       type: LoadBalancer
       ports:
-     - port: 80
+      - port: 80
       selector:
         app: azure-load-balancer
     ```
