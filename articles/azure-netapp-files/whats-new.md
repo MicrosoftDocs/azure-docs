@@ -19,6 +19,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Short-term clone](create-short-term-clone.md) (Preview)
+
+<!-- pending PM feedback -->
+
 ## March 2023
 
 * [Disable `showmount`](disable-showmount.md) (Preview)
