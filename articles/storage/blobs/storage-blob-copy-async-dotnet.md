@@ -58,31 +58,18 @@ The following methods wrap the [Copy Blob](/rest/api/storageservices/copy-blob) 
 
 The `StartCopyFromUri` and `StartCopyFromUriAsync` methods return a [CopyFromUriOperation](/dotnet/api/azure.storage.blobs.models.copyfromurioperation) object containing information about the copy operation. These methods are used when you want asynchronous scheduling for a copy operation.
 
-## Copy a blob within the same storage account
+## Copy a blob from a source within Azure
 
-If you're copying a blob within the same storage account, access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key. The operation can complete synchronously if the copy occurs within the same storage account. 
+If you're copying a blob within the same storage account, the operation can complete synchronously. Access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key. For an alterative synchronous copy operation, see [Copy a blob from a source object URL with .NET](storage-blob-copy-url-dotnet.md).
 
-The following example shows a scenario for copying a source blob within the same storage account. This example also shows how to lease the source blob during the copy operation to prevent changes to the blob from a different client. The `Copy Blob` operation saves the `ETag` value of the source blob when the copy operation starts. If the `ETag` value is changed before the copy operation finishes, the operation fails.
+If the copy source is a blob in a different storage account, the operation can complete asynchronously. The source blob must either be public or authorized via SAS token. The SAS token needs to include the **Read ('r')** permission. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_CopyWithinAccount_CopyBlob":::
-
-## Copy a blob from another storage account
-
-If the source is a blob in another storage account, the source blob must either be public or authorized via SAS token. The SAS token needs to include the **Read ('r')** permission. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
-
-The following example shows a scenario for copying a blob from another storage account. In this example, we create a source blob URI with an appended service SAS token by calling [GenerateSasUri](/dotnet/api/azure.storage.blobs.blobcontainerclient.generatesasuri) on the blob client. To use this method, the source blob client needs to be authorized via account key. 
+The following example shows a scenario for copying a source blob from a different storage account with asynchronous scheduling. In this example, we create a source blob URL with an appended user delegation SAS token. The example shows how to generate the SAS token using the client library, but you can also provide your own. The example also shows how to lease the source blob during the copy operation to prevent changes to the blob from a different client. The `Copy Blob` operation saves the `ETag` value of the source blob when the copy operation starts. If the `ETag` value is changed before the copy operation finishes, the operation fails.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_CopyAcrossAccounts_CopyBlob":::
 
-If you already have a SAS token, you can construct the URI for the source blob as follows:
-
-```csharp
-// Append the SAS token to the URI - include ? before the SAS token
-var sourceBlobSASURI = new Uri(
-    $"https://{srcAccountName}.blob.core.windows.net/{srcContainerName}/{srcBlobName}?{sasToken}");
-```
-
-You can also [create a user delegation SAS token with .NET](storage-blob-user-delegation-sas-create-dotnet.md). User delegation SAS tokens offer greater security, as they're signed with Azure AD credentials instead of an account key.
+> [!NOTE]
+> User delegation SAS tokens offer greater security, as they're signed with Azure AD credentials instead of an account key. To create a user delegation SAS token, the Azure AD security principal needs appropriate permissions. For authorization requirements, see [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key#authorization).
 
 ## Copy a blob from a source outside of Azure
 

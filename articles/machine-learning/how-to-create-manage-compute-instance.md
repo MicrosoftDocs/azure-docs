@@ -58,7 +58,7 @@ Creating a compute instance is a one time process for your workspace. You can re
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance doesn't release quota to ensure you'll be able to restart the compute instance. It isn't possible to change the virtual machine size of compute instance once it's created.
 
-The fastest way to create a compute instance is to follow the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md). 
+The fastest way to create a compute instance is to follow the [Create resources you need to get started](quickstart-create-resources.md). 
 
 Or use the following examples to create a compute instance with more options:
 
