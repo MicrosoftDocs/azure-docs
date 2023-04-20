@@ -180,3 +180,10 @@ go run quickstart
 ```
 
 For detailed information, see the [reference content for the `SpeechConfig` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and the [reference content for the `SpeechRecognizer` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer).
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+
