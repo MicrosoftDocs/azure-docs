@@ -33,7 +33,7 @@ In addition to providing incremental data feed from analytical store to diverse 
 - There's no limitation around the fixed data retention period for which changes are available
 
 > [!IMPORTANT]
-> Please note that "from the beginning" means that all data and all transactions since the container creation are availble for CDC, including deletes and updates. To ingest and process deletes and updates, you have to use specific settings in your CDC processes in Azure Synapse or Azure Data Factory. These settings are turned off by default. For more information, click [here](get-started-change-data-capture.md)
+> Please note that if "Start from beginning" option is selected, you will get an initial load of full snapshot of container data in the first run, followed by capturing changed / incremental data in the subsequent runs. Similar is the case when "Start from timestamp" option is selected - the initial load will process the data from the given timestmp, followed by capturing incremental / changed data in the subsequent runs. The `Capture intermediate updates`, `Capture Deletes` and `Capture Transactional store TTLs` under [source options](get-started-change-data-capture#configure-source-settings-for-the-analytical-store-container) tab determine if intermediate updates and deletes are captured in Sinks.
 
 ## Features
 
