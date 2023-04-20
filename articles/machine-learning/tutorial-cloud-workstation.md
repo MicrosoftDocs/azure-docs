@@ -138,7 +138,7 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
     [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=load)]
 
 1. Get the data ready for training:
-1. 
+
     [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=extract)]
 
 1. Add code to start autologging with `MLflow`, so that you can track the metrics and results. With the iterative nature of model development, `MLflow` helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context for when you're ready to move from the development phase to the training phase of your workflows within Azure Machine Learning.
