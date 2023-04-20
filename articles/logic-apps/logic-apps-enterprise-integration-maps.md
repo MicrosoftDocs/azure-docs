@@ -3,11 +3,9 @@ title: Add maps to use with workflows
 description: Add maps for transform operations in workflows with Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 04/18/2023
 ---
 
 # Add maps for transformations in workflows with Azure Logic Apps
@@ -22,21 +20,23 @@ This article shows how to add a map to your integration account. If you're worki
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The map that you want to add. To create maps, you can use the following tools with the [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas):
+* The map that you want to add. To create maps, you can use the following tools:
 
-  * Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools).
+  * Visual Studio Code and the Data Mapper extension. To call the maps created with Data Mapper from your workflow, you must use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**, not the **XML Operations** action named **Transform XML**. For more information, see [Create maps for data transformation with Visual Studio Code](create-maps-data-transformation-visual-studio-code.md).
 
-  * Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) extension.
+  * Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools extension](https://aka.ms/vsenterpriseintegrationtools).
 
-   > [!NOTE]
-   > Don't install the extension alongside the BizTalk Server extension. Having both extensions might 
-   > produce unexpected behavior. Make sure that you only have one of these extensions installed.
-   >
-   > On high resolution monitors, you might experience a [display problem with the map designer](/visualstudio/designers/disable-dpi-awareness) 
-   > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
-   > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
+  * Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 extension](https://aka.ms/vsmapsandschemas).
 
-   For more information, review the [Create maps](#create-maps) section in this article.
+    > [!NOTE]
+    > Don't install the Microsoft Azure Logic Apps Enterprise Integration Tools extension alongside the BizTalk Server extension. 
+    > Having both extensions might produce unexpected behavior. Make sure that you only have one of these extensions installed.
+    >
+    > On high resolution monitors, you might experience a [display problem with the map designer](/visualstudio/designers/disable-dpi-awareness) 
+    > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
+    > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
+
+    For more information, review the [Create maps](#create-maps) section in this article.
 
 * Based on whether you're working on a Consumption or Standard logic app workflow, you'll need an [integration account resource](logic-apps-enterprise-integration-create-integration-account.md). Usually, you need this resource when you want to define and store artifacts for use in enterprise integration and B2B workflows.
 
@@ -98,7 +98,21 @@ This article shows how to add a map to your integration account. If you're worki
 
 ## Create maps
 
-To create an XSLT document to use as a map, create an integration project in Visual Studio 2019 or 2015 using the [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas). In the integration project, you can build an integration map file, which lets you visually map items between two XML schema files. These tools offer the following map capabilities:
+You can create maps using either Visual Studio Code with the Data Mapper extension or Visual Studio with the Microsoft Azure Logic Apps Enterprise Integration Tools extension.
+
+### Visual Studio Code
+
+When you create maps using Visual Studio Code and the Data Mapper extension, you can call these maps from your workflow, but only with the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**, not the **XML Operations** action named **Transform XML**. For more information, see [Create maps for data transformation with Visual Studio Code](create-maps-data-transformation-visual-studio-code.md).
+
+### Visual Studio
+
+When you create maps using Visual Studio, you'll need to create an integration project with either of the following tools:
+
+* Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools extension](https://aka.ms/vsenterpriseintegrationtools)
+
+* Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 extension](https://aka.ms/vsmapsandschemas).
+
+In the integration project, you can build an integration map file, which lets you visually map items between two XML schema files. These tools offer the following map capabilities:
 
 * You work with a graphical representation of the map, which shows all the relationships and links you create.
 

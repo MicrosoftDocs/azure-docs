@@ -3,7 +3,7 @@ title: Troubleshoot Azure Virtual Desktop Agent Issues - Azure
 description: How to resolve common Azure Virtual Desktop Agent and connectivity issues.
 author: sefriend
 ms.topic: troubleshooting
-ms.date: 02/18/2023
+ms.date: 04/19/2023
 ms.author: sefriend
 manager: clarkn
 ---
@@ -121,7 +121,7 @@ On your session host VM, go to **Event Viewer** > **Windows Logs** > **Applicati
 
 To resolve this issue:
 1. Check to see if [the stack listener is working](#error-stack-listener-isnt-working-on-a-windows-10-2004-session-host-vm)
-1. If the stack listener isn't working, [manually uninstall and reinstall the stack component](#error-session-host-vms-are-stuck-in-unavailable-or-upgrading-state).
+1. If the stack listener isn't working, [manually uninstall and reinstall the stack component](#error-session-host-vms-are-stuck-in-upgrading-state).
 
 ## Error: ENDPOINT_NOT_FOUND
 
@@ -205,7 +205,7 @@ To resolve this issue, make space on your disk by:
 
 On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3389 with **MissingMethodException: Method not found** in the description, this means the Azure Virtual Desktop agent didn't update successfully and reverted to an earlier version. This may be because the version number of the .NET framework currently installed on your VMs is lower than 4.7.2. To resolve this issue, you need to upgrade the .NET to version 4.7.2 or later by following the installation instructions in the [.NET Framework documentation](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 
-## Error: Session host VMs are stuck in Unavailable or Upgrading state
+## Error: Session host VMs are stuck in Upgrading state
 
 If the status listed for session hosts in your host pool always says **Unavailable** or **Upgrading**, the agent or stack didn't install successfully. 
 
@@ -237,6 +237,40 @@ To resolve this issue, first reinstall the side-by-side stack:
 
 1. Restart your session host VM.
 1. From a command prompt run `qwinsta.exe` again and verify the *STATE* column for **rdp-tcp** and **rdp-sxs** entries is **Listen**. If not, you will need to [re-register your VM and reinstall the agent](#your-issue-isnt-listed-here-or-wasnt-resolved) component.
+
+## Error: Session host VMs are stuck in Unavailable state
+
+If your session host VMs are stuck in the Unavailable state, your VM didn't pass one of the health checks listed in [Health check](troubleshoot-statuses-checks.md#health-check). You must resolve the issue that's causing the VM to not pass the health check.
+
+## Error: VMs are stuck in the "Needs Assistance" state
+
+If the session host doesn't pass the *UrlsAccessibleCheck* health check, you'll need to identify which [required URL](safe-url-list.md) your deployment is currently blocking. Once you know which URL is blocked, identify which setting is blocking that URL and remove it.
+
+There are two reasons why the service is blocking a required URL:
+
+- You have an active firewall that's blocking most outbound traffic and access to the required URLs.
+- Your local hosts file is blocking the required websites.
+
+To resolve a firewall-related issue, add a rule that allows outbound connections to the TCP port 80/443 associated with the blocked URLs.
+
+If your local hosts file is blocking the required URLs, make sure none of the required URLs are in the **Hosts** file on your device. You can find the Hosts file location at the following registry key and value:
+
+**Key:** HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+
+**Type:** REG_EXPAND_SZ
+
+**Name:** DataBasePath
+
+If the session host doesn't pass the *MetaDataServiceCheck* health check, then the service can't access the IMDS endpoint. To resolve this issue, you'll need to do the following things:
+
+- Reconfigure your networking, firewall, or proxy settings to unblock the IP address 169.254.169.254.
+- Make sure your HTTP clients bypass web proxies within the VM when querying IMDS. We recommend that you allow the required IP address in any firewall policies within the VM that deal with outbound network traffic direction.
+
+If your issue is caused by a web proxy, add an exception for 169.254.169.254 in the web proxy's configuration. To add this exception, open an elevated Command Prompt or PowerShell session and run the following command:
+
+```cmd
+netsh winhttp set proxy proxy-server="http=<customerwebproxyhere>" bypass-list="169.254.169.254"
+```
 
 ## Error: Connection not found: RDAgent does not have an active connection to the broker
 

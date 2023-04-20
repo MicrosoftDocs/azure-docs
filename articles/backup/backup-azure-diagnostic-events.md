@@ -47,7 +47,7 @@ To send your vault diagnostics data to Log Analytics:
 1. Select **Resource specific** in the toggle, and select the following five events: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, and **AddonAzureBackupProtectedInstance**.
 1. Select **Save**.
 
-   
+   :::image type="content" source="./media/backup-azure-configure-backup-reports/recovery-services-vault-diagnostics-settings-inline.png" alt-text="Screenshot shows the recovery services vault diagnostics settings." lightbox="./media/backup-azure-configure-backup-reports/recovery-services-vault-diagnostics-settings-expanded.png":::
 
 # [Backup vaults](#tab/backup-vaults)
 
@@ -57,8 +57,7 @@ To send your vault diagnostics data to Log Analytics:
 4. Select the following events: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupPolicy**, and **AddonAzureBackupProtectedInstance**.
 5. Select **Save**.
 
-   
-
+   :::image type="content" source="./media/backup-azure-configure-backup-reports/backup-vault-diagnostics-settings.png" alt-text="Screenshot shows the backup vault diagnostics settings.":::   
 ---
 
 After data flows into the Log Analytics workspace, dedicated tables for each of these events are created in your workspace. You can query any of these tables directly. You can also perform joins or unions between these tables if necessary.

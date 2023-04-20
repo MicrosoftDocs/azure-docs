@@ -79,6 +79,12 @@ AutoML uses machine learning best practices, such as cross-validated model selec
 
   As a first line of defense, try to reserve 10 to 20 percent of the total history for validation data or cross-validation data. It isn't always possible to reserve this amount of validation data if the training history is short, but it's a best practice. For more information, see [Training and validation data](./how-to-auto-train-forecast.md#training-and-validation-data).
 
+## What does it mean if my training job achieves perfect validation scores?
+
+It's possible to see perfect scores when you're viewing validation metrics from a training job. A perfect score means that the forecast and the actuals on the validation set are the same or nearly the same. For example, you have a root mean squared error equal to 0.0 or an R2 score of 1.0.
+
+A perfect validation score _usually_ indicates that the model is severely overfit, likely because of [data leakage](#how-can-i-prevent-over-fitting-and-data-leakage). The best course of action is to inspect the data for leaks and drop the columns that are causing the leak.
+
 ## What if my time series data doesn't have regularly spaced observations?
 
 AutoML's forecasting models all require that training data has regularly spaced observations with respect to the calendar. This requirement includes cases like monthly or yearly observations where the number of days between observations can vary. Time-dependent data might not meet this requirement in two cases:

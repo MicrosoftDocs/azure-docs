@@ -99,7 +99,7 @@ Azure CNI Overlay has the following limitations:
     - Windows Server 2019 node pools are **not** supported for Overlay
     - Traffic from host network pods is not able to reach Windows Overlay pods.
 - Sovereign Clouds are not supported
-- Virtual Machine Scale Sets (VMAS) are not supported for Overlay
+- Virtual Machine Availability Sets (VMAS) are not supported for Overlay
 - Dualstack networking is not supported in Overlay
 - You can't use [DCsv2-series](/azure/virtual-machines/dcv2-series) virtual machines in node pools. To meet Confidential Computing requirements, consider using [DCasv5 or DCadsv5-series confidential VMs](/azure/virtual-machines/dcasv5-dcadsv5-series) instead.
 

@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
-ms.date: 10/17/2022
+ms.date: 04/20/2023
 ms.custom: engagement-fy23
 ---
 
@@ -370,7 +370,7 @@ Typical SQL discovery errors are summarized in the following table.
 
 ## Common web apps discovery errors
 
-Azure Migrate supports discovery of ASP.NET web apps running on on-premises machines by using Azure Migrate: Discovery and assessment. Web apps discovery is currently supported for VMware only. See the [Discovery](tutorial-discover-vmware.md) tutorial to get started.
+Azure Migrate supports discovery of web apps running on on-premises machines by using Azure Migrate: Discovery and assessment. See the [Discovery](tutorial-discover-vmware.md) tutorial to get started.
 
 Typical web apps discovery errors are summarized in the following table.
 
