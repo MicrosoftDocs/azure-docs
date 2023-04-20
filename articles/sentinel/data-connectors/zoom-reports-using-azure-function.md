@@ -40,7 +40,7 @@ Zoom
 To integrate with Zoom Reports (using Azure Function) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
-- **REST API Credentials/permissions**: **ZoomApiKey** and **ZoomApiSecret** are required for Zoom API. [See the documentation to learn more about API](https://marketplace.zoom.us/docs/guides/auth/jwt). Check all [requirements and follow  the instructions](https://marketplace.zoom.us/docs/guides/auth/jwt) for obtaining credentials.
+- **REST API Credentials/permissions**: **ZoomApiKey** and **ZoomApiSecret** are required for Zoom API. [See the documentation to learn more about API](https://developers.zoom.us/docs/internal-apps/jwt/). Check all [requirements and follow  the instructions](https://developers.zoom.us/docs/internal-apps/jwt/) for obtaining credentials.
 
 
 ## Vendor installation instructions
@@ -59,7 +59,7 @@ To integrate with Zoom Reports (using Azure Function) make sure you have:
 
 **STEP 1 - Configuration steps for the Zoom API**
 
- [Follow the instructions](https://marketplace.zoom.us/docs/guides/auth/jwt) to obtain the credentials. 
+ [Follow the instructions](https://developers.zoom.us/docs/internal-apps/jwt/) to obtain the credentials. 
 
 
 
