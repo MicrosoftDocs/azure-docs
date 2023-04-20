@@ -9,43 +9,56 @@ ms.topic: how-to
 ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
-ms.date: 04/18/2023
+ms.date: 04/20/2023
 ---
 
-# Serverless compute - the easiest scalable way to train a model (preview)
+# Model training on serverless compute (preview)
 
-@@ EXAMPLES ARE ALL CLI YML.  DO WE ALSO WANT TO PROVIDE SDK?
+@@ NEED SDK EXAMPLES
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 You no longer need to [create a compute cluster](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute type, called _serverless compute_.  Serverless compute is a compute resource that you don't create, it's created on the fly for you.  You focus on specifying your job specification, and let Azure Machine Learning take care of the rest.
 
-When you create a compute cluster, you then specify its name in the command job, such as `compute="cpu-cluster"`.  To use serverless compute, simply omit this `compute` parameter.  When `compute` is not specified, serverless compute is used instead.  
+When you create a compute cluster, you then specify its name in the command job, such as `compute="cpu-cluster"`.  To use serverless compute, simply omit this `compute` parameter.  When `compute` is not specified, serverless compute is used instead.
+
+Use [workspace managed network isolation (preview)]() to use serverless compute with private endpoints.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## What type of jobs can use serverless compute?
+## How to use serverless compute
 
-You can use serverless compute for:
+* Omit the compute name in your CLI or SDK jobs to use serverless compute in:
 
-* Command jobs
-* Sweep jobs
-* Parallel jobs
-* Spark jobs
-* AutoML
-* Pipelines  - but here there is a parameter to specify, see [Pipeline job](#pipeline-job)
-* Interactive jobs
+  * Command jobs, including interactive jobs, parallel jobs, and distributed training
+  * Sweep jobs
+  * Spark jobs
+  * AutoML
 
-## Workspace setup and configuration
+* For CLI or SDK pipelines, specify `azureml:serverless` as your default compute.  See [Pipeline job](#pipeline-job)
+* When you [submit a training job in Studio (preview)](how-to-train-with-ui.md), select "Serverless" as your compute cluster.
+* When using [Azure Machine Learning designer](concept-designer.md), select "Serverless" as your compute cluster.
 
-To simplify the getting started experience with Azure Machine Learning, serverless compute is enabled by default when creating a new workspace. @@DOES THIS MEAN YOU HAVE TO ENABLE/DISABLE AT WORKSPACE LEVEL?  HOW DO YOU DO THAT?
+## Performance considerations
 
-Configuration settings for managed training with serverless compute includes:
+Serverless compute can help speed up your training in the following ways:
 
-* Managed VNET - @@ what do we have to configure here? Specifically what's going out for BUILD public preview. what about nopublicIP?  
-* Workspace primary UAI+other UAIs @@ What does this mean?
+**Scale down optimization:** When a cluster is scaling down and a job is submitted to a compute cluster, the job has to wait for scale down to happen and then scale up before job can run. With serverless compute you don't have to wait for scale down and your job can be started off on another cluster/node (assuming you have quota).
 
-### Identity support and credential pass through
+**Cluster busy optimization:** when a job is running on a compute cluster and another job is submitted, your job is queued behind the currently running job. With serverless compute, you'll get another node/another cluster to start running the job (assuming you have quota).
+
+## Quota 
+
+When submitting the job, you'll still need sufficient quota to proceed (both workspace and subscription level quota).  The default VM size/family will be selected based on this quota.  If you specify your own VM size/family:
+
+1. If you have some quota for your VM size/family, but not sufficient quota for the number of instances, you'll see an error with a recommendation to decrease the number of instances to a valid number based on your quota limit or request a quota increase for this VM family
+1. If you don't have quota for your specified VM size, you'll see an `error` with a recommendation to select a different VM size for which you do have quota or request quota for this VM family
+1. If you do have sufficient quota for VM family, but it is currently consumed by other jobs, you'll get a `warning` that your job must wait in a queue.  
+
+When you [view your usage and quota in the Azure portal](how-to-manage-quotas#view-your-usage-and-quotas-in-the-azure-portal), you'll see the name "Serverless" as another compute resource whenever you're using serverless compute.
+
+
+## Identity support and credential pass through
 
 * **User credential pass through** : Serverless compute fully supports credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Azure Active directory login. User credential pass through is the default.
 
@@ -54,14 +67,12 @@ Configuration settings for managed training with serverless compute includes:
       type: user_identity
     ```
 
-* **User-assigned managed identity** : Use this when your user account does not have access to the data or resources your job needs.  When you have a workspace created with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), specify the type as `managed`. 
+* **User-assigned managed identity** : When you have a workspace created with [user-assigned managed identity](how-to-identity-based-service-authentication.md#workspace), specify the type as `managed`. 
 
     ```yaml
     identity:
       type: managed
     ```
-
-@@ IS THIS THE SAME AS --identity-type user_assigned??? if so why different names?  ALSO, does it only use this if the workspace is already configured with it?  I don't see how to specify the identity otherwise...
 
 ## Configure properties
 
@@ -78,7 +89,7 @@ environment:
 The compute defaults to serverless compute with:
 
 * Single node
-* DS3v2 VM size (TBD)
+* CPU virtual machine, determined based on quota, performance, cost, and disk size.
 * Dedicated priority compute
 * Workspace location
 
@@ -105,8 +116,7 @@ To override the default configuration, add `resources` to your job:
     $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
     component: ./train.yml 
     queue_settings:
-       job_tier: Standard #Possible Values are Standard, Spot. Default is Standard.
-       #job_priority: in the future
+       job_tier: Standard #Possible Values are Standard (dedicated), Spot (low priority). Default is Standard.
     ```
 
 ## Example for all fields
@@ -299,148 +309,6 @@ jobs:
       job_tier: standard  
 ```
 
-###  Distributed training
-
-```yaml
-$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code: src
-command: >-
-  python train.py
-  --epochs ${{inputs.epochs}}
-inputs:
-  epochs: 1
-environment: azureml:AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu@latest
-resources:
-  instance_count: 2
-  instance_type: Standard_NC12 
-distribution:
-  type: mpi
-  process_count_per_instance: 2
-display_name: tensorflow-mnist-distributed-horovod-example
-experiment_name: tensorflow-mnist-distributed-horovod-example
-description: Train a basic neural network with TensorFlow on the MNIST dataset, distributed via Horovod.
-```
-
-### Interactive job
-
-```yaml
-$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-command: python hello-interactive.py && sleep 600
-code: src
-environment: azureml:AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu@latest
-resources:
-  instance_count: 4
-  instance_type: Standard_NC24 
-
-services: 
-  my_vscode: 
-    job_service_type: vs_code
-  my_jupyter_lab: 
-    job_service_type: jupyter_lab
-  my_tensorboard:
-    job_service_type: tensor_board
-    properties:
-      logDir: "outputs/tblogs"
-```
-
-### Parallel job
-
-Parallel job starts running as soon as 1 node is available. Resources.instance_count is used to describe the max. 
-So as nodes become available, the parallel job expands to use them until it reaches the max.
-Serverless compute uses resources.instance_count to set the max nodes.
-
-```yaml
-$schema: http://azureml/sdk-2-0/PipelineJob.json
-type: pipeline
-name: many_models_train_score_pipeline
-description: train many models in parallel and batch score
-
-jobs:
-  train:
-    type: parallel
-    inputs:
-      train_data:
-        path: azureml://datastores/mydatastore/paths/some_train_data/
-        mode: ro_mount
-    outputs:
-      results:
-        mode: upload
-    parallel:
-      type: command
-      inputs:
-        train_data: {type: uri_folder}
-      outputs: 
-        results: {type: uri_folder}
-      command: >-
-        python train.py
-        --train_data ${{inputs.train_data}}
-        --models ${{outputs.results}}
-      code: ./src
-      environment: azureml:my-env:1
-    mini_batch:
-      split_inputs: train_data
-      mini_batch_size: 1    
-    resources:
-      instance_count: 2
-      instance_type: Standard_NC6
-      
-  score:
-    type: parallel
-    inputs:
-      score_data:
-        path: azureml://datastores/mydatastore/paths/some_score_data/
-        mode: ro_mount
-      the_models: ${{jobs.train.outputs.results}}
-    outputs:
-      results:
-        mode: upload
-    parallel:
-      type: command
-      inputs:
-        score_data: {type: uri_folder}
-        the_models: {type: uri_folder}
-      outputs:
-        results: {type: uri_folder}
-      command: >-
-        python score.py
-        --mini_batch ${{inputs.score_data}}
-        --scores ${{outputs.results}}
-        --model ${{inputs.the_models}}
-      code: src
-      environment: azureml:my-env:1
-    mini_batch:
-      split_inputs: score_data
-      mini_batch_size: 1
-    resources:
-      instance_count: 2
-      instance_type: Standard_NC12
-
-  merge:
-    type: command
-    inputs:
-      scores_mini_batch: ${{jobs.score.outputs.scores}}
-    outputs: 
-      score_output:
-        mode: upload
-    command: python merge.py --inputpath ${{inputs.scores_mini_batch}} --outputpath ${{outputs.score_output}}
-    code: ./score
-```
-
-## Performance considerations
-
-Serverless compute can help speed up your training in the following ways:
-
-**Scale Down Optimization:** When a cluster is scaling down and a job is submited to a compute cluster, the job has to wait for scale down to happen and then scale up before job can run. With serverless compute you don't have to wait for scale down and your job can be started off on another cluster/node (assuming you have quota).
-
-**Cluster Busy Optimization:** when a job is running on a compute cluster and another job is submitted, that job is queued behind the currently running job. With serverless compute, you'll get another node/another cluster to start running the job (assuming you have quota).
-
-## Quota validation
-
-When submitting the job, you'll still need sufficient quota to proceed (both workspace and subscription level quota):
-
-1. If you have some quota for the VM size/family, but not sufficient quota for the number of instances, we'll return a error with a recommendation to decrease the number of instances to a valid number based on your quota limit or request a quota increase for this VM family
-1. If you don't have quota for the VM size, we'll return an `error` with a recommendation to select a different VM size for which you do have quota or ask you to request quota for this VM family
-1. If you do have sufficient quota for VM family, but it is currently consumed by other jobs, you'll get a `warning` that your job must wait in a queue.  
-
 ## Next steps
-???
+
+??? samples on azureml-examples
