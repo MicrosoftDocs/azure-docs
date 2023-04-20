@@ -183,7 +183,7 @@
       href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Enable traffic analytics
       items:
-      - name: Use built-in policy
+      - name: Built-in policy
         href: traffic-analytics-policy-portal.md
       - name: Schema and data aggregation
         href: traffic-analytics-schema.md
