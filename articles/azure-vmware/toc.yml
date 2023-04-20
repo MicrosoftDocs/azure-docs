@@ -140,9 +140,9 @@
       href: configure-l2-stretched-vmware-hcx-networks.md
     - name: Configure DNS forwarder
       href: configure-dns-azure-vmware-solution.md
-    - name: Configure HCX network extension
+    - name: Configure VMware HCX network extension
       href: configure-hcx-network-extension.md
-    - name: HCX Mobility Optimized Networking (MON) guidance 
+    - name: VMware HCX Mobility Optimized Networking (MON) guidance 
       href: vmware-hcx-mon-guidance.md
     - name: Configure NSX-T Data Center network components
       href: configure-nsx-network-components-azure-portal.md
