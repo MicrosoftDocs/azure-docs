@@ -31,7 +31,7 @@ In this article:
 
 ## Prerequisites
 
-- Although any IDE that supports Vanilla JS applications can be used, Visual Studio Code is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
+- Although any IDE that supports ASP.NET Core applications can be used, Visual Studio Code is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 - A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial).
 
@@ -41,29 +41,25 @@ In this article:
 
 ## Define the platform and URLs
 
-1. In the Microsoft Entra admin center, under **Manage**, select **App registrations**, and then select the application that was previously created.
-1. In the left menu, under **Manage**, select **Authentication**.
-1. In **Platform configurations**, select **Add a platform**, and then select **Web**.
-1. Under **Redirect URIs**, enter `https://localhost:7274/signin-oidc`. This is defined in the code sample which you'll download shortly.
-1. Under **Front-channel logout URL**, enter the following URL for signing out, `https://localhost:7274/signout-oidc`.
-1. Under **Implicit grant and hybrid flows**, select the **ID tokens** checkbox.
-1. Select **Configure**.
+[!INCLUDE [ciam-redirect-url-dotnet](./includes/register-app/add-platform-redirect-url-dotnet.md)]
+
+[!INCLUDE [ciam-enable-implicit-hybrid-flows](./includes/register-app/enable-implicit-hybrid-flows.md)]
 
 ## Add app client secret
 
-[!INCLUDE [active-directory-b2c-add-client-secret](./includes/register-app/add-app-client-secret.md)]
+[!INCLUDE [ciam-add-client-secret](./includes/register-app/add-app-client-secret.md)]
 
 ## Grant API permissions
 
-[!INCLUDE [active-directory-b2c-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)]
+[!INCLUDE [ciam-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)]
 
 ## Create a user flow
 
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)]
+[!INCLUDE [ciam-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)]
 
 ## Associate the web application with the user flow
 
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
+[!INCLUDE [ciam-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 
 ## Clone or download sample web application
 

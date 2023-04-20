@@ -33,23 +33,23 @@ If you have already registered a web application in the Microsoft Entra admin ce
 
 ## Register the web app
 
-[!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
+[!INCLUDE [ciam-register-app](./includes/register-app/register-client-app-common.md)]
 
 ## Add app client secret
 
-[!INCLUDE [active-directory-b2c-add-client-secret](./includes/register-app/add-app-client-secret.md)]
+[!INCLUDE [ciam-add-client-secret](./includes/register-app/add-app-client-secret.md)]
 
 ## Grant API permissions
 
-[!INCLUDE [active-directory-b2c-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)]
+[!INCLUDE [ciam-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)]
 
 ## Create a user flow
 
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)]
+[!INCLUDE [ciam-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)]
 
 ## Associate the web application with the user flow
 
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
+[!INCLUDE [ciam-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 
 ## Next steps
 

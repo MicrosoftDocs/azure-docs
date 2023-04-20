@@ -144,9 +144,7 @@ After installing the NuGet packages and adding necessary code for authentication
 
 1. To sign out of the application, select **Sign out** in the navigation bar.
 1. A window appears asking which account to sign out of.
-1. Upon successful sign out, a final window similar to the following will appear, advising you to close all browser windows.
-
-    :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-sign-out.png" alt-text="Screenshot of sign out window.":::
+1. Upon successful sign out, a final window will appear advising you to close all browser windows.
 
 ## Next steps
 

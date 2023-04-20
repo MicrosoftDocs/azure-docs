@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 # Sign in users in your own ASP.NET Core web application by using Microsoft Entra - Prepare your application
 
-After registering an application and created a user flow in a CIAM tenant, an ASP.NET Core web application can be created using an integrated development environment (IDE). This how-to guide demonstrates how to create an ASP.NET Core web wpp using an IDE.
+After registering an application and creating a user flow in a CIAM tenant, an ASP.NET Core web application can be created using an integrated development environment (IDE). This how-to guide demonstrates how to create an ASP.NET Core web app using an IDE.
 
 ## Prerequisites
 
