@@ -84,4 +84,3 @@ spark.conf.set("spark.microsoft.delta.merge.lowShuffle.enabled", "false")
 ```SQL
 SET `spark.microsoft.delta.merge.lowShuffle.enabled` = false
 ```
-
