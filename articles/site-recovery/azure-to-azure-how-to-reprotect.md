@@ -80,9 +80,9 @@ In most cases, Azure Site Recovery doesn't replicate the complete data to the so
 
 1. If the source VM data is deleted, corrupted, or inaccessible for some reason, such as a resource group change or delete, a complete initial replication will happen during reprotection because there's no data available on the source region to use. In this case, the reprotection time taken will be at least as long as the initial replication time taken from the primary to the disaster recovery location.
 2.	If the source VM data is accessible, then differentials are computed by comparing both the disks and only the differences are transferred. 
-   In this case, the **reprotection  time** >= checksum calculation time + checksum differentials transfer time + time taken to process the recovery points from Azure Site Recovery agent + auto scale time.
+   In this case, the **reprotection  time** is greater than or equal to the `checksum calculation time + checksum differentials transfer time + time taken to process the recovery points from Azure Site Recovery agent + auto scale time`.
 
-**Factors governing reprotection time**
+**Factors governing reprotection time in scenario 2**
 
 The following factors affect the reprotection time when the source VM is accessible in scenario 2:
 
