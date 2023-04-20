@@ -53,7 +53,7 @@ There are some limitations for sharing your gallery to the community:
 > [!IMPORTANT]
 > Microsoft does not provide support for images you share to the community.
 > 
-> [!INCLUDE [community-gallery-artifacts](../includes/community-gallery-artifacts.md)]
+> [!INCLUDE [community-gallery-artifacts](./includes/community-gallery-artifacts.md)]
 
 ## How sharing with the community works
 
