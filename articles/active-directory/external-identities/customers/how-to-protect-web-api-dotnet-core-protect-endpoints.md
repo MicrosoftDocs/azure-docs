@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, I want to secure endpoints of my web API registered in the customer's tenant using Microsoft Entra.
 ---
 
-# Secure web API endpoints
+# Secure an ASP.NET web API by using Microsoft Entra - secure web API endpoints
 
 Controllers handle requests that come in through the API endpoints. Controllers are made of Action methods. To protect our resources, we protect the API endpoints by adding security features to our controllers. Create a folder called *Controllers* in the project root folder. Navigate into this folder and create a file called *TodoItemsController.cs*.
 

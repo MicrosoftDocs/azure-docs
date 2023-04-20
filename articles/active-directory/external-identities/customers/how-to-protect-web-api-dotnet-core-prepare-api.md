@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, I want to configure my web API settings so as to protect it using Microsoft Entra.
 ---
 
-# Configure protected web API
+# Secure an ASP.NET web API by using Microsoft Entra - configure your web API
 
 In this how to article, we go through the steps you take to configure your web API before securing it's endpoints. When using the Microsoft identity platform to secure your web API, you first need to have it registered before configuring your API.
 
@@ -24,9 +24,9 @@ In this how to article, we go through the steps you take to configure your web A
 
 Go through the [overview of creating a protected web API](how-to-protect-web-api-dotnet-core-overview.md) before proceeding further with this tutorial.
 
-## Create a .NET core web API
+## Create an ASP.NET Core web API
 
-In this how to guide, we use Visual Studio Code and .NET core 7.0. If you're using Visual Studio to create the API, see the [create a Create a web API with ASP.NET core](/aspnet/core/tutorials/first-web-api).
+In this how to guide, we use Visual Studio Code and .NET 7.0. If you're using Visual Studio to create the API, see the [create a Create a web API with ASP.NET Core](/aspnet/core/tutorials/first-web-api).
 
 1. Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
 1. Change directories (`cd`) to the folder that contains the project folder.
@@ -44,7 +44,7 @@ In this how to guide, we use Visual Studio Code and .NET core 7.0. If you're usi
 Install the following packages:
 
 - *Microsoft.EntityFrameworkCore.InMemory* that allows Entity Framework Core to be used with an in-memory database. It's not designed for production use.
-- *Microsoft.Identity.Web* that simplifies adding authentication and authorization support to web apps and web APIs integrating with the Microsoft identity platform.
+- `Microsoft.Identity.Web` simplifies adding authentication and authorization support to web apps and web APIs integrating with the Microsoft identity platform.
 
   ```dotnetcli
   dotnet add package Microsoft.EntityFrameworkCore.InMemory
@@ -53,7 +53,7 @@ Install the following packages:
 
 ## Configure app registration details
 
-To protect your web API, you need to have the apps registration details. These details can be obtained from the Microsoft Entra admin center on the app registration section. You require the Application (Client) ID, Directory / Tenant ID and the secret value that you generated during registration. If you haven't registered your web API yet, kindly follow the [web API registration instructions]() before proceeding.
+To protect your web API, you need to have the Application (Client) ID, Directory / Tenant ID and the secret value that you generated during registration on the Microsoft Entra admin center. If you haven't registered your web API yet, kindly follow the [web API registration instructions]() before proceeding.
 
 Open the *appsettings.json* file in your app folder and add in the app registration details.
 

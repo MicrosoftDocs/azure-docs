@@ -47,7 +47,7 @@ Before going through this article, ensure you have a [protected web API](how-to-
     dotnet new console -o MyTestApp
     cd MyTestApp
     ```
-1. Install MSAL to help you with handling authentication by running the following command
+1. Install MSAL to help you with handling authentication by running the following command:
   
     ```dotnetcli
     dotnet add package Microsoft.Identity.Client
