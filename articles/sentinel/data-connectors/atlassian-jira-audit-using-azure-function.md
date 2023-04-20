@@ -39,7 +39,7 @@ JiraAudit
 
 To integrate with Atlassian Jira Audit (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **REST API Credentials/permissions**: **JiraAccessToken**, **JiraUsername** is required for REST API. [See the documentation to learn more about API](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-audit-records/). Check all [requirements and follow  the instructions](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/#authentication) for obtaining credentials.
 
 
