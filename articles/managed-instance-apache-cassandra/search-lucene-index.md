@@ -101,7 +101,7 @@ Cassandra Lucene Index, derived from Stratio Cassandra, is a plugin for Apache C
 
 ## Search data
 
-1. To search the top 100 more relevant tweets where body field contains the phrase “Click my link” within the aforementioned date range:
+1. To search the top 100 more relevant tweets where body field contains the phrase “Click my link” within a particular date range:
 
     ```SQL
         SELECT * FROM tweets WHERE expr(tweets_index, '{
