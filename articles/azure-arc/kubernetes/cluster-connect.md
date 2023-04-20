@@ -198,7 +198,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, run this command to create a service account. This example creates the service account in the default namespace, but you can substitute any other namespace.
+1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, run this command to create a service account. This example creates the service account in the default namespace, but you can substitute any other namespace for `default`.
 
    ```console
    kubectl create serviceaccount demo-user -n default
