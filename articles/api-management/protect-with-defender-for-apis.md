@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 04/19/2023
+ms.date: 04/20/2023
 ms.author: danlep
 ---
 # Enable advanced API security features using Microsoft Defender for Cloud 
@@ -39,7 +39,8 @@ This article shows how to use the Azure portal to enable Defender for APIs from 
 * At least one API Management instance in an Azure subscription. Defender for APIs is enabled at the level of a subscription. 
 * One or more supported APIs must be imported to the API Management instance.
 * Role to [enable the Defender for APIs plan](/azure/defender-for-cloud/permissions).
-* Owner or Contributor role on the API Management instance. 
+* Azure account with permissions to sign into the Azure portal 
+* Contributor or Owner role on relevant Azure subscriptions, resource groups, or API Management instances that you want to secure. 
 
 ## Onboard to Defender for APIs
 
@@ -105,7 +106,7 @@ For the security alerts received, Defender for APIs suggests necessary steps to 
 
 ## Offboard protected APIs from Defender for APIs
 
-You can offboard protected APIs from Defender for APIs by using the Defender for Cloud portal. For more information, see the Microsoft Defender for Cloud documentation.
+You can remove APIs from protection by Defender for APIs by using the Defender for Cloud portal. For more information, see the Microsoft Defender for Cloud documentation.
 
 ## Next steps
 
