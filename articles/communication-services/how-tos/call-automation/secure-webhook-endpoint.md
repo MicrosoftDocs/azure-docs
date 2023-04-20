@@ -18,10 +18,10 @@ services: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Securing the delivery of messages from end to end is crucial for ensuring the confidentiality, integrity, and trustworthiness of sensitive information transmitted between systems. Your ability and willingness to trust information received from a remote system relies on the sender providing valid proof they are who they say they are. Call Automation has two ways of communicating events that can be secured; the shared `IncomingCall event` sent by Azure Event Grid, and all other mid-call events sent by the `Call Automation` platform via webhook.
+Securing the delivery of messages from end to end is crucial for ensuring the confidentiality, integrity, and trustworthiness of sensitive information transmitted between systems. Your ability and willingness to trust information received from a remote system relies on the sender providing valid proof they are who they say they are. Call Automation has two ways of communicating events that can be secured; the shared IncomingCall event sent by Azure Event Grid, and all other mid-call events sent by the Call Automation platform via webhook.
 
 ## Incoming Call Event
-Azure Communication Services relies on Azure Event Grid subscriptions to deliver the `IncomingCall` [event](../../concepts/call-automation/incoming-call-notification.md). You can refer to the Azure Event Grid team for their [documentation about how to secure a webhook subscription](../../../event-grid/secure-webhook-delivery.md).
+Azure Communication Services relies on Azure Event Grid subscriptions to deliver the [IncomingCall event](../../concepts/call-automation/incoming-call-notification.md). You can refer to the Azure Event Grid team for their [documentation about how to secure a webhook subscription](../../../event-grid/secure-webhook-delivery.md).
 
 ## Call Automation webhook events
 
@@ -38,10 +38,10 @@ Each mid-call webhook callback sent by Call Automation uses a signed JSON Web To
 3. Configure your application to validate the JWT using the NuGet package and the configuration of your ACS resource. You will need the `issuer` and the `audience` values as these will be present in the JWT payload.
 4. Validate the issuer, audience and the JWT token.
 - The issuer is https://acscallautomation.communication.microsoft.com
-- The audience is your ACS resource id you used to setup your CallAutomation client. Refer [here](../../quickstarts/voice-video-calling/get-resource-id.md) about how to get it.
+- The audience is your ACS resource id you used to setup your Call Automation client. Refer [here](../../quickstarts/voice-video-calling/get-resource-id.md) about how to get it.
 - The JSON Web Key Set (JWKS) endpoint in the OpenId configuration contains the keys used to validate the JWT token. If the signature is valid and the token has not expired(within 5 minutes from the token is generated), then the token is considered valid and can be used to authorize the client.
 
-Below is a sample code by using `Microsoft.IdentityModel.Protocols.OpenIdConnect` to validate webhood event
+Below is a sample code by using `Microsoft.IdentityModel.Protocols.OpenIdConnect` to validate webhook payload
 ## [csharp](#tab/csharp)
 ```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
