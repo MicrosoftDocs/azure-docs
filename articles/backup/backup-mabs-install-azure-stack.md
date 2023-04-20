@@ -68,7 +68,7 @@ The Azure Backup Server virtual machine must be joined to a domain. A domain use
 
 ## Using an IaaS VM in Azure Stack
 
-When choosing a server for Azure Backup Server, start with a Windows Server 2022 R2 Datacenter or Windows Server 2019 Datacenter gallery image. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=/azure/virtual-machines/windows/toc.json), provides a tutorial for getting started with the recommended virtual machine. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with two cores and 3.5-GB RAM.
+When choosing a server for Azure Backup Server, start with a Windows Server 2022 Datacenter or Windows Server 2019 Datacenter gallery image. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=/azure/virtual-machines/windows/toc.json), provides a tutorial for getting started with the recommended virtual machine. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with two cores and 3.5-GB RAM.
 
 Protecting workloads with Azure Backup Server has many nuances. The [protection matrix for MABS](./backup-mabs-protection-matrix.md) helps explain these nuances. Before deploying the machine, read this article completely.
 

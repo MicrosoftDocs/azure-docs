@@ -23,7 +23,7 @@ MABS is based on System Center DPM and provides similar functionality with a few
 - For both MABS and DPM, Azure provides long-term backup storage. In addition, DPM allows you to back up data for long-term storage on tape. MABS doesn't provide this functionality.
 - [You can back up a primary DPM server with a secondary DPM server](/system-center/dpm/back-up-the-dpm-server). The secondary server will protect the primary server database and the data source replicas stored on the primary server. If the primary server fails, the secondary server can continue to protect workloads that are protected by the primary server, until the primary server is available again.  MABS doesn't provide this functionality.
 
-You can download MABS from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=57520). It can be run on-premises or on an Azure VM.
+You can download MABS from the [Microsoft Download Center](https://go.microsoft.com/fwLink/?LinkId=626082). It can be run on-premises or on an Azure VM.
 
 DPM and MABS support backing up a wide variety of apps, and server and client operating systems. They provide multiple backup scenarios:
 
@@ -102,7 +102,7 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 **.NET Framework on MABS** | The MABS VM needs .NET Framework 4.5 or later installed on it.
 **MABS domain** | The MABS VM must be joined to a domain. A domain user with admin privileges must install MABS on the VM.
 **Azure Stack VM data backup** | You can back up files, folders, and apps.
-**Supported backup** | These operating systems are supported for VMs that you want to back up:<br/><br/>  Windows Server 2022, Windows Server 2019, Windows Server 20016, Windows Server 2012, Windows Server 2012 R2
+**Supported backup** | These operating systems are supported for VMs that you want to back up: <br/><br/>  Windows Server 2022, Windows Server 2019, Windows Server 20016, Windows Server 2012, Windows Server 2012 R2
 **SQL Server support for Azure Stack VMs** | Back up SQL Server 2022, SQL Server 2019, SQL Server 2017, SQL Server 2016 (SPs), and SQL Server 2014 (SPs).<br/><br/> Back up and recover a database.
 **SharePoint support for Azure Stack VMs** | SharePoint 2019, SharePoint 2016 with latest SPs.<br/><br/> Back up and recover a farm, database, front end, and web server.
 **Network requirements for backed up VMs** | All VMs in Azure Stack workload must belong to the same virtual network and belong to the same subscription.
@@ -169,8 +169,7 @@ For information on the various servers and workloads that you can protect with D
 
 ## Deduplicated volumes support
 
->[!NOTE]
-> Deduplication support for MABS depends on operating system support.
+Deduplication support for MABS depends on operating system support.
 
 ### For NTFS volumes with MABS v4
 
