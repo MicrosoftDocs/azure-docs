@@ -20,14 +20,19 @@ This article describes how to investigate API security findings, alerts, and sec
 
 1. In the Defender for Cloud portal, select **Workload protections**.
 1. Select **API security (Preview)**.
-1. In the **API Security** dashboard, select an API collection to drill down.  
+1. In the **API Security** dashboard, select an API collection.
 
-    :::image type="content" source="media/defender-for-apis-posture/api-collection.png" alt-text="Graphic showing the onboarded API collections."lightbox="media/defender-for-apis-posture/api-collection-details.png":::
+    :::image type="content" source="media/defender-for-apis-posture/api-collection-details.png" alt-text="Graphic showing the onboarded API collections."lightbox="media/defender-for-apis-posture/api-collection-details.png":::
 
 1. In the API collection page, to drill down into an API endpoint, select the ellipses (...) > **View resource**.
-1. Review API endpoint status details. [Learn more about status settings](defender-for-apis-introduction.md#reviewing-api-security-findings).
-1. In the **Resource health** page > **Recommendations** for the endpoint, review recommendation details and status.
-1. In **Alerts**, review security alerts for the endpoint. Defender for Endpoint monitors API traffic to and and from endpoints, to provide runtime protection against suspicious behavior and malicious attacks.
+
+     :::image type="content" source="media/defender-for-apis-posture/view-resource.png" alt-text="Graphic showing the onboarded API collections." lightbox="media/defender-for-apis-posture/view-resource.png":::
+
+1. In the **Resource health** page, review the endpoint settings.
+1. In the **Recommendations** tab, review recommendation details and status.
+1. In the **Alerts** tab review security alerts for the endpoint. Defender for Endpoint monitors API traffic to and and from endpoints, to provide runtime protection against suspicious behavior and malicious attacks.
+
+    :::image type="content" source="media/defender-for-apis-posture/resource-health.png" alt-text="Graphic showing the onboarded API collections." lightbox="media/defender-for-apis-posture/resource-health.png":::
 
 ## Create sample security alerts
 
@@ -45,7 +50,7 @@ When the Defender CSPM plan is enabled together with Defender for APIs, you can 
         - API collections that contain one or more API endpoints.
         - API endpoints for Azure API Management operations.
 
-        :::image type="content" source="media/defender-for-apis-posture/api-insights.png" alt-text="Page showing predefined API query.":::
+        :::image type="content" source="media/defender-for-apis-posture/api-insights.png" alt-text="Page showing predefined API query." lightbox="media/defender-for-apis-posture/api-insights.png":::
     
     The search result display each API resources with its associated insights, so that you can review, prioritize, and fix any issues.
 

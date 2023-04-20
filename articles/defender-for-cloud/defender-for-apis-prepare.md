@@ -53,5 +53,5 @@ Onboarding permissions | To enable and onboard Defender for APIs, you need the O
 
 ## Next steps
 
-[Deploy](defender-for-apis-deploy.md) Defender for APIs.
+[Enable and onboard](defender-for-apis-deploy.md) Defender for APIs.
 

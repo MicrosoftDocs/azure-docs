@@ -11,7 +11,7 @@ ms.topic: overview
 
 Microsoft Defender for APIs is a plan provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction.md) that offers full lifecycle protection, detection, and response coverage for APIs.
 
-Defender for APIs helps you to gain visibility into business-critical APIs. You can investigate and understand your API security posture, prioritize vulnerabilities fixes, and quickly detect active real-time threats.
+Defender for APIs helps you to gain visibility into business-critical APIs. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
 
 
 > [!IMPORTANT]
@@ -33,7 +33,7 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 
 ## Reviewing API security findings
 
-Review the inventory and security findings for onboarded APIs in the Defender for Cloud API Security dashboard. The dashboard shows the number of onboarded dvices, broken down by API collections, endpoints, and Azure API Management services. 
+Review the inventory and security findings for onboarded APIs in the Defender for Cloud API Security dashboard. The dashboard shows the number of onboarded devices, broken down by API collections, endpoints, and Azure API Management services. 
 
 :::image type="content" source="media/defender-for-apis-introduction/inventory.png" alt-text="Page for reviewing the onboarded API inventory":::
 
@@ -43,13 +43,13 @@ You can drill down into API collection to review security findings for onboarded
 
 API endpoint information includes:
 
-- Endpoint name: The name of API endpoint/operation as defined in Azure API Management.
-- Endpoint: The URL path of the API endpoints, and the HTTPS method. 
+- **Endpoint name**: The name of API endpoint/operation as defined in Azure API Management.
+- **Endpoint**: The URL path of the API endpoints, and the HTTPS method. 
 Last called data (UTC): The date when API traffic was last observed going to/from API endpoints (in UTC time zone). 
-30 days unused: Shows whether API endpoints have received any API call traffic in the last 30 days. APIs that haven't received any traffic in the last 30 days are marked as Inactive. 
-Authentication: Shows when a monitored API endpoint has no authentication. Defender for APIs assesses the authentication state using the subscription keys, JSON web token (JWT), and client certificate configured in Azure API Management. If none of these authentication mechanisms are present or executed, the API is marked as "unauthenticated".
-External traffic observed date: The date when external API traffic was observed going to/from the API endpoint. 
-Data classification: Classifies API request and response bodies based on supported data types. 
+- **30 days unused**: Shows whether API endpoints have received any API call traffic in the last 30 days. APIs that haven't received any traffic in the last 30 days are marked as Inactive. 
+- **Authentication**: Shows when a monitored API endpoint has no authentication. Defender for APIs assesses the authentication state using the subscription keys, JSON web token (JWT), and client certificate configured in Azure API Management. If none of these authentication mechanisms are present or executed, the API is marked as "unauthenticated".
+- **External traffic observed date**: The date when external API traffic was observed going to/from the API endpoint. 
+- **Data classification**: Classifies API request and response bodies based on supported data types. 
 
 > [!NOTE]
 > API endpoints that haven't received any traffic since onboarding to Defender for APIs display the status *Awaiting data* in the API dashboard.
@@ -81,7 +81,7 @@ Act on recommendations and alerts to mitigate threats and risk. Defender for Clo
 
 **When Defender for APIs is enabled together with the Defender CSPM plan**, you can use Cloud Security Explorer to proactively and efficiently query your organizational information to locate, identify, and remediate API assets, security issues, and risks.
 
-:::image type="content" source="media/defender-for-apis-introduction/cloud-security-explorer.png" alt-text="Page for reviewing API information in Cloud Security Explorer.":::
+:::image type="content" source="media/defender-for-apis-introduction/cloud-security-explorer.png" alt-text="Page for reviewing API information in Cloud Security Explorer." lightbox="media/defender-for-apis-introduction/cloud-security-explorer.png":::
 
 ## Next steps
 

@@ -18,7 +18,7 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 - Ensure that APIs you want to secure are published in [Azure API management](/azure/api-management/api-management-key-concepts). Follow [these instructions](/azure/api-management/get-started-create-service-instance) to set up Azure API Management.
 
 > [!NOTE]
-> This article describes how to enable and onboard the Defender for APIs plan in the Defender for Cloud portal. Alternately, you can enable Defender for APIs within the API Management instance in the Azure portal. 
+> This article describes how to enable and onboard the Defender for APIs plan in the Defender for Cloud portal. Alternately, you can enable Defender for APIs within an API Management instance in the Azure portal.
 
 ## Enable the plan
 
@@ -59,7 +59,7 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 
 ## Track onboarded API resources
 
-After onboarding the API resources, you can track their status under the **Azure API Management APIs should be onboarded to Defender for APIs** recommendation.
+After onboarding the API resources, you can track their status in the Defender for Cloud portal > **Workload protections** > **API security**.
 
 :::image type="content" source="media/defender-for-apis-deploy/track-resources.png" alt-text="Graphic showing how to track onboarded API resources." lightbox="media/defender-for-apis-deploy/track-resources.png":::
 
