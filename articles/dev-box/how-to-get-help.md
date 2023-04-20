@@ -22,9 +22,9 @@ In the following table, select your role to see how to get help for urgent issue
 |Developer </br>(Dev Box User)|[Support for developers](#support-for-developers) |[Report to Microsoft Developer Community](https://developercommunity.microsoft.com/devbox/report) |
 
 ## Support for administrators
-Administrators include IT admins, Dev infrastructure admins, and anyone who has administrative access to the Dev Box resources in the Azure portal.
+Administrators include IT admins, Dev infrastructure admins, and anyone who has administrative access to all your Dev Box resources.
 #### 1. Internal troubleshooting
-Always use your internal troubleshooting processes before contacting support. As a dev infrastructure admin, you have access to all Dev Box resources through the Azure portal.
+Always use your internal troubleshooting processes before contacting support. As a dev infrastructure admin, you have access to all Dev Box resources through the Azure portal and through the Azure CLI.
 #### 2. Contact support
 If you can't resolve the issue, open a support request to contact Azure support: 
 
