@@ -26,13 +26,13 @@ For example, consider you have assigned the Owner or Contributor role to users a
 
 The following table shows recommendations for mapping role assignments from lab accounts to lab plans in Azure Lab Services.
 
-| Lab account role | Lab account assignment | Lab plan role | Lab plan assignment |
-| ---------------- | ---------------------- | ------------- | ------------------- |
-| Owner | Lab account | Owner | Resource group |
-| Contributor | Lab account | Contributor | Resource group |
-| Lab Creator | Lab account | Lab Creator | Lab plan |
-| Owner** | Lab | Owner | Resource group or lab |
-| Contributor** | Lab | Lab Contributor | Lab |
+| Role type | Lab account role | Lab account assignment | Lab plan role | Lab plan assignment |
+| --------- | ---------------- | ---------------------- | ------------- | ------------------- |
+| Administrator | Owner | Lab account | Owner | Resource group |
+| Administrator | Contributor | Lab account | Contributor | Resource group |
+| Lab management | Lab Creator | Lab account | Lab Creator | Lab plan |
+| Lab management | Owner** | Lab | Owner | Resource group or lab |
+| Lab management | Contributor** | Lab | Lab Contributor | Lab |
 
 ** For lab accounts, the lab’s Contributor and Owner roles require that you also assign the Reader role on the lab account. For lab plans, you don't have to assign the Reader role at the lab plan or resource group level.
 
