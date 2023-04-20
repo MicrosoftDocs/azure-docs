@@ -1,6 +1,6 @@
 ---
-title: Create an Azure IoT Hub using Azure IoT Tools for Visual Studio Code
-description: Learn how to use the Azure IoT tools for Visual Studio Code to create an Azure IoT hub in a resource group. 
+title: Create an Azure IoT hub using the Azure IoT Hub extension for Visual Studio Code
+description: Learn how to use the Azure IoT Hub extension for Visual Studio Code to create an Azure IoT hub in a resource group. 
 author: formulahendry
 
 ms.author: junhan
@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 01/04/2019
 ---
 
-# Create an IoT hub using the Azure IoT Tools for Visual Studio Code
+# Create an IoT hub using the Azure IoT Hub extension for Visual Studio Code
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-This article shows you how to use the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to create an Azure IoT hub. You can create one without an existing IoT project or create one from an existing IoT project.
+This article shows you how to use the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to create an Azure IoT hub. You can create one without an existing IoT project or create one from an existing IoT project.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -21,7 +21,7 @@ This article shows you how to use the [Azure IoT Tools for Visual Studio Code](h
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) installed for Visual Studio Code
+- [Azure IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) installed for Visual Studio Code
 
 - An Azure resource group: [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) in the Azure portal
 
@@ -45,7 +45,7 @@ The following steps show how to create an IoT Hub without an IoT Project in Visu
 
 6. Select your resource group.
 
-7. Select a location.
+7. Select a region.
 
 8. Select a pricing tier.
 
@@ -64,7 +64,7 @@ This method allows you to provision in Visual Studio Code without leaving your d
    :::image type="content" source="media/iot-hub-create-use-iot-toolkit/provision.png" alt-text="A screenshot that shows how to open the command palette in VS Code." lightbox="media/iot-hub-create-use-iot-toolkit/provision.png":::
 
     > [!NOTE]
-    > If you have not signed in Azure. Follow the pop-up notification for signing in.
+    > If you have not signed into Azure, follow the pop-up notification for signing in.
 
 1. Select the subscription you want to use.
 
