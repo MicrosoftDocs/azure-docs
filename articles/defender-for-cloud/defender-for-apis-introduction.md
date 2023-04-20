@@ -31,7 +31,7 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 - **Azure API Management integration**: With the Defender for APIs plan enabled, you can receive API security recommendations and alerts in the Azure API Management portal.
 - **SIEM integration**: Integrate with security information and event management (SIEM) systems, making it easier for security teams to investigate with existing threat response workflows. [Learn more](tutorial-security-incident.md).
 
-## Reviewing your API inventory and security findings
+## Reviewing API security findings
 
 Review the inventory and security findings for onboarded APIs in the Defender for Cloud API Security dashboard. The dashboard shows the number of onboarded dvices, broken down by API collections, endpoints, and Azure API Management services. 
 

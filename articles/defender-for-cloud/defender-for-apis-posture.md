@@ -25,7 +25,7 @@ This article describes how to investigate API security findings, alerts, and sec
     :::image type="content" source="media/defender-for-apis-posture/api-collection.png" alt-text="Graphic showing the onboarded API collections."lightbox="media/defender-for-apis-posture/api-collection-details.png":::
 
 1. In the API collection page, to drill down into an API endpoint, select the ellipses (...) > **View resource**.
-1. Review API endpoint status details. [Learn more about status settings](defender-for-apis-introduction.md#reviewing-security-findings).
+1. Review API endpoint status details. [Learn more about status settings](defender-for-apis-introduction.md#reviewing-api-security-findings).
 1. In the **Resource health** page > **Recommendations** for the endpoint, review recommendation details and status.
 1. In **Alerts**, review security alerts for the endpoint. Defender for Endpoint monitors API traffic to and and from endpoints, to provide runtime protection against suspicious behavior and malicious attacks.
 

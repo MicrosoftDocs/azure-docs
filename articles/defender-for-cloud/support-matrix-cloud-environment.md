@@ -55,4 +55,4 @@ Runtime visiblity of vulnerabilities in container images | Public preview | NA |
 
 ## Next steps
 
-Start reading about [Defender for Cloud features](defender-for-cloud-introduction).
+Start reading about [Defender for Cloud features](defender-for-cloud-introduction.md).
