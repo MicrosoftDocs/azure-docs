@@ -1,16 +1,19 @@
 ---
-title: Use Azure Container Storage Preview with Azure managed disks.
-description: Configure Azure Container Storage Preview for use with Azure managed disks. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
+title: Use Azure Container Storage Preview with Azure Ephemeral OS disk.
+description: Configure Azure Container Storage Preview for use with Azure Ephemeral OS disk (NVMe). Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/19/2023
+ms.date: 04/20/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
 
-# Use Azure Container Storage Preview with Azure managed disks
-Azure Container Storage is a volume management service built natively for containers that enables customers to create and manage volumes for running stateful container applications. This article shows you how to configure Azure Container Storage to use Azure managed disks as back-end storage for your Kubernetes workloads.
+# Use Azure Container Storage Preview with Azure Ephemeral OS disk
+Azure Container Storage is a volume management service built natively for containers that enables customers to create and manage volumes for running stateful container applications. This article shows you how to configure Azure Container Storage to use Azure Ephemeral OS disk as back-end storage for your Kubernetes workloads.
+
+> [!IMPORTANT]
+> Local NVMe disks are ephemeral, meaning that they're created on the local virtual machine (VM) storage and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM.
 
 ## Prerequisites
 
@@ -20,7 +23,7 @@ Azure Container Storage is a volume management service built natively for contai
 
 ## Create a storage pool
 
-First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML file. Follow these steps to create a storage pool for Azure managed disks. 
+First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML file. Follow these steps to create a storage pool using local disk. 
 
 1. Use your favorite text editor to create a YAML file such as `code acstor-storagepool.yaml`.
 
@@ -30,14 +33,12 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
    apiVersion: containerstorage.azure.com/v1alpha1
    kind: StoragePool
    metadata:
-     name: azuredisk
+     name: azurenvme
      namespace: acstor
    spec:
      poolType:
-       csi: {}
-     resources:
-       limits: {"storage": 5Ti}
-       requests: {"storage": 1Ti}
+       localDisk:
+         replicas: 1 
    ```
 
 3. Apply the YAML file to create the storage pool.
@@ -49,13 +50,13 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
    When storage pool creation is complete, you'll see a message like:
    
    ```output
-   storagepool.containerstorage.azure.com/azuredisk created
+   storagepool.containerstorage.azure.com/azurenvme created
    ```
    
    You can also run this command to check the status of the storage pool:
    
    ```azurecli-interactive
-   kubectl describe sp azuredisk -n acstor
+   kubectl describe sp azurenvme -n acstor
    ```
 
 ## Display the available storage classes
@@ -76,11 +77,11 @@ A persistent volume claim (PVC) is used to automatically provision storage based
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
-     name: azurediskpvc
+     name: azurenvmepvc
    spec:
      accessModes:
        - ReadWriteOnce
-     storageClassName: azuredisk # or whatever your storage class is named
+     storageClassName: azurenvme # or whatever your storage class is named
      resources:
        requests:
          storage: 100Gi
@@ -95,13 +96,13 @@ A persistent volume claim (PVC) is used to automatically provision storage based
    You should see output similar to:
    
    ```output
-   persistentvolumeclaim/azurediskpvc created
+   persistentvolumeclaim/azurenvmepvc created
    ```
    
    You can verify the status of the PVC by running the following command:
    
    ```azurecli-interactive
-   kubectl describe pvc azurediskpvc
+   kubectl describe pvc azurenvmepvc
    ```
 
 Once the PVC is created, it's ready for use by a pod.
@@ -123,9 +124,9 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
      nodeSelector:
        openebs.io/engine: io.engine
      volumes:
-       - name: azurediskpv
+       - name: azurenvmepv
          persistentVolumeClaim:
-           claimName: azurediskpvc
+           claimName: azurenvmepvc
      containers:
        - name: fio
          image: nixery.dev/shell/fio
@@ -134,7 +135,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
            - "1000000"
          volumeMounts:
            - mountPath: "/volume"
-           name: azurediskpv
+           name: azurenvmepv
    ```
 
 3. Apply the YAML file to deploy the pod.
@@ -153,7 +154,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
 
    ```azurecli-interactive
    kubectl describe pod fiopod
-   kubectl describe pvc azurediskpvc
+   kubectl describe pvc azurenvmepvc
    ```
 
 5. Check fio testing to see its current status:

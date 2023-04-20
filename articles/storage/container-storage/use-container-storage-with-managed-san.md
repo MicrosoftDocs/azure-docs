@@ -1,16 +1,16 @@
 ---
-title: Use Azure Container Storage Preview with Azure managed disks.
-description: Configure Azure Container Storage Preview for use with Azure managed disks. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
+title: Use Azure Container Storage Preview with Azure Elastic SAN Preview.
+description: Configure Azure Container Storage Preview for use with Azure Elastic SAN Preview. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/19/2023
+ms.date: 04/20/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
 
-# Use Azure Container Storage Preview with Azure managed disks
-Azure Container Storage is a volume management service built natively for containers that enables customers to create and manage volumes for running stateful container applications. This article shows you how to configure Azure Container Storage to use Azure managed disks as back-end storage for your Kubernetes workloads.
+# Use Azure Container Storage Preview with Azure Elastic SAN Preview
+Azure Container Storage is a volume management service built natively for containers that enables customers to create and manage volumes for running stateful container applications. This article shows you how to configure Azure Container Storage to use Azure Elastic SAN Preview as back-end storage for your Kubernetes workloads.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Azure Container Storage is a volume management service built natively for contai
 
 ## Create a storage pool
 
-First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML file. Follow these steps to create a storage pool for Azure managed disks. 
+First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML file. Follow these steps to create a storage pool with managed SAN. 
 
 1. Use your favorite text editor to create a YAML file such as `code acstor-storagepool.yaml`.
 
@@ -30,11 +30,12 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
    apiVersion: containerstorage.azure.com/v1alpha1
    kind: StoragePool
    metadata:
-     name: azuredisk
+     name: managed
      namespace: acstor
    spec:
      poolType:
-       csi: {}
+       san:
+         managed: true
      resources:
        limits: {"storage": 5Ti}
        requests: {"storage": 1Ti}
@@ -49,13 +50,13 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
    When storage pool creation is complete, you'll see a message like:
    
    ```output
-   storagepool.containerstorage.azure.com/azuredisk created
+   storagepool.containerstorage.azure.com/managed created
    ```
    
    You can also run this command to check the status of the storage pool:
    
    ```azurecli-interactive
-   kubectl describe sp azuredisk -n acstor
+   kubectl describe sp managed -n acstor
    ```
 
 ## Display the available storage classes
@@ -76,11 +77,11 @@ A persistent volume claim (PVC) is used to automatically provision storage based
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
-     name: azurediskpvc
+     name: managedpvc
    spec:
      accessModes:
        - ReadWriteOnce
-     storageClassName: azuredisk # or whatever your storage class is named
+     storageClassName: managed # or whatever your storage class is named
      resources:
        requests:
          storage: 100Gi
@@ -95,13 +96,13 @@ A persistent volume claim (PVC) is used to automatically provision storage based
    You should see output similar to:
    
    ```output
-   persistentvolumeclaim/azurediskpvc created
+   persistentvolumeclaim/managedpvc created
    ```
    
    You can verify the status of the PVC by running the following command:
    
    ```azurecli-interactive
-   kubectl describe pvc azurediskpvc
+   kubectl describe pvc managedpvc
    ```
 
 Once the PVC is created, it's ready for use by a pod.
@@ -123,9 +124,9 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
      nodeSelector:
        openebs.io/engine: io.engine
      volumes:
-       - name: azurediskpv
+       - name: managedpv
          persistentVolumeClaim:
-           claimName: azurediskpvc
+           claimName: managedpvc
      containers:
        - name: fio
          image: nixery.dev/shell/fio
@@ -134,7 +135,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
            - "1000000"
          volumeMounts:
            - mountPath: "/volume"
-           name: azurediskpv
+           name: managedpv
    ```
 
 3. Apply the YAML file to deploy the pod.
@@ -153,7 +154,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
 
    ```azurecli-interactive
    kubectl describe pod fiopod
-   kubectl describe pvc azurediskpvc
+   kubectl describe pvc managedpvc
    ```
 
 5. Check fio testing to see its current status:
