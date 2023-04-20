@@ -34,14 +34,14 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 
     Azure Monitor Agent is generally available.
     
-    The following Azure Monitor features now use Azure Monitor Agent in preview. This means that you can can select Azure Monitor Agent as your preferred agent when you enable the feature; otherwise, the legacy agent will be enabled by default.
+    The following Azure Monitor features now use Azure Monitor Agent in preview. This means you can select to use Azure Monitor Agent to collect data when you enable the feature; otherwise, the legacy agent will be enabled by default.
     
     |	Azure Monitor feature	|	Current support	|	Other extensions installed	|	More information	|
     |	:---	|	:---	|	:---	|	:---	|
     |	[VM insights](../vm/vminsights-overview.md)	|	Public preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Enable VM Insights](../vm/vminsights-enable-overview.md)	|
     |	[Container insights](../containers/container-insights-overview.md)	|	Public preview 	|	Containerized Azure Monitor agent	|	[Enable Container Insights](../containers/container-insights-onboard.md)	|
 
-    The following Azure Monitor services now use Azure Monitor Agent in preview. This means that you can can select Azure Monitor Agent as your preferred agent when you enable the service; otherwise, the legacy agent will be enabled by default.
+    The following Azure Monitor services now use Azure Monitor Agent in preview. This means you can select to use Azure Monitor Agent to collect data when you enable the service; otherwise, the legacy agent will be enabled by default.
 
     |	 Azure service	|	 Current support	|	Other extensions installed	|	 More information	|
     |	:---	|	:---	|	:---	|	:---	|
