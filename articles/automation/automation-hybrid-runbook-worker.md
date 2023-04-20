@@ -3,7 +3,7 @@ title: Azure Automation Hybrid Runbook Worker overview
 description: Know about Hybrid Runbook Worker. How to install and run the  runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/18/2023
+ms.date: 04/20/2023
 ms.topic: conceptual 
 ---
 
@@ -72,7 +72,7 @@ A Hybrid Worker group with Hybrid Runbook Workers is designed for high availabil
 
 When you start a runbook on a user Hybrid Runbook Worker, you specify the group it runs on and can't specify a particular worker. Each active Hybrid Worker in the group will poll for jobs every 30 seconds to see if any jobs are available. The worker picks jobs on a first-come, first-serve basis. Depending on when a job was pushed, whichever Hybrid worker within the Hybrid Worker Group pings the Automation service first picks up the job. The processing time of the jobs queue also depends on the Hybrid worker hardware profile and load. 
 
-­­A single hybrid worker can generally pick up 20 jobs per ping (that is, every 30 seconds). If your rate of pushing jobs is higher than 20 per 30 seconds and no other Worker picks up the job, the job might get suspended with an error. 
+­­A single hybrid worker can generally pick up 4 jobs per ping (that is, every 30 seconds). If your rate of pushing jobs is higher than 4 per 30 seconds and no other Worker picks up the job, the job might get suspended with an error. 
 
 A Hybrid Runbook Worker doesn't have many of the [Azure sandbox](automation-runbook-execution.md#runbook-execution-environment) resource [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) on disk space, memory, or network sockets. The limits on a hybrid worker are only related to the worker's own resources, and they aren't constrained by the [fair share](automation-runbook-execution.md#fair-share) time limit that Azure sandboxes have.
 
