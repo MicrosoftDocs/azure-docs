@@ -22,11 +22,8 @@ LoreIpsum ... IGA is great
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :--- | :--- | :--- |
-| | [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian Cloud - User Provisioning](atlassian-cloud-provisioning-tutorial.md)|
-| ![logo-ServiceNow](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - User Provisioning](servicenow-provisioning-tutorial.md)|
-| ![logo-Slack](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - User Provisioning](slack-provisioning-tutorial.md)|
-| ![logo-SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors - User Provisioning](./sap-successfactors-inbound-provisioning-tutorial.md) |
-| ![logo-Workday](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Workday - User Provisioning](workday-inbound-tutorial.md)|
+| | [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors - User Provisioning](./sap-successfactors-inbound-provisioning-tutorial.md) |
+| | [Workday](workday-tutorial.md)| [Workday - User Provisioning](workday-inbound-tutorial.md)|
 
 To find more tutorials, use the table of contents on the left.
 
@@ -34,7 +31,7 @@ To find more tutorials, use the table of contents on the left.
 | Logo | Connector | Application tutorial for user provisioning |
 | :--- | :--- | :--- |
 || [LDAP](amazon-web-service-tutorial.md)| OpenLDAP<br>Microsoft Active Directory Lightweight Directory Services<br>389 Directory Server<br>Apache Directory Server<br>IBM Tivoli DS<br>Isode Directory<br>NetIQ eDirectory<br>Novell eDirectory<br>Open DJ<br>Open DS<br>Oracle (previously Sun ONE) Directory Server Enterprise Edition<br>RadiantOne Virtual Directory Server (VDS) |
-| | SQL| Microsoft SQL Server and Azure SQL<br>IBM DB2 10.x<br>IBM DB2 9.x<br>Oracle 10g and 11g<br>Oracle 12c and 18c<br>MySQL 5.x|
+| | [SQL}()| Microsoft SQL Server and Azure SQL<br>IBM DB2 10.x<br>IBM DB2 9.x<br>Oracle 10g and 11g<br>Oracle 12c and 18c<br>MySQL 5.x|
 
 ## Cloud platforms
 
@@ -46,14 +43,18 @@ To find more tutorials, use the table of contents on the left.
 | ![logo-Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - User Provisioning](salesforce-provisioning-tutorial.md) |
 | ![logo-SAP Cloud Identity Platform](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP Cloud Identity Platform](saphana-tutorial.md)|[SAP Cloud Identity Platform - Provisioning](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
 
-## HR integrations
+## ITSM
 
 | Logo | Application tutorial for single sign-on |
 | :--- | :--- |
-| ![logo-8x8](./media/tutorial-list/active-directory-saas-8x8-virtual-office-tutorial.png)| [8x8](8x8virtualoffice-tutorial.md)|
-| ![logo-AcquireIO](./media/tutorial-list/active-directory-saas-acquireio-tutorial.png)| [AcquireIO](acquireio-tutorial.md)|
-| ![logo-Adobe Identity Management](./media/tutorial-list/active-directory-saas-adobe-identity-management-tutorial.png)| [Adobe Identity Management](adobe-identity-management-tutorial.md)|
-| ![logo-Aha!](./media/tutorial-list/active-directory-saas-aha-tutorial.png)| [Aha!](aha-tutorial.md)|
+| ![ServiceNow](./media/tutorial-list/active-directory-saas-8x8-virtual-office-tutorial.png)| [ServiceNow](8x8virtualoffice-tutorial.md)|
+
+## Partner driven integrations
+Checkout the integrations [partners](https://learn.microsoft.com/azure/active-directory/app-provisioning/partner-driven-integrations) have built on top of Entra IGA.
+* Epic
+* Cerner
+* IBM RACF
+
 
 ## Next steps
 
