@@ -9,7 +9,7 @@ ms.reviewer: aul
 
 # Customize scraping of Prometheus metrics in Azure Monitor (preview)
 
-This article provides instructions on customizing metrics scraping for a Kubernetes cluster with the [metrics add-on](prometheus-metrics-enable.md) in Azure Monitor.
+This article provides instructions on customizing metrics scraping for a Kubernetes cluster with the [metrics addon](prometheus-metrics-enable.md) in Azure Monitor.
 
 ## Configmaps
 
@@ -72,7 +72,24 @@ The new label also shows up in the cluster parameter dropdown in the Grafana das
 To view every metric that's being scraped for debugging purposes, the metrics add-on agent can be configured to run in debug mode by updating the setting `enabled` to `true` under the `debug-mode` setting in the [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) `ama-metrics-settings-configmap`. You can either create this configmap or edit an existing one. For more information, see the [Debug mode section in Troubleshoot collection of Prometheus metrics](prometheus-metrics-troubleshoot.md#debug-mode).
 
 ### Scrape interval settings
-To update the scrape interval settings for any target, you can update the duration in the setting `default-targets-scrape-interval-settings` for that target in the [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) `ama-metrics-settings-configmap`. You have to set the scrape intervals in the correct format specified in [this website](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file). Otherwise, the default value of 30 seconds is applied to the corresponding targets.
+To update the scrape interval settings for any target, you can update the duration in the setting `default-targets-scrape-interval-settings` for that target in the [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) `ama-metrics-settings-configmap`. You have to set the scrape intervals in the correct format specified in [this website](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file). Otherwise, the default value of 30 seconds is applied to the corresponding targets. For e.g. If you want to update the scrape interval for the `kubelet` job to `60s` then you can update the following section in the YAML:
+
+```
+default-targets-scrape-interval-settings: |-
+    kubelet = "60s"
+    coredns = "30s"
+    cadvisor = "30s"
+    kubeproxy = "30s"
+    apiserver = "30s"
+    kubestate = "30s"
+    nodeexporter = "30s"
+    windowsexporter = "30s"
+    windowskubeproxy = "30s"
+    kappiebasic = "30s"
+    prometheuscollectorhealth = "30s"
+    podannotations = "30s"
+```
+and apply the YAML using the following command : `kubectl apply -f .\ama-metrics-settings-configmap.yaml`
 
 ## Configure custom Prometheus scrape jobs
 

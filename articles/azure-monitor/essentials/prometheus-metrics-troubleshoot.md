@@ -129,6 +129,7 @@ Agent based scraping currently has the limitations in the following table:
 | Label value length | Less than or equal to 1023 characters. When this limit is exceeded for any time-series in a job, the entire scrape job will fail, and metrics will be dropped from that job before ingestion. You can see up=0 for that job and also target Ux will show the reason for up=0. |
 | Number of labels per timeseries | Less than or equal to 63. When this limit is exceeded for any time-series in a job, the entire scrape job will fail, and metrics will be dropped from that job before ingestion. You can see up=0 for that job and also target Ux will show the reason for up=0. |
 | Metric name length | Less than or equal to 511 characters. When this limit is exceeded for any time-series in a job, only that particular series will be dropped. MetricextensionConsoleDebugLog will have traces for the dropped metric. |
+| Label names with different casing | Two labels within the same metric sample with different casing will be treated as having duplicate labels and will be dropped when ingested. For example, the time series `my_metric{ExampleLabel="label_value_0", examplelabel="label_value_1}` will be dropped due to duplicate labels since `ExampleLabel` and `examplelabel` will be seen as the same label name. |
 
 ## Next steps
 

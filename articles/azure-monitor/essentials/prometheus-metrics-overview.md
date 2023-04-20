@@ -48,7 +48,6 @@ See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for 
 - Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
 - Scraping and storing metrics at frequencies less than 1 second isn't supported.
 
-[!INCLUDE [prometheus-case-sensitivity.md](..//includes/prometheus-case-sensitivity.md)]
 ## Prometheus references
 Following are links to Prometheus documentation.
 
