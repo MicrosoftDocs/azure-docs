@@ -6,9 +6,9 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 04/20/2023
 ms.author: mbender
-ms.custom: template-concept
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Retrieve load balancer information by using Azure Instance Metadata Service

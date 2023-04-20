@@ -7,8 +7,9 @@ tags: top-support-issue
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: troubleshooting
-ms.date: 11/22/2021
+ms.date: 04/20/2023
 ms.author: mbender
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Troubleshoot common Azure deployment errors with Azure Load Balancer

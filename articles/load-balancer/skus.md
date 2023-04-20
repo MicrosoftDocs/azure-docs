@@ -6,8 +6,9 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: reference
 ms.workload: infrastructure-services
-ms.date: 12/22/2021
+ms.date: 04/20/2023
 ms.author: mbender
+ms.custom: template-reference, engagement-fy23
 ---
 
 # Azure Load Balancer SKUs
