@@ -628,4 +628,4 @@ If you haven't yet, share your new codeless data connector with the Microsoft Se
 
 For more information, see 
 - [About Microsoft Sentinel solutions](sentinel-solutions.md).
-- [Data connector ARM template reference](/azure/templates/microsoft.securityinsights/dataconnectors#dataconnectors-objects-1]
+- [Data connector ARM template reference](/azure/templates/microsoft.securityinsights/dataconnectors#dataconnectors-objects-1)
