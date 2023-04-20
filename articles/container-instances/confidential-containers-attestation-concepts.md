@@ -3,7 +3,7 @@ title: Attestation in Confidential containers on Azure Containers Instances
 description: full attestation of container groups in confidential containers on Azure Container Instances  
 ms.topic: conceptual
 ms.author: tomcassidy
-author: akhandavilli
+author: pkhandavilli
 ms.service: container-instances
 services: container-instances
 ms.date: 04/19/2023
@@ -27,7 +27,7 @@ Expanding upon the concept of attestation. Full attestation captures all the com
 
 The exhaustive list of attributes that are part of the SEV-SNP attestation can be found [here](https://www.amd.com/system/files/TechDocs/SEV-SNP%20PSP%20API%20Specification.pdf).
 
-Some important fields to consider in an attestation token returned by [Microsoft Azure Attestation ( MAA )](https://learn.microsoft.com/en-us/azure/attestation/overview) 
+Some important fields to consider in an attestation token returned by [Microsoft Azure Attestation ( MAA )](../attestation/overview.md) 
 
 | Claim                     | Sample value                                                | Description |
 |---------------------------|-------------------------------------------------------------|-------------|
@@ -100,5 +100,5 @@ We have open-sourced sidecar container implementations that provide an easy rest
 
 ## Next steps
 
-- [Learn how to use attestation to release a secret to your container group](https://learn.microsoft.com/en-us/azure/confidential-computing/skr-flow-confidential-containers-azure-container-instance)
+- [Learn how to use attestation to release a secret to your container group](../confidential-computing/skr-flow-confidential-containers-azure-container-instance.md)
 - [Deploy a confidential container group with Azure Resource Manager](./container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
