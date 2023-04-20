@@ -2311,7 +2311,6 @@ groups:
   - id: method-bicep
     title: Bicep template
 # Owner: franlanglois
-groups:
 - id: cache-redis-zone-pivot-group
   title: Programming languages
   prompt: Choose a programming language
