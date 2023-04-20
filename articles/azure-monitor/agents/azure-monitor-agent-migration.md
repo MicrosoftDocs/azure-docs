@@ -57,6 +57,20 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 
     1. Compare the data ingested by Azure Monitor Agent with legacy agent data to ensure there are no gaps. You can do this by joining with the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which indicates `Azure Monitor Agent` for data collected by the Azure Monitor Agent.
     
+    For example:
+
+    ```kusto
+    Heartbeat
+    | distinct Computer, SourceComputerId, Category
+    | join kind=inner (
+        Event
+    | extend d=parse_xml(EventData)
+        | extend sourceHealthServiceId = tostring(d.DataItem.["@sourceHealthServiceId"])
+        | project-reorder TimeGenerated, Computer, EventID, sourceHealthServiceId, ParameterXml, EventData
+        ) on $left.SourceComputerId==$right.sourceHealthServiceId
+    | project TimeGenerated, Computer, Category, EventID, sourceHealthServiceId, ParameterXml, EventData
+    ```
+    
 1. Use [built-in policies](../agents/azure-monitor-agent-manage.md#built-in-policies) to deploy extensions and DCR associations at scale. Using policy will also ensure automatic deployment of extensions and DCR associations for new machines.<sup>3</sup>
     
     Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to **monitor the at-scale migration** across your machines.  
