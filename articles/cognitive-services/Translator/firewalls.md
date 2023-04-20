@@ -12,30 +12,22 @@ ms.date: 04/19/2023
 ms.author: lajanuar
 ---
 
-# How to translate behind IP firewalls with Translator
+# Use Translator behind firewalls
 
-Translator can translate behind firewalls using either [Domain-name](../../firewall/dns-settings.md#configure-dns-proxy---azure-portal) or IP filtering. Domain-name filtering is the preferred method.
+Translator can translate behind firewalls using either [Domain-name](../../firewall/dns-settings.md#configure-dns-proxy---azure-portal) or [IP filtering](#configure-firewall). Domain-name filtering is the preferred method.
 
-## Virtual network endpoints
+If you still require IP filtering, you can get the [IP addresses details using service tag](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Translator is under the **CognitiveServicesManagement** service tag.
 
-To find the virtual network endpoint for your Translator resource complete the following steps:
+## Configure firewall
 
-1. Navigate to your Translator resource in the Azure portal.
+ Navigate to your Translator resource in the Azure portal.
+
 1. Select **Networking** from the **Resource Management** section.
 1. Under the **Firewalls and virtual networks** tab, choose **Selected Networks and Private Endpoints**.
 
    :::image type="content" source="media/firewall-setting-azure-portal.png" alt-text="Screenshot of the firewall setting in the Azure portal.":::
 
-1. Select **Save** to apply your changes.
-1. Select **Keys and Endpoint** from the **Resource Management** section.
-1. Select the **Virtual Network** tab.
-1. Listed there are the endpoints for Text Translation and Document Translation.
-
-   :::image type="content" source="media/virtual-network-endpoint.png" alt-text="Screenshot of the virtual network endpoint.":::
-
-## IP addresses
-
-If you still require IP filtering, you can get the [IP addresses details using service tag](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Translator is under the **CognitiveServicesManagement** service tag.
+1. To grant access to an internet IP range, enter the IP address or address range (in [CIDR format](https://tools.ietf.org/html/rfc4632)) under **Firewall** > **Address Range**. Only valid public IP (`non-reserved`) addresses are accepted.
 
 Running Microsoft Translator from behind a specific IP filtered firewall is **not recommended**. The setup is likely to break in the future without notice.
 

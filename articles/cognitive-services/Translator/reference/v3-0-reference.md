@@ -60,7 +60,8 @@ There are three headers that you can use to authenticate your subscription. This
 |Authorization|*Use with Cognitive Services subscription if you're passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Use with Cognitive Services multi-service and regional translator resource.*<br/>The value is the region of the multi-service or regional translator resource. This value is optional when using a global translator resource.|
 
-###  Secret key
+### Secret key
+
 The first option is to authenticate using the `Ocp-Apim-Subscription-Key` header. Add the `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` header to your request.
 
 #### Authenticating with a global resource
@@ -238,6 +239,19 @@ Once you turn on this capability, you must use the custom endpoint to call the T
 
 You can find the custom endpoint after you create a [translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) and allow access from selected networks and private endpoints.
 
+1. Navigate to your Translator resource in the Azure portal.
+1. Select **Networking** from the **Resource Management** section.
+1. Under the **Firewalls and virtual networks** tab, choose **Selected Networks and Private Endpoints**.
+
+   :::image type="content" source="../media/virtual-network-setting-azure-portal.png" alt-text="Screenshot of the virtual network setting in the Azure portal.":::
+
+1. Select **Save** to apply your changes.
+1. Select **Keys and Endpoint** from the **Resource Management** section.
+1. Select the **Virtual Network** tab.
+1. Listed there are the endpoints for Text Translation and Document Translation.
+
+   :::image type="content" source="../media/virtual-network-endpoint.png" alt-text="Screenshot of the virtual network endpoint.":::
+
 |Headers|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator.|
@@ -258,8 +272,8 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
 
 A standard error response is a JSON object with name/value pair named `error`. The value is also a JSON object with properties:
 
-  * `code`: A server-defined error code.
-  * `message`: A string giving a human-readable representation of the error.
+* `code`: A server-defined error code.
+* `message`: A string giving a human-readable representation of the error.
 
 For example, a customer with a free trial subscription would receive the following error once the free quota is exhausted:
 
