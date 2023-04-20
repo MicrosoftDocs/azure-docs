@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Add sign in to a Node.js web app"
-description: Learn how to run a sample Node.js web app to sign in users
+title: "Quickstart: Add sign in to ASP.NET web app"
+description: Learn how to run a sample ASP.NET web app to sign in users
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -13,9 +13,9 @@ ms.topic: portal
 ms.date: 05/05/2023
 ---
 
-# Portal quickstart for Node.js web app
+# Portal quickstart for ASP.NET web app
 
-> In this quickstart, you download and run a code sample that demonstrates how a Node.js web app can sign in users with Azure Active Directory for customers.
+> In this quickstart, you download and run a code sample that demonstrates how ASP.NET web app can sign in users with Azure Active Directory for customers.
 >
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > 1. Make sure you've installed Make sure you've installed [.NET SDK v7](https://dotnet.microsoft.com/download/dotnet/7.0) or later.
