@@ -165,9 +165,19 @@ This section describes the function app configuration settings available for fun
 ```
 
 ## Next steps
-- [Trigger a Dapr binding, service invocation, or topic subscription](./functions-bindings-dapr-trigger.md)
-- [Pull in Dapr state and secrets](./functions-bindings-dapr-input.md)
-- [Send a value to a Dapr topic or output binding](./functions-bindings-dapr-output.md)
+- Triggers 
+  - [Dapr input binding](./functions-bindings-dapr-trigger-input.md)
+  - [Dapr service invocation](./functions-bindings-dapr-trigger-svc-invoke.md)
+  - [Dapr topic](./functions-bindings-dapr-trigger-topic.md)
+- Input
+  - [Dapr state](./functions-bindings-dapr-input-state.md)
+  - [Dapr secret](./functions-bindings-dapr-input-secret.md)
+- Dapr output bindings
+  - [Dapr state](./functions-bindings-dapr-output-state.md)
+  - [Dapr invoke](./functions-bindings-dapr-output-invoke.md)
+  - [Dapr publish](./functions-bindings-dapr-output-publish.md)
+  - [Dapr output](./functions-bindings-dapr-output.md)
+
 
 ::: zone pivot="programming-language-java,programming-language-powershell"
 

@@ -1,85 +1,215 @@
 ---
-title: Dapr output binding for Azure Functions
-description: Learn how to provide Dapr output binding data to an Azure Function.
+title: Dapr state output binding for Azure Functions
+description: Learn how to provide Dapr state output binding data to an Azure Function.
 ms.topic: reference
 ms.date: 04/17/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022
+ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Dapr output binding for Azure Functions
-<!--Intro info goes here-->
-## Example
+# Dapr state output binding for Azure Functions
+
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+
+The output binding allows you to read Dapr data as output to an Azure Function.
+
+For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate _function.json_ file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+> [!IMPORTANT]
+> The Python v2 programming model is currently in preview.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
+## Example
+
 <!--Optional intro text goes here, followed by the C# modes include.-->
-[!INCLUDE functions-bindings-csharp-intro]
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
 # [In-process](#tab/in-process)
 
-<!--Content and samples from the C# tab in ##Examples go here.-->
+```csharp
+[FunctionName("StateInputBinding")]
+public static IActionResult Run(
+    [HttpTrigger(AuthorizationLevel.Function, "get", Route = "state/{key}")] HttpRequest req,
+    [DaprState("statestore", Key = "{key}")] string state,
+    ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
- 
+    return new OkObjectResult(state);
+}
+```
+
 # [Isolated process](#tab/isolated-process)
 
-<!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example: :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49"::: -->
+<!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example: 
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49"::: 
+
+-->
+
+
+# [C# Script](#tab/csharp-script)
+
+The following examples show Dapr output bindings in a _function.json_ file and C# script (.csx) code that uses the bindings. In the _function.json_ file, todo:
+
+```json
+
+```
+
+Here's the C# script code:
+
+```csharp
+
+```
 
 ---
 
 ::: zone-end 
 
-::: zone pivot="programming-language-java"
-
-<!--Content and samples from the Java tab in ##Examples go here.-->
-::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-<!--Content and samples from the JavaScript tab in ##Examples go here.-->
-::: zone-end
-::: zone pivot="programming-language-powershell"
+## Example
 
-<!--Content and samples from the PowerShell tab in ##Examples go here.-->
+The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
+
+Here's the _function.json_ file for `daprBindingTrigger`:
+
+```json
+{
+  "bindings": 
+    {
+      "type": "daprState",
+      "direction": "in",
+      "dataType": "string",
+      "name": "state",
+      "stateStore": "statestore",
+      "key": "{key}"
+    }
+}
+```
+
+Here's the JavaScript code for the Dapr output binding trigger:
+
+```javascript
+module.exports = async function (context, req) {
+    context.log('Current state of this function: ' + context.bindings.daprState);
+};
+```
+
 ::: zone-end
+
 ::: zone pivot="programming-language-python"
+## Examples
 
-<!--Content and samples from the Python tab in ##Examples go here.-->
+The following example shows a Dapr trigger binding. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+
+# [v2](#tab/python-v2)
+
+```python
+
+```
+
+# [v1](#tab/python-v1)
+
+Here's the _function.json_ file for `daprBindingTrigger`:
+
+```json
+```
+
+For more information about *function.json* file properties, see the [Configuration](#configuration) section explains these properties.
+
+Here's the Python code:
+
+```python
+```
+
 ::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
 Both in-process and isolated process C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
 
-<!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section: The attribute's constructor takes the following parameters: |Parameter | Description| |---------|----------------------| |**Parameter1** |Description 1| |**Parameter2** | Description 2| -->
-
 # [In-process](#tab/in-process)
 
-<!--C# attribute information for the trigger from ## Attributes and annotations goes here, with intro sentence.-->
- 
+In [C# class libraries], use the [DaprBindingTrigger] to trigger a Dapr output binding, which supports the following properties.
+
+| Parameter | Description | 
+| --------- | ----------- | 
+| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. | 
+
 # [Isolated process](#tab/isolated-process)
 
-<!-- C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16"::: -->
+<!-- C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: 
 
----
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16"::: 
+
+-->
+
+# [C# Script](#tab/csharp-script)
+
+C# script uses a _function.json_ file for configuration instead of attributes.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**bindingName** | The name of the binding. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
 
 ::: zone-end
-::: zone pivot="programming-language-java"
 
-<!--## Annotations Content from the Java tab under ## Attributes and annotations. -->
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-javascript"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
 
-<!-- suggestion |function.json property |Description| |---------|---------| | **type** | Required - must be set to `eventGridTrigger`. | | **direction** | Required - must be set to `in`. | | **name** | Required - the variable name used in function code for the parameter that receives the event data. | -->
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**bindingName** | The name of the binding. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+
+
 ::: zone-end
 
-See the Example section for complete examples.
+::: zone pivot="programming-language-python"
+
+## Configuration
+The following table explains the binding configuration properties that you set in the _function.json_ file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**bindingName** | The name of the binding. |
+|**name** | The name of the variable that represents the Dapr data in function code. |
+|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+See the [Example section](#example) for complete examples.
 
 ## Usage
-::: zone pivot="programming-language-csharp"
 The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
 
 # [In-process](#tab/in-process)
@@ -90,30 +220,58 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 
 <!--If available, call out any usage information from the linked example in the worker repo. -->
 
+# [C# Script](#tab/csharp-script)
+
+
 ---
 
 ::: zone-end
 
 <!--Any of the below pivots can be combined if the usage info is identical.-->
-::: zone pivot="programming-language-java"
-
-<!--Any usage information from the Java tab in ## Usage. -->
-::: zone-end
 ::: zone pivot="programming-language-javascript"
 
-<!--Any usage information from the JavaScript tab in ## Usage. -->
-::: zone-end
-::: zone pivot="programming-language-powershell"
+See the [Example section](#example) for complete examples.
 
-<!--Any usage information from the PowerShell tab in ## Usage. -->
+## Usage
+The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+
 ::: zone-end
+
 ::: zone pivot="programming-language-python"
 
-<!--Any usage information from the Python tab in ## Usage. -->
+See the [Example section](#example) for complete examples.
+
+## Usage
+The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+
 ::: zone-end
 
 <!---## Extra sections Put any sections with content that doesn't fit into the above section headings down here. This will likely get moved to another article after the refactor. -->
-## host.json settings
-<!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
+
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
+
+## host.json properties
+
+The [host.json] file contains settings that control Dapr trigger behavior. See the [host.json settings](functions-bindings-dapr.md#hostjson-settings) section for details regarding available settings.
+
+::: zone-end
+
 ## Next steps
-<!--Use the next step links from the original article.-->
+- Triggers 
+  - [Dapr input binding](./functions-bindings-dapr-trigger-input.md)
+  - [Dapr service invocation](./functions-bindings-dapr-trigger-svc-invoke.md)
+  - [Dapr topic](./functions-bindings-dapr-trigger-topic.md)
+- Input
+  - [Dapr state](./functions-bindings-dapr-input-state.md)
+  - [Dapr secret](./functions-bindings-dapr-input-secret.md)
+- Dapr output bindings
+  - [Dapr invoke](./functions-bindings-dapr-output-invoke.md)
+  - [Dapr publish](./functions-bindings-dapr-output-publish.md)
+  - [Dapr output](./functions-bindings-dapr-output.md)
+
+::: zone pivot="programming-language-java,programming-language-powershell"
+
+> [!NOTE]
+> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
+
+::: zone-end

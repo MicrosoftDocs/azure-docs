@@ -1,6 +1,6 @@
 ---
-title: Dapr input binding for Azure Functions
-description: Learn how to provide Dapr input binding data to an Azure Function.
+title: Dapr state input binding for Azure Functions
+description: Learn how to provide Dapr state input binding data to an Azure Function.
 ms.topic: reference
 ms.date: 04/17/2023
 ms.devlang: csharp, java, javascript, powershell, python
@@ -8,20 +8,13 @@ ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Dapr input binding for Azure Functions
+# Dapr state input binding for Azure Functions
 
 ::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 
 The input binding allows you to read Dapr data as input to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
-
-::: zone-end
-
-::: zone pivot="programming-language-java, programming-language-powershell"
-
-> [!IMPORTANT]
-> Dapr triggers for Java are currently under development and not available for Azure Functions.
 
 ::: zone-end
 
@@ -44,14 +37,12 @@ This article supports both programming models.
 
 ::: zone pivot="programming-language-csharp"
 
-## Examples
+## Example
 
 <!--Optional intro text goes here, followed by the C# modes include.-->
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
 # [In-process](#tab/in-process)
-
-### daprState
 
 ```csharp
 [FunctionName("StateInputBinding")]
@@ -63,19 +54,6 @@ public static IActionResult Run(
     log.LogInformation("C# HTTP trigger function processed a request.");
 
     return new OkObjectResult(state);
-}
-```
-
-### daprSecret
-
-```csharp
-[FunctionName("RetrieveSecret")]
-public static void Run(
-    [DaprServiceInvocationTrigger] object args,
-    [DaprSecret("kubernetes", "my-secret", Metadata = "metadata.namespace=default")] IDictionary<string, string> secret,
-    ILogger log)
-{
-    log.LogInformation("C# function processed a RetrieveSecret request from the Dapr Runtime.");
 }
 ```
 
@@ -91,24 +69,6 @@ public static void Run(
 # [C# Script](#tab/csharp-script)
 
 The following examples show Dapr input bindings in a _function.json_ file and C# script (.csx) code that uses the bindings. In the _function.json_ file, todo:
-
-### daprState
-
-The following shows a Dapr state binding in a _function.json_ file and code that uses the binding. 
-
-```json
-
-```
-
-Here's the C# script code:
-
-```csharp
-
-```
-
-### daprSecret
-
-The following shows a Dapr secret binding in a _function.json_ file and code that uses the binding. 
 
 ```json
 
@@ -126,11 +86,9 @@ Here's the C# script code:
 
 ::: zone pivot="programming-language-javascript"
 
-## Examples
+## Example
 
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
-
-### daprState
 
 Here's the _function.json_ file for `daprBindingTrigger`:
 
@@ -156,38 +114,6 @@ module.exports = async function (context, req) {
 };
 ```
 
-### daprSecret
-
-Here's the _function.json_ file for `daprServiceInvocationTrigger`:
-
-```json
-{
-  "bindings": 
-    {
-      "type": "daprSecret",
-      "direction": "in",
-      "name": "secret",
-      "key": "my-secret",
-      "secretStoreName": "localsecretstore",
-      "metadata": "metadata.namespace=default"
-    }
-}
-```
-
-Here's the JavaScript code for the Dapr service invocation trigger:
-
-```javascript
-module.exports = async function (context) {
-    context.log("Node function processed a RetrieveSecret request from the Dapr Runtime.");
-
-    // print the fetched secret value
-    for( var key in context.bindings.secret)
-    {
-        context.log(`Stored secret: Key = ${key}, Value =${context.bindings.secret[key]}`);
-    }
-};
-```
-
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
@@ -203,8 +129,6 @@ The following example shows a Dapr trigger binding. The example depends on wheth
 
 # [v1](#tab/python-v1)
 
-### daprState
-
 Here's the _function.json_ file for `daprBindingTrigger`:
 
 ```json
@@ -215,47 +139,6 @@ For more information about *function.json* file properties, see the [Configurati
 Here's the Python code:
 
 ```python
-import logging
-import json
-import azure.functions as func
-
-def main(triggerData: str) -> None:
-    logging.info('Hello from Kafka!')
-    logging.info('Trigger data: ' + triggerData)
-```
-
-### daprSecret
-
-Here's the _function.json_ file for `daprServiceInvocationTrigger`:
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings":
-    {
-      "type": "daprSecret",
-      "direction": "in",
-      "name": "secret",
-      "key": "my-secret",
-      "secretStoreName": "localsecretstore",
-      "metadata": "metadata.namespace=default"
-    }
-}
-```
-
-Here's the Python code:
-
-```python
-import logging
-import json
-import azure.functions as func
-
-def main (payload, secret) -> None:
-    logging.info('Python function processed a RetrieveSecret request from the Dapr Runtime.')
-    secret_dict = json.loads(secret)
-
-    for key in secret_dict:
-        logging.info("Stored secret: Key = " + key + ', Value = '+ secret_dict[key])
 ```
 
 ::: zone-end
@@ -267,21 +150,11 @@ Both in-process and isolated process C# libraries use the <!--attribute API here
 
 # [In-process](#tab/in-process)
 
-### daprState
-
 In [C# class libraries], use the [DaprBindingTrigger] to trigger a Dapr input binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
 | **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. | 
-
-### daprSecret
-
-In [C# class libraries], use the [DaprServiceInvocationTrigger] to trigger a Dapr input binding, which supports the following properties.
-
-| Parameter | Description | 
-| --------- | ----------- | 
-| **MethodName** | Optional. The name of the method the Dapr caller should use. If not specified, the name of the function is used as the method name. | 
 
 # [Isolated process](#tab/isolated-process)
 
@@ -295,20 +168,10 @@ In [C# class libraries], use the [DaprServiceInvocationTrigger] to trigger a Dap
 
 C# script uses a _function.json_ file for configuration instead of attributes.
 
-### daprState
-
 |function.json property | Description|
 |---------|----------------------|
 |**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
 |**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
-
-### daprSecret
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprServiceInvocationTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
 |**name** | The name of the variable that represents the Dapr data in function code. |
 |**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
 
@@ -319,19 +182,10 @@ C# script uses a _function.json_ file for configuration instead of attributes.
 ## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
 
-### daprState
-
 |function.json property | Description|
 |---------|----------------------|
 |**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
 |**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-
-### daprSecret
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprServiceInvocationTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
 |**name** | The name of the variable that represents the Dapr data in function code. |
 
 
@@ -342,8 +196,6 @@ The following table explains the binding configuration properties that you set i
 ## Configuration
 The following table explains the binding configuration properties that you set in the _function.json_ file.
 
-### daprState
-
 |function.json property | Description|
 |---------|----------------------|
 |**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
@@ -351,19 +203,11 @@ The following table explains the binding configuration properties that you set i
 |**name** | The name of the variable that represents the Dapr data in function code. |
 |**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
 
-### daprSecret
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprServiceInvocationTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
-
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
-See the [Example section](#examples) for complete examples.
+See the [Example section](#example) for complete examples.
 
 ## Usage
 The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
@@ -386,7 +230,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-javascript"
 
-See the [Example section](#examples) for complete examples.
+See the [Example section](#example) for complete examples.
 
 ## Usage
 The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
@@ -395,7 +239,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 
 ::: zone pivot="programming-language-python"
 
-See the [Example section](#examples) for complete examples.
+See the [Example section](#example) for complete examples.
 
 ## Usage
 The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
@@ -413,5 +257,21 @@ The [host.json] file contains settings that control Dapr trigger behavior. See t
 ::: zone-end
 
 ## Next steps
-- [Pull in Dapr state and secrets](./functions-bindings-dapr-input.md)
-- [Send a value to a Dapr topic or output binding](./functions-bindings-dapr-output.md)
+- Triggers 
+  - [Dapr input binding](./functions-bindings-dapr-trigger-input.md)
+  - [Dapr service invocation](./functions-bindings-dapr-trigger-svc-invoke.md)
+  - [Dapr topic](./functions-bindings-dapr-trigger-topic.md)
+- Input
+  - [Dapr secret](./functions-bindings-dapr-input-secret.md)
+- Dapr output bindings
+  - [Dapr state](./functions-bindings-dapr-output-state.md)
+  - [Dapr invoke](./functions-bindings-dapr-output-invoke.md)
+  - [Dapr publish](./functions-bindings-dapr-output-publish.md)
+  - [Dapr output](./functions-bindings-dapr-output.md)
+
+::: zone pivot="programming-language-java,programming-language-powershell"
+
+> [!NOTE]
+> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
+
+::: zone-end

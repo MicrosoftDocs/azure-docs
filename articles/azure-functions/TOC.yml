@@ -767,10 +767,10 @@
               - name: Service Invocation
                 href: functions-bindings-dapr-output-invoke.md 
                 displayName: Dapr
-              - name: Topic
+              - name: Publish
                 href: functions-bindings-dapr-output-publish.md 
                 displayName: Dapr
-              - name: Topic
+              - name: Output
                 href: functions-bindings-dapr-output.md 
                 displayName: Dapr
         - name: Event Grid
