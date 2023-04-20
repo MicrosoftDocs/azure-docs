@@ -35,7 +35,7 @@ Open your terminal or command window. Go to the directory where you want to crea
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-The `generate` task created a directory with the same name as  the `artifactId` value. Under this directory, the *src/main/java* directory contains the project source code, the *src/test/java* directory contains the test source, and the *pom.xml* file is the project's Project Object Model, or POM.
+The `generate` task created a directory with the same name as  the `artifactId` value. Under this directory, the *src/main/java* directory contains the project source code, the *src/test/java* directory contains the test source, and the *pom.xml* file is the project's Project Object Model (POM).
 
 ## Install the package
 

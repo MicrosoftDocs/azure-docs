@@ -45,7 +45,7 @@ Change your directory to the newly created app folder, and use the `dotnet build
 
 ## Install the package
 
-While you're still in the application directory, install the Azure Communication PhoneNumbers client library for .NET package by using the `dotnet add package` command:
+While you're still in the application directory, install the Azure Communication PhoneNumbers client library for .NET by using the `dotnet add package` command:
 
 ``` console
     dotnet add package Azure.Communication.PhoneNumbers --version 1.1.0

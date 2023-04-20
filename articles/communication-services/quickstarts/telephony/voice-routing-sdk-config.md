@@ -46,4 +46,4 @@ For more information, see the following articles:
 
 - Learn about [Calling SDK capabilities](../voice-video-calling/getting-started-with-calling.md).
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md).
-- Call to a telephone number [by following a quickstart](./pstn-call.md).
+- Call to a telephone number by [following a quickstart](./pstn-call.md).

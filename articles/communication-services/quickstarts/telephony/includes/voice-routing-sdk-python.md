@@ -52,7 +52,7 @@ You add the remaining quickstart code in the following sections.
 
 ## Install the package
 
-While you're still in the application directory, install the Azure Communication Services Administration client library for Python package by using the `pip install` command:
+While you're still in the application directory, install the Azure Communication Services Administration client library for Python by using the `pip install` command:
 
 ```console
 pip install azure-communication-phonenumbers==1.1.0

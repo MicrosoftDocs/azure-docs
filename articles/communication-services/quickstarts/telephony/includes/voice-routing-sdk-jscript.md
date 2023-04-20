@@ -34,7 +34,7 @@ Open your terminal or command window, create a new directory for your app, and g
     mkdir direct-routing-quickstart && cd direct-routing-quickstart
 ```
 
-Run npm `init -y` to create a *package.json* file with default settings.
+Run npm `init -y` to create a *package.json* file with default settings:
 
 ``` console
    npm init -y
