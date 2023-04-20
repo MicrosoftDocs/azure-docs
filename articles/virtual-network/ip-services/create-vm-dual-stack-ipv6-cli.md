@@ -180,7 +180,7 @@ Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-i
     --output tsv
 ```
 
-```bash
+```azurecli-interactive
 user@Azure:~$ az network public-ip show \
 >     --resource-group myResourceGroup \
 >     --name myPublicIP-IPv4 \
@@ -197,7 +197,7 @@ user@Azure:~$ az network public-ip show \
     --output tsv
 ```
 
-```bash
+```azurecli-interactive
 user@Azure:~$ az network public-ip show \
 >     --resource-group myResourceGroup \
 >     --name myPublicIP-IPv6 \
@@ -208,7 +208,7 @@ user@Azure:~$ az network public-ip show \
 
 Open an SSH connection to the virtual machine by using the following command. Replace the IP address with the IP address of your virtual machine.
 
-```bash
+```azurecli-interactive
   ssh azureuser@20.119.201.208
 ```
 
