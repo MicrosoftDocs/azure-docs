@@ -24,15 +24,15 @@ To simplify adding authentication and authorization, the Node.js client web app 
 
 We've broken down this article into five separate articles so it's easy for you to follow:
 
-[Prepare your Azure AD for customers tenant](how-to-web-app-node-sign-in-call-api-prepare-tenant.md) tenant guides you how to register your API, client web app and configure user flows in the Microsoft Entra admin center.
+- [Prepare your Azure AD for customers tenant](how-to-web-app-node-sign-in-call-api-prepare-tenant.md) tenant guides you how to register your API, client web app and configure user flows in the Microsoft Entra admin center.
 
-[Prepare your web application and API](how-to-web-app-node-sign-in-call-api-prepare-app.md) guides you how to set up your Node.js client app and web API.
+- [Prepare your web application and API](how-to-web-app-node-sign-in-call-api-prepare-app.md) guides you how to set up your Node.js client app and web API.
 
-[Add sign-in and sign-out](how-to-web-app-node-sign-in-call-api-sign-in-out.md) guides you how to add authentication users to your client web application by using.
+- [Add sign-in and sign-out](how-to-web-app-node-sign-in-call-api-sign-in-out.md) guides you how to add authentication users to your client web application by using.
 
-[Acquire an access token](how-to-web-app-node-sign-in-call-api-acquire-access-token.md) guides you how to request for an access token with the required permissions/scopes. 
+- [Acquire an access token](how-to-web-app-node-sign-in-call-api-acquire-access-token.md) guides you how to request for an access token with the required permissions/scopes. 
 
-[Call API](how-to-web-app-node-sign-in-call-api-call-api.md) guides you how to make an HTTP call to the web API by using the access tokes as a bearer token.
+- [Call API](how-to-web-app-node-sign-in-call-api-call-api.md) guides you how to make an HTTP call to the web API by using the access tokes as a bearer token.
 
 ## Overview
 
