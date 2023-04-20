@@ -19,40 +19,9 @@ In this article, we cover the Click Analytics plug-in that automatically tracks 
 
 ## Get started
 
-Users can set up the Click Analytics Autocollection plug-in via npm.
+Users can set up the Click Analytics Auto-Collection plug-in via snippet or NPM.
 
-### npm setup
-
-Install the npm package:
-
-```bash
-npm install --save @microsoft/applicationinsights-clickanalytics-js @microsoft/applicationinsights-web
-```
-
-```js
-
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
-
-const clickPluginInstance = new ClickAnalyticsPlugin();
-// Click Analytics configuration
-const clickPluginConfig = {
-  autoCapture: true
-};
-// Application Insights Configuration
-const configObj = {
-  connectionString: "YOUR CONNECTION STRING",
-  extensions: [clickPluginInstance],
-  extensionConfig: {
-    [clickPluginInstance.identifier]: clickPluginConfig
-  },
-};
-
-const appInsights = new ApplicationInsights({ config: configObj });
-appInsights.loadAppInsights();
-```
-
-## Snippet setup
+### Snippet setup
 
 Ignore this setup if you use the npm setup.
 
@@ -86,6 +55,37 @@ Ignore this setup if you use the npm setup.
 </script>
 ```
 
+### npm setup
+
+Install the npm package:
+
+```bash
+npm install --save @microsoft/applicationinsights-clickanalytics-js @microsoft/applicationinsights-web
+```
+
+```js
+
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
+
+const clickPluginInstance = new ClickAnalyticsPlugin();
+// Click Analytics configuration
+const clickPluginConfig = {
+  autoCapture: true
+};
+// Application Insights Configuration
+const configObj = {
+  connectionString: "YOUR CONNECTION STRING",
+  extensions: [clickPluginInstance],
+  extensionConfig: {
+    [clickPluginInstance.identifier]: clickPluginConfig
+  },
+};
+
+const appInsights = new ApplicationInsights({ config: configObj });
+appInsights.loadAppInsights();
+```
+
 ## Use the plug-in
 
 1. Telemetry data generated from the click events are stored as `customEvents` in the Application Insights section of the Azure portal.
@@ -113,14 +113,14 @@ Ignore this setup if you use the npm setup.
 
 The following key properties are captured by default when the plug-in is enabled.
 
-#### Custom event properties
+### Custom event properties
 | Name                  | Description                            | Sample          |
 | --------------------- | ---------------------------------------|-----------------|
 | Name                  | The name of the custom event. More information on how a name gets populated is shown in the [preceding section](#use-the-plug-in).| About              |
 | itemType              | Type of event.                                      | customEvent      |
 |sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2.6.2_ClickPlugin2.6.2|
 
-#### Custom dimensions
+### Custom dimensions
 | Name                  | Description                            | Sample          |
 | --------------------- | ---------------------------------------|-----------------|
 | actionType            | Action type that caused the click event. It can be a left or right click. | CL              |
@@ -130,7 +130,7 @@ The following key properties are captured by default when the plug-in is enabled
 | pageName              | Title of the page where the click event is triggered.                      | Sample Title    |
 | parentId              | ID or name of the parent element.                                           | navbarContainer |
 
-#### Custom measurements
+### Custom measurements
 | Name                  | Description                            | Sample          |
 | --------------------- | ---------------------------------------|-----------------|
 | timeToAction          | Time taken in milliseconds for the user to click the element since the initial page load. | 87407              |
@@ -149,7 +149,7 @@ The following key properties are captured by default when the plug-in is enabled
 | defaultRightClickBhvr | String (or) number                 | ''      | Default behavior value when a right-click event has occurred. This value is overridden if the element has the `data-*-bhvr` attribute. |
 | dropInvalidEvents     | Boolean                            | False   | Flag to drop events that don't have useful click data.                                                                                   |
 
-#### IValueCallback
+### IValueCallback
 
 | Name               | Type     | Default | Description                                                                             |
 | ------------------ | -------- | ------- | --------------------------------------------------------------------------------------- |
@@ -157,7 +157,7 @@ The following key properties are captured by default when the plug-in is enabled
 | pageActionPageTags | Function | Null    | A callback function to augment the default `pageTags` collected during a `pageAction` event.  |
 | contentName        | Function | Null    | A callback function to populate customized `contentName`.                                 |
 
-#### ICustomDataTags
+### ICustomDataTags
 
 | Name                      | Type    | Default   | Default tag to use in HTML |   Description                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
@@ -169,7 +169,7 @@ The following key properties are captured by default when the plug-in is enabled
 | parentDataTag             | String  | Null      |  N/A  | Stops traversing up the DOM to capture content name and value of elements when encountered with this tag. For example, `data-<yourparentDataTag>` can be used in the HTML tags.|
 | dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| The plug-in for capturing telemetry data ignores HTML elements with this attribute.|
 
-#### behaviorValidator
+### behaviorValidator
 
 The `behaviorValidator` functions automatically check that tagged behaviors in code conform to a predefined list. The functions ensure that tagged behaviors are consistent with your enterprise's established taxonomy. It isn't required or expected that most Azure Monitor customers use these functions, but they're available for advanced scenarios.
 
@@ -181,7 +181,7 @@ Three different `behaviorValidator` callback functions are exposed as part of th
 | BehaviorMapValidator   | Use this callback function if your behavior's data structure is a dictionary.       |
 | BehaviorEnumValidator  | Use this callback function if your behavior's data structure is an Enum.            |
 
-##### Sample usage with behaviorValidator
+#### Sample usage with behaviorValidator
 
 ```js
 var clickPlugin = Microsoft.ApplicationInsights.ClickAnalyticsPlugin;
