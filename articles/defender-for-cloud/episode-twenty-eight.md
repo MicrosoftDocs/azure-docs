@@ -3,7 +3,7 @@ title: Zero Trust and Defender for Cloud | Defender for Cloud in the Field
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about Zero Trust best practices and Zero Trust visibility and analytics tools
 ms.topic: reference
-ms.date: 04/19/2023
+ms.date: 04/20/2023
 ---
 
 # Zero Trust and Defender for Cloud | Defender for Cloud in the field 
@@ -13,12 +13,12 @@ ms.date: 04/19/2023
 <br>
 <iframe src="https://aka.ms/docs/player?id=125af768-01bd-45ac-8503-4dba5eb53ff7" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [01:21](/shows/mdc-in-the-field/demystify-servers#time=01m21s) - What is Zero Trust?
-- [04:12](/shows/mdc-in-the-field/demystify-servers#time=04m12s) - Current challenges with multicloud and hybrid workloads
-- [06:47](/shows/mdc-in-the-field/demystify-servers#time=06m47s) - How can Defender for Cloud help with Zero Trust?
-- [11:38](/shows/mdc-in-the-field/demystify-servers#time=11m38s) - Azure Network Security Controls that can help with Zero Trust
-- [14:50](/shows/mdc-in-the-field/demystify-servers#time=14m50s) - Visibility and Analytics for Zero Trust
-- [18:09](/shows/mdc-in-the-field/demystify-servers#time=18m09s) - Final recommendations to start your Zero Trust journey
+- [01:21](/shows/mdc-in-the-field/zero-trust#time=01m21s) - What is Zero Trust?
+- [04:12](/shows/mdc-in-the-field/zero-trust#time=04m12s) - Current challenges with multicloud and hybrid workloads
+- [06:47](/shows/mdc-in-the-field/zero-trust#time=06m47s) - How can Defender for Cloud help with Zero Trust?
+- [11:38](/shows/mdc-in-the-field/zero-trust#time=11m38s) - Azure Network Security Controls that can help with Zero Trust
+- [14:50](/shows/mdc-in-the-field/zero-trust#time=14m50s) - Visibility and Analytics for Zero Trust
+- [18:09](/shows/mdc-in-the-field/zero-trust#time=18m09s) - Final recommendations to start your Zero Trust journey
 
 
 ## Recommended resources
