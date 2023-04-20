@@ -359,7 +359,7 @@ For more configuration for route, refer to [Configure routes](./how-to-use-enter
 
 ### Certificate rotation
 
-After updating certificates in Azure Spring Apps, click **sync certificate** at the top of the tab **Certificate management** in Azure Portal, or use Azure CLI command `az spring gateway sync-cert` to restart gateway.
+To rotate certificates used in Spring Cloud Gateway, please update certificates by [Import a certificate](./how-to-use-tls-certificate#import-a-certificate) firstly. And then, click **sync certificate** at the top of the tab **Certificate management** in Azure Portal, or use Azure CLI command `az spring gateway sync-cert` to achieve it. Please be aware that gateway will be restarted accordingly to ensure that gateway uses the new certificate for all future connections..
 
 ## Next steps
 
