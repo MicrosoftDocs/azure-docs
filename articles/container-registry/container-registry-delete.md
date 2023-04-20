@@ -200,13 +200,12 @@ As mentioned in the [Manifest digest](container-registry-concepts.md#manifest-di
     "lastUpdateTime": "2020-05-16T04:25:14.3112885Z",
     "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
     "os": "linux",
-    "tags": [],
-       "timestamp": "2020-05-16T04:25:14.3112885Z"
+    "timestamp": "2020-05-16T04:25:14.3112885Z"
      }
    ]
    ```
 
-The tags section is removed when an image is **untagged**. As you can see in the output of the last step in the sequence, there is now an orphaned manifest whose `"tags"` property is an empty list. This manifest still exists within the registry, along with any unique layer data that it references. **To delete such orphaned images and their layer data, you must delete by manifest digest**.
+The tags array is removed from meta-data when an image is **untagged**. This manifest still exists within the registry, along with any unique layer data that it references. **To delete such orphaned images and their layer data, you must delete by manifest digest**.
 
 ## Automatically purge tags and manifests
 
