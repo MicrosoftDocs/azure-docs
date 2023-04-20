@@ -183,7 +183,7 @@ We recommend you start the survey by only asking about the participants’ overa
 If a survey participant responded to Question 1 with a score at or below the cutoff value for the overall call, then present the second question.
 
 -	Suggested prompt: “What could have been better?” 
--	API Question Values: Audio, Video, and ScreenShare 
+-	API Question Values: Audio, Video, and Screenshare 
 
 Surveying Guidelines
 -	Avoid survey burnout, don’t survey all call participants.

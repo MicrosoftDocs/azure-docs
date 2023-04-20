@@ -51,7 +51,7 @@ The API allows applications to gather data points that describe user perceived r
 |  Overall Call  |   Responses indicate how a call participant perceived their overall call quality.    |
 | Audio   |    Responses indicate if the user perceived any Audio issues.   |
 |   Video |   Responses indicate if the user perceived any Video issues.   |
-| ScreenShare   |    Responses indicate if the user perceived any Screen Share issues.   |
+| Screenshare   |    Responses indicate if the user perceived any Screen Share issues.   |
 
 
 
