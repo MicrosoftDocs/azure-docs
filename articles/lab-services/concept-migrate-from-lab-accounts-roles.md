@@ -20,7 +20,7 @@ Lab accounts serve as a parent to labs. When you assign a role on a lab account,
 
 On the other hand, lab plans and labs are sibling resources in Azure, which means that labs don’t inherit roles and permissions from the associated lab plan.
 
-For example, consider you have assigned the Owner or Contributor role to users at the lab account level. To obtain the same permissions with a lab plan, you should instead assign the Owner or Contributor role at the lab plan's resource group level. When you assign the role to the resource group, all labs within that resource group are also assigned this role.
+For example, assume that you assign the Contributor role for users on the lab account. To obtain the same permissions with a lab plan, you should instead assign the Contributor role on the lab plan's *resource group*. When you assign the role on the resource group, all labs within that resource group are also assigned this role.
 
 ## Recommendations
 
@@ -34,7 +34,7 @@ The following table shows recommendations for mapping role assignments from lab 
 | Lab management | Owner** | Lab | Owner | Resource group or lab |
 | Lab management | Contributor** | Lab | Lab Contributor | Lab |
 
-** For lab accounts, the lab’s Contributor and Owner roles require that you also assign the Reader role on the lab account. For lab plans, you don't have to assign the Reader role at the lab plan or resource group level.
+** For lab accounts, the lab’s Contributor and Owner roles require that you also assign the Reader role on the lab account. For lab plans, you don't have to assign the Reader role on the lab plan or resource group.
 
 ## Next steps
 

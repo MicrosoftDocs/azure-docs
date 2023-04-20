@@ -24,7 +24,28 @@ With Azure RBAC, you create a *role definition* that outlines the permissions to
 
 For more information, see [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)?
 
-## Roles types
+## Built-in roles
+
+TODO: describe roles types
+
+The following are the built-in roles supported by Azure Lab Services:
+
+Admin roles
+
+| Built-in role | Description |
+| ------------- | ----------- |
+| Owner | |
+| Contributor | |
+| Lab Services Contributor | |
+
+Lab management roles
+
+| Built-in role | Description |
+| ------------- | ----------- |
+| Lab Creator | |
+| Lab Contributor | |
+| Lab Assistant | |
+| Lab Services Reader | |
 
 ## Resource assignment level
 
@@ -42,23 +63,11 @@ TODO: add image
 
 IMPORTANT – Lab plans and labs are sibling resources to each other.  As a result, labs don’t inherit any roles/permissions that are assigned at the lab plan level.  However, roles/permissions assigned at the resource group level are inherited by both lab plans and labs.
 
-## Built-in roles
+## Roles for common lab activities
 
-The following are the built-in roles supported by Azure Lab Services:
+## Administrative roles
 
-| Built-in role | Description |
-| ------------- | ----------- |
-| Owner | |
-| Contributor | |
-| Lab Services Contributor | |
-
-| Built-in role | Description |
-| ------------- | ----------- |
-| Lab Creator | |
-| Lab Contributor | |
-| Lab Assistant | |
-| Lab Services Reader | |
-
+## Lab management roles
 
 ## Identity and access management (IAM)
 
@@ -67,12 +76,6 @@ The **Access control (IAM)** page in the Azure portal is used to configure Azure
 **TODO: add screenshot of IAM**
 
 For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
-
-## Roles for common lab activities
-
-## Administrative roles
-
-## Lab management roles
 
 ## Resource group and lab plan structure
 
