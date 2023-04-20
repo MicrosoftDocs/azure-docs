@@ -69,20 +69,19 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 Use the Azure CLI to configure your Spring app to connect to a Cosmos SQL Database by using the `az spring connection create` command, as shown in the following example.
 
-   > [!NOTE]
-   > Updating Azure Cosmos DB database settings can take a few minutes to complete.
-
- ```azurecli
- az spring connection create cosmos-sql \
-     --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
-     --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
-     --app $APP_NAME \
-     --deployment $DEPLOYMENT_NAME \
-     --target-resource-group $COSMOSDB_RESOURCE_GROUP \
-     --account $COSMOSDB_ACCOUNT_NAME \
-     --database $DATABASE_NAME \
-     --secret
- ```
+> [!NOTE]
+> Updating Azure Cosmos DB database settings can take a few minutes to complete.
+```azurecli
+az spring connection create cosmos-sql \
+    --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \
+    --service $AZURE_SPRING_APPS_SERVICE_INSTANCE_NAME \
+    --app $APP_NAME \
+    --deployment $DEPLOYMENT_NAME \
+    --target-resource-group $COSMOSDB_RESOURCE_GROUP \
+    --account $COSMOSDB_ACCOUNT_NAME \
+    --database $DATABASE_NAME \
+    --secret
+```
 
 > [!NOTE]
 > If you're using [Service Connector](../service-connector/overview.md) for the first time, start by running the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider.
