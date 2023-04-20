@@ -90,6 +90,8 @@ To install DCR Config Generator:
 
 1. Deploy the generated ARM templates:
     
+
+    ### [Portal](#tab/portal-1)
     1. In the portal's search box, type in *template* and then select **Deploy a custom template**.
     
         :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot of the Deploy custom template screen.":::
@@ -101,6 +103,14 @@ To install DCR Config Generator:
     1. Paste the generated template into the editor and select **Save**. 
     1. On the **Custom deployment** screen, specify a **Subscription**, **Resource group**, and **Region**.    
     1. Select **Review + create** > **Create**.
+
+    ### [PowerShell](#tab/azure-powershell)
+
+    ```powershell-interactive
+    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+    ```
+
+    ---
 
 1. Associate machines to your data collection rules:
 
