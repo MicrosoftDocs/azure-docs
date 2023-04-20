@@ -3,7 +3,7 @@ title: Configure Azure IoT Edge device settings
 description: This article shows you how to configure Azure IoT Edge device settings and options using the config.toml file.
 author: PatAltimore
 ms.author: patricka
-ms.date: 3/6/2023
+ms.date: 04/20/2023
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
@@ -17,7 +17,7 @@ A template containing all options can be found in the *config.toml.edge.template
 
 ## Global parameters
 
-The `hostname`, `parent_hostname`, `trust_bundle_cert`, and `allow_elevated_docker_permissions` parameters must be at the beginning of the configuration file before any other sections. Adding parameters before defined sections ensures they're applied correctly. For more information on valid syntax, see [toml.io ](https://toml.io/).
+The `hostname`, `parent_hostname`, `trust_bundle_cert`, `allow_elevated_docker_permissions`, and `auto_reprovisioning_mode` parameters must be at the beginning of the configuration file before any other sections. Adding parameters before defined sections ensures they're applied correctly. For more information on valid syntax, see [toml.io ](https://toml.io/).
 
 ### Hostname
 
@@ -63,6 +63,26 @@ If no modules require privileged or extra capabilities, use **allow_elevated_doc
 ```toml
 allow_elevated_docker_permissions = false
 ```
+
+### Optional auto reprovisioning mode
+
+The **auto_reprovisioning_mode** parameter specifies the conditions that decide when a device attempts to automatically reprovision with Device Provisioning Service. Auto provisioning mode is ignored if the device has been provisioned manually. For more information about setting DPS provisioning mode, see the [Provisioning](#provisioning) section in this article for more information.
+
+One of the following values can be set:
+
+| Mode | Description |
+|------|-------------|
+| Dynamic | Reprovision when the device detects that it may have been moved from one IoT Hub to another. This mode is *the default*. |
+| AlwaysOnStartup | Reprovision when the device is rebooted or a crash causes the daemons to restart. |
+| OnErrorOnly | Never trigger device reprovisioning automatically. Device reprovisioning only occurs as fallback, if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. This fallback behavior is implicit in Dynamic and AlwaysOnStartup modes as well. |
+
+For example:
+
+```toml
+auto_reprovisioning_mode = "Dynamic"
+```
+
+For more information about device reprovisioning, see [IoT Hub Device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 ## Provisioning
 
@@ -209,24 +229,6 @@ The **cloud_retries** parameter controls how many times a request may be retried
 cloud_timeout_sec = 10
 cloud_retries = 1
 ```
-
-### Optional auto reprovisioning mode
-
-The **auto_reprovisioning_mode** parameter specifies the conditions that decide when a device attempts to automatically reprovision with Device Provisioning Service. It's ignored if the device has been provisioned manually. One of the following values can be set:
-
-| Mode | Description |
-|------|-------------|
-| Dynamic | Reprovision when the device detects that it may have been moved from one IoT Hub to another. This mode is *the default*. |
-| AlwaysOnStartup | Reprovision when the device is rebooted or a crash causes the daemons to restart. |
-| OnErrorOnly | Never trigger device reprovisioning automatically. Device reprovisioning only occurs as fallback, if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. This fallback behavior is implicit in Dynamic and AlwaysOnStartup modes as well. |
-
-For example:
-
-```toml
-auto_reprovisioning_mode = Dynamic
-```
-
-For more information about device reprovisioning, see [IoT Hub Device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 ## Certificate issuance
 
