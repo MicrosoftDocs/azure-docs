@@ -1,5 +1,5 @@
 ---
-title: Serverless compute - the easiest scalable way to train a model (preview)
+title: Model training on serverless compute (preview)
 titleSuffix: Azure Machine Learning
 description: You no longer need to create your own compute cluster to train your model in a scalable way.  You can now use a compute cluster that Azure Machine Learning has made available for you.
 services: machine-learning
