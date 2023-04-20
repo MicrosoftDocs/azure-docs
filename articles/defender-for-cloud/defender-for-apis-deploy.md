@@ -41,9 +41,6 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 
 
 1. In the recommendation page, you can review the recommendation severity, update interval, description, and remediation steps.
-
-    :::image type="content" source="media/defender-for-apis-deploy/api-recommendation-details.png" alt-text="Graphic showing the recommendation details for turning on the plan." lightbox="media/defender-for-apis-deploy/api-recommendation-details.png":::
-
 1. Review the resources in scope for the recommendations:
     - **Unhealthy resources**: Resources that aren't onboarded to Defender for APIs.
     - **Healthy resources**: API resources that are onboarded to Defender for APIs.
@@ -51,6 +48,9 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 
 1. In **Unhealthy resources**, select the APIs that you want to protect with Defender for APIs.
 1. Select **Fix**. 
+
+    :::image type="content" source="media/defender-for-apis-deploy/api-recommendation-details.png" alt-text="Graphic showing the recommendation details for turning on the plan." lightbox="media/defender-for-apis-deploy/api-recommendation-details.png":::
+
 1. In **Fixing resources**, review the selected APIs, and select **Fix resources**.
 
     :::image type="content" source="media/defender-for-apis-deploy/fix-resources.png" alt-text="Graphic showing how to fix unhealthy resources." lightbox="media/defender-for-apis-deploy/fix-resources.png":::
