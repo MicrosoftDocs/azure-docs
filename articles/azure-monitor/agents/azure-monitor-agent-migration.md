@@ -28,16 +28,21 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 ### Before you begin 
 
 > [!div class="checklist"]
-> - **Make sure you meet the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for installing Azure Monitor Agent.**<br>To monitor non-Azure and on-premises servers, you must [install the Azure Arc agent](../../azure-arc/servers/agent-overview.md). You won't incur an additional cost for installing the Azure Arc agent and you don't necessarily need to use Azure Arc to manage your non-Azure virtual machines. 
+> - **Check the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for installing Azure Monitor Agent.**<br>To monitor non-Azure and on-premises servers, you must [install the Azure Arc agent](../../azure-arc/servers/agent-overview.md). You won't incur an additional cost for installing the Azure Arc agent and you don't necessarily need to use Azure Arc to manage your non-Azure virtual machines. 
 > - **Understand your current needs.**<br>Use the **Workspace overview** tab of the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to discover solutions enabled on your Log Analytics workspaces that use legacy agents, including per-solution migration recommendations. 
-> - **Check that Azure Monitor Agent can address all of your needs.**
+> - **Verify that Azure Monitor Agent can address all of your needs.**
 
-    Azure Monitor Agent supports these Azure Monitor features in preview:
+    Azure Monitor Agent is generally available.
+    
+    The following Azure Monitor features now use Azure Monitor Agent in preview. This means that you can can select Azure Monitor Agent as your preferred agent when you enable the feature; otherwise, the legacy agent will be enabled by default.
     
     |	Azure Monitor feature	|	Current support	|	Other extensions installed	|	More information	|
     |	:---	|	:---	|	:---	|	:---	|
     |	[VM insights](../vm/vminsights-overview.md)	|	Public preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Enable VM Insights](../vm/vminsights-enable-overview.md)	|
     |	[Container insights](../containers/container-insights-overview.md)	|	Public preview 	|	Containerized Azure Monitor agent	|	[Enable Container Insights](../containers/container-insights-onboard.md)	|
+
+    The following Azure Monitor services now use Azure Monitor Agent in preview. This means that you can can select Azure Monitor Agent as your preferred agent when you enable the service; otherwise, the legacy agent will be enabled by default.
+
     |	 Azure service	|	 Current support	|	Other extensions installed	|	 More information	|
     |	:---	|	:---	|	:---	|	:---	|
     | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Public preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Auto-deployment of Azure Monitor Agent (Preview)](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md)	|
