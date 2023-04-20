@@ -49,7 +49,7 @@ When using the Chat Completions API, a series of messages between the User and A
 
 | System message |Few-shot examples |
 |----------------|------------------|
-| Assistant is an intelligent chatbot designed to help users answer their tax related questions.<br> Instructions <br> - Only answer questions related to taxes. <br> - If you're unsure of an answer, you can say "I don't know" or "I'm not sure" and recommend users go to the IRS website for more information.| **User** - "When do I need to file my taxes by?"<br>**Assistant** - "In 2023, you will need to file your taxes by April 18th. The date falls after the usual April 15th deadline because April 15th falls on a Saturday in 2023. For more details, see https://www.irs.gov/filing/individuals/when-to-file " <br>**User** - "How can I check the status of my tax refund?"<br>**Assistant** - "You can check the status of your tax refund by visiting https://www.irs.gov/refunds " |
+| Assistant is an intelligent chatbot designed to help users answer their tax related questions.<br> Instructions <br> - Only answer questions related to taxes. <br> - If you're unsure of an answer, you can say "I don't know" or "I'm not sure" and recommend users go to the IRS website for more information.| **User** - "When do I need to file my taxes by?"<br>**Assistant** - "In 2023, you will need to file your taxes by April 18th. The date falls after the usual April 15th deadline because April 15th falls on a Saturday in 2023. For more details, see https://www.irs.gov/filing/individuals/when-to-file " <br><br>**User** - "How can I check the status of my tax refund?"<br>**Assistant** - "You can check the status of your tax refund by visiting https://www.irs.gov/refunds " |
 
 The table above describes the basic prompt structure, but for a detailed explanation of the exact prompt format you will need to refer to the [Chat Completion guide](../how-to/chatgpt.md). 
 
@@ -65,7 +65,8 @@ While the Chat Completion API is optimized to work with multi-turn conversations
 
 The sequence in which information appears in the prompt matters. This is because GPT style models are built in a certain way that defines how they process the input. Our research suggests that telling the model the task you want it to do at the beginning of the prompt, before sharing additional contextual information or examples, can help produce higher-quality outputs.
 
-Although following this technique is still generally recommended, in contrast to previous model versions (GPT-3 and prior), our testing showed that the model response with ChatGPT and GPT-4 models was the same regardless of whether the technique is utilized. In the case of the below example, we see that adding the statement “Several sources … eruption” at the beginning or the end of the prompt did not cause any change in the final model response.
+> [!NOTE]
+> Although following this technique is still generally recommended, in contrast to previous model versions (GPT-3 and prior), our testing showed that the model response with ChatGPT and GPT-4 models was the same regardless of whether the technique is utilized. In the case of the below example, we see that adding the statement “Several sources … eruption” at the beginning or the end of the prompt did not cause any change in the final model response.
 
 | System message |User     | Assistant  |
 |----------------|---------|------------|
@@ -95,13 +96,15 @@ In the example below, separators (`---` in this case) have been added between di
 |----------------|---------|------------|
 | You are an AI assistant that helps people find information.| You will read a paragraph, and then issue queries to a search engine in order to fact-check it. Also explain the queries.<br>---<br>PARAGRAPH<br>John Smith is married to Lucy Smith. They have five kids, and he works as a software engineer at Microsoft. What search queries should I do to fact-check this?<br>---<br>QUERIES|1. "John Smith Microsoft" - To check if John Smith is indeed employed at Microsoft.<br>2. "John Smith Lucy Smith" - To check if John Smith is married to Lucy Smith.<br>3. "John Smith children" - To check if John Smith has five children.|
 
+If you're not sure what syntax to use, consider using Markdown or XML. The models have been trained on a lot of web content in XML and Markdown which may provide better results.
+
 ## Break the task down
 
 Large language models (LLMs) often perform better if the task is broken down into smaller steps. For example, in the search query prompt referenced earlier, the prompt can be restructured so that the model is first instructed to extract relevant facts, and then instructed to generate search queries that can be used to verify those facts.
 
 | System message |User     | Assistant  |
 |----------------|---------|------------|
-| You are an AI assistant that helps people find information. | You will read a paragraph, and then issue queries to a search engine in order to fact-check it.<br>---<br>PARAGRAPH<br>John Smith is married to Lucy Smith. They have five kids, and he works as a software engineer at Microsoft. What search queries should I do to fact-check this?<br>Now you will extract factual claims, and issue queries to fact-check them. When issuing a query, use the function SEARCH("query")<br><br>FACTUAL CLAIMS | 1. John Smith is married to Lucy Smith <br>2. They have five kids<br>3. He works as a software engineer at Microsoft<br><br>QUERIES<br>SEARCH("John Smith married Lucy Smith")<br>SEARCH("John Smith family size")<br>SEARCH("John Smith Microsoft software engineer") |
+| You are an AI assistant that helps people find information. | You will read a paragraph, and then issue queries to a search engine in order to fact-check it.<br>---<br>PARAGRAPH<br>John Smith is married to Lucy Smith. They have five kids, and he works as a software engineer at Microsoft. What search queries should I do to fact-check this?<br>---<br>Now you will extract factual claims, and issue queries to fact-check them. When issuing a query, use the function SEARCH("query")<br><br>FACTUAL CLAIMS | 1. John Smith is married to Lucy Smith <br>2. They have five kids<br>3. He works as a software engineer at Microsoft<br><br>QUERIES<br>SEARCH("John Smith married Lucy Smith")<br>SEARCH("John Smith family size")<br>SEARCH("John Smith Microsoft software engineer") |
 
 Notice the use of clear syntax to differentiate the sections and prime the output. In this simple example, breaking the task down from one to two steps is not very dramatic, but when trying to do this for a larger piece of text with many factual claims, breaking the task down can make a significant difference.
 
