@@ -26,7 +26,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 - **Resolution**: In the copy activity sink, reduce the *write batch size* value (the default value is 10000). <br> If reduce the *write batch size* value is not work, change your Azure Cosmos DB SQL API from V2 to V3. You have two options:
 
      - **Option 1**: Change your authentication type to service principal/system-assigned managed identity/user-assigned managed identity authentication.
-     - **Option 2**: If you still want to use account key authentication, follow the steps below:
+     - **Option 2**: If you still want to use account key authentication, follow these steps:
          1. Create an Azure Cosmos DB for NoSQL linked service.
          2. Update the linked service with the following template. 
          
