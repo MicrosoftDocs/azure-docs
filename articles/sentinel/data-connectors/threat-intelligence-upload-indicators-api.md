@@ -53,7 +53,7 @@ You can send indicators by calling our Upload Indicators API. For more informati
 
 >HTTP method: POST 
 
->Endpoint: https://apis.sentinelus.net/[WorkspaceID]/threatintelligence:upload-indicators?api-version=2022-07-01 
+>Endpoint: `https://apis.sentinelus.net/[WorkspaceID]/threatintelligence:upload-indicators?api-version=2022-07-01` 
 
 >WorkspaceID: the workspace that the indicators are uploaded to.  
 
