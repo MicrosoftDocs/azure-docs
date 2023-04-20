@@ -55,7 +55,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
     
         To avoid double ingestion, you can disable data collection from legacy agents without uninstalling them yet, by [removing the workspace configurations for legacy agents](./agent-data-sources.md#configure-data-sources).
 
-    1. Compare the data ingested by Azure Monitor Agent with legacy agent data to ensure there are no gaps. You can do this by joining with the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which indicates `Azure Monitor Agent` for data collected by the Azure Monitor Agent.
+    1. Compare the data ingested by Azure Monitor Agent with legacy agent data to ensure there are no gaps. You can do this on any table by using the [join operator](s/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor) to add the `Category` column from the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which indicates `Azure Monitor Agent` for data collected by the Azure Monitor Agent.
     
         For example:
     
