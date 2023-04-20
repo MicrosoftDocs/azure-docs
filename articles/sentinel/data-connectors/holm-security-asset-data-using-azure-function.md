@@ -42,7 +42,7 @@ web_assets_Cl
 
 To integrate with Holm Security Asset Data (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **Holm Security API Token**: Holm Security API Token is required. [Holm Security API Token](https://support.holmsecurity.com/hc/en-us)
 
 
