@@ -157,7 +157,9 @@ You can enable Azure AD in your service and use the AAD token to invoke [Generat
         4. Add `client_secret` key, and paste the value of client secret you noted down earlier.
         5. Add `resource` key, and type `https://webpubsub.azure.com` for the value.
     4. Select **Send** to send the request to get the token. You see the AAD token in the `access_token` field.
-        [![How to get Azure AD token using postman](.media/howto-generate-client-access-url/get-azure-ad-token-using-postman-response.png)]
+
+        ![The diagram shows how to get Azure AD token using postman.](./media/howto-generate-client-access-url/get-azure-ad-token-using-postman-response.png)
+
 3. Use the AAD token to invoke `:generateToken` with Postman:
     1. For the URI, enter `https://{Endpoint}/api/hubs/{hub}/:generateToken?api-version=2022-11-01`
     2. On the **Auth** tab, select **Bearer Token** and paste the AAD token fetched in the previous step
