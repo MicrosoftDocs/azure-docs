@@ -14,6 +14,8 @@ ms.date: 04/18/2023
 
 # Serverless compute - the easiest scalable way to train a model (preview)
 
+@@ EXAMPLES ARE ALL CLI YML.  DO WE ALSO WANT TO PROVIDE SDK?
+
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 You no longer need to [create a compute cluster](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute type, called _serverless compute_.  Serverless compute is a compute resource that you don't create, it's created on the fly for you.  You focus on specifying your job specification, and let Azure Machine Learning take care of the rest.
@@ -87,25 +89,25 @@ To override the default configuration, add `resources` to your job:
 * instance_type
 * instance_count
 
-```yaml
-$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-command: echo "hello world"
-environment:
-  image: library/python:latest
-resources:
-  instance_count: 4
-  instance_type: Standard_NC24 
-```
+    ```yaml
+    $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+    command: echo "hello world"
+    environment:
+      image: library/python:latest
+    resources:
+      instance_count: 4
+      instance_type: Standard_NC24 
+    ```
 
-Use `queue_settings` to choose between Dedicated VMs (`job_tier: Standard`) and Low priority(`jobtier: Spot`).
+* Use `queue_settings` to choose between Dedicated VMs (`job_tier: Standard`) and Low priority(`jobtier: Spot`).
 
-```yaml
-$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-component: ./train.yml 
-queue_settings:
-   job_tier: Standard #Possible Values are Standard, Spot. Default is Standard.
-   #job_priority: in the future
-```
+    ```yaml
+    $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+    component: ./train.yml 
+    queue_settings:
+       job_tier: Standard #Possible Values are Standard, Spot. Default is Standard.
+       #job_priority: in the future
+    ```
 
 ## Example for all fields
 
@@ -124,7 +126,7 @@ queue_settings:
    #job_priority: in the future
 ```
 
-## Examples
+## Job type examples
 
 The default settings are sometimes determined by the job type, as shown in these examples.
 
@@ -341,7 +343,7 @@ services:
       logDir: "outputs/tblogs"
 ```
 
-###  Parallel job
+### Parallel job
 
 Parallel job starts running as soon as 1 node is available. Resources.instance_count is used to describe the max. 
 So as nodes become available, the parallel job expands to use them until it reaches the max.
