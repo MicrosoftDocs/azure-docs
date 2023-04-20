@@ -29,7 +29,7 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 - **Real time threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP Top 10](https://owasp.org/www-project-top-ten/) critical threats.
 - **Defender CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your organization.
 - **Azure API Management integration**: With the Defender for APIs plan enabled, you can receive API security recommendations and alerts in the Azure API Management portal.
-- SIEM integration: Integrate with security information and event management (SIEM) systems, making it easier for security teams to investigate with existing threat response workflows. [Learn more](tutorial-security-incident.md)
+- **SIEM integration**: Integrate with security information and event management (SIEM) systems, making it easier for security teams to investigate with existing threat response workflows. [Learn more](tutorial-security-incident.md).
 
 ## Reviewing security findings
 
