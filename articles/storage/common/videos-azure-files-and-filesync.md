@@ -1,7 +1,7 @@
 ---
 title: Azure Files and File Sync videos
 description: Identify and troubleshoot performance issues in Azure Storage accounts.
-author: nasindam
+author: sindamnataraj
 ms.topic: troubleshooting
 ms.author: nasindam
 ms.date: 04/19/2023
