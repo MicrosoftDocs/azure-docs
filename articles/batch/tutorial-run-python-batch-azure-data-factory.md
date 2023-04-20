@@ -1,13 +1,13 @@
 ---
-title: 'Tutorial: Run a Python script through Azure Data Factory'
-description: Learn how to use Batch Explorer, Azure Storage Explorer, and Python scripts to run Batch workloads through Azure Data Factory pipelines.
+title: 'Tutorial: Run a Batch job through Azure Data Factory'
+description: Learn how to use Batch Explorer, Azure Storage Explorer, and a Python script to run a Batch workload through an Azure Data Factory pipeline.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 04/17/2023
+ms.date: 04/20/2023
 ms.custom: mvc, devx-track-python
 ---
 
-# Tutorial: Use Batch Explorer, Storage Explorer, and Python to run a Batch job through Data Factory
+# Tutorial: Run a Batch job through Data Factory with Batch Explorer, Storage Explorer, and Python
 
 This tutorial walks you through creating and running an Azure Data Factory pipeline that runs an Azure Batch workload. A Python script runs on the Batch nodes to get comma-separated value (CSV) input from an Azure Blob Storage container, manipulate the data, and write the output to a different storage container. You use Batch Explorer to create a Batch pool and nodes, and Azure Storage Explorer to work with storage containers and files.
 
@@ -15,8 +15,8 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Use Batch Explorer to create a Batch pool and nodes.
-> - Use Storage Explorer to create storage containers and upload files.
-> - Develop a Python script that does a Batch data manipulation task.
+> - Use Storage Explorer to create storage containers and upload input files.
+> - Develop a Python script to manipulate input data and produce output.
 > - Create a Data Factory pipeline that runs the Batch workload.
 > - Use Batch Explorer to look at the output log files.
 
