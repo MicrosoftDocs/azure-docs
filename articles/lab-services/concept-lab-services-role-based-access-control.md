@@ -22,28 +22,24 @@ For more information, see [What is Azure role-based access control (Azure RBAC)]
 
 ## Built-in roles
 
-TODO: describe roles types
+In this article, the Azure built-in roles are logically grouped into two role types, based on their scope of influence:
+
+- Administrator roles: influence permissions for lab plans and labs
+- Lab management roles: influence permissions for labs
 
 The following are the built-in roles supported by Azure Lab Services:
 
-Admin roles
+| Role type | Built-in role | Description |
+| --------- | ------------- | ----------- |
+| Administrator | Owner | Grant full control to create/manage lab plans and labs, and grant permissions to other users. Learn more about the [Owner role](#owner-role). |
+| Administrator | Contributor | Grant full control to create/manage lab plans and labs, except for assigning roles to other users. Learn more about the [Contributor role](#contributor-role). |
+| Administrator | Lab Services Contributor | Grant the same permissions as the Owner role, except for assigning roles or modifying other users' labs. Learn more about the [Lab Services Contributor role](#lab-services-contributor-role). |
+| Lab management | Lab Creator | Grant permission to create labs and have full control over the labs that they create. Learn more about the [Lab Creator role](#lab-creator-role). |
+| Lab management | Lab Contributor | Grant permission to help manage an existing lab, but not create new labs. Learn more about the [Lab Contributor role](#lab-contributor-role). |
+| Lab management | Lab Assistant | Grant permission to view, start, stop, or reset an existing lab. Learn more about the [Lab Assistant role](#lab-assistant-role). |
+| Lab management | Lab Services Reader | Grant permission to view existing labs. Learn more about the [Lab Reader role](#lab-reader-role). |
 
-| Built-in role | Description |
-| ------------- | ----------- |
-| Owner | |
-| Contributor | |
-| Lab Services Contributor | |
-
-Lab management roles
-
-| Built-in role | Description |
-| ------------- | ----------- |
-| Lab Creator | |
-| Lab Contributor | |
-| Lab Assistant | |
-| Lab Services Reader | |
-
-## Resource assignment level
+## Role assignment level
 
 Determines the scope of the role assignment
 Add cross-ref to [resource group structure](#resource-group-and-lab-plan-structure)
@@ -63,7 +59,21 @@ IMPORTANT – Lab plans and labs are sibling resources to each other.  As a resu
 
 ## Administrative roles
 
+### Owner role
+
+### Contributor role
+
+### Lab Services Contributor role
+
 ## Lab management roles
+
+### Lab Creator role
+
+### Lab Contributor role
+
+### Lab Assistant role
+
+### Lab Reader role
 
 ## Identity and access management (IAM)
 
