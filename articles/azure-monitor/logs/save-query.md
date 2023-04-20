@@ -29,7 +29,7 @@ When you save a query, it's stored in a query pack, which has benefits over the 
 - More data is available to describe and categorize the query.
 
 ## Save a query
-To save a query to a query pack, select **Save as Log Analytics Query** from the **Save** dropdown in Log Analytics.
+To save a query to a query pack, select **Save as query** from the **Save** dropdown in Log Analytics.
 
 [![Screenshot that shows the Save query menu.](media/save-query/save-query.png)](media/save-query/save-query.png#lightbox)
 
@@ -42,12 +42,12 @@ Most users should leave the option to **Save to the default query pack**, which 
 ## Edit a query
 You might want to edit a query that you've already saved. You might want to change the query itself or modify any of its properties. After you open an existing query in Log Analytics, you can edit it by selecting **Edit query details** from the **Save** dropdown. Now you can save the edited query with the same properties or modify any properties before saving.
 
-If you want to save the query with a different name, select **Save as Log Analytics Query** as if you were creating a new query.
+If you want to save the query with a different name, select **Save as query** as if you were creating a new query.
 
 ## Save as a legacy query
 We don't recommend saving as a legacy query because of the advantages of query packs. You can save a query to the workspace to combine it with other queries that were saved to the workspace before the release of query packs.
 
-To save a legacy query, select **Save as Log Analytics Query** from the **Save** dropdown in Log Analytics. Choose the **Save as Legacy query** option. The only option available will be the legacy category.
+To save a legacy query, select **Save as query** from the **Save** dropdown in Log Analytics. Choose the **Save as Legacy query** option. The only option available will be the legacy category.
 
 ## Troubleshooting
 
@@ -59,9 +59,11 @@ To resolve this error, close the **Save as query** dialog box and follow the ste
 
 ### Fix the "You need permissions to create resource groups in subscription 'xxxx'" error message
 
-If the default query pack doesn't exist and you try to save a query in it when you don't have **Contributor** permissions for `DefaultQueryPack`, you'll receive an error message *You need permissions to create resource groups in subscription 'xxxx'*. 
+When you attempt to save a query to the default query pack, the following error message may appear on the screen: *You need permissions to create resource groups in subscription 'xxxx'*. 
 
-To resolve this error, a user with the permissions to create resource groups must save the query, because a resource group for the default query pack is automatically created when the first query is saved in the default query pack. For more information, see [Default query pack](query-packs.md#default-query-pack).
+This error can occur when the [default query pack](query-packs.md#default-query-pack) doesn't exist and you don't have the Contributor permission for the subscription. A user needs to have this permission to create the default query pack. The default query pack is created when a user saves the first query to it.
+
+To resolve this error, someone with Contributor permissions for the subscription needs to save the first query to the default query pack.
 
 ## Next steps
 
