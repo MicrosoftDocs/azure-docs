@@ -8,6 +8,7 @@ ms.service: data-science-vm
 author: jesscioffi
 ms.author: jcioffi
 ms.topic: conceptual
+ms.reviewer: mattmcinnes
 ms.date: 10/04/2022
 ---
 
