@@ -358,7 +358,6 @@ az spring gateway route-config create \
 For more configuration for route, refer to [Configure routes](./how-to-use-enterprise-spring-cloud-gateway?#configure-routes)
 
 ### Certificate rotation
-If you need to rotate the TLS certificate, you will need to restart the gateway after uploading the new certificate. This will ensure that gateway uses the new certificate for all future connections.
 
 After updating certificates in Azure Spring Apps, click **sync certificate** at the top of the tab **Certificate management** in Azure Portal, or use Azure CLI command `az spring gateway sync-cert` to restart gateway.
 
