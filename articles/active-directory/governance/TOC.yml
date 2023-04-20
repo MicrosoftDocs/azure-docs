@@ -22,10 +22,8 @@
       items:
       - name: Connected applications
         href: apps.md 
-                 - name: User provisioning tutorials
-                     expanded: true
-                     items:
-                     - name: 0 - 9
+          - name: User provisioning tutorials
+            href: apps.md
       - name: Automate identity governance tasks - PowerShell
         href: identity-governance-automation.md
       - name: Governing an application's existing users - PowerShell
