@@ -131,6 +131,10 @@ Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a
 
 Make sure the admin of the security group has given your account an *Active* assignment.
 
+## Next steps
+
+* Use [kubelogin](https://github.com/Azure/kubelogin) to access features for Azure authentication that aren't available in kubectl.
+
 <!-- LINKS - External -->
 [aad-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 

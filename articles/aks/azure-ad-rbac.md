@@ -471,4 +471,4 @@ az ad group delete --group opssre
 [rbac-authorization]: concepts-identity.md#kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [terraform-on-azure]: /azure/developer/terraform/overview
-[enable-azure-ad-integration-existing-cluster]: managed-aad.md#enable-aks-managed-azure-ad-integration-on-your-existing-cluster
+[enable-azure-ad-integration-existing-cluster]: managed-aad.md#use-an-existing-cluster

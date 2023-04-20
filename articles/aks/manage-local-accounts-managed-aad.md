@@ -108,7 +108,12 @@ When you deploy an AKS cluster, local accounts are enabled by default. Even when
     Merged "<cluster-name>-admin" as current context in C:\Users\<username>\.kube\config
     ```
 
+## Next steps
+
+* Learn about [Azure RBAC integration for Kubernetes Authorization][azure-rbac-integration].
+
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[azure-rbac-integration]: manage-azure-rbac.md

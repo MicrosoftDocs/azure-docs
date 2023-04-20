@@ -120,5 +120,5 @@ This article showed you how to access Kubernetes resources from the Azure portal
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [deployments]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-managed-aad]: managed-aad.md
-[cli-aad-upgrade]: managed-aad.md#upgrade-to-aks-managed-azure-ad-integration
+[cli-aad-upgrade]: managed-aad.md#upgrade-a-legacy-azure-ad-cluster-to-aks-managed-azure-ad-integration
 [enable-monitor]: ../azure-monitor/containers/container-insights-enable-existing-clusters.md

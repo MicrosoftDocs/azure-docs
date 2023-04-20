@@ -149,9 +149,7 @@ If you're permanently blocked by not having access to a valid Azure AD group wit
 
 ## Next steps
 
-* Learn about [Azure RBAC integration for Kubernetes Authorization][azure-rbac-integration].
 * Learn about [Azure AD integration with Kubernetes RBAC][azure-ad-rbac].
-* Use [kubelogin](https://github.com/Azure/kubelogin) to access features for Azure authentication that aren't available in kubectl.
 * Learn more about [AKS and Kubernetes identity concepts][aks-concepts-identity].
 * Use [Azure Resource Manager (ARM) templates][aks-arm-template] to create AKS-managed Azure AD enabled clusters.
 
@@ -159,7 +157,6 @@ If you're permanently blocked by not having access to a valid Azure AD group wit
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
-[azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [az-aks-create]: /cli/azure/aks#az_aks_create
