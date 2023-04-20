@@ -1,13 +1,13 @@
 ---
-title: Use MirrorMaker 2 to replicate Apache Kafka topics - Azure HDInsight 
-description: Learn how to use Use MirrorMaker 2 to replicate Apache Kafka topics
+title: Use MirrorMaker 2 to migrate Kafka clusters between different Azure HDInsight versions - Azure HDInsight 
+description: Learn how to use MirrorMaker 2 to migrate Kafka clusters between different Azure HDInsight versions
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/28/2023
+ms.date: 04/20/2023
 ---
 
-# Use MirrorMaker 2 to migrate HDInsight Kafka for different HDI (Azure HDInsight) versions 
+# Use MirrorMaker 2 to migrate Kafka clusters between different Azure HDInsight versions
 
 Learn how to use Apache Kafka's mirroring feature to replicate topics to a secondary cluster. You can run mirroring as a continuous process, or intermittently, to migrate data from one cluster to another.
 
