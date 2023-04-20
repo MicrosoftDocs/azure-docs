@@ -125,7 +125,7 @@
     items:
     - name: Decision guide
       href: /azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide?toc=/azure/azure-resource-manager/management/toc.json
-    - name: About tags
+    - name: Guidance and limits
       href: tag-resources.md
     - name: Use tags
       items:

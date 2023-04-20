@@ -15,7 +15,7 @@ This article describes the conditions and limitations for using tags. For steps 
 * [Azure CLI](tag-resources-cli.md)
 * [Azure PowerShell](tag-resources-powershell.md)
 * [Python](tag-resources-python.md)
-* [ARM templates](tag-resources-temnplates.md)
+* [ARM templates](tag-resources-templates.md)
 * [Bicep](tag-resources-bicep.md)
 
 ## Tag usage and recommendations
@@ -93,5 +93,5 @@ The following limitations apply to tags:
   * [Azure CLI](tag-resources-cli.md)
   * [Azure PowerShell](tag-resources-powershell.md)
   * [Python](tag-resources-python.md)
-  * [ARM templates](tag-resources-temnplates.md)
+  * [ARM templates](tag-resources-templates.md)
   * [Bicep](tag-resources-bicep.md)
