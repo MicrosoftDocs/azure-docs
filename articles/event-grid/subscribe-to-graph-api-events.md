@@ -96,7 +96,7 @@ Here are some of the key headers and payload properties:
 When you create a Graph API subscription with a `notificationUrl` bound to Event Grid, a partner topic is created in your Azure subscription. For that partner topic, you [configure event subscriptions](event-filtering.md) to send your events to any of the supported [event handlers](event-handlers.md) that best meets your requirements to process the events. 
 
 #### Test APIs using Graph Explorer
-For quick tests and to get to know the API, you could use the [Graph Explorer](/graph/graph-explorer/graph-explorer-features). For anything else beyond casuals tests or learning, you should use the Graph SDKs. 
+For quick tests and to get to know the API, you could use the [Graph Explorer](/graph/graph-explorer/graph-explorer-features). For anything else beyond casuals tests or learning, you should use the Microsoft Graph SDKs. 
 
 [!INCLUDE [activate-partner-topic](includes/activate-partner-topic.md)]
 
