@@ -29,7 +29,8 @@ Policy assignments that use the `deny` or `append` policy effects.
 
 > [!NOTE]
 > To learn more about Azure policy effects, see [Understand how effects work](../concepts/effects.md).
-:::image type="content" source="safe-deployment-practices-flowchart1.png" alt-text="Flowchart with steps one through eight showing safe deployment practices deployment of a new Azure Policy definition." border="true":::
+
+:::image type="content" source="safe-deployment-practices-flowchart-1.png" alt-text="Flowchart with steps one through eight showing safe deployment practices deployment of a new Azure Policy definition." border="true":::
 
 1. Begin the release by creating a policy definition at the highest designated Azure management scope.
 We recommend storing Azure Policy definitions at the management group scope for maximum flexibility.
@@ -113,7 +114,7 @@ expected.
 Steps 1-4 for policies using the `modify` or `deployIfNotExists` effects are the same as steps previously explained.
 Review the following flowchart with modified steps 5-9:
 
-:::image type="content" source="safe-deployment-practices-flowchart2.png" alt-text="Flowchart showing steps 5 through 9 in the Azure Policy safe deployment practices workflow." border="true":::
+:::image type="content" source="safe-deployment-practices-flowchart-2.png" alt-text="Flowchart showing steps 5 through 9 in the Azure Policy safe deployment practices workflow." border="true":::
 
 5. Once you've assigned the policy to all rings using `audit` mode, the pipeline should trigger
 a task that changes the policy effect to `modify` or `deployIfNotExists` and resets
