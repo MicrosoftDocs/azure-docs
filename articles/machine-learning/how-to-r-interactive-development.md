@@ -26,7 +26,7 @@ Many R users also use RStudio, a popular IDE. You can install RStudio or Posit W
 
 - If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
 - An [Azure Machine Learning workspace and a compute instance](quickstart-create-resources.md)
-- A basic understand of using Jupyter notebooks in Azure Machine Learning studio.  For more information, see [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md)
+- A basic understand of using Jupyter notebooks in Azure Machine Learning studio.  For more information, see [Model development on a cloud workstation](tutorial-cloud-workstation.md).
 
 ## Run R in a notebook in studio
 
@@ -38,7 +38,7 @@ You'll use a notebook in your Azure Machine Learning workspace, on a compute ins
 1. Create a new notebook, named **RunR.ipynb**
 
     > [!TIP]
-    > If you're not sure how to create and work with notebooks in studio, review [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md).
+    > If you're not sure how to create and work with notebooks in studio, review [Run Jupyter notebooks in your workspace](how-to-run-jupyter-notebooks.md)
 
 1. Select the notebook.
 1. On the notebook toolbar, make sure your compute instance is running.  If not, start it now.
