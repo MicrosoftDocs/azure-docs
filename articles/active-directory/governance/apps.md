@@ -41,9 +41,9 @@ Checkout the integrations [partners](https://learn.microsoft.com/azure/active-di
 ## Full list of provisioning integrations
 | Application | User provisionig supported | Group provisionig supported|
 | :--- | :--- | :--- |
-| 4me | ● | ● |
-| 8x8 | ● | |
-| 15five | ● | ● |
+| [4me](https://learn.microsoft.com/azure/active-directory/saas-apps/4me-provisioning-tutorial) | ● | ● |
+| [8x8](https://learn.microsoft.com/azure/active-directory/saas-apps/8x8-provisioning-tutorial) | ● | |
+| [15five](https://learn.microsoft.com/azure/active-directory/saas-apps/15five-provisioning-tutorial) | ● | ● |
 
 ## Next steps
 
