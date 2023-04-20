@@ -29,57 +29,64 @@ In this article, you’ll learn how to register an application in your customer 
 
 ## Choose your app type
 
+
 # [Single-page app (SPA)](#tab/spa)
 
 ## How to register your Single-page app?
 
-[!INCLUDE [How to register a SPA?](../customers/includes/register-app/register-client-app-common.md)]
+[!INCLUDE [register app](../customers/includes/register-app/register-client-app-common.md)]
 
-### If you want to use Vanilla JS follow the steps below:
+[!INCLUDE [add platform url](../customers/includes/register-app/add-platform-redirect-url-spa-common.md)] 
 
-[!INCLUDE [Vanilla JS](../customers/includes/register-app/add-platform-redirect-url-vanilla-js.md)]
+[!INCLUDE [add about redirect URI](../customers/includes/register-app/about-redirect-url.md)]  
 
-### If you want to use React JS follow the steps below:
+[!INCLUDE [grant permision for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)] 
 
-[!INCLUDE [React JS](../customers/includes/register-app/add-platform-redirect-url-react.md)]
+### Optional: If you want to call an API follow the steps below:
+[!INCLUDE [grant permisions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
-If you want to use Angular JS follow the steps below:
-
-[!INCLUDE [Angular JS](../customers/includes/register-app/add-platform-redirect-url-angular.md)]
+If you'd like to learn how to expose the permissions by adding a link, go to [Register an API](how-to-register-ciam-app.md&tabs=webapi).
 
 # [Web app](#tab/webapp)
 
 ## How to register your Web app?
 
-[!INCLUDE [How to register a Web app?](../customers/includes/register-app/register-client-app-common.md)]
+[!INCLUDE [register app](../customers/includes/register-app/register-client-app-common.md)]
 
-### If you want to use Node.js follow the steps below:
+[!INCLUDE [add platform url](../customers/includes/register-app/add-platform-redirect-url-web-app-common.md)] 
 
-[!INCLUDE [Node.](../customers/includes/register-app/add-platform-redirect-url-node.md)]
+[!INCLUDE [add about redirect URI](../customers/includes/register-app/about-redirect-url.md)]  
 
-### If you need an application or client secret, follow the steps below:
+[!INCLUDE [grant permission for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)] 
 
-[!INCLUDE [Client secret.](../customers/includes/register-app/add-app-client-secret.md)]
+[!INCLUDE [add a client secret](../customers/includes/register-app/add-app-client-secret.md)]
 
-### Optionally, if that client needs to call an API you can grant permissions: 
-
-[!INCLUDE [Optional permissions.](../customers/includes/register-app/grant-api-permission-call-api.md)]
+### Optional: If you want to call an API follow the steps below:
+[!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 # [Web API](#tab/webapi)
 
 ## How to register your Web API?
 
-[!INCLUDE [Register Web API.](../customers/includes/register-app/register-api-app.md)]
+[!INCLUDE [register app](../customers/includes/register-app/register-api-app.md)]
 
-### If you want to add permissions follow the steps below:
+[!INCLUDE [expose permissions](../customers/includes/register-app/add-api-scopes.md)]
 
-[!INCLUDE [Add permissions.](../customers/includes/register-app/add-api-scopes.md)]
+### Optional: If you want to add app roles follow the steps below:
+[!INCLUDE [configure app roles](../customers/includes/register-app/add-app-role.md)]
 
 # [Desktop or Mobile app](#tab/desktopmobileapp)
 
 ## How to register your Desktop or Mobile app?
 
-[!INCLUDE [How to register a Desktop or Mobile app?](../customers/includes/register-app/register-client-app-common.md)]
+[!INCLUDE [register app](../customers/includes/register-app/register-client-app-common.md)]
+
+[!INCLUDE [add platform url](../customers/includes/register-app/add-platform-redirect-url-mobile-desktop-common.md)]
+
+[!INCLUDE [grant permission for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)]
+
+### Optional: If you want to call an API follow the steps below:
+[!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 ## Next steps
  
