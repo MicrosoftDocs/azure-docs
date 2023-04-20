@@ -12,7 +12,7 @@ keywords: ChatGPT, GPT-4, prompt engineering, meta prompts, chain of thought
 zone_pivot_groups: openai-prompt
 ---
 
-# Prompt Engineering Techniques
+# Prompt engineering techniques
 
 This guide will walk you through some advanced techniques in prompt design and prompt engineering. If you're new to prompt engineering, we recommend starting with our [introduction to prompt engineering guide](prompt-engineering.md).
 
