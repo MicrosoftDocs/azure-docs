@@ -18,9 +18,9 @@ ms.custom: developer
 
 # Sign in users and call an API in your own Node.js web application by using Microsoft Entra
 
-In this article, you learn how to create your Node.js web app that calls your web API. You build the web API by using .NET. The web API needs to be secured by Microsoft Entra. To authorize access to a the web API, you serve requests that include a valid access token that's issued by Active Directory (Azure AD) for customers. 
+In this article, you learn how to create your Node.js web app that calls your web API. You build the web API by using .NET. You secure the web API needs by using Microsoft Entra. To authorize access to the web API, you serve requests that include a valid access token that's issued by Active Directory (Azure AD) for customers. 
 
-To simplify adding authentication and authorization, the Node.js client web app and .NET web API uses [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) and [Microsoft Identity Web](/articles/active-directory/develop/microsoft-identity-web.md) respectively.
+To simplify adding authentication and authorization, the Node.js client web app and .NET web API use [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) and [Microsoft Identity Web](/articles/active-directory/develop/microsoft-identity-web.md) respectively.
 
 We've broken down this article into five separate articles so it's easy for you to follow:
 
@@ -32,7 +32,7 @@ We've broken down this article into five separate articles so it's easy for you 
 
 - [Acquire an access token](how-to-web-app-node-sign-in-call-api-acquire-access-token.md) guides you how to request for an access token with the required permissions/scopes. 
 
-- [Call API](how-to-web-app-node-sign-in-call-api-call-api.md) guides you how to make an HTTP call to the web API by using the access tokes as a bearer token.
+- [Call API](how-to-web-app-node-sign-in-call-api-call-api.md) guides you how to make an HTTP call to the web API by using the access token as a bearer token.
 
 ## Overview
 
@@ -70,7 +70,7 @@ The web API completes the following events:
 - Azure AD for customers tenant. If you don't already have one, [sign up for free trial](https://aka.ms/ciam-hub-free-trial).
 
 
-If you want to run a sample Node.js web application that call a sample web API to get a feel of how things work, complete the steps in [Sign in users and call an API in sample Node.js web application by using Microsoft Entra](how-to-web-app-node-sample-sign-in-call-api.md).
+If you want to run a sample Node.js web application that calls a sample web API to get a feel of how things work, complete the steps in [Sign in users and call an API in sample Node.js web application by using Microsoft Entra](how-to-web-app-node-sample-sign-in-call-api.md).
 
 ## Next steps
 

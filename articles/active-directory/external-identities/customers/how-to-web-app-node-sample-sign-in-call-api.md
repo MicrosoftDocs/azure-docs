@@ -20,13 +20,13 @@ ms.custom: developer
 
 This how-to guide uses a sample Node.js web application to show how to add authentication and authorization by using Microsoft Entra. The sample application sign in users to a Node.js web app, which then calls a .NET Core API. You enable authentication and authorization by using your Azure Active Directory (Azure AD) for customers tenant details. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
 
-In this article, you’ll complete the following tasks:
+In this article, you complete the following tasks:
 
 - Register and configure a web API in the Microsoft Entra admin center.
 
 - Register and configure a client web application in the Microsoft Entra admin center. 
 
-- Create a sign up and sign in user flow in the Microsoft Entra admin center, and then associate a client web app with it.
+- Create a sign-up and sign-in user flow in the Microsoft Entra admin center, and then associate a client web app with it.
 
 - Update a sample Node web application and ASP.NET Core web API to use your Azure AD for customers tenant details.
 
@@ -171,7 +171,7 @@ To use your app registration in the web API sample:
 
 You trigger an API call each time you view, add or remove a task. Each time you trigger an API call, the client web app acquires an access token with the required permissions (scopes) to call an API endpoint. For example, to read a task, the client web app must acquire an access token with `Todolist.Read` permission/scope.
 
-On the web API side, the endpoint must validate that the permissions/scopes present in the access token that the client app presents. If the access toke is valid, the endpoint responds to the HTTP request, otherwise, it responds with a `401 Unauthorized` HTTP error. 
+On the web API side, the endpoint must validate that the permissions/scopes present in the access token that the client app presents are valid. If the access token is valid, the endpoint responds to the HTTP request, otherwise, it responds with a `401 Unauthorized` HTTP error. 
 
 ## Next steps
 
