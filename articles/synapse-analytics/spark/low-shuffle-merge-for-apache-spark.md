@@ -10,7 +10,7 @@ ms.author: eunjinsong
 ms.reviewer: dacoelho
 ---
 
-# Low Shuffle Merge Optimization on Delta tables
+# Low Shuffle Merge optimization on Delta tables
 
 Delta Lake [MERGE command](https://docs.delta.io/latest/delta-update.html#upsert-into-a-table-using-merge) allows users to update a delta table with advanced conditions. It can update data from a source table, view or DataFrame into a target table by using MERGE command. However, the current algorithm of MERGE command is not optimized for handling *unmodified* rows. With Low Shuffle Merge optimization, unmodified rows are excluded from expensive shuffling execution and written separately.
 
