@@ -12,11 +12,7 @@ ms.date: 04/20/2023
 
 # Azure role-based access control in Azure Lab Services
 
-Azure Lab Services provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Lab Services. An individual who has a profile in Azure Active Directory can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Lab Services resources. 
-
-In this article ...
-
-## Azure role-based access control
+Azure Lab Services provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Lab Services. An individual who has a profile in Azure Active Directory can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Lab Services resources. This article describes the different built-in roles that Azure Lab Services supports.
 
 Azure role-based access control (RBAC) is an authorization system built on [Azure Resource Manager](/azure/azure-resource-manager/management/overview) that provides fine-grained access management of Azure resources.
 
@@ -53,13 +49,13 @@ Determines the scope of the role assignment
 Add cross-ref to [resource group structure](#resource-group-and-lab-plan-structure)
 
 
-As shown by the arrows in the graphic below, roles can be assigned to users on resource groups, lab plans, and labs:
-
-Resource groups are logical containers for grouping together resources.  Role assignment at the resource group level grants permission to the resource group and all resources within the resource group, such as labs and lab plans.
-Lab plans are used to apply common configuration settings when you create a lab. Role assignment at the lab plan level grants permission only to a specific lab plan.
-Lab role assignment grants permission only to a specific lab.
+As shown by the arrows in the image, roles can be assigned to users on resource groups, lab plans, and labs:
 
 TODO: add image
+
+- Resource groups are logical containers for grouping together resources.  Role assignment at the resource group level grants permission to the resource group and all resources within the resource group, such as labs and lab plans.
+- Lab plans are used to apply common configuration settings when you create a lab. Role assignment at the lab plan level grants permission only to a specific lab plan.
+- Lab role assignment grants permission only to a specific lab.
 
 IMPORTANT – Lab plans and labs are sibling resources to each other.  As a result, labs don’t inherit any roles/permissions that are assigned at the lab plan level.  However, roles/permissions assigned at the resource group level are inherited by both lab plans and labs.
 
