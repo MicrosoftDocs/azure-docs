@@ -18,13 +18,11 @@ Defender for APIs is currently in preview.
 
 1. In the Defender for Cloud portal, select **Workload protections**.
 1. Select **API security**.
-1. Next to the API you want to offboard from Defender for APIs, select the ellipsis (...) > **Remove**. 
+1. Next to the API you want to offboard from Defender for APIs, select the ellipsis (...) > **Remove**.
 
-    :::image type="content" source="media/defender-for-apis-manage/api-remove.png" alt-text="Page for removing an API from Defender for APIs.":::
+    :::image type="content" source="media/defender-for-apis-manage/api-remove.png" alt-text="Page for removing an API from Defender for APIs." lightbox="media/defender-for-apis-manage/api-remove.png":::
 
-1. In the **Resource health** > **remove-resource** page > **Recommendations** tab, select the remove recommendation.
 
-    :::image type="content" source="media/defender-for-apis-manage/remove-resource.png" alt-text="Page for removing an API endpoint from Defender for APIs.":::
 
 ## Next steps
 
