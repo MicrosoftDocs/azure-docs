@@ -143,9 +143,9 @@ PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/provider
 
             "id": "/subscriptions/../publicIPAddresses/test-ip", 
 
-          "properties": { 
-            “deleteOption”: “Delete” 
-            } 
+            "properties": { 
+              "deleteOption": "Delete"
+            }
           }, 
 
           "subnet": { 
