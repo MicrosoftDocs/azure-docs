@@ -9,7 +9,7 @@ author: jesscioffi
 ms.author: jcioffi
 ms.topic: conceptual
 ms.reviewer: mattmcinnes
-ms.date: 10/04/2022
+ms.date: 04/19/2023
 ---
 
 # Upgrade your Data Science Virtual Machine to Ubuntu 20.04
