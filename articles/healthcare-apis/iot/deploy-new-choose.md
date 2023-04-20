@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ms.topic: quickstart
-ms.date: 03/10/2023
+ms.date: 04/20/2023
 ms.author: jasteppe
 ---
 
@@ -52,11 +52,11 @@ Using the Azure portal manual deployment will allow you to see the details of ea
 
 To learn more about deploying the MedTech service manually using the Azure portal, see [Deploy the MedTech service manually using the Azure portal](deploy-new-manual.md).
 
-## Deployment architecture overview
+## Deployment overview
 
 The following diagram outlines the basic steps of the MedTech service deployment and shows how these steps fit together with its data processing procedures. These basic steps may help you analyze the deployment options and determine which deployment method is best for you.
 
-:::image type="content" source="media/get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architecture overview." lightbox="media/get-started/get-started-with-iot.png":::
+:::image type="content" source="media/get-started/get-started-with-medtech-service.png" alt-text="Diagram showing MedTech service deployment overview." lightbox="media/get-started/get-started-with-medtech-service.png":::
 
 > [!IMPORTANT]
 > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
