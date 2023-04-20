@@ -28,6 +28,8 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 
     :::image type="content" source="media/defender-for-apis-deploy/enable-plan.png" alt-text="Shows how to turn on the Defender for APIs plan in the portal" lightbox="media/defender-for-apis-deploy/enable-plan.png":::
 
+> [!NOTE]
+> After enabling Defender for APIs, onboarded APIs take up to 45 minutes to appear in the **Recommendations** tab. Security insights are available in the **Workload protections** > **API security** dashboard within 30 minutes of onboarding.
 
 ## Onboard APIs
 
