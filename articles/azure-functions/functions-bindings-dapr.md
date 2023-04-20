@@ -77,7 +77,7 @@ dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"
+::: zone pivot="programming-language-javascript,programming-language-python"
 
 <!-- Do the manual func install extension stuff here. -->
 ::: zone-end
@@ -168,3 +168,10 @@ This section describes the function app configuration settings available for fun
 - [Trigger a Dapr binding, service invocation, or topic subscription](./functions-bindings-dapr-trigger.md)
 - [Pull in Dapr state and secrets](./functions-bindings-dapr-input.md)
 - [Send a value to a Dapr topic or output binding](./functions-bindings-dapr-output.md)
+
+::: zone pivot="programming-language-java,programming-language-powershell"
+
+> [!NOTE]
+> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
+
+::: zone-end

@@ -741,15 +741,38 @@
               href: functions-bindings-dapr.md
               displayName: Dapr
             - name: Trigger
-              href: functions-bindings-dapr-trigger.md
-              displayName: Dapr
+              items: 
+              - name: Input
+                href: functions-bindings-dapr-trigger-input.md
+                displayName: Dapr
+              - name: Service Invocation
+                href: functions-bindings-dapr-trigger-svc-invoke.md
+                displayName: Dapr
+              - name: Topic
+                href: functions-bindings-dapr-trigger-topic.md
+                displayName: Dapr
             - name: Input
-              href: functions-bindings-dapr-input.md
-              displayName: Dapr
+              items: 
+              - name: State
+                href: functions-bindings-dapr-input-state.md
+                displayName: Dapr
+              - name: Secret
+                href: functions-bindings-dapr-input-secret.md
+                displayName: Dapr
             - name: Output
-              href: functions-bindings-dapr-output.md
-              displayName: Dapr
-
+              items: 
+              - name: Input
+                href: functions-bindings-dapr-output-state.md
+                displayName: Dapr
+              - name: Service Invocation
+                href: functions-bindings-dapr-output-invoke.md 
+                displayName: Dapr
+              - name: Topic
+                href: functions-bindings-dapr-output-publish.md 
+                displayName: Dapr
+              - name: Topic
+                href: functions-bindings-dapr-output.md 
+                displayName: Dapr
         - name: Event Grid
           items:
             - name: Overview
