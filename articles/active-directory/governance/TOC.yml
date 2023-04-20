@@ -26,7 +26,7 @@
                      expanded: true
                      items:
                      - name: 0 - 9
-        - name: Automate identity governance tasks - PowerShell
+      - name: Automate identity governance tasks - PowerShell
         href: identity-governance-automation.md
       - name: Governing an application's existing users - PowerShell
         href: identity-governance-applications-existing-users.md
