@@ -34,10 +34,9 @@ Your goal in pre-migration is to:
 
 Follow these steps to perform a thorough pre-migration
 
-1. [Discover your existing MongoDB resources and create a data estate spreadsheet to track them](#pre-migration-discovery)
-2. [Assess the readiness of your existing MongoDB resources for data migration](#pre-migration-assessment)
-3. [Map your existing MongoDB resources to new Azure Cosmos DB resources](#pre-migration-mapping)
-4. [Plan the logistics of migration process end-to-end, before you kick off the full-scale data migration](#execution-logistics)
+1. [Discover your existing MongoDB resources and Assess the readiness of your existing MongoDB resources for data migration](#pre-migration-assessment)
+2. [Map your existing MongoDB resources to new Azure Cosmos DB resources](#pre-migration-mapping)
+3. [Plan the logistics of migration process end-to-end, before you kick off the full-scale data migration](#execution-logistics)
 
 Then, execute your migration in accordance with your pre-migration plan.
 
@@ -49,11 +48,13 @@ When you plan a migration, we recommend that whenever possible you plan at the p
 
 ## Pre-migration assessment
 
-The first pre-migration step is to discover your resources and assess the readiness of resources in your data estate for migration.
+The first pre-migration step is to discover your existing MongoDB resources and assess the readiness of your resources for migration.
+
+Discovery involves creating a comprehensive list of the existing resources (databases or collections) in your MongoDB data estate.
 
 Assessment involves finding out whether you're using the [features and syntax that are supported](./feature-support-42.md). It also includes making sure you're adhering to the [limits and quotas](../concepts-limits.md#per-account-limits). The aim of this stage is to create a list of incompatibilities and warnings, if any. After you have the assessment results, you can try to address the findings during rest of the migration planning.
 
-There are 3 ways to complete the pre-migration steps, we recommend you to use the [Azure Cosmos DB Migration for MongoDB extension](#azure-cosmos-db-migration-for-mongodb-extension).
+There are 3 ways to complete the pre-migration assessment, we recommend you to use the [Azure Cosmos DB Migration for MongoDB extension](#azure-cosmos-db-migration-for-mongodb-extension).
 
 ### Azure Cosmos DB Migration for MongoDB extension
 
@@ -77,6 +78,8 @@ Here are some tools you can use for discovering resources:
 
 * [MongoDB Shell](https://www.mongodb.com/try/download/shell)
 * [MongoDB Compass](https://www.mongodb.com/try/download/compass)
+
+Go through the spreadsheet and verify each collection against the [supported features and syntax](./feature-support-42.md), and [Azure Cosmos DB limits and quotas](../concepts-limits.md#per-account-limits) in detail.
 
 ### Database Migration Assistant utility (legacy) 
 
