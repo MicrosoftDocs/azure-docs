@@ -54,7 +54,7 @@ Before your applications can interact with Azure AD, they must be registered in 
 1. Sign in to the Azure portal and switch to your customer tenant. 
 1. To configure apps, go to the **Azure Active Directory** > **Home** page and select **Configure apps**. Or under **Manage**, select **App registrations** > **New registration**.
 
-To learn more about app configuration steps, follow the [Register an app in CIAM](register-ciam-app.md) article.
+To learn more about app configuration steps, follow the [Register an app in CIAM](how-to-register-ciam-app.md) article.
 
 ## Customize branding
 
@@ -80,6 +80,6 @@ A user flow creates a sign-up and sign-in experience for your customers through 
 To learn more about how to create a sign-up and sign-in user flow for customers, follow the  [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)  article.
 
 ## Next steps
- - [Register an app in CIAM](register-ciam-app.md)
+ - [Register an app in CIAM](how-to-register-ciam-app.md)
  - [Customize user experience for your customers](how-to-customize-branding-customers.md)
  - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)

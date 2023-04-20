@@ -31,7 +31,6 @@ In this article, you’ll learn how to register an application in your customer 
 
 
 # [Single-page app (SPA)](#tab/spa)
-
 ## How to register your Single-page app?
 
 [!INCLUDE [register app](../customers/includes/register-app/register-client-app-common.md)]
@@ -42,13 +41,12 @@ In this article, you’ll learn how to register an application in your customer 
 
 [!INCLUDE [grant permision for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)] 
 
-### Optional: If you want to call an API follow the steps below:
+### If you want to call an API follow the steps below (optional):
 [!INCLUDE [grant permisions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
-If you'd like to learn how to expose the permissions by adding a link, go to [Register an API](how-to-register-ciam-app.md&tabs=webapi).
+If you'd like to learn how to expose the permissions by adding a link, go to [Register an API](how-to-register-ciam-app.md#web-api).
 
 # [Web app](#tab/webapp)
-
 ## How to register your Web app?
 
 [!INCLUDE [register app](../customers/includes/register-app/register-client-app-common.md)]
@@ -61,22 +59,20 @@ If you'd like to learn how to expose the permissions by adding a link, go to [Re
 
 [!INCLUDE [add a client secret](../customers/includes/register-app/add-app-client-secret.md)]
 
-### Optional: If you want to call an API follow the steps below:
+### If you want to call an API follow the steps below (optional):
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 # [Web API](#tab/webapi)
-
 ## How to register your Web API?
 
 [!INCLUDE [register app](../customers/includes/register-app/register-api-app.md)]
 
 [!INCLUDE [expose permissions](../customers/includes/register-app/add-api-scopes.md)]
 
-### Optional: If you want to add app roles follow the steps below:
+### If you want to add app roles follow the steps below (optional):
 [!INCLUDE [configure app roles](../customers/includes/register-app/add-app-role.md)]
 
 # [Desktop or Mobile app](#tab/desktopmobileapp)
-
 ## How to register your Desktop or Mobile app?
 
 [!INCLUDE [register app](../customers/includes/register-app/register-client-app-common.md)]
@@ -85,7 +81,7 @@ If you'd like to learn how to expose the permissions by adding a link, go to [Re
 
 [!INCLUDE [grant permission for signing in users](../customers/includes/register-app/grant-api-permission-sign-in.md)]
 
-### Optional: If you want to call an API follow the steps below:
+### If you want to call an API follow the steps below (optional):
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
 ## Next steps
