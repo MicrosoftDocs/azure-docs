@@ -2,7 +2,7 @@
 title: Secure score
 description: Description of Microsoft Defender for Cloud's secure score and its security controls 
 ms.topic: conceptual
-ms.date: 03/05/2023
+ms.date: 04/20/2023
 ---
 
 # Secure score
@@ -34,7 +34,7 @@ For more information, see [How your secure score is calculated](secure-score-sec
 
 On the Security posture page, you're able to see the secure score for your entire subscription, and each environment in your subscription. By default all environments are shown.
 
-:::image type="content" source="media/secure-score-security-controls/security-posture-page.png" alt-text="Screenshot of the security posture page.":::
+:::image type="content" source="media/secure-score-security-controls/security-posture-page.png" alt-text="Screenshot of the security posture page." lightbox="media/secure-score-security-controls/security-posture-page.png":::
 
 | Page section | Description |
 |--|--|
