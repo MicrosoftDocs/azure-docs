@@ -76,7 +76,7 @@ This command also installs the required Az PowerShell module.
 
 ### Install with the script directly
 
-If you do have Az PowerShell module installed and can't uninstall them, or don't want to uninstall them,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download).
+If you do have Az PowerShell module installed and can't uninstall them, or don't want to uninstall them, you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download).
 
 To run the script:
 
