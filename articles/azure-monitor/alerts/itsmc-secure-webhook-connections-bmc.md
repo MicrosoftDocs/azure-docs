@@ -48,4 +48,4 @@ Ensure that you've met the following prerequisites:
       - **Check**: Selected by default to enable usage.
       - The Azure tenant ID and Azure application ID are taken from the application that you defined earlier.
 
-![Screenshot that shows BMC configuration.](media/itsmc-secure-webhook-connections-bmc/bmc-configuration.png)
+   ![Screenshot that shows BMC configuration.](media/itsmc-secure-webhook-connections-bmc/bmc-configuration.png)
