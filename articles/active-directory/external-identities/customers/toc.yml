@@ -53,10 +53,10 @@ items:
               items:
                 - name: Node.js
                   items:
-                    - name: Sign in users and call an API
-                      href: how-to-web-app-node-sample-sign-in-call-api.md
                     - name: Sign in users
                       href: how-to-web-app-node-sample-sign-in.md
+                    - name: Sign in users and call an API
+                      href: how-to-web-app-node-sample-sign-in-call-api.md
             - name: Web API
               href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
             - name: Headless app
@@ -81,6 +81,16 @@ items:
               items: 
                 - name: Node/Express.js
                   items:
+                    - name: Sign in users
+                      items:
+                        - name: Overview
+                          href: how-to-web-app-node-sign-in-overview.md
+                        - name: Prepare tenant 
+                          href: how-to-web-app-node-sign-in-prepare-tenant.md
+                        - name: Prepare app 
+                          href: how-to-web-app-node-sign-in-prepare-app.md
+                        - name: Add sign-in and sign-out
+                          href: how-to-web-app-node-sign-in-sign-in-out.md
                     - name: Sign in users and call an API
                       items:
                         - name: Overview
@@ -95,16 +105,6 @@ items:
                           href: how-to-web-app-node-sign-in-call-api-acquire-access-token.md
                         - name: Call API 
                           href: how-to-web-app-node-sign-in-call-api-call-api.md
-                    - name: Sign in users
-                      items:
-                        - name: Overview
-                          href: how-to-web-app-node-sign-in-overview.md
-                        - name: Prepare tenant 
-                          href: how-to-web-app-node-sign-in-prepare-tenant.md
-                        - name: Prepare app 
-                          href: how-to-web-app-node-sign-in-prepare-app.md
-                        - name: Add sign-in and sign-out
-                          href: how-to-web-app-node-sign-in-sign-in-out.md
                 - name: ASP.NET - Sign in users and call an API
                   href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
             - name: Web API
