@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 3/16/2023
+ms.date: 4/20/2023
 ---
 
 # What's new in Azure VMware Solution
@@ -13,9 +13,9 @@ Microsoft will regularly apply important updates to the Azure VMware Solution fo
 
 ## April 2023
 
-**HCX Run commands**
+**VMware HCX Run Commands**
 
-Introducing run commands for HCX on Azure VMware solutions. You can use these run commands to restart HCX cloud manager in your Azure VMware solution private cloud. Additionally, you can also scale HCX cloud manager using run commands. To learn how to use run commands for HCX, see [Use HCX Run commands](use-hcx-run-commands.md).
+Introducing Run Commands for VMware HCX on Azure VMware Solution. You can use these run commands to restart VMware HCX Cloud Manager in your Azure VMware Solution private cloud. Additionally, you can also scale VMware HCX Cloud Manager using Run Commands. To learn how to use run commands for VMware HCX, see [Use VMware HCX Run commands](use-hcx-run-commands.md).
 
 ## February 2023
 
@@ -125,7 +125,7 @@ All new Azure VMware Solution private clouds are now   deployed with ESXi versio
 
 ## July 2021
 
-All new Azure VMware Solution private clouds are now deployed with NSX-T Data Center version [!INCLUDE [nsxt-version](includes/nsxt-version.md)]. NSX-T Data Center version in existing private clouds will be upgraded through September  2021 to NSX-T Data Center [!INCLUDE [nsxt-version](includes/nsxt-version.md)] release.
+All new Azure VMware Solution private clouds are now deployed with NSX-T Data Center version 3.1.1. NSX-T Data Center version in existing private clouds will be upgraded through September 2021 to NSX-T Data Center 3.1.1 release.
  
 You'll receive an email with the planned maintenance date and time. You can reschedule an upgrade. The email also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services. 
 
