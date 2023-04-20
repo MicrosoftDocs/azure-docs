@@ -7,13 +7,16 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 04/19/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
 # Subscriptions in Azure API Management
 
 In Azure API Management, *subscriptions* are the most common way for API consumers to access APIs published through an API Management instance. This article provides an overview of the concept.
+
+> [!NOTE]
+> An API Management subscription is used specifically to call APIs through API Management. It's not the same as an Azure subscription.
 
 ## What are subscriptions?
 
@@ -87,6 +90,11 @@ Creating a subscription without assigning an owner makes it a standalone subscri
 API publishers can [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal. 
 
 When created in the portal, a subscription is in the **Active** state, meaning a subscriber can call an associated API using a valid subscription key. You can change the state of the subscription as needed - for example, you can suspend, cancel, or delete the subscription to prevent API access.
+
+## Use a subscription key
+
+To use an API Management subscription key, a subscriber adds the **Ocp-Apim-Subscription-Key** HTTP header to the request, passing the value of the subscription key. Alternatively, include the **Ocp-Apim-Subscription-key** query parameter and value in the request. The query parameter is checked only if the header isn't present.
+
 
 ## Enable or disable subscription requirement for API or product access
 
