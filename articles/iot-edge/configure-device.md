@@ -13,11 +13,11 @@ services: iot-edge
 
 This article shows settings and options for configuring the IoT Edge *config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the *config.toml* file has several options. Not all options are mandatory, as they apply to specific scenarios.
 
-A template containing all options can be found in the *config.toml.edge.template* file within the */etc/aziot* directory on an IoT Edge device. You have the option to copy the contents of the whole template or sections of the template into your *config.toml* file. Uncomment the sections you need. Be aware not to copy over parameters you have already defined.
+A template containing all options can be found in the *config.toml.edge.template* file within the */etc/aziot* directory on an IoT Edge device. You can copy the contents of the whole template or sections of the template into your *config.toml* file. Uncomment the sections you need. Be aware not to copy over parameters you have already defined.
 
 ## Global parameters
 
-The `hostname`, `parent_hostname`, `trust_bundle_cert`, `allow_elevated_docker_permissions`, and `auto_reprovisioning_mode` parameters must be at the beginning of the configuration file before any other sections. Adding parameters before defined sections ensures they're applied correctly. For more information on valid syntax, see [toml.io ](https://toml.io/).
+The `hostname`, `parent_hostname`, `trust_bundle_cert`, `allow_elevated_docker_permissions`, and `auto_reprovisioning_mode` parameters must be at the beginning of the configuration file before any other sections. Adding parameters before a collection of settings ensures they're applied correctly. For more information on valid syntax, see [toml.io ](https://toml.io/).
 
 ### Hostname
 
@@ -56,7 +56,7 @@ For more information about the IoT Edge trust bundle, see [Manage trusted root C
 
 ### Elevated Docker Permissions
 
-Some docker capabilities can be used to gain root access. By default, the **--privileged** flag and all capabilities listed in the **CapAdd** parameter of the docker **HostConfig** are allowed.
+Some docker capabilities can be used to gain root access. By default, the `--privileged` flag and all capabilities listed in the **CapAdd** parameter of the docker **HostConfig** are allowed.
 
 If no modules require privileged or extra capabilities, use **allow_elevated_docker_permissions** to improve the security of the device.
 
@@ -256,7 +256,7 @@ identity_pk = "pkcs11:slot-id=0;object=est-id?pin-value=1234" # PKCS#11 URI
 
 ### EST ID cert requested via EST bootstrap ID cert
 
-Authentication with a TLS client certificate which are used once to create the initial EST ID certificate. After the first certificate issuance, an `identity_cert` and `identity_pk` are automatically created and used for future authentication and renewals. The Subject Common Name (CN) of the generated EST ID certificate is always the same as the configured device ID under the provisioning section. These files must be readable by the users aziotcs and aziotks, respectively.
+Authentication with a TLS client certificate that is used once to create the initial EST ID certificate. After the first certificate issuance, an `identity_cert` and `identity_pk` are automatically created and used for future authentication and renewals. The Subject Common Name (CN) of the generated EST ID certificate is always the same as the configured device ID under the provisioning section. These files must be readable by the users *aziotcs* and *aziotks*, respectively.
 
 ```toml
 bootstrap_identity_cert = "file:///var/aziot/certs/est-bootstrap-id.pem"
@@ -304,7 +304,7 @@ The TPM index persists the DPS authentication key. The index is taken as an offs
 auth_key_index = "0x00_01_00"
 ```
 
-Use authorization values for endorsement and owner hierarchies, if needed. By default, these are empty strings.
+Use authorization values for endorsement and owner hierarchies, if needed. By default, these values are empty strings.
 
 ```toml
 [tpm.hierarchy_authorization]
