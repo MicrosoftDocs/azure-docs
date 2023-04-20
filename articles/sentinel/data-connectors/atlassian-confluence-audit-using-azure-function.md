@@ -37,7 +37,7 @@ ConfluenceAudit
 
 To integrate with Atlassian Confluence Audit (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **REST API Credentials/permissions**: **ConfluenceAccessToken**, **ConfluenceUsername** is required for REST API. [See the documentation to learn more about API](https://developer.atlassian.com/cloud/confluence/rest/api-group-audit/). Check all [requirements and follow  the instructions](https://developer.atlassian.com/cloud/confluence/rest/intro/#auth) for obtaining credentials.
 
 

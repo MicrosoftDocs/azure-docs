@@ -42,7 +42,7 @@ TrendMicro_XDR_WORKBENCH_CL
 
 To integrate with Trend Micro Vision One (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **Trend Micro Vision One API Token**: A Trend Micro Vision One API Token is required. See the documentation to learn more about the [Trend Micro Vision One API](https://automation.trendmicro.com/xdr/home).
 
 
