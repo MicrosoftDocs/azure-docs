@@ -14,8 +14,6 @@ ms.author: mmitrik
 
 This reference guide provides you with an overview of the API version policies for the DICOM service. 
 
-All versions of the DICOM APIs will always conform to the DICOMweb™ Standard specifications, but versions may expose different APIs based on the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
-
 ## Specifying version of REST API in requests
 
 The version of the REST API must be explicitly specified in the request URL as in the following example:
@@ -23,7 +21,7 @@ The version of the REST API must be explicitly specified in the request URL as i
 `<service_url>/v<version>/studies`
 
 > [!NOTE]
-> Routes without a version are no longer supported.
+> Routes without a version are not supported.
 
 ## Supported versions
 
@@ -31,10 +29,18 @@ Currently the supported versions are:
 
 * v1.0-prerelease
 * v1
+* v2
 
 The OpenAPI Doc for the supported versions can be found at the following url:
 
 `<service_url>/v<version>/api.yaml`
+
+## DICOM Conformance Statement
+All versions of the DICOM APIs will always conform to the DICOMweb™ Standard specifications, but different versions may expose different APIs.  See the specific version of the conformance statement for details:
+
+* [DICOM Conformance Statement v1](dicom-services-conformance-statement-v1.md)
+* [DICOM Conformance Statement v2](dicom-services-conformance-statement-v2.md)
+
 
 ## Prerelease versions
 
