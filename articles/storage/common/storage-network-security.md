@@ -145,7 +145,7 @@ Storage account and the virtual networks granted access may be in different subs
 
 ### Azure Storage cross-region service endpoints
 
-Cross-region service endpoints for Azure Storage became generally available in April of 2023. Cross-region service endpoints work between virtual networks and storage service instances in any region. With cross-region service endpoints, subnets will no longer use a public IP address to communicate with any storage account, including those in another region. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
+Cross-region service endpoints for Azure Storage became generally available in April of 2023. They work between virtual networks and storage service instances in any region. With cross-region service endpoints, subnets will no longer use a public IP address to communicate with any storage account, including those in another region. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
 Configuring service endpoints between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md) can be an important part of your disaster recovery plan. Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
