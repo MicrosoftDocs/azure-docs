@@ -115,6 +115,8 @@ RESOURCE_GROUP=<resource-group-name>
 LOCATION=<location>
 POSTGRESQL_SERVER=<server-name>
 POSTGRESQL_DB=<database-name>
+POSTGRESQL_ADMIN_USERNAME=<admin-username>
+POSTGRESQL_ADMIN_PASSWORD=<admin-password>
 AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
 APP_NAME=<web-app-name>
 MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
@@ -231,12 +233,27 @@ The Spring web app uses H2 for the database in localhost, and Azure Database for
 
 Use the following command to create a PostgreSQL instance:
 
+::: zone pivot="sc-consumption-plan"
+
+```azurecli
+az postgres flexible-server create \
+    --name ${POSTGRESQL_SERVER} \
+    --database-name ${POSTGRESQL_DB} \
+    --admin-user ${POSTGRESQL_ADMIN_USERNAME} \
+    --admin-password ${POSTGRESQL_ADMIN_PASSWORD}
+```
+
+::: zone-end
+
+::: zone pivot="sc-standard,sc-enterprise"
+
 ```azurecli
 az postgres flexible-server create \
     --name ${POSTGRESQL_SERVER} \
     --database-name ${POSTGRESQL_DB} \
     --active-directory-auth Enabled
 ```
+::: zone-end
 
 To ensure that the application is accessible only by PostgreSQL in Azure Spring Apps, enter `n` to the prompts to enable access to a specific IP address and to enable access for all IP addresses.
 
@@ -246,6 +263,32 @@ Do you want to enable access for all IPs  (y/n): n
 ```
 
 ### Connect app instance to PostgreSQL instance
+
+::: zone pivot="sc-consumption-plan"
+
+After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. Use the following steps to enable the app to connect to the PostgreSQL instance.
+
+1. Get the PostgreSQL instance's fully qualified domain name by using the following command:
+```azurecli
+PSQL_FQDN=$(az postgres flexible-server show \
+    --name ${POSTGRESQL_SERVER} \
+    --query fullyQualifiedDomainName \
+    --output tsv)
+```
+
+1. Use the following command to provide the `spring.datasource` properties to the app through environment variables.
+
+```azurecli
+az spring app update \
+    --service ${AZURE_SPRING_APPS_NAME} \
+    --name ${APP_NAME} \
+    --env SPRING_DATASOURCE_URL="jdbc:postgresql://${PSQL_FQDN}:5432/${POSTGRESQL_DB}" SPRING_DATASOURCE_USERNAME="${POSTGRESQL_ADMIN_USERNAME}" SPRING_DATASOURCE_PASSWORD="${POSTGRESQL_ADMIN_PASSWORD}"
+```
+
+::: zone-end
+
+
+::: zone pivot="sc-standard,sc-enterprise"
 
 After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. The following steps use Service Connector to configure the needed network settings and connection information. For more information about Service Connector, see [What is Service Connector?](../service-connector/overview.md).
 
@@ -326,6 +369,8 @@ After the application instance and the PostgreSQL instance are created, the appl
    }
    ]
    ```
+
+::: zone-end
 
 ## Deploy the app to Azure Spring Apps
 
