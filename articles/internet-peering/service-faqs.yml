@@ -38,8 +38,7 @@ sections:
 
   - name: Next steps
     questions:
-      - question: |
-           
+      - question:
         answer: |
           For more Peering Service frequently asked questions, see [Peering Service frequently asked questions (FAQ)](../peering-service/faq.yml). <br> For more information about Peering Service, see [Azure Peering Service overview](../peering-service/about.md).
-          
+
