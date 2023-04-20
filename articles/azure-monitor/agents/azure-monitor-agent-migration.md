@@ -80,9 +80,9 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
     1. Check your workbooks, dashboards, and alerts for variances from typical behavior following the migration.   
     
 1. Clean up: After you confirm that Azure Monitor Agent is collecting data properly, you can **either disable or uninstall the legacy Log Analytics agents**.
-    1. If you have need to continue using both agents, [disable data collection with the Log Analytics agent](./agent-data-sources.md#configure-data-sources).
-    1. If you've migrated to Azure Monitor Agent for all your requirements, you can [uninstall the Log Analytics agent](./agent-manage.md#uninstall-agent) from monitored resources. Clean up any configuration files, workspace keys, or certificates that were used previously by the Log Analytics agent. Continue using the legacy Log Analytics for features and solutions that Azure Monitor Agent doesn't support.     
-    1. Don't uninstall the legacy agent if you need to use it to upload data to System Center Operations Manager.
+    - If you have need to continue using both agents, [disable data collection with the Log Analytics agent](./agent-data-sources.md#configure-data-sources).
+    - If you've migrated to Azure Monitor Agent for all your requirements, you can [uninstall the Log Analytics agent](./agent-manage.md#uninstall-agent) from monitored resources. Clean up any configuration files, workspace keys, or certificates that were used previously by the Log Analytics agent. Continue using the legacy Log Analytics for features and solutions that Azure Monitor Agent doesn't support.     
+    - Don't uninstall the legacy agent if you need to use it to upload data to System Center Operations Manager.
 
 <sup>1</sup> The DCR generator only converts the configurations for Windows event logs, Linux syslog and performance counters. Support for additional features and solutions will be available soon  
 <sup>2</sup> You might need to deploy [extensions required for specific solutions](./agents-overview.md#supported-services-and-features) in addition to the Azure Monitor Agent extension.  
