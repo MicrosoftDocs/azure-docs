@@ -36,7 +36,7 @@ GCP_IAM_CL
 
 To integrate with Google Cloud Platform IAM (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **GCP service account**: GCP service account with permissions to read logs is required for GCP Logging API. Also json file with service account key is required. See the documentation to learn more about [required permissions](https://cloud.google.com/iam/docs/audit-logging#audit_log_permissions), [creating service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) and [creating service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 
 

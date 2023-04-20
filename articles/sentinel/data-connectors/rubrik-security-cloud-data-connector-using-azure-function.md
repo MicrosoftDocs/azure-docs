@@ -50,7 +50,7 @@ Rubrik_ThreatHunt_Data_CL
 
 To integrate with Rubrik Security Cloud data connector (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 
 
 ## Vendor installation instructions
