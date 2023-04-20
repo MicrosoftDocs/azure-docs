@@ -134,7 +134,7 @@ To resolve the issue, use the following steps to verify the service status:
 
 This error may occur if a replication policy has not been associated with the configuration server properly. It could also occur if the policy associated with the configuration server isn't valid.
 
-To confirm the cause of this error, navigate to the recovery vault > manage **Site Recovery infrastructure**, then view the replication policies for VMWare and physical machines to check the status of the configured policies.
+To confirm the cause of this error, navigate to the recovery vault > manage **Site Recovery infrastructure**, then view the replication policies for VMware and physical machines to check the status of the configured policies.
 
 To resolve the issue, you can associate the policy with the configuration server in use or create a new replication policy and associate it. If the policy is invalid, you can disassociate and delete it.
 
