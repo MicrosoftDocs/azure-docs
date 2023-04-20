@@ -35,9 +35,13 @@ If you're seeing any of the following issues, this means that the boot loader, w
 To resolve this issue, start the RDAgent boot loader:
 
 1. In the Services window, right-click **Remote Desktop Agent Loader**.
+
 1. Select **Start**. If this option is greyed out for you, you don't have administrator permissions and will need to get them to start the service.
+
 1. Wait 10 seconds, then right-click **Remote Desktop Agent Loader**.
+
 1. Select **Refresh**.
+
 1. If the service stops after you started and refreshed it, you may have a registration failure. For more information, see [INVALID_REGISTRATION_TOKEN](#error-invalid_registration_token).
 
 ## Error: INVALID_REGISTRATION_TOKEN
@@ -47,11 +51,17 @@ On your session host VM, go to **Event Viewer** > **Windows Logs** > **Applicati
 To resolve this issue, create a valid registration token:
 
 1. To create a new registration token, follow the steps in the [Generate a new registration key for the VM](#step-3-generate-a-new-registration-key-for-the-vm) section.
+
 1. Open Registry Editor. 
+
 1. Go to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent**.
+
 1. Select **IsRegistered**. 
+
 1. In the **Value data:** entry box, type **0** and select **Ok**. 
+
 1. Select **RegistrationToken**. 
+
 1. In the **Value data:** entry box, paste the registration token from step 1. 
 
    > [!div class="mx-imgBorder"]
@@ -64,7 +74,9 @@ To resolve this issue, create a valid registration token:
    ```
 
 1. Go back to Registry Editor.
+
 1. Go to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent**.
+
 1. Verify that **IsRegistered** is set to 1 and there is nothing in the data column for **RegistrationToken**. 
 
     > [!div class="mx-imgBorder"]
@@ -77,14 +89,18 @@ On your session host VM, go to **Event Viewer** > **Windows Logs** > **Applicati
 To resolve this issue, check that you can reach the two endpoints referred to as *BrokerURI* and *BrokerURIGlobal*:
 
 1. Open Registry Editor. 
+
 1. Go to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent**. 
+
 1. Make note of the values for **BrokerURI** and **BrokerURIGlobal**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of broker uri and broker uri global](media/broker-uri.png)
 
 1. Open a web browser and enter your value for *BrokerURI* in the address bar and add */api/health* to the end, for example `https://rdbroker-g-us-r0.wvd.microsoft.com/api/health`.
+
 1. Open another tab in the browser and enter your value for *BrokerURIGlobal* in the address bar and add */api/health* to the end, for example `https://rdbroker.wvd.microsoft.com/api/health`.
+
 1. If your network isn't blocking the connection to the broker, both pages will load successfully and will show a message stating  **RD Broker is Healthy**, as shown in the following screenshots:
 
    > [!div class="mx-imgBorder"]
@@ -120,7 +136,9 @@ On your session host VM, go to **Event Viewer** > **Windows Logs** > **Applicati
 On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 with **InstallationHealthCheckFailedException** in the description, this means the stack listener isn't working because the terminal server has toggled the registry key for the stack listener.
 
 To resolve this issue:
+
 1. Check to see if [the stack listener is working](#error-stack-listener-isnt-working-on-a-windows-10-2004-session-host-vm)
+
 1. If the stack listener isn't working, [manually uninstall and reinstall the stack component](#error-session-host-vms-are-stuck-in-upgrading-state).
 
 ## Error: ENDPOINT_NOT_FOUND
@@ -135,10 +153,15 @@ On your session host VM, go to **Event Viewer** > **Windows Logs** > **Applicati
 To resolve this issue:
 
 1. Make sure the VM is powered on and hasn't been removed from the host pool.
+
 1. Make sure that the VM hasn't exceeded the max session limit.
+
 1. Make sure the [agent service is running](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) and the [stack listener is working](#error-stack-listener-isnt-working-on-a-windows-10-2004-session-host-vm).
+
 1. Make sure [the agent can connect to the broker](#error-agent-cannot-connect-to-broker-with-invalid_form).
+
 1. Make sure [your VM has a valid registration token](#error-invalid_registration_token).
+
 1. Make sure [the VM registration token hasn't expired](./faq.yml). 
 
 ## Error: InstallMsiException
@@ -148,7 +171,8 @@ On your session host VM, go to **Event Viewer** > **Windows Logs** > **Applicati
 To check whether group policy is blocking `msiexec.exe` from running:   
 
 1. Open Resultant Set of Policy by running **rsop.msc** from an elevated command prompt.
-1. In the **Resultant Set of Policy** window that pops up, go to **Computer Configuration > Administrative Templates > Windows Components > Windows Installer > Turn off Windows Installer**. If the state is **Enabled**, work with your Active Directory team to allow `msiexec.exe` to run.
+
+1. In the **Resultant Set of Policy** window that pops up, go to **Computer Configuration > Administrative Templates** > **Windows Components** > **Windows Installer** > **Turn off Windows Installer**. If the state is **Enabled**, work with your Active Directory team to allow `msiexec.exe` to run.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of Windows Installer policy in Resultant Set of Policy](media/gpo-policy.png)
@@ -161,6 +185,7 @@ To check whether group policy is blocking `msiexec.exe` from running:
 On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 with **InstallMsiException** in the description, a policy is blocking `cmd.exe` from launching. Blocking this program prevents you from running the console window, which is what you need to use to restart the service whenever the agent updates.
 
 1. Open Resultant Set of Policy by running **rsop.msc** from an elevated command prompt.
+
 1. In the **Resultant Set of Policy** window that pops up, go to **User Configuration > Administrative Templates > System > Prevent access to the command prompt**. If the state is **Enabled**, work with your Active Directory team to allow `cmd.exe` to run.
 
 ## Error: Stack listener isn't working on a Windows 10 2004 session host VM
@@ -170,15 +195,18 @@ On your session host VM, from a command prompt run `qwinsta.exe` and make note o
 To resolve this issue:
 
 1. Open the Registry Editor.
+
 1. Go to **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations**.
+
 1. Under **WinStations** you may see several folders for different stack versions, select a folder that matches the version information you saw when running `qwinsta.exe` in a command prompt.
-    1. Find **fReverseConnectMode** and make sure its data value is **1**. Also make sure that **fEnableWinStation** is set to **1**.
+    - Find **fReverseConnectMode** and make sure its data value is **1**. Also make sure that **fEnableWinStation** is set to **1**.
 
        > [!div class="mx-imgBorder"]
        > ![Screenshot of fReverseConnectMode](media/fenable-2.png)
 
-    1. If **fReverseConnectMode** isn't set to **1**, select **fReverseConnectMode** and enter **1** in its value field. 
-    1. If **fEnableWinStation** isn't set to **1**, select **fEnableWinStation** and enter **1** into its value field.
+    - If **fReverseConnectMode** isn't set to **1**, select **fReverseConnectMode** and enter **1** in its value field. 
+    - If **fEnableWinStation** isn't set to **1**, select **fEnableWinStation** and enter **1** into its value field.
+
 1. Repeat the previous steps for each folder that matches the version information you saw when running `qwinsta.exe` in a command prompt. 
 
    > [!TIP]
@@ -188,9 +216,13 @@ To resolve this issue:
    > - Create a group policy object (GPO) that sets the registry key value for the machines that need the change.
 
 1. Restart your session host VM.
+
 1. Open the Registry Editor.
+
 1. Go to **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings**.
+
 1. Under **ClusterSettings**, find **SessionDirectoryListener** and make sure its data value is `rdp-sxs<version number`, where `<version number` matches the version information you saw when running `qwinsta.exe` in a command prompt .
+
 1. If **SessionDirectoryListener** isn't set to `rdp-sxs<version number`, you'll need to follow the steps in the section [Your issue isn't listed here or wasn't resolved](#your-issue-isnt-listed-here-or-wasnt-resolved) below.
 
 ## Error: DownloadMsiException
@@ -198,6 +230,7 @@ To resolve this issue:
 On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 with **DownloadMsiException** in the description, there isn't enough space on the disk for the RDAgent.
 
 To resolve this issue, make space on your disk by:
+   
    - Deleting files that are no longer in user.
    - Increasing the storage capacity of your session host VM.
 
@@ -212,6 +245,7 @@ If the status listed for session hosts in your host pool always says **Unavailab
 To resolve this issue, first reinstall the side-by-side stack:
 
 1. Sign in to your session host VM as an administrator.
+
 1. From an elevated PowerShell prompt run `qwinsta.exe` and make note of the version number that appears next to **rdp-sxs** in the *SESSIONNAME* column. If the *STATE* column for **rdp-tcp** and **rdp-sxs** entries isn't **Listen**, or if **rdp-tcp** and **rdp-sxs** entries aren't listed at all, it means that there's a stack issue.
 
 1. Run the following command to stop the RDAgentBootLoader service:
@@ -221,7 +255,9 @@ To resolve this issue, first reinstall the side-by-side stack:
    ```
 
 1. Go to **Control Panel** > **Programs** > **Programs and Features**, or on Windows 11 go to the **Settings App > Apps**.
+
 1. Uninstall the latest version of the **Remote Desktop Services SxS Network Stack** or the version listed in Registry Editor in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations** under the value for  **ReverseConnectionListener**.
+
 1. Back at the PowerShell prompt, run the following commands to add the file path of the latest installer available on your session host VM for the side-by-side stack to a variable and list its name:
 
    ```powershell
@@ -236,6 +272,7 @@ To resolve this issue, first reinstall the side-by-side stack:
    ```
 
 1. Restart your session host VM.
+
 1. From a command prompt run `qwinsta.exe` again and verify the *STATE* column for **rdp-tcp** and **rdp-sxs** entries is **Listen**. If not, you will need to [re-register your VM and reinstall the agent](#your-issue-isnt-listed-here-or-wasnt-resolved) component.
 
 ## Error: Session host VMs are stuck in Unavailable state
@@ -277,6 +314,7 @@ netsh winhttp set proxy proxy-server="http=<customerwebproxyhere>" bypass-list="
 Your session host VMs may be at their connection limit and can't accept new connections.
 
 To resolve this issue, either:
+
 - Decrease the max session limit. This ensures that resources are more evenly distributed across session hosts and will prevent resource depletion.
 - Increase the resource capacity of the session host VMs.
 
@@ -291,10 +329,15 @@ To resolve this issue, [create session host VMs](expand-existing-host-pool.md) u
 The name of your session host VM has already been registered and is probably a duplicate.
 
 To resolve this issue:
+
 1. Follow the steps in the [Remove the session host from the host pool](#step-2-remove-the-session-host-from-the-host-pool) section.
+
 1. [Create another VM](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Make sure to choose a unique name for this VM.
+
 1. Go to the [Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
+
 1. Open the **Session Hosts** tab and check to make sure all session hosts are in that host pool.
+
 1. Wait for 5-10 minutes for the session host status to say **Available**.
 
    > [!div class="mx-imgBorder"]
@@ -303,9 +346,13 @@ To resolve this issue:
 ## Your issue isn't listed here or wasn't resolved
 
 If you can't find your issue in this article or the instructions didn't help you, we recommend you uninstall, reinstall, and re-register the Azure Virtual Desktop Agent. The instructions in this section will show you how to reregister your session host VM to the Azure Virtual Desktop service by:
-1. Uninstalling all agent, boot loader, and stack components
-1. Removing the session host from the host pool
-1. Generating a new registration key for the VM
+
+1. Uninstalling all agent, boot loader, and stack components.
+
+1. Removing the session host from the host pool.
+
+1. Generating a new registration key for the VM.
+
 1. Reinstalling the Azure Virtual Desktop Agent and boot loader.
 
 Follow these instructions in this section if one or more of the following scenarios apply to you:
@@ -322,9 +369,12 @@ Follow these instructions in this section if one or more of the following scenar
 ### Step 1: Uninstall all agent, boot loader, and stack component programs
 
 Before reinstalling the agent, boot loader, and stack, you must uninstall any existing components from your VM. To uninstall all agent, boot loader, and stack component programs:
+
 1. Sign in to your session host VM as an administrator.
-2. Go to **Control Panel** > **Programs** > **Programs and Features**, or on Windows 11 go to the **Settings App > Apps**.
-3. Uninstall the following programs, then restart your session host VM:
+
+1. Go to **Control Panel** > **Programs** > **Programs and Features**, or on Windows 11 go to the **Settings App > Apps**.
+
+1. Uninstall the following programs, then restart your session host VM:
 
    > [!CAUTION]
    > When uninstalling **Remote Desktop Services SxS Network Stack**, you'll be prompted that *Remote Desktop Services* and *Remote Desktop Services UserMode Port Redirector* should be closed. If you're connected to the session host VM using RDP, select **Do not close applications** then select **OK**, otherwise your RDP connection will be closed.
@@ -348,10 +398,15 @@ Before reinstalling the agent, boot loader, and stack, you must uninstall any ex
 When you remove the session host from the host pool, the session host is no longer registered to that host pool. This acts as a reset for the session host registration. To remove the session host from the host pool:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+
 1. Select **Host pools** and select the name of the host pool that your session host VM is in.
+
 1. Select **Session Hosts** to see the list of all session hosts in that host pool.
+
 1. Look at the list of session hosts and tick the box next to the session host that you want to remove.
+
 1. Select **Remove**.  
 
    > [!div class="mx-imgBorder"]
@@ -360,15 +415,20 @@ When you remove the session host from the host pool, the session host is no long
 ### Step 3: Generate a new registration key for the VM
 
 You must generate a new registration key that is used to re-register your session VM to the host pool and to the service. To generate a new registration key for the VM:
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+
 1. Select **Host pools** and select the name of the host pool that your session host VM is in.
+
 1. On the **Overview** blade, select **Registration key**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of registration key in portal](media/reg-key.png)
 
 1. Open the **Registration key** tab and select **Generate new key**.
+
 1. Enter the expiration date and then select **Ok**.  
 
   > [!NOTE]
@@ -395,11 +455,17 @@ By reinstalling the most updated version of the agent and boot loader, the side-
    > ![Screenshot of pasted registration token](media/pasted-agent-token.png)
 
 1. Run the boot loader installer.
+
 1. Restart your session VM. 
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. In the search bar, enter **Azure Virtual Desktop** and select the matching service entry.
+
 1. Select **Host pools** and select the name of the host pool that your session host VM is in.
+
 1. Select **Session Hosts** to see the list of all session hosts in that host pool.
+
 1. You should now see the session host registered in the host pool with the status **Available**. 
 
    > [!div class="mx-imgBorder"]
@@ -418,9 +484,13 @@ This registry key prevents the agent from installing the side-by-side stack, whi
 To resolve this issue, you'll need to remove the key:
 
 1. Remove the DisableRegistryTools key from the three previously listed locations.
+
 1. Uninstall and remove the affected side-by-side stack installation from the **Apps & Features** folder.
+
 1. Remove the affected side-by-side stack's registry keys.
+
 1. Restart your VM.
+
 1. Start the agent and let it auto-install the side-by-side stack.
 
 ## Next steps
