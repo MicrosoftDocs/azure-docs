@@ -136,7 +136,7 @@
     - name: Summary
       href: azcmagent.md
     - name: azcmagent check
-      href: acmagent-check.md
+      href: azcmagent-check.md
     - name: azcmagent config
       href: azcmagent-config.md
     - name: azcmagent connect

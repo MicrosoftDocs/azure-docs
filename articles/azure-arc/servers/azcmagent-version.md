@@ -2,6 +2,7 @@
 title: azcmagent version CLI reference
 description: Syntax for the azcmagent version command line tool
 author: rpsqrd
+ms.topic: reference
 ms.author: ryanpu
 ms.date: 04/20/2023
 ---

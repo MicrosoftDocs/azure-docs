@@ -1,8 +1,7 @@
 ---
 title: azcmagent CLI reference
-description: 
-author: rpsqrd
-ms.author: ryanpu
+description: Reference documentation for the Azure Connected Machine agent command line tool
+ms.topic: reference
 ms.date: 04/20/2023
 ---
 

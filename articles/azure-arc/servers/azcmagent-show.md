@@ -2,6 +2,7 @@
 title: azcmagent show CLI reference
 description: Syntax for the azcmagent show command line tool
 author: rpsqrd
+ms.topic: reference
 ms.author: ryanpu
 ms.date: 04/20/2023
 ---
