@@ -16,13 +16,13 @@ ms.reviewer: celested
 
 # Entra Identity Governance integrations
 
-LoreIpsum ... TGA is great
+LoreIpsum ... IGA is great
 
-## Quick links
+## HR Systems
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :--- | :--- | :--- |
-| ![logo-Atlassian Cloud](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian Cloud - User Provisioning](atlassian-cloud-provisioning-tutorial.md)|
+| | [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian Cloud - User Provisioning](atlassian-cloud-provisioning-tutorial.md)|
 | ![logo-ServiceNow](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - User Provisioning](servicenow-provisioning-tutorial.md)|
 | ![logo-Slack](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - User Provisioning](slack-provisioning-tutorial.md)|
 | ![logo-SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors - User Provisioning](./sap-successfactors-inbound-provisioning-tutorial.md) |
@@ -30,7 +30,13 @@ LoreIpsum ... TGA is great
 
 To find more tutorials, use the table of contents on the left.
 
-## Cloud Integrations
+## On-prem applications
+| Logo | Connector | Application tutorial for user provisioning |
+| :--- | :--- | :--- |
+|| [LDAP](amazon-web-service-tutorial.md)| OpenLDAP<br>Microsoft Active Directory Lightweight Directory Services<br>389 Directory Server<br>Apache Directory Server<br>IBM Tivoli DS<br>Isode Directory<br>NetIQ eDirectory<br>Novell eDirectory<br>Open DJ<br>Open DS<br>Oracle (previously Sun ONE) Directory Server Enterprise Edition<br>RadiantOne Virtual Directory Server (VDS) |
+| | SQL| Microsoft SQL Server and Azure SQL<br>IBM DB2 10.x<br>IBM DB2 9.x<br>Oracle 10g and 11g<br>Oracle 12c and 18c<br>MySQL 5.x|
+
+## Cloud platforms
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
 | :--- | :--- | :--- |
