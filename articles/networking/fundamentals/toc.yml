@@ -56,7 +56,12 @@
     - name: Route network traffic
       href: ../../virtual-network/virtual-networks-udr-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Connect virtual networks
-      href: ../../virtual-network/virtual-network-peering-overview.md?toc=/azure/networking/fundamentals/toc.json
+      items:
+      - name: Virtual network peering
+        href: ../../virtual-network/virtual-network-peering-overview.md?toc=/azure/networking/fundamentals/toc.json
+      - name: Virtual network manager
+        href: ../../virtual-network-manager/overview.md?toc=/azure/networking/fundamentals/toc.json
+
     - name: Private access to resources 
       href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Connect on-premises to Azure - VPN encryption       
