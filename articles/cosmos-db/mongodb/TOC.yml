@@ -415,6 +415,8 @@
                   href: ../free-tier.md
                 - name: Premigration guide
                   href: pre-migration-steps.md
+                - name: Programmatic Database Migration Assistant (legacy)
+                  href: programmatic-database-migration-assistant-legacy.md
                 - name: MongoDB native tools (offline)
                   href: tutorial-mongotools-cosmos-db.md
                 - name: Database Migration Service (online)
