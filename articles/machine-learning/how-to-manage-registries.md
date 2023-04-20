@@ -260,7 +260,6 @@ Permission | Description
 Microsoft.MachineLearningServices/registries/write| Allows the user to create or update registries
 Microsoft.MachineLearningServices/registries/delete | Allows the user to delete registries
 
----
 
 ## Next steps
 
