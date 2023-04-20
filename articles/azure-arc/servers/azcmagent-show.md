@@ -7,7 +7,7 @@ ms.date: 04/20/2023
 
 # azcmagent show
 
-Displays the current state of the Azure Connected Machine agent, including whether or not it is connected to Azure, the Azure resource information, and the status of dependent services.
+Displays the current state of the Azure Connected Machine agent, including whether or not it's connected to Azure, the Azure resource information, and the status of dependent services.
 
 ## Usage
 

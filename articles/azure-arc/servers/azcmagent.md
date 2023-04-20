@@ -34,12 +34,12 @@ The azcmagent CLI is bundled with the Azure Connected Machine agent. Review your
 
 ### Where is the CLI installed?
 
-On Windows operating systems, the CLI is installed at `%PROGRAMFILES%\AzureConnectedMachineAgent\azcmagent.exe`. This path is automatically added to the system PATH variable during the installation process. You may need to close and re-open your console to refresh the PATH variable and be able to run `azcmagent` without specifying the full path.
+On Windows operating systems, the CLI is installed at `%PROGRAMFILES%\AzureConnectedMachineAgent\azcmagent.exe`. This path is automatically added to the system PATH variable during the installation process. You may need to close and reopen your console to refresh the PATH variable and be able to run `azcmagent` without specifying the full path.
 
 On Linux operating systems, the CLI is installed at `/opt/azcmagent/bin/azcmagent`
 
 ### What's the difference between the azcmagent CLI and the Azure CLI for Azure Arc-enabled servers?
 
-The azcmagent CLI is used to configure the local agent. It's responsible for connecting the agent to Azure, disconnecting it, and configuring local settings like proxy URLs and security features. You likely won't need to interact with the azcmagent CLI once the agent is connected to Azure, unless you need to collect logs or change security settings.
+The azcmagent CLI is used to configure the local agent. It's responsible for connecting the agent to Azure, disconnecting it, and configuring local settings like proxy URLs and security features.
 
-The Azure CLI and other management experiences are used to interact with the Azure Arc resource in Azure once the agent is connected. You'll use these tools to manage extensions, move the resource to another subscription or resource group, and change certain settings of the Arc server remotely.
+The Azure CLI and other management experiences are used to interact with the Azure Arc resource in Azure once the agent is connected. These tools help you manage extensions, move the resource to another subscription or resource group, and change certain settings of the Arc server remotely.
