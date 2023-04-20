@@ -49,7 +49,7 @@ When you plan a migration, we recommend that whenever possible you plan at the p
 
 ## Pre-migration assessment
 
-The first pre-migration step, as a prelude to planning your migration, assess the readiness of resources in your data estate for migration.
+The first pre-migration step is to discover your resources and assess the readiness of resources in your data estate for migration.
 
 Assessment involves finding out whether you're using the [features and syntax that are supported](./feature-support-42.md). It also includes making sure you're adhering to the [limits and quotas](../concepts-limits.md#per-account-limits). The aim of this stage is to create a list of incompatibilities and warnings, if any. After you have the assessment results, you can try to address the findings during rest of the migration planning.
 
@@ -59,9 +59,6 @@ There are 3 ways to complete the pre-migration steps, we recommend you to use th
 
 The [Azure Cosmos DB Migration for MongoDB extension](/sql/azure-data-studio/extensions/database-migration-for-mongo-extension) in Azure Data Studio helps you assess a MongoDB workload for migrating to Azure Cosmos DB for MongoDB. You can use this extension to run an end-to-end assessment on your workload and find out the actions that you may need to take to seamlessly migrate your workloads on Azure Cosmos DB. During  the assessment of a MongoDB endpoint, the extension reports all the discovered resources.
 
-The Azure Cosmos DB Migration for MongoDB extension tool does both the pre-migration steps.
-* [Pre-migration discovery](#pre-migration-discovery)
-* [Pre-migration assessment](#pre-migration-assessment)
 
 > [!NOTE]
 > Azure Cosmos DB Migration for MongoDB extension does not perform an end-to-end assessment. We recommend you to go through [the supported features and syntax](./feature-support-42.md), [Azure Cosmos DB limits and quotas](../concepts-limits.md#per-account-limits) in detail, as well as perform a proof-of-concept prior to the actual migration.
@@ -86,7 +83,7 @@ Here are some tools you can use for discovering resources:
 > [!NOTE]
 > Database Migration Assistant is a legacy utility meant to assist you with the pre-migration steps. We recommend you to use the [Azure Cosmos DB Migration for MongoDB extension](#azure-cosmos-db-migration-for-mongodb-extension) for all pre-migration steps.
 
-You may use the [Database Migration Assistant](programmatic-database-migration-assistant-legacy.md) (DMA) utility to assist you with the discovery stage and create the data estate migration sheet programmatically.
+You may use the [Database Migration Assistant](programmatic-database-migration-assistant-legacy.md) (DMA) utility to assist you with pre-migration steps.
 
 ## Pre-migration mapping
 
