@@ -17,7 +17,7 @@ A template containing all options can be found in the *config.toml.edge.template
 
 ## Global parameters
 
-The `hostname`, `parent_hostname`, `trust_bundle_cert`, `allow_elevated_docker_permissions`, and `auto_reprovisioning_mode` parameters must be at the beginning of the configuration file before any other sections. Adding parameters before a collection of settings ensures they're applied correctly. For more information on valid syntax, see [toml.io ](https://toml.io/).
+The **hostname**, **parent_hostname**, **trust_bundle_cert**, **allow_elevated_docker_permissions**, and **auto_reprovisioning_mode** parameters must be at the beginning of the configuration file before any other sections. Adding parameters before a collection of settings ensures they're applied correctly. For more information on valid syntax, see [toml.io ](https://toml.io/).
 
 ### Hostname
 
@@ -64,9 +64,9 @@ If no modules require privileged or extra capabilities, use **allow_elevated_doc
 allow_elevated_docker_permissions = false
 ```
 
-### Optional auto reprovisioning mode
+### Auto reprovisioning mode
 
-The **auto_reprovisioning_mode** parameter specifies the conditions that decide when a device attempts to automatically reprovision with Device Provisioning Service. Auto provisioning mode is ignored if the device has been provisioned manually. For more information about setting DPS provisioning mode, see the [Provisioning](#provisioning) section in this article for more information.
+The optional **auto_reprovisioning_mode** parameter specifies the conditions that decide when a device attempts to automatically reprovision with Device Provisioning Service. Auto provisioning mode is ignored if the device has been provisioned manually. For more information about setting DPS provisioning mode, see the [Provisioning](#provisioning) section in this article for more information.
 
 One of the following values can be set:
 
