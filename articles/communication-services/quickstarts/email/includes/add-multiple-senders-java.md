@@ -14,9 +14,9 @@ ms.custom: mode-other
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- An Azure Email Communication Services Resource created and ready to provision the domains [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md)
-- An [Azure Managed Domain](../../quickstarts/email/add-azure-managed-domains.md) or [Custom Domain](../../quickstarts/email/add-custom-verified-domains.md) provisioned and ready.
-- We will be using a [service principal for authentication](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Set the values of the client ID, tenant ID and client secret of the AAD application as environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
+- An Azure Email Communication Services Resource created and ready to provision the domains [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
+- An [Azure Managed Domain](../add-azure-managed-domains.md) or [Custom Domain](../add-custom-verified-domains.md) provisioned and ready.
+- We will be using a [service principal for authentication](../../../../active-directory/develop/howto-create-service-principal-portal.md). Set the values of the client ID, tenant ID and client secret of the AAD application as environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
 
 ## Install the required packages
 
@@ -45,7 +45,14 @@ CommunicationManager manager = CommunicationManager
 
 ## Add sender usernames
 
-Update the code sample below with the resource group name, the email service name, and the domain name that you would like to add this username to. To add multiple sender usernames, you will need to repeat this code sample multiple times.
+When Email Domain is provisioned to send mail, it has default MailFrom address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net or 
+if you have configured custom domain such as "notification.azuremails.net" then the default MailFrom address as "donotreply@notification.azurecommtest.net" added. You can configure and add additional MailFrom addresses and FROM display name to more user friendly value.
+
+The username you are configuring is the user alias that will be used in your MailFrom address. For example, contosoNewsAlerts@notification.azurecommtest.net would be the new MailFrom address.
+
+Update the code sample below with the resource group name, the email service name, and the domain name that you would like to add this username to. This information can be found in portal by navigating to the domains resource you created when setting up the prerequisites. The title of the resource will be `<your-email-service-name>/<your-domain-name>`. The resource group name can be found in the Essentials sections in the domain resource Overview blade.
+
+To add multiple sender usernames, you will need to repeat this code sample multiple times.
 
 ```java
 String resourceGroupName = "<your-resource-group-name>";
