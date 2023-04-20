@@ -200,7 +200,7 @@ Learn more about [Subscription - MySQLReservedCapacity (Consider Database for My
 
 ### Consider Database for PostgreSQL reserved instance to save over your pay-as-you-go costs
 
-We analyzed your Database for PostgreSQL usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase PostgresSQL Database hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyzed your Database for PostgreSQL usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase PostgreSQL Database hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
 Learn more about [Subscription - PostgreSQLReservedCapacity (Consider Database for PostgreSQL reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
