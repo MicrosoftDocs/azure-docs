@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: msmbaldwin
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: mbaldwin
 ms.date: 11/14/2022
 ---

@@ -19,8 +19,6 @@ ms.collection: M365-identity-device-management
 ---
 # How to enable Microsoft Authenticator Lite for Outlook mobile (preview)
 
->[!NOTE]
->Rollout has not yet completed across Outlook applications. If this feature is enabled in your tenant, your users may not yet be prompted for the experience. To minimize user disruption, we recommend enabling this feature when the rollout completes.
 
 Microsoft Authenticator Lite is another surface for Azure Active Directory (Azure AD) users to complete multifactor authentication by using push notifications or time-based one-time passcodes (TOTP) on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in [Outlook mobile](https://www.microsoft.com/microsoft-365/outlook-mobile-for-android-and-ios). 
 
@@ -38,8 +36,8 @@ Users receive a notification in Outlook mobile to approve or deny sign-in, or th
 
   | Operating system | Outlook version |
   |:----------------:|:---------------:|
-  |Android           | 4.2309.1        |
-  |iOS               | 4.2309.0        |
+  |Android           | 4.2310.1        |
+  |iOS               | 4.2312.1        |
 
 ## Enable Authenticator Lite
 
@@ -52,7 +50,8 @@ By default, Authenticator Lite is [Microsoft managed](concept-authentication-def
 
 To enable Authenticator Lite in the Azure portal, complete the following steps:
 
-  1. In the Azure portal, click Security > Authentication methods > Microsoft Authenticator.
+  1. In the Azure portal, click Azure Active Directory > Security > Authentication methods > Microsoft Authenticator.
+     In the Entra admin center, on the sidebar select Azure Active Directory > Protect & Secure > Authentication methods > Microsoft Authenticator.
 
   2. On the Enable and Target tab, click Yes and All users to enable the policy for everyone or add selected users and groups. Set the Authentication mode for these users/groups to Any or Push.
 

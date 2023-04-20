@@ -65,12 +65,12 @@ HTTP ingress adds headers to pass metadata about the client request to your cont
 | `X-Forwarded-For` | The IP address of the client that sent the request. |  |
 | `X-Forwarded-Host` | The host name the client used to connect with the Container Apps service. |  |
 
-### <a name="tcp"></a>TCP (preview) 
+### <a name="tcp"></a>TCP
 
 Container Apps supports TCP-based protocols other than HTTP or HTTPS. For example, you can use TCP ingress to expose a container app that uses the [Redis protocol](https://redis.io/topics/protocol).
 
 > [!NOTE]
-> TCP ingress is in public preview and is only supported in Container Apps environments that use a [custom VNET](vnet-custom.md).
+> External TCP ingress is only supported for Container Apps environments that use a [custom VNET](vnet-custom.md).
 
 With TCP ingress enabled, your container app:
 

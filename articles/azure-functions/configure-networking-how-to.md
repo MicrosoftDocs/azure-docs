@@ -12,7 +12,7 @@ This article shows you how to perform tasks related to configuring your function
 
 ## Restrict your storage account to a virtual network 
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can secure a new storage account behind a virtual network during account creation. At this time, you can't secure an existing storage account being used by your function app in the same way. 
+When you create a function app, you must either create a new storage account or link to an existing storage account. The storage account linked to your app must be a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. During function app creation, you can secure a new storage account behind a virtual network and integrate the function app with this network. At this time, you can't secure an existing storage account being used by your function app in the same way. 
 
 > [!NOTE]  
 > Securing your storage account is supported for all tiers in both Dedicated (App Service) and Elastic Premium plans. Consumption plans currently don't support virtual networks.
@@ -33,7 +33,7 @@ Use Bicep or Azure Resource Manager (ARM) [quickstart templates](https://github.
 
 ### Existing function app
 
-When you have an existing function app, you can't secure the storage account currently being used by the app. You must instead swap-out the existing storage account for a new, secured storage account. 
+When you have an existing function app, you can't directly secure the storage account currently being used by the app. You must instead swap-out the existing storage account for a new, secured storage account. 
 
 To secure the storage for an existing function app: 
 
