@@ -38,7 +38,7 @@ In this step, you'll create the Mobile Network resource representing your privat
 
 1. Use the information you collected in [Collect private mobile network resource values](collect-required-information-for-private-mobile-network.md#collect-mobile-network-resource-values) to fill out the fields on the **Basics** configuration tab. Once you've done this, select **Next : SIMs >**.
     > [!CAUTION]
-    > You must use the **Mobile Country Code (MCC)** and **Mobile Network Code (MNC)** for your packet core. Once configured, MCC and MNC values cannot be changed. If you configure MCC or MNC values incorrectly, you must redeploy the mobile network to change them.
+    > If you configure **Mobile Country Code (MCC)** or **Mobile Network Code (MNC)** values incorrectly, you must redeploy the mobile network to change them.
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-private-mobile-network-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab.":::
 
