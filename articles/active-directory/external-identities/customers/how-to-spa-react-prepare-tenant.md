@@ -41,7 +41,7 @@ If you haven't already created your own Microsoft Entra for Customers Tenant, [c
 [!INCLUDE [register-client-app-common](./includes/register-app/register-client-app-common.md)]
 
 ## Create a sign-in and sign-up user flow
-[!INCLUDE [register-client-app-common](./includes/configure/create-sign-in-sign-out-user-flow.md)]
+[!INCLUDE [register-client-app-common](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)]
 
 ## Associate the application with your user flow
 [!INCLUDE [add-app-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
