@@ -27,7 +27,7 @@ Web APIs may contain sensitive information that requires user authentication and
 
 ## Protecting a web API
 
-The following are the general steps you'll follow through in order to protect your web API.
+The following are the steps you'll complete to protect your web API:
 
 1. [Register your web API]() in the Microsoft Entra admin center.
 1. [Configure your web API](how-to-protect-web-api-dotnet-core-prepare-api.md).
