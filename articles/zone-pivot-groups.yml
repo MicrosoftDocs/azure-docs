@@ -1309,6 +1309,12 @@ groups:
     title: Web
   - id: platform-mobile
     title: Mobile
+- id: acs-plat-web
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
 - id: acs-plat-web-ios-android-windows
   title: Platform
   prompt: Choose a platform
