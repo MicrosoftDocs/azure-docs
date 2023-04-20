@@ -31,13 +31,13 @@ The data in Azure Log Analytics offer insights into issues by searching using Ku
 
 **New SKU availability - AV36P and AV52 nodes**
 
-The AV36P is now available in the West US Region.  This node size is used for memory and storage workloads by offering increased Memory and NVME based SSDs.  
+The AV36P is now available in the West US Region. This node size is used for memory and storage workloads by offering increased Memory and NVME based SSDs.  
 
 AV52 is now available in the East US 2 Region. This node size is used for intensive workloads with higher physical core count, additional memory, and larger capacity NVME based SSDs.
 
 **Customer-managed keys using Azure Key Vault**
 
-You can use customer-managed keys to bring and manage your master encryption keys to encrypt van. Azure Key Vault allows you to store your privately managed keys securely to access your Azure VMware Solution data.
+You can use customer-managed keys to bring and manage your master encryption keys to encrypt vSAN. Azure Key Vault allows you to store your privately managed keys securely to access your Azure VMware Solution data.
 
 **Azure NetApp Files - more storage options available**    
 
