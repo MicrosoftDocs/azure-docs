@@ -509,7 +509,7 @@ For a Consumption workflow that runs in multi-tenant Azure Logic Apps, you can e
 
 1. Add or edit an SAP managed connector operation.
 
-1. In the SAP connection information box, enter the following [required information](/connectors/sap/#default-connection).
+1. In the SAP connection information box, provide the following [required information](/connectors/sap/#default-connection). The **Authentication Type** that you select changes the available options.
 
    ![Screenshot showing SAP connection settings for Consumption.](media\logic-apps-using-sap-connector\sap-connection-consumption.png)
 
@@ -518,7 +518,7 @@ For a Consumption workflow that runs in multi-tenant Azure Logic Apps, you can e
    > The **SAP Username** and **SAP Password** fields are optional. If you don't provide a username 
    > and password, the connector uses the client certificate provided in a later step for authentication.
 
-1. To enable SNC, in the SAP connection information box, provide the following values:
+1. To enable SNC, in the SAP connection information box, provide the following required information instead:
 
    ![Screenshot showing SAP connection settings for SNC enabled for Consumption.](./media/logic-apps-using-sap-connector/sap-connection-snc-consumption.png)
 
@@ -543,13 +543,11 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
 1. Add or edit an SAP *built-in* connector operation.
 
-1. In the SAP connection information box, provide the following [required information](/azure/logic-apps/connectors/built-in/reference/sap/#authentication).
+1. In the SAP connection information box, provide the following [required information](/azure/logic-apps/connectors/built-in/reference/sap/#authentication). The **Authentication Type** that you select changes the available options.
 
-   For example, to use basic authentication with a username and password, for **Authentication Type**, select **Basic**. Continue providing the connection information for this authentication type.
+   ![Screenshot showing SAP built-in connection settings for Standard workflow with Basic authentication.](media\logic-apps-using-sap-connector\sap-connection-standard.png)
 
-   ![Screenshot showing SAP built-in connection settings for Standard workflow with Basic authentication.](media\logic-apps-using-sap-connector\sap-connection-basic-standard.png)
-
-1. To enable SNC, provide the following [required information instead](/azure/logic-apps/connectors/built-in/reference/sap/#authentication).
+1. To enable SNC, in the SAP connection information box, provide the [required information instead](/azure/logic-apps/connectors/built-in/reference/sap/#authentication).
 
    ![Screenshot showing SAP built-in connection settings for Standard workflow with SNC enabled.](media\logic-apps-using-sap-connector\sap-connection-snc-standard.png)
 
@@ -572,7 +570,7 @@ For a Consumption workflow that runs in an ISE, you can enable SNC for authentic
 
 1. Add or edit an *ISE-versioned* SAP connector operation. Make sure that the SAP connector operation displays the **ISE** label.
 
-1. In the SAP connection information box, enter the following [required information](/connectors/sap/#default-connection).
+1. In the SAP connection information box, provide the following [required information](/connectors/sap/#default-connection). The **Authentication Type** that you select changes the available options.
 
    ![Screenshot showing SAP connection settings for ISE.](media\logic-apps-using-sap-connector\sap-connection-ise.png)
 
@@ -581,7 +579,7 @@ For a Consumption workflow that runs in an ISE, you can enable SNC for authentic
    > The **SAP Username** and **SAP Password** fields are optional. If you don't provide a username 
    > and password, the connector uses the client certificate provided in a later step for authentication.
 
-1. To enable SNC, in the SAP connection information box, provide the following values:
+1. To enable SNC, in the SAP connection information box, provide the following required information instead:
 
    ![Screenshot showing SAP connection settings with SNC enabled for ISE.](./media\logic-apps-using-sap-connector\sap-connection-snc-ise.png)
 
@@ -618,19 +616,19 @@ In Consumption workflows, the **SAP Application Server** and **SAP Message Serve
 
 ## Receive message from SAP
 
-This example uses a logic app workflow that triggers when the app receives a message from an SAP system.
+The following example shows a logic app workflow that triggers when the workflow's SAP trigger receives a message from an SAP system.
+
+<a name="add-sap-trigger"></a>
 
 ### Add an SAP trigger
 
-1. In the Azure portal, create a blank logic app, which opens the workflow designer.
+### [Multi-tenant](#tab/multi-tenant)
 
-1. In the search box, enter `when message received sap` as your filter. From the **Triggers** list, select **When a message is received from SAP**.
+1. In the [Azure portal](https://portal.azure.com), create a Consumption logic app and blank workflow, which opens in the designer.
 
-   ![Screenshot that shows adding an SAP trigger.](./media/logic-apps-using-sap-connector/add-sap-trigger-logic-app.png)
+1. In the designer, under the search box, select **Enterprise**. In the search box, enter **when message received sap**. From the triggers list, select the SAP trigger named **When a message is received from SAP**.
 
-   Or, you can select the **Enterprise** tab, and then select the trigger:
-
-   ![Screenshot that shows adding an SAP trigger from the Enterprise tab.](./media/logic-apps-using-sap-connector/add-sap-trigger-ent-tab.png)
+   ![Screenshot showing Consumption workflow designer and selected SAP trigger.](./media/logic-apps-using-sap-connector/add-sap-trigger-consumption.png)
 
 1. If your connection already exists, continue with the next step so you can set up your SAP trigger. However, if you're prompted for connection details, provide the information so that you can create a connection to your on-premises SAP server now.
 
@@ -734,7 +732,7 @@ You can set up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819
 
 Here's an example that shows how to extract individual IDocs from a packet by using the [`xpath()` function](./workflow-definition-language-functions-reference.md#xpath):
 
-1. Before you start, you need a logic app workflow with an SAP trigger. If you don't already have this trigger in your logic app workflow, follow the previous steps in this topic to [set up a logic app workflow with an SAP trigger](#receive-message-from-sap).
+1. Before you start, you need a logic app workflow with an SAP trigger. If you don't already have this trigger in your logic app workflow, follow the previous steps in this topic to [set up a logic app workflow with an SAP trigger](#receive-message-sap).
 
    > [!IMPORTANT]
    > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** 
@@ -752,13 +750,15 @@ Here's an example that shows how to extract individual IDocs from a packet by us
 
    ![Screenshot that shows adding an SAP trigger to logic app workflow.](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
-1. [Add a Response action to your logic app workflow](../connectors/connectors-native-reqres.md#add-a-response-action) to reply immediately with the status of your SAP request. As a best practice, add this action immediately after your trigger to free up the communication channel with your SAP server. Choose one of the following status codes (`statusCode`) to use in your response action:
+1. To immediately reply with the status of your SAP request, [add a Response action to your logic app workflow](../connectors/connectors-native-reqres.md#add-a-response-action).
 
-    * **202 Accepted**, which means the request has been accepted for processing but the processing isn't complete yet.
+   As a best practice, add this action immediately after your trigger to free up the communication channel with your SAP server. In Response action, use one of the following status codes (`statusCode`):
 
-    * **204 No Content**, which means the server has successfully fulfilled the request and there's no additional content to send in the response payload body. 
-
-    * **200 OK**. This status code always contains a payload, even if the server generates a payload body of zero length. 
+   | Status code | Description |
+   |-------------|-------------|
+   | **200 OK** | This status code always contains a payload, even if the server generates a payload body of zero length. |
+   | **202 Accepted** | The request was accepted for processing, but processing isn't complete yet. |
+   | **204 No Content** | The server successfully fulfilled the request, and there's no additional content to send in the response payload body. |
 
 1. Get the root namespace from the XML IDoc that your logic app workflow receives from SAP. To extract this namespace from the XML document, add a step that creates a local string variable and stores that namespace by using an `xpath()` expression:
 
@@ -784,15 +784,11 @@ You can use the quickstart template for this pattern by selecting this template 
 
 ## Send IDoc messages to SAP server
 
-Based on your logic app type, select the corresponding tab:
-
-### [Consumption](#tab/consumption)
-
 To create a logic app workflow that sends an IDoc message to an SAP server and returns a response, follow these examples:
 
 1. [Create a logic app workflow that's triggered by an HTTP request.](#add-request-trigger)
 
-1. [Add an SAP action to your workflow that sends a message to SAP.](#add-sap-action-to-send-message)
+1. [Add an SAP action to your workflow that sends a message to SAP.](#add-sap-action-send-message)
 
 1. [Add a Response action to your workflow.](#add-response-action)
 
@@ -802,7 +798,7 @@ To create a logic app workflow that sends an IDoc message to an SAP server and r
 
 <a name="add-request-trigger"></a>
 
-#### Add the Request trigger
+### Add the Request trigger
 
 To have your workflow receive IDocs from SAP over XML HTTP, you can use the [Request trigger](../connectors/connectors-native-reqres.md). To receive IDocs over Common Programming Interface Communication (CPIC) as plain XML or as a flat file, review the section, [Receive message from SAP](#receive-message-sap).
 
@@ -822,19 +818,23 @@ This section continues with the Request trigger, so first, create a workflow wit
 
    ![Screenshot that shows the workflow designer with the Request trigger with generated POST URL being copied.](./media/logic-apps-using-sap-connector/generate-http-endpoint-url.png)
 
-#### Add an SAP action to send message
+<a name="add-sap-action-send-message"></a>
+
+### Add an SAP action to send message
 
 Next, create an action to send your IDoc message to SAP when your [Request trigger](#add-request-trigger) fires. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
-1. Based on your logic app type, follow the corresponding steps:
+Based on your logic app type, follow the corresponding steps:
 
-   **Consumption** and **ISE**
+#### [Multi-tenant](#tab/multi-tenant)
 
-   In the workflow designer, under the trigger, select **New step**. Under the **Choose an operation** search box, select **Enterprise**. In the search box, enter **send message sap**. From the actions list, select the SAP action named **Send message to SAP**.
+1. In the workflow designer, under the trigger, select **New step**.
+
+1. Under the **Choose an operation** search box, select **Enterprise**. In the search box, enter **send message sap**. From the actions list, select the SAP action named **Send message to SAP**.
 
    ![Screenshot that shows the workflow designer with the selected "Send message to SAP" action under Enterprise tab.](./media/logic-apps-using-sap-connector/sap-send-message-consumption.png)
 
-   If your connection already exists, continue to the next step. Otherwise, provide the following connection information for your on-premises SAP server:
+1. If your connection already exists, continue to the next step. Otherwise, provide the following connection information for your on-premises SAP server:
 
    1. Provide a name for the connection.
 
@@ -1027,6 +1027,8 @@ Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
 </idocData>
 </SendIdoc>
 ```
+
+<a name="add-response-action"></a>
 
 ### Add a Response action
 
