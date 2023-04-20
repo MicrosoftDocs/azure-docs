@@ -131,6 +131,22 @@
       href: troubleshoot-vm-extensions.md
 - name: Reference
   items:
+  - name: azcmagent CLI
+    items:
+    - name: Summary
+      href: azcmagent.md
+    - name: azcmagent check
+      href: acmagent-check.md
+    - name: azcmagent config
+      href: azcmagent-config.md
+    - name: azcmagent connect
+      href: azcmagent-connect.md
+    - name: azcmagent disconnect
+      href: azcmagent-disconnect.md
+    - name: azcmagent logs
+      href: azcmagent-logs.md
+    - name: azcmagent show
+      href: azcmagent-show.md
   - name: Azure CLI
     href: /cli/azure/connectedmachine
   - name: Azure PowerShell
