@@ -47,14 +47,6 @@ All of the above steps are critical for ensuring a successful migration.
 
 When you plan a migration, we recommend that whenever possible you plan at the per-resource level.
 
-## Pre-migration discovery
-
-The first pre-migration step is resource discovery. In this step, you need to create a **data estate migration spreadsheet**.
-
-* This sheet contains a comprehensive list of the existing resources (databases or collections) in your MongoDB data estate.
-* The purpose of this spreadsheet is to enhance your productivity and help you to plan migration from end-to-end.
-* You're recommended to extend this document and use it as a tracking document throughout the migration process.
-
 ## Pre-migration assessment
 
 Second, as a prelude to planning your migration, assess the readiness of resources in your data estate for migration.
@@ -74,8 +66,9 @@ The Azure Cosmos DB Migration for MongoDB extension tool does both the pre-migra
 
 ## Manual discovery
 
-Alternately, you may refer to the sample spreadsheet in this guide and create a similar document yourself.
+The first pre-migration step is resource discovery. In this step, you need to create a **data estate migration spreadsheet**. The purpose of this spreadsheet is to enhance your productivity and help you to plan migration from end-to-end and use it as a tracking document throughout the migration process.
 
+* This sheet contains a comprehensive list of the existing resources (databases or collections) in your MongoDB data estate.
 * The spreadsheet should be structured as a record of your data estate resources, in list form.
 * Each row corresponds to a resource (database or collection).
 * Each column corresponds to a property of the resource; start with at least *name* and *data size (GB)* as columns.
