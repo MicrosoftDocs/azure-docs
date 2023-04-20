@@ -1071,14 +1071,14 @@ The default version numbering schema is `latest`. The latest schema has an addit
 
 ```json
 "versioning": {
-    "scheme": "latest",
+    "scheme": "Latest",
     "major": 1
 }
 ```
 ---
 
 versioning properties:
-- **scheme** - Generate new version number for distribution. `Latest` or `source` are two possible values.
+- **scheme** - Generate new version number for distribution. `Latest` or `Source` are two possible values.
 - **major** - Specifies the major version under which to generate the latest version. Only applicable when the `scheme` is set to `latest`.
 
 
