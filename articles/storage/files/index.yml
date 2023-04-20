@@ -96,7 +96,7 @@ landingContent:
   # Card
   - title: Resources
     linkLists:
-      - linkListType: quickstart
+      - linkListType: learn
         links:
           - text: Videos
             url: ../common/videos-azure-files-and-filesync.md
