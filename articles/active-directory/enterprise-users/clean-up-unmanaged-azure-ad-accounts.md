@@ -62,7 +62,7 @@ Run the following cmdlets:
 
 To identify unmanaged Azure AD accounts, run:
 
-* `Connect-MgGraph -Scope User.ReadAll`
+* `Connect-MgGraph -Scope User.Read.All`
 * `Get-MsIdUnmanagedExternalUser`
 
 To reset unmanaged Azure AD account redemption status, run:
