@@ -15,16 +15,19 @@ ms.custom: mode-api
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-This article outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md).
+This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These basic steps may help you analyze the MedTech service deployment options and determine which deployment method is best for you.
 
 :::image type="content" source="media/get-started/get-started-with-medtech-service.png" alt-text="Diagram showing the MedTech service deployment overview." lightbox="media/get-started/get-started-with-medtech-service.png":::
+
+> [!TIP]
+> See the MedTech service article, [Quickstart: Choose a deployment method for the MedTech service](deploy-new-choose.md), for a description of the different deployment methods that can help to simply and automate the deployment of the MedTech service. 
 
 ## Subscription prerequisites
 
 To begin the deployment, you need to determine if you have:
 
 * An active Azure subscription.
-* Azure role-based access control (Azure RBAC) role assignments at the subscription level for deploying resources and granting access permissions. The roles required for you to complete the deployment are: **Contributor and User Access Administrator** or **Owner**. The **Contributor** role allows you to provision resources, and the **User Access Administrator** role allows you to grant access between resources. The **Owner** role can perform both actions.  
+* Azure role-based access control (Azure RBAC) role assignments at the subscription level for deploying resources and granting access permissions. The roles required for you to complete the deployment are: **Contributor and User Access Administrator** or **Owner**. The **Contributor** role allows you to deploy resources, and the **User Access Administrator** role allows you to grant access between resources. The **Owner** role can perform both actions.  
 
 If you already have the appropriate active subscription and Azure RBAC role assignments, you can skip this section.
 
@@ -32,13 +35,6 @@ If you already have the appropriate active subscription and Azure RBAC role assi
 * If you don't have the correct Azure RBAC role assignments, see [Azure role-based access control (RBAC)](/azure/cloud-adoption-framework/ready/considerations/roles).
 
 ## Deploy resources
-
-> [!TIP]
-> See these MedTech service articles that will help to simply and automate the deployment of the MedTech service. 
->
-> * [Tutorial: Receive device messages through Azure IoT Hub](device-messages-through-iot-hub.md).
->
-> * [Quickstart: Deploy the MedTech service using an Azure Resource Manager template](deploy-new-arm.md).
 
 After you obtain the required subscription prerequisites, the first step is to deploy the MedTech service prerequisite resources:
 
@@ -80,10 +76,14 @@ To learn about methods of deploying the MedTech service, see
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
-> For an overview of the MedTech service device mapping, see
+For an overview of the MedTech service device mapping, see
+
+> [!div class="nextstepaction"]
 > [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
 
-> For an overview of the MedTech service FHIR destination mapping, see
+For an overview of the MedTech service FHIR destination mapping, see
+
+> [!div class="nextstepaction"]
 > [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
