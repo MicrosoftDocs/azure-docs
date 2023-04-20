@@ -388,7 +388,7 @@ az aks update -n aks -g myResourceGroup --disable-node-restriction
 
 ## Node resource group lockdown (Preview)
 
-Changes made directly to resources in the node resource group can stop your AKS cluster from working, or can cause issues with the cluster further down the line. To stop changes being made to the [Node Resource Group][whatis-nrg], you can apply a deny assignment so that mistakes do not impact your workloads.
+Changes made directly to resources in the node resource group can affect cluster operations or cause issues later. To prevent changes from being made to the [Node Resource Group][whatis-nrg], you can apply a deny assignment and block users from modifying resources created as part of the AKS cluster.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -396,8 +396,7 @@ Changes made directly to resources in the node resource group can stop your AKS 
 
 You must have the following resource installed:
 
-* The Azure CLI
-* The `aks-preview` extension version 0.5.123 or later
+* The Azure CLI version 2.44.0 or later. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][[azure-cli-install].* * The `aks-preview` extension version 0.5.126 or later
 
 ### Install the aks-preview CLI extension
 
@@ -425,7 +424,7 @@ az feature show --namespace "Microsoft.ContainerService" --name "NRGLockdownPrev
 
 ### Create an AKS cluster with node resource group lockdown
 
-To create a cluster using node restriction, set the `--nrg-lockdown-restriction-level` to ReadOnly. This will allow you to view the resources, but not modify them.
+To create a cluster using node restriction, set the `--nrg-lockdown-restriction-level` to **ReadOnly**. This allows you to view the resources, but not modify them.
 
 ```azurecli-interactive
 az aks create -n aksTest -g aksTest –-nrg-lockdown-restriction-level ReadOnly
