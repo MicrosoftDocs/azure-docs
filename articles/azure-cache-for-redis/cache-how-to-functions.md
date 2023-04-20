@@ -13,8 +13,8 @@ ms.date: 04/20/2023
 
 # Serverless Event-based Architectures with Azure Cache for Redis and Azure Functions (Preview)
 
-This article describes how to use Azure Cache for Redis with [Azure Functions](../azure-functions/functions-overview.md) to create optimized serverless and event-driven architectures.
-Azure Cache for Redis can be used as a [trigger](../azure-functions/functions-triggers-bindings.md) for Azure Functions, allowing Redis to initiate a serverless workflow.
+This article describes how to use Azure Cache for Redis with [Azure Functions](/azure/azure-functions/functions-overview) to create optimized serverless and event-driven architectures.
+Azure Cache for Redis can be used as a [trigger](/azure/azure-functions/functions-triggers-bindings) for Azure Functions, allowing Redis to initiate a serverless workflow.
 This functionality can be highly useful in data architectures like a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching), or any [event-based architectures](/azure/architecture/guide/architecture-styles/event-driven).
 
 There are three triggers supported in Azure Cache for Redis:
@@ -27,8 +27,8 @@ There are three triggers supported in Azure Cache for Redis:
 
 ## Scope of Availability for Functions Triggers
 
-|Tier     | Basic | Standard & Premium  | Enterprise, Enterprise Flash  |
-|---------|---------|---------|---------|
+|Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
+|---------|:---------:|:---------:|:---------:|
 |Pub/Sub  | Yes  | Yes  |  Yes  |
 |Lists | Yes  | Yes   |  Yes  |
 |Streams | Yes  | Yes  |  Yes  |
@@ -108,6 +108,12 @@ public static void PubSubTrigger(
 :::zone-end
 
 ::: zone pivot="programming-language-python"
+
+```python
+# TBD
+# PubSubTrigger "myKey"
+```
+
 :::zone-end
 
 This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at `127.0.0.1:6379`.
@@ -136,6 +142,12 @@ public static void PubSubTrigger(
 :::zone-end
 
 ::: zone pivot="programming-language-python"
+
+```python
+# TBD
+# PubSubTrigger "myKey"
+```
+
 :::zone-end
 
 This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at `127.0.0.1:6379`.
@@ -163,6 +175,12 @@ public static void PubSubTrigger(
 :::zone-end
 
 ::: zone pivot="programming-language-python"
+
+```python
+# TBD
+# PubSubTrigger "myKey"
+```
+
 :::zone-end
 
 ### RedisListsTrigger
@@ -210,6 +228,12 @@ public static void ListsTrigger(
 :::zone-end
 
 ::: zone pivot="programming-language-python"
+
+```python
+# TBD
+# PubSubTrigger "myKey"
+```
+
 :::zone-end
 
 ### RedisStreamsTrigger
