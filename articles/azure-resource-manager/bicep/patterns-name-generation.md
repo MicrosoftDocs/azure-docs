@@ -4,6 +4,7 @@ description: Describes the name generation pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 12/01/2021
 ---
 # Name generation pattern

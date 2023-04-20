@@ -11,10 +11,7 @@ ms.devlang: csharp, javascript, powershell, python, java
 
 Durable Function orchestrations are implemented in code and can use the programming language's built-in error-handling features. There really aren't any new concepts you need to learn to add error handling and compensation into your orchestrations. However, there are a few behaviors that you should be aware of.
 
-> [!NOTE]
-> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for JavaScript and TypeScript developers. To learn more, see the Azure Functions Node.js [developer guide](../functions-reference-node.md?pivots=nodejs-model-v4).
->
-> In the following code snippets, JavaScript (PM4) denotes programming model V4, the new experience.
+[!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
 ## Errors in activity functions
 

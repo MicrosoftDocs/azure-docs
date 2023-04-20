@@ -10,7 +10,7 @@ metadata:
   ms.topic: faq
   ms.date: 03/08/2023
   ms.author: tagore
-  ms.custom: compute-evergreen
+  ms.custom: compute-evergreen, devx-track-arm-template
 title: Frequently asked questions about classic to Azure Resource Manager migration
 summary: |
   > [!IMPORTANT]

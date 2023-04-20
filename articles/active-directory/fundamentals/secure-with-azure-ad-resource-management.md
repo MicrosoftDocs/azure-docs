@@ -8,8 +8,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 7/5/2022
-ms.author: gasinh
+ms.date: 3/23/2023
+ms.author: justinha
 ms.reviewer: ajburnle
 ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
@@ -249,12 +249,6 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 ![Diagram that shows Azure AD DS virtual machine management.](media/secure-with-azure-ad-resource-management/vm-to-azure-ad-domain-services.png)
 
 **Azure AD DS managed domain** - Only one Azure AD DS managed domain can be deployed per Azure AD tenant and this is bound to a single VNet. It's recommended that this VNet forms the "hub" for Azure AD DS authentication. From this hub, "spokes" can be created and linked to allow legacy authentication for servers and applications. The spokes are additional VNets on which Azure AD DS joined servers are located and are linked to the hub using Azure network gateways or VNet peering.
-
-**User forest vs. resource forest** - Azure AD DS provides two options for forest configuration of the Azure AD DS managed domain. For the purposes of this section we focus on user forest, as the resource forest relies on a trust being configured with an AD DS forest and this goes against the isolation principle we're addressing here.
-
-* **User forest** - By default, an Azure AD DS managed domain is created as a user forest. This type of forest synchronizes all objects from Azure AD, including any user accounts synchronized from an on-premises AD DS environment.
-
-* **Resource forest** - Resource forests only synchronize users and groups created directly in Azure AD and requires a trust be configured with an AD DS forest for user authentication. For more information, see [Resource forest concepts and features for Azure Active Directory Domain Services](../../active-directory-domain-services/concepts-resource-forest.md).
 
 **Managed domain location** - A location must be set when deploying an Azure AD DS managed domain. The location is a physical region (data center) where the managed domain is deployed. It's recommended you:
 

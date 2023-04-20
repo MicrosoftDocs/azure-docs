@@ -1,6 +1,5 @@
 ---
 title: Security architecture
-titleSuffix: Azure IoT
 description: Security architecture guidelines and considerations for Azure IoT solutions illustrated using the IoT reference architecture
 author: dominicbetts
 ms.service: iot

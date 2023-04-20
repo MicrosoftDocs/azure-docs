@@ -5,6 +5,7 @@ description: 'Explain network isolation changes with our new API platform on Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.author: jhirono
 author: jhirono

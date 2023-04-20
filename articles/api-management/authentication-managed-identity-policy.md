@@ -29,9 +29,9 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 |resource|String. The application ID of the target web API (secured resource) in Azure Active Directory. Policy expressions are allowed. |Yes|N/A|
-|client-id|String. The client ID of the user-assigned identity in Azure Active Directory. Policy expressions are not allowed. |No|system-assigned identity|
-|output-token-variable-name|String. Name of the context variable that will receive token value as an object of type `string`. Policy expresssions are not allowed. |No|N/A|  
-|ignore-error|Boolean. If set to `true`, the policy pipeline will continue to execute even if an access token is not obtained.|No|`false`|  
+|client-id|String. The client ID of the user-assigned identity in Azure Active Directory. Policy expressions aren't allowed. |No|system-assigned identity|
+|output-token-variable-name|String. Name of the context variable that will receive token value as an object of type `string`. Policy expressions aren't allowed. |No|N/A|  
+|ignore-error|Boolean. If set to `true`, the policy pipeline continues to execute even if an access token isn't obtained.|No|`false`|  
 
 
 ## Usage

@@ -14,7 +14,7 @@ ms.custom: [amqp, mqtt, fasttrack-edit, iot]
 
 Microsoft Azure IoT Hub currently supports distributed tracing as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you'll be able to trace Internet of Things (IoT) messages throughout the Azure services involved in your solution. For a background on the feature, see [What is distributed tracing?](../azure-monitor/app/distributed-tracing.md).
+IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you'll be able to trace Internet of Things (IoT) messages throughout the Azure services involved in your solution. For a background on the feature, see [What is distributed tracing?](../azure-monitor/app/distributed-tracing-telemetry-correlation.md).
 
 When you enable distributed tracing for IoT Hub, you can:
 

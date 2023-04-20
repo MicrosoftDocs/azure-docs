@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/21/2022
+ms.date: 03/24/2023
 ms.author: greglin 
 ---
 
@@ -18,7 +18,7 @@ You can monitor Azure Application Gateway resources in the following ways:
 
 * [Logs](#diagnostic-logging): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
-* [Metrics](application-gateway-metrics.md): Application Gateway has several metrics which help you verify that your system is performing as expected.
+* [Metrics](application-gateway-metrics.md): Application Gateway has several metrics that help you verify your system is performing as expected.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -167,7 +167,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |httpVersion     | HTTP version of the request.        |
 |receivedBytes     | Size of packet received, in bytes.        |
 |sentBytes| Size of packet sent, in bytes.|
-|clientResponseTime| Length of time (in **seconds**) that it takes for the first byte of a client request to be processed and the first byte sent in the response to the client. |
+|clientResponseTime| Time difference  (in **seconds**) between first byte received from the backend to first byte sent to the client. |
 |timeTaken| Length of time (in **seconds**) that it takes for the first byte of a client request to be processed and its last-byte sent in the response to the client. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
 |WAFEvaluationTime| Length of time (in **seconds**) that it takes for the request to be processed by the WAF. |
 |WAFMode| Value can be either Detection or Prevention |
@@ -246,7 +246,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |sentBytes| Size of packet sent, in bytes.|
 |timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
 |sslEnabled| Whether communication to the backend pools used TLS/SSL. Valid values are on and off.|
-|host| The hostname with which the request has been sent to the backend server. If backend hostname is being overridden, this name will reflect that.|
+|host| The hostname with which the request has been sent to the backend server. If backend hostname is being overridden, this name reflects that.|
 |originalHost| The hostname with which the request was received by the Application Gateway from the client.|
 
 ```json

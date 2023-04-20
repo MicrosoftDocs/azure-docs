@@ -1,6 +1,6 @@
 ---
-title: "Bitglass (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Bitglass (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Bitglass (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Bitglass (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Bitglass (using Azure Function) connector for Microsoft Sentinel
+# Bitglass (using Azure Functions) connector for Microsoft Sentinel
 
 The [Bitglass](https://www.bitglass.com/) data connector provides the capability to retrieve security event logs of the Bitglass services and more events into Microsoft Sentinel through the REST API. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
@@ -17,7 +17,7 @@ The [Bitglass](https://www.bitglass.com/) data connector provides the capability
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | BitglassToken<br/>BitglassServiceURL<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-bitglass-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-bitglass-functionapp |
 | **Log Analytics table(s)** | BitglassLogs_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -35,7 +35,7 @@ BitglassLogs_CL
 
 ## Prerequisites
 
-To integrate with Bitglass (using Azure Function) make sure you have: 
+To integrate with Bitglass (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **REST API Credentials/permissions**: **BitglassToken** and **BitglassServiceURL** are required for making API calls.

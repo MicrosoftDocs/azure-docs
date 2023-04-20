@@ -43,6 +43,8 @@ The Authenticator app can help prevent unauthorized access to accounts and stop 
 
 ![Screenshot of example web browser prompt for Authenticator app notification to complete sign-in process.](media/tutorial-enable-azure-mfa/tutorial-enable-azure-mfa-browser-prompt.png)
 
+In some rare instances where the relevant Google or Apple service responsible for push notifications is down, users may not receive their push notifications. In these cases users should manually navigate to the Microsoft Authenticator app (or relevant companion app like Outlook), refresh by either pulling down or hitting the refresh button, and approve the request. 
+
 > [!NOTE]
 > If your organization has staff working in or traveling to China, the *Notification through mobile app* method on Android devices doesn't work in that country/region as Google play services(including push notifications) are blocked in the region. However iOS notification do work. For Android devices ,alternate authentication methods should be made available for those users.
 

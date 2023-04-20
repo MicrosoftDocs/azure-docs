@@ -1,11 +1,11 @@
 ---
 title: Packet core and Azure Stack Edge compatibility
 description: Discover which Azure Stack Edge versions are compatible with each packet core version
-author: b-branco
-ms.author: biancabranco
+author: liumichelle
+ms.author: limichel
 ms.service: private-5g-core
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 03/30/2023
 ---
 
 # Packet core and Azure Stack Edge (ASE) compatibility
@@ -16,14 +16,15 @@ Each site in your deployment contains an Azure Stack Edge (ASE) Pro device that 
 
 The following table provides information on which versions of the ASE device are compatible with each packet core version.
 
-| Packet core version  | Compatible ASE versions  |
-|-----|-----|
-| 2302 | 2301  |
-| 2301 | 2210, 2301  |
-| 2211 | 2210  |
-| 2210 | 2209, 2210  |
-| 2209 | 2209  |
-| 2208 | 2207, 2209  |
+| Packet core version  | ASE Pro GPU compatible versions  | ASE Pro 2 compatible versions |
+|-----|-----|-----|
+| 2303 | 2301, 2303  | 2301, 2303 |
+| 2302 | 2301  | N/A |
+| 2301 | 2210, 2301  | N/A |
+| 2211 | 2210  | N/A |
+| 2210 | 2209, 2210  | N/A |
+| 2209 | 2209  | N/A |
+| 2208 | 2207, 2209  | N/A |
 
 ## Next steps
 

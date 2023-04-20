@@ -28,7 +28,7 @@ For more information, see [Access the CLI](../references-work-with-defender-for-
 
 Use the following commands to verify that the Defender for IoT application on the OT sensor are working correctly, including the web console and traffic analysis processes.
 
-Health checks are also available from the OT sensor console. For more information, see [Troubleshoot the sensor and on-premises management console](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).
+Health checks are also available from the OT sensor console. For more information, see [Troubleshoot the sensor](how-to-troubleshoot-sensor.md).
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -296,7 +296,7 @@ To use this command:
 - Verify that the certificate file you want to import is readable on the appliance. Upload certificate files to the appliance using tools such as WinSCP or Wget.
 - Confirm with your IT office that the appliance domain as it appears in the certificate is correct for your DNS server and the corresponding IP address.
 
-For more information, see [Certificates for appliance encryption and authentication (OT appliances)](how-to-deploy-certificates.md).
+For more information, see [Prepare CA-signed certificates](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|

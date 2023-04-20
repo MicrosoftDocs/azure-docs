@@ -5,7 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 02/28/2023
+ms.custom: engagement-fy23
 ---
 
 # Discovery and dependency analysis - Common questions

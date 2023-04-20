@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 11/7/2022
+ms.date: 04/11/2023
 ms.topic: how-to
 ---
 
@@ -27,7 +27,7 @@ To see a full list of directories to which you have access, select **All Directo
 
 To mark a directory as a favorite, select its star icon. Those directories will be listed in the  **Favorites** section.
 
-To switch to a different directory, select the directory that you want to work in, then select the **Switch** button in its row.
+To switch to a different directory, find the directory that you want to work in, then select the **Switch** button in its row.
 
 :::image type="content" source="media/set-preferences/settings-directories-subscriptions-default-filter.png" alt-text="Screenshot showing the Directories settings pane.":::
 

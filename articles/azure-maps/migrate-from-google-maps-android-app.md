@@ -2,8 +2,8 @@
 title: Tutorial - Migrate an Android app
 titleSuffix: Microsoft Azure Maps
 description: 'Tutorial on how to migrate an Android app from Google Maps to Microsoft Azure Maps'
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 12/1/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -13,7 +13,7 @@ zone_pivot_groups: azure-maps-android
 
 # Tutorial: Migrate an Android app from Google Maps
 
-The Azure Maps Android SDK has an API interface that is similar to the Web SDK. If you've developed with one of these SDKs, many of the same concepts, best practices, and architectures apply. In this tutorial, you will learn how to:
+The Azure Maps Android SDK has an API interface that is similar to the Web SDK. If you've developed with one of these SDKs, many of the same concepts, best practices, and architectures apply. This tutorial demonstrates how to:
 
 > [!div class="checklist"]
 >
@@ -81,7 +81,7 @@ To display a map using the Google Maps SDK for Android, the following steps woul
 
 ::: zone pivot="programming-language-java-android"
 
-5. In the **MainActivity.java** file, you will need to import the Google Maps SDK. Forward all the life-cycle methods from the activity containing the map view to the corresponding ones in map class. Retrieve a `MapView` instance from the map fragment using the `getMapAsync(OnMapReadyCallback)` method. The `MapView` automatically initializes the maps system and the view. Edit the **MainActivity.java** file as follows:
+5. In the **MainActivity.java** file, import the Google Maps SDK. Forward all the life-cycle methods from the activity containing the map view to the corresponding ones in map class. Retrieve a `MapView` instance from the map fragment using the `getMapAsync(OnMapReadyCallback)` method. The `MapView` automatically initializes the maps system and the view. Edit the **MainActivity.java** file as follows:
 
     ```java
     import com.google.android.gms.maps.GoogleMap;
@@ -160,7 +160,7 @@ To display a map using the Google Maps SDK for Android, the following steps woul
 
 ::: zone pivot="programming-language-kotlin"
 
-5. In the **MainActivity.kt** file, you will need to import the Google Maps SDK. Forward all the life-cycle methods from the activity containing the map view to the corresponding ones in map class. Retrieve a `MapView` instance from the map fragment using the `getMapAsync(OnMapReadyCallback)` method. The `MapView` automatically initializes the maps system and the view. Edit the **MainActivity.kt** file as follows:
+5. In the **MainActivity.kt** file, import the Google Maps SDK. Forward all the life-cycle methods from the activity containing the map view to the corresponding ones in map class. Retrieve a `MapView` instance from the map fragment using the `getMapAsync(OnMapReadyCallback)` method. The `MapView` automatically initializes the maps system and the view. Edit the **MainActivity.kt** file as follows:
 
     ```kotlin
     import com.google.android.gms.maps.GoogleMap;
@@ -265,7 +265,7 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
         > [!NOTE]
         > You can set the version number to "0+" to have your code always point to the latest version.
 
-    4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
+    4. Go to **File** in the toolbar and then select **Sync Project with Gradle Files**.
 
 3. Add a map fragment to the main activity (resources pwd\> layout \> activity\_main.xml):
 
@@ -288,7 +288,7 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
 
 ::: zone pivot="programming-language-java-android"
 
-4. In the **MainActivity.java** file you'll need to:
+4. In the **MainActivity.java** file:
 
     * Imports the Azure Maps SDK
     * Set your Azure Maps authentication information
@@ -393,7 +393,7 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
 
 ::: zone pivot="programming-language-kotlin"
 
-4. In the **MainActivity.kt** file you'll need to:
+4. In the **MainActivity.kt** file:
 
     * Imports the Azure Maps SDK
     * Set your Azure Maps authentication information
@@ -488,7 +488,7 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
 
 ::: zone-end
 
-If you run your application, the map control will load as in the following image.
+If you run your application, the map control loads as in the following image.
 
 ![Simple Azure Maps](media/migrate-google-maps-android-app/simple-azure-maps.png)
 
@@ -539,7 +539,7 @@ baseContext.resources.updateConfiguration(
 
 ::: zone-end
 
-Here is an example of Google Maps with the language set to "fr".
+Here's an example of Google Maps with the language set to "fr".
 
 ![Google Maps localization](media/migrate-google-maps-android-app/google-maps-localization.png)
 
@@ -623,7 +623,7 @@ mapControl!!.onReady { map: AzureMap ->
 
 ::: zone-end
 
-Here is an example of Azure Maps with the language set to "fr-FR".
+Here's an example of Azure Maps with the language set to "fr-FR".
 
 ![Azure Maps localization](media/migrate-google-maps-android-app/azure-maps-localization.png)
 
@@ -631,7 +631,7 @@ Review the complete list of [Supported languages](supported-languages.md).
 
 ## Setting the map view
 
-Dynamic maps in both Azure Maps and Google Maps can be programmatically moved to new geographic locations by calling the appropriate methods. Let's make the map display satellite aerial imagery, center the map over a location with coordinates, and change the zoom level. For this example, we'll use latitude: 35.0272, longitude: -111.0225, and zoom level of 15.
+Dynamic maps in both Azure Maps and Google Maps can be programmatically moved to new geographic locations by calling the appropriate methods. Let's make the map display satellite aerial imagery, center the map over a location with coordinates, and change the zoom level. For this example, use latitude: 35.0272, longitude: -111.0225, and zoom level of 15.
 
 ### Before: Google Maps
 
@@ -812,7 +812,7 @@ In both examples, the above image is added to the drawable folder of the apps re
 
 ### Before: Google Maps
 
-With Google Maps, custom images can be used for markers. Load custom images using the marker's `icon` option. To align the point of the image to the coordinate, use the `anchor` option. The anchor is relative to the dimensions of the image. In this case, the anchor is 0.2 units wide, and 1 unit high.
+With Google Maps, custom images can be used for markers. Load custom images using the marker's `icon` option. To align the point of the image to the coordinate, use the `anchor` option. The anchor is relative to the dimensions of the image. In this case, the anchor is 0.2 units wide, and one unit high.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -1223,7 +1223,7 @@ public override fun onMapReady(googleMap: GoogleMap) {
 A tile layer can be added to the map in a similar way as any other layer. A formatted URL that has x, y, and zoom placeholders; `{x}`, `{y}`, `{z}` respectively is used to tell the layer where to access the tiles. Also, tile layers in Azure Maps support `{quadkey}`, `{bbox-epsg-3857}`, and `{subdomain}` placeholders. To make the tile layer semi-transparent, an opacity value of 0.8 is used. Opacity and transparency, although similar, use inverted values. To convert between both options, subtract their value from the number one.
 
 > [!TIP]
-> In Azure Maps, it's convenient to render layers below other layers, including base map layers. Also, it's often desirable to render tile layers below the map labels so that they are easy to read. The `map.layers.add` method takes a second parameter which is the id of the layer in which to insert the new layer below. To insert a tile layer below the map labels, the following code can be used:
+> In Azure Maps, it's convenient to render layers below other layers, including base map layers. Also, it's often desirable to render tile layers below the map labels so that they are easy to read. The `map.layers.add` method takes a second parameter which is the id of the layer in which to insert the new layer below. Use the following code to insert a tile layer below the map labels:
 > `map.layers.add(myTileLayer, "labels");`
 
 ::: zone pivot="programming-language-java-android"

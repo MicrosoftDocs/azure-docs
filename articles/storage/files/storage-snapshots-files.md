@@ -63,7 +63,7 @@ To conserve space, you can delete the share snapshot for the period when the chu
 
 Even though share snapshots are saved incrementally, you need to retain only the most recent share snapshot in order to restore the share. When you delete a share snapshot, only the data unique to that share snapshot is removed. Active snapshots contain all the information that you need to browse and restore your data (from the time the share snapshot was taken) to the original location or an alternate location. You can restore at the item level.
 
-Snapshots don't count towards the share size limit. There is no limit to how much space share snapshots occupy in total. Storage account limits still apply.
+Snapshots don't count towards the maximum share size limit, which is 100 TiB for premium file shares and standard file shares with large file shares enabled. There's no limit to how much space share snapshots occupy in total. Storage account limits still apply (5 PiB for standard storage accounts, 100 TiB for premium FileStorage accounts).
 
 ## Limits
 
@@ -93,6 +93,22 @@ Before you deploy the share snapshot scheduler, carefully consider your share sn
 
 Share snapshots provide only file-level protection. Share snapshots don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletions, you can either [enable soft delete](storage-files-prevent-file-share-deletion.md), or lock the storage account and/or the resource group.
 
+## Delete multiple snapshots
+
+Use the following PowerShell script to delete multiple file share snapshots. Be sure to replace **storageaccount_name**, **resource-GROUP**, and **sharename** with your own values.
+
+```powerShell
+$storageAccount = "storageaccount_name" 
+$RG = "resource-GROUP" $sharename = "sharename"
+$sa = get-azstorageaccount -Name $storageAccount -ResourceGroupName $RG $items = "","","" 
+ForEach ($item in $items)
+{
+    $snapshotTime = "$item"
+    $snap = Get-AzStorageShare -Name $sharename -SnapshotTime "$snapshotTime" -Context $sa.Context
+    $lease = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($snap.ShareClient)
+    $l
+}
+```
 ## Next steps
 - Working with share snapshots in:
     - [Azure file share backup](../../backup/azure-file-share-backup-overview.md)
