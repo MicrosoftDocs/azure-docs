@@ -240,6 +240,8 @@ items:
         items:
         - name: Overview
           href: authentication-overview.md
+        - name: mTLS
+          href: mtls-connection.md
         - name: Publish events using Azure Active Directory authentication
           href: authenticate-with-active-directory.md
         - name: Publish events using access key or shared access signature
