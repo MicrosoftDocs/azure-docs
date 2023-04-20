@@ -396,7 +396,8 @@ Changes made directly to resources in the node resource group can affect cluster
 
 You must have the following resource installed:
 
-* The Azure CLI version 2.44.0 or later. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][[azure-cli-install].* * The `aks-preview` extension version 0.5.126 or later
+* The Azure CLI version 2.44.0 or later. Run az --version to find the version, and run az upgrade to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install]. 
+* The `aks-preview` extension version 0.5.126 or later
 
 ### Install the aks-preview CLI extension
 
