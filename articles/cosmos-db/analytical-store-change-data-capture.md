@@ -33,7 +33,7 @@ In addition to providing incremental data feed from analytical store to diverse 
 - There's no limitation around the fixed data retention period for which changes are available
 
 > [!IMPORTANT]
-> Please note that if "Start from beginning" option is selected, you will get an initial load of full snapshot of container data in the first run, followed by capturing changed / incremental data in the subsequent runs. Similar is the case when "Start from timestamp" option is selected - the initial load will process the data from the given timestmp, followed by capturing incremental / changed data in the subsequent runs. The `Capture intermediate updates`, `Capture Deletes` and `Capture Transactional store TTLs` under [source options](get-started-change-data-capture#configure-source-settings-for-the-analytical-store-container) tab determine if intermediate updates and deletes are captured in Sinks.
+> Please note that if "Start from beginning" option is selected, you will get an initial load of full snapshot of container data in the first run, followed by capturing changed / incremental data in the subsequent runs. Similar is the case when "Start from timestamp" option is selected - the initial load will process the data from the given timestmp, followed by capturing incremental / changed data in the subsequent runs. The `Capture intermediate updates`, `Capture Deletes` and `Capture Transactional store TTLs` under [source options](get-started-change-data-capture.md) tab determine if intermediate updates and deletes are captured in Sinks.
 
 ## Features
 
