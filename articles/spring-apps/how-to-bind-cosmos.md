@@ -36,7 +36,6 @@ Instead of manually configuring your Spring Boot applications, you can automatic
      <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-starter-data-cosmos</artifactId>
-         <version>4.7.0</version>
      </dependency>
      ```
 
