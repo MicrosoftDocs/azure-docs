@@ -1,11 +1,11 @@
 ---
-title: Troubleshoot replication issues for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery | Microsoft Docs
+title: Troubleshoot replication issues for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery
 description: This article provides troubleshooting information for common replication issues during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
 author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/02/2022
+ms.topic: troubleshooting-general
+ms.date: 04/20/2023
 ms.author: ankitadutta
 
 ---
@@ -29,9 +29,6 @@ Initial and ongoing replication failures often are caused by connectivity issues
 
 To solve these issues, [troubleshoot connectivity and replication](vmware-physical-azure-troubleshoot-process-server.md#check-connectivity-and-replication).
 
-
-
-
 ## Step 3: Troubleshoot source machines that aren't available for replication
 
 When you try to select the source machine to enable replication by using Site Recovery, the machine might not be available for one of the following reasons:
@@ -45,7 +42,6 @@ When you try to select the source machine to enable replication by using Site Re
 * **ESXi powered off**: If ESXi host under which the virtual machine resides is in powered off state, then virtual machine will not be listed or will not be selectable on the Azure portal. Power on the ESXi host, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine will be listed on the portal.
 * **Pending reboot**: If there is a pending reboot on the virtual machine, then you will not be able to select the machine on Azure portal. Ensure to complete the pending reboot activities, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). After this, virtual machine will be listed on the portal.
 * **IP not found or Machine does not have IP address**: If the virtual machine doesn't have a valid IP address associated with it, then you will not be able to select the machine on Azure portal. Ensure to assign a valid IP address to the virtual machine, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). It could also be caused if the machine does not have a valid IP address associated with one of its NIC's. Either assign a valid IP address to all NIC's or remove the NIC that's missing the IP. After this, virtual machine will be listed on the portal.
-
 
 
 ### Troubleshoot protected virtual machines greyed out in the portal
@@ -66,11 +62,13 @@ Over an above ensuring that there are no connectivity, bandwidth or time sync re
 
 ### Source machines with high churn [error 78188]
 
-Possible Causes:
+**Possible causes**:
+
 - The data change rate (write bytes/sec) on the listed disks of the virtual machine is more than the [Azure Site Recovery supported limits](site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) for the replication target storage account type.
 - There is a sudden spike in the churn rate due to which high amount of data is pending for upload.
 
-To resolve the issue:
+**To resolve the issue**:
+
 - Ensure that the target storage account type (Standard or Premium) is provisioned as per the churn rate requirement at source.
 - If you are already replicating to a Premium managed disk (asrseeddisk type), ensure that the size of the disk supports the observed churn rate as per Site Recovery limits. You can increase the size of the asrseeddisk if required. Follow the below steps:
     - Navigate to the Disks blade of the impacted replicated machine and copy the replica disk name
@@ -97,7 +95,9 @@ To resolve the issue, use the following steps to verify the network connectivity
     *C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents\*.log*
 
 ### Process server with no heartbeat [error 806]
+
 In case there is no heartbeat from the Process Server (PS), check that:
+
 1. PS VM is up and running
 2. Check following logs on the PS for error details:
 
@@ -129,6 +129,14 @@ To resolve the issue, use the following steps to verify the service status:
    exit
    ```
 
+### Protection couldn't be successfully enabled for the virtual machine [error 78253]
+
+This error may occur if a replication policy has not been associated with the configuration server properly. It could also occur if the policy associated with the configuration server is not valid.
+
+To confirm the cause of this error, navigate to the recovery vault > manage **Site Recovery infrastructure**, then view the replication policies for VMWare and physical machines to check the status of the configured policies.
+
+To resolve the issue, you can associate the policy with the configuration server in use or create a new replication policy and associate it. If the policy is invalid, you can disassociate and delete it.
+
 ## Error ID 78144 - No app-consistent recovery point available for the VM in the last 'XXX' minutes
 
 Enhancements have been made in mobility agent [9.23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher) & [9.27](site-recovery-whats-new.md#update-rollup-39) versions to handle VSS installation failure behaviors. Ensure that you are on the latest versions for best guidance on troubleshooting VSS failures.
@@ -136,16 +144,19 @@ Enhancements have been made in mobility agent [9.23](vmware-physical-mobility-se
 Some of the most common issues are listed below
 
 #### Cause 1: Known issue in SQL server 2008/2008 R2
+
 **How to fix** : There is a known issue with SQL server 2008/2008 R2. Please refer this KB article [Azure Site Recovery Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
 
 #### Cause 2: Azure Site Recovery jobs fail on servers hosting any version of SQL Server instances with AUTO_CLOSE DBs
+
 **How to fix** : Refer Kb [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser)
 
-
 #### Cause 3: Known issue in SQL Server 2016 and 2017
+
 **How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
 #### Cause 4: App-Consistency not enabled on Linux servers
+
 **How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](./site-recovery-faq.yml) are the steps to enable it.
 
 ### More causes due to VSS related issues:
