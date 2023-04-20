@@ -41,9 +41,6 @@ The Notebooks section in your workspace is a good place to start learning about 
 
 In order for your script to run, you need to be working in an environment configured with the dependencies and libraries the code expects. This section helps you create an environment tailored to your code. To create the new Jupyter kernel your notebook connects to, you'll use a YAML file that defines the dependencies.
 
-> [!TIP]
-> The code in this tutorial works in the default kernel the notebook connects to. You'll find that the pre-configured kernels often have what you need for your machine learning tasks. If you prefer not to create a new kernel, skip to [Create a notebook](#create-a-notebook).
-
 * **Upload a file.**
 
     Files you upload are stored in an Azure file share, and these files are mounted to each compute instance and shared within the workspace.
@@ -124,7 +121,7 @@ You now have a new kernel.  Next you'll open a notebook and use this kernel.
 
     :::image type="content" source="media/tutorial-azure-ml-in-a-day/start-compute.png" alt-text="Screenshot shows how to start compute if it's stopped." lightbox="media/tutorial-azure-ml-in-a-day/start-compute.png":::
 
-1. You'll see the notebook is connected to the default kernel in the top right. If you created the new **Tutorial Workstation Env** kernel, switch to it now.
+1. You'll see the notebook is connected to the default kernel in the top right. Switch to use the **Tutorial Workstation Env** kernel.
 
 ## Develop a training script
 
@@ -141,7 +138,7 @@ This code uses `sklearn` for training and MLflow for logging the metrics.
     [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=load)]
 
 1. Get the data ready for training:
-1. 
+
     [!notebook-python[] (~/azureml-examples-main/tutorials/get-started-notebooks/cloud-workstation.ipynb?name=extract)]
 
 1. Add code to start autologging with `MLflow`, so that you can track the metrics and results. With the iterative nature of model development, `MLflow` helps you log model parameters and results.  Refer back to those runs to compare and understand how your model performs. The logs also provide context for when you're ready to move from the development phase to the training phase of your workflows within Azure Machine Learning.
@@ -215,7 +212,7 @@ For now, you're running this code on your compute instance, which is your Azure 
     conda env list
     ```
 
-1. If you created a new kernel, activate it now:
+1. Activate your kernel:
 
     ```bash
     conda activate workstation_env
