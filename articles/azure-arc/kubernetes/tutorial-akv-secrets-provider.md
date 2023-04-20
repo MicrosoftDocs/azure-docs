@@ -365,7 +365,7 @@ Currently, the Secrets Store CSI Driver on Arc-enabled clusters can be accessed 
 
 After the pod starts, the mounted content at the volume path specified in your deployment YAML is available.
 
-```Bash
+```bash
 ## show secrets held in secrets-store
 kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
 
@@ -422,10 +422,10 @@ az k8s-extension list --cluster-type connectedClusters --cluster-name $CLUSTER_N
 
 If the extension was successfully removed, you won't see the Azure Key Vault Secrets Provider extension listed in the output. If you don't have any other extensions installed on your cluster, you'll see an empty array.
 
-To delete the secret you created and stored in the key vault, run the following command:
+If you no longer need it, be sure to delete the client secret associated with the service principal from your cluster by running the following command:
 
-```azurecli-interactive
-az keyvault secret delete --vault-name $AZUREKEYVAULT_NAME -n DemoSecret
+```bash
+kubectl delete secret <secret-name>
 ```
 
 ## Reconciliation and troubleshooting
