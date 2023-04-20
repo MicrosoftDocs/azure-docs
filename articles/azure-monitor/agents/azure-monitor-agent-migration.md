@@ -30,30 +30,8 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 > [!div class="checklist"]
 > - **Check the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for installing Azure Monitor Agent.**<br>To monitor non-Azure and on-premises servers, you must [install the Azure Arc agent](../../azure-arc/servers/agent-overview.md). You won't incur an additional cost for installing the Azure Arc agent and you don't necessarily need to use Azure Arc to manage your non-Azure virtual machines. 
 > - **Understand your current needs.**<br>Use the **Workspace overview** tab of the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to discover solutions enabled on your Log Analytics workspaces that use legacy agents, including per-solution migration recommendations. 
-> - **Verify that Azure Monitor Agent can address all of your needs.**<br>Azure Monitor Agent is generally available for data collection.<br>The following Azure Monitor features now use Azure Monitor Agent in preview. This means you can select to use Azure Monitor Agent to collect data when you enable the feature; otherwise, the legacy agent will be enabled by default.
-    
-|	Azure Monitor feature	|	Current support	|	Other extensions installed	|	More information	|
-|	:---	|	:---	|	:---	|	:---	|
-|	[VM insights](../vm/vminsights-overview.md)	|	Public preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Enable VM Insights](../vm/vminsights-enable-overview.md)	|
-|	[Container insights](../containers/container-insights-overview.md)	|	Public preview 	|	Containerized Azure Monitor agent	|	[Enable Container Insights](../containers/container-insights-onboard.md)	|
-
-> The following Azure Monitor services now use Azure Monitor Agent in preview. This means you can select to use Azure Monitor Agent to collect data when you enable the service; otherwise, the legacy agent will be enabled by default.
-
-|	 Azure service	|	 Current support	|	Other extensions installed	|	 More information	|
-|	:---	|	:---	|	:---	|	:---	|
-| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Public preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Auto-deployment of Azure Monitor Agent (Preview)](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md)	|
-| [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors/windows-forwarded-events.md)</li><li>Windows DNS logs: [Public preview](../../sentinel/connect-dns-ama.md)</li><li>Linux Syslog CEF: [Public preview](../../sentinel/connect-cef-ama.md#set-up-the-common-event-format-cef-via-ama-connector)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. |  - |
-|	 [Change Tracking and Inventory Management](../../automation/change-tracking/overview.md) |	 Public preview 	|	Change Tracking extension	|	[Change Tracking and Inventory using Azure Monitor Agent](../../automation/change-tracking/overview-monitoring-agent.md)	|
-|	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (Public preview) documentation](../../update-center/index.yml)	|
-|	 [Automation Hybrid Runbook Worker overview](../../automation/automation-hybrid-runbook-worker.md) (available without Azure Monitor Agent)	|	 Migrate to Azure Automation Hybrid Worker Extension - Generally available	|	None	|	[Migrate an existing Agent based to Extension based Hybrid Workers](../../automation/extension-based-hybrid-runbook-worker-install.md#migrate-an-existing-agent-based-to-extension-based-hybrid-workers)	|
-|	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Connection Monitor: Public preview	|	Azure NetworkWatcher extension	|	[Monitor network connectivity by using Azure Monitor Agent](../../network-watcher/azure-monitor-agent-with-connection-monitor.md)	|
-|	Azure Stack HCI Insights	|	private preview	|	No additional extension installed	|	[Sign up here](https://aka.ms/amadcr-privatepreviews)	|
-|	Azure Virtual Desktop (AVD) Insights |	private preview	|	No additional extension installed	|	[Sign up here](https://aka.ms/amadcr-privatepreviews)	|
-
-> [!NOTE]
-> Features and services listed above in preview **may not be available in Azure Government and China clouds**. They will be available typically within a month *after* the features/services become generally available.
-
-> If you use Microsoft Sentinel, see [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.  
+> - **Verify that Azure Monitor Agent can address all of your needs.**
+> Azure Monitor Agent is generally available for data collection and is used for data collection by various Azure Monitor features and other Azure services. For details, see [Supported services and features](#supported-services-and-features). 
 > - **Consider installing Azure Monitor Agent together with a legacy agent for a transition period.**<br>You can run Azure Monitor Agent alongside the legacy Log Analytics agent on the same machine to continue using existing functionality during evaluation or migration. Keep in mind that running two agents on the same machine doubles resource consumption, including but not limited to CPU, memory, storage space, and network bandwidth.<br>
 >     If you're setting up a new environment with resources, such as deployment scripts and onboarding templates, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort later.
 > - **If you have two agents on the same machine, avoid collecting duplicate data.**<br> Collecting duplicate data from the same machine can skew query results, affect downstream features like alerts, dashboards, and workbooks, and generate extra charges for data ingestion and retention. 
@@ -95,6 +73,32 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 <sup>1</sup> The DCR generator only converts the configurations for Windows event logs, Linux syslog and performance counters. Support for additional features and solutions will be available soon  
 <sup>2</sup> You might need to deploy [extensions required for specific solutions](./agents-overview.md#supported-services-and-features) in addition to the Azure Monitor Agent extension.  
 
+## Supported services and features
+
+Azure Monitor Agent is generally available for data collection.
+
+The following Azure Monitor features now use Azure Monitor Agent in preview. This means you can select to use Azure Monitor Agent to collect data when you enable the feature; otherwise, the legacy agent will be enabled by default.
+    
+|	Azure Monitor feature	|	Current support	|	Other extensions installed	|	More information	|
+|	:---	|	:---	|	:---	|	:---	|
+|	[VM insights](../vm/vminsights-overview.md)	|	Public preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Enable VM Insights](../vm/vminsights-enable-overview.md)	|
+|	[Container insights](../containers/container-insights-overview.md)	|	Public preview 	|	Containerized Azure Monitor agent	|	[Enable Container Insights](../containers/container-insights-onboard.md)	|
+
+The following Azure Monitor services now use Azure Monitor Agent in preview. This means you can select to use Azure Monitor Agent to collect data when you enable the service; otherwise, the legacy agent will be enabled by default.
+
+|	 Azure service	|	 Current support	|	Other extensions installed	|	 More information	|
+|	:---	|	:---	|	:---	|	:---	|
+| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Public preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Auto-deployment of Azure Monitor Agent (Preview)](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md)	|
+| [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors/windows-forwarded-events.md)</li><li>Windows DNS logs: [Public preview](../../sentinel/connect-dns-ama.md)</li><li>Linux Syslog CEF: [Public preview](../../sentinel/connect-cef-ama.md#set-up-the-common-event-format-cef-via-ama-connector)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. |  See [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.  |
+|	 [Change Tracking and Inventory Management](../../automation/change-tracking/overview.md) |	 Public preview 	|	Change Tracking extension	|	[Change Tracking and Inventory using Azure Monitor Agent](../../automation/change-tracking/overview-monitoring-agent.md)	|
+|	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (Public preview) documentation](../../update-center/index.yml)	|
+|	 [Automation Hybrid Runbook Worker overview](../../automation/automation-hybrid-runbook-worker.md) (available without Azure Monitor Agent)	|	 Migrate to Azure Automation Hybrid Worker Extension - Generally available	|	None	|	[Migrate an existing Agent based to Extension based Hybrid Workers](../../automation/extension-based-hybrid-runbook-worker-install.md#migrate-an-existing-agent-based-to-extension-based-hybrid-workers)	|
+|	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Connection Monitor: Public preview	|	Azure NetworkWatcher extension	|	[Monitor network connectivity by using Azure Monitor Agent](../../network-watcher/azure-monitor-agent-with-connection-monitor.md)	|
+|	Azure Stack HCI Insights	|	private preview	|	No additional extension installed	|	[Sign up here](https://aka.ms/amadcr-privatepreviews)	|
+|	Azure Virtual Desktop (AVD) Insights |	private preview	|	No additional extension installed	|	[Sign up here](https://aka.ms/amadcr-privatepreviews)	|
+
+> [!NOTE]
+> Features and services listed above in preview **may not be available in Azure Government and China clouds**. They will be available typically within a month *after* the features/services become generally available.
 
 ## Next steps
 
