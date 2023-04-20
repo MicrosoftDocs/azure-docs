@@ -4,7 +4,7 @@ description: Learn how to scale HPC applications on Azure VMs.
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/28/2023
+ms.date: 04/11/2023
 ms.reviewer: cynthn, mattmcinnes
 ms.author: mamccrea
 author: mamccrea
@@ -17,23 +17,25 @@ author: mamccrea
 Optimal scale-up and scale-out performance of HPC applications on Azure requires performance tuning and optimization experiments for the specific workload. This section and the VM series-specific pages offer general guidance for scaling your applications.
 
 ## Application setup
+
 The [azurehpc repo](https://github.com/Azure/azurehpc) contains many examples of:
+
 - Setting up and running [applications](https://github.com/Azure/azurehpc/tree/master/apps) optimally.
 - Configuration of [file systems, and clusters](https://github.com/Azure/azurehpc/tree/master/examples).
 - [Tutorials](https://github.com/Azure/azurehpc/tree/master/tutorials) on how to get started easily with some common application workflows.
 
-## Optimally scaling MPI 
+## Optimally scaling MPI
 
 The following suggestions apply for optimal application scaling efficiency, performance, and consistency:
 
-- For smaller scale jobs (< 256K connections) use:
-   ```bash  UCX_TLS=rc,sm  ```
-- For larger scale jobs (> 256K connections) use:
-   ```bash  UCX_TLS=dc,sm  ```
-- To calculate the number of connections for your MPI job, use:
-   ```bash  Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job)   ```
-   
+- For smaller scale jobs (< 256K connections) use: `UCX_TLS=rc,sm`
+
+- For larger scale jobs (> 256K connections) use: `UCX_TLS=dc,sm`
+
+- To calculate the number of connections for your MPI job, use: `Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job)`
+
 ## Adaptive Routing
+
 Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR InfiniBand to automatically detect and avoid network congestion by dynamically selecting optimal network paths. As a result, AR offers improved latency and bandwidth on the InfiniBand network, which in turn drives higher performance and scaling efficiency. For more information, see [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/adaptive-routing-on-azure-hpc/ba-p/1205217).
 
 ## Process pinning
@@ -44,7 +46,7 @@ Adaptive Routing (AR) allows Azure Virtual Machines (VMs) running EDR and HDR In
 - For pure MPI applications, experiment with between one to four MPI ranks per CCX for optimal performance on HB and HBv2 VM sizes.
 - Some applications with extreme sensitivity to memory bandwidth may benefit from using a reduced number of cores per CCX. For these applications, using three or two cores per CCX may reduce memory bandwidth contention and yield higher real-world performance or more consistent scalability. In particular, MPI 'Allreduce' may benefit from this approach.
 - For larger scale runs, it's recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries use these transports internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
-   
+
 ## Compiling applications
 <br>
 <details>
@@ -63,7 +65,7 @@ Clang supports the  `-march=znver1` flag to enable best code generation and tuni
 
 ### FLANG
 
-The FLANG compiler is a recent addition to the AOCC suite (added April 2018) and is currently in prerelease for developers to download and test. Based on Fortran 2008, AMD extends the GitHub version of FLANG (https://github.com/flang-compiler/flang). The FLANG compiler supports all Clang compiler options and other number of FLANG-specific compiler options.
+The FLANG compiler is a recent addition to the AOCC suite (added April 2018) and is currently in prerelease for developers to download and test. Based on Fortran 2008, AMD extends the GitHub version of [FLANG](https://github.com/flang-compiler/flang). The FLANG compiler supports all Clang compiler options and other number of FLANG-specific compiler options.
 
 ### DragonEgg
 
@@ -72,32 +74,36 @@ DragonEgg is a gcc plugin that replaces GCC’s optimizers and code generators f
 GFortran is the actual frontend for Fortran programs responsible for preprocessing, parsing, and semantic analysis generating the GCC GIMPLE intermediate representation (IR). DragonEgg is a GNU plugin, plugging into GFortran compilation flow. It implements the GNU plugin API. With the plugin architecture, DragonEgg becomes the compiler driver, driving the different phases of compilation.  After following the download and installation instructions, Dragon Egg can be invoked using: 
 
 ```bash
-$ gfortran [gFortran flags] 
+gfortran [gFortran flags] 
    -fplugin=/path/AOCC-1.2-Compiler/AOCC-1.2-     
    FortranPlugin/dragonegg.so [plugin optimization flags]     
    -c xyz.f90 $ clang -O3 -lgfortran -o xyz xyz.o $./xyz
 ```
-### PGI Compiler
-PGI Community Edition 17 is confirmed to work with AMD EPYC. A PGI-compiled version of STREAM does deliver full memory bandwidth of the platform. The newer Community Edition 18.10 (Nov 2018) should likewise work well. Use this CLI command to compile with the Intel Compiler:
 
+### PGI Compiler
+
+PGI Community Edition 17 is confirmed to work with AMD EPYC. A PGI-compiled version of STREAM does deliver full memory bandwidth of the platform. The newer Community Edition 18.10 (Nov 2018) should likewise work well. Use this CLI command to compile with the Intel Compiler:
 
 ```bash
 pgcc $(OPTIMIZATIONS_PGI) $(STACK) -DSTREAM_ARRAY_SIZE=800000000 stream.c -o stream.pgi
 ```
 
 ### Intel Compiler
+
 Intel Compiler 18 is confirmed to work with AMD EPYC. Use this CLI command to compile with the Intel Compiler.
 
 ```bash
 icc -o stream.intel stream.c -DSTATIC -DSTREAM_ARRAY_SIZE=800000000 -mcmodel=large -shared-intel -Ofast –qopenmp
 ```
 
-### GCC Compiler 
+### GCC Compiler
+
 For HPC workloads, AMD recommends GCC compiler 7.3 or newer. Older versions, such as 4.8.5 included with RHEL/CentOS 7.4, aren't recommended. GCC 7.3, and newer, delivers higher performance on HPL, HPCG, and DGEMM tests.
 
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
+
 </details>
 
 ## Next steps
@@ -106,4 +112,3 @@ gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 - Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Learn more about [HPC](/azure/architecture/topics/high-performance-computing/) on Azure.
-

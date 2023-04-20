@@ -33,7 +33,7 @@ This article shows you how to access the repositories from the following environ
 
 ## Option 1: Access on Azure Machine Learning compute instance (recommended)
 
-The easiest way to get started with the samples is to complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the Azure Machine Learning Notebooks repository. No downloads or installation necessary.  
+The easiest way to get started with the samples is to complete [Create resources you need to get started](../quickstart-create-resources.md). Once completed, you'll have a dedicated notebook server pre-loaded with the SDK and the Azure Machine Learning Notebooks repository. No downloads or installation necessary.  
 
 To view example notebooks:
     1. Sign in to [studio](https://ml.azure.com) and select your workspace if necessary.

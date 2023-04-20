@@ -3,9 +3,9 @@ title: Manage resources - Azure portal
 description: Use the Azure portal and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 author: mumian
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 02/11/2019
 ms.author: jgao
-
 ---
 # Manage Azure resources by using the Azure portal
 
@@ -97,7 +97,7 @@ Tagging helps organizing your resource group and resources logically.
     ![tag azure resource](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
 3. Specify the tag properties, and then select **Save**.
 
-For information, see [Using tags to organize your Azure resources](tag-resources.md#portal).
+For information, see [Using tags to organize your Azure resources](tag-resources-portal.md).
 
 ## Monitor resources
 
