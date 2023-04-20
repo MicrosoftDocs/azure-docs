@@ -16,8 +16,9 @@ ms.date: 04/20/2023
 | [azcmagent config](azcmagent-config.md) | Manage agent settings |
 | [azcmagent connect](azcmagent-connect.md) | Connect the server to Azure Arc |
 | [azcmagent disconnect](azcmagent-disconnect.md) | Disconnect the server from Azure Arc |
-| azcmagent help | Get help for commands |
-| azcmagent license | Display the end-user license agreement |
+| [azcmagent genkey](azcmagent-genkey.md) | Generate a public-private key pair for asynchronous onboarding |
+| [azcmagent help](azcmagent-help.md) | Get help for commands |
+| [azcmagent license](azcmagent-license.md) | Display the end-user license agreement |
 | [azcmagent logs](azcmagent-logs.md) | Collect logs to troubleshoot agent issues |
 | [azcmagent show](azcmagent-show.md) | Display the agent status |
-| azcmagent version Display the agent version |
+| [azcmagent version](azcmagent-version.md) | Display the agent version |
