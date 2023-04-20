@@ -11,7 +11,7 @@ services: storage
 
 ---
 
-# Comprehensive List of Videos for Azure Files & Files Sync
+# Comprehensive List of Videos for Azure Files & File Sync
 If you're new to Azure Files and File Sync or looking to deepen your understanding, this article provides a comprehensive list of video content released over time. Note that some videos may lack the latest updates.
 
 ### Video List:
