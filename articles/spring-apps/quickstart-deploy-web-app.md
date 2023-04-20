@@ -38,7 +38,6 @@ The following diagram shows the architecture of the system:
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli). Version 2.45.0 or greater.
-
 ::: zone pivot="sc-consumption-plan"
 
 - Use the following commands to install the Azure Container Apps extension for the Azure CLI and register these namespaces: `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.AppPlatform`
@@ -49,11 +48,11 @@ The following diagram shows the architecture of the system:
   az provider register --namespace Microsoft.OperationalInsights
   az provider register --namespace Microsoft.AppPlatform
   ```
+  
 ::: zone-end
 
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
-
 ::: zone pivot="sc-enterprise"
 
 - If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
@@ -104,7 +103,6 @@ POSTGRESQL_SERVER=<server-name>
 POSTGRESQL_DB=<database-name>
 AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
 APP_NAME=<web-app-name>
-MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
 CONNECTION=<connection-name>
 ```
 
@@ -119,6 +117,7 @@ POSTGRESQL_SERVER=<server-name>
 POSTGRESQL_DB=<database-name>
 AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
 APP_NAME=<web-app-name>
+MANAGED_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
 CONNECTION=<connection-name>
 ```
 
@@ -172,14 +171,14 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
 
 1. An Azure Container Apps environment creates a secure boundary around a group of applications. Apps deployed to the same environment are deployed in the same virtual network and write logs to the same [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md). To create the environment, run the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    az containerapp env create \
        --name ${MANAGED_ENVIRONMENT}
    ```
    
 1. Use the following command to create a variable to store the environment resource ID:
 
-   ```azurecli-interactive
+   ```azurecli
    MANAGED_ENV_RESOURCE_ID=$(az containerapp env show \
        --name ${MANAGED_ENVIRONMENT} \
        --query id \
@@ -188,14 +187,22 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
    
 1. Use the following command to create an Azure Spring Apps service instance. The Azure Spring Apps Standard consumption plan instance is built on top of the Azure Container Apps environment. Create your Azure Spring Apps instance by specifying the resource ID of the environment you created.
 
-   ```azurecli-interactive
+   ```azurecli
    az spring create \
-       --resource-group ${RESOURCE_GROUP} \
-       --name ${SERVICE_NAME} \
+       --name ${AZURE_SPRING_APPS_NAME} \
        --managed-environment ${MANAGED_ENV_RESOURCE_ID} \
-       --sku standardGen2 \
-       --location ${LOCATION}
+       --sku standardGen2
    ```   
+   
+1. Use the following command to specify the app name on Azure Spring Apps and to allocate required resources:
+
+```azurecli
+az spring app create \
+    --service ${AZURE_SPRING_APPS_NAME} \
+    --name ${APP_NAME} \
+    --runtime-version Java_17 \
+    --assign-endpoint true
+```
 
 ::: zone-end
 
