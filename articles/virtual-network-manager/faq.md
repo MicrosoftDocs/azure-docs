@@ -90,7 +90,7 @@ Should a regional outage occur, all configurations applied to current resources 
 
 Yes, you can choose to override and delete an existing peering already created, or allow them to coexist with those created by Azure Virtual Network Manager.
 
-### How do connected groups differ from Virtual Network Peering?
+### How do connected groups differ from virtual network peering regarding establishing connectivity between virtual networks?
 
 In Azure, VNet peering and connected groups are two methods of establishing connectivity between virtual networks (VNets). While VNet peering works by creating a 1:1 mapping between each peered VNet, connected groups use a new construct that establishes connectivity without such a mapping. In a connected group, all virtual networks are connected without individual peering relationships.  For example, if VNetA, VNetB, and VNetC are part of the same connected group, connectivity is enabled between each VNet without the need for individual peering relationships.
 
