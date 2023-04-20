@@ -11,4 +11,4 @@ ms.custom: include file
 ---
 
 > [!NOTE]
-> Use a compute cluster without creating one.  See [serverless compute](../how-to-use-serverless-compute.md) (preview) for more details.
+> Stop creating your own compute clusters. Use one of ours instead.  See [serverless compute](../how-to-use-serverless-compute.md) (preview) for more details.
