@@ -22,9 +22,9 @@ In certain situations, it might be useful to have all your client traffic proxie
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
 ## What is a TURN server?
-Many times, establishing a network connection between two peers isn't straightforward. A direct connection might not work because of many reasons: firewalls with strict rules, peers sitting behind a private network, or computers are running in a NAT environment. To solve these network connection issue, you can use a TURN server. The term stands for Traversal Using Relays around NAT, and it's a protocol for relaying network traffic STUN and TURN servers are the relay servers here. Learn more about how ACS [mitigates](../concepts/network-traversal.md) network challenges by utilizing STUN and TURN.
+Many times, establishing a network connection between two peers isn't straightforward. A direct connection might not work because of many reasons: firewalls with strict rules, peers sitting behind a private network, or computers are running in a NAT environment. To solve these network connection issues, you can use a TURN server. The term stands for Traversal Using Relays around NAT, and it's a protocol for relaying network traffic STUN and TURN servers are the relay servers here. Learn more about how ACS [mitigates](../concepts/network-traversal.md) network challenges by utilizing STUN and TURN.
 
-## Providing your TURN servers details to the SDK
+## Provide your TURN servers details to the SDK
 To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing the `CallClient`. For more details how to setup a call see [Azure Communication Services Web SDK](../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web)) for the Quickstart on how to setup Voice and Video.
 
 ```js
@@ -77,7 +77,7 @@ const callClient = new CallClient({
 
 The API reference for the `CallClientOptions` object, and the `networkConfiguration` property within it can be found here - [CallClientOptions](/javascript/api/azure-communication-services/@azure/communication-calling/callclientoptions?view=azure-communication-services-js&preserve-view=true).
 
-## Setting up a TURN server in Azure
+## Set up a TURN server in Azure
 You can create a Linux virtual machine in the Azure portal using this [guide](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu), and deploy a TURN server using [coturn](https://github.com/coturn/coturn), a free and open source implementation of a TURN and STUN server for VoIP and WebRTC.
 
 Once you have setup a TURN server, you can test it using the WebRTC Trickle ICE page - [Trickle ICE](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/).
