@@ -78,11 +78,11 @@ manager
 
 ## Next steps
 
-* [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
+* [Get started with create and manage Email Communication Service in Azure Communication Service](../create-email-communication-resource.md)
 
-* [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
+* [Get started by connecting Email Communication Service with a Azure Communication Service resource](../connect-email-communication-resource.md)
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
-- How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
+- Familiarize yourself with the [Email client library](../../../concepts/email/sdk-features.md)
+- How to send emails with custom verified domains?[Add custom domains](../add-custom-verified-domains.md)

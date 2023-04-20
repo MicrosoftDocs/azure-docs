@@ -9,6 +9,7 @@ ms.author: ymohanraj
 ms.date: 04/19/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Quickstart: How to add and remove sender addresses in Azure Communication Services using the ACS Management Client Libraries
