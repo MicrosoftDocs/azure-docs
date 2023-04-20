@@ -702,7 +702,13 @@ items:
           - name: Download blobs
             href: storage-blob-download-java.md
           - name: Copy blobs
-            href: storage-blob-copy-java.md
+            items:
+            - name: Overview of copy operations
+              href: storage-blob-copy-java.md
+            - name: Copy from a source object URL
+              href: storage-blob-copy-url-java.md
+            - name: Copy with asynchronous scheduling
+              href: storage-blob-copy-async-java.md
           - name: List blobs
             href: storage-blobs-list-java.md
           - name: Delete and restore blobs
