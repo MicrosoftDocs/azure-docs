@@ -2,13 +2,13 @@
 title: Prompt Engineering Techniques with Azure OpenAI
 titleSuffix: Azure OpenAI Service
 description: Learn about the options for how to use prompt engineering with GPT-3, ChatGPT, and GPT-4 models
-author: suhridpalsule
+author: marcotcr
 ms.author: mbullwin 
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 04/20/2023
 manager: nitinme
-keywords: ChatGPT, GPT-4, prompt engineering, meta prompts
+keywords: ChatGPT, GPT-4, prompt engineering, meta prompts, chain of thought
 zone_pivot_groups: openai-prompt
 ---
 
