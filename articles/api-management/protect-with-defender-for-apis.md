@@ -38,16 +38,15 @@ This article shows how to use the Azure portal to enable Defender for APIs from 
 
 * At least one API Management instance in an Azure subscription. Defender for APIs is enabled at the level of a subscription. 
 * One or more supported APIs must be imported to the API Management instance.
-* Role to [enable the Defender for APIs plan](/azure/defender-for-cloud/permissions).
-* Azure account with permissions to sign into the Azure portal 
-* Contributor or Owner role on relevant Azure subscriptions, resource groups, or API Management instances that you want to secure. 
+* Role assignment to [enable the Defender for APIs plan](/azure/defender-for-cloud/permissions).
+* Contributor or Owner role assignment on relevant Azure subscriptions, resource groups, or API Management instances that you want to secure. 
 
 ## Onboard to Defender for APIs
 
 Onboarding APIs to Defender for APIs is a two-step process: enabling the Defender for APIs plan for the subscription, and onboarding unprotected APIs in your API Management instances.   
 
 > [!TIP]
-> You can also onboard to Defender for APIs directly in the Defender for Cloud portal, where more API security insights and inventory experiences are available.
+> You can also onboard to Defender for APIs directly in the Defender for Cloud interface, where more API security insights and inventory experiences are available.
 
 
 ### Enable the Defender for APIs plan for a subscription
@@ -106,9 +105,9 @@ For the security alerts received, Defender for APIs suggests necessary steps to 
 
 ## Offboard protected APIs from Defender for APIs
 
-You can remove APIs from protection by Defender for APIs by using the Defender for Cloud portal. For more information, see the Microsoft Defender for Cloud documentation.
+You can remove APIs from protection by Defender for APIs by using Defender for Cloud in the portal. For more information, see the Microsoft Defender for Cloud documentation.
 
 ## Next steps
 
 * Learn more about [Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
-* Learn how to [upgrade and scale](upgrade-and-scale.md) an API Management instance.
+* Learn how to [upgrade and scale](upgrade-and-scale.md) an API Management instance

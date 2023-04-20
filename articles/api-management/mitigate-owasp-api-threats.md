@@ -15,7 +15,7 @@ The Open Web Application Security Project ([OWASP](https://owasp.org/about/)) Fo
 The OWASP [API Security Project](https://owasp.org/www-project-api-security/) focuses on strategies and solutions to understand and mitigate the unique *vulnerabilities and security risks of APIs*. In this article, we'll discuss recommendations to use Azure API Management to mitigate the top 10 API threats identified by OWASP.
 
 > [!NOTE]
-> In addition to following the recommendations in this article, you can enable [Defender for APIs](https://aka.ms/apiSecurityOverview) (preview), a capability of Microsoft Defender for Cloud, for API security insights, recommendations, and threat detection. [Learn more about using Defender for APIs with API Management](protect-with-defender-for-apis.md)
+> In addition to following the recommendations in this article, you can enable Defender for APIs (preview), a capability of [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), for API security insights, recommendations, and threat detection. [Learn more about using Defender for APIs with API Management](protect-with-defender-for-apis.md)
 
 ## Broken object level authorization 
 
@@ -317,4 +317,4 @@ Learn more about:
 * [Security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline)
 * [Security controls by Azure policy](security-controls-policy.md)
 * [Landing zone accelerator for API Management](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
-* [Defender for APIs](https://aka.ms/apiSecurityOverview)
+* [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
