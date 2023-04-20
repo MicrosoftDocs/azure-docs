@@ -719,6 +719,15 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
+- id: programming-languages-csharp-python
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-speech-sdk-cli
 # Owner: eur
   title: Programming languages
@@ -1166,8 +1175,8 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
-  - id: programming-language-logic-apps
-    title: Azure Logic Apps
+  - id: programming-language-power-platform
+    title: Power Platform
 - id: acs-azcli-js-csharp-java-python-swift-android
   title: Programming languages
   prompt: Choose a programming language
