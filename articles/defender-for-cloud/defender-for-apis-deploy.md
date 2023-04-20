@@ -61,7 +61,7 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 
 After onboarding the API resources, you can track their status under the **Azure API Management APIs should be onboarded to Defender for APIs** recommendation.
 
-:::image type="content" source="media/defender-for-apis-deploy/track-resources.png" alt-text="Graphic showing how to track onboarded API resources."lightbox="media/defender-for-apis-deploy/track-resources.png"":::
+:::image type="content" source="media/defender-for-apis-deploy/track-resources.png" alt-text="Graphic showing how to track onboarded API resources." lightbox="media/defender-for-apis-deploy/track-resources.png":::
 
 
 ## Next steps
