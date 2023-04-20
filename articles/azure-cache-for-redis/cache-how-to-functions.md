@@ -2,11 +2,12 @@
 title: Using Azure Cache for Redis and Azure Functions
 description: Learn how to use Azure Cache for Redis and Azure Functions.
 author: flang-msft
+zone_pivot_groups: cache-redis-zone-pivot-group
 
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
-ms.date: 04/19/2023
+ms.date: 04/20/2023
 
 ---
 
@@ -77,14 +78,14 @@ The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSC
 > Functions with the `RedisPubSubTrigger` should not be scaled out to multiple instances.
 > Each instance listens and processes each pubsub message, resulting in duplicate processing.
 
-#### Inputs
+#### Inputs for RedisPubSubTrigger
 
 - `ConnectionString`: connection string to the redis cache (for example, `<cacheName>.redis.cache.windows.net:6380,password=...`).
 - `Channel`: name of the pubsub channel that the trigger should listen to.
 
 This sample listens to the channel "channel" at a localhost Redis instance at `127.0.0.1:6379`
 
-#### [C#](#tab/csharp/)
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 [FunctionName(nameof(PubSubTrigger))]
@@ -96,18 +97,22 @@ public static void PubSubTrigger(
 }
 ```
 
-#### [Java](#tab/java/)
+:::zone-end
+::: zone pivot="programming-language-java"
 
 ```java
 // TBD!
 // PubSubTrigger "channel"
 ```
 
----
+:::zone-end
+
+::: zone pivot="programming-language-python"
+:::zone-end
 
 This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at `127.0.0.1:6379`.
 
-#### [C#](#tab/csharp/)
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 
@@ -120,18 +125,22 @@ public static void PubSubTrigger(
 }
 ```
 
-#### [Java](#tab/java/)
+:::zone-end
+::: zone pivot="programming-language-java"
 
 ```java
 // TBD!
 // PubSubTrigger "myKey"
 ```
 
----
+:::zone-end
+
+::: zone pivot="programming-language-python"
+:::zone-end
 
 This sample listens to any `keyevent` notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at `127.0.0.1:6379`.
 
-#### [C#](#tab/csharp/)
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 [FunctionName(nameof(PubSubTrigger))]
@@ -143,20 +152,24 @@ public static void PubSubTrigger(
 }
 ```
 
-#### [Java](#tab/java/)
+:::zone-end
+::: zone pivot="programming-language-java"
 
 ```java
 // TBD!
 // PubSubTrigger "keyevent"
 ```
 
----
+:::zone-end
+
+::: zone pivot="programming-language-python"
+:::zone-end
 
 ### RedisListsTrigger
 
 The `RedisListsTrigger` pops elements from a list and surfaces those elements to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/)/[`LMPOP`](https://redis.io/commands/lmpop/) to pop elements from the lists.
 
-#### Inputs
+#### Inputs for RedisListsTrigger
 
 - `ConnectionString`: connection string to the redis cache, for example`<cacheName>.redis.cache.windows.net:6380,password=...`.
 - `Keys`: Keys to read from, space-delimited.
@@ -174,7 +187,7 @@ The `RedisListsTrigger` pops elements from a list and surfaces those elements to
 
 The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
 
-#### [C#](#tab/csharp/)
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 [FunctionName(nameof(ListsTrigger))]
@@ -186,15 +199,18 @@ public static void ListsTrigger(
 }
 ```
 
-#### [Java](#tab/java/)
-
+:::zone-end
+::: zone pivot="programming-language-java"
 
 ```java
 // TBD
 // ListsTrigger "listTest"
 ```
 
----
+:::zone-end
+
+::: zone pivot="programming-language-python"
+:::zone-end
 
 ### RedisStreamsTrigger
 
@@ -202,7 +218,7 @@ The `RedisStreamsTrigger` pops elements from a stream and surfaces those element
 The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
 Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function don't read the same messages from the stream.
 
-#### Inputs
+#### Inputs for RedisStreamsTrigger
 
 - `ConnectionString`: connection string to the redis cache, for example, `<cacheName>.redis.cache.windows.net:6380,password=...`.
 - `Keys`: Keys to read from, space-delimited.
@@ -220,7 +236,7 @@ Each function creates a new random GUID to use as its consumer name within the g
 
 The following sample polls the key `streamTest` at a localhost Redis instance at `127.0.0.1:6379`:
 
-#### [C#](#tab/csharp/)
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 [FunctionName(nameof(StreamsTrigger))]
@@ -232,14 +248,18 @@ public static void StreamsTrigger(
 }
 ```
 
-#### [Java](#tab/java/)
+:::zone-end
+::: zone pivot="programming-language-java"
 
 ```java
 // TBD
 // StreamsTrigger "streamTest"
 ```
 
----
+:::zone-end
+
+::: zone pivot="programming-language-python"
+:::zone-end
 
 ### Return Values
 
@@ -248,7 +268,7 @@ All triggers return a [`RedisMessageModel`](./src/Models/RedisMessageModel.cs) o
 - `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
 - `Message`: The pubsub message, list element, or stream element.
 
-#### [C#](#tab/csharp)
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 namespace Microsoft.Azure.WebJobs.Extensions.Redis
@@ -261,13 +281,18 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis
 }
 ```
 
-#### [Java](#tab/java)
+:::zone-end
+::: zone pivot="programming-language-java"
 
 ```java
 // TBD
 // RedisMessageModel
 ```
----
+
+:::zone-end
+
+::: zone pivot="programming-language-python"
+:::zone-end
 
 ## Next steps
 
