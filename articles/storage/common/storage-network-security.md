@@ -125,7 +125,7 @@ By default, storage accounts accept connections from clients on any network. You
 
 ## Grant access from a virtual network
 
-You can configure storage accounts to allow access only from specific subnets. The allowed subnets may belong to a VNet in the same subscription or a different subscription, including those belonging to a different Azure Active Directory tenant. With [global service endpoints](#azure-storage-global-service-endpoints), the allowed subnets can also be in different regions from the storage account.
+You can configure storage accounts to allow access only from specific subnets. The allowed subnets may belong to a VNet in the same subscription or a different subscription, including those belonging to a different Azure Active Directory tenant. With [cross-region service endpoints](#azure-storage-cross-region-service-endpoints), the allowed subnets can also be in different regions from the storage account.
 
 You can enable a [Service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Storage within the VNet. The service endpoint routes traffic from the VNet through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the storage account that allow requests to be received from specific subnets in a VNet. Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
 
@@ -143,18 +143,18 @@ Storage account and the virtual networks granted access may be in different subs
 > [!NOTE]
 > Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
-### Azure Storage global service endpoints
+### Azure Storage cross-region service endpoints
 
-Global service endpoints for Azure Storage became generally available in April of 2023. Global service endpoints work between virtual networks and storage service instances in any region. With global service endpoints, subnets will no longer use a public IP address to communicate with any storage account, including those in another region. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
+Cross-region service endpoints for Azure Storage became generally available in April of 2023. Cross-region service endpoints work between virtual networks and storage service instances in any region. With cross-region service endpoints, subnets will no longer use a public IP address to communicate with any storage account, including those in another region. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
 Configuring service endpoints between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md) can be an important part of your disaster recovery plan. Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
 When planning for disaster recovery during a regional outage, you should create the VNets in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
 
 > [!IMPORTANT]
-> Local and global service endpoints cannot coexist on the same subnet.
+> Local and cross-region service endpoints cannot coexist on the same subnet.
 >
-> To replace existing service endpoints with global ones, delete the existing **Microsoft.Storage** endpoints and recreate them as global endpoints (**Microsoft.Storage.Global**).
+> To replace existing service endpoints with cross-region ones, delete the existing **Microsoft.Storage** endpoints and recreate them as cross-region endpoints (**Microsoft.Storage.Global**).
 
 ### Managing virtual network rules
 
