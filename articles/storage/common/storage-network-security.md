@@ -143,17 +143,13 @@ Storage account and the virtual networks granted access may be in different subs
 > [!NOTE]
 > Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
-### Available virtual network regions
+### Azure Storage global service endpoints
 
-Service endpoints for Azure Storage work between virtual networks and storage service instances in any region.
+Global service endpoints for Azure Storage became generally available in April of 2023. Global service endpoints work between virtual networks and storage service instances in any region. With global service endpoints, subnets will no longer use a public IP address to communicate with any storage account, including those in another region. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
 Configuring service endpoints between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md) can be an important part of your disaster recovery plan. Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
 When planning for disaster recovery during a regional outage, you should create the VNets in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
-
-#### Azure Storage global service endpoints
-
-Global service endpoints for Azure became generally available in April of 2023. With global service endpoints, subnets will no longer use a public IP address to communicate with any storage account, including those in another region. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
 > [!IMPORTANT]
 > Local and global service endpoints cannot coexist on the same subnet.
