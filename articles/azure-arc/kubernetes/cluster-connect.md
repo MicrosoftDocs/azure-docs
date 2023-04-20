@@ -171,7 +171,6 @@ Before you begin, review the [conceptual overview of the cluster connect feature
     ```console
     kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --serviceaccount default:demo-user
     ```
-“kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --serviceaccount <custom-namespace-of-CX>:demo-user”
 
 1. Create a service account token:
 
@@ -205,7 +204,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
    kubectl create serviceaccount demo-user -n default
    ```
 
-1. Create ClusterRoleBinding or RoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
+1. Create ClusterRoleBinding or RoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). If you used a different namespace in the first command, substitute it here for `default`.
 
     ```console
     kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --serviceaccount default:demo-user
