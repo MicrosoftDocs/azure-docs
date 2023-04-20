@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # Illumio Core connector for Microsoft Sentinel
 
-The [Illumio Core](https://www.illumio.com/products/core) data connector provides the capability to ingest Illumio Core logs into Microsoft Sentinel.
+The [Illumio Core](https://www.illumio.com/products/illumio-core) data connector provides the capability to ingest Illumio Core logs into Microsoft Sentinel.
 
 ## Connector attributes
 
