@@ -21,9 +21,7 @@
     - name: Govern access to applications
       items:
       - name: Connected applications
-        href: apps.md 
-          - name: User provisioning tutorials
-            href: apps.md
+        href: apps.md
       - name: Automate identity governance tasks - PowerShell
         href: identity-governance-automation.md
       - name: Governing an application's existing users - PowerShell
@@ -271,5 +269,4 @@
       href: tutorial-prepare-azure-ad-user-accounts.md 
     - name: Configure a Logic App for Lifecycle Workflow use
       href: configure-logic-app-lifecycle-workflows.md
-      
       
