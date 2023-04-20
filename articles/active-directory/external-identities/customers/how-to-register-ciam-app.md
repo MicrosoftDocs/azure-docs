@@ -44,7 +44,7 @@ In this article, you’ll learn how to register an application in your customer 
 ### If you want to call an API follow the steps below (optional):
 [!INCLUDE [grant permisions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
-If you'd like to learn how to expose the permissions by adding a link, go to [Register an API](how-to-register-ciam-app.md#web-api).
+If you'd like to learn how to expose the permissions by adding a link, go to the Web API section.
 
 # [Web app](#tab/webapp)
 ## How to register your Web app?
