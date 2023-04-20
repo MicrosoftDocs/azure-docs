@@ -65,8 +65,8 @@ Alternatively, you can run a PowerShell script to determine if there are any unr
 
 If you determine that you have unregistered SQL Server VMs, use one of the two following methods to complete the registration:
 
-- [Register with the help of your Microsoft account team](register-with-the-help-of-your-microsoft-account-team)
-- [Turn on SQL IaaS Agent extension automatic registration](turn-ons-sql-iaas-agent-extension-automatic-registration)
+- [Register with the help of your Microsoft account team](#register-with-the-help-of-your-microsoft-account-team)
+- [Turn on SQL IaaS Agent extension automatic registration](#turn-on-sql-iaas-agent-extension-automatic-registration)
 
 ### Register with the help of your Microsoft account team
 
@@ -93,7 +93,7 @@ After you complete either of the preceding automatic registration options, it ca
 
 ## When registration completes
 
-After you complete the SQL IaaS Extension registration, we recommended you use Azure Hybrid Benefit for centralized management. If you're unsure whether registration is finished, you can use the steps in [Complete the Registration Check](complete-the-registration-check).
+After you complete the SQL IaaS Extension registration, we recommended you use Azure Hybrid Benefit for centralized management. If you're unsure whether registration is finished, you can use the steps in [Complete the Registration Check](#complete-the-registration-check).
 
 ## Next steps
 
