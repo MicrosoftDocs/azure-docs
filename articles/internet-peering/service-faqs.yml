@@ -7,7 +7,7 @@ metadata:
   author: halkazwini
   ms.service: internet-peering
   ms.topic: faq
-  ms.date: 03/29/2023
+  ms.date: 04/20/2023
   ms.author: halkazwini
   ms.custom: engagement-fy23
 title: Peering Service frequently asked questions (FAQ)
@@ -36,4 +36,11 @@ sections:
           If a service provider already peers with Microsoft, what kind of changes are required to support Peering Service?
         answer: |
           Peering Service partners must have an Azure subscription and manage the Peering Service connections using the Azure Portal as this is where customer prefixes are registered, performance metrics are viewed, and support tickets are logged, among other features. If a provider has existing peering with Microsoft but no Azure subscription, the resources must be added to your subscription before you will be able to convert these to the Peering Service configuration. During the configuration change, Microsoft changes the policy group during a hard restart of the BGP session. No configuration changes are required on the partner’s side, unless the telco partner is supporting Peering Service for voice then BFD configuration is required. For more information, see [Azure Internet peering for Communications Services walkthrough](walkthrough-communications-services-partner.md)
+
+  - name: Ignored
+    questions:
+      - question: |
+          Next steps
+        answer: |
+          For more Peering Service frequently asked questions, see [Peering Service frequently asked questions (FAQ)](../peering-service/faq.yml). <br> For more information about Peering Service, see [Azure Peering Service overview](../peering-service/about.md).
           
