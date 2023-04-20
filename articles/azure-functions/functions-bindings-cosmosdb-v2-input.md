@@ -1861,7 +1861,8 @@ See the [Example section](#example) for complete examples.
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+
+The parameter type supported by the Cosmos DB input binding depends on the Functions runtime version, the extension package version, and the C# modality used.
 
 
 # [Functions 2.x+](#tab/functionsv2/in-process)
@@ -1878,7 +1879,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 
 # [Extension 4.x+](#tab/extensionv4/isolated-process)
 
-Only JSON string inputs are currently supported. 
+[!INCLUDE [functions-cosmosdb-usage](../../includes/functions-cosmosdb-usage.md)]
 
 # [Functions 2.x+](#tab/functionsv2/csharp-script)
 

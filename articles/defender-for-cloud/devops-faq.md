@@ -2,7 +2,7 @@
 title: Defender for DevOps FAQ
 description: If you're having issues with Defender for DevOps perhaps, you can solve it with these frequently asked questions.
 ms.topic: reference
-ms.date: 02/23/2023
+ms.date: 04/18/2023
 ---
 
 # Defender for DevOps frequently asked questions (FAQ)
@@ -26,6 +26,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [I'm not able to configure Pull Request Annotations](#im-not-able-to-configure-pull-request-annotations)
 - [What programming languages are supported by Defender for DevOps?](#what-programming-languages-are-supported-by-defender-for-devops) 
 - [I'm getting an error that informs me that there's no CLI tool](#im-getting-an-error-that-informs-me-that-theres-no-cli-tool)
+- [Can I migrate the connector to a different region?](#can-i-migrate-the-connector-to-a-different-region)
 
 ### I'm getting an error while trying to connect
 
@@ -103,7 +104,7 @@ The ability to block developers from committing code with exposed secrets isn't 
 
 ### I'm not able to configure Pull Request Annotations
 
-Make sure you have write (owner/contributor) access to the subscription. 
+Make sure you have write (owner/contributor) access to the subscription. If you don't have this type of access today, you can get it through [activating an Azure Active Directory role in PIM](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role). 
 
 ### What programming languages are supported by Defender for DevOps?
 
@@ -128,6 +129,13 @@ This error occurs if you're missing the dependency of `dotnet6` in the pipeline'
  
 You can learn more about [Microsoft Security DevOps](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops). 
 
+### Can I migrate the connector to a different region?
+
+For example, can I migrate the connector from the Central US region to the West Europe region?
+
+We don’t support automatic migration for the Defender for DevOps connectors from one region to another at this time.
+
+If you want to move a connector’s location, for example a GitHub or Azure DevOps connector, to be stored in a different region than the original one where the connector was created, the recommendation is to delete the existing connector and then to create another connector in the new region.
 
 ## Next steps
 

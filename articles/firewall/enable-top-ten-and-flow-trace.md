@@ -31,7 +31,7 @@ Enable the log using the following Azure PowerShell commands:
 
 ```azurepowershell
 Set-AzContext -SubscriptionName <SubscriptionName>
-$firewall = Get-AzFirewall- ResourceGroupName <ResourceGroupName> -Name <FirewallName>
+$firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
 $firewall.EnableFatFlowLogging = $true
 Set-AzFirewall -AzureFirewall $firewall
 ```

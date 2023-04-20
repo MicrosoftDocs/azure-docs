@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/26/2023
+ms.date: 04/12/2023
 ms.author: jeedes
 
 ---
@@ -46,7 +46,7 @@ Add CITI Program from the Azure AD application gallery to configure single sign-
 
 ### Create and assign Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal.
 
 Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
@@ -76,16 +76,23 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. CITI Program application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Image")
+	![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Default Attributes")
 
-1. In addition to above, CITI Program application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. CITI Program application expects urn:oid named attributes to be passed back in the SAML response, which are shown below. These attributes are also pre-populated but you can review them as per your requirements. These are all required.
 
 	| Name |  Source Attribute|
 	| ---------------|  --------- |
 	| urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
-	| urn:oid:0.9.2342.19200300.100.1.3 | user.userprincipalname |
+	| urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
 	| urn:oid:2.5.4.42 | user.givenname |
 	| urn:oid:2.5.4.4 | user.surname |
+
+1. If you wish to pass additional information in the SAML response, CITI Program can also accept the following optional attributes.
+
+	| Name |  Source Attribute|
+	| ---------------|  --------- |
+	| urn:oid:2.16.840.1.113730.3.1.241 | user.displayname |
+	| urn:oid:2.16.840.1.113730.3.1.3 | user.employeeid |
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -97,11 +104,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure CITI Program SSO
 
-To configure single sign-on on **CITI Program** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [CITI Program support team](mailto:shibboleth@citiprogram.org). They set this setting to have the SAML SSO connection set properly on both sides.
-
-### Create CITI Program test user
-
-In this section, a user called B.Simon is created in CITI Program. CITI Program supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in CITI Program, a new one is commonly created after authentication.
+To configure single sign-on on **CITI Program** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [CITI Program support team](mailto:shibboleth@citiprogram.org). This is required to have the SAML SSO connection set properly on both sides.
 
 ## Test SSO 
 
@@ -113,10 +116,19 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * You can use Microsoft My Apps. When you click the CITI Program tile in the My Apps, this will redirect to CITI Program Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
+CITI Program supports just-in-time user provisioning. First time SSO users will be prompted to either: 
+
+* Link their existing CITI Program account, in the case that they already have one
+![SSOHaveAccount](https://user-images.githubusercontent.com/46728557/228357500-a74489c7-8c5f-4cbe-ad47-9757d3d9fbe6.PNG "Link existing CITI Program account")
+
+* Or Create a new CITI Program account, which is automatically provisioned
+![SSONotHaveAccount](https://user-images.githubusercontent.com/46728557/228357503-f4eba4bb-f3fa-43e9-a98a-f0da87074eeb.PNG "Provision new CITI Program account")
+
 ## Additional resources
 
+* [CITI Program SSO Technical Information](https://support.citiprogram.org/s/article/single-sign-on-sso-and-shibboleth-technical-specs#EntityInformation)
 * [What is single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Plan a single sign-on deployment](../manage-apps/plan-sso-deployment.md).
+* [Plan a single sign-on deployment](../manage-apps/plan-sso-deployment.md)
 
 ## Next steps
 

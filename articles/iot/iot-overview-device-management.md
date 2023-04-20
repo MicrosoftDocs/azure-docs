@@ -20,7 +20,7 @@ IoT Central applications use the IoT Hub and the Device Provisioning Service (DP
 
 The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the device management and control components of an IoT solution.
 
-:::image type="content" source="media/iot-overview-device-management/iot-architecture.svg" lightbox="media/iot-overview-device-management/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
+:::image type="content" source="media/iot-overview-device-management/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
 
 In Azure IoT, device management refers to processes such as provisioning and updating devices. Device management includes the following tasks:
 
@@ -139,5 +139,5 @@ To learn more, see:
 
 Now that you've seen an overview of device management and control in Azure IoT solutions, some suggested next steps include
 
-- [IoT device development](iot-overview-device-development.md)
-- [Device infrastructure and connectivity](iot-overview-device-connectivity.md)
+- [Process and route messages](iot-overview-message-processing.md)
+- [Extend your IoT solution](iot-overview-solution-extensibility.md)

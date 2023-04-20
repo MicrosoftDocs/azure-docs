@@ -9,6 +9,7 @@ author: frogglew
 ms.author: saoh
 ms.reviewer: sgilley
 ms.date: 09/21/2022
+monikerRange: 'azureml-api-2'
 ---
  
 # Azure Machine Learning glossary
