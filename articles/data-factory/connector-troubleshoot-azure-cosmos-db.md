@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 07/29/2022
+ms.date: 04/20/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse, ignite-2022
 ---
@@ -23,7 +23,32 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Cause**: Azure Cosmos DB limits the size of a single request to 2 MB. The formula is *request size = single document size \* write batch size*. If your document size is large, the default behavior will result in a request size that's too large. You can tune the write batch size.
 
-- **Resolution**: In the copy activity sink, reduce the *write batch size* value (the default value is 10000).
+- **Resolution**: In the copy activity sink, reduce the *write batch size* value (the default value is 10000). <br> If reduce the *write batch size* value is not work, change your Azure Cosmos DB SQL API from V2 to V3. You have two options:
+
+     - **Option 1**: Change your authentication type to service principal/system-assigned managed identity/user-assigned managed identity authentication.
+     - **Option 2**: If you still want to use account key authentication, follow the steps below:
+         1. Create an Azure Cosmos DB for NoSQL linked service.
+         2. Update the linked service with the following template. 
+         
+            ```json
+            {
+              "name": "<CosmosDbV3>",
+              "type": "Microsoft.DataFactory/factories/linkedservices",
+              "properties": {
+                "annotations": [],
+                "type": "CosmosDb",
+                "typeProperties": {
+                  "useV3": true,
+                  "accountEndpoint": "<account endpoint>",
+                  "database": "<database name>",
+                  "accountKey": {
+                    "type": "SecureString",
+                    "value": "<account key>"
+                  }
+                }
+              }
+            }
+            ```
 
 ## Error message: Unique index constraint violation
 
