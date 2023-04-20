@@ -150,11 +150,11 @@ Both in-process and isolated process C# libraries use the <!--attribute API here
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries], use the [DaprBindingTrigger] to trigger a Dapr input binding, which supports the following properties.
+In [C# class libraries], use the [daprState] to trigger a Dapr input binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
-| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. | 
+| **statestore** | The name of the Dapr state input binding. | 
 
 # [Isolated process](#tab/isolated-process)
 
@@ -170,10 +170,7 @@ C# script uses a _function.json_ file for configuration instead of attributes.
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+|  |  |
 
 ::: zone-end
 
@@ -184,9 +181,12 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
+|**type** | Must be set to `daprState`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | Must be set to `in`.  |
+|**dataType** |  |
 |**name** | The name of the variable that represents the Dapr data in function code. |
+|**stateStore** | The name of the binding. |
+|**key** |  |
 
 
 ::: zone-end
@@ -198,10 +198,7 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+|  |  |
 
 ::: zone-end
 
@@ -210,20 +207,7 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
-
-# [In-process](#tab/in-process)
-
-<!--Any usage information from the C# tab in ## Usage. -->
- 
-# [Isolated process](#tab/isolated-process)
-
-<!--If available, call out any usage information from the linked example in the worker repo. -->
-
-# [C# Script](#tab/csharp-script)
-
-
----
+The binding types supported by the Dapr state input depend on the Functions runtime version, the extension package version, and the C# modality used. For more information, see [Binding types](./functions-bindings-dapr.md#binding-types).
 
 ::: zone-end
 
@@ -233,7 +217,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+Access Dapr state input binding using `context.bindings.daprState`.
 
 ::: zone-end
 
@@ -242,7 +226,6 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
 
 ::: zone-end
 

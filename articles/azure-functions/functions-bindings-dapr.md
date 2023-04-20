@@ -11,11 +11,17 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 Azure Functions integrates with [Dapr](https://docs.dapr.io/) via [triggers and bindings](./functions-triggers-bindings.md). Integrating with Dapr allows you to build functions that react to changes in Dapr data as well as read and write values.
 
-| Action | Type |
+| Action  | Type |
 |---------|---------|
-| Trigger a Dapr binding, service invocation, or topic subscription | [Trigger](./functions-bindings-dapr-trigger.md) |
-| Pull in Dapr state and secrets | [Input binding](./functions-bindings-dapr-input.md) |
-| Send a value to a Dapr topic or output binding |[Output binding](./functions-bindings-dapr-output.md) |
+| Trigger on a Dapr input binding | [daprBindingTrigger](./functions-bindings-dapr-trigger-input.md) |
+| Trigger on a Dapr service invocation | [daprServiceInvocationTrigger](./functions-bindings-dapr-trigger-svc-invoke.md) |
+| Trigger on a Dapr topic subscription | [daprTopicTrigger](./functions-bindings-dapr-trigger-topic.md) |
+| Pull in Dapr state for an execution | [daprState](./functions-bindings-dapr-input-state.md) |
+| Pull in Dapr secrets for an execution | [daprSecret](./functions-bindings-dapr-input-secret.md) |
+| Save a value to a Dapr state |[daprState](./functions-bindings-dapr-output-state.md) |
+| Invoke another Dapr app |[daprInvoke](./functions-bindings-dapr-output-invoke.md) |
+|Publish a message to a Dapr topic |[daprPublish](./functions-bindings-dapr-output-publish.md) |
+| Send a value to a Dapr output binding |[daprBinding](./functions-bindings-dapr-output.md) |
 
 
 ::: zone pivot="programming-language-csharp"
@@ -30,6 +36,10 @@ Functions execute in the same process as the Functions host. To learn more, see 
 # [Isolated process](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
+
+# [C# Script](#tab/csharp-script)
+
+Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions](./functions-bindings-register.md)
 
 ---
 
@@ -95,6 +105,10 @@ An in-process class library is a compiled C# function runs in the same process a
 # [Isolated process](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
+
+# [C# Script](#tab/csharp-script)
+
+C# script is used primarily when creating C# functions in the Azure portal.
 
 ---
 

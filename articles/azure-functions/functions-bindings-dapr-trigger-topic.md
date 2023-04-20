@@ -222,7 +222,7 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-csharp"
 
-See the [Example section](#examples) for complete examples.
+See the [Example section](#example) for complete examples.
 
 ## Usage
 The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
@@ -245,7 +245,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-javascript"
 
-See the [Example section](#examples) for complete examples.
+See the [Example section](#example) for complete examples.
 
 ## Usage
 The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
@@ -254,7 +254,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 
 ::: zone pivot="programming-language-python"
 
-See the [Example section](#examples) for complete examples.
+See the [Example section](#example) for complete examples.
 
 ## Usage
 The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.

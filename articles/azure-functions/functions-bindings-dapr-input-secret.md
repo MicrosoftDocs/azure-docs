@@ -175,11 +175,11 @@ Both in-process and isolated process C# libraries use the <!--attribute API here
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries], use the [DaprServiceInvocationTrigger] to trigger a Dapr input binding, which supports the following properties.
+In [C# class libraries], use the [daprSecret] to trigger a Dapr input binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
-| **MethodName** | Optional. The name of the method the Dapr caller should use. If not specified, the name of the function is used as the method name. | 
+| *** | The name of the Dapr secret input binding. | 
 
 # [Isolated process](#tab/isolated-process)
 
@@ -195,9 +195,9 @@ C# script uses a _function.json_ file for configuration instead of attributes.
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprServiceInvocationTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**type** | Must be set to `daprSecret`. This property is set automatically when you create the trigger in the Azure portal.|
 |**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+|**direction** | Must be set to `in`.  |
 
 ::: zone-end
 
@@ -208,8 +208,12 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprServiceInvocationTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**type** | Must be set to `daprSecret`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | Must be set to `in`. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
+|**key** | The secret key value. |
+|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. |
+|**metadata** | The metadata namespace. |
 
 
 ::: zone-end
@@ -221,9 +225,12 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprServiceInvocationTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**type** | Must be set to `daprSecret`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | Must be set to `in`. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+|**key** | The secret key value. |
+|**secretStoreName** | Name of the secret store as defined in the _local-secret-store.yaml_ component file. |
+|**metadata** | The metadata namespace. |
 
 ::: zone-end
 
@@ -232,20 +239,7 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
-
-# [In-process](#tab/in-process)
-
-<!--Any usage information from the C# tab in ## Usage. -->
- 
-# [Isolated process](#tab/isolated-process)
-
-<!--If available, call out any usage information from the linked example in the worker repo. -->
-
-# [C# Script](#tab/csharp-script)
-
-
----
+The binding types supported by the Dapr secret input depend on the Functions runtime version, the extension package version, and the C# modality used. For more information, see [Binding types](./functions-bindings-dapr.md#binding-types).
 
 ::: zone-end
 
@@ -255,7 +249,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+Access Dapr secret input using `context.bindings.secret`.
 
 ::: zone-end
 
@@ -264,7 +258,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+
 
 ::: zone-end
 
