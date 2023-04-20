@@ -575,8 +575,6 @@ items:
     items:
     - name: Migrate from Operations Manager
       href: azure-monitor-operations-manager.md
-    - name: Migrate management pack logic
-      href: vm/monitor-virtual-machine-management-packs.md
     - name: SCOM Managed Instance (preview)
       href: vm/scom-managed-instance-overview.md
     - name: Connect Operations Manager

@@ -6135,6 +6135,11 @@
             "source_path_from_root": "/articles/azure-monitor/app/data-model-context.md",
             "redirect_url": "/azure/azure-monitor/app/data-model-complete",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/monitor-virtual-machine-management-packs.md",
+            "redirect_url": "/azure/azure-monitor/azure-monitor-operations-manager#migrate-management-pack-logic",
+            "redirect_document_id": false
         }
 
     ]
