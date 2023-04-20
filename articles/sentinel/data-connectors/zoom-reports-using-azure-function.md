@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # Zoom Reports (using Azure Function) connector for Microsoft Sentinel
 
-The [Zoom](https://zoom.us/) Reports data connector provides the capability to ingest [Zoom Reports](https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/) events into Microsoft Sentinel through the REST API. Refer to [API documentation](https://marketplace.zoom.us/docs/api-reference/introduction) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
+The [Zoom](https://zoom.us/) Reports data connector provides the capability to ingest [Zoom Reports](https://developers.zoom.us/docs/api/) events into Microsoft Sentinel through the REST API. Refer to [API documentation](https://marketplace.zoom.us/docs/api-reference/introduction) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
 ## Connector attributes
 
