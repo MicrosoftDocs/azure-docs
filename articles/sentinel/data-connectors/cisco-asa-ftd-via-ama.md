@@ -54,7 +54,7 @@ Enable data collection rule​
 Run the following command to install and apply the Cisco ASA/FTD collector:
 
 
-   sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
+   sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py python Forwarder_AMA_installer.py
 
 
 
