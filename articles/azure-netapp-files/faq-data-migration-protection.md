@@ -46,8 +46,6 @@ You can also use a wide array of free tools to copy data. For NFS, you can use w
 The requirements for replicating an Azure NetApp Files volume to another Azure region are as follows: 
 - Ensure Azure NetApp Files is available in the target Azure region.
 - Validate network connectivity between the source and the Azure NetApp Files target volume IP address. Data transfer between on premises and Azure NetApp Files volumes, or across Azure regions, is supported via [site-to-site VPN and ExpressRoute](azure-netapp-files-network-topologies.md#hybrid-environments), [Global VNet peering](azure-netapp-files-network-topologies.md#global-or-cross-region-vnet-peering), or [Azure Virtual WAN connections](configure-virtual-wan.md).
-``
-making links relative
 - Create the target Azure NetApp Files volume.
 - Transfer the source data to the target volume by using your preferred file copy tool.
 
