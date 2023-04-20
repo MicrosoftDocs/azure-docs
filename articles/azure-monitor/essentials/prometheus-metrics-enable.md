@@ -39,6 +39,9 @@ Use any of the following methods to install the Azure Monitor agent on your AKS 
 
 ### [CLI](#tab/cli)
 
+> [!NOTE]
+> Azure Managed Grafana is not available in the Azure US Government cloud currently.
+
 #### Prerequisites
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in the Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
@@ -52,7 +55,7 @@ Use `az aks update` with the `-enable-azuremonitormetrics` option to install the
 - **Create a new default Azure Monitor workspace.**<br>
 If no Azure Monitor workspace is specified, a default Azure Monitor workspace is created in a resource group with the name `DefaultRG-<cluster_region>` and is named `DefaultAzureMonitorWorkspace-<mapped_region>`.
 This Azure Monitor workspace is in the region specified in [Region mappings](#region-mappings).
-    
+
     ```azurecli
     az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
     ```
@@ -66,7 +69,7 @@ If the existing Azure Monitor workspace is already linked to one or more Grafana
 
 - **Use an existing Azure Monitor workspace and link with an existing Grafana workspace.**<br>
 This option creates a link between the Azure Monitor workspace and the Grafana workspace.
-    
+
     ```azurecli
     az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
     ```
@@ -367,7 +370,7 @@ As of version `6.4.0-main-02-22-2023-3ee44b9e`, Windows metric collection has be
     ```
 
     The number of pods should be equal to the number of Linux nodes on the cluster. The output should resemble the following example:
-    
+
     ```
     User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
     NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
@@ -379,9 +382,9 @@ As of version `6.4.0-main-02-22-2023-3ee44b9e`, Windows metric collection has be
     ```
     kubectl get ds ama-metrics-win-node --namespace=kube-system
     ```
-    
+
     The number of pods should be equal to the number of Windows nodes on the cluster. The output should resemble the following example:
-    
+
     ```
     User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
     NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
@@ -393,9 +396,9 @@ As of version `6.4.0-main-02-22-2023-3ee44b9e`, Windows metric collection has be
     ```
     kubectl get rs --namespace=kube-system
     ```
-    
+
     The output should resemble the following example:
-    
+
     ```
     User@aksuser:~$kubectl get rs --namespace=kube-system
     NAME                            DESIRED   CURRENT   READY   AGE
@@ -423,12 +426,12 @@ Currently, the Azure CLI is the only option to remove the metrics add-on and sto
     ```
     az extension add --name aks-preview
     ```
-    
+
     For more information on installing a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-    
+
     > [!NOTE]
     > Upgrade your az cli version to the latest version and ensure that the aks-preview version you're using is at least '0.5.132'. Find your current version by using the `az version`.
-    
+
     ```azurecli
     az extension add --name aks-preview
     ```
