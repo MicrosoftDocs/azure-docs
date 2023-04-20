@@ -10,12 +10,12 @@ ms.reviewer: aul
 # Collect Prometheus metrics with Container insights
 [Prometheus](https://aka.ms/azureprometheus-promio) is a popular open-source metric monitoring solution and is the most common monitoring tool used to monitor Kubernetes clusters. Container insights uses its containerized agent to collect much of the same data that is typically collected from the cluster by Prometheus without requiring a Prometheus server. This data is presented in Container insights views and available to other Azure Monitor features such as [log queries](container-insights-log-query.md) and [log alerts](container-insights-log-alerts.md).
 
-Container insights can also scrape Prometheus metrics from your cluster and send the data to either Azure Monitor Logs or to Azure Monitor managed service for Prometheus. This requires exposing the Prometheus metrics endpoint through your exporters or pods and then configuring one of the addons for the Azure Monitor agent used by Container insights as shown the following diagram.
+Container insights can also scrape your custom Prometheus metrics from your application on your cluster and send the data to either Azure Monitor Logs or to Azure Monitor managed service for Prometheus (preview). This requires exposing the Prometheus metrics endpoint through your exporters or pods and then configuring one of the addons for the Azure Monitor agent used by Container insights as shown the following diagram. Metrics sent to the Log Analytics workspace are queried through log queries, whereas Metrics sent through Azure Monitor managed Prometheus are queried through PromQL and Prometheus recording rules and alerts are supported.
 
 :::image type="content" source="media/container-insights-prometheus/monitoring-kubernetes-architecture.png" lightbox="media/container-insights-prometheus/monitoring-kubernetes-architecture.png" alt-text="Diagram of container monitoring architecture sending Prometheus metrics to Azure Monitor Logs." border="false":::
 
 
-## Send data to Azure Monitor managed service for Prometheus
+## Send data to Azure Monitor managed service for Prometheus (preview)
 [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) is a fully managed Prometheus-compatible service that supports industry standard features such as PromQL, Grafana dashboards, and Prometheus alerts. This requires configuring the *metrics addon* for the Azure Monitor agent, which sends data to Prometheus.
 
 > [!NOTE]

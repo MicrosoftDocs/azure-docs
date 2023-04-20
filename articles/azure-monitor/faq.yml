@@ -208,6 +208,14 @@ sections:
           You have options for how you can collect your Prometheus metrics. If you use the Azure portal and enable Prometheus metrics collection and install the Azure Kubernetes Service (AKS) add-on from the Azure Monitor workspace UX, it won't enable Container insights and collection of log data. When you go to the Insights page on your AKS cluster, you're prompted to enable Container insights to collect log data.<br>
           
           If you use the Azure portal and enable Prometheus metrics collection and install the AKS add-on from the Insights page of your AKS cluster, it enables log collection into a Log Analytics workspace. and Prometheus metrics collection into an Azure Monitor workspace. 
+      - question: |
+          I am missing all or some of my metrics. How can I troubleshoot?
+        answer: |
+          You can use the troubleshooting guide for ingesting Prometheus metrics from the managed agent [here](essentials/prometheus-metrics-troubleshoot.md).
+      - question: |
+          Why am I missing metrics that have two labels with the same name but different casing?
+        answer: |
+          Metrics that have two label names that are the same except for their casing will be treated as having duplicate label names. These time series will be dropped upon ingestion since the two labels are seen as the same. For example, the time series `my_metric{ExampleLabel="label_value_0", examplelabel="label_value_1}` will be dropped due to duplicate labels since `ExampleLabel` and `examplelabel` will be seen as the same label name.
 
   - name: Change Analysis
     questions:

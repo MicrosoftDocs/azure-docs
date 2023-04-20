@@ -60,8 +60,22 @@ kubectl logs <ama-metrics pod name> -n kube-system -c prometheus-collector
       - Also verify that the Azure Monitor Workspace exists.
       - Verify that you do not have a private AKS cluster annd that it's not linked to an Azure Monitor Private Link Scope for any other service. This is currently not a supported scenario.
 - Verify there are no errors with parsing the Prometheus config, merging with any default scrape targets enabled, and validating the full config.
-- Verify there are no errors from MetricsExtension regarding authenticating with the Azure Monitor workspace.
-- Verify there are no errors from the OpenTelemetry collector about scraping the targets.
+- If you did include a custom Prometheus config, verify this is recognized in the logs. If not:
+  - Verify that your configmap has the correct name: `ama-metrics-prometheus-config` in the `kube-system` namespace.
+  - Verify that in the configmap your Prometheus config is under a section called `prometheus-config` under `data` like below:
+    ```
+    kind: ConfigMap
+    apiVersion: v1
+    metadata:
+      name: ama-metrics-prometheus-config
+      namespace: kube-system
+    data:
+      prometheus-config: |-
+        scrape_configs:
+        - job_name: <your scrape job here>
+    ```
+- Verify there are no errors from `MetricsExtension` regarding authenticating with the Azure Monitor workspace.
+- Verify there are no errors from the `OpenTelemetry collector` about scraping the targets.
 
 Run the following command:
 
@@ -69,15 +83,14 @@ Run the following command:
 kubectl logs <ama-metrics pod name> -n kube-system -c addon-token-adapter
 ```
 
-- This will show an error if there's an issue with authenticating with the Azure Monitor workspace. Following is an example of logs with no issues:
-- 
-:::image type="content" source="media/prometheus-metrics-troubleshoot/addon-token-adapter.png" alt-text="Screenshot showing addon token log." lightbox="media/prometheus-metrics-troubleshoot/addon-token-adapter.png" :::
+- This will show an error if there's an issue with authenticating with the Azure Monitor workspace. Below is an example of logs with no issues:
+  :::image type="content" source="media/prometheus-metrics-troubleshoot/addon-token-adapter.png" alt-text="Screenshot showing addon token log." lightbox="media/prometheus-metrics-troubleshoot/addon-token-adapter.png" :::
 
 If there are no errors in the logs, the Prometheus interface can be used for debugging to verify the expected configuration and targets being scraped.
 
 ## Prometheus interface
 
-Every `ama-metrics-*` pod has the Prometheus Agent mode User Interface available on port 9090/ Port forward into either the replicaset or the daemonset to check the config, service discovery and targets endpoints as described below. This is used to verify the custom configs are correct, the intended targets have been discovered for each job, and there are no errors with scraping specific targets.
+Every `ama-metrics-*` pod has the Prometheus Agent mode User Interface available on port 9090. Port-forward into either the replicaset pod or one of the daemonset pods to check the config, service discovery and targets endpoints as described below. This is used to verify the custom configs are correct, the intended targets have been discovered for each job, and there are no errors with scraping specific targets.
 
 Run the command `kubectl port-forward <ama-metrics pod> -n kube-system 9090`.
 
