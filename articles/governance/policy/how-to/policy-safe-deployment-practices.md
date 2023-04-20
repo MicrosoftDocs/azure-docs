@@ -11,7 +11,7 @@ ms.author: timwarner
 As your environment expands, so does the demand for a controlled continuous deployment (CD)
 pipeline with progressive exposure control. Accordingly, Microsoft recommends DevOps teams follow
 the safe deployment practices (SDP) framework. The
-safe deployment of Azure Policy definitions and assignments assists in limiting the impact of
+safe deployment of Azure Policy definitions and assignments helps limiting the impact of
 unintended behaviors of policy resources.
 
 The high-level approach of implementing SDP with Azure Policy is to roll out policy assignments
@@ -19,7 +19,7 @@ by rings to detect policy changes that affect the environment in early stages be
 affects the critical cloud infrastructure.
 
 Deployment rings can be organized in diverse ways. In this how-to tutorial, rings are divided by
-different Azure regions with _Ring 0_ representing critical, low traffic locations
+different Azure regions with _Ring 0_ representing non-critical, low traffic locations
 and _Ring 5_ denoting the most critical, highest traffic locations.
 
 ## Steps for safe deployment of Azure Policy assignments with deny or append effects
@@ -35,7 +35,7 @@ Policy assignments that use the `deny` or `append` policy effects.
 We recommend storing Azure Policy definitions at the management group scope for maximum flexibility.
 
 2. Once you've created your policy definition, assign the policy at the highest-level scope inclusive
-of all deployment rings. Leverage _resource selectors_ to narrow the applicability to the least
+of all deployment rings. Apply _resource selectors_ to narrow the applicability to the least
 critical ring by using the `"kind": "resource location"` property. Configure the `audit` effect type
 by using _assignment overrides_. Sample selector with eastUS location and effect as audit
 
@@ -61,13 +61,13 @@ encompass the following logic:
 
 - Gather compliance results
 - If compliance results are as expected, the pipeline should continue
-- If compliance results are not as expected, the pipeline should fail and you should start debugging
+- If compliance results aren't as expected, the pipeline should fail and you should start debugging
 
 For example, you can configure the compliance check by using other tools within
 your particular continuous integration/continuous deployment (CI/CD) pipeline.
 
 At each rollout stage, the application health checks should confirm the stability of the service
-and impact of the policy. If the results are not as expected due to application configuration,
+and impact of the policy. If the results aren't as expected due to application configuration,
 refactor the application as appropriate.
 
 4. Repeat by expanding the resource selector property values to include the next rings’
@@ -83,7 +83,7 @@ locations and validating the expected compliance results and application health.
     }]
   ```
 
-5. Once you've successfully assigned the policy to all rings using `audit` mode,
+5. Once you have successfully assigned the policy to all rings using `audit` mode,
 the pipeline should trigger a task that changes the policy effect to `deny` and reset
 the resource selectors to the location associated with _Ring 0_. Example selector with one region and effect set to deny:
 
@@ -101,7 +101,7 @@ the resource selectors to the location associated with _Ring 0_. Example selecto
     }] 
   ```
 
-6. After changing the effect, automated tests should check whether enforcement is taking place as
+6. Once the effect is changed, automated tests should check whether enforcement is taking place as
 expected.
 
 7. Repeat by including more rings in your resource selector configuration.
@@ -110,10 +110,10 @@ expected.
 
 ## Steps for safe deployment of Azure Policy assignments with modify or deployIfNotExists effects
 
-Steps 1-4 for policies using the `modify` or `deployIfNotExists` effects are the same as above.
-Study the following flowchart and then review modified steps 5-9:
+Steps 1-4 for policies using the `modify` or `deployIfNotExists` effects are the same as steps previously explained.
+Review the following flowchart with modified steps 5-9:
 
-:::image type="content" source="safe-deployment-practices-flowchart2.png" alt-text="Flowchart showing steps five through nine in the Azure Policy safe deployment practices workflow." border="true":::
+:::image type="content" source="safe-deployment-practices-flowchart2.png" alt-text="Flowchart showing steps 5 through 9 in the Azure Policy safe deployment practices workflow." border="true":::
 
 5. Once you've assigned the policy to all rings using `audit` mode, the pipeline should trigger
 a task that changes the policy effect to `modify` or `deployIfNotExists` and resets
