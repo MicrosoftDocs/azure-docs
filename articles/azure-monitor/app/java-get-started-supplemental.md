@@ -10,6 +10,8 @@ ms.reviewer: mmcc
 
 # Get Started (Supplemental)
 
+In the following sections, you will find information on how to get Java auto-instrumentation for specific technical environments.
+
 ## Azure App Service
 
 For more information, see [Application monitoring for Azure App Service and Java](./azure-web-apps-java.md).
