@@ -1,8 +1,8 @@
 ---
 title: 'Create a NAT gateway - Bicep'
-titleSuffix: Azure Virtual Network NAT
+titleSuffix: Azure NAT Gateway
 description: This quickstart shows how to create a NAT gateway using Bicep.
-services: load-balancer
+services: nat-gateway
 author: asudbring
 ms.service: virtual-network
 ms.subservice: nat
@@ -16,7 +16,7 @@ ms.custom: subject-armqs, devx-track-bicep
 
 # Quickstart: Create a NAT gateway - Bicep
 
-Get started with Virtual Network NAT using Bicep. This Bicep file deploys a virtual network, a NAT gateway resource, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway resource.
+Get started with Azure NAT Gateway using Bicep. This Bicep file deploys a virtual network, a NAT gateway resource, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway resource.
 
 [!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -122,8 +122,8 @@ In this quickstart, you created a:
 
 The virtual machine is deployed to a virtual network subnet associated with the NAT gateway.
 
-To learn more about Virtual Network NAT and Bicep, continue to the articles below.
+To learn more about Azure NAT Gateway and Bicep, continue to the articles below.
 
-* Read an [Overview of Virtual Network NAT](nat-overview.md)
+* Read an [Overview of Azure NAT Gateway](nat-overview.md)
 * Read about the [NAT Gateway resource](nat-gateway-resource.md)
 * Learn more about [Bicep](../../azure-resource-manager/bicep/overview.md)

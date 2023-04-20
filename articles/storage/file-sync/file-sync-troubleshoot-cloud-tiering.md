@@ -4,7 +4,7 @@ description: Troubleshoot common issues with cloud tiering in an Azure File Sync
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 4/12/2023
+ms.date: 4/20/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -126,6 +126,29 @@ If files fail to be recalled:
 | 0x80072f8f | -2147012721 | WININET_E_DECODING_FAILED | The file failed to recall because the server was unable to decode the response from the Azure File Sync service. | This error typically occurs if a network proxy is modifying the response from the Azure File Sync service. Please check your proxy configuration. |
 | 0x80090352 | -2146892974 | SEC_E_ISSUING_CA_UNTRUSTED | The file failed to recall because your organization is using a TLS terminating proxy or a malicious entity is intercepting the traffic between your server and the Azure File Sync service. | If you're certain this is expected (because your organization is using a TLS terminating proxy), follow the steps documented for error [CERT_E_UNTRUSTEDROOT](file-sync-troubleshoot-sync-errors.md#-2146762487) to resolve this issue. |
 | 0x80c86047 | -2134351801 | ECS_E_AZURE_SHARE_SNAPSHOT_NOT_FOUND | The file failed to recall because it's referencing a version of the file which no longer exists in the Azure file share. | This issue can occur if the tiered file was restored from a backup of the Windows Server. To resolve this issue, restore the file from a snapshot in the Azure file share. |
+| 0x32 | 50 | ERROR_NOT_SUPPORTED | An internal error occurred. | Please upgrade to the latest Azure File Sync agent version. If the error persists after upgrading the agent, create a support request. |
+| 0x6 | N/A | ERROR_INVALID_HANDLE | An internal error occurred. | If the error persists for more than a day, create a support request. |
+| 0x80c80310 | -2134375664 | ECS_E_INVALID_DOWNLOAD_RESPONSE | Azure File sync error. | If the error persists for more than a day, create a support request. |
+| 0x45d | N/A | ERROR_IO_DEVICE | An internal error occurred. | If the error persists for more than a day, create a support request. |
+| 0x80c8604b | -2134351797 | ECS_E_AZURE_FILE_SHARE_FILE_NOT_FOUND | File not found in the file share. | You have likely performed an unsupported operation. [Learn more](file-sync-disaster-recovery-best-practices.md). Please find the original copy of the file and overwrite the tiered file in the server endpoint. |
+| 0x21 | 33 | ERROR_LOCK_VIOLATION | The process cannot access the file because another process has locked a portion of the file. | No action required. Once the application closes the handle to the file, recall should succeed. |
+| 0x80c8604c | -2134351796 | ECS_E_AZURE_FILE_SNAPSHOT_NOT_FOUND_<br>SYNC_PENDING | An internal error occurred. | No action required. If the error persists for more than a day, create a support request. Recall should succeed after the sync session completes. |
+| 0x80c80312 | -2134375662 | ECS_E_DOWNLOAD_SESSION_STREAM_INTERRUPTED | Couldn't finish downloading files. Sync will try again later. | If the error persists, use the `Test-StorageSyncNetworkConnectivity` cmdlet to check network connectivity to the service endpoints. [Learn more](file-sync-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints). |
+| 0x80c8600c | -2134351860 | ECS_E_AZURE_INTERNAL_ERROR | The server encountered an internal error. | No action required. If the error persists for more than a day, create a support request. |
+| 0x80c8600b | -2134351861 | ECS_E_AZURE_INVALID_RANGE | The server encountered an internal error. | No action required. If the error persists for more than a day, create a support request. |
+| 0x45b | N/A | ERROR_SHUTDOWN_IN_PROGRESS | A system shutdown is in progress. | No action required. If the error persists for more than a day, create a support request. |
+| 0x80072efd | -2147012867 | WININET_E_CANNOT_CONNECT | A connection with the service could not be established. | Use the `Test-StorageSyncNetworkConnectivity` cmdlet to check network connectivity to the service endpoints. [Learn more](file-sync-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints). |
+| 0x800703ee | -2147023890 | ERROR_FILE_INVALID | The volume for a file has been externally altered so that the opened file is no longer valid. | If the error persists for more than a day, create a support request. |
+| 0x80c86048 | -2134351800 | ECS_E_AZURE_FILE_SNAPSHOT_NOT_FOUND | An internal error occurred. | You have likely performed an unsupported operation. [Learn more](file-sync-disaster-recovery-best-practices.md). Please find the original copy of the file and overwrite the tiered file in the server endpoint. |
+| 0x80072f78 | -2147012744 | WININET_E_INVALID_SERVER_RESPONSE | A connection with the service could not be established. | Use the `Test-StorageSyncNetworkConnectivity` cmdlet to check network connectivity to the service endpoints. [Learn more](file-sync-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints). |
+| 0x8007139f | -2147019873 | ERROR_INVALID_STATE | An internal error occurred. | No action required. If the error persists for more than a day, create a support request. |
+| 0x570 | N/A | ERROR_FILE_CORRUPT | The file or directory is corrupted and unreadable. | Run chkdsk on the volume. [Learn more](/windows-server/administration/windows-commands/chkdsk?tabs=event-viewer). |
+| 0x5ad | N/A | ERROR_WORKING_SET_QUOTA | Insufficient quota to complete the requested service. | Monitor memory usage on your server. If the error persists for more than a day, create a support request. |
+| 0x8 | N/A | ERROR_NOT_ENOUGH_MEMORY | Not enough memory resources are available to process this command. | Monitor memory usage on your server. If the error persists for more than a day, create a support request. |
+| 0x80c80072 | -2134376334 | ECS_E_BAD_GATEWAY | A connection with the service could not be established. | Use the `Test-StorageSyncNetworkConnectivity` cmdlet to check network connectivity to the service endpoints. [Learn more](file-sync-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints). |
+| 0x80190193 | -2145844845 | HTTP_E_STATUS_FORBIDDEN | Forbidden (403) error occurred. | Update Azure file share access policy. [Learn more](../../role-based-access-control/built-in-roles.md). |
+| 0x80c8604e | -2134351794 | ECS_E_AZURE_FILE_SNAPSHOT_NOT_FOUND_ON_<br>CONFLICT_FILE | Unable to recall sync conflict loser file from Azure file share. | If this error is happening for a tiered file that is a sync conflict file, this file might not be needed by end users anymore. If the original file is available and valid, you may remove this file from the server endpoint. |
+| 0x80c80075 | -2134376331 | ECS_E_ACCESS_TOKEN_CATASTROPHIC_FAILURE | An internal error occurred. | No action required. If the error persists for more than a day, create a support request. |
 
 ## Tiered files are not accessible on the server after deleting a server endpoint
 Tiered files on a server will become inaccessible if the files aren't recalled prior to deleting a server endpoint.

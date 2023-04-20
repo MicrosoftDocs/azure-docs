@@ -48,6 +48,7 @@ Communication Services or Microsoft 365 users can call the spotlight APIs based 
 | stopAllSpotlight |  ✔️ | ✔️ |  |
 | getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
 
+[!INCLUDE [Spotlight Client-side JavaScript](./includes/spotlight/spotlight-web.md)]
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
