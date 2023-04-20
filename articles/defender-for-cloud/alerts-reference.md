@@ -740,7 +740,7 @@ VM_VbScriptHttpObjectAllocation| VBScript HTTP object allocation detected | High
 
 ## Alerts for Defender for APIs
 
-**Alert (alert type) | **Description** | **MITRE tactics** | **Severity**
+**Alert (alert type)** | **Description** | **MITRE tactics** | **Severity**
 --- | --- | --- | ---
 **(Preview) Suspicious population-level spike in API traffic to an API endpoint**<br/> (API_PopulationSpikeInAPITraffic) | A suspicious spike in API traffic was detected at one of the API endpoints. The detection system used historical traffic patterns to establish a baseline for routine API traffic volume between all IPs and the endpoint, with the baseline being specific to API traffic for each status code (such as 200 Success). The detection system flagged an unusual deviation from this baseline leading to the detection of suspicious activity. | Impact | Medium
 **(Preview) Suspicious spike in API traffic from a single IP address to an API endpoint**<br/> (API_SpikeInAPITraffic) | A suspicious spike in API traffic was detected from a client IP to the API endpoint. The detection system used historical traffic patterns to establish a baseline for routine API traffic volume to the endpoint coming from a specific IP to the endpoint. The detection system flagged an unusual deviation from this baseline leading to the detection of suspicious activity. | Impact | Medium

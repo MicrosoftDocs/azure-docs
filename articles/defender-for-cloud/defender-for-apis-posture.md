@@ -52,9 +52,9 @@ When the Defender CSPM plan is enabled together with Defender for APIs, you can 
 
         :::image type="content" source="media/defender-for-apis-posture/api-insights.png" alt-text="Page showing predefined API query." lightbox="media/defender-for-apis-posture/api-insights.png":::
     
-    The search result display each API resources with its associated insights, so that you can review, prioritize, and fix any issues.
+    The search resultS display each API resource with its associated insights, so that you can review, prioritize, and fix any issues.
 
-    1. Alternatively, select the predefined query **Unauthenticated API endpoints containing sensitive data are outside the virtual network** > **Open query**. The query returns all unauthenticated API endpoints that contain sensitive data and aren't part of the Azure API management network.
+    Alternatively, you can select the predefined query **Unauthenticated API endpoints containing sensitive data are outside the virtual network** > **Open query**. The query returns all unauthenticated API endpoints that contain sensitive data and aren't part of the Azure API management network.
     
     :::image type="content" source="media/defender-for-apis-posture/predefined-query.png" alt-text="Page showing predefined API query":::
     
