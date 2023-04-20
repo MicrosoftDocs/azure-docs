@@ -31,7 +31,8 @@ landingContent:
             url: storage-files-introduction.md
           - text: Identity-based authentication
             url: storage-files-active-directory-overview.md
-
+          - text: Videos
+            url: ../common/videos-azure-files-and-filesync.md
 
   # Card (optional)
   - title: Get started
@@ -92,13 +93,3 @@ landingContent:
             url: /azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers
           - text: Azure files accessed on-premises and secured by AD DS
             url: /azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication
-
-  # Card
-  - title: Resources
-    linkLists:
-      - linkListType: learn
-        links:
-          - text: Videos
-            url: ../common/videos-azure-files-and-filesync.md
-          - text: Customer case studies
-            url: azure-files-case-study.md
