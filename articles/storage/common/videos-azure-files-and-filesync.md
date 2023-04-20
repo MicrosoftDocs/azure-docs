@@ -6,7 +6,7 @@ ms.topic: troubleshooting
 ms.author: nasindam
 ms.date: 04/19/2023
 ms.service: storage
-ms.subservice: common
+ms.subservice: files
 services: storage
 
 ---
