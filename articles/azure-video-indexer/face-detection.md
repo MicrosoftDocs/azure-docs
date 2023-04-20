@@ -6,7 +6,7 @@ author: juliako
 ms.author: juliako
 manager: femila
 ms.service: azure-video-indexer
-ms.date: 06/15/2022
+ms.date: 04/17/2023
 ms.topic: article
 ---
 
@@ -34,7 +34,7 @@ This article discusses faces detection and the key considerations for making use
 
 |Term|Definition|
 |---|---|
-|Insight  |The information and knowledge derived from the processing and analysis of video and audio files that generate different types of insights and can include detected objects, people, faces, animated characters, keyframes and translations or transcriptions. |
+|Insight  |The information and knowledge derived from the processing and analysis of video and audio files that generate different types of insights and can include detected objects, people, faces, keyframes and translations or transcriptions. |
 |Face recognition  |The analysis of images to identify the faces that appear in the images. This process is implemented via the Azure Cognitive Services Face API. |
 |Template |Enrolled images of people are converted to templates, which are then used for facial recognition. Machine-interpretable features are extracted from one or more images of an individual to create that individual’s template. The enrollment or probe images aren't stored by Face API and the original images can't be reconstructed based on a template. Template quality is a key determinant on the accuracy of your results. |
 |Enrollment |The process of enrolling images of individuals for template creation so they can be recognized. When a person is enrolled to a verification system used for authentication, their template is also associated with a primary identifier2 that is used to determine which template to compare with the probe template. High-quality images and images representing natural variations in how a person looks (for instance wearing glasses, not wearing glasses) generate high-quality enrollment templates. |
@@ -94,6 +94,9 @@ To see face detection insight in the JSON file, do the following:
     ```
 
 To download the JSON file via the API, [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
+
+> [!IMPORTANT]
+> When reviewing face detections in the UI you may not see all faces, we expose only face groups with a confidence of more than 0.5 and the face must appear for a minimum of 4 seconds or 10% * video_duration. Only when these conditions are met we will show the face in the UI and the Insights.json. You can always retrieve all face instances from the Face Artifact file using the api `https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/ArtifactUrl[?Faces][&accessToken]`
 
 ## Face detection components 
 

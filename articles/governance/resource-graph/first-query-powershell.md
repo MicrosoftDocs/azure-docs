@@ -3,9 +3,9 @@ title: 'Quickstart: Your first PowerShell query'
 description: In this quickstart, you follow the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
 ms.date: 06/15/2022
 ms.topic: quickstart
-ms.custom: mode-api
-ms.author: timwarner
-author: timwarner-msft
+ms.custom: mode-api, devx-track-azurepowershell
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
 

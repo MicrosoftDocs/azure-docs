@@ -17,7 +17,7 @@ zone_pivot_groups: iotedge-dev
 
 This article shows you how to use Visual Studio Code to develop and debug IoT Edge modules in multiple languages and multiple architectures. On your development computer, you can use Visual Studio Code to attach and debug your module in a local or remote module container.
 
-You can choose either the **Azure IoT Edge Dev Tool** CLI or the **Azure IoT Edge tools for Visual Studio Code** extension as your IoT Edge development tool. Use the tool selector button at the beginning to choose your tool option for this article.
+You can choose either the **Azure IoT Edge Dev Tool** command-line tool (CLI) or the **Azure IoT Edge tools for Visual Studio Code** extension as your IoT Edge development tool. Use the tool selector button at the beginning to choose your tool option for this article.
 
 Visual Studio Code supports writing IoT Edge modules in the following programming languages:
 
@@ -29,8 +29,8 @@ Visual Studio Code supports writing IoT Edge modules in the following programmin
 
 Azure IoT Edge supports the following device architectures:
 
-* X64
-* ARM32
+* AMD64
+* ARM32v7
 * ARM64
 
 For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
@@ -72,7 +72,7 @@ To build and deploy your module image, you need Docker to build the module image
 
 ::: zone pivot="iotedge-dev-cli"
 
-- Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) with the following command to enable you to debug, run, and test your IoT Edge solution. [Python (3.6/3.7)](https://www.python.org/downloads/) and [Pip3](https://pip.pypa.io/en/stable/installation/) are required.
+- Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) with the following command to enable you to debug, run, and test your IoT Edge solution. [Python (3.6 or 3.7)](https://www.python.org/downloads/) and [Pip3](https://pip.pypa.io/en/stable/installation/) are required.
 
     ```bash
     pip3 install iotedgedev
@@ -257,6 +257,30 @@ For example:
 - Two module deployment files named **deployment.template.json** and **deployment.debug.template** list the modules to deploy to your device. By default, the list includes the IoT Edge system modules and sample modules including the **SimulatedTemperatureSensor** module that simulates data you can use for testing. 
 
    For more information about deployment manifests, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md). For more information about the simulated temperature module, see the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+
+::: zone-end
+
+::: zone pivot="iotedge-dev-cli"
+
+### Set IoT Edge runtime version
+
+The latest stable IoT Edge system module version is 1.4. Set your system modules to version 1.4.
+
+1. In Visual Studio Code, open *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
+1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+
+    ```json
+    ...
+    "systemModules": {
+        "edgeAgent": {
+        ...
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+        ...
+        "edgeHub": {
+        ...
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+        ...
+    ```
 
 ::: zone-end
 
@@ -593,6 +617,26 @@ You can check your container status from your device or virtual machine by runni
 
 ::: zone pivot="iotedge-dev-cli"
 
+#### Sign in to Docker
+
+Provide your container registry credentials to Docker so that it can push your container image to storage in the registry.
+
+1. Sign in to Docker with the Azure Container Registry (ACR) credentials that you saved after creating the registry.
+
+   ```bash
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
+   ```
+
+   You may receive a security warning recommending the use of `--password-stdin`. While that is a recommended best practice for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
+
+1. Sign in to the Azure Container Registry. You may need to [Install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command. This command asks for your user name and password found in your container registry in **Settings** > **Access keys**.
+
+   ```azurecli
+   az acr login -n <ACR registry name>
+   ```
+>[!TIP]
+>If you get logged out at any point in this tutorial, repeat the Docker and Azure Container Registry sign in steps to continue.
+
 #### Build module Docker image
 
 Use the module's Dockerfile to [build](https://docs.docker.com/engine/reference/commandline/build/) the module Docker image.
@@ -633,14 +677,14 @@ docker push myacr.azurecr.io/filtermodule:0.0.1-amd64
 
 #### Deploy the module to the IoT Edge device.
 
-Use the [IoT Edge Azure CLI set-modules](/cli/azure/iot/edge#az-iot-edge-set-modules) command to deploy the modules to the Azure IoT Hub. For example, to deploy the modules defined in the *deployment.debug.amd64.json* file to IoT Hub *my-iot-hub* for the IoT Edge device *my-device*, use the following command:
+Use the [IoT Edge Azure CLI set-modules](/cli/azure/iot/edge#az-iot-edge-set-modules) command to deploy the modules to the Azure IoT Hub. For example, to deploy the modules defined in the *deployment.debug.template.json* file to IoT Hub *my-iot-hub* for the IoT Edge device *my-device*, use the following command:
 
 ```azurecli
 az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./deployment.debug.template.json --login "HostName=my-iot-hub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>"
 ```
 
 > [!TIP]
-> You can find your IoT Hub connection string in the Azure portal in your IoT Hub > **Security settings** > **Shared access policies** > **iothubowner**.
+> You can find your IoT Hub shared access key in the Azure portal in your IoT Hub > **Security settings** > **Shared access policies** > **iothubowner**.
 >
 
 ::: zone-end
