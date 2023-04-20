@@ -244,36 +244,6 @@ ml_client.workspaces.begin_update(ws)
 
 ---
 
-## How to manage outbound rules
-
-# [Azure CLI](#tab/cli)
-
-To list the managed network outbound rules for a workspace, use the following command:
-
-```azurecli
-az ml workspace outbound-rule list --workspace-name ws --resource-group rg
-```
-
-To view the details of a managed network outbound rule, use the following command:
-
-```azurecli
-az ml workspace outbound-rule show --rule rule-name --workspace-name ws --resource-group rg
-```
-
-To remove an outbound rule from the managed network, use the following command:
-
-```azurecli
-az ml workspace outbound-rule remove --rule rule-name --workspace-name ws --resource-group rg
-```
-
-# [Python](#tab/python)
-
-# [Studio](#tab/azure-studio)
-
-TBD
-
----
-
 ## Configuration for using serverless spark compute
 
 You need to run the following commands to have network isolation for your [serverless spark jobs](how-to-submit-spark-jobs.md).
@@ -305,6 +275,36 @@ ws = ml_client.workspaces.provision_network(workspace, true)
 1. Check the box: Use serverless spark compute.
 
     <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
+
+---
+
+## Manage outbound rules
+
+# [Azure CLI](#tab/cli)
+
+To list the managed network outbound rules for a workspace, use the following command:
+
+```azurecli
+az ml workspace outbound-rule list --workspace-name ws --resource-group rg
+```
+
+To view the details of a managed network outbound rule, use the following command:
+
+```azurecli
+az ml workspace outbound-rule show --rule rule-name --workspace-name ws --resource-group rg
+```
+
+To remove an outbound rule from the managed network, use the following command:
+
+```azurecli
+az ml workspace outbound-rule remove --rule rule-name --workspace-name ws --resource-group rg
+```
+
+# [Python](#tab/python)
+
+# [Studio](#tab/azure-studio)
+
+TBD
 
 ---
 
