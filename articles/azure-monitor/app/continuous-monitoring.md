@@ -22,11 +22,11 @@ With continuous monitoring, release pipelines can incorporate monitoring data fr
 
 1. On the **Select a template** pane, search for and select **Azure App Service deployment with continuous monitoring**, and then select **Apply**.
 
-   ![Screenshot that shows a new Azure Pipelines release pipeline.](media/continuous-monitoring/001.png)
+   :::image type="content" source="media/continuous-monitoring/001.png" lightbox="media/continuous-monitoring/001.png" alt-text="Screenshot that shows a new Azure Pipelines release pipeline.":::
 
 1. In the **Stage 1** box, select the hyperlink to **View stage tasks.**
 
-   ![Screenshot that shows View stage tasks.](media/continuous-monitoring/002.png)
+   :::image type="content" source="media/continuous-monitoring/002.png" lightbox="media/continuous-monitoring/002.png" alt-text="Screenshot that shows View stage tasks.":::
 
 1. In the **Stage 1** configuration pane, fill in the following fields:
 
@@ -69,7 +69,7 @@ To add deployment gates:
 
 1. On the main pipeline page, under **Stages**, select the **Pre-deployment conditions** or **Post-deployment conditions** symbol, depending on which stage needs a continuous monitoring gate.
 
-   ![Screenshot that shows Pre-deployment conditions.](media/continuous-monitoring/004.png)
+   :::image type="content" source="media/continuous-monitoring/004.png" lightbox="media/continuous-monitoring/004.png" alt-text="Screenshot that shows Pre-deployment conditions.":::
 
 1. In the **Pre-deployment conditions** configuration pane, set **Gates** to **Enabled**.
 
@@ -77,7 +77,7 @@ To add deployment gates:
 
 1. Select **Query Azure Monitor alerts** from the dropdown menu. This option lets you access both Azure Monitor and Application Insights alerts.
 
-   ![Screenshot that shows Query Azure Monitor alerts.](media/continuous-monitoring/005.png)
+   :::image type="content" source="media/continuous-monitoring/005.png" lightbox="media/continuous-monitoring/005.png" alt-text="Screenshot that shows Query Azure Monitor alerts.":::
 
 1. Under **Evaluation options**, enter the values you want for settings like **The time between re-evaluation of gates** and **The timeout after which gates fail**.
 
@@ -93,7 +93,7 @@ You can see deployment gate behavior and other release steps in the release logs
 
 1. To view logs, select **View logs** in the release summary, select the **Succeeded** or **Failed** hyperlink in any stage, or hover over any stage and select **Logs**.
 
-   ![Screenshot that shows viewing release logs.](media/continuous-monitoring/006.png)
+   :::image type="content" source="media/continuous-monitoring/006.png" lightbox="media/continuous-monitoring/006.png" alt-text="Screenshot that shows viewing release logs.":::
 
 ## Next steps
 

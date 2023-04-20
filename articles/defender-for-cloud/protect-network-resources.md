@@ -2,9 +2,8 @@
 title: Protecting your network resources in Microsoft Defender for Cloud
 description: This document addresses recommendations in Microsoft Defender for Cloud that help you protect your Azure network resources and stay in compliance with security policies.
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 10/23/2022
 ---
-
 # Protect your network resources
 
 Microsoft Defender for Cloud continuously analyzes the security state of your Azure resources for network security best practices. When Defender for Cloud identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
@@ -43,7 +42,7 @@ To open the Network map:
 The default view of the topology map displays:
 
 - Currently selected subscriptions - The map is optimized for the subscriptions you selected in the portal. If you modify your selection, the map is regenerated with the new selections.
-- VMs, subnets, and VNets of the Resource Manager resource type ("classic" Azure resources aren't supported)
+- VMs, subnets, and VNets of the Resource Manager resource type ("classic" Azure resources are not supported)
 - Peered VNets
 - Only resources that have [network recommendations](review-security-recommendations.md) with a high or medium severity
 - Internet-facing resources
@@ -58,10 +57,10 @@ The network map can show you your Azure resources in a **Topology** view and a *
 
 In the **Topology** view of the networking map, you can view the following insights about your networking resources:
 
-- In the inner circle, you can see all the Vnets within your selected subscriptions, the next circle is all the subnets, the outer circle is all the virtual machines.
+- In the inner circle, you can see all the VNets within your selected subscriptions, the next circle is all the subnets, the outer circle is all the virtual machines.
 - The lines connecting the resources in the map let you know which resources are associated with each other, and how your Azure network is structured. 
 - Use the severity indicators to quickly get an overview of which resources have open recommendations from Defender for Cloud.
-- You can select any of the resources to drill down into them and view the details of that resource and its recommendations directly, and in the context of the Network map.  
+- You can click any of the resources to drill down into them and view the details of that resource and its recommendations directly, and in the context of the Network map.  
 - If there are too many resources being displayed on the map, Microsoft Defender for Cloud uses its proprietary algorithm to 'smart cluster' your resources, highlighting the ones that are in the most critical state, and have the most high severity recommendations.
 
 Because the map is interactive and dynamic, every node is clickable, and the view can change based on the filters:
@@ -72,7 +71,7 @@ Because the map is interactive and dynamic, every node is clickable, and the vie
    - **Recommendations**: You can select which resources are displayed based on which recommendations are active on those resources. For example, you can view only resources for which Defender for Cloud recommends you enable Network Security Groups.
    - **Network zones**: By default, the map displays only Internet facing resources, you can select internal VMs as well.
  
-2. You can select **Reset** in top left corner at any time to return the map to its default state.
+2. You can click **Reset** in top left corner at any time to return the map to its default state.
 
 To drill down into a resource:
 
@@ -83,7 +82,7 @@ To drill down into a resource:
 
 ### The Traffic view
 
-The **Traffic** view provides you with a map of all the possible traffic between your resources. This provides you with a visual map of all the rules you configured that define which resources can communicate with whom. This enables you to see the existing configuration of the network security groups and quickly identify possible risky configurations within your workloads.
+The **Traffic** view provides you with a map of all the possible traffic between your resources. This provides you with a visual map of all the rules you configured that define which resources can communicate with whom. This enables you to see the existing configuration of the network security groups as well as quickly identify possible risky configurations within your workloads.
 
 ### Uncover unwanted connections
 
@@ -96,7 +95,7 @@ For example, you might detect two machines that you weren’t aware could commun
 To drill down into a resource:
 
 1. When you select a specific resource on the map, the right pane opens and gives you general information about the resource, connected security solutions if there are any, and the recommendations relevant to the resource. It's the same type of behavior for each type of resource you select. 
-2. Select **Traffic** to see the list of possible outbound and inbound traffic on the resource - this is a comprehensive list of who can communicate with the resource and who it can communicate with, and through which protocols and ports. For example, when you select a VM, all the VMs it can communicate with are shown, and when you select a subnet, all the subnets, which it can communicate with are shown.
+2. Click **Traffic** to see the list of possible outbound and inbound traffic on the resource - this is a comprehensive list of who can communicate with the resource and who it can communicate with, and through which protocols and ports. For example, when you select a VM, all the VMs it can communicate with are shown, and when you select a subnet, all the subnets which it can communicate with are shown.
 
 **This data is based on analysis of the Network Security Groups as well as advanced machine learning algorithms that analyze multiple rules to understand their crossovers and interactions.** 
 

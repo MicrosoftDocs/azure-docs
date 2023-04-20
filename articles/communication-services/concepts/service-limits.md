@@ -7,7 +7,7 @@ manager: shahen
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 11/01/2021
+ms.date: 03/31/2023
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: data
@@ -17,7 +17,7 @@ ms.subservice: data
 This document explains the limitations of Azure Communication Services APIs and possible resolutions.
 
 ## Throttling patterns and architecture
-When you hit service limitations, you'll generally receive an HTTP status code 429 (Too many requests). In general, the following are best practices for handling throttling:
+When you hit service limitations, you will receive an HTTP status code 429 (Too many requests). In general, the following are best practices for handling throttling:
 
 - Reduce the number of operations per request.
 - Reduce the frequency of calls.
@@ -43,10 +43,10 @@ If you want to purchase more phone numbers or place a special order, follow the 
 
 | Operation | Timeframes (seconds) | Limit (number of requests) |
 |---|--|--|
-| **Create identity** | 30 | 500|
+| **Create identity** | 30 | 1000|
 | **Delete identity** | 30 | 500|
-| **Issue access token** | 30 | 500|
-| **Revoke access token**  | 1 | 100|
+| **Issue access token** | 30 | 1000|
+| **Revoke access token**  | 30 | 500|
 | **createUserAndToken**| 30 | 1000 |
 | **exchangeTokens**| 30 | 500 |
 
@@ -76,10 +76,10 @@ Sending a high volume of messages has a set of limitations on the number of emai
 
 |Operation|Scope|Timeframe (minutes)| Limit (number of emails) |
 |---------|-----|-------------|-------------------|
-|Send Email|Per Subscription|1|10|
-|Send Email|Per Subscription|60|25|
-|Get Email Status|Per Subscription|1|20|
-|Get Email Status|Per Subscription|60|50|
+|Send Email|Per Subscription|1|30|
+|Send Email|Per Subscription|60|100|
+|Get Email Status|Per Subscription|1|60|
+|Get Email Status|Per Subscription|60|200|
 
 ### Size Limits
 
@@ -124,7 +124,16 @@ This sandbox setup is to help developers start building the application. You can
 |Send typing indicator|User and chat thread|5|15|
 |Send typing indicator|Chat thread|10|30|
 
+### Chat storage
+Chat messages are stored for 90 days. Submit [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) if you require storage for longer time period. If the time period is less than 90 days for chat messages, use the delete chat thread APIs.
+
 ## Voice and video calling
+
+### PSTN Call limitations
+
+| **Name**         | Limit  |
+|--|--|
+|Number of outbound concurrent calls | 2 
 
 ### Call maximum limitations
 
@@ -140,7 +149,7 @@ The Communication Services Calling SDK supports the following streaming configur
 | **Maximum # of outgoing local streams that you can send simultaneously**     | one video or one screen sharing | one video + one screen sharing |
 | **Maximum # of incoming remote streams that you can render simultaneously** | four videos + one screen sharing | six videos + one screen sharing |
 
-While the Calling SDK won't enforce these limits, your users may experience performance degradation if they're exceeded.
+While the Calling SDK will not enforce these limits, your users may experience performance degradation if they're exceeded.
 
 ### Calling SDK timeouts
 

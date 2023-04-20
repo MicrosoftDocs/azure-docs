@@ -75,16 +75,16 @@ A job can go into quarantine regardless of failure counts for issues such as adm
 
 The logic documented here may be different for certain connectors to ensure best customer experience, but we generally have the below retry cycles after a failure:
 
-After the first failure, the first retry happens within the next 2 hours (usually in the next sync cycle).
-- The second retry happens 6 hours after the first failure.
-- The third retry happens 12 hours after the first failure.
-- The fourth retry happens 24 hours after the first failure.
-- The fifth retry happens 48 hours after the first failure.
-- The sixth retry happens 72 hours after the first failure.
-- The seventh retry happens 96 hours after the first failure.
-- The eighth retry happens 120 hours after the first failure.
+After the failure, the first retry will happen in 6 hours.
+- The second retry happens 12 hours after the first failure.
+- The third retry happens 24 hours after the first failure.
+- The fourth retry happens 48 hours after the first failure.
+- The fifth retry happens 96 hours after the first failure.
+- The sixth retry happens 192 hours after the first failure.
+- The seventh retry happens 384 hours after the first failure.
+- The eighth retry happens 768 hours after the first failure.
 
-This cycle is repeated every 24 hours until the 30th day when retries are stopped and the job is disabled. 
+The retries are stopped after the 8th retry and the escrow entry is removed. The job will continue unless it hits the escrow thresholds from the section above 
 
 
 ## How do I get my application out of quarantine?

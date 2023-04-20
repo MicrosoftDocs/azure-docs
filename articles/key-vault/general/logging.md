@@ -132,7 +132,7 @@ The following table lists the **operationName** values and corresponding REST AP
 
 | operationName | REST API command |
 | --- | --- |
-| **SecretSet** |[Create a secret](/rest/api/keyvault/certificates/update-certificate) |
+| **SecretSet** |[Create a secret](/rest/api/keyvault/secrets/set-secret) |
 | **SecretGet** |[Get a secret](/rest/api/keyvault/secrets/get-secret) |
 | **SecretUpdate** |[Update a secret](/rest/api/keyvault/secrets/update-secret) |
 | **SecretDelete** |[Delete a secret](/rest/api/keyvault/secrets/delete-secret) |

@@ -22,13 +22,11 @@ Blob index tags categorize data in your storage account using key-value tag attr
 To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
 > [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
+> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create-javascript.md). 
 
-## Set and retrieve index tags
+## Set tags
 
-You can set and get index tags if your code has authorized access by using an account key or if your code uses a security principal that has been given the appropriate role assignments. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
-
-#### Set tags
+[!INCLUDE [storage-dev-guide-auth-set-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-auth-set-blob-tags.md)]
 
 To set tags at blob upload time, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then use the following method:
 
@@ -63,7 +61,9 @@ You can delete all tags by passing an empty JSON object into the setTags method.
 | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md) |
 | [Set Blob Tags](/rest/api/storageservices/set-blob-tags) (REST API) |
 
-#### Get tags
+## Get tags
+
+[!INCLUDE [storage-dev-guide-auth-get-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-auth-get-blob-tags.md)]
 
 To get tags, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then use the following method: 
 
@@ -90,7 +90,7 @@ async function getTags(containerClient, blobName) {
 
 ## Filter and find data with blob index tags
 
-You can use index tags to find and filter data if your code has authorized access by using an account key or if your code uses a security principal that has been given the appropriate role assignments. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
+[!INCLUDE [storage-dev-guide-auth-filter-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-auth-filter-blob-tags.md)]
 
 > [!NOTE]
 > You can't use index tags to retrieve previous versions. Tags for previous versions aren't passed to the blob index engine. For more information, see [Conditions and known issues](storage-manage-find-blobs.md#conditions-and-known-issues).

@@ -75,7 +75,7 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 >- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
 >- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
-The storage FQDNs hit in both the scenarios are same. However, for a Recovery Services vault with private endpoint setup, the name resolution for these should return a private IP address. This can be achieved by using:
+For a Recovery Services vault with private endpoint setup, the name resolution for the FQDNs (`privatelink.<geo>.backup.windowsazure.com`, `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`) should return a private IP address. This can be achieved by using:
 
 - Azure Private DNS zones
 - Custom DNS
@@ -108,7 +108,7 @@ When workload backup extensions are installed on the virtual machine registered 
 >- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
 >- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
-These private URLs are specific for the vault. Only extensions and agents registered to the vault can communicate with Azure Backup over these endpoints. If the public network access for Recovery Services vault is configured to *Deny*, this restricts the clients that aren't running in the VNet from requesting backup and restore on the vault. We recommend setting the public network access to *Deny*, along with private endpoint setup. As the extension and agent attempt the private URL initially, the  `*.privatelink.<geo>.backup.windowsazure.com` URL should resolve to the corresponding private IP associated with the private endpoint.
+These private URLs are specific for the vault. Only extensions and agents registered to the vault can communicate with Azure Backup over these endpoints. If the public network access for Recovery Services vault is configured to *Deny*, this restricts the clients that aren't running in the VNet from requesting backup and restore on the vault. We recommend setting the public network access to *Deny*, along with private endpoint setup. As the extension and agent attempt the private URL initially, the  `*.privatelink.<geo>.backup.windowsazure.com` DNS resolution of the URL should return the corresponding private IP associated with the private endpoint.
 
 The solutions for DNS resolution are:
 
@@ -129,7 +129,7 @@ The following diagram shows how the resolution works when using a private DNS zo
 
 The workload extension running on Azure VM requires connection to at least two storage accounts - the first one is used as communication channel (via queue messages) and second one for storing backup data. The MARS agent requires access to one storage account used for storing backup data.
 
-For a private endpoint enabled vault, Azure Backup creates private endpoint for these storage accounts. This prevents any network traffic related to Azure Backup (control plane traffic to service and backup data to storage blob) from leaving the virtual network. In addition to Azure Backup cloud services, the workload extension and agent require connectivity to Azure Storage accounts and Azure Active Directory (Azure AD).
+For a private endpoint enabled vault, the Azure Backup service creates private endpoint for these storage accounts. This prevents any network traffic related to Azure Backup (control plane traffic to service and backup data to storage blob) from leaving the virtual network. In addition to Azure Backup cloud services, the workload extension and agent require connectivity to Azure Storage accounts and Azure Active Directory (Azure AD).
 
 As a pre-requisite, Recovery Services vault requires permissions for creating additional private endpoints in the same Resource Group. We also recommend providing the Recovery Services vault the permissions to create DNS entries in the private DNS zones (`privatelink.blob.core.windows.net`, `privatelink.queue.core.windows.net`). Recovery Services vault searches for private DNS zones in the resource groups where VNet and private endpoint are created. If it has the permissions to add DNS entries in these zones, they’ll be created by the vault; otherwise, you must create them manually.
 

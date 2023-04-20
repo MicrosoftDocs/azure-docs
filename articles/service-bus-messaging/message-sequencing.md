@@ -20,7 +20,13 @@ The absolute arrival order matters, for example, in business scenarios in which 
 The time-stamping capability acts as a neutral and trustworthy authority that accurately captures the UTC time of arrival of a message, reflected in the **EnqueuedTimeUtc** property. The value is useful if a business scenario depends on deadlines, such as whether a work item was submitted on a certain date before midnight, but the processing is far behind the queue backlog.
 
 > [!NOTE]
-> Sequence number on its own guarantees the queuing order of messages, but not the extraction order, which requires [sessions](message-sessions.md). 
+> Sequence number on its own guarantees the queuing order and the extractor order of messages, but not the processing order, which requires [sessions](message-sessions.md). 
+> 
+> Say, there are 5 messages in the queue and 2 consumers. Consumer 1 picks up message 1. Consumer 2 picks up message 2. Consumer 2 finishes processing message 2 and picks up message 3 while Consumer 1 is not done with processing message 1 yet. Consumer 2 finishes processing message 3 but consumer 1 is still not done with processing message 1 yet. Finally, consumer 1 completes processing message 1. So, the messages are processed in this order: message 2, message 3, and message 1. If you need message 1, 2, and 3 to be processed in order, you need to use sessions.
+> 
+> So, if messages just need to be retrieved in order, you don't need to use sessions. If messages need to be processed in order, use sessions. The same session ID should be set on messages that belong together, which could be message 1, 4, and 8 in one set, and 2, 3, and 6 in another set. 
+>
+> For more information, see [Service Bus message sessions](message-sessions.md).
 
 ## Scheduled messages
 

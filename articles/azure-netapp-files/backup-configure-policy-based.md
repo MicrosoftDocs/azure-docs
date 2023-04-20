@@ -101,7 +101,7 @@ To enable a policy-based (scheduled) backup:
     
     * If you configure and attach a backup policy to the volume without attaching a snapshot policy, the backup does not function properly. There will be only a baseline snapshot transferred to the Azure storage. 
     * For each backup policy that you configure (for example, daily backups), ensure that you have a corresponding snapshot policy configuration (for example, daily snapshots).
-    * Backup policy has a dependency on snapshot policy. If you haven’t created snapshot policy yet, you can configure both policies at the same time by selecting the **Create snapshot policy** checkbox on the Backup Policy window.   
+    * Backup policy has a dependency on snapshot policy. If you haven’t created snapshot policy yet, you can configure both policies at the same time by selecting the **Create snapshot policy** checkbox on the Backup Policy window. If you do not see the checkbox, you can follow [Manage snapshot policies](snapshots-manage-policy.md) to create and apply snapshot policy for the volume. 
 
     :::image type="content" source="../media/azure-netapp-files/backup-policy-snapshot-policy-option.png" alt-text="Screenshot that shows the Backup Policy window with Snapshot Policy selected." lightbox="../media/azure-netapp-files/backup-policy-snapshot-policy-option.png":::
 

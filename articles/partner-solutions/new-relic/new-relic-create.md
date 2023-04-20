@@ -3,7 +3,7 @@ title: Create an instance of Azure Native New Relic Service Preview
 description: Learn how to create a resource by using Azure Native New Relic Service.
 
 ms.topic: quickstart
-ms.date: 01/16/2023
+ms.date: 04/04/2023
 ---
 
 # Quickstart: Get started with Azure Native New Relic Service Preview
@@ -21,7 +21,7 @@ When you use the integrated New Relic experience in the Azure portal by using Az
 
 ## Prerequisites
 
-Before you link the subscription to New Relic, complete the pre-deployment configuration. For more information, see [Configure pre-deployment for Azure Native New Relic Service](new-relic-how-to-configure-prereqs.md).
+Before you link the subscription to New Relic, complete the predeployment configuration. For more information, see [Configure predeployment for Azure Native New Relic Service](new-relic-how-to-configure-prereqs.md).
 
 ## Find an offer
 
@@ -54,33 +54,37 @@ Use the Azure portal to find the Azure Native New Relic Service application:
    |  Property | Description |
    |--|--|
    |  **Subscription**   |  Select the Azure subscription that you want to use for creating the New Relic resource. You must have owner access.|
-   |  **Resource group**  |Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md) is a container that holds related resources for an Azure solution.|
-   |  **Resource name**  |Specify a name for the New Relic resource. This name will be the friendly name of the New Relic account.|
-   |  **Region**         |Select the region where the New Relic resource on Azure and the New Relic account will be created.|
+   |  **Resource group**  | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure/azure-resource-manager/management/overview#resource-groups) is a container that holds related resources for an Azure solution.|
+   |  **Resource name**  | Specify a name for the New Relic resource. This name is the friendly name of the New Relic account.|
+   |  **Region**         | Select the region where the New Relic resource on Azure and the New Relic account will be created.|
 
-1. When you're choosing the organization under which to create the New Relic account, you have two options: create a new organization, or select an existing organization to link the newly created account.
+1. When you're choosing the organization under which to create the New Relic account, you have two options: **Create new** organization, or **Associate with existing** organization to link the newly created account.
 
-   > [!IMPORTANT]
-   > You can't use **Associate with existing** functionality, presently. The ability to create a new New Relic resource and associate it with an existing organization is currently disabled.
-
-   If you opt to create a new organization, you can choose a plan from the list of available plans by selecting **Change Plan** on the working pane.
+   If you select **Create new** organization, you can choose a plan from the list of available plans by selecting **Change Plan** in the working pane.
 
    :::image type="content" source="media/new-relic-create/new-relic-change-plan.png" alt-text="Screenshot of the panel for changing a plan.":::
 
- 
+1. If you select **Associate with existing** to associate the New Relic resource with an existing organization, the corresponding billing information is the same as when you created the organization.
+   
+1. If the organization you selected is currently billed by New Relic, it remains billed by New Relic.
+
+    :::image type="content" source="media/new-relic-create/new-relic-existing.png" alt-text="Screenshot showing Associate with existing was selected in the organization section of the working pane.":::
+
 ## Configure metrics and logs
 
-Your next step is to configure metrics and logs on the **Logs** tab. When you're creating the New Relic resource, you can set up automatic log forwarding for two types of logs:
+Your next step is to configure metrics and logs on the **Metrics and Logs** tab. When you're creating the New Relic resource, you can set up metrics monitoring and automatic log forwarding:
 
-1. To send subscription-level logs to New Relic, select **Subscription activity logs**. If you leave this option cleared, no subscription-level logs will be sent to New Relic.
+1. To set up monitoring of platform metrics for Azure resources by New Relic, select **Enable metrics collection**. If you leave this option cleared, metrics aren't  pulled by New Relic.
 
-   These logs provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). These logs also include updates on service-health events. 
+1. To send subscription-level logs to New Relic, select **Subscription activity logs**. If you leave this option cleared, no subscription-level logs are sent to New Relic.
+
+   These logs provide insight into the operations on your resources at the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). These logs also include updates on service-health events. 
 
    Use the activity log to determine what, who, and when for any write operations (`PUT`, `POST`, `DELETE`). There's a single activity log for each Azure subscription.
 
-1. To send Azure resource logs to New Relic, select **Azure resource logs** for all supported resource types. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).
+1. To send Azure resource logs to New Relic, select **Azure resource logs** for all supported resource types. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
-   These logs provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a key vault is a data plane operation. Making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+   These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a key vault is a data plane operation. Making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
    :::image type="content" source="media/new-relic-create/new-relic-metrics.png" alt-text="Screenshot of the tab for logs in a New Relic resource, with resource logs selected.":::
 
@@ -90,7 +94,7 @@ Your next step is to configure metrics and logs on the **Logs** tab. When you're
    - All Azure resources with tags defined in exclude rules don't send logs to New Relic.
    - If there's a conflict between inclusion and exclusion rules, the exclusion rule applies.
     
-   Azure charges for logs sent to New Relic. For more information, see the [pricing of platform logs](/azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
+   Azure charges for logs sent to New Relic. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 
    > [!NOTE]
    > You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource.
@@ -113,6 +117,9 @@ You can also skip this step and go directly to the **Review and Create** tab.
 
 1. Ensure that you've passed validation, and then select **Create** to begin the resource deployment. 
 
+1. After creating resource, you must set up your account config to monitor other resources with Azure Native New Relic Service. For more information, see [Setting up your New Relic account config](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/#view-your-data-in-new-relic).
+
 ## Next steps
 
 - [Manage the New Relic resource](new-relic-how-to-manage.md)
+- [Setting up your New Relic account config](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/#view-your-data-in-new-relic)

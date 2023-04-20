@@ -57,7 +57,8 @@ For more quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas
 Event Hubs standard, premium, and dedicated tiers offer [availability zones](../availability-zones/az-overview.md#availability-zones) support with no extra cost. Using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures. 
 
 > [!IMPORTANT] 
-> Availability zone support is only available in [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
+> - Availability zone support is only available in [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
+> - In certain regions, premium-tier's support for availability zones is limited even though the region supports availability zones. 
 
 
 ## Premium vs. dedicated tiers

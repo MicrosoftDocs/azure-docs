@@ -3,12 +3,12 @@ title: Grant limited access to data with shared access signatures (SAS)
 titleSuffix: Azure Storage
 description: Learn about using shared access signatures (SAS) to delegate access to Azure Storage resources, including blobs, queues, tables, and files.
 services: storage
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/25/2023
-ms.author: jammart
+ms.date: 02/16/2023
+ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ---
@@ -170,7 +170,7 @@ The following recommendations for using shared access signatures can help mitiga
 
 - **Be careful with SAS datetime format.** For some utilities (such as AzCopy), date/time values must be formatted as '+%Y-%m-%dT%H:%M:%SZ'. This format specifically includes the seconds.
 
-- **Be specific with the resource to be accessed.** A security best practice is to provide a user with the minimum required privileges. If a user only needs read access to a single entity, then grant them read access to that single entity, and not read/write/delete access to all entities. This also helps lessen the damage if a SAS is compromised because the SAS has less power in the hands of an attacker.
+- **Grant the least possible privileges with the SAS.** A security best practice is to provide a user with the minimum required privileges to the fewest possible resources. Use a read-only SAS when possible. If a user needs only read access to a single object, then grant them read access to that single object, and not read/write/delete access to all objects. This also helps lessen the damage if a SAS is compromised because the SAS has less power in the hands of an attacker.
 
    There is no direct way to identify which clients have accessed a resource. However, you can use the unique fields in the SAS, the signed IP (`sip`), signed start (`st`), and signed expiry (`se`) fields, to track access. For example, you can generate a SAS token with a unique expiry time that you can then correlate with the client to whom it was issued.
 
@@ -182,7 +182,7 @@ The following recommendations for using shared access signatures can help mitiga
 
 - **Use Azure Monitor and Azure Storage logs to monitor your application.** Authorization failures can occur because of an outage in your SAS provider service. They can also occur from an inadvertent removal of a stored access policy. You can use Azure Monitor and storage analytics logging to observe any spike in these types of authorization failures. For more information, see [Azure Storage metrics in Azure Monitor](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) and [Azure Storage Analytics logging](storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json).
 
-- **Configure a SAS expiration policy for the storage account.** Best practices recommend that you limit the interval for a SAS in case it is compromised. By setting a SAS expiration policy for your storage accounts, you can provide a recommended upper expiration limit when a user creates a service SAS or an account SAS. For more information, see [Create an expiration policy for shared access signatures](sas-expiration-policy.md). 
+- **Configure a SAS expiration policy for the storage account.** Best practices recommend that you limit the interval for a SAS in case it is compromised. By setting a SAS expiration policy for your storage accounts, you can provide a recommended upper expiration limit when a user creates a service SAS or an account SAS. For more information, see [Create an expiration policy for shared access signatures](sas-expiration-policy.md).
 
 > [!NOTE]
 > Storage doesn't track the number of shared access signatures that have been generated for a storage account, and no API can provide this detail. If you need to know the number of shared access signatures that have been generated for a storage account, you must track the number manually.

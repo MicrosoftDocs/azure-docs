@@ -33,7 +33,7 @@ In this article, you will learn:
 
 ### Example notebooks
 
-The [Training models in Azure Databricks and deploying them on Azure ML](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/track_with_databricks_deploy_aml.ipynb) demonstrates how to train models in Azure Databricks and deploy them in Azure ML. It also includes how to handle cases where you also want to track the experiments and models with the MLflow instance in Azure Databricks and leverage Azure ML for deployment.
+The [Training models in Azure Databricks and deploying them on Azure Machine Learning](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/track_with_databricks_deploy_aml.ipynb) demonstrates how to train models in Azure Databricks and deploy them in Azure Machine Learning. It also includes how to handle cases where you also want to track the experiments and models with the MLflow instance in Azure Databricks and leverage Azure Machine Learning for deployment.
 
 ## Install libraries
 
@@ -126,7 +126,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
     
     [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
     
-    You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the compute you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace.
+    You can get the Azure Machine Learning MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the compute you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace.
     
     1. Login into your workspace using the `MLClient`. The easier way to do that is by using the workspace config file:
     
@@ -139,7 +139,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
     
         > [!TIP]
         > You can download the workspace configuration file by:
-        > 1. Navigate to [Azure ML studio](https://ml.azure.com)
+        > 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
         > 2. Click on the upper-right corner of the page -> Download config file.
         > 3. Save the file `config.json` in the same directory where you are working on.
     
@@ -149,7 +149,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
         from azure.ai.ml import MLClient
         from azure.identity import DefaultAzureCredential
     
-        #Enter details of your AzureML workspace
+        #Enter details of your Azure Machine Learning workspace
         subscription_id = '<SUBSCRIPTION_ID>'
         resource_group = '<RESOURCE_GROUP>'
         workspace_name = '<WORKSPACE_NAME>'
@@ -183,7 +183,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
     The Azure Machine Learning Tracking URI can be constructed using the subscription ID, region of where the resource is deployed, resource group name and workspace name. The following code sample shows how:
     
     > [!WARNING]
-    > If you are working in a private link-enabled workspace, the MLflow endpoint will also use a private link to communicate with Azure Machine Learning. As a consequence, the tracking URI will look different as proposed here. You need to get the tracking URI using the Azure ML SDK or CLI v2 on those cases.
+    > If you are working in a private link-enabled workspace, the MLflow endpoint will also use a private link to communicate with Azure Machine Learning. As a consequence, the tracking URI will look different as proposed here. You need to get the tracking URI using the Azure Machine Learning SDK or CLI v2 on those cases.
     
     ```python
     region = "<LOCATION>"
@@ -277,7 +277,7 @@ mlflow.spark.log_model(model, artifact_path = "model",
 
 If you want to use Azure Machine Learning Model Registry instead of Azure Databricks, we recommend you to [set MLflow Tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace). This will remove the ambiguity of where models are being registered and simplifies complexity.
 
-However, if you want to continue using the dual-tracking capabilities but register models in Azure Machine Learning, you can instruct MLflow to use Azure ML for model registries by configuring the MLflow Model Registry URI. This URI has the exact same format and value that the MLflow tracking URI.
+However, if you want to continue using the dual-tracking capabilities but register models in Azure Machine Learning, you can instruct MLflow to use Azure Machine Learning for model registries by configuring the MLflow Model Registry URI. This URI has the exact same format and value that the MLflow tracking URI.
 
 ```python
 mlflow.set_registry_uri(azureml_mlflow_uri)
@@ -286,7 +286,7 @@ mlflow.set_registry_uri(azureml_mlflow_uri)
 > [!NOTE]
 > The value of `azureml_mlflow_uri` was obtained in the same way it was demostrated in [Set MLflow Tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace)
 
-For a complete example about this scenario please check the example [Training models in Azure Databricks and deploying them on Azure ML](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/track_with_databricks_deploy_aml.ipynb).
+For a complete example about this scenario please check the example [Training models in Azure Databricks and deploying them on Azure Machine Learning](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/track_with_databricks_deploy_aml.ipynb).
 
 ## Deploying and consuming models registered in Azure Machine Learning
 
@@ -300,7 +300,7 @@ Models registered in Azure Machine Learning Service using MLflow can be consumed
 You can leverage the `azureml-mlflow` plugin to deploy a model to your Azure Machine Learning workspace. Check [How to deploy MLflow models](how-to-deploy-mlflow-models.md) page for a complete detail about how to deploy models to the different targets.
 
 > [!IMPORTANT]
-> Models need to be registered in Azure Machine Learning registry in order to deploy them. If your models happen to be registered in the MLflow instance inside Azure Databricks, you will have to register them again in Azure Machine Learning. If this is you case, please check the example [Training models in Azure Databricks and deploying them on Azure ML](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/track_with_databricks_deploy_aml.ipynb)
+> Models need to be registered in Azure Machine Learning registry in order to deploy them. If your models happen to be registered in the MLflow instance inside Azure Databricks, you will have to register them again in Azure Machine Learning. If this is you case, please check the example [Training models in Azure Databricks and deploying them on Azure Machine Learning](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/track_with_databricks_deploy_aml.ipynb)
 
 ### Deploy models to ADB for batch scoring using UDFs
 
@@ -340,7 +340,7 @@ display(preds)
 
 ## Clean up resources
 
-If you wish to keep your Azure Databricks workspace, but no longer need the Azure ML workspace, you can delete the Azure ML workspace. This action results in unlinking your Azure Databricks workspace and the Azure ML workspace. 
+If you wish to keep your Azure Databricks workspace, but no longer need the Azure Machine Learning workspace, you can delete the Azure Machine Learning workspace. This action results in unlinking your Azure Databricks workspace and the Azure Machine Learning workspace. 
 
 If you don't plan to use the logged metrics and artifacts in your workspace, the ability to delete them individually is unavailable at this time. Instead, delete the resource group that contains the storage account and workspace, so you don't incur any charges:
 

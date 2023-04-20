@@ -155,6 +155,11 @@
             "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-form-recognizer-studio.md",
             "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/try-form-recognizer-studio",
             "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/form-recognizer-studio-overview.md",
+            "redirect_url": "/azure/applied-ai-services/form-recognizer/studio-overview",
+            "redirect_document_id": true
           }
      ]
 }

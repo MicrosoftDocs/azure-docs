@@ -1,13 +1,13 @@
 ---
-title: Plan to manage costs for Azure OpenAI
-description: Learn how to plan for and manage costs for Azure OpenAI Service by using cost analysis in the Azure portal.
+title: Plan to manage costs for Azure OpenAI Service
+description: Learn how to plan for and manage costs for Azure OpenAI by using cost analysis in the Azure portal.
 author: mrbullwinkle
 ms.author: mbullwin
 ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 04/05/2023
 ---
 
 
@@ -19,7 +19,7 @@ This article describes how you plan for and manage costs for Azure OpenAI Servic
 
 Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../../../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## Estimate costs before using Azure OpenAI Service
+## Estimate costs before using Azure OpenAI
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the costs of using Azure OpenAI.
 
@@ -35,6 +35,10 @@ Azure OpenAI base series and Codex series models are charged per 1,000 tokens. C
 
 Our models understand and process text by breaking it down into tokens. For reference, each token is roughly four characters for typical English text.
 
+Token costs are for both input and output. For example, if you have a 1,000 token JavaScript code sample that you ask an Azure OpenAI model to convert to Python. You would be charged approximately 1,000 tokens for the initial input request sent, and 1,000 more tokens for the output that is received in response for a total of 2,000 tokens.
+
+In practice, for this type of completion call the token input/output wouldn't be perfectly 1:1. A conversion from one programming language to another could result in a longer or shorter output depending on many different factors including the value assigned to the max_tokens parameter.
+
 ### Base Series and Codex series fine-tuned models
 
 Azure OpenAI fine-tuned models are charged based on three factors:
@@ -44,6 +48,8 @@ Azure OpenAI fine-tuned models are charged based on three factors:
 - Inference per 1,000 tokens
 
 The hosting hours cost is important to be aware of since once a fine-tuned model is deployed it continues to incur an hourly cost regardless of whether you're actively using it. Fine-tuned model costs should be monitored closely.
+
+[!INCLUDE [Fine-tuning deletion](../includes/fine-tune.md)]
 
 ### Other costs that might accrue with Azure OpenAI Service
 

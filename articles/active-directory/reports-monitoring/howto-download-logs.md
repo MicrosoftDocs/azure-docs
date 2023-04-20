@@ -1,6 +1,6 @@
 ---
 
-title: How to download logs in Azure Active Directory | Microsoft Docs
+title: How to download logs in Azure Active Directory
 description: Learn how to download activity logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/14/2022
+ms.date: 02/16/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler 
 
@@ -45,11 +45,11 @@ Azure AD stores activity logs for a specific period. For more information, see [
     - **CSV** 
     - **JSON** 
 - Timestamps in the downloaded files are based on UTC.
-- For large data sets (> 250,000 records), you should use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data.
+- For large data sets (> 250,000 records), you should use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview) to download the data.
 
   > [!NOTE]
    > **Issues downloading large data sets**  
-   > The Azure Portal downloader will time out if you attempt to download large data sets. Generally, data sets smaller than 250,000 records work well with the browser download feature. If you face issues completing large downloads in the browser, you should use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data.
+   > The Azure Portal downloader will time out if you attempt to download large data sets. Generally, data sets smaller than 250,000 records work well with the browser download feature. If you face issues completing large downloads in the browser, you should use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview) to download the data.
 
 ## How to download activity logs
 

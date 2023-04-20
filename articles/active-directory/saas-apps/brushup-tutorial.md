@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Brushup | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Brushup'
 description: Learn how to configure single sign-on between Azure Active Directory and Brushup.
 services: active-directory
 author: jeevansd

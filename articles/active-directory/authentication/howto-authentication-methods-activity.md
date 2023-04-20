@@ -1,5 +1,5 @@
 ---
-title: Authentication Methods Activity - Azure Active Directory
+title: Authentication Methods Activity
 description: Overview of the authentication methods that users register to sign in and reset passwords. 
 
 services: active-directory
@@ -112,7 +112,7 @@ The registration details report shows the following information for each user:
 - SSPR Registered (Registered, Not Registered)
 - SSPR Enabled (Enabled, Not Enabled)
 - SSPR Capable (Capable, Not Capable) 
-- Methods registered (Email, Mobile Phone, Alternative Mobile Phone, Office Phone, Microsoft Authenticator Push, Software One Time Passcode, FIDO2, Security Key, Security questions, Hardware OATH token)
+- Methods registered (Alternate Mobile Phone, Email, FIDO2 Security Key, Hardware OATH token, Microsoft Authenticator app, Microsoft Passwordless phone sign-in, Mobile Phone, Office Phone, Security questions, Software OATH token, Temporary Access Pass, Windows Hello for Business)
 
   ![Screenshot of user registration details](media/how-to-authentication-methods-usage-insights/registration-details.png)
 

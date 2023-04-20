@@ -31,6 +31,10 @@ Groups have the following roles:
 * **Members** – inherit permissions and access assigned to the group
 * **Guests** – are members outside your organization
 
+## Before you begin
+
+This article is number 4 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series. 
+
 ## Group strategy
 
 To develop a group strategy to secure external access to your resources, consider the security posture that you want.
@@ -87,7 +91,7 @@ You can create Azure AD security groups and Microsoft 365 Groups in the Azure po
 | Considerations |Manual and dynamic Azure AD security groups| Microsoft 365 Groups |
 | - | - | - |
 | The group contains| Users<br>Groups<br>Service principals<br>Devices| Users only |
-| Where the group is created| Azure AD portal<br>Microsoft 365 portal, if mail-enabled)<br>PowerShell<br>Microsoft Graph<br>End user portal| Microsoft 365 portal<br>Azure AD portal<br>PowerShell<br>Microsoft Graph<br>In Microsoft 365 applications |
+| Where the group is created| Azure portal<br>Microsoft 365 portal, if mail-enabled)<br>PowerShell<br>Microsoft Graph<br>End user portal| Microsoft 365 portal<br>Azure portal<br>PowerShell<br>Microsoft Graph<br>In Microsoft 365 applications |
 | Who creates, by default| Administrators <br>Users| Administrators<br>Users |
 | Who is added, by default| Internal users (tenant members) and guest users | Tenant members and guests from an organization |
 | Access is granted to| Resources to which it's assigned.| Group-related resources:<br>(Group mailbox, site, team, chats, and other Microsoft 365 resources)<br>Other resources to which group is added |
@@ -129,7 +133,7 @@ Learn more:
 
 ### Mail-enabled security group
 
-To create a mail-enabled security group, go to the [Microsoft 365 admin center](https://admin.microsoft.com/). Enable a security group for mail during creation. You can’t enable it later. You can't create the group in the Azure AD portal. 
+To create a mail-enabled security group, go to the [Microsoft 365 admin center](https://admin.microsoft.com/). Enable a security group for mail during creation. You can’t enable it later. You can't create the group in the Azure portal. 
 
 ### Hybrid organizations and Azure AD security groups
 
@@ -163,7 +167,7 @@ Learn more:
   * Can invite guests to join the group
   * [Manage guest access in Microsoft 365 groups](/microsoft-365/admin/create-groups/manage-guest-access-in-groups)
 * **Guests**
-  * Are members from outside your organization. 
+  * Are members from outside your organization 
   * Have some limits to functionality in Teams
 
 ### Microsoft 365 Group settings
@@ -174,24 +178,26 @@ Select email alias, privacy, and whether to enable the group for teams.
 
 After setup, add members, and configure settings for email usage, etc.
 
-### Next steps
+## Next steps
 
-See the following articles to learn more about securing external access to resources. We recommend you follow the listed order.
+Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
-3. [Create a security plan for external access](3-secure-access-plan.md)
+3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
 4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) (You're here)
 
 5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md) 
+6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
 
-7. [Manage external access with Conditional Access policies](7-secure-access-conditional-access.md)
+7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md)
 
-8. [Control access with sensitivity labels](8-secure-access-sensitivity-labels.md)
+8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+
+10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)

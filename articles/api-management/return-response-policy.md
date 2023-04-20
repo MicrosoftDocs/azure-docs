@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/08/2022
 ms.author: danlep
 ---
@@ -30,7 +30,7 @@ The `return-response` policy cancels pipeline execution and returns either a def
 
 |  Attribute              | Description                                                                                                                                                                          | Required  | Default |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ---- |
-| response-variable-name | The name of the context variable referenced from, for example, an upstream [send-request](send-request-policy.md) policy and containing a `Response` object. | No | N/A |
+| response-variable-name | The name of the context variable referenced from, for example, an upstream [send-request](send-request-policy.md) policy and containing a `Response` object. Policy expressions aren't allowed. | No | N/A |
 
 ## Elements
 

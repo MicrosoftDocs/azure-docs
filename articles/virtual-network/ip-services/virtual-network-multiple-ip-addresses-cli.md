@@ -7,9 +7,9 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 12/13/2022
+ms.date: 04/19/2023
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
 
@@ -61,7 +61,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 ## Create a virtual network
 
-In this section, you'll create a virtual network for the virtual machine.
+In this section, you create a virtual network for the virtual machine.
 
 Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network.
 
@@ -98,7 +98,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
 
 ## Create a network security group
 
-In this section, you'll create a network security group for the virtual machine and virtual network.
+In this section, you create a network security group for the virtual machine and virtual network.
 
 Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create the network security group.
 
@@ -110,7 +110,7 @@ Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to cre
 
 ### Create network security group rules
 
-You'll create a rule to allow connections to the virtual machine on port 22 for SSH.
+You create a rule to allow connections to the virtual machine on port 22 for SSH.
 
 Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create the network security group rules.
 
@@ -131,7 +131,7 @@ Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule
 ```
 ## Create a network interface
 
-You'll use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC. The network interface is attached to the virtual network you created previously.
+You use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC. The network interface is attached to the virtual network you created previously.
 
 ```azurecli-interactive
   az network nic create \

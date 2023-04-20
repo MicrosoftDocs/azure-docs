@@ -151,13 +151,13 @@ If all probes for all instances in a backend pool fail, existing UDP flows will 
 
 ## Probe source IP address
 
-Load Balancer uses a distributed probing service for its internal health model. The probing service resides on each host where VMs and can be programmed on-demand to generate health probes per the customer's configuration. The health probe traffic is directly between the probing service that generates the health probe and the customer VM. All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.
+Load Balancer uses a distributed probing service for its internal health model. The probing service resides on each host where VMs and can be programmed on-demand to generate health probes per the customer's configuration. The health probe traffic is directly between the probing service that generates the health probe and the customer VM. All IPv4 Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  (Note that IPv6 probes use a [link-local address](https://www.wikipedia.org/wiki/Link-local_address) as their source.)
 
 The **AzureLoadBalancer** service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default.
 
 In addition to load balancer health probes, the [following operations use this IP address](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
-* Enables the VM Agent to communicating with the platform to signal it is in a “Ready” state
+* Enables the VM Agent to communicate with the platform to signal it is in a “Ready” state
 
 * Enables communication with the DNS virtual server to provide filtered name resolution to customers that don't define custom DNS servers.  This filtering ensures that customers can only resolve the hostnames of their deployment.
 * Enables the VM to obtain a dynamic IP address from the DHCP service in Azure.

@@ -17,7 +17,7 @@ Azure Web Application Firewall (WAF) on Azure Front Door provides centralized pr
 
 ## Policy settings
 
-A Web Application Firewall (WAF) policy allows you to control access to your web applications by using a set of custom and managed rules. You can change the state of the policy or configure a specific mode type for the policy. Depending on policy level settings you can choose to either actively inspect incoming requests, monitor only, or to monitor and take actions against requests that match a rule. For more information, see [WAF policy settings](../web-application-firewall/afds/waf-front-door-policy-settings.md).
+A Web Application Firewall (WAF) policy allows you to control access to your web applications by using a set of custom and managed rules. You can change the state of the policy or configure a specific mode type for the policy. Depending on policy level settings you can choose to either actively inspect incoming requests, monitor only, or to monitor and take actions against requests that match a rule. You can also configure the WAF to only detect threats without blocking them, which is useful when you first enable the WAF. After evaluating how the WAF works with your application, you can reconfigure the WAF settings and enable the WAF in prevention mode. For more information, see [WAF policy settings](../web-application-firewall/afds/waf-front-door-policy-settings.md).
 
 ## Managed rules
 

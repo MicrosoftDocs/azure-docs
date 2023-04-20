@@ -11,6 +11,8 @@ ms.date: 04/12/2022
 
 This article introduces you to the process of deploying the Microsoft Sentinel solution for SAP® applications. The full process is detailed in a whole set of articles linked under [Deployment milestones](#deployment-milestones).
 
+Microsoft Sentinel solution for SAP® applications is certified for SAP S/4HANA® Cloud, Private Edition RISE with SAP and SAP S/4 on-premise. Learn more about this [certification](solution-overview.md#certification).
+
 > [!NOTE]
 > If needed, you can [update an existing Microsoft Sentinel for SAP data connector](update-sap-data-connector.md) to its latest version. 
 
@@ -42,12 +44,13 @@ Follow your deployment journey through this series of articles, in which you'll 
 | Milestone | Article |
 | --------- | ------- |
 | **1. Deployment overview** | **YOU ARE HERE** |
-| **2. Deployment prerequisites** | [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) |
-| **3. Prepare SAP environment** | [Deploying SAP CRs and configuring authorization](preparing-sap.md) |
-| **4. Deploy data connector agent** | [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md) |
-| **5. Deploy SAP security content** | [Deploy SAP security content](deploy-sap-security-content.md)
-| **6. Microsoft Sentinel solution for SAP® applications** | [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md) |
-| **7. Optional steps** | - [Configure auditing](configure-audit.md)<br>- [Configure Microsoft Sentinel for SAP data connector to use SNC](configure-snc.md)<br>- [Configure audit log monitoring rules](configure-audit-log-rules.md)<br>- [Select SAP ingestion profiles](select-ingestion-profiles.md) |
+| **2. Plan architecture** | Learn about [working with the solution across multiple workspaces](cross-workspace.md) (PREVIEW) |
+| **3. Deployment prerequisites** | [Prerequisites for deploying the Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) |
+| **4. Prepare SAP environment** | [Deploying SAP CRs and configuring authorization](preparing-sap.md) |
+| **5. Deploy data connector agent** | [Deploy and configure the container hosting the data connector agent](deploy-data-connector-agent-container.md) |
+| **6. Deploy SAP security content** | [Deploy SAP security content](deploy-sap-security-content.md)
+| **7. Microsoft Sentinel solution for SAP® applications** | [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md) |
+| **8. Optional steps** | - [Configure auditing](configure-audit.md)<br>- [Configure Microsoft Sentinel for SAP data connector to use SNC](configure-snc.md)<br>- [Configure audit log monitoring rules](configure-audit-log-rules.md)<br>- [Select SAP ingestion profiles](select-ingestion-profiles.md) |
 
 ## Next steps
 

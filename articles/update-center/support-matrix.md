@@ -58,15 +58,16 @@ Update management center (preview) is supported in the following regions current
 
 **Geography** | **Supported Regions**
 --- | ---
-Asia | South East Asia
+Asia | East Asia </br> South East Asia
 Australia | Australia East
+Brazil | Brazil South
 Canada | Canada Central
 Europe | North Europe </br> West Europe
 France | France Central
 Japan | Japan East
 Korea | Korea Central
 United Kingdom | UK South </br> UK West
-United States | East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3  
+United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3  
 
 ---
 

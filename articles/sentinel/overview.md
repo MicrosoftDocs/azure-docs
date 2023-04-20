@@ -73,7 +73,7 @@ To help you reduce noise and minimize the number of alerts you have to review an
 
 Automate your common tasks and [simplify security orchestration with playbooks](tutorial-respond-threats-playbook.md) that integrate with Azure services and your existing tools.
 
-Microsoft Sentinel's automation and orchestration solution provides a highly extensible architecture that enables scalable automation as new technologies and threats emerge. To build playbooks with Azure Logic Apps, you can choose from a growing gallery of built-in playbooks. These include [200+ connectors](../connectors/apis-list.md) for services such as Azure functions. The connectors allow you to apply any custom logic in code like:
+Microsoft Sentinel's automation and orchestration solution provides a highly extensible architecture that enables scalable automation as new technologies and threats emerge. To build playbooks with Azure Logic Apps, you can choose from a constantly expanding gallery with [many hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for various services and systems. These connectors allow you to apply any custom logic in your workflow, for example:
 
 - ServiceNow
 - Jira

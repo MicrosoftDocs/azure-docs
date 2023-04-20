@@ -64,6 +64,8 @@
       href: chaos-studio-tutorial-aks-cli.md
   - name: Create and run experiment - Dynamic targeting
     items:
+    - name: Portal
+      href: chaos-studio-tutorial-dynamic-target-portal.md
     - name: CLI 
       href: chaos-studio-tutorial-dynamic-target-cli.md
   - name: Troubleshoot common issues
@@ -83,7 +85,9 @@
   - name: Python SDK
     href: /python/api/azure-mgmt-chaos/
   - name: .NET SDK
-    href: https://www.nuget.org/packages/Microsoft.Azure.Management.Chaos/0.9.15-preview
+    href: /dotnet/api/overview/azure/resourcemanager.chaos-readme?view=azure-dotnet-preview&preserve-view=true
+  - name: JavaScript SDK
+    href: https://www.npmjs.com/package/@azure/arm-chaos/
 - name: Resources
   items:
   - name: Azure roadmap

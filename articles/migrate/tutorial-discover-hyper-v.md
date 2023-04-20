@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 12/14/2022
+ms.date: 04/13/2023
 ms.custom: mvc, subject-rbac-steps, engagement-fy23
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
@@ -14,7 +14,7 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy23
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
-This tutorial shows you how to discover on-premises servers on Hyper-V hosts with the Azure Migrate: Discovery and assessment tool, using a lightweight Azure Migrate appliance. You deploy the appliance as a server on Hyper-V host, to continuously discover machine and performance metadata.
+This tutorial shows you how to discover the servers that are running in your Hyper-V environment by using the Azure Migrate: Discovery and assessment tool, a lightweight Azure Migrate appliance. You deploy the appliance as a server on Hyper-V host, to continuously discover servers and their performance metadata, applications that are running on servers, server dependencies, web apps, and SQL Server instances and databases.
 
 In this tutorial, you learn how to:
 
@@ -38,7 +38,8 @@ Before you start this tutorial, check you have these prerequisites in place.
 --- | ---
 **Hyper-V host** | Hyper-V hosts on which servers are located can be standalone, or in a cluster.<br/><br/> The host must be running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull server metadata and performance data, using a Common Information Model (CIM) session.
 **Appliance deployment** | Hyper-V host needs resources to allocate a server for the appliance:<br/><br/> - 16 GB of RAM, 8 vCPUs, and around 80 GB of disk storage.<br/><br/> - An external virtual switch, and internet access on the appliance, directly or via a proxy.
-**Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-hyper-v.md#dependency-analysis-requirements-agentless).<br /><br /> For discovery of installed applications and for agentless dependency analysis, Windows servers must have PowerShell version 2.0 or later installed.
+**Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-hyper-v.md#dependency-analysis-requirements-agentless).<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements).For discovery of installed applications and for agentless dependency analysis, Windows servers must have PowerShell version 2.0 or later installed.<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
+**SQL Server access** | To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](migrate-support-matrix-hyper-v.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.
 
 ## Prepare an Azure user account
 
@@ -198,7 +199,7 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) |  277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) |  CE63463B3CE07D7500F0A34F9CAFF0AB939368E5DB320F9F05EE45A386A49CDC
 
 ### 3. Create an appliance
 
@@ -348,6 +349,7 @@ Select **Start discovery**, to kick off server discovery from the successfully v
 * [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. Then, it gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours.
 * Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
 * The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
+* [Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Migrate will perform web apps discovery on the server. Web apps configuration data is updated once every 24 hours.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
 * SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
 * By default, Azure Migrate uses the most secure way of connecting to SQL instances that is, Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.

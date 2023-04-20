@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/18/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 ---
 
@@ -38,7 +38,7 @@ In this quickstart you'll, use the Form Recognizer REST API to analyze and extra
 > [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the quickstart:
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -57,9 +57,9 @@ Before you run the cURL command, make the following changes to the [post request
 
 1. Replace `{key}` with the key value from your Azure portal Form Recognizer instance.
 
-1. Using the table below as a reference, replace `{modelID}` and `{your-document-url}` with your desired values.
+1. Using the following table as a reference, replace `{modelID}` and `{your-document-url}` with your desired values.
 
-1. You'll need a document file at a URL. For this quickstart, you can use the sample forms provided in the table below for each feature:
+1. You need a document file at a URL. For this quickstart, you can use the sample forms provided in the following table for each feature:
 
     **Sample documents**
 
@@ -88,7 +88,7 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-
 
 #### POST response
 
-You'll receive a `202 (Success)` response that includes an **Operation-location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
+You receive a `202 (Success)` response that includes an **Operation-location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
 
 :::image type="content" source="../../media/quickstarts/operation-location-result-id.png" alt-text="{alt-text}":::
 
@@ -110,7 +110,7 @@ curl -v -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: {key}"
 
 #### Examine the response
 
-You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+You receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` is `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the GET request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=get-request-results)

@@ -15,6 +15,8 @@ ms.custom: cogserv-non-critical-speech
 
 # Debug errors when authoring a Custom Commands application
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 This article describes how to debug when you see errors while building Custom Commands application. 
 
 ## Errors when creating an application

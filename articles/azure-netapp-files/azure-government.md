@@ -11,8 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 01/27/2023
+ms.date: 03/08/2023
 ms.author: anfdocs
 ---
 
@@ -31,8 +32,10 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
 | Azure NetApp Files backup | Public preview | No |
-| Cross-zone replication | Public preview | No |
 | Standard network features | Generally available (GA) | No |
+| Azure NetApp Files datastores for AVS | Generally available (GA) | No | 
+| Azure NetApp Files customer-managed keys | Public preview | No |
+| Azure NetApp Files large volumes | Public preview | No |
 
 ## Portal access
 
