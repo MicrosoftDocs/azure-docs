@@ -5,6 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/30/2021
 ---

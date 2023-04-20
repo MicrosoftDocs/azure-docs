@@ -29,7 +29,7 @@ For example, here are some events that publishers can send to subscribers throug
 
 This tutorial creates a Consumption logic app resource that runs in [*multi-tenant* Azure Logic Apps](../logic-apps/logic-apps-overview.md) and is based on the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing). Using this logic app resource, you create a workflow that monitors changes to a virtual machine, and sends emails about those changes. When you create a workflow that has an event subscription to an Azure resource, events flow from that resource through Azure Event Grid to the workflow. 
 
-![Screenshot showing the workflow designer with a workflow that monitors a virtual machine using Azure Event Grid.](./media/monitor-virtual-machine-changes-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
+![Screenshot showing the workflow designer with a workflow that monitors a virtual machine using Azure Event Grid.](./media/monitor-virtual-machine-changes-logic-app/monitor-virtual-machine-logic-app-overview.png)
 
 In this tutorial, you learn how to:
 
@@ -68,7 +68,7 @@ In this tutorial, you learn how to:
 
 1. Under **Create Logic App**, provide information about your logic app resource:
 
-   ![Screenshot of logic apps creation menu, showing details like name, subscription, resource group, and location.](./media/monitor-virtual-machine-changes-logic-app/create-logic-app-for-event-grid.png)
+   ![Screenshot of logic apps creation menu, showing details like name, subscription, resource group, and location.](./media/monitor-virtual-machine-changes-logic-app/create-logic-app.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -112,11 +112,11 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
 
 1. On the designer, in the search box, enter `event grid`. From the triggers list, select the **When a resource event occurs** trigger.
 
-   ![Screenshot that shows the workflow designer with the selected Azure Event Grid trigger.](./media/monitor-virtual-machine-changes-logic-app/logic-app-event-grid-trigger.png)
+   ![Screenshot that shows the workflow designer with the selected Azure Event Grid trigger.](./media/monitor-virtual-machine-changes-logic-app/logic-app-trigger.png)
 
 1. When prompted, sign in to Azure Event Grid with your Azure account credentials. In the **Tenant** list, which shows the Azure Active Directory tenant that's associated with your Azure subscription, check that the correct tenant appears, for example:
 
-   ![Screenshot that shows the workflow designer with the Azure sign-in prompt to connect to Azure Event Grid.](./media/monitor-virtual-machine-changes-logic-app/sign-in-event-grid.png)
+   ![Screenshot that shows the workflow designer with the Azure sign-in prompt to connect to Azure Event Grid.](./media/monitor-virtual-machine-changes-logic-app/sign-in.png)
 
    > [!NOTE]
    > 
@@ -128,7 +128,7 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
 
 1. Now subscribe your logic app to events from the publisher. Provide the details about your event subscription as described in the following table, for example:
 
-   ![Screenshot that shows the workflow designer with the trigger details editor open.](./media/monitor-virtual-machine-changes-logic-app/logic-app-event-grid-trigger-details.png)
+   ![Screenshot that shows the workflow designer with the trigger details editor open.](./media/monitor-virtual-machine-changes-logic-app/logic-app-trigger-details.png)
 
    | Property | Required | Value | Description |
    | -------- | -------- | ----- | ----------- |
@@ -141,7 +141,7 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
 
 1. Save your logic app workflow. On the designer toolbar, select **Save**. To collapse and hide an action's details in your workflow, select the action's title bar.
 
-   ![Screenshot that shows the workflow designer and the "Save" button selected.](./media/monitor-virtual-machine-changes-logic-app/logic-app-event-grid-save.png)
+   ![Screenshot that shows the workflow designer and the "Save" button selected.](./media/monitor-virtual-machine-changes-logic-app/logic-app-save.png)
 
    When you save your logic app workflow with an Azure Event Grid trigger, Azure automatically creates an event subscription for your logic app to your selected resource. So when the resource publishes an event to the Azure Event Grid service, the service automatically pushes the event to your logic app. This event triggers and runs the logic app workflow you define in these next steps.
 

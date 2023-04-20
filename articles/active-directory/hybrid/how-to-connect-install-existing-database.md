@@ -1,5 +1,5 @@
 ---
-title: 'Install Azure AD Connect by using an existing ADSync database | Microsoft Docs'
+title: 'Install Azure AD Connect by using an existing ADSync database'
 description: This topic describes how to use an existing ADSync database.
 services: active-directory
 documentationcenter: ''

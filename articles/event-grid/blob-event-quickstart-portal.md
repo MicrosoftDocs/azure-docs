@@ -81,7 +81,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
     > [!IMPORTANT]
     > Keep the Azure Event Grid Viewer window open so that you can see events as they are posted. 
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [register-provider.md](./includes/register-provider.md)]
 
 ## Subscribe to the Blob storage
 

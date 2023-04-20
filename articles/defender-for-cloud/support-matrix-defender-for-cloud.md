@@ -4,7 +4,7 @@ description: Learn about the Azure cloud environments where Defender for Cloud c
 ms.topic: limits-and-quotas
 author: bmansheim
 ms.author: benmansheim
-ms.date: 03/08/2023
+ms.date: 04/13/2023
 ---
 
 # Support matrices for Defender for Cloud
@@ -31,6 +31,7 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 |Azure Database for MySQL*|-|✔|-|
 |Azure Database for PostgreSQL*|-|✔|-|
 |Azure Event Hubs namespace|✔|-|-|
+|Azure Files|✔|✔|-|
 |Azure Functions app|✔|-|-|
 |Azure Key Vault|✔|✔|-|
 |Azure Kubernetes Service|✔|✔|-|
@@ -40,7 +41,6 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 |Azure SQL Managed Instance|✔|✔|[Defender for Azure SQL](defender-for-sql-introduction.md)|
 |Azure Service Bus namespace|✔|-|-|
 |Azure Service Fabric account|✔|-|-|
-|Azure Storage accounts|✔|✔|-|
 |Azure Stream Analytics|✔|-|-|
 |Azure Subscription|✔ **|✔|-|
 |Azure Virtual Network</br> (incl. subnets, NICs, and network security groups)|✔|-|-|
@@ -68,6 +68,9 @@ Microsoft Defender for Cloud is available in the following Azure cloud environme
 | **Microsoft Defender plans and extensions**                                                                                                                   |                |                                |                                |
 | - [Microsoft Defender for Servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA                             |
 | - [Microsoft Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available                  |
+| - [Microsoft Defender CSPM](./concept-cloud-security-posture-management.md) | GA | Not Available | Not Available |
+| - [Agentless discovery for Kubernetes](concept-agentless-containers.md) | Public Preview | Not Available                  | Not Available                  |
+| [Agentless vulnerability assessments for container images](defender-for-containers-vulnerability-assessment-azure.md), including registry scanning (\* Up to 20 unique images per billable resource) | Public Preview | Not Available                  | Not Available                  |
 | - [Microsoft Defender for DNS](./defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | GA                             |
 | - [Microsoft Defender for Kubernetes](./defender-for-kubernetes-introduction.md) <sup>[1](#footnote1)</sup>                                                   | GA             | GA                             | GA                             |
 | - [Microsoft Defender for Containers](./defender-for-containers-introduction.md) <sup>[7](#footnote7)</sup>                                                  | GA             | GA                             | GA                             |
@@ -77,7 +80,7 @@ Microsoft Defender for Cloud is available in the following Azure cloud environme
 | - [Microsoft Defender for open-source relational databases](./defender-for-databases-introduction.md)                                                         | GA             | Not Available                  | Not Available                  |
 | - [Microsoft Defender for Key Vault](./defender-for-key-vault-introduction.md)                                                                                | GA             | Not Available                  | Not Available                  |
 | - [Microsoft Defender for Resource Manager](./defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             | GA                             |
-| - [Microsoft Defender for Storage](./defender-for-storage-introduction.md) <sup>[3](#footnote3)</sup>                                                         | GA             | GA                             | Not Available                  |
+| - [Microsoft Defender for Storage](./defender-for-storage-introduction.md) <sup>[3](#footnote3)</sup>                                                         | GA             | GA (Activity monitoring)                             | Not Available                  |
 | - [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)                                              | Public Preview | Not Available                  | Not Available                  |
 | - [Kubernetes workload protection](./kubernetes-workload-protections.md)                                                                                      | GA             | GA                             | GA                             |
 | - [Bi-directional alert synchronization with Sentinel](../sentinel/connect-azure-security-center.md)                                                          | Public Preview | Not Available                  | Not Available                  |
@@ -109,14 +112,14 @@ Microsoft Defender for Cloud is available in the following Azure cloud environme
 
 ## Supported operating systems
 
-Defender for Cloud depends on the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) or the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent). Make sure that your machines are running one of the supported operating systems as described on the following pages:
+Defender for Cloud depends on the [Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) or the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md). Make sure that your machines are running one of the supported operating systems as described on the following pages:
 
 - Azure Monitor Agent
-    - [Azure Monitor Agent for Windows supported operating systems](/azure/azure-monitor/agents/agents-overview#windows)
-    - [Azure Monitor Agent for Linux supported operating systems](/azure/azure-monitor/agents/agents-overview#linux)
+    - [Azure Monitor Agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#windows)
+    - [Azure Monitor Agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#linux)
 - Log Analytics agent
-    - [Log Analytics agent for Windows supported operating systems](/azure/azure-monitor/agents/agents-overview#windows)
-    - [Log Analytics agent for Linux supported operating systems](/azure/azure-monitor/agents/agents-overview#linux)
+    - [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#windows)
+    - [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#linux)
 
 Also ensure your Log Analytics agent is [properly configured to send data to Defender for Cloud](working-with-log-analytics-agent.md#manual-agent).
 

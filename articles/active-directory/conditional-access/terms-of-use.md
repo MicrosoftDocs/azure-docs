@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 03/30/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -33,32 +33,20 @@ For more videos, see:
 
 ## What can I do with terms of use?
 
-Azure AD terms of use policies have the following capabilities:
-
-- Require employees or guests to accept your terms of use policy before getting access.
-- Require employees or guests to accept your terms of use policy on every device before getting access.
-- Require employees or guests to accept your terms of use policy on a recurring schedule.
-- Require employees or guests to accept your terms of use policy before registering security information in Azure AD Multifactor Authentication (MFA).
-- Require employees to accept your terms of use policy before registering security information in Azure AD self-service password reset (SSPR).
-- Present a general terms of use policy for all users in your organization.
-- Present specific terms of use policies based on a user attributes (such as doctors versus nurses, or domestic versus international employees) by using [dynamic groups](../enterprise-users/groups-dynamic-membership.md)).
-- Present specific terms of use policies when accessing high business impact applications, like Salesforce.
-- Present terms of use policies in different languages.
-- List who has or hasn't accepted to your terms of use policies.
-- Help meeting privacy regulations.
-- Display a log of terms of use policy activity for compliance and audit.
-- Create and manage terms of use policies using [Microsoft Graph APIs](/graph/api/resources/agreement).
+Organizations can use terms of use along with Conditional Access policies to require employees or guests to accept your terms of use policy before getting access. These terms of use statements can be generalized or specific to groups or users and provided in multiple languages. Administrators can determine who has or hasn't accepted terms of use with the provided logs or APIs.
 
 ## Prerequisites
 
 To use and configure Azure AD terms of use policies, you must have:
 
-- Azure AD Premium P1, P2, EMS E3, or EMS E5 licenses.
-   - If you don't have one of these subscriptions, you can [get Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) or [enable Azure AD Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/).
-- One of the following administrator accounts for the directory you want to configure:
-   - Global Administrator
-   - Security Administrator
-   - Conditional Access Administrator
+* A working Azure AD tenant with Azure AD Premium P1, or trial license enabled. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Administrators who interact with terms of use must have one or more of the following role assignments depending on the tasks they're performing. To follow the [Zero Trust principle of least privilege](/security/zero-trust/), consider using [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) to just-in-time activate privileged role assignments.
+   * Read terms of use configuration and Conditional Access policies 
+      * [Security Reader](../roles/permissions-reference.md#security-reader)
+      * [Global Reader](../roles/permissions-reference.md#global-reader)
+   * Create or modify terms of use and Conditional Access policies 
+      * [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator)
+      * [Security Administrator](../roles/permissions-reference.md#security-administrator)
 
 ## Terms of use document
 
@@ -68,15 +56,15 @@ Azure AD terms of use policies use the PDF format to present content. The PDF fi
 
 Once you've completed your terms of use policy document, use the following procedure to add it.
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Terms of use**.
 1. Select, **New terms**.
  
     ![New term of use pane to specify your terms of use settings](./media/terms-of-use/new-tou.png)
 
-1. In the **Name** box, enter a name for the terms of use policy that will be used in the Azure portal.
+1. In the **Name** box, enter a name for the terms of use policy used in the Azure portal.
 1. For **Terms of use document**, browse to your finalized terms of use policy PDF and select it.
-1. Select the language for your terms of use policy document. The language option allows you to upload multiple terms of use policies, each with a different language. The version of the terms of use policy that an end user will see will be based on their browser preferences.
+1. Select the language for your terms of use policy document. The language option allows you to upload multiple terms of use policies, each with a different language. The version of the terms of use policy that an end user sees is based on their browser preferences.
 1. In the **Display name** box, enter a title that users see when they sign in.
 1. To require end users to view the terms of use policy before accepting them, set **Require users to expand the terms of use** to **On**.
 1. To require end users to accept your terms of use policy on every device they're accessing from, set **Require users to consent on every device** to **On**. Users may be required to install other applications if this option is enabled. For more information, see [Per-device terms of use](#per-device-terms-of-use).
@@ -89,7 +77,7 @@ Once you've completed your terms of use policy document, use the following proce
    | Expire starting on | Frequency | Result |
    | --- | --- | --- |
    | Today's date  | Monthly | Starting today, users must accept the terms of use policy and then reaccept every month. |
-   | Date in the future  | Monthly | Starting today, users must accept the terms of use policy. When the future date occurs, consents will expire, and then users must reaccept every month.  |
+   | Date in the future  | Monthly | Starting today, users must accept the terms of use policy. When the future date occurs, consents expire, and then users must reaccept every month.  |
 
    For example, if you set the expire starting on date to **Jan 1** and frequency to **Monthly**, this is how expirations might occur for two users:
 
@@ -98,7 +86,7 @@ Once you've completed your terms of use policy document, use the following proce
    | Alice | Jan 1 | Feb 1 | Mar 1 | Apr 1 |
    | Bob | Jan 15 | Feb 1 | Mar 1 | Apr 1 |
 
-1. Use the **Duration before re-acceptance required (days)** setting to specify the number of days before the user must reaccept the terms of use policy. This allows users to follow their own schedule. For example, if you set the duration to **30** days, this is how expirations might occur for two users:
+1. Use the **Duration before re-acceptance required (days)** setting to specify the number of days before the user must reaccept the terms of use policy. This option allows users to follow their own schedule. For example, if you set the duration to **30** days, this is how expirations might occur for two users:
 
    | User | First accept date | First expire date | Second expire date | Third expire date |
    | --- | --- | --- | --- | --- |
@@ -111,8 +99,8 @@ Once you've completed your terms of use policy document, use the following proce
 
    | Template | Description |
    | --- | --- |
-   | **Custom policy** | Select the users, groups, and apps that this terms of use policy will be applied to. |
-   | **Create Conditional Access policy later** | This terms of use policy will appear in the grant control list when creating a Conditional Access policy. |
+   | **Custom policy** | Select the users, groups, and apps that this terms of use policy is applied to. |
+   | **Create Conditional Access policy later** | This terms of use policy appears in the grant control list when creating a Conditional Access policy. |
 
    > [!IMPORTANT]
    > Conditional Access policy controls (including terms of use policies) do not support enforcement on service accounts. We recommend excluding all service accounts from the Conditional Access policy.
@@ -169,7 +157,7 @@ To get started with Azure AD audit logs, use the following procedure:
 
 ## What terms of use looks like for users
 
-Once a ToU policy is created and enforced, users, who are in scope, will see the following screen during sign-in.
+Once a ToU policy is created and enforced, users, who are in scope, see the following screen during sign-in.
 
 ![Example terms of use that appears when a user signs in](./media/terms-of-use/user-tou.png)
 
@@ -203,7 +191,7 @@ You can edit some details of terms of use policies, but you can't modify an exis
 1. In the Edit terms of use pane, you can change the following options:
     - **Name** – the internal name of the ToU that isn't shared with end users
     - **Display name** – the name that end users can see when viewing the ToU
-    - **Require users to expand the terms of use** – Setting this option to **On** will force the end user to expand the terms of use policy document before accepting it.
+    - **Require users to expand the terms of use** – Setting this option to **On** forces the end user to expand the terms of use policy document before accepting it.
     - (Preview) You can **update an existing terms of use** document
     - You can add a language to an existing ToU
 
@@ -224,12 +212,12 @@ You can edit some details of terms of use policies, but you can't modify an exis
     ![Edit terms of use pane showing name and expand options](./media/terms-of-use/edit-terms-use.png)
 
 1. In the pane on the right, upload the pdf for the new version
-1. There's also a toggle option here **Require reaccept** if you want to require your users to accept this new version the next time they sign in. If you require your users to reaccept, next time they try to access the resource defined in your conditional access policy they'll be prompted to accept this new version. If you don’t require your users to reaccept, their previous consent will stay current and only new users who haven't consented before or whose consent expires will see the new version. Until the session expires, **Require reaccept** not require users to accept the new TOU. If you want to ensure reaccept, delete and recreate or create a new TOU for this case.
+1. There's also a toggle option here **Require reaccept** if you want to require your users to accept this new version the next time they sign in. If you require your users to reaccept, next time they try to access the resource defined in your conditional access policy they'll be prompted to accept this new version. If you don’t require your users to reaccept, their previous consent stays current and only new users who haven't consented before or whose consent expires see the new version. Until the session expires, **Require reaccept** not require users to accept the new TOU. If you want to ensure reaccept, delete and recreate or create a new TOU for this case.
 
     ![Edit terms of use re-accept option highlighted](./media/terms-of-use/re-accept.png)
 
 1. Once you've uploaded your new pdf and decided on reaccept, select Add at the bottom of the pane.
-1. You'll now see the most recent version under the Document column.
+1. You see the most recent version under the Document column.
 
 ## View previous versions of a ToU
 
@@ -272,7 +260,7 @@ The following procedure describes how to add a ToU language.
 
 ## Per-device terms of use
 
-The **Require users to consent on every device** setting enables you to require end users to accept your terms of use policy on every device they're accessing from. The end user will be required to register their device in Azure AD. When the device is registered, the device ID is used to enforce the terms of use policy on each device.
+The **Require users to consent on every device** setting enables you to require end users to accept your terms of use policy on every device they're accessing from. The end user is required to register their device in Azure AD. When the device is registered, the device ID is used to enforce the terms of use policy on each device.
 
 Supported platforms and software.
 
@@ -284,14 +272,14 @@ Supported platforms and software.
 > | **Internet Explorer** | Yes | Yes | Yes |  |
 > | **Chrome (with extension)** | Yes | Yes | Yes |  |
 
-Per-device terms of use has the following constraints:
+Per-device terms of use have the following constraints:
 
 - A device can only be joined to one tenant.
 - A user must have permissions to join their device.
 - The Intune Enrollment app isn't supported. Ensure that it's excluded from any Conditional Access policy requiring Terms of Use policy.
 - Azure AD B2B users aren't supported.
 
-If the user's device isn't joined, they'll receive a message that they need to join their device. Their experience will be dependent on the platform and software.
+If the user's device isn't joined, they receive a message that they need to join their device. Their experience is dependent on the platform and software.
 
 ### Join a Windows 10 device
 
@@ -299,19 +287,19 @@ If a user is using Windows 10 and Microsoft Edge, they receive a message similar
 
 ![Windows 10 and Microsoft Edge - Message indicating your device must be registered](./media/terms-of-use/per-device-win10-edge.png)
 
-If they're using Chrome, they'll be prompted to install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+If they're using Chrome, they're prompted to install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
 ### Register an iOS device
 
-If a user is using an iOS device, they'll be prompted to install the [Microsoft Authenticator app](https://apps.apple.com/us/app/microsoft-authenticator/id983156458).
+If a user is using an iOS device, they're prompted to install the [Microsoft Authenticator app](https://apps.apple.com/us/app/microsoft-authenticator/id983156458).
 
 ### Register an Android device
 
-If a user is using an Android device, they'll be prompted to install the [Microsoft Authenticator app](https://play.google.com/store/apps/details?id=com.azure.authenticator).
+If a user is using an Android device, they're prompted to install the [Microsoft Authenticator app](https://play.google.com/store/apps/details?id=com.azure.authenticator).
 
 ### Browsers
 
-If a user is using browser that isn't supported, they'll be asked to use a different browser.
+If a user is using browser that isn't supported, they're asked to use a different browser.
 
 ![Message indicating your device must be registered, but browser is not supported](./media/terms-of-use/per-device-browser-unsupported.png)
 
@@ -339,7 +327,7 @@ User acceptance records are deleted:
 
 ## Policy changes
 
-Conditional Access policies take effect immediately. When this happens, the administrator will start to see “sad clouds” or "Azure AD token issues". The administrator must sign out and sign in to satisfy the new policy.
+Conditional Access policies take effect immediately. When this happens, the administrator starts to see “sad clouds” or "Azure AD token issues". The administrator must sign out and sign in to satisfy the new policy.
 
 > [!IMPORTANT]
 > Users in scope will need to sign-out and sign-in in order to satisfy a new policy if:
@@ -361,7 +349,7 @@ Terms of use policies can be used for different cloud apps, such as Azure Inform
 
 ### Azure Information Protection
 
-You can configure a Conditional Access policy for the Azure Information Protection app and require a terms of use policy when a user accesses a protected document. This configuration will trigger a terms of use policy before a user accessing a protected document for the first time.
+You can configure a Conditional Access policy for the Azure Information Protection app and require a terms of use policy when a user accesses a protected document. This configuration triggers a terms of use policy before a user accessing a protected document for the first time.
 
 ![Cloud apps pane with Microsoft Azure Information Protection app selected](./media/terms-of-use/cloud-app-info-protection.png)
 
@@ -392,7 +380,7 @@ A: The user counts in the terms of use report and who accepted/declined are stor
 A: The terms of use details overview data is stored for the lifetime of that terms of use policy, while the Azure AD audit logs are stored for 30 days.
 
 **Q: Why do I see a different number of consents in the terms of use details overview versus the exported CSV report?**<br />
-A: The terms of use details overview reflects aggregated acceptances of the current version of the policy (updated once every day).  If expiration is enabled or a TOU agreement is updated (with re-acceptance required), the count on the details overview is reset since the acceptances are expired, thereby showing the count of the current version. All acceptance history is still captured in the CSV report.
+A: The terms of use details overview reflect aggregated acceptances of the current version of the policy (updated once every day).  If expiration is enabled or a TOU agreement is updated (with reacceptance required), the count on the details overview is reset since the acceptances are expired, thereby showing the count of the current version. All acceptance history is still captured in the CSV report.
 
 **Q: If hyperlinks are in the terms of use policy PDF document, will end users be able to click them?**<br />
 A: Yes, end users are able to select hyperlinks to other pages but links to sections within the document aren't supported. Also, hyperlinks in terms of use policy PDFs don't work when accessed from the Azure AD MyApps/MyAccount portal.
@@ -416,10 +404,10 @@ A: The user is blocked from getting access to the application. The user would ha
 A: You can [review previously accepted terms of use policies](#how-users-can-review-their-terms-of-use), but currently there isn't a way to unaccept.
 
 **Q: What happens if I'm also using Intune terms and conditions?**<br />
-A: If you've configured both Azure AD terms of use and [Intune terms and conditions](/intune/terms-and-conditions-create), the user will be required to accept both. For more information, see the [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+A: If you've configured both Azure AD terms of use and [Intune terms and conditions](/intune/terms-and-conditions-create), the user is required to accept both. For more information, see the [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **Q: What endpoints does the terms of use service use for authentication?**<br />
-A: Terms of use utilize the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com, https://myaccount.microsoft.com and https://account.activedirectory.windowsazure.com. If your organization has an allowlist of URLs for enrollment, you'll need to add these endpoints to your allowlist, along with the Azure AD endpoints for sign-in.
+A: Terms of use utilize the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com, https://myaccount.microsoft.com and https://account.activedirectory.windowsazure.com. If your organization has an allowlist of URLs for enrollment, you need to add these endpoints to your allowlist, along with the Azure AD endpoints for sign-in.
 
 ## Next steps
 

@@ -50,7 +50,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 * Optionally, the logic app resource and workflow where you want to use the agreement to exchange messages. The workflow requires any trigger that starts your logic app's workflow.
 
-If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Create an example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md).
 
 ## Add an agreement
 

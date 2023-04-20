@@ -2,6 +2,7 @@
 title: Declare resources in Bicep
 description: Describes how to declare resources to deploy in Bicep.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 02/21/2023
 ---
 
@@ -128,7 +129,7 @@ az provider show \
 
 ## Tags
 
-You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources.md#arm-templates).
+You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources-bicep.md).
 
 ## Managed identities for Azure resources
 

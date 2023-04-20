@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Five9 Plus Adapter (CTI, Contact Center Agents) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Five9 Plus Adapter (CTI, Contact Center Agents)'
 description: Learn how to configure single sign-on between Azure Active Directory and Five9 Plus Adapter (CTI, Contact Center Agents).
 services: active-directory
 author: jeevansd

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 10/21/2021
+ms.date: 03/16/2023
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: ardhanap, jesakowi
@@ -31,7 +31,7 @@ Below are some common issues that may occur during the process.
 - **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t know who the primary contact for the account is.** 
     1. Navigate to the [MPN enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new).
     2. Sign in with a user account in the org's primary Azure AD tenant. 
-    3. If an MPN account already exists, this will be recognized and you'll be added to the account. 
+    3. If an MPN account already exists, this is recognized and you are added to the account. 
     4. Navigate to the [partner profile page](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) where the MPN ID and primary account contact will be listed.
 
 - **I don’t know who my Azure AD Global Administrator (also known as company admin or tenant admin) is, how do I find them? What about the Application Administrator or Cloud Application Administrator?**
@@ -151,7 +151,7 @@ Most commonly caused by the signed-in user not being a member of the proper role
 
     - The MPN ID is correct. 
     - There are no errors or “pending actions” shown, and the verification status under Legal business profile and Partner info both say “authorized” or “success”.
-2. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the [multi-tenant-account instructions](/partner-center/multi-tenant-account). Be aware that all Global Admins of any tenant you add will be granted Global Administrator privileges on your Partner Center account.
+2. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you're signing with a user account from is on the list of associated tenants. To add another tenant, follow the [multi-tenant-account instructions](/partner-center/multi-tenant-account). All Global Admins of any tenant you add will be granted Global Administrator privileges on your Partner Center account.
 3. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you're signing in as is either a Global Administrator, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions for [creating user accounts and setting permissions](/partner-center/create-user-accounts-and-set-permissions).
 
 ### MPNGlobalAccountNotFound

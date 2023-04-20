@@ -11,6 +11,7 @@ ms.author: osomorog
 ms.date: 12/01/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade model management to SDK v2

@@ -36,7 +36,7 @@ Event Grid on Kubernetes supports various event-driven integration scenarios. Ho
 ### Event Grid on Kubernetes at a glance
 From the user perspective, Event Grid on Kubernetes is composed of the following resources in blue:
 
-:::image type="content" source="./media/overview/event-grid-topics.png" alt-text="Resources" lightbox="./media/overview/event-grid-topics.png":::
+:::image type="content" source="./media/overview/topics.png" alt-text="Resources" lightbox="./media/overview/topics.png":::
 
 * A **topic** is a kind of input channel that exposes an endpoint to which publishers send events to Event Grid.
 * An **event subscription** is a resource that contains configuration settings to filter and route events to a destination where events are delivered.
@@ -49,16 +49,16 @@ For more information about these concepts, see [Concepts in Azure Event Grid](co
 
 You can integrate workloads running on your cluster. Your publisher can be any service running on your Kubernetes cluster or any workload that has access to the topic endpoint (hosted by the Event Grid broker) to which your publisher sends events.
 
-:::image type="content" source="./media/overview/event-grid-intra-cluster-integration.png" alt-text="Intra-cluster integration" lightbox="./media/overview/event-grid-intra-cluster-integration.png":::
+:::image type="content" source="./media/overview/intra-cluster-integration.png" alt-text="Intra-cluster integration" lightbox="./media/overview/intra-cluster-integration.png":::
 
 
 You can also have a publisher deployed elsewhere in your network that sends events to Event Grid deployed to one of your Kubernetes clusters:
 
-:::image type="content" source="./media/overview/event-grid-in-network-integration.png" alt-text="In-network integration" lightbox="./media/overview/event-grid-in-network-integration.png":::
+:::image type="content" source="./media/overview/network-integration.png" alt-text="In-network integration" lightbox="./media/overview/network-integration.png":::
 
 With Event Grid on Kubernetes, you can forward events to Azure for further processing, storage, or visualization:
 
-:::image type="content" source="./media/overview/event-grid-forward-events.png" alt-text="Forward events to Azure":::
+:::image type="content" source="./media/overview/forward-events.png" alt-text="Forward events to Azure":::
 
 #### Destinations
 Event handler destinations can be any HTTPS or HTTP endpoint to which Event Grid can reach through the network, public or private, and has access (not protected with some authentication mechanism). You define event delivery destinations when you create an event subscription. For more information, see [event handlers](event-handlers.md). 

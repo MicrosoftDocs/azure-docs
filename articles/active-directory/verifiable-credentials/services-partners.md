@@ -22,7 +22,6 @@ If you're a Services Partner and would like to be considered into Entra Verified
 
 | Services partner | Website |
 |:-------------------------|:--------------|
-| ![Screenshot of Affinitiquest logo](media/services-partners/affinitiquest.png) | [Secure Personally Identifiable Information | AffinitiQuest](https://affinitiquest.io/) |
 | ![Screenshot of Avanade logo](media/services-partners/avanade.png) | [Avanade Entra Verified ID Consulting Services](https://appsource.microsoft.com/marketplace/consulting-services/avanadeinc.ava_entra_verified_id_fy23?exp=ubp8) |
 | ![Screenshot of Credivera logo](media/services-partners/credivera.png) | [Credivera: Digital Identity Solutions | Verifiable Credentials](https://www.credivera.com/) |
 | ![Screenshot of Condatis logo](media/services-partners/condatis.png) | [Decentralized Identity | Condatis](https://condatis.com/technology/decentralized-identity/) |

@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Data-in replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL Flexible service. The external server can be on-premises, in virtual machines, Azure Database for MySQL Single Server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position-based. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Data-in replication allows you to synchronize data from an external MySQL server into an Azure Database for MySQL flexilbe server. The external server can be on-premises, in virtual machines, Azure Database for MySQL single server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position-based. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 > [!NOTE]  
 > GTID-based replication is currently not supported for Azure Database for MySQL - Flexible Servers.<br>
@@ -45,7 +45,7 @@ It isn't supported to configure Data-in replication for servers that have high a
 
 ### Filter
 
-Parameter `replicate_wild_ignore_table` is used to create replication filter for tables on the replica server. To modify this parameter from Azure portal, navigate to Azure Database for MySQL - Flexible Server used as replica and select "Server Parameters" to view/edit the `replicate_wild_ignore_table` parameter.
+Parameter `replicate_wild_ignore_table` is used to create replication filter for tables on the replica server. To modify this parameter from Azure portal, navigate to Azure Database for MySQL flexible server used as replica and select "Server Parameters" to view/edit the `replicate_wild_ignore_table` parameter.
 
 ### Requirements
 
@@ -54,7 +54,7 @@ Parameter `replicate_wild_ignore_table` is used to create replication filter for
 - Our recommendation is to have a primary key in each table. If we have a table without primary key, you might face slowness in replication.
 - The source server should use the MySQL InnoDB engine.
 - User must have the right permissions to configure binary logging and create new users on the source server.
-- Binary log files on the source server shouldn't be purged before the replica applies those changes. If the source is Azure Database for MySQL refer how to configure binlog_expire_logs_seconds for [Flexible server](./concepts-server-parameters.md#binlog_expire_logs_seconds) or [Single server](../concepts-server-parameters.md#binlog_expire_logs_seconds)
+- Binary log files on the source server shouldn't be purged before the replica applies those changes. If the source is Azure Database for MySQL refer how to configure binlog_expire_logs_seconds for [flexible server](./concepts-server-parameters.md#binlog_expire_logs_seconds) or [Single server](../concepts-server-parameters.md#binlog_expire_logs_seconds)
 - If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mysql.az_replication_change_master` stored procedure. Refer to the following [examples](./how-to-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
 - Ensure that the machine hosting the source server allows both inbound and outbound traffic on port 3306.
 - Ensure that the source server has a **public IP address**, that DNS is publicly accessible, or that the source server has a fully qualified domain name (FQDN).

@@ -34,7 +34,7 @@ You can use any trigger to start your workflow, for example, when a new email ar
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app where you want to access your Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app workflow needs to already have a trigger.
+* The logic app where you want to access your Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a blank logic app workflow. To add an Office 365 Outlook action to your workflow, your logic app workflow needs to already have a trigger.
 
 ## Connector reference
 

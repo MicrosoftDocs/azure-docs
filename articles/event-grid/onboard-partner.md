@@ -40,7 +40,7 @@ To complete the remaining steps, make sure you have:
 - An Azure [tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 
-[!INCLUDE [register-provider](includes/register-provider.md)]
+[!INCLUDE [register-provider](./includes/register-provider.md)]
 
 ## Create a partner registration 
 
