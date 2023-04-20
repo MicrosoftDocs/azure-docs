@@ -67,6 +67,9 @@ The following example shows a scenario for copying a source blob from a differen
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-copy-blob.py" id="Snippet_copy_blob_from_azure_async":::
 
+> [!NOTE]
+> User delegation SAS tokens offer greater security, as they're signed with Azure AD credentials instead of an account key. To create a user delegation SAS token, the Azure AD security principal needs appropriate permissions. For authorization requirements, see [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key#authorization).
+
 ## Copy a blob from a source outside of Azure
 
 You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following example shows a scenario for copying a blob from an accessible source object URL.
