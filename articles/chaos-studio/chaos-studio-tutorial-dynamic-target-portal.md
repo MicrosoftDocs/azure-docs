@@ -40,7 +40,7 @@ With your Virtual Machine Scale Sets now onboarded, you can create your experime
 1. Within Chaos Studio, navigate to **Experiments** and select **Create**.
 [ ![A screenshot showing the Experiments screen, with the Create button highlighted.](images/tutorial-dynamic-targets-experiment-browse.png)](images/tutorial-dynamic-targets-experiment-browse.png#lightbox)
 1. Add a name for your experiment that complies with resource naming guidelines, and select **Next: Experiment designer**.
-[ ![A screenshot showing the experiment creation screen, with the Next button highlighted.](images/tutorial-dynamic-targets-create-exp.png)](images/tutorial-dynamic-targets-experiment-create-exp.png#lightbox)
+[ ![A screenshot showing the experiment creation screen, with the Next button highlighted.](images/tutorial-dynamic-targets-create-exp.png)](images/tutorial-dynamic-targets-create-exp.png#lightbox)
 1. Within Step 1 and Branch 1, select **Add action**, then **Add fault**.
 [ ![A screenshot showing the experiment creation screen, with the Add Fault button highlighted.](images/tutorial-dynamic-targets-experiment-fault.png)](images/tutorial-dynamic-targets-experiment-fault.png#lightbox)
 1. Select the **VMSS Shutdown (version 2.0)** fault. Choose your desired duration and whether you want the shutdown to be abrupt, then select **Next: Target resources**.
