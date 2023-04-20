@@ -18,7 +18,7 @@ ms.reviewer: celested
 
 LoreIpsum ... IGA is great
 
-## HR Systems
+## Featured integrations
 
 | Logo | Category | Application tutorial for user provisioning |
 | :--- | :--- | :--- |
