@@ -125,7 +125,7 @@ By default, storage accounts accept connections from clients on any network. You
 
 ## Grant access from a virtual network
 
-You can configure storage accounts to allow access only from specific subnets. The allowed subnets may belong to a VNet in the same subscription or a different subscription, including those belonging to a different Azure Active Directory tenant. With global service endpoints, the allowed subnets can also be in different regions from the storage account.
+You can configure storage accounts to allow access only from specific subnets. The allowed subnets may belong to a VNet in the same subscription or a different subscription, including those belonging to a different Azure Active Directory tenant. With [global service endpoints](#azure-storage-global-service-endpoints), the allowed subnets can also be in different regions from the storage account.
 
 You can enable a [Service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Storage within the VNet. The service endpoint routes traffic from the VNet through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the storage account that allow requests to be received from specific subnets in a VNet. Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
 
