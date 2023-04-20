@@ -1,6 +1,6 @@
 ---
 title: Sign in users in a sample ASP.NET Core web application by using Microsoft Entra
-description: Learn how to configure a sample web app to sign in and sign out users by using Microsoft Entra.
+description: Learn how to configure a sample ASP.NET web app to sign in and sign out users by using Microsoft Entra.
 services: active-directory
 author: cilwerner
 manager: celestedg
@@ -102,8 +102,7 @@ To get the web app sample code, you can do either of the following tasks:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Enable password reset](how-to-enable-password-reset-customers.md)
-> [Customize the default branding](how-to-customize-branding-customers.md)
-> [Configure sign-in with Google](how-to-google-federation-customers.md)
-> [Sign in users in your own ASP.NET Core web application by using Microsoft Entra](how-to-web-app-dotnet-sign-in-prepare-app.md)
+- [Enable password reset](how-to-enable-password-reset-customers.md)
+- [Customize the default branding](how-to-customize-branding-customers.md)
+- [Configure sign-in with Google](how-to-google-federation-customers.md)
+- [Sign in users in your own ASP.NET Core web application by using Microsoft Entra](how-to-web-app-dotnet-sign-in-prepare-app.md)
