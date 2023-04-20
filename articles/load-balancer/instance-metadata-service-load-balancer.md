@@ -13,7 +13,7 @@ ms.custom: template-concept, engagement-fy23
 
 # Retrieve load balancer information by using Azure Instance Metadata Service
 
-IMDS (Azure Instance Metadata Service) provides information about currently running virtual machine instances. The service is a REST API that's available at a well-known, non-routable IP address (169.254.169.254). 
+IMDS (Azure Instance Metadata Service) provides information about currently running virtual machine instances. The service is a REST API that's available at a well-known, nonroutable IP address (169.254.169.254). 
 
 When you place virtual machine or virtual machine set instances behind an Azure Standard Load Balancer, you can use IMDS to retrieve metadata related to the load balancer and the instances.
 
