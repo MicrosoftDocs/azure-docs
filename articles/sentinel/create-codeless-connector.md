@@ -73,11 +73,11 @@ Here's the `connectorUiConfig` sections and syntax needed to configure the user 
 |**graphQueries**     |   [graphQueries[]](#graphqueries)      |   Queries that present data ingestion over the last two weeks in the **Data charts** pane.<br><br>Provide either one query for all of the data connector's data types, or a different query for each data type.     |
 |**graphQueriesTableName** | String | Defines the name of the Log Analytics table from which data for your queries is pulled. <br><br>The table name can be any string, but must end in `_CL`. For example: `TableName_CL`|
 |**instructionsSteps**     | [instructionSteps[]](#instructionsteps)        |     An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab.    |
+|**metadata**     |   [metadata](#metadata)      |  Metadata displayed under the connector description.       |
 |**permissions**     | [permissions[]](#permissions)        | The information displayed under the **Prerequisites** section of the UI which Lists the permissions required to enable or disable the connector. |
 |**publisher**     |    String     |  This is the text shown in the **Provider** section.  |
 |**sampleQueries**     | [sampleQueries[]](#samplequeries)       | Sample queries for the customer to understand how to find the data in the event log, to be displayed in the **Next steps** tab.        |
 |**title**     |  String       |Title displayed in the data connector page.         |
-|**metadata**     |   [metadata](#metadata)      |  ARM template metadata, for deploying the connector as an ARM template.       |
 
 Putting all these pieces together is complicated. Use the [connector page user experience validation tool](#validate-the-data-connector-page-user-experience) to test out the components you put together.
 
