@@ -9,7 +9,7 @@ ms.date: 03/23/2023
 ---
 # Onboard Defender for APIs
 
-This article describes how to deploy the [Microsoft Defender for APIs](defender-for-apis-introduction.md) plan in Microsoft Defender for Cloud. Defender for APIs is currently in preview.
+This article describes how to deploy the [Microsoft Defender for APIs](defender-for-apis-introduction.md) plan in the Microsoft Defender for Cloud portal. Defender for APIs is currently in preview.
 
 ## Before you start
 
@@ -17,13 +17,16 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 - Make sure that Defender for Cloud is enabled in your Azure subscription. You enable Defender for APIs at the subscription level.
 - Ensure that APIs you want to secure are published in [Azure API management](/azure/api-management/api-management-key-concepts). Follow [these instructions](/azure/api-management/get-started-create-service-instance) to set up Azure API Management.
 
+> [!NOTE]
+> This article describes how to enable and onboard the Defender for APIs plan in the Defender for Cloud portal. Alternately, you can enable Defender for APIs within the API Management instance in the Azure portal. 
+
 ## Enable the plan
 
-1. In the Defender for Cloud portal, select **Environment settings**.
-1. Select the subscription that contains the managed APIs that you want to protect. 
+1. Sign into the [portal](https://portal.azure.com/), and in Defender for Cloud, select **Environment settings**.
+1. Select the subscription that contains the managed APIs that you want to protect.
 1. In the **APIs** plan, select **On**. Then select **Save**.
 
-    :::image type="content" source="media/defender-for-apis-deploy/enable-plan.png" alt-text="Shows how to turn on the Defender for APIs plan in the portal.":::
+    :::image type="content" source="media/defender-for-apis-deploy/enable-plan.png" alt-text="Shows how to turn on the Defender for APIs plan in the portal."lightbox="media/defender-for-apis-deploy/enable-plan.png":::
 
 ## Onboard APIs
 
@@ -32,6 +35,7 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 1. Under **Enable enhanced security features**, select the security recommendation **Azure API Management APIs should be onboarded to Defender for APIs**.
 
     :::image type="content" source="media/defender-for-apis-deploy/api-recommendations.png" alt-text="Graphic showing how to turn on the Defender for APIs plan from the recommendation.":::
+
 
 1. In the recommendation page, you can review the recommendation severity, update interval, description, and remediation steps.
 
