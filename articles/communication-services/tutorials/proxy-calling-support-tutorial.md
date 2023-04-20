@@ -107,7 +107,7 @@ const callClient = new CallClient({
 
 The API reference for the `CallClientOptions` object, and the `networkConfiguration` property within it can be found here - [CallClientOptions](/javascript/api/azure-communication-services/@azure/communication-calling/callclientoptions?view=azure-communication-services-js&preserve-view=true).
 
-### Setting up a proxy middleware in express js
+### Setting up a signnaling proxy middleware in express js
 You can also create a proxy middleware in your express js server setup to have all the URLs redirected through it, using the [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware) npm package.
 The `createProxyMiddleware` function from that package should cover your what you need for a simple redirect proxy setup. Here's an example usage of it with some option settings that the SDK wneed to have all of our URLs working expected:
 
@@ -144,9 +144,9 @@ app.use('/proxy', myProxyMiddleware);
 ```
 
 > [!Tip]
-If you are having SSL issues, check out the [cors](https://www.npmjs.com/package/cors) package.
+> If you are having SSL issues, check out the [cors](https://www.npmjs.com/package/cors) package.
 
-### Setting up a proxy server on Azure
+### Setting up a signaling proxy server on Azure
 You can create a Linux virtual machine in the Azure portal and deploy an NGINX server on it using this guide - [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu).
 
 Here's an NGINX config that you could make use of for a quick spin up:
