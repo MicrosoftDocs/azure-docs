@@ -34,9 +34,9 @@ After you complete the tasks, you collect:
 
 - A *Directory (tenant) ID* for your Azure AD for customers tenant.
 
-- Web API permissions/scopes  
+- Web API permissions/scopes. 
 
-{continue from here} 
+- App permissions/roles.
 
 If you've already registered a client web application and a web API in the Microsoft Entra admin center, and created a sign in and sign up user flow, you can skip the steps in this article, then proceed to [Prepare your web application and API](how-to-web-app-node-sign-in-call-api-prepare-app.md).
 
