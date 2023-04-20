@@ -734,6 +734,8 @@ items:
             href: app/java-spring-boot.md
           - name: Profiler
             href: app/java-standalone-profiler.md
+          - name: Get started (supplemental)
+            href: app/java-get-started-supplemental.md
           - name: Configuration
             items:
             - name: General
@@ -748,8 +750,6 @@ items:
                   href: app/java-standalone-telemetry-processors.md
                 - name: Examples
                   href: app/java-standalone-telemetry-processors-examples.md
-          - name: JVM arguments setup
-            href: app/java-standalone-arguments.md
           - name: Upgrade from 2.x
             href: app/java-standalone-upgrade-from-2x.md
         - name: FAQ

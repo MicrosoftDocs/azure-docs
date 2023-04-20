@@ -95,7 +95,7 @@ items:
     - name: Intro to Azure OpenAI training
       href: /training/modules/explore-azure-openai/
     - name: Azure OpenAI Samples
-      href: https://github.com/Azure/openai-samples
+      href: https://aka.ms/AOAICodeSamples
     - name: Region support
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Terms of use
