@@ -37,7 +37,7 @@ RSASecurIDAMEvent
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected [**RSASecurIDAMEvent**](https://aka.ms/sentinel-rsasecuridam-parser) which is deployed with the Microsoft Sentinel Solution.
+   >  This data connector depends on a parser based on a Kusto Function to work as expected [**RSASecurIDAMEvent**](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/RSA%20SecurID/Parsers/RSASecurIDAMEvent.txt) which is deployed with the Microsoft Sentinel Solution.
 
 
 > [!NOTE]
