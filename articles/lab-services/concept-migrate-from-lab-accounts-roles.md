@@ -24,11 +24,17 @@ For example, consider you have assigned the Owner or Contributor role to users a
 
 ## Recommendations
 
-The following table below recommendations to map roles from the earlier version of Azure Lab Services to roles in the August 2022 Update (Classic).
+The following table shows recommendations for mapping role assignments from lab accounts to lab plans in Azure Lab Services.
 
-**TODO: add table**
+| Lab account role | Lab account assignment | Lab plan role | Lab plan assignment |
+| ---------------- | ---------------------- | ------------- | ------------------- |
+| Owner | Lab account | Owner | Resource group |
+| Contributor | Lab account | Contributor | Resource group |
+| Lab Creator | Lab account | Lab Creator | Lab plan |
+| Owner** | Lab | Owner | Resource group or lab |
+| Contributor** | Lab | Lab Contributor | Lab |
 
-* In the earlier version, the lab’s Contributor and Owner roles required that the Reader role was also assigned on the lab account.  In the August 2022 update, you don't need to assign the role at the lab plan or resource group level.
+** For lab accounts, the lab’s Contributor and Owner roles require that you also assign the Reader role on the lab account. For lab plans, you don't have to assign the Reader role at the lab plan or resource group level.
 
 ## Next steps
 
