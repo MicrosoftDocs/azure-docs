@@ -151,7 +151,7 @@ build {
 }
 ```
 
-This template builds an Ubuntu 16.04 LTS image, installs NGINX, then deprovisions the VM.
+This template builds an Ubuntu 20.04 LTS image, installs NGINX, then deprovisions the VM.
 
 > [!NOTE]
 > If you expand on this template to provision user credentials, adjust the provisioner command that deprovisions the Azure agent to read `-deprovision` rather than `deprovision+user`.
