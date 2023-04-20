@@ -108,7 +108,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    
    No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file.
    
-   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml" range="8-11":::
+   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml" range="6-9":::
    
    # [Python](#tab/sdk)
    
