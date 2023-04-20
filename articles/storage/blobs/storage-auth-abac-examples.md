@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 04/19/2023
+ms.date: 04/20/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1393,7 +1393,7 @@ Use the values in the following table to build the expression portion of the con
 > | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | `container1` |
-> | Logical operator | 'AND' |
+> | Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
 > | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | Attribute | [UtcNow](storage-auth-abac-attributes.md#utc-now) |
 > | Operator | [DateTimeGreaterThan](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
@@ -1504,7 +1504,7 @@ Use the values in the following table to build the expression portion of the con
 > | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | `container1` |
-> | Logical operator | 'AND' |
+> | Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
 > | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | Attribute | [Subnet](storage-auth-abac-attributes.md#subnet-name) |
 > | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -1639,7 +1639,7 @@ Use the values in the following table to build the expression portion of the con
 > | | Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | | Value | `True` |
 > | End of Group #1 | | |
-> | | Logical operator | 'OR' |
+> | | Logical operator | ['OR'](../../role-based-access-control/conditions-format.md#or) |
 > | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#container-name) |
 > | | Key | `sensitivity` |
@@ -1764,7 +1764,7 @@ Use the values in the following table to build the expression portion of the con
 > | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
 > | | Value | `/subscriptions/<your subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/privateEndpoints/privateendpoint1` |
 > | End of Group #1 | | |
-> | | Logical operator | 'OR' |
+> | | Logical operator | ['OR'](../../role-based-access-control/conditions-format.md#or) |
 > | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 > | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringnotequals) |
@@ -1930,7 +1930,7 @@ Use the values in the following table to build the expression portion of the con
 | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
 | | Value | `/subscriptions/<your subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/privateEndpoints/privateendpoint1` |
 | End of Group #1 | | |
-| | Logical operator | 'OR' |
+| | Logical operator | ['OR'](../../role-based-access-control/conditions-format.md#or) |
 | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 | | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#container-name) |
 | | Key | `sensitivity` |

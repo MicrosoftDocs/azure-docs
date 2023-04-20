@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/19/2023
+ms.date: 04/20/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
@@ -267,10 +267,10 @@ The following table lists the the supported environment attributes for condition
 
 | Display name | Description | Attribute | Type |
 | --- | --- | --- | --- |
-| Subnet name | Use this attribute in conditions to restrict access over a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | String |
-| Private endpoint name | Use this attribute in conditions to restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | String |
-| Is private link | Use this attribute in conditions to require access over any private link. | `isPrivateLink` | Boolean |
-| UTC now | Use this attribute in conditions to restrict access to objects during specific time periods. | `UtcNow` | DateTime |
+| Subnet name | Use this attribute in conditions to restrict access over a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | [String](#string-comparison-operators) |
+| Private endpoint name | Use this attribute in conditions to restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | [String](#string-comparison-operators) |
+| Is private link | Use this attribute in conditions to require access over any private link. | `isPrivateLink` | [Boolean](#boolean-comparison-operators) |
+| UTC now | Use this attribute in conditions to restrict access to objects during specific time periods. | `UtcNow` | [DateTime](#datetime-comparison-operators) |
 
 For a complete list of the storage attributes you can use in conditions, see:
 
@@ -347,7 +347,7 @@ This section lists the function operators that are available to construct condit
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]` |
 > | **Attributes support** <sup>1</sup>| [Encryption scope name](../storage/blobs/storage-auth-abac-attributes.md#encryption-scope-name)<br/>[Snapshot](../storage/blobs/storage-auth-abac-attributes.md#snapshot)<br/>[Version ID](../storage/blobs/storage-auth-abac-attributes.md#version-id) |
 
-<sup>1</sup> The `Exists` operator is supported for only these attributes in the visual ABAC condition builder in the Azure portal. You can add the `Exists` operator to any attribute using other tools, such as [PowerShell](conditions-role-assignments-powershell.md), the [Azure CLI](conditions-role-assignments-cli.md), the [REST API](conditions-role-assignments-powershell.md), and the condition code editor in the Azure portal.
+<sup>1</sup> The `Exists` operator is supported for only these attributes in the visual ABAC condition builder in the Azure portal. You can add the `Exists` operator to any attribute using other tools, such as [PowerShell](conditions-role-assignments-powershell.md), the [Azure CLI](conditions-role-assignments-cli.md), the [REST API](conditions-role-assignments-rest.md), and the condition code editor in the Azure portal.
 
 ## Logical operators
 
