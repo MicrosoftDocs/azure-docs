@@ -227,8 +227,6 @@ Make these replacements in the code:
    mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
    ```
 
-If you see that your application is hanging, it could be due to email sending being throttled. You can [handle throttling through logging or by implementing a custom policy](../send-email-advanced/throw-exception-when-tier-limit-reached.md).
-
 ### Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)

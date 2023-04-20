@@ -42,7 +42,9 @@ In this quick start, you'll learn about how to send email using our Email SDKs.
 
 ## Troubleshooting
 
-To troubleshoot issues related to email delivery, you can get status of the email delivery to capture delivery details.
+To troubleshoot issues related to email delivery, you can [get status of the email delivery](./handle-email-events.md) to capture delivery details.
+
+If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](./send-email-advanced/throw-exception-when-tier-limit-reached.md).
 
 ## Clean up Azure Communication Service resources
 

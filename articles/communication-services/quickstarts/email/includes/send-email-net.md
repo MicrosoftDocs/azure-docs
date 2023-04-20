@@ -177,7 +177,7 @@ var recipient = "emailalias@contoso.com";
 ### Send and get the email send status
 
 To send an email message, you need to:
-- Call SendSync method that sends the email request as an asynchronous operation. Call with Azure.WaitUntil.Completed if your method should wait to return until the long-running operation has completed on the service. Call with Azure.WaitUntil.Started if your method should return after starting the operation. 
+- Call SendAsync method that sends the email request as an asynchronous operation. Call with Azure.WaitUntil.Completed if your method should wait to return until the long-running operation has completed on the service. Call with Azure.WaitUntil.Started if your method should return after starting the operation. 
 - SendAsync method returns EmailSendOperation that returns "Succeeded" EmailSendStatus if email is out for delivery and throws an exception otherwise. Add this code to the end of `Main` method in **Program.cs**:
 
 ```csharp
@@ -229,8 +229,6 @@ Run the application from your application directory with the `dotnet run` comman
 ```console
 dotnet run
 ```
-
-If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](../send-email-advanced/throw-exception-when-tier-limit-reached.md).
 
 ### Sample code
 
