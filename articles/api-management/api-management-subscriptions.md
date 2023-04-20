@@ -79,7 +79,7 @@ Each API Management instance comes with an immutable, all-APIs subscription (als
 
 ### Standalone subscriptions
 
-API Management also allows *standalone* subscriptions, which are not associated with a developer account. This feature proves useful in scenarios similar to several developers or teams sharing a subscription.
+API Management also allows *standalone* subscriptions, which aren't associated with a developer account. This feature proves useful in scenarios similar to several developers or teams sharing a subscription.
 
 Creating a subscription without assigning an owner makes it a standalone subscription. To grant developers and the rest of your team access to the standalone subscription key, either:
 * Manually share the subscription key.
@@ -93,8 +93,14 @@ When created in the portal, a subscription is in the **Active** state, meaning a
 
 ## Use a subscription key
 
-To use an API Management subscription key, a subscriber adds the **Ocp-Apim-Subscription-Key** HTTP header to the request, passing the value of the subscription key. Alternatively, include the **Ocp-Apim-Subscription-key** query parameter and value in the request. The query parameter is checked only if the header isn't present.
+A subscriber can use an API Management subscription key in one of two ways:
 
+* Add the **Ocp-Apim-Subscription-Key** HTTP header to the request, passing the value of a valid subscription key.
+
+* Include the **subscription-key** query parameter and a valid value in the URL. The query parameter is checked only if the header isn't present.
+
+> [!TIP]
+> **Ocp-Apim-Subscription-Key** is the default name of the subscription key header, and **subscription-key** is the default name of the query parameter. If desired, you may modify these names in the settings for each API. For example, in the portal, update these names on the **Settings** tab of an API.
 
 ## Enable or disable subscription requirement for API or product access
 
