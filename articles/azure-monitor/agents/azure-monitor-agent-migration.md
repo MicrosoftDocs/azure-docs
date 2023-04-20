@@ -57,19 +57,19 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 
     1. Compare the data ingested by Azure Monitor Agent with legacy agent data to ensure there are no gaps. You can do this by joining with the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which indicates `Azure Monitor Agent` for data collected by the Azure Monitor Agent.
     
-    For example:
-
-    ```kusto
-    Heartbeat
-    | distinct Computer, SourceComputerId, Category
-    | join kind=inner (
-        Event
-    | extend d=parse_xml(EventData)
-        | extend sourceHealthServiceId = tostring(d.DataItem.["@sourceHealthServiceId"])
-        | project-reorder TimeGenerated, Computer, EventID, sourceHealthServiceId, ParameterXml, EventData
-        ) on $left.SourceComputerId==$right.sourceHealthServiceId
-    | project TimeGenerated, Computer, Category, EventID, sourceHealthServiceId, ParameterXml, EventData
-    ```
+        For example:
+    
+        ```kusto
+        Heartbeat
+        | distinct Computer, SourceComputerId, Category
+        | join kind=inner (
+            Event
+        | extend d=parse_xml(EventData)
+            | extend sourceHealthServiceId = tostring(d.DataItem.["@sourceHealthServiceId"])
+            | project-reorder TimeGenerated, Computer, EventID, sourceHealthServiceId, ParameterXml, EventData
+            ) on $left.SourceComputerId==$right.sourceHealthServiceId
+        | project TimeGenerated, Computer, Category, EventID, sourceHealthServiceId, ParameterXml, EventData
+        ```
     
 1. Use [built-in policies](../agents/azure-monitor-agent-manage.md#built-in-policies) to deploy extensions and DCR associations at scale. Using policy will also ensure automatic deployment of extensions and DCR associations for new machines.<sup>3</sup>
     
@@ -108,8 +108,8 @@ The following Azure Monitor services now use Azure Monitor Agent in preview. Thi
 |	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (Public preview) documentation](../../update-center/index.yml)	|
 |	 [Automation Hybrid Runbook Worker overview](../../automation/automation-hybrid-runbook-worker.md) (available without Azure Monitor Agent)	|	 Migrate to Azure Automation Hybrid Worker Extension - Generally available	|	None	|	[Migrate an existing Agent based to Extension based Hybrid Workers](../../automation/extension-based-hybrid-runbook-worker-install.md#migrate-an-existing-agent-based-to-extension-based-hybrid-workers)	|
 |	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Connection Monitor: Public preview	|	Azure NetworkWatcher extension	|	[Monitor network connectivity by using Azure Monitor Agent](../../network-watcher/azure-monitor-agent-with-connection-monitor.md)	|
-|	Azure Stack HCI Insights	|	private preview	|	No additional extension installed	|	[Sign up here](https://aka.ms/amadcr-privatepreviews)	|
-|	Azure Virtual Desktop (AVD) Insights |	private preview	|	No additional extension installed	|	[Sign up here](https://aka.ms/amadcr-privatepreviews)	|
+|	Azure Stack HCI Insights	|	Private preview	|	No additional extension installed	|	[Sign up here](https://aka.ms/amadcr-privatepreviews)	|
+|	Azure Virtual Desktop (AVD) Insights |	Private preview	|	No additional extension installed	|	[Sign up here](https://aka.ms/amadcr-privatepreviews)	|
 
 > [!NOTE]
 > Features and services listed above in preview **may not be available in Azure Government and China clouds**. They will be available typically within a month *after* the features/services become generally available.
