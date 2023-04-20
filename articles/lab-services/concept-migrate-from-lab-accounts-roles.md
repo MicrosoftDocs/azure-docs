@@ -14,7 +14,7 @@ ms.date: 04/20/2023
 
 When you move from lab accounts to lab plans in Azure Lab Services, it’s important to understand the differences between lab accounts and lab plans and the effect on role assignments. In this article, you learn how to update role assignments when moving from lab accounts to lab plans.
 
-## Differences between role assignments for lab accounts and lab plans
+## Differences between lab accounts and lab plans
 
 Lab accounts serve as a parent to labs. When you assign a role on a lab account, the associated labs automatically inherit this role and permissions. 
 
