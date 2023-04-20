@@ -50,7 +50,11 @@ items:
             - name: Single-page app
               href: https://learn.microsoft.com/azure/active-directory/develop/single-page-app-quickstart
             - name: Web app
-              href: https://learn.microsoft.com/azure/active-directory/develop/web-app-quickstart
+              items:
+                - name: Node.js
+                  items:
+                    - name: Sign in users
+                      href: how-to-web-app-node-sample-sign-in.md
             - name: Web API
               href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
             - name: Headless app
@@ -71,8 +75,18 @@ items:
                   href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-react
             - name: Web app
               items: 
-                - name: Node/Express​ - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview
+                - name: Node/Express.js
+                  items:
+                    - name: Sign in users
+                      items:
+                        - name: Overview
+                          href: how-to-web-app-node-sign-in-overview.md
+                        - name: Prepare tenant 
+                          href: how-to-web-app-node-sign-in-prepare-tenant.md
+                        - name: Prepare app 
+                          href: how-to-web-app-node-sign-in-prepare-app.md
+                        - name: Add sign-in and sign-out
+                          href: how-to-web-app-node-sign-in-sign-in-out.md
                 - name: ASP.NET - Sign in users and call an API
                   href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
             - name: Web API
