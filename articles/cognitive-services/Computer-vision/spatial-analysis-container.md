@@ -385,13 +385,13 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 Install the *nvidia-docker-2* software package.
 
 ```bash
-distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+DISTRIBUTION=$(. /etc/os-release;echo $ID$VERSION_ID)
 ```
 ```bash
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 ```
 ```bash
-curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+curl -s -L https://nvidia.github.io/nvidia-docker/$DISTRIBUTION/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 ```
 ```bash
 sudo apt-get update
