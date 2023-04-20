@@ -422,7 +422,7 @@ az k8s-extension list --cluster-type connectedClusters --cluster-name $CLUSTER_N
 
 If the extension was successfully removed, you won't see the Azure Key Vault Secrets Provider extension listed in the output. If you don't have any other extensions installed on your cluster, you'll see an empty array.
 
-If you no longer need it, be sure to delete the client secret associated with the service principal from your cluster by running the following command:
+If you no longer need it, be sure to delete the client secret associated with the service principal by running the following command:
 
 ```bash
 kubectl delete secret <secret-name>
