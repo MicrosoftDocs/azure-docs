@@ -113,14 +113,14 @@ Ignore this setup if you use the npm setup.
 
 The following key properties are captured by default when the plug-in is enabled.
 
-### Custom event properties
+#### Custom event properties
 | Name                  | Description                            | Sample          |
 | --------------------- | ---------------------------------------|-----------------|
 | Name                  | The name of the custom event. More information on how a name gets populated is shown in the [preceding section](#use-the-plug-in).| About              |
 | itemType              | Type of event.                                      | customEvent      |
 |sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2.6.2_ClickPlugin2.6.2|
 
-### Custom dimensions
+#### Custom dimensions
 | Name                  | Description                            | Sample          |
 | --------------------- | ---------------------------------------|-----------------|
 | actionType            | Action type that caused the click event. It can be a left or right click. | CL              |
@@ -130,18 +130,18 @@ The following key properties are captured by default when the plug-in is enabled
 | pageName              | Title of the page where the click event is triggered.                      | Sample Title    |
 | parentId              | ID or name of the parent element.                                           | navbarContainer |
 
-### Custom measurements
+#### Custom measurements
 | Name                  | Description                            | Sample          |
 | --------------------- | ---------------------------------------|-----------------|
 | timeToAction          | Time taken in milliseconds for the user to click the element since the initial page load. | 87407              |
 
-## Configuration
+## Advanced configuration
 
 | Name                  | Type                               | Default | Description                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
 | auto-Capture           | Boolean                            | True    | Automatic capture configuration.                                |
 | callback              | [IValueCallback](#ivaluecallback)  | Null    | Callbacks configuration.                               |
-| pageTags              | String                             | Null    | Page tags.                                             |
+| pageTags              | Object                             | Null    | Page tags.                                             |
 | dataTags              | [ICustomDataTags](#icustomdatatags)| Null    | Custom Data Tags provided to override default tags used to capture click data. |
 | urlCollectHash        | Boolean                            | False   | Enables the logging of values after a "#" character of the URL.                |
 | urlCollectQuery       | Boolean                            | False   | Enables the logging of the query string of the URL.                            |
@@ -149,7 +149,7 @@ The following key properties are captured by default when the plug-in is enabled
 | defaultRightClickBhvr | String (or) number                 | ''      | Default behavior value when a right-click event has occurred. This value is overridden if the element has the `data-*-bhvr` attribute. |
 | dropInvalidEvents     | Boolean                            | False   | Flag to drop events that don't have useful click data.                                                                                   |
 
-### IValueCallback
+#### IValueCallback
 
 | Name               | Type     | Default | Description                                                                             |
 | ------------------ | -------- | ------- | --------------------------------------------------------------------------------------- |
@@ -157,7 +157,7 @@ The following key properties are captured by default when the plug-in is enabled
 | pageActionPageTags | Function | Null    | A callback function to augment the default `pageTags` collected during a `pageAction` event.  |
 | contentName        | Function | Null    | A callback function to populate customized `contentName`.                                 |
 
-### ICustomDataTags
+#### ICustomDataTags
 
 | Name                      | Type    | Default   | Default tag to use in HTML |   Description                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
@@ -169,7 +169,7 @@ The following key properties are captured by default when the plug-in is enabled
 | parentDataTag             | String  | Null      |  N/A  | Stops traversing up the DOM to capture content name and value of elements when encountered with this tag. For example, `data-<yourparentDataTag>` can be used in the HTML tags.|
 | dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| The plug-in for capturing telemetry data ignores HTML elements with this attribute.|
 
-### behaviorValidator
+#### behaviorValidator
 
 The `behaviorValidator` functions automatically check that tagged behaviors in code conform to a predefined list. The functions ensure that tagged behaviors are consistent with your enterprise's established taxonomy. It isn't required or expected that most Azure Monitor customers use these functions, but they're available for advanced scenarios.
 
@@ -181,7 +181,7 @@ Three different `behaviorValidator` callback functions are exposed as part of th
 | BehaviorMapValidator   | Use this callback function if your behavior's data structure is a dictionary.       |
 | BehaviorEnumValidator  | Use this callback function if your behavior's data structure is an Enum.            |
 
-#### Sample usage with behaviorValidator
+##### Sample usage with behaviorValidator
 
 ```js
 var clickPlugin = Microsoft.ApplicationInsights.ClickAnalyticsPlugin;
@@ -365,12 +365,6 @@ var appInsights = new Microsoft.ApplicationInsights.ApplicationInsights({
 });
 appInsights.loadAppInsights();
 ```
-
-## Enable correlation
-
-Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
-
-JavaScript correlation is turned off by default to minimize the telemetry we send by default. To enable correlation, see the [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
 
 ## Sample app
 
