@@ -13,7 +13,7 @@ ms.reviewer: chrisrin
 
 # SQL IaaS extension registration options for Cost Management administrators
 
-Normally, you can use the Azure portal to view Azure VMs that are running SQL Server on the [**SQL virtual machines** page](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). However, there are some situations where Azure can't detect that SQL Server is running in a virtual machine. The most common situation is when SQL Server VMs are created using custom images that run SQL Server 2014 or earlier. Or if the [SQL CEIP service](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server) is disabled or blocked.
+Normally, you can use the Azure portal to view Azure VMs that are running SQL Server on the [SQL virtual machines page](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). However, there are some situations where Azure can't detect that SQL Server is running in a virtual machine. The most common situation is when SQL Server VMs are created using custom images that run SQL Server 2014 or earlier. Or if the [SQL CEIP service](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server) is disabled or blocked.
 
 When the Azure portal doesn't detect SQL Server running on your VMs, it's a problem because you can't fully manage Azure SQL. In this situation, you can't verify that you have enough licenses needed to cover your SQL Server usage. Microsoft provides a way to resolve this problem, with _SQL IaaS Agent extension registration_. At a high level, SQL IaaS Agent extension registration works in the following manner:
 
@@ -23,11 +23,11 @@ When the Azure portal doesn't detect SQL Server running on your VMs, it's a prob
 You must complete SQL IaaS Agent extension registration before you can use [centrally managed Azure Hybrid Benefit for SQL Server](create-sql-license-assignments.md). Otherwise, you can't use Azure to manage all your SQL Servers running in Azure.
 
 >[!NOTE]
-> Avoid using centralized Azure Hybrid Benefit before you complete SQL IaaS Agent extension registration. If you use centralized Azure Hybrid Benefit before you complete SQL IaaS Agent extension registration, new SQL VMs may not be covered by the number of licenses you have assigned. This situation could lead to incorrect license assignments and might result in unnecessary pay-as-you-go charges for SQL Server licenses. Complete registration before you use centralized Azure Hybrid Benefit features.
+> Avoid using centralized managed Azure Hybrid Benefit for SQL Server before you complete SQL IaaS Agent extension registration. If you use centralized Azure Hybrid Benefit before you complete SQL IaaS Agent extension registration, new SQL VMs may not be covered by the number of licenses you have assigned. This situation could lead to incorrect license assignments and might result in unnecessary pay-as-you-go charges for SQL Server licenses. Complete SQL IaaS Agent extension registration before you use centralized Azure Hybrid Benefit features.
 
 ## Scenarios and options
 
-The following sections help Cost Management users understand how SQL IaaS Agent extension registration relates to centralized Azure Hybrid Benefit. Your first step is to determine whether your SQL Server VMs are already registered.
+The following sections help Cost Management users understand how SQL IaaS Agent extension registration relates to centralized Azure Hybrid Benefit. Your first step is to determine whether your SQL Server VMs are already registered. Then, you register your SQL Server VMs.
 
 ### Required permissions
 
@@ -47,7 +47,10 @@ The permissions are required to perform the following procedure. If you don't ha
 
 Alternatively, you can run a PowerShell script to determine if there are any unregistered SQL Servers in your environment. You can download the script from the [azure-hybrid-benefit](https://github.com/microsoft/sql-server-samples/tree/master/samples/manage/azure-hybrid-benefit) page on GitHub.
 
-If you determine that your SQL Server VMs aren't registered, there are a few ways to complete the registration:
+If you determine that you have unregistered SQL Server VMs, use one of the two following methods to complete the registration:
+
+- Register with the help of your Microsoft account team
+- Turn on SQL IaaS Agent extension automatic registration
 
 ### Register with the help of your Microsoft account team
 
