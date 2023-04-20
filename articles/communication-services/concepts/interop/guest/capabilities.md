@@ -174,9 +174,9 @@ When Teams external users leave the meeting, or the meeting ends, they can no lo
 
 *Azure Communication Services provides developers tools to integrate Microsoft Teams Data Loss Prevention that is compatible with Microsoft Teams. For more information, go to [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md)
 
-**Inline image support is currently in public preview and is available in the Chat SDK for JavaScript only. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+**Inline images are images that are copied and pasted directly into the send box of Teams client. For images that were uploaded via "Upload from this device" menu or via drag-and-drop (such as dragging images directly to the send box) in the Teams, they are not supported at this moment. To copy an image, the Teams user can either use their operating system's context menu to copy the image file then paste it into the send box of their Teams client, or use keyboard shortcuts instead.
 
-**If the Teams external user sends a message with images uploaded via "Upload from this device" menu or via drag-and-drop (such as dragging images directly to the send box) in the Teams, then these scenarios would be covered under the file sharing capability, which is currently not supported.
+**Inline image support is currently in public preview and is available in the Chat SDK for JavaScript only. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Server capabilities
 
