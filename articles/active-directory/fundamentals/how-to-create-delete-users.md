@@ -159,6 +159,39 @@ When you invite an external guest user by sending an email invitation, you can c
 
 ![Screenshot of the user details with the invitation status options highlighted.](media/how-to-create-delete-users/external-user-invitation-state.png)
 
+## Add other users
+
+There might be scenarios in which you want to manually create consumer accounts in your Azure Active Directory B2C (Azure AD B2C) directory. For more information about creating consumer accounts, see [Create and delete consumer users in Azure AD B2C](../../active-directory-b2c/manage-users-portal.md).
+
+If you have an environment with both Azure Active Directory (cloud) and Windows Server Active Directory (on-premises), you can add new users by syncing the existing user account data. For more information about hybrid environments and users, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+
+## Delete a user
+
+You can delete an existing user using Azure portal.
+
+- You must have a Global Administrator, Privileged Authentication Administrator, or User Administrator role assignment to delete users in your organization.
+- Global Administrators and Privileged Authentication Administrators can delete any users including other administrators.
+- User Administrators can delete any non-admin users, Helpdesk Administrators, and other User Administrators.
+- For more information, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
+
+To delete a user, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) using one of the appropriate roles.
+
+1. Go to **Azure Active Directory** > **Users**.
+
+1. Search for and select the user you want to delete from your Azure AD tenant.
+
+1. Select **Delete user**.
+
+    ![Screenshot of the All users page with a user selected and the Delete button highlighted.](media/how-to-create-delete-users/delete-existing-user.png)
+
+The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](active-directory-users-restore.md).
+
+When a user is deleted, any licenses consumed by the user are made available for other users.
+
+>[!Note]
+>To update the identity, contact information, or job information for users whose source of authority is Windows Server Active Directory, you must use Windows Server Active Directory. After you complete the update, you must wait for the next synchronization cycle to complete before you'll see the changes.
 ## Next steps
 
 * [Learn about B2B collaboration users](../external-identities/add-users-administrator.md)
