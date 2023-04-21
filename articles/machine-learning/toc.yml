@@ -469,6 +469,9 @@
           displayName: compute target, low priority, managed identity
           href: ./v1/how-to-create-attach-compute-cluster.md
         # end v1
+        - name: Serverless compute
+          displayName: compute target, low priority, managed identity
+          href: how-to-use-serverless-compute.md
         - name: Manage compute resources
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
