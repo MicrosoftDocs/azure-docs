@@ -218,7 +218,7 @@ You might need to select **Refresh** to see the new folder and script in your **
 ## Create a compute cluster, a scalable way to run a training job
 
 > [!NOTE]
-> To try [serverless compute (preview)](../how-to-use-serverless-compute.md), skip this step and proceed to [configure the command](#configure-the-command).
+> To try [serverless compute (preview)](./how-to-use-serverless-compute.md), skip this step and proceed to [configure the command](#configure-the-command).
 
 You already have a compute instance, which you're using to run the notebook.  Now you'll add a second type of compute, a **compute cluster** that you'll use to run your training job. While a compute instance is a single node machine, a compute cluster can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
@@ -276,7 +276,7 @@ Here, you'll create input variables to specify the input data, split ratio, lear
 * In this sample, we access the data from a file on the internet. 
 
 > [!NOTE]
-> To use [serverless compute (preview)](../how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
+> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
 
 ```python
 from azure.ai.ml import command
