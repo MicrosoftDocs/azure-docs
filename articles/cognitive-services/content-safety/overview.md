@@ -27,11 +27,11 @@ You may want to build content filtering software into your app to comply with re
 
 This documentation contains the following article types:  
 
-* [**Quickstarts**](./quickstart.md) are getting-started instructions to guide you through making requests to the service.  
-* [**How-to guides**](./how-to/use-custom-blocklist.md) contain instructions for using the service in more specific or customized ways.  
-* [**Concepts**](concepts/content-flags.md) provide in-depth explanations of the service functionality and features.  
+* **[Quickstarts](./quickstart.md)** are getting-started instructions to guide you through making requests to the service.  
+* **[How-to guides](./how-to/use-custom-blocklist.md)** contain instructions for using the service in more specific or customized ways.  
+* **[Concepts](concepts/content-flags.md)** provide in-depth explanations of the service functionality and features.  
 
-## Product Types
+## Product types
 
 There are different types of analysis available from this service. The following table describes the currently available API.
 
@@ -40,7 +40,6 @@ There are different types of analysis available from this service. The following
 | Text Detection API          | Scans text for sexual content, violence, hate, and self harm with multi-severity risk levels. |
 | Image Detection API         | Scans images for sexual content, violence, hate, and self harm with multi-severity risk levels. |
 | Multimodal Detection API    | Scans both image and text (include separate text or text from OCR of image) for hate content with multi-severity risk levels. |
-| Azure Content Safety Studio |         |
 
 ## Where it's used
 
@@ -55,21 +54,20 @@ The following are a few scenarios in which a software developer or team would re
 > [!IMPORTANT]
 > You cannot use Content Moderator to detect illegal child exploitation images. However, qualified organizations can use the [PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") to screen for this type of content.
 
+
+## Pricing
+
+Currently, the public preview features are  available in the **F0 and S0** pricing tier.
+
+## Service limits
+
 ### Language availability
 
 Currently, this API supports eight languages, English, German, Japanese, Spanish, French, Italian, Portuguese, Chinese.
 
 You don't need to specify language code for text analysis. we'll automatically detect you r input text languages.
 
-
-
-## Pricing
-
-Currently, the public preview features are  available in the **F0 and S0** pricing tier.
-
-## Service Limits
-
-### Region / Location
+### Region / location
 
 To use the preview APIs, create/re-use your Azure Content Safety resource in the supported regions. Currently, the public preview features are only available in the following Azure regions: 
 
@@ -77,7 +75,7 @@ To use the preview APIs, create/re-use your Azure Content Safety resource in the
 
 Feel free to contact us if you require more regions for your business.
 
-### Query per second
+### Query rates
 
 | Pricing Tier | Query per second (QPS) |
 | :----------- | :--------------------- |
@@ -106,4 +104,7 @@ If you get stuck, [email us](mailto:acm-team@microsoft.com) or use the feedback 
 
 ## Next steps
 
-TBD
+Follow a quickstart to get started.
+
+> [!div class="nextstepaction"]
+> [Content Safety quickstart](./quickstart.md)

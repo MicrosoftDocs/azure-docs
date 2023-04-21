@@ -4,7 +4,7 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is Content Safety?
+  - name: Content Safety overview
     href: overview.md
   - name: Content Safety Studio
     href: overview-content-safety-studio.md
