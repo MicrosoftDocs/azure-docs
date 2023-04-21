@@ -141,7 +141,7 @@ Before you customize any settings, the neutral default branding will appear in y
       - **Account collection display text** – Enter link text to display in place of the Microsoft default text “Can’t access your account” text. 
       - **Password collection display text** – Enter link text to display in place of the Microsoft default “Forgot password” text. 
  
-   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png" alt-text="Screenshot of the company branding Self-service password reset ." lightbox="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png":::
+      :::image type="content" source="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png" alt-text="Screenshot of the company branding Self-service password reset ." lightbox="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png":::
 
 1. Select **Next: Review** and review all your modifications. Then select **Save** if you would like to save your changes or **Previous** if you would like to continue customizing.
 
@@ -150,19 +150,19 @@ Before you customize any settings, the neutral default branding will appear in y
 For your customer tenant, you might have different requirements for the information you want to collect during sign-up and sign-in. The customer tenant comes with a built-in set of information stored in attributes, such as Given Name, Surname, City, and Postal Code. You can create custom attributes in your customer tenant using the  Microsoft Graph API or in the portal under the **Text** tab in **Company Branding**. 
 
 1.	On the **Text** tab select **Add Custom Text**.
-2.	Select any of the options:
- - Select **Attributes** to override the default values. 
- - Select **Attribute collection** to add a new attribute option that you would like to collect during the sign-up process.
- - Select **Sign in** to add custom text for the sign-in page.
- - Select **Sign up** to add custom text for the sign-in page.
-Select  **Sign-in/up one time code (SISU OTC)** to add a custom title.
+1.	Select any of the options:
+   - Select **Attributes** to override the default values. 
+   - Select **Attribute collection** to add a new attribute option that you would like to collect during the sign-up process.
+   - Select **Sign in** to add custom text for the sign-in page.
+   - Select **Sign up** to add custom text for the sign-in page.
+   - Select **Sign-in/up one time code (SISU OTC)** to add a custom title.
 
-   :::image type="content" source="media/how-to-customize-branding-customers/custom-text.png" alt-text="Screenshot of the company branding text tab." lightbox="media/how-to-customize-branding-customers/custom-text.png":::
+      :::image type="content" source="media/how-to-customize-branding-customers/custom-text.png" alt-text="Screenshot of the company branding text tab." lightbox="media/how-to-customize-branding-customers/custom-text.png":::
 
-Select **Add** once you finished with your changes. You can edit the existing custom text by selecting the **Text name** and select Save. 
+1. Select **Add** once you finished with your changes. You can edit the existing custom text by selecting the **Text name** and select Save. 
 
-[!IMPORTANT] 
-In the customer tenant, we have two options to add custom text to the sign-up and sign-in experience.  The function is available under each user flow during language customization and also under Company branding. Although we have to ways to customize strings (via Company Branding and via User Flows), both ways modify the same JSON file. The most recent change made either via User flows or via Company branding  will always override the previous one.
+> [!IMPORTANT] 
+> In the customer tenant, we have two options to add custom text to the sign-up and sign-in experience.  The function is available under each user flow during language customization and also under Company branding. Although we have to ways to customize strings (via Company Branding and via User Flows), both ways modify the same JSON file. The most recent change made either via User flows or via Company branding  will always override the previous one.
 
 ## How to customize the tenant name
 
