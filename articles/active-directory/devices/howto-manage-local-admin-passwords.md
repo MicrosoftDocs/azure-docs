@@ -84,7 +84,7 @@ Other than the built-in Azure AD roles of Cloud Device Administrator, Intune Adm
 
 To enable Windows LAPS with Azure AD, you must take actions in Azure AD and the devices you wish to manage. We recommend organizations [manage Windows LAPS using Microsoft Intune](/mem/intune/protect/windows-laps-policy). However, if your devices are Azure AD joined but you're not using Microsoft Intune or Microsoft Intune isn't supported (like for Windows Server 2019/2022), you can still deploy Windows LAPS for Azure AD manually. For more information, see the article [Configure Windows LAPS policy settings](/windows-server/identity/laps/laps-management-policy-settings).
 
-1. Sign in to the **Azure portal** as a [Cloud Device Administrator](../roles/permissions-reference#cloud-device-administrator.md).
+1. Sign in to the **Azure portal** as a [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator).
 1. Browse to **Azure Active Directory** > **Devices** > **Device settings**
 1. Select **Yes** for the Enable Local Administrator Password Solution (LAPS) setting and select **Save**. You may also use the Microsoft Graph API [Update deviceRegistrationPolicy](/graph/api/deviceregistrationpolicy-update?view=graph-rest-beta&preserve-view=true).
 1. Configure a client-side policy and set the **BackUpDirectory** to be Azure AD.
@@ -96,9 +96,9 @@ To enable Windows LAPS with Azure AD, you must take actions in Azure AD and the 
 
 To view the local administrator password for a Windows device joined to Azure AD, you must be granted the *deviceLocalCredentials.Read.All* permission, and you must be assigned one of the following roles:
 
-- [Cloud Device Administrator](../roles/permissions-reference#cloud-device-administrator.md)
-- [Intune Service Administrator](../roles/permissions-reference#intune-administrator.md)
-- [Global Administrator](../roles/permissions-reference#global-administrator.md)
+- [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator)
+- [Intune Service Administrator](../roles/permissions-reference.md#intune-administrator)
+- [Global Administrator](../roles/permissions-reference.md#global-administrator)
 
 You can also use Microsoft Graph API [Get deviceLocalCredentialInfo](/graph/api/devicelocalcredentialinfo-get?view=graph-rest-beta&preserve-view=true) to recover local administrative password. If you use the Microsoft Graph API, the password returned is in Base64 encoded value that you need to decode before using it.
 
@@ -125,7 +125,7 @@ Yes, for [hybrid Azure AD joined](concept-azure-ad-join-hybrid.md) devices only.
 
 ### Is Windows LAPS with Azure AD management configuration supported using MDM?
 
-Yes, for [Azure AD join](concept-azure-ad-join,md)/[hybrid Azure AD join](concept-azure-ad-join-hybrid.md) ([co-managed](/mem/configmgr/comanage/overview)) devices. Customers can use [Microsoft Intune](/mem/intune/protect/windows-laps-overview) or any other third party MDM of their choice.
+Yes, for [Azure AD join](concept-azure-ad-join.md)/[hybrid Azure AD join](concept-azure-ad-join-hybrid.md) ([co-managed](/mem/configmgr/comanage/overview)) devices. Customers can use [Microsoft Intune](/mem/intune/protect/windows-laps-overview) or any other third party MDM of their choice.
 
 ### What happens when a device is deleted in Azure AD?
 
