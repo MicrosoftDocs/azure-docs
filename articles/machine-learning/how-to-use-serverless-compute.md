@@ -40,6 +40,8 @@ When you create your own compute cluster, you use its name in the command job, s
 
 Serverless compute can help speed up your training in the following ways:
 
+* **Insufficient quota:** When you create your own compute cluster, you're responsible for figuring out what VM family and node size to create.  When your job runs, if you don't have sufficient quota for the cluster the job will fail.  Serverless compute uses information about your quota to select an appropriate family and node size.  
+
 **Scale down optimization:** When a cluster is scaling down, a new job has to wait for scale down to happen and then scale up before job can run. With serverless compute, you don't have to wait for scale down and your job starts on another cluster/node (assuming you have quota).
 
 **Cluster busy optimization:** when a job is running on a compute cluster and another job is submitted, your job is queued behind the currently running job. With serverless compute, you get another node/another cluster to start running the job (assuming you have quota).
@@ -91,8 +93,8 @@ The compute defaults to serverless compute with:
 
 You can override these defaults.  If you want to specify the VM type or number of nodes for serverless compute, add `resources` to your job:
 
-* `instance_type` to choose a specific VM
-* `instance_count` to choose the number of nodes
+* `instance_type` to choose a specific VM.  Use this parameter if you want a GPU family.
+* `instance_count` to specify the number of nodes.
 
     ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
