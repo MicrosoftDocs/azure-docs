@@ -110,10 +110,10 @@ If files fail to tier to Azure Files:
 | 0x80c83034 | -2134364108 | ECS_E_FORBIDDEN | Access is denied. | Please check the access policies on the storage account, and also check your proxy settings. [Learn more](file-sync-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints). |
 | 0x34 | 52 | ERROR_DUP_NAME | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
 | 0x1128 | 4392 | ERROR_INVALID_REPARSE_DATA | The data is corrupted and unreadable. | Run chkdsk on the volume. [Learn more](/windows-server/administration/windows-commands/chkdsk?tabs=event-viewer). |
-| 0x8e5e0450 | -1906441136 | JET_errInvalidSesid | An unexpected error occurred. | No action required. | This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x8e5e0450 | -1906441136 | JET_errInvalidSesid | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
 | 0x80092004 | -2146885628 | CRYPT_E_NOT_FOUND | Certificate required for Azure File Sync authentication is missing. | Run this PowerShell command on the server to reset the certificate:
 `Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>` |
-| 0x80c80020 | -2134376416 | ECS_E_CLUSTER_NOT_RUNNING | The Failover Cluster service is not running. | Verify the cluster service (clussvc) is running. [Learn more](/windows-server/high-availability/troubleshoot-cluster-service-fails-to-start). |
+| 0x80c80020 | -2134376416 | ECS_E_CLUSTER_NOT_RUNNING | The Failover Cluster service is not running. | Verify the cluster service (clussvc) is running. [Learn more](/troubleshoot/windows-server/high-availability/troubleshoot-cluster-service-fails-to-start). |
 | 0x80c83036 | -2134364106 | ECS_E_NOT_FOUND | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
 | 0x801f0005 | -2145452027 | ERROR_FLT_INVALID_NAME_REQUEST | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
 | 0x1126 | 4390	| ERROR_NOT_A_REPARSE_POINT | An internal error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
