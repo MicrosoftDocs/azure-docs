@@ -53,7 +53,7 @@ When submitting the job, you still need sufficient quota to proceed (both worksp
 1. If you don't have quota for your specified VM size, you'll see an error.  The error recommends selecting a different VM size for which you do have quota or request quota for this VM family
 1. If you do have sufficient quota for VM family, but it's currently consumed by other jobs, you'll get a warning that your job must wait in a queue.  
 
-When you [view your usage and quota in the Azure portal](how-to-manage-quotas#view-your-usage-and-quotas-in-the-azure-portal), you'll see the name "Serverless" as another compute resource whenever you're using serverless compute.
+When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal), you'll see the name "Serverless" as another compute resource whenever you're using serverless compute.
 
 
 ## Identity support and credential pass through
