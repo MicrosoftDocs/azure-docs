@@ -32,7 +32,7 @@ Use the following table to learn about changes including deprecations, retiremen
 |Microsoft Authenticator app [Number matching](../authentication/how-to-mfa-number-match.md)|Feature change|May 8, 2023|
 |[My Groups experience](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|May 2023|
 |[My Apps browser extension](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|May 2023|
-|[System-preferred authentication methods](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|On GA|
+|[System-preferred authentication methods](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Feature change|Sometime after GA|
 |[Azure AD Authentication Library (ADAL)](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Retirement|Jun 30, 2023|
 |[Azure AD Graph API](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Deprecation|Jun 30, 2023|
 |[Azure AD PowerShell and MSOnline PowerShell](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-march-2023-train/ba-p/2967448)|Deprecation|Jun 30, 2023|

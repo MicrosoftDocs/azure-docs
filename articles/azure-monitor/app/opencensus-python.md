@@ -206,9 +206,9 @@ import logging
 from opencensus.ext.azure.log_exporter import AzureEventHandler
 
 logger = logging.getLogger(__name__)
-logger.addHandler(AzureLogHandler())
+logger.addHandler(AzureEventHandler())
 # Alternatively manually pass in the connection_string
-# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
+# logger.addHandler(AzureEventHandler(connection_string=<appinsights-connection-string>))
 
 logger.setLevel(logging.INFO)
 logger.info('Hello, World!')
@@ -519,7 +519,7 @@ Each of the Azure Monitor exporters supports configuration of securely sending t
 
 You can view the telemetry data that was sent from your application through the **Logs (Analytics)** tab.
 
-:::image type="content" source="./media/opencensus-python/0010-logs-query.png" lightbox="./media/opencensus-python/0010-logs-query.png" alt-text="Screenshot of the Overview pane with the Logs (Analytics) tab selected.":::
+![Screenshot of the Overview pane with the Logs (Analytics) tab selected.](./media/opencensus-python/0010-logs-query.png)
 
 In the list under **Active**:
 
