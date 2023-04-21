@@ -1365,9 +1365,13 @@ There are two potential actions for reading existing blobs. To make this conditi
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
 
-#### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
+#### [Portal](#tab/portal)
+
+In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+##### [Visual editor](#tab/visual-editor/portal)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
@@ -1403,7 +1407,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-utcnow-containers-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access allowed after a specific date and time." lightbox="./media/storage-auth-abac-examples/environ-utcnow-containers-read-portal.png":::
 
-#### [Azure portal: Code editor](#tab/azure-portal-code-editor)
+##### [Code editor](#tab/code-editor/portal)
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
