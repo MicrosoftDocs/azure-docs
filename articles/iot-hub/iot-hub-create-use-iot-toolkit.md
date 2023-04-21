@@ -13,7 +13,7 @@ ms.date: 01/04/2019
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-This article shows you how to use the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to create an Azure IoT hub. You can create one without an existing IoT project or create one from an existing IoT project.
+This article shows you how to use the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to create an Azure IoT hub.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,7 +29,7 @@ This article shows you how to use the [Azure IoT Hub extension for Visual Studio
 
 ## Create an IoT hub
 
-The following steps show how to create an IoT hub in Visual Studio Code (VS Code).
+The following steps show how to create an IoT hub in Visual Studio Code (VS Code):
 
 1. In VS Code, open the **Explorer** view.
 
