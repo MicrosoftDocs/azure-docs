@@ -49,9 +49,10 @@ For Azure Lab Services, consider the following scopes:
 
 | Scope | Description |
 | ----- | ----------- |
-| Resource group | A logical container for grouping together resources. Role assignment grants permission to the resource group and all resources within the resource group, such as labs and lab plans. |
-| Lab plan | An Azure resource used to apply common configuration settings when you create a lab. Role assignment grants permission only to a specific lab plan. |
-| Lab | An Azure resource used to apply common configuration settings for creating and running lab virtual machines. Role assignment grants permission only to a specific lab. |
+| Subscription | Used to manage billing and security for all Azure resources and services. Typically, only administrators have subscription-level access because this role assigment for the subscription grants access to all resources in the subscription. |
+| Resource group | A logical container for grouping together resources. Role assignment for the resource group grants permission to the resource group and all resources within it, such as labs and lab plans. |
+| Lab plan | An Azure resource used to apply common configuration settings when you create a lab. Role assignment for the lab plan grants permission only to a specific lab plan. |
+| Lab | An Azure resource used to apply common configuration settings for creating and running lab virtual machines. Role assignment for the lab grants permission only to a specific lab. |
 
 :::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-role-assignment-scopes.png" alt-text="Diagram that shows the role assignment scopes for Azure Lab Services.":::
 
@@ -59,6 +60,11 @@ For Azure Lab Services, consider the following scopes:
 > In Azure Lab Services, lab plans and labs are *sibling* resources to each other.  As a result, labs don’t inherit any roles assignments from the lab plan. However, role assignments from the resource group are inherited by lab plans and labs in that resource group.
 
 ## Roles for common lab activities
+
+The following table shows common lab activities and the role that needs to be assigned to an administrator or educator to perform each activity.  For more details on all the lab roles available and the permissions that each role grants, see the below sections about administrator roles and educator roles.
+
+IMPORTANT – The Owner/Contributor roles can also be assigned at the subscription level.  An organization’s subscription is used to manage billing and security for all Azure resources and services.  Typically, only administrators are given subscription level access because this includes full access to all resources in the subscription.  Also, when assigned as an Owner, they have the ability to grant access to others.
+
 
 ## Administrative roles
 
