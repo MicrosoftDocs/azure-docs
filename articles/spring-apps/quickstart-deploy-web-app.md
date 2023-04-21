@@ -368,7 +368,20 @@ Now that the cloud environment is prepared, the application is ready to deploy.
        --artifact-path web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
    ```
 
+::: zone pivot="sc-standard,sc-enterprise"
 1. After the deployment has completed, you can access the app with this URL: `https://${AZURE_SPRING_APPS_NAME}-${APP_NAME}.azuremicroservices.io/`. The page should appear as you saw in localhost.
+::: zone-end
+::: zone pivot="sc-consumption-plan"
+1. After the deployment has completed, you can access the app with the URL retrieved using the following command: 
+   ```azurecli
+   az spring app show \
+       --service ${AZURE_SPRING_APPS_NAME} \
+       --name ${APP_NAME} \
+       --query properties.url \
+       -o tsv
+   ```
+The page should appear as you saw in localhost.
+::: zone-end
 
 1. If there's a problem when you deploy the app, check the app's log to investigate by using the following command:
 
