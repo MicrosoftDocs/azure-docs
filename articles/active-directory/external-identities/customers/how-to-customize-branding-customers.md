@@ -44,10 +44,10 @@ The following list and image outline the elements of the default Microsoft sign-
 5.	Microsoft footer hyperlinks, for example,  Privacy & cookies, Terms of use and troubleshooting details also known as ellipsis in the right bottom corner of the screen.
 6.	Microsoft overlay.
 
-   :::image type="content" source="media/how-to-customize-branding-customers/azure-ad-microsoft-branding.png" alt-text="Screenshot of the Azure AD default Microsoft branding.":::
+   :::image type="content" source="media/how-to-customize-branding-customers/azure-ad-microsoft-branding.png" alt-text="Screenshot of the Azure AD default Microsoft branding." lightbox="media/how-to-customize-branding-customers/azure-ad-microsoft-branding.png":::
 
 The following image displays the neutral default branding of the customer tenant:
-   :::image type="content" source="media/how-to-customize-branding-customers/ciam-neutral-branding.png" alt-text="Screenshot of the CIAM neutral branding.":::
+   :::image type="content" source="media/how-to-customize-branding-customers/ciam-neutral-branding.png" alt-text="Screenshot of the CIAM neutral branding." lightbox="media/how-to-customize-branding-customers/ciam-neutral-branding.png":::
 
 ## How to customize the default sign-in experience
 
@@ -56,7 +56,7 @@ Before you customize any settings, the neutral default branding will appear in y
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
 1. In the search bar, type and select **Company branding**.
-1. Under **Default sign-in*, select **Edit**.
+1. Under **Default sign-in** select **Edit**.
 
    :::image type="content" source="media/how-to-customize-branding-customers/company-branding-default-edit-button.png" alt-text="Screenshot of the company branding edit button.":::
 
@@ -70,7 +70,7 @@ Before you customize any settings, the neutral default branding will appear in y
 
    - **Page background color** – The color that replaces the background image whenever the image can’t be loaded, for example due to connection latency.
 
-   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-basics-tab.png" alt-text="Screenshot of the company branding basics tab.":::
+   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-basics-tab.png" alt-text="Screenshot of the company branding basics tab." lightbox="media/how-to-customize-branding-customers/company-branding-basics-tab.png":::
 
 1. Select **Next: Layout** if you would like to continue customizing or **Review + save** if you would like to save your changes.
 
@@ -84,7 +84,7 @@ Before you customize any settings, the neutral default branding will appear in y
 
    - **Custom CSS** – Upload your own CSS file to replace default Microsoft styling with your own styling for: color, font, text size, position of elements, and displays for different devices and screen sizes.  
 
-   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-layout-tab.png" alt-text="Screenshot of the company branding layout tab.":::
+   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-layout-tab.png" alt-text="Screenshot of the company branding layout tab." lightbox="media/how-to-customize-branding-customers/company-branding-layout-tab.png":::
 
 1. Select **Next: Header** if you would like to continue customizing or **Review + save** if you would like to save your changes.
 
@@ -102,7 +102,7 @@ Before you customize any settings, the neutral default branding will appear in y
 
    - **Terms of Use** – Select the checkbox next to Terms of Use to display this hyperlink in the footer. The Microsoft terms of use link will display unless you enter your own hyperlink Display text and URL. 
 
-   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-footer-tab.png" alt-text="Screenshot of the company branding footer tab.":::
+   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-footer-tab.png" alt-text="Screenshot of the company branding footer tab." lightbox="media/how-to-customize-branding-customers/company-branding-footer-tab.png":::
 
 1. Select **Next: Sign-in form** if you would like to continue customizing or **Review + save** if you would like to save your changes.
 
@@ -116,7 +116,7 @@ Before you customize any settings, the neutral default branding will appear in y
 
    - **Square logo (dark theme)** – If the light theme square logo displays poorly on dark backgrounds, you can upload a logo to be used in its place when dark backgrounds are used. 
 
-   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-sign-in-form-tab.png" alt-text="Screenshot of the company branding sign-in form tab.":::
+   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-sign-in-form-tab.png" alt-text="Screenshot of the company branding sign-in form tab." lightbox="media/how-to-customize-branding-customers/company-branding-sign-in-form-tab.png":::
 
 1. Scroll to the lower half of the page and configure more elements of the sign-in form:
 
@@ -141,7 +141,7 @@ Before you customize any settings, the neutral default branding will appear in y
       - **Account collection display text** – Enter link text to display in place of the Microsoft default text “Can’t access your account” text. 
       - **Password collection display text** – Enter link text to display in place of the Microsoft default “Forgot password” text. 
  
-   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-sspr.png" alt-text="Screenshot of the company branding sspr.":::
+   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png" alt-text="Screenshot of the company branding Self-service password reset ." lightbox="media/how-to-customize-branding-customers/company-branding-self-service-password-reset.png":::
 
 1. Select **Next: Review** and review all your modifications. Then select **Save** if you would like to save your changes or **Previous** if you would like to continue customizing.
 
@@ -157,7 +157,7 @@ For your customer tenant, you might have different requirements for the informat
  - Select **Sign up** to add custom text for the sign-in page.
 Select  **Sign-in/up one time code (SISU OTC)** to add a custom title.
 
-   :::image type="content" source="media/how-to-customize-branding-customers/custom-text.png" alt-text="Screenshot of the company branding text tab.":::
+   :::image type="content" source="media/how-to-customize-branding-customers/custom-text.png" alt-text="Screenshot of the company branding text tab." lightbox="media/how-to-customize-branding-customers/custom-text.png":::
 
 Select **Add** once you finished with your changes. You can edit the existing custom text by selecting the **Text name** and select Save. 
 
@@ -168,7 +168,7 @@ In the customer tenant, we have two options to add custom text to the sign-up an
 
 Your customer tenant name replaces the Microsoft banner logo in the neutral default sign-in experience. You can customize your tenant's name in the Properties area.
 
-:::image type="content" source="media/how-to-customize-branding-customers/tenant-name.png" alt-text="Screenshot of the tenant name.":::
+:::image type="content" source="media/how-to-customize-branding-customers/tenant-name.png" alt-text="Screenshot of the tenant name." lightbox="media/how-to-customize-branding-customers/tenant-name.png":::
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
@@ -199,7 +199,7 @@ When no longer needed, you can remove the sign-in customization from your custom
 
 1. Query the default branding object using the Microsoft Graph API beta version: `https://graph.microsoft.com/beta/organization/<your-tenant-ID>/branding/localizations`. To confirm that you're signed in to your customer tenant, verify the tenant name on the right side of the screen.
 
-   :::image type="content" source="media/how-to-customize-branding-customers/msgraph-ciam-branding.png" alt-text="Screenshot of MS Graph API with CIAM tenant logged in.":::
+   :::image type="content" source="media/how-to-customize-branding-customers/msgraph-ciam-branding.png" alt-text="Screenshot of MS Graph API with CIAM tenant logged in." lightbox="media/how-to-customize-branding-customers/msgraph-ciam-branding.png":::
 
 3. [Remove default branding object](/graph/api/organizationalbrandinglocalization-delete?view=graph-rest-beta&tabs=http) using the Microsoft Graph API beta version and the DELETE request.
 4. Wait a few minutes for the changes to take effect.
