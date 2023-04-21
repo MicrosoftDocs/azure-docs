@@ -25,7 +25,7 @@ The self-service password uses the email one-time passcode (Email OTP) authentic
 
 The following screenshots show the self-service password rest flow. From the app, the customer chooses to sign-in. On the MS Entra sign-in page, the user types their email and selects **Next**. If users forgot their password, they choose the **Forgot password?** option. MS Entra sends the passcode to email address provided on the first page. The customer needs to type the passcode to continue. 
 
-:::image type="content" source="media/how-to-enable-password-reset-customers/sspr-flow.png" alt-text="Screenshots that shows the self-service password rest flow.":::
+:::image type="content" source="media/how-to-enable-password-reset-customers/sspr-flow.png" alt-text="Screenshot that shows the self-service password rest flow.":::
 
 ## Prerequisites
 
@@ -53,11 +53,11 @@ To enable self-service password reset, you need to enable the email one-time pas
 
    1. Under **Method** select **Email OTP (preview)**.
    
-   :::image type="content" source="media/how-to-enable-password-reset-customers/authentication-methods.png" alt-text="Screenshot that shows authentication methods.":::
+      :::image type="content" source="media/how-to-enable-password-reset-customers/authentication-methods.png" alt-text="Screenshot that shows authentication methods.":::
    
    1. Under **Enable and Target** enable Email OTP and select **All users** under **Include**.
    
-   :::image type="content" source="media/how-to-enable-password-reset-customers/enable-otp.png" alt-text="Screenshot of enabling OTP.":::
+      :::image type="content" source="media/how-to-enable-password-reset-customers/enable-otp.png" alt-text="Screenshot of enabling OTP.":::
 
 1. Select **Save**.
 
