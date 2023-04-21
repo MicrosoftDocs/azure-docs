@@ -22,7 +22,7 @@ After registering an application and creating a user flow in a CIAM tenant, an A
 
 - Completion of the prerequisites and steps in [Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your tenant](./how-to-web-app-dotnet-sign-in-prepare-tenant.md).
 - Although any IDE that supports React applications can be used, Visual Studio Code is used for this guide. This can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
-- [.NET 7.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet).
+- [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 
 ## Create an ASP.NET project
 

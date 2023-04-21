@@ -36,7 +36,9 @@ In this article, you'll register a web application in the Microsoft Entra admin 
 
 [!INCLUDE [ciam-redirect-url-dotnet](./includes/register-app/add-platform-redirect-url-dotnet.md)]
 
-[!INCLUDE [ciam-enable-implicit-hybrid-flows](./includes/register-app/enable-implicit-hybrid-flows.md)]
+6. Under the **Implicit grant and hybrid flows** section, select the **ID tokens** option.
+
+7. Select **Save**.
 
 ## Add app client secret
 
