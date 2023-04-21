@@ -537,19 +537,19 @@
 			<text x="4" y="466" class="st37">Assignment scope</text>		</g>
 		<g id="shape1226-152" transform="translate(299.625,-271.348)">
 			<title>Art caption, FL.1226</title>
-			<desc>16 NCLs applied</desc>
+			<desc>16 NCs applied</desc>
 			<rect x="0" y="453" width="112.5" height="19.2771" class="st36"/>
-			<text x="4" y="465.1" class="st43">16 NCLs applied</text>		</g>
+			<text x="4" y="465.1" class="st43">16 NCs applied</text>		</g>
 		<g id="shape1227-155" transform="translate(301.281,-200.625)">
 			<title>Art caption, FL.1227</title>
-			<desc>8 NCLs applied</desc>
+			<desc>8 NCs applied</desc>
 			<rect x="0" y="453" width="112.5" height="19.2771" class="st36"/>
-			<text x="4" y="465.1" class="st43">8 NCLs applied</text>		</g>
+			<text x="4" y="465.1" class="st43">8 NCs applied</text>		</g>
 		<g id="shape1228-158" transform="translate(301.281,-127.986)">
 			<title>Art caption, FL.1228</title>
-			<desc>8 NCLs applied</desc>
+			<desc>8 NCs applied</desc>
 			<rect x="0" y="453" width="69.8766" height="19.2771" class="st36"/>
-			<text x="4" y="465.1" class="st43">8 NCLs applied</text>		</g>
+			<text x="4" y="465.1" class="st43">8 NCs applied</text>		</g>
 		<g id="shape1229-161" transform="translate(490.544,-173.625)">
 			<title>Art caption, FL.1229</title>
 			<desc>Customer bill</desc>
@@ -620,7 +620,7 @@
 			<desc>Assigned SQL Enterprise licenses: 5 Assigned SQL Standard lic...</desc>
 			<rect x="0" y="453" width="156.438" height="19.2771" class="st36"/>
 			<text x="4" y="465.1" class="st43">Assigned SQL Enterprise licenses: 5<tspan x="4" dy="1.2em" class="st38">Assigned SQL Standard licenses: 15 </tspan><tspan
-						x="4" dy="1.2em" class="st38">NCL count: 35 </tspan><tspan x="4" dy="1.2em" class="st38">Unused NLCs: 3</tspan></text>		</g>
+						x="4" dy="1.2em" class="st38">NC count: 35 </tspan><tspan x="4" dy="1.2em" class="st38">Unused NCs: 3</tspan></text>		</g>
 		<g id="shape1245-230" transform="translate(346.875,-315.375)">
 			<title>Arrow Dyn Connector.1245</title>
 			<path d="M0 472.28 L0 402.53 A4.5 4.5 -180 0 0 -4.5 398.03 L-124.34 398.03" class="st44"/>

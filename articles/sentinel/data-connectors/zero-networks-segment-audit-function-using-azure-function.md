@@ -83,7 +83,7 @@ Use the following step-by-step instructions to deploy the Zero Networks Segment 
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-powershell#prerequisites) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-powershell#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/ZeroNetworks/SegmentFunctionConnector/AzureFunction_ZeroNetworks_Segment_Audit.zip) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
