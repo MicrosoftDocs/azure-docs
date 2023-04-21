@@ -14,7 +14,7 @@ ms.custom: seo-lt-2019
 
 Known issues and troubleshooting steps associated with the Azure SQL Migration extension for Azure Data Studio.
 
-> [!NOTE]
+> [!IMPORTANT]
 > The latest version of Integration Runtime (5.28.8488) prevents access to a network file share on a local host. This security measure will lead to failures when performing the pre-migration validation using Azure Data Studio as a client. Please ensure you run Integration Runtime on a different machine than the network share hosting.
 
 ## Error code: 2007 - CutoverFailedOrCancelled 
