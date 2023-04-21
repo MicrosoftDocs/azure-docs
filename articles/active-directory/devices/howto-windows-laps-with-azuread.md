@@ -36,13 +36,15 @@ Azure AD support for LAPS includes the following capabilities:
 - **Conditional Access policies for local administrator password recovery** - Configure Conditional Access policies on directory roles that have the authorization of password recovery.
 
 > [!NOTE]  
-> Devices that are workplace-joined (WPJ) are not supported by Intune for LAPS.
+> Windows LAPS with Azure AD is not supported for Windows devices that are [Azure AD registered](https://learn.microsoft.com/azure/active-directory/devices/concept-azure-ad-register).
 
 To learn about Windows LAPS in more detail, start with the following articles in the Windows documentation:
 
 - [What is Windows LAPS?](https://learn.microsoft.com/windows-server/identity/laps/laps-scenarios-azure-active-directory) – Introduction to Windows LAPS and the Windows LAPS documentation set.
 - [Windows LAPS CSP](https://learn.microsoft.com/windows/client-management/mdm/laps-csp) – View the full details for LAPS settings and options. Intune policy for LAPS uses these settings to configure the LAPS CSP on devices.
 - [Microsoft Intune support for Windows LAPS](https://learn.microsoft.com/mem/intune/protect/windows-laps-overview)
+- [Windows LAPS architecture](https://learn.microsoft.com/windows-server/identity/laps/laps-concepts#windows-laps-architecture)
+
 
 ## Requirements
 
@@ -123,16 +125,15 @@ To configure Conditional Access for local administartor passwrod recovery you wi
 > [!NOTE]  
 > Other role types including administrative unit-scoped roles and custom roles aren't supported
 
-**Licensing requirements**:
+## Licensing requirements
 
-- **Azure Active Directory subscription**
-  *Azure Active Directory Free*, when you are using basic Windows LAPS with Microsoft Entra (Azure AD) features such as enabling LAPS using device settings, storing encrypted local administrator password, password recovery and audit logsis the free version of Azure AD that’s included when you subscribe to Intune. With Azure AD Free, you can use all the features of LAPS.
-  *Azure Active Directory Premium*, when you are using premium experiences to improve security with capabilities such as Conditional Access, Custom Roles and Administrative Units 
-- **Intune subscription**
-  *Microsoft Intune Plan 1*, which is the basic Intune subscription. You can also use Windows LAPS with a free trial subscription for Intune.
+### Azure Active Directory subscription
+  **Azure Active Directory Free**, when you are using basic Windows LAPS with Microsoft Entra (Azure AD) features such as enabling LAPS using device settings, storing encrypted local administrator password, password recovery and audit logsis the free version of Azure AD that’s included when you subscribe to Intune. With Azure AD Free, you can use all the features of LAPS.
+  **Azure Active Directory Premium**, when you are using premium experiences to improve security with capabilities such as Conditional Access, Custom Roles and Administrative Units 
 
+### Microsoft Intune subscription
+  **Microsoft Intune Plan 1**, which is the basic Intune subscription. You can also use Windows LAPS with a free trial subscription for Intune.
 
-For information about Windows LAPS architecture, see [Key concepts in Windows LAPS](/windows-server/identity/laps/laps-concepts#windows-laps-architecture) in the Windows documentation.
 
 ## Frequently Asked Questions
 
