@@ -101,6 +101,9 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 ---
 
+>[!Note]
+>Feature registration may take up to 30 minutes to transition from Registering to Registered status. 
+
 For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
 ## Unregister from the preview
@@ -351,6 +354,10 @@ AGIC v1.7 must be used to introduce support for private frontend IP only.
 ### Private Endpoint connectivity via Global VNet Peering
 
 If Application Gateway has a backend target or key vault reference to a private endpoint located in a VNet that is accessible via global VNet peering, traffic is dropped, resulting in an unhealthy status.
+
+### Network watcher integration
+
+Connection Troubleshoot and NSG Diagnostics will return an error when running check and diagnostic tests.
 
 ### Coexisting v2 Application Gateways created prior to enablement of enhanced network control
 
