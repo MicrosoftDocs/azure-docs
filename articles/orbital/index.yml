@@ -61,9 +61,9 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Schedule a contact with NASA's AQUA public satellite
+          - text: Downlink data from NASA's Aqua public satellite
             url: downlink-aqua.md
-          - text: Collect and process AQUA satellite payload
+          - text: Process Aqua satellite data using NASA-provided tools
             url: satellite-imagery-with-orbital-ground-station.md 
       - linkListType: architecture
         links:
