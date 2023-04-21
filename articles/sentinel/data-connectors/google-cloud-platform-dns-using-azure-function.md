@@ -36,7 +36,7 @@ GCP_DNS_CL
 
 To integrate with Google Cloud Platform DNS (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **GCP service account**: GCP service account with permissions to read logs (with "logging.logEntries.list" permission) is required for GCP Logging API. Also json file with service account key is required. See the documentation to learn more about [permissions](https://cloud.google.com/logging/docs/access-control#permissions_and_roles), [creating service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) and [creating service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 
 
