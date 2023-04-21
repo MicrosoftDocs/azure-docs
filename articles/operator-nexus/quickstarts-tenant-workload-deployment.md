@@ -414,7 +414,7 @@ You also need to configure the following information for your network
 
 ##### Create default CNI Network for AKS-Hybrid cluster
 
-Each cluster will need it's own default CNI Network (Calico Network). 
+Each cluster needs its own default CNI Network (Calico Network). 
 
 You need the following information:
 
