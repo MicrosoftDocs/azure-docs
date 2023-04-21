@@ -166,7 +166,7 @@ Select the **Comment** button to apply your comments.
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
 ## Update status
-When you have captured enough evidence to validate or invalidate your hypothesis, update your hypothesis status in the left-hand pane in the **Hypothesis** drop down menu in the hunt's details.
+When you have captured enough evidence to validate or invalidate your hypothesis, update your hypothesis state.
 :::image type="content" source="media/organize-hunts/set-hypothesis.png" alt-text="Screenshot shows hypothesis state menu selection.":::
 
 When all the actions associated with the hunt are complete, such as creating analytics rules, incidents, or adding indicators of compromise (IOCs) to TI, close out the hunt.
