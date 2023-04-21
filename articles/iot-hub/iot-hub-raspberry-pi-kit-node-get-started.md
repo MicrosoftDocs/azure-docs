@@ -183,7 +183,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    > [!NOTE]
    > The default username is `pi` and the password is `raspberry`.
 
-2. Install Node.js and NPM to your Pi.
+2. Install Node.js and npm to your Pi.
 
    First check your Node.js version.
 
