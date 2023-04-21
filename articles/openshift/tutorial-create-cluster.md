@@ -222,7 +222,7 @@ az aro create \
   --worker-subnet worker-subnet
 ```
 
-After executing the `az aro create` command, it normally takes about 35 minutes to create a cluster.
+After executing the `az aro create \` command, it normally takes about 35 minutes to create a cluster.
 
 #### Selecting a different ARO version
 
@@ -230,7 +230,7 @@ You can select to use a specific version of ARO when creating your cluster. Firs
 
 `az aro get-versions --location <region>`
 
-Once you've chosen the version, specify it using the `--version` parameter in the `aro create` command:
+Once you've chosen the version, specify it using the `--version` parameter in the `az aro create \` command:
 
 ```azurecli-interactive
 az aro create \
