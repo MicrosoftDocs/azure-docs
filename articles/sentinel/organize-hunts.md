@@ -80,9 +80,7 @@ There are two ways to create a hunt.
 ### Deploy Demo Hunt via ARM template (if needed)
 If you don't have any hunting queries that produce results in your environment, and you don't want to create an empty hunt, deploy the "Demo Hunt".
 
-To deploy the ARM template, navigate to the this [DemoHunt GitHub folder](https://aka.ms/DemoHuntARMTemplatePreview). Select the ****Deploy to Azure** button, and fill out the appropriate fields.
- 
-Be sure to type in the name of your desired Log Analytics workspace. Without this step, the ARM template can't be deployed, even though the validate step indicates success. 
+To deploy the ARM template, navigate to the this [DemoHunt GitHub folder](https://aka.ms/DemoHuntARMTemplatePreview). Select the ****Deploy to Azure** button, and fill out the appropriate fields. Be sure to type in the name of your desired Log Analytics workspace. Without this step, the ARM template can't be deployed, even though the validate step indicates success. 
 
 The demo hunt contains a sample hunting query, "Hunts Demo Query". This query generates mock data in a dynamic table based on the current time. You can use this to try out the other features of Hunts!
 
@@ -91,22 +89,27 @@ The demo hunt contains a sample hunting query, "Hunts Demo Query". This query ge
 1. Select the hunt link by name to view the details.
     :::image type="content" source="media/organize-hunts/view-hunt.png" alt-text="Screenshot showing new hunt in Hunting tab." lightbox="media/organize-hunts/view-hunt.png":::
 
-Each hunt has a details page listing its contents. On the left you can see the details pane with the Hunt name, description, content, creation time, and last updated time. The hunt details page contains tabs for Queries, Bookmarks, and Entities.
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+1. Each hunt has a details page. View the details pane with the **Hunt name**, **Description**, **Content**, **Last update time**, and **Creation time**. 
+1. Note the tabs for **Queries**, **Bookmarks**, and **Entities**.
+:::image type="content" source="media/organize-hunts/view-hunt-details.png" alt-text="Screenshot showing the hunt details." lightbox="media/organize-hunts/view-hunt-details.png":::
  
-1. Queries tab
-This tab contains hunting queries specific to this hunt. These queries are independent from all other queries and can be updated or deleted without impacting the overall set of hunting queries or queries in other hunts. This tab enables you to select and run queries and add new queries. You can also right-click on a hunting query to Run, Edit, Clone, Delete, or Create an analytics rule from a query. This behaves just like the existing Queries table in the Hunting page, except that actions only apply within the hunt. 
+### Queries tab
+The **Queries** tab contains hunting queries specific to this hunt. These queries are independent from all others in the workspace and can be updated or deleted without impacting the overall set of hunting queries or queries in other hunts. 
 
-When you choose to create an analytics rule, the name, description and KQL query is pre-populated in the Analytics rule wizard. When you finish creating the rule, a link is created to view the new analytics rule on the Analytics page. 
+1. Explore the hunting query options. With the right-click context menu, select one of the following:
+    - **Run**
+    - **Edit**
+    - **Clone** 
+    - **Delete**
+    - **Create analytics rule**. When you choose to create an analytics rule, the name, description and KQL query is pre-populated in the Analytics rule wizard. When you finish creating the rule, a link is created to view the new analytics rule on the Analytics page. 
+    :::image type="content" source="media/organize-hunts/queries-tab.png" alt-text="Screenshot shows right-click context menu options in the Queries tab of a hunt.":::
 
-1. View results in Log analytics
-To view the results of a desired hunting query, select the query and click “View results” at the bottom of the of the query details pane on the right. This will pivot to a special version of the Log Analytics Search page.
+    These options behave just like the existing Queries table in the Hunting page, except that actions only apply within the hunt. 
 
-1. Persisted query tabs in Log Analytics
-All the Query tabs created in a browser session are persisted for that browser session. This way you can pivot to another part of the Microsoft Sentinel Portal, then pivot back to the LA log search user experience from an entry point within the hunt user experience. All the previously created LA Query tabs will still be there.
+1. **View results** in Log analytics (LA). This selection will launch a special version of the LA Search page. All the Query tabs in this special LA space persist for your browser session. If you pivot to another part of the Microsoft Sentinel Portal, then browse back to the LA log search user experience from an entry point within the hunt user experience, all the previously created LA query tabs will still be there.
 
 > [!IMPORTANT]
-> These LA Query tabs are lost if you close the browser tab. If you want to persist the queries long term, you need to save the query, create a new hunting query, or copy it into a comment (see below) for later use within the hunt.
+> These LA Query tabs are lost if you close the browser tab. If you want to persist the queries long term, you need to save the query, create a new hunting query, or [copy it into a comment](#add-comments) for later use within the hunt.
 >
 
 ## Add bookmarks
@@ -132,12 +135,12 @@ From here you can select a desired bookmark and perform the following actions:
 - Select the **Edit** button to update the tags, MITRE tactics and techniques, and notes.
 
 ## Create incidents
-There are two choices for creating incidents. 
+There are two choices for incident creation while hunting. 
 
 Option 1: Use bookmarks.
 - Select a bookmark or bookmarks.
-- Select the “Incident actions” button.
-- Select “Create new incident” or “Add to existing incident”
+- Select the Incident actions button.
+- Select Create new incident or Add to existing incident
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
 - For **Create new incident**, follow the guided steps. The bookmarks tab is pre-populated with your selected bookmarks. 
@@ -159,15 +162,15 @@ Comments are an excellent place to collaborate with colleagues, preserve notes, 
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
 Type and format your comment in the editing box. You can include URLs and they will be resolved into hyperlinks. 
-Choose the **Comment** button to apply your comments. 
+Select the **Comment** button to apply your comments. 
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
 ## Update status
 When you have captured enough evidence to validate or invalidate your hypothesis, update your hypothesis status in the left-hand pane in the **Hypothesis** drop down menu in the hunt's details.
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+:::image type="content" source="media/organize-hunts/set-hypothesis.png" alt-text="Screenshot shows hypothesis state menu selection.":::
 
-When you have finished all actions associated with the hunt, such as creating analytics rules, incidents, or adding indicators of compromise (IOCs) to TI, you can show the hunt as closed by updating the status drop down next to the hypothesis drop down.
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+When all the actions associated with the hunt are complete, such as creating analytics rules, incidents, or adding indicators of compromise (IOCs) to TI, close out the hunt.
+:::image type="content" source="media/organize-hunts/set-status.png" alt-text="Screenshot shows Hunt state menu selection.":::
 
 These status updates are visible on the main Hunting page and are used to [track metrics](#track-metrics).
 
