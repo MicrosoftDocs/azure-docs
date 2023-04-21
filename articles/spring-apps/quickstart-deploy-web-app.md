@@ -191,9 +191,6 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
    az spring app create \
        --service ${AZURE_SPRING_APPS_NAME} \
        --name ${APP_NAME} \
-       --cpu 1 \
-       --memory 2Gi \
-       --instance-count 2 \
        --runtime-version Java_17 \
        --assign-endpoint true
    ```
@@ -268,7 +265,7 @@ After the application instance and the PostgreSQL instance are created, the appl
    az spring app update \
        --service ${AZURE_SPRING_APPS_NAME} \
        --name ${APP_NAME} \
-       --env SPRING_DATASOURCE_URL="jdbc:postgresql://${PSQL_FQDN}:5432/${POSTGRESQL_DB}" SPRING_DATASOURCE_USERNAME="${POSTGRESQL_ADMIN_USERNAME}" SPRING_DATASOURCE_PASSWORD="${POSTGRESQL_ADMIN_PASSWORD}"
+       --env SPRING_DATASOURCE_URL="jdbc:postgresql://${PSQL_FQDN}:5432/${POSTGRESQL_DB}?sslmode=require" SPRING_DATASOURCE_USERNAME="${POSTGRESQL_ADMIN_USERNAME}" SPRING_DATASOURCE_PASSWORD="${POSTGRESQL_ADMIN_PASSWORD}"
    ```
 ::: zone-end
 
