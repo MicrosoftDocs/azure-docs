@@ -8,7 +8,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 03/10/2023
+ms.date: 04/21/2023
 ---
 
 # Optimizing performance of the Azure Integration Runtime
@@ -55,11 +55,11 @@ Dataflow divides the data into partitions and transforms it using different proc
 
 While increasing the shuffle partitions, make sure data is spread across well. A rough number is to have  approximately 1.5 GB of data per partition. If data is skewed, increasing the "Shuffle partitions" won't be helpful. For example, if you have 500 GB of data, having a value between 400 to 500 should work. Default limit for shuffle partitions is 200 that works well for approximately 300 GB of data.
 
-Here are the steps on how it's  set in a custom integration runtime. You can't  set it for autoresolve integrtaion runtime.
+Here are the steps on how it's  set in a custom integration runtime. You can't  set it for autoresolve integration runtime.
 
 1. From ADF portal under **Manage**, select a custom integration run time and you go to edit mode.
 2. Under dataflow run time tab, go to **Compute Custom Properties** section.
-3. Select **Shuffle Partitions** under Property name, input value of your choice, like 250, 500 etc.
+3. Select **Shuffle partitions** under Property name, input value of your choice, like 250, 500 etc.
 
 You can do same by editing JSON file of runtime by adding an array with property name and value after an existing property like  *cleanup* property.
 
