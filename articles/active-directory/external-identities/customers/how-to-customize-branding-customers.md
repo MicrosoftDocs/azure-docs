@@ -157,7 +157,7 @@ For your customer tenant, you might have different requirements for the informat
  - Select **Sign up** to add custom text for the sign-in page.
 Select  **Sign-in/up one time code (SISU OTC)** to add a custom title.
 
-   :::image type="content" source="media/how-to-customize-branding-customers/company-branding-custom-text.png" alt-text="Screenshot of the company branding text tab.":::
+   :::image type="content" source="media/how-to-customize-branding-customers/custom-text.png" alt-text="Screenshot of the company branding text tab.":::
 
 Select **Add** once you finished with your changes. You can edit the existing custom text by selecting the **Text name** and select Save. 
 
