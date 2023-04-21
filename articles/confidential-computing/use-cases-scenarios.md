@@ -100,7 +100,7 @@ In this case, the Azure Container Instance policy engine would refuse to release
 
 The Tailspin Toys application itself is coded to periodically make a call to the attestation service and report the results back to Tailspin Toys over the Internet to ensure there's a continual heartbeat of security status. 
 
-The attestation service returns cryptographically signed details from the hardware supporting the Contoso tenant to validate that the workload is running inside a confidential enclave as expected, the attestation is outside of the control of the Contoso administrators and is based on the hardware root of trust that Confidential Compute provides.
+The attestation service returns cryptographically signed details from the hardware supporting the Contoso tenant to validate that the workload is running inside a confidential enclave as expected, the attestation is outside the the control of the Contoso administrators and is based on the hardware root of trust that Confidential Compute provides.
 
 :::image type="content" source="media/use-cases-scenarios/manufacturing-ip-protection.jpg" alt-text="Diagram showing a service provider running an industrial control suite from a toy manufacturer inside a Trusted Execution Environment (TEE)":::
 
