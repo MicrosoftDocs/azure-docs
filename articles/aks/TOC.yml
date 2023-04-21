@@ -326,7 +326,7 @@
               items:
                 - name: AKS-managed Azure AD
                   items: 
-                    - name: Configure AKS-managed Azure for a new or existing cluster
+                    - name: Enable AKS-managed Azure AD integration
                       href: managed-aad.md
                     - name: Manage local accounts
                       href: manage-local-accounts-managed-aad.md

@@ -8,26 +8,38 @@ ms.custom: devx-track-azurecli
 
 # Cluster access control with AKS-managed Azure Active Directory integration
 
-## Use Conditional Access with Azure AD and AKS
-
-When integrating Azure AD with your AKS cluster, you can also use [Conditional Access][aad-conditional-access] to control access to your cluster.
+When you integrate Azure AD with your AKS cluster, you can use [Conditional Access][aad-conditional-access] or Privileged Identity Management (PIM) for just-in-time requests to control access to your cluster. This articles shows you how to enable Conditional Access and PIM on your AKS clusters.
 
 > [!NOTE]
-> Azure AD Conditional Access is an Azure AD Premium capability.
+> Azure AD Conditional Access and Privileged Identity Management are Azure AD Premium capabilities requiring a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide][aad-pricing].
 
-### Create an example Conditional Access policy to use with AKS
+## Before you begin
+
+* See [AKS-managed Azure Active Directory integration](./managed-aad.md) for an overview and setup instructions.
+
+## Use Conditional Access with Azure AD and AKS
 
 1. In the Azure portal, go to the **Azure Active Directory** page and select **Enterprise applications**.
 2. Select **Conditional Access** > **Policies** > **New policy**.
+
     :::image type="content" source="./media/managed-aad/conditional-access-new-policy.png" alt-text="Adding a Conditional Access policy":::
-3. Enter a name for the policy, for example **aks-policy**.
-4. Under **Assignments** select **Users and groups**. Choose the users and groups you want to apply the policy to. In this example, choose the same Azure AD group that has administrator access to your cluster.
+
+3. Enter a name for the policy, such as *aks-policy*.
+
+4. Under **Assignments**, select **Users and groups**. Choose the users and groups you want to apply the policy to. In this example, choose the same Azure AD group that has administrator access to your cluster.
+
     :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="Selecting users or groups to apply the Conditional Access policy":::
-5. Under **Cloud apps or actions > Include**, select **Select apps**. Search for **Azure Kubernetes Service** and select **Azure Kubernetes Service AAD Server**.
+
+5. Under **Cloud apps or actions** > **Include**, select **Select apps**. Search for **Azure Kubernetes Service** and select **Azure Kubernetes Service AAD Server**.
+
     :::image type="content" source="./media/managed-aad/conditional-access-apps.png" alt-text="Selecting Azure Kubernetes Service AD Server for applying the Conditional Access policy":::
-6. Under **Access controls > Grant**, select **Grant access**, **Require device to be marked as compliant**, and **Require all the selected controls**.
+
+6. Under **Access controls** > **Grant**, select **Grant access**, **Require device to be marked as compliant**, and **Require all the selected controls**.
+
     :::image type="content" source="./media/managed-aad/conditional-access-grant-compliant.png" alt-text="Selecting to only allow compliant devices for the Conditional Access policy":::
+
 7. Confirm your settings, set **Enable policy** to **On**, and then select **Create**.
+
     :::image type="content" source="./media/managed-aad/conditional-access-enable-policy.png" alt-text="Enabling the Conditional Access policy":::
 
 ### Verify your Conditional Access policy has been successfully listed
@@ -48,27 +60,30 @@ When integrating Azure AD with your AKS cluster, you can also use [Conditional A
 
 4. In the Azure portal, navigate to **Azure Active Directory** and select **Enterprise applications** > **Activity** > **Sign-ins**.
 
-5. Under the **Conditional Access** column you should see a status of **Success**. Select the event and then select **Conditional Access** tab. Your Conditional Access policy will be listed.
+5. Under the **Conditional Access** column you should see a status of *Success*. Select the event and then select the **Conditional Access** tab. Your Conditional Access policy will be listed.
+
     :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Screenshot that shows failed sign-in entry due to Conditional Access policy.":::
 
 ## Configure just-in-time cluster access with Azure AD and AKS
 
-Another option for cluster access control is to use Privileged Identity Management (PIM) for just-in-time requests.
-
->[!NOTE]
-> PIM is an Azure AD Premium capability requiring a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide][aad-pricing].
-
-### Integrate just-in-time access requests with an AKS cluster using AKS-managed Azure AD integration
-
 1. In the Azure portal, go to **Azure Active Directory** and select **Properties**.
+
 2. Note the value listed under **Tenant ID**. It will be referenced in a later step as `<tenant-id>`.
+
     :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="In a web browser, the Azure portal screen for Azure Active Directory is shown with the tenant's ID highlighted.":::
+
 3. Select **Groups** > **New group**.
+
     :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="Shows the Azure portal Active Directory groups screen with the 'New Group' option highlighted.":::
-4. Verify the group type **Security** is selected and specify a group name, such as **myJITGroup**. Under the option **Azure AD roles can be assigned to this group (Preview)**, select **Yes** and then select **Create**.
+
+4. Verify the group type **Security** is selected and specify a group name, such as *myJITGroup*. Under the option **Azure AD roles can be assigned to this group (Preview)**, select **Yes** and then select **Create**.
+
     :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Shows the Azure portal's new group creation screen.":::
+
 5. On the **Groups** page, select the group you just created and note the Object ID. It will be referenced in a later step as `<object-id>`.
+
     :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="Shows the Azure portal screen for the just-created group, highlighting the Object Id":::
+
 6. Create the AKS cluster with AKS-managed Azure AD integration using the [`az aks create`][az-aks-create] command with the `--aad-admin-group-objects-ids` and `--aad-tenant-id parameters` and include the values noted in the steps earlier.
 
     ```azurecli-interactive
@@ -76,13 +91,22 @@ Another option for cluster access control is to use Privileged Identity Manageme
     ```
 
 7. In the Azure portal, select **Activity** > **Privileged Access (Preview)** > **Enable Privileged Access**.
+
     :::image type="content" source="./media/managed-aad/jit-enabling-priv-access.png" alt-text="The Azure portal's Privileged access (Preview) page is shown, with 'Enable privileged access' highlighted":::
+
 8. To grant access, select **Add assignments**.
+
     :::image type="content" source="./media/managed-aad/jit-add-active-assignment.png" alt-text="The Azure portal's Privileged access (Preview) screen after enabling is shown. The option to 'Add assignments' is highlighted.":::
-9. From the **Select role** drop-down list, select the users and groups you want to grant cluster access. These assignments can be modified at any time by a group administrator. Then select **Next**.
+
+9.  From the **Select role** drop-down list, select the users and groups you want to grant cluster access. These assignments can be modified at any time by a group administrator. Then select **Next**.
+
     :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="The Azure portal's Add assignments Membership screen is shown, with a sample user selected to be added as a member. The option 'Next' is highlighted.":::
-10. Under **Assignment type**, select **Active** and then specify the desired duration. Provide a justification and then select **Assign**. For more information about assignment types, see [Assign eligibility for a privileged access group (preview) in Privileged Identity Management][aad-assignments].
+
+10. Under **Assignment type**, select **Active** and then specify the desired duration. Provide a justification and then select **Assign**.
+
     :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="The Azure portal's Add assignments Setting screen is shown. An assignment type of 'Active' is selected and a sample justification has been given. The option 'Assign' is highlighted.":::
+
+For more information about assignment types, see [Assign eligibility for a privileged access group (preview) in Privileged Identity Management][aad-assignments].
 
 ### Verify just-in-time access is working by accessing the cluster
 
@@ -113,6 +137,7 @@ Another option for cluster access control is to use Privileged Identity Manageme
 ### Apply just-in-time access at the namespace level
 
 1. Integrate your AKS cluster with [Azure RBAC](manage-azure-rbac.md).
+
 2. Associate the group you want to integrate with just-in-time access with a namespace in the cluster using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive

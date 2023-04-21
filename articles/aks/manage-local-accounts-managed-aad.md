@@ -8,9 +8,15 @@ ms.custom: devx-track-azurecli
 
 # Manage local accounts with AKS-managed Azure Active Directory integration
 
+When you deploy an AKS cluster, local accounts are enabled by default. Even when you enable RBAC or Azure AD integration, `--admin` access still exists as a non-auditable backdoor option. This article shows you how to disable local accounts on an existing cluster, create a new cluster with local accounts disabled, and re-enable local accounts on existing clusters.
+
+## Before you begin
+
+* See [AKS-managed Azure Active Directory integration](./managed-aad.md) for an overview and setup instructions.
+
 ## Disable local accounts
 
-When you deploy an AKS cluster, local accounts are enabled by default. Even when you enable RBAC or Azure AD integration, `--admin` access still exists as a non-auditable backdoor option. You can disable local accounts using the parameter `disable-local-accounts`. The `properties.disableLocalAccounts` field has been added to the managed cluster API to indicate whether the feature is enabled or not on the cluster.
+You can disable local accounts using the parameter `disable-local-accounts`. The `properties.disableLocalAccounts` field has been added to the managed cluster API to indicate whether the feature is enabled or not on the cluster.
 
 > [!NOTE]
 >
