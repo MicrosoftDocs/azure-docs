@@ -37,9 +37,9 @@ Once the prerequisite resources are available, deploy:
  
 * Azure Health Data Services MedTech service.
 
-### Deploy a resource group 
+### Create a resource group 
 
-Deploy a [resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md) to contain the prerequisite resources and the MedTech service.
+Create a [resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md) to contain the prerequisite resources and the MedTech service.
 
 ### Deploy an Event Hubs namespace and event hub
 
