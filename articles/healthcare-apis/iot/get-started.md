@@ -17,7 +17,7 @@ ms.custom: mode-api
 
 This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These basic steps may help you analyze the MedTech service deployment options and determine which deployment method is best for you.
 
-As a prerequisite, you need an Azure subscription and have been granted proper permissions to create Azure resource groups and deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in Azure PowerShell, Azure CLI, and REST API scripts.
+As a prerequisite, you need an Azure subscription and have been granted proper permissions to deploy Azure resource groups and resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in Azure PowerShell, Azure CLI, and REST API scripts.
 
 :::image type="content" source="media/get-started/get-started-with-medtech-service.png" alt-text="Diagram showing the MedTech service deployment overview." lightbox="media/get-started/get-started-with-medtech-service.png":::
 
@@ -26,7 +26,7 @@ As a prerequisite, you need an Azure subscription and have been granted proper p
 
 ## Deploy resources
 
-After you obtain the required subscription prerequisites, the first step is to deploy the MedTech service prerequisite resources:
+After you obtain the required subscription prerequisites, the first step is to create and deploy the MedTech service prerequisite resources:
 
 * Azure resource group.
 * Azure Event Hubs namespace and event hub.
@@ -37,9 +37,9 @@ Once the prerequisite resources are available, deploy:
  
 * Azure Health Data Services MedTech service.
 
-### Create a resource group 
+### Deploy a resource group 
 
-Create a [resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md) to contain the prerequisite resources and the MedTech service.
+Deploy a [resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md) to contain the prerequisite resources and the MedTech service.
 
 ### Deploy an Event Hubs namespace and event hub
 
