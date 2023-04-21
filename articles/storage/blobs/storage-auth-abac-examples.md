@@ -1371,6 +1371,42 @@ The condition can be added to a role assignment using either the Azure portal or
 
 In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
+#### [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
+
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Reader"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$containerName = "container1"
+$dateTime = "2023-05-01T13:00:00.000Z"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+$condition = `
+"( `
+ ( `
+ !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
+ ) `
+ OR ` 
+ ( `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
+  AND `
+  @Environment[UtcNow] DateTimeGreaterThan '$dateTime' `
+ ) `
+)"
+
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
+
+---
+
 ##### [Visual editor](#tab/visual-editor/portal)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
@@ -1425,43 +1461,7 @@ To add the condition using the code editor, copy the condition code sample below
 ) 
 ```
 
----
-
 After entering your code, switch back to the visual editor to validate it.
-
-#### [PowerShell](#tab/azure-powershell)
-
-Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
-
-```azurepowershell
-$subId = "<your subscription id>"
-$rgName = "<resource group name>"
-$storageAccountName = "<storage account name>"
-$roleDefinitionName = "Storage Blob Data Reader"
-$userUpn = "<user UPN>"
-$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
-$containerName = "container1"
-$dateTime = "2023-05-01T13:00:00.000Z"
-$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
-
-$condition = `
-"( `
- ( `
- !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
- ) `
- OR ` 
- ( `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
-  AND `
-  @Environment[UtcNow] DateTimeGreaterThan '$dateTime' `
- ) `
-)"
-
-$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
-$testRa.Condition = $condition
-$testRa.ConditionVersion = "2.0"
-Set-AzRoleAssignment -InputObject $testRa -PassThru
-```
 
 ---
 
@@ -1484,6 +1484,49 @@ The condition can be added to a role assignment using either the Azure portal or
 #### [Portal](#tab/portal)
 
 In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+#### [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Contributor"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$containerName = "container1"
+$vnetName = "virtualnetwork1"
+$subnetName = "default"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+$condition = `
+"( `
+ ( `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
+  AND `
+ !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
+ ) `
+ OR ` 
+ ( `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
+  AND `
+  @Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/virtualNetworks/$vnetName/subnets/$subnetName' `
+ ) `
+)"
+
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
+
+---
 
 ##### [Visual editor](#tab/visual-editor/portal)
 
@@ -1548,50 +1591,7 @@ To add the condition using the code editor, copy the condition code sample below
 )
 ```
 
----
-
 After entering your code, switch back to the visual editor to validate it.
-
-#### [PowerShell](#tab/azure-powershell)
-
-Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
-
-```azurepowershell
-$subId = "<your subscription id>"
-$rgName = "<resource group name>"
-$storageAccountName = "<storage account name>"
-$roleDefinitionName = "Storage Blob Data Contributor"
-$userUpn = "<user UPN>"
-$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
-$containerName = "container1"
-$vnetName = "virtualnetwork1"
-$subnetName = "default"
-$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
-
-$condition = `
-"( `
- ( `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
-  AND `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
-  AND `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
-  AND `
- !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
- ) `
- OR ` 
- ( `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
-  AND `
-  @Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/virtualNetworks/$vnetName/subnets/$subnetName' `
- ) `
-)"
-
-$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
-$testRa.Condition = $condition
-$testRa.ConditionVersion = "2.0"
-Set-AzRoleAssignment -InputObject $testRa -PassThru
-```
 
 ---
 
@@ -1620,6 +1620,44 @@ The condition can be added to a role assignment using either the Azure portal or
 #### [Portal](#tab/portal)
 
 In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+#### [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
+
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Reader"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+$condition = `
+"( `
+ ( `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
+ ) `
+ OR `
+ ( `
+  ( `
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringEquals 'high' `
+   AND `
+   @Environment[isPrivateLink] BoolEquals true `
+  ) `
+  OR `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
+ ) `
+)"
+
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
+
+---
 
 ##### [Visual editor](#tab/visual-editor/portal)
 
@@ -1688,45 +1726,7 @@ To add the condition using the code editor, copy the condition code sample below
 )
 ```
 
----
-
 After entering your code, switch back to the visual editor to validate it.
-
-#### [PowerShell](#tab/azure-powershell)
-
-Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
-
-```azurepowershell
-$subId = "<your subscription id>"
-$rgName = "<resource group name>"
-$storageAccountName = "<storage account name>"
-$roleDefinitionName = "Storage Blob Data Reader"
-$userUpn = "<user UPN>"
-$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
-$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
-
-$condition = `
-"( `
- ( `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
- ) `
- OR `
- ( `
-  ( `
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringEquals 'high' `
-   AND `
-   @Environment[isPrivateLink] BoolEquals true `
-  ) `
-  OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
- ) `
-)"
-
-$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
-$testRa.Condition = $condition
-$testRa.ConditionVersion = "2.0"
-Set-AzRoleAssignment -InputObject $testRa -PassThru
-```
 
 ---
 
@@ -1749,6 +1749,52 @@ The condition can be added to a role assignment using either the Azure portal or
 #### [Portal](#tab/portal)
 
 In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+#### [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Contributor"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$containerName = "container1"
+$privateEndpointName = "privateendpoint1"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+$condition = `
+"( `
+ ( `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
+ ) `
+ OR `
+ ( `
+  ( `
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
+   AND `
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
+  ) `
+  OR `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals '$containerName' `
+ ) `
+)"
+
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
+
+---
 
 ##### [Visual editor](#tab/visual-editor/portal)
 
@@ -1854,53 +1900,7 @@ To add the condition using the code editor, choose one of the condition code sam
 )
 ```
 
----
-
 After entering your code, switch back to the visual editor to validate it.
-
-#### [PowerShell](#tab/azure-powershell)
-
-Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
-
-```azurepowershell
-$subId = "<your subscription id>"
-$rgName = "<resource group name>"
-$storageAccountName = "<storage account name>"
-$roleDefinitionName = "Storage Blob Data Contributor"
-$userUpn = "<user UPN>"
-$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
-$containerName = "container1"
-$privateEndpointName = "privateendpoint1"
-$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
-
-$condition = `
-"( `
- ( `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
-  AND `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
-  AND `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
-  AND `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
- ) `
- OR `
- ( `
-  ( `
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
-   AND `
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
-  ) `
-  OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals '$containerName' `
- ) `
-)"
-
-$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
-$testRa.Condition = $condition
-$testRa.ConditionVersion = "2.0"
-Set-AzRoleAssignment -InputObject $testRa -PassThru
-```
 
 ---
 
@@ -1920,6 +1920,45 @@ The condition can be added to a role assignment using either the Azure portal or
 #### [Portal](#tab/portal)
 
 In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+#### [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
+
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Reader"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$privateEndpointName = "privateendpoint1"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+$condition = `
+"( `
+ ( `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
+ ) `
+ OR `
+ ( `
+  ( `
+   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] `
+   AND `
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
+  ) `
+  OR `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
+ ) `
+)"
+
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
+
+---
 
 ##### [Visual editor](#tab/visual-editor/portal)
 
@@ -1991,46 +2030,7 @@ To add the condition using the code editor, copy the condition code sample below
 )
 ```
 
----
-
 After entering your code, switch back to the visual editor to validate it.
-
-#### [PowerShell](#tab/azure-powershell)
-
-Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
-
-```azurepowershell
-$subId = "<your subscription id>"
-$rgName = "<resource group name>"
-$storageAccountName = "<storage account name>"
-$roleDefinitionName = "Storage Blob Data Reader"
-$userUpn = "<user UPN>"
-$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
-$privateEndpointName = "privateendpoint1"
-$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
-
-$condition = `
-"( `
- ( `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
- ) `
- OR `
- ( `
-  ( `
-   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] `
-   AND `
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
-  ) `
-  OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
- ) `
-)"
-
-$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
-$testRa.Condition = $condition
-$testRa.ConditionVersion = "2.0"
-Set-AzRoleAssignment -InputObject $testRa -PassThru
-```
 
 ---
 
