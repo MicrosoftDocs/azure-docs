@@ -1,5 +1,5 @@
 ---
-title: Azure IoT device management with the Azure IoT Hub extension for VSCode
+title: Azure IoT Hub device management with the Azure IoT Hub extension for Visual Studio Code
 description: Use the Azure IoT Hub extension for Visual Studio Code for Azure IoT Hub device management, featuring the Direct methods and the Twin's desired properties management options.
 author: formulahendry
 
@@ -22,7 +22,7 @@ In this article, you learn how to use the [Azure IoT Hub extension for Visual St
 | Direct methods             | Make a device act such as starting or stopping sending messages or rebooting the device.                                        |
 | Read device twin           | Get the reported state of a device. For example, the device reports the LED is blinking now.                                    |
 | Update device twin         | Put a device into certain states, such as setting an LED to green or setting the telemetry send interval to 30 minutes.         |
-| Cloud-to-device messages   | Send notifications to a device. For example, "It is very likely to rain today. Don't forget to bring an umbrella."              |
+| Cloud-to-device messages   | Send notifications to a device. For example, "It's likely to rain today. Don't forget to bring an umbrella."              |
 
 For more detailed explanation on the differences and guidance on using these options, see [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md).
 
