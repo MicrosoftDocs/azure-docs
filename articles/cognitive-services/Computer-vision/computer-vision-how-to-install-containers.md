@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 03/02/2023
 ms.author: pafarley
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
@@ -312,6 +312,10 @@ When the image is read in its entirety, then and only then does the API return a
 The JSON response object has the same object graph as the asynchronous version. If you're a JavaScript user and want type safety, consider using TypeScript to cast the JSON response.
 
 For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">TypeScript sandbox here </a> and select **Run** to visualize its ease-of-use.
+
+## Run the container disconnected from the internet
+
+[!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
 
 ## Stop the container
 

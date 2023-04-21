@@ -43,7 +43,7 @@ PaloAltoPrismaCloudAudit_CL
 
 To integrate with Palo Alto Prisma Cloud CSPM (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **Palo Alto Prisma Cloud API Credentials**: **Prisma Cloud API Url**, **Prisma Cloud Access Key ID**, **Prisma Cloud Secret Key** are required for Prisma Cloud API connection. See the documentation to learn more about [creating Prisma Cloud Access Key](https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin/manage-prisma-cloud-administrators/create-access-keys.html) and about [obtaining Prisma Cloud API Url](https://prisma.pan.dev/api/cloud/api-urls)
 
 
@@ -54,7 +54,7 @@ To integrate with Palo Alto Prisma Cloud CSPM (using Azure Function) make sure y
    >  This connector uses Azure Functions to connect to the Palo Alto Prisma Cloud REST API to pull logs into Microsoft sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]

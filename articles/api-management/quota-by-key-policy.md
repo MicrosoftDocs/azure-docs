@@ -35,12 +35,12 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 | Attribute                | Description                                                                                               | Required                                                         | Default |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
-| bandwidth           | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| counter-key         | The key to use for the `quota policy`. For each key value, a single counter is used for all scopes at which the policy is configured.              | Yes                                                              | N/A     |
-| increment-condition | The Boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
-| renewal-period      | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to `first-period-start`. When `renewal-period` is set to `0`, the period is set to infinite.                                                   | Yes                                                              | N/A     |
-| first-period-start      | The starting date and time for quota renewal periods, in the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.   | No                                                              | `0001-01-01T00:00:00Z`     |
+| bandwidth           | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. Policy expressions aren't allowed.| Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
+| calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expressions aren't allowed.    | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
+| counter-key         | The key to use for the `quota policy`. For each key value, a single counter is used for all scopes at which the policy is configured. Policy expressions are allowed.             | Yes                                                              | N/A     |
+| increment-condition | The Boolean expression specifying if the request should be counted towards the quota (`true`). Policy expressions are allowed.             | No                                                               | N/A     |
+| renewal-period      | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to `first-period-start`. When `renewal-period` is set to `0`, the period is set to infinite. Policy expressions aren't allowed.                                                  | Yes                                                              | N/A     |
+| first-period-start      | The starting date and time for quota renewal periods, in the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard. Policy expressions aren't allowed.   | No                                                              | `0001-01-01T00:00:00Z`     |
 
 
 ## Usage

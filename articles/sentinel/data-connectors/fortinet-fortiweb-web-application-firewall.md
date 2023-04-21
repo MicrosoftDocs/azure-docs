@@ -24,7 +24,7 @@ The [fortiweb](https://www.fortinet.com/products/web-application-firewall/fortiw
 
 **Top 10 Threats**
    ```kusto
-Fortiweb
+CommonSecurityLog
  
    | where isnotempty(EventType)
     

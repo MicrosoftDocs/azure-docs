@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/29/2023
 ms.author: mattmcinnes
 ms.subservice: cloud-init
+ms.custom: devx-track-azurecli
 ---
 # Use cloud-init to run a bash script in a Linux VM in Azure
 

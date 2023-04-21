@@ -8,6 +8,7 @@ ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 01/27/2022
 ms.custom: template-how-to 
+zone_pivot_groups: ap5gc-portal-powershell
 ---
 
 # Create a site using the Azure portal

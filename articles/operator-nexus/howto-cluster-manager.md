@@ -6,7 +6,7 @@ ms.author: jaredro
 ms.date: 01/23/2023
 ms.topic: how-to
 # ms.prod: used for on prem applications
-ms.service: azure 
+ms.service: azure-operator-nexus 
 ---
 
 # Cluster Manager: How to manage the Cluster Manager in Operator Nexus
@@ -51,7 +51,7 @@ Some arguments that are available for every Azure CLI command
 
 ## Create a Cluster Manager
 
-Use the `az network clustermanager create` command to create a Cluster Manager. This command creates a new Cluster Manager or updates the properties of the Cluster Manager if it exists. If you have multiple Azure subscriptions, select the appropriate subscription ID using the [az account set](/cli/azure/account#az-account-set) command.
+Use the `az networkcloud clustermanager create` command to create a Cluster Manager. This command creates a new Cluster Manager or updates the properties of the Cluster Manager if it exists. If you have multiple Azure subscriptions, select the appropriate subscription ID using the [az account set](/cli/azure/account#az-account-set) command.
 
 ```azurecli
 az networkcloud clustermanager create \

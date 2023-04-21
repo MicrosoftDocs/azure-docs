@@ -5,7 +5,7 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/08/2022
-ms.custom: devx-track-azurecli, seo-azure-cli
+ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template, devx-track-bicep
 ---
 
 # How to deploy resources with Bicep and Azure CLI
