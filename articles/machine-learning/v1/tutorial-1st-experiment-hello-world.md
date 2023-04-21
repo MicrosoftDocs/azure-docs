@@ -36,7 +36,8 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-- Complete [Quickstart: Set up your workspace to get started with Azure Machine Learning](../quickstart-create-resources.md) to create a workspace, compute instance, and compute cluster to use in this tutorial series.
+- Complete [Create resources you need to get started](../quickstart-create-resources.md) to create a workspace and compute instance to use in this tutorial series.
+- * [Create a cloud-based compute cluster](how-to-create-attach-compute-cluster.md#create). Name it 'cpu-cluster' to match the code in this tutorial.
 
 ## Create and run a Python script
 

@@ -34,7 +34,7 @@ CyberSixgill_Alerts
 
 To integrate with Cybersixgill Actionable Alerts (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **REST API Credentials/permissions**: **Client_ID** and **Client_Secret** are required for making API calls.
 
 
