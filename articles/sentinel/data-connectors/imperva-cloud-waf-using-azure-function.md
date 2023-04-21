@@ -37,7 +37,7 @@ ImpervaWAFCloud
 
 To integrate with Imperva Cloud WAF (using Azure Functions make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **REST API Credentials/permissions**: **ImpervaAPIID**, **ImpervaAPIKey**, **ImpervaLogServerURI** are required for the API. [See the documentation to learn more about Setup Log Integration process](https://docs.imperva.com/bundle/cloud-application-security/page/settings/log-integration.htm#Setuplogintegration). Check all [requirements and follow  the instructions](https://docs.imperva.com/bundle/cloud-application-security/page/settings/log-integration.htm#Setuplogintegration) for obtaining credentials. Please note that this connector uses CEF log event format. [More information](https://docs.imperva.com/bundle/cloud-application-security/page/more/log-file-structure.htm#Logfilestructure) about log format.
 
 

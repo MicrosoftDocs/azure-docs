@@ -85,7 +85,7 @@ GWorkspace_ReportsAPI_user_accounts_CL
 
 To integrate with Google Workspace (G Suite) (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **REST API Credentials/permissions**: **GooglePickleString** is required for REST API. [See the documentation to learn more about API](https://developers.google.com/admin-sdk/reports/v1/reference/activities). Please find the instructions to obtain the credentials in the configuration section below. You can check all [requirements and follow the instructions](https://developers.google.com/admin-sdk/reports/v1/quickstart/python) from here as well.
 
 
