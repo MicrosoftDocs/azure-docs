@@ -32,11 +32,11 @@ You can create a personalized sign-in experience for users who sign in using a s
 1. In the search bar, type and select **Company branding**.
 1. Under **Browser language customizations**, select **Add browser language**. 
 
-   :::image type="content" source="media/how-to-customize-languages-customers/company-branding-add-browser-language.png" alt-text="Screenshot of the browser language customizations tab.":::
+   :::image type="content" source="media/how-to-customize-languages-customers/company-branding-add-browser-language.png" alt-text="Screenshot of the browser language customizations tab." lightbox="media/how-to-customize-languages-customers/company-branding-add-browser-language.png":::
 
 4. On the **Basics** tab, under **Language specific UI Customization**, select the browser language you want to customize from the menu. 
 
-   :::image type="content" source="media/how-to-customize-languages-customers/language-selection.png" alt-text="Screenshot of selecting a language.":::
+   :::image type="content" source="media/how-to-customize-languages-customers/language-selection.png" alt-text="Screenshot of selecting a language." lightbox="media/how-to-customize-languages-customers/language-selection.png":::
 
 The following languages are supported in the customer tenant: 
 
@@ -97,7 +97,7 @@ Language customization in the customer tenant allows your user flow to accommoda
 8. Expand **Sign up and sign in (Preview)**.
 9. Select **Download defaults** (or **Download overrides** if you have previously edited this language).
 
-   :::image type="content" source="media/how-to-customize-languages-customers/language-customization-flow.png" alt-text="Screenshot the shows how to add languages under a user flow.":::
+   :::image type="content" source="media/how-to-customize-languages-customers/language-customization-flow.png" alt-text="Screenshot the shows how to add languages under a user flow." lightbox="media/how-to-customize-languages-customers/language-customization-flow.png":::
 
 The downloaded file will be in JSON format and will include both built-in and custom attributes, as well as other page-level and error strings:
 
@@ -159,7 +159,7 @@ You can modify any or all of these attributes in the downloaded file. For exampl
 10. After making the necessary changes, you can upload the new overrides file. The changes are saved to your user flow automatically and you'll find the override under the **Configured** tab.
 11. To double-check your changes, select the language under the **Configured** tab and expand the **Sign up and sign in (Preview)** option. You can view your customized language file by selecting Download overrides. To remove your customized override file, select **Remove overrides**.
 
-   :::image type="content" source="media/how-to-customize-languages-customers/remove-download-override-file.png" alt-text="Screenshot the shows how to remove or download the modified JSON file.":::
+   :::image type="content" source="media/how-to-customize-languages-customers/remove-download-override-file.png" alt-text="Screenshot the shows how to remove or download the modified JSON file." lightbox="media/how-to-customize-languages-customers/remove-download-override-file.png":::
    
 12. Go to the sign-in page of your customer tenant. Make sure you have the right locale and market in your URLs, for example: ui_locales=de-DE and  mkt=de-DE. You'll see the updated attributes on the sign-up page:
 
@@ -171,7 +171,7 @@ You can modify any or all of these attributes in the downloaded file. For exampl
 
 Languages that are read right-to-left, such as Arabic and Hebrew, are displayed in the opposite direction compared to languages that are read left-to-right. The customer tenant supports right-to-left functionality and features for languages that work in a right-to-left environment for entering, and displaying data. Right-to-left readers can interact in a natural reading manner. 
 
-:::image type="content" source="media/how-to-customize-languages-customers/right-to-left-language-support.png" alt-text="Screenshot showing the right-to-left language support.":::
+:::image type="content" source="media/how-to-customize-languages-customers/right-to-left-language-support.png" alt-text="Screenshot showing the right-to-left language support." lightbox="media/how-to-customize-languages-customers/right-to-left-language-support.png":::
 
 ## Next steps
 
