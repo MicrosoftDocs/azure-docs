@@ -118,9 +118,9 @@ If a device can't use the device SDKs, it can still connect to the public device
 
   For more information about how to generate SAS tokens, see the [Use SAS tokens as a device](iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device) section of [Control access to IoT Hub using Shared Access Signatures](iot-hub-dev-guide-sas.md).
 
-  You can also use the cross-platform Azure IoT Tools for Visual Studio Code or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) to quickly generate a SAS token. You can then copy and paste the SAS token into your own code for testing purposes.
+  You can also use the cross-platform [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) to quickly generate a SAS token. You can then copy and paste the SAS token into your own code for testing purposes.
 
-### For Azure IoT Tools
+### Using the Azure IoT Hub extension for Visual Studio Code
 
 1. Expand the **AZURE IOT HUB DEVICES** tab in the bottom left corner of Visual Studio Code.
   

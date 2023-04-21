@@ -55,7 +55,7 @@ The following steps show how to create an IoT Hub without an IoT Project in Visu
 
 ## Create an IoT hub and device in an existing IoT project
 
-The following steps show how to create an IoT Hub and register a device to the hub within an existing IoT project in Visual Studio (VS) Code.
+The following steps show how to create an IoT hub and register a device to the hub within an existing IoT project in Visual Studio (VS) Code.
 
 This method allows you to provision in Visual Studio Code without leaving your development environment.
 
@@ -74,37 +74,37 @@ This method allows you to provision in Visual Studio Code without leaving your d
 
    :::image type="content" source="media/iot-hub-create-use-iot-toolkit/select-resource-group.png" alt-text="A screenshot that shows how to choose a resource group or create a new one in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/select-resource-group.png":::
 
-1. In the resource group you specified, follow the prompts to select an existing IoT Hub or create a new Azure IoT Hub.
+1. In the resource group you specified, follow the prompts to select an existing IoT hub or create a new Azure IoT hub.
 
-   :::image type="content" source="media/iot-hub-create-use-iot-toolkit/iot-hub-provision.png" alt-text="A screenshot that shows the first prompt in choosing an existing IoT Hub in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/iot-hub-provision.png":::
+   :::image type="content" source="media/iot-hub-create-use-iot-toolkit/iot-hub-provision.png" alt-text="A screenshot that shows the first prompt in choosing an existing IoT hub in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/iot-hub-provision.png":::
 
-   :::image type="content" source="media/iot-hub-create-use-iot-toolkit/select-iot-hub.png" alt-text="A screenshot that shows the second prompt in choosing an existing IoT Hub in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/select-iot-hub.png":::
+   :::image type="content" source="media/iot-hub-create-use-iot-toolkit/select-iot-hub.png" alt-text="A screenshot that shows the second prompt in choosing an existing IoT hub in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/select-iot-hub.png":::
 
-   :::image type="content" source="media/iot-hub-create-use-iot-toolkit/iot-hub-selected.png" alt-text="A screenshot that shows the third prompt in choosing an existing IoT Hub in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/iot-hub-selected.png":::
+   :::image type="content" source="media/iot-hub-create-use-iot-toolkit/iot-hub-selected.png" alt-text="A screenshot that shows the third prompt in choosing an existing IoT hub in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/iot-hub-selected.png":::
 
-1. In the output window, you see the Azure IoT Hub provisioned.
+1. In the output window, you see the Azure IoT hub provisioned.
 
    :::image type="content" source="media/iot-hub-create-use-iot-toolkit/iot-hub-provisioned.png" alt-text="A screenshot that shows the output window in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/iot-hub-provisioned.png":::
 
-1. Select or create a new IoT Hub Device in the Azure IoT Hub you provisioned.
+1. Select or create a new IoT device in the Azure IoT hub you provisioned.
 
-   :::image type="content" source="media/iot-hub-create-use-iot-toolkit/iot-device-provision.png" alt-text="A screenshot that shows the fourth prompt in choosing an existing IoT Hub in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/iot-device-provision.png":::
+   :::image type="content" source="media/iot-hub-create-use-iot-toolkit/iot-device-provision.png" alt-text="A screenshot that shows the fourth prompt in choosing an existing IoT hub in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/iot-device-provision.png":::
 
-   :::image type="content" source="media/iot-hub-create-use-iot-toolkit/select-iot-device.png" alt-text="A screenshot that shows an example of an existing IoT Hub in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/select-iot-device.png":::
+   :::image type="content" source="media/iot-hub-create-use-iot-toolkit/select-iot-device.png" alt-text="A screenshot that shows an example of an existing IoT hub in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/select-iot-device.png":::
 
-1. Now you have an Azure IoT Hub provisioned and a device created in it. The device connection string is saved in VS Code.
+1. Now you have an Azure IoT hub provisioned and a device created in it. The device connection string is saved in VS Code.
 
-   :::image type="content" source="media/iot-hub-create-use-iot-toolkit/provision-done.png" alt-text="A screenshot that shows IoT Hub details in the output window in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/provision-done.png":::
+   :::image type="content" source="media/iot-hub-create-use-iot-toolkit/provision-done.png" alt-text="A screenshot that shows IoT hub details in the output window in Visual Studio Code." lightbox="media/iot-hub-create-use-iot-toolkit/provision-done.png":::
 
 > [!TIP]
 > To delete a device from your IoT hub, use the `Azure IoT Hub: Delete Device` option from the Command Palette. There is no option to delete your IoT hub in Visual Studio Code, however you can [delete your hub in the Azure portal](iot-hub-create-through-portal.md#delete-an-iot-hub).
 
 ## Next steps
 
-Now that you've deployed an IoT hub using the Azure IoT Tools for Visual Studio Code, explore these articles:
+Now that you've deployed an IoT hub using the Azure IoT Hub extension for Visual Studio Code, explore these articles:
 
-- [Use the Azure IoT Tools for Visual Studio Code to send and receive messages between your device and an IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+- [Use the Azure IoT Hub extension for Visual Studio Code to send and receive messages between your device and an IoT hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-- [Use the Azure IoT Tools for Visual Studio Code for Azure IoT Hub device management](iot-hub-device-management-iot-toolkit.md)
+- [Use the Azure IoT Hub extension for Visual Studio Code for Azure IoT Hub device management](iot-hub-device-management-iot-toolkit.md)
 
-- [See the Azure IoT Hub for Visual Studio Code wiki page](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).
+- [See the Azure IoT Hub extension for Visual Studio Code wiki page](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).
