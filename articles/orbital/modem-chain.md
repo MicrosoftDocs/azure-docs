@@ -64,7 +64,6 @@ We currently support the following named modem configurations.
 > 
 > Orbital does not have control over the downlink schedules for these public satellites. NASA conducts their own operations which may interrupt the downlink availabilities.
 
-
  | **Spacecraft Title**    | **Aqua**  |**Suomi NPP**|**JPSS-1/NOAA-20**| **Terra** |
  | :---                    |  :----:   |    :----:   |     :----:       | :----:    |
  | `noradId:`              | 27424     | 37849       | 43013            | 25994     |
