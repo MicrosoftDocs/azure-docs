@@ -83,6 +83,12 @@ Retrieve the subscription ID for your current subscription.
 AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ```
 
+Retrieve the tenant ID for your current tenant.
+
+```azurecli
+AZURE_TENANT_ID=$(az account show --query tenantId --output tsv)
+```
+
 Set the following environment variables:
 
 ```azurecli
@@ -282,12 +288,13 @@ In this section, you create a new GitHub repository to store a catalog. Azure De
 
 In this step, you create a new repository in your GitHub account that has a predefined directory structure, branches, and files. These items are generated from a sample template repository.
 
-[Create](https://github.com/colbylwilliams/ade-cicd-sample/generate) a new GitHub repository from the sample [template](https://github.com/colbylwilliams/ade-cicd-sample).
+1. Use this link to generate a new GitHub repository from the [sample template](https://github.com/colbylwilliams/ade-cicd-sample/generate).
 
-> 1. [This link](https://github.com/colbylwilliams/ade-cicd-sample/generate) will automatically initiate the flow to create.
-> 2. They may need to select **Public** if they don't have a paid GitHub account.
-> 3. Select **Create repository from template**.
-> 4. When the repo is first created, the Create Environment action will fail.  This is okay, the user should proceed.
+1. If you don't have a paid GitHub account, set your repository to **Public**.
+
+1. Select **Create repository from template**.
+
+1. On the **Actions** tab, notice that the Create Environment action fails.  This is expected, you can proceed with the next step.
 
 ### 3.2 Protect the repository's _main_ branch
 
@@ -296,7 +303,7 @@ You can protect important branches by setting branch protection rules. Protectio
 > [!NOTE]
 > Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see "[GitHub’s products](https://docs.github.com/en/get-started/learning-about-github/githubs-products)".
 
-1. If it's not already open, navigate to the main page of your newly created repository on GitHub.com.
+1. If it's not already open, navigate to the main page of your repository.
 
 1. Under your repository name, select **Settings**. If you can't see the "Settings" tab, select the **...** dropdown menu, then select **Settings**.
  
@@ -347,7 +354,7 @@ You can protect important branches by setting branch protection rules. Protectio
     | AZURE_CATALOG         | Set to: _Environments_       |
     | AZURE_CATALOG_ITEM    | Set to: _FunctionApp_        |
     | AZURE_SUBSCRIPTION_ID | Azure subscription ID (GUID) |
-    | AZURE_TENANT_ID       | Azure tenant ID (GUID)       | find as part of az login output tenantId|
+    | AZURE_TENANT_ID       | Azure tenant ID (GUID)       |
 
     :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-variables.png" alt-text="Screenshot showing the variables page with the variables table.":::
 
@@ -586,21 +593,27 @@ Create three environments: Dev, Test, and Prod to map to the project's environme
 > [!NOTE]
 > Environments, environment secrets, and environment protection rules are available in public repositories for all products. For access to environments, environment secrets, and deployment branches in **private** or **internal** repositories, you must use GitHub Pro, GitHub Team, or GitHub Enterprise. For access to other environment protection rules in **private** or **internal** repositories, you must use GitHub Enterprise. For more information, see "[GitHub’s products.](https://docs.github.com/en/get-started/learning-about-github/githubs-products)"
 
-1. On GitHub.com, navigate to the main page of your repository.
-
-2. Under your repository name, select  **Settings**. If you can't see the "Settings" tab, select the **...** dropdown menu, then select **Settings**.
-
-3. In the left sidebar, select **Environments**.
-
 ### 6.1 Create the Dev environment
 
+1. On GitHub.com, navigate to the main page of your repository.
+
+1. Under your repository name, select  **Settings**. If you can't see the "Settings" tab, select the **...** dropdown menu, then select **Settings**.
+
+1. In the left sidebar, select **Environments**.
+ 
 1. Select **New environment** and enter _Dev_ for the environment name, then select **Configure environment**.
+ 
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-create-environment.png" alt-text="Screenshot showing the Environments Add pane, with the environment name Dev, and Configure Environment highlighted. ":::
 
-2. Under **Environment secrets**, select **Add Secret** and enter _AZURE_CLIENT_ID_ for **Name**.
+1. Under **Environment secrets**, select **Add Secret** and enter _AZURE_CLIENT_ID_ for **Name**.
 
-3. For **Value**, enter the client ID (`appId`) for the **Dev** Azure AD app you created earlier (saved as the `$DEV_AZURE_CLIENT_ID` environment variable).
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-secret.png" alt-text="Screenshot showing the Environment Configure Dev pane, with Add secret highlighted.":::
 
-4. Select **Add secret**.
+1. For **Value**, enter the client ID (`appId`) for the **Dev** Azure AD app you created earlier (saved as the `$DEV_AZURE_CLIENT_ID` environment variable).
+ 
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-add-secret.png" alt-text="Screenshot of the add secret box with the name AZURE CLIENT ID, the value set to an ID number, and add secret highlighted.":::
+
+1. Select **Add secret**.
 
 ### 6.2 Create the Test environment
 
@@ -683,11 +696,15 @@ In this section, you make some changes to the repository and test the CI/CD pipe
 
 ### 7.2 Make a change to the code
 
-TODO: Open the locally cloned repo in VS Code `code .`, and make a change to some file (Under the ADE. Tutorial folder)
+1. Open the locally cloned repo in VS Code.
+
+1. In the ADE.Tutorial folder, make a change to a file.
+
+1. Save your change.
 
 ### 7.3 Push your changes to update the environment
 
-Stage your changes and push to the `feature1` branch.
+1. Stage your changes and push to the `feature1` branch.
 
 ``` sh
 git add .
@@ -695,32 +712,27 @@ git commit -m '<commit message>'
 git push
 ```
 
-Back on your repositories **Actions** page, you should see a new Update Environment workflow running.
+1. On your repository's **Actions** page, you see a new Update Environment workflow running.
 
 ### 7.4 Create a pull request
 
-Create a pull request on GitHub.com `main <- feature1`.
+1. Create a pull request on GitHub.com `main <- feature1`.
 
-A new workflow is started to create an environment specific to the PR using the Test environment type.
+1. On your repository's **Actions** page, you see a new workflow is started to create an environment specific to the PR using the Test environment type.
 
 ### 7.5 Merge the PR
 
 1. On [GitHub](https://github.com), navigate to the pull request you created.
 
-2. Merge it.
+1. Merge the PR.
 
     Your changes are published into the production environment, and delete the branch and pull request environments.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-\<resources\> with the following steps:
-
-1. From the left-hand menu...
-2. ...select Delete, type...and then select Delete
-
-TODO: Add steps for cleaning up the resources created in this tutorial.
+[!INCLUDE [alt-delete-resource-group](includes/alt-delete-resource-group.md)]
 
 ## Next steps
 
 - Learn more about managing your environments by using the CLI in [Create and access an environment by using the Azure CLI](how-to-create-access-environments.md).
+- For complete command listings, refer to the [Microsoft Deployment Environments and Azure Deployment Environments Azure CLI documentation](https://aka.ms/CLI-reference).
