@@ -40,6 +40,7 @@ Azure Digital Twins supports DTDL versions 2 and 3 (shortened in the documentati
 * [Array support for properties](#schema)
 * Increased limits for [model inheritance](#model-inheritance)
 * [Feature extensions](#dtdl-v3-feature-extensions)
+    * The ability to decorate [custom interface schemas](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#interface-schemas) with semantic types (provided with the [QuantitativeTypes extension](#quantitativetypes-extension))
 
 Where these features are discussed in the documentation, they're accompanied by a note that they're only available in DTDL v3. For a complete list of differences between DTDL v2 and v3, see [DTDL v3 Language Description: Changes from Version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#changes-from-version-2).
 
