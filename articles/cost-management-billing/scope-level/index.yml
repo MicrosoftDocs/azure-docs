@@ -32,6 +32,8 @@ landingContent:
         url: https://aka.ms/azure/pricing/CM_AHB_SQL/DevVideo
     - linkListType: tutorial
       links:
+      - text: Create SQL Server license assignments
+        url: create-sql-license-assignments.md
       - text: Optimize centrally managed Azure Hybrid Benefit
         url: tutorial-azure-hybrid-benefits-sql.md
 
@@ -44,8 +46,6 @@ landingContent:
         url: sql-iaas-extension-registration.md
     - linkListType: how-to-guide
       links:
-      - text: Create SQL Server license assignments
-        url: create-sql-license-assignments.md
       - text: Transition to centrally managed Azure Hybrid Benefit
         url: transition-existing.md
     - linkListType: reference
