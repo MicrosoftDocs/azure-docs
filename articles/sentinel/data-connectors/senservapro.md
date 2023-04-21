@@ -199,7 +199,7 @@ let timeframe = 14d;
 
 1. Setup the data connection
 
-Visit [Senserva Setup](https://www.senserva.com/senserva-setup/) for information on setting up the Senserva data connection, support, or any other questions. The Senserva installation will configure a Log Analytics Workspace for output. Deploy Microsoft Sentinel onto the configured Log Analytics Workspace to finish the data connection setup by following [this onboarding guide.](https://learn.microsoft.com/azure/sentinel/quickstart-onboard)
+Visit [Senserva Setup](https://www.senserva.com/senserva-setup/) for information on setting up the Senserva data connection, support, or any other questions. The Senserva installation will configure a Log Analytics Workspace for output. Deploy Microsoft Sentinel onto the configured Log Analytics Workspace to finish the data connection setup by following [this onboarding guide.](/azure/sentinel/quickstart-onboard)
 
 
 
