@@ -13,7 +13,7 @@ manager: amycolannino
 ms.reviewer: quentinb
 ---
 
-# What is Certificate Pinning?
+# What is Certificate pinning?
 
 Certificate Pinning is a security technique where only authorized, or *pinned*, certificates are accepted when establishing a secure session. Any attempt to establish a secure session using a different certificate is rejected.
 
