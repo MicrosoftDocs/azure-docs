@@ -17,22 +17,18 @@ zone_pivot_groups: acs-js-csharp-java-python
 In this quick start, you'll learn about how to throw an exception when the email sending tier limit is reached using our Email SDKs.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [prepend-net](./includes/prepend-net.md)]
 [!INCLUDE [tier-limit-net](./includes/tier-limit-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [prepend-js](./includes/prepend-js.md)]
 [!INCLUDE [tier-limit-js](./includes/tier-limit-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [prepend-java](./includes/prepend-java.md)]
 [!INCLUDE [tier-limit-java](./includes/tier-limit-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [prepend-python](./includes/prepend-python.md)]
 [!INCLUDE [tier-limit-python](./includes/tier-limit-python.md)]
 ::: zone-end
 

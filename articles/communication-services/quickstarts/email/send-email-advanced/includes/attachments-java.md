@@ -35,7 +35,11 @@ PollResponse<EmailSendResult> response = poller.waitForCompletion();
 System.out.println("Operation Id: " + response.getValue().getId());
 ```
 
+### Allowed MIME types
+
 For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
+
+### Sample code
 
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced)
 

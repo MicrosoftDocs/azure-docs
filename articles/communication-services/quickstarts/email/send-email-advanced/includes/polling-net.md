@@ -19,7 +19,14 @@ The returned EmailSendOperation object contains an EmailSendStatus object that c
 - An error object with failure details if the current status is in a failed state.
 
 ```csharp
-Console.WriteLine("Sending email with Async no Wait...");
+
+//Replace with your domain and modify the content, recipient details as required
+var subject = "Welcome to Azure Communication Service Email APIs.";
+var htmlContent = "<html><body><h1>Quick send email test</h1><br/><h4>This email message is sent from Azure Communication Service Email.</h4><p>This mail was sent using .NET SDK!!</p></body></html>";
+var sender = "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net";
+var recipient = "emailalias@contoso.com";
+
+/// Send the email message with WaitUntil.Started
 EmailSendOperation emailSendOperation = await emailClient.SendAsync(
     Azure.WaitUntil.Started,
     sender,
@@ -55,7 +62,6 @@ catch (RequestFailedException ex)
 string operationId = emailSendOperation.Id;
 Console.WriteLine($"Email operation id = {operationId}");
 ```
-
 
 Run the application from your application directory with the `dotnet run` command.
 

@@ -55,6 +55,11 @@ const message = {
   }
 };
 
+const poller = await emailClient.beginSend(message);
+const response = await poller.pollUntilDone();
+
 ```
+
+### Sample code
 
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-multiple-recipients)

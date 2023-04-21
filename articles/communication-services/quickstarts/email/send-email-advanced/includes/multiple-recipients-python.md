@@ -37,6 +37,11 @@ message = {
     },
     "senderAddress": "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>"
 }
+
+poller = email_client.begin_send(message)
+result = poller.result()
 ```
+
+### Sample code 
 
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced)

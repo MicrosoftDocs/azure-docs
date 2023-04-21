@@ -52,5 +52,7 @@ PollResponse<EmailSendResult> response = poller.waitForCompletion();
 System.out.println("Operation Id: " + response.getValue().getId());
 ```
 
+### Sample code
+
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced)
 

@@ -169,7 +169,7 @@ Replace with your domain details and modify the content, recipient details as re
 //Replace with your domain and modify the content, recipient details as required
 
 var subject = "Welcome to Azure Communication Service Email APIs.";
-var htmlContent = "<html><body><h1>Quick send email test</h1><br/><h4>This email message is sent from Azure Communication Service Email.</h4><p>This mail was send using .NET SDK!!</p></body></html>";
+var htmlContent = "<html><body><h1>Quick send email test</h1><br/><h4>This email message is sent from Azure Communication Service Email.</h4><p>This mail was sent using .NET SDK!!</p></body></html>";
 var sender = "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net";
 var recipient = "emailalias@contoso.com";
 

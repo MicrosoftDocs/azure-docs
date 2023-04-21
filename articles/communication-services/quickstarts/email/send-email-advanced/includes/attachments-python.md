@@ -43,9 +43,16 @@ message = {
         }
     ]
 }
+
+poller = email_client.begin_send(message)
+result = poller.result()
 ```
 
+### Allowed MIME types
+
 For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
+
+### Sample code
 
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced)
 
