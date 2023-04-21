@@ -49,13 +49,13 @@ Installation instructions for the Webapp can be found in the [GitHub repository]
 Once the administrator configures the company page on LinkedIn, employees can get verified. Below are the high-level steps for LinkedIn integration:
 
 1. User starts the LinkedIn mobile app. 
-1. The mobile app retrieves information from the LinkedIn backend and checks if the company is enabled for the pilot and it retrieves a URL to the myaccount website or the custom Webapp.
-1. If the company is enabled, the user can tap on the verify employment link, and the user is sent to the myaccount website or Webapp in a web view.
+1. The mobile app retrieves information from the LinkedIn backend and checks if the company is enabled for employment verification and it retrieves a URL to the custom Webapp.
+1. If the company is enabled, the user can tap on the verify employment link, and the user is sent to the Webapp in a web view.
 1. The user needs to provide their corporate credentials to sign in.
 1. The Webapp retrieves the user profile from Microsoft Graph including, ```firstname```, ```lastname```, ```displayname```, ```jobtitle```, ```upn```, ```email``` and ```photo``` and call the Microsoft Entra Verified ID service with the profile information.
 1. The Microsoft Entra Verified ID service creates a verifiable credentials issuance request and returns the URL of that specific request.
 1. The Webapp redirects back to the LinkedIn app with this specific URL.
-1. LinkedIn app wallet communicates with the Microsoft Entra Verified ID services to get the Verified Employment VC issued in their wallet which is part of the LinkedIn mobile app.
+1. LinkedIn app wallet communicates with the Microsoft Entra Verified ID services to get the Verified Employment VC issued in their wallet, which is part of the LinkedIn mobile app.
 1. The LinkedIn app then verifies the received verifiable credential.
 1. If the verification is completed, they change the status to ‘verified’ in their backend system and is visible to other users of LinkedIn.
  
@@ -68,7 +68,7 @@ The diagram below shows the dataflow of the entire solution.
 
 ### Can I use Microsoft Authenticator to store my Employee Verified ID and use it to get verified on LinkedIn?
 
-Currently the solution works through the embedded webview. In the future LinkedIn will allow us to use Microsoft authenticator or any compatible custom wallet to verify employment. The myaccount page will also be updated to allow issuance of the verified employee ID to Microsoft Authenticator.
+Currently the solution works through the embedded webview. In the future LinkedIn allows us to use Microsoft authenticator or any compatible custom wallet to verify employment. The myaccount page will also be updated to allow issuance of the verified employee ID to Microsoft Authenticator.
 
 ### How do users sign-in?
 
@@ -80,7 +80,7 @@ Nothing by default. You can choose the revoke the Verified Employee ID but curre
 
 ### What happens when my Verified Employee ID expires?
 
-LinkedIn will ask you again to get verified, if you don’t, the verified checkmark will be removed from your profile.
+LinkedIn asks you again to get verified, if you don’t, the verified checkmark is removed from your profile.
 
 ### Can former employees use this feature to get verified?
 
