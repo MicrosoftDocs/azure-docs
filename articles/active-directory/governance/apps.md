@@ -14,7 +14,7 @@ ms.custom: contperf-fy21q3-portal
 ms.reviewer: celested
 ---
 
-# Entra Identity Governance integrations
+# Entra Identity Governance Integrations
 
 LoreIpsum ... IGA is great
 
