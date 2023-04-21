@@ -318,7 +318,7 @@ $ az vm create \
 >
 > It is important to set `--enable-agent` to `false` because walinuxagent doesn't exist on this VM that is going to be created from the image.
 
-The VM should be provisioned successfully. After Logging into the newly-provisioning VM, you should be able to see the output of the report ready systemd service:
+The VM should be provisioned successfully. After Logging into the newly provisioning VM, you should be able to see the output of the report ready systemd service:
 
 ```bash
 $ sudo journalctl -u azure-provisioning.service
