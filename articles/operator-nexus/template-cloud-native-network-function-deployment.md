@@ -27,42 +27,42 @@ vNET, and finally the AKS-Hybrid cluster that will host the CNF.
 ## Common parameters
 
 ```bash
-export myloc="eastus"
-export myrg="****"
+export MYLOC="eastus"
+export MYRG="****"
 export MSYS_NO_PATHCONV=1
-export mysub="******"
-export mynfid='******'
-export myplatcustloc='******'
-export myhakscustloc='******'
+export MYSUB="******"
+export MYNFIND='******'
+export MYPLATCUSTLOC='******'
+export MYHAKSCUSTLOC='******'
 ```
 
 ## Initialization
 
-Set `$mysub` as the active subscription for your Operator Nexus instance.
+Set `$MYSUB` as the active subscription for your Operator Nexus instance.
 
 ```azurecli
-  az account set --subscription "$mysub"
+  az account set --subscription "$MYSUB"
 ```
 
 Get list of `internalnetworks` in the L3 isolation-domain `$myl3isd`
 
 ```azurecli
-  az nf internalnetwork list --l3domain "$myl3isd" \
-     -g "$myrg" --subscription "$mysub"
+  az nf internalnetwork list --l3domain "$MYL3ISD" \
+     -g "$MYRG" --subscription "$MYSUB"
 ```
 
 ## Create Cloud Services Network
 
 ```bash
-export mycsn="******"
+export MYCSN="******"
 ```
 
 ```azurecli
-az networkcloud cloudservicesnetwork create --name "$mycsn" \
---resource-group "$myrg" \
---subscription "$mysub" \
---extended-location name="$myplatcustloc" type="CustomLocation" \
---location "$myloc" \
+az networkcloud cloudservicesnetwork create --name "$MYCSN" \
+--resource-group "$MYRG" \
+--subscription "$MYSUB" \
+--extended-location name="$MYPLATCUSTLOC" type="CustomLocation" \
+--location "$MYLOC" \
 --additional-egress-endpoints '[{
     "category": "azure-resource-management",
     "endpoints": [{
@@ -100,47 +100,47 @@ az networkcloud cloudservicesnetwork create --name "$mycsn" \
 ### Validate Cloud Services Network has been created
 
 ```azurecli
-az networkcloud cloudservicesnetwork show --name "$mycsn" --resource-group "$myrg" --subscription "$mysub" -o table
+az networkcloud cloudservicesnetwork show --name "$MYCSN" --resource-group "$MYRG" --subscription "$MYSUB" -o table
 ```
 
 ## Create Default CNI Network
 
 ```bash
-export myl3n=="******"
-export myalloctype="IPV4"
-export myvlan=****
-export myipv4sub=="******"
-export mymtu="9000"
-export myl3isdarm=="******"
+export MYL3N=="******"
+export MYALLOCTYPE="IPV4"
+export MYVLAN=****
+export MYIPV4SUB=="******"
+export MYMTU="9000"
+export MYL3ISDARM=="******"
 ```
 
 ```azurecli
-az networkcloud defaultcninetwork create --name "$myl3n" \
-  --resource-group "$myrg" \
-  --subscription "$mysub" \
-  --extended-location name="$myplatcustloc" type="CustomLocation" \
-  --location "$myloc" \
+az networkcloud defaultcninetwork create --name "$MYL3N" \
+  --resource-group "$MYRG" \
+  --subscription "$MYSUB" \
+  --extended-location name="$MYPLATCUSTLOC" type="CustomLocation" \
+  --location "$MYLOC" \
   --bgp-peers '[]' \
   --community-advertisements '[{"communities": ["65535:65281", "65535:65282"], "subnetPrefix": "10.244.0.0/16"}]' \
   --service-external-prefixes '["10.101.65.0/24"]' \
   --service-load-balancer-prefixes '["10.101.66.0/24"]' \
-  --ip-allocation-type "$myalloctype" \
-  --ipv4-connected-prefix "$myipv4sub" \
-  --l3-isolation-domain-id "$myl3isdarm" \
-  --vlan $myvlan
+  --ip-allocation-type "$MYALLOCTYPE" \
+  --ipv4-connected-prefix "$MYIPV4SUB" \
+  --l3-isolation-domain-id "$MYL3ISDARM" \
+  --vlan $MYVLAN
 ```
 
 ### Validate Default CNI Network has been created
 
 ```azurecli
-az networkcloud defaultcninetwork show --name "$myl3n" \
-   --resource-group "$myrg" --subscription "$mysub" -o table
+az networkcloud defaultcninetwork show --name "$MYL3N" \
+   --resource-group "$MYRG" --subscription "$MYSUB" -o table
 ```
 
 ## Set AKS-Hybrid Extended Location
 
 ```bash
-export myhakscustloc=="******"
+export MYHAKSCUSTLOC=="******"
 ```
 
 ## Create AKS-Hybrid Network Cloud Services Network vNET
@@ -148,17 +148,17 @@ export myhakscustloc=="******"
 The AKS-Hybrid (HAKS) Virtual Networks are different from the Azure to on-premises Virtual Networks.
 
 ```bash
-export myhaksvnetname=="******"
-export myncnw=="******"
+export MYHAKSVNETNAME=="******"
+export MYNCNW=="******"
 ```
 
 ```azurecli
 az hybridaks vnet create \
-  --name "$myhaksvnetname" \
-  --resource-group "$myrg" \
-  --subscription "$mysub" \
-  --custom-location "$myhakscustloc" \
-  --aods-vnet-id "$myncnw"
+  --name "$MYHAKSVNETNAME" \
+  --resource-group "$MYRG" \
+  --subscription "$MYSUB" \
+  --custom-location "$MYHAKSCUSTLOC" \
+  --aods-vnet-id "$MYNCNW"
 ```
 
 ## Create AKS-Hybrid Cluster
@@ -166,20 +166,20 @@ az hybridaks vnet create \
 The AKS-Hybrid (HAKS) cluster will be used to host the CNF.
 
 ```bash
-export myhaksvnet1=="******"
-export myhaksvnet2=="******"
-export myencodedkey=="******"
+export MYHAKSVNET1=="******"
+export MYHAKSVNET2=="******"
+export MYENCODEDKEY=="******"
 export ="******"
-export myclustername=="******"
+export MYCLUSTERNAME=="******"
 ```
 
 ```azurecli
 az hybridaks create \
-  --name "$myclustername" \
-  --resource-group "$myrg" \
-  --subscription "$mysub" \
+  --name "$MYCLUSTERNAME" \
+  --resource-group "$MYRG" \
+  --subscription "$MYSUB" \
   --aad-admin-group-object-ids "$AADID" \
-  --custom-location "$myhakscustloc" \
+  --custom-location "$MYHAKSCUSTLOC" \
   --location eastus \
   --control-plane-vm-size NC_G4_v1 \
   --node-vm-size NC_H16_v1 \
@@ -187,8 +187,8 @@ az hybridaks create \
   --load-balancer-sku stacked-kube-vip \
   --load-balancer-count 0 \
   --load-balancer-vm-size '' \
-  --vnet-ids "$myhaksvnet1","$myhaksvnet2" \
-  --ssh-key-value "$myencodedkey" \
+  --vnet-ids "$myhaksvnet1","$MYHAKSVNET2" \
+  --ssh-key-value "$MYENCODEDKEY" \
   --control-plane-count 3 \
   --node-count 4
 ```
