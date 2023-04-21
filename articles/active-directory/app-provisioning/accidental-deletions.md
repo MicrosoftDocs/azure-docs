@@ -21,10 +21,6 @@ The Azure AD provisioning service includes a feature to help avoid accidental de
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-> [!IMPORTANT]
-> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 The Azure AD provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in the target tenant unexpectedly.
 ::: zone-end
 
@@ -44,7 +40,7 @@ To enable accidental deletion prevention:
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-2.  Select **Cross-tenant synchronization (Preview)** > **Configurations** and then select your configuration.
+2.  Select **Cross-tenant synchronization** > **Configurations** and then select your configuration.
 
 3.  Select **Provisioning**.
 ::: zone-end

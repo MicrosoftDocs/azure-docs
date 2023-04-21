@@ -16,12 +16,6 @@ zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 
 # On-demand provisioning in Azure Active Directory
 
-::: zone pivot="cross-tenant-synchronization"
-> [!IMPORTANT]
-> [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-::: zone-end
-
 Use on-demand provisioning to provision a user or group in seconds. Among other things, you can use this capability to:
 
 * Troubleshoot configuration issues quickly.
