@@ -62,6 +62,9 @@ Follow these steps to configure your Spring app to connect to an Azure Database 
        --database $DATABASE_NAME \
        --secret name=$DATABASE_USERNAME secret=$DATABASE_PASSWORD
    ```
+  
+> [!NOTE]
+> Alternatively you can use system-assigned identity for a passwordless experience at [Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?tabs=mysql#connect-azure-spring-apps-to-the-azure-database)
 
 ### [Service Binding](#tab/Service-Binding)
 
