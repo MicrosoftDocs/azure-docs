@@ -63,10 +63,9 @@ var configuration = configurationManager.GetConfigurationAsync().Result;
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
+        options.Configuration = configuration;
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            IssuerSigningKeys = configuration.SigningKeys,
-            ValidIssuer = "https://acscallautomation.communication.microsoft.com",
             ValidAudience = builder.Configuration["AllowedAudience"]
         };
     });
@@ -84,9 +83,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/api/callback", () =>
+app.MapPost("/api/callback", (HttpContext context) =>
 {
     // Your implemenation on the callback event
+
     return Results.Ok();
 })
 .RequireAuthorization()
@@ -97,4 +97,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.Run();
+
 ```
