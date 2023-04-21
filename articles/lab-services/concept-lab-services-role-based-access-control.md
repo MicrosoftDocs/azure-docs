@@ -158,6 +158,18 @@ The following table compares the Lab Creator role assignment for the resource gr
 
 ### Lab Contributor role
 
+Assign the Lab Contributor role to give a user permission to help manage an existing lab.
+
+Assign the Lab Contributor role at the *lab level*.
+
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-lab-contributor-role.png" alt-text="Diagram that shows the resource levels and the Lab Contributor role, assigned to the lab level.":::
+
+When you assign the Lab Contributor role on the lab, the user can manage the assigned lab. Specifically, the user:
+
+- Can view, change all settings, or delete the assigned lab.
+- The user can’t view other users’ labs.
+- Can’t create new labs.
+
 ### Lab Assistant role
 
 ### Lab Reader role
