@@ -90,7 +90,7 @@
       - name: Database for MySQL
         href: reservations/understand-reservation-charges-mysql.md?toc=/azure/cost-management-billing/toc.json
       - name: Database for PostgreSQL - Single Server
-        href: reservations/understand-reservation-charges-postgresql.md?toc=/azure/cost-management-billing/toc.json
+        href: ../postgresql/single-server/concept-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
       - name: Database for PostgreSQL - Hyperscale (Citus)
         href: ../postgresql/hyperscale/concepts-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
       - name: Databricks

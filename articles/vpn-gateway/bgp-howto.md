@@ -5,7 +5,7 @@ description: Learn how to configure BGP for Azure VPN Gateway using the Azure po
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 04/20/2023
 ms.author: cherylmc 
 
 ---
@@ -108,7 +108,9 @@ To get the Azure BGP Peer IP address:
 1. Go to the virtual network gateway resource and select the **Configuration** page to see the BGP configuration information.
 1. Make a note of the BGP Peer IP address.
 
-## <a name ="crosspremises"></a>Configure BGP on cross-premises S2S connections
+## <a name ="crosspremises"></a>To configure BGP on cross-premises S2S connections
+
+The instructions in this section apply to cross-premises site-to-site configurations. 
 
 To establish a cross-premises connection, you need to create a *local network gateway* to represent your on-premises VPN device, and a *connection* to connect the VPN gateway with the local network gateway as explained in [Create site-to-site connection](tutorial-site-to-site-portal.md). The following sections contain the additional properties required to specify the BGP configuration parameters, as shown in Diagram 3.
 
@@ -180,9 +182,11 @@ The following example lists the parameters you enter into the BGP configuration 
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-## Enable BGP on VNet-to-VNet connections
+## To enable BGP on VNet-to-VNet connections
 
-The steps to enable or disable BGP on a VNet-to-VNet connection are the same as the [S2S steps](#crosspremises). You can enable BGP when creating the connection, or update the configuration on an existing VNet-to-VNet connection.
+The steps in this section apply to VNet-to-VNet connections.
+
+To enable or disable BGP on a VNet-to-VNet connection, you use the same steps as the [S2S cross-premises steps](#crosspremises) in the previous section. You can enable BGP when creating the connection, or update the configuration on an existing VNet-to-VNet connection.
 
 > [!NOTE]
 > A VNet-to-VNet connection without BGP will limit the communication to the two connected VNets only. Enable BGP to allow transit routing capability to other S2S or VNet-to-VNet connections of these two VNets.
