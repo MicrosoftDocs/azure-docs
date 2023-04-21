@@ -149,6 +149,10 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 
     `CiliumNetworkPolicy` custom resources aren't officially supported. We recommend that customers use Kubernetes `NetworkPolicy` resources to configure network policies.
 
+- *Does AKS configure CPU or memory limits on the Cilium daemonset?*
+
+    No, AKS does not configure CPU or memory limits on the Cilium daemonset because Cilium is a critical system component for pod networking and network policy enforcement.
+
 ## Next steps
 
 Learn more about networking in AKS in the following articles:

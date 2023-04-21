@@ -162,7 +162,8 @@ Some applications require the group membership information to appear in the role
 Group filtering allows for fine control of the list of groups that's included as part of the group claim. When a filter is configured, only groups that match the filter will be included in the group's claim that's sent to that application. The filter will be applied against all groups regardless of the group hierarchy.
 
 > [!NOTE]
-> Group filtering applies to tokens emitted for apps where group claims and filtering was configured in the **Enterprise apps** blade in the portal.
+> Group filtering applies to tokens emitted for apps where group claims and filtering was configured in the **Enterprise apps** blade in the portal.  
+> Group filtering does not apply to Azure AD Roles.
 
 You can configure filters to be applied to the group's display name or `SAMAccountName` attribute. The following filtering operations are supported: 
 
@@ -208,7 +209,7 @@ You can also configure group claims in the [optional claims](../../active-direct
    | Selection | Description |
    |----------|-------------|
    | `All` | Emits security groups, distribution lists, and roles. |
-   | `SecurityGroup` | Emits security groups that the user is a member of in the group claim. |
+   | `SecurityGroup` | Emits security groups and Azure AD roles that the user is a member of in the group claim. |
    | `DirectoryRole` | If the user is assigned directory roles, they're emitted as a `wids` claim. (A group claim won't be emitted.) |
    | `ApplicationGroup` | Emits only the groups that are explicitly assigned to the application and that the user is a member of. |
    | `None` | No groups are returned. (It's not case-sensitive, so `none` also works. It can be set directly in the application manifest.) |
