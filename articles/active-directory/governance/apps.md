@@ -39,7 +39,7 @@ Checkout the integrations [partners](https://learn.microsoft.com/azure/active-di
 * IBM RACF
 
 ## Full list of provisioning integrations
-| Application | User provisionig supported | Group provisionig supported| SSO|
+| Application | User provisioning | Group provisioning | SSO|
 | :--- | :--- | :--- | :--- |
 | [4me](https://learn.microsoft.com/azure/active-directory/saas-apps/4me-provisioning-tutorial) | ● | ● | ● | 
 | [8x8](https://learn.microsoft.com/azure/active-directory/saas-apps/8x8-provisioning-tutorial) | ● | | ● |
