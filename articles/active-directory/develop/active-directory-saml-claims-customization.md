@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/19/2022
+ms.date: 04/20/2023
 ms.author: davidmu
-ms.custom: aaddev
+ms.custom: aaddev, curation-claims
 ms.reviewer: rahulnagraj, alamaral, jeedes
 ---
 
 # Customize claims issued in the SAML token for enterprise applications
 
-The Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure Active Directory (Azure AD) application gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the SAML 2.0 protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
+The Microsoft identity platform supports [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) with most pre-integrated applications in the Azure Active Directory (Azure AD) application gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the SAML 2.0 protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
 
-These SAML tokens contain pieces of information about the user known as *claims*. A *claim* is information that an identity provider states about a user inside the token they issue for that user. In a [SAML token](https://en.wikipedia.org/wiki/SAML_2.0), *claims* data is typically contained in the SAML Attribute Statement. The user's unique ID is typically represented in the SAML Subject also referred to as the name identifier (nameID).
+These SAML tokens contain pieces of information about the user known as *claims*. A claim is information that an identity provider states about a user inside the token they issue for that user. In a [SAML token](https://en.wikipedia.org/wiki/SAML_2.0), claims data is typically contained in the SAML Attribute Statement. The user's unique ID is typically represented in the SAML Subject, which is also referred to as the name identifier (`nameID`).
 
 By default, the Microsoft identity platform issues a SAML token to an application that contains a `NameIdentifier` claim with a value of the user's username (also known as the user principal name) in Azure AD, which can uniquely identify the user. The SAML token also contains other claims that include the user's email address, first name, and last name.
 
@@ -28,80 +28,80 @@ To view or edit the claims issued in the SAML token to the application, open the
 
 :::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png" alt-text="Screenshot of opening the Attributes & Claims section in the Azure portal.":::
 
-There are two possible reasons why you might need to edit the claims issued in the SAML token:
+You might need to edit the claims issued in the SAML token for the following reasons:
 
-* The application requires the `NameIdentifier` or NameID claim to be something other than the username (or user principal name) stored in Azure AD.
+* The application requires the `NameIdentifier` or `nameID` claim to be something other than the username (or user principal name) stored in Azure AD.
 * The application has been written to require a different set of claim URIs or claim values.
 
 ## Edit nameID
 
-To edit the NameID (name identifier value):
+To edit the `nameID` (name identifier value) claim:
 
 1. Open the **Name identifier value** page.
-1. Select the attribute or transformation you want to apply to the attribute. Optionally, you can specify the format you want the NameID claim to have.
+1. Select the attribute or transformation that you want to apply to the attribute. Optionally, you can specify the format that you want the `nameID` claim to have.
 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png" alt-text="Screenshot of editing the NameID (name identifier) value in the Azure portal.":::
+    :::image type="content" source="./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png" alt-text="Screenshot of editing the nameID (name identifier) value in the Azure portal.":::
 
 ### NameID format
 
-If the SAML request contains the element NameIDPolicy with a specific format, then the Microsoft identity platform honors the format in the request.
+If the SAML request contains the element `NameIDPolicy` with a specific format, then the Microsoft identity platform honors the format in the request.
 
-If the SAML request doesn't contain an element for NameIDPolicy, then the Microsoft identity platform issues the NameID with the  format you specify. If no format is specified, the Microsoft identity platform uses the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Azure AD sends a persistent pairwise identifier in the nameIdentifier.
+If the SAML request doesn't contain an element for `NameIDPolicy`, then the Microsoft identity platform issues the `nameID` with the  format you specify. If no format is specified, the Microsoft identity platform uses the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Azure AD sends a persistent pairwise identifier in the `nameID`.
 
 From the **Choose name identifier format** dropdown, select one of the options in the following table.
 
-| NameID format | Description |
+| `nameID` format | Description |
 |---------------|-------------|
 | **Default** | Microsoft identity platform uses the default source format. |
-| **Persistent** | Microsoft identity platform uses Persistent as the NameID format. |
-| **Email address** | Microsoft identity platform uses EmailAddress as the NameID format. |
-| **Unspecified** | Microsoft identity platform uses Unspecified as the NameID format. |
-|**Windows domain qualified name**| Microsoft identity platform uses the WindowsDomainQualifiedName format.|
+| **Persistent** | Microsoft identity platform uses `Persistent` as the `nameID` format. |
+| **Email address** | Microsoft identity platform uses `EmailAddress` as the `nameID` format. |
+| **Unspecified** | Microsoft identity platform uses `Unspecified` as the `nameID` format. |
+|**Windows domain qualified name**| Microsoft identity platform uses the `WindowsDomainQualifiedName` format.|
 
-Transient NameID is also supported, but isn't available in the dropdown and can't be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single sign-On SAML protocol](single-sign-on-saml-protocol.md).
+Transient `nameID` is also supported, but isn't available in the dropdown and can't be configured on Azure's side. To learn more about the `NameIDPolicy` attribute, see [Single sign-On SAML protocol](single-sign-on-saml-protocol.md).
 
 ### Attributes
 
-Select the desired source for the `NameIdentifier` (or NameID) claim. You can select from the following options.
+Select the desired source for the `NameIdentifier` (or `nameID`) claim. You can select from the options in the following table.
 
 | Name | Description |
 |------|-------------|
-| Email | Email address of the user |
-| userprincipalName | User principal name (UPN) of the user |
-| onpremisessamaccountname | SAM account name that has been synced from on-premises Azure AD |
-| objectid | Objectid of the user in Azure AD |
-| employeeid | Employee ID of the user |
-| Directory extensions | Directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
-| Extension Attributes 1-15 | On-premises extension attributes used to extend the Azure AD schema |
-| pairwiseid | Persistent form of user identifier |
+| `Email` | The email address of the user. |
+| `userprincipalName` | The user principal name (UPN) of the user. |
+| `onpremisessamaccountname` | The SAM account name that has been synced from on-premises Azure AD. |
+| `objectid` | The object ID of the user in Azure AD. |
+| `employeeid` | The employee ID of the user. |
+| `Directory extensions` | The directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md). |
+| `Extension Attributes 1-15` | The on-premises extension attributes used to extend the Azure AD schema. |
+| `pairwiseid` | The persistent form of user identifier. |
 
-For more information about identifier values, see [Table 3: Valid ID values per source](reference-claims-mapping-policy-type.md#table-3-valid-id-values-per-source).
+For more information about identifier values, see the table that lists the valid ID values per source later in this page.
 
-Any constant (static) value can be assigned to any claim that is defined in Azure AD. The following steps outline how to assign a constant value:
+Any constant (static) value can be assigned to any claim that is defined in Azure AD. Use the following steps to assign a constant value:
 
-1. In the [Azure portal](https://portal.azure.com/), in the **Attributes & Claims** section, select **Edit** to edit the claims.
+1. In the [Azure portal](https://portal.azure.com/), in the **User Attributes & Claims** section, select **Edit** to edit the claims.
 1. Select the required claim that you want to modify.
-1. Enter the constant value without quotes in the **Source attribute** as per your organization and click **Save**.
+1. Enter the constant value without quotes in the **Source attribute** as per your organization and select **Save**.
 
     :::image type="content" source="./media/active-directory-saml-claims-customization/organization-attribute.png" alt-text="Screenshot of the organization Attributes & Claims section in the Azure portal.":::
 
-1. The constant value will be displayed as shown in the following image.
+1. The constant value is displayed as shown in the following image.
 
     :::image type="content" source="./media/active-directory-saml-claims-customization/edit-attributes-claims.png" alt-text="Screenshot of editing in the Attributes & Claims section in the Azure portal.":::
 
 ### Directory Schema extensions (Preview)
 
-You can also configure directory schema extension attribute as non-conditional/conditional attribute in Azure AD. The following steps outline how to configure the single or multi-valued directory schema extension attribute as claim:
+You can also configure directory schema extension attributes as non-conditional/conditional attributes in Azure AD. Use the following steps to configure the single or multi-valued directory schema extension attribute as a claim:
 
-1.  In the [Azure portal](https://portal.azure.com/), in the **Attributes & Claims** section, select **Edit** to edit the claims.  
-2. Click **Add new claim** or edit an existing claim. 
+1.  In the [Azure portal](https://portal.azure.com/), in the **User Attributes & Claims** section, select **Edit** to edit the claims.
+1. Select **Add new claim** or edit an existing claim.
 
     :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-1.jpg" alt-text="Screenshot of the MultiValue extension configuration section in the Azure portal.":::
 
-3. Select source application from application picker where extension property is defined. 
+1. Select source application from application picker where extension property is defined. 
     :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-2.jpg" alt-text="Screenshot of the source application selection in MultiValue extension configuration section in the Azure portal.":::
 
-4. Click **Add** to add the selection to the claims.
+1. Select **Add** to add the selection to the claims.
 
 <!---
 5. To select single or multi-valued directory schema extension attribute as conditional attribute select **Directory schema extension** option from the source dropdown.
