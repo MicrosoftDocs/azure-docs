@@ -109,6 +109,12 @@ Screenshare. However, each API value can be customized from a minimum of
 
 <!-- ## Store and view survey data:
 
+// todo@amagginetti
+// testing adding a comment here.
+
+// TODO@amagginetti
+// testing comment here, need to remove comment on this and re-enable.
+
 > [!IMPORTANT]
 > You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services, see: **[Enable logging in Diagnostic Settings](../analytics/enable-logging.md)**
 
