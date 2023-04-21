@@ -53,6 +53,8 @@ items:
       href: how-to-customize-devbox-azure-image-builder.md
     - name: Manage a dev box through developer portal
       href: how-to-create-dev-boxes-developer-portal.md
+    - name: Get support for Microsoft Dev Box
+      href: how-to-get-help.md  
 - name: Reference
   items:
     - name: Azure CLI

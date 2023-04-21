@@ -22547,6 +22547,11 @@
             "source_path_from_root": "/articles/principles-for-ai-generated-content.md",
             "redirect_url": "https://aka.ms/ai-content-principles",
             "redirect_document_id": false
-        } 
+        },
+        {
+          "source_path_from_root": "/articles/azure-monitor/app/java-standalone-arguments.md",
+          "redirect_url": "/azure/azure-monitor/app/java-get-started-supplemental",
+          "redirect_document_id": true
+        }
     ]
 }

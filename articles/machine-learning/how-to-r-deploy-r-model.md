@@ -181,7 +181,7 @@ These steps assume you have an Azure Container Registry associated with your wor
 
 Once you have verified that you have at least one custom environment, use the following steps to build a container.
 
-1. Open a terminal window and sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), use:
+1. Open a terminal window and sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-a-compute-instance), use:
 
     ```azurecli
     az login --identity
