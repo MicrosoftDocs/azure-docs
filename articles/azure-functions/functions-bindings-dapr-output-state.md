@@ -45,15 +45,16 @@ This article supports both programming models.
 # [In-process](#tab/in-process)
 
 ```csharp
-[FunctionName("StateInputBinding")]
-public static IActionResult Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", Route = "state/{key}")] HttpRequest req,
-    [DaprState("statestore", Key = "{key}")] string state,
+[FunctionName("StateOutputBinding")]
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "post", Route = "state/{key}")] HttpRequest req,
+    [DaprState("statestore", Key = "{key}")] IAsyncCollector<string> state,
     ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
-
-    return new OkObjectResult(state);
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    await state.AddAsync(requestBody);
+    return new OkResult();
 }
 ```
 
@@ -90,18 +91,18 @@ Here's the C# script code:
 
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
-Here's the _function.json_ file for `daprBindingTrigger`:
+Here's the _function.json_ file for `daprState` output:
 
 ```json
 {
   "bindings": 
     {
       "type": "daprState",
-      "direction": "in",
-      "dataType": "string",
-      "name": "state",
+      "direction": "out",
+      "name": "dapr",
       "stateStore": "statestore",
-      "key": "{key}"
+      "key": "{key}",
+      "daprAddress": "%daprAddress%"
     }
 }
 ```
@@ -110,7 +111,13 @@ Here's the JavaScript code for the Dapr output binding trigger:
 
 ```javascript
 module.exports = async function (context, req) {
-    context.log('Current state of this function: ' + context.bindings.daprState);
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    context.bindings.dapr = {
+        // stateStore: 'statestore-if-not-in-function.json'
+        // key: 'key-if-not-in-function.json'
+        value: req.body
+    };
 };
 ```
 
