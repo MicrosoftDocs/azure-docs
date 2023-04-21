@@ -130,7 +130,7 @@ Each dataset in the `FailedSOPSequence` has the following elements (if the DICOM
 | (0008, 1150) | `ReferencedSOPClassUID`    | The SOP class unique identifier of the instance that failed to store.              |
 | (0008, 1155) | `ReferencedSOPInstanceUID` | The SOP instance unique identifier of the instance that failed to store.           |
 | (0008, 1197) | `FailureReason`            | The reason code why this instance failed to store.                                 |
-| (0008, 1196) | `WarningReason`            | The reason code why this instance successfully to store, but may have issues.      |
+| (0008, 1196) | `WarningReason`            | A `WarningReason` indicates validation issues that were detected but were not severe enough to fail the store operation.        |
 | (0074, 1048) | `FailedAttributesSequence` | The sequence of `ErrorComment` that includes the reason for each failed attribute. |
 
 Each dataset in the `ReferencedSOPSequence` has the following elements:
@@ -274,7 +274,7 @@ An example response with `Accept` header `application/dicom+json` with a FailedA
 | `45063` | A DICOM instance Data Set doesn't match SOP Class. The Studies Store Transaction (Section 10.5) observed that the Data Set didn't match the constraints of the SOP Class during storage of the instance. |
 | `1`     | The Studies Store Transaction (Section 10.5) observed that the Data Set has validation warnings.                                                       |
 
-### Store Error Codes
+#### Store Error Codes
 
 | Code  | Description |
 | :---- | :---------- |
