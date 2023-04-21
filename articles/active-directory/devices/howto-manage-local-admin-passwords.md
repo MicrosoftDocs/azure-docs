@@ -6,11 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 04/21/2023
 
 ms.author: sandeo
 author: sandeo-MSFT
 ms.reviewer: joflore
+ms.custom: references_regions
 
 ms.collection: M365-identity-device-management
 ---
@@ -72,7 +73,7 @@ LAPS is supported on Azure AD joined or hybrid Azure AD joined devices only. Azu
 
 LAPS is available to all customers with Azure AD Free or higher licenses. Other related features like administrative units, custom roles, Conditional Access, and Intune have other licensing requirements.
 
-## Required roles or permission
+### Required roles or permission
 
 Other than the built-in Azure AD roles of Cloud Device Administrator, Intune Administrator, and Global Administrator that are granted *device.LocalCredentials.Read.All*, you can use [Azure AD custom roles](/azure/active-directory/roles/custom-create) or administrative units to authorize local administrator password recovery. For example,
 
@@ -117,7 +118,7 @@ Conditional Access policies can be scoped to the built-in roles like Cloud Devic
 > [!NOTE]  
 > Other role types including administrative unit-scoped roles and custom roles aren't supported
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 ### Is Windows LAPS with Azure AD management configuration supported using Group Policy Objects (GPO)?
 
