@@ -55,7 +55,7 @@ You can follow along with the Python SDK version of this example by opening the 
 
 ## Create the inference pipeline
 
-In this section, we'll create all the assets required for our inference pipeline. We'll begin by creating an environment that includes necessary libraries for the pipeline's components. Next, we'll create a compute cluster on which the batch deployment will run. Finally, we'll register the components, models, and transformations we need to build our inference pipeline.
+In this section, we'll create all the assets required for our inference pipeline. We'll begin by creating an environment that includes necessary libraries for the pipeline's components. Next, we'll create a compute cluster on which the batch deployment will run. Afterwards, we'll register the components, models, and transformations we need to build our inference pipeline. Finally, we'll build and test the pipeline.
 
 ### Create the environment
 
@@ -200,7 +200,7 @@ We're going to register components, models, and transformations that we need to 
     > Best practice would be to register the component and reference it from the pipeline. However, in this example, we're going to reference the component directly from its definition to help you see which components are reused from the training pipeline and which ones are new.
 
 
-## Create the pipeline
+### Build the pipeline
 
 Now it's time to bind all the elements together. The inference pipeline we'll deploy has two components (steps):
 
