@@ -69,12 +69,13 @@ The MITRE ATT&CK map helps you identify specific gaps in your detection coverage
 There are two ways to create a hunt.
 
 - If you've started with a hypothesis where you've selected queries, select the **Hunt actions** drop down menu > **Create new hunt**. This creates a new hunt with clones of the queries related to the hunt you selected.
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+:::image type="content" source="media/organize-hunts/create-new-hunt.png" alt-text="Screenshot shows queries selected and the create new hunt menu option selected.":::
 
 - If you haven't decided on queries yet, select the **Hunts (Preview)** tab > **New Hunt** to create a blank hunt.
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+:::image type="content" source="media/organize-hunts/create-blank-hunt.png" alt-text="Screenshot shows the menu to create a blank hunt with no pre-selected queries.":::
 
 - Fill out the hunt name and additional optional fields. The description is a good place to verbalize your hypothesis. The **Hypothesis** pull down menu is where you set the status of your working hypothesis. Select **Create** to get started.
+:::image type="content" source="media/organize-hunts/create-hunt-description.png" alt-text="Screenshot shows the hunt creation page with Hunt name, description, owner, status and hypothesis state.":::
 
 ### Deploy Demo Hunt via ARM template (if needed)
 If you don’t have any hunting queries that produce results in your environment, and don’t want to create an empty hunt, you can deploy a "Demo Hunt".
