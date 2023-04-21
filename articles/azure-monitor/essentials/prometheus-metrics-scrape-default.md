@@ -135,6 +135,7 @@ The following metrics are collected by default from each default target. All oth
    - `kubernetes_build_info`
    - `kube_node_status_condition`
    - `kube_node_spec_taint`
+   - `kube_pod_container_info`
 
 ## Targets scraped for Windows
 
