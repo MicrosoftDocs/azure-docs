@@ -58,6 +58,8 @@
         href: troubleshoot-device-dsregcmd.md
       - name: Troubleshoot hybrid Azure AD joined down level Windows devices
         href: troubleshoot-hybrid-join-windows-legacy.md
+  - name: Windows Local Administrator Password Solution (LAPS) with Azure AD
+    href: howto-windows-laps-with-azuread.md
   - name: Manage device identities
     href: device-management-azure-portal.md
   - name: Troubleshooting Windows devices
