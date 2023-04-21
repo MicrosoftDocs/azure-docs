@@ -43,10 +43,10 @@ Enable the central workspace once you have decided which Microsoft Sentinel work
 1. Once enabled, a new blade **Workspace manager (preview)** appears on the left menu under **Configuration**.
 
 Here's a comparison of the feature off and enabled side by side.
-:::image type="content" source="media/workspace-manager/workspace-manager-before-after.png" alt-text="A screenshot showing the Workspace manager configuration settings with the workspace parent toggle button off next to the same screen with the menu item added for workspace manager and the toggle button on.":::
+:::image type="content" source="media/workspace-manager/workspace-manager-before-after.png" alt-text="Two screenshots showing the workspace manager configuration settings. One screenshot with the workspace parent toggle button off. The other with the menu item added for workspace manager and the toggle button on.":::
 
 ## Onboard member workspaces
-Member workspaces are the set of workspaces that will be managed by workspace manager. You can onboard some or all of the workspaces in the tenant, and across multiple tenants as well (if Azure Lighthouse is enabled).
+Member workspaces are the set of workspaces to be managed by workspace manager. You can onboard some or all of the workspaces in the tenant, and across multiple tenants as well (if Azure Lighthouse is enabled).
 1. Navigate to workspace manager and select "Add workspaces"
     :::image type="content" source="media/workspace-manager/add-workspace.png" alt-text="Screenshot shows the add workspace menu." lightbox="media/workspace-manager/add-workspace.png":::
 1. Select the member workspace(s) you would like to onboard to workspace manager.
@@ -71,9 +71,9 @@ Workspace manager groups allow you to organize workspaces together based on busi
     :::image type="content" source="media/workspace-manager/add-group-name.png" alt-text="Screenshot shows the group create or update configuration page.":::
 
 1. In the **Select workspaces** tab, click **Add** and select the member workspaces that you would like to add to the group.
-1. In the **Select content** tab, you will have 2 ways to add content items.
-    - Method 1: Select the **Add** menu and choose **All content**. This will pull all active content currently deployed in the central workspace. This is a point-in-time snapshot that selects only active content, not templates.
-    - Method 2: Select the **Add** menu and choose **Content**. This opens a **Select content** pane where you can custom select the content to be added. 
+1. In the **Select content** tab, you have 2 ways to add content items.
+    - Method 1: Select the **Add** menu and choose **All content**. This pulls all active content currently deployed in the central workspace. This list is a point-in-time snapshot that selects only active content, not templates.
+    - Method 2: Select the **Add** menu and choose **Content**. This opens a **Select content** pane to custom select the content to be added. 
     :::image type="content" source="media/workspace-manager/add-group-content.png" alt-text="Screenshot shows the group content selection.":::
 
 1. After either method, you can further filter the content before you **Review + create**.
