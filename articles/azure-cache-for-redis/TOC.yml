@@ -204,7 +204,7 @@
       href: cache-remove-tls-10-11.md
     - name: Management FAQs
       href: cache-management-faq.yml
-      name: Azure Functions
+    - name: Azure Functions
       href: cache-how-to-functions.md
   - name: Monitor
     items:

@@ -287,7 +287,7 @@ public static void StreamsTrigger(
 
 ### Return Values
 
-All triggers return a [`RedisMessageModel`](./src/Models/RedisMessageModel.cs) object that has two fields:
+All triggers return a `RedisMessageModel` object that has two fields:
 
 - `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
 - `Message`: The pubsub message, list element, or stream element.
