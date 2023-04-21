@@ -80,8 +80,8 @@ The following languages are supported in the customer tenant:
    - Turkish (Turkey)
    - Ukrainian (Ukraine)
    
-5. Customize the elements on the **Basics**, **Layout**, **Header**, **Footer**, **Sign-in form**, and **Text** tabs. For detailed instructions, see [Customize the branding and end-user experience](how-to-customize-branding-customers.md).
-6. When you’re finished, select the **Review** tab and go over all of your language customizations. Then select **Add** if you would like to save your changes or **Previous** if you would like to continue editing.
+6. Customize the elements on the **Basics**, **Layout**, **Header**, **Footer**, **Sign-in form**, and **Text** tabs. For detailed instructions, see [Customize the branding and end-user experience](how-to-customize-branding-customers.md).
+7. When you’re finished, select the **Review** tab and go over all of your language customizations. Then select **Add** if you would like to save your changes or **Previous** if you would like to continue editing.
 
 ## Right-to-left language support
 
