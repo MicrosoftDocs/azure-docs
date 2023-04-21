@@ -12,12 +12,11 @@ ms.reviewer: dacoelho
 
 # Low Shuffle Merge optimization on Delta tables
 
-Delta Lake [MERGE command](https://docs.delta.io/latest/delta-update.html#upsert-into-a-table-using-merge) allows users to update a delta table with advanced conditions. It can update data from a source table, view or DataFrame into a target table by using MERGE command. However, the current algorithm of MERGE command is not optimized for handling *unmodified* rows. With Low Shuffle Merge optimization, unmodified rows are excluded from expensive shuffling execution and written separately.
+Delta Lake [MERGE command](https://docs.delta.io/latest/delta-update.html#upsert-into-a-table-using-merge) allows users to update a delta table with advanced conditions. It can update data from a source table, view or DataFrame into a target table by using MERGE command. However, the current algorithm is not fully optimized for handling *unmodified* rows. With Low Shuffle Merge optimization, unmodified rows are excluded from an expensive shuffling operation which is needed for updating matched rows.
 
-To run MERGE operation, 2 join queries are required. The first one is joining the whole target table and source data, to find *touched* files including any matched row. The other one is for actual MERGE operation only with *touched* files of the target table. The first join query is lighter as it only reads columns in the matching condition. Although Delta performs the first join to reduce the amount of data for the actual merge process, still a huge number of *unmodified* rows in *touched* files could go through the second join process which includes heavy shuffling process. 
+Currently MERGE operation is done by 2 Join operations. The first join is using the whole target table and source data, to find a list of *touched* files of the target table including any matched rows. After that, it performs the second join reading only those *touched* files and source data, to do actual table update. Even though the first join is to reduce the amount of data for the second join, there could still be a huge number of *unmodified* rows in *touched* files. The first Join query is lighter because it only reads columns in the given matching condition, but the second one needs to load all columns of each file which incurs a heavy shuffling process.
 
-With Low Shuffle Merge optimization, Delta retrieves *matched* rows result from the first join result and utilizes it for excluding *unmatched* rows from the second join. Delta runs 2 separate write jobs for *matched* rows and *unmodified* rows, thus it could result in 2x number of output files compared to the default MERGE operation. The expected performance gain outweighs the possible small files problem. 
-
+With Low Shuffle Merge optimization, Delta keeps the matched row result from the first join temporarily and utilizes it for the second join. Using the result, it excludes *unmodified* rows from the heavy shuffling process. There would be 2 separate write jobs for *matched* rows and *unmodified* rows, thus it could result in 2x number of output files compared to the previous behavior. However, the expected performance gain outweighs the possible small files problem.
 ## Availability
 
 > [!NOTE]
@@ -34,8 +33,8 @@ It is available on Synapse Pools for Apache Spark versions 3.2 and 3.3.
 
 ## Benefits of Low Shuffle Merge
 
-* Unmodified rows in *touched* files are handled separately and not going through the actual MERGE operation. It can save the overall MERGE execution time and resources.
-* Row orderings are preserved for unmodified rows. Therefore, the output files of unmodified rows are still efficient for data skipping if the file was sorted or Z-ORDERED.
+* Unmodified rows in *touched* files are handled separately and not going through the actual MERGE operation. It can save the overall MERGE execution time and compute resources. The gain would be larger when a lot of rows are just copied and only a small number of rows are updated.
+* Row orderings are preserved for unmodified rows. Therefore, the output files of unmodified rows could be still efficient for data skipping if the file was sorted or Z-ORDERED.
 * Very little overhead even for the worst case which is matching all rows.
 
 
