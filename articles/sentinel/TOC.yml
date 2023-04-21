@@ -923,7 +923,7 @@
       href: create-tasks-playbook.md
   - name: Manage Microsoft Sentinel
     items:
-    - name: Manage multiple workspaces with Workspace Manager
+    - name: Manage multiple workspaces
       href: workspace-manager.md
     - name: Microsoft Sentinel for MSSPs
       items:
