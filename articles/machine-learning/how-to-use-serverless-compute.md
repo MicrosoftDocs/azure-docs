@@ -84,7 +84,7 @@ environment:
 
 The compute defaults to serverless compute with:
 
-* Single node for this job.  The number of nodes is based on the type of job.  See following sections for other job types.
+* Single node for this job.  The default number of nodes is based on the type of job.  See following sections for other job types.
 * CPU virtual machine, determined based on quota, performance, cost, and disk size.
 * Dedicated priority
 * Workspace location
