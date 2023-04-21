@@ -189,6 +189,10 @@ The Conditional Access policy wasn't created or the policy state is **Off** or *
 
 Create the Conditional Access policy if it doesn't exist or and set the state to **On**.
 
+If you aren't able to access the Conditional Access page because of the protected action and repeated requests to reauthenticate, use the following link to open the Conditional Access page.
+
+- [https://aka.ms/MSALProtectedActions](https://aka.ms/MSALProtectedActions)
+
 ### Symptom - No access to add protected actions
 
 When signed in you don't have permissions to add or remove protected actions.
