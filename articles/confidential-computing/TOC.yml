@@ -53,6 +53,8 @@
     href: confidential-computing-solutions.md
   - name: Deploying solutions on confidential computing
     href: confidential-computing-deployment-models.md
+  - name: Data cleanroom solutions on confidential computing
+    href: multi-party-data.md
   - name: Confidential virtual machines
     items:
     - name: About confidential VMs
