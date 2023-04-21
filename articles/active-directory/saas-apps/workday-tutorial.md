@@ -73,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Screenshot of showing Edit Basic SAML Configuration.](common/edit-urls.png)
+   ![Screenshot showing Edit Basic SAML Configuration.](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** page, enter the values for the following fields:
 
@@ -99,21 +99,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-   ![Screenshot of showing The Certificate download link.](common/metadataxml.png)
+   ![Screenshot showing The Certificate download link.](common/metadataxml.png)
 
 1. To modify the **Signing** options as per your requirement, click **Edit** button to open **SAML Signing Certificate** dialog.
 
-	![Screenshot of showing Certificate.](common/edit-certificate.png) 
+	![Screenshot showing Certificate.](common/edit-certificate.png) 
 
 	a. Select **Sign SAML response and assertion** for **Signing Option**.
 
-    ![Screenshot of showing SAML Signing Certificate.](./media/workday-tutorial/signing-option.png)
+    ![Screenshot showing SAML Signing Certificate.](./media/workday-tutorial/signing-option.png)
 
 	b. Click **Save**
 
 1. On the **Set up Workday** section, copy the appropriate URL(s) based on your requirement.
 
-   ![Screenshot of showing Copy configuration URLs.](common/copy-configuration-urls.png)
+   ![Screenshot showing Copy configuration URLs.](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -145,16 +145,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Search box**, search with the name **Edit Tenant Setup – Security** on the top left side of the home page.
 
-    ![Screenshot of showing Edit Tenant Security.](./media/workday-tutorial/search-box.png "Edit Tenant Security")
+    ![Screenshot showing Edit Tenant Security.](./media/workday-tutorial/search-box.png "Edit Tenant Security")
 
 
 1. In the **SAML Setup** section, click on **Import Identity Provider**.
 
-    ![Screenshot of showing SAML Setup.](./media/workday-tutorial/saml-setup.png "SAML Setup")
+    ![Screenshot showing SAML Setup.](./media/workday-tutorial/saml-setup.png "SAML Setup")
 
 1. In **Import Identity Provider** section, perform the below steps:
 
-    ![Screenshot of showing Importing Identity Provider.](./media/workday-tutorial/import-identity-provider.png)
+    ![Screenshot showing Importing Identity Provider.](./media/workday-tutorial/import-identity-provider.png)
 
     a. Give the **Identity Provider Name** like `AzureAD` in the textbox.
 
@@ -166,7 +166,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. After clicking **OK**, a new row will be added in the **SAML Identity Providers** and then you can add the below steps for the newly created row.
 
-    ![Screenshot of showing SAML Identity Providers.](./media/workday-tutorial/saml-identity-providers.png "SAML Identity Providers")
+    ![Screenshot showing SAML Identity Providers.](./media/workday-tutorial/saml-identity-providers.png "SAML Identity Providers")
 
     a. Click on **Enable IDP Initiated Logout** checkbox.
 
@@ -197,13 +197,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Directory** page, select **Find Workers** in view tab.
 
-    ![Screenshot of showing Find workers.](./media/workday-tutorial/user-directory.png)
+    ![Screenshot showing Find workers.](./media/workday-tutorial/user-directory.png)
 
 1.  In the **Find Workers** page, select the user from the results.
 
 1. In the following page,select **Job > Worker Security** and the **Workday account** has to match with the Azure active directory as the **Name ID** value.
 
-    ![Screenshot of showing Worker Security.](./media/workday-tutorial/worker-security.png)
+    ![Screenshot showing Worker Security.](./media/workday-tutorial/worker-security.png)
 
 > [!NOTE]
 > For more information on how to create a workday test user, please contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html).
