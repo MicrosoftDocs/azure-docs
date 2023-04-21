@@ -124,10 +124,6 @@ If you see an error that requires admin consent while accessing an application, 
 
 ### Automatic redemption setting
 
-> [!IMPORTANT]
-> Automatic redemption is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 You might want to automatically redeem invitations so users don't have to accept the consent prompt when they're added to another tenant for B2B collaboration. When configured, a notification email is sent to the B2B collaboration user that requires no action from the user. Users are sent the notification email directly and they don't need to access the tenant first before they receive the email. The following shows an example notification email if you automatically redeem invitations in both tenants.
 
 :::image type="content" source="media/redemption-experience/email-consent-prompt-suppressed.png" alt-text="Screenshot that shows B2B notification email when the consent prompt is suppressed.":::
