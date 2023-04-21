@@ -20,33 +20,28 @@ landingContent:
 # Start card title with a verb
   # Card (optional)
 
-  - title: Latest changes
-    linkLists:
-      - linkListType: whats-new
-        links:
-          - text: What's new in Centrally managed Azure Hybrid Benefit
-            url: whats-new.md
-
   - title: Get started
     linkLists:
     - linkListType: overview
       links:
       - text: What is centralized management?
         url: overview-azure-hybrid-benefit-scope.md
+    - linkListType: video
+      links:
+      - text: Demo - How to Leverage Centrally-managed Azure Hybrid Benefit
+        url: https://aka.ms/azure/pricing/CM_AHB_SQL/DevVideo
     - linkListType: tutorial
       links:
       - text: Optimize centrally managed Azure Hybrid Benefit
         url: tutorial-azure-hybrid-benefits-sql.md
-    - linkListType: how-to-guide
-      links:
-      - text: Create SQL Server license assignments
-        url: create-sql-license-assignments.md
 
   # Card (optional)
   - title: Manage
     linkLists:
     - linkListType: how-to-guide
       links:
+      - text: Create SQL Server license assignments
+        url: create-sql-license-assignments.md
       - text: Transition to centrally managed Azure Hybrid Benefit
         url: transition-existing.md
     - linkListType: reference
@@ -63,7 +58,7 @@ landingContent:
         url: manage-licenses-centrally.md
       - text: SQL Server HADR vs Azure Hybrid Benefit
         url: sql-server-hadr-licenses.md
-    - linkListType: video
+    - linkListType: whats-new
       links:
-      - text: How to Leverage Centrally-managed Azure Hybrid Benefit
-        url: https://aka.ms/azure/pricing/CM_AHB_SQL/DevVideo
+      - text: What's new in Centrally managed Azure Hybrid Benefit
+        url: whats-new.md

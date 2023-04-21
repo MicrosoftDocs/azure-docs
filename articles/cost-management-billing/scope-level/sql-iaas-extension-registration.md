@@ -87,6 +87,10 @@ Because of the way that roles and permissions work in Azure, including segregati
 
 You can enable automatic registration in the Azure portal for a single subscription, or for multiple subscriptions suing the PowerShell script mentioned previously. We recommend that you complete the registration process for all of your subscriptions so you can view all of your Azure SQL infrastructure.
 
+The following [Managing Azure VMs with the SQL IaaS Agent Extension](https://www.youtube.com/watch?v=HqU0HH1vODg) video shows the processd.
+
+>[!VIDEO https://www.youtube.com/embed/HqU0HH1vODg]
+
 ## Registration duration and verification
 
 After you complete either of the preceding automatic registration options, it can take up to 48 hours to detect all your SQL Servers. When complete, all your SQL Server virtual machines should be visible on the [SQL virtual machines](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) page in the Azure portal.
