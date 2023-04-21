@@ -39,7 +39,7 @@
   - name: Azure role-based access control
     displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab plan
     href: concept-lab-services-role-based-access-control.md
-  - name: Transition lab account role assignments
+  - name: Migrate lab account role assignments
     displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab account, migrate, upgrade
     href: concept-migrate-from-lab-accounts-roles.md
   - name: Migrate from physical labs
