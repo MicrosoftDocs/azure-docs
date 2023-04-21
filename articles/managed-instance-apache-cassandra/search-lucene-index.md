@@ -24,7 +24,10 @@ Cassandra Lucene Index, derived from Stratio Cassandra, is a plugin for Apache C
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Deploy an Azure Managed Instance for Apache Cassandra cluster. You can do this via the [portal](create-cluster-portal.md) - Lucene indexes will be enabled by default.
+- Deploy an Azure Managed Instance for Apache Cassandra cluster. You can do this via the [portal](create-cluster-portal.md) - Lucene indexes will be enabled by default when clusters are deployed from the portal. If you want to add Lucene indexes to an existing cluster, click `Update` in the portal overview blade, select `Cassandra Lucene Index`, and click update to deploy. 
+
+   :::image type="content" source="./media/search-lucene-index/update-cluster.png" alt-text="Screenshot of Update Cassandra Cluster Properties." lightbox="./media/search-lucene-index/update-cluster.png" border="true":::
+
 - Connect to your cluster from [CQLSH](create-cluster-portal.md#connecting-from-cqlsh).
 
 ## Create data with Lucene Index
