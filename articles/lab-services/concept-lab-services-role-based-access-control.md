@@ -215,27 +215,30 @@ For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-
 
 ## Resource group and lab plan structure
 
-Your organization should invest time up front to plan the structure of your resource groups and lab plans.  This is especially important when users are assigned roles at the resource group level because they automatically will have permission to use all resources within the resource group.  To ensure that users are only granted permission to the appropriate resources, we recommend that you: 
+Your organization should invest time up front to plan the structure of resource groups and lab plans. This is especially important when you assign roles at the resource group level because this also applies permissions to all resources in the resource group.
 
-Create resource groups that only contain lab-related resources. 
+To ensure that users are only granted permission to the appropriate resources:
 
-Organize lab plans and labs into separate resource groups according to the users that should have access. 
+- Create resource groups that only contain lab-related resources. 
 
-For example, you may want to create separate resource groups for different departments, such as one for Math and another for Engineering, so that each department’s lab resources are isolated from one another.  Educators in the Engineering department can then be granted permission at the resource group level, which will only give them access to their department’s lab resources. 
+- Organize lab plans and labs into separate resource groups according to the users that should have access. 
 
-IMPORTANT – You should plan the structure of resource groups and labs plans up front because it’s not possible to move lab plans or labs to a different resource group once they are created. 
+For example, you might create separate resource groups for different departments to isolate each department’s lab resources. Lab creators in one department can then be granted permissions at the resource group level, which only grants them access to the lab resources of their department.
+
+> [!IMPORTANT]
+> Plan the resource group and lab plan structure upfront because it’s not possible to move lab plans or labs to a different resource group after they're created.
 
 ### Access to multiple resource groups
 
-Administrators and educators can be granted permission to more than one resource group.  For example, when an educator is assigned the Lab Contributor role on labs from different resource groups, the educator will be prompted to choose from the list of resource groups to view their labs: 
+You can grant users access to multiple resource groups. In the [Azure Lab Services website](https://labs.azure.com) the user can then choose from the list of resource groups to view their labs.
 
-TODO: add image
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-choose-resource-group.png" alt-text="Screenshot that shows how to choose between resource groups in the Azure Lab Services website.":::
 
 ### Access to multiple lab plans
 
-Likewise, administrators and educators can be granted permission to more than one lab plan.  For example, when an educator is assigned the Lab Creator role on a resource group that contains more than one lab plan, the educator will be prompted to choose from the list of lab plans during lab creation. 
+You can grant users access to multiple lab plans. For example, when you assign the Lab Creator role to a user on a resource group that contains more than one lab plan. The user can then choose from the list of lab plans when creating a new lab.
 
-TODO: add image
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-choose-lab-plan.png" alt-text="Screenshot that shows how to choose between lab plans when creating a lab in the Azure Lab Services website.":::
 
 ## Next steps
 
