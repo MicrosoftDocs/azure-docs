@@ -10,11 +10,13 @@ ms.date: 04/21/2023
 
 Part of the AKS cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It’s important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your AKS cluster.
 
+For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade]. To upgrade a specific node pool without doing a Kubernetes cluster upgrade, see [Upgrade a specific node pool][specific-nodepool].
+
+## Kubernetes version upgrades
+
 When you upgrade a supported AKS cluster, Kubernetes minor versions can't be skipped. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed.
 
 Skipping multiple versions can only be done when upgrading from an *unsupported version* back to a *supported version*. For example, an upgrade from an unsupported *1.10.x* -> a supported *1.15.x* can be completed if available. When performing an upgrade from an *unsupported version* that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty. If your version is significantly out of date, we recommend you recreate your cluster.
-
-For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade]. To upgrade a specific node pool without doing a Kubernetes cluster upgrade, see [Upgrade a specific node pool][specific-nodepool].
 
 > [!NOTE]
 > Any upgrade operation, whether performed manually or automatically, will upgrade the node image version if not already on the latest. The latest version is contingent on a full AKS release and can be determined by visiting the [AKS release tracker][release-tracker].
@@ -32,38 +34,38 @@ For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgr
 
 ### [Azure CLI](#tab/azure-cli)
 
-* Check which Kubernetes releases are available for your cluster using the [`az aks get-upgrades`][az-aks-get-upgrades] command.
+Check which Kubernetes releases are available for your cluster using the [`az aks get-upgrades`][az-aks-get-upgrades] command.
 
-    ```azurecli-interactive
-    az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
-    ```
+```azurecli-interactive
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
+```
 
-    The following example output shows that the cluster can be upgraded to versions *1.19.1* and *1.19.3*:
+The following example output shows that the cluster can be upgraded to versions *1.19.1* and *1.19.3*:
 
-    ```output
-    Name     ResourceGroup    MasterVersion    Upgrades
-    -------  ---------------  ---------------  --------------
-    default  myResourceGroup  1.18.10          1.19.1, 1.19.3
-    ```
+```output
+Name     ResourceGroup    MasterVersion    Upgrades
+-------  ---------------  ---------------  --------------
+default  myResourceGroup  1.18.10          1.19.1, 1.19.3
+```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* Check which Kubernetes releases are available for your cluster using [`Get-AzAksUpgradeProfile`][get-azaksupgradeprofile] command.
+Check which Kubernetes releases are available for your cluster using [`Get-AzAksUpgradeProfile`][get-azaksupgradeprofile] command.
 
-    ```azurepowershell-interactive
-     Get-AzAksUpgradeProfile -ResourceGroupName myResourceGroup -ClusterName myAKSCluster |
-     Select-Object -Property Name, ControlPlaneProfileKubernetesVersion -ExpandProperty ControlPlaneProfileUpgrade |
-     Format-Table -Property *
-    ```
+```azurepowershell-interactive
+Get-AzAksUpgradeProfile -ResourceGroupName myResourceGroup -ClusterName myAKSCluster |
+Select-Object -Property Name, ControlPlaneProfileKubernetesVersion -ExpandProperty ControlPlaneProfileUpgrade |
+Format-Table -Property *
+```
 
-    The following example output shows that the cluster can be upgraded to versions *1.19.1* and *1.19.3*:
+The following example output shows that the cluster can be upgraded to versions *1.19.1* and *1.19.3*:
 
-    ```output
-    Name    ControlPlaneProfileKubernetesVersion IsPreview KubernetesVersion
-    ----    ------------------------------------ --------- -----------------
-    default 1.18.10                                        1.19.1
-    default 1.18.10                                        1.19.3
-    ```
+```output
+Name    ControlPlaneProfileKubernetesVersion IsPreview KubernetesVersion
+----    ------------------------------------ --------- -----------------
+default 1.18.10                                        1.19.1
+default 1.18.10                                        1.19.3
+```
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -85,31 +87,31 @@ The Azure portal highlights all the deprecated APIs between your current version
 
 ### [Azure CLI](#tab/azure-cli)
 
-* The following example output means the `appservice-kube` extension isn't compatible with your Azure CLI version (a minimum of version 2.34.1 is required):
+The following example output means the `appservice-kube` extension isn't compatible with your Azure CLI version (a minimum of version 2.34.1 is required):
 
-    ```output
-    The 'appservice-kube' extension is not compatible with this version of the CLI.
-    You have CLI core version 2.0.81 and this extension requires a min of 2.34.1.
-    Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
-    ```
+```output
+The 'appservice-kube' extension is not compatible with this version of the CLI.
+You have CLI core version 2.0.81 and this extension requires a min of 2.34.1.
+Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
+```
 
-    If you receive this output, you need to update your Azure CLI version. The `az upgrade` command was added in version 2.11.0 and doesn't work with versions prior to 2.11.0. You can update older versions by reinstalling Azure CLI as described in [Install the Azure CLI](/cli/azure/install-azure-cli). If your Azure CLI version is 2.11.0 or later, you receive a message to run `az upgrade` to upgrade Azure CLI to the latest version.
+If you receive this output, you need to update your Azure CLI version. The `az upgrade` command was added in version 2.11.0 and doesn't work with versions prior to 2.11.0. You can update older versions by reinstalling Azure CLI as described in [Install the Azure CLI](/cli/azure/install-azure-cli). If your Azure CLI version is 2.11.0 or later, you receive a message to run `az upgrade` to upgrade Azure CLI to the latest version.
 
-* If your Azure CLI is updated and you receive the following example output, it means that no upgrades are available:
+If your Azure CLI is updated and you receive the following example output, it means that no upgrades are available:
 
-    ```output
-    ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
-    ```
+```output
+ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
+```
 
-    If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when `az aks get-upgrades` shows that no upgrades are available.
+If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when `az aks get-upgrades` shows that no upgrades are available.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when `Get-AzAksUpgradeProfile` shows that no upgrades are available.
+If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when `Get-AzAksUpgradeProfile` shows that no upgrades are available.
 
 ### [Azure portal](#tab/azure-portal)
 
-* If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when no upgrades are available.
+If no upgrades are available, create a new cluster with a supported version of Kubernetes and migrate your workloads from the existing cluster to the new cluster. It's not supported to upgrade a cluster to a newer Kubernetes version when no upgrades are available.
 
 ---
 
@@ -126,7 +128,7 @@ During the cluster upgrade process, AKS performs the following operations:
 [!INCLUDE [alias minor version callout](./includes/aliasminorversion/alias-minor-version-upgrade.md)]
 
 > [!IMPORTANT]
-> Ensure that any `PodDisruptionBudgets` (PDBs) allow for at least 1 pod replica to be moved at a time otherwise the drain/evict operation will fail.
+> Ensure that any `PodDisruptionBudgets` (PDBs) allow for at least *one* pod replica to be moved at a time otherwise the drain/evict operation will fail.
 > If the drain operation fails, the upgrade operation will fail by design to ensure that the applications are not disrupted. Please correct what caused the operation to stop (incorrect PDBs, lack of quota, and so on) and re-try the operation.
 
 ### [Azure CLI](#tab/azure-cli)
@@ -255,38 +257,35 @@ After receiving the error message, you have two options to mitigate the issue. Y
 
     :::image type="content" source="./media/upgrade-cluster/applens-api-detection-inline.png" lightbox="./media/upgrade-cluster/applens-api-detection-full.png" alt-text="A screenshot of the Azure portal showing the 'Selected Kubernetes API deprecations' section.":::
 
-  You can also check past API usage by enabling [container insights][container-insights] and exploring kube audit logs.
-
 3. Wait 12 hours from the time the last deprecated API usage was seen.
 
 4. Retry your cluster upgrade.
+
+You can also check past API usage by enabling [Container Insights][container-insights] and exploring kube audit logs.
 
 ### Bypass validation to ignore API changes
 
 > [!NOTE]
 > This method requires you to use the `aks-preview` Azure CLI extension version 0.5.134 or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend to removing them as soon as possible after the upgrade completes.
 
-* Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command and setting the `upgrade-settings` property to `IgnoreKubernetesDeprecations`.
+Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command and setting the `upgrade-settings` property to `IgnoreKubernetesDeprecations` and setting the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
 
-    ```azurecli-interactive
-    az aks update --name myAKSCluster --resource-group myResourceGroup --upgrade-settings IgnoreKubernetesDeprecations --upgrade-override-until 2023-04-01T13:00:00Z
-    ```
+```azurecli-interactive
+az aks update --name myAKSCluster --resource-group myResourceGroup --upgrade-settings IgnoreKubernetesDeprecations --upgrade-override-until 2023-04-01T13:00:00Z
+```
 
-    The `upgrade-override-until` property is used to define the end of the window during which validation will be bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
-
-    `Z` is the zone designator for the zero UTC/GMT offset, also known as 'Zulu' time. This example sets the end of the window to `13:00:00` GMT. For more information, see [Combined date and time representations](https://wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
-
-    After a successful override, performing an upgrade operation will ignore any deprecated API usage for the targeted version.
+> [!NOTE]
+> `Z` is the zone designator for the zero UTC/GMT offset, also known as 'Zulu' time. This example sets the end of the window to `13:00:00` GMT. For more information, see [Combined date and time representations](https://wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
 
 ## Customize node surge upgrade
 
 > [!IMPORTANT]
 >
-> * Node surges require subscription quota for the requested max surge count for each upgrade operation. For example, a cluster that has five node pools, each with a count of four nodes, has a total of 20 nodes. If each node pool has a max surge value of 50%, additional compute and IP quota of 10 nodes (2 nodes * 5 pools) is required to complete the upgrade.
+> Node surges require subscription quota for the requested max surge count for each upgrade operation. For example, a cluster that has five node pools, each with a count of four nodes, has a total of 20 nodes. If each node pool has a max surge value of 50%, additional compute and IP quota of 10 nodes (2 nodes * 5 pools) is required to complete the upgrade.
 >
-> * If using Azure CNI, validate there are available IPs in the subnet to [satisfy IP requirements of Azure CNI](configure-azure-cni.md).
+> The max surge setting on a node pool is persistent.  Subsequent Kubernetes upgrades or node version upgrades will use this setting. You may change the max surge value for your node pools at any time. For production node pools, we recommend a max-surge setting of 33%.
 >
-> * The max surge setting on a node pool is persistent.  Subsequent Kubernetes upgrades or node version upgrades will use this setting. You may change the max surge value for your node pools at any time. For production node pools, we recommend a max-surge setting of 33%.
+> If you're using Azure CNI, validate there are available IPs in the subnet to [satisfy IP requirements of Azure CNI](configure-azure-cni.md).
 
 By default, AKS configures upgrades to surge with one extra node. A default value of one for the max surge settings enables AKS to minimize workload disruption by creating an extra node before the cordon/drain of existing applications to replace an older versioned node. The max surge value can be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. When you increase the max surge value, the upgrade process completes faster. If you set a large value for max surge, you might experience disruptions during the upgrade process.
 
@@ -298,15 +297,15 @@ During an upgrade, the max surge value can be a minimum of *1* and a maximum val
 
 ### Set max surge values
 
-* Set max surge values for new or existing node pools using the following commands:
+Set max surge values for new or existing node pools using the following commands:
 
-    ```azurecli-interactive
-    # Set max surge for a new node pool
-    az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 33%
+```azurecli-interactive
+# Set max surge for a new node pool
+az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 33%
 
-    # Update max surge for an existing node pool 
-    az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 5
-    ```
+# Update max surge for an existing node pool 
+az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 5
+```
 
 ## Set auto-upgrade channel
 
