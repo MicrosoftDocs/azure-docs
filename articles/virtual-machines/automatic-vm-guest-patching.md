@@ -239,9 +239,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet to enable automatic VM guest patching on an existing VM.
 
 ```azurepowershell-interactive
-$VirtualMachineName='myVM'
-$ResourceGroupName='myResourceGroup'
-$VirtualMachine=Get-AzVM -ResourceGroupName $ResourceGroupName -Name $VirtualMachineName
+$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 Set-AzVMOperatingSystem -VM $VirtualMachine -PatchMode "AutomaticByPlatform"
 Update-AzVM -VM $VirtualMachine
 ```
@@ -297,9 +295,7 @@ GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 Use the [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet with the `-Status` parameter to access the instance view for your VM.
 
 ```azurepowershell-interactive
-$VirtualMachineName='myVM'
-$ResourceGroupName='myResourceGroup'
-Get-AzVM -ResourceGroupName $ResourceGroupName -Name $VirtualMachineName -Status -OutVariable VirtualMachine
+Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM" -Status
 ```
 
 PowerShell currently only provides information on the patch extension. Information about `patchStatus` will also be available soon through PowerShell.
