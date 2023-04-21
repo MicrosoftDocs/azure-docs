@@ -35,7 +35,8 @@ Register the `Microsoft.RedHatOpenShift` resource provider. For instructions on 
         *	Select **Master VM Size** and **Worker VM Size**.
         *   Select **Worker node count** (i.e., the number of worker nodes to create). 
 
-    ![**Basics** tab on Azure portal](./media/Basics.png)
+> [!div class="mx-imgBorder"]
+>    [ ![**Basics** tab on Azure portal](./media/Basics.png) ](./media/Basics.png#lightbox)
     
     > [!NOTE]
     > The **Domain name** field is pre-populated with a random string. You can either specify a domain name (e.g., *example.com*) or a string/prefix (e.g., *abc*) that will be used as part of the auto-generated DNS name for OpenShift console and API servers. This prefix is also used as part of the name of the resource group that is created to host the cluster VMs if a resource group name is not specified.
@@ -58,11 +59,13 @@ Register the `Microsoft.RedHatOpenShift` resource provider. For instructions on 
 
        **Note**: Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets: one for the control plane and one for worker nodes.
 
-![**Networking** tab on Azure portal](./media/Networking.png)
+> [!div class="mx-imgBorder"]
+> [ ![**Networking** tab on Azure portal](./media/Networking.png) ](./media/Networking.png#lightbox)
 
 7.	On the **Tags** tab, add tags to organize your resources.
 
-![**Tags** tab on Azure portal](./media/Tags.png)
+> [!div class="mx-imgBorder"]
+> [ ![**Tags** tab on Azure portal](./media/Tags.png) ](./media/Tags.png#lightbox)
  
 8.	Check **Review + create** and then **Create** when validation completes.   
 
