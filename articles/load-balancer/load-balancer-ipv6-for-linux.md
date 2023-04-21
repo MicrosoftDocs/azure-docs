@@ -26,7 +26,7 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 > [!WARNING]
 > By improperly editing network configuration files, you can lose network access to your VM. We recommended that you test your configuration changes on non-production systems. The instructions in this article have been tested on the latest versions of the Linux images in the Azure Marketplace. For more detailed instructions, consult the documentation for your own version of Linux.
 
-# [RHEL, CentOS, Oracle](#tab/redhat) 
+# [RHEL/CentOS/Oracle](#tab/redhat) 
 
 1. Edit the */etc/sysconfig/network* file, and add the following parameter:
 
@@ -50,7 +50,7 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 
 Content for Red Hat... 
  
-# [openSUSE 13, SLES11](#tab/suse)  
+# [openSUSE_13/SLES_11](#tab/suse)  
 
 Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, follow these steps:
 
@@ -72,7 +72,7 @@ Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have bee
     sudo ifdown eth0 && sudo ifup eth0
     ``` 
 
-# [openSUSE Leap, SLES12](#tab/suse_leap)  
+# [openSUSE_Leap/SLES_12](#tab/sles12)  
 
 Recent SLES and openSUSE images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, follow these steps:
 
