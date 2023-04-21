@@ -430,38 +430,38 @@ There are approximately **375** unique integration tests available, across **27*
 
 | Suite # | Test suite name                 | Description of test                                                                                                                                    |
 | ------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1       | ad-connector                   | Tests the deployment and update of an Active Directory Connector (AD Connector).                                                                       |
-| 2       | billing                        | Testing various Business Critical license types are reflected in resource table in controller, used for Billing upload.                                |
-| 3       | ci-billing                     | Similar as `billing`, but with more CPU/Memory permutations.                                                                                           |
-| 4       | ci-sqlinstance                 | Long running tests for multi-replica creation, updates, GP -> BC Update, Backup validation and SQL Server Agent.                                       |
-| 5       | controldb                      | Tests Control database - SA secret check, system login verification, audit creation, and sanity checks for SQL build version.                          |
-| 6       | dc-export                      | Indirect Mode billing and usage upload.                                                                                                                |
-| 7       | direct-crud                    | Creates a SQL instance using ARM calls, validates in both Kubernetes and ARM.                                                                          |
-| 8       | direct-fog                     | Creates multiple SQL instances and creates a Failover Group between them using ARM calls.                                                              |
-| 9       | direct-hydration               | Creates SQL Instance with Kubernetes API, validates presence in ARM.                                                                                   |
-| 10      | direct-upload                  | Validates billing upload in Direct Mode                                                                                                                |
-| 11      | kube-rbac                      | Ensures Kubernetes Service Account permissions for Arc Data Services matches least-privilege expectations.                                             |
-| 12      | nonroot                        | Ensures containers run as non-root user                                                                                                                |
-| 13      | postgres                       | Various Postgres creation, scaling, backup/restore tests.                                                                                              |
-| 14      | release-sanitychecks           | Sanity checks for month-to-month releases, such as SQL Server Build versions.                                                                          |
-| 15      | sqlinstance                    | Shorter version of `ci-sqlinstance`, for fast validations.                                                                                             |
-| 16      | sqlinstance-ad                 | Tests creation of SQL Instances with Active Directory Connector.                                                                                       |
-| 17      | sqlinstance-credentialrotation | Tests automated Credential Rotation for both General Purpose and Business Critical.                                                                    |
-| 18      | sqlinstance-ha                 | Various High Availability Stress tests, including pod reboots, forced failovers and suspensions.                                                       |
-| 19      | sqlinstance-tde                | Various Transparent Data Encryption tests.                                                                                                             |
-| 20      | telemetry-elasticsearch        | Validates Log ingestion into Elasticsearch.                                                                                                            |
-| 21      | telemetry-grafana              | Validates Grafana is reachable.                                                                                                                        |
-| 22      | telemetry-influxdb             | Validates Metric ingestion into InfluxDB.                                                                                                              |
-| 23      | telemetry-kafka                | Various tests for Kafka using SSL, single/multi-broker setup.                                                                                          |
-| 24      | telemetry-monitorstack         | Tests Monitoring components, such as Fluentbit and Collectd are functional.                                                                            |
-| 25      | telemetry-telemetryrouter      | Tests Open Telemetry.                                                                                                                                  |
-| 26      | telemetry-webhook              | Tests Data Services Webhooks with valid and invalid calls.                                                                                             |
-| 27      | upgrade-arcdata                | Upgrades a full suite of SQL Instances (GP, BC 2 replica, BC 3 replica, with Active Directory) and upgrades from last month's release to latest build. |
+| 1       | `ad-connector`                   | Tests the deployment and update of an Active Directory Connector (AD Connector).                                                                       |
+| 2       | `billing`                        | Testing various Business Critical license types are reflected in resource table in controller, used for Billing upload.                                |
+| 3       | `ci-billing`                     | Similar as `billing`, but with more CPU/Memory permutations.                                                                                           |
+| 4       | `ci-sqlinstance`                 | Long running tests for multi-replica creation, updates, GP -> BC Update, Backup validation and SQL Server Agent.                                       |
+| 5       | `controldb`                      | Tests Control database - SA secret check, system login verification, audit creation, and sanity checks for SQL build version.                          |
+| 6       | `dc-export`                      | Indirect Mode billing and usage upload.                                                                                                                |
+| 7       | `direct-crud`                    | Creates a SQL instance using ARM calls, validates in both Kubernetes and ARM.                                                                          |
+| 8       | `direct-fog`                     | Creates multiple SQL instances and creates a Failover Group between them using ARM calls.                                                              |
+| 9       | `direct-hydration`               | Creates SQL Instance with Kubernetes API, validates presence in ARM.                                                                                   |
+| 10      | `direct-upload`                  | Validates billing upload in Direct Mode                                                                                                                |
+| 11      | `kube-rbac`                      | Ensures Kubernetes Service Account permissions for Arc Data Services matches least-privilege expectations.                                             |
+| 12      | `nonroot`                        | Ensures containers run as non-root user                                                                                                                |
+| 13      | `postgres`                       | Completes various Postgres creation, scaling, backup/restore tests.                                                                                              |
+| 14      | `release-sanitychecks`           | Sanity checks for month-to-month releases, such as SQL Server Build versions.                                                                          |
+| 15      | `sqlinstance`                    | Shorter version of `ci-sqlinstance`, for fast validations.                                                                                             |
+| 16      | `sqlinstance-ad`                 | Tests creation of SQL Instances with Active Directory Connector.                                                                                       |
+| 17      | `sqlinstance-credentialrotation` | Tests automated Credential Rotation for both General Purpose and Business Critical.                                                                    |
+| 18      | `sqlinstance-ha`                 | Various High Availability Stress tests, including pod reboots, forced failovers and suspensions.                                                       |
+| 19      | `sqlinstance-tde`                | Various Transparent Data Encryption tests.                                                                                                             |
+| 20      | `telemetry-elasticsearch`        | Validates Log ingestion into Elasticsearch.                                                                                                            |
+| 21      | `telemetry-grafana`              | Validates Grafana is reachable.                                                                                                                        |
+| 22      | `telemetry-influxdb`             | Validates Metric ingestion into InfluxDB.                                                                                                              |
+| 23      | `telemetry-kafka`                | Various tests for Kafka using SSL, single/multi-broker setup.                                                                                          |
+| 24      | `telemetry-monitorstack`         | Tests Monitoring components, such as `Fluentbit` and `Collectd` are functional.                                                                            |
+| 25      | `telemetry-telemetryrouter`      | Tests Open Telemetry.                                                                                                                                  |
+| 26      | `telemetry-webhook`              | Tests Data Services Webhooks with valid and invalid calls.                                                                                             |
+| 27      | `upgrade-arcdata`                | Upgrades a full suite of SQL Instances (GP, BC 2 replica, BC 3 replica, with Active Directory) and upgrades from last month's release to latest build. |
 
 As an example, for `sqlinstance-ha`, the following tests are performed:
 
 - `test_critical_configmaps_present`: Ensures the ConfigMaps and relevant fields are present for a SQL Instance.
-- `test_suspended_system_dbs_auto_heal_by_orchestrator`: Ensures if master and msdb is suspended by any means (in this case, user), Orchestrator maintenance reconcile auto-heals it.
+- `test_suspended_system_dbs_auto_heal_by_orchestrator`: Ensures if `master` and `msdb` are suspended by any means (in this case, user). Orchestrator maintenance reconcile auto-heals it.
 - `test_suspended_user_db_does_not_auto_heal_by_orchestrator`: Ensures if a User Database is deliberately suspended by user, Orchestrator maintenance reconcile does not auto-heal it.
 - `test_delete_active_orchestrator_twice_and_delete_primary_pod`: Deletes orchestrator pod multiple times, followed by the primary replica, and verifies all replicas are synchronized. Failover time expectations for 2 replica are relaxed.
 - `test_delete_primary_pod`: Deletes primary replica and verifies all replicas are synchronized. Failover time expectations for 2 replica are relaxed.
