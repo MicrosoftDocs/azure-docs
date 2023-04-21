@@ -90,7 +90,7 @@ At this point, the content items selected haven't been published to the member w
     :::image type="content" source="media/workspace-manager/publish-groups.png" alt-text="Screenshot shows the multi-select group publishing window.":::
 
 1. The **Last publish status** column updates to reflect **In progress**.
-    :::image type="content" source="media/workspace-manager/publish-groups-inprogress.png" alt-text="Screenshot shows the multi group publishing progress column.":::
+    :::image type="content" source="media/workspace-manager/publish-groups-in-progress.png" alt-text="Screenshot shows the multi group publishing progress column.":::
 
 1. If successful, the **Last publish status** updates to reflect **Succeeded**. The selected content items now exist in the member workspaces.
     :::image type="content" source="media/workspace-manager/publish-groups-success.png" alt-text="Screenshot shows the last published column with entries that succeeded.":::
