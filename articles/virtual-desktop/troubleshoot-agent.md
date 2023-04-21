@@ -3,7 +3,7 @@ title: Troubleshoot Azure Virtual Desktop Agent Issues - Azure
 description: How to resolve common Azure Virtual Desktop Agent and connectivity issues.
 author: sefriend
 ms.topic: troubleshooting
-ms.date: 04/19/2023
+ms.date: 04/21/2023
 ms.author: sefriend
 manager: clarkn
 ---
@@ -15,7 +15,7 @@ The Azure Virtual Desktop Agent can cause connection issues because of multiple 
  - Problems with updates.
  - Issues with installing during the agent installation, which disrupts connection to the session host.
 
-This article will guide you through solutions to these common scenarios and how to address connection issues.
+This article guides you through solutions to these common scenarios and how to address connection issues.
 
 > [!NOTE]
 > For troubleshooting issues related to session connectivity and the Azure Virtual Desktop agent, we recommend you review the event logs on your session host virtual machines (VMs) by going to **Event Viewer** > **Windows Logs** > **Application**. Look for events that have one of the following sources to identify your issue:
@@ -36,7 +36,7 @@ To resolve this issue, start the RDAgent boot loader:
 
 1. In the Services window, right-click **Remote Desktop Agent Loader**.
 
-1. Select **Start**. If this option is greyed out for you, you don't have administrator permissions and will need to get them to start the service.
+1. Select **Start**. If this option is greyed out for you, you don't have administrator permissions. You need to get those permissions in order to start the service.
 
 1. Wait 10 seconds, then right-click **Remote Desktop Agent Loader**.
 
@@ -88,7 +88,7 @@ On your session host VM, go to **Event Viewer** > **Windows Logs** > **Applicati
 
 To resolve this issue, check that you can reach the two endpoints referred to as *BrokerURI* and *BrokerURIGlobal*:
 
-1. Open Registry Editor. 
+1. Open Registry Editor. 
 
 1. Go to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent**. 
 
@@ -101,7 +101,7 @@ To resolve this issue, check that you can reach the two endpoints referred to as
 
 1. Open another tab in the browser and enter your value for *BrokerURIGlobal* in the address bar and add */api/health* to the end, for example `https://rdbroker.wvd.microsoft.com/api/health`.
 
-1. If your network isn't blocking the connection to the broker, both pages will load successfully and will show a message stating  **RD Broker is Healthy**, as shown in the following screenshots:
+1. If your network isn't blocking the connection to the broker, both pages should load successfully and show a message stating  **RD Broker is Healthy**, as shown in the following screenshots:
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of successfully loaded broker uri access](media/broker-uri-web.png)
@@ -109,7 +109,7 @@ To resolve this issue, check that you can reach the two endpoints referred to as
    > [!div class="mx-imgBorder"]
    > ![Screenshot of successfully loaded broker global uri access](media/broker-global.png)
  
-1. If the network is blocking broker connection, the pages will not load, as shown in the following screenshot. 
+1. If the network is blocking broker connection, the pages won't load, as shown in the following screenshot. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of unsuccessful loaded broker access](media/unsuccessful-broker-uri.png)
@@ -117,9 +117,9 @@ To resolve this issue, check that you can reach the two endpoints referred to as
    > [!div class="mx-imgBorder"]
    > ![Screenshot of unsuccessful loaded broker global access](media/unsuccessful-broker-global.png)
 
-   You will need to unblock the required endpoints and then repeat steps 4 to 7. For more information, see [Required URL List](safe-url-list.md).
+   You must unblock the required endpoints and then repeat steps 4 to 7. For more information, see [Required URL List](safe-url-list.md).
 
-1. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection. Azure Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/concept-end-to-end-tls.md#supported-cipher-suites). For more information, see [Connection Security](network-connectivity.md#connection-security).
+1. If this doesn't resolve your issue, make sure that you don't have any group policies with ciphers that block the agent to broker connection. Azure Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/concept-end-to-end-tls.md#supported-cipher-suites). For more information, see [Connection Security](network-connectivity.md#connection-security).
 
 ## Error: 3703
 
@@ -273,7 +273,7 @@ To resolve this issue, first reinstall the side-by-side stack:
 
 1. Restart your session host VM.
 
-1. From a command prompt run `qwinsta.exe` again and verify the *STATE* column for **rdp-tcp** and **rdp-sxs** entries is **Listen**. If not, you will need to [re-register your VM and reinstall the agent](#your-issue-isnt-listed-here-or-wasnt-resolved) component.
+1. From a command prompt run `qwinsta.exe` again and verify the *STATE* column for **rdp-tcp** and **rdp-sxs** entries is **Listen**. If not, you must [re-register your VM and reinstall the agent](#your-issue-isnt-listed-here-or-wasnt-resolved) component.
 
 ## Error: Session host VMs are stuck in Unavailable state
 
@@ -315,12 +315,12 @@ Your session host VMs may be at their connection limit and can't accept new conn
 
 To resolve this issue, either:
 
-- Decrease the max session limit. This ensures that resources are more evenly distributed across session hosts and will prevent resource depletion.
+- Decrease the max session limit. This ensures that resources are more evenly distributed across session hosts and prevent resource depletion.
 - Increase the resource capacity of the session host VMs.
 
 ## Error: Operating a Pro VM or other unsupported OS
 
-The side-by-side stack is only supported by Windows Enterprise or Windows Server SKUs, which means that operating systems like Pro VM aren't. If you don't have an Enterprise or Server SKU, the stack will be installed on your VM but won't be activated, so you won't see it show up when you run **qwinsta** in your command line.
+The side-by-side stack is only supported by Windows Enterprise or Windows Server SKUs, which means that operating systems like Pro VM aren't. If you don't have an Enterprise or Server SKU, the stack installs on your VM but isn't activated, so you won't see it show up when you run **qwinsta** in your command line.
 
 To resolve this issue, [create session host VMs](expand-existing-host-pool.md) using a [supported operating system](prerequisites.md#operating-systems-and-licenses).
 
@@ -345,15 +345,15 @@ To resolve this issue:
 
 ## Your issue isn't listed here or wasn't resolved
 
-If you can't find your issue in this article or the instructions didn't help you, we recommend you uninstall, reinstall, and re-register the Azure Virtual Desktop Agent. The instructions in this section will show you how to reregister your session host VM to the Azure Virtual Desktop service by:
+If you can't find your issue in this article or the instructions didn't help you, we recommend you uninstall, reinstall, and re-register the Azure Virtual Desktop Agent. The instructions in this section show you how to reregister your session host VM to the Azure Virtual Desktop service by:
 
 1. Uninstalling all agent, boot loader, and stack components.
 
-1. Removing the session host from the host pool.
+2. Removing the session host from the host pool.
 
-1. Generating a new registration key for the VM.
+3. Generating a new registration key for the VM.
 
-1. Reinstalling the Azure Virtual Desktop Agent and boot loader.
+4. Reinstalling the Azure Virtual Desktop Agent and boot loader.
 
 Follow these instructions in this section if one or more of the following scenarios apply to you:
 
@@ -377,7 +377,7 @@ Before reinstalling the agent, boot loader, and stack, you must uninstall any ex
 1. Uninstall the following programs, then restart your session host VM:
 
    > [!CAUTION]
-   > When uninstalling **Remote Desktop Services SxS Network Stack**, you'll be prompted that *Remote Desktop Services* and *Remote Desktop Services UserMode Port Redirector* should be closed. If you're connected to the session host VM using RDP, select **Do not close applications** then select **OK**, otherwise your RDP connection will be closed.
+   > When uninstalling **Remote Desktop Services SxS Network Stack**, you'll be prompted that *Remote Desktop Services* and *Remote Desktop Services UserMode Port Redirector* should be closed. If you're connected to the session host VM using RDP, select **Do not close applications** then select **OK**, otherwise your RDP connection won't work.
    > 
    > [!div class="mx-imgBorder"]
    > ![Screenshot showing prompt that Remote Desktop Services and Remote Desktop Services UserMode Port Redirector should be closed](media/uninstall-remote-desktop-services-sxs-network-stack.png)
