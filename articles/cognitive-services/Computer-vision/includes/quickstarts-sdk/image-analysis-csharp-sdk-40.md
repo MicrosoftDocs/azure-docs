@@ -14,13 +14,10 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client library for C# to analyze an image to read text and generate captions. This quickstart defines a method, `AnalyzeAsync`, which uses the client object to analyze a remote image and print the results. 
+Use the Image Analysis client library for C# to analyze an image to read text and generate an image caption. This quickstart defines a method `AnalyzeAsync()`, which uses the client object to analyze a remote image and print the results to the console. 
 
 [Reference documentation](/dotnet/api/azure.ai.vision.imageanalysis
 ) | Packages (NuGet): [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
-
-> [!TIP]
-> You can also analyze a local image. See the [reference documetation](/dotnet/api/azure.ai.vision.imageanalysis) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/csharp/image-analysis/dotnetcore/Samples.cs) for scenarios involving local images.
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
@@ -87,6 +84,9 @@ dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
 ## Analyze Image
 
 From the project directory, open the *Program.cs* file that was created previously with [your new project](#set-up-application). Paste in the following code:
+
+> [!TIP]
+> You can also analyze a local image. See the [sample code](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/csharp/image-analysis/dotnetcore/Samples.cs) repository for scenarios involving local images.
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/2/Program.cs?name=snippet_single)]
 

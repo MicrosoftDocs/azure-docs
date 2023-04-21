@@ -14,12 +14,9 @@ ms.author: pafarley
  
 <a name="HOLTop"></a>
 
-Use the Image Analysis client library for C++ to analyze an image to read text and generate captions. This quickstart defines a method, `AnalyzeImage`, which uses the client object to analyze a remote image and print the results. 
+Use the Image Analysis client library for C++ to analyze an image to read text and generate an image caption. This quickstart defines a function `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console.
 
 [Reference documentation](/cpp/cognitive-services/vision) | Packages (NuGet): [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
-
-> [!TIP]
-> You can also analyze a local image. See the [reference documentation](/cpp/cognitive-services/vision) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/samples.cpp) for scenarios involving local images.
 
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
@@ -58,6 +55,9 @@ Follow [these instructions](https://github.com/Azure-Samples/azure-ai-vision-sdk
 ## Analyze Image
 
 From the project directory, open the _ImageAnalysisQuickstart.cpp_ file that was created previously with [your new project](#set-up-application). Clear its contents and paste in the following code:
+
+> [!TIP]
+> You can also analyze a local image. See the [sample code](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/cpp/image-analysis/samples.cpp) repository for scenarios involving local images.
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/2/2.cpp?name=snippet_single)]
 
