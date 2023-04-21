@@ -57,7 +57,7 @@ Here's the initial set of permissions:
 
 ## How do protected actions compare with Privileged Identity Management role activation?
 
-[Privileged Identity Management role activation](../privileged-identity-management/pim-how-to-change-default-settings.md) can also be assigned Conditional Access policies. This capability allows for policy enforcement only when a user activates a role, providing the most comprehensive protection. Protected actions are enforced only when a user takes an action that requires permissions with Conditional Access policy assigned to it. Protected actions allows for high impact permissions to be protected, independent of a user role. Privileged Identity Management role activation and protected actions can be used together, for the strongest coverage.
+[Privileged Identity Management role activation](../privileged-identity-management/pim-how-to-change-default-settings.md) can also be assigned Conditional Access policies. This capability allows for policy enforcement only when a user activates a role, providing the most comprehensive protection. Protected actions are enforced only when a user takes an action that requires permissions with Conditional Access policy assigned to it. Protected actions allow for high impact permissions to be protected, independent of a user role. Privileged Identity Management role activation and protected actions can be used together for stronger coverage.
 
 ## Steps to use protected actions
 
