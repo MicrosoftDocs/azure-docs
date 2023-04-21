@@ -121,14 +121,14 @@ If a device can't use the device SDKs, it can still connect to the public device
   You can also use the cross-platform [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) to quickly generate a SAS token. You can then copy and paste the SAS token into your own code for testing purposes.
 
 ### Using the Azure IoT Hub extension for Visual Studio Code
+  
+1. In the side bar, expand the **Devices** node under the **Azure IoT Hub** section.
 
-1. Expand the **AZURE IOT HUB DEVICES** tab in the bottom left corner of Visual Studio Code.
+1. Right-click your IoT device and select **Generate SAS Token for Device** from the context menu. 
   
-2. Right-click your device and select **Generate SAS Token for Device**.
+1. Enter the expiration time, in hours, for the SAS token in the input box, and then select the Enter key.
   
-3. Set **expiration time** and press 'Enter'.
-  
-4. The SAS token is created and copied to clipboard.
+1. The SAS token is created and copied to clipboard.
 
    The SAS token that's generated has the following structure:
 
