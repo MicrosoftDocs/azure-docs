@@ -172,6 +172,23 @@ When you assign the Lab Contributor role on the lab, the user can manage the ass
 
 ### Lab Assistant role
 
+Assign the Lab Assistant role to grant a user permission to start, stop, and reset lab virtual machines.
+
+Assign the Lab Assistant role at the *resource group or lab level*.
+
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-lab-assistant-role.png" alt-text="Diagram that shows the resource levels and the Lab Assistant role, assigned to the resource group and lab level.":::
+
+When you assign the Lab Assistant role on the resource group, the user:
+
+- Can view all labs within the resource group and start, stop, or reset student virtual machines for each lab.
+- Can’t delete or make any other changes to the labs.
+
+When you assign the Lab Assistant role on the lab, the user:
+
+- Can view the assigned lab and start, stop, or reset student virtual machines.
+- Can’t delete or make any other changes to the lab.
+- Can’t create new labs.
+
 ### Lab Reader role
 
 ## Identity and access management (IAM)
