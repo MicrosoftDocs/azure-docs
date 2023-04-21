@@ -111,6 +111,9 @@ If you don't have access to install the extension, you must request access from 
       displayName: 'Microsoft Security DevOps'
     ```
 
+> [!Note] 
+> The MicrosoftSecurityDevOps build task depends on .NET 6. The CredScan analyzer depends on .NET 3.1. See more [here](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops).
+
 1. Select **Save and run**.
 
 1. To commit the pipeline, select **Save and run**.

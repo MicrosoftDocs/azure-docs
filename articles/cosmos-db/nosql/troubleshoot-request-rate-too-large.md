@@ -35,6 +35,11 @@ There are different error messages that correspond to different types of 429 exc
 ## Request rate is large
 This is the most common scenario. It occurs when the request units consumed by operations on data exceed the provisioned number of RU/s. If you're using manual throughput, this occurs when you've consumed more RU/s than the manual throughput provisioned. If you're using autoscale, this occurs when you've consumed more than the maximum RU/s provisioned. For example, if you have a resource provisioned with manual throughput of 400 RU/s, you'll see 429 when you consume more than 400 request units in a single second. If you have a resource provisioned with autoscale max RU/s of 4000 RU/s (scales between 400 RU/s - 4000 RU/s), you'll see 429 responses when you consume more than 4000 request units in a single second.
 
+> [!TIP]
+> All operations are charged based on the number of resources they consume. These charges are measured in request units. These charges include requests that do not complete successfully due to application errors such as `400`, `412`, `449`, etc. While looking at throttling or usage, it is a good idea to investigate if some pattern has changed in your usage which would result in an increase of these operations. Specifically, check for tags `412` or `449` (actual conflict).
+>
+> For more information about provisioned throughput, see [provisioned throughput in Azure Cosmos DB](../set-throughput.md).
+
 ### Step 1: Check the metrics to determine the percentage of requests with 429 error
 Seeing 429 error messages doesn't necessarily mean there's a problem with your database or container. A small percentage of 429 responses is normal whether you're using manual or autoscale throughput, and is a sign that you're maximizing the RU/s you've provisioned.
 
@@ -48,6 +53,9 @@ By default, the Azure Cosmos DB client SDKs and data import tools suc
 
 #### Recommended solution
 In general, for a production workload, **if you see between 1-5% of requests with 429 responses, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized**. No action is required. Otherwise, move to the next troubleshooting steps.
+
+> [!IMPORTANT]
+> This 1-5% range is assuming that your account partitions are evenly distributed. If your partitions are not evenly distributed, your problem partition may return a large amount of 429 errors while the overall rate may be low.
 
 If you're using autoscale, it's possible to see 429 responses on your database or container, even if the RU/s wasn't scaled to the maximum RU/s. See the section [Request rate is large with autoscale](#request-rate-is-large-with-autoscale) for an explanation.
 
@@ -183,11 +191,12 @@ Yes. There are two main scenarios where this can occur.
 
 For example, if you select the 20,000 RU/s max throughput option and have 200 GB of storage with four physical partitions, each physical partition can be autoscaled up to 5000 RU/s. If there was a hot partition on a particular logical partition key, you'll see 429 responses when the underlying physical partition it resides in exceeds 5000 RU/s, that is, exceeds 100% normalized utilization.
 
-Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-percentage-of-requests-with-429-error), [Step 2](#step-2-determineif-theres-a-hot-partition), and [Step 3](#step-3-determine-what-requests-are-returning-429 responses) to debug these scenarios.
+Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-percentage-of-requests-with-429-error), [Step 2](#step-2-determineif-theres-a-hot-partition), and [Step 3](#step-3-determine-what-requests-are-returning-429-responses) to debug these scenarios.
 
 Another common question that arises is, **Why is normalized RU consumption 100%, but autoscale didn't scale to the max RU/s?**
 
 This typically occurs for workloads that have temporary or intermittent spikes of usage. When you use autoscale, Azure Cosmos DB only scales the RU/s to the maximum throughput when the normalized RU consumption is 100% for a sustained, continuous period of time in a 5-second interval. This is done to ensure the scaling logic is cost friendly to the user, as it ensures that single, momentary spikes to not lead to unnecessary scaling and higher cost. When there are momentary spikes, the system typically scales up to a value higher than the previously scaled to RU/s, but lower than the max RU/s. Learn more about how to [interpret the normalized RU consumption metric with autoscale](../monitor-normalized-request-units.md#normalized-ru-consumption-and-autoscale).
+
 ## Rate limiting on metadata requests
 
 Metadata rate limiting can occur when you're performing a high volume of metadata operations on databases and/or containers. Metadata operations include:
@@ -195,7 +204,7 @@ Metadata rate limiting can occur when you're performing a high volume of metadat
 - List databases or containers in an Azure Cosmos DB account
 - Query for offers to see the current provisioned throughput
 
-There's a system-reserved RU limit for these operations, so increasing the provisioned RU/s of the database or container will have no impact and isn't recommended. See [limits on metadata operations](../concepts-limits.md#metadata-request-limits).
+There's a system-reserved RU limit for these operations, so increasing the provisioned RU/s of the database or container will have no impact and isn't recommended. See [Control Plane Service Limits](../concepts-limits.md#control-plane).
 
 #### How to investigate
 Navigate to **Insights** > **System** > **Metadata Requests By Status Code**. Filter to a specific database and container if desired.

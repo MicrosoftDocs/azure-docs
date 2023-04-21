@@ -7,7 +7,7 @@ ms.author: jgao
 ms.date: 10/11/2022
 ms.topic: quickstart
 ms.service: azure-resource-manager
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-bicep
 ---
 
 # Quickstart: Create a container registry by using a Bicep file
@@ -36,7 +36,7 @@ param location string = resourceGroup().location
 @description('Provide a tier of your Azure Container Registry.')
 param acrSku string = 'Basic'
 
-resource acrResource 'Microsoft.ContainerRegistry/registries@2021-06-01-preview' = {
+resource acrResource 'Microsoft.ContainerRegistry/registries@2023-01-01-preview' = {
   name: acrName
   location: location
   sku: {

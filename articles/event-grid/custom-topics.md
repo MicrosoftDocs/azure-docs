@@ -2,13 +2,14 @@
 title: Custom topics in Azure Event Grid
 description: Describes custom topics in Azure Event Grid. 
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.custom: devx-track-azurecli, devx-track-arm-template, devx-track-azurepowershell
+ms.date: 03/10/2023
 ---
 
 # Custom topics in Azure Event Grid
-An Event Grid topic provides an endpoint where the source sends events. The publisher creates the Event Grid topic, and decides whether an event source needs one topic or more than one topic. A topic is used for a collection of related events. To respond to certain types of events, subscribers decide which topics to subscribe to.
+An Event Grid topic provides an endpoint where the source sends events. The publisher creates an Event Grid topic, and decides whether an event source needs one topic or more than one topic. A topic is used for a collection of related events. To respond to certain types of events, subscribers decide which topics to subscribe to.
 
-**Custom topics** are application and third-party topics. When you create or are assigned access to a custom topic, you see that custom topic in your subscription. 
+**Custom topics** are application and third-party topics. When you create or are given access to a custom topic, you see that custom topic in your subscription. 
 
 When designing your application, you have flexibility when deciding how many topics to create. For large solutions, create a **custom topic** for **each category of related events**. For example, consider an application that sends events related to modifying user accounts and processing orders. It's unlikely any event handler wants both categories of events. Create two custom topics and let event handlers subscribe to the one that interests them. For small solutions, you might prefer to send all events to a single topic. Event subscribers can filter for the event types they want.
 
@@ -62,14 +63,14 @@ The following sections provide links to tutorials to create custom topics using 
 |---------|---------|
 | [Quickstart: create and route custom events with Azure CLI](custom-event-quickstart.md) | Shows how to use Azure CLI to send custom events. |
 | [Azure CLI: create Event Grid custom topic](./scripts/event-grid-cli-create-custom-topic.md)|Sample script that creates a custom topic. The script retrieves the endpoint and a key.|
-| [Azure CLI: subscribe to events for a custom topic](./scripts/event-grid-cli-subscribe-custom-topic.md)|Sample script that creates a subscription for a custom topic. It sends events to a WebHook.|
+| [Azure CLI: subscribe to events for a custom topic](./scripts/cli-subscribe-custom-topic.md)|Sample script that creates a subscription for a custom topic. It sends events to a WebHook.|
 
 ## Azure PowerShell tutorials
 |Title  |Description  |
 |---------|---------|
 | [Quickstart: create and route custom events with Azure PowerShell](custom-event-quickstart-powershell.md) | Shows how to use Azure PowerShell to send custom events. |
-| [PowerShell: create Event Grid custom topic](./scripts/event-grid-powershell-create-custom-topic.md)|Sample script that creates a custom topic. The script retrieves the endpoint and a key.|
-| [PowerShell: subscribe to events for a custom topic](./scripts/event-grid-powershell-subscribe-custom-topic.md)|Sample script that creates a subscription for a custom topic. It sends events to a WebHook.|
+| [PowerShell: create Event Grid custom topic](./scripts/powershell-create-custom-topic.md)|Sample script that creates a custom topic. The script retrieves the endpoint and a key.|
+| [PowerShell: subscribe to events for a custom topic](./scripts/powershell-subscribe-custom-topic.md)|Sample script that creates a subscription for a custom topic. It sends events to a WebHook.|
 
 ## ARM template tutorials
 |Title  |Description  |

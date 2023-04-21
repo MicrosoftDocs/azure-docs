@@ -35,7 +35,7 @@ Currently, Azure Cache for Redis uses ports 15000-15019 for clustered caches to 
 
 To avoid connection interference, we recommend:
 
-- Consider using a non-clustered cache instead
+- Consider using a non-clustered cache or an Enterprise tier cache instead
 - Avoid configuring *Istio* sidecars on pods running Azure Cache for Redis client code
 
 ## Next steps

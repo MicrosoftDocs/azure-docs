@@ -8,14 +8,14 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: sample
 ms.workload: infrastructure
-ms.date: 12/10/2018
+ms.date: 02/28/2023
 ms.author: mbender
-ms.custom: seodec18
+ms.custom: seodec18, engagement-fy23, devx-track-azurepowershell
 ---
 
 # Azure PowerShell Samples for Load Balancer
 
-The following table includes links to scripts built using Azure PowerShell.
+The following table includes links to scripts utilizing using Azure PowerShell.
 
 | Script | Description |
 |-|-|

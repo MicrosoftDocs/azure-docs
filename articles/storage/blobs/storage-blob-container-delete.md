@@ -47,7 +47,7 @@ The following example shows how to delete all of the containers that start with 
 
 ## Restore a deleted container
 
-When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft deleted container by calling either of the following methods of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class.
+When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify. You can restore a soft-deleted container by calling either of the following methods of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class.
 
 - [UndeleteBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.undeleteblobcontainer)
 - [UndeleteBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.undeleteblobcontainerasync)

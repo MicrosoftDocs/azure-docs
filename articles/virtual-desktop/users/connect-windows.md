@@ -42,6 +42,9 @@ Before you can access your resources, you'll need to meet the prerequisites:
 
 Once you've downloaded the Remote Desktop client, you'll need to install it by following these steps:
 
+> [!TIP]
+> If you want to deploy the Remote Desktop client in an enterprise, you can use `msiexec` to install the MSI file. For more information, see [Enterprise deployment](client-features-windows.md#enterprise-deployment).
+
 1. Run the installer by double-clicking the file you downloaded.
 
 1. On the welcome screen, select **Next**.
@@ -94,7 +97,7 @@ Once you've subscribed to a workspace, its content will update automatically reg
 
 ## Connect to your desktops and applications
 
-1. Open the **Remote Desktop** app on your device.
+1. Open the **Remote Desktop** client on your device.
 
 1. Double-click one of the icons to launch a session to Azure Virtual Desktop. You may be prompted to enter the password for your user account again, depending on how your admin has configured Azure Virtual Desktop.
 

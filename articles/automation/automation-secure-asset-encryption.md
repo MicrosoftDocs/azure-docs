@@ -4,19 +4,21 @@ description: This article provides concepts for configuring the Automation accou
 services: automation
 ms.service: automation
 ms.subservice: process-automation
+ms.custom: devx-track-azurepowershell
 author: snehithm
 ms.author: snmuvva
-ms.date: 07/27/2021
+ms.date: 04/20/2023
 ms.topic: conceptual
 manager: kmadnani
 ---
 
 # Encryption of secure assets in Azure Automation
 
-Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are protected in Azure Automation using multiple levels of encryption. Based on the top-level key used for the encryption, there are two models for encryption:
+Azure Automation secures assets such as credentials, certificates, connections, and encrypted variables are using various levels of encryption. This helps enhance the security of these assets. Additionally, to ensure greater security and privacy for the customer code, runbooks, and DSC scripts are also encrypted. Encryption in Azure Automation follows two models, depending on the top-level key used for encryption:
 
 - Using Microsoft-managed keys
 - Using keys that you manage
+
 
 ## Microsoft-managed Keys
 

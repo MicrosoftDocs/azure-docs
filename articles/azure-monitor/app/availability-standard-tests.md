@@ -2,12 +2,12 @@
 title: Availability Standard test - Azure Monitor Application Insights
 description: Set up Standard tests in Application Insights to check for availability of a website with a single request test. 
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 03/22/2023
 ---
 
 # Standard test
 
-A Standard test is a single request test that's similar to the [URL ping test](monitor-web-app-availability.md) but more advanced. In addition to validating whether an endpoint is responding and measuring the performance, Standard tests also include SSL certificate validity, proactive lifetime check, HTTP request verb (for example, `GET`,`HEAD`, and `POST`), custom headers, and custom data associated with your HTTP request.
+A Standard test is a type of availability test that checks the availability of a website by sending a single request. In addition to validating whether an endpoint is responding and measuring the performance, Standard tests also include SSL certificate validity, proactive lifetime check, HTTP request verb (for example, `GET`,`HEAD`, and `POST`), custom headers, and custom data associated with your HTTP request.
 
 To create an availability test, you must use an existing Application Insights resource or [create an Application Insights resource](create-new-resource.md).
 

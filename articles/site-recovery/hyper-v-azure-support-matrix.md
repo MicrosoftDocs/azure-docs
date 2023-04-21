@@ -3,7 +3,7 @@ title: Support for disaster recovery of Hyper-V VMs to Azure with Azure Site Rec
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/14/2020
+ms.date: 04/04/2023
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ---
@@ -107,13 +107,13 @@ Multi-path (MPIO). Tested with:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, E
 VMDK | NA | NA
 VHD/VHDX | Yes | Yes
 Generation 2 VM | Yes | Yes
-EFI/UEFI<br></br>The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to five partitions or fewer and the size of OS disk should be less than 300 GB.| Yes | Yes
+EFI/UEFI<br></br>The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to five partitions or fewer and the size of OS disk should be less than 2 TB.| Yes | Yes
 Shared cluster disk | No | No
 Encrypted disk | No | No
 NFS | NA | NA
 SMB 3.0 | No | No
 RDM | NA | NA
-Disk >1 TB | Yes, up to 4,095 GB | Yes, up to 4,095 GB
+Disk >1 TB | Yes, up to 32 TB <br></br> You will need to upgrade the replication provider on the Hyper-V host to any version after 2.0.9214.0 to replicate large disks up to 32 TB. For large disks, replication will happen to managed disks only.| Yes, up to 32 TB <br></br> You will need to upgrade the replication provider on the Hyper-V host to any version after 2.0.9214.0 to replicate large disks up to 32 TB. For large disks, replication will happen to managed disks only.
 Disk: 4K logical and physical sector | Not supported: Gen 1/Gen 2 | Not supported: Gen 1/Gen 2
 Disk: 4K logical and 512-bytes physical sector | Yes |  Yes
 Logical volume management (LVM). LVM is supported on data disks only. Azure provides only a single OS disk. | Yes | Yes
@@ -166,17 +166,17 @@ On-premises VMs that you replicate to Azure must meet the Azure VM requirements 
 --- | --- | ---
 Guest operating system | Site Recovery supports all operating systems that are [supported by Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).  | Prerequisites check fails if unsupported.
 Guest operating system architecture | 32-bit (Windows Server 2008)/64-bit | Prerequisites check fails if unsupported.
-Operating system disk size | Up to 2,048 GB for generation 1 VMs.<br/><br/> Up to 300 GB for generation 2 VMs.  | Prerequisites check fails if unsupported.
+Operating system disk size | Up to 2 TB for generation 1 VMs.<br/><br/> Up to 4 TB for generation 2 VMs. <br/><br/> You will need to upgrade the replication provider on the Hyper-V host to any version after 2.0.9214.0 to replicate large OS disks. For large disks, replication will happen to managed disks only. | Prerequisites check fails if unsupported.
 Operating system disk count | 1 | Prerequisites check fails if unsupported.
 Data disk count | 16 or less  | Prerequisites check fails if unsupported.
-Data disk VHD size | Up to 4,095 GB | Prerequisites check fails if unsupported.
+Data disk VHD size | Up to 32 TB <br/><br/> You will need to upgrade the replication provider on the Hyper-V host to any version after 2.0.9214.0 to replicate large disks. For large disks, replication will happen to managed disks only. | Prerequisites check fails if unsupported.
 Network adapters | Multiple adapters are supported |
 Shared VHD | Not supported | Prerequisites check fails if unsupported.
 FC disk | Not supported | Prerequisites check fails if unsupported.
 Hard disk format | VHD <br/><br/> VHDX | Site Recovery automatically converts VHDX to VHD when you fail over to Azure. When you fail back to on-premises, the virtual machines continue to use the VHDX format.
 BitLocker | Not supported | BitLocker must be disabled before you enable replication for a VM.
 VM name | Between 1 and 63 characters. Restricted to letters, numbers, and hyphens. The VM name must start and end with a letter or number. | Update the value in the VM properties in Site Recovery.
-VM type | Generation 1<br/><br/> Generation 2--Windows | Generation 2 VMs with an OS disk type of basic (which includes one or two data volumes formatted as VHDX) and less than 300 GB of disk space are supported.<br></br>Linux Generation 2 VMs aren't supported. [Learn more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+VM type | Generation 1<br/><br/> Generation 2--Windows | Generation 2 VMs with an OS disk type of basic (which includes one or two data volumes formatted as VHDX) and less than 2 TB of disk space are supported.<br></br>Linux Generation 2 VMs aren't supported. [Learn more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## Recovery Services vault actions
 

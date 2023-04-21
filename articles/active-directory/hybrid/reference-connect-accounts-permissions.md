@@ -135,7 +135,7 @@ The following table is a summary of the custom settings wizard pages, the creden
 >
 > For more information, see [Azure AD Connect: Configure AD DS Connector account permission](how-to-connect-configure-ad-ds-connector-account.md).
 
-The account you specify on the **Connect your directories** page must be created in Windows Server AD before installation. Azure AD Connect version 1.1.524.0 and later has the option to let the Azure AD Connect wizard create the AD DS Connector account that's used to connect to Windows Server AD.
+The account you specify on the **Connect your directories** page must be created in Windows Server AD as a normal user object (VSA, MSA, or gMSA aren't supported) before installation. Azure AD Connect version 1.1.524.0 and later has the option to let the Azure AD Connect wizard create the AD DS Connector account that's used to connect to Windows Server AD.
 
 The account you specify also must have the required permissions. The installation wizard doesn't verify the permissions, and any issues are found only during the sync process.
 

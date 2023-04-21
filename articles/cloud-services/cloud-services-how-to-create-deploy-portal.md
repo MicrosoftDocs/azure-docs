@@ -3,11 +3,11 @@ title: How to create and deploy a cloud service (classic) | Microsoft Docs
 description: Learn how to use the Quick Create method to create a cloud service and use Upload to upload and deploy a cloud service package in Azure.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # How to create and deploy an Azure Cloud Service (classic)

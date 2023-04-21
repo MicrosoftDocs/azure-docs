@@ -83,6 +83,9 @@ Cross-region load balancer is a Layer-4 pass-through network load balancer. This
 ### Floating IP
 Floating IP can be configured at both the global IP level and regional IP level. For more information, visit [Multiple frontends for Azure Load Balancer](./load-balancer-multivip-overview.md)
 
+### Health Probes
+Azure cross-region Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. These health checks by the cross-region load balancer are done automatically every 20 seconds, given that a user has set up health probes on their regional load balancer.  
+
 ## Build cross region solution on existing Azure Load Balancer
 The backend pool of cross-region load balancer contains one or more regional load balancers. 
 
@@ -111,6 +114,8 @@ Traffic started by the user will travel to the closest participating region thro
 
 Cross-region load balancer routes the traffic to the appropriate regional load balancer.
 
+:::image type="content" source="./media/cross-region-overview/multiple-region-global-traffic.png" alt-text="Diagram of multiple region global traffic.":::
+
 ### Participating regions
 * East US 
 * West Europe 
@@ -135,6 +140,9 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * US Gov Texas
 * US Gov Virginia
 
+> [!NOTE]
+> The backend regional load balancers can be deployed in any publicly available Azure Region and is not limited to just participating regions.
+
 ## Limitations
 
 * Cross-region frontend IP configurations are public only. An internal frontend is currently not supported.
@@ -144,8 +152,6 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * NAT64 translation isn't supported at this time. The frontend and backend IPs must be of the same type (v4 or v6).
 
 * UDP traffic isn't supported on Cross-region Load Balancer. 
-
-* A health probe can't be configured currently. A default health probe automatically collects availability information about the regional load balancer every 20 seconds. 
 
 
 

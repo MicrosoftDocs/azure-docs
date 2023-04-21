@@ -3,7 +3,7 @@ title: Supported features for Microsoft Teams on Azure Virtual Desktop - Azure
 description: Supported features for Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 02/02/2023
+ms.date: 03/07/2023
 ms.author: helohr
 manager: femila
 ---
@@ -16,7 +16,7 @@ This article lists the features of Microsoft Teams that Azure Virtual Desktop cu
 
 The following table lists whether the Windows Desktop client or macOS client supports specific features for Teams on Azure Virtual Desktop.
 
-|Feature|Windows Desktop client|macOS client|
+|Feature|Windows Desktop client and Azure Virtual Desktop app|macOS client|
 |---|---|---|
 |Audio/video call|Yes|Yes|
 |Screen share|Yes|Yes|
@@ -37,14 +37,15 @@ The following table lists whether the Windows Desktop client or macOS client sup
 
 ## Minimum requirements
 
-The following table lists the minimum required versions for each Teams feature. For optimal user experience on Teams for Azure Virtual Desktop, we recommend using the latest supported versions of each client and the WebRTC service, which you can find in the following list:
+The following table lists the minimum required versions for each Teams feature. For optimal user experience on Teams for Azure Virtual Desktop, we recommend using the latest supported versions of each client and the WebRTC Redirector Service, which you can find in the following list:
 
-- [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
-- [Teams WebRTC Service](https://aka.ms/msrdcwebrtcsvc/msi)
+- [Windows Desktop client](whats-new-client-windows.md)
+- [Azure Virtual Desktop app](whats-new-client-windows-azure-virtual-desktop-app.md)
+- [macOS client](whats-new-client-macos.md)
+- [Teams WebRTC Redirector Service](https://aka.ms/msrdcwebrtcsvc/msi)
 - [Teams desktop app](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm)
 
-|Supported features|Windows Desktop client version |macOS client version|WebRTC Service version|Teams version|
+|Supported features|Windows Desktop client and Azure Virtual Desktop Store app version |macOS client version|WebRTC Redirector Service version|Teams version|
 |---|---|---|---|---|
 |Audio/video call|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
 |Screen share|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
@@ -53,9 +54,9 @@ The following table lists the minimum required versions for each Teams feature. 
 |Live captions|1.2.2322 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
 |CART transcriptions|1.2.2322 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
 |Give and take control |1.2.2924 and later|10.7.10 and later|1.0.2006.11001 and later (Windows), 1.31.2211.15001 and later (macOS)|Updates within 90 days of the current version|
-|Multiwindow|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|1.5.00.11865 and later|
-|Background blur|1.2.3004 and later|10.7.10 and later|1.0.2006.11001 and later|1.5.00.11865 and later|
-|Background images|1.2.3004 and later|10.7.10 and later|1.0.2006.11001 and later|1.5.00.11865 and later|
+|Multiwindow|1.2.1755 and later|10.7.7 and later|1.1.2110.16001 and later|1.5.00.11865 and later|
+|Background blur|1.2.3004 and later|10.7.10 and later|1.1.2110.16001 and later|1.5.00.11865 and later|
+|Background images|1.2.3004 and later|10.7.10 and later|1.1.2110.16001 and later|1.5.00.11865 and later|
 |Screen share and video together|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
 |Application window sharing|1.2.3770 and later|Not supported|1.31.2211.15001|Updates within 90 days of the current version|
 |Secondary ringer|1.2.3004 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|

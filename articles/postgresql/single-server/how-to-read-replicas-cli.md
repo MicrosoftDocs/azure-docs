@@ -14,6 +14,8 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL by using the Azure CLI and REST API. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
 ## Azure replication support

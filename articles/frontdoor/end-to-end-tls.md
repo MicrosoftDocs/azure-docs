@@ -103,7 +103,7 @@ For your own custom TLS/SSL certificate:
 
 ## Supported cipher suites
 
-For TLS1.2 the following cipher suites are supported:
+For TLS 1.2 the following cipher suites are supported:
 
 * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -115,7 +115,7 @@ For TLS1.2 the following cipher suites are supported:
 > [!NOTE]
 > For Windows 10 and later versions, we recommend enabling one or both of the ECDHE_GCM cipher suites for better security. Windows 8.1, 8, and 7 aren't compatible with these ECDHE_GCM cipher suites. The ECDHE_CBC and DHE cipher suites have been provided for compatibility with those operating systems. 
 
-Using custom domains with TLS1.0/1.1 enabled the following cipher suites are supported:
+When using custom domains with TLS 1.0 and 1.1 enabled, the following cipher suites are supported:
 
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
@@ -132,7 +132,7 @@ Using custom domains with TLS1.0/1.1 enabled the following cipher suites are sup
 * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 * TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
-Azure Front Door doesn’t support configuring specific cipher suites.
+Azure Front Door doesn’t support disabling or configuring specific cipher suites for your profile.
 
 ## Next steps
 

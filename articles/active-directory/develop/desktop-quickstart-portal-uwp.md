@@ -2,15 +2,15 @@
 title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app"
 description: In this quickstart, learn how a Universal Windows Platform (UWP) application can get an access token and call an API protected by Microsoft identity platform.
 services: active-directory
-author: OwenRichards1
+author: Dickson-Mwendia
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/18/2022
 ROBOTS: NOINDEX
-ms.author: owenrichards
+ms.author: dmwendia
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:UWP", mode-api
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---

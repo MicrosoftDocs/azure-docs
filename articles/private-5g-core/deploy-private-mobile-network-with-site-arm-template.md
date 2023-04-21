@@ -7,7 +7,7 @@ author: djrmetaswitch
 ms.author: drichards
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-arm-template
 ms.date: 03/23/2022
 ---
 
@@ -17,7 +17,7 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 
 - A private mobile network.
 - A site.
-- The default service and SIM policy (as described in [Default service and SIM policy](default-service-sim-policy.md)).
+- The default service and allow-all SIM policy (as described in [Default service and allow-all SIM policy](default-service-sim-policy.md)).
 - Optionally, one or more SIMs, and a SIM group.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
@@ -80,7 +80,7 @@ The following Azure resources are defined in the template.
     |**Sim Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field unchanged.       |
     | **Azure Stack Edge Device** | Enter the resource ID of the Azure Stack Edge resource in the site. |
     |**Control Plane Access Interface Name**     | Enter the virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface.        |
-    |**Control Plane Access Ip Address**    | Enter the IP address for the control plane interface on the access network.        |
+    |**Control Plane Access Ip Address**    | Enter the IP address for the control plane interface on the access network.</br> Note: Please ensure that the N2 IP address specified here matches the N2 address configured on the ASE Portal.       |
     |**User Plane Access Interface Name**     | Enter the virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface.        |
     |**User Plane Data Interface Name**  | Enter the virtual network name on port 6 on your Azure Stack Edge Pro device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
@@ -114,7 +114,7 @@ The following Azure resources are defined in the template.
     - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.
     - An **Attached Data Network** resource representing the site's view of the data network.
     - A **Service** resource representing the default service. 
-    - A **SIM Policy** resource representing the default SIM policy.
+    - A **SIM Policy** resource representing the allow-all SIM policy.
     - A **SIM Group** resource (if you provisioned any SIMs). 
 
     :::image type="content" source="media/create-full-private-5g-core-deployment-arm-template/full-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing the resources for a full Azure Private 5G Core deployment." lightbox="media/create-full-private-5g-core-deployment-arm-template/full-deployment-resource-group.png":::

@@ -1,5 +1,5 @@
 ---
-title: Require compliant, hybrid joined devices, or MFA - Azure Active Directory
+title: Require compliant, hybrid joined devices, or MFA
 description: Create a custom Conditional Access policy to require compliant, hybrid joined devices, or multifactor authentication
 
 services: active-directory
@@ -28,6 +28,7 @@ Policy compliance information is sent to Azure AD where Conditional Access decid
 
 Requiring a hybrid Azure AD joined device is dependent on your devices already being hybrid Azure AD joined. For more information, see the article [Configure hybrid Azure AD join](../devices/howto-hybrid-azure-ad-join.md).
 
+## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 [!INCLUDE [active-directory-policy-deploy-template](../../../includes/active-directory-policy-deploy-template.md)]

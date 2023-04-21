@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 04/14/2023
 ms.author: banders
 ---
 
@@ -16,7 +16,7 @@ ms.author: banders
 
 If you find that your [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/), [Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/), or [Azure App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) reservations, don't provide the necessary flexibility you require, you can trade these reservations for a savings plan. When you trade-in a reservation and purchase a savings plan, you can select a savings plan term of either one-year to three-year.
 
-Although you can return the above offerings for a savings plan, you can't exchange a savings plan for them or for another savings plan.
+Although you can return the above offerings for a savings plan, you can't exchange a savings plan for them or for another savings plan. You can trade in up to 100 reservations as part of a savings plan purchase.
 
 The following reservations aren't eligible to be traded in for savings plans:
 
@@ -28,19 +28,22 @@ The following reservations aren't eligible to be traded in for savings plans:
 - SUSE Linux plans
 
 > [!NOTE]
-> Exchanges will be unavailable for Azure reserved instances for compute services purchased on or after **January 1, 2024**. Azure savings plan for compute is designed to help you save broadly on predictable compute usage. The savings plan provides more flexibility needed to accommodate changes such as virtual machine series and regions. With savings plan providing the flexibility automatically, we’re adjusting our reservations exchange policy. You can continue to exchange VM sizes (with instance size flexibility) but we'll no longer support exchanging instance series or regions for Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations. For a limited time you may trade-in your Azure reserved instances for compute for a savings plan. Or, you may continue to use and purchase reservations for those predictable, stable workloads where you know the specific configuration you’ll need and want additional savings. For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
+> Exchanges will be unavailable for all compute reservations - Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations - purchased on or after **January 1, 2024**. Compute reservations purchased **prior to January 1, 2024** will reserve the right to **exchange one more time** after the policy change goes into effect. Azure savings plan for compute is designed to help you save broadly on predictable compute usage. The savings plan provides more flexibility needed to accommodate changes such as virtual machine series and regions. With savings plan providing the flexibility automatically, we’re adjusting our reservations exchange policy. You can continue to use instance size flexibility for VM sizes, but we'll no longer support exchanging instance series or regions for Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations. 
+>
+> You may trade-in your Azure compute reservations for a savings plan. Or, you may continue to use and purchase reservations for those predictable, stable workloads where you know the specific configuration you’ll need and want additional savings. For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
 
+Although compute reservation exchanges will end on January 1, 2024, noncompute reservation exchanges are unchanged. You're able to continue to trade-in reservations for saving plans.
 
 - You must have owner access on the Reservation Order to trade in an existing reservation. You can [Add or change users who can manage a savings plan](manage-savings-plan.md#who-can-manage-a-savings-plan).
 - Microsoft isn't currently charging early termination fees for reservation trade ins. We might charge the fees made in the future. We currently don't have a date for enabling the fee.
 
 ## How to trade in an existing reservation
 
-You can trade in your reservation from [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). When you trade in VM reservations for a savings plan, we cancel your reservation, issue you a pro-rated refund for them, and cancel any future payments (for reservations that were billed monthly).
+You can trade in your reservation from [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). When you trade in VM reservations for a savings plan, we cancel your reservation, issue you a pro-rated refund for them, and cancel any future payments (for reservations that were billed monthly). As part of a savings plan purchase, you can trade in up to 100 reservations.
 
 1. Select the reservations that you want to trade in and select **Exchange**.  
   :::image type="content" source="./media/reservation-trade-in/exchange-refund-return.png" alt-text="Screenshot showing the Exchange window." lightbox="./media/reservation-trade-in/exchange-refund-return.png" :::
-1. For each reservation order selected, enter the quantity of reservation instances you want to return. The bottom of the window shows the amount that will be refunded. It also shows the value of future payments that will be canceled, if applicable.
+1. For each reservation order selected, enter the quantity of reservation instances you want to return. The bottom of the window shows the amount to refund. It also shows the value of future payments that are canceled, if applicable.
 1. Select **Compute Savings Plan** as the product that you want to purchase.
 1. Enter the necessary information to complete the purchase. For more information, see [Buy a savings plan](buy-savings-plan.md#buy-a-savings-plan-in-the-azure-portal).
 
@@ -108,7 +111,7 @@ You can't cancel, exchange or refund a savings plan.
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your  account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
+If you have Azure savings plan for compute questions, contact your  account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
 
 ## Next steps
 

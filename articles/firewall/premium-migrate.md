@@ -16,6 +16,9 @@ You can migrate Azure Firewall Standard to Azure Firewall Premium to take advant
 
 This article guides you with the required steps to manually migrate your Standard firewall and policy to Premium.
 
+> [!TIP]
+> The easiest way to change your Azure Firewall SKU with no downtime is to use the **Change SKU** feature. For more information, see [Azure Firewall easy upgrade/downgrade](easy-upgrade.md).
+
 Before you start the migration, understand the [performance considerations](#performance-considerations) and plan ahead for the required maintenance window. Typical down time of 20-30 minutes is expected.
 
 The following general steps are required for a successful migration:

@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 04/03/2023
 tags: connectors
 ---
 
@@ -582,7 +582,7 @@ For example, review the following example XML payload:
 
 ```xml
 <SendIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
-<idocData>EDI_DC 3000000001017945375750 30INVOIC011BTSVLINV30KUABCABCFPPC LDCA X004010810 4 SAPMSX LSEDI ABCABCFPPC 000d3ae4-723e-1edb-9ca4-cc017365c9fd 20210217054521INVOICINVOIC01ZINVOIC2RE 20210217054520
+  <idocData>EDI_DC 3000000001017945375750 30INVOIC011BTSVLINV30KUABCABCFPPC LDCA X004010810 4 SAPMSX LSEDI ABCABCFPPC 000d3ae4-723e-1edb-9ca4-cc017365c9fd 20210217054521INVOICINVOIC01ZINVOIC2RE 20210217054520
 E2EDK010013000000001017945375000001E2EDK01001000000010 ABCABC1.00000 0060 INVO9988298128 298.000 298.000 LB Z4LR EN 0005065828 L
 E2EDKA1 3000000001017945375000002E2EDKA1 000000020 RS ABCABCFPPC 0005065828 ABCABCABC ABCABC Inc. Limited Risk Distributor ABCABC 1950 ABCABCABCA Blvd ABCABAABCAB L5N8L9 CA ABCABC E ON V-ABCABC LDCA
 E2EDKA1 3000000001017945375000003E2EDKA1 000000020 AG 0005065828 ABCABCFPPC ABCABC ABCABC ABCABC - FPP ONLY 88 ABCABC Crescent ABCABAABCAB L5R 4A2 CA ABCABC 111 111 1111 E ON ABCABCFPPC EN
@@ -729,6 +729,7 @@ In the following example, a request and response pattern is generated from the `
 <STFC_CONNECTIONResponse xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
   <ECHOTEXT>@{first(xpath(xml(triggerBody()?['Content']), '/*[local-name()="STFC_CONNECTION"]/*[local-name()="REQUTEXT"]/text()'))}</ECHOTEXT>
   <RESPTEXT>Azure Logic Apps @{utcNow()}</RESPTEXT>
+</STFC_CONNECTIONResponse>
 ```
 
 ### Test your logic app workflow
@@ -744,9 +745,9 @@ In the following example, a request and response pattern is generated from the `
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>
    <Send xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/2/ORDERS05//720/Send">
-   <idocData>
-   <...>
-   </idocData>
+     <idocData>
+       <...>
+     </idocData>
    </Send>
    ```
 
@@ -1040,9 +1041,9 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 > [!IMPORTANT]
 > Use these steps only when you test your SAP configuration with your logic app workflow. Production environments require additional configuration.
 
-1. [Configure an RFC destination in SAP.](#create-rfc-destination)
+1. [Create an RFC destination.](#create-rfc-destination)
 
-1. [Create an ABAP connection to your RFC destination.](#create-abap-connection)
+1. [Create an ABAP connection.](#create-abap-connection)
 
 1. [Create a receiver port.](#create-receiver-port)
 
@@ -1055,6 +1056,8 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 1. [Test sending messages.](#test-sending-messages)
 
 #### Create RFC destination
+
+This destination will identify your logic app workflow for the receiver port.
 
 1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59** transaction code (T-Code) with the **/n** prefix.
 
@@ -1100,11 +1103,15 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 
 #### Create ABAP connection
 
+This destination will identify your SAP system for the sender port.
+
 1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59*** transaction code (T-Code) with the **/n** prefix.
 
 1. Select **ABAP Connections** > **Create**.
 
-1. For **RFC Destination**, enter the identifier for [your test SAP system](#create-rfc-destination).
+1. For **RFC Destination**, enter the identifier for your test SAP system.
+
+1. By leaving the target host empty in the Technical Settings, you are creating a local connection to the SAP system itself.
 
 1. Save your changes.
 
@@ -1737,7 +1744,7 @@ For more information about the metrics that each class provides, review the [SAP
 
 Before you can send SAP telemetry for your gateway installation to Application Insights, you need to have created and set up your Application Insights resource. For more information, review the following documentation:
 
-* [Create an Application Insights resource (classic)](../azure-monitor/app/create-new-resource.md)
+* [Create an Application Insights resource (classic)](/previous-versions/azure/azure-monitor/app/create-new-resource)
 
 * [Workspace-based Application Insights resources](../azure-monitor/app/create-workspace-resource.md)
 
@@ -2180,4 +2187,5 @@ For more information about the SAP connector, review the [connector reference](/
 
 * [Connect to on-premises systems](logic-apps-gateway-connection.md) from Azure Logic Apps
 * Learn how to validate, transform, and use other message operations with the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

@@ -29,14 +29,14 @@
       href: understand-cosmosdb-reservation-charges.md
     - name: Azure Cosmos DB for PostgreSQL
       href: ../../cosmos-db/postgresql/resources-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Database for PostgreSQL
+      href: ../../postgresql/single-server/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure SQL Edge
       href: discount-sql-edge.md
     - name: Database for MariaDB
       href: understand-reservation-charges-mariadb.md
     - name: Database for MySQL
       href: understand-reservation-charges-mysql.md
-    - name: Database for PostgreSQL - Single Server
-      href: understand-reservation-charges-postgresql.md
     - name: Databricks
       href: reservation-discount-databricks.md
     - name: Data Explorer
@@ -150,6 +150,8 @@
     items:
     - name: Exchange and refund reservations
       href: exchange-and-refund-azure-reservations.md
+    - name: Changes to the reservation exchange policy
+      href: reservation-exchange-policy-changes.md
   - name: Renew reservations
     items:
     - name: Renew a reservation

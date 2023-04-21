@@ -1,12 +1,12 @@
 ﻿---
-title: Understand Azure IoT Hub direct methods | Microsoft Docs
+title: Understand Azure IoT Hub direct methods
 description: This article describes how use direct methods to invoke code on your devices from a service app.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 07/15/2022
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: concept-article
+ms.date: 07/15/2022
 ms.custom: [amqp, mqtt,'Role: Cloud Development', 'Role: IoT Device']
 ---
 

@@ -186,7 +186,7 @@ Request throttling in a self-hosted gateway can be enabled by using the API Mana
 ## Security
 The self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway securely.
 
-Here's an example of the security context for the self-hosted gateway:
+Here's an example of the security context for the self-hosted gateway container:
 ```yml
 securityContext:
   allowPrivilegeEscalation: false

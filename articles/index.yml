@@ -11,9 +11,9 @@ metadata:
   ms.service: azure
   ms.custom: ignite-2022
   ms.topic: hub-page
-  author: rolyon
-  ms.author: rolyon
-  ms.date: 01/03/2023
+  author: kcpitt
+  ms.author: kellypi
+  ms.date: 02/25/2023
   featureFlags:
   - clicktale
 highlightedContent:
@@ -40,12 +40,12 @@ productDirectory:
   title: Browse Azure products
   items:
     # Card
-    - title: Azure Percept
-      summary: Edge intelligence from silicon to service
-      imageSrc: ./media/index/azure-percept.svg
-      azureCategories:
-        - iot
-      url: azure-percept/index.yml
+    # - title: Azure Percept
+      # summary: Edge intelligence from silicon to service
+      # imageSrc: ./media/index/azure-percept.svg
+      # azureCategories:
+       #  - iot
+     #  url: azure-percept/index.yml
     # Card
     - title: Anomaly Detector
       summary: Easily add anomaly detection capabilities to your apps
@@ -90,6 +90,7 @@ productDirectory:
       summary: Apply advanced coding and language models to a variety of use cases
       imageSrc: cognitive-services/openai/media/icon/azure-openai-dark.svg
       azureCategories:
+        - featured
         - ai-machine-learning
       url: cognitive-services/openai/index.yml
 
@@ -144,6 +145,7 @@ productDirectory:
       imageSrc: ./media/index/communications-gateway.svg
       azureCategories:
         - networking
+        - 5g-space
       url: communications-gateway/index.yml
     # Card
     - title: Computer Vision
@@ -211,7 +213,7 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/luis/index.yml
     # Card
-    - title: Microsoft Energy Data Services (Preview)
+    - title: Microsoft Azure Data Manager for Energy (Preview)
       summary: Accelerate your journey to energy data modernization and digital transformation
       imageSrc: energy-data-services/media/icon/energy-data-services.svg
       azureCategories:
@@ -504,7 +506,6 @@ productDirectory:
       imageSrc: ./media/index/quantum.svg
       azureCategories:
         - compute
-        - featured
       url: /azure/quantum/
     # Card
     - title: Azure Spot Virtual Machines
@@ -892,7 +893,7 @@ productDirectory:
         - security
       url: active-directory/index.yml
     # Card
-    - title: Azure Arc (Preview)
+    - title: Azure Arc
       summary: Bring Azure services and management to any infrastructure
       imageSrc: https://static.docs.com/ui/media/product/azure/arc.svg
       azureCategories:
@@ -1324,7 +1325,7 @@ productDirectory:
       azureCategories:
         - networking
         - security
-      url: ./ddos-protection/ddos-protection-overview.md
+      url: ddos-protection/index.yml
     # Card
     - title: Azure DNS
       summary: Host your DNS domain in Azure
@@ -1376,6 +1377,7 @@ productDirectory:
       imageSrc: ./media/index/private-5g-core.svg
       azureCategories:
         - networking
+        - 5g-space
       url: private-5g-core/index.yml
     # Card
     - title: Load Balancer
@@ -1435,6 +1437,14 @@ productDirectory:
       azureCategories:
         - security
       url: dedicated-hsm/index.yml
+    # Card
+    - title: Microsoft Defender for External Attack Surface Management
+      summary: Safeguard the digital experience by discovering all internet-exposed resources
+      imageSrc: ./media/index/Defender-easm.svg
+      azureCategories:
+        - security
+        - management-and-governance
+      url: external-attack-surface-management/index.md
     # Card
     - title: Key Vault
       summary: Safeguard and maintain control of keys and other secrets
@@ -1546,6 +1556,7 @@ productDirectory:
       imageSrc: /media/logos/logo-azureorbital.svg
       azureCategories:
         - networking
+        - 5g-space
       url: orbital/index.yml
     # Card
     - title: Azure Web PubSub
@@ -1562,6 +1573,21 @@ productDirectory:
       azureCategories:
         - web
       url: azure-fluid-relay/index.yml
+    # Card
+    - title: Azure Operator Nexus
+      summary: Build your mission-critical mobile networks with a carrier-grade, hybrid cloud platform
+      imageSrc: ./media/index/operator-nexus.svg
+      azureCategories:
+       - 5g-space
+      url: operator-nexus/index.yml
+    # Card
+    - title: Azure Network Function Manager
+      summary: Extend Azure management for deploying 5G and SD-WAN network functions on edge devices
+      imageSrc: ./media/index/azure-network-function-manager.svg
+      azureCategories:
+       - networking
+       - 5g-space
+      url: network-function-manager/index.yml
 tools:
   title: Languages and tools
   items:

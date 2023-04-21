@@ -1,6 +1,6 @@
 ---
 title: 'How to prepare a dataset for custom model training'
-titleSuffix: Azure OpenAI
+titleSuffix: Azure OpenAI Service
 description: Learn how to prepare your dataset for fine-tuning
 services: cognitive-services
 manager: nitinme
@@ -24,6 +24,7 @@ The first step of customizing your model is to prepare a high quality dataset. T
 - Each completion should start with a whitespace due to our tokenization, which tokenizes most words with a preceding whitespace.
 - Each completion should end with a fixed stop sequence to inform the model when the completion ends. A stop sequence could be `\n`, `###`, or any other token that doesn't appear in any completion.
 - For inference, you should format your prompts in the same way as you did when creating the training dataset, including the same separator. Also specify the same stop sequence to properly truncate the completion.
+- The dataset cannot exceed 100 MB in total file size.
 
 ## Best practices
 
@@ -270,4 +271,4 @@ Generative tasks have a potential to leak training data when requesting completi
 ## Next steps
 
 * Fine tune your model with our [How-to guide](fine-tuning.md)
-* Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md)
+* Learn more about the [underlying models that power Azure OpenAI Service](../concepts/models.md)
