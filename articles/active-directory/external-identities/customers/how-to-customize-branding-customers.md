@@ -33,7 +33,7 @@ The default sign-in experience is the global look and feel that applies across a
 
 Your Azure AD tenant supports Microsoft look and feel as a default state for authentication experience. You can [customize the default Microsoft sign-in experience](/azure/active-directory/fundamentals/how-to-customize-branding) with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS. If the custom company branding fails to load for any reason, the sign-in page will revert to the default Microsoft branding.
 
-Microsoft provides a neutral branding as the default for the customer tenant, which can be customized to meet the specific needs of your company. The default branding for the customer tenant is neutral and does not include any existing Microsoft branding. If the custom company branding fails to load for any reason, the sign-in page will revert to this neutral branding. It is also possible to add each custom branding property to the custom sign-in page individually.
+Microsoft provides a neutral branding as the default for the customer tenant, which can be customized to meet the specific needs of your company. The default branding for the customer tenant is neutral and doesn't include any existing Microsoft branding. If the custom company branding fails to load for any reason, the sign-in page will revert to this neutral branding. It's also possible to add each custom branding property to the custom sign-in page individually.
 
 The following list and image outline the elements of the default Microsoft sign-in experience in an Azure AD tenant: 
 
@@ -41,7 +41,7 @@ The following list and image outline the elements of the default Microsoft sign-
 2.	Microsoft favicon.
 3.	Microsoft banner logo.
 4.	Footer as a page layout element.
-5.	Microsoft footer hyperlinks for example Privacy & cookies, Terms of use and troubleshooting details also known as ellipsis in the right bottom corner of the screen.
+5.	Microsoft footer hyperlinks, for example,  Privacy & cookies, Terms of use and troubleshooting details also known as ellipsis in the right bottom corner of the screen.
 6.	Microsoft overlay.
 
    :::image type="content" source="media/how-to-customize-branding-customers/azure-ad-microsoft-branding.png" alt-text="Screenshot of the Azure AD default Microsoft branding.":::
@@ -53,10 +53,9 @@ The following image displays the neutral default branding of the customer tenant
 
 Before you customize any settings, the neutral default branding will appear in your sign-in and sign-up pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS. 
 
-1. Make sure you're using the directory that contains your customer tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
-1. In the search bar, type and select select **Company branding**.
+1. In the search bar, type and select **Company branding**.
 1. Under **Default sign-in*, select **Edit**.
 
    :::image type="content" source="media/how-to-customize-branding-customers/company-branding-default-edit-button.png" alt-text="Screenshot of the company branding edit button.":::
@@ -67,7 +66,7 @@ Before you customize any settings, the neutral default branding will appear in y
 
    - **Favicon** – The icon that displays in the web browser tab.
 
-   - **Background image** – The large image that displays on the Azure AD sign-in page. If you upload an image, it will scale and crop to fill the browser window.
+   - **Background image** – The large image that displays on the sign-in page. If you upload an image, it will scale and crop to fill the browser window.
 
    - **Page background color** – The color that replaces the background image whenever the image can’t be loaded, for example due to connection latency.
 
@@ -123,7 +122,7 @@ Before you customize any settings, the neutral default branding will appear in y
 
    - **Username hint text** – The hint text that displays in the username input field on the sign-in page (not recommended if guest users sign in to your app). 
 
-   - **Sign-in page text** – Appears at the bottom of the sign-in page and in the Azure AD Join experience on Windows. Guidelines:
+   - **Sign-in page text** – Appears at the bottom of the sign-in and sign-up pages. Guidelines:
 
       - 1024 characters maximum
       - Don't include sensitive information
@@ -167,219 +166,44 @@ In the customer tenant, we have two options to add custom text to the sign-up an
 
 ## How to customize the tenant name
 
-Your customer tenant name replaces the Microsoft banner logo in the neutral default sign-in experience. You can customize your tenant's name in the Properties area of Azure AD.
+Your customer tenant name replaces the Microsoft banner logo in the neutral default sign-in experience. You can customize your tenant's name in the Properties area.
 
 :::image type="content" source="media/how-to-customize-branding-customers/tenant-name.png" alt-text="Screenshot of the tenant name.":::
 
-1. Make sure you're using the directory that contains your CIAM tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-1. On the **Portal settings | Directories + subscriptions** page, find your CIAM directory in the Directory name list, and then select **Switch**.
-
-1. On the left navbar, select **Azure Active Directory**, and then select **Properties**.
-
-    The **Properties** area appears.
-On the left navbar, select **Azure Active Directory**, and then select **Properties**.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
+1. In the search bar, type and select **Properties**.
 1. Edit the **Name** field. 
 
    :::image type="content" source="media/how-to-customize-branding-customers/tenant-name-edit.png" alt-text="Screenshot of editing the tenant name.":::
 
 5. Select **Save**.
 
-## Comparing the default sign-in experiences between the CIAM tenant and the Azure AD tenant.
-
-The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. The default branding experiences between the CIAM tenant and the default Azure AD tenant are distinct.
-
-Your Azure AD tenant supports Microsoft look and feel as a default state for authentication experience. You can [customize the default Microsoft sign-in experience](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/how-to-customize-branding) with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS. If the custom company branding fails to load for any reason, the sign-in page will revert to the default Microsoft branding.
-
-Microsoft provides a neutral branding as the default for the CIAM tenant, which can be customized to meet the specific needs of your company. The default branding for the CIAM tenant is neutral and does not include any existing Microsoft branding. If the custom company branding fails to load for any reason, the sign-in page will revert to this neutral branding. It is also possible to add each custom branding property to the custom sign-in page individually.
-
-The following list and image outline the elements of the default Microsoft sign-in experience: 
-
-1.	Microsoft background image and color.
-2.	Microsoft favicon.
-3.	Microsoft banner logo.
-4.	Footer as a page layout element.
-5.	Microsoft footer hyperlinks for example Privacy & cookies, Terms of use and troubleshooting details also known as ellipsis in the right bottom corner of the screen.
-6.	Microsoft overlay.
-
- ![Screenshot of the Azure AD default Microsoft branding.](media/ciam-pp1/azure-ad-microsoft-branding.png)
-
-
-The following image displays the neutral default branding for the CIAM tenant:
- ![Screenshot of the CIAM neutral branding.](media/ciam-pp1/ciam-neutral-branding.png)
-
-## How to customize the default sign-in experience
-
-The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the neutral default branding will appear in your sign-in pages. You can customize this default experience with a custom background image or color, favicon, layout, header, and footer. You can also upload a custom CSS. [CSS reference guide](PP3_CSS%20reference%20guide.md)
-
-1. Make sure you're using the directory that contains your CIAM tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-1. On the **Portal settings | Directories + subscriptions** page, find your CIAM directory in the Directory name list, and then select **Switch**.
-
-1. Go to Azure **Active Directory** > **Company branding**.
-
-1. Under **Default sign-in experience**, select **Edit**.
-
-   ![Screenshot](media/ciam-pp1/8-company-branding-default-edit-button.png)
-   
-### To customize the sign-in page background and layout
-
-1. On the **Basics** tab, modify any of the background elements.
-
-   - **Favicon** – The icon that displays in the web browser tab.
-
-   - **Background image** – The large image that displays on the Azure AD sign-in page. If you upload an image, it will scale and crop to fill the browser window.
-
-   - **Page background color** – The color that replaces the background image whenever the image can’t be loaded, for example due to connection latency.
-
-   ![Screenshot](media/ciam-pp1/9-company-branding-basics-tab.png) 
-
-1. Select **Next: Layout** if you would like to continue customizing or **Review + save** if you would like to save your changes.
-
-1. On the Layout tab, select the placement of web page elements on the sign-in page.
-
-   - **Template** – Choose whether the background displays full-screen or partial-screen.
-
-   - **Header** – Show or hide the header.
-
-   - **Footer** – Show or hide the footer.
-
-   - **Custom CSS** – Upload your own CSS file to replace default Microsoft styling with your own styling for: color, font, text size, position of elements, and displays for different devices and screen sizes.  
-
-   ![Screenshot](media/ciam-pp1/10-company-branding-layout-tab.png)
-
-1. Select **Next: Header** if you would like to continue customizing or **Review + save** if you would like to save your changes.
-
-### To customize the logo, privacy link, and terms of use
-
-1. On the **Header** tab, select the logo to display in the header of the sign-in page. 
-
-   ![Screenshot](media/ciam-pp1/11-company-branding-header-tab.png)
-
-1. Select **Next: Footer** if you would like to continue customizing or **Review + save** if you would like to save your changes. 
-
-1. On the **Footer** tab, you can customize the URLs and link text for the privacy and terms of use hyperlinks that appear in the footer of the sign-in page.  
-
-   - **Privacy & Cookies** – Select the checkbox next to Privacy & Cookies to display this hyperlink in the footer. The Microsoft default privacy link will display unless you enter your own hyperlink Display text and URL. 
-
-   - **Terms of Use** – Select the checkbox next to Terms of Use to display this hyperlink in the footer. The Microsoft terms of use link will display unless you enter your own hyperlink Display text and URL. 
-
-   ![Screenshot](media/ciam-pp1/12-company-branding-footer-tab.png)
-
-1. Select **Next: Sign-in form** if you would like to continue customizing or **Review + save** if you would like to save your changes.
-
-### To customize the sign-in form
-
-1. On the **Sign-in form** tab, configure elements of the sign-in form: 
-
-   - **Banner logo** – Displays on the sign-in page and in the user’s access panel. 
-
-   - **Square logo (light theme)** – Represents user accounts in your organization. 
-
-   - **Square logo (dark theme)** – If the light theme square logo displays poorly on dark backgrounds, you can upload a logo to be used in its place when dark backgrounds are used. 
-
-   ![Screenshot](media/ciam-pp1/13-company-branding-sign-in-form-tab-1.png)
-
-1. Scroll to the lower half of the page and configure more elements of the sign-in form:
-
-   - **Username hint text** – The hint text that displays in the username input field on the sign-in page (not recommended if guest users sign in to your app). 
-
-   - **Sign-in page text** – Appears at the bottom of the sign-in page and in the Azure AD Join experience on Windows. Guidelines:
-
-      - 1024 characters maximum
-      - Don't include sensitive information
-      - Use this syntax to format text:  
-         - Hyperlink: `[text](link)`
-         - Bold: `**text** or __text__`
-         - Italics: `*text* or _text_`
-         - Underline: `++text++`
-
-### To customize self-service password reset
-
- 1.   Scroll to the **Self-service password reset** section to configure options for showing, hiding, or customizing the self-service password reset link on the sign-in page. 
-
-      - **Show self-service password reset** – Select this checkbox to display the self-service password link. 
-      - **Common URL** – Enter a password reset URL to use in place of the default Microsoft link. 
-      - **Account collection display text** – Enter link text to display in place of the Microsoft default text “Can’t access your account” text. 
-      - **Password collection display text** – Enter link text to display in place of the Microsoft default “Forgot password” text. 
- 
-   ![Screenshot](media/ciam-pp1/14-company-branding-sign-in-form-tab-2.png)
-
-1. Select **Next: Review** and review all your modifications. Then select **Save** if you would like to save your changes or **Previous** if you would like to continue customizing.
-
-### To customize user attributes
-
-For your customer tenant, you might have different requirements for the information you want to collect during sign-up and sign-in. The customer tenant comes with a built-in set of information stored in attributes, such as Given Name, Surname, City, and Postal Code. You can create custom attributes in your customer tenant using the  [Microsoft Graph API](https://github.com/csmulligan/entra-previews/blob/PP3/docs/8-Customize-sign-in-strings.md) or in the portal under the **Text** tab in **Company Branding**. - 
-1.	On the **Text** tab select **Add Custom Text**.
-2.	Select any of the options:
- - Select **Attributes** to override the default values. 
- - Select **Attribute collection** to add a new attribute option that you would like to collect during the sign-up process.
- - Select **Sign in** to add custom text for the sign-in page.
- - Select **Sign up** to add custom text for the sign-in page.
-Select  **Sign-in/up one time code (SISU OTC)** to add a custom title.
-
- ![Screenshot of the custom text option.](media/ciam-pp1/custom-text.png)
-
-Select **Add** once you finished with your changes. You can edit the existing custom text by selecting the **Text name** and select Save. 
-
-[!IMPORTANT] 
-In the customer tenant, we have two options to add custom text to the sign-up and sign-in experience.  The function is available under each user flow during language customization and also under Company branding. Although we have to ways to customize strings (via Company Branding and via User Flows), both ways modify the same JSON file. The most recent change made either via User flows or via Company branding  will always override the previous one.
-
-## How to customize the tenant name
-
-Your CIAM tenant name replaces the Microsoft banner logo in the neutral default sign-in experience. You can customize your CIAM tenant's name in the Properties area of Azure AD.
-
- ![Screenshot of the CIAM neutral branding.](media/ciam-pp1/ciam-neutral-branding-name.png)
-
-1. Make sure you're using the directory that contains your CIAM tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-1. On the **Portal settings | Directories + subscriptions** page, find your CIAM directory in the Directory name list, and then select **Switch**.
-
-1. On the left navbar, select **Azure Active Directory**, and then select **Properties**.
-
-    The **Properties** area appears.
-On the left navbar, select **Azure Active Directory**, and then select **Properties**.
-
-1. Edit the **Name** field. 
-
- ![Screenshot of the CIAM neutral branding.](media/ciam-pp1/tenant-name.png)
-
-5. Select **Save**.
-
 ## Clean up resources via the portal
 
-When no longer needed, you can remove the sign-in customization from your CIAM tenant via the Azure portal.  
+When no longer needed, you can remove the sign-in customization from your customer tenant via the Azure portal.  
 
-1. Make sure you're using the directory that contains your CIAM tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-
-1. On the **Portal settings | Directories + subscriptions** page, find your CIAM directory in the Directory name list, and then select **Switch**.
-
-1. Go to Azure **Active Directory** > **Company branding**.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
+1. In the search bar, type and select **Company branding**.
 1. Under **Default sign-in experience**, select **Edit**.
-
 1.	Remove the elements you no longer need.
-
 1.	Once finished select **Review + save**. 
-
 1. Wait a few minutes for the changes to take effect.
 
-  
 ## Clean up resources via the Microsoft Graph API
 
-When no longer needed, you can remove the sign-in customization from your CIAM tenant via the  Microsoft Graph API.
+When no longer needed, you can remove the sign-in customization from your customer tenant via the  Microsoft Graph API.
 
-1. Login to the [MS Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) with your CIAM test tenant account:  `https://developer.microsoft.com/en-us/graph/graph-explorer?tenant=<your-tenant-name.onmicrosoft.com>`.
+1. Sign in to the [MS Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) with your customer tenant account:  `https://developer.microsoft.com/en-us/graph/graph-explorer?tenant=<your-tenant-name.onmicrosoft.com>`.
 
-1. Query the default branding object using the Microsoft Graph API beta version: `https://graph.microsoft.com/beta/organization/<your-tenant-ID>/branding/localizations`. To confirm that you are signed in to your CIAM tenant, verify the tenant name on the right side of the screen.
+1. Query the default branding object using the Microsoft Graph API beta version: `https://graph.microsoft.com/beta/organization/<your-tenant-ID>/branding/localizations`. To confirm that you're signed in to your customer tenant, verify the tenant name on the right side of the screen.
 
- ![Screenshot of MS Graph API with CIAM tenant logged in.](media/ciam-pp1/msgraph-ciam-branding.png)
+   :::image type="content" source="media/how-to-customize-branding-customers/msgraph-ciam-branding.png" alt-text="Screenshot of MS Graph API with CIAM tenant logged in.":::
 
-3. [Remove default branding object](https://learn.microsoft.com/en-us/graph/api/organizationalbrandinglocalization-delete?view=graph-rest-beta&tabs=http) using the Microsoft Graph API beta version and the DELETE request.
-
+3. [Remove default branding object](/graph/api/organizationalbrandinglocalization-delete?view=graph-rest-beta&tabs=http) using the Microsoft Graph API beta version and the DELETE request.
 4. Wait a few minutes for the changes to take effect.
 
 ## Next steps
 
-- [Add Google as an identity provider](how-to-google-federation-customers.md)
+- [Language customization](how-to-customize-languages-customers.md)
