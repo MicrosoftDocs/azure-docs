@@ -268,11 +268,8 @@ In this task, you must configure some external endpoints for the database listen
 
    ```bash
    firewall-cmd --zone=public --add-port=1521/tcp --permanent
-
    firewall-cmd --zone=public --add-port=5502/tcp --permanent
-
    firewall-cmd --reload
-
    ```
 
 ## Create the database
@@ -405,7 +402,7 @@ The Oracle database by default doesn't automatically start when you restart the 
    sed -i 's/:N/:Y/' /etc/oratab
    ```
 
-1. Create a file named **/etc/init.d/dbora** and paste the following bash command into the file:
+1. Create a file named **/etc/init.d/dbora** and add the following bash command to the file:
 
    ```bash
    #!/bin/sh
