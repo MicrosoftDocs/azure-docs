@@ -7,7 +7,7 @@ author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/03/2023
+ms.date: 04/19/2023
 ms.author: halkazwini
 ms.custom: template-concept, engagement-fy23
 ---
@@ -516,6 +516,10 @@ Currently, these Azure services don't support NSG flow logs:
 - [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 - [Azure Functions](../azure-functions/functions-overview.md)
 - [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md)
+- [App Service](../app-service/overview.md)
+- [Azure Database for MariaDB](../mariadb/overview.md)
+- [Azure Database for MySQL](../mysql/single-server/overview.md)
+- [Azure Database for PostgreSQL](../postgresql/single-server/overview.md)
 
 > [!NOTE]
 > App services deployed under an Azure App Service plan don't support NSG flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).

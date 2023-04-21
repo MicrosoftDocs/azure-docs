@@ -74,17 +74,12 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 1. Select **+Add** to save your application.
 
 1. Test whether you can access your NDES server via the Azure AD Application proxy by pasting the link you copied in step 15 into a browser. You should see a default IIS welcome page.
-
 1. As a final test, add the *mscep.dll* path to the existing URL you pasted in the previous step:
-
-  `https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll`
-
+    `https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll`
 1. You should see an **HTTP Error 403 – Forbidden** response.
-
 1. Change the NDES URL provided (via Microsoft Intune) to devices. This change could either be in Microsoft Configuration Manager or the Microsoft Intune admin center.
-
-   * For Configuration Manager, go to the certificate registration point and adjust the URL. This URL is what devices call out to and present their challenge.
-   * For Intune standalone, either edit or create a new SCEP policy and add the new URL.
+    - For Configuration Manager, go to the certificate registration point and adjust the URL. This URL is what devices call out to and present their challenge.
+    - For Intune standalone, either edit or create a new SCEP policy and add the new URL.
 
 ## Next steps
 
