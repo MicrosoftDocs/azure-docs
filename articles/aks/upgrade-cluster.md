@@ -10,7 +10,7 @@ ms.date: 04/21/2023
 
 Part of the AKS cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It’s important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your AKS cluster.
 
-When you upgrade a supported AKS cluster, Kubernetes minor versions can't be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed.
+When you upgrade a supported AKS cluster, Kubernetes minor versions can't be skipped. You must perform all upgrades sequentially by major version number. For example, upgrades between *1.14.x* -> *1.15.x* or *1.15.x* -> *1.16.x* are allowed, however *1.14.x* -> *1.16.x* isn't allowed.
 
 Skipping multiple versions can only be done when upgrading from an *unsupported version* back to a *supported version*. For example, an upgrade from an unsupported *1.10.x* -> a supported *1.15.x* can be completed if available. When performing an upgrade from an *unsupported version* that skips two or more minor versions, the upgrade is performed without any guarantee of functionality and is excluded from the service-level agreements and limited warranty. If your version is significantly out of date, we recommend you recreate your cluster.
 
@@ -72,7 +72,7 @@ Check which Kubernetes releases are available for your cluster using the followi
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to your AKS cluster.
 3. Under **Settings**, select **Cluster configuration**.
-4. In **Kubernetes version**, select **Upgrade version**. This will redirect you to a new page.
+4. In **Kubernetes version**, select **Upgrade version**.
 5. In **Kubernetes version**, select the version to check for available upgrades.
 
 The Azure portal highlights all the deprecated APIs between your current version and newer, available versions you intend to migrate to. For more information, see [the Kubernetes API Removal and Deprecation process][k8s-deprecation].
@@ -93,7 +93,7 @@ The Azure portal highlights all the deprecated APIs between your current version
     Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
     ```
 
-    If you receive this output, you need to update your Azure CLI version. The `az upgrade` command was added in version 2.11.0 and doesn't work with versions prior to 2.11.0. Older versions can be updated by reinstalling Azure CLI as described in [Install the Azure CLI](/cli/azure/install-azure-cli). If your Azure CLI version is 2.11.0 or later, you'll receive a message to run `az upgrade` to upgrade Azure CLI to the latest version.
+    If you receive this output, you need to update your Azure CLI version. The `az upgrade` command was added in version 2.11.0 and doesn't work with versions prior to 2.11.0. You can update older versions by reinstalling Azure CLI as described in [Install the Azure CLI](/cli/azure/install-azure-cli). If your Azure CLI version is 2.11.0 or later, you receive a message to run `az upgrade` to upgrade Azure CLI to the latest version.
 
 * If your Azure CLI is updated and you receive the following example output, it means that no upgrades are available:
 
@@ -118,10 +118,10 @@ The Azure portal highlights all the deprecated APIs between your current version
 During the cluster upgrade process, AKS performs the following operations:
 
 * Add a new buffer node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version.
-* [Cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications. If you're using max surge, it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified.
-* When the old node is fully drained, it will be reimaged to receive the new version, and it will become the buffer node for the following node to be upgraded.
+* [Cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications. If you're using max surge, it [cordons and drains][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified.
+* When the old node is fully drained, it's reimaged to receive the new version and becomes the buffer node for the following node to be upgraded.
 * This process repeats until all nodes in the cluster have been upgraded.
-* At the end of the process, the last buffer node will be deleted, maintaining the existing agent node count and zone balance.
+* At the end of the process, the last buffer node is deleted, maintaining the existing agent node count and zone balance.
 
 [!INCLUDE [alias minor version callout](./includes/aliasminorversion/alias-minor-version-upgrade.md)]
 
@@ -182,7 +182,7 @@ During the cluster upgrade process, AKS performs the following operations:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to your AKS cluster.
 3. Under **Settings**, select **Cluster configuration**.
-4. In **Kubernetes version**, select **Upgrade version**. This will redirect you to a new page.
+4. In **Kubernetes version**, select **Upgrade version**.
 5. In **Kubernetes version**, select your desired version and then select **Save**.
 6. Navigate to your AKS cluster **Overview** page, and select the **Kubernetes version** to confirm the upgrade was successful.
 
@@ -231,11 +231,11 @@ All of the following criteria must be met in order for the stop to occur:
 * The Kubernetes version you're upgrading to is 1.26 or later
 * If performed via REST, the upgrade operation uses a preview API version of `2023-01-02-preview` or later.
 * If performed via Azure CLI, the `aks-preview` CLI extension 0.5.134 or later must be installed.
-* The last seen usage seen of deprecated APIs for the targeted version you are upgrading to must occur within 12 hours before the upgrade operation. AKS records usage hourly, so any usage of deprecated APIs within one hour isn't guaranteed to appear in the detection.
+* The last seen usage of deprecated APIs for the targeted version you're upgrading to must occur within 12 hours before the upgrade operation. AKS records usage hourly, so any usage of deprecated APIs within one hour isn't guaranteed to appear in the detection.
 
 ### Mitigating stopped upgrade operations
 
-If you attempt an upgrade and all of the previous criteria are met, you'll receive an error message similar to the following example error message:
+If you attempt an upgrade and all of the previous criteria are met, you receive an error message similar to the following example error message:
 
 ```output
 Bad Request({
@@ -288,13 +288,13 @@ After receiving the error message, you have two options to mitigate the issue. Y
 >
 > * The max surge setting on a node pool is persistent.  Subsequent Kubernetes upgrades or node version upgrades will use this setting. You may change the max surge value for your node pools at any time. For production node pools, we recommend a max-surge setting of 33%.
 
-By default, AKS configures upgrades to surge with one extra node. A default value of one for the max surge settings enables AKS to minimize workload disruption by creating an extra node before the cordon/drain of existing applications to replace an older versioned node. The max surge value can be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. By increasing the max surge value, the upgrade process completes faster, but setting a large value for max surge may cause disruptions during the upgrade process.
+By default, AKS configures upgrades to surge with one extra node. A default value of one for the max surge settings enables AKS to minimize workload disruption by creating an extra node before the cordon/drain of existing applications to replace an older versioned node. The max surge value can be customized per node pool to enable a trade-off between upgrade speed and upgrade disruption. When you increase the max surge value, the upgrade process completes faster. If you set a large value for max surge, you might experience disruptions during the upgrade process.
 
-For example, a max surge value of 100% provides the fastest possible upgrade process (doubling the node count) but also causes all nodes in the node pool to be drained simultaneously. You may wish to use a higher value such as this for testing environments. For production node pools, we recommend a max_surge setting of 33%.
+For example, a max surge value of *100%* provides the fastest possible upgrade process (doubling the node count) but also causes all nodes in the node pool to be drained simultaneously. You might want to use a higher value such as this for testing environments. For production node pools, we recommend a `max_surge` setting of *33%*.
 
-AKS accepts both integer values and a percentage value for max surge. An integer such as "5" indicates five extra nodes to surge. A value of "50%" indicates a surge value of half the current node count in the pool. Max surge percent values can be a minimum of 1% and a maximum of 100%. A percent value is rounded up to the nearest node count. If the max surge value is higher than the required number of nodes to be upgraded, the number of nodes to be upgraded is used for the max surge value.
+AKS accepts both integer values and a percentage value for max surge. An integer such as *5* indicates five extra nodes to surge. A value of *50%* indicates a surge value of half the current node count in the pool. Max surge percent values can be a minimum of *1%* and a maximum of *100%*. A percent value is rounded up to the nearest node count. If the max surge value is higher than the required number of nodes to be upgraded, the number of nodes to be upgraded is used for the max surge value.
 
-During an upgrade, the max surge value can be a minimum of `1` and a maximum value equal to the number of nodes in your node pool. You can set larger values, but the maximum number of nodes used for max surge won't be higher than the number of nodes in the pool at the time of upgrade.
+During an upgrade, the max surge value can be a minimum of *1* and a maximum value equal to the number of nodes in your node pool. You can set larger values, but the maximum number of nodes used for max surge isn't higher than the number of nodes in the pool at the time of upgrade.
 
 ### Set max surge values
 
@@ -314,9 +314,9 @@ You can set an auto-upgrade channel on your cluster. For more information, see [
 
 ## Special considerations for node pools that span multiple availability zones
 
-AKS uses best-effort zone balancing in node groups. During an upgrade surge, the zones for the surge nodes in Virtual Machine Scale Sets are unknown ahead of time. This can temporarily cause an unbalanced zone configuration during an upgrade. However, AKS deletes surge nodes once the upgrade completes and preserves the original zone balance. If you want to keep your zones balanced during upgrades, you can increase the surge to a multiple of *three nodes*. Virtual Machine Scale Sets will then balance your nodes across availability z  ones with best-effort zone balancing.
+AKS uses best-effort zone balancing in node groups. During an upgrade surge, the zones for the surge nodes in Virtual Machine Scale Sets are unknown ahead of time, which can temporarily cause an unbalanced zone configuration during an upgrade. However, AKS deletes surge nodes once the upgrade completes and preserves the original zone balance. If you want to keep your zones balanced during upgrades, you can increase the surge to a multiple of *three nodes*, and Virtual Machine Scale Sets balances your nodes across availability zones with best-effort zone balancing.
 
-If you have PVCs backed by Azure LRS Disks, they’ll be bound to a particular zone. They may fail to recover immediately if the surge node doesn’t match the zone of the PVC. This could cause downtime on your application when the upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application. This allows Kubernetes to respect your availability requirements during Upgrade's drain operation.
+If you have PVCs backed by Azure LRS Disks, they’ll be bound to a particular zone. They may fail to recover immediately if the surge node doesn’t match the zone of the PVC. This could cause downtime on your application when the upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application to allow Kubernetes to respect your availability requirements during the drain operation.
 
 ## Next steps
 
