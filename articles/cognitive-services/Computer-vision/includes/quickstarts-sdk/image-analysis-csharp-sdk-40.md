@@ -17,7 +17,7 @@ ms.author: pafarley
 Use the Image Analysis client library for C# to analyze an image to read text and generate captions. This quickstart defines a method, `AnalyzeAsync`, which uses the client object to analyze a remote image and print the results. 
 
 [Reference documentation](/dotnet/api/azure.ai.vision.imageanalysis
-) | Packages (NuGet): [Core](https://www.nuget.org/packages/Azure.AI.Vision.Core) [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
+) | Packages (NuGet): [ImageAnalysis](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
 > [!TIP]
 > You can also analyze a local image. See the [reference documetation](/dotnet/api/azure.ai.vision.imageanalysis) for alternative **Analyze** methods. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/csharp/image-analysis/dotnetcore/Samples.cs) for scenarios involving local images.
@@ -28,7 +28,7 @@ Use the Image Analysis client library for C# to analyze an image to read text an
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **.NET desktop development** enabled, or [.NET 6.0](https://dotnet.microsoft.com/download/dotnet-core) SDK or above installed.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -42,7 +42,7 @@ Create a new C# application.
 
 #### [Visual Studio IDE](#tab/visual-studio)
 
-Using Visual Studio, create a new **Console app (.NET Framework)** application. 
+Open Visual Studio, and under **Get started** select **Create a new project**. Set the template filters to _C#/All Platforms/Console_. Select **Console App** (command-line application that can run on .NET on Windows, Linux and macOS) and choose **Next**. Update the project name to _ImageAnalysisQuickstart_ and choose **Next**. Select **.NET 6.0** or higher, and choose **Create** to create the project.
 
 ### Install the client library 
 
@@ -91,15 +91,19 @@ From the project directory, open the *Program.cs* file that was created previous
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/2/Program.cs?name=snippet_single)]
 
 
-Then, run the application
+Then, build and run the application. You should see output similar to the one below.
 
 #### [Visual Studio IDE](#tab/visual-studio)
 
-Run the application by clicking the **Debug** button at the top of the IDE window.
+Build and run the application by selecting **Start Debugging** from the **Debug** menu at the top of the IDE window (or press **F5**).
 
 #### [CLI](#tab/cli)
 
-Run the application from your application directory with the `dotnet run` command.
+Build and run the application from your application directory with these commands:
+
+```console
+dotnet build
+```
 
 ```dotnet
 dotnet run
