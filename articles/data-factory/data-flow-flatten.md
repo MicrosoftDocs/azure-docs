@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 04/21/2023
 ---
 
 # Flatten transformation in mapping data flow
@@ -26,11 +26,13 @@ Use the flatten transformation to take array values inside hierarchical structur
 
 The flatten transformation contains the following configuration settings
 
-:::image type="content" source="media/data-flow/flatten1.png" alt-text="Flatten settings":::
+:::image type="content" source="media/data-flow/flatten-new-001.png" alt-text="Flatten settings":::
 
 ### Unroll by
 
-Select an array to unroll. The output data will have one row per item in each array. If the unroll by array in the input row is null or empty, there will be one output row with unrolled values as null.
+Select an array to unroll. The output data will have one row per item in each array. If the unroll by array in the input row is null or empty, there will be one output row with unrolled values as null. You have the option to unroll more than one array per Flatten transformation. Click on the plus (+) button to include multiple arrays in a single Flatten transformation. You can use ADF data flow meta functions here including ```name``` and ```type``` and use pattern matching to unroll arrays that match those criteria. When including multiple arrays in a single Flatten transformation, your results will be a cartesian product of all of the possible array values.
+
+:::image type="content" source="media/data-flow/flatten-new-002.png" alt-text="Flatten settings":::
 
 ### Unroll root
 
