@@ -16,11 +16,11 @@ Lab plans have a different Azure management hierarchy than lab accounts in Azure
 
 ## Differences between lab accounts and lab plans
 
-Lab accounts serve as a parent to labs. When you assign a role on a lab account, the associated labs automatically inherit this role and permissions. 
+Lab accounts are a parent Azure resource to labs. When you assign a role on a lab account, the associated labs automatically inherit this role and permissions. 
 
-On the other hand, lab plans and labs are sibling resources in Azure, which means that labs don’t inherit roles and permissions from the associated lab plan.
+On the other hand, lab plans and labs are sibling resources in Azure, which means that labs *don’t inherit* roles and permissions from the associated lab plan.
 
-For example, assume that you assign the Contributor role for users on the lab account. To obtain the same permissions with a lab plan, you should instead assign the Contributor role on the lab plan's *resource group*. When you assign the role on the resource group, all labs within that resource group are also assigned this role.
+For example, assume that you assign the Contributor role for users on the lab account. To achieve the same permissions with a lab plan, you should instead assign the Contributor role on the lab plan's *resource group*. When you assign the role on the resource group, all labs within that resource group are also assigned this role.
 
 ## Recommendations
 
