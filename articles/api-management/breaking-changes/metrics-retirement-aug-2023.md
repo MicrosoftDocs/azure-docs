@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 03/15/2023
+ms.date: 04/20/2023
 ms.author: danlep
 ---
 
@@ -34,7 +34,7 @@ The five legacy metrics will no longer be available after 31 August 2023.
 
 ## Required action
 
-Update any tools that use the five legacy metrics to use equivalent functionality that is provided through the Requests metric filtered on one or more dimensions. For example, filter Requests on the GatewayResponseCodeDimension.
+Update any tools that use the five legacy metrics to use equivalent functionality that is provided through the Requests metric filtered on one or more dimensions. For example, filter Requests on the **GatewayResponseCode** or **GatewayResponseCodeCategory** dimension.
 
 > [!NOTE]
 > Configure filters on the Requests metric to meet your monitoring and alerting needs. For available dimensions, see [Azure Monitor metrics for API Management](../../azure-monitor/essentials/metrics-supported.md#microsoftapimanagementservice).
@@ -43,10 +43,10 @@ Update any tools that use the five legacy metrics to use equivalent functionalit
 |Legacy metric  |Example replacement with Requests metric|
 |---------|---------|
 |Total Gateway Requests     | Requests        |
-|Successful Gateway Requests     | Requests<br/> Filter: GatewayResponseCode=0-301,304,307        |
-|Unauthorized Gateway Requests     |  Requests<br/> Filter: GatewayResponseCode=401,403,429      |
-|Failed Gateway Requests     | Requests<br/> Filter: GatewayResponseCode=400,500-599               |
-|Other Gateway Requests     |  Requests<br/> Filter: GatewayResponseCode=302,303,305,306,308-399,402,404-428,430-499,600-999      |
+|Successful Gateway Requests     | Requests<br/> Filter: GatewayResponseCode = 0-301,304,307        |
+|Unauthorized Gateway Requests     |  Requests<br/> Filter: GatewayResponseCode = 401,403,429      |
+|Failed Gateway Requests     | Requests<br/> Filter: GatewayResponseCode = 400,500-599               |
+|Other Gateway Requests     |  Requests<br/> Filter: GatewayResponseCode = (all other values)      |
 
 ## More information
 
