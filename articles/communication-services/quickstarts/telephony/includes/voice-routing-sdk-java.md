@@ -57,7 +57,7 @@ From the project directory:
 
 1. Go to the */src/main/java/com/communication/quickstart* directory.
 1. Open the *App.java* file in your editor.
-1. Replace the `System.out.println("Hello world!");` statement
+1. Replace the `System.out.println("Hello world!");` statement.
 1. Add `import` directives.
 
 Use the following code to begin:
