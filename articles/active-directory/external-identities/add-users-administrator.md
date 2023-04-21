@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/12/2023
+ms.date: 04/21/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Add Azure Active Directory B2B collaboration users in the Azure portal
 
-As a user who is assigned any of the limited administrator directory roles, you can use the Azure portal to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Azure Active Directory (Azure AD), with a user type of *Guest*. The guest user must then redeem their invitation to access resources. An invitation of a user does not expire.
+As a user who is assigned any of the limited administrator directory roles, you can use the Azure portal to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Azure Active Directory (Azure AD), with a user type of *Guest*. The guest user must then redeem their invitation to access resources. An invitation of a user doesn't expire.
 
 After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can select the redemption URL in the invitation email. For more information about the redemption process, see [B2B collaboration invitation redemption](redemption-experience.md).
 
@@ -113,7 +113,7 @@ When you invite an external guest user by sending an email invitation, you can c
    > [!NOTE]
    > Group email addresses aren’t supported; enter the email address for an individual. Also, some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Azure AD doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.
 
-The user is added to your directory with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*, for example, *john_contoso.com#EXT#\@fabrikam.onmicrosoft.com*, where fabrikam.onmicrosoft.com is the organization from which you sent the invitations. ([Learn more about B2B collaboration user properties](user-properties.md).)
+The user is added to your directory with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example: *john_contoso.com#EXT#\@fabrikam.onmicrosoft.com*, where fabrikam.onmicrosoft.com is the organization from which you sent the invitations. ([Learn more about B2B collaboration user properties](user-properties.md).)
 
 ## Add guest users to a group
 
@@ -125,7 +125,7 @@ If you need to manually add B2B collaboration users to a group after the user wa
 4. Select a group (or select **New group** to create a new one). It's a good idea to include in the group description that the group contains B2B guest users.
 5. Under **Manage**, select **Members**.
 6. Select **Add members**.
-7. Do one of the following:
+7. Complete one of the following set of steps:
 
    - *If the guest user is already in the directory:*
       
@@ -154,7 +154,7 @@ To add B2B collaboration users to an application, follow these steps:
 5. Under **Manage**, select **Users and groups**.
 6. Select **Add user/group**.
 7. On the **Add Assignment** page, select the link under **Users**.
-8. Do one of the following:
+8. Complete one of the following set of steps:
 
    - *If the guest user is already in the directory:*
       

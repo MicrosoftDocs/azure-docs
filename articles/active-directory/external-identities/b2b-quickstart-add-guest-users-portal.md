@@ -5,7 +5,7 @@ services: active-directory
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
-ms.date: 04/12/2023
+ms.date: 04/21/2023
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
