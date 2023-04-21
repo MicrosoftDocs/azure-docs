@@ -87,7 +87,7 @@ Because of the way that roles and permissions work in Azure, including segregati
 
 You can enable automatic registration in the Azure portal for a single subscription, or for multiple subscriptions suing the PowerShell script mentioned previously. We recommend that you complete the registration process for all of your subscriptions so you can view all of your Azure SQL infrastructure.
 
-The following [Managing Azure VMs with the SQL IaaS Agent Extension](https://www.youtube.com/watch?v=HqU0HH1vODg) video shows the processd.
+The following [Managing Azure VMs with the SQL IaaS Agent Extension](https://www.youtube.com/watch?v=HqU0HH1vODg) video shows how the process works.
 
 >[!VIDEO https://www.youtube.com/embed/HqU0HH1vODg]
 
