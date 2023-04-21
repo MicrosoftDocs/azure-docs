@@ -38,7 +38,7 @@ SalesforceServiceCloud
 
 To integrate with Salesforce Service Cloud (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **REST API Credentials/permissions**: **Salesforce API Username**, **Salesforce API Password**, **Salesforce Security Token**, **Salesforce Consumer Key**, **Salesforce Consumer Secret** is required for REST API. [See the documentation to learn more about API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm).
 
 
@@ -49,7 +49,7 @@ To integrate with Salesforce Service Cloud (using Azure Function) make sure you 
    >  This connector uses Azure Functions to connect to the Salesforce Lightning Platform REST API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 >This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-SalesforceServiceCloud-parser) to create the Kusto functions alias **SalesforceServiceCloud**
@@ -91,7 +91,7 @@ Use the following step-by-step instructions to deploy the Salesforce Service Clo
 
 **1. Deploy a Function App**
 
-> NOTE:You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> NOTE:You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-SalesforceServiceCloud-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

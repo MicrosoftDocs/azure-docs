@@ -19,40 +19,9 @@ In this article, we cover the Click Analytics plug-in that automatically tracks 
 
 ## Get started
 
-Users can set up the Click Analytics Autocollection plug-in via npm.
+Users can set up the Click Analytics Auto-Collection plug-in via snippet or NPM.
 
-### npm setup
-
-Install the npm package:
-
-```bash
-npm install --save @microsoft/applicationinsights-clickanalytics-js @microsoft/applicationinsights-web
-```
-
-```js
-
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
-
-const clickPluginInstance = new ClickAnalyticsPlugin();
-// Click Analytics configuration
-const clickPluginConfig = {
-  autoCapture: true
-};
-// Application Insights Configuration
-const configObj = {
-  connectionString: "YOUR CONNECTION STRING",
-  extensions: [clickPluginInstance],
-  extensionConfig: {
-    [clickPluginInstance.identifier]: clickPluginConfig
-  },
-};
-
-const appInsights = new ApplicationInsights({ config: configObj });
-appInsights.loadAppInsights();
-```
-
-## Snippet setup
+### Snippet setup
 
 Ignore this setup if you use the npm setup.
 
@@ -84,6 +53,37 @@ Ignore this setup if you use the npm setup.
     cfg: configObj
   });
 </script>
+```
+
+### npm setup
+
+Install the npm package:
+
+```bash
+npm install --save @microsoft/applicationinsights-clickanalytics-js @microsoft/applicationinsights-web
+```
+
+```js
+
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
+
+const clickPluginInstance = new ClickAnalyticsPlugin();
+// Click Analytics configuration
+const clickPluginConfig = {
+  autoCapture: true
+};
+// Application Insights Configuration
+const configObj = {
+  connectionString: "YOUR CONNECTION STRING",
+  extensions: [clickPluginInstance],
+  extensionConfig: {
+    [clickPluginInstance.identifier]: clickPluginConfig
+  },
+};
+
+const appInsights = new ApplicationInsights({ config: configObj });
+appInsights.loadAppInsights();
 ```
 
 ## Use the plug-in
@@ -135,13 +135,13 @@ The following key properties are captured by default when the plug-in is enabled
 | --------------------- | ---------------------------------------|-----------------|
 | timeToAction          | Time taken in milliseconds for the user to click the element since the initial page load. | 87407              |
 
-## Configuration
+## Advanced configuration
 
 | Name                  | Type                               | Default | Description                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
 | auto-Capture           | Boolean                            | True    | Automatic capture configuration.                                |
 | callback              | [IValueCallback](#ivaluecallback)  | Null    | Callbacks configuration.                               |
-| pageTags              | String                             | Null    | Page tags.                                             |
+| pageTags              | Object                             | Null    | Page tags.                                             |
 | dataTags              | [ICustomDataTags](#icustomdatatags)| Null    | Custom Data Tags provided to override default tags used to capture click data. |
 | urlCollectHash        | Boolean                            | False   | Enables the logging of values after a "#" character of the URL.                |
 | urlCollectQuery       | Boolean                            | False   | Enables the logging of the query string of the URL.                            |
@@ -365,12 +365,6 @@ var appInsights = new Microsoft.ApplicationInsights.ApplicationInsights({
 });
 appInsights.loadAppInsights();
 ```
-
-## Enable correlation
-
-Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
-
-JavaScript correlation is turned off by default to minimize the telemetry we send by default. To enable correlation, see the [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
 
 ## Sample app
 

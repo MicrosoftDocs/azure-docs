@@ -184,9 +184,10 @@ Java auto-instrumentation is enabled through configuration changes; no code chan
 Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.11.jar"` to your application's JVM args.
 
 > [!TIP]
-> For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
-    
-If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
+> For scenario-specific guidance, see [Get Started (Supplemental)](./java-get-started-supplemental.md).
+
+> [!TIP]
+> If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
 ##### [Node.js](#tab/nodejs)
 
