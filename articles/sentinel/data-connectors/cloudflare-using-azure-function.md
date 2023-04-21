@@ -37,7 +37,7 @@ Cloudflare_CL
 To integrate with Cloudflare (Preview) (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
-- **Azure Blob Storage connection string and container name**: Azure Blob Storage connection string and container name where the logs are pushed to by Cloudflare Logpush. [See the documentation to learn more about creating Azure Blob Storage container.](https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+- **Azure Blob Storage connection string and container name**: Azure Blob Storage connection string and container name where the logs are pushed to by Cloudflare Logpush. [See the documentation to learn more about creating Azure Blob Storage container.](/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 
 ## Vendor installation instructions
