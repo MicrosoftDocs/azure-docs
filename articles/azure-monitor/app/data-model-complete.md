@@ -16,7 +16,7 @@ ms.reviewer: mmcc
 
 Data collected by Application Insights models this typical application execution pattern.
 
-![Diagram that shows an Application Insights telemetry data model.](./media/data-model-complete/application-insights-data-model.png)
+:::image type="content" source="./media/data-model-complete/application-insights-data-model.png" lightbox="./media/data-model-complete/application-insights-data-model.png" alt-text="Diagram that shows an Application Insights telemetry data model.":::
 
 The following types of telemetry are used to monitor the execution of your app. The Application Insights SDK from the web application framework automatically collects these three types:
 

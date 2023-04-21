@@ -264,7 +264,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | ---- | --------------------- | ---------------- |
 > | Manage identity providers | [External Identity Provider Administrator](permissions-reference.md#external-identity-provider-administrator) |  |
 > | Manage settings | [Global Administrator](permissions-reference.md#global-administrator) |  |
-> | Manage terms of use | [Global Administrator](permissions-reference.md#global-administrator) |  |
+> | Manage privacy statement and contact | [Global Administrator](permissions-reference.md#global-administrator) |  |
 > | Read all configuration | [Global Reader](permissions-reference.md#global-reader) |  |
 
 ## Password reset

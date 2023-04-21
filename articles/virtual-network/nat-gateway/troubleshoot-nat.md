@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot Azure Virtual Network NAT (NAT gateway)
+title: Troubleshoot Azure NAT Gateway
 titleSuffix: Azure Virtual Network
-description: Troubleshoot issues with Virtual Network NAT.
+description: Troubleshoot issues with NAT Gateway.
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
@@ -11,7 +11,7 @@ ms.date: 08/29/2022
 ms.author: allensu
 ---
 
-# Troubleshoot Azure Virtual Network NAT (NAT gateway)
+# Troubleshoot Azure NAT Gateway
 
 This article provides guidance on how to correctly configure your NAT gateway and troubleshoot common configuration and deployment related issues.  
 
@@ -37,7 +37,7 @@ Check the following configurations to ensure that NAT gateway can be used to dir
 
 ### How to validate connectivity
 
-[Virtual Network NAT gateway](./nat-overview.md#virtual-network-nat-basics) supports IPv4 UDP and TCP protocols. ICMP isn't supported and is expected to fail. 
+[NAT gateway](./nat-overview.md#azure-nat-gateway-basics) supports IPv4 UDP and TCP protocols. ICMP isn't supported and is expected to fail. 
 
 To validate end-to-end connectivity of NAT gateway, follow these steps: 
 1. Validate that your [NAT gateway public IP address is being used](./quickstart-create-nat-gateway-portal.md#test-nat-gateway).
@@ -163,7 +163,7 @@ NAT gateway can't be associated with more than 16 public IP addresses. You can u
 
 ### IPv6 coexistence
 
-[Virtual Network NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. NAT gateway can't be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. NAT gateway can be deployed on a dual stack subnet, but will still only use IPv4 Public IP addresses for directing outbound traffic. Deploy NAT gateway on a dual stack subnet when you need IPv6 resources to exist in the same subnet as IPv4 resources.
+[NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. NAT gateway can't be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. NAT gateway can be deployed on a dual stack subnet, but will still only use IPv4 Public IP addresses for directing outbound traffic. Deploy NAT gateway on a dual stack subnet when you need IPv6 resources to exist in the same subnet as IPv4 resources.
 
 ### Can't use basic SKU public IPs with NAT gateway 
 
@@ -189,7 +189,7 @@ We're always looking to improve the experience of our customers. If you're exper
 
 To learn more about NAT gateway, see:
 
-* [Virtual Network NAT](nat-overview.md)
+* [Azure NAT Gateway](nat-overview.md)
 
 * [NAT gateway resource](nat-gateway-resource.md)
 

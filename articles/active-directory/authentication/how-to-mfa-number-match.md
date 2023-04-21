@@ -108,6 +108,7 @@ In addition:
   >You can configure the NPS Server to support PAP. If PAP is not an option, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to Approve/Deny push notifications.
 
 If your organization uses Remote Desktop Gateway and the user is registered for a TOTP code along with Microsoft Authenticator push notifications, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications with Microsoft Authenticator.
+This is because TOTP will be preferred over the **Approve**/**Deny** push notification and Remote Desktop Gateway doesn't provide the option to enter a verification code with Azure AD Multi-Factor Authentication. For more information, see [Configure accounts for two-step verification](howto-mfa-nps-extension-rdg.md#configure-accounts-for-two-step-verification).
 
 ### Apple Watch supported for Microsoft Authenticator
 
