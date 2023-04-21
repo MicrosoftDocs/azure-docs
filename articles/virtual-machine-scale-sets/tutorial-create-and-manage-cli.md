@@ -42,7 +42,7 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --orchestration-mode flexible \
-  --image UbuntuLTS \
+  --image <SKU image> \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
@@ -117,10 +117,10 @@ az vm show --resource-group myResourceGroup --name myScaleSet_instance1
   "storageProfile": {
     "dataDisks": [],
     "imageReference": {
-      "exactVersion": "18.04.202210180",
-      "offer": "UbuntuServer",
-      "publisher": "Canonical",
-      "sku": "18.04-LTS",
+      "exactVersion": "XXXXX",
+      "offer": "myOffer",
+      "publisher": "myPublisher",
+      "sku": "mySKU",
       "version": "latest"
     },
     "osDisk": {
@@ -155,7 +155,7 @@ When you created a scale set at the start of the tutorial, a default VM SKU of *
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image UbuntuLTS \
+  --image <SKU image> \
   --orchestration-mode flexible \
   --vm-sku Standard_F1 \
   --admin-user azureuser \
