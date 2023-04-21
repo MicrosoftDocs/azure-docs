@@ -60,7 +60,7 @@ az group create \
 
 ## Create a Virtual Network Manager instance
 
-Define the scope and access type for this Network Manager instance. Create the scope by using [az network manager create](/cli/azure/network/manager#az-network-manager-create). Replace the value  `<subscription_id>` with the subscription that you want Virtual Network Manager to manage virtual networks for. Replace `<mgName\>` with the management group that you want to manage.
+Define the scope and access type for this Virtual Network Manager instance. Create the scope by using [az network manager create](/cli/azure/network/manager#az-network-manager-create). Replace the value  `<subscription_id>` with the subscription that you want Virtual Network Manager to manage virtual networks for. Replace `<mgName\>` with the management group that you want to manage.
 
 ```azurecli
 az network manager create \
@@ -157,11 +157,11 @@ az network vnet subnet create \
 
 ## Define membership for a mesh configuration
 
-Azure Virtual Network Manager allows you two methods for adding membership to a network group. Static membership involves manually adding virtual networks, and dynamic membership involves using Azure Policy to dynamically add virtual networks based on conditions. Choose the option that you want to complete for your mesh configuration membership.
+Azure Virtual Network Manager allows two methods for adding membership to a network group. Static membership involves manually adding virtual networks, and dynamic membership involves using Azure Policy to dynamically add virtual networks based on conditions. Choose the option that you want to complete for your mesh configuration membership.
 
 ### Static membership option
 
-By using *static membership*, you manually add three virtual networks for your mesh configuration to your network group via [az network manager group static-member create](/cli/azure/network/manager/group/static-member#az-network-manager-group-static-member-create). Replace `<subscription_id>` with the subscription that these virtual networks were created under.
+By using static membership, you manually add three virtual networks for your mesh configuration to your network group via [az network manager group static-member create](/cli/azure/network/manager/group/static-member#az-network-manager-group-static-member-create). Replace `<subscription_id>` with the subscription that these virtual networks were created under.
 
 ```azurecli
 az network manager group static-member create \
@@ -192,10 +192,9 @@ az network manager group static-member create \
 
 ### Dynamic membership option
 
-By using [Azure Policy](concept-azure-policy-integration.md), you dynamically add the three virtual networks with a `networkType` value of `Prod` to the network group. These are the three virtual networks to become part of the mesh configuration.
+By using [Azure Policy](concept-azure-policy-integration.md), you can dynamically add the three virtual networks with a `networkType` value of `Prod` to the network group. These three virtual networks will become part of the mesh configuration.
 
-> [!NOTE]
-> Policies can be applied to a subscription or a management group, and they must always be defined *at or above* the level where they're created. Only virtual networks within a policy scope are added to a network group.
+You can apply policies to a subscription or a management group, and you must always define them *at or above* the level where you create them. Only virtual networks within a policy scope are added to a network group.
 
 ### Create a policy definition
 
@@ -213,7 +212,7 @@ az policy definition create \
 
 ### Apply a policy definition
 
-Once a policy is defined, it must also be applied with [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create). Replace *<subscription_id>* with the subscription you want to apply this policy to. If you want to apply it to a management group, replace `--scope "/subscriptions/<subscription_id>"` with `--scope "/providers/Microsoft.Management/managementGroups/<mgName>`, and replace *<mgName\>* with your management group.
+After you define a policy, you must apply it by using [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create). Replace `<subscription_id>` with the subscription that you want to apply this policy to. If you want to apply it to a management group, replace `--scope "/subscriptions/<subscription_id>"` with `--scope "/providers/Microsoft.Management/managementGroups/<mgName>`, and replace `<mgName\>` with your management group.
 
 ```azurecli
 
@@ -227,7 +226,7 @@ az policy assignment create \
 
 ## Create a configuration
 
-Now that the Network Group is created, and has the correct VNets, create a mesh network topology configuration with [az network manager connect-config create](/cli/azure/network/manager/connect-config#az-network-manager-connect-config-create). Replace <subscription_id> with your subscription.
+Now that you've created the network group and given it the correct virtual networks, create a mesh network topology configuration by using [az network manager connect-config create](/cli/azure/network/manager/connect-config#az-network-manager-connect-config-create). Replace `<subscription_id>` with your subscription.
 
 ```azurecli
 az network manager connect-config create \
@@ -238,9 +237,10 @@ az network manager connect-config create \
     --network-manager-name "myAVNM" \
     --resource-group "myAVNMResourceGroup"
 ```
-## Commit deployment
 
-For the configuration to take effect, commit the configuration to the target regions with [az network manager post-commit](/cli/azure/network/manager#az-network-manager-post-commit):
+## Commit the deployment
+
+For the configuration to take effect, commit the configuration to the target regions by using [az network manager post-commit](/cli/azure/network/manager#az-network-manager-post-commit):
 
 ```azurecli
 az network manager post-commit \
@@ -250,8 +250,10 @@ az network manager post-commit \
     --target-locations "westus" \
     --resource-group "myAVNMResourceGroup"
 ```
-## Verify configuration
-Virtual Networks display configurations applied to them with [az network manager list-effective-connectivity-config](/cli/azure/network/manager#az-network-manager-list-effective-connectivity-config):
+
+## Verify the configuration
+
+Virtual networks display configurations applied to them when you use [az network manager list-effective-connectivity-config](/cli/azure/network/manager#az-network-manager-list-effective-connectivity-config):
 
 ```azurecli
 az network manager list-effective-connectivity-config \
@@ -271,7 +273,8 @@ az network manager list-effective-connectivity-config \
     --resource-group "myAVNMResourceGroup" \
     --virtual-network-name "VNetD"
 ```
-For the virtual networks that are part of the connectivity configuration, you see an output similar to this:
+
+For the virtual networks that are part of the connectivity configuration, you get an output similar to this example:
 
 ```json
 {
@@ -306,7 +309,8 @@ For the virtual networks that are part of the connectivity configuration, you se
   ]
 }
 ```
-For virtual networks not part of the network group like **VNetD**, you see an output similar to this:
+
+For virtual networks that aren't part of the network group, like *VNetD*, an output similar to this example appears:
 
 ```json
 az network manager list-effective-connectivity-config     --resource-group "myAVNMResourceGroup"     --virtual-network-name "VNetD-test"
@@ -315,13 +319,16 @@ az network manager list-effective-connectivity-config     --resource-group "myAV
   "value": []
 }
 ```
+
 ## Clean up resources
 
-If you no longer need the Azure Virtual Network Manager, you need to make sure all of following are true before you can delete the resource:
+If you no longer need the Azure Virtual Network Manager instance, make sure all of the following points are true before you delete the resource:
 
 * There are no deployments of configurations to any region.
 * All configurations have been deleted.
 * All network groups have been deleted.
+
+To delete the resource:
 
 1. Remove the connectivity deployment by committing no configurations with [az network manager post-commit](/cli/azure/network/manager#az-network-manager-post-commit):
 
@@ -333,7 +340,7 @@ If you no longer need the Azure Virtual Network Manager, you need to make sure a
         --resource-group "myAVNMResourceGroup"
     ```
 
-1. Remove the connectivity configuration with [az network manager connect-config delete](/cli/azure/network/manager/connect-config#az-network-manager-connect-config-delete):
+1. Remove the connectivity configuration by using [az network manager connect-config delete](/cli/azure/network/manager/connect-config#az-network-manager-connect-config-delete):
 
     ```azurecli
     az network manager connect-config delete \
@@ -342,7 +349,7 @@ If you no longer need the Azure Virtual Network Manager, you need to make sure a
         --resource-group "myAVNMResourceGroup"
     ```
 
-1. Remove the network group with [az network manager group delete](/cli/azure/network/manager/group#az-network-manager-group-delete):
+1. Remove the network group by using [az network manager group delete](/cli/azure/network/manager/group#az-network-manager-group-delete):
 
     ```azurecli
     az network manager group delete \
@@ -351,7 +358,7 @@ If you no longer need the Azure Virtual Network Manager, you need to make sure a
         --resource-group "myAVNMResourceGroup"
     ```
 
-1. Delete the network manager instance with [az network manager delete](/cli/azure/network/manager#az-network-manager-delete):
+1. Delete the network manager instance by using [az network manager delete](/cli/azure/network/manager#az-network-manager-delete):
 
     ```azurecli
     az network manager delete \
@@ -359,7 +366,7 @@ If you no longer need the Azure Virtual Network Manager, you need to make sure a
         --resource-group "myAVNMResourceGroup"
     ```
 
-1. If you no longer need the resource created, delete the resource group with [az group delete](/cli/azure/group#az-group-delete):
+1. If you no longer need the resource that you created, delete the resource group by using [az group delete](/cli/azure/group#az-group-delete):
 
     ```azurecli
     az group delete \
@@ -368,8 +375,5 @@ If you no longer need the Azure Virtual Network Manager, you need to make sure a
 
 ## Next steps
 
-After you've created the Azure Virtual Network Manager, continue on to learn how to block network traffic by using the security admin configuration:
-
 > [!div class="nextstepaction"]
-[Block network traffic with security admin rules](how-to-block-network-traffic-portal.md)
-[Create a secured hub and spoke network](tutorial-create-secured-hub-and-spoke.md)
+> Learn how to [block network traffic by using security admin rules](how-to-block-network-traffic-portal.md).

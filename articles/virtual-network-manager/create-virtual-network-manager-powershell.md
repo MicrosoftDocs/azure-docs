@@ -214,7 +214,7 @@ $sm_vnet002 = @{
   
 # [Azure Policy](#tab/azurepolicy)
 
-### Create a policy for dynamic membership
+### Create a policy definition for dynamic membership
 
 By using [Azure Policy](concept-azure-policy-integration.md), you define a condition to dynamically add two virtual networks to your network group when the name of the virtual network includes *-prod*.
 
