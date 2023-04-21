@@ -172,7 +172,7 @@ Add the following key-values to the App Configuration store. For more informatio
     test.message found: False
     ```
 
-## Web app usage
+## Django/Flask Application
 
 ### [Django](#tab/django)
 You can use Azure App Configuration in your existing Django web apps by adding the following lines of code into your `settings.py` file
