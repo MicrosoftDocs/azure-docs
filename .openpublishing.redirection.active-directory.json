@@ -4257,6 +4257,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/certificate-authorities.md",
+      "redirect_url": "/azure/security/fundamentals/azure-CA-details",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/b2b/what-is-b2b.md",
       "redirect_url": "/azure/active-directory/external-identities/what-is-b2b",
       "redirect_document_id": true

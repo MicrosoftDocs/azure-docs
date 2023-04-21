@@ -57,7 +57,7 @@ Here's the initial set of permissions:
 
 ## How do protected actions compare with Privileged Identity Management role activation?
 
-[Privileged Identity Management role activation](../privileged-identity-management/pim-how-to-change-default-settings.md) can also be assigned Conditional Access policies. This capability allows for policy enforcement only when a user activates a role, providing the most comprehensive protection. Protected actions are enforced only when a user takes an action that requires permissions with Conditional Access policy assigned to it. Protected actions allows for high impact permissions to be protected, independent of a user role. Privileged Identity Management role activation and protected actions can be used together, for the strongest coverage.
+[Privileged Identity Management role activation](../privileged-identity-management/pim-how-to-change-default-settings.md) can also be assigned Conditional Access policies. This capability allows for policy enforcement only when a user activates a role, providing the most comprehensive protection. Protected actions are enforced only when a user takes an action that requires permissions with Conditional Access policy assigned to it. Protected actions allow for high impact permissions to be protected, independent of a user role. Privileged Identity Management role activation and protected actions can be used together for stronger coverage.
 
 ## Steps to use protected actions
 
@@ -67,7 +67,7 @@ Here's the initial set of permissions:
 
 1. **Configure Conditional Access policy**
 
-    Configure a Conditional Access authentication context and an associated Conditional Access policy. Protected actions use an authentication context, which allows policy enforcement for fine-grain resources in a service, like Azure AD permissions. A good policy to start with is to require passwordless MFA and exclude an emergency account. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context)
+    Configure a Conditional Access authentication context and an associated Conditional Access policy. Protected actions use an authentication context, which allows policy enforcement for fine-grain resources in a service, like Azure AD permissions. A good policy to start with is to require passwordless MFA and exclude an emergency account. [Learn more](./protected-actions-add.md#configure-conditional-access-policy)
 
 1. **Add protected actions**
 
