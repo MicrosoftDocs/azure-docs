@@ -83,7 +83,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
        --resource-group <resource-group-name> \
        --name azure.extensions \
        --value uuid-ossp \
-       --server-name <postgres-server-name> \
+       --server-name <postgres-server-name>
    ```
 
 1. Use the following command to create a database for the Order Service application:
@@ -185,7 +185,7 @@ The following steps show how to bind applications running in Azure Spring Apps E
 1. Use the following command to reload the Catalog Service application to load the new connection properties:
 
    ```azurecli
-   az spring app restart
+   az spring app restart \
        --resource-group <resource-group-name> \
        --name catalog-service \
        --service <Azure-Spring-Apps-service-instance-name>
@@ -200,7 +200,12 @@ The following steps show how to bind applications running in Azure Spring Apps E
        --deployment default \
        --connection order_service_db \
        --app order-service | jq '.configurations[0].value' -r)
+   ```
+   
+   > [!NOTE]
+   > If you encounter SSL verification exception with Nofsql 6.0, please change SSL mode from `Require` to `VerifyFull`, see more from https://www.npgsql.org/doc/release-notes/6.0.html.
 
+   ```azurecli
    az spring app update \
        --resource-group <resource-group-name> \
        --name order-service \
