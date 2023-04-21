@@ -38,6 +38,10 @@ landingContent:
   # Card (optional)
   - title: Manage
     linkLists:
+    - linkListType: concept
+      links:
+      - text: SQL IaaS extension registration options
+        url: sql-iaas-extension-registration.md
     - linkListType: how-to-guide
       links:
       - text: Create SQL Server license assignments
