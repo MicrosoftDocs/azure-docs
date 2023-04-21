@@ -25,7 +25,7 @@ To work with the code examples in this article, make sure you have:
 - Permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operations:
     - [Put Blob](/rest/api/storageservices/put-blob#authorization)
     - [Put Block](/rest/api/storageservices/put-block#authorization)
-- Packages installed to your project directory. These examples use **Azure.Storage.Blobs**. If you're using `DefaultAzureCredential` for authorization, you also need **Azure.Identity**. To learn more about setting up your project, see [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project).
+- The package **Azure.Storage.Blobs** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project).
 
 ## About uploading blobs
 
@@ -35,7 +35,7 @@ The [Put Block](/rest/api/storageservices/put-block) operation creates a new blo
 
 ## Upload data to a block blob
 
-To upload data to a block blob, use either of the following methods:
+You can use either of the following methods to upload data to a block blob:
 
 - [Upload](/dotnet/api/azure.storage.blobs.blobclient.upload)
 - [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync)
