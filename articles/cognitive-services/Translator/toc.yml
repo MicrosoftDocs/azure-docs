@@ -250,7 +250,7 @@ items:
       href: custom-translator/platform-upgrade.md
   - name: Custom Translator FAQ
     href: custom-translator/faq.md
-- name: User interface and no-code solutions
+- name: Translator solutions
   items:
   - name: Language Studio
     items:
