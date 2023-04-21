@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Known issues, limitations and troubleshooting guide for Azure SQL Migration extension for Azure Data Studio
 author: croblesm
 ms.author: roblescarlos
-ms.date: 03/14/2023
+ms.date: 04/21/2023
 ms.service: dms
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019
@@ -14,9 +14,8 @@ ms.custom: seo-lt-2019
 
 Known issues and troubleshooting steps associated with the Azure SQL Migration extension for Azure Data Studio.
 
-> [!NOTE]
-> When checking migration details using the Azure Portal, Azure Data Studio or PowerShell / Azure CLI you might see the following error: *Operation Id {your operation id} was not found*. This can either be because you provided an operationId as part of an api parameter in your get call that does not exist, or the migration details of your migration were deleted as part of a cleanup operation.
-
+> [!IMPORTANT]
+> The latest version of Integration Runtime (5.28.8488) prevents access to a network file share on a local host. This security measure will lead to failures when performing migrations to Azure SQL using DMS. Please ensure you run Integration Runtime on a different machine than the network share hosting.
 
 ## Error code: 2007 - CutoverFailedOrCancelled 
 
@@ -215,6 +214,18 @@ WHERE STEP in (3,4,6);
 - **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
 - **Recommendation**: For more troubleshooting steps, see [Troubleshoot Azure Data Factory and Synapse pipelines](../data-factory/data-factory-troubleshoot-guide.md#error-code-2108). 
+
+
+## Error code: 2049 - FileShareTestConnectionFailed
+
+- **Message**: `The value of the property '' is invalid: 'Access to <share path> is denied, resolved IP address is <IP address>, network type is OnPremise'.`
+
+- **Cause**: The network share where the database backups are stored is in the same machine as the self-hosted Integration Runtime (SHIR).
+
+- **Recommendation**: The latest version of Integration Runtime (**5.28.8488**) prevents access to a network file share on a local host. Please ensure you run Integration Runtime on a different machine than the network share hosting. If hosting the self-hosted Integration Runtime and the network share on different machines is not possible with your current migration setup, you can use the option to opt-out using ```DisableLocalFolderPathValidation```. 
+    > [!NOTE]
+    > For more information, see [Set up an existing self-hosted IR via local PowerShell](../data-factory/create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell). Use the disabling option with discretion as this is less secure.
+
 
 ## Error code: 2056 - SqlInfoValidationFailed
 
