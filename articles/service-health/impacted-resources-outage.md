@@ -64,7 +64,7 @@ To export the list of impacted resources to an Excel file, select the **Export t
 
 ## Access impacted resources programmatically via an API
 
-You can get information about outage-impacted resources programmatically by using the Events API. [API documentation](/rest/api/resourcehealth/2022-10-01/impacted-resources). 
+You can get information about outage-impacted resources programmatically by using the Events API. For details on how to access this data, see the [API documentation](/rest/api/resourcehealth/2022-10-01/impacted-resources).
 
 ## Next steps
 -  [Introduction to the Azure Service Health dashboard](service-health-overview.md)
