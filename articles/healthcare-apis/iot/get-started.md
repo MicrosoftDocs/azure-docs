@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/20/2023
+ms.date: 04/21/2023
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -17,22 +17,12 @@ ms.custom: mode-api
 
 This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These basic steps may help you analyze the MedTech service deployment options and determine which deployment method is best for you.
 
+As a prerequisite, you need an Azure subscription and have been granted proper permissions to create Azure resource groups and deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in Azure PowerShell, Azure CLI, and REST API scripts.
+
 :::image type="content" source="media/get-started/get-started-with-medtech-service.png" alt-text="Diagram showing the MedTech service deployment overview." lightbox="media/get-started/get-started-with-medtech-service.png":::
 
 > [!TIP]
 > See the MedTech service article, [Quickstart: Choose a deployment method for the MedTech service](deploy-new-choose.md), for a description of the different deployment methods that can help to simply and automate the deployment of the MedTech service. 
-
-## Subscription prerequisites
-
-To begin the deployment, you need to determine if you have:
-
-* An active Azure subscription.
-* Azure role-based access control (Azure RBAC) role assignments at the subscription level for deploying resources and granting access permissions. The roles required for you to complete the deployment are: **Contributor and User Access Administrator** or **Owner**. The **Contributor** role allows you to deploy resources, and the **User Access Administrator** role allows you to grant access between resources. The **Owner** role can perform both actions.  
-
-If you already have the appropriate active subscription and Azure RBAC role assignments, you can skip this section.
-
-* If you don't have an active Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
-* If you don't have the correct Azure RBAC role assignments, see [Azure role-based access control (RBAC)](/azure/cloud-adoption-framework/ready/considerations/roles).
 
 ## Deploy resources
 
