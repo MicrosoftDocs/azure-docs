@@ -115,9 +115,9 @@ The database tier defines the infrastructure for the database tier, supported da
 > | `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet).                   | Optional     |                    |
 > | `database_vm_image`	               | Defines the Virtual machine image to use, see below.                                | Optional	    |                    |
 > | `database_vm_authentication_type`  | Defines the authentication type (key/password).                                     | Optional	    |                    |
-> | `database_no_avset`                | Controls if the database virtual machines are deployed without availability sets.   | Optional	    | default is false   |
-> | `database_no_ppg`                  | Controls if the database servers will not be placed in a proximity placement group. | Optional	    | default is false   |
-> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs.                          | Optional	    | Primarily used together with ANF pinning|
+> | `database_use_avset`               | Controls if the database servers are placed in availability sets.                   | Optional	    | default is false   |
+> | `database_use_ppg`                 | Controls if the database servers will be placed in a proximity placement groups.    | Optional	    | default is true    |
+> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs.                          | Optional	    | Primarily used with ANF pinning |
 > | `hana_dual_nics`                   | Controls if the HANA database servers will have dual network interfaces.            | Optional	    | default is true   |
 
 The Virtual Machine and the operating system image is defined using the following structure:
@@ -125,6 +125,7 @@ The Virtual Machine and the operating system image is defined using the followin
 ```python
 {
   os_type="linux"
+  type="marketplace"
   source_image_id=""
   publisher="SUSE"
   offer="sles-sap-15-sp3"
