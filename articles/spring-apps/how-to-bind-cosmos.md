@@ -28,7 +28,7 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 ## Prepare your Java project
 
-1. Add one of the following dependencies to your application's pom.xml file. Choose the dependency that is appropriate for your API type.
+1. Add one of the following dependencies to your application's *pom.xml* file. Choose the dependency that is appropriate for your API type.
 
    * API type: NoSQL
 
@@ -57,7 +57,6 @@ Instead of manually configuring your Spring Boot applications, you can automatic
      </dependency>
      ```
 
-
 1. Update the current app by running `az spring app deploy`, or create a new deployment for this change by running `az spring app deployment create`.
 
 ## Connect your app to the Azure Cosmos DB
@@ -66,10 +65,11 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 #### Use the Azure CLI
 
-Use the Azure CLI to configure your Spring app to connect to a Cosmos SQL Database by using the `az spring connection create` command, as shown in the following example.
+Use the Azure CLI to configure your Spring app to connect to a Cosmos SQL Database by using the `az spring connection create` command, as shown in the following example:
 
 > [!NOTE]
 > Updating Azure Cosmos DB database settings can take a few minutes to complete.
+
 ```azurecli
 az spring connection create cosmos-sql \
     --resource-group $AZURE_SPRING_APPS_RESOURCE_GROUP \

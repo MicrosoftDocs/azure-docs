@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022, service-connector
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 Instead of manually configuring your Spring Boot applications, you can automatically connect selected Azure services to your applications by using Azure Spring Apps. This article shows how to connect your application to Azure Cache for Redis.
 
@@ -77,7 +77,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
    1. On the **Basics** tab, for service type, select Cache for Redis. Choose a subscription and a Redis cache server. Fill in the Redis database name ("0" in this example) and under client type, select Java. Select **Next: Authentication**.
 
-   1. On the **Authentication** tab, choose **Connection string**. Service Connector will automatically retrieve the access key from your Redis database account. Select **Next: Networking**.
+   1. On the **Authentication** tab, choose **Connection string**. Service Connector automatically retrieves the access key from your Redis database account. Select **Next: Networking**.
 
    1. On the **Networking** tab, select **Configure firewall rules to enable access to target service**, then select **Review + Create**.
 

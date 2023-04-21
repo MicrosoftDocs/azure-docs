@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022, passwordless-java, service-c
 
 **This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 With Azure Spring Apps, you can connect selected Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to connect your application to your Azure Database for MySQL instance.
 
@@ -56,7 +56,7 @@ Follow these steps to configure your Spring app to connect to an Azure Database 
    ```azurecli
    az extension add --name serviceconnector-passwordless --upgrade
    ```
-   
+
 1. Run the `az spring connection create` command, as shown in the following example.
 
    ```azurecli
