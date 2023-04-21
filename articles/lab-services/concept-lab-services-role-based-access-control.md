@@ -41,7 +41,7 @@ The following are the built-in roles supported by Azure Lab Services:
 
 ## Role assignment scope
 
-In Azure RBAC, *scope* is the set of resources that access applies to. When you assign a role, it's important to understand scope so that you grant just the access that is really needed.
+In Azure RBAC, *scope* is the set of resources that access applies to. When you assign a role, it's important to understand scope so that you grant just the access that is needed.
 
 In Azure, you can specify a scope at four levels: management group, subscription, resource group, and resource. Scopes are structured in a parent-child relationship. Each level of hierarchy makes the scope more specific. You can assign roles at any of these levels of scope. The level you select determines how widely the role is applied. Lower levels inherit role permissions from higher levels. Learn more about [scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
 
@@ -49,7 +49,7 @@ For Azure Lab Services, consider the following scopes:
 
 | Scope | Description |
 | ----- | ----------- |
-| Subscription | Used to manage billing and security for all Azure resources and services. Typically, only administrators have subscription-level access because this role assigment for the subscription grants access to all resources in the subscription. |
+| Subscription | Used to manage billing and security for all Azure resources and services. Typically, only administrators have subscription-level access because this role assignment grants access to all resources in the subscription. |
 | Resource group | A logical container for grouping together resources. Role assignment for the resource group grants permission to the resource group and all resources within it, such as labs and lab plans. |
 | Lab plan | An Azure resource used to apply common configuration settings when you create a lab. Role assignment for the lab plan grants permission only to a specific lab plan. |
 | Lab | An Azure resource used to apply common configuration settings for creating and running lab virtual machines. Role assignment for the lab grants permission only to a specific lab. |
@@ -80,11 +80,11 @@ The following table shows common lab activities and the role that's needed for a
 
 To grant users permission to manage Azure Lab Services within your organization’s subscription, you should assign them the [Owner](#owner-role), [Contributor](#contributor-role), or the [Lab Services Contributor](#lab-services-contributor-role) role.
 
-Assign these roles on the *resource group*. Consequently, the lab plans and labs within the resource group inherit these role assignments.
+Assign these roles on the *resource group*. The lab plans and labs within the resource group inherit these role assignments.
 
 :::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-administrator-roles.png" alt-text="Diagram that shows the resource hierarchy and the three administrator roles, assigned to the resource group.":::
 
-The following table compares the different administrator roles when they are assigned on the resource group.
+The following table compares the different administrator roles when they're assigned on the resource group.
 
 | Lab plan/Lab | Activity | Owner | Contributor | Lab Services Contributor |
 | ------------ | -------- | :-----: | :-----------: | :------------------------: |
@@ -105,7 +105,7 @@ Assign the Owner role to give a user full control to create or manage lab plans 
 - Assign roles to administrators, so they can manage lab-related resources.
 - Assign roles to educators so they can create and manage labs.
 - Create lab plans and labs.
-- View, delete, and change settings for all lab plans. This includes attaching or detaching the compute gallery and enabling or disabling Azure Marketplace and custom images on lab plans.
+- View, delete, and change settings for all lab plans, including attaching or detaching the compute gallery and enabling or disabling Azure Marketplace and custom images on lab plans.
 - View, delete, and change settings for all labs.
 
 > [!CAUTION]
@@ -122,7 +122,7 @@ Assign the Contributor role to give a user full control to create or manage lab 
 The Lab Services Contributor is the most restrictive of the administrator roles. Assign the Lab Services Contributor role to enable the same activities as the Owner role, *except* for:
 
 - Performing role assignments
-- Chaning or deleting other users’ labs
+- Changing or deleting other users’ labs
 
 ## Lab management roles
 
@@ -137,7 +137,7 @@ These lab management roles only grant permission to view lab plans. These roles 
 
 ### Lab Creator role
 
-Assign the Lab Creator role to a user to give a user permissions to create labs and have full control over the labs that they create. For example, they can change their labs’ settings, delete their labs, and even grant other users permission to their labs. 
+Assign the Lab Creator role to give a user permission to create labs and have full control over the labs that they create. For example, they can change their labs’ settings, delete their labs, and even grant other users permission to their labs. 
 
 Assign the Lab Creator role on either the *resource group or lab plan*.
 
@@ -215,7 +215,7 @@ For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-
 
 ## Resource group and lab plan structure
 
-Your organization should invest time up front to plan the structure of resource groups and lab plans. This is especially important when you assign roles on the resource group because this also applies permissions to all resources in the resource group.
+Your organization should invest time up front to plan the structure of resource groups and lab plans. This is especially important when you assign roles on the resource group because it also applies permissions to all resources in the resource group.
 
 To ensure that users are only granted permission to the appropriate resources:
 
@@ -230,7 +230,7 @@ For example, you might create separate resource groups for different departments
 
 ### Access to multiple resource groups
 
-You can grant users access to multiple resource groups. In the [Azure Lab Services website](https://labs.azure.com) the user can then choose from the list of resource groups to view their labs.
+You can grant users access to multiple resource groups. In the [Azure Lab Services website](https://labs.azure.com), the user can then choose from the list of resource groups to view their labs.
 
 :::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-choose-resource-group.png" alt-text="Screenshot that shows how to choose between resource groups in the Azure Lab Services website.":::
 
