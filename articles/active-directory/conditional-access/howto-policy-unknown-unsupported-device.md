@@ -1,5 +1,5 @@
 ---
-title: Block unsupported platforms with Conditional Access - Azure Active Directory
+title: Block unsupported platforms with Conditional Access
 description: Create a custom Conditional Access policy to block unsupported platforms
 
 services: active-directory

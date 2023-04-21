@@ -35,12 +35,13 @@ If you're new to logic apps, review
 * An Azure account and subscription. If you don't have an Azure subscription, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142Fs). 
 
-* Basic knowledge about 
-[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) and [how to create and manage container instances](../container-instances/container-instances-quickstart.md)
+* Basic knowledge about how to create logic apps and how to create container instances
 
-* The logic app where you want to access your container instances. 
-To use an action, start your logic app with another trigger, 
-for example, the **Recurrence** trigger.
+  * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
+
+  * [Create and manage container instances](../container-instances/container-instances-quickstart.md)
+
+* The logic app where you want to access your container instances. To use an action, start your logic app with another trigger, for example, the **Recurrence** trigger.
 
 ## Add a Container Instance action
 

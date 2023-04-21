@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 03/05/2023
+ms.date: 04/20/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -18,102 +18,18 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely) | March 2023 |
-| [Three alerts in Defender for Azure Resource Manager plan will be deprecated](#three-alerts-in-defender-for-azure-resource-manager-plan-will-be-deprecated) | March 2023 |
-| [Alerts automatic export to Log Analytics workspace will be deprecated](#alerts-automatic-export-to-log-analytics-workspace-will-be-deprecated) | March 2023 |
-| [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers) | April 2023 |
-| [Deprecation of App Service language monitoring policies](#deprecation-of-app-service-language-monitoring-policies) | April 2023 |
+| [Deprecation of legacy compliance standards across cloud environments](#deprecation-of-legacy-compliance-standards-across-cloud-environments) | April 2023 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2023 |
+| [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | June 2023 |
 
-### Changes in the recommendation "Machines should be configured securely"
-
-**Estimated date for change: March 2023**
-
-The recommendation `Machines should be configured securely` is set to be updated. This update will improve the performance and stability of the recommendation and align its experience with the generic behavior of Defender for Cloud's recommendations.
-
-As part of this update, the recommendation's ID will be changed from `181ac480-f7c4-544b-9865-11b8ffe87f47` to `c476dc48-8110-4139-91af-c8d940896b98`.
-
-No action is required on the customer side, and there's no expected downtime nor impact on the secure score.
-
-
-### Three alerts in Defender for Azure Resource Manager plan will be deprecated
-
-**Estimated date for change: March 2023**
-
-As we continue to improve the quality of our alerts, the following three alerts from the Defender for Azure Resource Manager plan will be deprecated:
-1. `Activity from a risky IP address (ARM.MCAS_ActivityFromAnonymousIPAddresses)`
-1. `Activity from infrequent country (ARM.MCAS_ActivityFromInfrequentCountry)`
-1. `Impossible travel activity (ARM.MCAS_ImpossibleTravelActivity)`
-
-You can learn more details about each of these alerts from the [alerts reference list](alerts-reference.md#alerts-resourcemanager).
-
-In the scenario where an activity from a suspicious IP address is detected, one of the following Defenders for Azure Resource Manager plan alerts `Azure Resource Manager operation from suspicious IP address` or `Azure Resource Manager operation from suspicious proxy IP address` will be present.
-
-### Alerts automatic export to Log Analytics workspace will be deprecated
-
-**Estimated date for change: March 2023**
-
-Currently, Defenders for Cloud security alerts are automatically exported to a default Log Analytics workspace on the resource level. This causes an indeterministic behavior and therefore, this feature is set to be deprecated.
-
-You can export your security alerts to a dedicated Log Analytics workspace with the [Continuous Export](continuous-export.md#set-up-a-continuous-export) feature. 
-If you have already configured continuous export of your alerts to a Log Analytics workspace, no further action is required.
-
-### Deprecation and improvement of selected alerts for Windows and Linux Servers
+### Deprecation of legacy compliance standards across cloud environments
 
 **Estimated date for change: April 2023**
 
-The security alert quality improvement process for Defender for Servers includes the deprecation of some alerts for both Windows and Linux servers. The deprecated alerts will now be sourced from and covered by Defender for Endpoint threat alerts.  
+We're announcing the full deprecation of support of [PCI DSS](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
 
-If you already have the Defender for Endpoint integration enabled, no further action is required. You may experience a decrease in your alerts volume in April 2023.
-
-If you don't have the Defender for Endpoint integration enabled in Defender for Servers, you'll need to enable the Defender for Endpoint integration to maintain and improve your alert coverage. 
-
-All Defender for Server customers, have full access to the Defender for Endpoint’s integration as a part of the [Defender for Servers plan](plan-defender-for-servers-select-plan.md#plan-features).  
-
-You can learn more about [Microsoft Defender for Endpoint onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration).
-
-You can also view the [full list of alerts](alerts-reference.md#defender-for-servers-alerts-to-be-deprecated) that are set to be deprecated.
-
-Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-servers-security-alerts-improvements/ba-p/3714175).
-
-### Deprecation of App Service language monitoring policies
-
-The following App Service language monitoring policies are set to be deprecated because they generate false negatives and they don't necessarily provide better security. Instead, you should always ensure you're using a language version without any known vulnerabilities.
-
-| Policy name | Policy ID |
-|--|--|
-| [App Service apps that use Java should use the latest 'Java version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) | 496223c3-ad65-4ecd-878a-bae78737e9ed |
-| [App Service apps that use Python should use the latest 'Python version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) | 7008174a-fd10-4ef0-817e-fc820a951d73 |
-| [Function apps that use Java should use the latest 'Java version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) | 9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc |
-| [Function apps that use Python should use the latest 'Python version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) | 7238174a-fd10-4ef0-817e-fc820a951d73 |
-| [App Service apps that use PHP should use the latest 'PHP version'](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3)| 7261b898-8a84-4db8-9e04-18527132abb3 |
-
-Customers can use alternative built-in policies to monitor any specified language version for their App Services. 
-
-Defender for Cloud won't include these recommendations as built-in recommendations. You can add them as custom recommendations to have Defender for Cloud monitor them.
-
-### Multiple changes to identity recommendations
-
-**Estimated date for change: May 2023**
-
-We announced previously the [availability of identity recommendations V2 (preview)](release-notes.md#extra-recommendations-added-to-identity), which included enhanced capabilities.
-
-As part of these changes, the following recommendations will be released as General Availability (GA) and replace the V1 recommendations that are set to be deprecated.
-
-#### General Availability (GA) release of identity recommendations V2 
-
-The following security recommendations will be released as GA and replace the V1 recommendations:
- 
-|Recommendation | Assessment Key|
-|--|--|
-|Accounts with owner permissions on Azure resources should be MFA enabled | 6240402e-f77c-46fa-9060-a7ce53997754 |
-|Accounts with write permissions on Azure resources should be MFA enabled | c0cb17b2-0607-48a7-b0e0-903ed22de39b |
-| Accounts with read permissions on Azure resources should be MFA enabled | dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c |
-| Guest accounts with owner permissions on Azure resources should be removed | 20606e75-05c4-48c0-9d97-add6daa2109a |
-| Guest accounts with write permissions on Azure resources should be removed | 0354476c-a12a-4fcc-a79d-f0ab7ffffdbb |
-| Guest accounts with read permissions on Azure resources should be removed | fde1c0c9-0fd2-4ecc-87b5-98956cbc1095 |
-| Blocked accounts with owner permissions on Azure resources should be removed | 050ac097-3dda-4d24-ab6d-82568e7a50cf |
-| Blocked accounts with read and write permissions on Azure resources should be removed | 1ff0b4c9-ed56-4de6-be9c-d7ab39645926 |
+Legacy PCI DSS v3.2.1 and legacy SOC TSP are set to be fully deprecated and replaced by [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative.
+Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 #### Deprecation of identity recommendations V1
 
@@ -133,6 +49,40 @@ The following security recommendations will be deprecated as part of this change
 We recommend updating custom scripts, workflows, and governance rules to correspond with the V2 recommendations.
 
 We've improved the coverage of the V2 identity recommendations by scanning all Azure resources (rather than just subscriptions) which allows security administrators to view role assignments per account. These changes may result in changes to your Secure Score throughout the GA process.
+
+### Multiple changes to identity recommendations
+
+**Estimated date for change: May 2023**
+
+We announced previously the [availability of identity recommendations V2 (preview)](release-notes-archive.md#extra-recommendations-added-to-identity), which included enhanced capabilities.
+
+As part of these changes, the following recommendations will be released as General Availability (GA) and replace the V1 recommendations that are set to be deprecated.
+
+#### General Availability (GA) release of identity recommendations V2 
+
+The following security recommendations will be released as GA and replace the V1 recommendations:
+ 
+|Recommendation | Assessment Key|
+|--|--|
+|Accounts with owner permissions on Azure resources should be MFA enabled | 6240402e-f77c-46fa-9060-a7ce53997754 |
+|Accounts with write permissions on Azure resources should be MFA enabled | c0cb17b2-0607-48a7-b0e0-903ed22de39b |
+| Accounts with read permissions on Azure resources should be MFA enabled | dabc9bc4-b8a8-45bd-9a5a-43000df8aa1c |
+| Guest accounts with owner permissions on Azure resources should be removed | 20606e75-05c4-48c0-9d97-add6daa2109a |
+| Guest accounts with write permissions on Azure resources should be removed | 0354476c-a12a-4fcc-a79d-f0ab7ffffdbb |
+| Guest accounts with read permissions on Azure resources should be removed | fde1c0c9-0fd2-4ecc-87b5-98956cbc1095 |
+| Blocked accounts with owner permissions on Azure resources should be removed | 050ac097-3dda-4d24-ab6d-82568e7a50cf |
+| Blocked accounts with read and write permissions on Azure resources should be removed | 1ff0b4c9-ed56-4de6-be9c-d7ab39645926 |
+
+### DevOps Resource Deduplication for Defender for DevOps
+
+**Estimated date for change: June 2023**
+
+To improve the Defender for DevOps user experience and enable further integration with Defender for Cloud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant. 
+
+If you don't have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they don't want to keep by navigating to Defender for Cloud Environment Settings. 
+
+Customers will have until June 30, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists, will remain onboarded to Defender for DevOps.
+
 
 ## Next steps
 

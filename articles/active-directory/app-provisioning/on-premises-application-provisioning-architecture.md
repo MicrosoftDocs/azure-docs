@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD on-premises application provisioning architecture | Microsoft Docs'
+title: 'Azure AD on-premises application provisioning architecture'
 description: Presents an overview of on-premises application provisioning architecture.
 services: active-directory
 author: billmath
@@ -144,7 +144,7 @@ This article lists the versions and features of Azure Active Directory Connect P
 Microsoft provides direct support for the latest agent version and one version before.
 
 ### Download link
-You can download the latest version of the agent using [this link](https://aka.ms/onpremprovisioningagent).
+On-premises app provisioning has been rolled into the provisioning agent and is available from the portal.  See [installing the provisioning agent](../cloud-sync/how-to-install.md).
 
 ### 1.1.892.0 
 

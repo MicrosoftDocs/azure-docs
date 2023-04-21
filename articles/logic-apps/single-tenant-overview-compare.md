@@ -95,8 +95,8 @@ To create a logic app based on the environment that you want, you have multiple 
 
 | Option | Resources and tools | More information |
 |--------|---------------------|------------------|
-| Azure portal | **Logic App (Standard)** resource type | [Create integration workflows for single-tenant Logic Apps - Azure portal](create-single-tenant-workflows-azure-portal.md) |
-| Visual Studio Code | [**Azure Logic Apps (Standard)** extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps) | [Create integration workflows for single-tenant Logic Apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md) |
+| Azure portal | **Logic App (Standard)** resource type | [Create an example Standard logic app workflow in single-tenant Azure Logic Apps - Azure portal](create-single-tenant-workflows-azure-portal.md) |
+| Visual Studio Code | [**Azure Logic Apps (Standard)** extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps) | [Create an example Standard logic app workflow in single-tenant Azure Logic Apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md) |
 | Azure CLI | Logic Apps Azure CLI extension | [az logicapp](/cli/azure/logicapp) |
 | Azure Resource Manager | - [Local](https://github.com/Azure/logicapps/tree/master/azure-devops-sample#local) <br>- [DevOps](https://github.com/Azure/logicapps/tree/master/azure-devops-sample#devops) | [Single-tenant Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/azure-devops-sample) |
 | Azure Arc-enabled Logic Apps | [Azure Arc-enabled Logic Apps sample](https://github.com/Azure/logicapps/tree/master/arc-enabled-logic-app-sample) | - [What is Azure Arc-enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md) <br><br>- [Create and deploy single-tenant based logic app workflows with Azure Arc-enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md) | 
@@ -106,10 +106,10 @@ To create a logic app based on the environment that you want, you have multiple 
 
 | Option | Resources and tools | More information |
 |--------|---------------------|------------------|
-| Azure portal | **Logic App (Consumption)** resource type | [Quickstart: Create integration workflows in multi-tenant Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md) |
-| Visual Studio Code | [**Azure Logic Apps (Consumption)** extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) | [Quickstart: Create integration workflows in multi-tenant Azure Logic Apps - Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
-| Azure CLI | [**Logic Apps Azure CLI** extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/logic) | - [Quickstart: Create and manage integration workflows in multi-tenant Azure Logic Apps - Azure CLI](quickstart-logic-apps-azure-cli.md) <p><p>- [az logic](/cli/azure/logic) |
-| Azure Resource Manager | [**Create a logic app** ARM template](https://azure.microsoft.com/resources/templates/logic-app-create/) | [Quickstart: Create and deploy integration workflows in multi-tenant Azure Logic Apps - ARM template](quickstart-create-deploy-azure-resource-manager-template.md) |
+| Azure portal | **Logic App (Consumption)** resource type | [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps - Azure portal](quickstart-create-example-consumption-workflow.md) |
+| Visual Studio Code | [**Azure Logic Apps (Consumption)** extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) | [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps - Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
+| Azure CLI | [**Logic Apps Azure CLI** extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/logic) | - [Quickstart: Create and manage Consumption logic app workflows in multi-tenant Azure Logic Apps - Azure CLI](quickstart-logic-apps-azure-cli.md) <p><p>- [az logic](/cli/azure/logic) |
+| Azure Resource Manager | [**Create a logic app** ARM template](https://azure.microsoft.com/resources/templates/logic-app-create/) | [Quickstart: Create and deploy Consumption logic app workflows in multi-tenant Azure Logic Apps - ARM template](quickstart-create-deploy-azure-resource-manager-template.md) |
 | Azure PowerShell | [Az.LogicApp module](/powershell/module/az.logicapp) | [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) |
 | Azure REST API | [Azure Logic Apps REST API](/rest/api/logic) | [Get started with Azure REST API reference](/rest/api/azure) |
 ||||
@@ -118,7 +118,7 @@ To create a logic app based on the environment that you want, you have multiple 
 
 | Option | Resources and tools | More information |
 |--------|---------------------|------------------|
-| Azure portal | **Logic App (Consumption)** resource type with an existing ISE resource | Same as [Quickstart: Create integration workflows in multi-tenant Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md), but select an ISE, not a multi-tenant region. |
+| Azure portal | **Logic App (Consumption)** resource type with an existing ISE resource | Same as [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps - Azure portal](quickstart-create-example-consumption-workflow.md), but select an ISE, not a multi-tenant region. |
 ||||
 
 Although your development experiences differ based on whether you create **Consumption** or **Standard** logic app resources, you can find and access all your deployed logic apps under your Azure subscription.

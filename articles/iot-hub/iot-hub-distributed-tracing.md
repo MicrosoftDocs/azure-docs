@@ -2,12 +2,11 @@
 title: Add correlation IDs to IoT messages with distributed tracing (preview)
 description: Learn how to use distributed tracing to trace IoT messages throughout the Azure services that your solution uses.
 author: kgremban
-manager: briz
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 01/26/2022
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: how-to
+ms.date: 01/26/2022
 ms.custom: [amqp, mqtt, fasttrack-edit, iot]
 ---
 
@@ -15,7 +14,7 @@ ms.custom: [amqp, mqtt, fasttrack-edit, iot]
 
 Microsoft Azure IoT Hub currently supports distributed tracing as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you'll be able to trace Internet of Things (IoT) messages throughout the Azure services involved in your solution. For a background on the feature, see [What is distributed tracing?](../azure-monitor/app/distributed-tracing.md).
+IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you'll be able to trace Internet of Things (IoT) messages throughout the Azure services involved in your solution. For a background on the feature, see [What is distributed tracing?](../azure-monitor/app/distributed-tracing-telemetry-correlation.md).
 
 When you enable distributed tracing for IoT Hub, you can:
 

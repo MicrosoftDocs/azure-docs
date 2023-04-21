@@ -1,5 +1,5 @@
 ---
-title: Use additional context in Microsoft Authenticator notifications - Azure Active Directory
+title: Use additional context in Microsoft Authenticator notifications
 description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication

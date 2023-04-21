@@ -1,8 +1,9 @@
 ---
-title: Assign, update, list, or remove custom security attributes for a user (Preview) - Azure Active Directory
+title: Assign, update, list, or remove custom security attributes for a user (Preview)
 description: Assign, update, list, or remove custom security attributes for a user in Azure Active Directory. 
 services: active-directory 
 author: rolyon
+manager: amycolannino
 ms.author: rolyon
 ms.date: 02/20/2023
 ms.topic: how-to

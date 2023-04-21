@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 03/27/2023
 ms.author: eur
 ---
 
@@ -18,6 +18,8 @@ Custom Neural Voice (CNV) is a text-to-speech feature that lets you create a one
 
 > [!IMPORTANT]
 > Custom Neural Voice access is [limited](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).
+> 
+> Access to [Custom Neural Voice (CNV) Lite](custom-neural-voice-lite.md) is available for anyone to demo and evaluate CNV before investing in professional recordings to create a higher-quality voice. 
 
 Out of the box, [text-to-speech](text-to-speech.md) can be used with prebuilt neural voices for each [supported language](language-support.md?tabs=tts). The prebuilt neural voices work very well in most text-to-speech scenarios if a unique voice isn't required.
 
@@ -46,7 +48,7 @@ Here's an overview of the steps to create a custom neural voice in Speech Studio
 1. [Test your voice](how-to-custom-voice-create-voice.md#test-your-voice-model). Prepare test scripts for your voice model that cover the different use cases for your apps. It’s a good idea to use scripts within and outside the training dataset, so you can test the quality more broadly for different content.
 1. [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md) in your apps.
 
-You can tune, adjust, and use your custom voice, similarly as you would use a prebuilt neural voice. Convert text into speech in real time, or generate audio content offline with text input. You can do this by using the [REST API](./rest-text-to-speech.md), the [Speech SDK](./get-started-text-to-speech.md), or the [Speech Studio](https://speech.microsoft.com/audiocontentcreation).
+You can tune, adjust, and use your custom voice, similarly as you would use a prebuilt neural voice. Convert text into speech in real-time, or generate audio content offline with text input. You can do this by using the [REST API](./rest-text-to-speech.md), the [Speech SDK](./get-started-text-to-speech.md), or the [Speech Studio](https://speech.microsoft.com/audiocontentcreation).
 
 The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent used for training. However, you can make several adjustments by using [SSML (Speech Synthesis Markup Language)](./speech-synthesis-markup.md?tabs=csharp) when you make the API calls to your voice model to generate synthetic speech. SSML is the markup language used to communicate with the text-to-speech service to convert text into audio. The adjustments you can make include change of pitch, rate, intonation, and pronunciation correction. If the voice model is built with multiple styles, you can also use SSML to switch the styles.
 

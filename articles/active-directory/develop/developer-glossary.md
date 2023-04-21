@@ -8,14 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
-ms.date: 05/28/2022
+ms.date: 03/15/2023
 ms.author: ryanwi
-ms.reviewer: mmacy
+ms.reviewer: 
 ---
 
 # Glossary: Microsoft identity platform
 
-You'll see these terms when you use our documentation, the Azure portal, our authentication libraries, and the Microsoft Graph API. Some terms are Microsoft-specific while others are related to protocols like OAuth or other technologies you use with the Microsoft identity platform.
+You see these terms when you use our documentation, the Azure portal, our authentication libraries, and the Microsoft Graph API. Some terms are Microsoft-specific while others are related to protocols like OAuth or other technologies you use with the Microsoft identity platform.
 
 ## Access token
 
@@ -52,7 +52,7 @@ For more information, see [Application and Service Principal Objects][AAD-App-SP
 
 In order to allow an application to integrate with and delegate Identity and Access Management functions to Azure AD, it must be registered with an Azure AD [tenant](#tenant). When you register your application with Azure AD, you're providing an identity configuration for your application, allowing it to integrate with Azure AD and use features like:
 
-- Robust management of Single Sign-On using Azure AD Identity Management and [OpenID Connect][OpenIDConnect] protocol implementation
+- Robust management of single sign-on using Azure AD Identity Management and [OpenID Connect][OpenIDConnect] protocol implementation
 - Brokered access to [protected resources](#resource-server) by [client applications](#client-application), via OAuth 2.0 [authorization server](#authorization-server)
 - [Consent framework](#consent) for managing client access to protected resources, based on resource owner authorization.
 
@@ -222,11 +222,11 @@ One of the endpoints implemented by the [authorization server](#authorization-se
 
 ## User-agent-based client
 
-A type of [client application](#client-application) that downloads code from a web server and executes within a user-agent (for instance, a web browser), such as a single-page application (SPA). Since all code is executed on a device, it is considered a "public" client due to its inability to store credentials privately/confidentially. For more information, see [OAuth 2.0 client types and profiles][OAuth2-Client-Types].
+A type of [client application](#client-application) that downloads code from a web server and executes within a user-agent (for instance, a web browser), such as a single-page application (SPA). Since all code is executed on a device, it's considered a "public" client due to its inability to store credentials privately/confidentially. For more information, see [OAuth 2.0 client types and profiles][OAuth2-Client-Types].
 
 ## User principal
 
-Similar to the way a service principal object is used to represent an application instance, a user principal object is another type of security principal, which represents a user. The Microsoft Graph [User resource type][Graph-User-Resource] defines the schema for a user object, including user-related properties like first and last name, user principal name, directory role membership, etc. This provides the user identity configuration for Azure AD to establish a user principal at run-time. The user principal is used to represent an authenticated user for Single Sign-On, recording [consent](#consent) delegation, making access control decisions, etc.
+Similar to the way a service principal object is used to represent an application instance, a user principal object is another type of security principal, which represents a user. The Microsoft Graph [User resource type][Graph-User-Resource] defines the schema for a user object, including user-related properties like first and last name, user principal name, directory role membership, etc. This provides the user identity configuration for Azure AD to establish a user principal at run-time. The user principal is used to represent an authenticated user for single sign-on, recording [consent](#consent) delegation, making access control decisions, etc.
 
 ## Web client
 
@@ -238,7 +238,7 @@ An identity used by a software workload like an application, service, script, or
 
 ## Workload identity federation
 
-Allows you to securely access Azure AD protected resources from external apps and services without needing to manage secrets (for supported scenarios).  For more information, see [workload identity federation](workload-identity-federation.md).)
+Allows you to securely access Azure AD protected resources from external apps and services without needing to manage secrets (for supported scenarios).  For more information, see [workload identity federation](workload-identity-federation.md).
 
 ## Next steps
 

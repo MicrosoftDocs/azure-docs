@@ -2,7 +2,7 @@
 title: Dependency tracking in Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Azure web application with Application Insights.
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 03/22/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.reviewer: casocha
@@ -140,11 +140,11 @@ Select the **Performance** tab on the left and select the **Dependencies** tab a
 
 Select a **Dependency Name** under **Overall**. After you select a dependency, a graph of that dependency's distribution of durations appears on the right.
 
-![Screenshot that shows the Dependencies tab open to select a Dependency Name in the chart.](./media/asp-net-dependencies/2-perf-dependencies.png)
+:::image type="content" source="./media/asp-net-dependencies/2-perf-dependencies.png" lightbox="./media/asp-net-dependencies/2-perf-dependencies.png" alt-text="Screenshot that shows the Dependencies tab open to select a Dependency Name in the chart.":::
 
 Select the **Samples** button at the bottom right. Then select a sample to see the end-to-end transaction details.
 
-![Screenshot that shows selecting a sample to see the end-to-end transaction details.](./media/asp-net-dependencies/3-end-to-end.png)
+:::image type="content" source="./media/asp-net-dependencies/3-end-to-end.png" lightbox="./media/asp-net-dependencies/3-end-to-end.png" alt-text="Screenshot that shows selecting a sample to see the end-to-end transaction details.":::
 
 ### Profile your live site
 
@@ -156,7 +156,7 @@ Failed requests might also be associated with failed calls to dependencies.
 
 Select the **Failures** tab on the left and then select the **Dependencies** tab at the top.
 
-![Screenshot that shows selecting the failed requests chart.](./media/asp-net-dependencies/4-fail.png)
+:::image type="content" source="./media/asp-net-dependencies/4-fail.png" lightbox="./media/asp-net-dependencies/4-fail.png" alt-text="Screenshot that shows selecting the failed requests chart.":::
 
 Here you'll see the failed dependency count. To get more information about a failed occurrence, select a **Dependency Name** in the bottom table. Select the **Dependencies** button at the bottom right to see the end-to-end transaction details.
 
@@ -204,7 +204,7 @@ This section provides answers to common questions.
 
 ### How does the automatic dependency collector report failed calls to dependencies?
 
-Failed dependency calls will have the `success` field set to False. The module `DependencyTrackingTelemetryModule` doesn't report `ExceptionTelemetry`. The full data model for dependency is described [Dependency telemetry: Application Insights data model](data-model-dependency-telemetry.md).
+Failed dependency calls will have the `success` field set to False. The module `DependencyTrackingTelemetryModule` doesn't report `ExceptionTelemetry`. The full data model for dependency is described in [Application Insights telemetry data model](data-model-complete.md#dependency).
 
 ### How do I calculate ingestion latency for my dependency telemetry?
 
@@ -276,5 +276,5 @@ A list of the latest [currently supported modules](https://github.com/microsoft/
 * Set up custom dependency tracking for [Java](opentelemetry-enable.md?tabs=java#add-custom-spans).
 * Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
 * [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
-* See [data model](./data-model.md) for Application Insights types and data model.
+* See [data model](./data-model-complete.md) for Application Insights types and data model.
 * Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.

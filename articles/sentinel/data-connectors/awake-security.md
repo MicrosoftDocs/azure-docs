@@ -17,7 +17,7 @@ The Awake Security CEF connector allows users to send detection model matches fr
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (AwakeSecurity)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Arista - Awake Security](https://awakesecurity.com/) |
 
 ## Query samples

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the process of converting industry-standard models into DTDL for Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/28/2022
+ms.date: 03/05/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -44,6 +44,8 @@ The following C# code snippet shows how an RDF model file is loaded into a graph
 
 ## Converter samples
 
+This section contains sample converter code for RDF and OWL converters, which can be extended for other schemas in the building industry. 
+
 ### RDF converter application 
 
 There's a sample application available that converts an RDF-based model file to [DTDL Version 2 (v2)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). DTDL v2 is supported by Azure Digital Twins, but you can also follow [these instructions](how-to-manage-model.md#convert-v2-models-to-v3) to convert DTDL v2 models to the newer DTDL v3.
@@ -66,6 +68,4 @@ This converter was used to translate the [Real Estate Core Ontology](https://doc
 
 ## Next steps 
 
-* Learn more about extending industry-standard ontologies to meet your specifications: [Extending industry ontologies](concepts-ontologies-extend.md).
-
-* Or, continue on the path for developing models based on ontologies: [Using ontology strategies in a model development path](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+Continue on the path for developing models based on ontologies: [Full model development path](concepts-ontologies.md#full-model-development-path).

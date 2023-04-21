@@ -1,5 +1,5 @@
 ---
-title: Best practices for Azure AD roles - Azure Active Directory
+title: Best practices for Azure AD roles
 description: Best practices for using Azure Active Directory roles.
 services: active-directory
 author: rolyon

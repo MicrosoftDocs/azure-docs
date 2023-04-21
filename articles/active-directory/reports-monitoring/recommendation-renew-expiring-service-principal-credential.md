@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Renew expiring service principal credentials (preview) | Microsoft Docs
+title: Azure Active Directory recommendation - Renew expiring service principal credentials (preview)
 description: Learn why you should renew expiring service principal credentials.
 services: active-directory
 author: shlipsey3

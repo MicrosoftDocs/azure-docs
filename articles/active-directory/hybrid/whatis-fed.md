@@ -1,5 +1,5 @@
 ---
-title: 'What is federation with Azure AD? | Microsoft Docs'
+title: 'What is federation with Azure AD?'
 description: Describes federation with Azure AD.
 services: active-directory
 author: billmath

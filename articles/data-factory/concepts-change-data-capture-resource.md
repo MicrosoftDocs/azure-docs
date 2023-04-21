@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom:
 ms.topic: conceptual
-ms.date: 02/17/2023
+ms.date: 04/06/2023
 ---
 
 # Change data capture resource overview
@@ -54,6 +54,7 @@ The new Change Data Capture resource in ADF allows for full fidelity change data
 ## Known limitations
 * Currently, when creating source/target mappings, each source and target is only allowed to be used once. 
 * Complex types are currently unsupported.
+* Self-hosted integration runtime (SHIR) is currently unsupported.
 
 For more information on known limitations and troubleshooting assistance, please reference [this troubleshooting guide](change-data-capture-troubleshoot.md).
 

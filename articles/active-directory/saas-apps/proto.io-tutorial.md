@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Proto.io | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Proto.io'
 description: Learn how to configure single sign-on between Azure Active Directory and Proto.io.
 services: active-directory
 author: jeevansd

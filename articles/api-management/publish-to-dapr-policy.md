@@ -31,11 +31,11 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 | Attribute        | Description                     | Required | Default |
 |------------------|---------------------------------|----------|---------|
-| pubsub-name      | The name of the target PubSub component. Maps to the [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr. If not present, the `topic` attribute value must be in the form of `pubsub-name/topic-name`.    | No       | None    |
-| topic            | The name of the topic. Maps to the [topic](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr.               | Yes      | N/A     |
-| ignore-error     | If set to `true`, instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime. | No | `false` |
-| response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime. | No | None |
-| timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. | No | 5 |
+| pubsub-name      | The name of the target PubSub component. Maps to the [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr. If not present, the `topic` attribute value must be in the form of `pubsub-name/topic-name`. Policy expressions are allowed.   | No       | None    |
+| topic            | The name of the topic. Maps to the [topic](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr. Policy expressions are allowed.              | Yes      | N/A     |
+| ignore-error     | If set to `true`, instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime. Policy expressions aren't allowed. | No | `false` |
+| response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime. Policy expressions aren't allowed. | No | None |
+| timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. Policy expressions are allowed. | No | 5 |
 | template | Templating engine to use for transforming the message content. "Liquid" is the only supported value. | No | None |
 | content-type | Type of the message content. "application/json" is the only supported value. | No | None |
 

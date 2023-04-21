@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 02/08/2023
+ms.date: 03/20/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -560,98 +560,98 @@ http {
 
 2. The following code sample is a self-contained `docker compose` example to run Form Recognizer Layout, Label Tool, Custom API, and Custom Supervised containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.
 
-  ```yml
-  version: '3.3'
-  services:
-   nginx:
-    image: nginx:alpine
-    container_name: reverseproxy
-    volumes:
-      - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
-    ports:
-      - "5000"
-   rabbitmq:
-    container_name: ${RABBITMQ_HOSTNAME}
-    image: rabbitmq:3
-    expose:
-      - "5672"
-   layout:
-    container_name: azure-cognitive-service-layout
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
-    depends_on:
-      - rabbitmq
-    environment:
-      eula: accept
-      key: ${FORM_RECOGNIZER_KEY}
-      billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
-      Queue:RabbitMQ:HostName: ${RABBITMQ_HOSTNAME}
-      Queue:RabbitMQ:Port: ${RABBITMQ_PORT}
-      Logging:Console:LogLevel:Default: Information
-      SharedRootFolder: /shared
-      Mounts:Shared: /shared
-      Mounts:Output: /logs
-    volumes:
-      - type: bind
-        source: ${SHARED_MOUNT_PATH}
-        target: /shared
-      - type: bind
-        source: ${OUTPUT_MOUNT_PATH}
-        target: /logs
-    expose:
-      - "5000"
+ ```yml
+ version: '3.3'
+services:
+ nginx:
+  image: nginx:alpine
+  container_name: reverseproxy
+  volumes:
+    - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
+  ports:
+    - "5000:5000"
+ rabbitmq:
+  container_name: ${RABBITMQ_HOSTNAME}
+  image: rabbitmq:3
+  expose:
+    - "5672"
+ layout:
+  container_name: azure-cognitive-service-layout
+  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
+  depends_on:
+    - rabbitmq
+  environment:
+    eula: accept
+    apikey: ${FORM_RECOGNIZER_KEY}
+    billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
+    Queue:RabbitMQ:HostName: ${RABBITMQ_HOSTNAME}
+    Queue:RabbitMQ:Port: ${RABBITMQ_PORT}
+    Logging:Console:LogLevel:Default: Information
+    SharedRootFolder: /shared
+    Mounts:Shared: /shared
+    Mounts:Output: /logs
+  volumes:
+    - type: bind
+      source: ${SHARED_MOUNT_PATH}
+      target: /shared
+    - type: bind
+      source: ${OUTPUT_MOUNT_PATH}
+      target: /logs
+  expose:
+    - "5000"
 
-   custom-api:
-    container_name: azure-cognitive-service-custom-api
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api
-    restart: always
-    depends_on:
-      - rabbitmq
-    environment:
-      eula: accept
-      key: ${FORM_RECOGNIZER_KEY}
-      billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
-      Logging:Console:LogLevel:Default: Information
-      Queue:RabbitMQ:HostName: ${RABBITMQ_HOSTNAME}
-      Queue:RabbitMQ:Port: ${RABBITMQ_PORT}
-      SharedRootFolder: /shared
-      Mounts:Shared: /shared
-      Mounts:Output: /logs
-    volumes:
-      - type: bind
-        source: ${SHARED_MOUNT_PATH}
-        target: /shared
-      - type: bind
-        source: ${OUTPUT_MOUNT_PATH}
-        target: /logs
-    expose:
-      - "5000"
+ custom-api:
+  container_name: azure-cognitive-service-custom-api
+  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api
+  restart: always
+  depends_on:
+    - rabbitmq
+  environment:
+    eula: accept
+    apikey: ${FORM_RECOGNIZER_KEY}
+    billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
+    Logging:Console:LogLevel:Default: Information
+    Queue:RabbitMQ:HostName: ${RABBITMQ_HOSTNAME}
+    Queue:RabbitMQ:Port: ${RABBITMQ_PORT}
+    SharedRootFolder: /shared
+    Mounts:Shared: /shared
+    Mounts:Output: /logs
+  volumes:
+    - type: bind
+      source: ${SHARED_MOUNT_PATH}
+      target: /shared
+    - type: bind
+      source: ${OUTPUT_MOUNT_PATH}
+      target: /logs
+  expose:
+    - "5000"
 
-   custom-supervised:
-    container_name: azure-cognitive-service-custom-supervised
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised
-    restart: always
-    depends_on:
-      - rabbitmq
-    environment:
-      eula: accept
-      key: ${FORM_RECOGNIZER_KEY}
-      billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
-      CustomFormRecognizer:ContainerPhase: All
-      CustomFormRecognizer:LayoutAnalyzeUri: http://azure-cognitive-service-layout:5000/formrecognizer/v2.1/layout/analyze
-      Logging:Console:LogLevel:Default: Information
-      Queue:RabbitMQ:HostName: ${RABBITMQ_HOSTNAME}
-      Queue:RabbitMQ:Port: ${RABBITMQ_PORT}
-      SharedRootFolder: /shared
-      Mounts:Shared: /shared
-      Mounts:Output: /logs
-    volumes:
-      - type: bind
-        source: ${SHARED_MOUNT_PATH}
-        target: /shared
-      - type: bind
-        source: ${OUTPUT_MOUNT_PATH}
-        target: /logs
-  ```
+ custom-supervised:
+  container_name: azure-cognitive-service-custom-supervised
+  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised
+  restart: always
+  depends_on:
+    - rabbitmq
+  environment:
+    eula: accept
+    apikey: ${FORM_RECOGNIZER_KEY}
+    billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
+    CustomFormRecognizer:ContainerPhase: All
+    CustomFormRecognizer:LayoutAnalyzeUri: http://azure-cognitive-service-layout:5000/formrecognizer/v2.1/layout/analyze
+    Logging:Console:LogLevel:Default: Information
+    Queue:RabbitMQ:HostName: ${RABBITMQ_HOSTNAME}
+    Queue:RabbitMQ:Port: ${RABBITMQ_PORT}
+    SharedRootFolder: /shared
+    Mounts:Shared: /shared
+    Mounts:Output: /logs
+  volumes:
+    - type: bind
+      source: ${SHARED_MOUNT_PATH}
+      target: /shared
+    - type: bind
+      source: ${OUTPUT_MOUNT_PATH}
+      target: /logs
+ ```
 
 ### Ensure the service is running
 

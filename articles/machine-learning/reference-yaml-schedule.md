@@ -202,7 +202,7 @@ Current schedule supports the following timezones. The key can be used directly 
 | UTC +02:00  | ISRAEL_STANDARD_TIME            | "Israel Standard Time"            |
 | UTC +02:00  | KALININGRAD_STANDARD_TIME       | "Kaliningrad Standard Time"       |
 | UTC +02:00  | LIBYA_STANDARD_TIME             | "Libya Standard Time"             |
-| UTC +03:00  | TURKEY_STANDARD_TIME            | "Turkey Standard Time"            |
+| UTC +03:00  | TÜRKIYE_STANDARD_TIME           | "Türkiye Standard Time"           |
 | UTC +03:00  | ARABIC_STANDARD_TIME            | "Arabic Standard Time"            |
 | UTC +03:00  | ARAB_STANDARD_TIME              | "Arab Standard Time"              |
 | UTC +03:00  | BELARUS_STANDARD_TIME           | "Belarus Standard Time"           |

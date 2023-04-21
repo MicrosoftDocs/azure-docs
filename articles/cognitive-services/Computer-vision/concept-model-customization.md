@@ -44,9 +44,9 @@ In order to train your model effectively, use images with visual variety. Select
 
 Additionally, make sure all of your training images meet the following criteria:
 
-- The image must be presented in JPEG, PNG, GIF, BMP, WEBP, ICO, TIFF, or MPO format
-- The file size of the image must be less than 20 megabytes (MB)
-- The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
+- The image must be presented in JPEG, PNG, GIF, BMP, WEBP, ICO, TIFF, or MPO format.
+- The file size of the image must be less than 20 megabytes (MB).
+- The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels.
 
 ### COCO file
 
@@ -71,7 +71,7 @@ The following table describes the limits on the scale of your custom model proje
 | ------------------------- | ------------------------------- | ------------------------------- |
 | Max # training hours                | 288 (12 days)                   | 288 (12 days)                   |
 | Max # training images               | 1,000,000                       | 200,000                         |
-| Max # evaluation images             | 1,00,000                        | 100,000                         |
+| Max # evaluation images             | 100,000                        | 100,000                         |
 | Min # training images per category  | 2                               | 2                               |
 | Max # tags per image                | multiclass: 1                   | NA                              |
 | Max # regions per image             | NA                              | 1,000                           |

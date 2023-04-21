@@ -122,6 +122,8 @@
       href: protect-backups-from-ransomware-faq.yml
   - name: Backup center
     href: backup-center-overview.md
+  - name: Azure VM backup
+    href: backup-azure-vms-introduction.md
   - name: SAP HANA database on Azure VM backup
     items:
     - name: About HANA database backup
@@ -129,7 +131,11 @@
     - name: Architecture
       href: azure-backup-architecture-for-sap-hana-backup.md
   - name: Azure Kubernetes Service backup
-    href: azure-kubernetes-service-cluster-backup-concept.md      
+    items:
+    - name: Overview
+      href: azure-kubernetes-service-backup-overview.md
+    - name: Prerequisites  
+      href: azure-kubernetes-service-cluster-backup-concept.md      
   - name: Azure Blob backup
     href: blob-backup-overview.md          
   - name: Monitor and Alerts
@@ -186,8 +192,6 @@
       href: backup-center-actions.md
   - name: Azure VM backup
     items:
-    - name: Overview
-      href: backup-azure-vms-introduction.md
     - name: Backup
       items:
       - name: Back up and restore Azure VMs with Azure Backup Instant Restore
@@ -671,6 +675,8 @@
       href: backup-azure-encrypted-vm-troubleshoot.md
     - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
+    - name: Azure Blob backup
+      href: backup-azure-troubleshoot-blob-backup.md
     - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Azure Backup Server
@@ -693,6 +699,8 @@
       href: backup-azure-system-state-troubleshoot.md
     - name: Archive tier
       href: troubleshoot-archive-tier.md
+    - name: Azure Kubernetes Service
+      href: azure-kubernetes-service-backup-troubleshoot.md  
 - name: Reference
   items:
   - name: Archived release notes
