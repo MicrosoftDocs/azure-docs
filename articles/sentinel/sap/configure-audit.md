@@ -14,7 +14,7 @@ This article shows you how to enable and configure auditing for the Microsoft Se
 > [!IMPORTANT]
 > We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
 >
-> The steps in this article may vary, depending on your SAP sytem's version, and should be considered as a sample only.
+> The steps in this article may vary, depending on your SAP system's version, and should be considered as a sample only.
 
 Some installations of SAP systems may not have audit log enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP® applications, enable auditing of your SAP system and configure the audit parameters.
 
