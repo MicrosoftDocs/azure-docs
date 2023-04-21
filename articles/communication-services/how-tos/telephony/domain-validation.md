@@ -38,7 +38,7 @@ If you're using a subdomain, make sure that this subdomain is also added and ver
 ## Verify domain ownership
 
 1. On the **Domains** tab, select **Verify** next to the new domain that you created.
-1. The Azure portal generates a value for a TXT record. Add that record to
+1. The Azure portal generates a value for a TXT record. Add that record to your domain's registrar or DNS hosting provider with the provided value.
 
    [![Screenshot of verifying a custom domain.](./media/direct-routing-verify-domain-2.png)](./media/direct-routing-verify-domain-2.png#lightbox)
 
