@@ -126,7 +126,35 @@ The Lab Services Contributor is the most restrictive of the administrator roles.
 
 ## Lab management roles
 
+Use the following roles to grant users permissions to create and manage labs:
+
+- Lab Creator
+- Lab Contributor
+- Lab Assistant
+- Lab Services Reader
+
+These lab management roles only grant permission to view lab plans. These roles don't allow creating, changing, deleting, or assigning roles to lab plans. In addition, users with these roles can’t attach or detach a compute gallery and enable or disable virtual machine images.
+
 ### Lab Creator role
+
+Assign the Lab Creator role to a user to give a user permissions to create labs and have full control over the labs that they create. For example, they can change their labs’ settings, delete their labs, and even grant other users permission to their labs. 
+
+Assign the Lab Creator role at either the *resource group or lab plan level*.
+
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-lab-creator-role.png" alt-text="Diagram that shows the resource levels and the Lab Creator role, assigned to the resource group and lab plan level.":::
+
+The following table compares the Lab Creator role assignment for the resource group or lab plan.
+
+| Activity | Resource group | Lab plan |
+| -------- | -------------- | -------- |
+| Create labs within the resource group** | Yes | Yes |
+| View labs they created | Yes | Yes |
+| View other users’ labs within the resource group | Yes | No |
+| Change or delete labs the user created | Yes | Yes |
+| Change or delete other users’ labs within the resource group | No | No |
+| Assign roles to other users’ labs within the resource group | No | No |
+
+** Users are automatically granted permission to view, change settings, delete, and assign roles for the labs that they create.
 
 ### Lab Contributor role
 
