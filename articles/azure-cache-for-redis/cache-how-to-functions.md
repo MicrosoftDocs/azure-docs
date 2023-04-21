@@ -1,6 +1,6 @@
 ---
-title: Using Azure Cache for Redis and Azure Functions
-description: Learn how to use Azure Cache for Redis and Azure Functions.
+title: Using Azure Functions
+description: Learn how to use Azure Functions
 author: flang-msft
 zone_pivot_groups: cache-redis-zone-pivot-group
 
