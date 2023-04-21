@@ -78,9 +78,9 @@ There are two ways to create a hunt.
 :::image type="content" source="media/organize-hunts/create-hunt-description.png" alt-text="Screenshot shows the hunt creation page with Hunt name, description, owner, status and hypothesis state.":::
 
 ### Deploy Demo Hunt via ARM template (if needed)
-If you don’t have any hunting queries that produce results in your environment, and don’t want to create an empty hunt, you can deploy a "Demo Hunt".
+If you don't have any hunting queries that produce results in your environment, and you don't want to create an empty hunt, deploy the "Demo Hunt".
 
-To deploy the ARM template, navigate to the this [DemoHunt GitHub folder](https://aka.ms/DemoHuntARMTemplatePreview). Select the **Deploy to Azure** button, and fill out the appropriate fields.
+To deploy the ARM template, navigate to the this [DemoHunt GitHub folder](https://aka.ms/DemoHuntARMTemplatePreview). Select the ****Deploy to Azure** button, and fill out the appropriate fields.
  
 Be sure to type in the name of your desired Log Analytics workspace. Without this step, the ARM template can't be deployed, even though the validate step indicates success. 
 
@@ -89,7 +89,7 @@ The demo hunt contains a sample hunting query, "Hunts Demo Query". This query ge
 ## View Hunt details
 1. Select the **Hunts (Preview)** tab to view your new hunt.
 1. Select the hunt link by name to view the details.
-    :::image type="content" source="{source}" alt-text="{alt-text}":::
+    :::image type="content" source="media/organize-hunts/view-hunt.png" alt-text="Screenshot showing new hunt in Hunting tab." lightbox="media/organize-hunts/view-hunt.png":::
 
 Each hunt has a details page listing its contents. On the left you can see the details pane with the Hunt name, description, content, creation time, and last updated time. The hunt details page contains tabs for Queries, Bookmarks, and Entities.
 :::image type="content" source="{source}" alt-text="{alt-text}":::
