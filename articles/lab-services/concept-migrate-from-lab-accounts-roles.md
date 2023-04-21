@@ -1,5 +1,5 @@
 ---
-title: Move role assignments for lab accounts
+title: Migrate lab account role assignments
 titleSuffix: Azure Lab Services
 description: Learn how role assignment in different when migrating from lab accounts to lab plans in Azure Lab Services.
 services: lab-services
@@ -10,9 +10,9 @@ ms.topic: conceptual
 ms.date: 04/20/2023
 ---
 
-# Move role assignments from lab accounts to lab plans in Azure Lab Services
+# Migrate lab account role assignments to lab plans in Azure Lab Services
 
-When you move from lab accounts to lab plans in Azure Lab Services, it’s important to understand the differences between lab accounts and lab plans and the effect on role assignments. In this article, you learn how to update role assignments when moving from lab accounts to lab plans.
+Lab plans have a different Azure management hierarchy than lab accounts in Azure Lab Services. Role assignments on lab accounts behave differently and influence lab permissions. This article discusses the authorization differences between lab accounts and lab plans. Learn how you should update role assignments when transitioning from lab accounts to lab plans.
 
 ## Differences between lab accounts and lab plans
 
