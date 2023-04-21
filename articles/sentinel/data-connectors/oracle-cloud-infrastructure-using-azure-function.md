@@ -36,7 +36,7 @@ OCI_Logs_CL
 
 To integrate with Oracle Cloud Infrastructure (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **OCI API Credentials**:  **API Key Configuration File** and **Private Key** are required for OCI API connection. See the documentation to learn more about [creating keys for API access](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm)
 
 
