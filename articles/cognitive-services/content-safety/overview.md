@@ -31,16 +31,6 @@ This documentation contains the following article types:
 * **[How-to guides](./how-to/use-custom-blocklist.md)** contain instructions for using the service in more specific or customized ways.  
 * **[Concepts](concepts/content-flags.md)** provide in-depth explanations of the service functionality and features.  
 
-## Product types
-
-There are different types of analysis available from this service. The following table describes the currently available API.
-
-| Type                        | Functionality           |
-| :-------------------------- | :---------------------- |
-| Text Detection API          | Scans text for sexual content, violence, hate, and self harm with multi-severity risk levels. |
-| Image Detection API         | Scans images for sexual content, violence, hate, and self harm with multi-severity risk levels. |
-| Multimodal Detection API    | Scans both image and text (include separate text or text from OCR of image) for hate content with multi-severity risk levels. |
-
 ## Where it's used
 
 The following are a few scenarios in which a software developer or team would require a content moderation service:
@@ -54,26 +44,42 @@ The following are a few scenarios in which a software developer or team would re
 > [!IMPORTANT]
 > You cannot use Content Moderator to detect illegal child exploitation images. However, qualified organizations can use the [PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") to screen for this type of content.
 
+## Product types
+
+There are different types of analysis available from this service. The following table describes the currently available API.
+
+| Type                        | Functionality           |
+| :-------------------------- | :---------------------- |
+| Text Detection API          | Scans text for sexual content, violence, hate, and self harm with multi-severity risk levels. |
+| Image Detection API         | Scans images for sexual content, violence, hate, and self harm with multi-severity risk levels. |
+| Multimodal Detection API    | Scans both image and text (include separate text or text from OCR of image) for hate content with multi-severity risk levels. |
+
+## Input requirements
+
+The default maximum length for text submissions is 1000 characters. If you need to analyze longer blocks of text, you can split the input text (for example, by punctuation or spacing) across multiple related submissions.
+
+The default maximum size for image submissions is 4MB, and image dimensions must be between 50 x 50 pixels and 10,000 px x 10,000 pixels. Images can be in JPEG, PNG, GIF, or BMP formats.
 
 ## Pricing
 
-Currently, the public preview features are  available in the **F0 and S0** pricing tier.
+Currently, the public preview features are available in the **F0 and S0** pricing tier.
 
 ## Service limits
 
 ### Language availability
 
-Currently, this API supports eight languages, English, German, Japanese, Spanish, French, Italian, Portuguese, Chinese.
+This API supports eight languages: English, German, Japanese, Spanish, French, Italian, Portuguese, Chinese.
 
-You don't need to specify language code for text analysis. we'll automatically detect you r input text languages.
+You don't need to specify a language code for text analysis. we'll automatically detect your input language.
 
 ### Region / location
 
-To use the preview APIs, create/re-use your Azure Content Safety resource in the supported regions. Currently, the public preview features are only available in the following Azure regions: 
+To use the preview APIs, you must create your Azure Content Safety resource in a supported region. Currently, the public preview features are available in the following Azure regions: 
 
-- East US and West Europe
+- East US
+- West Europe
 
-Feel free to contact us if you require more regions for your business.
+Feel free to [contact us](mailto:acm-team@microsoft.com) if you need other regions for your business.
 
 ### Query rates
 
@@ -100,7 +106,7 @@ As with all of the Cognitive Services, developers using the Content Moderator se
 
 ## Contact us
 
-If you get stuck, [email us](mailto:acm-team@microsoft.com) or use the feedback widget on the upper right of any page.
+If you get stuck, [email us](mailto:acm-team@microsoft.com) or use the feedback widget on the upper right of any docs page.
 
 ## Next steps
 
