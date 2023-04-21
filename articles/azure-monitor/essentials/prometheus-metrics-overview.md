@@ -39,14 +39,15 @@ Azure Monitor managed service for Prometheus supports recording rules and alert 
 
 Alerts fired by alert rules can trigger actions or notifications, as defined in the [action groups](../alerts/action-groups.md) configured for the alert rule. You can also view fired and resolved Prometheus alerts in the Azure portal along with other alert types. 
 
-## Limitations
-See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor workspaces.
+## Service limits & quotas
 
-- Azure monitor managed service for Prometheus is only supported in public clouds.
-- Private Links aren't supported for data collection into Azure monitor workspace.
-- Private AKS clusters on are not currently supported.
-- Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
+See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for service limits & quotas for Azure Monitor Managed service for Prometheus.
+
+## Limitations/Known issues
+
 - Scraping and storing metrics at frequencies less than 1 second isn't supported.
+- Metrics will same label names but different casing will be rejected by ingestion (ex;- `diskSize(cluster="eastus", node="node1", filesystem="usr_mnt", FileSystem="usr_opt")` is invalid due to `filesystem` and `FileSystem` labels and will be rejected )
+- Azure China cloud and Air gapped clouds are not supported for Azure Monitor managed service for Prometheus
 
 [!INCLUDE [prometheus-case-sensitivity.md](..//includes/prometheus-case-sensitivity.md)]
 ## Prometheus references

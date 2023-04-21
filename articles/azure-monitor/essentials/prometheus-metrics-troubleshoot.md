@@ -117,6 +117,20 @@ Agent based scraping currently has the limitations in the following table:
 | Number of labels per timeseries | Less than or equal to 63. When this limit is exceeded for any time-series in a job, the entire scrape job will fail, and metrics will be dropped from that job before ingestion. You can see up=0 for that job and also target Ux will show the reason for up=0. |
 | Metric name length | Less than or equal to 511 characters. When this limit is exceeded for any time-series in a job, only that particular series will be dropped. MetricextensionConsoleDebugLog will have traces for the dropped metric. |
 
+## Check ingestion quota on Azure Monitor workspace
+
+If you see some metrics missing, you can first check if the ingestion limits is being exceeded for your Azure Monitor workaspace.In the Azure Portal, you can check the ingestion quota limits and current usage for any Azure monitor Workspace. You can see those as metrics under `Metrics` menu for the Azure Monitor workspace. Following utilization metrics are availabe as standard metrics for each Azure Monitor workspace.
+
+- Active Time Series - The number of unique timeseries recently ingested into the workspace over the previous 12 hours
+- Active Time Series Limit - The limit on the number of unique timeseries which can be actively ingested into the workspace
+- Active Time Series % Utilization - The percentage of current active timeseries being utilized
+- Events Per Minute Ingested - The number of events (samples) per minute recently received
+- Events Per Minute Ingested Limit - The maximum number of events per minute which can be ingested before getting throttled
+- Events Per Minute Ingested % Utilization - The percentage of current metric ingestion rate limit being util
+
+Refert to [service quotas and limits](https://learn.microsoft.com/en-us/azure/azure-monitor/service-limits#prometheus-metrics) for default quotas and also to understand what can be increased based on your usage. You can request quota increase for Azure Monitor workspaces using the `Support Request` menu for the Azure Monitor workspace . Please ensure you include the id, internal Id and Location/Region for the Azure Monitor workspace in the support request. You can find all of these in the `Properties' menu for the Azure Monitor workspace in the Azure Portal.
+
+
 ## Next steps
 
 - [Check considerations for collecting metrics at high scale](prometheus-metrics-scrape-scale.md).

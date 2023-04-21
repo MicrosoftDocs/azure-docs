@@ -11,12 +11,16 @@ ms.reviewer: aul
 
 In addition to the default scrape targets that Azure Monitor Prometheus agent scrapes by default, use the following steps to provide additional scrape config to the agent using a configmap. The Azure Monitor Prometheus agent doesn't understand or process operator [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) for scrape configuration, but instead uses the native Prometheus configuration as defined in [Prometheus configuration](https://aka.ms/azureprometheus-promioconfig-scrape).
 
-The 2 configmaps that can be used for custom target scraping are -
-- ama-metrics-prometheus-config - When a configmap with this name is created, the scraping of custom targets is done by the replicaset.
-- ama-metrics-prometheus-config-node - When a configmap with this name is created, the scraping of custom targets is done by each daemonset. See [Advanced Setup](prometheus-metrics-scrape-configuration.md#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset) for more details .
+The 3 configmaps that can be used for custom target scraping are -
+- ama-metrics-prometheus-config - When a configmap with this name is created, scrape jobs defined in it are run from the azure monitor metrics replicaset pod running in the cluster.
+- ama-metrics-prometheus-config-node - When a configmap with this name is created, scrape jobs defined in it are run from each **Linux** daemonset pod running in the cluster. See [Advanced Setup](prometheus-metrics-scrape-configuration.md#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset) for more details .
+- ama-metrics-prometheus-config-node-windows - When a configmap with this name is created, scrape jobs defined in it are run from each **windows** daemonset. See [Advanced Setup](prometheus-metrics-scrape-configuration.md#advanced-setup-configure-custom-prometheus-scrape-jobs-for-the-daemonset) 
 
 ## Create Prometheus configuration file
-Create a Prometheus scrape configuration file named `prometheus-config`. See the [configuration tips and examples](prometheus-metrics-scrape-configuration.md#prometheus-configuration-tips-and-examples) for more details on authoring scrape config for Prometheus. You can also refer to [Prometheus.io](https://aka.ms/azureprometheus-promio) scrape configuration [reference](https://aka.ms/azureprometheus-promioconfig-scrape). Your config file will list the scrape configs under the section `scrape_configs` and can optionally use the global section for setting the global `scrape_interval`, `scrape_timeout`, and `external_labels`. 
+
+One easier way to author Prometheus scrape configuration jobs is to use to config file (yaml) to author/define scrape jobs , validate the scrape config file using a custom toll (see below) and then convert that configfile to configmap , and finally deploy the configmap to your cluster(s). This way, it is easy to author yaml config (which is extremely space sensitive), and not add unintended spaces by directly authoring scrape config inside config map.
+
+Create a Prometheus scrape configuration file named `prometheus-config`. See the [configuration tips and examples](prometheus-metrics-scrape-configuration.md#prometheus-configuration-tips-and-examples) for more details on authoring scrape config for Prometheus. You can also refer to [Prometheus.io](https://aka.ms/azureprometheus-promio) scrape configuration [reference](https://aka.ms/azureprometheus-promioconfig-scrape). Your config file will list the scrape configs under the section `scrape_configs`  section and can optionally use the global section for setting the global `scrape_interval`, `scrape_timeout`, and `external_labels`. 
 
 
 > [!TIP]
@@ -26,10 +30,10 @@ Below is a sample Prometheus scrape config file:
 
 ```
 global:
-  scrape_interval: 60s
-scrape_configs:
-- job_name: node
   scrape_interval: 30s
+scrape_configs:
+- job_name: sample-node-exporter-job
+  scrape_interval: 60s
   scheme: http
   kubernetes_sd_configs:
     - role: endpoints
@@ -47,12 +51,12 @@ scrape_configs:
       regex: (.*)
       target_label: instance
 
-- job_name: kube-state-metrics
-  scrape_interval: 30s
+- job_name: sample-kube-state-metrics-job
+  scrape_interval: 45s
   static_configs:
     - targets: ['dev-cluster-kube-state-metrics-release.kube-state-metrics.svc.cluster.local:8080']
 
-- job_name: prometheus_ref_app
+- job_name: sample-prometheus_ref_app-job
   scheme: http
   kubernetes_sd_configs:
     - role: service
@@ -64,28 +68,45 @@ scrape_configs:
 
 ## Validate the scrape config file
 
-The agent uses the `promconfigvalidator` tool to validate the Prometheus config given to it through the configmap. If the config isn't valid, then the custom configuration given won't be used by the agent. Once you have your Prometheus config file, you can *optionally* use the `promconfigvalidator` tool to validate your config before creating a configmap that the agent consumes.
+The agent uses a custom `promconfigvalidator` tool to validate the Prometheus config given to it through the configmap. If the config isn't valid, then the custom configuration given won't be used by the agent. Once you have your Prometheus config file, you can *optionally* use the `promconfigvalidator` tool to validate your config before creating a configmap that the agent consumes.
 
-The `promconfigvalidator` tool is inside the Azure Monitor metrics addon. You can use any of the `ama-metrics-node-*` pods in `kube-system` namespace in your cluster to download the tool for validation. Use `kubectl cp` to download the tool and its configuration as shown below:
+The `promconfigvalidator` tool is shipped inside the Azure Monitor metrics addon pod(s). You can use any of the `ama-metrics-node-*` pods in `kube-system` namespace in your cluster to download the tool for validation. Use `kubectl cp` to download the tool and its configuration as shown below:
 
 ```
 for podname in $(kubectl get pods -l rsName=ama-metrics -n=kube-system -o json | jq -r '.items[].metadata.name'); do kubectl cp -n=kube-system "${podname}":/opt/promconfigvalidator ./promconfigvalidator;  kubectl cp -n=kube-system "${podname}":/opt/microsoft/otelcollector/collector-config-template.yml ./collector-config-template.yml; chmod 500 promconfigvalidator; done
 ```
 
-After copying the executable and the yaml, locate the path of your Prometheus configuration file. Then replace `<config path>` below and run the validator with the command:
+After copying the executable and the yaml, locate the path of your Prometheus configuration file that you authored. Then replace `<config path>` below and run the validator with the command:
 
 ```
 ./promconfigvalidator/promconfigvalidator --config "<config path>" --otelTemplate "./promconfigvalidator/collector-config-template.yml"
 ```
 
-Running the validator generates the merged configuration file `merged-otel-config.yaml` if no path is provided with the optional `output` parameter. Don't use this merged file as config to the metrics collector agent, as it's only used for tool validation and debugging purposes.
+Running the validator generates the merged configuration file `merged-otel-config.yaml` if no path is provided with the optional `output` parameter. Don't use this auto-generated merged file as config to the metrics collector agent, as it's only used for tool validation and debugging purposes.
 
 ### Apply config file
-Your custom Prometheus configuration file is consumed as a field named `prometheus-config` in a configmap called `ama-metrics-prometheus-config` in the `kube-system` namespace. You can create a configmap from a file by renaming your Prometheus configuration file to `prometheus-config` (with no file extension) and running the following command:
+Your custom Prometheus configuration file is consumed as a field named `prometheus-config` inside metrics addon configmap(s) `ama-metrics-prometheus-config` (or) `ama-metrics-prometheus-config-node` (or) `ama-metrics-prometheus-config-node-windows`  in the `kube-system` namespace. You can create a configmap from the scrape config file you created above, by renaming your Prometheus configuration file to `prometheus-config` (with no file extension) and running one or more of the following commands, depending on which configmap you want to create for your custom scrape job(s) config.
 
+Ex;- to create configmap to be used by replicsset
 ```
 kubectl create configmap ama-metrics-prometheus-config --from-file=prometheus-config -n kube-system
 ```
+The above will create a configmap named `ama-metrics-prometheus-config` in `kube-system` namespace. The Azure Monitor metrics replicaset pod will then restart in 30-60 secs to apply the new config. To see if there any issues with the config validation, processing, or merging, you can look at the `ama-metrics` replicaset pods
+
+Ex;- to create configmap to be used by linux daemonset
+```
+kubectl create configmap ama-metrics-prometheus-config-node --from-file=prometheus-config -n kube-system
+```
+The above will create a configmap named `ama-metrics-prometheus-config-node` in `kube-system` namespace. Every Azure Monitor metrics Linux daemonset pod will then restart in 30-60 secs to apply the new config. To see if there any issues with the config validation, processing, or merging, you can look at the `ama-metrics-node` linux deamonset pods
+
+
+Ex;- to create configmap to be used by windows daemonset
+```
+kubectl create configmap ama-metrics-prometheus-config-node-windows --from-file=prometheus-config -n kube-system
+```
+
+The above will create a configmap named `ama-metrics-prometheus-config-node-windows` in `kube-system` namespace. Every Azure Monitor metrics Windows daemonset pod will then restart in 30-60 secs to apply the new config. To see if there any issues with the config validation, processing, or merging, you can look at the `ama-metrics-win-node` windows deamonset pods
+
 
 *Ensure that the Prometheus config file is named `prometheus-config` before running the following command since the file name is used as the configmap setting name.*
 
