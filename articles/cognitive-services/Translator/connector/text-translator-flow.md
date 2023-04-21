@@ -45,7 +45,7 @@ Now that you've completed the prerequisites, let's get started.
 
    :::image type="content" source="../media/connectors/create-a-flow.png" alt-text="Screenshot showing how to create an instant cloud flow.":::
 
-1. In the popup window → name your flow → choose **Manually trigger a flow** → select **Create**.
+1. In the popup window, **name your flow**, choose **Manually trigger a flow** then, select **Create**.
 
    :::image type="content" source="../media/connectors/select-manual-flow.png" alt-text="Screenshot showing how to manually trigger a flow.":::
 
@@ -112,7 +112,7 @@ Let's select an action. Choose to translate or transliterate text.
 
 Let's test the cloud flow and view the translated text.
 
-1. There is a green bar at the top of the page indicating that **Your flow is ready to go.**.
+1. There's a green bar at the top of the page indicating that **Your flow is ready to go.**.
 1. Select **Test** from the upper-right corner of the page.
 
    :::image type="content" source="../media/connectors/test-flow.png" alt-text="Screenshot showing the test icon/button.":::

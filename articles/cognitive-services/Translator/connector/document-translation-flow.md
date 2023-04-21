@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 04/10/2023
+ms.date: 04/21/2023
 ms.author: lajanuar
 ---
 
@@ -38,7 +38,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). As you complete the Translator project and instance details fields pay special attention to the following:
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). As you complete the Translator project and instance details fields, pay special attention to the following entries:
 
   * **Resource Region**. Choose  a **geographic** region like **West US** (**not** the *Global* region).
 
