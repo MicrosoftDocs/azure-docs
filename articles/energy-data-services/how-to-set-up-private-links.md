@@ -22,7 +22,7 @@ This article describes how to set up a private endpoint for Azure Data Manager f
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 > [!NOTE]
-> Terraform currently does not support private endpoint creation for ADME.
+> Terraform currently does not support private endpoint creation for Azure Data Manager for Energy.
 
 ## Prerequisites
 
