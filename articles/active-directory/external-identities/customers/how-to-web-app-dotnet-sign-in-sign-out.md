@@ -117,15 +117,7 @@ After installing the NuGet packages and adding necessary code for authentication
 
 ## Sign-in to the application
 
-1. Start the application by typing the following in the terminal:
-
-    ### [.NET 6.0](#tab/dotnet6)
-
-    ```powershell
-    dotnet run
-    ```
-
-    ### [.NET 7.0](#tab/dotnet7)
+1. Start the application by typing the following in the terminal to launch the `https` profile in the *launchSettings.json* file.
 
     ```powershell
     dotnet run --launch-profile https
