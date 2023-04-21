@@ -1,6 +1,6 @@
 ---
-title: Forward syslog data to Microsoft Sentinel and Azure Monitor by using the Azure Monitor agent
-description: Monitor linux-based devices by forwarding syslog data to a Log Analytics workspace. 
+title: Tutorial - Forward syslog data to Microsoft Sentinel and Azure Monitor by using the Azure Monitor agent
+description: In this tutorial, you'll learn how to monitor linux-based devices by forwarding syslog data to a Log Analytics workspace. 
 author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
