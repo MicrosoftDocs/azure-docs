@@ -4,8 +4,8 @@ description: Certificate Authority details for Azure services that utilize x509 
 services: security
 ms.service: security
 ms.subservice: security-fundamentals
-ms.topic: article
-ms.date: 04/11/2023
+ms.topic: conceptual
+ms.date: 04/21/2023
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino
@@ -218,8 +218,8 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
     ```bash
     keytool -list -keystore $JAVA_HOME/jre/lib/security/cacerts
     ```
-    - Note: `$JAVA_HOME` refers to the path to the Java home directory.
-    - If you're unsure of the path, you can find it by running the following command:
+    - > [!NOTE] `$JAVA_HOME` refers to the path to the Java home directory.
+    - > If you're unsure of the path, you can find it by running the following command:
     
     ```bash
     readlink -f $(which java) | xargs dirname | xargs dirname
@@ -227,14 +227,14 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
 
 1. Look for the **Microsoft RSA Root Certificate Authority 2017** in the output. It should look something like this:
 
-```bash
-    ...
-    Microsoft ECC Root Certificate Authority 2017, 20-Aug-2022, Root CA,
-    Microsoft RSA Root Certificate Authority 2017, 20-Aug-2022, Root CA,
-    ...
-```
-   - If the **Microsoft ECC Root Certificate Authority 2017** and **Microsoft RSA Root Certificate Authority 2017** root certificates are trusted, they should appear in the list of trusted root certificates used by the JVM.
-   - If it's not in the list, you'll need to add it.
+    ```bash
+        ...
+        Microsoft ECC Root Certificate Authority 2017, 20-Aug-2022, Root CA,
+        Microsoft RSA Root Certificate Authority 2017, 20-Aug-2022, Root CA,
+        ...
+    ```
+       - If the **Microsoft ECC Root Certificate Authority 2017** and **Microsoft RSA Root Certificate Authority 2017** root certificates are trusted, they should appear in the list of trusted root certificates used by the JVM.
+       - If it's not in the list, you'll need to add it.
 
 1. To add a root certificate to the trusted root certificate store in Java, you can use the `keytool` utility. The following example adds the **Microsoft RSA Root Certificate Authority 2017** root certificate:
     ```bash
