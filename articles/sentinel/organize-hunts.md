@@ -34,30 +34,36 @@ The first step to hunting is to decide which direction to go in. Use this idea t
 - New threat campaign - here we're looking for a specific type of attack or vulnerability.
 - MITRE detection gaps - with the ATT&CK map in mind, this directed hunt gives us tools to bolster our defense in a specific area.
 
-Microsoft Sentinel gives you flexibility as you zero in on the right set of hunting queries to investigate your hypothesis. When you create the hunt, you can initiate it with pre-selected hunting queries, or you can add queries as you progress.
+Microsoft Sentinel gives you flexibility as you zero in on the right set of hunting queries to investigate your hypothesis. But when you create the hunt, you can initiate it with pre-selected hunting queries, or you can add queries as you progress. Here are some pre-selected queries based on the most common hypothesis.
 
 ### Hypothesis - malicious behavior
 1. Navigate to the Hunting page **Queries** tab. With a well established base of queries installed, running all your queries is the recommended method for identifying potentially malicious behaviors. 
 
 1. Select **Run All queries** > wait for the queries to execute. This may take awhile. 
 1. Select **Add filter** > **Results** > unselect the checkboxes "!", "N/A", "-", and "0" values > **Apply**
-1. Select all the remaining queries - these are the queries that have results!
-    :::image type="content" source="{source}" alt-text="{alt-text}":::
+    :::image type="content" source="media/organize-hunts/all-queries-with-results.png" alt-text="Screenshot shows the filter described in step 3.":::
+
+1. Select all the remaining queries - these results will guide us on the hunt.
+
 
 ### Hypothesis - new threat campaign
 Content hub offers threat campaign and domain-based solutions to hunt for specific attacks. 
 
 1. For example, install the "Log4J Vulnerability Detection" or the "Apache Tomcat" solutions from Microsoft. 
+    :::image type="content" source="media/organize-hunts/content-hub-solutions.png" alt-text="Screenshot shows the content hub in grid view with the Log4J and Apache solutions selected.":::
 1. Once installed search for queries from these solutions in the Hunting **Queries** tab. Search by solution name, or filtering by **Source Name** of the solution.
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+
 
 ### Hypothesis - MITRE detection gaps
 The MITRE ATT&CK map helps you identify specific gaps in your detection coverage. Hunting queries are good starting points to develop new detection analytics for specific tactics and techniques.
 1. Navigate to the MITRE page.
 1. Unselect items in the Active drop down.
-1. Select **hunting queries** in the Simulated filter. 
+1. Select **hunting queries** in the Simulated filter.
+    :::image type="content" source="media/organize-hunts/mitre-hunting-queries.png" alt-text="Screenshot shows the MITRE ATT&CK page with the option for simulated Hunting queries selected."::: 
+
 1. Select the card with your desired technique.
 1. Click the **View** link next to the Hunting queries item at the bottom of the right-hand details pane to see just these queries in a filtered view of Hunting **Queries** tab.
+    :::image type="content" source="media/organize-hunts/mitre-card-view.png" alt-text="Screenshot shows the MITRE ATT&CK card view with the Hunting queries view link.":::
 
 ## Create a Hunt
 There are two ways to create a hunt.
