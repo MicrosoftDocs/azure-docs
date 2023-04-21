@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure dual-stack outbound connectivity with a NAT gateway and a public load balancer'
-titleSuffix: Azure Virtual Network NAT
+titleSuffix: Azure NAT Gateway
 description: Learn how to configure outbound connectivity for a dual stack network with a NAT gateway and a public load balancer.
 author: asudbring
 ms.author: allensu
