@@ -53,15 +53,23 @@ To save a legacy query, select **Save as query** from the **Save** dropdown in L
 
 ### Can't select the option to save to the default query pack
 
-This error occurs when you you're saving a query and you clear the option to **Save to the default query pack**, select a Subscription that doesn't have a default query pack, and then select a Subscription that has a default query pack.
+#### Cause 1: You clear the the option to **Save to the default query pack** and select a subscription that doesn't have a default query pack
 
-To resolve this error, close the **Save as query** dialog box and follow the steps to save the query again.
+When the subscription containing the Log Analytics workspace where you're saving the query from has a default query pack, the option to **Save to the default query pack** is selected by default. If you clear this option, select a subscription that doesn't have a default query pack, and then select a subscription that has a default query pack, you won't be able to select this option again.
+
+To resolve, close the **Save as query** dialog box, save the query again, and only select a subscription that has a default query pack.
+
+#### Cause 2: Default query pack doesn't exist for the subscription containing the Log Analytics workspace
+
+When the subscription containing the Log Analytics workspace where you're saving the query from doesn't have a default query pack, you won't be able to select the option to **Save to the default query pack** after you select a subscription that has a default query pack.
+
+To resolve, create the default query pack for the subscription containing the Log Analytics workspace.
 
 ### Fix the "You need permissions to create resource groups in subscription 'xxxx'" error message
 
 When you attempt to save a query to the default query pack, the following error message may appear on the screen: *You need permissions to create resource groups in subscription 'xxxx'*. 
 
-This error can occur when the [default query pack](query-packs.md#default-query-pack) doesn't exist and you don't have the Contributor permission for the subscription. A user needs to have this permission to create the default query pack. The default query pack is created when a user saves the first query to it.
+This error can occur when the [default query pack](query-packs.md#default-query-pack) doesn't exist and you don't have the Contributor permission for the subscription.
 
 To resolve this error, someone with Contributor permissions for the subscription needs to save the first query to the default query pack.
 
