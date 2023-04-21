@@ -10,7 +10,8 @@ ms.author: lagayhar
 ms.reviewer: lagayhar
 author: lgayhardt
 ms.date: 08/03/2022
-ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
+ms.custom: designer, training
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # What is Azure Machine Learning designer? 
@@ -27,7 +28,12 @@ The designer uses your Azure Machine Learning [workspace](concept-workspace.md) 
 + [Pipelines](#pipeline)
 + [Data](#data)
 + [Compute resources](#compute)
+:::moniker range="azureml-api-2"
++ [Registered models](concept-model-management-and-deployment.md#register-and-track-machine-learning-models)
+:::moniker-end
+:::moniker range="azureml-api-1"
 + [Registered models](v1/concept-azure-machine-learning-architecture.md#models)
+:::moniker-end
 + [Published pipelines](#publish)
 + [Real-time endpoints](#deploy)
 
@@ -48,7 +54,7 @@ Use a visual canvas to build an end-to-end machine learning workflow. Train, tes
 
 ## Pipeline
 
-A [pipeline](v1/concept-azure-machine-learning-architecture.md#ml-pipelines) consists of data assets and analytical components, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
+A [pipeline](concept-ml-pipelines.md) consists of data assets and analytical components, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
 
 ### Pipeline draft
 
@@ -67,7 +73,7 @@ When you're ready to run your pipeline draft, you submit a pipeline job.
 
 Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline job**. You can go back to any pipeline job to inspect it for troubleshooting or auditing. **Clone** a pipeline job to create a new pipeline draft for you to edit.
 
-Pipeline jobs are grouped into [experiments](v1/concept-azure-machine-learning-architecture.md#experiments) to organize job history. You can set the experiment for every pipeline job. 
+Pipeline jobs are grouped into experiments to organize job history. You can set the experiment for every pipeline job. 
 
 ## Data
 

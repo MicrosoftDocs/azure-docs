@@ -57,7 +57,7 @@ The following examples show a security incident with impacted resources from the
 
 ## Accessing Impacted Resources programmatically via an API
 
-Impacted resource information for security incidents can be retrieved programmatically using the Events API. To access the list of resources impacted by a security incident, users authorized with the above-mentioned roles can use the following endpoints.
+Impacted resource information for security incidents can be retrieved programmatically using the Events API. To access the list of resources impacted by a security incident, users authorized with the above-mentioned roles can use the endpoints below. For details on how to access this data, see the [API documentation](/rest/api/resourcehealth/2022-10-01/security-advisory-impacted-resources).
 
 **Subscription**
 

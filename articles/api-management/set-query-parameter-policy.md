@@ -29,14 +29,14 @@ The `set-query-parameter` policy adds, replaces value of, or deletes request que
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|exists-action|Specifies what action to take when the query parameter is already specified. This attribute must have one of the following values.<br /><br /> -   `override` - replaces the value of the existing parameter.<br />-   `skip` - does not replace the existing query parameter value.<br />-   `append` - appends the value to the existing query parameter value.<br />-   `delete` - removes the query parameter from the request.<br /><br /> When set to `override` enlisting multiple entries with the same name results in the query parameter being set according to all entries (which will be listed multiple times); only listed values will be set in the result.|No|`override`|
-|name|Specifies name of the query parameter to be set.|Yes|N/A|
+|exists-action|Specifies what action to take when the query parameter is already specified. This attribute must have one of the following values.<br /><br /> -   `override` - replaces the value of the existing parameter.<br />-   `skip` - does not replace the existing query parameter value.<br />-   `append` - appends the value to the existing query parameter value.<br />-   `delete` - removes the query parameter from the request.<br /><br /> When set to `override` enlisting multiple entries with the same name results in the query parameter being set according to all entries (which will be listed multiple times); only listed values will be set in the result.<br/><br/>Policy expressions are allowed. |No|`override`|
+|name|Specifies name of the query parameter to be set. Policy expressions are allowed. |Yes|N/A|
 
 ## Elements
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-|value|Specifies the value of the query parameter to be set. For multiple query parameters with the same name, add additional `value` elements.|Yes|
+|value|Specifies the value of the query parameter to be set. For multiple query parameters with the same name, add additional `value` elements. Policy expressions are allowed. |Yes|
 
 ## Usage
 

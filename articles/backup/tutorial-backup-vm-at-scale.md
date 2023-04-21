@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Back up multiple Azure virtual machines
 description: In this tutorial, learn how to create a Recovery Services vault, define a backup policy, and simultaneously back up multiple virtual machines.
-ms.date: 01/11/2022
+ms.date: 02/27/2023
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: backup
@@ -77,6 +77,9 @@ After enabling backup:
   * A VM that's running has the greatest chance for capturing an application-consistent recovery point.
   * However, even if the VM is turned off, it's backed up. Such a VM is known as an offline VM. In this case, the recovery point will be crash-consistent.
 * Explicit outbound connectivity isn't required to allow backup of Azure VMs.
+
+> [!Note]
+> You can also set Enhanced policy to back up Azure VMs multiple times a day. Learn about [Enhanced policy](backup-azure-vms-enhanced-policy.md). 
 
 ## Initial backup
 

@@ -111,6 +111,8 @@ A persistent browser session allows users to remain signed in after closing and 
 
 The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS single sign-on settings](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online), we'll comply with that policy and persist the Azure AD session as well. You can also configure whether users in your tenant see the “Stay signed in?” prompt by changing the appropriate setting in the [company branding pane](../fundamentals/customize-branding.md).
 
+In persistent browsers, cookies stay stored in the user’s device even after a user closes the browser. These cookies could have access to Azure Active Directory artifacts, and those artifacts are useable until token expiry regardless of the Conditional Access policies placed on the resource environment. So, token caching can be in direct violation of desired security policies for authentication. While it may seem convenient to store tokens beyond the current session, doing so can create a security vulnerability by allowing unauthorized access to Azure Active Directory artifacts.
+
 ## Configuring authentication session controls
 
 Conditional Access is an Azure AD Premium capability and requires a premium license. If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](overview.md#license-requirements)

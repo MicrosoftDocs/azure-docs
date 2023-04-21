@@ -1,6 +1,6 @@
 ---
-title: "Holm Security Asset Data (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Holm Security Asset Data (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Holm Security Asset Data (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Holm Security Asset Data (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Holm Security Asset Data (using Azure Function) connector for Microsoft Sentinel
+# Holm Security Asset Data (using Azure Functions) connector for Microsoft Sentinel
 
 The connector provides the capability to poll data from Holm Security Center into Microsoft Sentinel.
 
@@ -40,9 +40,9 @@ web_assets_Cl
 
 ## Prerequisites
 
-To integrate with Holm Security Asset Data (using Azure Function) make sure you have: 
+To integrate with Holm Security Asset Data (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **Holm Security API Token**: Holm Security API Token is required. [Holm Security API Token](https://support.holmsecurity.com/hc/en-us)
 
 
@@ -53,7 +53,7 @@ To integrate with Holm Security Asset Data (using Azure Function) make sure you 
    >  This connector uses Azure Functions to connect to a Holm Security Assets to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 **STEP 1 - Configuration steps for the Holm Security API**
@@ -78,7 +78,7 @@ Use this method for automated deployment of the Holm Security connector.
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-holmsecurityassets-azuredeploy)
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 3. Enter the **Workspace ID**, **Workspace Key**, **API Username**, **API Password**, 'and/or Other required fields'. 
->Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details. 
+>Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
 

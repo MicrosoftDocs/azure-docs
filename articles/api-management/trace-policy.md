@@ -35,14 +35,14 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 
 | Attribute | Description                                                                                                               | Required | Default |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| source    | String literal meaningful to the trace viewer and specifying the source of the message.                                   | Yes      | N/A     |
-| severity  | Specifies the severity level of the trace. Allowed values are `verbose`, `information`, `error` (from lowest to highest). | No       | `verbose` |
+| source    | String literal meaningful to the trace viewer and specifying the source of the message. Policy expressions aren't allowed.                                   | Yes      | N/A     |
+| severity  | Specifies the severity level of the trace. Allowed values are `verbose`, `information`, `error` (from lowest to highest). Policy expressions aren't allowed. | No       | `verbose` |
 
 ## Elements
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-| message  | A string or expression to be logged.                                                                                                                 | Yes      |
+| message  | A string or expression to be logged. Policy expressions are allowed.                                                                                                                 | Yes      |
 | metadata | Adds a custom property to the Application Insights [Trace](../azure-monitor/app/data-model-complete.md#trace) telemetry. | No       |
 
 ### metadata attributes

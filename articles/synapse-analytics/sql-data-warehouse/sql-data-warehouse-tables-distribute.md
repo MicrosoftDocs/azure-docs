@@ -1,15 +1,14 @@
 ---
 title: Distributed tables design guidance
 description: Recommendations for designing hash-distributed and round-robin distributed tables using dedicated SQL pool.
-manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 09/27/2022
+ms.date: 03/20/2023
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
-ms.custom: seo-lt-2019, azure-synapse
+ms.reviewer: mariyaali
+ms.custom: azure-synapse
 ---
 
 # Guidance for designing distributed tables using dedicated SQL pool in Azure Synapse Analytics
@@ -105,7 +104,9 @@ WITH
 ```
 
 > [!NOTE]
-> Multi-column distribution is currently in preview for Azure Synapse Analytics. For more information on joining the preview, see multi-column distribution with [CREATE MATERIALIZED VIEW](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse), or [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql).
+> Multi-column distribution in Azure Synapse Analytics can be enabled by changing the database's compatibility level to `50` with this command. 
+> `ALTER DATABASE SCOPED CONFIGURATION SET DW_COMPATIBILITY_LEVEL = 50;`
+> For more information on setting the database compatibility level, see [ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql). For more information on multi-column distributions, see [CREATE MATERIALIZED VIEW](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse), or [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql).
 
 Data stored in the distribution column(s) can be updated. Updates to data in distribution column(s) could result in data shuffle operation.
 

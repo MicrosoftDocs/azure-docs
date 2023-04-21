@@ -282,41 +282,65 @@ Start emulator from an administrator [command prompt](emulator-command-line-para
 
 ### API for Gremlin
 
-Start emulator from an administrator [command prompt](emulator-command-line-parameters.md)with "/EnableGremlinEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+Start the emulator from an administrator [command prompt](emulator-command-line-parameters.md) with `/EnableGremlinEndpoint`. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-1. [Install apache-tinkerpop-gremlin-console-3.6.0](https://archive.apache.org/dist/tinkerpop/3.6.0).
+1. Tinkerpop console **3.6.2** is compatible with Java 8 or Java 11. For more information, see [OpenJDK 11](/java/openjdk/download#openjdk-11).
 
-1. From the emulator's data explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
+1. Extract [apache-tinkerpop-gremlin-console-3.6.2](https://tinkerpop.apache.org/download.html) to a folder on your machine.
+
+    > [!NOTE]
+    > For the remainder of these steps, we will assume that you installed the console to the `%ProgramFiles%\gremlin` folder.
+
+1. From the emulator's data explorer create a database "db1" and a container "coll1"; for the partition key, choose "/name"
 
 1. Run the following commands in a regular command prompt window:
 
-   ```bash
-   cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.6.0-bin\apache-tinkerpop-gremlin-console-3.6.0
-  
-   copy /y conf\remote.yaml conf\remote-localcompute.yaml
-   notepad.exe conf\remote-localcompute.yaml
-     hosts: [localhost]
-     port: 8901
-     username: /dbs/db1/colls/coll1
-     password: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
-     connectionPool: {
-     enableSsl: false}
-     serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0,
-     config: { serializeResultToString: true  }}
+    ```cmd
+    cd /d %ProgramFiles%\apache-tinkerpop-gremlin-console-3.6.0
+    ```
 
-   bin\gremlin.bat
-   ```
+    ```cmd
+    copy /y conf\remote.yaml conf\remote-localcompute.yaml
+    ```
+
+1. Open the `conf\remote-localcompute.yaml` file in Notepad.
+
+    ```cmd
+    notepad.exe conf\remote-localcompute.yaml
+    ```
+
+1. Replace the contents of the YAML file with this configuration and **Save** the file.
+
+    ```yaml
+    hosts: [localhost]
+    port: 8901
+    username: /dbs/db1/colls/coll1
+    password: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+    connectionPool: { enableSsl: false }
+    serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+    ```
+
+1. Run the gremlin console.
+
+    ```cmd
+    bin\gremlin.bat
+    ```
 
 1. In the Gremlin shell, run the following commands to connect to the Gremlin endpoint:
 
-   ```bash
-   :remote connect tinkerpop.server conf/remote-localcompute.yaml
-   :remote console
-   :> g.V()
-   :> g.addV('person1').property(id, '1').property('name', 'somename1')
-   :> g.addV('person2').property(id, '2').property('name', 'somename2')
-   :> g.V()
-   ```
+    ```gremlin
+    :remote connect tinkerpop.server conf/remote-localcompute.yaml
+    :remote console
+    ```
+
+1. Run the following commands to try various operations on the Gremlin endpont:
+
+    ```gremlin
+    g.V()
+    g.addV('person1').property(id, '1').property('name', 'somename1')
+    g.addV('person2').property(id, '2').property('name', 'somename2')
+    g.V()
+    ```
 
 ## <a id="uninstall"></a>Uninstall the local emulator
 

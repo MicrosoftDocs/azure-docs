@@ -1,31 +1,31 @@
 ---
 title: Enable remote work by using Azure networking services
 description: Learn how to use Azure networking services to enable remote work and how to mitigate traffic issues that result from an increased number of people who work remotely.
-services: networking
-author: rambk
-
+author: asudbring
 ms.service: virtual-network
 ms.topic: article
-ms.date: 03/26/2020
-ms.author: rambala
+ms.date: 04/09/2023
+ms.author: allensu
 
 ---
 
 # Enable remote work by using Azure networking services
 
-This article describes the options that are available to organizations to set up remote access for their users or to supplement their existing solutions with additional capacity during periods of peak utilization.
+This article presents the different options available for organizations to establish remote access for their users. It also covers ways to supplement their existing solutions with extra capacity during periods of peak utilization.
 
 Network architects are faced with the following challenges:
 
 - Address an increase in network utilization.
+
 - Provide reliable and secure connectivity to more employees of their company and customers.
+
 - Provide connectivity to remote locations across the globe.
 
 Not all networks (for example, private WAN and corporate core networks) experience congestion from peak loads of remote workers. The bottlenecks are commonly reported only in home broadband networks and in VPN gateways of on-premises networks of corporations.
 
 Network planners can help ease bottlenecks and alleviate network congestion by keeping in mind that different traffic types need different network treatment priorities. Some traffic requires smart load redirection or redistribution.
 
-For example, real-time telemedicine traffic of doctor/patient interaction has a high importance and is sensitive to delay or jitter. Replication of traffic between storage solutions is not delay sensitive. Telemedicine traffic must be routed via the most optimal network path with a high quality of service, whereas it's acceptable to use a suboptimal route for traffic between storage solutions.
+For example, real-time telemedicine traffic of doctor/patient interaction has a high importance and is sensitive to delay or jitter. Replication of traffic between storage solutions isn't delay sensitive. Telemedicine traffic must be routed via the most optimal network path with a high quality of service, whereas it's acceptable to use a suboptimal route for traffic between storage solutions.
 
 ## Elasticity and high availability in the Microsoft network
 
@@ -33,7 +33,7 @@ Azure is designed to withstand sudden changes in resource utilization and to kee
 
 Microsoft maintains and operates one of the world's largest networks. The Microsoft network has been designed for high availability to withstand various types of failures, from failure of a single network element to failure of an entire region.
 
-The Microsoft network is also designed to handle various types of network traffic. This traffic can include delay-sensitive multimedia traffic for Skype and Teams, content delivery networks, real-time big data analysis, Azure Storage, Bing, and Xbox. To provide optimal performance, the Microsoft network attracts all the traffic that's destined to (or wanting to transit through) its resources as close as possible to the origin of the traffic.
+The Microsoft network is also designed to handle various types of network traffic. This traffic can include delay-sensitive multimedia traffic for Skype and Teams, content delivery networks, real-time big data analysis, Azure Storage, Bing, and Xbox. For optimal performance, Microsoft's network directs traffic intended for its resources or passing through them to be routed as close as possible to the traffic's point of origin.
 
 >[!NOTE]
 >Using the Azure networking features described in this article takes advantage of the traffic attraction behavior of the Microsoft global network to provide a better networking experience for customers. The traffic attraction behavior of the Microsoft network helps offload traffic as soon as possible from the first-mile and last-mile networks that might experience congestion during periods of peak utilization.
@@ -49,12 +49,14 @@ To access your resources deployed in Azure, remote developers can use Azure Bast
 You can use Azure Virtual WAN to:
 
 - Aggregate large-scale VPN connections.
+
 - Support any-to-any connections between resources in different on-premises global locations and in different regional hub-and-spoke virtual networks.
+
 - Optimize utilization of multiple home broadband networks.
 
 For more information, see [Azure Virtual WAN and supporting remote work](../virtual-wan/work-remotely-support.md).
 
-Another way to support a remote workforce is to deploy a virtual desktop infrastructure (VDI) hosted in your Azure virtual network, secured with Azure Firewall. For example, Azure Virtual Desktop is a desktop and app virtualization service that runs in Azure. With Virtual Desktop, you can set up a scalable and flexible environment in your Azure subscription without the need to run any additional gateway servers. You're responsible only for the Virtual Desktop virtual machines in your virtual network. For more information, see [Azure Firewall remote work support](../firewall/remote-work-support.md).
+Another way to support a remote workforce is to deploy a virtual desktop infrastructure (VDI) hosted in your Azure virtual network, secured with Azure Firewall. For example, Azure Virtual Desktop is a desktop and app virtualization service that runs in Azure. With Virtual Desktop, you can set up a scalable and flexible environment in your Azure subscription without the need to run any extra gateway servers. You're responsible only for the Virtual Desktop virtual machines in your virtual network. For more information, see [Azure Firewall remote work support](../firewall/remote-work-support.md).
 
 Azure also has a rich set of ecosystem partners. Their network virtual appliances (NVAs) on Azure can also help scale VPN connectivity. For more information, see [NVA considerations for remote work](../vpn-gateway/nva-work-remotely-support.md).
 
@@ -62,11 +64,11 @@ Azure also has a rich set of ecosystem partners. Their network virtual appliance
 
 The following Azure solutions can help enable employees to access your globally distributed resources. Your resources could be in any of the Azure regions, in on-premises networks, or even in other public or private clouds.
 
-- **Azure virtual network peering**: If you deploy your resources in more than one Azure region or if you aggregate the connectivity of remotely working employees by using multiple virtual networks, you can establish connectivity between the virtual networks by using virtual network peering. For more information, see [Virtual network peering][VNet-peer].
+- **Azure virtual network peering**: You can connect virtual networks together by using virtual network peering. Virtual network peering is useful if your resources are in more than one Azure region or if you need to connect multiple virtual networks to support remote workers. For more information, see [Virtual network peering][VNet-peer].
 
-- **Azure VPN-based solution**: For your remote employees connected to Azure via P2S or S2S VPN, you can enable access to on-premises networks by configuring S2S VPN between your on-premises networks and Azure VPN Gateway. For more information, see [Create a site-to-site connection][S2S].
+- **Azure VPN-based solution**: For remote employees connected to Azure, you can provide them with access to your on-premises networks by establishing a S2S VPN connection. This connection is between your on-premises networks and Azure VPN Gateway. For more information, see [Create a site-to-site connection][S2S].
 
-- **Azure ExpressRoute**: By using ExpressRoute private peering, you can enable private connectivity between your Azure deployments and on-premises infrastructure or your infrastructure in a colocation facility. ExpressRoute, via Microsoft peering, also permits accessing public endpoints in Microsoft from your on-premises network.
+- **Azure ExpressRoute**: By using ExpressRoute private peering, you can enable private connectivity between your Azure deployments and on-premises infrastructure or your infrastructure in a colocation facility. ExpressRoute, via Microsoft peering, also permits accessing public endpoints at Microsoft from your on-premises network.
 
   ExpressRoute connections don't go over the public internet. They offer secure connectivity, reliability, and higher throughput, with lower and more consistent latencies than typical connections over the internet. For more information, see [ExpressRoute overview][ExR].
 
@@ -92,7 +94,7 @@ The following articles discuss how you can use Azure networking features to scal
 
 | **Article** | **Description** |
 | --- | --- |
-| [Remote work using Azure VPN Gateway point-to-site](../vpn-gateway/work-remotely-support.md) | Review available options to set up remote access for users or to supplement their existing solutions with additional capacity for your organization.|
+| [Remote work using Azure VPN Gateway point-to-site](../vpn-gateway/work-remotely-support.md) | Review available options to set up remote access for users or to supplement their existing solutions with extra capacity for your organization.|
 | [Azure Virtual WAN and supporting remote work](../virtual-wan/work-remotely-support.md) | Use Azure Virtual WAN to address the remote connectivity needs of your organization.|
 | [Application Gateway high-traffic support](../application-gateway/high-traffic-support.md) | Use Azure Application Gateway with web application firewall (WAF) for a scalable and secure way to manage traffic to your web applications. |
 | [Working remotely: NVA considerations for remote work](../vpn-gateway/nva-work-remotely-support.md)|Review guidance about using NVAs in Azure to provide remote access solutions. |
