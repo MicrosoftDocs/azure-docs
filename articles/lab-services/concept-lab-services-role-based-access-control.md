@@ -87,7 +87,7 @@ Assign these roles at the *resource group level*. Consequently, the lab plans an
 The following table compares the different administrator roles when they are assigned at the resource group level.
 
 | Lab plan/Lab | Activity | Owner | Contributor | Lab Services Contributor |
-| ------------ | -------- | ----- | ----------- | ------------------------ |
+| ------------ | -------- | :-----: | :-----------: | :------------------------: |
 | Lab plan | View all lab plans within the resource group | Yes | Yes | Yes |
 | Lab plan | Create, change or delete all lab plans within the resource group | Yes | Yes | Yes |
 | Lab plan | Assign roles to lab plans within the resource group | Yes | No | No |
@@ -146,7 +146,7 @@ Assign the Lab Creator role at either the *resource group or lab plan level*.
 The following table compares the Lab Creator role assignment for the resource group or lab plan.
 
 | Activity | Resource group | Lab plan |
-| -------- | -------------- | -------- |
+| -------- | :--------------: | :--------: |
 | Create labs within the resource group** | Yes | Yes |
 | View labs they created | Yes | Yes |
 | View other users’ labs within the resource group | Yes | No |
