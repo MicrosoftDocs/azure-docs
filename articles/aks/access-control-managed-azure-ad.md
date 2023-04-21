@@ -8,39 +8,39 @@ ms.custom: devx-track-azurecli
 
 # Cluster access control with AKS-managed Azure Active Directory integration
 
-When you integrate Azure AD with your AKS cluster, you can use [Conditional Access][aad-conditional-access] or Privileged Identity Management (PIM) for just-in-time requests to control access to your cluster. This articles shows you how to enable Conditional Access and PIM on your AKS clusters.
+When you integrate Azure AD with your AKS cluster, you can use [Conditional Access][aad-conditional-access] or Privileged Identity Management (PIM) for just-in-time requests to control access to your cluster. This article shows you how to enable Conditional Access and PIM on your AKS clusters.
 
 > [!NOTE]
 > Azure AD Conditional Access and Privileged Identity Management are Azure AD Premium capabilities requiring a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide][aad-pricing].
 
 ## Before you begin
 
-* See [AKS-managed Azure Active Directory integration](./managed-aad.md) for an overview and setup instructions.
+* See [AKS-managed Azure Active Directory integration](./managed-azure-ad.md) for an overview and setup instructions.
 
 ## Use Conditional Access with Azure AD and AKS
 
 1. In the Azure portal, go to the **Azure Active Directory** page and select **Enterprise applications**.
 2. Select **Conditional Access** > **Policies** > **New policy**.
 
-    :::image type="content" source="./media/managed-aad/conditional-access-new-policy.png" alt-text="Adding a Conditional Access policy":::
+    :::image type="content" source="./media/managed-aad/conditional-access-new-policy.png" alt-text="Screenshot of adding a Conditional Access policy." lightbox="./media/managed-aad/conditional-access-new-policy.png":::
 
 3. Enter a name for the policy, such as *aks-policy*.
 
 4. Under **Assignments**, select **Users and groups**. Choose the users and groups you want to apply the policy to. In this example, choose the same Azure AD group that has administrator access to your cluster.
 
-    :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="Selecting users or groups to apply the Conditional Access policy":::
+    :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="Screenshot of selecting users or groups to apply the Conditional Access policy." lightbox=source="./media/managed-aad/conditional-access-users-groups.png":::
 
 5. Under **Cloud apps or actions** > **Include**, select **Select apps**. Search for **Azure Kubernetes Service** and select **Azure Kubernetes Service AAD Server**.
 
-    :::image type="content" source="./media/managed-aad/conditional-access-apps.png" alt-text="Selecting Azure Kubernetes Service AD Server for applying the Conditional Access policy":::
+    :::image type="content" source="./media/managed-aad/conditional-access-apps.png" alt-text="Screenshot of selecting Azure Kubernetes Service AD Server for applying the Conditional Access policy." lightbox="./media/managed-aad/conditional-access-apps.png":::
 
 6. Under **Access controls** > **Grant**, select **Grant access**, **Require device to be marked as compliant**, and **Require all the selected controls**.
 
-    :::image type="content" source="./media/managed-aad/conditional-access-grant-compliant.png" alt-text="Selecting to only allow compliant devices for the Conditional Access policy":::
+    :::image type="content" source="./media/managed-aad/conditional-access-grant-compliant.png" alt-text="Screenshot of selecting to only allow compliant devices for the Conditional Access policy." lightbox="./media/managed-aad/conditional-access-grant-compliant.png" :::
 
 7. Confirm your settings, set **Enable policy** to **On**, and then select **Create**.
 
-    :::image type="content" source="./media/managed-aad/conditional-access-enable-policy.png" alt-text="Enabling the Conditional Access policy":::
+    :::image type="content" source="./media/managed-aad/conditional-access-enable-policy.png" alt-text="Screenshot of enabling the Conditional Access policy." lightbox="./media/managed-aad/conditional-access-enable-policy.png":::
 
 ### Verify your Conditional Access policy has been successfully listed
 
@@ -62,7 +62,7 @@ When you integrate Azure AD with your AKS cluster, you can use [Conditional Acce
 
 5. Under the **Conditional Access** column you should see a status of *Success*. Select the event and then select the **Conditional Access** tab. Your Conditional Access policy will be listed.
 
-    :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Screenshot that shows failed sign-in entry due to Conditional Access policy.":::
+    :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Screenshot that shows failed sign-in entry due to Conditional Access policy." lightbox="./media/managed-aad/conditional-access-sign-in-activity.png":::
 
 ## Configure just-in-time cluster access with Azure AD and AKS
 
@@ -70,19 +70,19 @@ When you integrate Azure AD with your AKS cluster, you can use [Conditional Acce
 
 2. Note the value listed under **Tenant ID**. It will be referenced in a later step as `<tenant-id>`.
 
-    :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="In a web browser, the Azure portal screen for Azure Active Directory is shown with the tenant's ID highlighted.":::
+    :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="Screenshot of the Azure portal screen for Azure Active Directory with the tenant's ID highlighted." lightbox="./media/managed-aad/jit-get-tenant-id.png":::
 
 3. Select **Groups** > **New group**.
 
-    :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="Shows the Azure portal Active Directory groups screen with the 'New Group' option highlighted.":::
+    :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="Screenshot of the Azure portal Active Directory groups screen with the New Group option highlighted." lightbox="./media/managed-aad/jit-create-new-group.png":::
 
 4. Verify the group type **Security** is selected and specify a group name, such as *myJITGroup*. Under the option **Azure AD roles can be assigned to this group (Preview)**, select **Yes** and then select **Create**.
 
-    :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Shows the Azure portal's new group creation screen.":::
+    :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Screenshot of the new group creation screen in the Azure portal." lightbox="./media/managed-aad/jit-new-group-created.png":::
 
 5. On the **Groups** page, select the group you just created and note the Object ID. It will be referenced in a later step as `<object-id>`.
 
-    :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="Shows the Azure portal screen for the just-created group, highlighting the Object Id":::
+    :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="Screenshot of the Azure portal screen for the just-created group with the Object ID highlighted." lightbox="./media/managed-aad/jit-get-object-id.png":::
 
 6. Create the AKS cluster with AKS-managed Azure AD integration using the [`az aks create`][az-aks-create] command with the `--aad-admin-group-objects-ids` and `--aad-tenant-id parameters` and include the values noted in the steps earlier.
 
@@ -92,19 +92,19 @@ When you integrate Azure AD with your AKS cluster, you can use [Conditional Acce
 
 7. In the Azure portal, select **Activity** > **Privileged Access (Preview)** > **Enable Privileged Access**.
 
-    :::image type="content" source="./media/managed-aad/jit-enabling-priv-access.png" alt-text="The Azure portal's Privileged access (Preview) page is shown, with 'Enable privileged access' highlighted":::
+    :::image type="content" source="./media/managed-aad/jit-enabling-priv-access.png" alt-text="Screenshot of the Privileged access (Preview) page in the Azure portal with Enable privileged access highlighted." lightbox="./media/managed-aad/jit-enabling-priv-access.png":::
 
 8. To grant access, select **Add assignments**.
 
-    :::image type="content" source="./media/managed-aad/jit-add-active-assignment.png" alt-text="The Azure portal's Privileged access (Preview) screen after enabling is shown. The option to 'Add assignments' is highlighted.":::
+    :::image type="content" source="./media/managed-aad/jit-add-active-assignment.png" alt-text="Screenshot of the Privileged access (Preview) screen in the Azure portal after enabling. The option to Add assignments is highlighted." lightbox="./media/managed-aad/jit-add-active-assignment.png":::
 
-9.  From the **Select role** drop-down list, select the users and groups you want to grant cluster access. These assignments can be modified at any time by a group administrator. Then select **Next**.
+9. From the **Select role** drop-down list, select the users and groups you want to grant cluster access. These assignments can be modified at any time by a group administrator. Then select **Next**.
 
-    :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="The Azure portal's Add assignments Membership screen is shown, with a sample user selected to be added as a member. The option 'Next' is highlighted.":::
+    :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="Screenshot of the Add assignments Membership screen in the Azure portal with a sample user selected to be added as a member. The Next option is highlighted." lightbox="./media/managed-aad/jit-adding-assignment.png":::
 
 10. Under **Assignment type**, select **Active** and then specify the desired duration. Provide a justification and then select **Assign**.
 
-    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="The Azure portal's Add assignments Setting screen is shown. An assignment type of 'Active' is selected and a sample justification has been given. The option 'Assign' is highlighted.":::
+    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="Screenshot of the Add assignments Setting screen in the Azure portal. An assignment type of Active is selected and a sample justification has been given. The Assign option is highlighted." lightbox="./media/managed-aad/jit-set-active-assignment-details.png":::
 
 For more information about assignment types, see [Assign eligibility for a privileged access group (preview) in Privileged Identity Management][aad-assignments].
 

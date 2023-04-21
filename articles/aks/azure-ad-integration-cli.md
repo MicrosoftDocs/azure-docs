@@ -282,5 +282,5 @@ For best practices on identity and resource control, see [Best practices for aut
 [rbac-authorization]: concepts-identity.md#kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
-[managed-aad]: managed-aad.md
-[managed-aad-migrate]: managed-aad.md#upgrade-a-legacy-azure-ad-cluster-to-aks-managed-azure-ad-integration
+[managed-aad]: managed-azure-ad.md
+[managed-aad-migrate]: managed-azure-ad.md#upgrade-a-legacy-azure-ad-cluster-to-aks-managed-azure-ad-integration

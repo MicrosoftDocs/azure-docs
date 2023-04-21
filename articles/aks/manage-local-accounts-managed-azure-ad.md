@@ -12,7 +12,7 @@ When you deploy an AKS cluster, local accounts are enabled by default. Even when
 
 ## Before you begin
 
-* See [AKS-managed Azure Active Directory integration](./managed-aad.md) for an overview and setup instructions.
+* See [AKS-managed Azure Active Directory integration](./managed-azure-ad.md) for an overview and setup instructions.
 
 ## Disable local accounts
 
