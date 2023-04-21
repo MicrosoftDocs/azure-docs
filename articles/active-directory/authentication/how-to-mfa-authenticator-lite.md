@@ -138,7 +138,7 @@ If enabled for Authenticator Lite, users are prompted to register their account 
 GET auditLogs/signIns
 ```
 
-If the sign-in was done by phone app notification, under **authenticationAppDeivceDetails** the **clientApp** field returns **microsoftAuthenticator** or **Outlook**.
+If the sign-in was done by phone app notification, under **authenticationAppDeviceDetails** the **clientApp** field returns **microsoftAuthenticator** or **Outlook**.
 
 If a user has registered Authenticator Lite, the user’s registered authentication methods include **Microsoft Authenticator (in Outlook)**. 
 
