@@ -25,6 +25,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Prevent joining locked meeting                                                                                      | ✔️        |
 |                   | Honor assigned Teams meeting role                                                                                   |   ✔️      |
 | Chat              | Send and receive chat messages                                                                                      | ✔️ |
+|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️** |
 |                   | Send and receive Giphy                                                                                              | ❌ |
 |                   | Send messages with high priority                                                                                    | ❌ |
 |                   | Receive messages with high priority                                                                                 | ✔️ |
@@ -39,12 +40,6 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | React to chat message                                                                                               | ❌ |
 |                   | [Data Loss Prevention (DLP)](/microsoft-365/compliance/dlp-microsoft-teams)                                         | ✔️*|
 |                   | [Customer Managed Keys (CMK)](/microsoft-365/compliance/customer-key-overview)                                      | ✔️ |
-| Chat with Teams Interoperability              | Send and receive text messages                                                                    | ✔️ | 
-|                   | Send and receive rich text messages                                                                    | ✔️ | 
-|                   | Send and receive typing indicators                                                                                                |  ✔️ |
-|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️** |
-|                   | Receive read receipts                                                                                                |  ❌ |
-|                   | Receive shared files                                                                                                |  ❌ |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️        |
 |                   | Mute/Unmute mic                                                                                                     | ✔️        |
 |                   | Switch between cameras                                                                                              | ✔️        |
