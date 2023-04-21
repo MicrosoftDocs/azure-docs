@@ -135,9 +135,9 @@ Any backend endpoint that has achieved a healthy state is eligible for receiving
 
 New TCP connections will succeed to remaining healthy backend endpoint.
 
-If a backend endpoint's health probe fails, established TCP connections to this backend endpoint continue.
+If a backend endpoint's health probe fails, established TCP connections to this backend endpoint continue. However, if a backend pool only contains a single endpoint, then existing flows will terminate.
 
-If all probes for all instances in a backend pool fail, no new flows will be sent to the backend pool. Standard Load Balancer will permit established TCP flows to continue.  Basic Load Balancer will terminate all existing TCP flows to the backend pool.
+If all probes for all instances in a backend pool fail, no new flows will be sent to the backend pool. Standard Load Balancer will permit established TCP flows to continue given that a backend pool has more than one backend endpoint.  Basic Load Balancer will terminate all existing TCP flows to the backend pool.
  
 Load Balancer is a pass through service. Load Balancer doesn't terminate TCP connections. The flow is always between the client and the VM's guest OS and application. A pool with all probes down results in a frontend that won't respond to TCP connection open attempts. There isn't a healthy backend endpoint to receive the flow and respond with an acknowledgment.
 
