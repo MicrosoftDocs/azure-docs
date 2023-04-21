@@ -36,6 +36,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Resource Group**- Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group](../azure-resource-manager/management/overview.md) overview article.
    * **Cluster name** - Enter a name for your cluster.
    * **Location** - Location where your cluster will be deployed to.
+   * **Cassandra version** - Version of Apache Cassandra that will be deployed
+   * **Extention** - Extensions that will be added, including [Cassandra Lucene Index](search-lucene-index.md).
    * **Initial Cassandra admin password** - Password that is used to create the cluster.
    * **Confirm Cassandra admin password** - Reenter your password.
    * **Virtual Network** - Select an Exiting Virtual Network and Subnet, or create a new one. 
