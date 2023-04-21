@@ -13,7 +13,7 @@ Azure Batch supports mounting cloud storage or an external file system on Window
 
 Mounting the file system to the pool makes accessing data easier and more efficient than requiring tasks to get their own data from a large shared data set. Consider a scenario where multiple tasks need access to a common set of data, like rendering a movie. Each task renders one or more frames at once from the scene files. By mounting a drive that contains the scene files, it's easier for each compute node to access the shared data.
 
-Also, you can choose and independently scale the underlying file system to meet performance, throughout, and input/output operations per second (IOPS) requirements, based on the number of compute nodes that concurrently access the data. For example, you could use an [Avere vFXT](/azure/avere-vfxt/avere-vfxt-overview) distributed in-memory cache to support large movie-scale renders with thousands of concurrent render nodes that access on-premises source data. Or, for data that's already in cloud-based blob storage, you can use [BlobFuse](/azure/storage/blobs/storage-how-to-mount-container-linux) to mount the data as a local file system. BlobFuse is available only on Linux nodes except Ubuntu 22.04, but [Azure Files](/azure/storage/files/storage-files-introduction) provides a similar workflow and is available on both Windows and Linux.
+Also, you can choose the underlying file system to meet performance, throughout, and input/output operations per second (IOPS) requirements. You can independently scale the file system based on the number of compute nodes that concurrently access the data. For example, you could use an [Avere vFXT](/azure/avere-vfxt/avere-vfxt-overview) distributed in-memory cache to support large movie-scale renders with thousands of concurrent render nodes that access on-premises source data. Or, for data that's already in cloud-based blob storage, you can use [BlobFuse](/azure/storage/blobs/storage-how-to-mount-container-linux) to mount the data as a local file system. BlobFuse is available only on Linux nodes except Ubuntu 22.04, but [Azure Files](/azure/storage/files/storage-files-introduction) provides a similar workflow and is available on both Windows and Linux.
 
 ## Supported configurations
 
@@ -60,13 +60,13 @@ All mount configuration objects need the following base parameters. Some mount c
 
 - **Account name or source** of the storage account.
 
-- **Relative mount path or source**, the location of the file system mounted on the compute node, relative to the standard *fsmounts* directory accessible via **AZ_BATCH_NODE_MOUNTS_DIR**. The exact *fsmounts* directory location varies depending on node OS. For example, the location on an Ubuntu node maps to *mnt\batch\tasks\fsmounts*. On a CentOS node, the location maps to *mnt\resources\batch\tasks\fsmounts*.
+- **Relative mount path or source**, the location of the file system mounted on the compute node, relative to the standard *\\fsmounts* directory accessible via **AZ_BATCH_NODE_MOUNTS_DIR**. The exact *\\fsmounts* directory location varies depending on node OS. For example, the location on an Ubuntu node maps to *mnt\batch\tasks\fsmounts*. On a CentOS node, the location maps to *mnt\resources\batch\tasks\fsmounts*.
 
 - **Mount options or BlobFuse options** describe specific parameters for mounting a file system.
 
 When you create the pool and the `MountConfiguration` object, you assign the object to the `MountConfigurationList` property. Mounting for the file system happens when a node joins the pool, restarts, or is reimaged.
 
-Mounting the file system creates an environment variable **AZ_BATCH_NODE_MOUNTS_DIR**, which points to the location of the mounted file systems and log files. You can use the log files for troubleshooting and debugging. For more information, see [Diagnose mount errors](#diagnose-mount-errors).
+Mounting the file system creates an environment variable **AZ_BATCH_NODE_MOUNTS_DIR**, which points to the location of the mounted file systems and log files. You can use the log files for troubleshooting and debugging.
 
 The Batch agent implements mounting differently on Windows and Linux.
 
@@ -186,7 +186,7 @@ Message: System error (out of memory, cannot fork, no more loop devices)
 MountConfigurationPath: S
 ```
 
-# [Windows](#tab/windows).
+# [Windows](#tab/windows)
 
 1. Connect to the node over RDP.
 
@@ -253,6 +253,8 @@ If you can't use RDP or SSH to check the log files on the node, you can upload t
     ```
 
 1. Troubleshoot the problem by using the [Azure file shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares).
+
+---
 
 ### Manually mount a file share with PowerShell
 
