@@ -60,11 +60,11 @@ For the latest available Public MEC Edge Zones, please refer to [Azure public ME
 
 ### Prerequisites
 
-* Before you can deploy an AKS for Edge cluster, your subscription needs to have access to the targeted Edge Zone location. This access is provided through our onboarding process, done by creating a support request via the Azure portal or by filling out the [Azure public MEC sign up form][public-mec-sign-up].
+* Before you can deploy an AKS for Edge cluster, your subscription needs to have access to the targeted Edge Zone location. This access is provided through our onboarding process, done by creating a support request via the Azure portal or by filling out the [Azure public MEC sign up form][public-mec-sign-up]
 
 * Your cluster must be running Kubernetes version 1.22 or later
 
-* The identity you're using to create your cluster must have the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](./concepts-identity.md).
+* The identity you're using to create your cluster must have the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](./concepts-identity.md)
 
 <!-- TODO: ADD PREREQUISITES 
 Moushumi can send the dodumentation on the min SDK versions.
@@ -81,7 +81,6 @@ While AKS is fully supported in Azure public MEC Edge Zones, resource constraint
 * In all Edge Zones, the maximum node count is 100
 
 * In Azure public MEC Edge Zones, only selected VM SKUs are offered. See the list of available SKUs, as well as additional constriants and limitations, in [Azure public MEC key concepts][public-mec-constraints]
-
 
 Deploying an AKS cluster in an Edge Zone is similar to deploying an AKS cluster in any other region. All resource providers provide a field named [`extendedLocation`](/javascript/api/@azure/arm-compute/extendedlocation), which you can use to deploy resources in an Edge Zone. This allows for precise and targeted deployment of your AKS cluster.
 
@@ -245,8 +244,8 @@ Set the following variables for use in the deployment, filling in your own value
 SUBSCRIPTION="<your-subscription>"
 RG_NAME="myResourceGroup"
 CLUSTER_NAME="myAKSCluster"
-EDGE_ZONE_NAME=""
-LOCATION="<edge-zone-id>" # Ensure this location corresponds to the parent region for your targeted Edge Zone
+EDGE_ZONE_NAME="<edge-zone-id>"
+LOCATION="<parent-region>" # Ensure this location corresponds to the parent region for your targeted Edge Zone
 ```
 
 After making sure you're logged in and using the appropriate subscription, use [`az aks create`][az-aks-create] to deploy the cluster, specifying the targeted Edge Zone with the `--edge-zone` property.
@@ -257,6 +256,9 @@ az login
 
 # Set the subscription you want to create the cluster on
 az account set --subscription $SUBSCRIPTION 
+
+# Create the resource group
+az group create -n $RG_NAME -l $LOCATION
 
 # Deploy the cluster in your designated Edge Zone
 az aks create -g $RG_NAME -n $CLUSTER_NAME --edge-zone $EDGE_ZONE_NAME --location $LOCATION
