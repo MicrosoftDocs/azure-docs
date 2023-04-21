@@ -2,7 +2,7 @@
 title: Use Azure Key Vault Secrets Provider extension to fetch secrets into Azure Arc-enabled Kubernetes clusters
 description: Learn how to set up the Azure Key Vault Provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
 ms.custom: ignite-2022, devx-track-azurecli
-ms.date: 04/19/2023
+ms.date: 04/21/2023
 ms.topic: how-to
 ---
 
@@ -422,10 +422,10 @@ az k8s-extension list --cluster-type connectedClusters --cluster-name $CLUSTER_N
 
 If the extension was successfully removed, you won't see the Azure Key Vault Secrets Provider extension listed in the output. If you don't have any other extensions installed on your cluster, you'll see an empty array.
 
-If you no longer need it, be sure to delete the client secret associated with the service principal by running the following command:
+If you no longer need it, be sure to delete the Kubernetes secret associated with the service principal by running the following command:
 
 ```bash
-kubectl delete secret <secret-name>
+kubectl delete secret secrets-store-creds
 ```
 
 ## Reconciliation and troubleshooting
