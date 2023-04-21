@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 04/18/2023
+ms.date: 04/21/2023
 ms.author: barclayn
 ---
 
