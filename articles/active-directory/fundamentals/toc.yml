@@ -22,8 +22,8 @@ items:
 - name: Users, groups, and licenses
   expanded: false
   items:
-  - name: Create or delete a user
-    href: add-users-azure-active-directory.md
+  - name: Create or delete users (preview)
+    href: how-to-create-delete-users.md
   - name: Apply licenses to users
     href: license-users-groups.md
   - name: Manage users
@@ -136,6 +136,8 @@ items:
     items:
     - name: Add company branding (legacy)
       href: customize-branding.md
+    - name: Create or delete a user (legacy)
+      href: add-users-azure-active-directory.md
 - name: Identity architecture and deployment
   expanded: false
   items:
