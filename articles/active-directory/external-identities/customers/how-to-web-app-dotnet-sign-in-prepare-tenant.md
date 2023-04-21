@@ -1,6 +1,6 @@
 ---
-title: Sign in users in your own ASP.NET Core web application by using Microsoft Entra - Prepare your tenant
-description: Learn about how to prepare your CIAM tenant for customers to sign in users in your own ASP.NET Core web application by using Microsoft Entra.
+title: Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your tenant
+description: Learn about how to prepare your CIAM tenant for customers to sign in users in your own ASP.NET web application by using Microsoft Entra.
 services: active-directory
 author: cilwerner
 manager: celestedg
@@ -12,24 +12,18 @@ ms.subservice: ciam
 ms.topic: how-to
 ms.date: 04/14/2023
 ms.custom: developer
-#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET Core web app with Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your own ASP.NET Core web application by using Microsoft Entra - Prepare your tenant
+# Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your tenant
 
-In this article, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. To prepare your tenant:
-
-> [!div class="checklist"]
-> * Register a web application in the Microsoft Entra admin center.
-> * Record the web application's unique identifiers.
-> * Create a sign in and sign out user flow in the Microsoft Entra admin center.
-> * Associate your web application with the user flow.
+This how-to guide will demonstrate how to, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. You will register a web application in the Microsoft Entra admin center, and record its identifiers. You will then create a sign in and sign out user flow in the Microsoft Entra admin center and associate your web application with the user flow.
 
 ## Prerequisites
 
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial).
 
-If you have already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Sign in users in your own ASP.NET Core web application by using Microsoft Entra - Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md).
+If you have already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md).
 
 ## Register the web app
 
@@ -54,4 +48,4 @@ If you have already registered a web application in the Microsoft Entra admin ce
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in users in your own ASP.NET Core web application by using Microsoft Entra - Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md)
+> [Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md)
