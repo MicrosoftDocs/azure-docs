@@ -99,3 +99,6 @@ app.UseAuthorization();
 app.Run();
 
 ```
+
+## Next steps
+- Learn more about [How to control and steer calls with Call Automation](../call-automation/actions-for-call-control.md).
