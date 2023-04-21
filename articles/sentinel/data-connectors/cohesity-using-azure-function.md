@@ -52,7 +52,7 @@ To integrate with Cohesity (using Azure Functions) make sure you have:
 **STEP 1 - Get a Cohesity DataHawk API key (see troubleshooting [instruction 1](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/CohesitySecurity/Data%20Connectors/Helios2Sentinel/IncidentProducer))**
 
 
-**STEP 2 - Register Azure app ([link](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)) and save Application (client) ID, Directory (tenant) ID, and Secret Value ([instructions](https://learn.microsoft.com/azure/healthcare-apis/register-application)). Grant it Azure Storage (user_impersonation) permission. Also, assign the 'Microsoft Sentinel Contributor' role to the application in the appropriate subscription.**
+**STEP 2 - Register Azure app ([link](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)) and save Application (client) ID, Directory (tenant) ID, and Secret Value ([instructions](/azure/healthcare-apis/register-application)). Grant it Azure Storage (user_impersonation) permission. Also, assign the 'Microsoft Sentinel Contributor' role to the application in the appropriate subscription.**
 
 
 **STEP 3 - Deploy the connector and the associated Azure Functions**.
