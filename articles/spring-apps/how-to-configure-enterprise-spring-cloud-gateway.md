@@ -25,7 +25,7 @@ A Spring Cloud Gateway instance routes traffic according to rules. Both *scale i
 VMware Spring Cloud Gateway includes the following features:
 
 - Dynamic routing configuration, independent of individual applications, that you can apply and change without recompiling.
-- Commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
+- Commercial API route filters for transporting authorized JSON Web Token (JWT) claim to application services.
 - Client certificate authorization.
 - Rate-limiting approaches.
 - Circuit breaker configuration.
@@ -289,33 +289,33 @@ You can also put environment variables in the `--secrets` parameter instead of `
 > By default, Azure Spring Apps prints the logs of the APM Java agent to `STDOUT`. These logs are included with the Spring Cloud Gateway logs. You can check the version of the APM agent used in the logs. You can query these logs in Log Analytics to troubleshoot.
 > To make the APM agents work correctly, increase the CPU and memory of Spring Cloud Gateway.
 
-## Configure TLS between gateway and apps
+## Configure TLS between gateway and applications
 
-Enabling TLS between Spring Cloud Gateway and apps can enhance security and protect sensitive information from being intercepted by unauthorized parties. This section will explain how to configure TLS between gateway and apps.
+To enhance security and protect sensitive information from interception by unauthorized parties, you can enable TLS between Spring Cloud Gateway and your applications. This section explains how to configure TLS between a gateway and applications.
 
-Before configuring TLS, you need to have a TLS-enabled application and prepare a TLS certificate. To prepare a TLS certificate, you will need to generate a certificate from a trusted certificate authority (CA). The certificate will be used to verify the identity of the server and establish a secure connection.
+Before configuring TLS, you need to have a TLS-enabled application and a TLS certificate. To prepare a TLS certificate, generate a certificate from a trusted certificate authority (CA). The certificate verifies the identity of the server and establishes a secure connection.
 
-Once you have a TLS app running in Azure Spring Apps, use following steps:
-1. Upload the certificate to Azure Spring Apps. Refer to [Import a certificate](./how-to-use-tls-certificate#import-a-certificate)
+After you have a TLS-enabled application running in Azure Spring Apps, upload the certificate to Azure Spring Apps. For more information, see [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate).
 
-1. Configure TLS certificate to gateway and enable certificate verification
+Now you can configure the TLS certificate for the gateway and enable certificate verification. You can configure the certification in the Azure portal or by using Azure CLI.
+
 #### [Azure portal](#tab/Azure-portal)
 
-Configure certificate using the Azure portal:
+Use the following steps to configure the certificate in the Azure portal:
 
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation page and then select **Certificate management**.
 
-1. Click **Enable cert verification**.
+1. Select **Enable cert verification**.
 
-1. Choose the name of certificate uploaded in the step 1 in the dropdown **Certificates**.
+1. Select the name of your certificate in **Certificates**.
 
-1. Select **Save** to save your changes.
+1. Select **Save**.
 
 Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Configure certificate using Azure CLI:
+Use the following command to configure the certificate using Azure CLI:
 
 ```azurecli
 az spring gateway update \
@@ -325,41 +325,45 @@ az spring gateway update \
 
 ---
 
-1. Configure route to the app
-You need to specify the protocol as HTTPS in the route configuration of gateway. This tells the gateway to use the HTTPS protocol for all traffic between gateway and the app.
+### Prepare the route configuration
 
-Prepare the route file `test-tls-route.json`:
+You must specify the protocol as HTTPS in the route configuration. This specification instructs the gateway to use the HTTPS protocol for all traffic between the gateway and the app.
+
+1. Create a file with the following content and name the file `test-tls-route.json`.
 
    ```json
    {
-     "routes": [
-       {
-         "title": "Test TLS app",
-         "predicates": [
-           "Path=/path/to/your/app",
-           "Method=GET"
-         ]
-       }
-     ],
-     "uri": "https://<app-custom-domain-name>"
+       "routes": [
+         {
+           "title": "Test TLS app",
+           "predicates": [
+             "Path=/path/to/your/app",
+             "Method=GET"
+           ]
+         }
+        ],
+       "uri": "https://<app-custom-domain-name>"
    }
    ```
 
-Use the following command to apply the rule to the app:
+1. Use the following command to apply the rule to the application:
 
-```azurecli
-az spring gateway route-config create \
-    --name test-tls-app \
-    --routes-file test-tls-route.json
-```
+   ```azurecli
+       az spring gateway route-config create \
+       --name test-tls-app \
+       --routes-file test-tls-route.json
+   ```
 
-1. Access the app via endpoint of gateway to verify if TLS enabled.
-
-For more configuration for route, refer to [Configure routes](./how-to-use-enterprise-spring-cloud-gateway?#configure-routes)
+You can now test whether the application is TLS enabled with the endpoint of the gateway. For more information, see the [Configure routes](how-to-use-enterprise-spring-cloud-gateway.md#configure-routes) section of [Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md#configure-routes).
 
 ### Certificate rotation
 
-To rotate certificates used in Spring Cloud Gateway, please update certificates by [Import a certificate](./how-to-use-tls-certificate#import-a-certificate) firstly. And then, click **sync certificate** at the top of the tab **Certificate management** in Azure Portal, or use Azure CLI command `az spring gateway sync-cert` to achieve it. Please be aware that gateway will be restarted accordingly to ensure that gateway uses the new certificate for all future connections..
+You can use the Azure portal or Azure CLI to manage and rotate certificates.
+
+- In the Azure portal, select an application in your Azure Spring Apps instance and then in the navigation pane select **Certificate Management**. On the **Certificate Management** page, select **Refresh** to synchronize the certificates.
+- In Azure CLI, use the `az spring gateway sync-cert` command.
+
+The gateway will restart after synchronization to ensure that gateway uses the new certificate for all future connections.
 
 ## Next steps
 
