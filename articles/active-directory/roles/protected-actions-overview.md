@@ -67,7 +67,7 @@ Here's the initial set of permissions:
 
 1. **Configure Conditional Access policy**
 
-    Configure a Conditional Access authentication context and an associated Conditional Access policy. Protected actions use an authentication context, which allows policy enforcement for fine-grain resources in a service, like Azure AD permissions. A good policy to start with is to require passwordless MFA and exclude an emergency account. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context)
+    Configure a Conditional Access authentication context and an associated Conditional Access policy. Protected actions use an authentication context, which allows policy enforcement for fine-grain resources in a service, like Azure AD permissions. A good policy to start with is to require passwordless MFA and exclude an emergency account. [Learn more](./protected-actions-add.md#configure-conditional-access-policy)
 
 1. **Add protected actions**
 
