@@ -14,8 +14,6 @@ ms.date: 04/20/2023
 
 # Model training on serverless compute (preview)
 
-@@ NEED SDK EXAMPLES
-
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 You no longer need to [create a compute cluster](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute type, called _serverless compute_.  Serverless compute is a compute resource that you don't create, it's created on the fly for you.  You focus on specifying your job specification, and let Azure Machine Learning take care of the rest.
@@ -253,4 +251,4 @@ jobs:
 
 ## Next steps
 
-??? samples on azureml-examples
+View more examples of training with serverless compute at [azureml-examples](https://github.com/Azure/azureml-examples)
