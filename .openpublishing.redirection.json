@@ -22525,7 +22525,7 @@
         },
         {
             "source_path_from_root": "/articles/openshift/howto-configure-ovn-kubernetes.md",
-            "redirect_url": "/azure/openshift/concepts-ovn-kubernetes.md",
+            "redirect_url": "/azure/openshift/concepts-ovn-kubernetes",
             "redirect_document_id": false
         },
         {
