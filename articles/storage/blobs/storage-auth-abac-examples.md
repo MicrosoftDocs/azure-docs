@@ -1425,6 +1425,8 @@ To add the condition using the code editor, copy the condition code sample below
 ) 
 ```
 
+---
+
 After entering your code, switch back to the visual editor to validate it.
 
 #### [PowerShell](#tab/azure-powershell)
@@ -1545,6 +1547,8 @@ To add the condition using the code editor, copy the condition code sample below
  )
 )
 ```
+
+---
 
 After entering your code, switch back to the visual editor to validate it.
 
@@ -1683,6 +1687,8 @@ To add the condition using the code editor, copy the condition code sample below
  )
 )
 ```
+
+---
 
 After entering your code, switch back to the visual editor to validate it.
 
@@ -1848,6 +1854,8 @@ To add the condition using the code editor, choose one of the condition code sam
 )
 ```
 
+---
+
 After entering your code, switch back to the visual editor to validate it.
 
 #### [PowerShell](#tab/azure-powershell)
@@ -1982,6 +1990,8 @@ To add the condition using the code editor, copy the condition code sample below
  )
 )
 ```
+
+---
 
 After entering your code, switch back to the visual editor to validate it.
 
