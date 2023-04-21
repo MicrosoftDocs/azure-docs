@@ -67,7 +67,7 @@ $ az vm create \
 
 ### Remove the image provisioning Agent
 
-Once the VM is provisioning, you can SSH into it and remove the Linux Agent:
+Once the VM is provisioning, you can connect to it via SSH and remove the Linux Agent:
 
 ```bash
 $ sudo apt purge -y waagent
@@ -300,7 +300,7 @@ $ az image create \
     --name demo1img
 ```
 
-Now we are ready to create a new VM (or multiple VMs) from the image:
+Now we are ready to create a new VM from the image. This can also be used to create multiple VMs:
 
 ```azurecli
 $ IMAGE_ID=$(az image show -g demo1 -n demo1img --query id -o tsv)
