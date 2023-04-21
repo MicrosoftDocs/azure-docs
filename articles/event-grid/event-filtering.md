@@ -590,9 +590,9 @@ FOR_EACH filter IN (a, b, c)
 All string comparisons aren't case-sensitive.
 
 > [!NOTE]
-> If the event JSON doesn't contain the advanced filter key, filter is evaulated as **not matched** for the following operators: NumberGreaterThan, NumberGreaterThanOrEquals, NumberLessThan, NumberLessThanOrEquals, NumberIn, BoolEquals, StringContains, StringNotContains, StringBeginsWith, StringNotBeginsWith, StringEndsWith, StringNotEndsWith, StringIn.
+> If the event JSON doesn't contain the advanced filter key, filter is evaluated as **not matched** for the following operators: NumberGreaterThan, NumberGreaterThanOrEquals, NumberLessThan, NumberLessThanOrEquals, NumberIn, BoolEquals, StringContains, StringNotContains, StringBeginsWith, StringNotBeginsWith, StringEndsWith, StringNotEndsWith, StringIn.
 > 
->The filter is evaulated as **matched** for the following operators:NumberNotIn, StringNotIn.
+>The filter is evaluated as **matched** for the following operators: NumberNotIn, StringNotIn.
 
 
 ## IsNullOrUndefined
