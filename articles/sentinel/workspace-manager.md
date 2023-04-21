@@ -84,7 +84,7 @@ At this point, the content items selected haven't been published to the member w
 
     :::image type="content" source="media/workspace-manager/publish-group.png" alt-text="Screenshot shows the group publish window.":::
 
-    To bulk Publish, multi-select the desired Groups and click on Publish.
+    To bulk publish, multi-select the desired groups and click on **Publish**.
     :::image type="content" source="media/workspace-manager/publish-groups.png" alt-text="Screenshot shows the multi-select group publishing window.":::
 
 1. The **Last publish status** column updates to reflect **In progress**.
