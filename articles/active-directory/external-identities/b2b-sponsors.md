@@ -37,7 +37,7 @@ When a sponsor leaves the organization, as part of the offboarding process the t
 
 The Azure Active Directory B2B collaboration sponsor feature serves as a foundation for other scenarios that aim to provide a full governance lifecycle for external partners. These scenarios aren't part of the sponsor feature but rely on it for managing guest users:
 
-- The sponsor can run an access review for a group that includes both guests and members and remove guest user access if no longer needed. Groups can contain many users, and the group owner may not be aware of all the guests involved. 
+The sponsor can run an access review for a group that includes both guests and members and remove guest user access if no longer needed. Groups can contain many users, and the group owner may not be aware of all the guests involved. 
 
 ## Edit the Sponsor field 
 
