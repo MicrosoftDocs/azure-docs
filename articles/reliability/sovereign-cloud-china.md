@@ -61,6 +61,14 @@ This section outlines variations and considerations when using Networking servic
 |---------|--------|------------|
 | Private Link| <li>For Private Link services availability, see [Azure Private Link availability](../private-link/availability.md).<li>For Private DNS zone names, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md#government). |
 
+### Security
+
+This section outlines variations and considerations when using Security services. 
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| Microsoft Sentinel| For Microsoft Sentinel availability, see [Microsoft Sentinel availability](../sentinel/feature-availability.md). |
+
 ### Azure Container Apps
 
 This section outlines variations and considerations when using Azure Container Apps services. 
