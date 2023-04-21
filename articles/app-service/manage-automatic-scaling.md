@@ -49,11 +49,11 @@ az appservice plan update --name <AppServicePlan> --resource-group <ResourceGrou
 
 #### [Azure Portal](#tab/azure-portal)
 
-1. Go to your App Service web app and in the left menu, select **Scale out(App Service plan)**.
+1. In your App Service web app's left menu, select **Scale out(App Service plan)**.
 
 ![Automatic scaling in Azure app Service](./media/manage-automatic-scaling/azure-portal-automatic-scaling.png)
 
-2. To enable Automatic scaling, select **Automatic (preview)** and then select the **Save** button.   
+2. Select **Automatic (preview)** and then select the **Save** button.   
 
 --- 
 
