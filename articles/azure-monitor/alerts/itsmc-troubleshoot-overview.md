@@ -2,8 +2,6 @@
 title: Troubleshoot problems in ITSMC 
 description: Learn how to resolve common problems in IT Service Management Connector.  
 ms.topic: conceptual
-author: nolavime
-ms.author: nolavime
 ms.date: 2/23/2022
 ms.reviewer: nolavime
 
@@ -95,9 +93,9 @@ The following sections identify common symptoms, possible causes, and resolution
 
 **Cause**: There can be several reasons for this:
 
-* Templates are not shown as a part of the action definition dropdown and an error message is shown: "Can't retrieve the template configuration, see the connector logs for more information."
-* Values are not shown in the dropdowns of the default fields as a part of the action definition and an error message is shown: "No values found for the following fields: \<field names\>."
-* Incidents/Events are not created in ServiceNow.
+* Templates aren't shown as a part of the action definition dropdown and an error message is shown: "Can't retrieve the template configuration, see the connector logs for more information."
+* Values aren't shown in the dropdowns of the default fields as a part of the action definition and an error message is shown: "No values found for the following fields: \<field names\>."
+* Incidents/Events aren't created in ServiceNow.
 
 **Resolution**: 
 * [Sync the connector](itsmc-resync-servicenow.md).
@@ -105,7 +103,7 @@ The following sections identify common symptoms, possible causes, and resolution
 
 ### In the incidents received from ServiceNow, the configuration item is blank 
 **Cause**: There can be several reasons for this:
-* The alert is not a log alert. Configuration items are only supported by log alerts.
+* The alert isn't a log alert. Configuration items are only supported by log alerts.
 * The search results do not include the **Computer** or **Resource** column.
 * The values in the configuration item field do not match an entry in the CMDB.
 

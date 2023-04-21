@@ -19,7 +19,12 @@ You must have signed an Operator Connect agreement with Microsoft. For more info
 
 You need an onboarding partner for integrating with Microsoft Phone System. If you're not eligible for onboarding to Microsoft Teams through Azure Communications Gateway's [Basic Integration Included Benefit](onboarding.md) or you haven't arranged alternative onboarding with Microsoft through a separate arrangement, you need to arrange an onboarding partner yourself.
 
-You must ensure you've got two or more numbers that you own which are globally routable. Your onboarding team needs these numbers to configure test lines.
+You must own globally routable numbers that you can use for testing, as follows.
+
+|Type of testing|Numbers required |
+|---------|---------|
+|Automated validation testing by Microsoft Teams test suites|Minimum: 3. Recommended: 6 (to run tests simultaneously).|
+|Manual test calls made by you and/or Microsoft staff during integration testing |Minimum: 1|
 
 We strongly recommend that you have a support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or [Premier Support](https://www.microsoft.com/en-us/unifiedsupport/premier).
 
@@ -100,13 +105,16 @@ Collect all of the values in the following table for both service regions in whi
 
 ## 6. Collect Test Lines configuration values
 
-Collect all of the values in the following table for all test lines you want to configure for Azure Communications Gateway. You must configure at least one test line.
+Collect all of the values in the following table for all the test lines that you want to configure for Azure Communications Gateway.
 
  |**Value**|**Field name(s) in Azure portal**|
  |---------|---------|
  |The name of the test line. |**Name**|
- |The phone number of the test line. |**Phone Number**|
- |Whether the test line is manual or automated: **Manual** test lines will be used by you and Microsoft staff to make test calls during integration testing. **Automated** test lines will be assigned to Microsoft Teams test suites for validation testing. |**Testing purpose**|
+ |The phone number of the test line, in E.164 format and including the country code. |**Phone Number**|
+ |The purpose of the test line: **Manual** (for manual test calls by you and/or Microsoft staff during integration testing) or **Automated** (for automated validation with Microsoft Teams test suites).|**Testing purpose**|
+
+> [!IMPORTANT]
+> You must configure at least three automated test lines. We recommend six automated test lines (to allow simultaneous tests).
 
 ## 7. Decide if you want tags
 
@@ -129,11 +137,14 @@ If the **Microsoft.VoiceServices** resource provider isn't already registered in
 1. Search for the **Microsoft.VoiceServices** resource provider.
 1. Check if the resource provider is already marked as registered. If it isn't, choose the resource provider and select **Register**.
 
-## 10. Set up application roles for Azure Communications Gateway in your Project Synergy application
+## 10. Set up application roles for Azure Communications Gateway
 
-Azure Communications Gateway contains services that need to access the Operator Connect API on your behalf. To enable this access, you must grant specific application roles to an AzureCommunicationsGateway service principal under the Project Synergy Enterprise Application. You created the Project Synergy application in [1. Add the Project Synergy application to your Azure tenancy](#1-add-the-project-synergy-application-to-your-azure-tenancy). Microsoft created the Azure Communications Gateway service principal for you when you followed [9. Register the Microsoft Voice Services resource provider](#9-register-the-microsoft-voice-services-resource-provider).
+Azure Communications Gateway contains services that need to access the Operator Connect API on your behalf. To enable this access, you must grant specific application roles to an AzureCommunicationsGateway service principal under the Project Synergy Enterprise Application. You created the Project Synergy application in [1. Add the Project Synergy application to your Azure tenancy](#1-add-the-project-synergy-application-to-your-azure-tenancy). We created the Azure Communications Gateway service principal for you when you followed [9. Register the Microsoft Voice Services resource provider](#9-register-the-microsoft-voice-services-resource-provider).
 
-You need to do the following steps in the tenant that contains your Project Synergy application.
+> [!IMPORTANT]
+> Granting permissions has two parts: configuring the service principal with the appropriate roles (this step) and adding the ID of the service principal to the Operator Connect or Teams Phone Mobile environment. You'll add the service principal to the Operator Connect or Teams Phone Mobile environment later, as part of [deploying Azure Communications Gateway](deploy.md).
+
+Do the following steps in the tenant that contains your Project Synergy application.
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as an Azure Active Directory Global Admin.
 1. Select **Azure Active Directory**.
@@ -178,21 +189,6 @@ You need to do the following steps in the tenant that contains your Project Syne
         # Assign the relevant Role to the Azure Communications Gateway Service Principal
         New-AzureADServiceAppRoleAssignment -ObjectId $commGwayObjectId -PrincipalId $commGwayObjectId -ResourceId $projectSynergyObjectId -Id $role
     }
-    ```
-
-## 11. Add the application ID for Azure Communications Gateway to Operator Connect
-
-Before you can use the roles that you set up in [10. Set up application roles for Azure Communications Gateway in your Project Synergy application](#10-set-up-application-roles-for-azure-communications-gateway-in-your-project-synergy-application), you must enable the Azure Communications Gateway application within the Operator Connect or Teams Phone Mobile environment.
-
-To enable the Azure Communications Gateway application and the roles, add the application ID of the AzureCommunicationsGateway service principal to your Operator Connect or Teams Phone Mobile environment:
-
-1. Optionally, check the application ID of the service principal to confirm that you're adding the right application.
-    1. Search for `AzureCommunicationsGateway` with the search bar: it's under the **Azure Active Directory** subheading.
-    1. On the overview page, check that the value of **Object ID** is `8502a0ec-c76d-412f-836c-398018e2312b`.
-1. Log into the [Operator Connect Number Management Portal](https://operatorconnect.microsoft.com/operator/configuration).
-1. Add a new **Application Id**, pasting in the following value. This value is the application ID for Azure Communications Gateway.
-    ```
-    8502a0ec-c76d-412f-836c-398018e2312b
     ```
 
 ## Next steps

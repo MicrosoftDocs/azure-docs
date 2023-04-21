@@ -70,6 +70,9 @@ AutoML uses machine learning best practices, such as cross-validated model selec
 - The training data uses **features that are not known into the future**, up to the forecast horizon. AutoML's regression models currently assume all features are known to the forecast horizon. We advise you to explore your data prior to training and remove any feature columns that are only known historically.
 - There are **significant structural differences - regime changes - between the training, validation, or test portions of the data**. For example, consider the effect of the COVID-19 pandemic on demand for almost any good during 2020 and 2021; this is a classic example of a regime change. Over-fitting due to regime change is the most challenging issue to address because it's highly scenario dependent and can require deep knowledge to identify. As a first line of defense, try to reserve 10 - 20% of the total history for validation, or cross-validation, data. It isn't always possible to reserve this amount of validation data if the training history is short, but is a best practice. See our guide on [configuring validation](./how-to-auto-train-forecast.md#training-and-validation-data) for more information.
 
+## What does it mean if my training job achieves perfect validation scores?
+
+It's possible to see perfect scores when viewing validation metrics from a training job. A perfect score means that the forecast and the actuals on the validation set are the same, or very nearly the same. For example, a root mean squared error equal to 0.0 or an R2 score of 1.0. A perfect validation score is _usually_ an indicator that the model is severely overfit, likely due to [data leakage](#how-can-i-prevent-over-fitting-and-data-leakage). The best course of action is to inspect the data for leaks and drop the column(s) that are causing the leak. 
 
 ## What if my time series data doesn't have regularly spaced observations?
 
@@ -137,6 +140,30 @@ If your AutoML forecasting job fails, you'll see an error message in the studio 
 
 > [!NOTE]
 > For Many Models or HTS job, training is usually on multi-node compute clusters. Logs for these jobs are present for each node IP address. You will need to search for error logs in each node in this case. The error logs, along with the driver logs, are in the `user_logs` folder for each node IP. 
+
+## How do I deploy model from forecasting training jobs?
+
+Model from forecasting training jobs can be deployed in either of the two ways:
+
+- Online Endpoint
+    - Please refer [this link](./how-to-deploy-automl-endpoint.md) for online deployment.
+    - You can check the scoring file used in the deployment or click on the "Test" tab on the endpoint page in the studio to understand the structure of input that is expected by the deployment.
+    - You can refer [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-energy-demand/automl-forecasting-task-energy-demand-advanced-mlflow.ipynb) to see an example.
+- Batch Endpoint
+    - Please refer [this link](./how-to-use-batch-endpoint.md) for batch deployment.
+    - It requires you to develop a custom scoring script.
+    - You can refer [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-orange-juice-sales/automl-forecasting-orange-juice-sales-mlflow.ipynb) to see an example.
+
+For UI deployments, we encourage to use either of the two options:
+- Real-time endpoint
+- Batch endpoint
+
+:::image type="content" source="media/how-to-automl-forecasting-faq/deployment-ui.png" alt-text="A view of the possible deployment options for an AutoML forecasting model.":::
+
+**Please don't use the 1st option i.e. "Real-time-endpoint (quick)"**.
+
+> [!NOTE]
+> As of now, we don't support deploying MLflow model from forecasting training jobs through SDK, CLI, or UI. You will run into errors if you try this.
 
 ## What is a workspace / environment / experiment/ compute instance / compute target? 
 

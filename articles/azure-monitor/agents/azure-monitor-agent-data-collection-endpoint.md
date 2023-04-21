@@ -2,8 +2,6 @@
 title: Define Azure Monitor Agent network settings
 description: Define network settings and enable network isolation for Azure Monitor Agent.
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
 ms.date: 12/19/2022
 ms.custom: references_region
 ms.reviewer: shseth

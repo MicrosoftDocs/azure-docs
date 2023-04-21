@@ -7,7 +7,7 @@ author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/05/2023
+ms.date: 04/04/2023
 ---
 
 # Create an index alias in Azure Cognitive Search
@@ -93,6 +93,8 @@ If you expect to make updates to a production index, specify an alias rather tha
 
 > [!NOTE]
 > You can only use an alias with [document operations](/rest/api/searchservice/document-operations) or to get and update an index definition. Aliases can't be used to delete an index, can't be used with the Analyze Text API, and can't be used as the `targetIndexName` on an indexer.
+> 
+> An update to an alias may take up to 10 seconds to propagate through the system so you should wait at least 10 seconds before performing any operation in the index that has been mapped or recently was mapped to the alias.
 
 ## Swap indexes
 

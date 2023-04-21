@@ -44,7 +44,7 @@ The MPI bandwidth test from the OSU microbenchmark suite can be executed per bel
 ```
 ## Mellanox Perftest
 The [Mellanox Perftest package](https://community.mellanox.com/s/article/perftest-package) has many InfiniBand tests such as latency (ib_send_lat) and bandwidth (ib_send_bw). An example command is below.
-```console
+```bash
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 ## Next steps

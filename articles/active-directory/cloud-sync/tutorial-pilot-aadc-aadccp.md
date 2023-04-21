@@ -57,7 +57,7 @@ The following are prerequisites required for completing this tutorial
 As a minimum, you should have [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.4.32.0. To update Azure AD Connect sync, complete the steps in [Azure AD Connect: Upgrade to the latest version](../hybrid/how-to-upgrade-previous-version.md).  
 
 ## Back up your Azure AD Connect configuration
-Before making any changes, you should back up your Azure AD Connect configuration.  This way, you can role-back.  See [Import and export Azure AD Connect configuration settings](../hybrid/how-to-connect-import-export-config.md) for more information.
+Before making any changes, you should back up your Azure AD Connect configuration.  This way, you can roll back to your previous configuration.  See [Import and export Azure AD Connect configuration settings](../hybrid/how-to-connect-import-export-config.md) for more information.
 
 ## Stop the scheduler
 

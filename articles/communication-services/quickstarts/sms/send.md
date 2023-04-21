@@ -15,7 +15,7 @@ ms.custom:
    - devx-track-js
    - mode-other
    - kr2b-contr-experiment
-zone_pivot_groups: acs-azcli-js-csharp-java-python
+zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 ---
 # Quickstart: Send an SMS message
 
@@ -46,6 +46,10 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python
 [!INCLUDE [Send SMS with Java SDK](./includes/send-sms-java.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-power-platform"
+[!INCLUDE [Send SMS with Power Platform](./includes/send-sms-logic-app.md)]
+::: zone-end
+
 ## Troubleshooting
 
 To troubleshoot issues related to SMS delivery, you can [enable delivery reporting with Event Grid](./handle-sms-events.md) to capture delivery details.
@@ -66,7 +70,7 @@ In this quickstart, you learned how to send SMS messages by using Communication 
 > [Receive and reply to SMS](./receive-sms.md)
 
 > [!div class="nextstepaction"]
-> [Phone number types](../../concepts/telephony/plan-solution.md)
+> [Enable SMS analytics](../../concepts/analytics/insights/sms-insights.md)
 
 > [!div class="nextstepaction"]
-> [Learn more about SMS](../../concepts/sms/concepts.md)
+> [Phone number types](../../concepts/telephony/plan-solution.md)

@@ -40,7 +40,7 @@ To complete this how-to guide, you need:
 > Once the Az.MySql PowerShell module is generally available, it becomes part of future Az
 > PowerShell module releases and available natively from within Azure Cloud Shell.
 
->[!Note]
+>[!NOTE]
 >If the user restarting the server is part of [custom role](../../role-based-access-control/custom-roles.md) the user should have write privilege on the server.
 
 If you choose to use PowerShell locally, connect to your Azure account using the

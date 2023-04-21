@@ -7,7 +7,7 @@ author: balapv
 ms.author: balapv
 ms.reviewer: larryfr
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.date: 08/25/2022
 ms.topic: how-to
 ms.custom: sdkv2, ignite-2022
@@ -26,7 +26,7 @@ Azure Machine Learning provides multiple ways to submit ML training jobs. In thi
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-* An Azure Machine Learning workspace. If you don't have one, you can use the steps in the [Quickstart: Create Azure Machine Learning resources](quickstart-create-resources.md) article.
+* An Azure Machine Learning workspace. If you don't have one, you can use the steps in the [Create resources to get started](quickstart-create-resources.md) article.
 
 # [Python SDK](#tab/python)
 
