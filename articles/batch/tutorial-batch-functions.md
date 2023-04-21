@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Trigger a Batch job using Azure Functions
-description: Tutorial - Apply OCR to scanned documents as they're added to a storage blob
+description: Learn how to apply OCR to scanned documents as they're added to a storage blob by using Azure Function Apps.
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 08/23/2021
+ms.date: 04/21/2023
 ms.custom: "mvc, devx-track-csharp"
 ---
 
@@ -36,7 +36,7 @@ In this section, you use Batch Explorer to create the Batch pool and Batch job t
 1. Sign in to Batch Explorer using your Azure credentials.
 1. Create a pool by selecting **Pools** on the left side side navigation, and then the select the **Add** button above the search form. 
 
-    :::image type="content" source=".media/tutorial-batch-functions/add-pool.png" alt-text="Screenshot of the Pools page in a Batch account that highlights the Add button.":::
+    :::image type="content" source="./media/tutorial-batch-functions/add-pool.png" alt-text="Screenshot of the Pools page in a Batch account that highlights the Add button.":::
  
 	1. Enter a **Pool ID**. This example names the pool `ocr-pool`.
     1. Select **canonical** as the **Publisher**.
@@ -64,7 +64,7 @@ Here you create blob containers that store your input and output files for the O
 1. Create a shared access signature for your output container in Storage Explorer by selecting the output container, and on the **Shared access tokens** page, select **Write** in the **Permissions** drop down. No other permissions are necessary.
 1. Select **Generate SAS token and URL**, and copy the **Blob SAS URL** to use later for your function.
 
-    :::image type="content" source=".media/tutorial-batch-functions/shared-access-tokens.png" alt-text="Screenshot of the Shared access tokens page that highlights the Permissions dropdown and the Generate SAS token and URL button.":::
+    :::image type="content" source="./media/tutorial-batch-functions/shared-access-tokens.png" alt-text="Screenshot of the Shared access tokens page that highlights the Permissions dropdown and the Generate SAS token and URL button.":::
 
 ## Create an Azure Function
 
