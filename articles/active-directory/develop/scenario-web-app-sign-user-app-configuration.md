@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/20/2022
+ms.date: 04/20/2023
 ms.author: cwerner
 ms.reviewer: jmprieur
 ms.custom: aaddev, devx-track-python
