@@ -174,31 +174,34 @@ Add the following key-values to the App Configuration store. For more informatio
 
 ## Web app usage
 
-You can use Azure App Configuration in your existing python Web Apps by adding the following lines of code into your `settings.py` (For Django) or `app.py` (for Flask) files.
+### [Django](#tab/django)
+You can use Azure App Configuration in your existing Django web apps by adding the following lines of code into your `settings.py` file
+
 ```python
 selects = {SettingSelector(key_filter="<your-key-filter>")}
-config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"),
-                        selects=selects,
-                        trim_prefixes=["<prefix-to-trim>"])
+CONFIG = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"), selects=selects)
 ```
-
-### Configuration settings in Django
 
 To update individual configuration settings in the Django `settings.py` file, you can reference them from the provider object. For example:
 ```python
-MESSAGE = config.get("message")
+MESSAGE = CONFIG.get("message")
 ```
 
-### Configuration settings in Flask
+### [Flask](#tab/flask)
+You can use Azure App Configuration in your existing Flask web apps by updating its in-built configuration. You can do this by passing your App Configuration Provider object to the `update` function of your flask app instance in `app.py`:
 
-You can update the in-built configuration object in Flask by passing your App Configuration Provider object to the `update` function of your flask app instance in `app.py`:
 ```python
+selects = {SettingSelector(key_filter="<your-key-filter>")}
+azure_app_config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"), selects=selects)
+
 # NOTE: This will override all existing configuration settings with the same key name.
-app.update(config)
+app.config.update(azure_app_config)
 
 # Access a configuration setting directly from within flask configuration
 json_value = app.config.get("my_json")
 ```
+
+---
 
 Full code samples on how Azure App Configuration is used in python web apps can be found in the [Azure App Configuration Python Samples](https://github.com/Azure/AppConfiguration/tree/main/examples/Python) repo.
 
