@@ -13,8 +13,7 @@ When you create an Azure Batch pool, you can provision the pool in a subnet of a
 ## Why use a Virtual Network?
 
 Compute nodes in a pool can communicate with each other, such as to run multi-instance tasks, without requiring a
-separate Virtual Network. However, by default, nodes in a pool can't communicate with any virtual machine (VM) that is outside of
-the pool, such as license or file servers.
+separate Virtual Network. However, by default, nodes in a pool can't communicate with any virtual machine (VM) that is outside of the pool, such as license or file servers.
 
 To allow compute nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool in a subnet of a Virtual Network.
 
@@ -169,7 +168,7 @@ After you've created your Virtual Network and assigned a subnet to it, you can c
 
     :::image type="content" source="./media/batch-virtual-network/batch-add-pool.png" alt-text="Screenshot of the Pools page in a Batch account that highlights the Pools option in the left side navigation and add button on the Pools page.":::
 
-1. On the **Add Pool** page, select the options and enter the information for your pool. For more information on creating pools for your Batch account, see [Quickstart: Use the Azure portal to create a Batch account and run a job].
+1. On the **Add Pool** page, select the options and enter the information for your pool. For more information on creating pools for your Batch account, see [Create a pool of compute nodes](/azure/batch/quick-create-portal?branch=main#create-a-pool-of-compute-nodes).
 **Node size**, **Target dedicated nodes**, and **Target Spot/low-priority nodes**, and any desired optional settings.
 1. In **Virtual Network**, select the virtual network and subnet you wish to use.
 1. Select **OK** to create your pool.
