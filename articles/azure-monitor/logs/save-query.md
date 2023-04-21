@@ -63,7 +63,7 @@ To resolve, close the **Save as query** dialog box, save the query again, and on
 
 When the subscription containing the Log Analytics workspace where you're saving the query from doesn't have a default query pack, you won't be able to select the option to **Save to the default query pack** after you select a subscription that has a default query pack.
 
-To resolve, create the default query pack for the subscription containing the Log Analytics workspace.
+To resolve, create the default query pack for the subscription containing the Log Analytics workspace where you're saving the query from.
 
 ### Fix the "You need permissions to create resource groups in subscription 'xxxx'" error message
 
