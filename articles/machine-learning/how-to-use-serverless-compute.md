@@ -48,9 +48,9 @@ Serverless compute can help speed up your training in the following ways:
 
 When submitting the job, you still need sufficient quota to proceed (both workspace and subscription level quota).  The default VM size/family is selected based on this quota.  If you specify your own VM size/family:
 
-1. If you have some quota for your VM size/family, but not sufficient quota for the number of instances, you'll see an error.  The error recommends decreasing the number of instances to a valid number based on your quota limit or request a quota increase for this VM family
-1. If you don't have quota for your specified VM size, you'll see an error.  The error recommends selecting a different VM size for which you do have quota or request quota for this VM family
-1. If you do have sufficient quota for VM family, but it's currently consumed by other jobs, you'll get a warning that your job must wait in a queue.  
+* If you have some quota for your VM size/family, but not sufficient quota for the number of instances, you'll see an error.  The error recommends decreasing the number of instances to a valid number based on your quota limit or request a quota increase for this VM family
+* If you don't have quota for your specified VM size, you'll see an error.  The error recommends selecting a different VM size for which you do have quota or request quota for this VM family
+* If you do have sufficient quota for VM family, but it's currently consumed by other jobs, you'll get a warning that your job must wait in a queue.  
 
 When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal), you'll see the name "Serverless" as another compute resource whenever you're using serverless compute.
 
