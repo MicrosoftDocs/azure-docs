@@ -30,7 +30,7 @@ OAuth authentication and authorization enable developers to build applications t
 
 Customers and partners can also enable first-party and third-party services to configure necessary access securely and transparently to a customer storage account.  
 
-DevOps tools such as the Azure portal, PowerShell, and CLI, AzCopy, and Storage Explorer can manage data using the user’s identity, eliminating the need to manage or distribute storage access keys.
+DevOps tools such as the Azure portal, PowerShell, and CLI, AzCopy, and Storage Explorer can manage data using the user's identity, eliminating the need to manage or distribute storage access keys.
 
 ### Managed identities  
 
@@ -48,12 +48,13 @@ To use the Azure Files OAuth over REST feature, there are certain additional per
 
 `Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action`
 
-Users, groups, or service principals that call the REST API with OAuth need to have either the `readFileBackupSemantics` or `writeFileBackupSemantics` action assigned to the role that allows data access. This is a requirement to use this feature. For details on the permissions required to call specific File service operations, see Permissions for calling data operations.
+Users, groups, or service principals that call the REST API with OAuth need to have either the `readFileBackupSemantics` or `writeFileBackupSemantics` action assigned to the role that allows data access. This is a requirement to use this feature. For details on the permissions required to call specific File service operations, see Permissions for calling data operations.
 
 As part of the preview release, there are two new built-in roles that are created that include these new actions.  
 
 | **Role** | **Data actions** |
-| Storage File Data Privileged Reader | `Microsoft.Storage/storageAccounts/fileServices/fileShares/files/read`<br>`Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action` |
+|----------|------------------|
+| Storage File Data Privileged Reader | `Microsoft.Storage/storageAccounts/fileServices/fileShares/files/read`<br>`Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action` |
 | Storage File Data Privileged Contributor | `Microsoft.Storage/storageAccounts/fileServices/fileShares/files/read`<br>`Microsoft.Storage/storageAccounts/fileServices/fileShares/files/write`<br>`Microsoft.Storage/storageAccounts/fileServices/fileShares/files/delete`<br>`Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action`<br>`Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action` |
 
 These new roles are similar to the existing **Storage File Data SMB Share Reader** and **Storage File Data SMB Share Elevated Contributor** built-in roles, but there are some differences:
@@ -79,7 +80,7 @@ There are many [built-in roles](../../role-based-access-control/built-in-roles.m
 
 ## Authorize access to file data in application code
 
-The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure AD via the Azure SDK. The latest versions of the Azure Storage client libraries for .NET, Java, Python, JavaScript, and Go integrate with the Azure Identity libraries for each of those languages to provide a simple and secure means to acquire an access token for authorization of requests from the Azure file service. During public preview, .NET is the only supported Azure SDK language.
+The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure AD via the Azure SDK. The latest versions of the Azure Storage client libraries for .NET, Java, Python, JavaScript, and Go integrate with the Azure Identity libraries for each of those languages to provide a simple and secure means to acquire an access token for authorization of requests from the Azure file service. During public preview, .NET is the only supported Azure SDK language.
 
 An advantage of the Azure Identity client library is that it enables you to use the same code to acquire the access token whether your application is running in the development environment or in Azure. The Azure Identity client library returns an access token for a security principal. When your code is running in Azure, the security principal may be a managed identity for Azure resources, a service principal, or a user or group. In the development environment, the client library provides an access token for either a user or a service principal for testing purposes.
 
@@ -88,17 +89,17 @@ The access token returned by the Azure Identity client library is encapsulated i
 Here's some sample code:
 
 ```aspx-csharp
-using Azure.Core;
-using Azure.Identity;
-using Azure.Storage.Files.Shares;
-using Azure.Storage.Files.Shares.Models;
+using Azure.Core;
+using Azure.Identity;
+using Azure.Storage.Files.Shares;
+using Azure.Storage.Files.Shares.Models;
 
-namespace FilesOAuthSample
+namespace FilesOAuthSample
 {
-    internal class Program
-    {
-        static async Task Main(string[] args)
-        {
+    internal class Program
+    {
+        static async Task Main(string[] args)
+        {
             string tenantId = "";
             string appId = "";
             string appSecret = "";
@@ -144,8 +145,8 @@ namespace FilesOAuthSample
             await fileClient.CreateAsync(maxSize: 1024);
             await fileClient.GetPropertiesAsync();
             await sharedKeyShareClient.DeleteIfExistsAsync();
-        }
-    }
+        }
+    }
 }
 ```
 
