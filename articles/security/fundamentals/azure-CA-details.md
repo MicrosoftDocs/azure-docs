@@ -218,7 +218,8 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
     ```bash
     keytool -list -keystore $JAVA_HOME/jre/lib/security/cacerts
     ```
-    - > [!NOTE] `$JAVA_HOME` refers to the path to the Java home directory.
+
+    - > [!NOTE] **$JAVA_HOME** refers to the path to the Java home directory.
     - > If you're unsure of the path, you can find it by running the following command:
     
     ```bash
@@ -226,7 +227,6 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
     ```
 
 1. Look for the **Microsoft RSA Root Certificate Authority 2017** in the output. It should look something like this:
-
     ```bash
         ...
         Microsoft ECC Root Certificate Authority 2017, 20-Aug-2022, Root CA,
