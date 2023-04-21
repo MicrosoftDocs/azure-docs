@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 04/21/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs

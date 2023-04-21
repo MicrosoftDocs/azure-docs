@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 04/20/2023
+ms.date: 04/21/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1375,7 +1375,7 @@ In the portal, you can use the visual editor or code editor to build your condit
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
-##### Add action
+###### Add action
 
 Select **Add action**, then select only the **Read a blob** suboperation as shown in the following table.
 
@@ -1387,7 +1387,7 @@ Do not select the top-level **All read operations** action or any other subopera
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of just the read operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
 
-##### Build expression
+###### Build expression
 
 Use the values in the following table to build the expression portion of the condition:
 
@@ -1477,13 +1477,17 @@ There are five potential actions for read, write, add and delete access to exist
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`                |  |
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
 
-#### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
+#### [Portal](#tab/portal)
+
+In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+##### [Visual editor](#tab/visual-editor/portal)
 
 Here are the settings to add this condition using the Azure portal.
 
-##### Add action
+###### Add action
 
 Select **Add action**, then select only the top-level actions shown in the following table.
 
@@ -1498,7 +1502,7 @@ Do not select any individual suboperations as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read, write, add and delete operations." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png":::
 
-##### Build expression
+###### Build expression
 
 Use the values in the following table to build the expression portion of the condition:
 
@@ -1518,7 +1522,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-subnet-containers-read-write-delete-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access to specific containers allowed from a specific subnet." lightbox="./media/storage-auth-abac-examples/environ-subnet-containers-read-write-delete-portal.png":::
 
-#### [Azure portal: Code editor](#tab/azure-portal-code-editor)
+##### [Code editor](#tab/code-editor/portal)
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
@@ -1607,13 +1611,17 @@ There are two potential actions for reading existing blobs. To make this conditi
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
 
-#### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
+#### [Portal](#tab/portal)
+
+In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+##### [Visual editor](#tab/visual-editor/portal)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
-##### Add action
+###### Add action
 
 Select **Add action**, then select only the **Read a blob** suboperation as shown in the following table.
 
@@ -1625,7 +1633,7 @@ Do not select the top-level **All read operations** action of any other subopera
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of just the read operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
 
-##### Build expression
+###### Build expression
 
 Use the values in the following table to build the expression portion of the condition:
 
@@ -1654,7 +1662,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring any private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
-#### [Azure portal: Code editor](#tab/azure-portal-code-editor)
+##### [Code editor](#tab/code-editor/portal)
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
@@ -1730,13 +1738,17 @@ There are five potential actions for read, write and delete of existing blobs. T
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`                |       |
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner.<br/>Add if the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
 
-#### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
+#### [Portal](#tab/portal)
+
+In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+##### [Visual editor](#tab/visual-editor/portal)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
-##### Add action
+###### Add action
 
 Select **Add action**, then select only the top-level actions shown in the following table.
 
@@ -1751,7 +1763,7 @@ Do not select any individual suboperations as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read, write, add and delete operations." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png":::
 
-##### Build expression
+###### Build expression
 
 Use the values in the following table to build the expression portion of the condition:
 
@@ -1778,7 +1790,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers with private endpoint environment attribute." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png":::
 
-#### [Azure portal: Code editor](#tab/azure-portal-code-editor)
+##### [Code editor](#tab/code-editor/portal)
 
 To add the condition using the code editor, choose one of the condition code samples below, depending on the role associated with the assignment.
 
@@ -1895,13 +1907,17 @@ There are two potential actions for reading existing blobs. To make this conditi
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
 
-#### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
+#### [Portal](#tab/portal)
+
+In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+##### [Visual editor](#tab/visual-editor/portal)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
-##### Add action
+###### Add action
 
 Select **Add action**, then select only the **Read a blob** suboperation as shown in the following table.
 
@@ -1913,7 +1929,7 @@ Do not select the top-level action as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read a blob operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
 
-##### Build expression
+###### Build expression
 
 Use the values in the following table to build the expression portion of the condition:
 
@@ -1945,7 +1961,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-read-tagged-users-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read access allowed over a specific private endpoint for tagged users." lightbox="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-read-tagged-users-portal.png":::
 
-#### [Azure portal: Code editor](#tab/azure-portal-code-editor)
+##### [Code editor](#tab/code-editor/portal)
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
