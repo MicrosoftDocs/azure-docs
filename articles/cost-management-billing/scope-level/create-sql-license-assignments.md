@@ -16,7 +16,7 @@ The centralized Azure Hybrid Benefit experience in the Azure portal supports SQL
 
 For each license assignment, a scope is selected and then licenses are assigned to the scope. Each scope can have multiple license entries.
 
-Here's a video demonstrating how [centralized Azure Hybrid Benefit works](https://aka.ms/azure/pricing/CM_AHB_SQL/).
+Here's a video demonstrating how [centralized Azure Hybrid Benefit works](https://www.youtube.com/watch?v=LvtUXO4wcjs).
 
 ## Prerequisites
 

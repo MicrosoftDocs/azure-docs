@@ -62,7 +62,3 @@ landingContent:
         url: manage-licenses-centrally.md
       - text: SQL Server HADR vs Azure Hybrid Benefit
         url: sql-server-hadr-licenses.md
-    - linkListType: whats-new
-      links:
-      - text: What's new in Centrally managed Azure Hybrid Benefit
-        url: whats-new.md
