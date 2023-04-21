@@ -53,7 +53,7 @@ Deploy a [resource group](../../azure-resource-manager/management/manage-resourc
 
 ### Deploy an Event Hubs namespace and event hub
 
-Deploy an Event Hubs namespace into the resource group. Event Hubs namespaces are logical containers for event hubs. Once the namespace is deployed, you can deploy an event hub, which is used to host device messages until the MedTech service can ingest them for processing. For information about deploying Event Hubs namespaces and event hubs, see [Quickstart: Create an event hub using Azure portal](../../event-hubs/event-hubs-create.md).
+Deploy an Event Hubs namespace into the resource group. Event Hubs namespaces are logical containers for event hubs. Once the namespace is deployed, you can deploy an event hub, which the MedTech service reads from. For information about deploying Event Hubs namespaces and event hubs, see [Quickstart: Create an event hub using Azure portal](../../event-hubs/event-hubs-create.md).
 
 ### Deploy a workspace
 
