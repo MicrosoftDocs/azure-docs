@@ -18,9 +18,7 @@ ms.date: 04/20/2023
 
 You no longer need to [create a compute cluster](./how-to-create-attach-compute-cluster.md) to train your model in a scalable way. Your job can instead be submitted to a new compute type, called _serverless compute_.  Serverless compute is a compute resource that you don't create, it's created on the fly for you.  You focus on specifying your job specification, and let Azure Machine Learning take care of the rest.
 
-When you create a compute cluster, you then specify its name in the command job, such as `compute="cpu-cluster"`.  To use serverless compute, omit this `compute` parameter.  When `compute` isn't specified, serverless compute is used instead.
-
-Use [workspace managed network isolation (preview)]() to use serverless compute with private endpoints.
+When you create your own compute cluster, you use its name in the command job, such as `compute="cpu-cluster"`.  Skip creation of a compute cluster, and omit the `compute` parameter to instead use serverless compute.  When `compute` isn't specified for a command job, the job runs on serverless compute.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -33,9 +31,10 @@ Use [workspace managed network isolation (preview)]() to use serverless compute 
   * Spark jobs
   * AutoML
 
-* For CLI or SDK pipelines, specify `azureml:serverless` as your default compute.  See [Pipeline job](#pipeline-job)
+* For CLI or SDK pipelines, specify `azureml:serverless` as your default compute.  See [Pipeline job](#pipeline-job) for an example.
 * When you [submit a training job in Studio (preview)](how-to-train-with-ui.md), select "Serverless" as your compute cluster.
 * When using [Azure Machine Learning designer](concept-designer.md), select "Serverless" as your compute cluster.
+* In order for serverless compute to work with private endpoints, use [workspace managed network isolation (preview)]().
 
 ## Performance considerations
 
@@ -55,7 +54,6 @@ When submitting the job, you still need sufficient quota to proceed (both worksp
 
 When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal), you'll see the name "Serverless" as another compute resource whenever you're using serverless compute.
 
-
 ## Identity support and credential pass through
 
 * **User credential pass through** : Serverless compute fully supports credential pass through. The user token of the user who is submitting the job is used for storage access. These credentials are from your Azure Active directory. User credential pass through is the default.
@@ -74,7 +72,7 @@ When you [view your usage and quota in the Azure portal](how-to-manage-quotas.md
 
 ## Configure properties
 
-If no compute target is specified for command, parallel, sweep, interactive, AutoML jobs then the compute defaults to serverless compute.
+If no compute target is specified for command, parallel, sweep, and AutoML jobs then the compute defaults to serverless compute.
 For instance, for this command job:
 
 ```yaml
@@ -86,17 +84,15 @@ environment:
 
 The compute defaults to serverless compute with:
 
-* Single node
+* Single node for this job.  The number of nodes is based on the type of job.  See following sections for other job types.
 * CPU virtual machine, determined based on quota, performance, cost, and disk size.
 * Dedicated priority
 * Workspace location
 
-To use serverless compute, omit the compute property when submitting a command.  Your jobs uses a serverless compute with default settings.  
+You can override these defaults.  If you want to specify the VM type or number of nodes for serverless compute, add `resources` to your job:
 
-To override the default configuration, add `resources` to your job:
-
-* instance_type
-* instance_count
+* `instance_type` to choose a specific VM
+* `instance_count` to choose the number of nodes
 
     ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -108,7 +104,7 @@ To override the default configuration, add `resources` to your job:
       instance_type: Standard_NC24 
     ```
 
-* Use `queue_settings` to choose between Dedicated VMs (`job_tier: Standard`) and Low priority(`jobtier: Spot`).
+* To change priority, use `queue_settings` to choose between Dedicated VMs (`job_tier: Standard`) and Low priority(`jobtier: Spot`).
 
     ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
