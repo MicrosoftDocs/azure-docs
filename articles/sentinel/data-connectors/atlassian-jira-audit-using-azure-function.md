@@ -39,7 +39,7 @@ JiraAudit
 
 To integrate with Atlassian Jira Audit (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **REST API Credentials/permissions**: **JiraAccessToken**, **JiraUsername** is required for REST API. [See the documentation to learn more about API](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-audit-records/). Check all [requirements and follow  the instructions](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/#authentication) for obtaining credentials.
 
 
@@ -50,7 +50,7 @@ To integrate with Atlassian Jira Audit (using Azure Function) make sure you have
    >  This connector uses Azure Functions to connect to the Jira REST API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 > [!NOTE]
