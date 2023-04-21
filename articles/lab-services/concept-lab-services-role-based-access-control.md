@@ -37,7 +37,7 @@ The following are the built-in roles supported by Azure Lab Services:
 | Lab management | Lab Creator | Grant permission to create labs and have full control over the labs that they create. Learn more about the [Lab Creator role](#lab-creator-role). |
 | Lab management | Lab Contributor | Grant permission to help manage an existing lab, but not create new labs. Learn more about the [Lab Contributor role](#lab-contributor-role). |
 | Lab management | Lab Assistant | Grant permission to view, start, stop, or reset an existing lab. Learn more about the [Lab Assistant role](#lab-assistant-role). |
-| Lab management | Lab Services Reader | Grant permission to view existing labs. Learn more about the [Lab Reader role](#lab-reader-role). |
+| Lab management | Lab Services Reader | Grant permission to view existing labs. Learn more about the [Lab Services Reader role](#lab-services-reader-role). |
 
 ## Role assignment scope
 
@@ -189,7 +189,21 @@ When you assign the Lab Assistant role on the lab, the user:
 - Can’t delete or make any other changes to the lab.
 - Can’t create new labs.
 
-### Lab Reader role
+### Lab Services Reader role
+
+The Lab Services Reader role allows users to view existing labs. User can’t make any changes to existing labs. 
+
+Assign the Lab Services Reader role on the *resource group or lab level*.
+
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-lab-services-reader-role.png" alt-text="Diagram that shows the resource levels and the Lab Services Reader role, assigned to the resource group and lab level.":::
+
+When you assign the Lab Services Reader role on the resource group, the user can:
+
+- View all labs within the resource group.
+
+When you assign the Lab Services Reader role on the lab, the user can:
+
+- Only view the specific lab.
 
 ## Identity and access management (IAM)
 
