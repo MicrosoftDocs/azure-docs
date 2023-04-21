@@ -80,6 +80,10 @@ To start the configuration, sign in to your Azure account and select the subscri
    > CAK length depends on cipher suite specified:
    > * For GcmAes128 and GcmAesXpn128, the CAK must be an even-length string with 32 hexadecimal digits (0-9, A-F).
    > * For GcmAes256 and GcmAesXpn256, the CAK must be an even-length string with 64 hexadecimal digits (0-9, A-F).
+
+
+ > [!NOTE]
+   > ExpressRoute is a Trusted Service within Azure that supports Network Security policies within the Azure Key Vault. For more information refer to [Configure Azure Key Vault Firewall and Virtual Networks](https://learn.microsoft.com/azure/key-vault/general/network-security)
    >
 
 1. Assign the GET permission to the user identity.
