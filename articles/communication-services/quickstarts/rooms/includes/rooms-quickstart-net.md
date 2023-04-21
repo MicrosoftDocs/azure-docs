@@ -2,15 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: radubulboaca
-manager: mariusu
+author: peiliu
+manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 09/08/2022
+ms.date: 04/20/2023
 ms.topic: include
 ms.custom: include file
-ms.author: antonsamson
+ms.author: peiliu
 ---
 
 ## Prerequisites
@@ -48,7 +48,7 @@ Install the Azure Communication Rooms client library for .NET with [NuGet][https
 dotnet add package Azure.Communication.Identity
 dotnet add package Azure.Communication.Rooms
 ```
-You'll need to use the Azure Communication Rooms client library for .NET [version 1.0.0-beta.1](https://www.nuget.org/packages/Azure.Communication.Rooms/1.0.0-beta.1) or above. 
+You'll need to use the Azure Communication Rooms client library for .NET [version 1.0.0-beta.2](https://www.nuget.org/packages/Azure.Communication.Rooms/1.0.0-beta.2) or above.
 
 ### Set up the app framework
 
@@ -90,7 +90,7 @@ RoomsClient roomsClient = new RoomsClient(connectionString);
 var client = new CommunicationIdentityClient(connectionString);
 var user1 = await client.CreateUserAndTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
 var user2 = await client.CreateUserAndTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
- 
+
 ```
 
 ## Create a room
@@ -103,7 +103,20 @@ Create a new `room` with default properties using the code snippet below:
 List roomParticipants = new List<RoomParticipant>();
 roomParticipants.Add(new RoomParticipant(new CommunicationUserIdentifier(user1.Value.User.Id), RoleType.Presenter));
 
-CommunicationRoom createdRoom = await RoomCollection.CreateRoomAsync(validFrom, validUntil, RoomJoinPolicy.InviteOnly, roomParticipants, cancellationToken);
+
+RoomParticipant participant1 = new RoomParticipant(new CommunicationIdentifier("<CommunicationUserId1>")) { Role = ParticipantRole.Presenter };
+RoomParticipant participant2 = new RoomParticipant(new CommunicationIdentifier("<CommunicationUserId2>")) { Role = ParticipantRole.Attendee };
+
+List<RoomParticipant> participants = new List<RoomParticipant>();
+
+participants.Add(participant1);
+participants.Add(participant2);
+
+DateTimeOffset validFrom = DateTimeOffset.UtcNow;
+DateTimeOffset validUntil = validFrom.AddDays(1);
+CancellationToken cancellationToken = new CancellationTokenSource().Token;
+
+CommunicationRoom createdRoom = await roomsClient.CreateRoomAsync(validFrom, validUntil, participants, cancellationToken);
 string roomId = createdRoom.Id;
 Console.WriteLine("\nCreated room with id: " + roomId);
 
@@ -133,37 +146,42 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 DateTimeOffset  validFrom = new DateTime(2022, 05, 01, 00, 00, 00, DateTimeKind.Utc);
 DateTimeOffset  validUntil = validFrom.AddDays(1);
 
-CommunicationRoom updatedRoom = await RoomCollection.UpdateRoomAsync(roomId, validFrom, validUntil, RoomJoinPolicy.InviteOnly, null, cancellationToken);
+CommunicationRoom updatedRoom = await roomsClient.UpdateRoomAsync(roomId, validFrom, validUntil, cancellationToken);
 Console.WriteLine("\nUpdated room with validFrom: " + updatedRoom.ValidFrom + " and validUntil: " + updatedRoom.ValidUntil);
-
 ```
 
-## Add new participants
+### List all created rooms
+
+To retrieve all created rooms, use the `GetRoomsAsync` method exposed on the client.
+
+```csharp
+AsyncPageable<CommunicationRoom> allCreatedRooms = await roomsClient.GetRoomsAsync();
+List<CommunicationRoom> allCreatedRoomsList = await allParticipants.ToEnumerableAsync();
+```
+
+### Add new participants or update existing participants
 
 To add new participants to a `room`, use the `AddParticipantsAsync` method exposed on the client.
 
 ```csharp
-
 // Add participants
 List<RoomParticipant> participants = new List<RoomParticipant>();
-participants.Add(new RoomParticipant(new CommunicationUserIdentifier(user2.Value.User.Id), RoleType.Attendee));
+RoomParticipant participant2 = new RoomParticipant(new CommunicationIdentifier("<CommunicationUserId2>")) { Role = ParticipantRole.Consumer }; // Update participant2 from Attendee to Consumer
+RoomParticipant participant3 = new RoomParticipant(new CommunicationIdentifier("<CommunicationUserId3>")) { Role = ParticipantRole.Attendee }; // Add participant3
 
-var addParticipantsResult = await RoomCollection.AddParticipantsAsync(roomId, participants);
-Console.writeLine("\nAdded participants to room");
+Response addOrUpdateParticipantsResponse = await roomsClient.AddOrUpdateParticipantsAsync(roomId, participants);
 ```
 
-Participants that have been added to a `room` become eligible to join calls.
+Participants that have been added to a `room` become eligible to join calls. Participants that have been updated will see their new `role` in the call.
 
 ## Get list of participants
 
 Retrieve the list of participants for an existing `room` by referencing the `roomId`:
 
 ```csharp
-
 // Get list of participants in room
-ParticipantsCollection existingParticipants = await RoomCollection.GetParticipantsAsync(roomId);
-Console.writeLine("\nRetrieved participants for room: ", existingParticipants);
-
+AsyncPageable<RoomParticipant> existingParticipants = await roomsClient.GetParticipantsAsync(roomId);
+List<RoomParticipant> existingParticipantsList = await allParticipants.ToEnumerableAsync();
 ```
 
 ## Remove participants
@@ -177,7 +195,7 @@ var communicationUser = user2.Value.User.Id;
 List<CommunicationIdentifier> participants = new List<CommunicationIdentifier>();
 participants.Add(new CommunicationUserIdentifier(communicationUser));
 
-var removeParticipantsResult = await RoomCollection.RemoveParticipantsAsync(roomId, participants);
+Response removeParticipantsResponse = await roomsClient.RemoveParticipantsAsync(roomId, participants);
 await roomsClient.removeParticipants(roomId, removeParticipantsList);
 Console.WriteLine("\nRemoved participants from room");
 
@@ -190,13 +208,11 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 
 // Deletes the specified room
 Response deleteRoomResponse = await RoomCollection.DeleteRoomAsync(createdRoomId);
-Console.WriteLine("\nDeleted room with id: " + createdRoomId);
-
 ```
 
 ## Run the code
 
-To run the code, make sure you are on the directory where your `Program.cs` file is. 
+To run the code, make sure you are on the directory where your `Program.cs` file is.
 
 ```console
 
@@ -243,4 +259,5 @@ Deleted room with id:  99445276259151407
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services rooms from the [.NET SDK reference](/dotnet/api/azure.communication.rooms) or [REST API reference](/rest/api/communication/rooms).
+Read about the full set of capabilities of Azure Communication Services re [.NET SDK reference](/dotnet/api/azure.communication.rooms) or [REST API reference](/rest/api/communication/rooms).
+ooms from th
