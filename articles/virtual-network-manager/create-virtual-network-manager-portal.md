@@ -69,7 +69,7 @@ Create three virtual networks using the portal. Each virtual network has a tag o
 
 1. Select **Next** or the **IP addresses** tab and configure the following network address spaces:
 
-     :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-ip.png" alt-text="Screenshot of create a virtual network IP addresses page." lightbox="./media/create-virtual-network-manager-portal/create-vnet-ip.png":::
+     :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-ip.png" alt-text="Screenshot of create a virtual network IP addresses page.":::
 
     | Setting | Value |
     | -------- | ----- |
@@ -132,11 +132,11 @@ In this task, you manually add two virtual networks for your Mesh configuration 
 
 Using [Azure Policy](concept-azure-policy-integration.md), you define a condition to dynamically add two virtual networks to your network group when the name of the virtual network includes **prod** using these steps:
 
-1. From the list of network groups, select **ng-learn-prod-eastus-001** and select **Create azure policy** under *Create policy to dynamically add members*.
+1. From the list of network groups, select **ng-learn-prod-eastus-001** and select **Create Azure policy** under *Create policy to dynamically add members*.
 
     :::image type="content" source="media/create-virtual-network-manager-portal/define-dynamic-membership.png" alt-text="Screenshot of Create Azure Policy button.":::
 
-1. On the **Create azure policy** page, select or enter the following information:
+1. On the **Create Azure policy** page, select or enter the following information:
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-conditional.png" alt-text="Screenshot of create a network group conditional statements tab.":::
 
@@ -202,7 +202,7 @@ Now that the Network Group is created, and has the correct VNets, create a mesh 
 
 ## Deploy the connectivity configuration
 
-To have your configurations applied to your environment, you need to commit the configuration by deployment. You need to deploy the configuration to the **West US** region where the virtual networks are deployed.
+To have your configurations applied to your environment, you need to commit the configuration by deployment. You need to deploy the configuration to the **East US** region where the virtual networks are deployed.
 
 1. Select **Deployments** under **Settings**, then select **Deploy configurations**.
 

@@ -22,7 +22,7 @@ Optimized queries will:
 - Run faster and reduce overall duration of the query execution.
 - Have smaller chance of being throttled or rejected.
 
-Pay particular attention to queries that are used for recurrent and bursty usage, such as dashboards, alerts, Azure Logic Apps, and Power BI. The impact of an ineffective query in these cases is substantial.
+Pay particular attention to queries that are used for recurrent and simultaneous usage, such as dashboards, alerts, Azure Logic Apps, and Power BI. The impact of an ineffective query in these cases is substantial.
 
 Here's a detailed video walkthrough on optimizing queries.
 
@@ -454,7 +454,8 @@ Cross-region and cross-cluster execution of queries requires the system to seria
 A query that spans more than five workspaces is considered a query that consumes excessive resources. Queries can't span more than 100 workspaces.
 
 > [!IMPORTANT]
-> In some multi-workspace scenarios, the CPU and data measurements won't be accurate and will represent the measurement of only a few of the workspaces.
+> - In some multi-workspace scenarios, the CPU and data measurements won't be accurate and will represent the measurement of only a few of the workspaces.
+> - Cross workspace queries having an explicit identifier: workspace ID, or workspace Azure Resource ID, consume less resources and are more performant. See [Create a log query across multiple workspaces](./cross-workspace-query.md#identify-workspace-resources)
 
 ## Parallelism
 Azure Monitor Logs uses large clusters of Azure Data Explorer to run queries. These clusters vary in scale and potentially get up to dozens of compute nodes. The system automatically scales the clusters according to workspace placement logic and capacity.

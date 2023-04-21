@@ -4,14 +4,14 @@ title: Azure Logic Apps documentation # < 60 chars
 summary: Build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems. # < 160 chars
 
 metadata:
-  title: Azure Logic Apps documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Logic Apps documentation
+  description: Build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems.
   services: logic-apps # service
-  ms.service: logic-apps #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
-  author: ecfan #Required; your GitHub user alias, with correct capitalization.
-  ms.author: estfan; azla #Required; microsoft alias of author; optional team alias.
-  ms.date: 02/28/2023 #Required; mm/dd/yyyy format.
+  ms.service: logic-apps
+  ms.topic: landing-page
+  author: ecfan
+  ms.author: estfan; azla
+  ms.date: 02/28/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

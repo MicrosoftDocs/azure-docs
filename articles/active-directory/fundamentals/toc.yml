@@ -93,6 +93,8 @@ items:
       href: whats-new-sovereign-clouds.md  
     - name: Archive for What's new? in Azure AD
       href: whats-new-archive.md
+    - name: Archive for What's new in sovereign clouds? in Azure AD
+      href: whats-new-sovereign-clouds-archive.md  
   - name: Frequently asked questions
     href: active-directory-faq.yml
   - name: Company branding CSS template reference guide
