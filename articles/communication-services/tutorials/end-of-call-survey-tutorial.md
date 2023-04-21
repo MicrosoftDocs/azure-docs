@@ -39,7 +39,7 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 
 
 > [!IMPORTANT]
-> End of Call Survey is available starting on the version [1.13-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.13-beta.1) of the Calling SDK. Make sure to use that version or later when trying the instructions.
+> End of Call Survey is available starting on the version [1.13.0-beta.4](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.0-beta.4) of the Calling SDK. Make sure to use that version or later when trying the instructions.
 
 ## Sample of API usage
 
