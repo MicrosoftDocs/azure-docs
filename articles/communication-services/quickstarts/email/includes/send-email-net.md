@@ -217,7 +217,7 @@ You can also now subscribe to Email Operational logs that provide information re
 - Email Send Mail operational logs - provides detailed information related to the Email service send mail requests.
 - Email Status Update operational logs - provides message and recipient level delivery status updates related to the Email service send mail requests.
 
-See how to [Get started with log analytics in Azure Communication Service](../../../concepts/logging-and-diagnostics.md)
+Access logs for [Email Communication Service](../../../concepts/analytics/logs/email-logs.md).
 
 ### Run the code
 
@@ -291,7 +291,7 @@ dotnet run
 
 ### Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/ManualPolling)
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithManualPollingForStatus)
 
 ### Send an email message using the object model to construct the email payload
 
