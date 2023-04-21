@@ -209,7 +209,7 @@ When you assign the Lab Services Reader role on the lab, the user can:
 
 The **Access control (IAM)** page in the Azure portal is used to configure Azure role-based access control on Azure Lab Services resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups. The following screenshot shows Active Directory integration (Azure RBAC) using access control (IAM) in the Azure portal:
 
-**TODO: add screenshot of IAM**
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/azure-portal-access-control.png" alt-text="Screenshot that shows the Access Control page in the Azure portal to manage role assignments.":::
 
 For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
