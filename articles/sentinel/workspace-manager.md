@@ -66,7 +66,7 @@ Groups allow you to organize workspaces together based on business groups, verti
      - To add multiple workspaces, select the workspaces and **Add** > **Group from selected**.
     :::image type="content" source="media/workspace-manager/add-group.png" alt-text="Screenshot shows the add group menu.":::
 
-1. In the **Create or update group** wizard, define a **Name** for the Group and optionally provide a Description as well.
+1. On the **Create or update group** page, enter a **Name** and **Description** for the Group.
     :::image type="content" source="media/workspace-manager/add-group-name.png" alt-text="Screenshot shows the group create or update configuration page.":::
 
 1. In the **Select workspaces** tab, click **Add** and select the member workspaces that you would like to add to the Group.
