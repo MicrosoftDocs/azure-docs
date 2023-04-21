@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 01/19/2023
+ms.date: 04/21/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -16,7 +16,7 @@ ms.custom: devx-track-python, devguide-python
 
 # Upload a block blob with Python
 
-This article shows how to upload a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can upload data to a block blob from a file path, a stream, a binary object or a text string. You can also upload blobs with index tags.
+This article shows how to upload a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can upload data to a block blob from a file path, a stream, a binary object, or a text string. You can also upload blobs with index tags.
 
 ## Prerequisites
 

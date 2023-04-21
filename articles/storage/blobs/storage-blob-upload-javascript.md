@@ -5,7 +5,7 @@ description: Learn how to upload a blob to your Azure Storage account using the 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 07/18/2022
+ms.date: 04/21/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -15,7 +15,7 @@ ms.custom: devx-track-js, devguide-js
 
 # Upload a blob with JavaScript
 
-This article shows how to upload a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can upload data to a block blob from a file path, a stream, a binary object or a text string. You can also upload blobs with index tags.
+This article shows how to upload a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can upload data to a block blob from a file path, a stream, a buffer, or a text string. You can also upload blobs with index tags.
 
 ## Prerequisites
 
@@ -91,7 +91,7 @@ const uploadOptions = {
 await createBlobFromReadStream(containerClient, `my-text-file.txt`, readableStream, uploadOptions);
 ```
 
-## Upload a block blob from a BinaryData object
+## Upload a block blob from a buffer
 
 The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobParallelUpload [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to affect the upload:
 

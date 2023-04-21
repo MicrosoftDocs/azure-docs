@@ -41,7 +41,7 @@ You can use any of the following methods to download a blob:
  
 ## Download to a file path
 
-The following example downloads a blob to a local a file path:
+The following example downloads a blob to a local file path:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDownload.java" id="Snippet_DownloadBLobFile":::
 

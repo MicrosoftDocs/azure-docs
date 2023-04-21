@@ -5,7 +5,7 @@ description: Learn how to upload a blob with TypeScript to your Azure Storage ac
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/21/2023
+ms.date: 04/21/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -15,7 +15,7 @@ ms.custom: devx-track-ts, devguide-ts
 
 # Upload a blob with TypeScript
 
-This article shows how to upload a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can upload data to a block blob from a file path, a stream, a binary object or a text string. You can also upload blobs with index tags.
+This article shows how to upload a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can upload data to a block blob from a file path, a stream, a buffer, or a text string. You can also upload blobs with index tags.
 
 ## Prerequisites
 
@@ -94,7 +94,7 @@ const uploadOptions: BlockBlobUploadStreamOptions = {
 await createBlobFromReadStream(containerClient, `my-text-file.txt`, readableStream, uploadOptions);
 ```
 
-## Upload a block blob from a BinaryData object
+## Upload a block blob from a buffer
 
 The following example uploads a Node.js buffer to blob storage with the [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object. Pass in the BlockBlobParallelUpload [options](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) to affect the upload:
 
