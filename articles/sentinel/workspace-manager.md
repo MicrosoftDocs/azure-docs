@@ -61,7 +61,9 @@ Groups allow you to organize workspaces together based on business groups, verti
 > Before proceeding further, make sure that you have at least one active content item deployed in the central workspace. This will enable you to select content items from central to member workspace(s) in the subsequent steps.
 >
 
-1. To create a Group, click **Add** and **Group** or select Workspaces and click **Group from selected**.
+1. To create a Group:
+     - To add one workspace, select **Add** > **Group**. 
+     - To add multiple workspaces, select the workspaces and **Add** > **Group from selected**.
     :::image type="content" source="media/workspace-manager/add-group.png" alt-text="Screenshot shows the add group menu.":::
 
 1. In the **Create or update group** wizard, define a **Name** for the Group and optionally provide a Description as well.
