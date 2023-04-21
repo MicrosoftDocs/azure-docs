@@ -63,18 +63,18 @@ For Azure Lab Services, consider the following scopes:
 
 The following table shows common lab activities and the role that's needed for a user to perform that activity.
 
-> [!IMPORTANT]
-> The Owner or Contributor role can also be assigned at the [subscription](./administrator-guide.md#subscription) level. An organization’s subscription is used to manage billing and security for all Azure resources and services.  Typically, only administrators have subscription-level access because this includes full access to all resources in the subscription.  Also, when you assign the Owner role,the user has the ability to grant access to others.
-
 | Activity | Role type | Role | Scope |
 | -------- | --------- | ---- | ----- |
-| Grant permission to create a resource group (which needs to exist *before* a lab plan or lab can be created). | Administrator | Owner or Contributor | Subscription |
+| Grant permission to create a resource group. The resource group needs to exist *before* a lab plan or lab can be created. | Administrator | Owner or Contributor | Subscription |
 | Grant permission to submit a Microsoft support ticket, including to [request capacity](./capacity-limits.md). | Administrator | Owner, Contributor, Support Request Contributor | Subscription |
 | Grant permission to: <br/>- Assign roles to other users.<br/>- Create/manage lab plans, labs, and other resources within the resource group.<br/>- Enable/disable marketplace and custom images on a lab plan.<br/>- Attach/detach compute gallery on a lab plan. | Administrator | Owner | Resource group |
-| Grant permission to: <br/>- Create/manage lab plans, labs, and other resources within the resource group.<br/>- Enable/disable marketplace and custom images on a lab plan.<br/>- Attach/detach compute gallery on a lab plan.<br/><br/>However, *not* the ability to assign roles to other users. | Administrator | Contributor | Resource group |
-| Grant permission to create/manage their own labs:<br/>- Using *all* lab plans within a resource group.<br/>- Or, only for a specific lab plan. | Lab management | Lab Creator | Resource group or Lab plan |
+| Grant permission to: <br/>- Create/manage lab plans, labs, and other resources within the resource group.<br/>- Enable or disable Azure Marketplace and custom images on a lab plan.<br/>- Attach or detach a compute gallery on a lab plan.<br/><br/>However, *not* the ability to assign roles to other users. | Administrator | Contributor | Resource group |
+| Grant permission to create or manage your own labs:<br/>- Using *all* lab plans within a resource group.<br/>- Or, only for a specific lab plan. | Lab management | Lab Creator | Resource group or Lab plan |
 | Grant permission to co-manage a lab, but *not* the ability to create labs. | Lab management | Lab Contributor | Lab |
 | Grant permission to only start/stop/reset VMs for: <br/>- All labs within a resource group.<br/>- Or, only for a specific lab. | Lab management | Lab Assistant | Resource group or Lab |
+
+> [!IMPORTANT]
+> An organization’s subscription is used to manage billing and security for all Azure resources and services. You can assign the Owner or Contributor role at the [subscription](./administrator-guide.md#subscription) level. Typically, only administrators have subscription-level access because this includes full access to all resources in the subscription.
 
 ## Administrative roles
 
