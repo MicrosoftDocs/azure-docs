@@ -74,17 +74,17 @@ The following table shows common lab activities and the role that's needed for a
 | Grant permission to only start/stop/reset VMs for: <br/>- All labs within a resource group.<br/>- Or, only for a specific lab. | Lab management | [Lab Assistant](#lab-assistant-role) | Resource group or Lab |
 
 > [!IMPORTANT]
-> An organization’s subscription is used to manage billing and security for all Azure resources and services. You can assign the Owner or Contributor role at the [subscription](./administrator-guide.md#subscription) level. Typically, only administrators have subscription-level access because this includes full access to all resources in the subscription.
+> An organization’s subscription is used to manage billing and security for all Azure resources and services. You can assign the Owner or Contributor role on the [subscription](./administrator-guide.md#subscription). Typically, only administrators have subscription-level access because this includes full access to all resources in the subscription.
 
 ## Administrator roles
 
 To grant users permission to manage Azure Lab Services within your organization’s subscription, you should assign them the [Owner](#owner-role), [Contributor](#contributor-role), or the [Lab Services Contributor](#lab-services-contributor-role) role.
 
-Assign these roles at the *resource group level*. Consequently, the lab plans and labs within the resource group inherit these role assignments.
+Assign these roles on the *resource group*. Consequently, the lab plans and labs within the resource group inherit these role assignments.
 
-:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-administrator-roles.png" alt-text="Diagram that shows the resource levels and the three administrator roles, assigned to the resource group level.":::
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-administrator-roles.png" alt-text="Diagram that shows the resource hierarchy and the three administrator roles, assigned to the resource group.":::
 
-The following table compares the different administrator roles when they are assigned at the resource group level.
+The following table compares the different administrator roles when they are assigned on the resource group.
 
 | Lab plan/Lab | Activity | Owner | Contributor | Lab Services Contributor |
 | ------------ | -------- | :-----: | :-----------: | :------------------------: |
@@ -100,7 +100,7 @@ The following table compares the different administrator roles when they are ass
  
 ### Owner role
 
-Assign the Owner role to give a user full control to create or manage lab plans and labs, and grant permissions to other users. When a user has the Owner role at the resource group level, they can do the following activities across all resources within the resource group:
+Assign the Owner role to give a user full control to create or manage lab plans and labs, and grant permissions to other users. When a user has the Owner role on the resource group, they can do the following activities across all resources within the resource group:
 
 - Assign roles to administrators, so they can manage lab-related resources.
 - Assign roles to educators so they can create and manage labs.
@@ -139,9 +139,9 @@ These lab management roles only grant permission to view lab plans. These roles 
 
 Assign the Lab Creator role to a user to give a user permissions to create labs and have full control over the labs that they create. For example, they can change their labs’ settings, delete their labs, and even grant other users permission to their labs. 
 
-Assign the Lab Creator role at either the *resource group or lab plan level*.
+Assign the Lab Creator role on either the *resource group or lab plan*.
 
-:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-lab-creator-role.png" alt-text="Diagram that shows the resource levels and the Lab Creator role, assigned to the resource group and lab plan level.":::
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-lab-creator-role.png" alt-text="Diagram that shows the resource hierarchy and the Lab Creator role, assigned to the resource group and lab plan.":::
 
 The following table compares the Lab Creator role assignment for the resource group or lab plan.
 
@@ -160,9 +160,9 @@ The following table compares the Lab Creator role assignment for the resource gr
 
 Assign the Lab Contributor role to give a user permission to help manage an existing lab.
 
-Assign the Lab Contributor role at the *lab level*.
+Assign the Lab Contributor role on the *lab*.
 
-:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-lab-contributor-role.png" alt-text="Diagram that shows the resource levels and the Lab Contributor role, assigned to the lab level.":::
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-lab-contributor-role.png" alt-text="Diagram that shows the resource hierarchy and the Lab Contributor role, assigned to the lab.":::
 
 When you assign the Lab Contributor role on the lab, the user can manage the assigned lab. Specifically, the user:
 
@@ -174,9 +174,9 @@ When you assign the Lab Contributor role on the lab, the user can manage the ass
 
 Assign the Lab Assistant role to grant a user permission to start, stop, and reset lab virtual machines.
 
-Assign the Lab Assistant role at the *resource group or lab level*.
+Assign the Lab Assistant role on the *resource group or lab*.
 
-:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-lab-assistant-role.png" alt-text="Diagram that shows the resource levels and the Lab Assistant role, assigned to the resource group and lab level.":::
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-lab-assistant-role.png" alt-text="Diagram that shows the resource hierarchy and the Lab Assistant role, assigned to the resource group and lab.":::
 
 When you assign the Lab Assistant role on the resource group, the user:
 
@@ -193,9 +193,9 @@ When you assign the Lab Assistant role on the lab, the user:
 
 The Lab Services Reader role allows users to view existing labs. User can’t make any changes to existing labs. 
 
-Assign the Lab Services Reader role on the *resource group or lab level*.
+Assign the Lab Services Reader role on the *resource group or lab*.
 
-:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-lab-services-reader-role.png" alt-text="Diagram that shows the resource levels and the Lab Services Reader role, assigned to the resource group and lab level.":::
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-lab-services-reader-role.png" alt-text="Diagram that shows the resource hierarchy and the Lab Services Reader role, assigned to the resource group and lab.":::
 
 When you assign the Lab Services Reader role on the resource group, the user can:
 
@@ -215,7 +215,7 @@ For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-
 
 ## Resource group and lab plan structure
 
-Your organization should invest time up front to plan the structure of resource groups and lab plans. This is especially important when you assign roles at the resource group level because this also applies permissions to all resources in the resource group.
+Your organization should invest time up front to plan the structure of resource groups and lab plans. This is especially important when you assign roles on the resource group because this also applies permissions to all resources in the resource group.
 
 To ensure that users are only granted permission to the appropriate resources:
 
@@ -223,7 +223,7 @@ To ensure that users are only granted permission to the appropriate resources:
 
 - Organize lab plans and labs into separate resource groups according to the users that should have access. 
 
-For example, you might create separate resource groups for different departments to isolate each department’s lab resources. Lab creators in one department can then be granted permissions at the resource group level, which only grants them access to the lab resources of their department.
+For example, you might create separate resource groups for different departments to isolate each department’s lab resources. Lab creators in one department can then be granted permissions on the resource group, which only grants them access to the lab resources of their department.
 
 > [!IMPORTANT]
 > Plan the resource group and lab plan structure upfront because it’s not possible to move lab plans or labs to a different resource group after they're created.
