@@ -227,14 +227,17 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
     ```
 
 1. Look for the **Microsoft RSA Root Certificate Authority 2017** in the output. It should look something like this:
+    - If the **Microsoft ECC Root Certificate Authority 2017** and **Microsoft RSA Root Certificate Authority 2017** root certificates are trusted, they should appear in the list of trusted root certificates used by the JVM.
+    - If it's not in the list, you'll need to add it.
+    - The output should look like the following sample:
+
     ```bash
         ...
         Microsoft ECC Root Certificate Authority 2017, 20-Aug-2022, Root CA,
         Microsoft RSA Root Certificate Authority 2017, 20-Aug-2022, Root CA,
         ...
     ```
-       - If the **Microsoft ECC Root Certificate Authority 2017** and **Microsoft RSA Root Certificate Authority 2017** root certificates are trusted, they should appear in the list of trusted root certificates used by the JVM.
-       - If it's not in the list, you'll need to add it.
+
 
 1. To add a root certificate to the trusted root certificate store in Java, you can use the `keytool` utility. The following example adds the **Microsoft RSA Root Certificate Authority 2017** root certificate:
     ```bash
