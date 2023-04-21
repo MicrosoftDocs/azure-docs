@@ -278,7 +278,7 @@ For more information about how Microsoft.Identity.Web enables you to create web 
 
 The code related to authentication in an ASP.NET web app and web APIs is located in the [App_Start/Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/App_Start/Startup.Auth.cs) file.
 
-```csharp
+```c#
  public void ConfigureAuth(IAppBuilder app)
  {
   app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
