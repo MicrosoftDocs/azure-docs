@@ -65,7 +65,7 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 | [Count of routes learned from peer](#learnedroutes)| Availability | Count | Maximum | Count Of Routes Learned From Peer by ExpressRouteGateway | roleInstance | Yes | 
 | [Frequency of routes changed](#frequency) | Availability | Count | Total | Frequency of Routes change in ExpressRoute Gateway | roleInstance | Yes | 
 | [Number of VMs in virtual network](#vm) | Availability | Count | Maximum | Number of VMs in the Virtual Network | No Dimensions | Yes |
-| [Count of active flows](#activeflows) | Scalability | Count | Average | Number of active flows on ExpressRoute Gateway | roleInstance | Yes |
+| [Active flows](#activeflows) | Scalability | Count | Average | Number of active flows on ExpressRoute Gateway | roleInstance | Yes |
 | [Max flows created per second](#maxflows) | Scalability | FlowsPerSecond | Maximum | Maximum number of flows created per second on ExpressRoute Gateway | roleInstance, direction | Yes |
 
 ### ExpressRoute Gateway connections
@@ -294,6 +294,7 @@ This metric shows the number of virtual machines that are using the ExpressRoute
 ## <a name = "activeflows"></a>Count of active flows
 
 Aggregation type: *Avg*
+
 Split by: Gateway Instance
 
 
@@ -304,9 +305,10 @@ This metric displays a count of the total number of active flows on the ExpressR
 ## <a name = "maxflows"></a>Max flows created per second
 
 Aggregation type: *Max*
+
 Split by: Gateway Instance and Direction (Inbound/Outbound)
 
-This metric display maximum number of flows created per second on the ExpressRoute Gateway. Through split at instance level and direction, you can see max flow count per gateway instance and the direction for flow count. For more information, see [understand network flow limits](../virtual-network/virtual-machine-network-throughput.md#network-flow-limits).
+This metric display maximum number of flows created per second on the ExpressRoute Gateway. Through split at instance level and direction, you can see max flow creation rate per gateway instance and inbound/outbound direction respectively. For more information, see [understand network flow limits](../virtual-network/virtual-machine-network-throughput.md#network-flow-limits).
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/max-flows-per-second.png" alt-text="Screenshot of the maximum number of flows created per second metrics dashboard.":::
 
