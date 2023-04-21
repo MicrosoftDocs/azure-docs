@@ -76,13 +76,53 @@ The following table shows common lab activities and the role that's needed for a
 > [!IMPORTANT]
 > An organization’s subscription is used to manage billing and security for all Azure resources and services. You can assign the Owner or Contributor role at the [subscription](./administrator-guide.md#subscription) level. Typically, only administrators have subscription-level access because this includes full access to all resources in the subscription.
 
-## Administrative roles
+## Administrator roles
 
+To grant users permission to manage Azure Lab Services within your organization’s subscription, you should assign them the [Owner](#owner-role), [Contributor](#contributor-role), or the [Lab Services Contributor](#lab-services-contributor-role) role.
+
+Assign these roles at the *resource group level*. Consequently, the lab plans and labs within the resource group inherit these role assignments.
+
+:::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-administrator-roles.png" alt-text="Diagram that shows the resource levels and the three administrator roles, assigned to the resource group level.":::
+
+The following table compares the different administrator roles when they are assigned at the resource group level.
+
+| Lab plan/Lab | Activity | Owner | Contributor | Lab Services Contributor |
+| ------------ | -------- | ----- | ----------- | ------------------------ |
+| Lab plan | View all lab plans within the resource group | Yes | Yes | Yes |
+| Lab plan | Create, change or delete all lab plans within the resource group | Yes | Yes | Yes |
+| Lab plan | Assign roles to lab plans within the resource group | Yes | No | No |
+| Lab | Create labs within the resource group** | Yes | Yes | Yes |
+| Lab | View other users’ labs within the resource group | Yes | Yes | Yes |
+| Lab | Change or delete other users’ labs within the resource group | Yes | Yes | No |
+| Lab | Assign roles to other users’ labs within the resource group | Yes | No | No |
+
+** Users are automatically granted permission to view, change settings, delete, and assign roles for the labs that they create.
+ 
 ### Owner role
+
+Assign the Owner role to give a user full control to create or manage lab plans and labs, and grant permissions to other users. When a user has the Owner role at the resource group level, they can do the following activities across all resources within the resource group:
+
+- Assign roles to administrators, so they can manage lab-related resources.
+- Assign roles to educators so they can create and manage labs.
+- Create lab plans and labs.
+- View, delete, and change settings for all lab plans. This includes attaching or detaching the compute gallery and enabling or disabling Azure Marketplace and custom images on lab plans.
+- View, delete, and change settings for all labs.
+
+> [!CAUTION]
+> When you assign the Owner or Contributor role on the resource group, then these permissions also apply to non-lab related resources that exist in the resource group. For example, resources such as virtual networks, storage account, and more.
 
 ### Contributor role
 
+Assign the Contributor role to give a user full control to create or manage lab plans and labs within a resource group. The Contributor role has the same permissions as the Owner role, *except* for:
+
+- Performing role assignments
+
 ### Lab Services Contributor role
+
+The Lab Services Contributor is the most restrictive of the administrator roles. Assign the Lab Services Contributor role to enable the same activities as the Owner role, *except* for:
+
+- Performing role assignments
+- Chaning or deleting other users’ labs
 
 ## Lab management roles
 
