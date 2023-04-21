@@ -18,7 +18,7 @@ Before you can follow the instructions in this article, you'll need to do the fo
 - [Download the MSIXMGR tool](https://aka.ms/msixmgr)
 - Get an MSIX-packaged application (.MSIX file)
 - Get administrative permissions on the machine where you'll create the MSIX image 
-- [Set up MSIXMGR tool](/azure/virtual-desktop/app-attach-msixmgr)
+- [Set up MSIXMGR tool](app-attach-msixmgr.md)
 
 ## Parameters
 
@@ -175,11 +175,13 @@ msixmgr.exe -?
 
 To learn more about MSIX app attach, check out these articles:
 
-- [What is MSIX app attach?](/azure/virtual-desktop/what-is-app-attach)
-- [Set up MSIX app attach with the Azure portal](/azure/virtual-desktop/app-attach-azure-portal)
-- [Set up MSIX app attach using PowerShell](/azure/virtual-desktop/app-attach-powershell)
-- [Create PowerShell scripts for MSIX app attach](/azure/virtual-desktop/app-attach)
-- [Prepare an MSIX image for Azure Virtual Desktop](/azure/virtual-desktop/app-attach-image-prep)
-- [Set up a file share for MSIX app attach](/azure/virtual-desktop/app-attach-file-share)
+- [Using the MSIXMGR tool](app-attach-msixmgr.md)
+- [What's new in the MSIXMGR tool](whats-new-msixmgr.md)
+- [What is MSIX app attach?](what-is-app-attach.md)
+- [Set up MSIX app attach with the Azure portal](app-attach-azure-portal.md)
+- [Set up MSIX app attach using PowerShell](app-attach-powershell.md)
+- [Create PowerShell scripts for MSIX app attach](app-attach.md)
+- [Prepare an MSIX image for Azure Virtual Desktop](app-attach-image-prep.md)
+- [Set up a file share for MSIX app attach](app-attach-file-share.md)
 
-If you have questions about MSIX app attach, see our [App attach FAQ](/azure/virtual-desktop/app-attach-faq) and [App attach glossary](/azure/virtual-desktop/app-attach-glossary).
+If you have questions about MSIX app attach, see our [App attach FAQ](app-attach-faq.yml) and [App attach glossary](app-attach-glossary.md).
