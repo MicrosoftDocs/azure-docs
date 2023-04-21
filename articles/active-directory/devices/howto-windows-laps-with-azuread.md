@@ -66,7 +66,7 @@ This feature is now available on the following Windows OS platforms with the spe
 
 To enable Windows LAPS with Azure AD, you must:
 
-1. In the **Azure AD Devices** menu, select **Device settings**, and then select **Yes** for Enable Local Administartor Password Solution (LAPS) setting and click **Save**. You also have the option to use MS Graph API [Update deviceRegistrationPolicy](https://learn.microsoft.com/graph/api/deviceregistrationpolicy-update?view=graph-rest-beta).
+1. In the **Azure AD Devices** menu, select **Device settings**, and then select **Yes** for Enable Local Administartor Password Solution (LAPS) setting and click **Save**. You also have the option to use MS Graph API [Update deviceRegistrationPolicy](https://learn.microsoft.com/graph/api/deviceregistrationpolicy-update?view=graph-rest-beta&preserve-view=true).
 2. Configure client-side policy and set **BackUpDirectory** to be Azure AD.
 - If you are using Microsoft Intune to manage client side policies, see [Manage Windows LAPS using Microsoft Intune](https://learn.microsoft.com/mem/intune/protect/windows-laps-policy)
 - If you are using Group Policy Objects (GPO) to manage client side policies, see [Windows LAPS Group Policy](https://learn.microsoft.com/windows-server/identity/laps/laps-management-policy-settings#windows-laps-group-policy)
@@ -85,7 +85,7 @@ To view local administrator password for a Windows device joined to Azure AD, yo
 - Cloud Device Administrator
 - Intune Service Administrator
 
-You can also use MS Graph API [Get deviceLocalCredentialInfo](https://learn.microsoft.com/en-us/graph/api/devicelocalcredentialinfo-get?view=graph-rest-beta) to recover local administrative password. If you use the MS Graph API, the password returned is in Base64 encoded value that you will need to decode before using it.
+You can also use MS Graph API [Get deviceLocalCredentialInfo](https://learn.microsoft.com/graph/api/devicelocalcredentialinfo-get?view=graph-rest-beta&preserve-view=true) to recover local administrative password. If you use the MS Graph API, the password returned is in Base64 encoded value that you will need to decode before using it.
 
 ## Enumerating all Windows LAPS enable devices
 
@@ -118,12 +118,10 @@ To view audit events for local adminsitartor password update, you can go to **Az
 To view audit events for local adminsitartor password recovery, you can go to **Azure AD Devices | Overview** page, select **Audit** logs, then use **Activity** filter and Search for **Recover device local administrator password** to view the audit events.
 
 ## Conditional Access policies for local administrator password recovery
-To configure Conditional Access for local administartor passwrod recovery you will need to assign policy with user scope to built-in roles such as Global Administrator, Cloud Device Administrator and Intune Administrator that when granted *deviceLocalCredential.Read.All* permission have the ability to recover local administrator password for any Windows device joined to Azure AD and enabled with Windows LAPS. You can find more details on [Conditional Access USer Assignments](https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/concept-conditional-access-users-groups)
+To configure Conditional Access for local administartor passwrod recovery you will need to assign policy with user scope to built-in roles such as Global Administrator, Cloud Device Administrator and Intune Administrator that when granted *deviceLocalCredential.Read.All* permission have the ability to recover local administrator password for any Windows device joined to Azure AD and enabled with Windows LAPS. You can find more details on [Conditional Access USer Assignments](https://learn.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-users-groups)
 
 > [!NOTE]  
 > Other role types including administrative unit-scoped roles and custom roles aren't supported
-
-You can use Azure AD to enable LAPS Microsoft Intune endpoint security policies for [account protection](../protect/endpoint-security-account-protection-policy.md) to manage LAPS on devices that have enrolled with Intune. Intune policies can:
 
 **Licensing requirements**:
 
