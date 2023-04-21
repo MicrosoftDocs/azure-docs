@@ -109,11 +109,11 @@ The following section walks through a sample image moderation request with cURL.
 
 ### Prepare a sample image
 
-Choose a sample image to analyze. We support JPEG, PNG, GIF, and BMP image formats.
+Choose a sample image to analyze, and download it to your device. We support JPEG, PNG, GIF, and BMP image formats.
 
-You can upload your image by one of two methods: **Base64 or by blob storage URL**. .
-- First method (recommended): Encode your image to base64. You can use a website like [codebeautify](https://codebeautify.org/image-to-base64-converter) to do the encoding easily. Save the encoded image to your device, and copy the local file path to use in the next step. 
-- Second method: [Upload the image to an Azure Blob Storage Account](https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html). Put your Blob URL into the _url_ parameter below. Currently we only support system assigned Managed Identity to access blob storage, so you must enable system assigned Managed identity for the Azure Content Safety instance and assign the role of "Storage Blob Data Contributor/Owner/Reader" to the identity:
+You can input your image by one of two methods: **local filestream** or **blob storage URL**.
+- **Local filestream** (recommended): Encode your image to base64. You can use a website like [codebeautify](https://codebeautify.org/image-to-base64-converter) to do the encoding. Then save the encoded string to a temporary location. 
+- **Blob storage URL** [Upload your image to an Azure Blob Storage account](https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html). TBD Put your Blob URL into the _url_ parameter below. Currently we only support system assigned Managed Identity to access blob storage, so you must enable system assigned Managed identity for the Azure Content Safety instance and assign the role of "Storage Blob Data Contributor/Owner/Reader" to the identity:
     - Enable managed identity for Azure Content Safety instance. 
 
       ![Screenshot of Azure portal enabling managed identity.](https://user-images.githubusercontent.com/36343326/213126427-2c789737-f8ec-416b-9e96-d96bf25de58e.png)
@@ -130,9 +130,7 @@ Paste the command below into a text editor, and make the following changes.
 
 1. Substitute the `<endpoint>` with your resource endpoint URL.
 1. Replace `<your_subscription_key>` with your key.
-1. Replace the `"image"` field in the body with tbd.
-
-Here is a sample request with cURL. You must have [cURL](https://curl.se/download.html) installed to run it.
+1. Populate the `"image"` field in the body with either a `"content"` field or a `"url"` field. For example: `{"image": {"content": "base64_content_here"}` or `{"image": {"url": "blob_storage_url_here"}`.
 
 ```shell
 curl.exe --location --request POST '<endpoint>/contentsafety/image:analyze?api-version=2023-04-30-preview' \
@@ -144,6 +142,8 @@ curl.exe --location --request POST '<endpoint>/contentsafety/image:analyze?api-v
   }
 }'
 ```
+
+Open a command prompt window and run the cURL command.
 
 ### Interpret the API response
 
@@ -177,6 +177,3 @@ The JSON fields in the output are defined here:
 | **Category**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text sample is run through the text moderation model, it could be classified as both sexual content and violence. [Content flags](../concepts/content-flags.md)| String |
 | **Risk Level** | Severity of the consequences of showing the content in question.  | Number |
 
-## Next steps
-
-tbd
