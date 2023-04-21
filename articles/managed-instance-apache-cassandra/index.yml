@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure Managed Instance for Apache Cassandra?
             url: introduction.md
+          - text: Management Operations
+            url: management-operations.md            
       - linkListType: get-started
         links:
           - text: Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra
