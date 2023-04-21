@@ -36,7 +36,7 @@ In this section, you use Batch Explorer to create the Batch pool and Batch job t
 1. Sign in to Batch Explorer using your Azure credentials.
 1. Create a pool by selecting **Pools** on the left side side navigation, and then the select the **Add** button above the search form. 
 
-    :::image type="content" source="media/folder-with-same-name-as-article-file/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
+    :::image type="content" source=".media/tutorial-batch-functions/add-pool.png" alt-text="Screenshot of the Pools page in a Batch account that highlights the Add button.":::
  
 	1. Enter a **Pool ID**. This example names the pool `ocr-pool`.
     1. Select **canonical** as the **Publisher**.
@@ -63,7 +63,8 @@ Here you create blob containers that store your input and output files for the O
 1. Select **Containers** from the left side navigation, and create two blob containers (one for input files, one for output files) by following the steps at [Create a blob container](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
 1. Create a shared access signature for your output container in Storage Explorer by selecting the output container, and on the **Shared access tokens** page, select **Write** in the **Permissions** drop down. No other permissions are necessary.
 1. Select **Generate SAS token and URL**, and copy the **Blob SAS URL** to use later for your function.
-    :::image type="content" source="media/folder-with-same-name-as-article-file/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
+
+    :::image type="content" source=".media/tutorial-batch-functions/shared-access-tokens.png" alt-text="Screenshot of the Shared access tokens page that highlights the Permissions dropdown and the Generate SAS token and URL button.":::
 
 ## Create an Azure Function
 
@@ -72,13 +73,20 @@ In this section, you create the Azure Function that triggers the OCR Batch job w
 1. Follow the steps in [Create a function triggered by Azure Blob storage](../azure-functions/functions-create-storage-blob-triggered-function.md) to create a function.
 	1. For **runtime stack**, choose .NET. This example function uses C# to take advantage of the Batch .NET SDK.
 	1. On the **Storage** page, use the same storage account that you linked to your Batch account.
+
+    The following screenshot the **Create Function App** page on the **Basics** tab using example information.
+
+    :::image type="content" source="./media/tutorial-batch-functions/create-function-app.png" alt-text="Screenshot of the Create Function App page on the Basics tab using example information.":::
+
     1. Select **Review + create > Create**.
 	1. While creating the Azure Blob storage account trigger, be sure to set 
 1. In your function select **Functions** from the left side navigation and select **Create**.
 1. In the **Create function** pane, select Azure Blob Storage trigger.
 1. Enter a name for your function in **New Function**. In this example the name is OcrTrigger, and enter the path as `input/{name}` where input in the name of your Blob container.
 1. Select **Create**.
-    :::image type="content" source="media/folder-with-same-name-as-article-file/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
+
+    :::image type="content" source="./media/tutorial-batch-functions/create-azure-blob-storage-trigger.png" alt-text="Screenshot of the Create Function pane that highlights the Azure Blob Storage trigger option and New Function and Path Fields.":::
+
 1. Once the blob-triggered function is created, select **Code + Test**. Use the [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) and [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) from GitHub in the Function. `function.proj` doesn't exist by default, so select the **Upload** button to upload it into your development workspace.
 	* `run.csx` is run when a new blob is added to your input blob container.
 	* `function.proj` lists the external libraries in your Function code, for example, the Batch .NET SDK.
