@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
-# How to create a secure workspace
+# Tutorial: How to create a secure workspace
 
 In this article, learn how to create and connect to a secure Azure Machine Learning workspace. A secure workspace uses Azure Virtual Network to create a security boundary around resources used by Azure Machine Learning. 
 

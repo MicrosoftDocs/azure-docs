@@ -144,7 +144,7 @@ After enabling Azure AD Kerberos authentication, you'll need to explicitly grant
 
 4. Select the application with the name matching **[Storage Account] `<your-storage-account-name>`.file.core.windows.net**.
 5. Select **API permissions** in the left pane.
-6. Select **Grant admin consent**.
+6. Select **Grant admin consent for [Directory Name]** to grant consent for the requested permissions for all accounts in the Directory.
 7. Select **Yes** to confirm.
 
   > [!IMPORTANT]
