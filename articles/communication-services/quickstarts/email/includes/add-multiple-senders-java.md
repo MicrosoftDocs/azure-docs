@@ -16,7 +16,7 @@ ms.custom: mode-other
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - An Azure Email Communication Services Resource ready to provision domains. [Get started creating an Email Communication Resource](../create-email-communication-resource.md).
 - An [Azure Managed Domain](../add-azure-managed-domains.md) or [Custom Domain](../add-custom-verified-domains.md) provisioned and ready to send emails.
-- We will be using a [service principal for authentication](../../../../active-directory/develop/howto-create-service-principal-portal.md). Set the values of the client ID, tenant ID and client secret of the AAD application as the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
+- We are using a [service principal for authentication](../../../../active-directory/develop/howto-create-service-principal-portal.md). Set the values of the client ID, tenant ID and client secret of the AAD application as the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
 
 ## Install the required packages
 
@@ -32,7 +32,7 @@ Add the following dependency to your `pom.xml`.
 
 ## Initialize the management client
 
-Set the environment variable `AZURE_SUBSCRIPTION_ID` with the subscription id of the subscription your Domain and Email resources are in. Run the code sample below to initialize the management client.
+Set the environment variable `AZURE_SUBSCRIPTION_ID` with the subscription ID of the subscription your Domain and Email resources are in. Run the code sample to initialize the management client.
 
 ```java
 AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
@@ -45,13 +45,13 @@ CommunicationManager manager = CommunicationManager
 
 ## Add sender usernames
 
-When a Azure Managed Domain resource is provisioned, the MailFrom address defaults to donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net. If you have configured a custom domain such as "notification.azurecommtest.net" the MailFrom address defaults to "donotreply@notification.azurecommtest.net". 
+When an Azure Managed Domain resource is provisioned, the MailFrom address defaults to donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net. If you have configured a custom domain such as "notification.azurecommtest.net" the MailFrom address defaults to "donotreply@notification.azurecommtest.net". 
 
-The username is the user alias that is used in the MailFrom address. For example, the username in the MailFrom address `contosoNewsAlerts@notification.azurecommtest.net` would be `contosoNewsAlerts`. You can add additional sender usenames, which can also be configured with a more user friendly display name. In our example, the display name is `Contoso News Alerts`.
+The username is the user alias that is used in the MailFrom address. For example, the username in the MailFrom address `contosoNewsAlerts@notification.azurecommtest.net` would be `contosoNewsAlerts`. You can add extra sender usernames, which can also be configured with a more user friendly display name. In our example, the display name is `Contoso News Alerts`.
 
-Update the code sample below with the resource group name, the email service name, and the domain name that you would like to add this username to. This information can be found in portal by navigating to the domains resource you created when setting up the prerequisites. The title of the resource will be `<your-email-service-name>/<your-domain-name>`. The resource group name can be found in the Essentials sections in the domain resource Overview blade.
+Update the code sample with the resource group name, the email service name, and the domain name that you would like to add this username to. This information can be found in portal by navigating to the domains resource you created when setting up the prerequisites. The title of the resource is `<your-email-service-name>/<your-domain-name>`. The resource group name can be found in the Essentials sections in the domain resource overview.
 
-To add multiple sender usernames, you will need to repeat this code sample multiple times.
+To add multiple sender usernames, you need to repeat this code sample multiple times.
 
 ```java
 String resourceGroupName = "<your-resource-group-name>";
@@ -69,7 +69,7 @@ manager
 
 ## Remove sender usernames
 
-To delete the sender username, simply call the deleteWithResponse function on the client.
+To delete the sender username, call the deleteWithResponse function on the client.
 
 ```java
 manager
