@@ -201,7 +201,7 @@ When no longer needed, you can remove the sign-in customization from your custom
 
    :::image type="content" source="media/how-to-customize-branding-customers/msgraph-ciam-branding.png" alt-text="Screenshot of MS Graph API with CIAM tenant logged in." lightbox="media/how-to-customize-branding-customers/msgraph-ciam-branding.png":::
 
-3. [Remove default branding object](/graph/api/organizationalbrandinglocalization-delete?view=graph-rest-beta&tabs=http) using the Microsoft Graph API beta version and the DELETE request.
+3. [Remove default branding object](/graph/api/organizationalbrandinglocalization-delete) using the Microsoft Graph API beta version and the DELETE request.
 4. Wait a few minutes for the changes to take effect.
 
 ## Next steps
