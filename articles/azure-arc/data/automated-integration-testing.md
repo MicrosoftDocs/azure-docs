@@ -424,11 +424,11 @@ At a high-level, the launcher performs the following sequence of steps:
 12. Attempt to use the SAS token `LOGS_STORAGE_ACCOUNT_SAS` provided to create a new Storage Account container named based on `LOGS_STORAGE_CONTAINER`, in the **pre-existing** Storage Account `LOGS_STORAGE_ACCOUNT`. If Storage Account container already exists, use it. Upload all local test results and logs to this storage container as a tarball (see below).
 13. Exit.
 
-## Tests performed per testsuite
+## Tests performed per test suite
 
-There are approximately **375** unique integration tests available, across **27** testsuites - each testing a separate functionality.
+There are approximately **375** unique integration tests available, across **27** test suites - each testing a separate functionality.
 
-| Suite # | Testsuite name                 | Description of test                                                                                                                                    |
+| Suite # | Test suite name                 | Description of test                                                                                                                                    |
 | ------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 1       | ad-connector                   | Tests the deployment and update of an Active Directory Connector (AD Connector).                                                                       |
 | 2       | billing                        | Testing various Business Critical license types are reflected in resource table in controller, used for Billing upload.                                |
@@ -473,7 +473,8 @@ As an example, for `sqlinstance-ha`, the following tests are performed:
 - `test_failaway`: Forces AG failover away from current primary, ensures the new primary is not the same as the old primary. Verifies all replicas are synchronized.
 - `test_update_while_rebooting_all_non_primary_replicas`: Tests Controller-driven updates are resilient with retries despite various turbulent circumstances.
 
-(Note, certain tests may require specific hardware, such as privileged Access to Domain Controllers for `ad` tests for Account and DNS entry creation - which may not be available in all environments looking to use the `arc-ci-launcher`.)
+> [!NOTE]
+> Certain tests may require specific hardware, such as privileged Access to Domain Controllers for `ad` tests for Account and DNS entry creation - which may not be available in all environments looking to use the `arc-ci-launcher`.
 
 ## Examining Test Results
 
