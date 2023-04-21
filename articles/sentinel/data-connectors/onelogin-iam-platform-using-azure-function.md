@@ -37,7 +37,7 @@ OneLogin
 
 To integrate with OneLogin IAM Platform (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **Webhooks Credentials/permissions**: **OneLoginBearerToken**, **Callback URL** are required for working Webhooks. See the documentation to learn more about [configuring Webhooks](https://onelogin.service-now.com/kb_view_customer.do?sysparm_article=KB0010469).You need to generate **OneLoginBearerToken** according to your security requirements and use it in **Custom Headers** section in format: Authorization: Bearer **OneLoginBearerToken**. Logs Format: JSON Array.
 
 

@@ -37,7 +37,7 @@ Auth0AM_CL
 
 To integrate with Auth0 Access Management (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **REST API Credentials/permissions**: **API token** is required. [See the documentation to learn more about API token](https://auth0.com/docs/secure/tokens/access-tokens/get-management-api-access-tokens-for-production)
 
 

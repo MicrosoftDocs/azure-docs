@@ -35,7 +35,7 @@ Lookout_CL
 
 To integrate with Lookout (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **Mobile Risk API Credentials/permissions**: **EnterpriseName** & **ApiKey** are required for Mobile Risk API. [See the documentation to learn more about API](https://enterprise.support.lookout.com/hc/en-us/articles/115002741773-Mobile-Risk-API-Guide). Check all [requirements and follow  the instructions](https://enterprise.support.lookout.com/hc/en-us/articles/115002741773-Mobile-Risk-API-Guide#authenticatingwiththemobileriskapi) for obtaining credentials.
 
 
