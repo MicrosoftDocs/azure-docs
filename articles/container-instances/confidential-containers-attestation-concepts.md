@@ -9,7 +9,7 @@ services: container-instances
 ms.date: 04/20/2023
 ---
 
-# What is attestation?
+# Attestation in Confidential containers on Azure Container Instances 
 
 Attestation is an essential part of confidential computing and appears in the definition by the Confidential Computing Consortium “Confidential Computing is the protection of data in use by performing computation in a hardware-based, attested Trusted Execution Environment."
 
@@ -21,9 +21,9 @@ In Confidential Containers on ACI you can use an attestation token to verify tha
 - Is running on an Azure compliant utility VM.
 - Is enforcing the expected confidential computing enforcement policy (cce) that was generated using [tooling](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md).
 
-## Full attestation in confidential containers on Azure Container Instances 
+## Full attestation 
 
-Expanding upon this concept of attestation. Full attestation captures all the components that are part of the Trusted Execution Environment that is remotely verifiable. To achieve full attestation, in Confidential Containers, we have introduced the notion of a cce policy, which defines a set of rules, which is enforced in the utility VM. The security policy is encoded in the attestation report as an SHA-256 digest stored in the HostData attribute, as provided to the PSP by the host operating system during the VM boot-up. This means that the security policy enforced by the utility VM is immutable throughout the lifetime of the utility VM.
+Expanding upon this concept of attestation. Full attestation captures all the components that are part of the Trusted Execution Environment that is remotely verifiable. To achieve full attestation, in Confidential Containers, we have introduced the notion of a cce policy, which defines a set of rules, which is enforced in the utility VM. The security policy is encoded in the attestation report as an SHA-256 digest stored in the HostData attribute, as provided to the AMD SEV-SNP hardware by the host operating system during the VM boot-up. This means that the security policy enforced by the utility VM is immutable throughout the lifetime of the utility VM.
 
 The exhaustive list of attributes that are part of the SEV-SNP attestation can be found [here](https://www.amd.com/system/files/TechDocs/56860.pdf).
 
