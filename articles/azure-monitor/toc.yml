@@ -378,8 +378,7 @@ items:
     - name: Data collector API
       items:
       - name: Overview
-        href: logs/data-collector-api.md
-      - name: Log Analytics Data collector API
+        displayName: data collector api
         href: logs/data-collector-api.md
       - name: Log Analytics Data Collector API Pipeline example
         href: logs/create-pipeline-datacollector-api.md

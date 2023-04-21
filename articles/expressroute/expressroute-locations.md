@@ -172,7 +172,7 @@ The following table shows locations by service provider. If you want to view ava
 | **UOLDIVEO** |Supported |Supported | Sao Paulo |
 | **[UIH](https://www.uih.co.th/en/network-solutions/global-network/cloud-direct-for-microsoft-azure-expressroute)** | Supported | Supported | Bangkok |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Supported |Supported | Amsterdam, Chicago, Dallas, Hong Kong SAR, London, Mumbai, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
-| **[Viasat](http://www.directcloud.viasatbusiness.com/)** | Supported | Supported | Washington DC2 |
+| **[Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)** | Supported | Supported | Washington DC2 |
 | **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Supported | Supported | Auckland, Sydney |
 | **Vodacom** |Supported |Supported | Cape Town, Johannesburg|
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Supported |Supported | Amsterdam2, Doha, London, Milan, Singapore |
@@ -243,7 +243,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 
 * Intelsat
 * [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
-* [Viasat](http://www.directcloud.viasatbusiness.com/)
+* [Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)
 
 ## Connectivity through additional service providers
 
@@ -324,7 +324,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Flexential](https://www.flexential.com/connectivity/cloud-connect-microsoft-azure-expressroute)** | IX Reach, Megaport, PacketFabric |
 | **[QTS Data Centers](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud )** | Megaport, PacketFabric |
 | **[Stream Data Centers](https://www.streamdatacenters.com/products-services/network-cloud/)** | Megaport |
-| **[RagingWire Data Centers](https://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX Reach, Megaport, PacketFabric |
+| **RagingWire Data Centers** | IX Reach, Megaport, PacketFabric |
 | **[T5 Datacenters](https://t5datacenters.com/)** | IX Reach |
 | **vXchnge** | IX Reach, Megaport |
 
