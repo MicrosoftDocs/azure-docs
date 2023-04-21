@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 04/21/2023
 ms.author: jushiman
 ms.reviewer: cynthn
 ---
@@ -121,7 +121,7 @@ Here is a sample template with the added properties for an Azure Spot Virtual Ma
                     "imageReference": {
                         "publisher": "Canonical",
                         "offer": "UbuntuServer",
-                        "sku": "18.04-LTS",
+                        "sku": "22.04-LTS",
                         "version": "latest"
                     }
                 },
@@ -188,8 +188,6 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## Next steps
 
-You can also create an Azure Spot Virtual Machine using [Azure PowerShell](../windows/spot-powershell.md) or the [Azure CLI](spot-cli.md).
-
-Query current pricing information using the [Azure retail prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) for information about Azure Spot Virtual Machine pricing. The `meterName` and `skuName` will both contain `Spot`.
-
-If you encounter an error, see [Error codes](../error-codes-spot.md).
+* You can also create an Azure Spot Virtual Machine using [Azure PowerShell](../windows/spot-powershell.md) or the [Azure CLI](spot-cli.md).
+* For more information about Azure Spot Virtual Machine current pricing, see [Azure retail prices API](/rest/api/cost-management/retail-prices/azure-retail-prices). The `meterName` and `skuName` will both contain `Spot`.
+* To learn more about an error, see [Error codes](../error-codes-spot.md).
