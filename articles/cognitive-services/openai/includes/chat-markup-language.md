@@ -290,4 +290,4 @@ assert tokens == [100264, 882, 198, 9906, 100265, 100264, 78191]
 
 * [Learn more about Azure OpenAI](../overview.md).
 * Get started with the ChatGPT model with [the ChatGPT quickstart](../chatgpt-quickstart.md).
-* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
+* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)
