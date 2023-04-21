@@ -37,7 +37,7 @@ Armorblox_CL
 
 To integrate with Armorblox (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **Armorblox Instance Details**: **ArmorbloxInstanceName** OR **ArmorbloxInstanceURL** is required
 - **Armorblox API Credentials**: **ArmorbloxAPIToken** is required
 

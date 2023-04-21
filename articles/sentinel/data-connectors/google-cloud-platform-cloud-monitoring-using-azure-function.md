@@ -36,7 +36,7 @@ GCP_MONITORING_CL
 
 To integrate with Google Cloud Platform Cloud Monitoring (using Azure Functions) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **GCP service account**: GCP service account with permissions to read Cloud Monitoring metrics is required for GCP Monitoring API (required *Monitoring Viewer* role). Also json file with service account key is required. See the documentation to learn more about [creating service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts) and [creating service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 
 

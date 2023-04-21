@@ -25,6 +25,9 @@ In Azure Data Factory Studio, [create and configure a self-hosted integration ru
 
 The more CPU cores you have on the computer running the self-hosted integration runtime, the higher your data extraction throughput is. For example, an internal test achieved a higher than 12-MB/s throughput when running parallel extractions on a self-hosted integration runtime computer that has 16 CPU cores.
 
+> [!NOTE]
+> If you want to use shared self hosted integration runtime from another Data Factory, you need to make sure your Data Factory is in the same region of another Data Factory. What is more, your Data Flow integration runtime need to be configured to "Auto Resolve" or the same region of your Data Factory. 
+
 ## Download and install the SAP .NET connector
 
 Download the latest [64-bit SAP .NET Connector (SAP NCo 3.0)](https://support.sap.com/en/product/connectors/msnet.html) and install it on the computer running the self-hosted integration runtime. During installation, in the **Optional setup steps** dialog, select **Install assemblies to GAC**, and then select **Next**.
