@@ -54,7 +54,7 @@ Use the following steps to prepare the sample locally.
 
    ```bash
    cd ASA-Samples-Event-Driven-Application
-   mvn clean package -DskipTests
+   ./mvnw clean package -DskipTests
    ```
 
 ## Prepare the cloud environment
