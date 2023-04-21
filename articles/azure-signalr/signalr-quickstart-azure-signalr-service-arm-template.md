@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.date: 10/02/2020
 ms.topic: quickstart
 ms.service: signalr
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Use an ARM template to deploy Azure SignalR Service

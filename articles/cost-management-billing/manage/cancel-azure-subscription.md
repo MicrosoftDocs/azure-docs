@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/04/2023
+ms.date: 04/11/2023
 ms.author: banders
 ---
 
@@ -83,8 +83,8 @@ After you cancel, your services are disabled. That means your virtual machines a
 
 After your subscription is canceled, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it, or if you want to reactivate the subscription. We don't charge you for keeping the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
-> [!NOTE]
-> All pay-as-you-go resource types, including SaaS Marketplace pay-as-you-go resources, are canceled when the parent subscription is cancelled.
+>[!NOTE]
+> You must manually cancel your SaaS subscriptions before you cancel your Azure subscription. Only pay-as-you-go SaaS subscriptions are cancelled automatically by the Azure subscription cancellation process.
 
 ## Delete subscriptions
 

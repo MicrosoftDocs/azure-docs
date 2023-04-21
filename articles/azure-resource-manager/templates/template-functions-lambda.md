@@ -3,6 +3,7 @@ title: Template functions - lambda
 description: Describes the lambda functions to use in an Azure Resource Manager template (ARM template)
 author: mumian
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.author: jgao
 ms.date: 03/15/2023
 ---

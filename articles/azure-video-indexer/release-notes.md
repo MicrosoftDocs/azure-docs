@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 03/22/2023
+ms.date: 04/06/2023
 ms.author: juliako
 ---
 
@@ -22,6 +22,12 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 ## Important notice
 
 [!INCLUDE [announcement](./includes/deprecation-announcement.md)]
+
+## April 2023
+
+## Observed people tracing improvements  
+
+For more information, see [Considerations and limitations when choosing a use case](observed-matched-people.md#considerations-and-limitations-when-choosing-a-use-case).
 
 ## March 2023
 
