@@ -151,6 +151,7 @@ For your customer tenant, you might have different requirements for the informat
 
 1.	On the **Text** tab select **Add Custom Text**.
 1.	Select any of the options:
+
    - Select **Attributes** to override the default values. 
    - Select **Attribute collection** to add a new attribute option that you would like to collect during the sign-up process.
    - Select **Sign in** to add custom text for the sign-in page.
