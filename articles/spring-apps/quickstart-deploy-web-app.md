@@ -226,8 +226,11 @@ az postgres flexible-server create \
     --name ${POSTGRESQL_SERVER} \
     --database-name ${POSTGRESQL_DB} \
     --admin-user ${POSTGRESQL_ADMIN_USERNAME} \
-    --admin-password ${POSTGRESQL_ADMIN_PASSWORD}
+    --admin-password ${POSTGRESQL_ADMIN_PASSWORD} \
+    --public-access 0.0.0.0
 ```
+
+Specifying `0.0.0.0` allows public access from any resources deployed within Azure to access your server. 
 ::: zone-end
 
 ::: zone pivot="sc-standard,sc-enterprise"
@@ -237,7 +240,6 @@ az postgres flexible-server create \
     --database-name ${POSTGRESQL_DB} \
     --active-directory-auth Enabled
 ```
-::: zone-end
 
 To ensure that the application is accessible only by PostgreSQL in Azure Spring Apps, enter `n` to the prompts to enable access to a specific IP address and to enable access for all IP addresses.
 
@@ -245,6 +247,7 @@ To ensure that the application is accessible only by PostgreSQL in Azure Spring 
 Do you want to enable access to client xxx.xxx.xxx.xxx (y/n) (y/n): n
 Do you want to enable access for all IPs  (y/n): n
 ```
+::: zone-end
 
 ### Connect app instance to PostgreSQL instance
 
