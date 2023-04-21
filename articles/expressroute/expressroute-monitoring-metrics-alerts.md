@@ -291,7 +291,7 @@ This metric shows the number of virtual machines that are using the ExpressRoute
 > To maintain reliability of the service, Microsoft often performs platform or OS maintenance on the gateway service. During this time, this metric may fluctuate and report inaccurately.
 >
 
-## <a name = "activeflows"></a>Count of active flows
+## <a name = "activeflows"></a>Active flows
 
 Aggregation type: *Avg*
 
