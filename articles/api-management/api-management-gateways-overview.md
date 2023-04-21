@@ -86,7 +86,7 @@ The following table compares features available in the managed gateway versus th
 | API | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
 | --- | ----- | ----- | ---------- |
 | [OpenAPI specification](import-api-from-oas.md) |  ✔️ | ✔️ | ✔️ |
-| [WSDL specification)](import-soap-api.md) |  ✔️ | ✔️ | ✔️ |
+| [WSDL specification](import-soap-api.md) |  ✔️ | ✔️ | ✔️ |
 | WADL specification |  ✔️ | ✔️ | ✔️ |
 | [Logic App](import-logic-app-as-api.md) |  ✔️ | ✔️ | ✔️ |
 | [App Service](import-app-service-as-api.md) |  ✔️ | ✔️ | ✔️ |
