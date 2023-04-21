@@ -107,9 +107,10 @@ const callClient = new CallClient({
 
 The API reference for the `CallClientOptions` object, and the `networkConfiguration` property within it can be found here - [CallClientOptions](/javascript/api/azure-communication-services/@azure/communication-calling/callclientoptions?view=azure-communication-services-js&preserve-view=true).
 
-### Setting up a signnaling proxy middleware in express js
+### Setting up a signaling proxy middleware in express js
+
 You can also create a proxy middleware in your express js server setup to have all the URLs redirected through it, using the [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware) npm package.
-The `createProxyMiddleware` function from that package should cover your what you need for a simple redirect proxy setup. Here's an example usage of it with some option settings that the SDK wneed to have all of our URLs working expected:
+The `createProxyMiddleware` function from that package should cover what you need for a simple redirect proxy setup. Here's an example usage of it with some option settings that the SDK needs to have all of our URLs working as expected:
 
 ```js
 const proxyRouter = (req) => {
