@@ -1405,8 +1405,6 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
----
-
 ##### [Visual editor](#tab/visual-editor/portal)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
@@ -1525,8 +1523,6 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 #### [Portal](#tab/portal)
 
 In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
-
----
 
 ##### [Visual editor](#tab/visual-editor/portal)
 
@@ -1656,8 +1652,6 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 #### [Portal](#tab/portal)
 
 In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
-
----
 
 ##### [Visual editor](#tab/visual-editor/portal)
 
@@ -1793,8 +1787,6 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 #### [Portal](#tab/portal)
 
 In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
-
----
 
 ##### [Visual editor](#tab/visual-editor/portal)
 
@@ -1957,8 +1949,6 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 #### [Portal](#tab/portal)
 
 In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
-
----
 
 ##### [Visual editor](#tab/visual-editor/portal)
 
