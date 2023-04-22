@@ -315,9 +315,9 @@ Migrating to SQL Server on Azure VMs by using the Azure SQL extension for Azure 
 
 [!INCLUDE [sql-vm-limitations](includes/sql-virtual-machines-limitations.md)]
 
-# Azure Data Studio Limitations
+## Azure Data Studio Limitations
 
-## Failed to start Sql Migration Service: Error: Request error: 
+### Failed to start Sql Migration Service: Error: Request error: 
 
 - **Message**: `Error at ClientRequest.<anonymous> (c:\Users\MyUser\.azuredatastudio\extensions\microsoft.sql-migration-1.4.2\dist\main.js:2:7448) at ClientRequest.emit (node:events:538:35) at TLSSocket.socketOnEnd (node:_http_client:466:9) at TLSSocket.emit (node:events:538:35) at endReadableNT (node:internal/streams/readable:1345:12) at process.processTicksAndRejections (node:internal/process/task_queues:83:21)`
 - **Cause**: This issue occurs when Azure Data Studio isn't able to download the MigrationService package from https://github.com/microsoft/sqltoolsservice/releases. The download failure can be due to disconnected network work or unresolved proxy settings. 
