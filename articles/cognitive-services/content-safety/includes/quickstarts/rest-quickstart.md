@@ -99,7 +99,7 @@ The JSON fields in the output are defined here:
 
 | Name     | Description   | Type   |
 | :------------- | :--------------- | ------ |
-| **Category**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text sample is run through the text moderation model, it could be classified as both sexual content and violence. [Content flags](../concepts/content-flags.md)| String |
+| **Category**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text sample is run through the text moderation model, it could be classified as both sexual content and violence. [Content flags](../../concepts/content-flags.md)| String |
 | **Risk Level** | Severity of the consequences of showing the content in question.  | Number |
 
 
@@ -174,6 +174,6 @@ The JSON fields in the output are defined here:
 
 | Name     | Description   | Type   |
 | :------------- | :--------------- | ------ |
-| **Category**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text sample is run through the text moderation model, it could be classified as both sexual content and violence. [Content flags](../concepts/content-flags.md)| String |
+| **Category**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text sample is run through the text moderation model, it could be classified as both sexual content and violence. [Content flags](../../concepts/content-flags.md)| String |
 | **Risk Level** | Severity of the consequences of showing the content in question.  | Number |
 
