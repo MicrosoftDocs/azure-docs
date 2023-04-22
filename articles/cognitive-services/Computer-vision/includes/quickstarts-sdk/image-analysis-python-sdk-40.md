@@ -50,7 +50,7 @@ Use the Image Analysis client library for Python to analyze a remote image to re
 > [!TIP]
 > You can also analyze a local image. See the [sample code](https://github.com/Azure-Samples/azure-ai-vision-sdk/blob/main/samples/python/image-analysis/samples.py) repository for scenarios involving local images.
 
-    [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/2/main.py?name=snippet_single)]
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/2/main.py?name=snippet_single)]
 
 1. Then run the application with the `python` command on your quickstart file.
 

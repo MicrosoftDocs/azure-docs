@@ -25,7 +25,7 @@ Use the Image Analysis client library for C# to analyze an image to read text an
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **.NET desktop development** enabled, or [.NET 6.0](https://dotnet.microsoft.com/download/dotnet-core) SDK or above installed.
+* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload **.NET desktop development** enabled, or [.NET 6.0](https://dotnet.microsoft.com/download/dotnet-core) SDK (or above) installed.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource</a> in the Azure portal. In order to use the captioning feature in this quickstart, you must create your resource in one of the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -39,7 +39,7 @@ Create a new C# application.
 
 #### [Visual Studio IDE](#tab/visual-studio)
 
-Open Visual Studio, and under **Get started** select **Create a new project**. Set the template filters to _C#/All Platforms/Console_. Select **Console App** (command-line application that can run on .NET on Windows, Linux and macOS) and choose **Next**. Update the project name to _ImageAnalysisQuickstart_ and choose **Next**. Select **.NET 6.0** or higher, and choose **Create** to create the project.
+Open Visual Studio, and under **Get started** select **Create a new project**. Set the template filters to _C#/All Platforms/Console_. Select **Console App** (command-line application that can run on .NET on Windows, Linux and macOS) and choose **Next**. Update the project name to _ImageAnalysisQuickstart_ and choose **Next**. Select **.NET 6.0** or above, and choose **Create** to create the project.
 
 ### Install the client library 
 
@@ -49,13 +49,13 @@ Once you've created a new project, install the client library by right-clicking 
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `image-analysis-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
-```console
+```dotnet
 dotnet new console -n image-analysis-quickstart
 ```
 
 Change your directory to the newly created app folder. You can build the application with:
 
-```console
+```dotnet
 dotnet build
 ```
 
@@ -73,7 +73,7 @@ Build succeeded.
 
 Within the application directory, install the Computer Vision client library for .NET with the following command:
 
-```console
+```dotnet
 dotnet add package  Azure.AI.Vision.ImageAnalysis --prerelease
 ```
     
@@ -101,11 +101,8 @@ Build and run the application by selecting **Start Debugging** from the **Debug*
 
 Build and run the application from your application directory with these commands:
 
-```console
-dotnet build
-```
-
 ```dotnet
+dotnet build
 dotnet run
 ```
 
