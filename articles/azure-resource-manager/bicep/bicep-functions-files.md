@@ -78,6 +78,8 @@ You load that file and convert it to a JSON object. You use the object to assign
 
 You can reuse the file of values in other Bicep files that deploy a network security group.
 
+## loadYamlContent
+
 ## loadTextContent
 
 `loadTextContent(filePath, [encoding])`
