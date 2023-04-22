@@ -26,8 +26,8 @@ items:
     - name: Supported features in customer tenants
       href: concept-supported-features-customers.md
     - name: Customizing the sign-in look and feel
-    - name: Building your own customizations
       href: concept-branding-customers.md
+    - name: Building your own customizations
       items:
         - name: Custom authentication extensions
           href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
