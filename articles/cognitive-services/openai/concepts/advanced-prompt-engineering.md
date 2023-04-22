@@ -1,5 +1,5 @@
 ---
-title: Prompt Engineering Techniques with Azure OpenAI
+title: Prompt engineering techniques with Azure OpenAI
 titleSuffix: Azure OpenAI Service
 description: Learn about the options for how to use prompt engineering with GPT-3, ChatGPT, and GPT-4 models
 author: slundberg
