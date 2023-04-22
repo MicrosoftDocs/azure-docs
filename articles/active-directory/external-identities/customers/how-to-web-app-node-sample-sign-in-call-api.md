@@ -167,7 +167,7 @@ To use your app registration in the web API sample:
     
     :::image type="content" source="media/how-to-web-app-node-sample-sign-in-call-api/sign-in-call-api-manipulate-todo.png" alt-text="Screenshot of manipulate A P I to do list.":::
 
-1. Manipulate the to-do list by creating adding and removing items.
+1. Manipulate the to-do list by creating and removing items.
 
 You trigger an API call each time you view, add or remove a task. Each time you trigger an API call, the client web app acquires an access token with the required permissions (scopes) to call an API endpoint. For example, to read a task, the client web app must acquire an access token with `Todolist.Read` permission/scope.
 
