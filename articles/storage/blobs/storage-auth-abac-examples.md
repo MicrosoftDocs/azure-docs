@@ -1407,11 +1407,11 @@ In the portal, you can use the visual editor or code editor to build your condit
 
 ---
 
-##### [Visual editor](#tab/visual-editor/portal)
+#### [Visual editor](#tab/visual-editor/portal)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
-###### Add action
+##### Add action
 
 Select **Add action**, then select only the **Read a blob** suboperation as shown in the following table.
 
@@ -1423,7 +1423,7 @@ Do not select the top-level **All read operations** action or any other subopera
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of just the read operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
 
-###### Build expression
+##### Build expression
 
 Use the values in the following table to build the expression portion of the condition:
 
@@ -1528,11 +1528,11 @@ In the portal, you can use the visual editor or code editor to build your condit
 
 ---
 
-##### [Visual editor](#tab/visual-editor/portal)
+#### [Visual editor](#tab/visual-editor/portal)
 
 Here are the settings to add this condition using the Azure portal.
 
-###### Add action
+##### Add action
 
 Select **Add action**, then select only the top-level actions shown in the following table.
 
@@ -1547,7 +1547,7 @@ Do not select any individual suboperations as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read, write, add and delete operations." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png":::
 
-###### Build expression
+##### Build expression
 
 Use the values in the following table to build the expression portion of the condition:
 
@@ -1659,11 +1659,11 @@ In the portal, you can use the visual editor or code editor to build your condit
 
 ---
 
-##### [Visual editor](#tab/visual-editor/portal)
+#### [Visual editor](#tab/visual-editor/portal)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
-###### Add action
+##### Add action
 
 Select **Add action**, then select only the **Read a blob** suboperation as shown in the following table.
 
@@ -1675,7 +1675,7 @@ Do not select the top-level **All read operations** action of any other subopera
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of just the read operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
 
-###### Build expression
+##### Build expression
 
 Use the values in the following table to build the expression portion of the condition:
 
@@ -1796,11 +1796,11 @@ In the portal, you can use the visual editor or code editor to build your condit
 
 ---
 
-##### [Visual editor](#tab/visual-editor/portal)
+#### [Visual editor](#tab/visual-editor/portal)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
-###### Add action
+##### Add action
 
 Select **Add action**, then select only the top-level actions shown in the following table.
 
@@ -1815,7 +1815,7 @@ Do not select any individual suboperations as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read, write, add and delete operations." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png":::
 
-###### Build expression
+##### Build expression
 
 Use the values in the following table to build the expression portion of the condition:
 
@@ -1960,11 +1960,11 @@ In the portal, you can use the visual editor or code editor to build your condit
 
 ---
 
-##### [Visual editor](#tab/visual-editor/portal)
+#### [Visual editor](#tab/visual-editor/portal)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
-###### Add action
+##### Add action
 
 Select **Add action**, then select only the **Read a blob** suboperation as shown in the following table.
 
@@ -1976,7 +1976,7 @@ Do not select the top-level action as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read a blob operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
 
-###### Build expression
+##### Build expression
 
 Use the values in the following table to build the expression portion of the condition:
 
