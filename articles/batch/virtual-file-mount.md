@@ -13,7 +13,9 @@ Azure Batch supports mounting cloud storage or an external file system on Window
 
 Mounting the file system to the pool makes accessing data easier and more efficient than requiring tasks to get their own data from a large shared data set. Consider a scenario where multiple tasks need access to a common set of data, like rendering a movie. Each task renders one or more frames at once from the scene files. By mounting a drive that contains the scene files, it's easier for each compute node to access the shared data.
 
-Also, you can choose the underlying file system to meet performance, throughout, and input/output operations per second (IOPS) requirements. You can independently scale the file system based on the number of compute nodes that concurrently access the data. For example, you could use an [Avere vFXT](/azure/avere-vfxt/avere-vfxt-overview) distributed in-memory cache to support large movie-scale renders with thousands of concurrent render nodes that access on-premises source data. Or, for data that's already in cloud-based blob storage, you can use [BlobFuse](/azure/storage/blobs/storage-how-to-mount-container-linux) to mount the data as a local file system. BlobFuse is available only on Linux nodes except Ubuntu 22.04, but [Azure Files](/azure/storage/files/storage-files-introduction) provides a similar workflow and is available on both Windows and Linux.
+Also, you can choose the underlying file system to meet performance, throughout, and input/output operations per second (IOPS) requirements. You can independently scale the file system based on the number of compute nodes that concurrently access the data.
+
+For example, you could use an [Avere vFXT](/azure/avere-vfxt/avere-vfxt-overview) distributed in-memory cache to support large movie-scale renders with thousands of concurrent render nodes that access on-premises source data. Or, for data that's already in cloud-based blob storage, you can use [BlobFuse](/azure/storage/blobs/storage-how-to-mount-container-linux) to mount the data as a local file system. BlobFuse is available only on Linux nodes except Ubuntu 22.04, but [Azure Files](/azure/storage/files/storage-files-introduction) provides a similar workflow and is available on both Windows and Linux.
 
 ## Supported configurations
 
@@ -46,27 +48,29 @@ When you use virtual file mounts with Batch pools in a virtual network, keep the
 
 - **Network File System (NFS)** requires access to port 2049 by default. Your configuration might have other requirements. VMs must have access to the appropriate package manager to download the `nfs-common` (for Debian or Ubuntu) or `nfs-utils` (for CentOS) packages. The URL might vary based on your OS version. Depending on your configuration, you might also need access to other URLs.
   
-  Mounting Azure Blob or Azure Files through NFS might have more networking requirements. For example, your compute nodes might need to share the same virtual network subnet as the storage account.
+  Mounting Azure Blob or Azure Files through NFS might have more networking requirements. For example, your compute nodes might need to share the same virtual network subnet with the storage account.
 
 - **Common Internet File System (CIFS)** requires access to TCP port 445. VMs must have access to the appropriate package manager to download the `cifs-utils` package. The URL might vary based on your OS version.
 
-## Mount a virtual file system on a pool  
+## Mounting configuration and implementation
 
 Mounting a virtual file system on a pool makes the file system available to every compute node in the pool. Configuration for the file system happens when a compute node joins a pool, restarts, or is reimaged.
 
-To mount a file system on a pool, you create a `MountConfiguration` object that matches your virtual file system: `AzureBlobFileSystemConfiguration`, `AzureFileShareConfiguration`, `NfsMountConfiguration`, or `CifsMountConfiguration`.
+To mount a file system on a pool, you create a [MountConfiguration](/dotnet/api/microsoft.azure.batch.mountconfiguration) object that matches your virtual file system: `AzureBlobFileSystemConfiguration`, `AzureFileShareConfiguration`, `NfsMountConfiguration`, or `CifsMountConfiguration`.
 
 All mount configuration objects need the following base parameters. Some mount configurations have specific parameters for the particular file system, which the code examples discuss in more detail.
 
 - **Account name or source** of the storage account.
 
-- **Relative mount path or source**, the location of the file system mounted on the compute node, relative to the standard *\\fsmounts* directory accessible via **AZ_BATCH_NODE_MOUNTS_DIR**. The exact *\\fsmounts* directory location varies depending on node OS. For example, the location on an Ubuntu node maps to *mnt\batch\tasks\fsmounts*. On a CentOS node, the location maps to *mnt\resources\batch\tasks\fsmounts*.
+- **Relative mount path or source**, the location of the file system mounted on the compute node, relative to the standard *\\fsmounts* directory accessible via `AZ_BATCH_NODE_MOUNTS_DIR`.
 
-- **Mount options or BlobFuse options** describe specific parameters for mounting a file system.
+  The exact *\\fsmounts* directory location varies depending on node OS. For example, the location on an Ubuntu node maps to *mnt\batch\tasks\fsmounts*. On a CentOS node, the location maps to *mnt\resources\batch\tasks\fsmounts*.
+
+- **Mount options or BlobFuse options** that describe specific parameters for mounting a file system.
 
 When you create the pool and the `MountConfiguration` object, you assign the object to the `MountConfigurationList` property. Mounting for the file system happens when a node joins the pool, restarts, or is reimaged.
 
-Mounting the file system creates an environment variable **AZ_BATCH_NODE_MOUNTS_DIR**, which points to the location of the mounted file systems and log files. You can use the log files for troubleshooting and debugging.
+Mounting the file system creates an environment variable `AZ_BATCH_NODE_MOUNTS_DIR`, which points to the location of the mounted file system and log files. You can use the log files for troubleshooting and debugging.
 
 The Batch agent implements mounting differently on Windows and Linux.
 
@@ -85,9 +89,13 @@ You can mount an Azure file share on a Windows or Linux Batch pool by using [Azu
 > [!IMPORTANT]
 > The maximum number of mounted file systems on a pool is 10. For details and other limits, see [Batch service quotas and limits](batch-quota-limit.md#other-limits).
 
+### Prerequisites
+
+- The following procedures require an existing Batch account with a linked Azure Storage account.
+
 # [Windows](#tab/windows)
 
-1. Sign in to your Azure subscription. Replace the placeholder with your subscription ID.
+1. Sign in to your Azure subscription, replacing the placeholder with your subscription ID.
 
     ```powershell
     Connect-AzAccount -Subscription "<subscription-ID>"
@@ -99,7 +107,9 @@ You can mount an Azure file share on a Windows or Linux Batch pool by using [Azu
     $context = Get-AzBatchAccount -AccountName <batch-account-name>
     ```
 
-1. Create a Batch pool with the following settings. The following script creates a pool with one Windows Server 2016 Datacenter, Standard_D2_V2 size node. Replace the `<storage-account-name>` and `<storage-account-key>` placeholders with the values from the storage account that's linked to your Batch account. Replace the `<pool-name>` placeholder with the name you want for the pool.
+1. Create a Batch pool with the following settings. Replace the `<storage-account-name>` and `<storage-account-key>` placeholders with the values from the storage account that's linked to your Batch account. Replace the `<pool-name>` placeholder with the name you want for the pool.
+
+    The following script creates a pool with one Windows Server 2016 Datacenter, Standard_D2_V2 size node. 
 
     ```powershell
     $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<storage-account-name>", "https://<storage-account-name>.file.core.windows.net/batchfileshare1", "S", "<storage-account-key>")
@@ -123,7 +133,7 @@ You can mount an Azure file share on a Windows or Linux Batch pool by using [Azu
 
 1. If you're using Remote Desktop Protocol (RDP) or secure shell (SSH), add credentials for the storage account to access the *S* drive directly. The Azure Batch agent grants access only for Azure Batch tasks in Windows. When you connect to the node over RDP, your user account doesn't have automatic access to the mounting drive.
 
-    Use `cmdkey` to add your credentials. Replace the `<storage-account-name>` and `<storage-account-key`> placeholders with your own information.
+    Use `cmdkey` to add the credentials. Replace the `<storage-account-name>` and `<storage-account-key`> placeholders with your own information.
 
     ```powershell
     cmdkey /add:"<storage-account-name>.file.core.windows.net" /user:"Azure\<storage-account-name>" /pass:"<storage-account-key>"
@@ -143,7 +153,9 @@ You can mount an Azure file share on a Windows or Linux Batch pool by using [Azu
     $context = Get-AzBatchAccount -AccountName <batch-account-name>
     ```
 
-1. Create a Batch pool with the following settings. The following script creates a pool with one Ubuntu 20.04, Standard_D2_V2 size node. Replace the `<storage-account-name>` and `<storage-account-key>` placeholders with the values from the storage account that's linked to your Batch account. Replace the `<pool-name>` placeholder with the name you want for the pool.
+1. Create a Batch pool with the following settings. Replace the `<storage-account-name>` and `<storage-account-key>` placeholders with the values from the storage account that's linked to your Batch account. Replace the `<pool-name>` placeholder with the name you want for the pool.
+
+    The following script creates a pool with one Ubuntu 20.04, Standard_D2_V2 size node. 
 
     ```powershell
     $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<storage-account-name>", https://<storage-account-name>.file.core.windows.net/batchfileshare1, "S", "<storage-account-key>", "-o vers=3.0,dir_mode=0777,file_mode=0777,sec=ntlmssp")
@@ -158,7 +170,7 @@ You can mount an Azure file share on a Windows or Linux Batch pool by using [Azu
      
     ```
 
-1. Access the mount files by using the environment variable **AZ_BATCH_NODE_MOUNTS_DIR**. For example:
+1. Access the mount files by using the environment variable `AZ_BATCH_NODE_MOUNTS_DIR`. For example:
 
     ```bash
     /bin/bash -c 'more $AZ_BATCH_NODE_MOUNTS_DIR/S/folder1/out.txt; sleep 20s'
@@ -176,9 +188,9 @@ You can mount an Azure file share on a Windows or Linux Batch pool by using [Azu
 
 If a mount configuration fails, the compute node fails and the node state is set to **Unusable**. To diagnose a mount configuration failure, inspect the [ComputeNodeError](/rest/api/batchservice/computenode/get#computenodeerror) property for details on the error.
 
-To get the log files for debugging, use the [OutputFiles](batch-task-output-files.md) API to upload the *\*.log* files. The *\*.log* files contain information about the file system mount at the **AZ_BATCH_NODE_MOUNTS_DIR** location. Mount log files have the format: *\<type>-\<mountDirOrDrive>.log* for each mount. For example, a CIFS mount at a mount directory named *test* has a mount log file named: *cifs-test.log*.
+To get the log files for debugging, use the [OutputFiles](batch-task-output-files.md#specify-output-files-for-task-output) API to upload the *\*.log* files. The *\*.log* files contain information about the file system mount at the `AZ_BATCH_NODE_MOUNTS_DIR` location. Mount log files have the format: *\<type>-\<mountDirOrDrive>.log* for each mount. For example, a CIFS mount at a mount directory named *test* has a mount log file named: *cifs-test.log*.
 
-If you receive the following error when you try to mount an Azure file share to a Batch node, RDP or SSH to the node to check the related log files.
+If you get the following error when you try to mount an Azure file share to a Batch node, RDP or SSH to the node to check the related log files.
 
 ```text
 Mount Configuration Error | An error was encountered while configuring specified mount(s)
@@ -262,7 +274,7 @@ If you can't diagnose or fix the mounting errors, you can mount the file share m
 
 # [Windows](#tab/windows)
 
-1. Create a pool without a mounting configuration.
+1. Create a pool without a mounting configuration. For example:
 
     ```powershell
     $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<storage-account-name>", "https://<storage-account-name>.file.core.windows.net/batchfileshare1", "S", "<storage-account-key>")
@@ -302,7 +314,7 @@ If you can't diagnose or fix the mounting errors, you can mount the file share m
 
 1. Create a pool without a mounting configuration. For example:
 
-    ```bash
+    ```powershell
     $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<storage-account-name>", https://<storage-account-name>.file.core.windows.net/batchfileshare1, "S", "<storage-account-key>", "-o vers=3.0,dir_mode=0777,file_mode=0777,sec=ntlmssp")
     
     $imageReference = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("ubuntuserver", "canonical", "20.04-lts", "latest")
@@ -392,7 +404,7 @@ new PoolAddParameter
             {
                 AccountName = "<storage-account-name>",
                 ContainerName = "<container-name>",
-                //Use only one of the following three lines
+                // Use only one of the following three lines:
                 AccountKey = "<storage-account-key>",
                 SasKey = "<sasKey>",
                 IdentityReference = new ComputeNodeIdentityReference("/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>"),
