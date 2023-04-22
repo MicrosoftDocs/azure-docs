@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 04/21/2023
+ms.date: 04/22/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1367,10 +1367,6 @@ There are two potential actions for reading existing blobs. To make this conditi
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
 
-#### [Portal](#tab/portal)
-
-In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
-
 #### [PowerShell](#tab/azure-powershell)
 
 Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
@@ -1404,6 +1400,10 @@ $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
 Set-AzRoleAssignment -InputObject $testRa -PassThru
 ```
+
+#### [Portal](#tab/portal)
+
+In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
 ---
 
@@ -1481,10 +1481,6 @@ There are five potential actions for read, write, add and delete access to exist
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
 
-#### [Portal](#tab/portal)
-
-In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
-
 #### [PowerShell](#tab/azure-powershell)
 
 Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
@@ -1525,6 +1521,10 @@ $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
 Set-AzRoleAssignment -InputObject $testRa -PassThru
 ```
+
+#### [Portal](#tab/portal)
+
+In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
 ---
 
@@ -1617,10 +1617,6 @@ There are two potential actions for reading existing blobs. To make this conditi
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
 
-#### [Portal](#tab/portal)
-
-In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
-
 #### [PowerShell](#tab/azure-powershell)
 
 Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
@@ -1656,6 +1652,10 @@ $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
 Set-AzRoleAssignment -InputObject $testRa -PassThru
 ```
+
+#### [Portal](#tab/portal)
+
+In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
 ---
 
@@ -1746,10 +1746,6 @@ There are five potential actions for read, write and delete of existing blobs. T
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
 
-#### [Portal](#tab/portal)
-
-In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
-
 #### [PowerShell](#tab/azure-powershell)
 
 Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
@@ -1793,6 +1789,10 @@ $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
 Set-AzRoleAssignment -InputObject $testRa -PassThru
 ```
+
+#### [Portal](#tab/portal)
+
+In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
 ---
 
@@ -1917,10 +1917,6 @@ There are two potential actions for reading existing blobs. To make this conditi
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
 
-#### [Portal](#tab/portal)
-
-In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
-
 #### [PowerShell](#tab/azure-powershell)
 
 Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
@@ -1957,6 +1953,10 @@ $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
 Set-AzRoleAssignment -InputObject $testRa -PassThru
 ```
+
+#### [Portal](#tab/portal)
+
+In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
 ---
 
