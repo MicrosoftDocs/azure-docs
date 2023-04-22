@@ -116,7 +116,7 @@ You can now test the sample Node.js web app. You need to start the Node.js serve
 
 1. After the page completes loading, select **Sign in** link. You're prompted to sign in.
 
-1. On the sign-in page, type your **Email address**, select **Next**, type your **Password**, then select **Sign in**. If you don't have an account, select **No account? Create one** link, which starts the sign-up flow.
+1. On the sign-in page, type your **Email address**, select **Next**, type your **Password**, then select **Sign in**. If you don't have an account, select **sNo account? Create one** link, which starts the sign-up flow.
 
 1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. You see a page similar to the following screenshot. You see a similar page if you choose the sign-in option.
 
