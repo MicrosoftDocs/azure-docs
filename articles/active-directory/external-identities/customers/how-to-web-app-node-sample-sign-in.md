@@ -124,9 +124,14 @@ You can now test the sample Node.js web app. You need to start the Node.js serve
 
 1. Select **Sign out** to sign the user out of the web app or select **View ID token claims** to view ID token claims returned by Microsoft Entra. 
 
+
+Explain what happened in the sample by utilizing the content in: https://learn.microsoft.com/en-us/azure/active-directory-b2c/configure-authentication-sample-web-app?tabs=visual-studio#overview
+
+If you want to build an app like the sample they've run: [Sign in users in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-overview.md). 
+
 ## Next steps
 
-Learn how to: 
+You may want to: 
 
 - [Enable password reset](how-to-enable-password-reset-customers.md)
 
