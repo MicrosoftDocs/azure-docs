@@ -87,7 +87,7 @@ In your Azure Stack Edge cluster resource, perform the following steps:
 
 4.	An Azure Resource Manager template deployment job starts for the VM image. The image deployment takes a few minutes to complete. The time taken to download the image depends on the size of the custom image and the network bandwidth available for the download.
 
-You can track the image deployment on the VM image grid. You can see the list of VM images that are already downloaded and the ones that are being downloaded on the cluster.
+    You can track the image deployment on the VM image grid. You can see the list of VM images that are already downloaded and the ones that are being downloaded on the cluster.
 
 5.	When the image download is complete, the VM image shows up in the list of images and the **Status** will show as **Downloaded**. To view more details about any image, select the VM image name from the list of VM images.
 
@@ -132,17 +132,18 @@ To add a VM to your Azure Stack Edge resource, perform the following steps:
     [![Screenshot showing the add VM option on the Virtual machines page of an Azure Stack Edge device in Azure portal](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-add-vm-option-11.png)](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-add-vm-option-11.png#lightbox)
 
 3.	In the **Add a virtual machine** wizard, on the **Basics** tab, specify the following parameters:
-   1. **Virtual machine name** – Specify a name for your VM. The name must follow naming conventions for Azure virtual machines.
-   1. **Edge resource group** – Create a new or choose an existing resource group where you will deploy the resources associated with your VM.
-   1. **Image** – Use the dropdown menu to select the Azure Marketplace or customer managed image to create the VM image.
-   1. **Size** – Select a VM size appropriate for the workloads you will deploy.
-   1. **Administrator account** – Specify administrator authentication type, username, and SSH public key.
-   1. To continue, select **Review + create**.
+    1. **Virtual machine name** – Specify a name for your VM. The name must follow naming conventions for Azure virtual machines.
+    1. **Edge resource group** – Create a new or choose an existing resource group where you will deploy the resources associated with your VM.
+    1. **Image** – Use the dropdown menu to select the Azure Marketplace or customer managed image to create the VM image.
+    1. **Size** – Select a VM size appropriate for the workloads you will deploy.
+    1. **Administrator account** – Specify administrator authentication type, username, and SSH public key.
+4. To continue, select **Review + create**.
 
-    ![Screenshot showing the Basics tab on the Add Virtual machines page for an Azure Stack Edge device in Azure portal](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-add-vm-12.png)](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-add-vm-12.png#lightbox)
+    ![Screenshot showing the Basics tab on the Add Virtual machines page for an Azure Stack Edge device in Azure portal](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-add-vm-12.png)(./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-add-vm-12.png#lightbox)
  
-   1. Review the details for the VM you intend to create. To start the VM creation job, select **Create**.
-   1. VM creation will take several minutes. Once the VM is created, go to **Virtual machines** > **Virtual machines**. The newly created VM will be included in the list of VMs.
+5. Review the details for the VM you intend to create. To start the VM creation job, select **Create**.
+
+6. VM creation will take several minutes. Once the VM is created, go to **Virtual machines** > **Virtual machines**. The newly created VM will be included in the list of VMs.
 
 ## Next steps
 
