@@ -48,8 +48,8 @@ The above command with no options or arguments passed prints the HBCK2 help.
 
 **Options:**
 
-`&emsp;-o,--override`  override ownership by another procedure
-`&emsp;-i,--inputFiles`  takes one or more encoded region names
+`&emsp;-o,--override`  - override ownership by another procedure
+`&emsp;-i,--inputFiles`  - takes one or more encoded region names
 
 A 'raw' assign that can be used even during Master initialization (if the -skip flag is specified). Skirts Coprocessors. Pass one or more encoded region names. de00010733901a05f5a2a3a382e27dd4 is an example of what a user-space encoded region name looks like. For example:
 ```
@@ -64,8 +64,8 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 **Options:**
 
-&emsp;-o,--override  override ownership by another procedure
-&emsp;-i,--inputFiles  takes ones or more input files of encoded names
+&emsp;-o,--override  - override ownership by another procedure
+&emsp;-i,--inputFiles  - takes ones or more input files of encoded names
 
 A 'raw' unassign that can be used even during Master initialization (if the -skip flag is specified). Skirts Coprocessors. Pass one or more encoded region names. de00010733901a05f5a2a3a382e27dd4 is an example of what a user override space encoded region name looks like. For example:
 ```
@@ -80,8 +80,8 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 **Options:**
 
-&emsp;-o,--override   override if procedure is running/stuck\
-&emsp;-r,--recursive  bypass parent and its children. SLOW! EXPENSIVE!
+&emsp;-o,--override   - override if procedure is running/stuck\
+&emsp;-r,--recursive  = bypass parent and its children. SLOW! EXPENSIVE!
 &emsp;-w,--lockWait   milliseconds to wait before giving up; default=1
 &emsp;-i,--inputFiles  takes one or more input files of PIDs
 Pass one (or more) procedure 'PIDs to skip to procedure finish. Parent of bypassed procedure skips to the finish. Entities are left in an inconsistent state and require manual fixup May need Master restart to clear locks still held. Bypass fails if procedure has children. Add 'recursive' if all you have is a parent PID to finish parent and children. ***This is SLOW, and dangerous so use selectively. Doesn't always work***. 
@@ -266,7 +266,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 ### **Some General Principals** 
 When making repair, **make sure `hbase:meta` is consistent first before you go about fixing any other issue type** such as a filesystem deviance. Deviance in the filesystem or problems with assign should be addressed after the `hbase:meta` has been put in order. If `hbase:meta` has issues, the Master can't make proper placements when adopting orphan filesystem data or making region assignments.
 
-Other general principals to keep in mind include a Region cann't be assigned if it's in CLOSING state (or the inverse, unassigned if in OPENING state) without first transitioning via CLOSED: Regions must always move from CLOSED, to OPENING, to OPEN, and then to CLOSING, CLOSED.
+Other general principals to keep in mind include a Region can't be assigned if it's in CLOSING state (or the inverse, unassigned if in OPENING state) without first transitioning via CLOSED: Regions must always move from CLOSED, to OPENING, to OPEN, and then to CLOSING, CLOSED.
 
 When making repair, do fixup of a table-at-a-time.
 
@@ -368,7 +368,7 @@ Should a cluster suffer a catastrophic loss of the `hbase:meta` table, a rough r
 
      The rebuild of `hbase:meta` adds the user tables in DISABLED state and the regions in CLOSED mode. Re-enable tables via the shell to bring all table regions back online. Do it one-at-a-time or see the enable_all ".*" command to enable all tables in one shot.
 
-     The rebuild meta is likely been missing edits and may need subsequent repair and cleaning using facility outlined higher up in this TSG.
+     The rebuild meta is missing edits and may need subsequent repair and cleaning using facility outlined higher up in this TSG.
 
 ### Dropped reference files, missing hbase.version file, and corrupted files
 
@@ -378,4 +378,4 @@ HBCK2 can check for hanging references and corrupt files. You can ask it to side
 
 At an extreme, as a last resource, if the Master is distraught and all attempts at fixup only turn up undoable locks or Procedures that can't finish, and/or the set of MasterProcWALs is growing without bound, it's possible to wipe the Master state clean. Just move aside the /hbase/MasterProcWALs/ directory under your hbase install and restart the Master process. It comes back as a tabular format  without memory.
 
-If at the time of the erasure, all Regions were happily assigned or off lined, then on Master restart, the Master should pick up and continue as though nothing happened. But if there were Regions-In-Transition at the time, then the operator has to intervene to bring outstanding assigns/unassigns to their terminal point. Read the `hbase:meta` info:state columns as described to figure what needs assigning/unassigning. Having erased all history moving aside the MasterProcWALs, none of the entities should be locked so you'Improved vre free to bulk assign/unassign.
+If at the time of the erasure, all Regions were happily assigned or off lined, then on Master restart, the Master should pick up and continue as though nothing happened. But if there were Regions-In-Transition at the time, then the operator has to intervene to bring outstanding assigns/unassigns to their terminal point. Read the `hbase:meta` info:state columns as described to figure what needs assigning/unassigning. Having erased all history moving aside the MasterProcWALs, none of the entities should be locked so you 'Improved free to bulk assign/unassign.
