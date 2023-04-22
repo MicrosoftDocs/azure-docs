@@ -244,6 +244,8 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 1. Use the following command to create an Azure Spring Apps service instance.
 
+::: zone-end
+
 ::: zone pivot="sc-standard"
 
    ```azurecli-interactive
