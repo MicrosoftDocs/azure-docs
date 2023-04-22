@@ -27,12 +27,12 @@ items:
       href: concept-supported-features-customers.md
     - name: Customizing the sign-in look and feel
     - name: Building your own customizations
+      href: concept-branding-customers.md
       items:
         - name: Custom authentication extensions
-          href: ../../develop/custom-extension-overview.md
+          href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
         - name: Adding claims from external systems
-          href: ../../develop/custom-claims-provider-overview/
-      href: concept-branding-customers.md
+          href: ../../develop/custom-claims-provider-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
     - name: Designing the flow of sign-in steps
       href: concept-user-flows-customers.md
     - name: Collecting info from users
@@ -150,11 +150,11 @@ items:
           - name: Token issuance start event
             items:
               - name: Create and register a custom claims provider API
-                href: ../../develop/custom-extension-get-started?context=/azure/active-directory/external-identities/customers/context/customers-context
+                href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
               - name: Configure a SAML app to call a custom claims provider
-                href: ../../develop/custom-extension-configure-saml-app?context=/azure/active-directory/external-identities/customers/context/customers-context
+                href: ../../develop/custom-extension-configure-saml-app.md?context=/azure/active-directory/external-identities/customers/context/customers-context
               - name: Troubleshoot your custom claims provider API
-                href: ../../develop/custom-extension-troubleshoot?context=/azure/active-directory/external-identities/customers/context/customers-context
+                href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
       - name: Add logic to attribute collection
         items:
           - name: Default branding

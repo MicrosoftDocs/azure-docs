@@ -23,7 +23,7 @@ You can create multiple user flows if you have multiple applications that you wa
 
 ## Prerequisites
 
-- **An Azure AD customer tenant**: Before you begin, create your Azure AD customer tenant. You can set up a [free trial](http://aka.ms/ciam-hub-free-trial), or you can create a new customer tenant in Azure AD.
+- **An Azure AD customer tenant**: Before you begin, create your Azure AD customer tenant. You can set up a [free trial](https://aka.ms/ciam-hub-free-trial), or you can create a new customer tenant in Azure AD.
 - **Email one-time passcode enabled (optional)**: If you want customers to use their email address and a one-time passcode each time they sign in, make sure Email one-time passcode is enabled at the tenant level (in the [Microsoft Entra admin center](https://entra.microsoft.com/), navigate to **External Identities** > **All Identity Providers** > **Email One-time-passcode**).
 - **Custom attributes defined (optional)**: User attributes are values collected from the user during self-service sign-up. Azure AD comes with a built-in set of attributes, but you can [define custom attributes to collect during sign-up](how-to-define-custom-attributes.md). Define custom attributes in advance so they'll be available when you set up your user flow. Or you can create and add them later.
 
@@ -55,7 +55,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. Under **User attributes**, choose the attributes you want to collect from the user during sign-up. Select **Show more** to choose from additional attributes, such as **Job Title**, **Display Name**, and **Postal Code**.
 
-   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/user-attributes.png" alt-text="Screenshot of Identity provider options on the Create a user flow page.":::
+   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/user-attributes.png" alt-text="Screenshot of the user attribute options on the Create a user flow page.":::
 
 1. Select **OK**.
 
@@ -75,7 +75,7 @@ You can choose the order in which the attributes are displayed on the sign-up pa
 
    The attributes you chose to collect are listed. You can change the attribute label, type, and whether it’s required. You can also change the order of display by selecting an attribute, and then select **Move up**, **Move down**, **Move to the top**, or **Move to the bottom**.
 
-   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/page-layouts.png" alt-text="Screenshot of Identity provider options on the Create a user flow page.":::
+   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/page-layouts.png" alt-text="Screenshot of page layout options for a user flow.":::
 
 1. Select **Save**.
 
@@ -93,7 +93,7 @@ If you've already registered your application in your customer tenant, you can i
 
 1. Select **Add application**.
 
-   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/assign-user-flow.png" alt-text="Screenshot of Identity provider options on the Create a user flow page.":::
+   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/assign-user-flow.png" alt-text="Screenshot showing selecting an application for the user flow.":::
 
 1. Select the application from the list. Or use the search box to find the application, and then select it.
 
