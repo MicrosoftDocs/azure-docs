@@ -113,24 +113,29 @@ Choose a sample image to analyze, and download it to your device. We support JPE
 
 You can input your image by one of two methods: **local filestream** or **blob storage URL**.
 - **Local filestream** (recommended): Encode your image to base64. You can use a website like [codebeautify](https://codebeautify.org/image-to-base64-converter) to do the encoding. Then save the encoded string to a temporary location. 
-- **Blob storage URL** [Upload your image to an Azure Blob Storage account](https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html). TBD Put your Blob URL into the _url_ parameter below. Currently we only support system assigned Managed Identity to access blob storage, so you must enable system assigned Managed identity for the Azure Content Safety instance and assign the role of "Storage Blob Data Contributor/Owner/Reader" to the identity:
-    - Enable managed identity for Azure Content Safety instance. 
+- **Blob storage URL**: Upload your image to an Azure Blob Storage account. Follow the [blob storage quickstart](/azure/storage/blobs/storage-quickstart-blobs-portal) to learn how to do this. Then open Azure Storage Explorer and get the URL to your image. Save it to a temporary location. 
 
-      ![Screenshot of Azure portal enabling managed identity.](https://user-images.githubusercontent.com/36343326/213126427-2c789737-f8ec-416b-9e96-d96bf25de58e.png)
+   Next, you need to give your Content Safety resource access to read from the Azure Storage resource. Enable system-assigned Managed identity for the Azure Content Safety instance and assign the role of **Storage Blob Data Contributor/Owner/Reader** to the identity:
+   
+   1. Enable managed identity for the Azure Content Safety instance. 
 
-    - Assign the role of "Storage Blob Data Contributor/Owner/Reader" to the Managed identity. Any roles highlighted below should work.
+      :::image type="content" source="../../media/role-assignment.png" alt-text="Screenshot of Azure portal enabling managed identity.":::
 
-      ![assign-role-2](https://user-images.githubusercontent.com/36343326/213126492-938bd351-7e53-45a7-97df-b9d8be94ad80.png)
+   1. Assign the role of **Storage Blob Data Contributor/Owner/Reader** to the Managed identity. Any roles highlighted below should work.
 
-      ![assign-role-3](https://user-images.githubusercontent.com/36343326/213126536-31efac53-1741-4ff6-97a0-324b9a7e67a9.png)
+      :::image type="content" source="../../media/add-role-assignment.png" alt-text="Screenshot of the Add role assignment screen in Azure portal.":::
 
-      ![assign-role-4](https://user-images.githubusercontent.com/36343326/213126616-03af2bc9-2328-42f6-abeb-766eff28cd8a.png)
+      :::image type="content" source="../../media/assigned-roles.png" alt-text="Screenshot of assigned roles in the Azure portal.":::
+
+      :::image type="content" source="../../media/managed-identity-role.png" alt-text="Screenshot of the managed identity role.":::
+
+### Analyze image content
 
 Paste the command below into a text editor, and make the following changes.
 
 1. Substitute the `<endpoint>` with your resource endpoint URL.
 1. Replace `<your_subscription_key>` with your key.
-1. Populate the `"image"` field in the body with either a `"content"` field or a `"url"` field. For example: `{"image": {"content": "base64_content_here"}` or `{"image": {"url": "blob_storage_url_here"}`.
+1. Populate the `"image"` field in the body with either a `"content"` field or a `"url"` field. For example: `{"image": {"content": "<base_64_string>"}` or `{"image": {"url": "<your_storage_url>"}`.
 
 ```shell
 curl.exe --location --request POST '<endpoint>/contentsafety/image:analyze?api-version=2023-04-30-preview' \
@@ -142,6 +147,17 @@ curl.exe --location --request POST '<endpoint>/contentsafety/image:analyze?api-v
   }
 }'
 ```
+
+> [!NOTE]
+> If you're using a blob storage URL, the request body will look like this:
+>
+> ```
+> {
+>  "image": {
+>    "url": "<your_storage_url>"
+>  }
+> }
+> ```
 
 Open a command prompt window and run the cURL command.
 
