@@ -12,7 +12,7 @@ ms.date: 4/22/2023
 
 # Quickstart: Create an Azure Stream Analytics job using Terraform
 
-This article shows how to create an [Azure Stream Analytics job](/azure/stream-analytics/stream-analytics-define-job) using [Terraform](/azure/terraform). Once the job is created, you validate the deployment.
+This article shows how to create an [Azure Stream Analytics](stream-analytics-introduction.md) job using [Terraform](/azure/terraform). Once the job is created, you validate the deployment.
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
