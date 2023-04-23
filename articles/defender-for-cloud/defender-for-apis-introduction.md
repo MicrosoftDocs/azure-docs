@@ -35,7 +35,7 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 
 Review the inventory and security findings for onboarded APIs in the Defender for Cloud API Security dashboard. The dashboard shows the number of onboarded devices, broken down by API collections, endpoints, and Azure API Management services. 
 
-:::image type="content" source="media/defender-for-apis-introduction/inventory.png" alt-text="Screenshot for reviewing the onboarded API inventory.":::
+:::image type="content" source="media/defender-for-apis-introduction/inventory.png" alt-text="Screenshot that shows the onboarded API inventory.":::
 
 You can drill down into API collection to review security findings for onboarded API endpoints.
 
@@ -81,7 +81,7 @@ Act on recommendations and alerts to mitigate threats and risk. Defender for Clo
 
 **When Defender for APIs is enabled together with the Defender CSPM plan**, you can use Cloud Security Explorer to proactively and efficiently query your organizational information to locate, identify, and remediate API assets, security issues, and risks.
 
-:::image type="content" source="media/defender-for-apis-introduction/cloud-security-explorer.png" alt-text="Screenshot for reviewing API information in Cloud Security Explorer." lightbox="media/defender-for-apis-introduction/cloud-security-explorer.png":::
+:::image type="content" source="media/defender-for-apis-introduction/cloud-security-explorer.png" alt-text="Screenshot that shows review API information in Cloud Security Explorer." lightbox="media/defender-for-apis-introduction/cloud-security-explorer.png":::
 
 ## Next steps
 

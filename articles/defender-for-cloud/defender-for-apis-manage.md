@@ -20,7 +20,7 @@ Defender for APIs is currently in preview.
 1. Select **API security**.
 1. Next to the API you want to offboard from Defender for APIs, select the ellipsis (...) > **Remove**.
 
-    :::image type="content" source="media/defender-for-apis-manage/api-remove.png" alt-text="Screenshot of review API information in Cloud Security Explorer." lightbox="media/defender-for-apis-manage/api-remove.png":::
+    :::image type="content" source="media/defender-for-apis-manage/api-remove.png" alt-text="Screenshot of the review API information in Cloud Security Explorer." lightbox="media/defender-for-apis-manage/api-remove.png":::
 
 
 
