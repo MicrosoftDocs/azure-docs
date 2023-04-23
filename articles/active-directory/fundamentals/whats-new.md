@@ -74,7 +74,7 @@ The Microsoft Enterprise SSO plug-in for Apple devices provides single sign-on (
 
 The Enterprise SSO plug-in is currently a built-in feature of the following apps:
 - [Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc): iOS, iPadOS
-- Microsoft Intune [Company Portal](mem/intune/apps/apps-company-portal-macos): macOS
+- Microsoft Intune [Company Portal](/mem/intune/apps/apps-company-portal-macos): macOS
 
 For more information, see: [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md).
 ---
