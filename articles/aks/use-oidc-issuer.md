@@ -70,9 +70,9 @@ To get the OIDC Issuer URL, run the [az aks show][az-aks-show] command. Replace 
 az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
 ```
 
-### Get the JWK Set document
+### Get the discovery document
 
-To get the JWK Set document, copy the URL https://<OIDC issuer URL>.well-known/openid-configuration and open it in browser. 
+To get the discovery document, copy the URL https://<OIDC issuer URL>.well-known/openid-configuration and open it in browser. 
 
 The output should resemble the following:
 
@@ -91,11 +91,11 @@ The output should resemble the following:
   ]
 }
 ```
-  
+The `jwks_uri` is the discovery document. 
 
-### Get the discovery document
+### Get the JWK Set document
   
-To get the discovery document, copy the JWK Set document and open it in browser.
+To get the JWK Set document, copy the discovery document and open it in browser.
 
 The output should resemble the following:
 ```output
