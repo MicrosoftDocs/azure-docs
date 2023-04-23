@@ -14,7 +14,7 @@ This article lists the recommendations you might see in Microsoft Defender for C
 shown in your environment depend on the resources you're protecting and your customized
 configuration.
 
-Defender for Cloud recommendations are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction). 
+Recommendations in Defender for Cloud are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction). 
 the Microsoft cloud security benchmark is the Microsoft-authored set of guidelines for security 
 and compliance best practices based on common compliance frameworks. This widely respected benchmark 
 builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) 

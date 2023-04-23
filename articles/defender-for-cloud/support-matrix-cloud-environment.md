@@ -47,7 +47,7 @@ Runtime visibility of vulnerabilities in container images | Public preview | NA 
 [Defender for Endpoint integration](./integration-defender-for-endpoint.md) | | GA | GA | NA
 [Connect AWS account](./quickstart-onboard-aws.md) | GA | NA | NA
 [Connect GCP project](./quickstart-onboard-gcp.md) | GA | NA | NA
-**[Defender for Storage](./defender-for-storage-introduction.md)**<br/><br/> Some Defender for Storage alerts are in public preview. | GA | GA | NA
+**[Defender for Storage](./defender-for-storage-introduction.md)**<br/><br/> Some alerts in Defender for Storage are in public preview. | GA | GA | NA
 **[Defender for SQL servers on machines](./defender-for-sql-introduction.md)** | GA | GA | NA
 **[Microsoft Sentinel bi-directional alert synchronization](../sentinel/connect-azure-security-center.md)** | Public preview | NA | NA 
 
