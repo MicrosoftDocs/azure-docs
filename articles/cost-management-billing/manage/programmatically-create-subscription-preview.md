@@ -7,7 +7,7 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 04/05/2023
 ms.reviewer: andalmia
-ms.author: banders 
+ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -170,7 +170,7 @@ In the response, as part of the header `Location`, you get back a url that you c
 
 ### [PowerShell](#tab/azure-powershell)
 
-To install the latest version of the module that contains the `New-AzSubscription` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
+To install the latest version of the module that contains the `New-AzSubscription` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/gallery/powershellget/install-powershellget).
 
 Run the [New-AzSubscription](/powershell/module/az.subscription) command below, replacing `<enrollmentAccountObjectId>` with the `ObjectId` collected in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). To specify owners, see [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
 
@@ -506,7 +506,7 @@ Use the `description` property to identify the reseller to associate with the su
 
 ### Create a subscription for a customer
 
-The following example creates a subscription named *Dev Team subscription* for *Fabrikam toys* and associate *Wingtip* reseller to the subscription. 
+The following example creates a subscription named *Dev Team subscription* for *Fabrikam toys* and associate *Wingtip* reseller to the subscription.
 
 Make the following request, replacing `<customerId>` with the `id` copied from the second step (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Pass the optional *resellerId* copied from the second step in the request parameters of the API.
 

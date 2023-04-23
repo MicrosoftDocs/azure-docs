@@ -62,9 +62,9 @@ az spring app create -n user-service --assign-endpoint
 az spring app create -n recommendation-service
 az spring app create -n hystrix-turbine --assign-endpoint
 
-az spring app deploy -n user-service --jar-path user-service/target/user-service.jar
-az spring app deploy -n recommendation-service --jar-path recommendation-service/target/recommendation-service.jar
-az spring app deploy -n hystrix-turbine --jar-path hystrix-turbine/target/hystrix-turbine.jar
+az spring app deploy -n user-service --artifact-path user-service/target/user-service.jar
+az spring app deploy -n recommendation-service --artifact-path recommendation-service/target/recommendation-service.jar
+az spring app deploy -n hystrix-turbine --artifact-path hystrix-turbine/target/hystrix-turbine.jar
 ```
 
 ## Verify your apps

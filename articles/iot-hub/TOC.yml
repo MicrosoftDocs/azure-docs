@@ -235,7 +235,7 @@
             - name: Use Azure portal
               displayName: create IoT Hub, register device, message routing, delete IoT hub
               href: iot-hub-create-through-portal.md
-            - name: Use Azure IoT Tools for VS Code
+            - name: Use Visual Studio Code
               displayName: create IoT Hub, register device, message routing, delete IoT hub
               href: iot-hub-create-use-iot-toolkit.md
             - name: Use Azure PowerShell
@@ -457,9 +457,9 @@
               href: iot-hub-raspberry-pi-kit-c-get-started.md
     - name: Extended IoT scenarios
       items:
-        - name: Messaging with Azure IoT Tools for VS Code
+        - name: Messaging with Visual Studio Code
           href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-        - name: Device management with Azure IoT Tools for VS Code
+        - name: Device management with Visual Studio Code
           href: iot-hub-device-management-iot-toolkit.md
         - name: Device management with IoT extension for Azure CLI
           href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
@@ -630,8 +630,8 @@
       href: iot-hub-customer-data-requests.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=iot
-    - name: Azure IoT Tools
-      displayName:  VS Code, Visual Studio Code, toolkit, azure-iot-toolkit, Azure loT Device Workbench
+    - name: Azure IoT Hub extension for Visual Studio Code
+      displayName:  VS Code, Visual Studio Code, toolkit, azure-iot-toolkit
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     - name: Azure IoT Explorer tool
       displayName: azure-iot-explorer, Plug and Play

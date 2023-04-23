@@ -1568,6 +1568,15 @@ groups:
     title: Chat Completion
   - id: programming-language-chat-ml
     title: ChatML
+#Owner: mbullwin
+- id: openai-prompt
+  title: API Options
+  prompt: API options
+  pivots:
+  - id: programming-language-chat-completions
+    title: Chat Completion
+  - id: programming-language-completions
+    title: Completion
 # Owner: mbullwin
 - id: openai-create-resource
   title: Programming languages
