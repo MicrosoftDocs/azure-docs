@@ -1,5 +1,5 @@
 ---
-title: Enable Defender for APIs 
+title: Enable Defender for APIs in Defender for Cloud 
 description: Learn about deploying the Defender for APIs plan in Defender for Cloud
 author: elazark
 ms.author: elkrieger
@@ -26,7 +26,7 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 1. Select the subscription that contains the managed APIs that you want to protect.
 1. In the **APIs** plan, select **On**. Then select **Save**.
 
-    :::image type="content" source="media/defender-for-apis-deploy/enable-plan.png" alt-text="Shows how to turn on the Defender for APIs plan in the portal" lightbox="media/defender-for-apis-deploy/enable-plan.png":::
+    :::image type="content" source="media/defender-for-apis-deploy/enable-plan.png" alt-text="Page that shows how to turn on the Defender for APIs plan in the portal." lightbox="media/defender-for-apis-deploy/enable-plan.png":::
 
 > [!NOTE]
 > After enabling Defender for APIs, onboarded APIs take up to 50 minutes to appear in the **Recommendations** tab. Security insights are available in the **Workload protections** > **API security** dashboard within 40 minutes of onboarding.
@@ -37,7 +37,7 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 1. Search for *Defender for APIs*.
 1. Under **Enable enhanced security features**, select the security recommendation **Azure API Management APIs should be onboarded to Defender for APIs**.
 
-    :::image type="content" source="media/defender-for-apis-deploy/api-recommendations.png" alt-text="Graphic showing how to turn on the Defender for APIs plan from the recommendation." lightbox="media/defender-for-apis-deploy/api-recommendations.png":::
+    :::image type="content" source="media/defender-for-apis-deploy/api-recommendations.png" alt-text="Screenshot showing how to turn on the Defender for APIs plan from the recommendation." lightbox="media/defender-for-apis-deploy/api-recommendations.png":::
 
 
 1. In the recommendation page, you can review the recommendation severity, update interval, description, and remediation steps.
@@ -49,21 +49,21 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 1. In **Unhealthy resources**, select the APIs that you want to protect with Defender for APIs.
 1. Select **Fix**. 
 
-    :::image type="content" source="media/defender-for-apis-deploy/api-recommendation-details.png" alt-text="Graphic showing the recommendation details for turning on the plan." lightbox="media/defender-for-apis-deploy/api-recommendation-details.png":::
+    :::image type="content" source="media/defender-for-apis-deploy/api-recommendation-details.png" alt-text="Screenshot showing the recommendation details for turning on the plan." lightbox="media/defender-for-apis-deploy/api-recommendation-details.png":::
 
 1. In **Fixing resources**, review the selected APIs, and select **Fix resources**.
 
-    :::image type="content" source="media/defender-for-apis-deploy/fix-resources.png" alt-text="Graphic showing how to fix unhealthy resources." lightbox="media/defender-for-apis-deploy/fix-resources.png":::
+    :::image type="content" source="media/defender-for-apis-deploy/fix-resources.png" alt-text="Screenshot showing how to fix unhealthy resources." lightbox="media/defender-for-apis-deploy/fix-resources.png":::
 
 1. Verify that remediation was successful.
 
-    :::image type="content" source="media/defender-for-apis-deploy/fix-resources-confirm.png" alt-text="Graphic confirming that remediation was successful." lightbox="media/defender-for-apis-deploy/fix-resources-confirm.png":::
+    :::image type="content" source="media/defender-for-apis-deploy/fix-resources-confirm.png" alt-text="Screenshot confirming that remediation was successful." lightbox="media/defender-for-apis-deploy/fix-resources-confirm.png":::
 
 ## Track onboarded API resources
 
 After onboarding the API resources, you can track their status in the Defender for Cloud portal > **Workload protections** > **API security**.
 
-:::image type="content" source="media/defender-for-apis-deploy/track-resources.png" alt-text="Graphic showing how to track onboarded API resources." lightbox="media/defender-for-apis-deploy/track-resources.png":::
+:::image type="content" source="media/defender-for-apis-deploy/track-resources.png" alt-text="Screenshot showing how to track onboarded API resources." lightbox="media/defender-for-apis-deploy/track-resources.png":::
 
 
 ## Next steps

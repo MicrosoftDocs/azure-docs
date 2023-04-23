@@ -1,6 +1,6 @@
 ---
-title: Manage Defender for APIs
-description: Manage your Defender for APIs deployment
+title: Manage the Defender for APIs plan in Microsoft Defender for Cloud
+description: Manage your Defender for APIs deployment in Microsoft Defender for Cloud
 author: elazark
 ms.author: elkrieger
 ms.service: defender-for-cloud
@@ -20,7 +20,7 @@ Defender for APIs is currently in preview.
 1. Select **API security**.
 1. Next to the API you want to offboard from Defender for APIs, select the ellipsis (...) > **Remove**.
 
-    :::image type="content" source="media/defender-for-apis-manage/api-remove.png" alt-text="Page for removing an API from Defender for APIs." lightbox="media/defender-for-apis-manage/api-remove.png":::
+    :::image type="content" source="media/defender-for-apis-manage/api-remove.png" alt-text="Screenshot of review API information in Cloud Security Explorer." lightbox="media/defender-for-apis-manage/api-remove.png":::
 
 
 

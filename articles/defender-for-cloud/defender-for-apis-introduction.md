@@ -1,6 +1,6 @@
 ---
-title: Microsoft Defender for APIs overview
-description: Learn about the benefits and features of Microsoft Defender for APIs
+title: Overview of the Microsoft Defender for APIs plan in Microsoft Defender for Cloud
+description: Learn about the benefits of the Microsoft Defender for APIs plan in Microsoft Defender for Cloud
 ms.date: 04/05/2023
 author: elazark
 ms.author: elkrieger
@@ -35,11 +35,11 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 
 Review the inventory and security findings for onboarded APIs in the Defender for Cloud API Security dashboard. The dashboard shows the number of onboarded devices, broken down by API collections, endpoints, and Azure API Management services. 
 
-:::image type="content" source="media/defender-for-apis-introduction/inventory.png" alt-text="Page for reviewing the onboarded API inventory":::
+:::image type="content" source="media/defender-for-apis-introduction/inventory.png" alt-text="Screenshot for reviewing the onboarded API inventory.":::
 
 You can drill down into API collection to review security findings for onboarded API endpoints.
 
-:::image type="content" source="media/defender-for-apis-introduction/endpoint-details.png" alt-text="Page for reviewing the API endpoint details":::
+:::image type="content" source="media/defender-for-apis-introduction/endpoint-details.png" alt-text="Screenshot for reviewing the API endpoint details.":::
 
 API endpoint information includes:
 
@@ -81,7 +81,7 @@ Act on recommendations and alerts to mitigate threats and risk. Defender for Clo
 
 **When Defender for APIs is enabled together with the Defender CSPM plan**, you can use Cloud Security Explorer to proactively and efficiently query your organizational information to locate, identify, and remediate API assets, security issues, and risks.
 
-:::image type="content" source="media/defender-for-apis-introduction/cloud-security-explorer.png" alt-text="Page for reviewing API information in Cloud Security Explorer." lightbox="media/defender-for-apis-introduction/cloud-security-explorer.png":::
+:::image type="content" source="media/defender-for-apis-introduction/cloud-security-explorer.png" alt-text="Screenshot for reviewing API information in Cloud Security Explorer." lightbox="media/defender-for-apis-introduction/cloud-security-explorer.png":::
 
 ## Next steps
 
