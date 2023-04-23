@@ -202,6 +202,14 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
    ```azurecli
    az spring create --name ${AZURE_SPRING_APPS_NAME} --sku enterprise
    ```
+1. Use the following command to create an application in the Azure Spring Apps instance.
+
+   ```azurecli
+   az spring app create \
+       --service ${AZURE_SPRING_APPS_NAME} \
+       --name ${APP_NAME} \
+       --assign-endpoint true
+   ```   
 ::: zone-end 
 
 ::: zone pivot="sc-standard"
@@ -210,9 +218,6 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
    ```azurecli
    az spring create --name ${AZURE_SPRING_APPS_NAME}
    ```
-::: zone-end
-
-::: zone pivot="sc-standard,sc-enterprise"
 1. Use the following command to create an application in the Azure Spring Apps instance.
 
    ```azurecli
