@@ -6,15 +6,15 @@ ms.topic: reference
 ms.date: 04/23/2023
 ---
 
-# Security Policy Enhancements in Defender for Cloud | Defender for Cloud in the Field 
+# Security policy enhancements in Defender for Cloud | Defender for Cloud in the field 
 
-**Episode description**: In this episode of Defender for Cloud in the Field, Tuval Rozner joins Yuri Diogenes to talk about the new security policy enhancements. Tuval covers the new security policy dashboard within Defender for Cloud, how to filter, and create exemptions from a single place without having to make changes in the Azure Policy dashboard. Tuval also demonstrates how to use the new dashboard and customize policies.
+**Episode description**: In this episode of Defender for Cloud in the field, Tuval Rozner joins Yuri Diogenes to talk about the new security policy enhancements. Tuval covers the new security policy dashboard within Defender for Cloud, how to filter, and create exemptions from a single place without having to make changes in the Azure Policy dashboard. Tuval also demonstrates how to use the new dashboard and customize policies.
 <br>
 <br>
 <iframe src="https://aka.ms/docs/player?id=1145810e-fc14-4d73-8d63-ea861aefb30b" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [01:21](/shows/mdc-in-the-field/security-policy#time=01m21s) - The rationale behind changing the security policy assignment experience
-- [02:20](/shows/mdc-in-the-field/security-policy#time=02m20s) -  What's new in the security policy assignment in Defender for Cloud?
+- [02:20](/shows/mdc-in-the-field/security-policy#time=02m20s) - What's new in the security policy assignment in Defender for Cloud?
 - [04:20](/shows/mdc-in-the-field/security-policy#time=04m20s) - Demonstration
 - [12:02](/shows/mdc-in-the-field/security-policy#time=12m02s) - What's next?
 
