@@ -2,7 +2,7 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 01/25/2023
+ms.date: 04/23/2023
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other, ignite-2022
 ---
@@ -101,7 +101,7 @@ After creating a connector, a scan will start on your GCP environment. New recom
 
 By default, all plans are `On`. You can disable plans that you don't need.
 
-:::image type="content" source="media/quickstart-onboard-gcp/toggle-plans-to-on.png" alt-text="Screenshot showing that all plans are toggle to on." lightbox="media/quickstart-onboard-gcp/toggle-plans-to-on.png":::
+:::image type="content" source="media/quickstart-onboard-gcp/toggle-plans-to-on.png" alt-text="Screenshot showing that all plans are toggle to on." lightbox="media/quickstart-onboard-gcp/toggle-plans-to-on.png" lightbox="media/quickstart-onboard-gcp/toggle-plans-to-on.png":::
 
 ### Configure the servers plan
 
