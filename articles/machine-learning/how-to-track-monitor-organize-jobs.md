@@ -164,5 +164,6 @@ To cancel a job in the studio, using the following steps:
 
 ## Next steps
 
+* To learn how to visualize and analyze your experimentation results, see [visualize training results](how-to-visualize-jobs.md).
 * To learn how to log metrics for your experiments, see [Log metrics during training jobs](how-to-log-view-metrics.md).
 * To learn how to monitor resources and logs from Azure Machine Learning, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
