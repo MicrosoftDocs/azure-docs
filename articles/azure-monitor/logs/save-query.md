@@ -53,17 +53,10 @@ To save a legacy query, select **Save as query** from the **Save** dropdown in L
 
 ### Can't select the option to save to the default query pack
 
-#### Cause 1: You clear the the option to **Save to the default query pack** and select a subscription that doesn't have a default query pack
+This error can occur when the subscription containing the Log Analytics workspace where you're saving the query from has a default query pack.
+If you clear the option to **Save to the default query pack**, select a subscription that doesn't have a default query pack, and then select a subscription that has a default query pack, you won't be able to select this option.
 
-When the subscription containing the Log Analytics workspace where you're saving the query from has a default query pack, the option to **Save to the default query pack** is selected by default. If you clear this option, select a subscription that doesn't have a default query pack, and then select a subscription that has a default query pack, you won't be able to select this option again.
-
-To resolve, close the **Save as query** dialog box, save the query again, and only select a subscription that has a default query pack.
-
-#### Cause 2: Default query pack doesn't exist for the subscription containing the Log Analytics workspace
-
-When the subscription containing the Log Analytics workspace where you're saving the query from doesn't have a default query pack, you won't be able to select the option to **Save to the default query pack** after you select a subscription that has a default query pack.
-
-To resolve, create the default query pack for the subscription containing the Log Analytics workspace where you're saving the query from.
+To resolve this error, close the **Save as query** dialog box, save the query again, and only select a subscription that has a default query pack.
 
 ### Fix the "You need permissions to create resource groups in subscription 'xxxx'" error message
 
