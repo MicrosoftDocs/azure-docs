@@ -75,6 +75,15 @@ You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to cre
     }
     ```
 
+    Note: If you are using .NET 6 or above, the `Main` method is not generated and you can use below statements directly.
+
+    ```csharp
+    var builder = new ConfigurationBuilder();
+    builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
+
+    var config = builder.Build();
+    Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
+    ```
 ## Build and run the app locally
 
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command:
