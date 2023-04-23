@@ -21,7 +21,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Deprecation of legacy compliance standards across cloud environments](#deprecation-of-legacy-compliance-standards-across-cloud-environments) | April 2023 |
 | [New Azure Active Directory authentication-related recommendations for Azure Data Services](#new-azure-active-directory-authentication-related-recommendations-for-azure-data-services) | April 2023 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | May 2023 |
-| [Release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM)](#release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm) | May 2023 |
+| [Release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM](#release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-cspm) | May 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | June 2023 |
 
 ### Deprecation of legacy compliance standards across cloud environments
@@ -95,25 +95,35 @@ The following security recommendations will be released as GA and replace the V1
 | Blocked accounts with owner permissions on Azure resources should be removed | 050ac097-3dda-4d24-ab6d-82568e7a50cf |
 | Blocked accounts with read and write permissions on Azure resources should be removed | 1ff0b4c9-ed56-4de6-be9c-d7ab39645926 |
 
-### Release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM)
+### Release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM
 
 **Estimated date for change: May 2023**
 
-We're announcing the release of Vulnerability Assessment for images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM).  Within Defender for CSPM, findings used in the Security Explorer and attack paths rely on MDVM vulnerability assessment instead of the Qualys platform.  
+We're announcing the release of Vulnerability Assessment for images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM). Scanning with MDVM will currently only be part of Defender CSPM, and includes daily scanning of images instead of weekly scanning. Findings used in the Security Explorer and attack paths rely on MDVM Vulnerability Assessment instead of the Qualys platform.  
 
-This change includes the Public Preview release of two new container recommendations within Defender CSPM:
+The existing recommendation "Container registry images should have vulnerability findings resolved" is replaced by a new recommendation powered by MDVM:
 
 |Recommendation | Description | Assessment Key|
 |--|--|--|
-| Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. | c0b7cfc6-3172-465a-b378-53c7ff2cc0d5
-| Running container images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images that are currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to improving your security posture, significantly reducing attack surfaces for your containerized workloads within Kubernetes clusters. | XXX
+| Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. Resolving vulnerabilities can greatly improve your security posture, ensuring images are safe to use prior to deployment. |dbd0cb49-b563-45e7-9724-889e799fa648 <br> is replaced by  c0b7cfc6-3172-465a-b378-53c7ff2cc0d5
 
-In addition, the release includes renaming the current existing container recommendations in Defender for Containers as follows:
+The recommendation "Running container images should have vulnerability findings resolved" (assessment key 41503391-efa5-47ee-9282-4eff6131462c) is temporarily removed and will be replaced soon by a new recommendation powered by MDVM.
 
-- Container registry images should have vulnerability findings resolved (powered by Qualys)
-- Running container images should have vulnerability findings resolved (powered by Qualys)
+In addition, Vulnerability Assessment for Windows is temporarily not supported during the transition to MDVM. Updates for releasing improved Windows support powered by MDVM will be published as it becomes available. 
+
 
 Learn more about [Microsoft Defender Vulnerability Management (MDVM)](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management).
+
+### Renaming of container recommendations powered by Qualys
+
+**Estimated date for change: May 2023**
+
+ The current container recommendations in Defender for Containers are renamed as follows:
+|Recommendation | Assessment Key|
+|--|--|
+| Container registry images should have vulnerability findings resolved (powered by Qualys) |dbd0cb49-b563-45e7-9724-889e799fa648 |
+| Running container images should have vulnerability findings resolved (powered by Qualys) |  41503391-efa5-47ee-9282-4eff6131462c |
+
 
 
 ### DevOps Resource Deduplication for Defender for DevOps
