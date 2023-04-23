@@ -9,7 +9,11 @@ ms.date: 03/08/2023
 
 # Defender for Cloud support for commercial/government clouds
 
-This article indicates which Defender for Cloud features are supported in Azure commercial and government clouds. **NA** indicates that the feature is not available.
+This article indicates which Defender for Cloud features are supported in Azure commercial and government clouds. 
+
+## Cloud support
+
+In the support table, **NA** indicates that the feature is not available.
 
 **Feature/Plan** | **Details** | **Azure** | **Azure Government** | **Azure China**<br/><br/>**21Vianet**
 --- | --- | --- |--- | --- 
