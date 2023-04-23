@@ -148,6 +148,8 @@ items:
       href: quickstarts/email/send-email.md
     - name: Add multiple sender addresses
       href: quickstarts/email/add-multiple-senders.md
+    - name: Add multiple sender addresses with ACS Management SDKs
+      href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
   - name: Network Traversal
     items:
     - name: Access TURN relays
