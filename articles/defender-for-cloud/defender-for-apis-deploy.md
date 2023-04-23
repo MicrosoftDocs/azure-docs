@@ -18,7 +18,7 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 - Ensure that APIs you want to secure are published in [Azure API management](/azure/api-management/api-management-key-concepts). Follow [these instructions](/azure/api-management/get-started-create-service-instance) to set up Azure API Management.
 
 > [!NOTE]
-> This article describes how to enable and onboard the Defender for APIs plan in the Defender for Cloud portal. Alternately, you can enable Defender for APIs within an API Management instance in the Azure portal.
+> This article describes how to enable and onboard the Defender for APIs plan in the Defender for Cloud portal. Alternately, you can [enable Defender for APIs within an API Management instance](../api-management/protect-with-defender-for-apis.md) in the Azure portal.
 
 ## Enable the plan
 
@@ -29,7 +29,7 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
     :::image type="content" source="media/defender-for-apis-deploy/enable-plan.png" alt-text="Shows how to turn on the Defender for APIs plan in the portal" lightbox="media/defender-for-apis-deploy/enable-plan.png":::
 
 > [!NOTE]
-> After enabling Defender for APIs, onboarded APIs take up to 45 minutes to appear in the **Recommendations** tab. Security insights are available in the **Workload protections** > **API security** dashboard within 30 minutes of onboarding.
+> After enabling Defender for APIs, onboarded APIs take up to 50 minutes to appear in the **Recommendations** tab. Security insights are available in the **Workload protections** > **API security** dashboard within 40 minutes of onboarding.
 
 ## Onboard APIs
 
