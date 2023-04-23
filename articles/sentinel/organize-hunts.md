@@ -30,20 +30,20 @@ The [Microsoft Sentinel Contributor role assignment](/azure/role-based-access-co
 ## Define your hypothesis
 The first step to hunting is to decide which direction to go in. Use this idea to define your hypothesis. The most common hypotheses are:
 
-- Malicious behavior - this type of hunt is looking to find any and all sorts of malicious activity.
+- Malicious behavior - this type of hunt is looking to find all sorts of malicious activity.
 - New threat campaign - here you're looking for a specific type of attack or vulnerability.
 - MITRE detection gaps - with the ATT&CK map in mind, this directed hunt gives you tools to bolster your defenses in a specific area.
 
-Microsoft Sentinel gives you flexibility as you zero in on the right set of hunting queries to investigate your hypothesis. When you create a hunt, initiate it with pre-selected hunting queries, or add queries as you progress. Here are recommendations for pre-selected queries based on the most common hypotheses.
+Microsoft Sentinel gives you flexibility as you zero in on the right set of hunting queries to investigate your hypothesis. When you create a hunt, initiate it with preselected hunting queries, or add queries as you progress. Here are recommendations for preselected queries based on the most common hypotheses.
 
 ### Hypothesis - malicious behavior
 1. Navigate to the Hunting page **Queries** tab. With a well established base of queries installed, running all your queries is the recommended method for identifying potentially malicious behaviors. 
 
-1. Select **Run All queries** > wait for the queries to execute. This may take awhile. 
+1. Select **Run All queries** > wait for the queries to execute. This process may take a while. 
 1. Select **Add filter** > **Results** > unselect the checkboxes "!", "N/A", "-", and "0" values > **Apply**
     :::image type="content" source="media/organize-hunts/all-queries-with-results.png" alt-text="Screenshot shows the filter described in step 3." lightbox="media/organize-hunts/all-queries-with-results.png":::
 
-1. Select all the remaining queries - these results will guide us on the hunt.
+1. Select all the remaining queries - these results provide initial guidance on the hunt.
 
 
 ### Hypothesis - new threat campaign
@@ -72,15 +72,15 @@ The MITRE ATT&CK map helps you identify specific gaps in your detection coverage
 ## Create a Hunt
 There are two ways to create a hunt.
 
-1. If you've started with a hypothesis where you've selected queries, select the **Hunt actions** drop down menu > **Create new hunt**. This creates a new hunt with clones of the queries you selected.
+1. If you've started with a hypothesis where you've selected queries, select the **Hunt actions** drop down menu > **Create new hunt**. All the queries you selected are cloned for this new hunt.
 
     :::image type="content" source="media/organize-hunts/create-new-hunt.png" alt-text="Screenshot shows queries selected and the create new hunt menu option selected.":::
 
 1. If you haven't decided on queries yet, select the **Hunts (Preview)** tab > **New Hunt** to create a blank hunt.
 
-    :::image type="content" source="media/organize-hunts/create-blank-hunt.png" alt-text="Screenshot shows the menu to create a blank hunt with no pre-selected queries.":::
+    :::image type="content" source="media/organize-hunts/create-blank-hunt.png" alt-text="Screenshot shows the menu to create a blank hunt with no preselected queries.":::
 
-1. Fill out the hunt name and additional optional fields. The description is a good place to verbalize your hypothesis. The **Hypothesis** pull down menu is where you set the status of your working hypothesis. 
+1. Fill out the hunt name and optional fields. The description is a good place to verbalize your hypothesis. The **Hypothesis** pull down menu is where you set the status of your working hypothesis. 
 
 1. Select **Create** to get started.
 
@@ -89,7 +89,7 @@ There are two ways to create a hunt.
 ### Deploy Demo Hunt via ARM template (if needed)
 If you don't have any hunting queries that produce results in your environment, and you don't want to create an empty hunt, deploy the "Demo Hunt".
 
-1. Navigate to the this [DemoHunt GitHub folder](https://aka.ms/DemoHuntARMTemplatePreview). 
+1. Navigate to the [DemoHunt GitHub folder](https://aka.ms/DemoHuntARMTemplatePreview). 
 1. Select the ****Deploy to Azure** button, and fill out the appropriate fields. 
 1. Be sure to type in the name of your desired Log Analytics workspace. Without this step, the ARM template can't be deployed, even though the validate step indicates success. 
 
@@ -119,13 +119,13 @@ The **Queries** tab contains hunting queries specific to this hunt. These querie
 
     :::image type="content" source="media/organize-hunts/queries-tab.png" alt-text="Screenshot shows right-click context menu options in the Queries tab of a hunt.":::
 
-    These options behave just like the existing queries table in the **Hunting** page, except the actions only apply within this hunt. When you choose to create an analytics rule, the name, description, and KQL query is pre-populated in the new rule creation. A link is created to view the new analytics rule found under **Related analytics rules**.
+    These options behave just like the existing queries table in the **Hunting** page, except the actions only apply within this hunt. When you choose to create an analytics rule, the name, description, and KQL query is prepopulated in the new rule creation. A link is created to view the new analytics rule found under **Related analytics rules**.
 
     :::image type="content" source="media/organize-hunts/analytics-rule-from-query-tab.png" alt-text="Screenshot showing hunt details with related analytics rule."::: 
 
 1. Select the **View results** button. 
 
-    View results will launch a special version of the Log Analytics (LA) search page. All the query tabs in this special LA space persist for your browser session. If you pivot to another part of the Microsoft Sentinel Portal, then browse back to the LA log search user experience from an entry point within the hunt user experience, all the previously created LA query tabs will still be there.
+    View results launches a special version of the Log Analytics (LA) search page. All the query tabs in this special LA space persist for your browser session. If you pivot to another part of the Microsoft Sentinel portal, then browse back to the LA log search user experience from an entry point within the hunt user experience, all the previously created LA query tabs will still be there.
 
     > [!TIP]
     > These LA query tabs are lost if you close the browser tab. If you want to persist the queries long term, you need to save the query, create a new hunting query, or [copy it into a comment](#add-comments) for later use within the hunt.
@@ -150,7 +150,7 @@ When you find interesting results or important rows of data, add those results t
 
 
 ## View bookmarks
-Navigate to your hunt's bookmark tab to view your bookmarks with previously-created details.
+Navigate to your hunt's bookmark tab to view your bookmarks with previously created details.
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
 From here select a desired bookmark and perform the following actions:
@@ -170,14 +170,14 @@ Option 1: Use bookmarks.
 - Select Create new incident or Add to existing incident
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
-- For **Create new incident**, follow the guided steps. The bookmarks tab is pre-populated with your selected bookmarks. 
+- For **Create new incident**, follow the guided steps. The bookmarks tab is prepopulated with your selected bookmarks. 
 - For **Add to existing incident**, select the incident and select the **Accept** button.
 
 Option 2: Use **Hunt actions**.
 - Select the **Hunts actions** menu > **Create incident**, and follow the guided steps.
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
-During the **Add bookmarks** step use the **Add bookmark** action to choose additional bookmarks from the hunt to add to the incident. You are limited to bookmarks that haven't already been assigned to an incident.
+During the **Add bookmarks** step use the **Add bookmark** action to choose additional bookmarks from the hunt to add to the incident. You're limited to bookmarks that haven't already been assigned to an incident.
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
 ## Interact with entities
