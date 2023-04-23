@@ -178,7 +178,7 @@
       items:
       - name: Java message service (JMS) 2.0 entities
         href: java-message-service-20-entities.md
-      - name: Java Message Service (JMS) Developer guide.md
+      - name: Java Message Service (JMS) Developer guide
         href: jms-developer-guide.md
       - name: Messages, payloads, and serialization
         href: service-bus-messages-payloads.md
