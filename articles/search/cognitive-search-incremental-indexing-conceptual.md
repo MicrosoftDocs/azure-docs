@@ -179,8 +179,8 @@ REST API version `2020-06-30-Preview` or later provides incremental enrichment t
 
 ## Limitations
 
-> [!WARNING]
-> If you're using the [SharePoint Online indexer (Preview](search-howto-index-sharepoint-online.md), you should avoid incremental enrichment. Under certain conditions, the cache becomes invalid, requiring you to reset and rerun the indexer if you choose to reload the cache.
+> [!CAUTION]
+> If you're using the [SharePoint Online indexer (Preview)](search-howto-index-sharepoint-online.md), you should avoid incremental enrichment. Under certain circumstances, the cache becomes invalid, requiring an [indexer reset and run](search-howto-run-reset-indexers.md), should you choose to reload it.
 
 ## Next steps
 
