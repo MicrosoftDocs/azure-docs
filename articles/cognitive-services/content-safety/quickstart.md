@@ -53,6 +53,10 @@ The API may return the following HTTP response codes:
 | 503           | Service unavailable – The server can't handle the request temporarily. Try again at a later time. |
 | 504           | Gateway time out – The server didn't receive a timely response from the upstream service. Try again at a later time. |
 
+## Clean up resources
+
+TBD
+
 ## Next steps
 
 Next, learn how to use custom blocklists to customize your text moderation process.
