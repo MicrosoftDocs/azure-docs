@@ -119,10 +119,11 @@ Learn more about [Microsoft Defender Vulnerability Management (MDVM)](https://le
 **Estimated date for change: May 2023**
 
  The current container recommendations in Defender for Containers are renamed as follows:
-| Recommendation | Assessment Key |
-|--|--|
-| Container registry images should have vulnerability findings resolved (powered by Qualys) | dbd0cb49-b563-45e7-9724-889e799fa648 |
-| Running container images should have vulnerability findings resolved (powered by Qualys) | 41503391-efa5-47ee-9282-4eff6131462c |
+
+|Recommendation | Description | Assessment Key|
+|--|--|--|
+| Container registry images should have vulnerability findings resolved (powered by Qualys) | Container image vulnerability assessment scans your registry for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. | dbd0cb49-b563-45e7-9724-889e799fa648 |
+| Running container images should have vulnerability findings resolved (powered by Qualys) | Container image vulnerability assessment scans container images running on your Kubernetes clusters for security vulnerabilities and exposes detailed findings for each image. Resolving the vulnerabilities can greatly improve your containers' security posture and protect them from attacks. (No related policy). |  41503391-efa5-47ee-9282-4eff6131462c |
 
 
 ### DevOps Resource Deduplication for Defender for DevOps
