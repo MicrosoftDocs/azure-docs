@@ -71,11 +71,15 @@ The following quickstarts apply to the Basic/Standard plan only. For Enterprise 
 * [Set up the configuration server](quickstart-setup-config-server.md)
 * [Build and deploy apps](quickstart-deploy-apps.md)
 
-## Standard consumption plan
+## Standard consumption & dedicated plan
 
-The Standard consumption plan provides a flexible billing model where you pay only for compute time used instead of provisioning resources. Start with as little as 0.25 vCPU and dynamically scale out based on HTTP or events powered by Kubernetes Event-Driven Autoscaling (KEDA). You can also scale your app instance to zero and stop all charges related to the app when there are no requests to process.
+Standard consumption & dedicated provides a hybrid pricing plan that offers pay-as-you-go and resource-based pricing in one comprehensive package. Pay for compute time only when getting started, or achieve price predictable and more cost savings when things are running at scale. 
 
-The Standard consumption plan simplifies the virtual network experience for running polyglot apps. When you deploy frontend apps as containers in Azure Container Apps and Spring apps in the Standard consumption plan, all your apps share the same virtual network in the same Azure Container Apps environment. There's no need to create disparate subnets and Network Security Groups for frontend apps, Spring apps, and the Spring service runtime.
+When a Standard consumption & dedicated plan is created, a consumption workload profile is always created by default, and you can additionally add dedicated workload profiles in the same plan to fit the requirements of your workload. Workload profiles determine the amount of compute and memory resources available to Spring apps deployed in the Standard consumption & dedicated plan. There are different machine sizes and characteristics with different workload profiles. See [Azure Container Apps workload profile](https://learn.microsoft.com/en-us/azure/container-apps/workload-profiles-overview) to learn more.
+
+You can run your apps in any combination of consumption or dedicated workload profile. Consider using the consumption workload profile when your apps need to start from and scale to zero. Use the dedicated workload profile when you need dedicated hardware for single tenancy, customizable compute (i.e.: memory optimized machine), and optimize for cost savings when things are running at scale. 
+
+The Standard consumption & dedicated plan simplifies the virtual network experience for running polyglot apps. When you deploy frontend apps as containers in Azure Container Apps and Spring apps in the Standard consumption & dedicated plan, all your apps share the same virtual network in the same Azure Container Apps environment. There's no need to create disparate subnets and Network Security Groups for frontend apps, Spring apps, and the Spring service runtime.
 
 :::image type="content" source="media/overview/standard-consumption-plan.png" alt-text="Diagram showing app architecture with Azure Spring Apps standard consumption plan." lightbox="media/overview/standard-consumption-plan.png" border="false":::
 
