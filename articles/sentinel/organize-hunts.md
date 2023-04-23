@@ -5,14 +5,14 @@ description: Learn how to organize your threat hunting. Seek out undetected thre
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 04/24/2023
 ---
 
-# Organize proactive threat detection with Hunts in Microsoft Sentinel
+# Organize threat detection with proactive hunts in Microsoft Sentinel
 
-Proactive threat hunting is a process by which security analysts seek out undetected threats and malicious behaviors by creating a hypothesis, searching through data, validating that hypothesis, and acting when applicable. Actions can include creating new detections, threat intelligence, or incidents.
+Proactive threat hunting is a process where security analysts seek out undetected threats and malicious behaviors. By creating a hypothesis, searching through data, and validating that hypothesis, they determine what to act on. Actions can include creating new detections, new threat intelligence, or spinning up a new incident.
 
-Learn how to use the Hunts feature, which is our first step to providing an end to end hunting experience within Microsoft Sentinel.
+Learn how to use the **Hunts** feature, which is our first step to providing an end to end hunting experience within Microsoft Sentinel.
 
 Common Use-Cases:
 - Proactively hunt based on specific MITRE techniques, potentially malicious activity, recent threats, or your own customer defined hypothesis.
@@ -28,20 +28,20 @@ Common Use-Cases:
 The [Microsoft Sentinel Contributor role assignment](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) is required. To learn more about roles in Microsoft Sentinel, see [Roles and permissions in Microsoft Sentinel](roles.md).
 
 ## Define your hypothesis
-The first step to hunting is to decide which direction to go in. Use this idea to define a hypothesis. The most common sources of hunting hypotheses are:
+The first step to hunting is to decide which direction to go in. Use this idea to define your hypothesis. The most common hypotheses are:
 
 - Malicious behavior - this type of hunt is looking to find any and all sorts of malicious activity.
-- New threat campaign - here we're looking for a specific type of attack or vulnerability.
-- MITRE detection gaps - with the ATT&CK map in mind, this directed hunt gives us tools to bolster our defense in a specific area.
+- New threat campaign - here you're looking for a specific type of attack or vulnerability.
+- MITRE detection gaps - with the ATT&CK map in mind, this directed hunt gives you tools to bolster your defenses in a specific area.
 
-Microsoft Sentinel gives you flexibility as you zero in on the right set of hunting queries to investigate your hypothesis. But when you create the hunt, you can initiate it with pre-selected hunting queries, or you can add queries as you progress. Here are some pre-selected queries based on the most common hypothesis.
+Microsoft Sentinel gives you flexibility as you zero in on the right set of hunting queries to investigate your hypothesis. When you create a hunt, initiate it with pre-selected hunting queries, or add queries as you progress. Here are recommendations for pre-selected queries based on the most common hypotheses.
 
 ### Hypothesis - malicious behavior
 1. Navigate to the Hunting page **Queries** tab. With a well established base of queries installed, running all your queries is the recommended method for identifying potentially malicious behaviors. 
 
 1. Select **Run All queries** > wait for the queries to execute. This may take awhile. 
 1. Select **Add filter** > **Results** > unselect the checkboxes "!", "N/A", "-", and "0" values > **Apply**
-    :::image type="content" source="media/organize-hunts/all-queries-with-results.png" alt-text="Screenshot shows the filter described in step 3.":::
+    :::image type="content" source="media/organize-hunts/all-queries-with-results.png" alt-text="Screenshot shows the filter described in step 3." lightbox="media/organize-hunts/all-queries-with-results.png":::
 
 1. Select all the remaining queries - these results will guide us on the hunt.
 
@@ -57,76 +57,103 @@ Content hub offers threat campaign and domain-based solutions to hunt for specif
 ### Hypothesis - MITRE detection gaps
 The MITRE ATT&CK map helps you identify specific gaps in your detection coverage. Hunting queries are good starting points to develop new detection analytics for specific tactics and techniques.
 1. Navigate to the MITRE page.
-1. Unselect items in the Active drop down.
-1. Select **hunting queries** in the Simulated filter.
-    :::image type="content" source="media/organize-hunts/mitre-hunting-queries.png" alt-text="Screenshot shows the MITRE ATT&CK page with the option for simulated Hunting queries selected."::: 
+1. Unselect items in the Active drop down menu.
+1. Select **Hunting queries** in the **Simulated** filter.
+
+    :::image type="content" source="media/organize-hunts/mitre-hunting-queries.png" alt-text="Screenshot shows the MITRE ATT&CK page with the option for simulated Hunting queries selected." lightbox="media/organize-hunts/mitre-hunting-queries.png"::: 
 
 1. Select the card with your desired technique.
-1. Click the **View** link next to the Hunting queries item at the bottom of the right-hand details pane to see just these queries in a filtered view of Hunting **Queries** tab.
+1. Select the **View** link next to **Hunting queries** at the bottom of the details pane. This link filters the **Queries** tab on the **Hunting** page based on the technique you selected. 
+
     :::image type="content" source="media/organize-hunts/mitre-card-view.png" alt-text="Screenshot shows the MITRE ATT&CK card view with the Hunting queries view link.":::
+
+1. Select all the queries for that technique.
 
 ## Create a Hunt
 There are two ways to create a hunt.
 
-- If you've started with a hypothesis where you've selected queries, select the **Hunt actions** drop down menu > **Create new hunt**. This creates a new hunt with clones of the queries related to the hunt you selected.
-:::image type="content" source="media/organize-hunts/create-new-hunt.png" alt-text="Screenshot shows queries selected and the create new hunt menu option selected.":::
+1. If you've started with a hypothesis where you've selected queries, select the **Hunt actions** drop down menu > **Create new hunt**. This creates a new hunt with clones of the queries you selected.
 
-- If you haven't decided on queries yet, select the **Hunts (Preview)** tab > **New Hunt** to create a blank hunt.
-:::image type="content" source="media/organize-hunts/create-blank-hunt.png" alt-text="Screenshot shows the menu to create a blank hunt with no pre-selected queries.":::
+    :::image type="content" source="media/organize-hunts/create-new-hunt.png" alt-text="Screenshot shows queries selected and the create new hunt menu option selected.":::
 
-- Fill out the hunt name and additional optional fields. The description is a good place to verbalize your hypothesis. The **Hypothesis** pull down menu is where you set the status of your working hypothesis. Select **Create** to get started.
-:::image type="content" source="media/organize-hunts/create-hunt-description.png" alt-text="Screenshot shows the hunt creation page with Hunt name, description, owner, status and hypothesis state.":::
+1. If you haven't decided on queries yet, select the **Hunts (Preview)** tab > **New Hunt** to create a blank hunt.
+
+    :::image type="content" source="media/organize-hunts/create-blank-hunt.png" alt-text="Screenshot shows the menu to create a blank hunt with no pre-selected queries.":::
+
+1. Fill out the hunt name and additional optional fields. The description is a good place to verbalize your hypothesis. The **Hypothesis** pull down menu is where you set the status of your working hypothesis. 
+
+1. Select **Create** to get started.
+
+    :::image type="content" source="media/organize-hunts/create-hunt-description.png" alt-text="Screenshot shows the hunt creation page with Hunt name, description, owner, status and hypothesis state.":::
 
 ### Deploy Demo Hunt via ARM template (if needed)
 If you don't have any hunting queries that produce results in your environment, and you don't want to create an empty hunt, deploy the "Demo Hunt".
 
-To deploy the ARM template, navigate to the this [DemoHunt GitHub folder](https://aka.ms/DemoHuntARMTemplatePreview). Select the ****Deploy to Azure** button, and fill out the appropriate fields. Be sure to type in the name of your desired Log Analytics workspace. Without this step, the ARM template can't be deployed, even though the validate step indicates success. 
+1. Navigate to the this [DemoHunt GitHub folder](https://aka.ms/DemoHuntARMTemplatePreview). 
+1. Select the ****Deploy to Azure** button, and fill out the appropriate fields. 
+1. Be sure to type in the name of your desired Log Analytics workspace. Without this step, the ARM template can't be deployed, even though the validate step indicates success. 
 
-The demo hunt contains a sample hunting query, "Hunts Demo Query". This query generates mock data in a dynamic table based on the current time. You can use this to try out the other features of Hunts!
+The demo hunt contains a sample hunting query, "Hunts Demo Query". This query generates mock data in a dynamic table based on the current time. Now you're able to demo the other features of hunts!
 
-## View Hunt details
+## View hunt details
 1. Select the **Hunts (Preview)** tab to view your new hunt.
-1. Select the hunt link by name to view the details.
+1. Select the hunt link by name to view the details and take actions.
+
     :::image type="content" source="media/organize-hunts/view-hunt.png" alt-text="Screenshot showing new hunt in Hunting tab." lightbox="media/organize-hunts/view-hunt.png":::
 
-1. Each hunt has a details page. View the details pane with the **Hunt name**, **Description**, **Content**, **Last update time**, and **Creation time**. 
+1. View the details pane with the **Hunt name**, **Description**, **Content**, **Last update time**, and **Creation time**. 
 1. Note the tabs for **Queries**, **Bookmarks**, and **Entities**.
-:::image type="content" source="media/organize-hunts/view-hunt-details.png" alt-text="Screenshot showing the hunt details." lightbox="media/organize-hunts/view-hunt-details.png":::
+
+    :::image type="content" source="media/organize-hunts/view-hunt-details.png" alt-text="Screenshot showing the hunt details." lightbox="media/organize-hunts/view-hunt-details.png":::
  
 ### Queries tab
-The **Queries** tab contains hunting queries specific to this hunt. These queries are independent from all others in the workspace and can be updated or deleted without impacting the overall set of hunting queries or queries in other hunts. 
+The **Queries** tab contains hunting queries specific to this hunt. These queries are independent from all others in the workspace and can be updated or deleted without impacting your overall set of hunting queries or queries in other hunts. 
 
-1. Explore the hunting query options. With the right-click context menu, select one of the following:
+1. Select a query.
+1. Right-click the query and select one of the following from the context menu:
     - **Run**
     - **Edit**
     - **Clone** 
     - **Delete**
-    - **Create analytics rule**. When you choose to create an analytics rule, the name, description and KQL query is pre-populated in the Analytics rule wizard. When you finish creating the rule, a link is created to view the new analytics rule on the Analytics page. 
+    - **Create analytics rule**
+
     :::image type="content" source="media/organize-hunts/queries-tab.png" alt-text="Screenshot shows right-click context menu options in the Queries tab of a hunt.":::
 
-    These options behave just like the existing Queries table in the Hunting page, except that actions only apply within the hunt. 
+    These options behave just like the existing queries table in the **Hunting** page, except the actions only apply within this hunt. When you choose to create an analytics rule, the name, description, and KQL query is pre-populated in the new rule creation. A link is created to view the new analytics rule found under **Related analytics rules**.
 
-1. **View results** in Log analytics (LA). This selection will launch a special version of the LA Search page. All the Query tabs in this special LA space persist for your browser session. If you pivot to another part of the Microsoft Sentinel Portal, then browse back to the LA log search user experience from an entry point within the hunt user experience, all the previously created LA query tabs will still be there.
+    :::image type="content" source="media/organize-hunts/analytics-rule-from-query-tab.png" alt-text="Screenshot showing hunt details with related analytics rule."::: 
 
-> [!IMPORTANT]
-> These LA Query tabs are lost if you close the browser tab. If you want to persist the queries long term, you need to save the query, create a new hunting query, or [copy it into a comment](#add-comments) for later use within the hunt.
->
+1. Select the **View results** button. 
 
-## Add bookmarks
-When you find one or more interesting results/rows, you can add the results to the hunt by creating one or more bookmarks. 
+    View results will launch a special version of the Log Analytics (LA) search page. All the query tabs in this special LA space persist for your browser session. If you pivot to another part of the Microsoft Sentinel Portal, then browse back to the LA log search user experience from an entry point within the hunt user experience, all the previously created LA query tabs will still be there.
+
+    > [!TIP]
+    > These LA query tabs are lost if you close the browser tab. If you want to persist the queries long term, you need to save the query, create a new hunting query, or [copy it into a comment](#add-comments) for later use within the hunt.
+    >
+
+## Add a bookmark
+When you find interesting results or important rows of data, add those results to the hunt by creating a bookmark. 
 
 1. Select the desired row or rows. Select the Add bookmark action, right above the Results table.
-    :::image type="content" source="{source}" alt-text="{alt-text}":::
+    :::image type="content" source="media/organize-hunts/add-bookmark.png" alt-text="Screenshot showing add bookmark pane with optional fields filled in.":::
 
-1. You can optionally name the bookmark(s), set the event time column, map entity identifiers, set MITRE tactics and techniques, add tags, and add notes. Additionally, the bookmarks will preserve the specific row results, KQL query, and time range that generated the result. For more information, see [Hunt with bookmarks](bookmarks.md).
-1. Select **Create and assign to current hunt** to add the bookmark to the hunt.
-    :::image type="content" source="{source}" alt-text="{alt-text}":::
+    Optional steps:
+1. Name the bookmark(s), 
+1. Set the event time column
+1. Map entity identifiers
+1. Set MITRE tactics and techniques
+1. Add tags, and add notes. 
+
+    The bookmarks will preserve the specific row results, KQL query, and time range that generated the result. For more information, see [Hunt with bookmarks](bookmarks.md).
+
+1. Select **Create** to add the bookmark to the hunt.
+
 
 ## View bookmarks
-Navigate to your hunt’s bookmark tab to view your bookmarks with previously-created details.
+Navigate to your hunt's bookmark tab to view your bookmarks with previously-created details.
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
-From here you can select a desired bookmark and perform the following actions:
+From here select a desired bookmark and perform the following actions:
 - Select entity links to view the corresponding UEBA entity page.
 - View raw results, tags, and notes.
 - Select **View source query** to see the source query in Log Analytics.
@@ -154,14 +181,14 @@ During the **Add bookmarks** step use the **Add bookmark** action to choose addi
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
 ## Interact with entities
-Navigate to your hunt's Entities tab to view, search, and filter the entities contained in your hunt. This list is generated from the list of entities in the bookmarks. The Entities tab automatically resolves duplicated entries. You can click on entity names to visit the corresponding UEBA entity page. You can also right-click on the entity to take actions appropriate to the entity types, such as adding an IP address to TI or running an entity type specific playbook.
+Navigate to your hunt's Entities tab to view, search, and filter the entities contained in your hunt. This list is generated from the list of entities in the bookmarks. The Entities tab automatically resolves duplicated entries. Select entity names to visit the corresponding UEBA entity page. Right-click on the entity to take actions appropriate to the entity types, such as adding an IP address to TI or running an entity type specific playbook.
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
 ## Add comments
 Comments are an excellent place to collaborate with colleagues, preserve notes, and document findings. To create, edit, and delete comments, click the comment icon in the upper right of the hunt details.
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
-Type and format your comment in the editing box. You can include URLs and they will be resolved into hyperlinks. 
+Type and format your comment in the edit box. Included URLs resolve into hyperlinks. 
 Select the **Comment** button to apply your comments. 
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
@@ -175,9 +202,8 @@ When all the actions associated with the hunt are complete, such as creating ana
 These status updates are visible on the main Hunting page and are used to [track metrics](#track-metrics).
 
 ## Track metrics
-On the hunting page you can track tangible results from hunting activity using the metrics bar for the hunts tab near the top of the page. This will show the number of validated hypotheses, new incidents created, and new analytic rules created. This information makes it easy to see the total results across all the hunts. 
+On the hunting page track tangible results from hunting activity using the metrics bar for the hunts tab near the top of the page. This will show the number of validated hypotheses, new incidents created, and new analytic rules created. This information makes it easy to see the total results across all the hunts. 
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
 
 ## Next steps
-
