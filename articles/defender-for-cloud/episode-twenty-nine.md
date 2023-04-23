@@ -19,7 +19,7 @@ ms.date: 04/23/2023
 - [12:02](/shows/mdc-in-the-field/security-policy#time=12m02s) - What's next?
 
 ## Recommended resources
-  - Learn more about [managing security policies](tutorial-security-policy) 
+  - Learn more about [managing security policies](tutorial-security-policy.md) 
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
   - For more about [Microsoft Security](https://msft.it/6002T9HQY)
