@@ -77,6 +77,7 @@ The Enterprise SSO plug-in is currently a built-in feature of the following apps
 - Microsoft Intune [Company Portal](/mem/intune/apps/apps-company-portal-macos): macOS
 
 For more information, see: [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md).
+
 ---
 
 ### Public Preview - Enhanced Create User and Invite User Experiences
