@@ -100,7 +100,7 @@ The following security recommendations will be released as GA and replace the V1
 
 **Estimated date for change: May 2023**
 
-We're announcing the release of Vulnerability Assessment for images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM. This release includes daily scanning of images. Findings used in the Security Explorer and attack paths will rely on MDVM Vulnerability Assessment instead of the Qualys platform.  
+We're announcing the release of Vulnerability Assessment for images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM. This release includes daily scanning of images. Findings used in the Security Explorer and attack paths will rely on MDVM Vulnerability Assessment instead of the Qualys platform. Vulnerability Assessment powered by MDVM supports the Linux OS. 
 
 The existing recommendation "Container registry images should have vulnerability findings resolved" is replaced by a new recommendation powered by MDVM:
 
@@ -109,9 +109,6 @@ The existing recommendation "Container registry images should have vulnerability
 | Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to  improving your security posture, significantly reducing the attack surface for your containerized workloads. |dbd0cb49-b563-45e7-9724-889e799fa648 <br> is replaced by  c0b7cfc6-3172-465a-b378-53c7ff2cc0d5
 
 The recommendation "Running container images should have vulnerability findings resolved" (assessment key 41503391-efa5-47ee-9282-4eff6131462c) is temporarily removed and will be replaced soon by a new recommendation powered by MDVM.
-
-In addition, Vulnerability Assessment for Windows is temporarily not supported during the transition to MDVM. Updates for releasing improved Windows support powered by MDVM will be published as it becomes available. 
-
 
 Learn more about [Microsoft Defender Vulnerability Management (MDVM)](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management).
 
