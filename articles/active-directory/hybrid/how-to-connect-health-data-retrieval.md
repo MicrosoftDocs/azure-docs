@@ -38,9 +38,9 @@ To retrieve the email addresses for all of your users that are configured in Azu
 4.	On the **Notification Setting** blade, you will find the list of email addresses that have been enabled as recipients for health Alert notifications.
  ![Emails](./media/how-to-connect-health-data-retrieval/retrieve5a.png)
  
-## Retrieve accounts that were flagged with AD FS Bad Password attempts
+## Retrieve all sync errors
 
-To retrieve accounts that were flagged with AD FS Bad Password attempts, use the following steps.
+To retrieve a list of all sync errors, use the following steps.
 
 1.	Starting on the Azure Active Directory Health blade, select **Sync Errors**.
  ![Sync errors](./media/how-to-connect-health-data-retrieval/retrieve6.png)
