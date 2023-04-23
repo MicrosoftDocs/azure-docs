@@ -27,10 +27,10 @@ This article indicates which Defender for Cloud features are supported in Azure 
 **[Defender for APIs](defender-for-apis-introduction.md)** | Public preview | NA | NA
 **[Defender for App Service](defender-for-app-service-introduction.md)** | GA | NA | NA
 **[Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)** | Public preview | NA | NA
-**[Defender for Azure SQL database servers](defender-for-sql-introduction.md)**<br/><br/> Partial GA in Vianet21<br/> - A subset of alerts/vulnerability assessments are available.<br/>- Behavioral threat protection isn't available. | GA | GA | GA
+**[Defender for Azure SQL database servers](defender-for-sql-introduction.md)**<br/><br/> Partial GA in Vianet21<br/> - A subset of alerts/vulnerability assessments is available.<br/>- Behavioral threat protection isn't available. | GA | GA | GA
 **[Defender for Containers](defender-for-containers-introduction.md)**| GA | GA | GA
 [Azure Arc extension for Kubernetes clusters/servers/data services](defender-for-kubernetes-azure-arc.md): | Public preview | NA | NA
-Runtime visiblity of vulnerabilities in container images | Public preview | NA | NA
+Runtime visibility of vulnerabilities in container images | Public preview | NA | NA
 **[Defender for DNS](defender-for-dns-introduction.md)** | GA | GA | GA
 **[Defender for Key Vault](./defender-for-key-vault-introduction.md)** | GA | NA | NA
 [Defender for Kubernetes](./defender-for-kubernetes-introduction.md)<br/><br/> Defender for Kubernetes is deprecated and doesn't include new features. [Learn more](defender-for-kubernetes-introduction.md) | GA | GA | GA

@@ -14,15 +14,15 @@ Review the requirements on this page before setting up [Microsoft Defender for A
 ## Cloud and region support
 
 Defender for APIs is in public preview in the Azure commercial cloud, in these regions:
-- Asia (SouthEastAsia, EastAsia)
-- Australia (AustraliaEast, AustraliaSouthEast, AustraliaCentral, AustraliaCentral2)
-- Brazil (BrazilSouth, BrazilSouthEast)
-- Canada (CanadaCentral, CandaEast)
-- Europe (WestEurope, NorthEurope)
-- India (CentralIndia, SouthIndia, WestIndia)
-- Japan (JapanEast, JapanWest)
-- UK (UKSouth, UKWest)
-- US (East US, EastUS2, WestUS, WestUS2, WestUS3, CentralUS, NorthCentralUS, SouthCentralUS, WestCentralUS, EastUS2EUAP, CentralUSEUAP)
+- Asia (Southeast Asia, EastAsia)
+- Australia (Australia East, Australia Southeast, Australia Central, Australia Central 2)
+- Brazil (Brazil South, Brazil Southeast)
+- Canada (Canada Central, Canada East)
+- Europe (West Europe, North Europe)
+- India (Central India, South India, West India)
+- Japan (Japan East, Japan West)
+- UK (UK South, UK West)
+- US (East US, East US 2, West US, West US 2, West US 3, Central US, North Central US, South Central US, West Central US, East US 2 EUAP, Central US EUAP)
 
 Review the latest cloud support information for Defender for Cloud plans and features in the [cloud support matrix](support-matrix-cloud-environment.md).
 
