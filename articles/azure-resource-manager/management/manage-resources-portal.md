@@ -17,7 +17,7 @@ After you have created a Resource Manager template, you can use the Azure portal
 
 ## Open resources
 
-Azure resources are organized by Azure services and by resource groups. The following procedures shows how to open a storage account called **mystorage0207**. The virtual machine resides in a resource group called **mystorage0207rg**.
+Azure resources are organized by Azure services and by resource groups. The following procedures show how to open a storage account called **mystorage0207**. The virtual machine resides in a resource group called **mystorage0207rg**.
 
 To open a resource by the service type:
 
