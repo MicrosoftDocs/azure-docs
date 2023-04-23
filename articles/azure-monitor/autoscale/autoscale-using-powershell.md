@@ -10,59 +10,41 @@ ms.reviewer: akkumari
 
 # Customer intent: As a user or dev ops administrator, I want to use powershell to set up autoscale so I can scale my VMSS.
 
-
-1-sentence Intro to autoscale
-Benefits of using Poowershell to configurye autoscale
-Prereqs 
-  - give powershell to create VMSS ? ( how do they create load ?)
-  - Windows or linux ? ( linux) 
-  - provide a vm image ? (git, galery ?  which user owns it ?)
-  - assume VMSS exists ?
-  - create an image - too complicated
-
-Define the scenario 
-scripts to create the objects.
-For each Object define what is required with example
-
-
 ---
 
 # Configure autoscale with PowerShell
 
-Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application.Cyou can configure autoscale using the Azure portal, Azure CLI, PowerShell or ARM or Bicep templates. 
+Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale using the Azure portal, Azure CLI, PowerShell or ARM or Bicep templates. 
 
-This article shows you haw to configure autoscale for a Virtual Machine Scale Set using Powershell
+This article shows you how to configure autoscale for a Virtual Machine Scale Set using Powershell using the following steps:
++ Create a scale set that you can autoscale
++ Create rules to scale in and scale out
++ Create a profile that uses your rules
++ Apply the autoscale settings
++ Update your autoscale settings with notifications
 
 ## Prerequisites 
 
 To configure autoscale using PowerShell, you need an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free).
 
-## Overview
-
-+ Start by creating a scale set that you can autoscle
-+ Create rules to scale in and scale out
-+ Create a profile that uses your rules
-+ Apply the autoscale settings
-+ Make some changes
-+ Update your autoscale settings
 
 ## Create a Virtual Machine Scale Set
 
-Create a scale set using the following commands
+Create a scale set using the following cmdlets
 
 ```azurepowershell
+#Set the VMSS name and resource group name
 
-# Create login credtions for the VMSS. 
-$vmPassword = ConvertTo-SecureString "ChangeThisPassword1" -AsPlainText -Force
-$vmCred = New-Object System.Management.Automation.PSCredential('azureuser', $vmPassword)
-
-#set the VMSS name and resource group name
 $resourceGroupName="rg-powershell-autoscale"
 $vmssName="vmss-001"
 
 # create a new resource group
-
 New-AzResourceGroup -ResourceGroupName $resourceGroupName -Location "EastUS"
+
+# Create login credentials for the VMSS
+$vmPassword = ConvertTo-SecureString "ChangeThisPassword1" -AsPlainText -Force
+$vmCred = New-Object System.Management.Automation.PSCredential('azureuser', $vmPassword)
+
 
 New-AzVmss `
   -ResourceGroupName $resourceGroupName `
@@ -76,9 +58,10 @@ New-AzVmss `
   -UpgradePolicyMode "Automatic" `
 ```
 
-## Create autoscale settings.
+## Create autoscale settings
 
 To create autoscale setting using Powershell, follow the sequence below:
+
 1. Create rules using `New-AzAutoscaleScaleRuleObject`
 1. Create a profile using `New-AzAutoscaleProfileObject`
 1. Create or update the autoscale settings using `Update-AzAutoscaleSetting`
@@ -148,7 +131,7 @@ $rule2=New-AzAutoscaleScaleRuleObject `
 
 ### Create an autoscale profile and associate the rules
 
-After defining the scale rules, create a profile. The profile specifies the default, upper, and lower instance count limits, and the times that the associated rules can be applied. Use thew [`New-AzAutoscaleProfileObject`](https://learn.microsoft.com/powershell/module/az.monitor/new-azautoscaleprofileobject) command to create a new autoscale profile. 
+After defining the scale rules, create a profile. The profile specifies the default, upper, and lower instance count limits, and the times that the associated rules can be applied. Use the [`New-AzAutoscaleProfileObject`](https://learn.microsoft.com/powershell/module/az.monitor/new-azautoscaleprofileobject) cmdlet to create a new autoscale profile. 
 
 ```azurepowershell
 $profile1=New-AzAutoscaleProfileObject `
@@ -163,8 +146,10 @@ $profile1=New-AzAutoscaleProfileObject `
     -ScheduleTimeZone  "Pacific Standard Time" `
     -Rule $rule1, $rule2
 ```
-Parameters
-|Parameter| Description|
+
+Parameters  
+
+|Parameter|Description|
 |---|---|
 |`CapacityDefault`| The number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
 | `CapacityMaximum` |The maximum number of instances for the resource. The maximum number of instances is further limited by the number of cores that are available in the subscription.
@@ -205,7 +190,7 @@ To set a web hook;
   $webhook1=New-AzAutoscaleWebhookNotificationObject -Property @{} -ServiceUri "http://contoso.com/wbhook1"
 ```
 
-Configure the notification using the webhook and set up email notification using the [`New-AzAutoscaleNotificationObject`](https://learn.microsoft.com/powershell/module/az.monitor/new-azautoscalenotificationobject) command:
+Configure the notification using the webhook and set up email notification using the [`New-AzAutoscaleNotificationObject`](https://learn.microsoft.com/powershell/module/az.monitor/new-azautoscalenotificationobject) cmdlet:
 
 ```azurepowershell
 
@@ -229,3 +214,32 @@ Update-AzAutoscaleSetting  `
 
 ```
 
+## Review your autoscale settings
+
+To review your autoscale settings load the settings into a variable using `Get-AzAutoscaleSetting` then output the variable as follows:
+
+```azurepowershell
+    $autoscaleSetting=Get-AzAutoscaleSetting  -ResourceGroupName $resourceGroupName -Name vmss-autoscalesetting1 `
+    $autoscaleSetting | Select-Object -Property *
+```
+
+Get your autoscale history using `AzAutoscaleHistory`
+```azurepowershell
+Get-AzAutoscaleHistory -ResourceId  /subscriptions/<subscriptionId/resourceGroups/<resourcegroup name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset name>
+```
+
+## Other autoscale commands
+
+For a complete list of PowerShell cmdlets for autoscale, see the [Poweshell Module Browser](https://learn.microsoft.com/powershell/module/?term=azautoscale)
+
+
+
+## Clean up resources
+
+To cleanup the resources you created in this tutorial delete the resource group that you created. 
+The following cmdlet deletes the resource group and all of its resources.
+```azurecli
+
+Remove-AzResourceGroup -Name $resourceGroupName
+
+```
