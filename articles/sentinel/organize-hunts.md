@@ -137,7 +137,7 @@ When you find interesting results or important rows of data, add those results t
 1. Select the desired row or rows. Select the Add bookmark action, right above the Results table.
     :::image type="content" source="media/organize-hunts/add-bookmark.png" alt-text="Screenshot showing add bookmark pane with optional fields filled in.":::
 
-    Optional steps:
+   Optional steps:
 1. Name the bookmark(s), 
 1. Set the event time column
 1. Map entity identifiers
