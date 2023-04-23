@@ -61,9 +61,10 @@ Use the following steps to prepare the sample locally.
 
 The main resources you need to run this sample is an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
 
-1. Use the following commands to create variables for the names of your resources and for other settings as needed. Resource names in Azure must be unique.
 
 ::: zone pivot="sc-consumption-plan"
+
+1. Use the following commands to create variables for the names of your resources and for other settings as needed. Resource names in Azure must be unique.
 
    ```azurecli
    RESOURCE_GROUP=<event-driven-app-resource-group-name>
@@ -77,6 +78,8 @@ The main resources you need to run this sample is an Azure Spring Apps instance 
 ::: zone-end
 
 ::: zone pivot="sc-standard,sc-enterprise"
+
+1. Use the following commands to create variables for the names of your resources and for other settings as needed. Resource names in Azure must be unique.
 
    ```azurecli
    RESOURCE_GROUP=<event-driven-app-resource-group-name>
@@ -186,8 +189,7 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
 1. Install the Azure CLI extension designed for Azure Spring Apps Standard consumption by using the following command:
 
    ```azurecli
-   az extension remove --name spring && \
-   az extension add --name spring
+   az extension add --upgrade --name spring
    ```
 
 1. Register the `Microsoft.AppPlatform` provider for the Azure Spring Apps by using the following command:
@@ -248,9 +250,6 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
    az spring app create \
        --service ${AZURE_SPRING_APPS_INSTANCE} \
        --name ${APP_NAME} \
-       --cpu 1 \
-       --memory 2Gi \
-       --instance-count 2 \
        --runtime-version Java_17 \
        --assign-endpoint true
    ```
@@ -261,9 +260,6 @@ An Azure Spring Apps Standard consumption plan instance hosts the Spring event-d
    az spring app create \
        --service ${AZURE_SPRING_APPS_INSTANCE} \
        --name ${APP_NAME} \
-       --cpu 1 \
-       --memory 2Gi \
-       --instance-count 2 \
        --assign-endpoint true
    ```
 ::: zone-end
