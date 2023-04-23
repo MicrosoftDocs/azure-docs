@@ -100,7 +100,7 @@ The following security recommendations will be released as GA and replace the V1
 
 **Estimated date for change: May 2023**
 
-We're announcing the release of Vulnerability Assessment for images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM. This release includes daily scanning of images. Findings used in the Security Explorer and attack paths will rely on MDVM Vulnerability Assessment instead of the Qualys platform. Vulnerability Assessment powered by MDVM supports the Linux OS. 
+We're announcing the release of Vulnerability Assessment for Linux images in Azure container registries powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM. This release includes daily scanning of images. Findings used in the Security Explorer and attack paths will rely on MDVM Vulnerability Assessment instead of the Qualys scanner.  
 
 The existing recommendation "Container registry images should have vulnerability findings resolved" is replaced by a new recommendation powered by MDVM:
 
