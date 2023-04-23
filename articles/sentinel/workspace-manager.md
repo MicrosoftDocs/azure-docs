@@ -94,11 +94,15 @@ At this point, the content items selected haven't been published to the member w
 1. If successful, the **Last publish status** updates to reflect **Succeeded**. The selected content items now exist in the member workspaces.
     :::image type="content" source="media/workspace-manager/publish-groups-success.png" alt-text="Screenshot shows the last published column with entries that succeeded.":::
 
-    If unsuccessful, the **Last publish status** updates to reflect **Failed**.
+    If just one content item fails to publish for the entire group, the **Last publish status** updates to reflect **Failed**.
 
 
 ### Troubleshooting
-Each publish attempt has a link to help with troubleshooting if content items fail to publish. Even if just one fails, the publish status shows as **Failed**. Select the **Failed** hyperlink to open the job failure details window. A status for each content item and target workspace pair is displayed. 
+Each publish attempt has a link to help with troubleshooting if content items fail to publish.  
+
+1. Select the **Failed** hyperlink to open the job failure details window. A status for each content item and target workspace pair is displayed.
+1. Filter the **Status** for failed item pairs.
+
 :::image type="content" source="media/workspace-manager/publish-groups-job-details-failure.png" alt-text="Screenshot shows the job details of a group publishing failure event." lightbox="media/workspace-manager/publish-groups-job-details-failure.png":::
 
 Common reasons for failure include:
