@@ -244,30 +244,11 @@ Use the following steps to create an Azure Spring Apps service instance.
 
 1. Use the following command to create an Azure Spring Apps service instance.
 
-::: zone-end
-
-::: zone pivot="sc-standard"
-
    ```azurecli-interactive
    az spring create \
        --resource-group <name-of-resource-group> \
        --name <Azure-Spring-Apps-instance-name>
    ```
-
-::: zone-end
-
-::: zone pivot="sc-enterprise"
-
-   ```azurecli-interactive
-   az spring create \
-       --resource-group <name-of-resource-group> \
-       --name <Azure-Spring-Apps-instance-name> \
-       --sku Enterprise
-   ```
-
-::: zone-end
-
-::: zone pivot="sc-standard,sc-enterprise"
 
 1. Select **Y** to install the Azure Spring Apps extension and run it.
 
