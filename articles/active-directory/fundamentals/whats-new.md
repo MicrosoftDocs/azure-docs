@@ -32,6 +32,185 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
+## April 2023
+
+### Public Preview - Custom attributes for Azure Active Directory Domain Services
+
+**Type:** New feature   
+**Service category:** Azure Active Directory Domain Services                     
+**Product capability:** Azure Active Directory Domain Services            
+
+Azure Active Directory Domain Services will now support synchronizing custom attributes from Azure AD for on-premises accounts. For more information, see: [Custom attributes for Azure Active Directory Domain Services](/azure/active-directory-domain-services/concepts-custom-attributes).
+
+---
+
+### General Availability - Enablement of combined security information registration for MFA and  self-service password reset (SSPR)
+
+**Type:** New feature   
+**Service category:** MFA                     
+**Product capability:** Identity Security & Protection            
+
+Last year we announced the combined registration user experience for MFA and  self-service password reset (SSPR) was rolling out as the default experience for all organizations. We're happy to announce that the combined security information registration experience is now fully rolled out. This change doesn't affect tenants located in the China region. For more information, see: [Combined security information registration for Azure Active Directory overview](../authentication/concept-registration-mfa-sspr-combined.md).
+
+---
+
+### General Availability - PIM alert: Alert on active-permanent role assignments in Azure or assignments made outside of PIM
+
+**Type:** Fixed     
+**Service category:** Privileged Identity Management                     
+**Product capability:** Privileged Identity Management            
+
+[Alert on Azure subscription role assignments made outside of Privileged Identity Management (PIM)](../privileged-identity-management/pim-resource-roles-configure-alerts.md) provides an alert in PIM for Azure subscription assignments made outside of PIM. An owner or User Access Administrator can take a quick remediation action to remove those assignments. 
+
+---
+
+### General Availability - Microsoft Enterprise SSO plug-in for Apple devices
+
+**Type:** New feature   
+**Service category:** Device Access Management                     
+**Product capability:** SSO            
+
+The Microsoft Enterprise SSO plug-in for Apple devices provides single sign-on (SSO) for Azure Active Directory accounts on macOS, iOS, and iPadOS across all applications that support Apple's [enterprise single sign-on](https://developer.apple.com/documentation/authenticationservices) feature. The plug-in provides SSO for even old applications that your business might depend on but that doesn't yet support the latest identity libraries or protocols. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection available.
+
+The Enterprise SSO plug-in is currently a built-in feature of the following apps:
+- [Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc): iOS, iPadOS
+- Microsoft Intune [Company Portal](mem/intune/apps/apps-company-portal-macos): macOS
+
+For more information, see: [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md).
+---
+
+### Public Preview - Enhanced Create User and Invite User Experiences
+
+**Type:** Changed feature   
+**Service category:** User Management                     
+**Product capability:** User Management            
+
+We have increased the number of properties admins are able to define when creating, and inviting, a user in the Entra admin portal, bringing our UX to parity with our Create User APIs. Additionally, admins can now add users to a group, or administrative unit, and assign roles. For more information, see: [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+
+---
+
+### Public Preview - Azure AD Conditional Access protected actions
+
+**Type:** Changed feature   
+**Service category:** RBAC                    
+**Product capability:** Access Control            
+
+The protected actions public preview introduces the ability to apply Conditional Access to select permissions. When a user performs a protected action, they must satisfy Conditional Access policy requirements. For more information, see: [What are protected actions in Azure AD? (preview)](../roles/protected-actions-overview.md).
+
+---
+
+### Public Preview - Token Protection for Sign-in Sessions
+
+**Type:** New feature   
+**Service category:** Conditional Access                  
+**Product capability:** User Authentication          
+
+Token Protection for sign-in sessions is our first release on a road-map to combat attacks involving token theft and replay. It provides conditional access enforcement of token proof-of-possession for supported clients and services that ensures that access to specified resources is only from a device to which the user has signed in. For more information, see: [Conditional Access: Token protection (preview)](../conditional-access/concept-token-protection.md).
+
+---
+
+### General Availability- New limits on number and size of group secrets starting June 2023
+
+**Type:** Plan for change  
+**Service category:** Group Management                   
+**Product capability:** Directory            
+
+Starting in June 2023, the secrets stored on a single group can't exceed 48 individual secrets, or have a total size greater than 10KB across all secrets on a single group. Groups with more than 10KB of secrets will immediately stop working in June 2023. In June, groups exceeding 48 secrets are unable to increase the number of secrets they have, though they may still update or delete those secrets. We highly recommend reducing to fewer than 48 secrets by January 2024.
+
+Group secrets are typically created when a group is assigned credentials to an app using Password-based single sign-on. To reduce the number of secrets assigned to a group, we recommend creating additional groups, and splitting up group assignments to your Password-based SSO applications across those new groups. For more information, see: [Add password-based single sign-on to an application](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md).
+
+---
+
+### Public Preview - Authenticator Lite in Outlook
+
+**Type:** New feature   
+**Service category:** Microsoft Authenticator App                     
+**Product capability:** User Authentication           
+
+Authenticator Lite is an additional surface for AAD users to complete multifactor authentication using push notifications on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in the Outlook mobile app.   Users may receive a notification in their Outlook mobile app to approve or deny, or use the Outlook app to generate an OATH verification code that can be entered during sign-in. For more information, see: [How to enable Microsoft Authenticator Lite for Outlook mobile (preview)](../authentication/how-to-mfa-authenticator-lite.md).
+
+---
+
+### Public Preview - Report suspicious activity integrated with Identity Protection
+
+**Type:** Changed feature   
+**Service category:** Identity Protection                  
+**Product capability:** Identity Security & Protection          
+
+Report suspicious activity is an updated implementation of the MFA fraud alert, where users can report a voice or phone app MFA prompt as suspicious. If enabled, users reporting prompts have their user risk set to high, enabling admins to use Identity Protection risk-based policies, or risk detection APIs, to take remediation actions. Report suspicious activity operates in parallel with the legacy MFA fraud alert at this time. For more information, see: [Configure Azure AD Multi-Factor Authentication settings](../authentication/howto-mfa-mfasettings.md).
+
+---
+
+### General Availability - New Federated Apps available in Azure AD Application gallery - April 2023
+
+
+
+**Type:** New feature   
+**Service category:** Enterprise Apps                
+**Product capability:** 3rd Party Integration          
+
+In April 2023 we've added the following 10 new applications in our App gallery with Federation support:    
+
+[iTel Alert](https://www.itelalert.nl/), [goFLUENT](../saas-apps/gofluent-tutorial.md), [StructureFlow](https://app.structureflow.co/), [StructureFlow AU](https://au.structureflow.co/), [StructureFlow CA](https://ca.structureflow.co/), [StructureFlow EU](https://eu.structureflow.co/), [StructureFlow USA](https://us.structureflow.co/), [Predict360 SSO](../saas-apps/predict360-sso-tutorial.md), [Cegid Cloud](https://www.cegid.com/fr/nos-produits/), [HashiCorp Cloud Platform (HCP)](../saas-apps/hashicorp-cloud-platform-hcp-tutorial.md), [O'Reilly learning platform](../saas-apps/oreilly-learning-platform-tutorial.md), [LeftClick Web Services – RoomGuide](https://www.leftclick.cloud/digital_signage), [LeftClick Web Services – Sharepoint](https://www.leftclick.cloud/digital_signage), [LeftClick Web Services – Presence](https://www.leftclick.cloud/presence), [LeftClick Web Services - Single Sign-On](https://www.leftclick.cloud/presence), [InterPrice Technologies](http://www.interpricetech.com/), [WiggleDesk SSO](https://wiggledesk.com/), [Application Experience with Mist](https://www.mist.com/), [Connect Plans 360](https://connectplans360.com.au/), [Proactis Rego Source-to-Contract](../saas-apps/proactis-rego-source-to-contract-tutorial.md), [Danomics](https://www.danomics.com/), [Fountain](../saas-apps/fountain-tutorial.md), [Theom](../saas-apps/theom-tutorial.md), [DDC Web](../saas-apps/ddc-web-tutorial.md), [Dozuki](../saas-apps/dozuki-tutorial.md).
+
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
+
+For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
+
+---
+
+### Public Preview - New provisioning connectors in the Azure AD Application Gallery - April 2023
+
+**Type:** New feature   
+**Service category:** App Provisioning               
+**Product capability:** 3rd Party Integration    
+      
+
+We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
+
+- [Alvao](../saas-apps/alvao-provisioning-tutorial.md)
+- [Better Stack](../saas-apps/better-stack-provisioning-tutorial.md)
+- [BIS](../saas-apps/bis-provisioning-tutorial.md)
+- [Connecter](../saas-apps/connecter-provisioning-tutorial.md)
+- [Howspace](../saas-apps/howspace-provisioning-tutorial.md)
+- [Kno2fy](../saas-apps/kno2fy-provisioning-tutorial.md)
+- [Netsparker Enterprise](../saas-apps/netsparker-enterprise-provisioning-tutorial.md)
+- [uniFLOW Online](../saas-apps/uniflow-online-provisioning-tutorial.md)
+
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
+
+---
+
+### Public Preview - New PIM Azure resource picker
+
+**Type:** Changed feature   
+**Service category:** Privileged Identity Management                     
+**Product capability:** End User Experiences            
+
+With this new experience, PIM now automatically manages any type of resource in a tenant, so discovery and activation is no longer required. With the new resource picker, users can directly choose the scope they want to manage from the Management Group down to the resources themselves, making it faster and easier to locate the resources they need to administer. For more information, see: [Assign Azure resource roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md).
+
+---
+
+### General availability - Self Service Password Reset (SSPR) now supports PIM eligible users and indirect group role assignment
+
+**Type:** Changed feature   
+**Service category:** Self Service Password Reset                     
+**Product capability:** Identity Security & Protection          
+
+Self Service Password Reset (SSPR) can now PIM eligible users, and evaluate group-based memberships, along with direct memberships when checking if a user is in a particular administrator role. This capability provides more accurate SSPR policy enforcement by validating if users are in scope for the default SSPR admin policy or your organizations SSPR user policy.
+
+
+For more information, see: 
+
+- [Administrator reset policy differences](../authentication/concept-sspr-policy.md#administrator-reset-policy-differences).
+- [Create a role-assignable group in Azure Active Directory](../roles/groups-create-eligible.md)
+
+---
+
+
 ## March 2023
 
 
