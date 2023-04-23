@@ -12,34 +12,34 @@ ms.date: 11/24/2022
 This article explains how you, as a SOC manager, can audit the history of Microsoft Sentinel incident tasks, and track the changes made to them throughout their life cycle, in order to gauge the efficacy of your task assignments and their contribution to your SOC's efficiency and proper functioning.
 
 
-[Incident tasks](incident-tasks.md) are typically created automatically by either automation rules or playbooks set up by senior analysts or SOC managers, but lower-tier analysts can create their own tasks on the spot, manually, right from within the incident.
+[Incident tasks](incident-tasks.md) are typically created automatically by either automation rules or playbooks set up by senior analysts or SOC managers, but lower-level analysts can create their own tasks on the spot, manually, right from within the incident.
 
-You can see the list of tasks you need to perform for a particular incident on the incident details page, and mark them complete as you go.
+Your analysts can see the list of tasks they need to perform for a particular incident on the incident details page, and mark them complete as they go.
 
 > [!IMPORTANT]
 >
 > The **Incident tasks** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Use cases for different roles
-
-This article addresses the following scenarios, which apply to SOC analysts:
-
-- [View and follow incident tasks](#view-and-follow-incident-tasks)
-- [Manually add an ad-hoc task to an incident](#manually-add-an-ad-hoc-task-to-an-incident)
-
-Other articles at the following links address scenarios that apply more to SOC managers, senior analysts, and automation engineers:
-
-- [View automation rules with incident task actions](create-tasks-automation-rule.md#view-automation-rules-with-incident-task-actions)
-- [Add tasks to incidents with automation rules](create-tasks-automation-rule.md#add-tasks-to-incidents-with-automation-rules)
-- [Add tasks to incidents with playbooks](create-tasks-playbook.md)
-
 ## Prerequisites
 
 The **Microsoft Sentinel Responder** role is required to create automation rules and to view and edit incidents, both of which are necessary to add, view, and edit tasks.
 
-## View and follow incident tasks
+***YL: IS THIS REQUIRED FOR VIEWING THE SECURITYINCIDENT TABLE IN LOG ANALYTICS AS WELL?***
 
-1. In the **Incidents** page, select an incident from the list, and select **View full details**  under **Tasks (Preview)** in the details panel, or select **View full details** at the bottom of the details panel.
+## View incident tasks in the SecurityIncident table
+
+1. In the **Logs** page, enter the following query in the query window and run it. This query will return all the incidents that have any tasks assigned.
+
+```kusto
+SecurityIncident
+| where array_length( Tasks) > 0
+```
+
+You can add any number of statements to the query to filter and narrow down the results. To demonstrate how to view and understand the results, we're going to add statements to filter the results to the tasks for a single incident, and to show the minimum number of necessary fields:
+
+```kusto
+
+```
 
     :::image type="content" source="media/work-with-tasks/tasks-from-incident-info-panel.png" alt-text="Screenshot of link to enter the tasks panel from the incident info panel on the main incidents screen.":::
 
