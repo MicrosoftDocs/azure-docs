@@ -43,7 +43,7 @@ Enable the central workspace once you have decided which Microsoft Sentinel work
 1. Once enabled, a new blade **Workspace manager (preview)** appears on the left menu under **Configuration**.
 
 Here's a comparison of the feature off and enabled side by side.
-:::image type="content" source="media/workspace-manager/workspace-manager-before-after.png" alt-text="Two screenshots showing the workspace manager configuration settings. One screenshot with the workspace parent toggle button off. The other with the menu item added for workspace manager and the toggle button on.":::
+:::image type="content" source="media/workspace-manager/enable-workspace-manager-enabled.png" alt-text="Screenshot shows the workspace manager configuration settings. The menu item added for workspace manager is highlighted and the toggle button on.":::
 
 ## Onboard member workspaces
 Member workspaces are the set of workspaces to be managed by workspace manager. You can onboard some or all of the workspaces in the tenant, and across multiple tenants as well (if Azure Lighthouse is enabled).
