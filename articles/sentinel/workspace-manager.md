@@ -45,7 +45,7 @@ Enable the central workspace once you have decided which Microsoft Sentinel work
 :::image type="content" source="media/workspace-manager/enable-workspace-manager-on.png" alt-text="Screenshot shows the workspace manager configuration settings. The menu item added for workspace manager is highlighted and the toggle button on.":::
 
 ## Onboard member workspaces
-Member workspaces are the set of workspaces to be managed by workspace manager. Onboard some or all of the workspaces in the tenant, and across multiple tenants as well (if Azure Lighthouse is enabled).
+Member workspaces are the set of workspaces managed by workspace manager. Onboard some or all of the workspaces in the tenant, and across multiple tenants as well (if Azure Lighthouse is enabled).
 1. Navigate to workspace manager and select "Add workspaces"
     :::image type="content" source="media/workspace-manager/add-workspace.png" alt-text="Screenshot shows the add workspace menu." lightbox="media/workspace-manager/add-workspace.png":::
 1. Select the member workspace(s) you would like to onboard to workspace manager.
@@ -71,8 +71,8 @@ Workspace manager groups allow you to organize workspaces together based on busi
 
 1. In the **Select workspaces** tab, select **Add** and select the member workspaces that you would like to add to the group.
 1. In the **Select content** tab, you have 2 ways to add content items.
-    - Method 1: Select the **Add** menu and choose **All content**. This pulls all active content currently deployed in the central workspace. This list is a point-in-time snapshot that selects only active content, not templates.
-    - Method 2: Select the **Add** menu and choose **Content**. This opens a **Select content** pane to custom select the content to be added. 
+    - Method 1: Select the **Add** menu and choose **All content**. All active content currently deployed in the central workspace is added. This list is a point-in-time snapshot that selects only active content, not templates.
+    - Method 2: Select the **Add** menu and choose **Content**. A **Select content** window opens to custom select the content added. 
     :::image type="content" source="media/workspace-manager/add-group-content.png" alt-text="Screenshot shows the group content selection.":::
 
 1. Filter the content as needed before you **Review + create**.
