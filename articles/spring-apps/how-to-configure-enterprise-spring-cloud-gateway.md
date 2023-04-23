@@ -291,24 +291,21 @@ You can also put environment variables in the `--secrets` parameter instead of `
 
 ## Configure TLS between gateway and applications
 
-To enhance security and protect sensitive information from interception by unauthorized parties, you can enable TLS between Spring Cloud Gateway and your applications. This section explains how to configure TLS between a gateway and applications.
+To enhance security and protect sensitive information from interception by unauthorized parties, you can enable Transport Layer Security (TLS) between Spring Cloud Gateway and your applications. This section explains how to configure TLS between a gateway and applications.
 
 Before configuring TLS, you need to have a TLS-enabled application and a TLS certificate. To prepare a TLS certificate, generate a certificate from a trusted certificate authority (CA). The certificate verifies the identity of the server and establishes a secure connection.
 
 After you have a TLS-enabled application running in Azure Spring Apps, upload the certificate to Azure Spring Apps. For more information, see [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate).
 
-Now you can configure the TLS certificate for the gateway and enable certificate verification. You can configure the certification in the Azure portal or by using Azure CLI.
+With the certificate updated to Azure Spring Apps, you can now configure the TLS certificate for the gateway and enable certificate verification. You can configure the certification in the Azure portal or by using Azure CLI.
 
 #### [Azure portal](#tab/Azure-portal)
 
 Use the following steps to configure the certificate in the Azure portal:
 
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation page and then select **Certificate management**.
-
 1. Select **Enable cert verification**.
-
 1. Select the name of your certificate in **Certificates**.
-
 1. Select **Save**.
 
 Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
@@ -358,12 +355,26 @@ You can now test whether the application is TLS enabled with the endpoint of the
 
 ### Certificate rotation
 
-You can use the Azure portal or Azure CLI to manage and rotate certificates.
+You can use the Azure portal or Azure CLI to rotate and synchronize certificates.
 
-- In the Azure portal, select an application in your Azure Spring Apps instance and then in the navigation pane select **Certificate Management**. On the **Certificate Management** page, select **Refresh** to synchronize the certificates.
-- In Azure CLI, use the `az spring gateway sync-cert` command.
+#### [Azure portal](#tab/Azure-portal)
 
+Use the following steps to synchronize certificates.
+
+1. Navigate to your Azure Spring Apps instance.
+1. In the navigation pane, select **Apps** and then selection an application.
+1. In the navigation pane, select **Certificate Management**.
+1. On the **Certificate Management** page, select **sync certificate** to synchronize the certificates.
+
+#### [Azure CLI](#tab/Azure-CLI) 
+
+Use the following command to synchronize a certificate.
+
+```azurecli
 The gateway will restart after synchronization to ensure that gateway uses the new certificate for all future connections.
+```
+
+---
 
 ## Next steps
 
