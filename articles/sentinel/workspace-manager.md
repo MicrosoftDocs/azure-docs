@@ -42,7 +42,7 @@ Enable the central workspace once you have decided which Microsoft Sentinel work
 1. Navigate to the **Settings** blade in the parent workspace, and toggle **On** the workspace manager configuration setting to "Make this workspace a parent".
 1. Once enabled, a new menu **Workspace manager (preview)** appears under **Configuration**.
 
-:::image type="content" source="media/workspace-manager/enable-workspace-manager-on.png" alt-text="Screenshot shows the workspace manager configuration settings. The menu item added for workspace manager is highlighted and the toggle button on.":::
+   :::image type="content" source="media/workspace-manager/enable-workspace-manager-on.png" alt-text="Screenshot shows the workspace manager configuration settings. The menu item added for workspace manager is highlighted and the toggle button on.":::
 
 ## Onboard member workspaces
 Member workspaces are the set of workspaces managed by workspace manager. Onboard some or all of the workspaces in the tenant, and across multiple tenants as well (if Azure Lighthouse is enabled).
@@ -103,7 +103,7 @@ Each publish attempt has a link to help with troubleshooting if content items fa
 1. Select the **Failed** hyperlink to open the job failure details window. A status for each content item and target workspace pair is displayed.
 1. Filter the **Status** for failed item pairs.
 
-:::image type="content" source="media/workspace-manager/publish-groups-job-details-failure.png" alt-text="Screenshot shows the job details of a group publishing failure event." lightbox="media/workspace-manager/publish-groups-job-details-failure.png":::
+   :::image type="content" source="media/workspace-manager/publish-groups-job-details-failure.png" alt-text="Screenshot shows the job details of a group publishing failure event." lightbox="media/workspace-manager/publish-groups-job-details-failure.png":::
 
 Common reasons for failure include:
 - Content items referenced in the group definition no longer exist at the time of publish (have been deleted).
