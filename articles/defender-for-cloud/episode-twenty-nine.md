@@ -1,23 +1,25 @@
-title: Security Policy Enhancements in Defender for Cloud | Defender for Cloud in the field
+---
+title: Security policy enhancements in Defender for Cloud | Defender for Cloud in the field 
 titleSuffix: Microsoft Defender for Cloud
-description: Learn about the new security policy dashboard enhancements within Defender for Cloud, how to filter, create exemptions, and customize policies. 
+description: Learn about security policy enhancements and dashboard in Defender for Cloud
 ms.topic: reference
-ms.date: 04/19/2023
+ms.date: 04/23/2023
 ---
 
-# Demystifying Defender for Servers | Defender for Cloud in the field
+# Security Policy Enhancements in Defender for Cloud | Defender for Cloud in the Field 
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Tuval Rozner joins Yuri Diogenes to talk about the new security policy enhancements. Tuval covers the new security policy dashboard within Defender for Cloud, how to filter, and create exemptions from a single place without having to make changes in the Azure Policy dashboard. Tuval also demonstrates how to use the new dashboard and customize policies.
 <br>
 <br>
 <iframe src="https://aka.ms/docs/player?id=1145810e-fc14-4d73-8d63-ea861aefb30b" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [01:21](/shows/mdc-in-the-field/demystify-servers#time=01m21s) - The rationale behind changing the security policy assignment experience
-- [02:22](/shows/mdc-in-the-field/demystify-servers#time=06m15s) - What’s new in the security policy assignment in Defender for Cloud?
-- [04:20](/shows/mdc-in-the-field/demystify-servers#time=04m20s) - Demonstration
-- [12:02](/shows/mdc-in-the-field/demystify-servers#time=12m02s) - What's next?
+- [01:21](/shows/mdc-in-the-field/security-policy#time=01m21s) - The rationale behind changing the security policy assignment experience
+- [02:20](/shows/mdc-in-the-field/security-policy#time=02m20s) -  What's new in the security policy assignment in Defender for Cloud?
+- [04:20](/shows/mdc-in-the-field/security-policy#time=04m20s) - Demonstration
+- [12:02](/shows/mdc-in-the-field/security-policy#time=12m02s) - What's next?
 
 ## Recommended resources
+  - Learn more about [managing security policies](tutorial-security-policy) 
   - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
   - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
   - For more about [Microsoft Security](https://msft.it/6002T9HQY)
