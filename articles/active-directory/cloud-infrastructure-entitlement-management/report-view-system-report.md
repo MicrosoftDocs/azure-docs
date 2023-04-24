@@ -27,7 +27,7 @@ This article describes how to generate and view a system report in Permissions M
     - **Format**: The format in which the report is available: comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
 
 1. In the **Report Name** column, find the report you want to generate.
-1. From the ellipses **(...)** menu for that report, then select **Generate & Download**. A new window appears where you provide more information for the report you want to generate.
+1. From the ellipses **(...)** menu for that report, select **Generate & Download**. A new window appears where you provide more information for the report you want to generate.
 1. For each **Authorization System**, select the **Authorization System Name** you want to include in the report by selecting the box next to the name. 
 1. If you want to combine all Authorization Systems into one report, check the box for **Collate**.
 1. For **Report Format**, check the boxes for a **Detailed** or **Summary** of the report in CSV format. You can select both. 
@@ -43,7 +43,7 @@ This article describes how to generate and view a system report in Permissions M
 1. On the **Systems Reports** subtab, select **Search**.
 1. In the **Search** box, enter the name of the report you want to locate. The **Systems Reports** subtab displays a list of reports that match your search criteria.
 1. Select a report from the **Report Name** column.
-1. To generate a report, select the ellipses **(...)** menu for that report, then select **Generate & Download**. 
+1. To generate a report, click on the ellipses **(...)** menu for that report, then select **Generate & Download**. 
 1. For each **Authorization System**, select the **Authorization System Name** you want to include in the report by selecting the box next to the name. 
 1. If you want to combine all Authorization Systems into one report, check the box for **Collate**.
 1. For **Report Format**, check the boxes for a **Detailed** or **Summary** of the report in CSV format. You can select both. 
