@@ -2,7 +2,7 @@
 title: Back up Hyper-V virtual machines with MABS
 description: This article contains the procedures for backing up and recovery of virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 01/16/2023
+ms.date: 03/01/2023
 author: jyothisuri
 ms.author: jsuri
 ms.service: backup
@@ -161,12 +161,14 @@ To open the Recovery Wizard and recover a virtual machine, follow these steps:
 
 ## Restore an individual file from a Hyper-V VM 
 
-You can restore individual files from a protected Hyper-V VM recovery point. This feature is only available for Windows Server VMs. Restoring individual files is similar to restoring the entire VM, except you browse into the VMDK and find the file(s) you want, before starting the recovery process.
+You can restore individual files from a protected Hyper-V VM recovery point, both disk and online. This feature is only available for Windows Server VMs. Restoring individual files is similar to restoring the entire VM, except you browse into the VMDK and find the file(s) you want, before starting the recovery process.
 
 To recover an individual file or select files from a Windows Server VM, follow these steps:
 
 >[!Note]
->Restoring an individual file from a Hyper-V VM is available only for Windows VM and Disk Recovery Points. 
+> With MABS v4 and later, you can restore an individual file from a Hyper-V VM from both disk and online recovery points. The VM should be a Windows Server VM. 
+> 
+> Additionally, for item-level recovery from an online recovery point, ensure that the Hyper-V role is installed on the MABS Server, automatic mounting of volumes is enabled, and the VM VHD doesn't contain a dynamic disk. The item-level recovery for online recovery points works by mounting the VM recovery point using *iSCSI* for browsing, and only one VM can be mounted at a given time.
 
 1. On the MABS Administrator Console, select **Recovery** view. 
 
@@ -176,7 +178,11 @@ To recover an individual file or select files from a Windows Server VM, follow t
 
 1. On the **Recovery Points for** pane, use the calendar to select the date that contains the desired recovery point(s). Depending on how the backup policy has been configured, dates can have more than one recovery point. Once you've selected the day when the recovery point was taken, make sure you've chosen the correct **Recovery time**. If the selected date has multiple recovery points, choose your recovery point by selecting it in the Recovery time drop-down menu. Once you chose the recovery point, the list of recoverable items appears in the Path pane. 
 
-1. To find the files you want to recover, in the **Path** pane, double-click the item in the Recoverable item column to open it. Select the file, files, or folders you want to recover. To select multiple items, press the **Ctrl** key while selecting each item. Use the **Path** pane to search the list of files or folders appearing in the **Recoverable Item** column.**Search list below** doesn't search into subfolders. To search through subfolders, double-click the folder. Use the Up button to move from a child folder into the parent folder. You can select multiple items (files and folders), but they must be in the same parent folder. You can't recover items from multiple folders in the same recovery job. 
+1. To find the files you want to recover, in the **Path** pane, double-click the item in the Recoverable item column to open it.
+
+   If you use an online recovery point, wait until the recovery point is mounted. Once the mount is complete, select the *VM*, *VHD disk*, and the *volume* you want to restore until the files and folders are listed.
+
+   Select the file, files, or folders you want to recover. To select multiple items, press the **Ctrl** key while selecting each item. Use the **Path** pane to search the list of files or folders appearing in the **Recoverable Item** column.**Search list below** doesn't search into subfolders. To search through subfolders, double-click the folder. Use the Up button to move from a child folder into the parent folder. You can select multiple items (files and folders), but they must be in the same parent folder. You can't recover items from multiple folders in the same recovery job. 
 
     ![Screenshot shows how to review Recovery Selection in Hyper-v VM.](./media/back-up-hyper-v-virtual-machines-mabs/hyper-v-vm-rp-disk-ilr-2.png) 
 
@@ -193,6 +199,15 @@ To recover an individual file or select files from a Windows Server VM, follow t
 1. On the **Specify Recovery Options** screen, choose which security setting to apply. You can opt to modify the network bandwidth usage throttling, but throttling is disabled by default. Also, **SAN Recovery** and **Notification** aren't enabled. 
 
 1. On the **Summary** screen, review your settings and select **Recover** to start the recovery process. The **Recovery status** screen shows the progression of the recovery operation. 
+
+>[!Tip]
+>You can perform item-level restore of online recovery points for Hyper-V VMs running Windows also from *Add external DPM Server* to recover VM files and folders quickly.
+
+>[!Note]
+>By default, *eight parallel recoveries* are supported. You can increase the number of parallel restore jobs by adding the following registry key:
+>**Key Path**: `HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelRecoveryJobs`
+>- **32 Bit DWORD**: HyperV
+>- **Data**: `<number>`
 
 ## Next steps
 
