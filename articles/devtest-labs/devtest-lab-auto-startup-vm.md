@@ -51,11 +51,11 @@ After you configure the auto-start policy, follow these steps for each VM that y
 
 1. On the VM Overview page, your VM shows **Opted-in** status for auto-start.
  
-   :::image type="content" source="media/devtest-lab-auto-startup-vm/vm-overview-auto-start.png" alt-text="Screenshot showing vm with opted-in status for auto-start checked.":::
+   :::image type="content" source="media/devtest-lab-auto-startup-vm/vm-overview-auto-start.png" alt-text="Screenshot showing vm with opted-in status for auto-start checked." lightbox="media/devtest-lab-auto-startup-vm/vm-overview-auto-start.png":::
 
    You can also see the auto-start status for the VM on the lab Overview page.   
 
-   :::image type="content" source="media/devtest-lab-auto-startup-vm/lab-overview-auto-start-status.png" alt-text="Screenshot showing the lab overview page, with VM auto-start set to Yes.":::
+   :::image type="content" source="media/devtest-lab-auto-startup-vm/lab-overview-auto-start-status.png" alt-text="Screenshot showing the lab overview page, with VM auto-start set to Yes." lightbox="media/devtest-lab-auto-startup-vm/lab-overview-auto-start-status.png":::
 
 ## Next steps
 
