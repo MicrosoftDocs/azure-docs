@@ -28,9 +28,10 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 **Estimated date for change: April 2023**
 
+Legacy PCI DSS v3.2.1 and legacy SOC TSP are set to be fully deprecated and replaced by [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative.
+
 We're announcing the full deprecation of support of [PCI DSS](/azure/compliance/offerings/offering-pci-dss) standard/initiative in Azure China 21Vianet.
 
-Legacy PCI DSS v3.2.1 and legacy SOC TSP are set to be fully deprecated and replaced by [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) initiative and [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss) initiative.
 Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 #### Deprecation of identity recommendations V1
@@ -87,7 +88,7 @@ The existing recommendation "Container registry images should have vulnerability
 |--|--|--|
 | Container registry images should have vulnerability findings resolved (powered by Microsoft Defender Vulnerability Management)| Container image vulnerability assessment scans your registry for commonly known vulnerabilities (CVEs) and provides a detailed vulnerability report for each image. This recommendation provides visibility to vulnerable images currently running in your Kubernetes clusters. Remediating vulnerabilities in container images that are currently running is key to  improving your security posture, significantly reducing the attack surface for your containerized workloads. |dbd0cb49-b563-45e7-9724-889e799fa648 <br> is replaced by  c0b7cfc6-3172-465a-b378-53c7ff2cc0d5
 
-The recommendation "Running container images should have vulnerability findings resolved" (assessment key 41503391-efa5-47ee-9282-4eff6131462c) is temporarily removed and will be replaced soon by a new recommendation powered by MDVM.
+The recommendation "Running container images should have vulnerability findings resolved" (assessment key 41503391-efa5-47ee-9282-4eff6131462c) will be temporarily removed and will be replaced soon by a new recommendation powered by MDVM.
 
 Learn more about [Microsoft Defender Vulnerability Management (MDVM)](https://learn.microsoft.com/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management).
 
@@ -95,7 +96,7 @@ Learn more about [Microsoft Defender Vulnerability Management (MDVM)](https://le
 
 **Estimated date for change: May 2023**
 
- The current container recommendations in Defender for Containers are renamed as follows:
+ The current container recommendations in Defender for Containers will be renamed as follows:
 
 |Recommendation | Description | Assessment Key|
 |--|--|--|
