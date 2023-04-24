@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/20/2023
+ms.date: 4/24/2023
 ---
 
 # What's new in Azure VMware Solution
@@ -131,7 +131,7 @@ All new Azure VMware Solution private clouds are now deployed with NSX-T Data Ce
  
 You'll receive an email with the planned maintenance date and time. You can reschedule an upgrade. The email also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services. 
 
-For more information on this NSX-T Data Center version, see [VMware NSX-T Data Center [!INCLUDE [nsxt-version](includes/nsxt-version.md)] Release Notes](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/rn/VMware-NSX-T-Data-Center-312-Release-Notes.html).
+For more information on this NSX-T Data Center version, see [VMware NSX-T Data Center 3.1.1 Release Notes](https://docs.vmware.com/en/VMware-NSX/3.1/rn/VMware-NSX-T-Data-Center-311-Release-Notes.html).
 
 ## May 2021
 
