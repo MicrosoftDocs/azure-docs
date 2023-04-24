@@ -115,24 +115,24 @@ The following sample uses the `marker-arrow` template with a red primary color, 
 
 ## Create custom reusable templates
 
-If your application uses the same icon with different icons or if you are creating a module that adds additional image templates, you can easily add and retrieve these icons from the Azure Maps web SDK. Use the following static functions on the `atlas` namespace.
+If your application uses the same icon with different icons or if you're creating a module that adds more image templates, you can easily add and retrieve these icons from the Azure Maps web SDK. Use the following static functions on the `atlas` namespace.
 
-| Name | Return Type | Description | 
-|-|-|-|
+| Name | Return Type | Description |
+|------|-------------|-------------|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Adds a custom SVG image template to the atlas namespace. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Retrieves an SVG template by name. |
 | `getAllImageTemplateNames()` | string[] |  Retrieves an SVG template by name. |
 
 SVG image templates support the following placeholder values:
 
-| Placeholder | Description |
-|-|-|
-| `{color}` | The primary color. | 
-| `{secondaryColor}` | The secondary color. | 
-| `{scale}` | The SVG image is converted to an png image when added to the map image sprite. This placeholder can be used to scale a template before it is converted to ensure it renders clearly. | 
+| Placeholder | Description        |
+|-------------|--------------------|
+| `{color}`   | The primary color. |
+| `{secondaryColor}` | The secondary color. |
+| `{scale}` | The SVG image is converted to an png image when added to the map image sprite. This placeholder can be used to scale a template before it's converted to ensure it renders clearly. |
 | `{text}` | The location to render text when used with an HTML Marker. |
 
-The following example shows how to take an SVG template, and add it to the Azure Maps web SDK as a reusable icon template. 
+The following example shows how to take an SVG template, and add it to the Azure Maps web SDK as a reusable icon template.
 
 <br/>
 
@@ -481,7 +481,7 @@ This table lists all image templates currently available within the Azure Maps w
 
 **Preloaded image icons**
 
-The map preloads a set of icons into the maps image sprite using the `marker`, `pin`, and `pin-round` templates. These icon names and their color values are listed in the table below.
+The map preloads a set of icons into the maps image sprite using the `marker`, `pin`, and `pin-round` templates. These icon names and their color values are listed in the following table.
 
 | icon name | color | secondaryColor |
 |-----------|-------|----------------|
