@@ -29,8 +29,6 @@ To work with the code examples in this article, make sure you have:
 
 [!INCLUDE [storage-dev-guide-about-blob-upload](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-upload.md)]
 
-To maximize performance and reliability for upload operations, it's important to be proactive in configuring client library transfer options based on the environment your app runs in. To learn more about considerations for tuning data transfer options, see [Performance tuning for uploads and downloads](../../articles/storage/blobs/storage-blobs-tune-upload-download.md).
-
 ## Upload data to a block blob
 
 You can use either of the following methods to upload data to a block blob:
