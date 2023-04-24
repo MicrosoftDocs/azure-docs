@@ -114,7 +114,7 @@ With the Azure Spring Apps Enterprise plan, you can use fully managed VMware Tan
 * [Tanzu Build Service](how-to-enterprise-build-service.md)
 * [Spring Cloud Gateway for Tanzu](how-to-configure-enterprise-spring-cloud-gateway.md)
 * [API Portal for VMware Tanzu](how-to-use-enterprise-api-portal.md)
-* [Application Configuration Service for VMware Tanzu®]()
+* [Application Configuration Service for VMware Tanzu®](how-to-enterprise-application-configuration-service.md)
 * [VMware Tanzu® Service Registry](how-to-enterprise-service-registry.md)
 * [Application Live View for VMware Tanzu®](how-to-use-application-live-view.md)
 * [Application Accelerator for VMware Tanzu®](how-to-use-accelerator.md)

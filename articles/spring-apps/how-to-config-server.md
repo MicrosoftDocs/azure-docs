@@ -207,8 +207,7 @@ spring:
     config:
       server:
         git:
-          uri: >-
-            https://github.com/azure-spring-cloud-samples/config-server-repository.git
+          uri: https://github.com/azure-spring-cloud-samples/config-server-repository.git
           username: <username>
           password: <password/token>
 ```
