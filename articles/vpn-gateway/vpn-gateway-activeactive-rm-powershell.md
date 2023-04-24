@@ -384,7 +384,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 > [!IMPORTANT]
 > Be sure to enable BGP for BOTH connections.
 
-After completing these steps, the connection will be establish in a few minutes, and the BGP peering session will be up once the VNet-to-VNet connection is completed with dual redundancy:
+After completing these steps, the connection will be established in a few minutes, and the BGP peering session will be up once the VNet-to-VNet connection is completed with dual redundancy:
 
 :::image type="content" source="./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png" alt-text="Diagram showing active-active connection for VNet-to-VNet." lightbox="./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png":::
 
