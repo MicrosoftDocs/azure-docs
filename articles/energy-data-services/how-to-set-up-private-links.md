@@ -107,6 +107,6 @@ Use the following steps to create a private endpoint for an existing Azure Data 
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-To learn more about using customer Lockbox as an interface to review and approve or reject access requests.
+To learn more about using Customer Lockbox as an interface to review and approve or reject access requests.
 > [!div class="nextstepaction"]
 > [Use Lockbox for Azure Data Manager for Energy Preview](how-to-create-lockbox.md)
