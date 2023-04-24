@@ -18,7 +18,7 @@ ms.custom: it-pro
 
 User attributes are values collected from the user during self-service sign-up flow. Azure AD for customers comes with a built-in set of attributes, but you can create custom attributes for use in your user flow. You can also read and write these attributes by using the Microsoft Graph API. Check out the define custom attributes for user flows<!--(API-reference-CIAM-user-flows.md#scenario-6-list-attributes-in-a-userflow)--> article.
 
-### To add custom attributes
+## To add custom attributes
 
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory**.
 1. Select **External Identities**

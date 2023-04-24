@@ -83,7 +83,7 @@ You can choose the order in which the attributes are displayed on the sign-up pa
 
 ## Add your application to the user flow
 
-If you've already registered your application in your customer tenant, you can it to the new user flow. This step activates the sign-up and sign-in experience for users who visit your application. An application can have only one user flow, but a user flow can be used by multiple applications.
+If you've already registered your application in your customer tenant, you can add it to the new user flow. This step activates the sign-up and sign-in experience for users who visit your application. An application can have only one user flow, but a user flow can be used by multiple applications.
 
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory** > **External Identities** > **User flows**.
 
