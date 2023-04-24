@@ -33,9 +33,10 @@ Apache Spark history server is the web user interface for completed and running 
 
     ![Open log query window.](./media/apache-spark-history-server/open-application-window.png)
 
-4. Select **Spark history server**, then the Spark History Server web UI will show up.
+4. Select **Spark history server**, then the Spark History Server web UI will show up. For a running Spark application, the button is **Spark UI**.
 
     ![Open spark history server.](./media/apache-spark-history-server/open-spark-history-server.png)
+    ![Open spark ui.](./media/apache-spark-history-server/apache-spark-ui.png)
 
 ### Open the Spark History Server web UI from Data node
 
@@ -47,49 +48,6 @@ Apache Spark history server is the web user interface for completed and running 
 
    ![Launch Spark history server 2](./media/apache-spark-history-server/launch-history-server.png "Launch Spark history server")
 
-## Explore the Data tab in Spark history server
-
-Select the Job ID for the job you want to view. Then select **Data** on the tool menu to get the data view. This section shows you how to do various tasks in the Data tab.
-
-* Check the **Inputs**, **Outputs**, and **Table Operations** by selecting the tabs separately.
-
-    ![Data for Spark application tabs](./media/apache-spark-history-server/apache-spark-data-tabs.png)
-
-* Copy all rows by selecting **Copy**.
-
-    ![Data for Spark application copy](./media/apache-spark-history-server/apache-spark-data-copy.png)
-
-* Save all data as CSV file by selecting **csv**.
-
-    ![Data for Spark application save](./media/apache-spark-history-server/apache-spark-data-save.png)
-
-* Search by entering keywords in field **Search**. The search results display immediately.
-
-    ![Data for Spark application search](./media/apache-spark-history-server/apache-spark-data-search.png)
-
-* Select the column header to sort table, select the plus sign to expand a row to show more details, or select the minus sign to collapse a row.
-
-    ![Data for Spark application table](./media/apache-spark-history-server/apache-spark-data-table.png)
-
-* Download a single file by selecting **Partial Download**. The selected file is downloaded to local. If the file no longer exists, a new tab appears with an error message.
-
-    ![Data for Spark application download row](./media/apache-spark-history-server/sparkui-data-download-row.png)
-
-* To copy a full path or relative path, select the **Copy Full Path** or **Copy Relative Path** options that expand from the drop-down menu. For Azure Data Lake Storage files, **Open in Azure Storage Explorer** launches Azure Storage Explorer and locates the folder when you are signed in.
-
-    ![Data for Spark application copy path](./media/apache-spark-history-server/sparkui-data-copy-path.png)
-
-* Select page numbers below the table to navigate pages when there are too many rows to display in one page.
-
-    ![Data for Spark application page](./media/apache-spark-history-server/apache-spark-data-page.png)
-
-* Hover on the question mark beside **Data** to show the tooltip, or select the question mark to get more information.
-
-    ![Data for Spark application more info](./media/apache-spark-history-server/sparkui-data-more-info.png)
-
-* Send feedback with issues by selecting **Provide us feedback**.
-
-    ![Spark graph provide us feedback again](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
 ## Graph tab in Apache Spark history server
 
@@ -226,6 +184,23 @@ The Executor Usage Graph visualizes the Spark job executor's allocation and runn
 2. Select the color icon to select or unselect the corresponding content in all drafts.
 
     ![sparkui diagnoses select chart](./media/apache-spark-history-server/sparkui-diagnosis-select-chart.png)
+
+### TSG for 404 in Spark UI 
+
+In some cases, for long-running Spark applications with massive jobs and stages, when opening Spark UI, it may fail with the following page show up:
+![sparkui diagnoses select chart](./media/apache-spark-history-server/404-in-spark-ui.png)
+
+As a workaround, an extra Spark configuration can be applied to the Spark pool: 
+
+    ```
+    spark.synapse.history.rpc.memoryNeeded 1g 
+    ```
+
+![add spark configuration](./media/apache-spark-history-server/add-spark-configuration.png)
+
+For existing running Spark applications, in Spark UI page, add this query string at the end of the browser’s address bar: **?feature.enableStandaloneHS=false**
+
+![add this query string at the end of the browser’s address bar](./media/apache-spark-history-server/spark-server-enable.png)
 
 ## Known issues
 
