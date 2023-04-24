@@ -363,7 +363,7 @@ You can also [customize the default attribute mappings](../app-provisioning/cust
 
 ### Determine user account status
 
-By default, the provisioning connector app maps the HR user profile status to the user account status in Active Directory or Azure AD to determine whether to enable or disable the user account.
+By default, the provisioning connector app maps the HR user profile status to the user account status. The status is used to determine whether to enable or disable the user account.
 
 When you initiate the Joiners-Leavers process, gather the following requirements.
 
