@@ -27,7 +27,6 @@ Both Azure Functions and App Services have built in support for Azure Active Dir
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or higher.
 - [Install the Azure Functions Core Tools](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
 
-
 ## Create a resource group
 
 A resource group is a logical container into which Azure resources are deployed and managed. Use the following command to create a resource group to contain a Function app. For more information, see the [az group create](/cli/azure/group#az-group-create) command.
@@ -72,7 +71,6 @@ Make a note of the returned `hostNames` value, which is in the format *https://\
 
 Use the following steps to enable Azure Active Directory authentication to access your Function app.
 
-
 1. In the Azure portal, navigate to your resource group and then open the Function app you created.
 1. In the navigation pane, select **Authentication** and then select **Add identity provider** on the main pane.
 1. On the **Add an identity provider** page, select **Microsoft** from the **Identity provider** dropdown menu.
@@ -89,12 +87,15 @@ Use the following steps to enable Azure Active Directory authentication to acces
 
 After you add the settings, the Function app restarts and all subsequent requests are prompted to sign in through Azure AD. You can test that unauthenticated requests are currently being rejected with the Function app's root URL (returned in the `hostNames` output of the `az functionapp create` command). You should then be redirected to your organization's Azure Active Directory sign-in screen.
 
-Before we proceed to the next step, navigate to the application you just created, go the the **Expose an API** page, and copy the Application ID URI for later use.
+You will need the Application ID and the Application ID URI for later use. In the Azure portal, navigate to the Function app you just created.
 
-:::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png" alt-text="Screenshot of the Azure portal showing the Microsoft identity provider application." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png":::
+- To get the Application ID, in the navigation pane select **Authentication** and then  copy **App (client) ID** for the identity provider that includes the name of the Function app.
 
-:::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-4.png" alt-text="Screenshot of the Azure portal showing the AAD application." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-4.png":::
+  :::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png" alt-text="Screenshot of the Azure portal showing the Authentication page for a Function app with the Function app name highlighted in the Identity provider name." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png":::
 
+- To get the Application ID URI, in the navigation pane select **Expose an API** and then copy **Application ID URI**.
+
+  :::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-4.png" alt-text="Screenshot of the Azure portal showing the Expose an API page for a Function app the the Application ID URI highlighted." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-4.png":::
 
 ## Create an HTTP triggered function
 
@@ -182,7 +183,7 @@ This sample invokes the HTTP triggered function by first requesting an access to
    ```text
    azure.function.uri=https://<function-app-name>.azurewebsites.net
    azure.function.triggerPath=httptrigger
-   azure.function.application-id.uri=<your-functionapp-application-id-uri>
+   azure.function.application-id.uri=<function-app-application-id-uri>
    ```
 
 1. Use the following command to package your sample app.
