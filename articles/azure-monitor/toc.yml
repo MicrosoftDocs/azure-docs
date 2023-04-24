@@ -1328,10 +1328,7 @@ items:
         href: ../service-health/service-notifications.md
       - name: Configure alerts on notification events
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
-    - name: Alert processing rules
-      href: alerts/alerts-processing-rules.md
-      displayName: Azure CLI, az monitor action rule
-    - name: Notifications and actions
+    - name: Respond to an alert
       items:
       - name: Create an action group
         href: alerts/action-groups.md
@@ -1341,6 +1338,9 @@ items:
         href: alerts/alerts-sms-behavior.md
       - name: Common schema for alerts
         href: alerts/alerts-common-schema.md
+      - name: Alert processing rules
+        href: alerts/alerts-processing-rules.md
+        displayName: Azure CLI, az monitor action rule
       - name: Configure the schema to get activity log alerts
         href: alerts/activity-log-alerts-webhook.md        
       - name: Non-common alert schema definition
