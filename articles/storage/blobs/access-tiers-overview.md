@@ -245,6 +245,18 @@ az feature show --namespace Microsoft.Storage --name ColdTier
 - The default access tier setting of the account can't be set to cold tier.
 - blobs can't be set to the cold tier by using AzCopy. During the preview, you can set the blob's tier to the cold tier by using the Azure portal, PowerShell, or the Azure CLI.
 
+### Required REST and SDK versions
+
+If you plan to refer to the cold tier by using code in a custom application, you must use a version of the REST API or SDK that supports the cold tier. If your application uses the [REST API](/rest/api/storageservices/blob-service-rest-api), it must use version 2021-21-02 or later. If your application uses an Azure SDK, please the following versions or later. 
+
+| SDK | |
+|---|---|
+| [.NET](/dotnet/api/azure.storage.blobs) | 12.15.0-beta.1 |
+| [Java](/java/api/overview/azure/storage-blob-readme) | 12.15.0-beta.1 |
+| [Python](/python/api/azure-storage-blob/) | 12.15.0b1 |
+| [JavaScript](/javascript/api/preview-docs/@azure/storage-blob/) | 12.13.0-beta.1 |
+
+
 ## Feature support
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
