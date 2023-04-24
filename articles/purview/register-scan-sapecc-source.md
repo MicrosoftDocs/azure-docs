@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -40,6 +40,10 @@ When scanning SAP ECC source, Microsoft Purview supports:
     - Data elements
 
 - Fetching static lineage on assets relationships among tables and views.
+
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 
@@ -88,7 +92,7 @@ The only supported authentication for SAP ECC source is **Basic authentication**
 
 ### Steps to register
 
-1. Open thew the Microsoft Purview governance portal by:
+1. Open the Microsoft Purview governance portal by:
 
    - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
    - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.

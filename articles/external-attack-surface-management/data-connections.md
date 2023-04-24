@@ -7,7 +7,7 @@ title:       Defender EASM Data Connections
 description: "The data connector sends Defender EASM asset data to two different platforms: Microsoft Log Analytics and Azure Data Explorer. Users need to be active customers to export Defender EASM data to either tool, and data connections are subject to the pricing model for each respective platform."
 author:      elaineriq # GitHub alias
 ms.author:   elgonzalez # Microsoft alias
-ms.service:  security 
+ms.service:  defender-easm 
 # ms.prod:   # To use ms.prod, uncomment it and delete ms.service
 ms.topic:    how-to
 ms.date:     03/20/2023
