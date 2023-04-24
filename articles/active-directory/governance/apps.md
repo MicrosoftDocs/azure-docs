@@ -16,15 +16,15 @@ ms.reviewer: celested
 
 # Entra Identity Governance Integrations
 
-LoreIpsum ... IGA is great
+This page provides a single place for the tutorials to the various entra identity governance integrations. The integrations are covered under 4 sections
 
 ## Featured integrations
 
 | Logo | Category | Application tutorial for user provisioning |
 | :--- | :--- | :--- |
-| | HR | [SuccessFactors - User Provisioning](./sap-successfactors-inbound-provisioning-tutorial.md) |
-| | HR| [Workday - User Provisioning](workday-inbound-tutorial.md)|
-|| [LDAP](amazon-web-service-tutorial.md)| OpenLDAP<br>Microsoft Active Directory Lightweight Directory Services<br>389 Directory Server<br>Apache Directory Server<br>IBM Tivoli DS<br>Isode Directory<br>NetIQ eDirectory<br>Novell eDirectory<br>Open DJ<br>Open DS<br>Oracle (previously Sun ONE) Directory Server Enterprise Edition<br>RadiantOne Virtual Directory Server (VDS) |
+| | HR | [SuccessFactors - User Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
+| | HR| [Workday - User Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/workday-inbound-cloud-only-tutorial)|
+|| [LDAP](https://learn.microsoft.com/azure/active-directory/app-provisioning/on-premises-ldap-connector-configure)| OpenLDAP<br>Microsoft Active Directory Lightweight Directory Services<br>389 Directory Server<br>Apache Directory Server<br>IBM Tivoli DS<br>Isode Directory<br>NetIQ eDirectory<br>Novell eDirectory<br>Open DJ<br>Open DS<br>Oracle (previously Sun ONE) Directory Server Enterprise Edition<br>RadiantOne Virtual Directory Server (VDS) |
 | | [SQL](https://learn.microsoft.com/azure/active-directory/app-provisioning/tutorial-ecma-sql-connector)| Microsoft SQL Server and Azure SQL<br>IBM DB2 10.x<br>IBM DB2 9.x<br>Oracle 10g and 11g<br>Oracle 12c and 18c<br>MySQL 5.x|
 | | Cloud platform| [Amazon Web Services (AWS) Console - Role Provisioning](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
 | | Cloud platform| [Google Cloud Platform - User Provisioning](g-suite-provisioning-tutorial.md) |
@@ -39,9 +39,9 @@ Checkout the integrations [partners](https://learn.microsoft.com/azure/active-di
 * IBM RACF
 
 ## Full list of provisioning integrations
-| Application | User provisioning | Group provisioning | SSO|
-| :--- | :--- | :--- | :--- |
-| [4me](https://learn.microsoft.com/azure/active-directory/saas-apps/4me-provisioning-tutorial) | ● | ● | ● | 
+| Application | User provisioning | SSO|
+| :--- | :---  | :--- |
+| [4me](https://learn.microsoft.com/azure/active-directory/saas-apps/4me-provisioning-tutorial) | ● | ● | 
 | [8x8](https://learn.microsoft.com/azure/active-directory/saas-apps/8x8-provisioning-tutorial) | ● | | ● |
 | [15five](https://learn.microsoft.com/azure/active-directory/saas-apps/15five-provisioning-tutorial) | ● | ● | ● |
 | [Acunetix 360](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
@@ -75,10 +75,8 @@ Checkout the integrations [partners](https://learn.microsoft.com/azure/active-di
 | [BLDNG APP](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
 | [Blink](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
 | [Blinq](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-|OpenLDAP| ● |  |  |
-|Novell eDirectory| ● |  |  |
 
 
 ## Next steps
 
-To learn more about application management, see [What is application management](../manage-apps/what-is-application-management.md).
+To learn more about application management, see [What is application management](https://learn.microsoft.com/azure/active-directory/app-provisioning/).
