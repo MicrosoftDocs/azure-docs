@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/20/2023
+ms.date: 04/24/2023
 ms.author: jasteppe
 ---
 
@@ -15,7 +15,7 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-This article provides an introductory overview of the MedTech service. The MedTech service is a Platform as a Service (PaaS) within the Azure Health Data Services. The MedTech service that enables you to ingest device data, transform it into a unified FHIR format, and store it in an enterprise-scale, secure, and compliant cloud environment. 
+This article provides an introductory overview of the MedTech service. The MedTech service is a Platform as a Service (PaaS) within the Azure Health Data Services. The MedTech service enables you to ingest device data, transform it into a unified FHIR format, and store it in an enterprise-scale, secure, and compliant cloud environment. 
 
 The MedTech service was built to help customers that were dealing with the challenge of gaining relevant insights from device data coming in from multiple and diverse sources. No matter the device or structure, the MedTech service normalizes that device data into a common format, allowing the end user to then easily capture trends, run analytics, and build Artificial Intelligence (AI) models. In the enterprise healthcare setting, the MedTech service is used in the context of remote patient monitoring, virtual health, and clinical trials.
 
@@ -31,7 +31,7 @@ The following diagram outlines the basic elements of how the MedTech service tra
 
 The MedTech service processes device data in five stages:
 
-1. **Ingest** - The MedTech service asynchronously loads the device messages from the event hub at high speed.
+1. **Ingest** - The MedTech service asynchronously reads the device message from the event hub at high speed.
 
 2. **Normalize** - After the device message has been ingested, the MedTech service uses the device mapping to streamline and convert the device data into a normalized schema format.
 
@@ -39,7 +39,7 @@ The MedTech service processes device data in five stages:
 
 4. **Transform** - When the normalized data is grouped, it's transformed through the FHIR destination mapping and is ready to become FHIR Observations.
 
-5. **Persist** - After the transformation is done, the new data is sent to the FHIR service and persisted as FHIR Observations.
+5. **Persist** - After the transformation is done, the newly transformed data is sent to the FHIR service and persisted as FHIR Observations.
 
 ## Key features of the MedTech service
 
