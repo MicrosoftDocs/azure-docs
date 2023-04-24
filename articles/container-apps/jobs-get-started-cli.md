@@ -12,7 +12,7 @@ zone_pivot_groups: container-apps-job-types
 
 # Create a job with Azure Container Apps (preview)
 
-Azure Container Apps jobs enable you run containerized workloads that have a finite duration. Jobs can execute manually or on a schedule. You can use jobs to perform tasks such as data processing, machine learning, and more.
+Azure Container Apps jobs enable you to run containerized workloads that have a finite duration. Jobs can execute manually or on a schedule. You can use jobs to perform tasks such as data processing, machine learning, and more.
 
 ## Prerequisites
 
@@ -144,9 +144,9 @@ az containerapp job create \
     --schedule "*/1 * * * *"
 ```
 
-The command returns details of the job execution, including its name. Job executions will start based on the schedule.
+The command returns details of the job execution, including its name. Job executions start based on the schedule.
 
-Container Apps jobs use cron expressions to define schedules. It supports the standard cron expression format with 5 fields for minute, hour, day of month, month, and day of week.
+Container Apps jobs use cron expressions to define schedules. It supports the standard cron expression format with five fields for minute, hour, day of month, month, and day of week.
 
 ::: zone-end
 
@@ -194,7 +194,7 @@ Job executions output logs to the logging provider that you configured for the C
         --query "[].Log_s"
     ```
 
-    It may take a few minutes for the logs to appear in Log Analytics. The following is an example of the output.
+    It may take a few minutes for the logs to appear in Log Analytics. The following output is an example of the logs printed by the job execution.
 
     ```json
     [
