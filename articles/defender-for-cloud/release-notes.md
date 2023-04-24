@@ -29,7 +29,7 @@ Updates in April include:
 - [Alerts automatic export to Log Analytics workspace have been deprecated](#alerts-automatic-export-to-log-analytics-workspace-have-been-deprecated)
 - [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers)
 - [New Azure Active Directory authentication-related recommendations for Azure Data Services](#new-azure-active-directory-authentication-related-recommendations-for-azure-data-services)
-- Recommendation released for GA: System updates should be installed on your machines (powered by Update management center)
+- [Recommendation released for GA: System updates should be installed on your machines (powered by Update management center)](#recommendation-released-for-ga-system-updates-should-be-installed-on-your-machines-powered-by-update-management-center)
 
 ### Agentless Container Posture in Defender CSPM (Preview)
 
