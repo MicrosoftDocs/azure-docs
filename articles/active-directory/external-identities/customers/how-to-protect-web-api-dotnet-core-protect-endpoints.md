@@ -36,20 +36,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.Resource;
-using TodoApi.Models;
-using TodoApi.Options;
+using ToDoListAPI.Models;
 
-namespace TodoApi.Controllers;
+namespace ToDoListAPI.Controllers;
 
 [Authorize]
 [Route("api/[controller]")]
-public class TodoItemsController : ControllerBase
+[ApiController]
+public class ToDoListController : ControllerBase
 {
-    private readonly TodoContext _todoContext;
+    private readonly ToDoContext _toDoContext;
 
-    public TodoItemsController(TodoContext todoContext)
+    public ToDoListController(ToDoContext toDoContext)
     {
-        _todoContext = todoContext;
+        _toDoContext = toDoContext;
     }
 
     [HttpGet()]
@@ -58,7 +58,7 @@ public class TodoItemsController : ControllerBase
     
     [HttpPost]
     [RequiredScopeOrAppPermission()]
-    public async Task<IActionResult> PostAsync([FromBody] TodoItem todo){...}
+    public async Task<IActionResult> PostAsync([FromBody] ToDo toDo){...}
 
     private bool RequestCanAccessToDo(Guid userId){...}
 
@@ -72,19 +72,25 @@ public class TodoItemsController : ControllerBase
 
 In this section, we go through the code to see we protect our API by adding code into the placeholders we created. The focus here isn't on building the API, but rather protecting it.
 
-1. Import the necessary packages. The [*Microsoft.Identity.Web*](/azure/active-directory/develop/microsoft-identity-web) package is an MSAL wrapper that helps us easily handle authentication logic, for example, by handling token validation. We also use the permissions definitions that we created in the *options* folder by importing *Todo.Options*. To ensure that our endpoints require authorization, we use the inbuilt [*Microsoft.AspNetCore.Authorization*](/dotnet/api/microsoft.aspnetcore.authorization) package.
+1. Import the necessary packages. The [*Microsoft.Identity.Web*](/azure/active-directory/develop/microsoft-identity-web) package is an MSAL wrapper that helps us easily handle authentication logic, for example, by handling token validation. We also use the permissions definitions that we defined in the `appsettings.json` configuration file. To ensure that our endpoints require authorization, we use the inbuilt [*Microsoft.AspNetCore.Authorization*](/dotnet/api/microsoft.aspnetcore.authorization) package.
 
 1. Since we granted permissions for this API to be called either using delegated permissions on behalf of the user or application permissions where the client calls as itself and not on the user's behalf, it's important to know whether the call is being made by the app on its own behalf. To do this, we check the claims to find whether the access token contains the *idtyp* optional claim. This claim is the most accurate way for the API to determine whether a token is an app token or an app + user token. Configure your API to use this [optional claim](/azure/active-directory/develop/active-directory-optional-claims) via your API app registration if you haven't.
 
     ```csharp
     private bool IsAppMakingRequest()
+    {
+        // Add in the optional 'idtyp' claim to check if the access token is coming from an application or user.
+        // See: https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
+        if (HttpContext.User.Claims.Any(c => c.Type == "idtyp"))
         {
-            // Add in the optional 'idtyp' claim to check if the access token is coming from an application or user.
-            //
-            // See: https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-optional-claims
-            return HttpContext.User
-                .Claims.Any(c => c.Type == "idtyp" && c.Value == "app");
+            return HttpContext.User.Claims.Any(c => c.Type == "idtyp" && c.Value == "app");
         }
+        else
+        {
+            // alternatively, if an AT contains the roles claim but no scp claim, that indicates it's an app token
+            return HttpContext.User.Claims.Any(c => c.Type == "roles") && !HttpContext.User.Claims.Any(c => c.Type == "scp");
+        }
+    }
     ```
 
 1. Add a helper function that determines whether the request being made contains enough permissions to carry out the intended action. To do this, we check whether it's the app making the request on its own behalf or whether the app is making the call on behalf of a user who owns the given resource by validating the user ID.

@@ -62,7 +62,7 @@ Before going through this article, ensure you have a [protected web API](how-to-
 
     HttpClient client = new HttpClient();
 
-    var response = await client.GetAsync("https://localhost:<your-api-port>/api/TodoItems");
+    var response = await client.GetAsync("https://localhost:<your-api-port>/api/todolist");
     Console.WriteLine("Your response is: " + response.StatusCode);
     ```
 
@@ -80,8 +80,8 @@ Before going through this article, ensure you have a [protected web API](how-to-
     var clientId = "<your-daemon-app-client-id>";
     var clientSecret = "<your-daemon-app-secret>";
     var scopes = new[] {"api://<your-web-api-application-id>/.default"};
-    var tenantId = "<your-daemon-app-tenant-id>";
-    var authority = $"https://login.microsoftonline.com/{tenantId}";
+    var tenantName= "<your-tenant-name>";
+    var authority = $"https://{tenantName}.ciamlogin.com/";
 
     var app = ConfidentialClientApplicationBuilder
         .Create(clientId)
@@ -92,6 +92,6 @@ Before going through this article, ensure you have a [protected web API](how-to-
     var result = await app.AcquireTokenForClient(scopes).ExecuteAsync();
 
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-    var response = await client.GetAsync("https://localhost:44351/api/TodoItems");
+    var response = await client.GetAsync("https://localhost:44351/api/todolist");
     Console.WriteLine("Your response is: " + response.StatusCode);
     ```

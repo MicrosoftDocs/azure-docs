@@ -60,9 +60,9 @@ Open the *appsettings.json* file in your app folder and add in the app registrat
 ```json
 {
     "AzureAd": {
-        "Instance": "https://login.microsoftonline.com/",
-        "ClientId": "your-client-id",
-        "TenantId": "your tenant id"
+        "Instance": "https://Enter_the_Tenant_Name_Here.ciamlogin.com/",
+        "TenantId": "Enter_the_Tenant_Id_Here",
+        "ClientId": "Enter_the_Application_Id_Here",
     },
     "Logging": {...},
   "AllowedHosts": "*"
@@ -73,43 +73,25 @@ Open the *appsettings.json* file in your app folder and add in the app registrat
 
 All APIs must publish a minimum of one scope, also called [Delegated Permission](/azure/active-directory/develop/permissions-consent-overview#types-of-permissions), for the client apps to obtain an access token for a user successfully. In a similar sense, APIs should also publish a minimum of one app role for applications, also called [Application Permission](/azure/active-directory/develop/permissions-consent-overview#types-of-permissions), for the client apps to obtain an access token as themselves, that is, when they aren't signing-in a user.
 
-We register these permissions in the *appsettings.json* file. These permissions are configured via the Microsoft Entra admin center. For the purposes of this tutorial, we have configured three permissions. *ToDoList.ReadWrite* and *ToDoList.Read* as the delegated permissions and *ToDoList.ReadWrite.All* as the application permission.
+We specify these permissions in the *appsettings.json* file as configuration parameters. These permissions are registered via the Microsoft Entra admin center. For the purposes of this tutorial, we have registered four permissions. *ToDoList.ReadWrite* and *ToDoList.Read* as the delegated permissions, and *ToDoList.ReadWrite.All* and *ToDoList.Read.All* as the application permissions.
 
 ```json
 {
   "AzureAd": {...},
-  "RequiredTodoAccessPermissions": {
-    "RequiredDelegatedTodoReadClaims": "ToDoList.Read", //Add your permissions here and label the keys as you wish
-    "RequiredDelegatedTodoWriteClaims": "ToDoList.ReadWrite",
-    "RequiredApplicationTodoReadWriteClaims": "ToDoList.ReadWrite.All"
+    "Scopes": {
+      "Read": ["ToDoList.Read", "ToDoList.ReadWrite"],
+      "Write": ["ToDoList.ReadWrite"]
+    },
+    "AppPermissions": {
+      "Read": ["ToDoList.Read.All", "ToDoList.ReadWrite.All"],
+      "Write": ["ToDoList.ReadWrite.All"]
+    }
   },
   "Logging": {...},
   "AllowedHosts": "*"
 }
 ```
 
-We then set these keys as constants to make them accessible to the `RequiredScopeOrAppPermission` attribute. Create a folder called *Options* in the project root directory. Navigate to this directory and add a new file called *RequiredToDoAccessPermissionsOptions.cs* with the following content.
-
-```csharp
-namespace TodoApi.Options;
-
-public class RequiredTodoAccessPermissionsOptions
-{
-    public const string RequiredTodoAccessPermissions = "RequiredTodoAccessPermissions";
-
-    // Set these keys as constants to make them accessible to the 'RequiredScopeOrAppPermission' attribute. You can add
-    // multiple spaces separated entries for each string in the 'appsettings.json' file and they will be used by the
-    // 'RequiredScopeOrAppPermission' attribute.
-    public const string RequiredDelegatedTodoReadClaimsKey =
-        $"{RequiredTodoAccessPermissions}:RequiredDelegatedTodoReadClaims";
-
-    public const string RequiredDelegatedTodoWriteClaimsKey =
-        $"{RequiredTodoAccessPermissions}:RequiredDelegatedTodoWriteClaims";
-
-    public const string RequiredApplicationTodoReadWriteClaimsKey =
-        $"{RequiredTodoAccessPermissions}:RequiredApplicationTodoReadWriteClaims";
-}
-```
 
 ## Add authentication scheme
 
@@ -132,13 +114,15 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 Create a folder called *Models* in the root folder of your project. Navigate to the folder and create a file called *TodoItem.cs* and add the following code. This code creates a model called *TodoItem*.
 
 ```csharp
-namespace TodoApi.Models;
+using System;
 
-public class TodoItem
+namespace ToDoListAPI.Models;
+
+public class ToDo
 {
-    public int ID { get; set; }
-    public Guid UserId { get; set; }
-    public string Message { get; set; } = string.Empty;
+    public int Id { get; set; }
+    public Guid Owner { get; set; }
+    public string Description { get; set; } = string.Empty;
 }
 ```
 
@@ -150,18 +134,17 @@ Create a folder called *DbContext* in the root folder of the project. Navigate i
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
-using TodoApi.Models;
+using ToDoListAPI.Models;
 
-namespace TodoApi;
+namespace ToDoListAPI.Context;
 
-public class TodoContext : DbContext
+public class ToDoContext : DbContext
 {
-    public TodoContext(DbContextOptions<TodoContext> options)
-        : base(options)
+    public ToDoContext(DbContextOptions<ToDoContext> options) : base(options)
     {
     }
 
-    public DbSet<TodoItem> TodoItems { get; set; } = null!;
+    public DbSet<ToDo> ToDos { get; set; }
 }
 ```
 
@@ -169,11 +152,11 @@ Add the following code in the *Program.cs* file.
 
 ```csharp
 // Add the following to your imports
-using TodoApi;
+using ToDoListAPI.Context;
 using Microsoft.EntityFrameworkCore;
 
 builder.Services.AddDbContext<TodoContext>(opt =>
-    opt.UseInMemoryDatabase("TodoItems"));
+    opt.UseInMemoryDatabase("ToDos"));
 ```
 
 ## Next steps
