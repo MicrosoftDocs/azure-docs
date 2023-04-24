@@ -495,7 +495,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
     + Fixed a bug where to_dask_dataframe would fail because of a race condition.
     + Dataset from_files now supports skipping of data extensions for large input data
   + **azureml-defaults**
-    + We are removing the dependency azureml-model-management-sdk==1.0.1b6.post1 from azureml-defaults.
+    + We're removing the dependency azureml-model-management-sdk==1.0.1b6.post1 from azureml-defaults.
   + **azureml-interpret**
     + updated azureml-interpret to interpret-community 0.19.*
   + **azureml-pipeline-core**
@@ -632,7 +632,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 + **Bug fixes and improvements**
   + **azureml-core**
     + Added the ability to override the default timeout value for artifact uploading via the "AZUREML_ARTIFACTS_DEFAULT_TIMEOUT" environment variable.
-    + Fixed a bug where docker settings in Environment object on ScriptRunConfig are not respected.
+    + Fixed a bug where docker settings in Environment object on ScriptRunConfig aren't respected.
     + Allow partitioning a dataset when copying it to a destination.
     + Added a custom mode to the OutputDatasetConfig to enable passing created Datasets in pipelines through a link function. These support enhancements made to enable Tabular Partitioning for PRS.
     + Added a new KubernetesCompute compute type to azureml-core.
@@ -655,7 +655,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 ### Azure Machine Learning SDK for Python v1.26.0
 + **Bug fixes and improvements**
   + **azureml-automl-core**
-    + Fixed an issue where Naive models would be recommended in AutoMLStep runs and fail with lag or rolling window features. These models will not be recommended when target         lags or target rolling window size are set.
+    + Fixed an issue where Naive models would be recommended in AutoMLStep runs and fail with lag or rolling window features. These models won't be recommended when target         lags or target rolling window size are set.
     +  Changed console output when submitting an AutoML run to show a portal link to the run.
   + **azureml-core**
     + Added HDFS mode in documentation.
@@ -756,8 +756,8 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + With setting show_output to True when deploy models, inference configuration and deployment configuration will be replayed before sending the request to server.
   + **azureml-core**
     + Added functionality to filter Tabular Datasets by column values and File Datasets by metadata.
-    + Previously, it was possibly for users to create provisioning configurations for ComputeTarget's that did not satisfy the password strength requirements for the `admin_user_password` field (that is, that they must contain at least 3 of the following: One lowercase letter, one uppercase letter, one digit, and one special character from the following set: ``\`~!@#$%^&*()=+_[]{}|;:./'",<>?``). If the user created a configuration with a weak password and ran a job using that configuration, the job would fail at runtime. Now, the call to `AmlCompute.provisioning_configuration` throws a `ComputeTargetException` with an accompanying error message explaining the password strength requirements. 
-    + Additionally, it was also possible in some cases to specify a configuration with a negative number of maximum nodes. It is no longer possible to do this. Now, `AmlCompute.provisioning_configuration` throws a `ComputeTargetException` if the `max_nodes` argument is a negative integer.
+    + Previously, it was possibly for users to create provisioning configurations for ComputeTarget's that didn't satisfy the password strength requirements for the `admin_user_password` field (that is, that they must contain at least 3 of the following: One lowercase letter, one uppercase letter, one digit, and one special character from the following set: ``\`~!@#$%^&*()=+_[]{}|;:./'",<>?``). If the user created a configuration with a weak password and ran a job using that configuration, the job would fail at runtime. Now, the call to `AmlCompute.provisioning_configuration` throws a `ComputeTargetException` with an accompanying error message explaining the password strength requirements. 
+    + Additionally, it was also possible in some cases to specify a configuration with a negative number of maximum nodes. It's no longer possible to do this. Now, `AmlCompute.provisioning_configuration` throws a `ComputeTargetException` if the `max_nodes` argument is a negative integer.
     + With setting show_output to True when deploy models, inference configuration and deployment configuration will be displayed.
     + With setting show_output to True when wait for the completion of model deployment, the progress of deployment operation will be displayed.
     + Allow customer specified Azure Machine Learning auth config directory through environment variable: AZUREML_AUTH_CONFIG_DIR
@@ -812,7 +812,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + Previously, it was possible to create a provisioning configuration with the minimum node count less than the maximum node count. This has now been fixed. If you now try to create a provisioning configuration with `min_nodes < max_nodes` the SDK will raises a `ComputeTargetException`.
     +  Fixes bug in wait_for_completion in AmlCompute, which caused the function to return control flow before the operation was actually complete
     + Run.fail() is now deprecated, use Run.tag() to mark run as failed or use Run.cancel() to mark the run as canceled.
-    + Show error message 'Environment name expected str, {} found' when provided environment name is not a string.
+    + Show error message 'Environment name expected str, {} found' when provided environment name isn't a string.
   + **azureml-train-automl-client**
     + Fixed a bug that prevented AutoML experiments performed on Azure Databricks clusters from being canceled.
 
@@ -824,7 +824,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
   + **azureml-automl-core**
     + Fixed bug where an extra pip dependency was added to the conda yml file for vision models.
   + **azureml-automl-runtime**
-    + Fixed a bug where classical forecasting models (for example, AutoArima) could receive training data wherein rows with imputed target values were not present. This violated the data contract of these models. * Fixed various bugs with lag-by-occurrence behavior in the time-series lagging operator. Previously, the lag-by-occurrence operation did not mark all imputed rows correctly and so would not always generate the correct occurrence lag values. Also fixed some compatibility issues between the lag operator and the rolling window operator with lag-by-occurrence behavior. This previously resulted in the rolling window operator dropping some rows from the training data that it should otherwise use.
+    + Fixed a bug where classical forecasting models (for example, AutoArima) could receive training data wherein rows with imputed target values weren't present. This violated the data contract of these models. * Fixed various bugs with lag-by-occurrence behavior in the time-series lagging operator. Previously, the lag-by-occurrence operation didn't mark all imputed rows correctly and so wouldn't always generate the correct occurrence lag values. Also fixed some compatibility issues between the lag operator and the rolling window operator with lag-by-occurrence behavior. This previously resulted in the rolling window operator dropping some rows from the training data that it should otherwise use.
   + **azureml-core**
     + Adding support for Token Authentication by audience.
     + Add `process_count` to [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration) to support multi-process multi-node PyTorch jobs.
@@ -888,7 +888,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
   + **azureml-train-core**
     + Fix to remove another registration on datastore for resume run feature
   + **azureml-widgets**
-    + Customers should not see changes to existing run data visualization using the widget, and now will have support if they optionally use conditional hyperparameters.
+    + Customers shouldn't see changes to existing run data visualization using the widget, and now will have support if they optionally use conditional hyperparameters.
     + The user run widget now includes a detailed explanation for why a run is in the queued state.
 
 
@@ -897,9 +897,9 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 ### Azure Machine Learning SDK for Python v1.20.0
 + **Bug fixes and improvements**
   + **azure-cli-ml**
-    + framework_version added in OptimizationConfig. It is used when model is registered with framework MULTI.
+    + framework_version added in OptimizationConfig. It's used when model is registered with framework MULTI.
   + **azureml-contrib-optimization**
-    + framework_version added in OptimizationConfig. It is used when model is registered with framework MULTI.
+    + framework_version added in OptimizationConfig. It's used when model is registered with framework MULTI.
   + **azureml-pipeline-steps**
     + Introducing CommandStep, which would take command to process. Command can include executables, shell commands, scripts, etc.
   + **azureml-core**
@@ -1015,7 +1015,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + Pin the package: pyjwt to avoid pulling in breaking in versions upcoming releases.
     + Creating an experiment returns the active or last archived experiment with that same given name if such experiment exists or a new experiment.
     + Calling get_experiment by name returns the active or last archived experiment with that given name.
-    + Users cannot rename an experiment while reactivating it.
+    + Users can't rename an experiment while reactivating it.
     + Improved error message to include potential fixes when a dataset is incorrectly passed to an experiment (for example, ScriptRunConfig). 
     + Improved documentation for `OutputDatasetConfig.register_on_complete` to include the behavior of what will happen when the name already exists.
     + Specifying dataset input and output names that have the potential to collide with common environment variables will now result in a warning
@@ -1067,7 +1067,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
   + **azureml-explain-model**
     + The azureml-explain-model package is officially deprecated
   + **azureml-mlflow**
-    + Resolved a bug in mlflow.projects.run against azureml backend where Finalizing state was not handled properly.
+    + Resolved a bug in mlflow.projects.run against azureml backend where Finalizing state wasn't handled properly.
   + **azureml-pipeline-core**
     + Add support to create, list and get pipeline schedule based one pipeline endpoint.
     +  Improved the documentation of PipelineData.as_dataset with an invalid usage example - Using PipelineData.as_dataset improperly will now result in a ValueException being thrown
@@ -1128,7 +1128,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
     + Support Triton No Code Deploy
     + outputs directories specified in Run.start_logging() will now be tracked when using run in interactive scenarios. The tracked files are visible on ML Studio upon calling Run.complete()
     + File encoding can be now specified during dataset creation with `Dataset.Tabular.from_delimited_files` and `Dataset.Tabular.from_json_lines_files` by passing the `encoding` argument. The supported encodings are 'utf8', 'iso88591', 'latin1', 'ascii', utf16', 'utf32', 'utf8bom' and 'windows1252'.
-    + Bug fix when environment object is not passed to ScriptRunConfig constructor.
+    + Bug fix when environment object isn't passed to ScriptRunConfig constructor.
     + Updated Run.cancel() to allow cancel of a local run from another machine.
   + **azureml-dataprep**
     +  Fixed dataset mount timeout issues.
@@ -1154,7 +1154,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
 ### Azure Machine Learning SDK for Python v1.14.0
 + **Bug fixes and improvements**
   + **azure-cli-ml**
-    + Grid Profiling removed from the SDK and is not longer supported.
+    + Grid Profiling removed from the SDK and isn't longer supported.
   + **azureml-accel-models**
     + azureml-accel-models package now supports TensorFlow 2.x
   + **azureml-automl-core**
@@ -1162,7 +1162,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
   + **azureml-automl-runtime**
     + Fixed a bug where AutoArima iterations would fail with a PredictionException and the message: "Silent failure occurred during prediction."
   + **azureml-cli-common**
-    + Grid Profiling removed from the SDK and is not longer supported.
+    + Grid Profiling removed from the SDK and isn't longer supported.
   + **azureml-contrib-server**
     + Update description of the package for pypi overview page.
   + **azureml-core**
@@ -1212,7 +1212,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
   + **azureml-automl-runtime**
     + Set horovod for text DNN to always use fp16 compression.
     + This release supports models greater than 4 Gb.
-    + Fixed issue where AutoML fails with ImportError: cannot import name `RollingOriginValidator`.
+    + Fixed issue where AutoML fails with ImportError: can't import name `RollingOriginValidator`.
     + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
   + **azureml-contrib-automl-dnn-forecasting**
     + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
@@ -1274,7 +1274,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
     + Improved calculation of forecast quantiles when lookback features are disabled.
     + Fixed bool sparse matrix handling when computing explanations after AutoML.
   + **azureml-core**
-    + A new method `run.get_detailed_status()` now shows the detailed explanation of current run status. It is currently only showing explanation for `Queued` status.
+    + A new method `run.get_detailed_status()` now shows the detailed explanation of current run status. It's currently only showing explanation for `Queued` status.
     + Add image_name and image_label parameters to Model.package() to enable renaming the built package image.
     + New method `set_pip_requirements()` to set the entire pip section in [`CondaDependencies`](/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies) at once.
     + Enable registering credential-less ADLS Gen2 datastore.
@@ -1321,7 +1321,7 @@ Learn more about [image instance segmentation labeling](../how-to-label-data.md)
     + Environment.get_image_details() return object type changed. `DockerImageDetails` class replaced `dict`, image details are available from the new class properties. Changes are backward compatible.
     + Fix bug for Environment.from_pip_requirements() to preserve dependencies structure
     + Fixed a bug where log_list would fail if an int and double were included in the same list.
-    + While enabling private link on an existing workspace, please note that if there are compute targets associated with the workspace, those targets will not work if they are not behind the same virtual network as the workspace private endpoint.
+    + While enabling private link on an existing workspace, please note that if there are compute targets associated with the workspace, those targets won't work if they are not behind the same virtual network as the workspace private endpoint.
     + Made `as_named_input` optional when using datasets in experiments and added `as_mount` and `as_download` to `FileDataset`. The input name will automatically generate if `as_mount` or `as_download` is called.
   + **azureml-automl-core**
     + Unhandled exceptions in AutoML now point to a known issues HTTP page, where more information about the errors can be found.
