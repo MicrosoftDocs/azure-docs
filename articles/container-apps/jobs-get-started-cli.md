@@ -12,7 +12,7 @@ zone_pivot_groups: container-apps-job-types
 
 # Create a job with Azure Container Apps (preview)
 
-Azure Container Apps jobs enable you to run containerized workloads that have a finite duration. Jobs can execute manually or on a schedule. You can use jobs to perform tasks such as data processing, machine learning, and more.
+Azure Container Apps jobs enable you to run containerized workloads that execute for a finite duration and then terminate successfully. Jobs can be triggered manually or on a schedule. You can use jobs to perform tasks such as data processing, machine learning, and more.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ The jobs preview has the following limitations:
     ```
 
     > [!NOTE]
-    > Only use this version of the extension for the jobs preview. To use the Azure CLI for other Container Apps scenarios, uninstall this version and install the latest version of the extension.
+    > Only use this version of the CLI extension for the jobs preview. To use the Azure CLI for other Container Apps scenarios, uninstall this version and install the latest public version of the extension.
     > 
     > ```azurecli
     > az extension remove --name containerapp
@@ -66,17 +66,22 @@ The jobs preview has the following limitations:
 
 1. Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
+::: zone pivot="container-apps-job-manual"
     ```azurecli
     RESOURCE_GROUP="jobs-quickstart"
     LOCATION="eastus2euap"
     ENVIRONMENT="env-jobs-quickstart"
-::: zone pivot="container-apps-job-manual"
     JOB_NAME="my-manual-job"
+    ```
 ::: zone-end
 ::: zone pivot="container-apps-job-scheduled"
+    ```azurecli
+    RESOURCE_GROUP="jobs-quickstart"
+    LOCATION="eastus2euap"
+    ENVIRONMENT="env-jobs-quickstart"
     JOB_NAME="my-scheduled-job"
-::: zone-end
     ```
+::: zone-end
 
     > [!NOTE]
     > The jobs preview is only supported in the East US 2 EUAP (`eastus2euap`) region.
@@ -118,6 +123,8 @@ To use manual jobs, you first create a job with trigger type `Manual` and then s
         --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
         --cpu "0.25" --memory "0.5Gi"
     ```
+
+    Manual jobs do not execute automatically. You must start an execution of the job.
 
 1. Start an execution of the job using the following command.
 
