@@ -17,7 +17,7 @@ In the support table, **NA** indicates that the feature is not available.
 
 **Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/><br/>**21Vianet**
 --- | --- | --- | --- 
-**Foundational CSPM features** | | |  
+**FOUNDATIONAL CSPM FEATURES** | | |  
 [Continuous export](./continuous-export.md) | GA | GA | GA
 [Workflow automation](./workflow-automation.md) | GA | GA | GA
 [Recommendation exemption rules](./exempt-resource.md) | Public preview | NA | NA
@@ -27,6 +27,7 @@ In the support table, **NA** indicates that the feature is not available.
 [Asset inventory](./asset-inventory.md) | GA | GA | GA
 [Azure Workbooks support](./custom-dashboards-azure-workbooks.md) | GA | GA | GA
 [Microsoft Defender for Cloud Apps integration](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps) | GA | GA | GA
+**DEFENDER FOR CLOUD PLANS**
 **[Agentless discovery for Kubernetes](concept-agentless-containers.md)** | Public preview | NA | NA
 **[Agentless vulnerability assessments for container images.](concept-agentless-containers.md)**<br/><br/> Including registry scanning (up to 20 unique images per billable resources) | Public preview | NA | NA
 **[Defender CSPM](concept-cloud-security-posture-management.md)** | GA | NA | NA
@@ -41,7 +42,7 @@ In the support table, **NA** indicates that the feature is not available.
 **[Defender for Kubernetes](./defender-for-kubernetes-introduction.md)**<br/><br/> Defender for Kubernetes is deprecated and replaced by Defender for Containers. Support for Azure Arc-enabled clusters is in public preview and not available in government clouds. [Learn more](defender-for-kubernetes-introduction.md). | GA | GA | GA
 **[Defender for open-source relational databases](defender-for-databases-introduction.md)** | GA | NA | NA  
 **[Defender for Resource Manager](./defender-for-resource-manager-introduction.md)** | GA | GA | GA
-**Defender for Servers features** | | |
+**DEFENDER FOR SERVERS FEATURES** | | |
 [Just-in-time VM access](./just-in-time-access-usage.md) | GA | GA | GA
 [File integrity monitoring](./file-integrity-monitoring-overview.md)  | GA | GA | GA
 [Adaptive application controls](./adaptive-application-controls.md)  | GA | GA | GA
