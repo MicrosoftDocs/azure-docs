@@ -33,7 +33,7 @@ It’s difficult to determine a customer’s perceived calling experience and de
 You can use the End of Call Survey to collect and analyze customers **subjective** opinions on their calling experience as opposed to relying only on **objective** measurements such as audio and video bitrate, jitter, and latency, which may not indicate if a customer had a poor calling experience. After publishing survey data, you can view the survey results through Azure for analysis and improvements. Azure Communication Services uses these survey results to monitor and improve quality and reliability.
 
 
-## Survey Structure
+## Survey structure
 
 The survey is designed to answer two questions from a user’s point of view. 
 
@@ -43,7 +43,7 @@ The survey is designed to answer two questions from a user’s point of view.
 
 The API allows applications to gather data points that describe user perceived ratings of their Overall Call, Audio, Video, and Screen Share experiences. Microsoft analyzes survey API results according to the following goals.
 
-### End of Call Survey API Goals
+### End of Call Survey API goals
 
 
 | API Rating Categories | Question Goal |
@@ -55,7 +55,7 @@ The API allows applications to gather data points that describe user perceived r
 
 
 
-## Survey Capabilities
+## Survey capabilities
 
 
 
@@ -70,8 +70,8 @@ The API allows applications to gather data points that describe user perceived r
 
 
 
-
--	***Note:** A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
+> [!NOTE] 
+>A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
 ### More survey tags
 | Rating Categories | Optional Tags |
@@ -83,7 +83,7 @@ The API allows applications to gather data points that describe user perceived r
 
 
 
-### End of Call Survey Customization
+### End of Call Survey customization
 You can choose to collect each of the four API values or only the ones you find most important. For example, you can choose to only ask customers about their overall call experience instead of asking them about their audio, video, and screen share experience. You can also customize input ranges to suit your needs. The default input range is 1 to 5 for Overall Call, and 0 to 1 for Audio, Video, and Screenshare. However, each API value can be customized from a minimum of 0 to maximum of 100.
 
 You can choose to collect each of the four API values or only the ones
