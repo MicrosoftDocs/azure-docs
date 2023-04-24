@@ -62,7 +62,3 @@ sections:
       - question: What is REST API versioning in the DICOM service?
         answer: |
           DICOM service has versions for the REST API used to access the service. The version is specified as a URL path in the requests. For more information visit the [API Versioning for DICOM service Documentation](./api-versioning-dicom-service.md).
-          
-      - question: How can I get access and use DICOMcast?
-        answer: |
-          To enable DICOMcast for your Azure subscription, please request access for DICOMcast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For more information about requesting access to DICOMcast, see [DICOMcast request access](dicom-cast-access-request.md). 

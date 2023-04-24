@@ -11,6 +11,10 @@ ms.author: mmitrik
 
 # DICOMcast access request
 
+> [!NOTE]
+> On **July 31, 2023** DICOMcast will be retired.  DICOMcast will continue to be available as an open-source component that can be self-hosted.  For more information about deploying the DICOMcast service, see the [migration guidance](https://aka.ms/dicomcast-migration).
+> New access requests will no longer be considered.  Only existing DICOMcast customers will be able to use the service until retirement.
+
 This article describes how to request DICOMcast access.
 
 ## Create Azure support ticket

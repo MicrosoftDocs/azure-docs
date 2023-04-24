@@ -11,6 +11,9 @@ ms.author: mmitrik
 
 # DICOMcast overview
 
+> [!NOTE]
+> On **July 31, 2023** DICOMcast will be retired.  DICOMcast will continue to be available as an open-source component that can be self-hosted.  For more information about deploying the DICOMcast service, see the [migration guidance](https://aka.ms/dicomcast-migration).
+
 DICOMcast offers customers the ability to synchronize the data from a DICOM service to a [FHIR service](../../healthcare-apis/fhir/overview.md), which allows healthcare organizations to integrate clinical and imaging data. DICOMcast expands the use cases for health data by supporting both a streamlined view of longitudinal patient data and the ability to effectively create cohorts for medical studies, analytics, and machine learning.
 
 ## Architecture
