@@ -85,4 +85,4 @@ To update Azure AD after changing your federation certificates, see [Renew feder
 
 ## Can I use the same SAML certificate across different apps?
 
-When first time configuring SSO on an enterprise app we do provide a default SAML certificate that is used across Azure AD. However, if you need to use the same certificate across multiple apps that is not the default Azure AD one, then you need to use an external Certificate Authority and upload the PFX file. The reason is that Azore AD does not provide access to private keys from internally issued certificates.
+When it's the first time configuring SSO on an enterprise app, we do provide a default SAML certificate that is used across Azure AD. However, if you need to use the same certificate across multiple apps that aren't the default Azure AD one, then you need to use an external Certificate Authority and upload the PFX file. The reason is that Azure AD doesn't provide access to private keys from internally issued certificates.
