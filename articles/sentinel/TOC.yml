@@ -17,7 +17,7 @@
     href: forward-syslog-monitor-agent.md
   - name: Configure data retention policy
     href: configure-data-retention.md
-  - name: Detect threats using analytic rules
+  - name: Detect threats using analytics rules
     href: tutorial-log4j-detection.md
   - name: Automatically enrich incident information
     href: tutorial-enrich-ip-information.md
