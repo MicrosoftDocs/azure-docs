@@ -62,9 +62,9 @@ Choose the type of summarization you would like to perform, and select one of th
 
 |parameter  |Description  |
 |---------|---------|
-|`-X POST $LANGUAGE_ENDPOINT`     | Specifies your endpoint for accessing the API.        |
+|`-X POST <endpoint>`     | Specifies your endpoint for accessing the API.        |
 |`-H Content-Type: application/json`     | The content type for sending JSON data.          |
-|`-H "Ocp-Apim-Subscription-Key:$LANGUAGE_KEY`    | Specifies the key for accessing the API.        |
+|`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the key for accessing the API.        |
 |`-d <documents>`     | The JSON containing the documents you want to send.         |
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own JSON values.
