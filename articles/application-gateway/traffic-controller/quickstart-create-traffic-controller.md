@@ -1,6 +1,6 @@
 ---
 
-title: Quickstart: Create Traffic Controller
+title: 'Quickstart: Create Traffic Controller'
 titlesuffix: Azure Application Load Balancer
 description: In this quickstart, you learn how to provision Traffic Controller.
 services: application-gateway
