@@ -6,7 +6,7 @@ ms.author: margard
 ms.service: spring-apps
 ms.custom: event-tier1-build-2022, devx-track-java, devx-track-azurecli
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 04/24/2023
 ---
 
 # Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Apps app
@@ -87,15 +87,15 @@ Use the following steps to enable Azure Active Directory authentication to acces
 
 After you add the settings, the Function app restarts and all subsequent requests are prompted to sign in through Azure AD. You can test that unauthenticated requests are currently being rejected with the Function app's root URL (returned in the `hostNames` output of the `az functionapp create` command). You should then be redirected to your organization's Azure Active Directory sign-in screen.
 
-You will need the Application ID and the Application ID URI for later use. In the Azure portal, navigate to the Function app you just created.
+You need the Application ID and the Application ID URI for later use. In the Azure portal, navigate to the Function app you created.
 
 - To get the Application ID, in the navigation pane select **Authentication** and then  copy **App (client) ID** for the identity provider that includes the name of the Function app.
 
-  :::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png" alt-text="Screenshot of the Azure portal showing the Authentication page for a Function app with the Function app name highlighted in the Identity provider name." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png":::
+  :::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png" alt-text="Screenshot of the Azure portal showing the Authentication page for a Function app, with the Function app name highlighted in the Identity provider." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png":::
 
 - To get the Application ID URI, in the navigation pane select **Expose an API** and then copy **Application ID URI**.
 
-  :::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-4.png" alt-text="Screenshot of the Azure portal showing the Expose an API page for a Function app the the Application ID URI highlighted." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-4.png":::
+  :::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-4.png" alt-text="Screenshot of the Azure portal showing the Expose an API page for a Function app the Application ID URI highlighted." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-4.png":::
 
 ## Create an HTTP triggered function
 
