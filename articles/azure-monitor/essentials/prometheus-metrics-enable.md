@@ -458,7 +458,7 @@ Currently, the Azure CLI is the only option to remove the metrics add-on and sto
     az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
     ```
 
-## Region mappings
+## Supported regions
 
 The list of regions Azure Monitor Metrics and Azure Monitor Worskapce is supported in can be found [here](https://aka.ms/ama-metrics-supported-regions) under the Managed Prometheus tag.
 
