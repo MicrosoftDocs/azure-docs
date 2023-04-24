@@ -283,9 +283,9 @@ To enable and configure Microsoft Defender for Storage at the storage account le
 
 ```json
 {
-    "type": "Microsoft.Storage/storageAccounts/providers/DefenderForStorageSettings",
+    "type": "Microsoft.Security/DefenderForStorageSettings",
     "apiVersion": "2022-12-01-preview",
-    "name": "[concat(parameters('accountName'), '/Microsoft.Security/current')]",
+    "name": "current",
     "properties": {
         "isEnabled": true,
         "malwareScanning": {
@@ -298,7 +298,8 @@ To enable and configure Microsoft Defender for Storage at the storage account le
             "isEnabled": true
         },
         "overrideSubscriptionLevelSettings": true
-    }
+    },
+    "scope": "[resourceId('Microsoft.Storage/storageAccounts', parameters('StorageAccountName'))]"
 }
 ```
 
@@ -315,10 +316,11 @@ Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.s
 To enable and configure Microsoft Defender for Storage at the storage account level using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
 
 ```bicep
-param accountName string
+resource storageAccount 'Microsoft.Storage/storageAccounts@2021-04-01' ...
 
-resource accountName_current 'Microsoft.Storage/storageAccounts/providers/DefenderForStorageSettings@2022-12-01-preview' = {
-  name: '${accountName}/Microsoft.Security/current'
+resource defenderForStorageSettings 'Microsoft.Security/DefenderForStorageSettings@2022-12-01-preview' = {
+  name: 'current'
+  scope: storageAccount
   properties: {
     isEnabled: true
     malwareScanning: {
