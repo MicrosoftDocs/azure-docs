@@ -105,7 +105,8 @@ Screenshare. However, each API value can be customized from a minimum of
 |  Video  |    0 - 100   |   0 - 100    |     
 |  Screenshare  |   0 - 100    |   0 - 100    |     
 
--	***Note**: A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
+   > [!NOTE]
+   > A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
 <!-- ## Store and view survey data:
 
