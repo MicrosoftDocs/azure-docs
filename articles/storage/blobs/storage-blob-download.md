@@ -82,3 +82,7 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 - [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/DownloadBlob.cs)
 
 [!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### See also
+
+- [Performance tuning for uploads and downloads](../../articles/storage/blobs/storage-blobs-tune-upload-download.md).

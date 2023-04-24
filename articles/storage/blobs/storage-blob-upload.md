@@ -29,6 +29,8 @@ To work with the code examples in this article, make sure you have:
 
 [!INCLUDE [storage-dev-guide-about-blob-upload](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-upload.md)]
 
+To maximize performance and reliability for upload operations, it's important to be proactive in configuring client library transfer options based on the environment your app runs in. To learn more about considerations for tuning data transfer options, see [Performance tuning for uploads and downloads](../../articles/storage/blobs/storage-blobs-tune-upload-download.md).
+
 ## Upload data to a block blob
 
 You can use either of the following methods to upload data to a block blob:
@@ -101,5 +103,6 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 
 ### See also
 
+- [Performance tuning for uploads and downloads](../../articles/storage/blobs/storage-blobs-tune-upload-download.md).
 - [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)

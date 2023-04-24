@@ -15,5 +15,3 @@ ms.custom: include file
 The client library methods covered in this article wrap the [Put Blob](/rest/api/storageservices/put-blob) operation. This operation creates a new block blob, page blob, or append blob, or updates the content of an existing block blob. If you're updating an existing block blob, any existing metadata on the blob is overwritten. To learn more about the `Put Blob` operation, including blob size limitations for write operations, see [Put Blob remarks](/rest/api/storageservices/put-blob#remarks).
 
 Staging individual blocks of data uses the [Put Block](/rest/api/storageservices/put-block) operation. This operation creates a new block, which can be committed as to block blob using [Put Block List](/rest/api/storageservices/put-block-list).
-
-To maximize performance and reliability for upload operations, it's important to be proactive in configuring client library transfer options based on the environment your app runs in. To learn more about considerations for tuning data transfer options, see [Performance tuning for uploads and downloads](../../articles/storage/blobs/storage-blobs-tune-upload-download.md).
