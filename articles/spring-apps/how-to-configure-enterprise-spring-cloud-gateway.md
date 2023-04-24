@@ -327,7 +327,7 @@ az spring gateway update \
 
 You must specify the protocol as HTTPS in the route configuration. The following JSON object instructs the gateway to use the HTTPS protocol for all traffic between the gateway and the app.
 
-1. Create a file with the following content and name the file `test-tls-route.json`.
+1. Create a file named `test-tls-route.json` with the following content.
 
    ```json
    {
@@ -352,11 +352,11 @@ You must specify the protocol as HTTPS in the route configuration. The following
        --routes-file test-tls-route.json
    ```
 
-You can now test whether the application is TLS enabled with the endpoint of the gateway. For more information, see the [Configure routes](how-to-use-enterprise-spring-cloud-gateway.md#configure-routes) section of [Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md#configure-routes).
+You can now test whether the application is TLS enabled with the endpoint of the gateway. For more information, see the [Configure routes](how-to-use-enterprise-spring-cloud-gateway.md#configure-routes) section of [Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md).
 
 ### Certificate rotation
 
-When a certificate expires, a new one needs to generated and synchronized. You can use the Azure portal or Azure CLI to synchronize certificates.
+As certificates expire, new ones need to be generated and synchronized (rotation). You can use the Azure portal or Azure CLI to synchronize certificates.
 
 #### [Azure portal](#tab/Azure-portal)
 
@@ -378,9 +378,9 @@ Use the following command to synchronize a certificate.
 az spring gateway sync-cert
 ```
 
-The gateway will restart after synchronization to ensure that gateway uses the new certificate for all future connections.
-
 ---
+
+The gateway will restart after synchronization to ensure that gateway uses the new certificate for all future connections.
 
 ## Next steps
 
