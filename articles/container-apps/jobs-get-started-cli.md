@@ -70,7 +70,12 @@ The jobs preview has the following limitations:
     RESOURCE_GROUP="jobs-quickstart"
     LOCATION="eastus2euap"
     ENVIRONMENT="env-jobs-quickstart"
-    JOB_NAME="my-job"
+::: zone pivot="container-apps-job-manual"
+    JOB_NAME="my-manual-job"
+::: zone-end
+::: zone pivot="container-apps-job-scheduled"
+    JOB_NAME="my-scheduled-job"
+::: zone-end
     ```
 
     > [!NOTE]
@@ -90,7 +95,7 @@ The Azure Container Apps environment acts as a secure boundary that allows conta
 
 1. Create the Container Apps environment using the following command.
 
-    ```
+    ```azurecli
     az containerapp env create \
         --name $ENVIRONMENT \
         --resource-group $RESOURCE_GROUP \
@@ -190,7 +195,7 @@ Job executions output logs to the logging provider that you configured for the C
     ```azurecli
     az monitor log-analytics query \
         --workspace "$LOG_ANALYTICS_WORKSPACE_ID" \
-        --analytics-query "ContainerAppConsoleLogs_CL | where ContainerGroupName_s startswith '$JOB_EXECUTION_NAME' | order by _timestamp_d asc | project Log_s | take 1000" \
+        --analytics-query "ContainerAppConsoleLogs_CL | where ContainerGroupName_s startswith '$JOB_EXECUTION_NAME' | order by _timestamp_d asc | take 1000" \
         --query "[].Log_s"
     ```
 
@@ -203,6 +208,20 @@ Job executions output logs to the logging provider that you configured for the C
         "2023/04/24 18:38:33 Finished processing. Shutting down!"
     ]
     ```
+
+## Clean up resources
+
+If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
+
+>[!CAUTION]
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
+
+```azurecli
+az group delete --name "$RESOURCE_GROUP"
+```
+
+> [!TIP]
+> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps/issues).
 
 ## Next steps
 
