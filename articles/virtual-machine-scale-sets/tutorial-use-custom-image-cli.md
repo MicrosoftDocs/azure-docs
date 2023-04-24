@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
-  --image ubuntults \
+  --image <SKU image> \
   --admin-username azureuser \
   --generate-ssh-keys
 ```

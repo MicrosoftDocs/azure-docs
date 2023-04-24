@@ -148,6 +148,8 @@ items:
       href: quickstarts/email/send-email.md
     - name: Add multiple sender addresses
       href: quickstarts/email/add-multiple-senders.md
+    - name: Add multiple sender addresses with ACS Management SDKs
+      href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
   - name: Network Traversal
     items:
     - name: Access TURN relays
@@ -197,7 +199,9 @@ items:
     - name: Add video calling to your Android WebView client app
       href: quickstarts/voice-video-calling/get-started-android-webview.md
     - name: Build virtual visit
-      href: tutorials/virtual-visits/sample-builder.md      
+      href: tutorials/virtual-visits/sample-builder.md
+    - name: Proxy your calling traffic
+      href: tutorials/proxy-calling-support-tutorial.md
     - name: Call management
       items:
       - name: Manage calls

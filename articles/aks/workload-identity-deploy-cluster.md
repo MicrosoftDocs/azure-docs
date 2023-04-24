@@ -45,8 +45,6 @@ export FEDERATED_IDENTITY_CREDENTIAL="myFedIdentity"
 Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
 ```azurecli-interactive
-az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}"
-
 az aks create -g "${RESOURCE_GROUP}" -n myAKSCluster --enable-oidc-issuer --enable-workload-identity
 ```
 

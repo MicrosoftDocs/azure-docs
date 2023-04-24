@@ -4,7 +4,7 @@ description: Troubleshoot common issues with monitoring sync health and resolvin
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 04/18/2023
+ms.date: 04/19/2023
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -145,6 +145,15 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | The file can't be synced because the maximum number of conflict files has been reached. Azure File Sync supports 100 conflict files per file. To learn more about file conflicts, see Azure File Sync [FAQ](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json#afs-conflict-resolution). | To resolve this issue, reduce the number of conflict files. The file will sync once the number of conflict files is less than 100. |
 | 0x80c8027d | -2134375811 | ECS_E_DIRECTORY_RENAME_FAILED | Rename of a directory can't be synced because files or folders within the directory have open handles. | No action required. The rename of the directory will be synced once all open file handles within the directory are closed. |
 | 0x800700de | -2147024674 | ERROR_BAD_FILE_TYPE | The tiered file on the server isn't accessible because it's referencing a version of the file which no longer exists in the Azure file share. | This issue can occur if the tiered file was restored from a backup of the Windows Server. To resolve this issue, restore the file from a snapshot in the Azure file share. |
+| 0x80C80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | The file has been identified to produce persistent errors during sync. Hence it is blocked from sync until the retry interval is reached.  The file will be retried later. | No action required. The file will be retried after 24 hours. If the error persists for several days, create a support request. |
+| 0x80C80203 | -2134375933 | ECS_E_SYNC_INVALID_STAGED_FILE | File transfer error. Service will retry later. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80c8027f | -2134375809 | ECS_E_SYNC_CONSTRAINT_CONFLICT_CYCLIC_DEPENDENCY | Sync session timeout error. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80070035 | -2147024843 | ERROR_BAD_NETPATH | The network path was not found. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80071779 | -2147018887 | ERROR_FILE_READ_ONLY | The specified file is read only. | If the error persists for more than a day, create a support request. |
+| 0x6 | N/A | ERROR_INVALID_HANDLE | An internal error occurred. | If the error persists for more than a day, create a support request. |
+| 0x12f | N/A | ERROR_DELETE_PENDING | The file cannot be opened because it is in the process of being deleted. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80041007 | -2147217401 | SYNC_E_ITEM_MUST_EXIST | An internal error occurred. | If the error persists for more than a day, create a support request. |
+
 
 ### Handling unsupported characters
 If the **FileSyncErrorsReport.ps1** PowerShell script shows per-item sync errors due to unsupported characters (error code 0x8007007b or 0x80c80255), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. 

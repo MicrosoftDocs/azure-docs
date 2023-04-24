@@ -41,4 +41,4 @@ Table storage contains the following components:
 For details about naming tables and properties, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 [Table1]: ./media/storage-table-concepts-include/table1.png
-[OData.org]: http://www.odata.org/
+[OData.org]: https://www.odata.org/
