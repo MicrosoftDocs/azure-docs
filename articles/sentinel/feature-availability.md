@@ -54,10 +54,10 @@ This article describes feature availability in Microsoft Sentinel across differe
 |[DNS](data-connectors/dns.md) |Public Preview |&#x2705; |
 |[GCP Pub/Sub Audit Logs](connect-google-cloud-platform.md) |Public Preview |&#10060; |
 |[Microsoft 365 Defender](connect-microsoft-365-defender.md?tabs=MDE) |GA |&#10060; |
-|[Microsoft 365 Insider Risk Management (Preview)](sentinel-solutions-catalog.md#domain-solutions) |Public Preview |&#10060; |
+|[Microsoft Purview Insider Risk Management (Preview)](sentinel-solutions-catalog.md#domain-solutions) |Public Preview |&#10060; |
 |[Microsoft Defender for Cloud](connect-defender-for-cloud.md) |GA |&#x2705; |
 |[Microsoft Defender for IoT](connect-services-api-based.md) |GA |&#10060; |
-|[Microsoft PowerBI (Preview)](data-connectors/microsoft-powerbi.md) |Public Preview |&#10060; |
+|[Microsoft Power BI (Preview)](data-connectors/microsoft-powerbi.md) |Public Preview |&#10060; |
 |[Microsoft Project (Preview)](data-connectors/microsoft-project.md) |Public Preview |&#10060; |
 |[Microsoft Purview (Preview)](connect-services-diagnostic-setting-based.md) |Public Preview |&#10060; |
 |[Microsoft Purview Information Protection](connect-microsoft-purview.md) |Public Preview |&#10060; |
