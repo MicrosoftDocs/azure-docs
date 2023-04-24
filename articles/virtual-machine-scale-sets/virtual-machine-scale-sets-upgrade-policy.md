@@ -31,11 +31,11 @@ When using a Rolling Upgrade Policy, the Scale Set rolls out the update in batch
 
 1. **Rolling Upgrades with MaxSurge disabled**
     
-    With MaxSurge disabled, the existing instances in a Scale Set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again and the next batch will begin.
+    With MaxSurge disabled, the existing instances in a Scale Set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again and the next batch will begin. This continues until all instances brought up-to-date. 
 
 1. **Rolling Upgrades with MaxSurge enabled**
     
-    With MaxSurge enabled, new instances are created and brought up-to-date with the latest scale model in batches rather than taking down the old instances for upgrades. Once complete, the new instances are added to the Scale Set and the old instances are removed. This occurs in multiple batches until all the instances are brought up to date. 
+    With MaxSurge enabled, new instances are created and brought up-to-date with the latest scale model in batches rather than taking down the old instances for upgrades. Once complete, the new instances are added to the Scale Set and the old instances are removed. This continues until all instances are brought up-to-date.  
 
 > [!IMPORTANT]
 > Rolling Upgrades with MaxSurge is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
