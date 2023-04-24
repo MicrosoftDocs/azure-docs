@@ -15,9 +15,9 @@ This article indicates which Defender for Cloud features are supported in Azure 
 
 In the support table, **NA** indicates that the feature is not available.
 
-**Feature/Plan** | **Details** | **Azure** | **Azure Government** | **Azure China**<br/><br/>**21Vianet**
---- | --- | --- |--- | --- 
-**Foundational CSPM** | | | | 
+**Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/><br/>**21Vianet**
+--- | --- | --- |--- 
+**Foundational CSPM** | | |  
 [Continuous export](./continuous-export.md) | GA | GA | GA
 [Workflow automation](./workflow-automation.md) | GA | GA | GA
 [Recommendation exemption rules](./exempt-resource.md) | Public preview | NA | NA
@@ -37,7 +37,7 @@ In the support table, **NA** indicates that the feature is not available.
 Runtime visibility of vulnerabilities in container images | Public preview | NA | NA
 **[Defender for DNS](defender-for-dns-introduction.md)** | GA | GA | GA
 **[Defender for Key Vault](./defender-for-key-vault-introduction.md)** | GA | NA | NA
-[Defender for Kubernetes](./defender-for-kubernetes-introduction.md)<br/><br/> Defender for Kubernetes is deprecated and doesn't include new features. [Learn more](defender-for-kubernetes-introduction.md) | GA | GA | GA
+[Defender for Kubernetes](./defender-for-kubernetes-introduction.md)<br/><br/> Defender for Kubernetes is deprecated and doesn't include new features. In particular, support for Azure Arc-enabled clusters is in public preview and not available in governement clouds. [Learn more](defender-for-kubernetes-introduction.md). | GA | GA | GA
 **[Defender for open-source relational databases](defender-for-databases-introduction.md)** | GA | NA | NA  
 **[Defender for Resource Manager](./defender-for-resource-manager-introduction.md)** | GA | GA | GA
 **[Defender for Servers](plan-defender-for-servers.md)** | | | |
