@@ -51,7 +51,6 @@ You'll need the following items:
 
 The job display name is an optional and customizable name that you can provide for your job. You can edit this directly in your jobs list view by clicking on the pencil icon. 
 
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot of how to edit the display name.":::
 
 This will help you organize and label your training jobs easily. 
 
@@ -61,8 +60,6 @@ This will help you organize and label your training jobs easily.
 You can add, remove, reorder, and pin columns to customize your jobs list by selecting Columns to open the column options pane. 
 
 Configure your columns in your job list by selecting Columns. 
-
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/select-pin-columns.gif" alt-text="Screenshot of how to select and pin columns.":::
 
 In column options, you can select columns to add or remove from the table. Drag columns to reorder how they appear in the table and pin any column to the left of the table, so you can continue viewing your important column information (i.e. display name, metric value) while scrolling horizontally.  
 
@@ -74,8 +71,6 @@ To sort by multiple columns, hold the shift key and click column headers that yo
  
 At any point you can manage your sorting preferences for your table in column options under Columns to add or remove columns and change sorting order. 
 
-
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/sorting-jobs.gif" alt-text="Screenshot of how to sort jobs.":::
 
 
 ## Filter jobs 

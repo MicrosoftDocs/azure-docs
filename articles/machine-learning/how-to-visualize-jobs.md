@@ -52,9 +52,6 @@ You'll need the following items:
 
 To get started, we will need to enable the feature via the preview panel.
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
-
-
 ## Explore the dashboard view
 Next, let's view your jobs in the studio:
 
@@ -67,15 +64,13 @@ You are now on the default dashboard view where you will find your job list cons
 
 If you select a specific experiment, then you will automatically land into the Dashboard view.
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
-
 ### Jobs list view
 
 The left side bar is a collapsed view of your jobs list. You can filter, add columns, and pin columns by clicking the respective icon next to the search bar. 
 
 By pinning columns, you can simplify your list view to only show columns you pinned. You can also change the width on the jobs list to either view more or less.
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+:::image type="content" source="media/how-to-visualize-jobs/jobs-list-in-dashboard-view.gif" alt-text="Screenshot of how to filter, add and pin columns, and edit the jobs list in dashboard view.":::
 
 For sweep and automl jobs, you can easily identify the best trial and best model with the **Best** label positioned next to the appropriate job display name. This will simplify comparisons across these
 
@@ -88,13 +83,9 @@ You can update the section name by clicking on the pencil icon when hovering on 
 
 You can also move sections up and down as well as remove sections that you no longer need.
 
-Delete Sections 
-
-Auto Generate Sections using Metrics Name (i.e a/b/c/d) 
-
 Hide/Show Tiles and Order Tiles in Section 
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+:::image type="content" source="media/how-to-visualize-jobs/sections-in-dashboard-view.gif" alt-text="Screenshot of how to organize sections in dashboard view.":::
 
 ### Tiles
 Tiles are various forms of content such as line chart, bar chart, scatter plot, and markdown that can be added to a section to build a dashboard. 
@@ -105,7 +96,7 @@ To easily find the tile with the metric you care most about, you can use the sea
 
 Search Tiles 
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+:::image type="content" source="media/how-to-visualize-jobs/tiles-in-dashboard-view.gif" alt-text="Screenshot of how to search and add tiles in dashboard view.":::
 
 
 ## Change job colors
@@ -116,7 +107,7 @@ You can either stick to the colors assigned or take advantage of the color picke
 
 To open the color picker, simply select the colored dot next to the job and change color via the palette, RGB, or hex code. 
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel."::: 
+:::image type="content" source="media/how-to-visualize-jobs/change-job-color.gif" alt-text="Screenshot of how to change job color."::: 
 
 ## Visualize jobs 
 
@@ -126,24 +117,22 @@ To reduce the list to show only jobs that are visualized in the dashboard, click
 
 To reset and start choosing a new set of jobs to visualize, you can click on the eye at the top to **Visualize None** to remove all jobs from surfacing in the dashboard and then go ahead and select the new set of jobs.
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+ :::image type="content" source="media/how-to-visualize-jobs/visualize-jobs.gif" alt-text="Screenshot of how to visualize jobs in dashboard view.":::
 
 
 ## Add charts 
 
 You can create a custom chart to add to your dashboard view if you’re looking to plot a set of metrics or specific style. Azure Machine Learning Studio supports line, bar, scatter, and parallel coordinates charts for you to add to your view. 
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+:::image type="content" source="media/how-to-visualize-jobs/add-bar-chart-to-dashboard.gif" alt-text="Screenshot of how to add a bar chart to your dashboard view.":::
 
 ## Edit charts 
 
 You can add data smoothing, ignore outliers, and change the x-axis for all the charts in your dashboard view through the global chart editor.  
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
-
 You can perform these actions for an individual chart as well by clicking on the pencil icon to customize specific charts to your desired preference. You can also edit the style of the line type and marker for line and scatter charts respectively.
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+:::image type="content" source="media/how-to-visualize-jobs/edit-line-chart-style.gif" alt-text="Screenshot of how to change line chart styles.":::
 
  ## Compare your training jobs using Compare Tile 
 
@@ -151,13 +140,11 @@ You can compare the logged metrics, parameters, and tags between your visualized
 
 You can change the baseline by hovering over the display name and clicking on the “baseline” icon. Show differences only will reduce the rows in the table to only surface rows that have different values so you can easily spot what factors contributed to the results.  
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+:::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
 
 ## Monitor your resources across jobs 
 
 Navigate to the Resource metrics section to view your resource usage across jobs. This view provides insights on your job's resources on a 30 day rolling basis. 
-
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/monitoring-tab.png" alt-text="Screenshot of Monitoring tab showing resources the selected job has used.":::
 
 >[!NOTE] 
 >This view supports only compute that is managed by Azure Machine Learning.
@@ -168,7 +155,7 @@ Navigate to the Resource metrics section to view your resource usage across jobs
 
 You can add markdown tiles to your dashboard view to summarize insights, add comments, take notes, and more. This is a great way for you to provide additional context and references for yourself and your team if you share this view. 
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+:::image type="content" source="media/how-to-visualize-jobs/add-markdown-tile.gif" alt-text="Screenshot of how to add a markdown tile to dashboard view.":::
 
 ## Create and save custom views
 
@@ -176,7 +163,7 @@ After applying changes to your jobs list and dashboard, you can save all these c
 
 Please note that you cannot save changes to the Default view, but you can save them into your own Custom view. You can now manage all your views from a single menu to create new, edit existing, rename, or delete them.
 
-    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+:::image type="content" source="media/how-to-visualize-jobs/create-save-custom-views.gif" alt-text="Screenshot of how to save and manage custom views.":::
 
 
 ## Next steps
