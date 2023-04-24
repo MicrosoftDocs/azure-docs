@@ -313,6 +313,40 @@ jobs:
           package: ${{ env.ASC_PACKAGE_PATH }}
 ```
 
+The following example deploys to the default production deployment in Azure Spring Apps using source code in Enterprise tier. You can specify which builder to use for deploy actions using the `builder` option.
+
+```yml
+name: AzureSpringApps
+on: push
+env:
+  ASC_PACKAGE_PATH: ${{ github.workspace }}
+  AZURE_SUBSCRIPTION: <azure subscription name>
+
+jobs:
+  deploy_to_production:
+    runs-on: ubuntu-latest
+    name: deploy to production with soruce code
+    steps:
+      - name: Checkout GitHub Action
+        uses: actions/checkout@v2
+
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: deploy to production step with soruce code in Enterprise tier
+        uses: azure/spring-cloud-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: deploy
+          service-name: <service instance name>
+          app-name: <app name>
+          use-staging-deployment: false
+          package: ${{ env.ASC_PACKAGE_PATH }}
+          builder: <builder>
+```
+
 The following example deploys to the default production deployment in Azure Spring Apps with an existing container image.
 
 ```yml
@@ -347,6 +381,7 @@ jobs:
           registry-username: ${{ env.REGISTRY_USERNAME }}
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
           container-image: <your image tag>
+```
 
 #### Blue-green
 
@@ -412,6 +447,38 @@ The "Delete Staging Deployment" action allows you to delete the deployment not r
           action: delete-staging-deployment
           service-name: <service instance name>
           app-name: <app name>
+```
+
+### Create or update build
+
+The following example will create or update an build resource.
+```yml
+# environment preparation configurations omitted
+    steps:
+      - name: Create or update build
+        uses: azure/spring-apps-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: build
+          service-name: <service instance name>
+          build-name: <build name>
+          package: ${{ env.ASC_PACKAGE_PATH }}
+          builder: <builder>
+```
+
+### Delete build
+
+The following example will delete an build resource.
+```yml
+# environment preparation configurations omitted
+    steps:
+      - name: Delete build
+        uses: azure/spring-apps-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: delete-build
+          service-name: <service instance name>
+          build-name: <build name>
 ```
 
 ## Deploy with Maven Plugin
