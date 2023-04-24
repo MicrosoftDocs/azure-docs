@@ -4,7 +4,7 @@ description: Learn how to configure auto-start settings for VMs in a lab. This s
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/29/2022
+ms.date: 04/24/2023
 ---
 
 # Automatically start lab VMs with auto-start in Azure DevTest Labs
@@ -48,6 +48,10 @@ After you configure the auto-start policy, follow these steps for each VM that y
 1. On the **Auto-start** page, select **Yes** for **Allow this virtual machine to be scheduled for automatic start**, and then select **Save**.
 
    :::image type="content" source="./media/devtest-lab-auto-startup-vm/select-auto-start.png" alt-text="Screenshot of selecting Yes on the Auto-start page.":::
+
+1. On the VM Overview page, your VM shows **Opted-in** status for auto-start.
+ 
+   :::image type="content" source="media/devtest-lab-auto-startup-vm/vm-overview-auto-start.png" alt-text="Screenshot showing vm with opted-in status for auto-start checked.":::
 
 ## Next steps
 
