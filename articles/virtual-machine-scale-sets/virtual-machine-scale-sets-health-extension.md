@@ -291,7 +291,7 @@ Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)
 
 The following example adds the Application Health extension to the `extensionProfile` in the scale set model of a Windows-based scale set. The example uses the new Az PowerShell module.
 
-To change an existing extension from Rich Health States to Binary Health, use [Update-AzVmssExtension](/cli/azure/azure-cli-extensions-overview#how-to-update-extensions) instead of `Add-AzVmssExtension` at *Add the Application Health extension to the scale set model* step.
+To change an existing extension from Rich Health States to Binary Health, use [Update-AzVmssExtension](/cli/azure/azure-cli-extensions-overview) instead of `Add-AzVmssExtension` at *Add the Application Health extension to the scale set model* step.
 
 ```azurepowershell-interactive
 # Define the scale set variables
