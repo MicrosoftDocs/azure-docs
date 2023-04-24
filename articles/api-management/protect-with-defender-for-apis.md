@@ -104,7 +104,7 @@ For the security alerts received, Defender for APIs suggests necessary steps to 
 
 ## Offboard protected APIs from Defender for APIs
 
-You can remove APIs from protection by Defender for APIs by using Defender for Cloud in the portal. For more information, see [Manage your Defender for APIs deployment](/azure/defender-for-cloud/defender-for-apis-managed).
+You can remove APIs from protection by Defender for APIs by using Defender for Cloud in the portal. For more information, see [Manage your Defender for APIs deployment](/azure/defender-for-cloud/defender-for-apis-manage).
 
 ## Next steps
 
