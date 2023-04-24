@@ -17,7 +17,7 @@ ms.custom: maxsurge, upgradepolicy
 
 The Upgrade Policy for a Virtual Machine Scale Set determines how VMs are brought up-to-date with the latest scale set model. This includes updates such as changes to the OS version, adding or removing data disks, NIC updates, or other updates that apply to the scale set instances as a whole.  
 
-## Upgrade Policy options
+## Upgrade Policy modes
 There are three different modes an Upgrade Policy can be set to. The modes are **Automatic**, **Rolling** and **Manual**. The upgrade mode you choose can impact the overall service uptime of your Virtual Machine Scale Set. 
 
 Additionally, as your application processes traffic, there can be situations where you might want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be needed to perform additional or different tasks than the other members of the scale set. You might require these 'special' VMs not to be modified with the other instances in the scale set. In these situations, [Instance Protection](virtual-machine-scale-sets-instance-protection.md) provides the additional controls needed to protect these instances from the various upgrades discussed in this article.
