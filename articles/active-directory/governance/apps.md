@@ -75,6 +75,8 @@ Checkout the integrations [partners](https://learn.microsoft.com/azure/active-di
 | [BLDNG APP](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
 | [Blink](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
 | [Blinq](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
+|OpenLDAP| ● |  |  |
+|Novell eDirectory| ● |  |  |
 
 
 ## Next steps
