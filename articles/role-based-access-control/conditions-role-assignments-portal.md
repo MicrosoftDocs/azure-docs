@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/11/2023
+ms.date: 04/24/2023
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
@@ -23,7 +23,7 @@ For information about the prerequisites to add or edit role assignment condition
 
 ## Step 1: Determine the condition you need
 
-To determine the conditions you need, review the examples in [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md).
+To get some ideas about conditions that could be useful to you, review the examples in [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md).
 
 Currently, conditions can be added to built-in or custom role assignments that have [blob storage data actions](../storage/blobs/storage-auth-abac-attributes.md) or [queue storage data actions](../storage/queues/queues-auth-abac-attributes.md). These include the following built-in roles:
 
@@ -79,7 +79,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. (Optional) If the **Description** box appears, enter a description.
 
-    Depending on how you chose to add a condition, you might not see the Description box. A description can help you understand and remember the condition.
+    Depending on how you chose to add a condition, you might not see the Description box. A description can help you understand and remember the purpose of the condition.
 
     ![Add role assignment condition page showing editor type and description.](./media/conditions-role-assignments-portal/condition-basics.png)
 
@@ -107,7 +107,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the **Attribute source** list, select where the attribute can be found.
 
-    - **Environment** (preview) indicates that the attribute is associated with the network environment over which the resource is accessed, such as a private link, or the current date and time.
+    - **Environment** (preview) indicates that the attribute is associated with the network environment over which the resource is accessed such as a private link, or the current date and time.
     - **Resource** indicates that the attribute is on the resource, such as container name.
     - **Request** indicates that the attribute is part of the action request, such as setting the blob index tag.
     - **Principal** (preview) indicates that the attribute is an Azure AD custom security attribute principal, such as a user, enterprise application (service principal), or managed identity.
@@ -116,7 +116,7 @@ Once you have the Add role assignment condition page open, you can review the ba
 
     For more information about supported attribute sources and individual attributes, see [Attributes](conditions-format.md#attributes).
 
-    Depending on the attribute you select, boxes might be added to specify additional attribute details or operators. For example, some attributes support [the *Exists* function operator](conditions-format.md#exists).
+    Depending on the attribute you select, boxes might be added to specify additional attribute details or operators. For example, some attributes support [the *Exists* function operator](conditions-format.md#exists) which you can use to test whether the attribute is currently associated with the resource such as an encryption scope.
 
 1. In the **Operator** list, select an operator.
 
@@ -128,16 +128,15 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. Add additional expressions as needed.
 
-    If you add three or more expressions, you might need to group them with parentheses. Add check marks next to the expressions you want to group and then click **Group**. To remove grouping, click **Ungroup**. 
+    If you add three or more expressions, you might need to group them with parentheses so the connecting logical operators are evaluated correctly. Add check marks next to the expressions you want to group and then select **Group**. To remove grouping, select **Ungroup**.
 
     ![Build expression section with multiple expressions to group.](./media/conditions-role-assignments-portal/condition-group.png)
-
 
 ## Step 6: Review and add condition
 
 1. Scroll up to **Editor type** and click **Code**.
 
-    The condition is displayed as code. You can make changes to the condition in this code editor. To go back to the visual editor, click **Visual**.
+    The condition is displayed as code. You can make changes to the condition in this code editor. The code editor can be useful for pasting sample code, or for adding more operators or logic to build more complex conditions. To go back to the visual editor, click **Visual**.
 
     ![Condition displayed in code editor with selected actions and added expression.](./media/conditions-role-assignments-portal/condition-code.png)
 
