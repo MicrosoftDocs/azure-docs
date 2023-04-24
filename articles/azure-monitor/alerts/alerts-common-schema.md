@@ -33,6 +33,10 @@ The common schema includes information about the affected resource and the cause
 
     If you want to route alert instances to specific teams based on criteria such as a resource group, you can use the fields in the **Essentials** section to provide routing logic for all alert types. The teams that receive the alert notification can then use the context fields for their investigation.
 - **Alert context**: Fields that vary depending on the type of the alert. The alert context fields describe the cause of the alert. For example, a metric alert would have fields like the metric name and metric value in the alert context. An activity log alert would have information about the event that generated the alert.
+- **Custom properties**: You can add more information to the alert payload by adding custom properties if you've configured action groups for a metric alert rule. 
+
+    > [!NOTE]
+    > Custom properties are currently only supported by metric alerts. For all other alert types, the **custom properties** field is null.
 ## Sample alert payload
 
 ```json
@@ -137,7 +141,18 @@ For sample alerts that use the common schema, see [Sample alert payloads](alerts
 |webTestName          |If the condition type is `webtest`, the name of the webtest.         |
 |windowStartTime      |The start time of the evaluation window in which the alert fired.       |
 |windowEndTime        |The end time of the evaluation window in which the alert fired.         |
-|customProperties     |A “key: value” object that can be defined in a metric alert rule and added to webhook notifications. If custom properties are not set in the alert rule, the field is null.<br>Note: Metric alerts are currently the only alert type that supports custom properties. All other alert types contain null in the **custom properties** field.|
+|customProperties     ||
+
+## Custom properties fields
+
+If you've configured action groups for a metric alert rule, you can add more information to the alert payload by adding custom properties .
+
+The custom properties section contains “key: value” objects that are added to webhook notifications. 
+
+If custom properties are not set in the alert rule, the field is null.
+
+> [!NOTE]
+> Custom properties are currently only supported by metric alerts. For all other alert types, the **custom properties** field is null.
 
 ### Sample metric alert with a static threshold when the monitoringService = `Platform`
 
