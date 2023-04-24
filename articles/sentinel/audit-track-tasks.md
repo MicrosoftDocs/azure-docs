@@ -37,7 +37,9 @@ The *SecurityIncident* table is an audit table&mdash;it stores not the incidents
     | where array_length( Tasks) > 0
     ```
 
-    You can add any number of statements to the query to filter and narrow down the results. To demonstrate how to view and understand the results, we're going to add statements to filter the results to the tasks for a single incident, and to show the minimum number of necessary fields for our purposes:
+    You can add any number of statements to the query to filter and narrow down the results. To demonstrate how to view and understand the results, we're going to add statements to filter the results so that we only see the tasks for a single incident, and we'll also add a `project` statement so that we see only those fields that will be useful for our purposes, without a lot of clutter.
+
+    (Learn more about using Kusto Query Language.)
 
     ```kusto
     SecurityIncident
@@ -46,6 +48,8 @@ The *SecurityIncident* table is an audit table&mdash;it stores not the incidents
     | sort by LastModifiedTime desc 
     | project IncidentName, Title, LastModifiedTime, Tasks
     ```
+
+1. Let's look at the most recent record for this incident, and find the list of tasks associated with it. Select the expander next to the top row in the query results (which have been sorted in descending order of recency).
 
     :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-1.png" alt-text="Screenshot of query results showing an incident with its tasks.":::
 
@@ -59,17 +63,22 @@ The *SecurityIncident* table is an audit table&mdash;it stores not the incidents
 
     Here you see the details for the first task in the array ("0" being the index position of the task in the array). The *title* field shows the name of the task as displayed in the incident.
 
-1. Let's add a task to the incident, and then we'll come back here and run the query again and see the changes in the results.
+1. Let's add a task to the incident, and then we'll come back here, run the query again, and see the changes in the results.
 
     Select **Incidents** from the navigation menu, and in the **Incidents** page, enter the incident ID number in the Search bar.
 
     :::image type="content" source="media/audit-track-tasks/incidents-page-find-incident.png" alt-text="Screenshot shows finding the incident in the query results.":::
 
+1. Select the incident and select **View full details** in the details pane.
     
+    :::image type="content" source="media/audit-track-tasks/incidents-page-open-incident.png" alt-text="Screenshot shows opening the incident that you found.":::
+
+
+1. Select 
 
 1. The tasks that have descriptions will be marked with an expansion arrow. Expand a task to see its full description.
 
-    :::image type="content" source="media/work-with-tasks/incident-tasks-panel-with-descriptions.png" alt-text="Screenshot shows incident tasks panel with expanded task descriptions.":::
+    :::image type="content" source="media/audit-track-tasks/incident-task-list-original.png" alt-text="Screenshot shows incident tasks panel with expanded task descriptions.":::
 
 1. Mark a task complete by marking the circle next to the task name. A check mark will appear in the circle, and the text of the task will be grayed out. See the "Reset user password" example in the screenshots above.
 
