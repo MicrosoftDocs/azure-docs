@@ -32,7 +32,7 @@ In the support table, **NA** indicates that the feature is not available.
 **[Defender for App Service](defender-for-app-service-introduction.md)** | GA | NA | NA
 **[Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)** | Public preview | NA | NA
 **[Defender for Azure SQL database servers](defender-for-sql-introduction.md)**<br/><br/> Partial GA in Vianet21<br/> - A subset of alerts/vulnerability assessments is available.<br/>- Behavioral threat protection isn't available.| GA | GA | GA
-**[Defender for Containers](defender-for-containers-introduction.md)**| GA | GA | GA
+**[Defender for Containers](defender-for-containers-introduction.md)** | GA | GA | GA
 [Azure Arc extension for Kubernetes clusters/servers/data services](defender-for-kubernetes-azure-arc.md) | Public preview | NA | NA
 Runtime visibility of vulnerabilities in container images | Public preview | NA | NA
 **[Defender for DNS](defender-for-dns-introduction.md)** | GA | GA | GA
@@ -51,7 +51,7 @@ Runtime visibility of vulnerabilities in container images | Public preview | NA 
 [Defender for Endpoint integration](./integration-defender-for-endpoint.md) | GA | GA | NA
 [Connect AWS account](./quickstart-onboard-aws.md) | GA | NA | NA
 [Connect GCP project](./quickstart-onboard-gcp.md) | GA | NA | NA
-**[Defender for Storage](./defender-for-storage-introduction.md)**<br/><br/> Some alerts in Defender for Storage are in public preview. | GA | GA | NA
+**[Defender for Storage](./defender-for-storage-introduction.md)**<br/><br/> Some threat protection alerts for Defender for Storage are in public preview. | GA | GA (activity monitoring) | NA
 **[Defender for SQL servers on machines](./defender-for-sql-introduction.md)** | GA | GA | NA
 **[Microsoft Sentinel bi-directional alert synchronization](../sentinel/connect-azure-security-center.md)** | Public preview | NA | NA 
 
