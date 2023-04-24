@@ -1,7 +1,7 @@
 ---
 title: Use MQTT to communicate with Azure IoT Hub
 titleSuffix: Azure IoT Hub
-description: Support for devices connecting to an IoT Hub device-facing endpoint using the MQTT protocol. Includes information about built-in MQTT support in the Azure IoT device SDKs.
+description: Support for devices that use MQTT to connect to an IoT Hub device-facing endpoint. Includes information about built-in MQTT support in the Azure IoT device SDKs.
 author: kgremban
 ms.service: iot
 services: iot
