@@ -1,18 +1,18 @@
 ---
-title: Migrate your Azure Kubernetes Service (AKS) pod to use workload identity (preview)
+title: Migrate your Azure Kubernetes Service (AKS) pod to use workload identity
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 03/14/2023
+ms.date: 04/24/2023
 ---
 
 # Migrate from pod managed-identity to workload identity
 
-This article focuses on migrating from a pod-managed identity to Azure Active Directory (Azure AD) workload identity (preview) for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
+This article focuses on migrating from a pod-managed identity to Azure Active Directory (Azure AD) workload identity for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
 
 ## Before you begin
 
-- The Azure CLI version 2.40.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+The Azure CLI version 2.40.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Migration scenarios
 
@@ -39,6 +39,9 @@ If your cluster isn't using the latest version of the Azure Identity SDK, you ha
 
     - [Deploy the workload with migration sidecar](#deploy-the-workload-with-migration-sidecar) to proxy the application IMDS transactions.
     - Once you verify the authentication transactions are completing successfully, you can [remove the pod-managed identity](#remove-pod-managed-identity) annotations from your application and then remove the pod-managed identity add-on.
+
+   > [!NOTE]
+   > The migration sidecar is **not supported for production use**.  This feature is meant to give you time to migrate your application SDK's to a supported version, and not meant or intended to be a long-term solution.
 
 - Rewrite your application to support the latest version of the [Azure Identity][azure-identity-supported-versions] client library. Afterwards, perform the following steps:
 
@@ -115,7 +118,7 @@ az identity federated-credential create --name federatedIdentityName --identity-
 ## Deploy the workload with migration sidecar
 
 > [!NOTE]
-> The migration sidecar is **not supported for production usage**.  This feature was designed to give customers time to migrate there application SDK's to a supported version and not be a long running process.
+> The migration sidecar is **not supported for production use**.  This feature is meant to give you time to migrate your application SDK's to a supported version, and not meant or intended to be a long-term solution.
 
 If your application is using managed identity and still relies on IMDS to get an access token, you can use the workload identity migration sidecar to start migrating to workload identity. This sidecar is a migration solution and in the long-term applications, you should modify their code to use the latest Azure Identity SDKs that support client assertion.
 
@@ -195,7 +198,7 @@ After you've completed your testing and the application is successfully able to 
 
 ## Next steps
 
-This article showed you how to set up your pod to authenticate using a workload identity as a migration option. For more information about Azure AD workload identity (preview), see the following [Overview][workload-identity-overview] article.
+This article showed you how to set up your pod to authenticate using a workload identity as a migration option. For more information about Azure AD workload identity, see the following [Overview][workload-identity-overview] article.
 
 <!-- INTERNAL LINKS -->
 [pod-annotations]: workload-identity-overview.md#pod-annotations

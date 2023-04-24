@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/10/2022
+ms.date: 04/19/2022
 ms.author: jasteppe
 ---
 
@@ -22,7 +22,7 @@ The explanation of the MedTech service manual deployment using the Azure portal 
 - Part 2: Configuration (see [Configure for manual deployment](deploy-new-config.md))
 - Part 3: Deployment and Post Deployment (see [Manual deployment and post-deployment](deploy-new-deploy.md))
 
-If you need a diagram with information on the MedTech service deployment, there's an architecture overview at [Choose a deployment method](deploy-new-choose.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a FHIR Observation.
+If you need a diagram with information on the MedTech service deployment, there's an overview at [Choose a deployment method](deploy-new-choose.md#deployment-overview). This diagram shows the steps of deployment and how MedTech service processes device data into FHIR Observations.
 
 ## Part 1: Prerequisites
 
