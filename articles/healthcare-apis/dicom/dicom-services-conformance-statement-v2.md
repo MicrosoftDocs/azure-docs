@@ -401,7 +401,7 @@ The following `Accept` header(s) are supported for searching:
 * `application/dicom+json`
 
 ### Search changes from v1
-If an instance returned validation warnings for [searchable attributes](#searchable-attributes) at the time the [instance was stored](#store-changes-from-v1), those attributes may not be used to search for the stored instance.
+In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that could not be indexed, then subsequent search queries containing the extended query tag will return `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings on [searchable tags](#searchable-attributes), subsequent searches containing these tags will not consider any DICOM SOP instance that produced a warning. This may result in incomplete search results.
 To correct an attribute, delete the stored instance and upload the corrected data.
 
 ### Supported search parameters
