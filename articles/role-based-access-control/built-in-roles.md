@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/31/2023
+ms.date: 04/24/2023
 ms.custom: generated
 ---
 
@@ -3162,6 +3162,94 @@ Get a user delegation key, which can then be used to create a shared access sign
   "roleName": "Storage Blob Delegator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Storage File Data Privileged Contributor
+
+Allows for read, write, delete, and modify ACLs on files/directories in Azure file shares by overriding existing ACLs/NTFS permissions. This role has no built-in equivalent on Windows file servers.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read file backup sematics privilege. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write file backup sematics privilege. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/69566ab7-960f-475b-8e7c-b3118f30c6bd",
+    "properties": {
+        "roleName": "Storage File Data Privileged Contributor",
+        "description": "Customer has read, write, delete and modify NTFS permission access on Azure Storage file shares.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write",
+                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete",
+                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
+                    "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action",
+                    "Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+### Storage File Data Privileged Reader
+
+Allows for read access on files/directories in Azure file shares by overriding existing ACLs/NTFS permissions. This role has no built-in equivalent on Windows file servers.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read file backup sematics privilege. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/b8eda974-7b85-4f76-af95-65846b26df6d",
+    "properties": {
+        "roleName": "Storage File Data Privileged Reader",
+        "description": "Customer has read access on Azure Storage file shares.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+                    "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 
