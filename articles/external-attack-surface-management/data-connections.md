@@ -65,7 +65,7 @@ To accurately present the infrastructure that matters most to your organization,
 
 7. Expand the **Log Analytics agent instructions** section to view your Workspace ID and Primary key. These values will be used to set up your data connection. Save the values in the following format: *WorkspaceId=XXX;ApiKey=YYY*
  
-Please note that use of this data connection is subject to the pricing structure of Log Analytics. See [Azure monitor pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/) for more information.  
+Please note that use of this data connection is subject to the pricing structure of Log Analytics. See [Azure monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for more information.  
    
    
    
