@@ -482,7 +482,7 @@ Choose the cloud HR app that aligns to your solution requirements.
 
 ## Manage your configuration
 
-Azure AD can provide additional insights into your organization's user provisioning usage and operational health through audit logs and reports.
+Azure AD can provide more insights into your organization's user provisioning usage and operational health through audit logs and reports.
 
 ### Gain insights from reports and logs
 
