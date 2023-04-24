@@ -114,18 +114,17 @@ To get started, create a logic app in Azure with the following steps:
 
 1. On the **Create Logic App** page:
  
-   
-|Name  |Value  |
-|---------|---------|
-|Subscription |Select your Azure Subscription. |
-|Resource group |Select a resource group or create a new one. |
-|Logic app name |Enter a descriptive name for your logic app. |
-|Publish | Workflow |
-|Region |Select a region near you or near other services your logic app accesses.         |
-|Plan type |Consumption. A consumption plan allows you to use the logic app designer to create your app. |
-|Windows Plan |Accept the default App Service Plan (ASP). |
-|Pricing plan |Accept the default Workflow Standard WS1 (210 total ACU, 3.5 GB memory, 1 vCPU)         |
-|Zone redundancy |Accept the default: Disabled.         |
+   |Name  |Value  |
+   |---------|---------|
+   |Subscription |Select your Azure Subscription. |
+   |Resource group |Select a resource group or create a new one. |
+   |Logic app name |Enter a descriptive name for your logic app. |
+   |Publish | Workflow |
+   |Region |Select a region near you or near other services your logic app accesses.         |
+   |Plan type |Consumption. A consumption plan allows you to use the logic app designer to create your app. |
+   |Windows Plan |Accept the default App Service Plan (ASP). |
+   |Pricing plan |Accept the default Workflow Standard WS1 (210 total ACU, 3.5 GB memory, 1 vCPU)         |
+   |Zone redundancy |Accept the default: Disabled.         |
 
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/new-logic-app-page.png" alt-text="Screenshot showing the Create Logic App page."::: 
