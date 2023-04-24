@@ -76,8 +76,6 @@ Checkout the integrations [partners](https://learn.microsoft.com/azure/active-di
 | [Open LDAP](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● |  |
 | [Novell eDirectory](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● |  |
 
-
-
 ## Next steps
 
 To learn more about application management, see [What is application management](https://learn.microsoft.com/azure/active-directory/app-provisioning/).
