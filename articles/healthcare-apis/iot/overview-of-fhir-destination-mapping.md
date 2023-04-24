@@ -54,7 +54,7 @@ The transformation process validates the FHIR destination mapping before allowin
 |typeName|True|
 
 > [!NOTE]
-> The 'typeName' element is used to link a FHIR destination mapping template to one or more device mapping templates. Device mapping templates with the same 'typeName' element generate normalized data that will be evaluated with a FHIR destination mapping template that has the same 'typeName'.
+> The `typeName` element is used to link a FHIR destination mapping template to one or more device mapping templates. Device mapping templates with the same `typeName` element generate normalized data that will be evaluated with a FHIR destination mapping template that has the same `typeName`.
 
 ## CollectionFhir
 
@@ -81,6 +81,13 @@ CodeValueFhir is currently the only template supported in FHIR destination mappi
 :::image type="content" source="media/overview-of-fhir-destination-mapping/fhir-destination-mapping-templates-diagram.png" alt-text="Diagram showing MedTech service FHIR destination mapping template and code architecture." lightbox="media/overview-of-fhir-destination-mapping/fhir-destination-mapping-templates-diagram.png":::
 
 ### Value types
+
+All CodeValueFhir templates' `value` element contains these elements:
+
+|Element|Description|
+|:------|:----------|
+|**valueType**|Type of the value. This value would be "SampledData", "Quantity", "CodeableConcept", or "string" depending on the value type.|
+|**valueName**|Name of the value.|
 
 These value types are supported in the MedTech service FHIR destination mapping:
 
