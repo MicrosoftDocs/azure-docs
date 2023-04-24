@@ -196,6 +196,7 @@ Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-perce
 Another common question that arises is, **Why is normalized RU consumption 100%, but autoscale didn't scale to the max RU/s?**
 
 This typically occurs for workloads that have temporary or intermittent spikes of usage. When you use autoscale, Azure Cosmos DB only scales the RU/s to the maximum throughput when the normalized RU consumption is 100% for a sustained, continuous period of time in a 5-second interval. This is done to ensure the scaling logic is cost friendly to the user, as it ensures that single, momentary spikes to not lead to unnecessary scaling and higher cost. When there are momentary spikes, the system typically scales up to a value higher than the previously scaled to RU/s, but lower than the max RU/s. Learn more about how to [interpret the normalized RU consumption metric with autoscale](../monitor-normalized-request-units.md#normalized-ru-consumption-and-autoscale).
+
 ## Rate limiting on metadata requests
 
 Metadata rate limiting can occur when you're performing a high volume of metadata operations on databases and/or containers. Metadata operations include:
@@ -203,7 +204,7 @@ Metadata rate limiting can occur when you're performing a high volume of metadat
 - List databases or containers in an Azure Cosmos DB account
 - Query for offers to see the current provisioned throughput
 
-There's a system-reserved RU limit for these operations, so increasing the provisioned RU/s of the database or container will have no impact and isn't recommended. See [limits on metadata operations](../concepts-limits.md#metadata-request-limits).
+There's a system-reserved RU limit for these operations, so increasing the provisioned RU/s of the database or container will have no impact and isn't recommended. See [Control Plane Service Limits](../concepts-limits.md#control-plane).
 
 #### How to investigate
 Navigate to **Insights** > **System** > **Metadata Requests By Status Code**. Filter to a specific database and container if desired.

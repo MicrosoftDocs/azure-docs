@@ -36,7 +36,7 @@ In this quick start, you'll learn about how to send email using our Email SDKs.
 [!INCLUDE [Send Email with Python SDK](./includes/send-email-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-logic-apps"
+::: zone pivot="programming-language-power-platform"
 [!INCLUDE [Azure Logic Apps](./includes/send-email-logic-app.md)]
 ::: zone-end
 
