@@ -20,8 +20,13 @@ Azure Container Apps jobs enable you run containerized workloads that have a fin
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
-- Consumption only
-- East US 2 EUAP only
+## Private preview limitations
+
+The jobs private preview has the following limitations:
+
+- Only supported in the East US 2 EUAP (`eastus2euap`) region
+- Only supported in the Azure CLI using a private preview version of the Azure Container Apps extension
+- Only supported in the Consumption plan
 
 ## Setup
 
