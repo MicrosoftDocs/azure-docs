@@ -27,7 +27,7 @@ In the support table, **NA** indicates that the feature is not available.
 [Asset inventory](./asset-inventory.md) | GA | GA | GA
 [Azure Workbooks support](./custom-dashboards-azure-workbooks.md) | GA | GA | GA
 [Microsoft Defender for Cloud Apps integration](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps) | GA | GA | GA
-**DEFENDER FOR CLOUD PLANS**
+**DEFENDER FOR CLOUD PLANS** | | | 
 **[Agentless discovery for Kubernetes](concept-agentless-containers.md)** | Public preview | NA | NA
 **[Agentless vulnerability assessments for container images.](concept-agentless-containers.md)**<br/><br/> Including registry scanning (up to 20 unique images per billable resources) | Public preview | NA | NA
 **[Defender CSPM](concept-cloud-security-posture-management.md)** | GA | NA | NA
