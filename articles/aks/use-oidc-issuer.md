@@ -94,7 +94,7 @@ The output should resemble the following:
 
 ### Get the JWK Set document
   
-To get the JWK Set document, copy the `jwks_uri from the discovery document and open it in browser.
+To get the JWK Set document, copy the `jwks_uri` from the discovery document and open it in browser.
 
 The output should resemble the following:
 ```output
