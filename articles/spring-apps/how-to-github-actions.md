@@ -202,7 +202,7 @@ The command should output a JSON object:
 }
 ```
 
-This example uses the [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics) sample on GitHub.  Fork the sample, open GitHub repository page, and select the **Settings** tab. Open **Secrets** menu, and select **Add a new secret**:
+This example uses the [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics) sample on GitHub. Fork the sample, uncheck `Copy the Azure branch only`, open GitHub repository page, and select the **Settings** tab. Open **Secrets** menu, and select **Add a new secret**:
 
 ![Add new secret](./media/github-actions/actions1.png)
 
