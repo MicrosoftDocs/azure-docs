@@ -27,8 +27,6 @@ To work with the code examples in this article, make sure you have:
     - [Put Block](/rest/api/storageservices/put-block#authorization)
 - The package **@azure/storage-blob** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and TypeScript](storage-blob-typescript-get-started.md#set-up-your-project).
 
-## About uploading blobs
-
 [!INCLUDE [storage-dev-guide-about-blob-upload](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-upload.md)]
 
 ## Upload data to a block blob
