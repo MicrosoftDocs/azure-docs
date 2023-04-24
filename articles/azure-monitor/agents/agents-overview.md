@@ -88,11 +88,11 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
 
 ## Supported services and features
 
-For a list of features and services that use Azure Monitor Agent for data collection, see [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md#supported-services-and-features).
+For a list of features and services that use Azure Monitor Agent for data collection, see [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md#services-and-features-migrating-away-from-log-analytics-agent).
 
 ## Supported regions
 
-Azure Monitor Agent is available in all public regions, Azure Government anmd China clouds, for generally available features. It's not yet supported in air-gapped clouds. For more information, see [Product availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&rar=true&regions=all).
+Azure Monitor Agent is available in all public regions, Azure Government and China clouds, for generally available features. It's not yet supported in air-gapped clouds. For more information, see [Product availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&rar=true&regions=all).
 
 ## Costs
 
