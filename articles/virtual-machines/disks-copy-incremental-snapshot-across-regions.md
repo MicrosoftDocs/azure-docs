@@ -4,7 +4,7 @@ description: Learn how to copy an incremental snapshot of a managed disk to a di
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 04/10/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -25,6 +25,8 @@ This article covers copying an incremental snapshot from one region to another. 
 
 - You can copy 100 incremental snapshots in parallel at the same time per subscription per region.
 - If you use the REST API, you must use version 2020-12-01 or newer of the Azure Compute REST API.
+- You can only copy one incremental snapshot of a particular disk at a time.
+- Snapshots must be copied in the order they were created.
 
 ## Managed copy
 
@@ -44,7 +46,13 @@ targetRegion=<validRegion>
 sourceSnapshotId=$(az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [id] -o tsv)
 
 az snapshot create -g $resourceGroupName -n $targetSnapshotName -l $targetRegion --source $sourceSnapshotId --incremental --copy-start
+```
 
+### Check copy status
+
+You can check the status of an individual snapshot by checking the `CompletionPercent` property. Replace `$sourceSnapshotName` with the name of your snapshot then run the following command. The value of the property must be 100 before you can use the snapshot for restoring disk or generate a SAS URI for downloading the underlying data.
+
+```azurecli
 az snapshot show -n $sourceSnapshotName -g $resourceGroupName --query [completionPercent] -o tsv
 ```
 
@@ -74,11 +82,21 @@ $sourceSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotNa
 $snapshotconfig = New-AzSnapshotConfig -Location $targetRegion -CreateOption CopyStart -Incremental -SourceResourceId $sourceSnapshot.Id
 
 New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $targetSnapshotName -Snapshot $snapshotconfig
+```
 
-$targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $targetSnapshotName
+### Check copy status
+
+You can check the `CompletionPercent` property of an individual snapshot to get its status. Replace `yourResourceGroupNameHere` and `yourSnapshotName` then run the script. The value of the property must be 100 before you can use the snapshot for restoring disk or generate a SAS URI for downloading the underlying data.
+
+```azurepowershell
+$resourceGroupName = "yourResourceGroupNameHere"
+$snapshotName = "yourSnapshotName"
+
+$targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
 
 $targetSnapshot.CompletionPercent
 ```
+
 
 # [Portal](#tab/azure-portal)
 
@@ -158,3 +176,5 @@ Incremental snapshots offer a differential capability. They enable you to get th
 ## Next steps
 
 If you'd like to see sample code demonstrating the differential capability of incremental snapshots, using .NET, see [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).
+
+If you have additional questions on snapshots, see the [snapshots](faq-for-disks.yml#snapshots) section of the FAQ.

@@ -105,9 +105,14 @@ Update your idle timeout timer configuration on your User-Assigned NAT gateway w
 
 ## Azure Firewall 
 
-### How NAT gateway integration with Azure Firewall works 
+### SNAT exhaustion when connecting outbound with Azure Firewall
 
-Azure Firewall can provide outbound connectivity to the internet from virtual networks. Azure Firewall provides only 2,496 SNAT ports per public IP address. While Azure Firewall can be associated with up to 250 public IP addresses to handle egress traffic, often, customers require much fewer public IP addresses for connecting outbound due to various architectural requirements and limitations by destination endpoints for the number of public IP addresses they can allowlist. One method by which to get around this allowlist IP limitation and to also reduce the risk of SNAT port exhaustion is to use NAT gateway in the same subnet with Azure Firewall. To learn how to set up NAT gateway in an Azure Firewall subnet, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md). 
+Azure Firewall can provide outbound connectivity to the internet from virtual networks. Azure Firewall provides only 2,496 SNAT ports per public IP address. While Azure Firewall can be associated with up to 250 public IP addresses to handle egress traffic, users may require much fewer public IP addresses for connecting outbound. The requirement for egressing with fewer public IP addresses may be due to various architectural requirements and allowlist limitations by destination endpoints.
+
+One method by which to provide greater scalability for outbound traffic and also reduce the risk of SNAT port exhaustion is to use NAT gateway in the same subnet with Azure Firewall. To set up NAT gateway in an Azure Firewall subnet, see [integrate NAT gateway with Azure Firewall](/azure/virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall). See [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md) to learn more about how NAT gateway works with Firewall.
+
+> [!NOTE]
+> NAT gateway is not supported in a vWAN architecture. NAT gateway cannot be configured to an Azure Firewall subnet in a vWAN hub.
 
 ## Azure Databricks
 
