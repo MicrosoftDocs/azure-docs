@@ -136,7 +136,7 @@ The following example shows a Dapr trigger binding. The example depends on wheth
 
 # [v1](#tab/python-v1)
 
-Here's the _function.json_ file for `daprBindingTrigger`:
+Here's the _function.json_ file for `daprState`:
 
 ```json
 ```
@@ -177,7 +177,7 @@ C# script uses a _function.json_ file for configuration instead of attributes.
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**type** | Must be set to `daprState`. This property is set automatically when you create the trigger in the Azure portal.|
 |**bindingName** | The name of the binding. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
 |**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
@@ -187,13 +187,16 @@ C# script uses a _function.json_ file for configuration instead of attributes.
 ::: zone pivot="programming-language-javascript"
 
 ## Configuration
-The following table explains the binding configuration properties that you set in the function.json file.
+The following table explains the binding configuration properties that you set in the _function.json_ file.
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
+|**type** | Must be set to `daprState`. |
+|**direction** | Must be set to `out`. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
+|**stateStore** | The name of the state store. |
+|**key** |  |
+|**daprAddress** |  |
 
 
 ::: zone-end
@@ -205,10 +208,7 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+|  |  |
 
 ::: zone-end
 
