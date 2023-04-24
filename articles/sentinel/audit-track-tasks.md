@@ -73,14 +73,24 @@ The *SecurityIncident* table is an audit table&mdash;it stores not the incidents
     
     :::image type="content" source="media/audit-track-tasks/incidents-page-open-incident.png" alt-text="Screenshot shows opening the incident that you found.":::
 
+1. Select **Tasks (Preview)** from the toolbar on the incident details page. The **Incident tasks (Preview)** panel will open. See the same tasks in the list that we saw in the query of the *SecurityIncidents* table. Select **+ Add task**.
 
-1. Select 
+    :::image type="content" source="media/audit-track-tasks/incident-task-list-original.png" alt-text="Screenshot shows incident tasks panel.":::
 
-1. The tasks that have descriptions will be marked with an expansion arrow. Expand a task to see its full description.
 
-    :::image type="content" source="media/audit-track-tasks/incident-task-list-original.png" alt-text="Screenshot shows incident tasks panel with expanded task descriptions.":::
+1. Enter the text "This task is a test task!" in the **Title** field, then select **Save**.
 
-1. Mark a task complete by marking the circle next to the task name. A check mark will appear in the circle, and the text of the task will be grayed out. See the "Reset user password" example in the screenshots above.
+    :::image type="content" source="media/audit-track-tasks/incident-task-list-add-task.png" alt-text="Screenshot shows incident tasks panel.":::
+
+1. Now the new added task appears in the list.
+
+    :::image type="content" source="media/audit-track-tasks/incident-task-list-task-added.png" alt-text="Screenshot shows incident tasks panel.":::
+
+
+
+1. Now let's return to the **Logs** page and run our query again. Select **Run**.
+
+    
 
 ## Manually add an ad-hoc task to an incident
 
