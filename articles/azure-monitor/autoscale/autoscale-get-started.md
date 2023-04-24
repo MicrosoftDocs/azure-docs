@@ -44,7 +44,7 @@ To discover the resources that you can autoscale, follow these steps.
 ## Create your first autoscale setting  
 
 > [!NOTE]
-> In addition to the Autoscale instructions in this article, there's new, **Automatic scaling** in Azure App Service. You'll find more on this capability in the [Automatic scaling](../../app-service/manage-automatic-scaling.md) article.
+> In addition to the Autoscale instructions in this article, there's new, automatic scaling in Azure App Service. You'll find more on this capability in the [automatic scaling](../../app-service/manage-automatic-scaling.md) article.
 >
 
 Follow the steps below to create your first autoscale setting.

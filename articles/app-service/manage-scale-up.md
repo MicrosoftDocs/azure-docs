@@ -9,10 +9,6 @@ ms.custom: seodec18
 ---
 # Scale up an app in Azure App Service
 
->[!IMPORTANT]
-> [App Service now offers an advanced, automatic scaling to handle varying incoming HTTP requests.](./manage-automatic-scaling.md)
->
-
 This article shows you how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out, and this article explains the scale up workflow.
 
 * [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more CPU, memory, disk space, and extra features
@@ -23,6 +19,10 @@ This article shows you how to scale your app in Azure App Service. There are two
   in **Isolated** tier further increases your scale-out count to 100 instances. For more information about scaling out, see
   [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md). There, you find out how
   to use autoscaling, which is to scale instance count automatically based on predefined rules and schedules.
+
+>[!IMPORTANT]
+> [App Service now offers an automatic scale-out option to handle varying incoming HTTP requests.](./manage-automatic-scaling.md)
+>
 
 The scale settings take only seconds to apply and affect all apps in your [App Service plan](../app-service/overview-hosting-plans.md).
 They don't require you to change your code or redeploy your application.
