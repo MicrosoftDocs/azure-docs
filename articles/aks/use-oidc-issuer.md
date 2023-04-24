@@ -61,7 +61,7 @@ az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 > [!IMPORTANT]
 > Once you rotate the key, the old key (key1) expires after 24 hours. This means that both the old key (key1) and the new key (key2) are valid within the 24-hour period. If you want to invalidate the old key (key1) immediately, you need to rotate the OIDC key twice. Then key2 and key3 are valid, and key1 is invalid.
 
-## Check the OIDC keys in discovery document
+## Check the OIDC keys 
 
 ### Get the OIDC Issuer URL
 To get the OIDC Issuer URL, run the [az aks show][az-aks-show] command. Replace the default values for the cluster name and the resource group name.
