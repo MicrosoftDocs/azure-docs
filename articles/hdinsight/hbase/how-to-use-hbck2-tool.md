@@ -30,7 +30,7 @@ https://dlcdn.apache.org/hbase/hbase-operator-tools-1.2.0/hbase-operator-tools-1
 
 ### Master UI: The HBCK Report
 
-An HBCK Report page was added to the Master in 2.1.6 at /hbck.jsp, which shows output from two inspections run by the master on an interval; one is output by the CatalogJanitor whenever it runs. If overlaps or holes in, `hbase:meta`, the CatalogJanitor lists what it has found. Another background 'chore' process was added to compare `hbase:meta` and filesystem content; if any anomaly, it makes note in its HBCK Report section.
+An HBCK Report page added to the Master in 2.1.6 at `/hbck.jsp`, which shows output from two inspections run by the master on an interval. One is the output by the `CatalogJanitor` whenever it runs. If overlaps or holes in, `hbase:meta`, the `CatalogJanitor` lists what it has found. Another background 'chore' process added to compare `hbase:meta` and filesystem content; if any anomaly, it makes note in its HBCK Report section.
 
 To run the CatalogJanitor, execute the command in hbase shell: `catalogjanitor_run`
 
@@ -41,8 +41,9 @@ Both commands don't take any inputs.
 ## Running HBCK2
 
 We can run the hbck command by launching it via the $HBASE_HOME/bin/hbase script. By default, running bin/hbase hbck, the built-in HBCK1 tooling is run. To run HBCK2, you need to point at a built HBCK2 jar using the -j option as in:
-hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar
-The above command with no options or arguments passed prints the HBCK2 help.
+`hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar`
+
+This command with no options or arguments passed prints the HBCK2 help.
 
 ## HBCK2 Commands
 
@@ -298,7 +299,7 @@ Other general principals to keep in mind include a Region can't be assigned if i
 
 When making repair, do fixup of a table-at-a-time.
 
-If a table is DISABLED, you cant' assign a Region. In the Master logs, you see that the Master reports skipped because the table is DISABLED. You can assign a Region because, currently in the OPENING state and you want it in the CLOSED state so it agrees with the table's DISABLED state. In this situation, you may have to temporarily set the table status to ENABLED, so you can do the assign, and then set it back again after the unassign statement. HBCK2 has facility to allow you to do this. See the HBCK2 usage output.
+If a table is DISABLED, you cant' assign a Region. In the Master logs, you see that the Master reports skipped because the table is DISABLED. You can assign a Region because, currently in the OPENING state and you want it in the CLOSED state so it agrees with the table's DISABLED state. In this situation, you may have to temporarily set the table status to ENABLED, so you can do the assign, and then set it back again after the unassign statement. HBCK2 has facility to allow you to do this change. See the HBCK2 usage output.
 
 ### **Assigning/Unassigning** 
   
@@ -309,7 +310,7 @@ Generally, on assign, the Master persists until successful. An assign takes an e
 ```
 2018-10-01 22:07:42,792 WARN org.apache.hadoop.hbase.master.HMaster: `hbase:meta`,,1.1588230740 isn't online; state={1588230740 state=CLOSING, ts=1538456302300, server=ve1017.example.org,22101,1538449648131}; ServerCrashProcedures=true. Master startup cannot progress, in holding-pattern until region online.
 ```
-The Master is unable to continue startup because there's no Procedure to assign `hbase:meta` (or hbase:namespace). To inject one, use the HBCK2 tool:
+The Master is unable to continue startup because there's no Procedure to assign `hbase:meta` (or `hbase:namespace`). To inject one, use the HBCK2 tool:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar assigns -skip 1588230740
 ```
@@ -394,7 +395,7 @@ Should a cluster suffer a catastrophic loss of the `hbase:meta` table, a rough r
      ```
      It might take a while to appear.
 
-     The rebuild of `hbase:meta` adds the user tables in DISABLED state and the regions in CLOSED mode. Re-enable tables via the shell to bring all table regions back online. Do it one-at-a-time or see the enable_all ".*" command to enable all tables in one shot.
+     The rebuild of `hbase:meta` adds the user tables in DISABLED state and the regions in CLOSED mode. Re-enable tables via the shell to bring all table regions back online. Do it one-at-a-time or see the enable all ".*" command to enable all tables in one shot.
 
      The rebuild meta is missing edits and may need subsequent repair and cleaning using facility outlined higher up in this TSG.
 
@@ -404,6 +405,6 @@ HBCK2 can check for hanging references and corrupt files. You can ask it to side
 
 ### Procedure Start-over
 
-At an extreme, as a last resource, if the Master is distraught and all attempts at fixup only turn up undoable locks or Procedures that can't finish, and/or the set of MasterProcWALs is growing without bound, it's possible to wipe the Master state clean. Just move aside the /hbase/MasterProcWALs/ directory under your hbase install and restart the Master process. It comes back as a tabular format  without memory.
+At an extreme, as a last resource, if the Master is distraught and all attempts at fixup only turn up undoable locks or Procedures that can't finish, and/or the set of MasterProcWALs is growing without bound. It's possible to wipe the Master state clean. Just move aside the `/hbase/MasterProcWALs/` directory under your HBase install and restart the Master process. It comes back as a tabular format  without memory.
 
-If at the time of the erasure, all Regions were happily assigned or off lined, then on Master restart, the Master should pick up and continue as though nothing happened. But if there were Regions-In-Transition at the time, then the operator has to intervene to bring outstanding assigns/unassigns to their terminal point. Read the `hbase:meta` info:state columns as described to figure what needs assigning/unassigning. Having erased all history moving aside the MasterProcWALs, none of the entities should be locked so you 'Improved free to bulk assign/unassign.
+If at the time of the erasure, all Regions were happily assigned or off lined, then on Master restart, the Master should pick up and continue as though nothing happened. But if there were Regions-In-Transition at the time, then the operator has to intervene to bring outstanding assigns/unassigns to their terminal point. Read the `hbase:meta` `info:state` columns as described to figure what needs assigning/unassigning. Having erased all history moving aside the MasterProcWALs, none of the entities should be locked so you 'Improved free to bulk assign/unassign.
