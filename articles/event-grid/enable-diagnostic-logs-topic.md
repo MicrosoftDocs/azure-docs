@@ -12,12 +12,12 @@ This article provides step-by-step instructions for enabling diagnostic settings
 
 | Diagnostic setting |  Event Grid topics | Event Grid system topics | Event domains | Event Grid partner namespaces |
 | ------------- |  --------- | ----------- | ----------- | ----------- |
-| [DeliveryFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | Yes | Yes | No |
-| [PublishFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | No | Yes | Yes |
-| [DataPlaneRequests](diagnostic-logs.md#schema-for-data-plane-requests) | Yes | No | Yes | Yes |
+| [DeliveryFailures](monitor-pull-push-reference.md#schema-for-publishdelivery-failure-logs)  | Yes | Yes | Yes | No |
+| [PublishFailures](monitor-pull-push-reference.md#schema-for-publishdelivery-failure-logs)  | Yes | No | Yes | Yes |
+| [DataPlaneRequests](monitor-pull-push-reference.md#schema-for-data-plane-requests) | Yes | No | Yes | Yes |
 
 > [!IMPORTANT]
-> For schemas of delivery failures, publish failures, and data plane requests, see [Diagnostic logs](diagnostic-logs.md). 
+> For schemas of delivery failures, publish failures, and data plane requests, see [Diagnostic logs](monitor-pull-push-reference.md). 
 
 ## Prerequisites
 
@@ -207,8 +207,8 @@ The audit trace can be used to ensure that data access is allowed only for autho
 ![Select the audit traces](./media/enable-diagnostic-logs-topic/enable-audit-logs.png)
 
 > [!IMPORTANT]
-> For more information about the `DataPlaneRequests` schema, see [Diagnostic logs](diagnostic-logs.md).
+> For more information about the `DataPlaneRequests` schema, see [Diagnostic logs](monitor-pull-push-reference.md).
 
 ## Next steps
 
-For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](diagnostic-logs.md).
+For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](monitor-pull-push-reference.md).

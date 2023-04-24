@@ -1,6 +1,11 @@
 {
   "redirections": [     
     {
+      "source_path": "diagnostic-logs.md",
+      "redirect_url": "/azure/event-grid/monitor-pull-push-reference",
+      "redirect_document_id": false
+    },          
+    {
       "source_path": "compare-messaging-services.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/messaging",
       "redirect_document_id": false

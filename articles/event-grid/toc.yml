@@ -251,8 +251,8 @@ items:
           href: network-security.md
       - name: Monitor and troubleshoot
         items:
-        - name: Diagnostic logs
-          href: diagnostic-logs.md
+        - name: Monitor pull and push delivery 
+          href: monitor-pull-push.md
         - name: Metrics
           href: ../azure-monitor/essentials/metrics-supported.md#microsofteventgriddomains
       - name: Use cases
@@ -385,6 +385,8 @@ items:
         href: /python/api/overview/azure/event-grid
       - name: Node.js
         href: /javascript/api/overview/azure/event-grid
+      - name: Monitoring pull and push delivery reference
+        href: monitor-pull-push-reference.md
       - name: Quotas and limits
         href: quotas-limits.md
       - name: Subscription schema
