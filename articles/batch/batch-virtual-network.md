@@ -29,7 +29,7 @@ To allow compute nodes to communicate securely with other virtual machines, or w
 
 * The Virtual Network must be in the same subscription and region as the Batch account you use to create your pool.
 
-* The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool, enough to accomodate the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs.
+* The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool, enough to accommodate the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs.
 
 * If you aren't using [Simplified Compute Node Communication](simplified-compute-node-communication.md), you need to resolve your Azure Storage endpoints by using any custom DNS servers that serve your virtual network. Specifically,
 URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and
