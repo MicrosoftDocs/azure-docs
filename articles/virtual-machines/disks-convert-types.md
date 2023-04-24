@@ -5,8 +5,8 @@ author: roygara
 ms.service: storage
 ms.subservice: disks
 ms.topic: how-to
-ms.date: 02/09/2023
-ms.author: albecker
+ms.date: 04/24/2023
+ms.author: rogarana
 ---
 
 # Change the disk type of an Azure managed disk
@@ -113,9 +113,9 @@ az vm start --name $vmName --resource-group $rgName
 Use either PowerShell or CLI.
 
 ---
-## Switch individual managed disks between Standard and Premium
+## Change the type of an individual managed disk
 
-For your dev/test workload, you might want a mix of Standard and Premium disks to reduce your costs. You can choose to upgrade only those disks that need better performance. This example shows how to convert a single VM disk from Standard to Premium storage. However, by changing the $storageType variable in this example, you can convert the VM's disks type to standard SSD or standard HDD. To use Premium managed disks, your VM must use a [VM size](sizes.md) that supports Premium storage. This example also shows how to switch to a size that supports Premium storage:
+For your dev/test workload, you might want a mix of Standard and Premium disks to reduce your costs. You can choose to upgrade only those disks that need better performance. This example shows how to convert a single VM disk from Standard to Premium storage. However, by changing the $storageType variable in this example, you can convert the VM's disks type to standard SSD or standard HDD. To use Premium managed disks, your VM must use a [VM size](sizes.md) that supports Premium storage. You can also use these examples to change a disk from [Locally-redundant storage (LRS)](disks-redundancy.md#locally-redundant-storage-for-managed-disks) disk to a [Zone-redundant storage (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks) disk or vice-versa. This example also shows how to switch to a size that supports Premium storage:
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -206,8 +206,9 @@ Use either PowerShell or CLI.
 
 ---
 
-## Migrate to a Premium SSD v2
+## Migrate to Premium SSD v2 or Ultra Disk
 
+You can migrate an existing disk to either an Ultra Disk or a Premium SSD v2 through incremental snapshots. Both Premium SSD v2 disks and Ultra Disks have their own set of restrictions. For example, neither can be used as an OS disk, and also aren't available in all regions. See the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) and [Ultra Disk GA scope and limitations](disks-enable-ultra-ssd.md#ga-scope-and-limitations) sections of their articles for more information.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -216,12 +217,28 @@ $diskName = "yourDiskNameHere"
 $resourceGroupName = "yourResourceGroupNameHere"
 $snapshotName = "yourDesiredSnapshotNameHere"
 
+#Provide the size of the disks in GB. It should be greater than the VHD file size.
+$diskSize = '128'
+
+#Provide the storage type. Use PremiumV2_LRS or UltraSSD_LRS.
+$storageType = 'PremiumV2_LRS'
+
+#Provide the Azure region (e.g. westus) where Managed Disks will be located.
+#This location should be same as the snapshot location
+#Get all the Azure location using command below:
+#Get-AzLocation
+$location = 'westus'
+
 # Get the disk that you need to backup by creating an incremental snapshot
 $yourDisk = Get-AzDisk -DiskName $diskName -ResourceGroupName $resourceGroupName
 
 # Create an incremental snapshot by setting the SourceUri property with the value of the Id property of the disk
 $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk.Location -CreateOption Copy -Incremental 
-New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName -Snapshot $snapshotConfig 
+$snapshot = New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName -Snapshot $snapshotConfig
+
+$diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id -DiskSizeGB $diskSize
+ 
+New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
 ```
 
 
@@ -233,6 +250,8 @@ diskName="yourExistingDiskNameHere"
 newDiskName="newDiskNameHere"
 resourceGroupName="yourResourceGroupNameHere"
 snapshotName="desiredSnapshotNameHere"
+#Provide the storage type. Use PremiumV2_LRS or UltraSSD_LRS.
+storageType=PremiumV2_LRS
 
 # Get the disk you need to backup
 yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --output tsv)
@@ -255,7 +274,7 @@ Follow these steps:
 1. Select the disk that you want to convert.
 1. Select the search bar at the top. Search for and select Disks.
 1. Select Add New.
-1. Select Premium SSD v2 for the disk type
+1. Select either **Premium SSD v2** or **Ultra Disk** for the disk type
 1. Select snapshot for source type
 1. Select the snapshot of the disk you just took.
 1. Select save.
