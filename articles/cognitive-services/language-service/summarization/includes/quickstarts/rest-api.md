@@ -34,6 +34,13 @@ Use this quickstart to send text summarization requests using the REST API. In t
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
+## Setting up
+
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 ## Example request
 
 > [!NOTE]
@@ -71,9 +78,9 @@ The following example will get you started with document extractive summarizatio
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/jobs?api-version=2022-10-01-preview \
+curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-text/jobs?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" \
 -d \
 ' 
 {
@@ -116,9 +123,9 @@ https://<your-language-resource-endpoint>/language/analyze-text/jobs/12345678-12
 6. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs/<my-job-id>?api-version=2022-10-01-preview \
+curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
 
 > [!div class="nextstepaction"]
@@ -209,9 +216,9 @@ The following example will get you started with conversation issue and resolutio
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2022-10-01-preview \
+curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY" \
 -d \
 ' 
 {
@@ -308,9 +315,9 @@ https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12
 6. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/<my-job-id>?api-version=2022-10-01-preview \
+curl -X GET $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs/<my-job-id>?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
+-H "Ocp-Apim-Subscription-Key: $LANGUAGE_KEY"
 ```
 
 > [!div class="nextstepaction"]

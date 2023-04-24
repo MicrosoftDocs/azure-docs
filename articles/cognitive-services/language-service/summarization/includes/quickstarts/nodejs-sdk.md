@@ -29,6 +29,11 @@ Use this quickstart to create a text summarization application with the client l
 
 ## Setting up
 
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Summarization&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 ### Create a new Node.js application
 
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
@@ -75,9 +80,9 @@ const { AzureKeyCredential, TextAnalysisClient } = require("@azure/ai-language-t
 // Load the .env file if it exists
 require("dotenv").config();
 
-// You'll need to set these environment variables or edit the following values
-const endpoint = process.env["ENDPOINT"] || "<paste-your-endpoint-here>";
-const apiKey = process.env["LANGUAGE_API_KEY"] || "<paste-your-key-here>";
+// This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+const endpoint = process.env.LANGUAGE_ENDPOINT;
+const apiKey = process.env.LANGUAGE_KEY;
 
 const documents = [
   `
