@@ -39,7 +39,7 @@ When configuring the App Service plan in the <a href="https://portal.azure.com" 
 
 Select **Production**, then select **P0V3**, **P1V3**, **P2V3**, **P3V3**, **P1mV3**, **P2mV3**, **P3mV3**, **P4mV3**, or **P5mV3**, then click **Apply**.
 
-![Screenshot showing the recommended pricing tiers for your app.](media/app-service-configure-premium-tier/scale-up-tier-select-new.png)
+![Screenshot showing the recommended pricing tiers for your app.](media/app-service-configure-premium-tier/scale-up-tier-select-updated.png)
 
 > [!IMPORTANT] 
 > If you don't see any of **P0V3**, **P1V3**, **P2V3**, **P3V3**, **P1mV3**, **P2mV3**, **P3mV3**, **P4mV3**, and **P5mV3** as options, or if some options are greyed out, then either **PremiumV3** or an individual SKU within **PremiumV3** isn't available in the underlying App Service deployment that contains the App Service plan. See [Scale up from an unsupported resource group and region combination](#unsupported) for more details.
@@ -58,7 +58,7 @@ In the left navigation of your App Service app page, select **Scale up (App Serv
 
 Select **Production**, then select **P0V3**, **P1V3**, **P2V3**, **P3V3**, **P1mV3**, **P2mV3**, **P3mV3**, **P4mV3**, or **P5mV3**, then click **Apply**.
 
-![Screenshot showing the recommended pricing tiers for your app.](media/app-service-configure-premium-tier/scale-up-tier-select-new.png)
+![Screenshot showing the recommended pricing tiers for your app.](media/app-service-configure-premium-tier/scale-up-tier-select-updated.png)
 
 If your operation finishes successfully, your app's overview page shows that it's now in a **PremiumV3** tier.
 
