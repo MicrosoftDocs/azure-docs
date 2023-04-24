@@ -277,7 +277,7 @@ For example: In the diagram, the provisioning apps are set up for each geographi
 * Create a separate HR2AD provisioning app for each target domain. 
 * When configuring each provisioning app, select the parent AD domain from the dropdown of available AD domains. Selecting the parent domain ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
 * Use *parentDistinguishedName* with expression mapping to dynamically create user in the correct child domain and [OU container](#configure-active-directory-ou-container-assignment). 
-* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users to be processed by each app. 
+* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users that each app processes.
 * To resolve cross-domain managers references, create a separate HR2AD provisioning app for updating only the *manager* attribute. Set the scope of this app to all users. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
