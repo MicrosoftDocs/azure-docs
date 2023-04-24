@@ -26,7 +26,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Create the Server
 
-First, install the required packages:
+First, install the required packages.
 
 ```bash
 pip install azure-mgmt-resource
@@ -34,7 +34,7 @@ pip install azure-identity
 pip install azure-mgmt-rdbms
 ```
 
-Create a `create_postgres_flexible_server.py` file and include the following code:
+Create a `create_postgres_flexible_server.py` file and include the following code.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -109,7 +109,7 @@ You can use the Python SDK, Azure portal, Azure CLI, Azure PowerShell, and vario
 
 
 # [Python SDK](#tab/PythonSDK)
-Add the `check_server_created` function to your existing script to use the servers attribute of the `PostgreSQLManagementClient` instance to check if the PostgreSQL Flexible Server was created:
+Add the `check_server_created` function to your existing script to use the servers attribute of the [`PostgreSQLManagementClient`](https://learn.microsoft.com/en-us/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql_flexibleservers.postgresqlmanagementclient?view=azure-python) instance to check if the PostgreSQL Flexible Server was created:
 
 ```python
 def check_server_created(subscription_id, resource_group, server_name):
@@ -160,6 +160,7 @@ Get-AzResource -ResourceGroupName <resource_group>
 If you no longer need the PostgreSQL Flexible Server, you can delete it and the associated resource group using the following methods.
 
 # [Python SDK](#tab/PythonSDK)
+Add the `delete_resources` function to your existing script to delete your Postgres server and the associated resource group that was created in this quickstart.
 
 ```python
 def delete_resources(subscription_id, resource_group, server_name):
@@ -181,8 +182,6 @@ def delete_resources(subscription_id, resource_group, server_name):
 # Call the delete_resources function
 delete_resources(subscription_id, resource_group, server_name)
 ```
-
-This function will delete the PostgreSQL Flexible Server and the resource group that was created in this quickstart.
 
 
 # [CLI](#tab/CLI)
