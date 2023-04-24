@@ -30,6 +30,10 @@ sections:
       - question: If multiple public IP addresses are assigned to a NAT gateway, is traffic flow disrupted when one of the IP addresses is removed?
         answer: |
           Any active connections associated with a public IP address will terminate upon the public IP address being removed. If the NAT gateway resource has multiple public IPs, new traffic will be redistributed among the assigned IPs. It's advised that if you decide to remove one of the public IP addresses from the NAT gateway resource, use a maintenance window for the removal.
+          
+      - question: Can NAT gateway be used with IPv6 public IP addresses?
+        answer: |
+          No, NAT gateway does not support IPv6 public IP addresses at this time. You can configure dual stack outbound connectivity with NAT gateway and public Load balancer, see [configure dual stack outbound connectivity](./tutorial-dual-stack-outbound-nat-load-balancer.md?tabs=dual-stack-outbound-portal)
   
   - name: NAT gateway configurations
     questions:  
