@@ -86,11 +86,13 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 <sup>1</sup> The DCR generator only converts the configurations for Windows event logs, Linux syslog and performance counters. Support for additional features and solutions will be available soon  
 <sup>2</sup> You might need to deploy [extensions required for specific solutions](./agents-overview.md#supported-services-and-features) in addition to the Azure Monitor Agent extension.  
 
-## Supported services and features
+## Services and features migrating off of the Log Analytics agent
 
 Azure Monitor Agent is generally available for data collection.
 
-The following features and services now use Azure Monitor Agent in preview. This means you can select Azure Monitor Agent to collect data when you enable the feature; otherwise, the services and features still enable the legacy agent by default.
+Services that used Log Analytics agent for data collection are migrating to Azure Monitor Agent. Som 
+
+The following features and services now use Azure Monitor Agent in preview. This means you can already choose to use Azure Monitor Agent to collect data when you enable the feature or service; otherwise, the Log Analytics agent is still enabled by default.
     
 |	Service or feature	|	Current support	|	Other extensions installed	|	More information	|
 |	:---	|	:---	|	:---	|	:---	|
