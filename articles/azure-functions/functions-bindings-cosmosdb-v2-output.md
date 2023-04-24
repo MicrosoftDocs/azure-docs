@@ -2,7 +2,7 @@
 title: Azure Cosmos DB output binding for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB output binding in Azure Functions.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 03/02/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, ignite-2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -13,6 +13,23 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
+
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+> [!IMPORTANT]
+> The Python v2 programming model is currently in preview.
+::: zone-end
 
 ## Example
 
@@ -542,7 +559,7 @@ For bulk insert form the objects first and then run the stringify function. Here
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
-The following example show how to write data to Azure Cosmos DB using an output binding. The binding is declared in the function's configuration file (_functions.json_), and take data from a queue message and writes out to an Azure Cosmos DB document.
+The following example shows how to write data to Azure Cosmos DB using an output binding. The binding is declared in the function's configuration file (_functions.json_), and takes data from a queue message and writes out to an Azure Cosmos DB document.
 
 ```json
 { 
@@ -572,7 +589,29 @@ Push-OutputBinding -Name EmployeeDocument -Value @{
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example demonstrates how to write a document to an Azure Cosmos DB database as the output of a function.
+The following example demonstrates how to write a document to an Azure Cosmos DB database as the output of a function. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.route()
+@app.cosmos_db_output(arg_name="documents", 
+                      database_name="DB_NAME",
+                      collection_name="COLLECTION_NAME",
+                      create_if_not_exists=True,
+                      connection_string_setting="CONNECTION_SETTING")
+def main(req: func.HttpRequest, documents: func.Out[func.Document]) -> func.HttpResponse:
+    request_body = req.get_body()
+    documents.set(func.Document.from_json(request_body))
+    return 'OK'
+```
+
+# [v1](#tab/python-v1)
 
 The binding definition is defined in *function.json* where *type* is set to `cosmosDB`.
 
@@ -622,6 +661,8 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
     return 'OK'
 ```
 
+---
+
 ::: zone-end 
 ::: zone pivot="programming-language-csharp" 
 ## Attributes
@@ -654,6 +695,25 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 ---
 ::: zone-end  
+
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_output`:
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name` | The variable name used in function code that represents the list of documents with changes. |
+|`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
+|`collection_name`  | The name of the Azure CosmosDB collection being monitored. |
+|`create_if_not_exists`  | A Boolean value that indicates whether the database and collection should be created if they do not exist. |
+|`connection_string_setting` | The connection string of the Azure Cosmos DB being monitored. |
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
+
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -672,6 +732,13 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
+::: zone-end
+
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
 

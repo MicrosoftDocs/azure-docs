@@ -7,7 +7,7 @@ tags: azure-service-management
 ms.topic: sample
 ms.date: 11/18/2022
 ms.author: jordanselig
-ms.custom: mvc, fasttrack-edit
+ms.custom: mvc, fasttrack-edit, devx-track-bicep
 ---
 # Bicep files for App Service
 

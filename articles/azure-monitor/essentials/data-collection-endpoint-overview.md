@@ -24,8 +24,8 @@ A DCE includes the following components:
 
 | Component | Description |
 |:---|:---|
-| Configuration access endpoint | The endpoint used to access the configuration service to fetch associated data collection rules (DCRs) for Azure Monitor Agent.<br>Example: `<unique-dce-identifier>.<regionname>.handler.control`. |
-| Logs ingestion endpoint | The endpoint used to ingest logs to Log Analytics workspaces.<br>Example: `<unique-dce-identifier>.<regionname>.ingest`. |
+| Configuration access endpoint | The endpoint used to access the configuration service to fetch associated data collection rules (DCRs) for Azure Monitor Agent.<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`. |
+| Logs ingestion endpoint | The endpoint used to ingest logs to Log Analytics workspaces.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`. |
 | Network access control lists | Network access control rules for the endpoints.
 
 ## Regionality

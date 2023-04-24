@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 03/28/2023
 ms.author: sarahlipsey
 ms.reviewer: almars
 ms.custom: "it-pro, seodec18, fasttrack-edit"
@@ -22,9 +22,10 @@ When users authenticate into your corporate intranet or web-based applications, 
 
 The default sign-in experience is the global look and feel that applies across all sign-ins to your tenant. Before you customize any settings, the default Microsoft branding appears in your sign-in pages. You can customize this default experience with a custom background image and/or color, favicon, layout, header, and footer. You can also upload a custom CSS.
 
+The updated experience for adding company branding covered in this article is available as an Azure AD preview feature. To opt in and explore the new experience, go to **Azure AD** > **Preview features** and enable the **Enhanced Company Branding** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 > [!NOTE]
-> Instructions for the legacy company branding customization process can be found in the **[Customize branding](customize-branding.md)** article.<br><br>The updated experience for adding company branding covered in this article is available as an Azure AD preview feature. To opt in and explore the new experience, go to **Azure AD** > **Preview features** and enable the **Enhanced Company Branding** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+> Instructions for the legacy company branding customization process can be found in the **[Customize branding](customize-branding.md)** article. Instructions for how to manage the **'Stay signed in prompt?'** can be found in the **[Manage the 'Stay signed in?' prompt](how-to-manage-stay-signed-in-prompt.md)** article.
 
 ## License requirements
 
@@ -54,7 +55,8 @@ The branding elements are called out in the following example. Text descriptions
 
 1. **Favicon**: Small icon that appears on the left side of the browser tab.
 1. **Header logo**: Space across the top of the web page, below the web browser navigation area.
-1. **Background image** and **page background color**: The entire space behind the sign-in box.
+1. **Background image**: The entire space behind the sign-in box.
+1. **Page background color**: The entire space behind the sign-in box.
 1. **Banner logo**: The logo that appears in the upper-left corner of the sign-in box.
 1. **Username hint and text**: The text that appears before a user enters their information.
 1. **Sign-in page text**: Additional text you can add below the username field.
@@ -80,9 +82,7 @@ In the following examples replace the contoso.com with your own tenant name, or 
 - Self-service password reset `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
 > [!NOTE]
-> The settings to manage the 'Stay signed in?' prompt can now be found in the User settings area of Azure AD. Go to **Azure AD** > **Users** > **User settings**.
-<br><br>
-For more information on the 'Stay signed in?' prompt, see [How to manage user profile information](how-to-manage-user-profile-info.md#learn-about-the-stay-signed-in-prompt).
+> To manage the settings of the 'Stay signed in?' prompt, go to **Azure AD** > **Users** > **User settings**.
 
 ## How to navigate the company branding process
 
@@ -198,4 +198,4 @@ Azure AD supports right-to-left functionality for languages such as Arabic and H
 
 - [View the CSS template reference guide](reference-company-branding-css-template.md).
 - [Learn more about default user permissions in Azure AD](../fundamentals/users-default-permissions.md)
-- [Manage the 'stay signed in' prompt](how-to-manage-user-profile-info.md#learn-about-the-stay-signed-in-prompt)
+- [Manage the 'stay signed in' prompt](how-to-manage-stay-signed-in-prompt.md)

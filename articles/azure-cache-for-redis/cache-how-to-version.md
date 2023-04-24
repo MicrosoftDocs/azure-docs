@@ -5,9 +5,9 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.service: cache
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/08/2022
-
 ---
 
 # Set Redis version for Azure Cache for Redis

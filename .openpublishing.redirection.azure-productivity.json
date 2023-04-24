@@ -144,6 +144,11 @@
       "source_path": "articles/lab-services/quick-create-lab-template.md",
       "redirect_url": "/azure/lab-services/how-to-create-lab-template",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/classroom-labs-faq.yml",
+      "redirect_url": "/azure/lab-services/lab-services-overview",
+      "redirect_document_id": false
     }
   ]
 }

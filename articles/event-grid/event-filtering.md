@@ -2,6 +2,7 @@
 title: Event filtering for Azure Event Grid
 description: Describes how to filter events when creating an Azure Event Grid subscription.
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 09/09/2022
 ---
 
@@ -163,7 +164,7 @@ For events in the **Event Grid schema**, use the following values for the key: `
 
 For events in **Cloud Events schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`).
 
-For **custom input schema**, use the event data fields (like `data.key1`). To access fields in the data section, use the `.` (dot) notation. For example, `data.sitename`, `data.appEventTypeDetail.action` to access `sitename` or `action` for the following sample event.
+For **custom input schema**, use the event data fields (like `data.key1`). To access fields in the data section, use the `.` (dot) notation. For example, `data.siteName`, `data.appEventTypeDetail.action` to access `siteName` or `action` for the following sample event.
 
 ```json
 	"data": {
@@ -589,9 +590,9 @@ FOR_EACH filter IN (a, b, c)
 All string comparisons aren't case-sensitive.
 
 > [!NOTE]
-> If the event JSON doesn't contain the advanced filter key, filter is evaulated as **not matched** for the following operators: NumberGreaterThan, NumberGreaterThanOrEquals, NumberLessThan, NumberLessThanOrEquals, NumberIn, BoolEquals, StringContains, StringNotContains, StringBeginsWith, StringNotBeginsWith, StringEndsWith, StringNotEndsWith, StringIn.
+> If the event JSON doesn't contain the advanced filter key, filter is evaluated as **not matched** for the following operators: NumberGreaterThan, NumberGreaterThanOrEquals, NumberLessThan, NumberLessThanOrEquals, NumberIn, BoolEquals, StringContains, StringNotContains, StringBeginsWith, StringNotBeginsWith, StringEndsWith, StringNotEndsWith, StringIn.
 > 
->The filter is evaulated as **matched** for the following operators:NumberNotIn, StringNotIn.
+>The filter is evaluated as **matched** for the following operators: NumberNotIn, StringNotIn.
 
 
 ## IsNullOrUndefined

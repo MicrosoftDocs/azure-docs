@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 03/06/2023
+ms.date: 04/18/2023
 ms.author: cwatson
 ---
 
@@ -84,6 +84,7 @@ Data connectors are available as part of the following offerings:
 ## Atlassian
 
 - [Atlassian Confluence Audit (using Azure Function)](data-connectors/atlassian-confluence-audit-using-azure-function.md)
+- [Atlassian Jira Audit (using Azure Function)](data-connectors/atlassian-jira-audit-using-azure-function.md)
 
 ## Auth0
 
@@ -119,6 +120,7 @@ Data connectors are available as part of the following offerings:
 - [Cisco ASA](data-connectors/cisco-asa.md)
 - [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Function)](data-connectors/cisco-duo-security-using-azure-function.md)
+- [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
 - [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Email Gateway](data-connectors/cisco-secure-email-gateway.md)
 - [Cisco Secure Endpoint (AMP) (using Azure Function)](data-connectors/cisco-secure-endpoint-amp-using-azure-function.md)
@@ -134,7 +136,6 @@ Data connectors are available as part of the following offerings:
 ## Citrix
 
 - [Citrix ADC (former NetScaler)](data-connectors/citrix-adc-former-netscaler.md)
-- [CITRIX SECURITY ANALYTICS](data-connectors/citrix-security-analytics.md)
 
 ## Claroty
 
@@ -142,6 +143,7 @@ Data connectors are available as part of the following offerings:
 
 ## Cloud Software Group
 
+- [CITRIX SECURITY ANALYTICS](data-connectors/citrix-security-analytics.md)
 - [Citrix WAF (Web App Firewall)](data-connectors/citrix-waf-web-app-firewall.md)
 
 ## Cloudflare
@@ -181,6 +183,10 @@ Data connectors are available as part of the following offerings:
 ## CyberPion
 
 - [Cyberpion Security Logs](data-connectors/cyberpion-security-logs.md)
+
+## Cybersixgill
+
+- [Cybersixgill Actionable Alerts (using Azure Function)](data-connectors/cybersixgill-actionable-alerts-using-azure-function.md)
 
 ## Darktrace
 
@@ -222,7 +228,7 @@ Data connectors are available as part of the following offerings:
 
 - [ExtraHop Reveal(x)](data-connectors/extrahop-reveal-x.md)
 
-## F5 Networks
+## F5, Inc.
 
 - [F5 BIG-IP](data-connectors/f5-big-ip.md)
 - [F5 Networks](data-connectors/f5-networks.md)
@@ -279,6 +285,10 @@ Data connectors are available as part of the following offerings:
 ## Imperva
 
 - [Imperva Cloud WAF (using Azure Function)](data-connectors/imperva-cloud-waf-using-azure-function.md)
+
+## Infoblox
+
+- [Infoblox NIOS](data-connectors/infoblox-nios.md)
 
 ## Infoblox Inc.
 
@@ -554,6 +564,10 @@ Data connectors are available as part of the following offerings:
 - [Symantec Integrated Cyber Defense Exchange](data-connectors/symantec-integrated-cyber-defense-exchange.md)
 - [Symantec ProxySG](data-connectors/symantec-proxysg.md)
 - [Symantec VIP](data-connectors/symantec-vip.md)
+
+## TALON CYBER SECURITY LTD
+
+- [Talon Insights](data-connectors/talon-insights.md)
 
 ## Tenable
 
