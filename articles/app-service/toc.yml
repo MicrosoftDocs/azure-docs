@@ -96,7 +96,7 @@
           href: provision-resource-bicep.md
         - name: Terraform
           href: provision-resource-terraform.md
-- name: Logs and Monitoring
+- name: Logs and monitoring
   items:
     - name: Monitoring overview
       href: overview-monitoring.md      
