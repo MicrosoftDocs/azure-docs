@@ -24,6 +24,6 @@ ms.author: kengaderdus
  
 1. Select **Grant admin consent for \<your tenant name\>**, then select **Yes**.
 
-1. Select **Refresh**, then verify that **Granted for \<your tenant name\>** appears under **Status** for both scopes.
+1. Select **Refresh**, then verify that **Granted for \<your tenant name\>** appears under **Status** for both permissions.
 
 1. From the **Configured permissions** list, select the **ToDoList.Read** and **ToDoList.ReadWrite** permissions, one at a time, and then copy the permission's full URI for later use. The full permission URI looks something similar to `api://{clientId}/{ToDoList.Read}` or `api://{clientId}/{ToDoList.ReadWrite}`.
