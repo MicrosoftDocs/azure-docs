@@ -30,6 +30,12 @@ In this mode, the scale set makes no guarantees about the order of VMs being bro
 
 ### 3) Rolling
 
+> [!IMPORTANT]
+> Rolling Upgrades with MaxSurge is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+>
+> To enable this feature for your subscription, run `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute` in [Azure CloudShell](../cloud-shell/overview.md?).
+
+
 When using a Rolling Upgrade Policy, the scale set rolls out the update in batches with an optional pause time in between. There are two types of Rolling Upgrade Policies that can be configured:
 
 -  **Rolling Upgrades with MaxSurge disabled**
@@ -40,10 +46,6 @@ When using a Rolling Upgrade Policy, the scale set rolls out the update in batch
     
     With MaxSurge enabled, new instances are created and brought up-to-date with the latest scale model in batches rather than taking down the old instances for upgrades. Once complete, the new instances are added to the scale set and the old instances are removed. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. 
 
-> [!IMPORTANT]
-> Rolling Upgrades with MaxSurge is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
->
-> To enable this feature for your subscription, run `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute` in [Azure CloudShell](../cloud-shell/overview.md?).
 
 When a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
  
