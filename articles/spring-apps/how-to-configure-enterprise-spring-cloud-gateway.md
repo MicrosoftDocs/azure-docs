@@ -25,7 +25,7 @@ A Spring Cloud Gateway instance routes traffic according to rules. Both *scale i
 VMware Spring Cloud Gateway includes the following features:
 
 - Dynamic routing configuration, independent of individual applications, that you can apply and change without recompiling.
-- Commercial API route filters for transporting authorized JSON Web Token (JWT) claim to application services.
+- Commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
 - Client certificate authorization.
 - Rate-limiting approaches.
 - Circuit breaker configuration.
