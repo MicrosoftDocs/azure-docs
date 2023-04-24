@@ -451,7 +451,7 @@ After you configure the cloud HR app to Azure AD user provisioning, run test cas
 |User is terminated in the cloud HR app.|- The user account is disabled in Active Directory.</br>- The user can't log into any enterprise apps protected by Active Directory.
 |User supervisory organization is updated in the cloud HR app.|Based on the attribute mapping, the user account moves from one OU to another in Active Directory.|
 |HR updates the user's manager in the cloud HR app.|The manager field in Active Directory is updated to reflect the new manager's name.|
-|HR rehires an employee into a new role.|Behavior depends on how the cloud HR app is configured to generate employee IDs:</br>- If the old employee ID is used for a rehired employee, the connector enables the existing Active Directory account for the user.</br>- If the rehired employee gets a new employee ID, the connector creates a new Active Directory account for the user.|
+|HR rehires an employee into a new role.|Behavior depends on how the cloud HR app is configured to generate employee IDs. If the old employee ID is used for a rehired employee, the connector enables the existing Active Directory account for the user. If the rehired employee gets a new employee ID, the connector creates a new Active Directory account for the user.|
 |HR converts the employee to a contract worker or vice versa.|A new Active Directory account is created for the new persona and the old account gets disabled on the conversion effective date.|
 
 Use the previous results to determine how to transition your automatic user provisioning implementation into production based on your established timelines.
