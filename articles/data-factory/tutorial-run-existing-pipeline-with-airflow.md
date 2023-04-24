@@ -97,6 +97,5 @@ Data Factory pipelines provide 100+ data source connectors that provide scalable
 
 ## Next steps
 
-* [Refresh a Power BI dataset with Managed Airflow](tutorial-refresh-power-bi-dataset-with-airflow.md)
-* [Managed Airflow pricing](airflow-pricing.md)
-* [Changing password for Managed Airflow environments](password-change-airflow.md)
+- [Managed Airflow pricing](airflow-pricing.md)
+- [Changing password for Managed Airflow environments](password-change-airflow.md)
