@@ -439,8 +439,7 @@ When the Azure AD provisioning service runs for the first time, it performs an [
 After you're satisfied with the results of the initial cycle for test users, start the [incremental updates](../app-provisioning/how-provisioning-works.md#incremental-cycles).
 
 ## Plan testing and security
-
-At each stage of your deployment from initial pilot through enabling user provisioning, ensure that you're testing that results are as expected and auditing the provisioning cycles.
+A deployment consists of stages ranging from the initial pilot to enabling user provisioning. At each stage, ensure that you're testing for expected results. Also, audit the provisioning cycles.
 
 ### Plan testing
 
