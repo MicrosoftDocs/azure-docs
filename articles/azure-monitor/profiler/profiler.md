@@ -18,15 +18,17 @@ To enable Profiler on Linux, walk through the [ASP.NET Core Azure Linux web apps
 
 ## Prerequisites
 
+You need:
+
 - An [Azure App Service ASP.NET/ASP.NET Core app](../../app-service/quickstart-dotnetcore.md).
 - An [Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource) connected to your App Service app.
 
 ## Verify the Always on setting is enabled
 
 1. In the Azure portal, go to your App Service instance.
-1. Under **Settings** on the left side menu, select **Configuration**.
+1. Under **Settings** on the left pane, select **Configuration**.
 
-   :::image type="content" source="./media/profiler/configuration-menu.png" alt-text="Screenshot that shows selecting Configuration from the left side menu.":::
+   :::image type="content" source="./media/profiler/configuration-menu.png" alt-text="Screenshot that shows selecting Configuration on the left pane.":::
 
 1. Select the **General settings** tab.
 1. Verify that **Always on** > **On** is selected.
@@ -43,9 +45,9 @@ The following sections show you how to enable Application Insights for the same 
 
 If your Application Insights resource is in the same subscription as your instance of App Service:
 
-1. Under **Settings** on the left side menu, select **Application Insights**.
+1. Under **Settings** on the left pane, select **Application Insights**.
 
-   :::image type="content" source="./media/profiler/app-insights-menu.png" alt-text="Screenshot that shows selecting Application Insights from the left side menu.":::
+   :::image type="content" source="./media/profiler/app-insights-menu.png" alt-text="Screenshot that shows selecting Application Insights on the left pane.":::
 
 1. Under **Application Insights**, select **Enable**.
 1. Verify that you connected an Application Insights resource to your app.
@@ -118,9 +120,9 @@ To enable Azure AD for profile ingestion:
 
 To stop or restart Profiler for an individual app's instance:
 
-1. Under **Settings** on the left side menu, select **WebJobs**.
+1. Under **Settings** on the left pane, select **WebJobs**.
 
-   :::image type="content" source="./media/profiler/web-jobs-menu.png" alt-text="Screenshot that shows selecting web jobs from the left side menu.":::
+   :::image type="content" source="./media/profiler/web-jobs-menu.png" alt-text="Screenshot that shows selecting web jobs on the left pane.":::
 
 1. Select the webjob  named `ApplicationInsightsProfiler3`.
 

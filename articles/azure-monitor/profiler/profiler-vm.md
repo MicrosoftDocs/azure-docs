@@ -181,7 +181,7 @@ Because the Azure portal doesn't provide a way to set the Application Insights P
 
        :::image type="content" source="./media/profiler-vm/azure-resource-explorer.png" alt-text="Screenshot that shows going to WAD config in Azure Resource Explorer.":::
 
-1. Add the Application Insights Profiler sink to the `SinksConfig` node under WadCfg. If you don't already have a `SinksConfig` section, you might need to add one. To add the sink:
+1. Add the Application Insights Profiler sink to the `SinksConfig` node under `WadCfg`. If you don't already have a `SinksConfig` section, you might need to add one. To add the sink:
 
    - Specify the proper Application Insights iKey in your settings.
    - Switch the Explorer mode to **Read/Write** in the upper-right corner.
@@ -189,18 +189,18 @@ Because the Azure portal doesn't provide a way to set the Application Insights P
 
      :::image type="content" source="./media/profiler-vm/resource-explorer-sinks-config.png" alt-text="Screenshot that shows adding the Application Insights Profiler sink.":::
 
-   ```json
-   "WadCfg": {
-     "SinksConfig": {
-       "Sink": [
-         {
-           "name": "MyApplicationInsightsProfilerSink",
-           "ApplicationInsightsProfiler": "YOUR_APPLICATION_INSIGHTS_INSTRUMENTATION_KEY"
+       ```json
+       "WadCfg": {
+         "SinksConfig": {
+           "Sink": [
+             {
+               "name": "MyApplicationInsightsProfilerSink",
+               "ApplicationInsightsProfiler": "YOUR_APPLICATION_INSIGHTS_INSTRUMENTATION_KEY"
+             }
+           ]
          }
-       ]
-     }
-   }        
-   ```
+       }        
+       ```
 
 1. After you've finished editing the config, select **PUT**.
 

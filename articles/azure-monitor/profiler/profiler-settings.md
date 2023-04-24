@@ -14,22 +14,22 @@ After you enable Application Insights Profiler, you can:
 - Configure Profiler triggers.
 - View recent profiling sessions.
 
-To open the Application Insights Profiler settings pane, select **Performance** in the left pane on your Application Insights page.
+To open the Application Insights Profiler settings pane, select **Performance** on the left pane on your Application Insights page.
 
 :::image type="content" source="./media/profiler-settings/performance-blade-inline.png" alt-text="Screenshot that shows the link to open the Performance pane." lightbox="media/profiler-settings/performance-blade.png":::
 
 You can view Profiler traces across your Azure resources via two methods:
 
-- By **Profiler** button:
+- By the **Profiler** button:
 
-   Select the **Profiler** button.
+   Select **Profiler**.
 
   :::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot that shows the Profiler button on the Performance pane." lightbox="media/profiler-settings/profiler-button.png":::
 
 - By operation:
 
    1. Select an operation from the **Operation name** list. **Overall** is highlighted by default.
-   1. Select the **Profiler traces** button.
+   1. Select **Profiler traces**.
    
       :::image type="content" source="./media/profiler-settings/operation-entry-inline.png" alt-text="Screenshot that shows selecting operation and Profiler traces to view all Profiler traces." lightbox="media/profiler-settings/operation-entry.png":::
 
@@ -55,7 +55,7 @@ To manually trigger a Profiler session, you need, at minimum, *write* access on 
 
 ## Trigger settings
 
-Select the **Triggers** button to open the **Trigger Settings** pane that has the **CPU**, **Memory**, and **Sampling** trigger tabs.
+Select **Triggers** to open the **Trigger Settings** pane that has the **CPU**, **Memory**, and **Sampling** trigger tabs.
 
 ### CPU or Memory triggers
 
