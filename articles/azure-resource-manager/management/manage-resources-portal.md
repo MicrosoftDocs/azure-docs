@@ -97,7 +97,7 @@ Tagging helps organizing your resource group and resources logically.
     ![tag azure resource](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
 3. Specify the tag properties, and then select **Save**.
 
-For information, see [Using tags to organize your Azure resources](tag-resources.md#portal).
+For information, see [Using tags to organize your Azure resources](tag-resources-portal.md).
 
 ## Monitor resources
 

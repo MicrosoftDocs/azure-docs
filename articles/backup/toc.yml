@@ -675,6 +675,8 @@
       href: backup-azure-encrypted-vm-troubleshoot.md
     - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
+    - name: Azure Blob backup
+      href: backup-azure-troubleshoot-blob-backup.md
     - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Azure Backup Server

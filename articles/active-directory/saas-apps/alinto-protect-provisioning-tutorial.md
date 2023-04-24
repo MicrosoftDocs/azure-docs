@@ -41,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Cleanmail to support provisioning with Azure AD
 
-Contact [Cleanmail Support](https://www.alinto.com/contact-email-provider/) to configure Alinto to support provisioning with Azure AD.
+Contact [Cleanmail Support](https://www.alinto.com/contact-email-provider/) to configure Cleanmail to support provisioning with Azure AD.
 
 ## Step 3. Add Cleanmail from the Azure AD application gallery
 

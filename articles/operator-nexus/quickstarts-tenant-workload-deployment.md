@@ -120,7 +120,7 @@ Gather the `resourceId` values of the L2 and L3 isolation domains that you creat
 
 #### Create a cloud services network
 
-Your VM requires at least one cloud services network. You need the egress endpoints that you want to add to the proxy for your VM to access.
+Your VM requires at least one cloud services network. You need the egress endpoints that you want to add to the proxy for your VM to access. This list should include any domains needed to pull images or access data, such as ".azurecr.io" or ".docker.io".
 
 ```azurecli
   az networkcloud cloudservicesnetwork create --name "<YourCloudServicesNetworkName>" \
@@ -375,6 +375,8 @@ You also need to configure the following information for your network. Valid val
 
 ##### Create a default CNI network for an AKS hybrid cluster
 
+Each cluster needs its own default CNI Network (Calico Network). 
+
 You need the following information:
 
 - The `resourceId` value of the L3 isolation domain that you created earlier to configure the VLAN for this network
@@ -402,7 +404,7 @@ You don't need to specify the network MTU here, because the network will be conf
 
 ##### Create a cloud services network for an AKS hybrid cluster
 
-You need the egress endpoints that you want to add to the proxy for your VM to access.
+You need the egress endpoints that you want to add to the proxy for your VM to access. This list should include any domains needed to pull images or access data, such as ".azurecr.io" or ".docker.io".
 
 ```azurecli
   az networkcloud cloudservicesnetwork create --name "<YourCloudServicesNetworkName>" \

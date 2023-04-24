@@ -5,15 +5,15 @@ description: Learn how to upgrade a basic internal load balancer to a standard p
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 04/17/2023
 ms.author: mbender
-ms.custom: template-how-to
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Upgrade an internal basic load balancer - Outbound connections required
 
 >[!Important]
->On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. This article will help guide you through the upgrade process. 
+>On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. 
 
 A standard [Azure Load Balancer](load-balancer-overview.md) offers increased functionality and high availability through zone redundancy. For more information about Azure Load Balancer SKUs, see [Azure Load Balancer SKUs](./skus.md#skus). A standard internal Azure Load Balancer doesn't provide outbound connectivity. The PowerShell script in this article, migrates the basic load balancer configuration to a standard public load balancer.
 
@@ -47,7 +47,7 @@ An Azure PowerShell script is available that does the following procedures:
 
 * If the load balancer doesn't have a frontend IP configuration or backend pool, you'll encounter an error running the script. Ensure the load balancer has a frontend IP and backend pool
 
-* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. For this type of upgrade, see [Upgrade a basic load balancer used with Virtual Machine Scale Sets](./upgrade-basic-standard-virtual-machine-scale-sets.md) for instructions and more information.
+* The script can't migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. For this type of upgrade, see [Upgrade a basic load balancer used with Virtual Machine Scale Sets](./upgrade-basic-standard-virtual-machine-scale-sets.md) for instructions and more information.
 
 ## Download the script
 
@@ -57,32 +57,32 @@ Download the migration script from the [PowerShell Gallery](https://www.powershe
 
 There are two options depending on your local PowerShell environment setup and preferences:
 
-* If you don’t have the Azure Az modules installed, or don’t mind uninstalling the Azure Az modules, use the `Install-Script` option to run the script.
+* If you don’t have the Az PowerShell module installed, or don’t mind uninstalling the Az PowerShell module, use the `Install-Script` option to run the script.
 
-* If you need to keep the Azure Az modules, download the script and run it directly.
+* If you need to keep the Az PowerShell module, download the script and run it directly.
 
-To determine if you have the Azure Az modules installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az modules, then you can use the `Install-Script` method.
+To determine if you have the Az PowerShell module installed, run `Get-InstalledModule -Name az`. If the Az PowerShell module isn't installed, you can use the `Install-Script` method.
 
 ### Install with Install-Script
 
-To use this option, don't have the Azure Az modules installed on your computer. If they're installed, the following command displays an error. Uninstall the Azure Az modules, or use the other option to download the script manually and run it.
+To use this option, don't have the Az PowerShell module installed on your computer. If they're installed, the following command displays an error. Uninstall the Az PowerShell module, or use the other option to download the script manually and run it.
   
 Run the script with the following command:
 
 ```azurepowershell
 Install-Script -Name AzureLBUpgrade
 ```
-This command also installs the required Az modules.  
+This command also installs the required Az PowerShell module.  
 
 ### Install with the script directly
 
-If you do have Azure Az modules installed and can't uninstall them, or don't want to uninstall them,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
+If you do have Az PowerShell module installed and can't uninstall them, or don't want to uninstall them, you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download).
 
 To run the script:
 
 1. Use `Connect-AzAccount` to connect to Azure.
 
-2. Use `Import-Module Az` to import the Az modules.
+2. Use `Import-Module Az` to import the Az PowerShell module.
 
 3. Examine the required parameters:
 
@@ -137,7 +137,7 @@ The following scenarios explain how you add VMs to the backend pools of the newl
 
 ### Create a NAT gateway for outbound access
 
-The script creates an outbound rule that enables outbound connectivity. Azure Virtual Network NAT is the recommended service for outbound connectivity. For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md). 
+The script creates an outbound rule that enables outbound connectivity. Azure NAT Gateway is the recommended service for outbound connectivity. For more information about Azure NAT Gateway, see [What is Azure NAT Gateway?](../virtual-network/nat-gateway/nat-overview.md). 
 
 To create a NAT gateway resource and associate it with a subnet of your virtual network see, [Create NAT gateway](quickstart-load-balancer-standard-public-portal.md#create-nat-gateway).
 

@@ -127,7 +127,7 @@ For more information, see [Lock resources with Azure Resource Manager](lock-reso
 
 ## Tag resources
 
-Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources.md#azure-cli).
+Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources-cli.md).
 
 ## Manage access to resources
 

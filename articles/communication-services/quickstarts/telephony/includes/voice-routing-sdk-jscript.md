@@ -12,10 +12,6 @@ ms.custom: include file
 ms.author: nikuklic
 ---
 
-<!-- ## Sample code
-
-You can download the sample app from [GitHub](https://github.com/link. -->
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -23,6 +19,10 @@ You can download the sample app from [GitHub](https://github.com/link. -->
 - Active LTS and Maintenance LTS versions of  [Node.js](https://nodejs.org/) for your operating system.
 - Fully Qualified Domain Name (FQDN) and port number of a Session Border Controller (SBC) in operational telephony system.
 - [Verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN.
+
+## Final code
+
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/direct-routing-quickstart)
 
 ## Create a new Node.js application
 

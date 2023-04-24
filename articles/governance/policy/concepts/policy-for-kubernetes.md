@@ -4,8 +4,8 @@ description: Learn how Azure Policy uses Rego and Open Policy Agent to manage cl
 ms.date: 06/17/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Understand Azure Policy for Kubernetes clusters
 

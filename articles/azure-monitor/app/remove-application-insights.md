@@ -1,98 +1,96 @@
 ---
-title: 'Remove Application Insights in Visual Studio: Azure Monitor' 
-description: This article shows you how to remove the Application Insights SDK for ASP.NET and ASP.NET Core in Visual Studio. 
+title: Remove Application Insights in Visual Studio - Azure Monitor 
+description: How to remove Application Insights SDK for ASP.NET and ASP.NET Core in Visual Studio. 
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.reviewer: cithomas
 ---
 
-# Remove Application Insights in Visual Studio
+# How to remove Application Insights in Visual Studio
 
 This article shows you how to remove the ASP.NET and ASP.NET Core Application Insights SDK in Visual Studio.
 
-To remove Application Insights, you remove the NuGet packages and references from the API in your application. You can uninstall NuGet packages by using the Package Management Console or the Manage NuGet Solution in Visual Studio.
+To remove Application Insights, you need to remove the NuGet packages and references from the API in your application. You can uninstall NuGet packages by using the Package Management Console or Manage NuGet Solution in Visual Studio. The following sections show two ways to remove NuGet Packages and what was automatically added in your project. Be sure to confirm the files added and areas with in your own code in which you made calls to the API are removed.
 
-The following sections show two ways to remove NuGet packages and what was automatically added in your project. Confirm that the files added and the areas within your own code in which you made calls to the API are removed.
-
-## Uninstall by using the Package Management Console
+## Uninstall using the Package Management Console
 
 # [.NET](#tab/net)
 
-1. To open the Package Management Console, select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+1. To open the Package Management Console, in the top menu select Tools > NuGet Package Manager > Package Manager Console.
      
-    ![Screenshot that shows selecting Tools > NuGet Package Manager > Package Manager Console.](./media/remove-application-insights/package-manager.png)
+    :::image type="content" source="./media/remove-application-insights/package-manager.png" lightbox="./media/remove-application-insights/package-manager.png" alt-text="In the top menu click Tools > NuGet Package Manager > Package Manager Console":::
 
     > [!NOTE]
-    > If trace collection is enabled, you need to first uninstall Microsoft.ApplicationInsights.TraceListener. Enter `Uninstall-package Microsoft.ApplicationInsights.TraceListener`. Then follow the next step to remove Microsoft.ApplicationInsights.Web.
+    > If trace collection is enabled you need to first uninstall Microsoft.ApplicationInsights.TraceListener. Enter `Uninstall-package Microsoft.ApplicationInsights.TraceListener` then follow the step below to remove Microsoft.ApplicationInsights.Web.
 
-1. Enter the following command:<br>`Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
+1. Enter the following command: `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
 
-    After you enter the command, the Application Insights package and all its dependencies are uninstalled from the project.
+    After entering the command, the Application Insights package and all of its dependencies will be uninstalled from the project.
     
-    ![Screenshot that shows entering the command in the console.](./media/remove-application-insights/package-management-console.png)
+    :::image type="content" source="./media/remove-application-insights/package-management-console.png" lightbox="./media/remove-application-insights/package-management-console.png" alt-text="Enter command in console":::
 
 # [.NET Core](#tab/netcore)
 
-1. To open the Package Management Console, select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+1. To open the Package Management Console, in the top menu select Tools > NuGet Package Manager > Package Manager Console.
 
-    ![Screenshot that shows Tools > NuGet Package Manager > Package Manager Console.](./media/remove-application-insights/package-manager.png)
+    :::image type="content" source="./media/remove-application-insights/package-manager.png" lightbox="./media/remove-application-insights/package-manager.png" alt-text="In the top menu click Tools > NuGet Package Manager > Package Manager Console":::
 
-1. Enter the following command:<br>`Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
+1. Enter the following command: ` Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
 
-    After you enter the command, the Application Insights package and all its dependencies are uninstalled from the project.
+    After entering the command, the Application Insights package and all of its dependencies will be uninstalled from the project.
 
 ---
 
-## Uninstall by using the Visual Studio NuGet UI
+## Uninstall using the Visual Studio NuGet UI
 
 # [.NET](#tab/net)
 
-1. In the Solution Explorer on the right, right-click **Solution** and select **Manage NuGet Packages for Solution**.
+1. In the *Solution Explorer* on the right, right click on **Solution** and select **Manage NuGet Packages for Solution**.
 
-   A screen appears where you can edit all the NuGet packages that are part of the project.
+    You'll then see a screen that allows you to edit all the NuGet packages that are part of the project.
     
-     ![Screenshot that shows right-clicking Solution in the Solution Explorer, and then selecting Manage NuGet Packages for Solution.](./media/remove-application-insights/manage-nuget-framework.png)
+     :::image type="content" source="./media/remove-application-insights/manage-nuget-framework.png" lightbox="./media/remove-application-insights/manage-nuget-framework.png" alt-text="Right click Solution, in the Solution Explorer, then select Manage NuGet Packages for Solution":::
 
     > [!NOTE]
-    > If trace collection is enabled, you need to first uninstall Microsoft.ApplicationInsights.TraceListener without removing the dependencies selected. Then follow the next steps to uninstall Microsoft.ApplicationInsights.Web with **Remove dependencies** selected.
+    > If trace collection is enabled you need to first uninstall Microsoft.ApplicationInsights.TraceListener without remove dependencies selected and then follow the steps below to uninstall Microsoft.ApplicationInsights.Web with remove dependencies selected.
 
-1. Select the **Microsoft.ApplicationInsights.Web** package. On the right, select the **Project** checkbox to select all projects.
+1. Click on the **Microsoft.ApplicationInsights.Web** package. On the right, check the checkbox next to **Project** to select all projects.
 
-1. To remove all dependencies when you uninstall, select the **Options** dropdown under the section where you selected a project.
+1. To remove all dependencies when uninstalling, select the **Options** dropdown button below the section where you selected project.
 
-    Under **Uninstall Options**, select the **Remove dependencies** checkbox.
+    Under *Uninstall Options*, select the checkbox next to *Remove dependencies*.
 
 1. Select **Uninstall**.
     
-    ![Screenshot that shows the Microsoft.ApplicationInsights.Web window with Remove dependencies checked and Uninstall highlighted.](./media/remove-application-insights/uninstall-framework.png)
+    :::image type="content" source="./media/remove-application-insights/uninstall-framework.png" lightbox="./media/remove-application-insights/uninstall-framework.png" alt-text="Screenshot shows the Microsoft.ApplicationInsights.Web window with Remove dependencies checked and uninstall highlighted.":::
 
-1. A dialog appears that shows all the dependencies to be removed from the application. Select **OK** to uninstall.
+    A dialog box displays that shows all of the dependencies to be removed from the application. Select **ok** to uninstall.
     
-    ![Screenshot that shows a dialog with the dependencies to be removed.](./media/remove-application-insights/preview-uninstall-framework.png)
+    :::image type="content" source="./media/remove-application-insights/preview-uninstall-framework.png" lightbox="./media/remove-application-insights/preview-uninstall-framework.png" alt-text="Screenshot shows a dialog box with the dependencies to be removed.":::
     
-1. After everything is uninstalled, you might still see **ApplicationInsights.config** and **AiHandleErrorAttrobute.cs** in the Solution Explorer. You can delete the two files manually.
+1.  After everything is uninstalled, you may still see "ApplicationInsights.config" and "AiHandleErrorAttribute.cs" in the *Solution Explorer*. You can delete the two files manually.
 
 # [.NET Core](#tab/netcore)
 
-1. In the Solution Explorer on the right, right-click **Solution** and select **Manage NuGet Packages for Solution**.
-   
-   A screen appears where you can edit all the NuGet packages that are part of the project.
+1. In the *Solution Explorer* on the right, right click on **Solution** and select **Manage NuGet Packages for Solution**.
 
-    ![Screenshot that shows right-clicking Solution in the Solution Explorer and then select Manage NuGet Packages for Solution.](./media/remove-application-insights/manage-nuget-core.png)
+    You'll then see a screen that allows you to edit all the NuGet packages that are part of the project.
 
-1. Select the **Microsoft.ApplicationInsights.AspNetCore** package. On the right, select the **Project** checkbox to select all projects and then select **Uninstall**.
+    :::image type="content" source="./media/remove-application-insights/manage-nuget-core.png" lightbox="./media/remove-application-insights/manage-nuget-core.png" alt-text="Right click Solution, in the Solution Explorer, then select Manage NuGet Packages for Solution":::
 
-    ![Screenshot that shows Check remove dependencies, then Uninstall.](./media/remove-application-insights/uninstall-core.png)
+1. Click on "Microsoft.ApplicationInsights.AspNetCore" package. On the right, check the checkbox next to *Project* to select all projects then select **Uninstall**.
+
+    :::image type="content" source="./media/remove-application-insights/uninstall-core.png" lightbox="./media/remove-application-insights/uninstall-core.png" alt-text="Check remove dependencies, then uninstall":::
 
 ---
 
 ## What is created when you add Application Insights
 
-When you add Application Insights to your project, it creates files and adds code to some of your files. Solely uninstalling the NuGet Packages doesn't always discard the files and code. To fully remove Application Insights, check and manually delete the added code or files along with any API calls you added in your project.
+When you add Application Insights to your project, it creates files and adds code to some of your files. Solely uninstalling the NuGet Packages won't always discard the files and code. To fully remove Application Insights, you should check and manually delete the added code or files along with any API calls you added in your project.
 
 # [.NET](#tab/net)
 
-When you add Application Insights telemetry to a Visual Studio ASP.NET project, it adds the following files:
+When you add Application Insights Telemetry to a Visual Studio ASP.NET project, it adds the following files:
 
 - ApplicationInsights.config
 - AiHandleErrorAttribute.cs
@@ -132,7 +130,7 @@ The following pieces of code are added:
 
 - Layout.cshtml
 
-    If your project has a Layout.cshtml file, the following code is added:
+    If your project has a Layout.cshtml file the code below is added.
     
     ```html
     <head>
@@ -176,7 +174,7 @@ The following pieces of code are added:
 
 # [.NET Core](#tab/netcore)
 
-When you add Application Insights telemetry to a Visual Studio ASP.NET Core template project, it adds the following code:
+When you add Application Insights Telemetry to a Visual Studio ASP.NET Core template project, it adds the following code:
 
 - [Your project's name].csproj
 
@@ -195,7 +193,7 @@ When you add Application Insights telemetry to a Visual Studio ASP.NET Core temp
       </ItemGroup>
     ```
 
-- Appsettings.json
+- Appsettings.json:
 
     ```json
     "ApplicationInsights": {
@@ -227,4 +225,4 @@ When you add Application Insights telemetry to a Visual Studio ASP.NET Core temp
 
 ## Next steps
 
-[Azure Monitor](../overview.md)
+- [Azure Monitor](../overview.md)

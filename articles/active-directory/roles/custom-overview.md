@@ -101,7 +101,7 @@ Azure AD provides multiple options for assigning roles:
 
 ## License requirements
 
-Using built-in roles in Azure AD is free, while custom roles require an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Using built-in roles in Azure AD is free. Using custom roles require an Azure AD Premium P1 license for every user with a custom role assignment. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 

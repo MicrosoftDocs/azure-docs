@@ -39,7 +39,7 @@ The following screenshot demonstrates the sign-in flow:
 
 Follow these steps to create a user flow a customer can use to sign in or sign up for an application.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the customer tenant you created earlier.
 
@@ -82,7 +82,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 Now you can associate applications with the user flow. Associating your user flow with an application allows you to enable sign-in or sign-up for that app. You can choose more than one application to be associated with the user flow. A single application can be associated only with one user flow. Once you associate the user flow with one or more applications, users who visit that application can sign up or sign in using the options configured in the user flow.
 
-1. In the Azure portal, select **Azure Active Directory**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory**.
 
 1. Select **External Identities**, and then select **User flows** under **Self-service sign up**.
 
@@ -118,7 +118,7 @@ Now that your application is associated with a user flow, you can test the sign-
 
 You can choose the order in which the attributes are displayed on the sign-up page.
 
-1. In the Azure portal, select **Azure Active Directory**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory**.
 
 1. Select **External Identities**, and then select **User flows**.
 
@@ -138,7 +138,7 @@ User attributes are values collected from the user during self-service sign-up f
 
 ### To add custom attributes
 
-1. In the Azure portal, select **Azure Active Directory**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory**.
 1. Select **External Identities**
 1. Select **Custom user attributes**. The available user attributes are listed.
 1. To add an attribute, select **Add**.
@@ -154,7 +154,7 @@ User attributes are values collected from the user during self-service sign-up f
 
 The custom attribute is now available in the list of user attributes and for use in your user flows. In this step, you add the *Loyalty number* to a user flow.
 
-1. In the Azure portal, select **Azure Active Directory**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com/), select **Azure Active Directory**.
 1. Select **External Identities**, and then select **User flows**.
 1. From the list, select your user flow.
 1. Under **Customize**, select **User attributes**.
@@ -162,7 +162,3 @@ The custom attribute is now available in the list of user attributes and for use
 1. Select **Save**, to save the changes.
 
    <!-- ![Screenshot that shows how to select attributes to collect during the sign-up.](./media/user-flow-select-attributes.png)-->
-
-## Next steps
-
-- [Enable password reset](how-to-enable-password-reset-customers.md)

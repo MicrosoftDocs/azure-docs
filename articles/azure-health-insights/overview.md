@@ -1,5 +1,5 @@
 ---
-title: What is Project Health Insights
+title: What is Project Health Insights (Preview)
 titleSuffix: Project Health Insights
 description: Improved quality of health care and Improved efficiency and cost-benefit, by reducing the time spent by healthcare professional
 services: azure-health-insights
@@ -11,7 +11,7 @@ ms.date: 02/02/2023
 ms.author: behoorne
 ---
 
-# What is Project Health Insights?
+# What is Project Health Insights (Preview)?
 
 Project Health Insights is a Cognitive Service providing an API that serves insight models, which perform analysis and provide inferences to be used by a human. The models can receive input in different modalities, and return insight inferences including evidence as a result, for key high value scenarios in the health domain
 
@@ -23,7 +23,7 @@ Project Health Insights is a Cognitive Service providing an API that serves insi
 Health and Life Sciences organizations have multiple high-value business problems that require clinical insights inferences that are based on clinical data. 
 Project Health Insights is a Cognitive Service that provides prebuilt models that assist with solving those business problems.
 
-## Available decision support models
+## Available models
 
 There are currently two models available in Project Health Insights: 
 

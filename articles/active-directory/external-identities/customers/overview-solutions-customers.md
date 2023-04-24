@@ -1,0 +1,75 @@
+---
+title: Overview of solutions with Microsoft Entra for customers
+description: Learn about the customer identity and access management solutions for your customer-facing apps that are provided by Azure AD for customers.
+services: active-directory
+author: msmimart
+manager: celestedg
+ms.service: active-directory
+ms.workload: identity
+ms.subservice: ciam
+ms.topic: conceptual
+ms.date: 04/17/2023
+ms.author: mimart
+ms.custom: it-pro
+
+---
+# Solutions at a glance: Woodgrove Groceries demo
+
+Microsoft Entra Azure Active Directory offers customer solutions that let you quickly add intuitive, user-friendly sign-up and sign-up experiences for your customer apps. The Woodgrove Groceries demo environment illustrates several of the most common authentication experiences that can be configured for your customer-facing apps.
+
+## Get started
+
+To try out the demo environment, go to [Woodgrove Groceries](https://wggdemo.net/) and select from a list of use cases that illustrate different sign-in options and business cases.
+
+:::image type="content" source="media/overview-solutions-customers/demo-woodgrove.png" alt-text="Screenshot of the Woodgrove Groceries demo home page.":::
+
+## Use cases
+
+### Sign-up with an email and password
+
+One of the most common ways for users to sign up for an app is by creating an account using their email and a password. The **Common use case** option illustrates how to create an account from the sign-in page by selecting **No account? Create one**.
+
+:::image type="content" source="media/overview-solutions-customers/use-case-common.png" alt-text="Screenshot of the common use case demo.":::
+
+When you enter an email address to create an account, your email is verified through a one-time passcode. Then you can create a new password and provide more details, such as your name, country or region, and other information. Once your account is create, your email becomes your sign-in ID.
+
+### Self-service password reset
+
+Self-service password reset (SSPR) gives users the ability to change or reset their password, with no administrator or help desk involvement. If a user's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work.
+
+Before you start, make sure you've run one of the sign-up use cases to create an account with Woodgrove Groceries. Then select the password reset use case to try it out. On the sign-in page, enter your email, and select **Next**. Then, select the **Forgot password?** link. Enter the verification code sent to your mailbox, and select next. Then, enter a password, and reenter the password, and select next.
+
+### Sign-in with a social account
+
+You can offer your customers the ability to sign in with their existing social or enterprise accounts, without having to create a new account. On the sign-in page, select one of the identity providers, such as Google or Facebook. Then you're redirected to the selected provider's to complete the sign-in process.
+
+:::image type="content" source="media/overview-solutions-customers/use-case-social.png" alt-text="Screenshot of the social sign-in use case.":::
+
+### Sign-up with a one-time passcode
+
+Email one-time passcode sign-in method is a type of passwordless authentication option for your email account identity provider. With email one-time passcode, users can sign up and sign-in to your app using an email as their primary sign-in identifier. They don't need to create and remember passwords. During the sign-in, users are asked to enter their email address, to which Azure Active Directory sends a one-time passcode. The users then open they mailbox and enter the passcode set to them into the sign-in page.
+
+:::image type="content" source="media/overview-solutions-customers/use-case-passcode.png" alt-text="Screenshot of the one-time passcode use case.":::
+
+### Sign-in with custom extension
+
+When users authenticate to your application with Azure Active Directory, a security token is returned to your application. The security token contains claims that are statements about the user, such as name, unique identifier, or application roles. Beyond the default set of claims that are contained in the security token you can define your own custom claims from external systems using a REST API you develop.
+ 
+In this use case, you can sign in or sign up with your credentials. Then after you're successfully authenticated, from the Woodgrove top bar select your name and check your profile. It contains information that return by the Azure AD custom extension REST API.
+
+### Input constrained devices (Kiosk)
+
+Input-constrained devices are devices where the screen or monitor is limited to text-only and they don't have a web browser. For example, smart TV, IoT device, robot, gaming console, printers. Or applications with limited user interface, such as a command line application.
+
+These devices are connected to the internet, but due to the input constrains, the authentication should be done on another device. The input constrained device gets a device code from Azure AD and asks the user to visit a webpage in a browser on a second (rich device), such as smartphone, tablets, or PCs.
+ 
+In this use case, from the Kiosk page select sign-in. Use the second device, such as smartphone, and scan the QR code. Then on the sign-in page, enter the device code and complete the sign-in. Once you're signed in, the Kiosk (input-constrained device) is able to get security tokens and authenticate you. You should see your name in the top-right corner of the page.
+
+### Edit your account
+
+Profile editing policy lets you manage your profile attributes, like display name, surname, given name, city, and others. After you update your profile, sign out and sign in again.
+
+### Delete your account
+
+If you would like to delete your account and personal information, visit the **Delete my account** page. Once you delete your account, you can't reactivate it. After a couple of minutes, you'll be able to sign up again with the same credentials.
+

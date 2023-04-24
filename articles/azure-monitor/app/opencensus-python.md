@@ -206,9 +206,9 @@ import logging
 from opencensus.ext.azure.log_exporter import AzureEventHandler
 
 logger = logging.getLogger(__name__)
-logger.addHandler(AzureLogHandler())
+logger.addHandler(AzureEventHandler())
 # Alternatively manually pass in the connection_string
-# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
+# logger.addHandler(AzureEventHandler(connection_string=<appinsights-connection-string>))
 
 logger.setLevel(logging.INFO)
 logger.info('Hello, World!')

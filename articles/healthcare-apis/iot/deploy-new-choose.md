@@ -4,6 +4,7 @@ description: In this article, you'll learn about the different methods for deplo
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ms.topic: quickstart
 ms.date: 03/10/2023
 ms.author: jasteppe

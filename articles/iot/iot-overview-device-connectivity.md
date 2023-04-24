@@ -20,7 +20,7 @@ IoT Central applications use the IoT Hub and the Device Provisioning Service (DP
 
 The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the connectivity between the devices and the IoT cloud services, including gateways and bridges, shown in the diagram.
 
-:::image type="content" source="media/iot-overview-device-connectivity/iot-architecture.svg" lightbox="media/iot-overview-device-connectivity/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
+:::image type="content" source="media/iot-overview-device-connectivity/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
 
 ## Primitives
 
@@ -133,5 +133,5 @@ The open source IoT Central Device Bridge acts as a translator that forwards tel
 
 Now that you've seen an overview of device connectivity in Azure IoT solutions, some suggested next steps include
 
-- [IoT device development](iot-overview-device-development.md)
 - [Device management and control in IoT solutions](iot-overview-device-management.md)
+- [Process and route messages](iot-overview-message-processing.md)

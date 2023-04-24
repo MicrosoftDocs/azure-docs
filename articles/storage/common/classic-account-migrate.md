@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 04/13/2023
 ms.author: tamram
 ms.subservice: common
 ---
@@ -46,10 +46,10 @@ The process of migrating a classic storage account involves four steps:
 1. **Validate**. During the Validation phase, Azure checks the storage account to ensure that it can be migrated.
 1. **Prepare**. In the Prepare phase, Azure creates a new general-purpose v1 storage account and alerts you to any problems that may have occurred. The new account is created in a new resource group in the same region as your classic account.
 
-    At this point your classic storage account still exists. If there are any problems reported, you can correct them or abort the process.
+    At this point, your classic storage account still exists. If there are any problems reported, you can correct them or abort the process.
 
 1. **Check manually**. It's a good idea to make a manual check of the new storage account to make sure that the output is as you expect.
-1. **Commit or abort**. If you are satisfied that the migration has been successful, then you can commit the migration. Committing the migration permanently deletes the classic storage account.
+1. **Commit or abort**. If you're satisfied that the migration has been successful, then you can commit the migration. Committing the migration permanently deletes the classic storage account.
 
     If there are any problems with the migration, then you can abort the migration at this point. If you choose to abort, the new resource group and new storage account are deleted. Your classic account remains available. You can address any problems and attempt the migration again.
 
@@ -74,7 +74,7 @@ To migrate a classic storage account to the Azure Resource Manager deployment mo
 
 1. If the Prepare step completes successfully, you'll see a link to the new resource group. Select that link to navigate to the new resource group. The migrated storage account appears under the **Resources** tab in the **Overview** page for the new resource group.
 
-    At this point you can compare the configuration and data in the classic storage account to the newly migrated storage account. You'll see both in the list of storage accounts in the portal. Both the classic account and the migrated account have the same name.
+    At this point, you can compare the configuration and data in the classic storage account to the newly migrated storage account. You'll see both in the list of storage accounts in the portal. Both the classic account and the migrated account have the same name.
 
     :::image type="content" source="media/classic-account-migrate/compare-classic-migrated-accounts.png" alt-text="Screenshot showing the results of the Prepare step in the Azure portal." lightbox="media/classic-account-migrate/compare-classic-migrated-accounts.png":::
 
@@ -83,14 +83,14 @@ To migrate a classic storage account to the Azure Resource Manager deployment mo
 
 # [PowerShell](#tab/azure-powershell)
 
-To migrate a classic storage account to the Azure Resource Manager deployment model with PowerShell, you'll need to use the Azure PowerShell Service Management module. To learn how to install this module, see [Install and configure the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps#checking-the-version-of-azure-powershell). The key steps are included here for convenience.
+To migrate a classic storage account to the Azure Resource Manager deployment model with PowerShell, you must use the Azure PowerShell Service Management module. To learn how to install this module, see [Install and configure the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps#checking-the-version-of-azure-powershell). The key steps are included here for convenience.
 
 > [!NOTE]
 > The cmdlets in the Azure Service Management module are for managing legacy Azure resources that use Service Management APIs, including classic storage accounts. This module includes the commands needed to migrate a classic storage account to Azure Resource Manager.
 >
 > To manage Azure Resource Manager resources, we recommend that you use the Az PowerShell module. The Az module replaces the deprecated AzureRM module. For more information about moving from the AzureRM module to the Az module, see [Migrate Azure PowerShell scripts from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).
 
-First, install PowerShellGet if you do not already have it installed. For more information on how to install PowerShellGet, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget#installing-the-latest-version-of-powershellget). After you install PowerShellGet, close and reopen the PowerShell console.
+First, install PowerShellGet if you don't already have it installed. For more information on how to install PowerShellGet, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget#installing-the-latest-version-of-powershellget). After you install PowerShellGet, close and reopen the PowerShell console.
 
 Next, install the Azure Service Management module. If you also have the AzureRM module installed, you'll need to include the `-AllowClobber` parameter, as described in [Step 2: Install Azure PowerShell](/powershell/azure/servicemanagement/install-azure-ps#step-2-install-azure-powershell). After the installation is complete, import the Azure Service Management module.
 
@@ -125,7 +125,7 @@ Check the configuration for the prepared storage account with either Azure Power
 Move-AzureStorageAccount -Abort -StorageAccountName $accountName
 ```
 
-Finally, when you are satisfied with the prepared configuration, move forward with the migration and commit the resources with the following command:
+Finally, when you're satisfied with the prepared configuration, move forward with the migration and commit the resources with the following command:
 
 ```azurepowershell
 Move-AzureStorageAccount -Commit -StorageAccountName $accountName
