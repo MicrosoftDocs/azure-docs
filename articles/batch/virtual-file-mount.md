@@ -4,7 +4,7 @@ description: Learn how to mount different kinds of virtual file systems on Batch
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.date: 04/20/2023
+ms.date: 04/24/2023
 ---
 
 # Mount a virtual file system on a Batch pool
@@ -58,7 +58,7 @@ Mounting a virtual file system on a pool makes the file system available to ever
 
 To mount a file system on a pool, you create a [MountConfiguration](/dotnet/api/microsoft.azure.batch.mountconfiguration) object that matches your virtual file system: `AzureBlobFileSystemConfiguration`, `AzureFileShareConfiguration`, `NfsMountConfiguration`, or `CifsMountConfiguration`.
 
-All mount configuration objects need the following base parameters. Some mount configurations have specific parameters for the particular file system, which the code examples present in more detail.
+All mount configuration objects need the following base parameters. Some mount configurations have specific parameters for the particular file system, which the [code examples](#mount-configuration-examples) present in more detail.
 
 - **Account name or source** of the storage account.
 
@@ -84,16 +84,16 @@ Mounting the file system creates an environment variable `AZ_BATCH_NODE_MOUNTS_D
 
 ## Mount an Azure Files share with PowerShell
 
-You can use [Azure PowerShell](/powershell/) to mount an Azure file share on a Windows or Linux Batch pool. The following procedure walks you through configuring and mounting an Azure file share file system on a Batch pool.
+You can use [Azure PowerShell](/powershell/) to mount an Azure Files share on a Windows or Linux Batch pool. The following procedure walks you through configuring and mounting an Azure file share file system on a Batch pool.
 
 > [!IMPORTANT]
 > The maximum number of mounted file systems on a pool is 10. For details and other limits, see [Batch service quotas and limits](batch-quota-limit.md#other-limits).
 
 ### Prerequisites
 
-- An Azure account with an active subscription
+- An Azure account with an active subscription.
 - [Azure PowerShell](/powershell/azure/install-azure-powershell) installed, or use [Azure Cloud Shell](https://shell.azure.com) and select **PowerShell** for the interface.
-- An existing Batch account with a linked Azure Storage account, and a file share with a file in the Storage account.
+- An existing Batch account with a linked Azure Storage account that has a file share.
 
 # [Windows](#tab/windows)
 
@@ -130,10 +130,10 @@ You can use [Azure PowerShell](/powershell/) to mount an Azure file share on a W
 ### Access the mounted files
 
 Azure Batch tasks can access the mounted files by using the drive's direct path, for example:
->
->```powershell
->cmd /c "more S:\folder1\out.txt & timeout /t 90 > NULL"
->```
+
+```powershell
+cmd /c "more S:\folder1\out.txt & timeout /t 90 > NULL"
+```
 
 The Azure Batch agent grants access only for Azure Batch tasks. If you use Remote Desktop Protocol (RDP) to connect to the node, your user account doesn't have automatic access to the mounting drive. When you connect to the node over RDP, you must add credentials for the storage account to access the *S* drive directly.
 
@@ -159,18 +159,18 @@ cmdkey /add:"<storage-account-name>.file.core.windows.net" /user:"Azure\<storage
 
 1. Create a Batch pool with the following settings. Replace the `<storage-account-name>` , `<storage-account-key>`, and `<file-share-name>` placeholders with the values from the storage account that's linked to your Batch account. Replace the `<pool-name>` placeholder with the name you want for the pool.
 
-    The following script creates a pool with one Ubuntu 20.04, Standard_D2_V2 size node, and then mounts the Azure file share to the *S* drive of the node.
+    The following script creates a pool with one Ubuntu 20.04, Standard_DS1_v2 size node, and then mounts the Azure file share to the *S* drive of the node.
 
     ```powershell
     $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<storage-account-name>", https://<storage-account-name>.file.core.windows.net/<file-share-name>, "S", "<storage-account-key>", "-o vers=3.0,dir_mode=0777,file_mode=0777,sec=ntlmssp")
     
     $mountConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSMountConfiguration" -ArgumentList @($fileShareConfig)
     
-    $imageReference = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("ubuntuserver", "canonical", "20.04-lts", "latest")
+    $imageReference = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("0001-com-ubuntu-server-focal", "canonical", "20_04-lts", "latest")
     
     $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageReference, "batch.node.ubuntu 20.04")
     
-    New-AzBatchPool -Id "<pool-name>" -VirtualMachineSize "STANDARD_D2_V2" -VirtualMachineConfiguration $configuration -TargetDedicatedComputeNodes 1 -MountConfiguration @($mountConfig) -BatchContext $Context
+    New-AzBatchPool -Id "<pool-name>" -VirtualMachineSize "Standard_DS1_v2" -VirtualMachineConfiguration $configuration -TargetDedicatedComputeNodes 1 -MountConfiguration @($mountConfig) -BatchContext $Context
     ```
 
 1. Connect to the node and check that the output file is correct.
@@ -187,13 +187,13 @@ Optionally, you can also access the mount files by using the direct path. If you
 
 ---
 
-## Diagnose mount errors
+## Troubleshoot mount issues
 
 If a mount configuration fails, the compute node fails and the node state is set to **Unusable**. To diagnose a mount configuration failure, inspect the [ComputeNodeError](/rest/api/batchservice/computenode/get#computenodeerror) property for details on the error.
 
 To get log files for debugging, you can use the [OutputFiles](batch-task-output-files.md#specify-output-files-for-task-output) API to upload the *\*.log* files. The *\*.log* files contain information about the file system mount at the `AZ_BATCH_NODE_MOUNTS_DIR` location. Mount log files have the format: *\<type>-\<mountDirOrDrive>.log* for each mount. For example, a CIFS mount at a mount directory named *test* has a mount log file named: *cifs-test.log*.
 
-### Troubleshoot PowerShell mounting
+### Investigate mounting errors
 
 If you get the following error when you try to mount an Azure file share to a Batch node, you can RDP or SSH to the node to check the related log files.
 
@@ -279,8 +279,6 @@ If you can't diagnose or fix mounting errors, you can use PowerShell to mount th
 1. Create a pool without a mounting configuration. For example:
 
     ```powershell
-    $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<storage-account-name>", "https://<storage-account-name>.file.core.windows.net/batchfileshare1", "S", "<storage-account-key>")
-    
     $imageReference = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("WindowsServer", "MicrosoftWindowsServer", "2016-Datacenter", "latest")
     
     $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageReference, "batch.node.windows amd64")
@@ -304,7 +302,7 @@ If you can't diagnose or fix mounting errors, you can use PowerShell to mount th
 
 1. For **Authentication method**, select how you want to connect to the file share.
 
-1. Select **Show Script**, and copy the PowerShell command for mounting the file share.
+1. Select **Show Script**, and copy the PowerShell script for mounting the file share.
 
 1. Connect to the node over RDP.
 
@@ -317,13 +315,11 @@ If you can't diagnose or fix mounting errors, you can use PowerShell to mount th
 1. Create a pool without a mounting configuration. For example:
 
     ```powershell
-    $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<storage-account-name>", https://<storage-account-name>.file.core.windows.net/batchfileshare1, "S", "<storage-account-key>", "-o vers=3.0,dir_mode=0777,file_mode=0777,sec=ntlmssp")
-    
-    $imageReference = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("ubuntuserver", "canonical", "20.04-lts", "latest")
+    $imageReference = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("0001-com-ubuntu-server-focal", "canonical", "20_04-lts", "latest")
     
     $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageReference, "batch.node.ubuntu 20.04")
     
-    New-AzBatchPool -Id "<Pool-Name>" -VirtualMachineSize "STANDARD_D2_V2" -VirtualMachineConfiguration $configuration -TargetDedicatedComputeNodes 1 -BatchContext $Context
+    New-AzBatchPool -Id "<pool-name>" -VirtualMachineSize "Standard_DS1_v2" -VirtualMachineConfiguration $configuration -TargetDedicatedComputeNodes 1 -BatchContext $Context
     ```
 
 1. Wait for the node to be in the **Idle** state.
@@ -340,7 +336,7 @@ If you can't diagnose or fix mounting errors, you can use PowerShell to mount th
 
 1. Enter the **Mount point** you want to use.
 
-1. Copy the Linux command for mounting the file share.
+1. Copy the Linux script for mounting the file share.
 
 1. Connect to the node over SSH.
 
@@ -350,7 +346,7 @@ If you can't diagnose or fix mounting errors, you can use PowerShell to mount th
 
 ---
 
-## Examples
+## Example mount configurations
 
 The following code example configurations demonstrate mounting various file share systems to a pool of compute nodes.
 
@@ -381,7 +377,7 @@ new PoolAddParameter
 
 ### Azure Blob container
 
-Another option is to use Azure Blob storage via [BlobFuse](/azure/storage/blobs/storage-how-to-mount-container-linux). Mounting a blob file system requires an account key, shared access signature (SAS) key, or managed identity with access to your storage account.
+Another option is to use Azure Blob storage via [BlobFuse](/azure/storage/blobs/storage-how-to-mount-container-linux). Mounting a blob file system requires either an account key, shared access signature (SAS) key, or managed identity with access to your storage account.
 
 For information on getting these keys or identity, see the following articles:
 
@@ -408,7 +404,7 @@ new PoolAddParameter
                 ContainerName = "<container-name>",
                 // Use only one of the following three lines:
                 AccountKey = "<storage-account-key>",
-                SasKey = "<sasKey>",
+                SasKey = "<sas-key>",
                 IdentityReference = new ComputeNodeIdentityReference("/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>"),
                 RelativeMountPath = "<relative-mount-path>",
                 BlobfuseOptions = "-o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 "
