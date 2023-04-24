@@ -46,12 +46,12 @@ This section describes how to add, update, and manage API routes for apps that u
 
 The route configuration definition includes the following parts:
 
-- OpenAPI URI: This URI references an OpenAPI specification. You can use a public URI endpoint such as `https://petstore3.swagger.io/api/v3/openapi.json` or a constructed URI such as `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where *`<app-name>`* is the name of an application in Azure Spring Apps that includes the API definition. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification will also be shown in the API portal if enabled.
+- OpenAPI URI: This URI references an OpenAPI specification. You can use a public URI endpoint such as `https://petstore3.swagger.io/api/v3/openapi.json` or a constructed URI such as `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where *`<app-name>`* is the name of an application in Azure Spring Apps that includes the API definition. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification displays in the API portal if enabled.
 - routes: A list of route rules to direct traffic to apps and apply filters.
 - protocol: The backend protocol of the application to which Spring Cloud Gateway routes traffic. The protocol's supported values are `HTTP` or `HTTPS`, and the default is `HTTP`. To secure traffic from Spring Cloud Gateway to your HTTPS-enabled application, you need to set the protocol to `HTTPS` in your route configuration.
-- app level routes: There are three route properties that you can configure at the app level to avoid repetition across all or most of the routes in the route configuration. The concrete routing rule will override the app level routing rule for the same property. You can define the following properties at the app level: `predicates`, `filters`, and `ssoEnabled`. If you use the `OpenAPI URI` feature to define routes, the only app level routing property to support is `filters`.
+- app level routes: There are three route properties that you can configure at the app level to avoid repetition across all or most of the routes in the route configuration. The concrete routing rule overrides the app level routing rule for the same property. You can define the following properties at the app level: `predicates`, `filters`, and `ssoEnabled`. If you use the `OpenAPI URI` feature to define routes, the only app level routing property to support is `filters`.
 
-Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests will route to.
+Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests route to.
 
 ```azurecli
 az spring gateway route-config create \
@@ -101,13 +101,13 @@ The following table lists the route definitions. All the properties are optional
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title       | A title to apply to methods in the generated OpenAPI documentation.                                                                                                                    |
 | description | A description to apply to methods in the generated OpenAPI documentation.                                                                                                              |
-| uri         | The full URI, which will override the name of app that the requests route to.                                                                                                          |
+| uri         | The full URI, which overrides the name of app that the requests route to.                                                                                                          |
 | ssoEnabled  | A value that indicates whether to enable SSO validation. See [Configure single sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on-sso).           |
 | tokenRelay  | Passes the currently authenticated user's identity token to the application.                                                                                                           |
 | predicates  | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates). |
 | filters     | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters).          |
 | order       | The route processing order. A lower order is processed with higher precedence, as in [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/). |
-| tags        | Classification tags that will be applied to methods in the generated OpenAPI documentation.                                                                                            |
+| tags        | Classification tags that are applied to methods in the generated OpenAPI documentation.                                                                                            |
 
 > [!NOTE]
 > Because of security or compatibility reasons, not all the filters/predicates are supported in Azure Spring Apps. The following aren't supported:
@@ -129,7 +129,7 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
 
    To view the running state and resources given to Spring Cloud Gateway, open your Azure Spring Apps instance in the Azure portal, select the **Spring Cloud Gateway** section, then select **Overview**.
 
-   To assign a public endpoint, select **Yes** next to **Assign endpoint**. You'll get a URL in a few minutes. Save the URL to use later.
+   To assign a public endpoint, select **Yes** next to **Assign endpoint**. A URL appears in a few minutes. Save the URL to use later.
 
    :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted." lightbox="media/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
