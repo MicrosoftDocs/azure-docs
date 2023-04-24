@@ -41,7 +41,7 @@ There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-t
 You can use log streaming in the Azure CLI with the following command.
 
 ```azurecli
-az spring app logs -n solar-system-weather -f
+az spring app logs --name solar-system-weather --follow
 ```
 
 You'll see output similar to the following example:
@@ -135,7 +135,11 @@ There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-t
 You can use log streaming in the Azure CLI with the following command.
 
 ```azurecli
-az spring app logs -s <service instance name> -g <resource group name> -n gateway -f
+az spring app logs \
+    --resource-group <resource-group-name> \
+    --service <service-instance-name> \
+    --name api-gateway \
+    --follow
 ```
 
 You'll see logs like this:
