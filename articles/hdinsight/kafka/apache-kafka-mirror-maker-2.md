@@ -4,7 +4,7 @@ description: Learn how to use MirrorMaker 2 to migrate Kafka clusters between di
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/20/2023
+ms.date: 04/25/2023
 ---
 
 # Use MirrorMaker 2 to migrate Kafka clusters between different Azure HDInsight versions
@@ -103,7 +103,7 @@ This architecture features two clusters in different resource groups and virtual
    ```
 1. Edit the `/etc/hosts` file of secondary cluster and add those entries here.  
     
-1. After making the changes, the `/etc/hosts` file for `SECONDARYCLUSTER` looks like the given image.
+1. After you making the changes, the `/etc/hosts` file for `SECONDARYCLUSTER` looks like the given image.
 
    :::image type="content" source="./media/apache-kafka-mirror-maker2/ect-host.png" lightbox="./media/apache-kafka-mirror-maker2/ect-host.png" alt-text="Screenshot that shows etc hosts file output." border="false":::
    
@@ -157,7 +157,7 @@ This architecture features two clusters in different resource groups and virtual
    ```
   
 1. Here source is your `PRIMARYCLUSTER` and destination is your `SECONDARYCLUSTR`.  Replace it everywhere with correct name and replace `source.bootstrap.servers` and `destination.bootstrap.servers` with correct FQDN or IP of their respective worker nodes. 
-1. You can use regular expressions to specify the topics and their configurations that you want to replicate. By setting the `replication.factor` parameter to 3, you can ensure that all topics created by the MirrorMaker script will have a replication factor of 3. 
+1. You can use regular expressions to specify the topics and their configurations that you want to replicate. By setting the `replication.factor` parameter to 3, you can ensure that all topics created by the MirrorMaker script hsd a replication factor of 3. 
 1. Increase the replication factor from 1 to 3 for these topics 
    ```
    checkpoints.topic.replication.factor=1
@@ -177,7 +177,7 @@ This architecture features two clusters in different resource groups and virtual
    destination->source.enabled=true
    destination->source.topics = .*
    ```
-1. For automated consumer offset sync, we need to enable replication and control the sync duration too. Below property will sync offset every 30 second. For active-active scenario we need to do it both ways
+1. For automated consumer offset sync, we need to enable replication and control the sync duration too. Following property syncs offset every 30 second. For active-active scenario, we need to do it both ways.
    ```
    groups=.* 
 
@@ -276,13 +276,13 @@ This architecture features two clusters in different resource groups and virtual
 
    export KAFKAZKHOSTS='zk0-second:2181'  
    
-   # List all the topics whether they are replicated or not 
+   # List all the topics whether they're replicated or not 
    bash /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper $KAFKAZKHOSTS --list 
    
    # Start Consumer
    bash /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic $TOPICNAME --from-beginning 
    ```
-   You will notice that in secondary cluster consumer group my-group will not consume any messages because they are already consumed by primary cluster consumer group. Now produce more messages in primary-cluster and try to consumer then in secondary-cluster. You will be able to consume from secondarycluster.
+   You can notice that in secondary cluster consumer group my-group cant't consume any messages because, already consumed by primary cluster consumer group. Now produce more messages in primary-cluster and try to consumer then in secondary-cluster. You are able to consume from `SECONDARYCLUSTER`.
 
 ## Delete cluster
 
