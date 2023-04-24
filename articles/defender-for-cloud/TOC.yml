@@ -95,6 +95,8 @@
     - name: Defender for Cloud support matrices
       displayName: coverage, supported platforms, cloud services, roles, permissions
       href: support-matrix-defender-for-cloud.md
+    - name: Defender for Cloud cloud support
+      href: support-matrix-cloud-environment.md
     - name: Defender for Servers support matrices
       displayName: coverage, machines, windows, linux, multicloud, supported features, endpoint protections
       href: support-matrix-defender-for-servers.md
@@ -160,6 +162,9 @@
       - name: External attack surface management (EASM)
         displayName: EASM, attack surface management
         href: concept-easm.md
+      - name: Agentless scanning
+        displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
+        href: concept-agentless-data-collection.md
   - name: Improve your data security posture
     items:
     - name: About data-aware security posture
@@ -182,6 +187,14 @@
     - name: Reference list of attack paths and cloud security graph components
       displayName: attack, paths, security, graph, components
       href: attack-path-reference.md
+    - name: Security alerts
+      items:
+      - name: About security alerts and incidents
+        displayName: security, alerts, classification, incident, threat, detection, analytics, 
+        href: alerts-overview.md
+      - name: Security alerts reference list
+        displayName: alerts, mitre
+        href: alerts-reference.md
   - name: Plan Defender for Servers deployment
     items:
     - name: Get started
@@ -195,22 +208,13 @@
       href: plan-defender-for-servers-select-plan.md
     - name: Review agents and extensions
       href: plan-defender-for-servers-agents.md
+    - name: Agentless scanning
+      displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
+      href: concept-agentless-data-collection.md
     - name: Scale a Defender for Servers deployment
       href: plan-defender-for-servers-scale.md
     - name: Common questions
       href: faq-defender-for-servers.yml
-  - name: Protect cloud workloads
-    items:
-    - name: Agentless scanning
-      displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
-      href: concept-agentless-data-collection.md
-    - name: Security alerts and incidents
-      displayName: security, alerts, classification, incident, threat, detection, analytics, 
-      href: alerts-overview.md
-    - name: Reference list of alerts
-      displayName: alets, mitre
-      href: alerts-reference.md
-
 - name: How-to guides
   items:
   - name: Cloud security posture
@@ -368,6 +372,18 @@
     - name: Working with the Log Analytics agent
       displayName: log analytics, agent
       href: working-with-log-analytics-agent.md
+  - name: Defender for APIs
+    items: 
+    - name: About Defender for APIs
+      href: defender-for-apis-introduction.md
+    - name: Support and prerequisites
+      href: defender-for-apis-prepare.md
+    - name: Onboard Defender for APIs
+      href: defender-for-apis-deploy.md
+    - name: Investigate findings, recommendations, alerts
+      href: defender-for-apis-posture.md
+    - name: Manage Defender for APIs
+      href: defender-for-apis-manage.md
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
