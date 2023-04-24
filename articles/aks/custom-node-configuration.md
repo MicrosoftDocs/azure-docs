@@ -56,7 +56,7 @@ Before you begin, make sure you have an Azure account with an active subscriptio
 
 #### Kubelet configuration
 
-### [Linux node pools](#tab/Linux-node-pools)
+### [Linux node pools](#tab/linux-node-pools)
 
 Create a `linuxkubeletconfig.json` file with the following contents:
 
