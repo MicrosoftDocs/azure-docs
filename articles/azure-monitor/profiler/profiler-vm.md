@@ -50,7 +50,7 @@ You need:
 
 1. Select **Microsoft.ApplicationInsights.AspNetCore**.
 
-1. In the side pane, select the latest version of the SDK from the dropdown.
+1. On the side pane, select the latest version of the SDK from the dropdown.
 
 1. Select **Update**.
 
