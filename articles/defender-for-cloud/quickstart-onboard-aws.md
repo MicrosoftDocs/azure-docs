@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 01/10/2023
+ms.date: 04/23/2023
 author: bmansheim
 ms.author: benmansheim
 zone_pivot_groups: connect-aws-accounts
@@ -142,7 +142,7 @@ The native cloud connector requires:
     > [!NOTE]
     > Each plan has its own requirements for permissions, and might incur charges.
 
-    :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-plans-selection.png" alt-text="The select plans tab is where you choose which Defender for Cloud capabilities to enable for this AWS account.":::
+    :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-plans-selection.png" alt-text="The select plans tab is where you choose which Defender for Cloud capabilities to enable for this AWS account." lightbox="media/quickstart-onboard-aws/add-aws-account-plans-selection.png":::
 
     > [!IMPORTANT]
     > To present the current status of your recommendations, the CSPM plan queries the AWS resource APIs several times a day. These read-only API calls incur no charges, but they *are* registered in CloudTrail if you've enabled a trail for read events. As explained in [the AWS documentation](https://aws.amazon.com/cloudtrail/pricing/), there are no additional charges for keeping one trail. If you're exporting the data out of AWS (for example, to an external SIEM), this increased volume of calls might also increase ingestion costs. In such cases, We recommend filtering out the read-only calls from the Defender for Cloud user or role ARN: `arn:aws:iam::[accountId]:role/CspmMonitorAws` (this is the default role name, confirm the role name configured on your account).
