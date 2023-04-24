@@ -12,15 +12,6 @@ zone_pivot_groups: container-apps-job-types
 
 # Create a job with Azure Container Apps (preview)
 
-- intro
-- prerequisites
-- create container app environment
-- create job
-- run job (manual)
-- list executions
-- view logs
-- next steps
-
 Azure Container Apps jobs enable you run containerized workloads that have a finite duration. Jobs can execute manually or on a schedule. You can use jobs to perform tasks such as data processing, machine learning, and more.
 
 ## Prerequisites
@@ -29,108 +20,186 @@ Azure Container Apps jobs enable you run containerized workloads that have a fin
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
+- Consumption only
+- East US 2 EUAP only
+
 ## Setup
 
-To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
+1. To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
 
-```azurecli
-az login
-```
+    ```azurecli
+    az login
+    ```
 
-Ensure you're running the latest version of the CLI via the upgrade command.
+1. Ensure you're running the latest version of the CLI via the upgrade command.
 
-```azurecli
-az upgrade
-```
+    ```azurecli
+    az upgrade
+    ```
 
-Next, uninstall any existing versions of the Azure Container Apps extension for the CLI and install the latest version that supports the jobs private preview.
+1. Uninstall any existing versions of the Azure Container Apps extension for the CLI and install the latest version that supports the jobs private preview.
 
-```azurecli
-az extension remove --name containerapp
-az extension add --upgrade --source
-https://containerappextension.blob.core.windows.net/containerappcliext/containerapp-private_preview_jobs_1.0.3-py2.py3-none-any.whl
-```
+    ```azurecli
+    az extension remove --name containerapp
+    az extension add --upgrade --source https://containerappextension.blob.core.windows.net/containerappcliext/containerapp-private_preview_jobs_1.0.4-py2.py3-none-any.whl -y
+    ```
 
-> [!NOTE]
-> Only use this version of the extension for the jobs private preview. To use the Azure CLI for other Container Apps scenarios, uninstall this version and install the latest version of the extension.
-> 
-> ```azurecli
-> az extension remove --name containerapp
-> az extension add --name containerapp
-> ```
+    > [!NOTE]
+    > Only use this version of the extension for the jobs private preview. To use the Azure CLI for other Container Apps scenarios, uninstall this version and install the latest version of the extension.
+    > 
+    > ```azurecli
+    > az extension remove --name containerapp
+    > az extension add --name containerapp
+    > ```
 
-Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
+1. Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
 
-```azurecli
-az provider register --namespace Microsoft.App
-az provider register --namespace Microsoft.OperationalInsights
-```
+    ```azurecli
+    az provider register --namespace Microsoft.App
+    az provider register --namespace Microsoft.OperationalInsights
+    ```
 
-Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
+1. Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
-```azurecli
-export RESOURCE_GROUP="jobs-quickstart"
-export LOCATION="centraluseuap"
-ENVIRONMENT="env-jobs-quickstart"
-JOB_NAME="my-job"
-```
+    ```azurecli
+    RESOURCE_GROUP="jobs-quickstart"
+    LOCATION="eastus2euap"
+    ENVIRONMENT="env-jobs-quickstart"
+    JOB_NAME="my-job"
+    ```
 
-> [!NOTE]
-> The jobs private preview is only supported in the Central US EUAP (`centraluseuap`) region.
+    > [!NOTE]
+    > The jobs private preview is only supported in the East US 2 EUAP (`eastus2euap`) region.
 
 ## Create a Container Apps environment
 
-The Azure Container Apps environment acts as a secure boundary. Container apps and jobs in an environment share the same network and can communicate with each other.
+The Azure Container Apps environment acts as a secure boundary that allows container apps and jobs in an environment to share the same network and communicate with each other.
 
-Create the Container Apps environment using the following command.
+1. Create a resource group using the following command.
 
-```
-az containerapp env create \
-  --name $ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --location "$LOCATION"
-```
+    ```azurecli
+    az group create \
+        --name "$RESOURCE_GROUP" \
+        --location "$LOCATION"
+    ```
+
+1. Create the Container Apps environment using the following command.
+
+    ```
+    az containerapp env create \
+        --name $ENVIRONMENT \
+        --resource-group $RESOURCE_GROUP \
+        --location "$LOCATION"
+    ```
 
 ::: zone pivot="container-apps-job-manual"
 
 ## Create and run a manual job
 
-To use manual jobs, you first create a job and then start an execution. You can start multiple executions of the same job and multiple job executions can run concurrently.
+To use manual jobs, you first create a job with trigger type `Manual` and then start an execution. You can start multiple executions of the same job and multiple job executions can run concurrently.
 
-Create a job in the Container Apps environment using the following command.
+1. Create a job in the Container Apps environment using the following command.
 
-```azurecli
-az containerapp job create \
-  --name $JOB_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --environment $ENVIRONMENT \
-  --image "mcr.microsoft.com/azuredocs/azuredocs-job:latest"
-```
+    ```azurecli
+    az containerapp job create \
+        --name "$JOB_NAME" --resource-group "$RESOURCE_GROUP"  --environment "$ENVIRONMENT" \
+        --trigger-type Manual \
+        --replica-timeout 60 --replica-retry-limit 1 --replica-count 1 --parallelism 1 \
+        --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
+        --cpu "0.25" --memory "0.5Gi"
+    ```
 
-Start an execution of the job using the following command.
+1. Start an execution of the job using the following command.
 
-```azurecli
-az containerapp job start \
-  --name $JOB_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --environment $ENVIRONMENT
-```
+    ```azurecli
+    az containerapp job start \
+        --name "$JOB_NAME" \
+        --resource-group "$RESOURCE_GROUP"
+    ```
 
-The command returns details of the job execution, including its name.
+    The command returns details of the job execution, including its name.
 
 ::: zone-end
 
 ::: zone pivot="container-apps-job-scheduled"
 
-Scheduled
+## Create and run a scheduled job
+
+To use scheduled jobs, you create a job with trigger type `Schedule` and a cron expression that defines the schedule.
+
+Create a job in the Container Apps environment that starts every minute using the following command.
+
+```azurecli
+az containerapp job create \
+    --name "$JOB_NAME" --resource-group "$RESOURCE_GROUP"  --environment "$ENVIRONMENT" \
+    --trigger-type Schedule \
+    --replica-timeout 60 --replica-retry-limit 1 --replica-count 1 --parallelism 1 \
+    --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
+    --cpu "0.25" --memory "0.5Gi" \
+    --schedule "*/1 * * * *"
+```
+
+The command returns details of the job execution, including its name. Job executions will start based on the schedule.
+
+Container Apps jobs use cron expressions to define schedules. It supports the standard cron expression format with 5 fields for minute, hour, day of month, month, and day of week.
 
 ::: zone-end
 
-## List job execution history
+## List recent job execution history
 
+Container Apps jobs maintain a history of recent executions. You can list the executions of a job.
 
+```azurecli
+az containerapp job executionhistory \
+    --name "$JOB_NAME" \
+    --resource-group "$RESOURCE_GROUP" \
+    --output json
+```
+
+## Query job execution logs
+
+Job executions output logs to the logging provider that you configured for the Container Apps environment. By default, logs are stored in Azure Log Analytics.
+
+1. Save the Log Analytics workspace ID for the Container Apps environment to a variable.
+
+    ```azurecli
+    LOG_ANALYTICS_WORKSPACE_ID=`az containerapp env show \
+        --name "$ENVIRONMENT" \
+        --resource-group "$RESOURCE_GROUP" \
+        --query "properties.appLogsConfiguration.logAnalyticsConfiguration.customerId" \
+        --output tsv`
+    ```
+    
+1. Save the name of the job execution to a variable.
+
+    ```azurecli
+    JOB_EXECUTION_NAME=`az containerapp job executionhistory \
+        --name "$JOB_NAME" \
+        --resource-group "$RESOURCE_GROUP" \
+        --query "[0].name" \
+        --output tsv`
+    ```
+
+1. Query Log Analytics for the job execution using the following command.
+
+    ```azurecli
+    az monitor log-analytics query \
+        --workspace "$LOG_ANALYTICS_WORKSPACE_ID" \
+        --analytics-query "ContainerAppConsoleLogs_CL | where ContainerGroupName_s startswith '$JOB_EXECUTION_NAME' | order by _timestamp_d asc | project Log_s | take 1000" \
+        --query "[].Log_s"
+    ```
+
+    It may take a few minutes for the logs to appear in Log Analytics. The following is an example of the output.
+
+    ```json
+    [
+        "2023/04/24 18:38:28 This is a sample application that demonstrates how to use Azure Container Apps jobs",
+        "2023/04/24 18:38:28 Starting processing...",
+        "2023/04/24 18:38:33 Finished processing. Shutting down!"
+    ]
+    ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [TBD](overview.md)
+> [Jobs in Azure Container Apps](jobs.md)
