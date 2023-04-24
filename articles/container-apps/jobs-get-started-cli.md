@@ -27,6 +27,7 @@ The jobs preview has the following limitations:
 - Only supported in the East US 2 EUAP (`eastus2euap`) region
 - Only supported in the Azure CLI using a preview version of the Azure Container Apps extension
 - Only supported in the Consumption plan
+- Logs are not yet supported for scheduled jobs
 
 ## Setup
 
@@ -66,22 +67,12 @@ The jobs preview has the following limitations:
 
 1. Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
-::: zone pivot="container-apps-job-manual"
     ```azurecli
     RESOURCE_GROUP="jobs-quickstart"
     LOCATION="eastus2euap"
     ENVIRONMENT="env-jobs-quickstart"
-    JOB_NAME="my-manual-job"
+    JOB_NAME="my-job"
     ```
-::: zone-end
-::: zone pivot="container-apps-job-scheduled"
-    ```azurecli
-    RESOURCE_GROUP="jobs-quickstart"
-    LOCATION="eastus2euap"
-    ENVIRONMENT="env-jobs-quickstart"
-    JOB_NAME="my-scheduled-job"
-    ```
-::: zone-end
 
     > [!NOTE]
     > The jobs preview is only supported in the East US 2 EUAP (`eastus2euap`) region.
@@ -153,12 +144,12 @@ az containerapp job create \
     --replica-timeout 60 --replica-retry-limit 1 --replica-count 1 --parallelism 1 \
     --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi" \
-    --schedule "*/1 * * * *"
+    --cron-expression "*/1 * * * *"
 ```
 
-The command returns details of the job execution, including its name. Job executions start based on the schedule.
+Job executions start automatically based on the schedule.
 
-Container Apps jobs use cron expressions to define schedules. It supports the standard cron expression format with five fields for minute, hour, day of month, month, and day of week.
+Container Apps jobs use cron expressions to define schedules. It supports the standard [cron](https://en.wikipedia.org/wiki/Cron) expression format with five fields for minute, hour, day of month, month, and day of week.
 
 ::: zone-end
 
@@ -172,6 +163,12 @@ az containerapp job executionhistory \
     --resource-group "$RESOURCE_GROUP" \
     --output json
 ```
+
+::: zone pivot="container-apps-job-scheduled"
+Executions of scheduled jobs appear in the list when they are started by the schedule.
+::: zone-end
+
+::: zone pivot="container-apps-job-manual"
 
 ## Query job execution logs
 
@@ -215,6 +212,8 @@ Job executions output logs to the logging provider that you configured for the C
         "2023/04/24 18:38:33 Finished processing. Shutting down!"
     ]
     ```
+
+::: zone-end
 
 ## Clean up resources
 
