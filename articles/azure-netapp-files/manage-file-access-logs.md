@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 04/24/2023
 ms.author: anfdocs
 ---
 # Manage file access logs in Azure NetApp Files
@@ -26,8 +26,8 @@ File access logs provide file access logging for individual volumes, capturing f
 
 * Once file access logs are enabled on a volume, they can take a maximum of five minutes to become visible. 
 * File access logs occasionally create duplicate logs that must be manually filtered. 
-* Deleting any diagnostic settings configured for ANFFileAccess causes any file access logs for any volumes with that setting to be disabled. 
-* Before enabling file access logs on a volume, either ACLs or Audit ACEs need to be set on a file or directory. ACLs or Audit ACEs must be set after mounting a volume.  
+* Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volumes with that setting to be disabled. 
+* Before enabling file access logs on a volume, either [ACLs](configure-access-control-lists.md) or Audit ACEs need to be set on a file or directory. ACLs or Audit ACEs must be set after mounting a volume.  
 * File access logs provide no explicit or implicit expectations or guarantees around logging for auditing and compliance purposes. 
 
 ## Recognized events
@@ -75,7 +75,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Select the volume you want to enable file access logs for. 
 2. Select **Diagnostic settings** from the left-hand pane.
 :::image type="content" source="../media/azure-netapp-files/logs-diagnostic-settings-add.png" alt-text="Azure Diagnostic settings menu showing how to add ANF file access logs.":::
-3. In the **Diagnostic settings** page, provide a diagnostic setting name, select *ANFFileAccess* and then set the retention period of the logs. 
+3. In the **Diagnostic settings** page, provide a diagnostic setting name, select **ANFFileAccess** and then set the retention period of the logs. 
 :::image type="content" source="../media/azure-netapp-files/logs-diagnostic-settings-enable.png" alt-text="Azure Diagnostic settings menu showing how to enable ANF file access logs":::
 4. Select one of the destination options for the logs:
     * Archive to a storage account
@@ -90,6 +90,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 2. Select the **Diagnostic setting** menu from the left-hand pane. 
 3. In the **Diagnostic settings** page, deselect **ANFFileAccess**.
 4. Save the settings.
+
+>[!NOTE]
+>After disabling file access logs, you must wait at least ten minutes before attempting to enable or re-enable file access logs on any volume.
  
 ## Next Steps
 
