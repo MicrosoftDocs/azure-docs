@@ -56,7 +56,7 @@ Change network configuration settings before or after you activate your sensor u
 - **From the sensor UI**: [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration)
 - **From the sensor CLI**: [Network configuration](cli-ot-sensor.md#network-configuration)
 
-For more information, see [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md), [Getting started with advanced CLI commands](references-work-with-defender-for-iot-cli-commands.md), and [CLI command reference from OT network sensors](cli-ot-sensor.md).
+For more information, see [Activate and set up your OT network sensor](ot-deploy/activate-deploy-sensor.md), [Getting started with advanced CLI commands](references-work-with-defender-for-iot-cli-commands.md), and [CLI command reference from OT network sensors](cli-ot-sensor.md).
 
 ## How do I check the sanity of my deployment
 
@@ -68,7 +68,7 @@ For more information, see [Troubleshoot the sensor](how-to-troubleshoot-sensor.m
 
 ## I am seeing a warning that we have exceeded the maximum number of devices for the subscription. How do I resolve this?
 
-If the number of actual devices detected by Defender for IoT exceeds the number of committed devices currently listed on your subscription, a warning message will appear in Defender for IoT in the Azure portal, and you will need to update the number of committed devices on the relevant subscription. For more information, see [Defender for IoT committed devices](billing.md#defender-for-iot-committed-devices).
+If the number of actual devices detected by Defender for IoT exceeds the number of committed devices currently listed on your subscription, a warning message will appear in Defender for IoT in the Azure portal, and you will need to edit your plan and update the number of committed devices on the relevant subscription. For more information, see [Edit a plan for OT networks](how-to-manage-subscriptions.md#edit-a-plan-for-ot-networks).
 
 ## Next steps
 

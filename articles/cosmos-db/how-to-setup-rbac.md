@@ -5,7 +5,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 04/14/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.custom: ignite-2022
@@ -102,7 +102,8 @@ The actual metadata requests allowed by the `Microsoft.DocumentDB/databaseAccoun
 | Database | &bull; Reading database metadata <br /> &bull; Listing the containers under the database <br /> &bull; For each container under the database, the allowed actions at the container scope |
 | Container | &bull; Reading container metadata <br /> &bull; Listing physical partitions under the container <br /> &bull; Resolving the address of each physical partition |
 
-> [!IMPORTANT] Throughput is not included in the metadata for this action.
+> [!IMPORTANT] 
+> Throughput is not included in the metadata for this action.
 
 ## Built-in role definitions
 
