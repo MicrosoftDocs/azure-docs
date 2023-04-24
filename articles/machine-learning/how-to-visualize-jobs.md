@@ -21,14 +21,15 @@ This will help you save time, keep your results organized, and make informed dec
 
 This article will show you how to utilize your dashboard with the following tasks: 
 
-* Create and save custom views. 
 * Explore the dashboard view.
+* Change job colors. 
+* Visualize training jobs. 
 * Add charts.
 * Edit charts. 
-* Change colors. 
-* Visualize training jobs. 
-* Compare training jobs. 
-* Add markdown. 
+* Compare training jobs using Compare tile.
+* Monitor your resources across jobs.
+* Add markdown tile.
+* Create and save custom views. 
 
 > [!TIP]
 > * If you're looking for information on using the Azure Machine Learning SDK v1 or CLI v1, see [How to track, monitor, and analyze jobs (v1)](./v1/how-to-track-monitor-analyze-runs.md).
@@ -51,8 +52,10 @@ You'll need the following items:
 
 To get started, we will need to enable the feature via the preview panel.
 
-[gif]
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
 
+
+## Explore the dashboard view
 Next, let's view your jobs in the studio:
 
 - Navigate to the Jobs tab.
@@ -64,22 +67,48 @@ You are now on the default dashboard view where you will find your job list cons
 
 If you select a specific experiment, then you will automatically land into the Dashboard view.
 
-[gif]
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
 
-## Explore the dashboard view
-The left side bar is a collapsed view of your jobs list. You can filter, add columns, and pin columns by clicking the respective icon next to the search bar. You can also change the width on the jobs list to either view more or less.
+### Jobs list view
 
-[gif]
+The left side bar is a collapsed view of your jobs list. You can filter, add columns, and pin columns by clicking the respective icon next to the search bar. 
 
-The dashboard is made up of sections that can be used to organize different tiles and information. By default, you can find all of your logged training metrics in Custom metrics section and resource usage in Resource metrics section. You can update the section name by clicking on the pencil icon when hovering on the section name. You can also move sections up and down as well as remove sections that you no longer need.
+By pinning columns, you can simplify your list view to only show columns you pinned. You can also change the width on the jobs list to either view more or less.
 
-Tiles are various forms of content such as line chart, bar chart, scatter plot, and markdown that can be added to a section to build a dashboard. By default, the Custom metrics and Resource metrics section will generate chart tiles for each of the metrics. To easily find the tile with the metric you care most about, you can use the search bar to search for specific tiles based on metric names you logged.
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
 
-For sweep and automl jobs, you can find the best trial and best model by looking for the green label Best next to the appropriate job. This will make it easier to compare across different 
+For sweep and automl jobs, you can easily identify the best trial and best model with the **Best** label positioned next to the appropriate job display name. This will simplify comparisons across these
 
-[gif]
+### Sections
+The dashboard is made up of sections that can be used to organize different tiles and information. 
 
-## Changing job colors
+By default, you can find all of your logged training metrics in Custom metrics section and resource usage in Resource metrics section. 
+
+You can update the section name by clicking on the pencil icon when hovering on the section name. 
+
+You can also move sections up and down as well as remove sections that you no longer need.
+
+Delete Sections 
+
+Auto Generate Sections using Metrics Name (i.e a/b/c/d) 
+
+Hide/Show Tiles and Order Tiles in Section 
+
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+
+### Tiles
+Tiles are various forms of content such as line chart, bar chart, scatter plot, and markdown that can be added to a section to build a dashboard. 
+
+By default, the Custom metrics and Resource metrics section will generate chart tiles for each of the metrics. 
+
+To easily find the tile with the metric you care most about, you can use the search bar to search for specific tiles based on metric names you logged.
+
+Search Tiles 
+
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+
+
+## Change job colors
 
 Each job that is visualized in your dashboard is assigned a color by default from the system color palette.
 
@@ -87,7 +116,7 @@ You can either stick to the colors assigned or take advantage of the color picke
 
 To open the color picker, simply select the colored dot next to the job and change color via the palette, RGB, or hex code. 
 
-[gif]  
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel."::: 
 
 ## Visualize jobs 
 
@@ -96,49 +125,25 @@ Click on the eye icon to show or hide jobs in the dashboard view and narrow down
 To reduce the list to show only jobs that are visualized in the dashboard, click on the eye at the top to **Show only visualize**. 
 
 To reset and start choosing a new set of jobs to visualize, you can click on the eye at the top to **Visualize None** to remove all jobs from surfacing in the dashboard and then go ahead and select the new set of jobs.
-[gif]
 
-## Filter Job /Select-Pin Columns on Left 
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
 
- 
-
-## Search Tiles 
-
- 
-
-## Global Dashboard Settings 
-
-Set Legend 
-
-Set X-Axis 
-
-Exclude outliers 
-
-Smoothing 
-
-## Organize Tiles in Sections 
-
-Update section name 
-
-Move Section Up/Down 
-
-Delete Sections 
-
-Auto Generate Sections using Metrics Name (i.e a/b/c/d) 
-
-Hide/Show Tiles and Order Tiles in Section 
 
 ## Add charts 
 
 You can create a custom chart to add to your dashboard view if you’re looking to plot a set of metrics or specific style. Azure Machine Learning Studio supports line, bar, scatter, and parallel coordinates charts for you to add to your view. 
 
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+
 ## Edit charts 
 
 You can add data smoothing, ignore outliers, and change the x-axis for all the charts in your dashboard view through the global chart editor.  
 
-[gif of using global chart editor] 
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
 
-You can perform these actions for an individual chart as well by clicking on the pencil icon to customize specific charts to your desired preference. You can also edit the style of the line type and marker for line and scatter charts respectively. 
+You can perform these actions for an individual chart as well by clicking on the pencil icon to customize specific charts to your desired preference. You can also edit the style of the line type and marker for line and scatter charts respectively.
+
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
 
  ## Compare your training jobs using Compare Tile 
 
@@ -146,9 +151,11 @@ You can compare the logged metrics, parameters, and tags between your visualized
 
 You can change the baseline by hovering over the display name and clicking on the “baseline” icon. Show differences only will reduce the rows in the table to only surface rows that have different values so you can easily spot what factors contributed to the results.  
 
-### Resource Metrics 
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
 
-Navigate to your job in the studio and select the Monitoring tab. This view provides insights on your job's resources on a 30 day rolling basis. 
+## Monitor your resources across jobs 
+
+Navigate to the Resource metrics section to view your resource usage across jobs. This view provides insights on your job's resources on a 30 day rolling basis. 
 
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/monitoring-tab.png" alt-text="Screenshot of Monitoring tab showing resources the selected job has used.":::
 
@@ -157,9 +164,19 @@ Navigate to your job in the studio and select the Monitoring tab. This view prov
 >Jobs with a runtime of less than 5 minutes will not have enough data to populate this view.
  
 
-## Add markdown 
+## Add markdown tile
 
 You can add markdown tiles to your dashboard view to summarize insights, add comments, take notes, and more. This is a great way for you to provide additional context and references for yourself and your team if you share this view. 
+
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
+
+## Create and save custom views
+
+After applying changes to your jobs list and dashboard, you can save all these customizations as a Custom View so you can easily return to work. Users with workspace permissions can edit or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting Share view.
+
+Please note that you cannot save changes to the Default view, but you can save them into your own Custom view. You can now manage all your views from a single menu to create new, edit existing, rename, or delete them.
+
+    :::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
 
 
 ## Next steps
