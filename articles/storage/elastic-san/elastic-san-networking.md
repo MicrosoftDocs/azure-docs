@@ -31,7 +31,6 @@ In your virtual network, enable the Storage service endpoint on your subnet. Thi
 > Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
 # [Portal](#tab/azure-portal)
-> |
 1. Navigate to your virtual network and select **Service Endpoints**.
 1. Select **+ Add** and for **Service** select **Microsoft.Storage**.
 1. Select any policies you like, and the subnet you deploy your Elastic SAN into and select **Add**.
