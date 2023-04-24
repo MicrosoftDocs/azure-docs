@@ -161,8 +161,8 @@ If you choose to block/not allow these FQDNs, the nodes will only receive OS upd
 
 There are two options to provide access to Azure Monitor for containers:
 
-1. Allow the Azure Monitor [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags).
-2. Provide access to the required FQDN/application rules.
+- Allow the Azure Monitor [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags).
+- Provide access to the required FQDN/application rules.
 
 #### Required network rules
 
