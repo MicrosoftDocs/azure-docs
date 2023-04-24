@@ -363,8 +363,6 @@ You can configure a managed network using either the `az ml workspace create` or
         type: fqdn
     ```
 
----
-
 # [Python](#tab/python)
 
 To configure a managed network that allows only approved outbound communications, use the `ManagedNetwork` class to define a network with `IsolationMode.ALLOw_ONLY_APPROVED_OUTBOUND`. You can then use the `ManagedNetwork` object to create a new workspace or update an existing one. To define _outbound rules_ to Azure services that the workspace relies on, use the `PrivateEndpointDestination` class to define a new private endpoint to the service.
