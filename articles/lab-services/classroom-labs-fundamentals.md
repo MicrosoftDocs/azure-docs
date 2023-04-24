@@ -26,8 +26,8 @@ The following diagram shows the basic architecture of a lab without advanced net
 
 Azure Lab Services hosts the resources to run a lab in one of the Microsoft-managed Azure subscriptions. These resources include:
 
-- template virtual machine for the lab creator to configure the lab
-- lab virtual machine for each lab user to remotely connect to
+- [template virtual machine](./classroom-labs-concepts.md#template-virtual-machine) for the lab creator to configure the lab
+- [lab virtual machine](./classroom-labs-concepts.md#lab-virtual-machine) for each lab user to remotely connect to
 - network-related items, such as a load balancer, virtual network, and network security group
 
 Azure monitors these managed subscriptions for suspicious activity.  It's important to note that this monitoring is done externally to the virtual machines through VM extensions or network pattern monitoring.  If you enable [shutdown on disconnect](how-to-enable-shutdown-disconnect.md), a diagnostic extension is enabled on the virtual machine. The extension allows Azure Lab Services to be informed of the remote desktop protocol (RDP) session disconnect event.

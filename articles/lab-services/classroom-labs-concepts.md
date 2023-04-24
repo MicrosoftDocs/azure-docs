@@ -104,3 +104,4 @@ A lab can use either quota time, [scheduled time](#schedule), or a combination o
 
 - [Create the resources to get started](./quick-create-resources.md)
 - [Tutorial: Set up a lab for classroom training](./tutorial-setup-lab.md)
+- Learn about the [architecture fundamentals of Azure Lab Services](./classroom-labs-fundamentals.md)
