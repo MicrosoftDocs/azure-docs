@@ -575,9 +575,10 @@ items:
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
     - name: Mobile integrations
+    - name: Quality and Reliability
       items:
-      - name: Push notifications
-        href: concepts/notifications.md
+      - name: End of Call Survey
+        href: concepts/end-of-call-survey.md
     - name: Analytics
       items:
       - name: Call logs
