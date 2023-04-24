@@ -27,14 +27,15 @@ In the support table, **NA** indicates that the feature is not available.
 [Asset inventory](./asset-inventory.md) | GA | GA | GA
 [Azure Workbooks support](./custom-dashboards-azure-workbooks.md) | GA | GA | GA
 [Microsoft Defender for Cloud Apps integration](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps) | GA | GA | GA
+**[Agentless discovery for Kubernetes](concept-agentless-containers.md)** | Public preview | NA | NA
+**[Agentless vulnerability assessments for container images.](concept-agentless-containers.md)**<br/><br/> Including registry scanning (up to 20 unique images per billable resources) | Public preview | NA | NA
 **[Defender CSPM](concept-cloud-security-posture-management.md)** | GA | NA | NA
 **[Defender for APIs](defender-for-apis-introduction.md)** | Public preview | NA | NA
 **[Defender for App Service](defender-for-app-service-introduction.md)** | GA | NA | NA
 **[Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)** | Public preview | NA | NA
 **[Defender for Azure SQL database servers](defender-for-sql-introduction.md)**<br/><br/> Partial GA in Vianet21<br/> - A subset of alerts/vulnerability assessments is available.<br/>- Behavioral threat protection isn't available.| GA | GA | GA
-**[Defender for Containers](defender-for-containers-introduction.md)** | GA | GA | GA
+**[Defender for Containers](defender-for-containers-introduction.md)**<br/><br/>Support for Arc-enabled Kubernetes clusters (and therefore AWS EKS too) is in public preview and not available on Azure Government.<br/>Run-time visibility of vulnerabilities in container images is also a preview feature. | GA | GA | GA
 [Defender extension for Azure Arc-enabled Kubernetes clusters/servers/data services](defender-for-kubernetes-azure-arc.md). Requires Defender for Containers/Defender for Kubernetes. | Public preview | NA | NA
-Runtime visibility of vulnerabilities in container images | Public preview | NA | NA
 **[Defender for DNS](defender-for-dns-introduction.md)** | GA | GA | GA
 **[Defender for Key Vault](./defender-for-key-vault-introduction.md)** | GA | NA | NA
 **[Defender for Kubernetes](./defender-for-kubernetes-introduction.md)**<br/><br/> Defender for Kubernetes is deprecated and replaced by Defender for Containers. Support for Azure Arc-enabled clusters is in public preview and not available in government clouds. [Learn more](defender-for-kubernetes-introduction.md). | GA | GA | GA
@@ -53,6 +54,7 @@ Runtime visibility of vulnerabilities in container images | Public preview | NA 
 [Connect GCP project](./quickstart-onboard-gcp.md) | GA | NA | NA
 **[Defender for Storage](./defender-for-storage-introduction.md)**<br/><br/> Some threat protection alerts for Defender for Storage are in public preview. | GA | GA (activity monitoring) | NA
 **[Defender for SQL servers on machines](./defender-for-sql-introduction.md)** | GA | GA | NA
+**[Kubernetes workload protection](kubernetes-workload-protections.md)** | GA | GA | GA
 **[Microsoft Sentinel bi-directional alert synchronization](../sentinel/connect-azure-security-center.md)** | Public preview | NA | NA 
 
 
