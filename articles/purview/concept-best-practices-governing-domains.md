@@ -108,7 +108,7 @@ We’ll add this context to Purview in two steps:
 
 ### Step 3.1: Define asset types and their relations
 
-In this step, we'll create a blueprint for the context we want to show in Purview. Purview provides asset types for business processes and systems by default, so we don’t need to add these asset types, but it looks like we need two new relationship definitions. Let’s add these now.
+In this step, we create a blueprint for the context we want to show in Purview. Purview provides asset types for business processes and systems by default, so we don’t need to add these asset types, but it looks like we need two new relationship definitions. Let’s add these now.
 
 - Business process uses dataset
 - System supports business process
