@@ -103,6 +103,6 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 
 ### See also
 
-- [Performance tuning for uploads and downloads](../../articles/storage/blobs/storage-blobs-tune-upload-download.md).
+- [Performance tuning for uploads and downloads](storage-blobs-tune-upload-download.md).
 - [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
