@@ -53,6 +53,10 @@ After you configure the auto-start policy, follow these steps for each VM that y
  
    :::image type="content" source="media/devtest-lab-auto-startup-vm/vm-overview-auto-start.png" alt-text="Screenshot showing vm with opted-in status for auto-start checked.":::
 
+   You can also see the auto-start status for the VM on the lab Overview page.   
+
+   :::image type="content" source="media/devtest-lab-auto-startup-vm/lab-overview-auto-start-status.png" alt-text="Screenshot showing the lab overview page, with VM auto-start set to Yes.":::
+
 ## Next steps
 
 - [Manage auto shutdown policies for a lab in Azure DevTest Labs](devtest-lab-auto-shutdown.md)
