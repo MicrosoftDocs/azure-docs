@@ -53,9 +53,7 @@ To enable Azure AD DS security audit events using the Azure portal, complete the
 1. Enter a name for the diagnostic configuration, such as *aadds-auditing*.
 
     Check the box for the security or DNS audit destination you want. You can choose from a Log Analytics workspace, an Azure Storage account, an Azure event hub, or a partner solution. These destination resources must already exist in your Azure subscription. You can't create the destination resources in this wizard.
-
-    ![Enable the required destination and type of audit events to capture](./media/security-audit-events/diagnostic-settings-page.png)
-
+s
     * **Azure Log Analytic workspaces**
         * Select **Send to Log Analytics**, then choose the **Subscription** and **Log Analytics Workspace** you want to use to store audit events.
     * **Azure storage**
