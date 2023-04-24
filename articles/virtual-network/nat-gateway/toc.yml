@@ -1,9 +1,9 @@
 items:
-- name: Virtual Network NAT documentation
+- name: Azure NAT Gateway documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Virtual Network NAT?
+  - name: What is Azure NAT Gateway?
     href: nat-overview.md
 - name: Quickstarts
   items:
@@ -50,7 +50,7 @@ items:
     href: nat-availability-zones.md
   - name: Security
     items:
-    - name: Virtual network NAT security baseline
+    - name: NAT gateway security baseline
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
 - name: How-to
   items:

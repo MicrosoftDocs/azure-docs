@@ -30,7 +30,7 @@ An on-premises management console adds the extra layers of *business units* and 
 
 - A clear understanding of where your OT network sensors are placed in your network, and how you want to [segment your network into sites and zones](../concept-zero-trust.md).
 
-- An on-premises management console [installed](install-software-on-premises-management-console.md) and [activated](../how-to-activate-and-set-up-your-on-premises-management-console.md)
+- An on-premises management console [installed](install-software-on-premises-management-console.md) and [activated](activate-deploy-management.md)
 
 - OT sensors [connected to your on-premises management console](connect-sensors-to-management.md)
 
