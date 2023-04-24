@@ -112,9 +112,9 @@ The component trying to replicate data to Azure is either down or not responding
 4.  Check for connectivity issues between Azure Migrate appliance and Service Bus:
 
     > [!Note]
-    > This is applicable only for the projects that are set up with public endpoint. A Service bus refers to the ServiceBusNamespace type resource in the resource group for a Migrate project. The name of the Service Bus is of the format *migratelsa(keyvaultsuffix)*. The Migrate key vault suffix is available in the gateway.json file on the appliance. <br/>
-    > For example, if the gateway json contains:  <br/>
-    > "AzureKeyVaultArmId": "*/subscriptions/ccd78886-4365-42e0-947d-8a976413ab5c/resourceGroups/pkataria-rg-ccy/providers/Microsoft.KeyVault/vaults/migratekv1329610309*",<br/> the service bus namespace resource would be named **migratelsa1329610309**. 
+    > This is applicable only for the projects that are set up with public endpoint.<br/> A Service bus refers to the ServiceBusNamespace type resource in the resource group for a Migrate project. The name of the Service Bus is of the format *migratelsa(keyvaultsuffix)*. The Migrate key vault suffix is available in the gateway.json file on the appliance. <br/>
+    > For example, if the gateway.json contains:  <br/>
+    > *"AzureKeyVaultArmId": "/subscriptions/ccd78886-4365-42e0-947d-8a976413ab5c/resourceGroups/pkataria-rg-ccy/providers/Microsoft.KeyVault/vaults/migratekv1329610309"*,<br/> the service bus namespace resource will be *migratelsa1329610309*. 
 
     This test checks if the Azure Migrate appliance can communicate to the Azure Migrate Cloud Service backend. The appliance communicates to the service backend through Service Bus and Event Hubs message queues. To validate connectivity from the appliance to the Service Bus, [download](https://go.microsoft.com/fwlink/?linkid=2139104) the Service Bus Explorer, try to connect to the appliance Service Bus and perform the send message/receive message operations. If there's no issue, this should be successful.
 
