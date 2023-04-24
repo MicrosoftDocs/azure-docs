@@ -31,7 +31,7 @@ The following diagram outlines the basic elements of how the MedTech service tra
 
 The MedTech service processes device data in five stages:
 
-1. **Ingest** - The MedTech service asynchronously loads the device messages from the event hub at high speed.
+1. **Ingest** - The MedTech service asynchronously reads the device message from the event hub at high speed.
 
 2. **Normalize** - After the device message has been ingested, the MedTech service uses the device mapping to streamline and convert the device data into a normalized schema format.
 
@@ -39,7 +39,7 @@ The MedTech service processes device data in five stages:
 
 4. **Transform** - When the normalized data is grouped, it's transformed through the FHIR destination mapping and is ready to become FHIR Observations.
 
-5. **Persist** - After the transformation is done, the new data is sent to the FHIR service and persisted as FHIR Observations.
+5. **Persist** - After the transformation is done, the newly transformed data is sent to the FHIR service and persisted as FHIR Observations.
 
 ## Key features of the MedTech service
 
