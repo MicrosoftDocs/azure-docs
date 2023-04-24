@@ -33,11 +33,10 @@ A common way you can improve this security is by implementing an API KEY mechani
 
 Each mid-call webhook callback sent by Call Automation uses a signed JSON Web Token (JWT) in the Authentication header of the inbound HTTPS request. You can use standard Open ID Connect (OIDC) JWT validation techniques to ensure the integrity of the token as follows. The lifetime of the JWT is five (5) minutes and a new token is created for every event sent to the callback URI.
 
-1. Obtain the Open ID configuration URL: https://[YourACSResourceName].communication.azure.com/calling/.well-known/acsopenidconfiguration
+1. Obtain the Open ID configuration URL: https://acscallautomation.communication.azure.com/calling/.well-known/acsopenidconfiguration
 2. Install the [Microsoft.AspNetCore.Authentication.JwtBearer Nuget](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer) package.
-3. Configure your application to validate the JWT using the NuGet package and the configuration of your ACS resource. You will need the `issuer` and the `audience` values as these will be present in the JWT payload.
+3. Configure your application to validate the JWT using the NuGet package and the configuration of your ACS resource. You will need the `audience` values as it will be present in the JWT payload.
 4. Validate the issuer, audience and the JWT token.
-- The issuer is https://acscallautomation.communication.microsoft.com
 - The audience is your ACS resource id you used to setup your Call Automation client. Refer [here](../../quickstarts/voice-video-calling/get-resource-id.md) about how to get it.
 - The JSON Web Key Set (JWKS) endpoint in the OpenId configuration contains the keys used to validate the JWT token. If the signature is valid and the token has not expired(within 5 minutes from the token is generated), then the token is considered valid and can be used to authorize the client.
 
