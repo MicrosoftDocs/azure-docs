@@ -119,7 +119,7 @@ To add disk storage:
 
 1. In the Administrator Console, select **Management** > **Disk Storage** > **Add**.
 
-    ![Add Disk Storage dialog](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    
 
 2. In the **Add Disk Storage** dialog, select **Add disks**.
 

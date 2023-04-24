@@ -109,7 +109,7 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 
 ## Networking and access support
 
-[!INCLUDE Configuring network connectivity]
+[!INCLUDE [Configuring network connectivity](../../includes/backup-network-connectivity.md)]
 
 ### DPM/MABS connectivity to Azure Backup
 

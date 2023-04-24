@@ -33,7 +33,7 @@ The following sections details the protection support matrix for MABS:
 * [VM Backup](#vm-backup)
 * [Linux](#linux)
 
-## Applications Backup
+## Applications backup
 
 | **Workload**               | **Version**                                                  | **Azure Backup Server   installation**                       | **Azure Backup Server** | **Protection and recovery**                                  |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------- | ------------------------------------------------------------ |
