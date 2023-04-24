@@ -5,7 +5,7 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: troubleshooting
-ms.date: 12/12/2022
+ms.date: 04/24/2023
 ms.custom: engagement-fy23
 ---
 
@@ -95,19 +95,25 @@ The component trying to replicate data to Azure is either down or not responding
     
       1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy.
         
-      2. Look for the appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migrategwsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
+      2. Look for the appliance Storage Account in the Resource Group. The Storage Account has a name that resembles *migrategwsa\*\*\*\*\*\*\*\*\*\**. This is the value of parameter [account] in the above command.
         
       3. Search for your storage account in the Azure portal. Ensure that the subscription you use to search is the same subscription (target subscription) in which the storage account is created. Go to Containers in the Blob Service section. Select **+Container** and create a Container. Leave Public Access Level to the default selected value.
         
-      4. Go to **Settings** > **Shared Access Signature**. Select Container in **Allowed Resource Type**.Select Generate SAS and connection string. Copy the SAS value.
+      4. Go to **Settings** > **Shared Access Signature**. Select Container in **Allowed Resource Type**.Select Generate SAS and connection string. Copy the SAS token. Enclose the URL with single quotation marks (' ') if you are using PowerShell. 
         
-      5. Execute the above command in Command Prompt by replacing account, container, SAS with the values obtained in steps 2, 3, and 4 respectively.
+      5. Execute the above command in Command Prompt by replacing account, container, SAS with the values obtained in steps b, c, and d respectively.
         
       Alternatively, [download](https://go.microsoft.com/fwlink/?linkid=2138967) the Azure Storage Explore on to the appliance and try to upload 10 blobs of ~64 MB into the storage accounts. If there's no issue, the upload should be successful.
         
     **Resolution:** If this test fails, there's a networking issue. Engage your local networking team to check connectivity issues. Typically, there can be some firewall settings that are causing the failures.
     
 4.  Check for connectivity issues between Azure Migrate appliance and Service Bus:
+
+    > [!Note]
+    > This is applicable only for the projects that are set up with public endpoint. A Service bus refers to the ServiceBusNamespace type resource in the resource group for a Migrate project. The name of the Service Bus is of the format *migratelsa(keyvaultsuffix)*. The Migrate key vault suffix is available in the gateway.json file on the appliance. 
+    > For example, if the gateway json contains:  
+    > "AzureKeyVaultArmId": "/subscriptions/ccd78886-4365-42e0-947d-8a976413ab5c/resourceGroups/pkataria-rg-ccy/providers/Microsoft.KeyVault/vaults/migratekv1329610309" 
+    > The service bus namespace resource would be named migratelsa1329610309. 
 
     This test checks if the Azure Migrate appliance can communicate to the Azure Migrate Cloud Service backend. The appliance communicates to the service backend through Service Bus and Event Hubs message queues. To validate connectivity from the appliance to the Service Bus, [download](https://go.microsoft.com/fwlink/?linkid=2139104) the Service Bus Explorer, try to connect to the appliance Service Bus and perform send message/receive message. If there's no issue, this should be successful.
 
