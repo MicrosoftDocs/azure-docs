@@ -65,7 +65,7 @@ conceptualContent:
           links:
             - url: ./shows/learn-live/fasttrack-for-azure-season-2-ep02-azure-openai-introduction-to-language-models-and-applications
               itemType: video
-              text: Azure OpenAI: Introduction to Language Models and Applications
+              text: "Azure OpenAI: Introduction to Language Models and Applications"
             - url: ./shows/learn-live/fasttrack-for-azure-season-2-ep09-azure-ml-fundamentals
               itemType: video
               text: Azure ML Fundamentals
