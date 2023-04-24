@@ -4,7 +4,7 @@ description: Troubleshoot common issues with cloud tiering in an Azure File Sync
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 4/20/2023
+ms.date: 4/21/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -94,8 +94,42 @@ If files fail to tier to Azure Files:
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | The file failed to tier due to insufficient system resources. | If the error persists, investigate which application or kernel-mode driver is exhausting system resources. |
 | 0x8e5e03fe | -1906441218 | JET_errDiskIO | The file failed to tier due to an I/O error when writing to the cloud tiering database. | If the error persists, run chkdsk on the volume and check the storage hardware. |
 | 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | The file failed to tier because the cloud tiering database isn't running. | To resolve this issue, restart the FileSyncSvc service or server. If the error persists, run chkdsk on the volume and check the storage hardware. |
-| 0x80C80285 | -2134375803 | ECS_E_GHOSTING_SKIPPED_BY_<br>CUSTOM_EXCLUSION_LIST | The file can't be tiered because the file type is excluded from tiering. | To tier files with this file type, modify the GhostingExclusionList registry setting which is located under HKEY_LOCAL_MACHINE<br>\SOFTWARE\Microsoft\Azure\StorageSync |
+| 0x80C80285 | -2134375803 | ECS_E_GHOSTING_SKIPPED_BY_<br>CUSTOM_EXCLUSION_LIST | The file can't be tiered because the file type is excluded from tiering. | To tier files with this file type, modify the GhostingExclusionList registry setting which is located under HKEY_LOCAL_MACHINE\SOFTWARE<br>\Microsoft\Azure\StorageSync |
 | 0x80C86050 | -2134351792 | ECS_E_REPLICA_NOT_READY_FOR_<br>TIERING | The file failed to tier because the current sync mode is initial upload or reconciliation. | No action required. The file will be tiered once sync completes initial upload or reconciliation. |
+| 0x80c8304e | -2134364082 | ECS_E_WORK_FRAMEWORK_ACTION_<br>RETRY_NOT_SUPPORTED | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80c8309c | -2134364004 | ECS_E_CREATE_SV_BATCHED_CHANGE_<br>DETECTION_FAILED | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x8000ffff | -2147418113 | E_UNEXPECTED | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80c80220 | -2134375904 | ECS_E_SYNC_METADATA_IO_ERROR | The sync database has encountered an IO error. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80c830a7 | -2134363993 | ECS_E_AZURE_FILE_SNAPSHOT_LIMIT_<br>REACHED | The Azure file snapshot limit has been reached. | Upgrade the Azure File Sync agent to the latest version. After upgrading the agent, run the `DeepScrubbingScheduledTask` located under \Microsoft\StorageSync. |
+| 0x80c80367 | -2134375577 | ECS_E_FILE_SNAPSHOT_OPERATION_<br>EXECUTION_MAX_ATTEMPTS_REACHED | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80c8306f | -2134364049 | ECS_E_ETAG_MISMATCH | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80c8304c | -2134364084 | ECS_E_ASYNC_POLLING_TIMEOUT | Timeout error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x299 | N/A | ERROR_FILE_SYSTEM_LIMITATION | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80c83054 | -2134364076 | ECS_E_CREATE_SV_UNKNOWN_<br>GLOBAL_ID | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80c8309b | -2134364005 | ECS_E_CREATE_SV_PER_ITEM_CHANGE_<br>DETECTION_FAILED | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80c83034 | -2134364108 | ECS_E_FORBIDDEN | Access is denied. | Please check the access policies on the storage account, and also check your proxy settings. [Learn more](file-sync-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints). |
+| 0x34 | 52 | ERROR_DUP_NAME | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x1128 | 4392 | ERROR_INVALID_REPARSE_DATA | The data is corrupted and unreadable. | Run chkdsk on the volume. [Learn more](/windows-server/administration/windows-commands/chkdsk?tabs=event-viewer). |
+| 0x8e5e0450 | -1906441136 | JET_errInvalidSesid | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80092004 | -2146885628 | CRYPT_E_NOT_FOUND | Certificate required for Azure File Sync authentication is missing. | Run this PowerShell command on the server to reset the certificate `Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>` |
+| 0x80c80020 | -2134376416 | ECS_E_CLUSTER_NOT_RUNNING | The Failover Cluster service is not running. | Verify the cluster service (clussvc) is running. [Learn more](/troubleshoot/windows-server/high-availability/troubleshoot-cluster-service-fails-to-start). |
+| 0x80c83036 | -2134364106 | ECS_E_NOT_FOUND | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x801f0005 | -2145452027 | ERROR_FLT_INVALID_NAME_REQUEST | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x1126 | 4390	| ERROR_NOT_A_REPARSE_POINT | An internal error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x718 | N/A | ERROR_NOT_ENOUGH_QUOTA | Not enough server memory resources available to process this command. | Monitor memory usage on your server. [Learn more](file-sync-planning.md#recommended-system-resources). |
+| 0x46a | N/A | ERROR_NOT_ENOUGH_SERVER_MEMORY | Not enough server memory resources available to process this command. | Monitor memory usage on your server. [Learn more](file-sync-planning.md#recommended-system-resources). |
+| 0x80070026 | -2147024858 | COR_E_ENDOFSTREAM | An external error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80131501 | -2146233087 | COR_E_SYSTEM | An external error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80c86040 | -2134351808 | ECS_E_AZURE_FILE_SHARE_INVALID_<br>HEADER | An unexpected error occurred. | If the error persists for more than a day, create a support request. |
+| 0x80c80339 | -2134375623 | ECS_E_CERT_DATE_INVALID | The server's SSL certificate is expired. | Check with your organization's tech support to get help. If you need further investigation, create a support request. |
+| 0x80c80337 | -2134375625 | ECS_E_INVALID_CA | The server's SSL certificate was issued by a certificate authority that isn't trusted by this PC. | Check with your organization's tech support to get help. If you need further investigation, create a support request. |
+| 0x80c80001 | -2134376447 | ECS_E_SYNC_INVALID_PROTOCOL_FORMAT | A connection with the service could not be established. | Please check and configure the proxy setting correctly or remove the proxy setting. [Learn more](file-sync-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints). |
+| 0x6d9 | N/A | EPT_S_NOT_REGISTERED | An external error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x35 | 53 | ERROR_BAD_NETPATH | An external error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x571 | N/A | ERROR_DISK_CORRUPT | The disk structure is corrupted and unreadable. | Run chkdsk on the volume. [Learn more](/windows-server/administration/windows-commands/chkdsk?tabs=event-viewer). |
+| 0x52e | N/A | ERROR_LOGON_FAILURE | Operation failed due to an authentication failure. | If the error persists for more than a day, create a support request. |
+| 0x8002802b | -2147319765 | TYPE_E_ELEMENTNOTFOUND | An unexpected error occurred. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
+| 0x80072f00 | -2147012864 | WININET_E_FORCE_RETRY | A connection with the service could not be established. | No action required. This error should automatically resolve. If the error persists for several days, create a support request. |
 
 ## How to troubleshoot files that fail to be recalled  
 If files fail to be recalled:
