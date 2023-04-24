@@ -1,9 +1,10 @@
 ---
-title: Tutorial - Connect an IoT Edge device to Azure IoT Central | Microsoft Docs
-description: This tutorial shows you how to connect an IoT Edge device to your IoT Central application. You first create an unassigned device, and then add a device template to enable views and forms for an operator to be able to interact with the device.
+title: Tutorial - Connect an IoT Edge device to your application
+titleSuffix: Azure IoT Central
+description: This tutorial shows you how to register, provision, and connect an IoT Edge device to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/18/2022
+ms.date: 12/14/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -81,8 +82,8 @@ The list of devices on the **Devices** page now includes the **Environmental sen
 Before you deploy the IoT Edge device, you need the:
 
 * **ID Scope** of your IoT Central application.
-* **Device ID** values for the gateway and downstream devices.
-* **Primary key** values for the gateway and downstream devices.
+* **Device ID** values for the IoT Edge device.
+* **Primary key** values for the IoT Edge device.
 
 To find these values, navigate to the **Environmental sensor - 001** device from the **Devices** page and select **Connect**. Make a note of these values before you continue.
 
@@ -144,7 +145,7 @@ The following steps show you how to add a device template for an IoT Edge device
 
 1. On the **Select type** page, select **Azure IoT Edge**, and then **Next: Customize**.
 
-1. On the **Customize** page, enter **Environmental sensor** as the device template name.
+1. On the **Customize** page, enter *Environmental sensor* as the device template name. Select **Next: Review**.
 
 1. On the **Review** page, select **Create**.
 
@@ -211,6 +212,8 @@ IoT Central created this view automatically from the **manage** interface in the
 ## Clean up resources
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
+To remove the virtual machine that's running Azure IoT Edge, navigate to the Azure portal and delete the resource group you created previously. If you used the recommended name, your resource group is called **MyIoTEdgeDevice_rg**.
 
 ## Next steps
 

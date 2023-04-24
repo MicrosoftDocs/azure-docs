@@ -24,6 +24,9 @@ This article describes how you can use the **Remediation** dashboard in Permissi
 
 ## Create a policy for AWS
 
+> [!NOTE]
+> For information on AWS service quotas, and to request an AWS service quota increase, visit [the AWS documentation](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html). 
+
 1. On the Entra home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
 1. Use the dropdown lists to select the **Authorization System Type** and **Authorization System**.
 1. Select **Create Policy**.

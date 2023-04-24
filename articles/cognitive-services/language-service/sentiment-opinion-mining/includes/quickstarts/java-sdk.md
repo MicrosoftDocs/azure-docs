@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 02/17/2023
 ms.custom: devx-track-java, ignite-fall-2021
 ms.author: aahi
 ---
@@ -59,7 +59,7 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 
 ## Code example
 
-Create a Java file named `Example.java`. Open the file and copy the below code.
+Create a Java file named `Example.java`. Open the file and copy the below code. Then run the code.
 
 ```java
 import com.azure.core.credential.AzureKeyCredential;

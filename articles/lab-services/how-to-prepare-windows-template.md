@@ -1,7 +1,6 @@
 ---
 title: Guide to setting up a Windows template machine | Microsoft Docs
 description: Generic steps to prepare a Windows template machine in Lab Services.  These steps include setting Windows Update schedule, installing OneDrive, and installing Office.
-author: EMaher
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.service: lab-services

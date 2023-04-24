@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 09/16/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 ms.custom: devx-track-js
 ---
@@ -27,10 +27,8 @@ ms.custom: devx-track-js
 * The current version of [Node.js](https://nodejs.org/)
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../../build-training-data-set.md) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the project
+  * You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the project
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-> [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
 
 ## Setting up
 
@@ -56,7 +54,7 @@ Install the `ai-form-recognizer` npm package:
 npm install @azure/ai-form-recognizer
 ```
 
-Your app's `package.json` file will be updated with the dependencies.
+Your app's `package.json` file is updated with the dependencies.
 
 Create a file named `index.js`, open it, and import the following libraries:
 
@@ -87,8 +85,8 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 `FormTrainingClient` provides operations for:
 
-* Training custom models to analyze all fields and values found in your custom forms. A `CustomFormModel` is returned indicating the form types the model will analyze, and the fields it will extract for each form type. For more information, _see_ the [service's documentation on unlabeled model training](#train-a-model-without-labels).
-* Training custom models to analyze specific fields and values you specify by labeling your custom forms. A `CustomFormModel` is returned indicating the fields the model will extract, and the estimated accuracy for each field. See the [service's documentation on labeled model training](#train-a-model-with-labels) for a more detailed explanation of applying labels to a training data set.
+* Training custom models to analyze all fields and values found in your custom forms. A `CustomFormModel` is returned indicating the form types the model analyzes, and the fields it extracts for each form type. For more information, _see_ the [service's documentation on unlabeled model training](#train-a-model-without-labels).
+* Training custom models to analyze specific fields and values you specify by labeling your custom forms. A `CustomFormModel` is returned indicating the fields the model extracts, and the estimated accuracy for each field. See the [service's documentation on labeled model training](#train-a-model-with-labels) for a more detailed explanation of applying labels to a training data set.
 * Managing models created in your account.
 * Copying a custom model from one Form Recognizer resource to another.
 
@@ -97,19 +95,19 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 ## Authenticate the client
 
-Authenticate a client object using the subscription variables you defined. You'll use an `AzureKeyCredential` object, so that if needed, you can update the key without creating new client objects. You'll also create a training client object.
+Authenticate a client object using the subscription variables you defined. You use an `AzureKeyCredential` object, so that if needed, you can update the key without creating new client objects. You also create a training client object.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_auth)]
 
 ## Get assets for testing
 
-You'll also need to add references to the URLs for your training and testing data.
+You also need to add references to the URLs for your training and testing data.
 
-* To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and select **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
    :::image type="content" source="../../../media/quickstarts/get-sas-url.png" alt-text="Screenshot of SAS URL retrieval.":::
 
-* Use the sample from and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)). You can use the above steps to get the SAS URL of an individual document in blob storage.
+* Use the sample from and receipt images included in the samples (also available on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)). You can use the above steps to get the SAS URL of an individual document in blob storage.
 
 ## Analyze layout
 
@@ -209,7 +207,7 @@ The following function trains a model on a given set of documents and prints the
 
 ### Output
 
-Below is the output for a model trained with the training data available from the [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer). This sample output has been truncated for readability.
+Here's the output for a model trained with the training data available from the [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer). This sample output has been truncated for readability.
 
 ```console
 training status: creating
@@ -251,7 +249,7 @@ You can also train custom models by manually labeling the training documents. Tr
 
 ### Output
 
-Below is the output for a model trained with the training data available from the [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples). This sample output has been truncated for readability.
+Here's the output for a model trained with the training data available from the [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples). This sample output has been truncated for readability.
 
 ```console
 training status: creating
@@ -286,9 +284,9 @@ Document errors: undefined
 This section demonstrates how to extract key/value information and other content from your custom template types, using models you trained with your own forms.
 
 > [!IMPORTANT]
-> In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#train-a-model-without-labels) section.
+> In order to implement this scenario, you must have already trained a model so you can pass its ID into the method operation. See the [Train a model](#train-a-model-without-labels) section.
 
-You'll use the `beginRecognizeCustomFormsFromUrl` method. The returned value is a collection of `RecognizedForm` objects: one for each page in the submitted document.
+You use the `beginRecognizeCustomFormsFromUrl` method. The returned value is a collection of `RecognizedForm` objects: one for each page in the submitted document.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
 

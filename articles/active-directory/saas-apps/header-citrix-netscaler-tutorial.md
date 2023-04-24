@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on integration with Citrix ADC (header-based authentication) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on integration with Citrix ADC (header-based authentication)'
 description: Learn how to configure single sign-on (SSO) between Azure Active Directory and Citrix ADC by using header-based authentication.
 services: active-directory
 author: jeevansd

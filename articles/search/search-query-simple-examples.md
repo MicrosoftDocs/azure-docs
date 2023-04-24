@@ -64,7 +64,7 @@ Full text search can be any number of standalone terms or quote-enclosed phrases
 POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
     "search": "pool spa +airport",
-    "searchMode": any,
+    "searchMode": "any",
     "queryType": "simple",
     "select": "HotelId, HotelName, Category, Description",
     "count": true

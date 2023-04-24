@@ -5,14 +5,14 @@ keywords:
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 10/13/2020
+ms.date: 9/22/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 # Deploy IoT Edge modules at scale using the Azure portal
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Create an **IoT Edge automatic deployment** in the Azure portal to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [device management](../iot-hub/iot-hub-automatic-device-management.md) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
 
@@ -50,7 +50,7 @@ The steps for creating a deployment and a layered deployment are very similar. A
 There are five steps to create a deployment. The following sections walk through each one.
 
 >[!NOTE]
->The steps in this article reflect the latest schema version of the IoT Edge agent and hub. Schema version 1.1 was released along with IoT Edge version 1.0.10, and enables the module startup order and route prioritization features.
+>The steps in this article reflect the latest schema version of the IoT Edge agent and hub.
 >
 >If you are deploying to a device running version 1.0.9 or earlier, edit the **Runtime Settings** in the **Modules** step of the wizard to use schema version 1.0.
 
@@ -82,7 +82,7 @@ After you add a module to a deployment, you can select its name to open the **Up
 
 If you're creating a layered deployment, you may be configuring a module that exists in other deployments targeting the same devices. To update the module twin without overwriting other versions, open the **Module Twin Settings** tab. Create a new **Module Twin Property** with a unique name for a subsection within the module twin's desired properties, for example `properties.desired.settings`. If you define properties within just the `properties.desired` field, it will overwrite the desired properties for the module defined in any lower priority deployments.
 
-![Set module twin property for layered deployment](./media/how-to-deploy-monitor/module-twin-property.png)
+:::image type="content" source="./media/how-to-deploy-monitor/module-twin-property.png" alt-text="Screenshot showing how to set the module twin property for layered deployment.":::
 
 For more information about module twin configuration in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment).
 
@@ -165,7 +165,7 @@ When you modify a deployment, the changes immediately replicate to all targeted 
 
 1. Select the **Metrics** tab and click the **Edit Metrics** button. Add or modify custom metrics, using the example syntax as a guide. Select **Save**.
 
-    ![Edit custom metrics in a deployment](./media/how-to-deploy-monitor/metric-list.png)
+   :::image type="content" source="./media/how-to-deploy-monitor/metric-list.png" alt-text="Screenshot showing how to edit custom metrics in a deployment.":::
 
 1. Select the **Labels** tab and make any desired changes and select **Save**.
 

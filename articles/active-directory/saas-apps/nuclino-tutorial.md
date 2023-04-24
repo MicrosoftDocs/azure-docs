@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nuclino | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Nuclino'
 description: Learn how to configure single sign-on between Azure Active Directory and Nuclino.
 services: active-directory
 author: jeevansd

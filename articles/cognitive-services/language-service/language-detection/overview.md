@@ -24,9 +24,10 @@ This documentation contains the following types of articles:
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
-## Deploy on premises using Docker containers
 
-Use the available Docker container to [deploy this feature on-premises](how-to/use-containers.md). These docker containers enable you to bring the service closer to your data for compliance, security, or other operational reasons.
+## Get started with language detection
+
+[!INCLUDE [development options](./includes/development-options.md)]
 
 ## Responsible AI 
 

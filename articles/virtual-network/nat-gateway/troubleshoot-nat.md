@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot Azure Virtual Network NAT (NAT gateway)
+title: Troubleshoot Azure NAT Gateway
 titleSuffix: Azure Virtual Network
-description: Troubleshoot issues with Virtual Network NAT.
+description: Troubleshoot issues with NAT Gateway.
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
@@ -11,7 +11,7 @@ ms.date: 08/29/2022
 ms.author: allensu
 ---
 
-# Troubleshoot Azure Virtual Network NAT (NAT gateway)
+# Troubleshoot Azure NAT Gateway
 
 This article provides guidance on how to correctly configure your NAT gateway and troubleshoot common configuration and deployment related issues.  
 
@@ -37,7 +37,7 @@ Check the following configurations to ensure that NAT gateway can be used to dir
 
 ### How to validate connectivity
 
-[Virtual Network NAT gateway](./nat-overview.md#virtual-network-nat-basics) supports IPv4 UDP and TCP protocols. ICMP isn't supported and is expected to fail. 
+[NAT gateway](./nat-overview.md#azure-nat-gateway-basics) supports IPv4 UDP and TCP protocols. ICMP isn't supported and is expected to fail. 
 
 To validate end-to-end connectivity of NAT gateway, follow these steps: 
 1. Validate that your [NAT gateway public IP address is being used](./quickstart-create-nat-gateway-portal.md#test-nat-gateway).
@@ -81,7 +81,7 @@ You may experience outbound connectivity failure if your NAT gateway resource is
 
 ### Can't delete NAT gateway
 
-NAT gateway must be detached from all subnets within a virtual network before the resource can be removed or deleted. See [Remove NAT gateway from an existing subnet and delete the resource](/azure/virtual-network/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step by step guidance.
+NAT gateway must be detached from all subnets within a virtual network before the resource can be removed or deleted. See [Remove NAT gateway from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step by step guidance.
 
 ## Add or remove subnet 
 
@@ -163,7 +163,7 @@ NAT gateway can't be associated with more than 16 public IP addresses. You can u
 
 ### IPv6 coexistence
 
-[Virtual Network NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. NAT gateway can't be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. NAT gateway can be deployed on a dual stack subnet, but will still only use IPv4 Public IP addresses for directing outbound traffic. Deploy NAT gateway on a dual stack subnet when you need IPv6 resources to exist in the same subnet as IPv4 resources.
+[NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. NAT gateway can't be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. NAT gateway can be deployed on a dual stack subnet, but will still only use IPv4 Public IP addresses for directing outbound traffic. Deploy NAT gateway on a dual stack subnet when you need IPv6 resources to exist in the same subnet as IPv4 resources.
 
 ### Can't use basic SKU public IPs with NAT gateway 
 
@@ -171,7 +171,7 @@ NAT gateway is a standard SKU resource and can't be used with basic SKU resource
 
 ### Can't mismatch zones of public IP addresses and NAT gateway 
 
-NAT gateway is a [zonal resource](/azure/virtual-network/nat-gateway/nat-availability-zones) and can either be designated to a specific zone or to ‘no zone’. When NAT gateway is placed in ‘no zone’, Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
+NAT gateway is a [zonal resource](./nat-availability-zones.md) and can either be designated to a specific zone or to ‘no zone’. When NAT gateway is placed in ‘no zone’, Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
 
 NAT gateway can be used with public IP addresses designated to a specific zone, no zone, all zones (zone-redundant) depending on its own availability zone configuration. Follow guidance below: 
 
@@ -189,10 +189,10 @@ We're always looking to improve the experience of our customers. If you're exper
 
 To learn more about NAT gateway, see:
 
-* [Virtual Network NAT](nat-overview.md)
+* [Azure NAT Gateway](nat-overview.md)
 
 * [NAT gateway resource](nat-gateway-resource.md)
 
-* [Manage NAT gateway](/azure/virtual-network/nat-gateway/manage-nat-gateway)
+* [Manage NAT gateway](./manage-nat-gateway.md)
 
 * [Metrics and alerts for NAT gateway resources](nat-metrics.md).

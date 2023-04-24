@@ -4,7 +4,7 @@ description: This quickstart describes how to create an Azure Analysis Services 
 author: minewiskan
 ms.author: owend
 ms.reviewer: minewiskan
-ms.date: 10/12/2021
+ms.date: 01/26/2023
 ms.topic: quickstart
 ms.service: analysis-services
 ms.custom: mode-ui

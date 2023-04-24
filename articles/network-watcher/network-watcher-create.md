@@ -1,17 +1,15 @@
 ---
-title: Create an Azure Network Watcher instance | Microsoft Docs
-description: Learn how to create an Azure Network Watcher in an Azure region by using the Azure portal or other technologies, and how to delete a Network Watcher.
+title: Create an Azure Network Watcher instance
+description: Learn how to create or delete an Azure Network Watcher using the Azure portal, PowerShell, the Azure CLI or the REST API.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 10/08/2021
-ms.author: damendo 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.workload: infrastructure-services
+ms.date: 12/30/2022
+ms.author: halkazwini
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
 
@@ -19,17 +17,14 @@ ms.devlang: azurecli
 
 Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Scenario level monitoring enables you to diagnose problems at an end to end network level view. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure. Network Watcher is enabled through the creation of a Network Watcher resource. This resource allows you to utilize Network Watcher capabilities.
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Network Watcher is automatically enabled
-When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. There's no impact to your resources or associated charge for automatically enabling Network Watcher.
+When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. Automatically enabling Network Watcher doesn't affect your resources or associated charge.
 
-#### Opt-out of Network Watcher automatic enablement
+### Opt-out of Network Watcher automatic enablement
 If you would like to opt out of Network Watcher automatic enablement, you can do so by running the following commands:
 
 > [!WARNING]
-> Opting-out of Network Watcher automatic enablement is a permanent change. Once you opt-out, you cannot opt-in without contacting [support](https://azure.microsoft.com/support/options/).
+> Opting-out of Network Watcher automatic enablement is a permanent change. Once you opt-out, you cannot opt-in without contacting [Azure support](https://azure.microsoft.com/support/options/).
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
@@ -40,45 +35,53 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 az feature register --name DisableNetworkWatcherAutocreation --namespace Microsoft.Network
 az provider register -n Microsoft.Network
 ```
+## Prerequisites
 
-
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create a Network Watcher in the portal
 
-1. Log into the [Azure portal](https://portal.azure.com) with an account that has the necessary permissions.
-2. Select **More services**.
-3. In the **All services** screen, enter **Network Watcher** in the **Filter services** search box and select it from the search result.  
-You can select all the subscriptions you want to enable Network Watcher for. This action creates a Network Watcher in every region that is available.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that has the necessary permissions.
 
-![create a network watcher](./media/network-watcher-create/figure1.png)
+2. In the search box at the top of the portal, enter *Network Watcher*.
 
-When you enable Network Watcher using the portal, the name of the Network Watcher instance is automatically set to *NetworkWatcher_region_name* where *region_name* corresponds to the Azure region where the instance is enabled. For example, a Network Watcher enabled in the West Central US region is named *NetworkWatcher_westcentralus*.
+3. In the search results, select **Network Watcher**.  
+
+4. Select **+ Add**.
+
+5. In **Add network watcher**, select your Azure subscription, then select the region that you want to enable Azure Network Watcher for.
+
+6. Select **Add**.
+
+    :::image type="content" source="./media/network-watcher-create/create-network-watcher.png" alt-text="Screenshot showing how to create a Network Watcher in the Azure portal.":::
+
+When you enable Network Watcher using the Azure portal, the name of the Network Watcher instance is automatically set to *NetworkWatcher_region_name*, where *region_name* corresponds to the Azure region of the Network Watcher instance. For example, a Network Watcher enabled in the East US region is named *NetworkWatcher_eastus*.
 
 The Network Watcher instance is automatically created in a resource group named *NetworkWatcherRG*. The resource group is created if it doesn't already exist.
 
-If you wish to customize the name of a Network Watcher instance and the resource group it's placed into, you can use PowerShell, the Azure CLI, the REST API, or ARMClient methods described in the sections that follow. In each option, the resource group must exist before you create a Network Watcher in it.  
+If you wish to customize the name of a Network Watcher instance and the resource group it's placed into, you can use [PowerShell](#powershell) or [REST API](#restapi) methods. In each option, the resource group must exist before you create a Network Watcher in it.  
 
-## Create a Network Watcher with PowerShell
+## <a name="powershell"></a> Create a Network Watcher using PowerShell
 
-To create an instance of Network Watcher, run the following example:
+Use [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) to create an instance of Network Watcher:
 
-```powershell
-New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
+```azurepowershell-interactive
+New-AzNetworkWatcher -Name NetworkWatcher_westus -ResourceGroupName NetworkWatcherRG -Location westus
 ```
 
-## Create a Network Watcher with the Azure CLI
+## Create a Network Watcher using the Azure CLI
 
-To create an instance of Network Watcher, run the following example:
+Use [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) to create an instance of Network Watcher:
 
-```azurecli
+```azurecli-interactive
 az network watcher configure --resource-group NetworkWatcherRG --locations westcentralus --enabled
 ```
 
-## Create a Network Watcher with the REST API
+## <a name="restapi"></a> Create a Network Watcher using the REST API
 
-The ARMclient is used to call the REST API using PowerShell. The ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
+The ARMclient is used to call the [REST API](/rest/api/network-watcher/network-watchers/create-or-update) using PowerShell. The ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-### Log in with ARMClient
+### Sign in with ARMClient
 
 ```powerShell
 armclient login
@@ -90,7 +93,7 @@ armclient login
 $subscriptionId = '<subscription id>'
 $networkWatcherName = '<name of network watcher>'
 $resourceGroupName = '<resource group name>'
-$apiversion = "2016-09-01"
+$apiversion = "2022-07-01"
 $requestBody = @"
 {
 'location': 'West Central US'
@@ -102,32 +105,45 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 
 ## Create a Network Watcher using Azure Quickstart Template
 
-To create an instance of Network Watcher, refer this [Quickstart Template](https://azure.microsoft.com/resources/templates/networkwatcher-create/)
+To create an instance of Network Watcher, refer to this [Quickstart Template](/samples/azure/azure-quickstart-templates/networkwatcher-create).
 
-## Delete a Network Watcher in the portal
+## Delete a Network Watcher using the Azure portal
 
-1. Navigate to **All Services** > **Networking** > **Network Watcher**.
-2. Select the overview tab, if you're not already there. Use the dropdown to select the subscription you want to disable network watcher in.
-3. Expand the list of locations for your chosen subscription by selecting on the arrow. For any given, use the 3 dots on the right to access the context menu.
-4. Select **Disable network watcher** to start disabling. You'll be asked to confirm this step. Select **Yes** to continue.
-On the portal, you'll have to do this individually for every region in every subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that has the necessary permissions.
 
+2. In the search box at the top of the portal, enter *Network Watcher*.
 
-## Delete a Network Watcher with PowerShell
+3. In the search results, select **Network Watcher**.  
 
-To delete an instance of Network Watcher, run the following example:
+4. In the **Overview** page, select the Network Watcher instances that you want to delete, then select **Disable**.
 
-```powershell
-New-AzResourceGroup -Name NetworkWatcherRG -Location westcentralus
-New-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroupName NetworkWatcherRG -Location westcentralus
-Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroupName NetworkWatcherRG
+    :::image type="content" source="./media/network-watcher-create/delete-network-watcher.png" alt-text="Screenshot showing how to delete a Network Watcher in the Azure portal.":::
+
+5. Enter *yes*, then select **Delete**.
+
+    :::image type="content" source="./media/network-watcher-create/confirm-delete-network-watcher.png" alt-text="Screenshot showing the confirmation page before deleting a Network Watcher in the Azure portal.":::
+
+## Delete a Network Watcher using PowerShell
+
+Use [Remove-AzNetworkWatcher](/powershell/module/az.network/remove-aznetworkwatcher) to delete an instance of Network Watcher:
+
+```azurepowershell-interactive
+Remove-AzNetworkWatcher -Name NetworkWatcher_westus -ResourceGroupName NetworkWatcherRG
+```
+
+## Delete a Network Watcher using the Azure CLI
+
+Use [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) to delete an instance of Network Watcher:
+
+```azurecli-interactive
+az network watcher configure --resource-group NetworkWatcherRG --locations westcentralus --enabled false
 ```
 
 ## Next steps
 
-Now that you have an instance of Network Watcher, learn about the features available:
+Now that you have an instance of Network Watcher, learn about the available features:
 
-* [Topology](./view-network-topology.md)
+* [Topology](view-network-topology.md)
 * [Packet capture](network-watcher-packet-capture-overview.md)
 * [IP flow verify](network-watcher-ip-flow-verify-overview.md)
 * [Next hop](network-watcher-next-hop-overview.md)

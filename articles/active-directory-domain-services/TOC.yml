@@ -37,8 +37,8 @@
       href: template-create-instance.md
     - name: Configure scoped synchronization using Azure AD PowerShell
       href: powershell-scoped-synchronization.md
-    - name: Create a resource forest and trust using Azure PowerShell
-      href: create-resource-forest-powershell.md
+    - name: Create a forest trust using Azure PowerShell
+      href: create-forest-trust-powershell.md
 - name: Concepts
   items:
     - name: Administration basics
@@ -47,16 +47,14 @@
       href: scenarios.md
     - name: Replica sets
       href: concepts-replica-sets.md
-    - name: Forests and trusts
-      items:
-        - name: Resource forests
-          href: concepts-resource-forest.md
-        - name: Forest trusts
-          href: concepts-forest-trust.md
+    - name: Forests trusts
+      href: concepts-forest-trust.md
     - name: How Azure AD DS synchronization works
       href: synchronization.md
     - name: How password hash synchronization works
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Custom attributes
+      href: concepts-custom-attributes.md
     - name: Virtual network considerations
       href: network-considerations.md
     - name: Classic deployment migration benefits
@@ -109,6 +107,8 @@
           href: use-azure-monitor-workbooks.md
         - name: Secure remote access to VMs
           href: secure-remote-vm-access.md
+        - name: Security baseline
+          href: /security/benchmark/azure/baselines/azure-active-directory-domain-services-security-baseline?toc=/azure/active-directory-domain-services/TOC.json          
     - name: Domain-join VMs
       items:
         - name: Windows Server VM from template

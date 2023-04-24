@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/05/2022
+ms.date: 04/14/2023
 ---
 
 # Transform data from an SAP ODP source using the SAP CDC connector in Azure Data Factory or Azure Synapse Analytics
@@ -38,16 +38,7 @@ The SAP CDC connector supports basic authentication or Secure Network Communicat
 
 ## Prerequisites
 
-To use this SAP CDC connector, you need to:
-
-- Set up a self-hosted integration runtime. The most recent version can be found in [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md).
-
-- Download the 64-bit [SAP Connector for Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP's website, and install it on the self-hosted integration runtime machine. During installation, make sure you select the **Install Assemblies to GAC** option in the **Optional setup steps** window.
-
-  :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png" alt-text="Screenshot showing installation of SAP Connector for .NET.":::
-
-- The SAP user who's being used in the SAP table connector must have the permissions described in [User Configuration](sap-change-data-capture-prerequisites-configuration.md#set-up-the-sap-user):
-
+To use this SAP CDC connector, refer to [Prerequisites and setup for the SAP CDC connector](sap-change-data-capture-prerequisites-configuration.md).
 
 ## Get started
 
@@ -64,6 +55,14 @@ To prepare an SAP CDC dataset, follow [Prepare the SAP CDC source dataset](sap-c
 ## Transform data with the SAP CDC connector
 
 SAP CDC datasets can be used as source in mapping data flow. Since the raw SAP ODP change feed is difficult to interpret and to correctly update to a sink, mapping data flow takes care of this by evaluating technical attributes provided by the ODP framework (e.g., ODQ_CHANGEMODE) automatically. This allows users to concentrate on the required transformation logic without having to bother with the internals of the SAP ODP change feed, the right order of changes, etc.
+
+To get started, create a pipeline with a mapping data flow.
+
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-pipeline-dataflow-activity.png" alt-text="Screenshot of add data flow activity in pipeline.":::
+
+Next, specify a staging folder in Azure Data Lake Gen2, which will serve as an intermediate storage for data extracted from SAP.
+
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-staging-folder.png" alt-text="Screenshot of specify staging folder in data flow activity.":::
 
 ### Mapping data flow properties
 

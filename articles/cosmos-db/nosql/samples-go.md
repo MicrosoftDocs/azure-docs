@@ -44,7 +44,7 @@ Sample solutions that do CRUD operations and other common operations on Azure Co
 
 ## Database examples
 
-To learn about the Azure Cosmos DB databases before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+To learn about the Azure Cosmos DB databases before running the following samples, see [Working with databases, containers, and items](../resource-model.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -54,7 +54,7 @@ To learn about the Azure Cosmos DB databases before running the following sample
 
 ## Container examples
 
-To learn about the Azure Cosmos DB collections before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+To learn about the Azure Cosmos DB collections before running the following samples, see [Working with databases, containers, and items](../resource-model.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -64,7 +64,7 @@ To learn about the Azure Cosmos DB collections before running the following samp
 
 ## Item examples
 
-The [cosmos_container.go](https://github.com/Azure/azure-sdk-for-go/blob/sdk/data/azcosmos/v0.3.2/sdk/data/azcosmos/cosmos_container.go) Go sample shows how to do the following tasks. To learn about the Azure Cosmos DB documents before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+The [cosmos_container.go](https://github.com/Azure/azure-sdk-for-go/blob/sdk/data/azcosmos/v0.3.2/sdk/data/azcosmos/cosmos_container.go) Go sample shows how to do the following tasks. To learn about the Azure Cosmos DB documents before running the following samples, see [Working with databases, containers, and items](../resource-model.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |

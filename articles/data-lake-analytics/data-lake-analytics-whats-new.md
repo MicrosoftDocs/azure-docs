@@ -1,16 +1,14 @@
 ---
 title: Data Lake Analytics recent changes
 description: This article provides an ongoing list of recent changes that are made to Data Lake Analytics. 
-author: xujiang1
 ms.service: data-lake-analytics
 ms.topic: overview
-ms.author: xujiang1
 ms.date: 11/16/2022
 ---
 
 # What's new in Data Lake Analytics?
 
-[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+[!INCLUDE [retirement-flag-creation](includes/retirement-flag-creation.md)]
 
 Azure Data Lake Analytics is updated on an aperiodic basis for certain components. To stay updated with the most recent update, this article provides you with information about:
 

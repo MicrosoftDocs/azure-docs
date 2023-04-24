@@ -4,9 +4,9 @@ description: In this tutorial, learn how to restore SAP HANA databases running o
 ms.topic: tutorial
 ms.date: 08/11/2022
 ms.custom: devx-track-azurecli
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Tutorial: Restore SAP HANA databases in an Azure VM using Azure CLI

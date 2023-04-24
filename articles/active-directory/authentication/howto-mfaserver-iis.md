@@ -1,12 +1,12 @@
 ---
-title: IIS Authentication and Azure Multi-Factor Authentication Server - Azure Active Directory
+title: IIS Authentication and Azure Multi-Factor Authentication Server
 description: Deploying IIS Authentication and Azure Multi-Factor Authentication Server.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha

@@ -3,7 +3,7 @@ title: Azure Cosmos DB bindings for Functions 2.x and higher
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 03/04/2022
+ms.date: 11/29/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -53,26 +53,23 @@ The process for installing the extension varies depending on the extension versi
 
 # [Functions 2.x+](#tab/functionsv2/in-process)
 
-Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB), version 3.x.
+Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/3.0.10), version 3.x.
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
+# [Extension 4.x+](#tab/extensionv4/in-process)
 
-This preview version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
+This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
 
 This version also changes the types that you can bind to, replacing the types from the v2 SDK `Microsoft.Azure.DocumentDB` with newer types from the v3 SDK [Microsoft.Azure.Cosmos](../cosmos-db/sql/sql-api-sdk-dotnet-standard.md). Learn more about how these new types are different and how to migrate to them from the [SDK migration guide](../cosmos-db/sql/migrate-dotnet-v3.md), [trigger](./functions-bindings-cosmosdb-v2-trigger.md), [input binding](./functions-bindings-cosmosdb-v2-input.md), and [output binding](./functions-bindings-cosmosdb-v2-output.md) examples.
 
-This extension version is available as a [preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/4.0.0-preview3).
-
-> [!NOTE]
-> Authentication with an identity instead of a secret using the 4.x preview extension is currently only available for Elastic Premium plans.
+This extension version is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB), version 4.x.
 
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 3.x.
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/isolated-process)
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
 
-This preview version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
+This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 4.x.
 
@@ -80,15 +77,15 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/csharp-script)
+# [Extension 4.x+](#tab/extensionv4/csharp-script)
 
-This extension version is available from the preview extension bundle v4 by adding the following lines in your `host.json` file:
+This extension version is available from the extension bundle v4 by adding the following lines in your `host.json` file:
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[4.0.0, 5.0.0)"
   }
 }
@@ -110,9 +107,9 @@ You can install this version of the extension in your function app by registerin
 
 [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
 
-# [Bundle v4.x (Preview)](#tab/extensionv4)
+# [Bundle v4.x](#tab/extensionv4)
 
-This version of the bundle contains a preview version of the Azure Cosmos DB bindings extension (version 4.x) that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
+This version of the bundle contains version 4.x of the Azure Cosmos DB bindings extension that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"   
@@ -137,6 +134,102 @@ To learn more, see [Update your extensions].
 ---
 
 ::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+## Binding types
+
+The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
+   
+# [In-process class library](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
+# [Isolated process](#tab/isolated-process)
+
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
+   
+# [C# script](#tab/csharp-script)
+
+C# script is used primarily when creating C# functions in the Azure portal.
+
+---
+
+Choose a version to see binding type details for the mode and version. 
+
+# [Extension 4.x and higher](#tab/extensionv4/in-process)
+
+The Azure Cosmos DB extension supports parameter types according to the table below.
+
+| Binding | Parameter types |
+|-|-|-| 
+| Cosmos DB trigger | JSON serializable types<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup> |
+| Cosmos DB input | JSON serializable types<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup><br/>[CosmosClient] | 
+| Cosmos DB output | JSON serializable types<sup>1</sup> |
+
+<sup>1</sup> Documents containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+<sup>2</sup> `IEnumerable<T>` provides a collection of documents. Here, `T` is a JSON serializable type. When specified for a trigger, it allows a single invocation to process a batch of documents. When used for an input binding, this allows multiple documents to be returned by the query.
+
+# [Functions 2.x and higher](#tab/functionsv2/in-process)
+
+Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.Documents] namespace. Newer types from [Microsoft.Azure.Cosmos] are exclusive to **extension 4.x and higher**.
+
+# [Extension 4.x and higher](#tab/extensionv4/isolated-process)
+
+The isolated worker process supports parameter types according to the table below. Binding to JSON serializeable types is currently the only option that is generally available. Support for binding to types from [Microsoft.Azure.Cosmos] is in preview.
+
+| Binding | Parameter types | Preview parameter types<sup>1</sup> |
+|-|-|-| 
+| Cosmos DB trigger | JSON serializable types<sup>2</sup><br/>`IEnumerable<T>`<sup>3</sup> | *No preview types* |
+| Cosmos DB input | JSON serializable types<sup>2</sup><br/>`IEnumerable<T>`<sup>3</sup> | [CosmosClient]<br/>[Database]<br/>[Container] |
+| Cosmos DB output | JSON serializable types<sup>2</sup> | *No preview types*<sup>4</sup> |
+
+<sup>1</sup> Preview types require use of [Microsoft.Azure.Functions.Worker.Extensions.CosmosDB 4.1.0-preview1 or later][sdk-types-extension-version], [Microsoft.Azure.Functions.Worker 1.12.1-preview1 or later][sdk-types-worker-version], and [Microsoft.Azure.Functions.Worker.Sdk 1.9.0-preview1 or later][sdk-types-worker-sdk-version]. When developing on your local machine, you will need [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). When using a preview type, [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data are not supported.
+
+[sdk-types-extension-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/4.1.0-preview1
+[sdk-types-worker-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.12.1-preview1
+[sdk-types-worker-sdk-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.9.0-preview1
+
+<sup>2</sup> Documents containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+<sup>3</sup> `IEnumerable<T>` provides a collection of documents. Here, `T` is a JSON serializable type. When specified for a trigger, it allows a single invocation to process a batch of documents. When used for an input binding, this allows multiple documents to be returned by the query.
+
+<sup>4</sup> Support for SDK type bindings does not presently extend to output bindings.
+
+# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+
+Earlier versions of extensions in the isolated worker process only support binding to JSON serializable types. Additional options are available to **extension 4.x and higher**.
+
+# [Extension 4.x and higher](#tab/extensionv4/csharp-script)
+
+The Azure Cosmos DB extension supports parameter types according to the table below.
+
+| Binding | Parameter types |
+|-|-|-| 
+| Cosmos DB trigger | JSON serializable types<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup> |
+| Cosmos DB input | JSON serializable types<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup><br/>[CosmosClient] | 
+| Cosmos DB output | JSON serializable types<sup>1</sup> |
+
+<sup>1</sup> Documents containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+<sup>2</sup> `IEnumerable<T>` provides a collection of documents. Here, `T` is a JSON serializable type. When specified for a trigger, it allows a single invocation to process a batch of documents. When used for an input binding, this allows multiple documents to be returned by the query.
+
+# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
+
+Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.Documents] namespace. Newer types from [Microsoft.Azure.Cosmos] are exclusive to **extension 4.x and higher**.
+
+---
+
+[Microsoft.Azure.Cosmos]: /dotnet/api/microsoft.azure.cosmos
+[CosmosClient]: /dotnet/api/microsoft.azure.cosmos.cosmosclient
+[Database]: /dotnet/api/microsoft.azure.cosmos.database
+[Container]: /dotnet/api/microsoft.azure.cosmos.container
+
+[Microsoft.Azure.Documents]: /dotnet/api/microsoft.azure.documents
+[DocumentClient]: /dotnet/api/microsoft.azure.documents.client.documentclient
+
+:::zone-end
 
 ## Exceptions and return codes
 
@@ -173,7 +266,7 @@ To learn more, see [Update your extensions].
 |**protocol**|`Https`|The connection protocol used by the function when connection to the Azure Cosmos DB service. Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking). |
 |**leasePrefix**|n/a|Lease prefix to use across all functions in an app. |
 
-# [Extension 4.x+ (preview)](#tab/extensionv4)
+# [Extension 4.x+](#tab/extensionv4)
 
 ```json
 {

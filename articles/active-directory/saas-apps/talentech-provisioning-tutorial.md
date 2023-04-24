@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Talentech for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Talentech for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Talentech.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 0a83529b-b150-4af8-bc5b-a0f4345c3356
 ms.service: active-directory

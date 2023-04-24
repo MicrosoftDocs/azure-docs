@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Use cURL & REST to manage knowledge base - custom question answering"
-description: This quickstart shows you how to create, publish, and query your knowledge base using the REST APIs.
+title: "Quickstart: Use cURL & REST to manage project - custom question answering"
+description: This quickstart shows you how to create, publish, and query your project using the REST APIs.
 ms.date: 06/06/2022
 ms.topic: include
 author: jboback
@@ -15,23 +15,23 @@ ms.custom: ignite-fall-2021
 * Question answering, requires a [Language resource](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint.
     * After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect to the API. Paste your key and endpoint into the code below later in the quickstart.
 * To create a Language resource with [Azure CLI](../../../cognitive-services-apis-create-account-cli.md) provide the following additional properties during resource creation configure Custom Question Answering  with your Language resource `--api-properties qnaAzureSearchEndpointId=/subscriptions/<azure-subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Search/searchServices/<azure-search-service-name> qnaAzureSearchEndpointKey=<azure-search-service-auth-key>`
-* An existing knowledge base to query. If you have not setup a knowledge base, you can follow the instructions in the [**Language Studio quickstart**](../quickstart/sdk.md). Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
+* An existing project to query. If you have not setup a project, you can follow the instructions in the [**Language Studio quickstart**](../quickstart/sdk.md). Or add a project that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-## Query a knowledge base
+## Query a project
 
-### Generate an answer from a knowledge base
+### Generate an answer from a project
 
-To [query a question answering project/knowledge base](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) with the REST APIs and cURL, you need the following information:
+To [query a question answering project](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) with the REST APIs and cURL, you need the following information:
 
 |Variable name | Value |
 |--------------------------|-------------|
-| `Endpoint`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`|
-| `API-Key` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys always for secure key rotation with zero downtime. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. The key value is part of the sample request.|
+| `Endpoint`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy project** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`|
+| `API-Key` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys always for secure key rotation with zero downtime. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy project** > **Get prediction URL**. The key value is part of the sample request.|
 | `Project` | The name of your question answering project.|
-| `Deployment`             | There are two possible values: `test`, and `production`. `production` is dependent on you having deployed your knowledge base from **Language Studio** > **question answering** > **Deploy knowledge base**.|
+| `Deployment`             | There are two possible values: `test`, and `production`. `production` is dependent on you having deployed your project from **Language Studio** > **question answering** > **Deploy project**.|
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and JSON values and size of JSON.
 
@@ -64,7 +64,7 @@ When you run the code above, if you are using the data source from the prerequis
 }
 ```
 
-The `confidenceScore` returns a value between 0 and 1. You can think of this like a percentage and multiply by 100 so a confidence score of 0.9185 means question answering is 91.85% confident this is the correct answer to the question based on the knowledge base.
+The `confidenceScore` returns a value between 0 and 1. You can think of this like a percentage and multiply by 100 so a confidence score of 0.9185 means question answering is 91.85% confident this is the correct answer to the question based on the project.
 
 If you want to exclude answers where the confidence score falls below a certain threshold, you can add the `confidenceScoreThreshold` parameter.
 
@@ -94,9 +94,9 @@ Since we know from our previous execution of the code that our confidence score 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Generate-an-answer-from-a-knowledge-base" target="_target">I ran into an issue</a>
 
-## Query text without a knowledge base
+## Query text without a project
 
-You can also [use question answering without a knowledge base](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text) with the prebuilt question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
+You can also [use question answering without a project](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text) with the prebuilt question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
 
 For this example, you only need to modify the variables for `API KEY` and `ENDPOINT`.
 

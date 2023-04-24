@@ -19,7 +19,7 @@ This feature enables the following scenarios:
 - You can increase availability to 99.99% uptime. For more information, see the Azure Firewall [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). The 99.99% uptime SLA is offered when two or more Availability Zones are selected.
 - You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA.
 
-For more information about Azure Firewall Availability Zones, see [What is Azure Firewall?](overview.md)
+For more information about Azure Firewall Availability Zones, see [Azure Firewall Standard features](features.md#availability-zones).
 
 The following Azure PowerShell example shows how you can deploy an Azure Firewall with Availability Zones.
 

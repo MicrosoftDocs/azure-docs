@@ -3,10 +3,10 @@ title: Integrate Forescout with Microsoft Defender for IoT
 description: In this tutorial, you'll learn how to integrate Microsoft Defender for IoT with Forescout.
 ms.topic: tutorial
 ms.date: 02/08/2022
-ms.custom: template-tutorial
+ms.custom: how-to
 ---
 
-# Tutorial: Integrate Forescout with Microsoft Defender for IoT
+# Integrate Forescout with Microsoft Defender for IoT
 
 > [!Note]
 > References to CyberX refer to Microsoft Defender for IoT.

@@ -1,5 +1,5 @@
 ---
-title: Search and filter groups members and owners (preview) - Azure Active Directory | Microsoft Docs
+title: Search and filter groups members and owners (preview)
 description: Search and filter groups members and owners in the Azure portal.
 services: active-directory
 documentationcenter: ''

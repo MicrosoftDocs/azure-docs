@@ -2,7 +2,7 @@
 title: Timers in Durable Functions - Azure
 description: Learn how to implement durable timers in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, powershell, python, java
 ---
@@ -139,14 +139,12 @@ for ($num = 0 ; $num -le 9 ; $num++){
 ```java
 @FunctionName("BillingIssuer")
 public String billingIssuer(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            for (int i = 0; i < 10; i++) {
-                ctx.createTimer(Duration.ofDays(1)).await();
-                ctx.callActivity("SendBillingEvent").await();
-            }
-            return "done";
-        });
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    for (int i = 0; i < 10; i++) {
+        ctx.createTimer(Duration.ofDays(1)).await();
+        ctx.callActivity("SendBillingEvent").await();
+    }
+    return "done";
 }
 ```
 
@@ -265,21 +263,19 @@ else {
 
 ```java
 @FunctionName("TryGetQuote")
-public String tryGetQuote(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            Task<Void> activityTask = ctx.callActivity("GetQuote");
-            Task<Void> timerTask = ctx.createTimer(Duration.ofSeconds(30));
+public boolean tryGetQuote(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    Task<Double> activityTask = ctx.callActivity("GetQuote", Double.class);
+    Task<Void> timerTask = ctx.createTimer(Duration.ofSeconds(30));
 
-            Task<?> winner = ctx.anyOf(activityTask, timerTask);
-            if (winner == activityTask) {
-                // success case
-                return true;
-            } else {
-                // timeout case
-                return false;
-            }
-        });
+    Task<?> winner = ctx.anyOf(activityTask, timerTask);
+    if (winner == activityTask) {
+        // success case
+        return true;
+    } else {
+        // timeout case
+        return false;
+    }
 }
 ```
 

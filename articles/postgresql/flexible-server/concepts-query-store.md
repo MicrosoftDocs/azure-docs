@@ -1,6 +1,6 @@
 ---
-title: Query Store - Azure Database for PostgreSQL - Flex Server
-description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flex Server.
+title: Query Store - Azure Database for PostgreSQL - Flexible Server
+description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flexible Server.
 author: ssen-msft
 ms.author: ssen
 ms.service: postgresql
@@ -18,15 +18,21 @@ The Query Store feature in Azure Database for PostgreSQL provides a way to track
 > Do not modify the **azure_sys** database or its schema. Doing so will prevent Query Store and related performance features from functioning correctly.
 ## Enabling Query Store
 Query Store is an opt-in feature, so it isn't enabled by default on a server. Query store is enabled or disabled globally for all databases on a given server and cannot be turned on or off per database.
-### Enable Query Store using the Azure portal
+> [!IMPORTANT]
+> Do not enable Query Store on Burstable pricing tier as it would cause performance impact.
+
+
+### Enable Query Store
 1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
 2. Select **Server Parameters** in the **Settings** section of the menu.
 3. Search for the `pg_qs.query_capture_mode` parameter.
 4. Set the value to `TOP` or `ALL` and **Save**.
 Allow up to 20 minutes for the first batch of data to persist in the azure_sys database.
-To enable wait statistics in your Query Store:
+
+### Enable Query Store Wait Sampling
 1. Search for the `pgms_wait_sampling.query_capture_mode` parameter.
 2. Set the value to `ALL` and **Save**.
+
 ## Information in Query Store
 Query Store has two stores:
 - A runtime stats store for persisting the query execution statistics information.
@@ -86,8 +92,9 @@ The following options apply specifically to wait statistics.
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Sets which statements are tracked for wait stats. | none | none, all|
 | Pgms_wait_sampling.history_period | Set the frequency, in milliseconds, at which wait events are sampled. | 100 | 1-600000 |
->  [!NOTE]
->  **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. If pg_qs.query_capture_mode is NONE, the pgms_wait_sampling.query_capture_mode setting has no effect.
+
+> [!NOTE]
+> **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. If pg_qs.query_capture_mode is NONE, the pgms_wait_sampling.query_capture_mode setting has no effect.
 
 Use the [Azure portal](howto-configure-server-parameters-using-portal.md) to get or set a different value for a parameter.
 
@@ -161,7 +168,8 @@ This view returns the query plan that was used to execute a query. There is one 
 `staging_data_reset` discards all statistics gathered in memory by Query Store (that is, the data in memory that has not been flushed yet to the database). This function can only be executed by the server admin role.
 
 ## Limitations and known issues
-- If a PostgreSQL server has the parameter default_transaction_read_only on, Query Store will not capture any data.
+- If a PostgreSQL server has the parameter `default_transaction_read_only` on, Query Store will not capture any data.
+
 ## Next steps
 - Learn more about [scenarios where Query Store can be especially helpful](concepts-query-store-scenarios.md).
 - Learn more about [best practices for using Query Store](concepts-query-store-best-practices.md).

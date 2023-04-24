@@ -7,6 +7,7 @@ ms.author: dobett
 ms.date: 04/28/2022
 ms.topic: how-to
 ms.service: iot-central
+ms.custom: devx-track-azurecli
 ---
 
 # Export IoT data to Event Hubs
@@ -96,7 +97,7 @@ az role assignment create --assignee $PI --role "Azure Event Hubs Data Sender" -
 az role assignment list --assignee $PI --all -o table
 
 echo "Host name: $EHNS.servicebus.windows.net"
-echo "Event Hub: $CN"
+echo "Event Hub: $EH"
 ```
 
 To further secure your event hub and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).

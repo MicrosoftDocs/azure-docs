@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Costpoint | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Costpoint'
 description: Learn how to configure single sign-on between Azure Active Directory and Costpoint.
 services: active-directory
 author: jeevansd

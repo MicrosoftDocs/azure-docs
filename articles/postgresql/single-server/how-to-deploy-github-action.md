@@ -8,12 +8,14 @@ ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
 ms.custom: github-actions-azure, mode-other
-ms.date: 06/24/2022
+ms.date: 02/15/2023
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure PostgreSQL
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 **APPLIES TO:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Single Server :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Flexible Server
 
@@ -21,7 +23,7 @@ Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a
 
 ## Prerequisites
 
-You will need:
+You'll need:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub repository with sample data (`data.sql`). If you don't have a GitHub account, [sign up for free](https://github.com/join).
 - An Azure Database for PostgreSQL server.
@@ -44,7 +46,7 @@ The file has two sections:
 
 ## Copy the PostgreSQL connection string
 
-In the Azure portal, go to your Azure Database for PostgreSQL server and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string will look similar to this.
+In the Azure portal, go to your Azure Database for PostgreSQL server and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string looks similar to this.
 
 > [!IMPORTANT]
 > - For Single server use ```user=adminusername@servername```  . Note the ```@servername``` is required.
@@ -54,7 +56,7 @@ In the Azure portal, go to your Azure Database for PostgreSQL server and open **
 psql host={servername.postgres.database.azure.com} port=5432 dbname={your_database} user={adminusername} password={your_database_password} sslmode=require
 ```
 
-You will use the connection string as a GitHub secret.
+You'll use the connection string as a GitHub secret.
 
 ## Configure the GitHub secrets
 
@@ -78,7 +80,7 @@ You will use the connection string as a GitHub secret.
         branches: [ main ]
     ```
 
-1. Rename your workflow `PostgreSQL for GitHub Actions` and add the checkout and login actions. These actions will checkout your site code and authenticate with Azure using the GitHub secret(s) you created earlier.
+1. Rename your workflow `PostgreSQL for GitHub Actions` and add the checkout and login actions. These actions check out your site code and authenticate with Azure using the GitHub secret(s) you created earlier.
 
     # [Service principal](#tab/userlevel)
 
@@ -131,10 +133,10 @@ You will use the connection string as a GitHub secret.
        with:
         connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
         server-name: POSTGRESQL_SERVER_NAME
-        sql-file: './data.sql'
+        plsql-file: './data.sql'
     ```
 
-3. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
+3. Complete your workflow by adding an action to logout of Azure. Here's the completed workflow. The file appears in the `.github/workflows` folder of your repository.
 
     # [Service principal](#tab/userlevel)
 
@@ -161,7 +163,7 @@ You will use the connection string as a GitHub secret.
       with:
         server-name: POSTGRESQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
-        sql-file: './data.sql'
+        plsql-file: './data.sql'
 
         # Azure logout
     - name: logout
@@ -196,7 +198,7 @@ You will use the connection string as a GitHub secret.
       with:
         server-name: POSTGRESQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
-        sql-file: './data.sql'
+        plsql-file: './data.sql'
 
         # Azure logout
     - name: logout

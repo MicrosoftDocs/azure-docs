@@ -26,4 +26,4 @@ The following example policy, when added to the `<inbound>` policy section, chec
 > [!NOTE]
 > The preceding `openid-config` URL corresponds to the v2 endpoint. For the v1 `openid-config` endpoint, use `https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration`.
 
-For information on how to configure policies, see [Set or edit policies](../articles/api-management/set-edit-policies.md).
+For information on how to configure policies, see [Set or edit policies](../articles/api-management/set-edit-policies.md). Refer to the [validate-jwt](../articles/api-management/validate-jwt-policy.md) reference for more customization on JWT validations.

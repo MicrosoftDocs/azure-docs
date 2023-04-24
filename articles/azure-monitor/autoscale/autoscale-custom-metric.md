@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: how-to
 ms.date: 06/22/2022
-ms.reviewer: riroloff
+ms.reviewer: akkumari
 
 # Customer intent: As a user or dev ops administrator, I want to use the portal to set up autoscale so I can scale my resources.
 

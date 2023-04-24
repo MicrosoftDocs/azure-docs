@@ -24,7 +24,7 @@ Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaSc
 
 * **Atomic transactions:** Azure Cosmos DB database operations that are performed within a single stored procedure or a trigger are atomic. This atomic functionality lets an application combine related operations into a single batch, so that either all of the operations succeed or none of them succeed.
 
-* **Performance:** The JSON data is intrinsically mapped to the JavaScript language type system. This mapping allows for a number of optimizations like lazy materialization of JSON documents in the buffer pool and making them available on-demand to the executing code. There are other performance benefits associated with shipping business logic to the database, which includes:
+* **Performance:** The JSON data is intrinsically mapped to the JavaScript language type system. This mapping allows for a number of optimizations like lazy materialization of JSON documents in the buffer pool and making them available on-demand to the executing code. There are other performance benefits associated with shifting business logic to the database, which includes:
 
    * *Batching:* You can group operations like inserts and submit them in bulk. The network traffic latency costs and the store overhead to create separate transactions are reduced significantly.
 
@@ -36,6 +36,9 @@ Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaSc
 
 > [!TIP]
 > Stored procedures are best suited for operations that are write-heavy and require a transaction across a partition key value. When deciding whether to use stored procedures, optimize around encapsulating the maximum amount of writes possible. Generally speaking, stored procedures are not the most efficient means for doing large numbers of read or query operations, so using stored procedures to batch large numbers of reads to return to the client will not yield the desired benefit. For best performance, these read-heavy operations should be done on the client-side, using the Azure Cosmos DB SDK. 
+
+> [!NOTE]
+> Server-side JavaScript features including stored procedures, triggers, and user-defined functions do not support importing modules.
 
 ## Transactions
 
@@ -50,6 +53,9 @@ Transaction in a typical database can be defined as a sequence of operations per
 * Durability ensures that any change that is committed in a database will always be present.
 
 In Azure Cosmos DB, JavaScript runtime is hosted inside the database engine. Hence, requests made within the stored procedures and the triggers execute in the same scope as the database session. This feature enables Azure Cosmos DB to guarantee ACID properties for all operations that are part of a stored procedure or a trigger. For examples, see [how to implement transactions](how-to-write-stored-procedures-triggers-udfs.md#transactions) article.
+
+> [!TIP]
+> For transaction support in Azure Cosmos DB for NoSQL, you can also implement a transactional batch using your preferred client SDK. For more information, see [Transactional batch operations in Azure Cosmos DB for NoSQL](transactional-batch.md).
 
 ### Scope of a transaction
 

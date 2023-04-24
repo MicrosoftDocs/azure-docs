@@ -85,7 +85,7 @@ The wildcard operation allows the same requests to the backend service as the op
     > [!NOTE]
     > Products are associations of one or more APIs. You can include many APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the API Management instance, you're an administrator and subscribed to every product by default.
     >
-    > Each API Management instance comes with two sample products when createdgg:
+    > Each API Management instance comes with two sample products when created:
     > * **Starter**
     > * **Unlimited**
 

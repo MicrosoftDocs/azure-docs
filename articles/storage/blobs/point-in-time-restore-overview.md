@@ -7,10 +7,9 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 02/02/2023
 ms.author: normesta
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
 ---
 
 # Point-in-time restore for block blobs
@@ -82,13 +81,16 @@ Point-in-time restore for block blobs has the following limitations and known is
 - Only block blobs in a standard general-purpose v2 storage account can be restored as part of a point-in-time restore operation. Append blobs, page blobs, and premium block blobs are not restored.
 - If you have deleted a container during the retention period, that container will not be restored with the point-in-time restore operation. If you attempt to restore a range of blobs that includes blobs in a deleted container, the point-in-time restore operation will fail. To learn about protecting containers from deletion, see [Soft delete for containers](soft-delete-container-overview.md).
 - If you use permanent delete to purge soft-deleted versions of a blob during the point-in-time restore retention period, then a restore operation may not be able to restore that blob correctly.
-- If a blob has moved between the hot and cool tiers in the period between the present moment and the restore point, the blob is restored to its previous tier. Restoring block blobs in the archive tier is not supported. For example, if a blob in the hot tier was moved to the archive tier two days ago, and a restore operation restores to a point three days ago, the blob is not restored to the hot tier. To restore an archived blob, first move it out of the archive tier. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
+- If a blob has moved between the hot and cool tiers in the period between the present moment and the restore point, the blob is restored to its previous tier. 
+- Restoring block blobs in the archive tier is not supported. For example, if a blob in the hot tier was moved to the archive tier two days ago, and a restore operation restores to a point three days ago, the blob is not restored to the hot tier. To restore an archived blob, first move it out of the archive tier. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
+- Partial restore operations aren't supported. Therefore, if a container has archived blobs in it, the entire restore operation will fail because restoring block blobs in the archive tier is not supported.
 - If an immutability policy is configured, then a restore operation can be initiated, but any blobs that are protected by the immutability policy will not be modified. A restore operation in this case will not result in the restoration of a consistent state to the date and time given.
 - A block that has been uploaded via [Put Block](/rest/api/storageservices/put-block) or [Put Block from URL](/rest/api/storageservices/put-block-from-url), but not committed via [Put Block List](/rest/api/storageservices/put-block-list), is not part of a blob and so is not restored as part of a restore operation.
-- A blob with an active lease cannot be restored. If a blob with an active lease is included in the range of blobs to restore, the restore operation will fail atomically. Break any active leases prior to initiating the restore operation.
+- If a blob with an active lease is included in the range to restore, and if the current version of the leased blob is different from the previous version at the timestamp provided for PITR, the restore operation will fail atomically. We recommend breaking any active leases before initiating the restore operation.
 - Performing a customer-managed failover on a storage account resets the earliest possible restore point for that storage account. For example, suppose you have set the retention period to 30 days. If more than 30 days have elapsed since the failover, then you can restore to any point within that 30 days. However, if fewer than 30 days have elapsed since the failover, then you cannot restore to a point prior to the failover, regardless of the retention period. For example, if it's been 10 days since the failover, then the earliest possible restore point is 10 days in the past, not 30 days in the past.  
 - Snapshots are not created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
 - Point-in-time restore is not supported for hierarchical namespaces or operations via Azure Data Lake Storage Gen2.
+- Point-in-time restore is not supported when the storage account's **AllowedCopyScope** property is set to restrict copy scope to the same Azure AD tenant or virtual network. For more information, see [About Permitted scope for copy operations (preview)](../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json&tabs=portal#about-permitted-scope-for-copy-operations-preview).
 
 > [!IMPORTANT]
 > If you restore block blobs to a point that is earlier than September 22, 2020, preview limitations for point-in-time restore will be in effect. Microsoft recommends that you choose a restore point that is equal to or later than September 22, 2020 to take advantage of the generally available point-in-time restore feature.

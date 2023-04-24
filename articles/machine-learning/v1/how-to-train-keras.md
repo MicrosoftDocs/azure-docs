@@ -10,7 +10,7 @@ author: balapv
 ms.reviewer: mopeakande
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
@@ -19,7 +19,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](how-to-train-keras.md)
-> * [v2 (current version)](../how-to-train-keras.md)
+> * [v2 (current version)](../how-to-train-keras.md?view=azureml-api-2&preserve-view=true)
 
 In this article, learn how to run your Keras training scripts with Azure Machine Learning.
 
@@ -132,7 +132,7 @@ For more information on compute targets, see the [what is a compute target](../c
 
 ### Define your environment
 
-Define the Azure ML [Environment](../concept-environments.md) that encapsulates your training script's dependencies.
+Define the Azure Machine Learning [Environment](../concept-environments.md) that encapsulates your training script's dependencies.
 
 First, define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
 
@@ -148,9 +148,9 @@ dependencies:
   - matplotlib
 ```
 
-Create an Azure ML environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
+Create an Azure Machine Learning environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
 
-By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you will need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo for more information.
+By default if no base image is specified, Azure Machine Learning will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you will need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure Machine Learning maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo for more information.
 
 ```python
 keras_env = Environment.from_conda_specification(name='keras-env', file_path='conda_dependencies.yml')
@@ -176,7 +176,7 @@ dataset.to_path()
 
 Create a ScriptRunConfig object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on.
 
-Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. The DatasetConsumptionConfig for our FileDataset is passed as an argument to the training script, for the `--data-folder` argument. Azure ML will resolve this DatasetConsumptionConfig to the mount-point of the backing datastore, which can then be accessed from the training script.
+Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. The DatasetConsumptionConfig for our FileDataset is passed as an argument to the training script, for the `--data-folder` argument. Azure Machine Learning will resolve this DatasetConsumptionConfig to the mount-point of the backing datastore, which can then be accessed from the training script.
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -197,7 +197,7 @@ src = ScriptRunConfig(source_directory=script_folder,
 For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> If you were previously using the TensorFlow estimator to configure your Keras training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure ML SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
+> If you were previously using the TensorFlow estimator to configure your Keras training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure Machine Learning SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ### Submit your run
 

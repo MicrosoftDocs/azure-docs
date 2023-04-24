@@ -8,7 +8,7 @@ manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services, cognitive understanding, cognitive features
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 02/28/2022
+ms.date: 02/17/2023
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ---
@@ -19,12 +19,13 @@ Azure Cognitive Services are cloud-based artificial intelligence (AI) services t
 
 ## Categories of Cognitive Services
 
-Cognitive Services can be categorized into four main pillars:
+Cognitive Services can be categorized into five main areas:
 
 * Vision
 * Speech
 * Language
 * Decision
+* Azure OpenAI Service
 
 See the tables below to learn about the services offered within those categories. 
 
@@ -63,6 +64,12 @@ See the tables below to learn about the services offered within those categories
 |[Anomaly Detector](./anomaly-detector/index.yml "Anomaly Detector") |Anomaly Detector allows you to monitor and detect abnormalities in your time series data.| [Anomaly Detector quickstart](./anomaly-detector/quickstarts/client-libraries.md) |
 |[Content Moderator](./content-moderator/overview.md "Content Moderator")|Content Moderator provides monitoring for possible offensive, undesirable, and risky content. | [Content Moderator quickstart](./content-moderator/client-libraries.md)|
 |[Personalizer](./personalizer/index.yml "Personalizer")|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior. |[Personalizer quickstart](./personalizer/quickstart-personalizer-sdk.md)|
+
+## Azure OpenAI
+
+|Service Name | Service Description| Quickstart|
+|:------------|:-------------------|-----------|
+|[Azure OpenAI](./openai/index.yml "Azure OpenAI") |Powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation. | [Azure OpenAI quickstart](./openai/quickstart.md) |
 
 ## Create a Cognitive Services resource
 

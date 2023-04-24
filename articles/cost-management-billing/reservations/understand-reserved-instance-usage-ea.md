@@ -2,12 +2,12 @@
 title: Understand Azure reservations usage for Enterprise Agreement and Microsoft Customer Agreement
 description: Learn how to read your usage information to understand how an Azure reservation applies to Enterprise Agreement and Microsoft Customer Agreement usage.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: nitinarora
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 06/07/2022
+ms.date: 12/06/2022
 ms.author: banders
 ---
 

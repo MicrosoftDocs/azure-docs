@@ -2,7 +2,7 @@
 title: Azure Cosmos DB trigger for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB trigger in Azure Functions.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 04/04/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, ignite-2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -10,9 +10,28 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure Cosmos DB trigger for Azure Functions 2.x and higher
 
-The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for inserts and updates across partitions. The change feed publishes inserts and updates, not deletions.
+The Azure Cosmos DB Trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) to listen for inserts and updates across partitions. The change feed publishes new and updated items, not including updates from deletions.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
+
+Cosmos DB scaling decisions for the Consumption and Premium plans are done via target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md).
+
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+> [!IMPORTANT]
+> The Python v2 programming model is currently in preview.
+::: zone-end
 
 ## Example
 
@@ -70,16 +89,17 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
+# [Extension 4.x+](#tab/extensionv4/in-process)
 
 Apps using [Azure Cosmos DB extension version 4.x](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4) or higher will have different attribute properties, which are shown below. This example refers to a simple `ToDoItem` type.
 
 ```cs
 namespace CosmosDBSamplesV2
 {
+    // Customize the model with your own desired properties
     public class ToDoItem
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public string Description { get; set; }
     }
 }
@@ -106,7 +126,7 @@ namespace CosmosDBSamplesV2
             if (input != null && input.Count > 0)
             {
                 log.LogInformation("Documents modified " + input.Count);
-                log.LogInformation("First document Id " + input[0].Id);
+                log.LogInformation("First document Id " + input[0].id);
             }
         }
     }
@@ -124,7 +144,7 @@ This document type is the type of the [`IReadOnlyList<T>`](/dotnet/api/system.co
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-35":::
 
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/isolated-process)
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
 
 Example pending.
 
@@ -164,7 +184,7 @@ Here's the C# script code:
     }
 ```
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/csharp-script)
+# [Extension 4.x+](#tab/extensionv4/csharp-script)
 
 The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are added or modified.
 
@@ -186,17 +206,21 @@ Here's the binding data in the *function.json* file:
 Here's the C# script code:
 
 ```cs
-    #r "Microsoft.Azure.DocumentDB.Core"
-
     using System;
-    using Microsoft.Azure.Documents;
     using System.Collections.Generic;
     using Microsoft.Extensions.Logging;
 
-    public static void Run(IReadOnlyList<Document> documents, ILogger log)
+    // Customize the model with your own desired properties
+    public class ToDoItem
+    {
+        public string id { get; set; }
+        public string Description { get; set; }
+    }
+
+    public static void Run(IReadOnlyList<ToDoItem> documents, ILogger log)
     {
       log.LogInformation("Documents modified " + documents.Count);
-      log.LogInformation("First document Id " + documents[0].Id);
+      log.LogInformation("First document Id " + documents[0].id);
     }
 ```
 
@@ -222,7 +246,7 @@ This function is invoked when there are inserts or updates in the specified data
                 context.getLogger().info(items.length + "item(s) is/are changed.");
             }
 ```
-# [Extension 4.x+ (preview)](#tab/extensionv4)
+# [Extension 4.x+](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 
@@ -265,9 +289,30 @@ Write-Host "First document Id modified : $($Documents[0].id)"
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are modified.
+The following example shows an Azure Cosmos DB trigger binding. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
-Here's the binding data in the *function.json* file:
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="CosmosDBTrigger")
+@app.cosmos_db_trigger(arg_name="documents", 
+                       database_name="DB_NAME", 
+                       collection_name="COLLECTION_NAME", 
+                       connection_string_setting="CONNECTION_SETTING",
+ lease_collection_name="leases", create_lease_collection_if_not_exists="true")
+def test_function(documents: func.DocumentList) -> str:
+    if documents:
+        logging.info('Document id: %s', documents[0]['id'])
+```
+
+# [v1](#tab/python-v1)
+
+The function writes log messages when Azure Cosmos DB records are modified. Here's the binding data in the *function.json* file:
 
 [!INCLUDE [functions-cosmosdb-trigger-attributes](../../includes/functions-cosmosdb-trigger-attributes.md)]
 
@@ -283,6 +328,8 @@ Here's the Python code:
             logging.info('First document Id modified: %s', documents[0]['id'])
 ```
 
+---
+
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
@@ -293,7 +340,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 [!INCLUDE [functions-cosmosdb-attributes-v3](../../includes/functions-cosmosdb-attributes-v3.md)] 
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
+# [Extension 4.x+](#tab/extensionv4/in-process)
 
 [!INCLUDE [functions-cosmosdb-attributes-v4](../../includes/functions-cosmosdb-attributes-v4.md)]
 
@@ -301,7 +348,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 [!INCLUDE [functions-cosmosdb-attributes-v3](../../includes/functions-cosmosdb-attributes-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/isolated-process)
+# [Extension 4.x+](#tab/extensionv4/isolated-process)
 
 [!INCLUDE [functions-cosmosdb-attributes-v4](../../includes/functions-cosmosdb-attributes-v4.md)]
 
@@ -309,13 +356,30 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 [!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/extensionv4/csharp-script)
+# [Extension 4.x+](#tab/extensionv4/csharp-script)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-settings-v4.md)]
 
 ---
 
 ::: zone-end  
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_trigger`:
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name` | The variable name used in function code that represents the list of documents with changes. |
+|`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
+|`collection_name`  | The name of the Azure Cosmos DB collection being monitored. |
+|`connection` | The connection string of the Azure Cosmos DB being monitored. |
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
+
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -343,7 +407,7 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 + [startFromBeginning](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.startfrombeginning)
 + [preferredLocations](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.preferredlocations)
 
-# [Extension 4.x+ (preview)](#tab/extensionv4)
+# [Extension 4.x+](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 
@@ -352,6 +416,13 @@ From the [Java functions runtime library](/java/api/overview/azure/functions/run
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
+::: zone-end
+
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
 
@@ -359,7 +430,7 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-settings-v3.md)]
 
-# [Extension 4.x+ (preview)](#tab/extensionv4)
+# [Extension 4.x+](#tab/extensionv4)
 
 [!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-settings-v4.md)]
 

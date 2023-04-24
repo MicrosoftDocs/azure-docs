@@ -242,7 +242,7 @@ Monthly price estimates are based on 730 hours of usage per month.
 
 Fixed Price = $0.246   * 730 (Hours) =  $179.58
 
-Variable Costs = $0.008  * 2 (capacity units) * 730 (Hours) = $11.68
+Variable Costs = $0.008  * ( 2 (Instance Units) * 10 (capacity units) * 730 (Hours) = $116.8
 
 DDoS Network Protection Cost = $2,944 * 1 (month) = $2,944
 

@@ -49,7 +49,7 @@ The following list describes the levels at which you can scope access to Event H
 
 > [!NOTE]
 > - Keep in mind that Azure role assignments may take up to five minutes to propagate. 
-> - This content applies to both Event Hubs and Event Hubs for Apache Kafka. For more information on Event Hubs for Kafka support, see [Event Hubs for Kafka - security and authentication](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication).
+> - This content applies to both Event Hubs and Event Hubs for Apache Kafka. For more information on Event Hubs for Kafka support, see [Event Hubs for Kafka - security and authentication](azure-event-hubs-kafka-overview.md#security-and-authentication).
 
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).

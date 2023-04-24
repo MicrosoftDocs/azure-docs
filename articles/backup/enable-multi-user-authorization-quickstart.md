@@ -3,9 +3,9 @@ title: Quickstart - Multi-user authorization using Resource Guard
 description: In this quickstart, learn how to use Multi-user authorization to protect against unauthorized operation.
 ms.topic: tutorial
 ms.date: 05/05/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Enable protection using Multi-user authorization on Recovery Services vault in Azure Backup

@@ -2,7 +2,7 @@
 title: Build a web app that authenticates users and calls web APIs
 description: Learn how to build a web app that authenticates users and calls web APIs (overview)
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/4/2022
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev, engagement-fy23
 #Customer intent: As an application developer, I want to know how to write a web app that authenticates users and calls web APIs by using the Microsoft identity platform.
 ---

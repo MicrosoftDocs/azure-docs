@@ -4,15 +4,14 @@ description: Learn about the best practices and general guidance for security re
 services: active-directory
 author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/17/2022
+ms.date: 01/06/2023
 ms.custom: template-concept
 ms.author: davidmu
-ms.reviewer: saumadan, marsma
+ms.reviewer: saumadan
 ---
 
 # Security best practices for application properties in Azure Active Directory
@@ -50,7 +49,7 @@ Scenarios that required **implicit flow** can now use **Auth code flow** to redu
 
 Consider the following guidance related to implicit flow:
 
-- Understand if [implicit flow is required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). Don't use implicit flow unless [explicitly required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant).
+- Understand if [implicit flow is required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). Don't use implicit flow unless explicitly required.
 - If the application was configured to receive access tokens using implicit flow, but doesn't actively use them, turn off the setting to protect from misuse.
 - Use separate applications for valid implicit flow scenarios.
 
@@ -63,6 +62,7 @@ Certificates and secrets, also known as credentials, are a vital part of an appl
 Consider the following guidance related to certificates and secrets:
 
 - Always use [certificate credentials](./active-directory-certificate-credentials.md) whenever possible and don't use password credentials, also known as *secrets*. While it's convenient to use password secrets as a credential, when possible use x509 certificates as the only credential type for getting tokens for an application.
+  - Configure [application authentication method policies](/graph/api/resources/applicationauthenticationmethodpolicy) to govern the use of secrets by limiting their lifetimes or blocking their use altogether.
 - Use Key Vault with [managed identities](../managed-identities-azure-resources/overview.md) to manage credentials for an application.
 - If an application is used only as a Public Client App (allows users to sign in using a public endpoint), make sure that there are no credentials specified on the application object.
 - Review the credentials used in applications for freshness of use and their expiration. An unused credential on an application can result in a security breach. Rollover credentials frequently and don't share credentials across applications. Don't have many credentials on one application.

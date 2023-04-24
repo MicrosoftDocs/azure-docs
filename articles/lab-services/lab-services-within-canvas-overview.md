@@ -24,8 +24,8 @@ Integration with Canvas LMS includes the following key capabilities:
 
 See the following articles:
 
-- [Get started and create a Lab Services lab within Canvas](how-to-get-started-create-lab-within-canvas.md)
-- [Manage lab user lists within Canvas](how-to-manage-user-lists-within-canvas.md)
-- [Manage lab's VM pool within Canvas](how-to-manage-vm-pool-within-canvas.md)
-- [Create and manage lab schedules within Canvas](how-to-create-schedules-within-canvas.md)
+- [Get started and create a Lab Services lab within Canvas](how-to-configure-canvas-for-lab-plans.md)
+- [Manage lab user lists within Canvas](how-to-manage-labs-within-canvas.md#manage-lab-user-lists-in-canvas)
+- [Manage lab's VM pool within Canvas](how-to-manage-labs-within-canvas.md#manage-a-lab-vm-pool-in-canvas)
+- [Create and manage lab schedules within Canvas](how-to-manage-labs-within-canvas.md#configure-lab-schedules-and-settings-in-canvas)
 - [Access a VM within Canvas – Student view](how-to-access-vm-for-students-within-canvas.md)

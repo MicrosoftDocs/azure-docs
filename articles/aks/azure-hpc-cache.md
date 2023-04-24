@@ -1,12 +1,11 @@
 ---
 title: Integrate Azure HPC Cache with Azure Kubernetes Service
 description: Learn how to integrate HPC Cache with Azure Kubernetes Service
-services: container-service
 author: jbut
 ms.author: jebutl
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 09/08/2021
-
 #Customer intent: As a cluster operator or developer, I want to learn how to integrate HPC Cache with AKS
 ---
 

@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 04/18/2023
 ms.author: banders
 ---
 
@@ -16,6 +16,8 @@ ms.author: banders
 This article helps you create an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) subscription for yourself or for someone else in your current Azure Active Directory (Azure AD) directory/tenant. You may want another subscription to avoid hitting subscription quota limits, to create separate environments for security, or to isolate data for compliance reasons.
 
 If you want to create subscriptions for Microsoft Customer Agreements, see [Create a Microsoft Customer Agreement subscription](create-subscription.md). If you're a Microsoft Partner and you want to create a subscription for a customer, see [Create a subscription for a partner's customer](create-customer-subscription.md). Or, if you have a Microsoft Online Service Program (MOSP) billing account, also called pay-as-you-go, you can create subscriptions starting in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and then you complete the process at https://signup.azure.com/.
+
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-note](../../../includes/cost-management-billing-subscription-b2b-b2c-note.md)]
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md).
 
@@ -27,7 +29,10 @@ You need the following permissions to create subscriptions for an EA:
 
 ## Create an EA subscription
 
-Use the following information to create an EA subscription.
+An account owner uses the following information to create an EA subscription.
+
+>[!NOTE]
+> If you want to create an Enterprise Dev/Test subscription, an enterprise administrator must enable account owners to create them. Otherwise, the option to create them isn't available. To enable the dev/test offer for an enrollment, see [Enable the enterprise dev/test offer](direct-ea-administration.md#enable-the-enterprise-devtest-offer).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Subscriptions** and then select **Add**.  
@@ -50,6 +55,17 @@ Use the following information to create an EA subscription.
 
 After the new subscription is created, the account owner can see it in on the **Subscriptions** page.
 
+## Can't view subscription
+
+If you created a subscription but can't find it in the Subscriptions list view, a view filter might be applied.
+
+To clear the filter and view all subscriptions:
+
+1. In the Azure portal, navigate to **Subscriptions**.
+2. At the top of the list, select the Subscriptions filter item.
+3. At the top of the subscriptions filter box, select **All**. At the bottom of the subscriptions filter box, clear **Show only subscriptions selected in the global subscriptions filter**.  
+    :::image type="content" source="./media/create-enterprise-subscription/subscriptions-filter-item.png" alt-text="Screenshot showing the Subscriptions filter box with options." lightbox="./media/create-enterprise-subscription/subscriptions-filter-item.png" :::
+4. Select **Apply** to close the box and refresh the list of subscriptions.
 
 ## Create an Azure subscription programmatically
 

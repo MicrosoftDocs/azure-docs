@@ -2,15 +2,16 @@
 title: "Quickstart: Call Microsoft Graph from a Python daemon"
 description: In this quickstart, you learn how a Python process can get an access token and call an API protected by Microsoft identity platform, using the app's own identity
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/10/2022
 ROBOTS: NOINDEX
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-started", "languages:Python", mode-api
 #Customer intent: As an application developer, I want to learn how my Python app can get an access token and call an API that's protected by the Microsoft identity platform using client credentials flow.
 ---
@@ -137,7 +138,7 @@ ms.custom: aaddev, identityplatformtop40, devx-track-python, "scenarios:getting-
 > result = app.acquire_token_silent(config["scope"], account=None)
 > 
 > if not result:
->     logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
+>     logging.info("No suitable token exists in cache. Let's get a new one from Azure AD.")
 >     result = app.acquire_token_for_client(scopes=config["scope"])
 > ```
 > 

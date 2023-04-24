@@ -19,7 +19,7 @@ The following table summarizes known errors you might encounter when you use Con
 | ---- | --- |
 | Error message "No data for selected filters"  | It might take some time to establish monitoring data flow for newly created clusters. Allow at least 10 to 15 minutes for data to appear for your cluster.<br><br>If data still doesn't show up, check if the Log Analytics workspace is configured for `disableLocalAuth = true`. If yes, update back to `disableLocalAuth = false`.<br><br>`az resource show  --ids "/subscriptions/[Your subscription ID]/resourcegroups/[Your resource group]/providers/microsoft.operationalinsights/workspaces/[Your workspace name]"`<br><br>`az resource update --ids "/subscriptions/[Your subscription ID]/resourcegroups/[Your resource group]/providers/microsoft.operationalinsights/workspaces/[Your workspace name]" --api-version "2021-06-01" --set properties.features.disableLocalAuth=False` |
 | Error message "Error retrieving data" | While an AKS cluster is setting up for health and performance monitoring, a connection is established between the cluster and a Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error might occur when your Log Analytics workspace has been deleted. Check if the workspace was deleted. If it was, reenable monitoring of your cluster with Container insights. Then specify an existing workspace or create a new one. To reenable, [disable](container-insights-optout.md) monitoring for the cluster and [enable](container-insights-enable-new-cluster.md) Container insights again. |
-| "Error retrieving data" after adding Container insights through `az aks cli` | When you enable monitoring by using `az aks cli`, Container insights might not be properly deployed. Check whether the solution is deployed. To verify, go to your Log Analytics workspace and see if the solution is available by selecting **Solutions** from the pane on the left side. To resolve this issue, redeploy the solution.  Follow the instructions in [Enable Container insights](container-insights-onboard.md). |
+| "Error retrieving data" after adding Container insights through `az aks cli` | When you enable monitoring by using `az aks cli`, Container insights might not be properly deployed. Check whether the solution is deployed. To verify, go to your Log Analytics workspace and see if the solution is available by selecting **Legacy solutions** from the pane on the left side. To resolve this issue, redeploy the solution.  Follow the instructions in [Enable Container insights](container-insights-onboard.md). |
 
 To help diagnose the problem, we've provided a [troubleshooting script](https://github.com/microsoft/Docker-Provider/tree/ci_dev/scripts/troubleshoot).
 
@@ -178,6 +178,10 @@ The solution to this issue is to clean up the existing resources of the Containe
     `az aks disable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName>`
 
 If the preceding steps didn't resolve the installation of Azure Monitor Containers Extension issues, create a support ticket to send to Microsoft for further investigation.
+
+## Duplicate alerts being received
+You may have enabled Prometheus alert rules without disabling Container insights recommended alerts. See [Migrate from Container insights recommended alerts to Prometheus recommended alert rules (preview)](container-insights-metric-alerts.md#migrate-from-metric-rules-to-prometheus-rules-preview).
+
 
 ## Next steps
 

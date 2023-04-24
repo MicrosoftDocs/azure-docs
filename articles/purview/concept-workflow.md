@@ -5,7 +5,7 @@ author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-workflows
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: conceptual
 ms.date: 10/17/2022
 ms.custom: template-concept
 ---

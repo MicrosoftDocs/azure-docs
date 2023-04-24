@@ -15,7 +15,7 @@ In [Azure App Service](overview.md), you can easily restore app backups. You can
 Backup and restore are supported in **Basic**, **Standard**, **Premium**, and **Isolated** tiers. For **Basic** tier, only the production slot can be backed up and restored. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md).
 
 > [!NOTE]
-> Support in App Service environments (ASE) V2 and V3 is in preview. For App Service environments:
+> For App Service environments:
 > 
 > - Automatic backups can be restored to a target app within the ASE itself, not in another ASE.
 > - Custom backups can be restored to a target app in another ASE, such as from a V2 ASE to a V3 ASE.
@@ -25,9 +25,9 @@ Backup and restore are supported in **Basic**, **Standard**, **Premium**, and **
 
 There are two types of backups in App Service. Automatic backups made for your app regularly as long as it's in a supported pricing tier. Custom backups require initial configuration, and can be made on-demand or on a schedule. The following table shows the differences between the two types.
 
-||Automatic backups | Custom backups |
+|Feature|Automatic backups | Custom backups |
 |-|-|-|
-| Pricing tiers | **Basic**, **Standard**, **Premium**. | **Basic**, **Standard**, **Premium**, **Isolated**. |
+| Pricing tiers | **Basic**, **Standard**, **Premium**, **Isolated**. | **Basic**, **Standard**, **Premium**, **Isolated**. |
 | Configuration required | No. | Yes. |
 | Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
 | Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](../mysql/index.yml), [Azure Database for PostgreSQL](../postgresql/index.yml), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |
@@ -228,7 +228,7 @@ The **Backups** page shows you the status of each backup. To get log details reg
 | A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server). | Check that the connection string is valid. Allow the app's [outbound IPs](overview-inbound-outbound-ips.md) in the database server settings. |
 | Cannot open server "\<name>" requested by the login. The login failed. | Check that the connection string is valid. |
 | Missing mandatory parameters for valid Shared Access Signature. | Delete the backup schedule and reconfigure it. |
-| SSL connection is required. Please specify SSL options and retry. when trying to connect. | SSL connectivity to Azure Database for MySQL and Azure Database for PostgreSQL isn't supported for database backups. Use the native backup feature in the respective database instead. |
+| SSL connection is required. Please specify SSL options and retry when trying to connect. | SSL connectivity to Azure Database for MySQL and Azure Database for PostgreSQL isn't supported for database backups. Use the native backup feature in the respective database instead. |
 
 ## Automate with scripts
 
@@ -254,6 +254,8 @@ For samples, see:
 - [Can I use a storage account that has security features enabled?](#can-i-use-a-storage-account-that-has-security-features-enabled)
 - [How do I restore to an app in a different subscription?](#how-do-i-restore-to-an-app-in-a-different-subscription)
 - [How do I restore to an app in the same subscription but in a different region?](#how-do-i-restore-to-an-app-in-the-same-subscription-but-in-a-different-region)
+- [Where are the automatic backups stored?](#where-are-the-automatic-backups-stored)
+- [How do I stop the automatic backup?](#how-do-i-stop-the-automatic-backup)
 
 #### Are the backups incremental updates or complete backups?
 
@@ -261,7 +263,7 @@ Each backup is a complete offline copy of your app, not an incremental update.
 
 #### Does Azure Functions support automatic backups?
 
-Automatic backups are available in preview for Azure Functions in [dedicated (App Service)](../azure-functions/dedicated-plan.md) **Basic** or **Standard** or **Premium** tiers. Function apps in the [**Consumption**](../azure-functions/consumption-plan.md) or [**Elastic Premium**](../azure-functions/functions-premium-plan.md) pricing tiers aren't supported for automatic backups.
+Automatic backups are available for Azure Functions in [dedicated (App Service)](../azure-functions/dedicated-plan.md) **Basic** or **Standard** or **Premium** tiers. Function apps in the [**Consumption**](../azure-functions/consumption-plan.md) or [**Elastic Premium**](../azure-functions/functions-premium-plan.md) pricing tiers aren't supported for automatic backups.
 
 #### What's included in an automatic backup?
 
@@ -329,6 +331,15 @@ The following security features in Azure storage aren't supported for custom bac
 #### How do I restore to an app in the same subscription but in a different region?
 
 The steps are the same as in [How do I restore to an app in a different subscription](#how-do-i-restore-to-an-app-in-a-different-subscription).
+
+#### Where are the automatic backups stored?
+
+Automatic backups are simple and stored in the same datacenter as the App Service and should not be relied upon as your disaster recovery plan.
+
+#### How do I stop the automatic backup?
+
+You cannot stop automatic backup. The automatic backup is stored on the platform and has no effect on the underlying app instance or it’s storage.
+
 
 <a name="nextsteps"></a>
 

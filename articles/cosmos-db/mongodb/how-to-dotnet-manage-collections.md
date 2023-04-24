@@ -36,7 +36,7 @@ Here are some quick rules when naming a collection:
 
 Use an instance of the **Collection** class to access the collection on the server.
 
-- [MongoClient.Database.Collection](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html)
+- [MongoClient.Database.Collection](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/T_MongoDB_Driver_MongoCollection.htm)
 
 The following code snippets assume you've already created your [client connection](how-to-dotnet-get-started.md#create-mongoclient-with-connection-string).
 
@@ -44,15 +44,15 @@ The following code snippets assume you've already created your [client connectio
 
 To create a collection, insert a document into the collection.
 
-- [MongoClient.Database.Collection](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection)
-- [MongoClient.Database.Collection.InsertOne](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#insertOne)
-- [MongoClient.Database.Collection.InsertMany](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#insertMany)
+- [MongoClient.Database.Collection](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/T_MongoDB_Driver_MongoCollection.htm)
+- [MongoClient.Database.Collection.InsertOne](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne_1.htm)
+- [MongoClient.Database.Collection.InsertMany](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertMany_1.htm)
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/110-manage-collections/program.cs" id="create_collection":::
 
 ## Drop a collection
 
-- [MongoClient.Db.dropCollection](https://mongodb.github.io/node-mongodb-native/4.7/classes/Db.html#dropCollection)
+- [MongoClient.Db.dropCollection](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_IMongoDatabase_DropCollection_3.htm)
 
 Drop the collection from the database to remove it permanently. However, the next insert or update operation that accesses the collection will create a new collection with that name.
 
@@ -62,7 +62,7 @@ Drop the collection from the database to remove it permanently. However, the nex
 
 An index is used by the MongoDB query engine to improve performance to database queries.
 
-- [MongoClient.Database.Collection.indexes](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#indexes)
+- [MongoClient.Database.Collection.indexes](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/P_MongoDB_Driver_IMongoCollection_1_Indexes.htm)
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/110-manage-collections/program.cs" id="get_indexes":::
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 11/29/2022
 ms.author: phjensen
 ---
 
@@ -61,8 +61,6 @@ tools.
       Microsoft  operations will  provide  the  storage  user  and  storage  IP at  the  time  of provisioning.
       
       ---
-
-1. **[Enable communication with storage](#enable-communication-with-storage)** (for more information, see separate section): Select the storage back-end you're using for your deployment.
 
 1. **[Enable communication with database](#enable-communication-with-database)** (for more information, see separate section): 
    

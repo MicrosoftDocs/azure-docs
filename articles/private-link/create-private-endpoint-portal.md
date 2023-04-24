@@ -1,14 +1,14 @@
 ---
-title: 'Quickstart: Create a private endpoint by using the Azure portal'
+title: 'Quickstart: Create a private endpoint - Azure portal'
 titleSuffix: Azure Private Link
-description: In this quickstart, you'll learn how to create a private endpoint by using the Azure portal.
+description: In this quickstart, you'll learn how to create a private endpoint using the Azure portal.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 11/17/2022
+ms.date: 12/06/2022
 ms.author: allensu
-ms.custom: mode-ui
+ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ---
 
@@ -30,9 +30,10 @@ You can create private endpoints for various Azure services, such as Azure SQL a
     
     - The example webapp in this article is named **myWebApp1979**. Replace the example with your webapp name.
 
+
 ## Create a virtual network and bastion host
 
-Start by creating a virtual network, subnet, and bastion host. 
+Create a virtual network, subnet, and bastion host. 
 
 You use the bastion host to connect securely to the VM for testing the private endpoint.
 
@@ -52,7 +53,6 @@ You use the bastion host to connect securely to the VM for testing the private e
     | **Instance details** |  |
     | Name | Enter **myVNet**. |
     | Region | Select **West Europe**. |
-
 
 5. Select **Next: IP Addresses** or the **IP Addresses** tab.
 
@@ -96,11 +96,13 @@ You use the bastion host to connect securely to the VM for testing the private e
 
 Next, create a VM that you can use to test the private endpoint.
 
-1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. Select **+ Create** then **Azure virtual machine** in **Virtual machines**.
+2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
+
+3. Select **+ Create** then **Azure virtual machine** in **Virtual machines**.
    
-3. In the **Basics** tab of **Create a virtual machine**, enter or select the following information.
+4. In the **Basics** tab of **Create a virtual machine**, enter or select the following information.
 
     | Setting                        | Value                                             |
     |--------------------------------|---------------------------------------------------|
@@ -122,9 +124,9 @@ Next, create a VM that you can use to test the private endpoint.
     | Public inbound ports | Select **None**. |
 
 
-4. Select the **Networking** tab.
+5. Select the **Networking** tab.
   
-5. In the **Networking** tab, enter or select the following information.
+6. In the **Networking** tab, enter or select the following information.
 
     |Setting                     | Value               |
     |----------------------------|---------------------|
@@ -135,9 +137,9 @@ Next, create a VM that you can use to test the private endpoint.
     | NIC network security group | Select **Basic**.   |
     | Public inbound ports       | Select **None**.    |
    
-6. Select **Review + create**. 
+7. Select **Review + create**. 
   
-7. Review the settings, and then select **Create**.
+8. Review the settings, and then select **Create**.
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
@@ -272,7 +274,9 @@ If you're not going to continue to use this web app, delete the virtual network,
 In this quickstart, you created:
 
 * A virtual network and bastion host
+
 * A virtual machine
+
 * A private endpoint for an Azure web app
 
 You used the VM to test connectivity to the web app across the private endpoint.

@@ -29,7 +29,7 @@ Before you create a model for your device, you need to understand the existing c
 - The read-only and writable properties the device synchronizes with your service.
 - The commands invoked from the service that the device responds to.
 
-For example, review the following device code snippets that implement various device capabilities. These examples are based on the sample in [PnPMQTTWin32-Before](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32-Before).
+For example, review the following device code snippets that implement various device capabilities.
 
 The following snippet shows the device sending temperature telemetry:
 
@@ -170,7 +170,7 @@ In summary, the sample implements the following capabilities:
 
 ## Design a model
 
-Every IoT Plug and Play device has a model that describes the features and capabilities of the device. The model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) to describe the device capabilities.
+Every IoT Plug and Play device has a model that describes the features and capabilities of the device. The model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) to describe the device capabilities.
 
 For a simple model that maps the existing capabilities of your device, use the *Telemetry*, *Property*, and *Command* DTDL elements.
 

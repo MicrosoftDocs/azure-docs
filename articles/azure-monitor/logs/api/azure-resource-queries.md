@@ -25,7 +25,7 @@ Consider an Azure resource with a fully qualified identifier:
 A query for this resource's logs against the direct API endpoint would go to the following URL:
 
 ```
-    https://api.loganalytics.io/v1/subscriptions/<sid>/resourceGroups/<rg>/providers/<providerName>/<resourceType>/<resourceName>/query
+    https://api.loganalytics.azure.com/v1/subscriptions/<sid>/resourceGroups/<rg>/providers/<providerName>/<resourceType>/<resourceName>/query
 ```
 
 A query to the same resource via ARM would use the following URL:

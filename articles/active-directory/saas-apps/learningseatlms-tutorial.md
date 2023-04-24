@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Learning Seat LMS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Learning Seat LMS'
 description: Learn how to configure single sign-on between Azure Active Directory and Learning Seat LMS.
 services: active-directory
 author: jeevansd

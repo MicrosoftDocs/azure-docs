@@ -3,8 +3,8 @@ title: Network Insights topology
 description: An overview of topology, which provides a pictorial representation of the resources.
 ms.topic: how-to
 ms.service: network-watcher
-author: Sagav28
-ms.author: saggupta
+author: halkazwini
+ms.author: halkazwini
 ms.date: 11/16/2022
 ms.custom: subject-monitoring, ignite-2022, engagement-fy23
 ---

@@ -1,13 +1,12 @@
 ---
 title: Introduction to Azure Kubernetes Service
 description: Learn the features and benefits of Azure Kubernetes Service to deploy and manage container-based applications in Azure.
-services: container-service
 ms.topic: overview
 ms.date: 11/18/2022
 ms.custom: mvc, ignite-2022
 ---
 
-# Azure Kubernetes Service
+# What is Azure Kubernetes Service?
 
 Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. When you create an AKS cluster, a control plane is automatically created and configured. This control plane is provided at no cost as a managed Azure resource abstracted from the user. You only pay for and manage the nodes attached to the AKS cluster.
 
@@ -120,18 +119,7 @@ To get started with Ingress traffic, see [HTTP application routing][aks-http-rou
 
 Kubernetes has a rich ecosystem of development and management tools that work seamlessly with AKS. These tools include [Helm][helm] and the [Kubernetes extension for Visual Studio Code][k8s-extension].
 
-Azure provides several tools that help streamline Kubernetes, such as DevOps Starter.  
-
-### DevOps Starter
-
-DevOps Starter provides a simple solution for bringing existing code and Git repositories into Azure. DevOps Starter automatically:
-
-* Creates Azure resources (such as AKS).
-* Configures a release pipeline in Azure DevOps Services that includes a build pipeline for CI.
-* Sets up a release pipeline for CD.
-* Generates an Azure Application Insights resource for monitoring.
-
-For more information, see [DevOps Starter][azure-devops].
+Azure provides several tools that help streamline Kubernetes.  
 
 ## Docker image support and private container registry
 
@@ -172,8 +160,8 @@ Learn more about deploying and managing AKS.
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
 [azure-devops]: ../devops-project/overview.md
-[azure-disk]: ./azure-disks-dynamic-pv.md
-[azure-files]: ./azure-files-dynamic-pv.md
+[azure-disk]: ./azure-disk-csi.md
+[azure-files]: ./azure-files-csi.md
 [container-health]: ../azure-monitor/containers/container-insights-overview.md
 [aks-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-supported versions]: supported-kubernetes-versions.md
@@ -182,9 +170,9 @@ Learn more about deploying and managing AKS.
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
 [conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md
-[aad]: managed-aad.md
+[aad]: managed-azure-ad.md
 [aks-monitor]: monitor-aks.md
-[azure-monitor]: ../azure-monitor/containers/containers.md
+[azure-monitor]: /previous-versions/azure/azure-monitor/containers/containers
 [azure-logs]: ../azure-monitor/logs/log-analytics-overview.md
-[helm]: /quickstart-helm.md
-[aks-best-practices]: /best-practices.md
+[helm]: quickstart-helm.md
+[aks-best-practices]: best-practices.md

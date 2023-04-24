@@ -3,13 +3,12 @@ title: Detect threats with built-in analytics rules in Microsoft Sentinel | Micr
 description: Learn how to use out-of-the-box threat detection rules, based on built-in templates, that notify you when something suspicious happens.
 author: yelevin
 ms.topic: how-to
+ms.custom: devx-track-arm-template
 ms.date: 11/09/2021
 ms.author: yelevin
 ---
 
 # Detect threats out-of-the-box
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 After you've [connected your data sources](quickstart-onboard.md) to Microsoft Sentinel, you'll want to be notified when something suspicious occurs. That's why Microsoft Sentinel provides out-of-the-box, built-in templates to help you create threat detection rules.
 

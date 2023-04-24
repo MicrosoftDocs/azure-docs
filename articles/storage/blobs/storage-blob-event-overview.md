@@ -3,7 +3,7 @@ title: Reacting to Azure Blob storage events
 description: Use Azure Event Grid to subscribe and react to Blob storage events. Understand the event model, filtering events, and practices for consuming events.
 author: normesta
 ms.author: normesta
-ms.date: 06/13/2022
+ms.date: 02/15/2023
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
@@ -46,10 +46,11 @@ First, subscribe an endpoint to an event. Then, when an event is triggered, the 
 
 See the [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=/azure/storage/blobs/toc.json) article to view:
 
-> [!div class="checklist"]
-> - A complete list of Blob storage events and how each event is triggered.
-> - An example of the data the Event Grid would send for each of these events.
-> - The purpose of each key value pair that appears in the data.
+- A complete list of Blob storage events and how each event is triggered.
+
+- An example of the data the Event Grid would send for each of these events.
+
+- The purpose of each key value pair that appears in the data.
 
 ## Filtering events
 
@@ -88,16 +89,24 @@ To match events from blobs created in specific container sharing a blob suffix, 
 ## Practices for consuming events
 
 Applications that handle Blob storage events should follow a few recommended practices:
-> [!div class="checklist"]
-> - As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the storage account you are expecting.
-> - Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
-> - As messages can arrive after some delay, use the etag fields to understand if your information about objects is still up-to-date. To learn how to use the etag field, see [Managing concurrency in Blob storage](./concurrency-manage.md?toc=/azure/storage/blobs/toc.json#managing-concurrency-in-blob-storage).
-> - As messages can arrive out of order, use the sequencer fields to understand the order of events on any particular object. The sequencer field is a string value that represents the logical sequence of events for any particular blob name. You can use standard string comparison to understand the relative sequence of two events on the same blob name.
-> - Storage events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries between backend nodes and services or availability of subscriptions, duplicate messages may occur. To learn more about message delivery and retry, see [Event Grid message delivery and retry](../../event-grid/delivery-and-retry.md).
-> - Use the blobType field to understand what type of operations are allowed on the blob, and which client library types you should use to access the blob. Valid values are either `BlockBlob` or `PageBlob`.
-> - Use the url field with the `CloudBlockBlob` and `CloudAppendBlob` constructors to access the blob.
-> - Ignore fields you don't understand. This practice will help keep you resilient to new features that might be added in the future.
-> - If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `CopyBlob`, `PutBlob`, `PutBlockList` or `FlushWithClose` REST API calls. These API calls trigger the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](../../event-grid/how-to-filter-events.md).
+
+- As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the storage account you are expecting.
+
+- Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
+
+- There is no service level agreement around the time it takes for a message to arrive. It's not uncommon for messages to arrive anywhere from 30 minutes to two hours. As messages can arrive after some delay, use the etag fields to understand if your information about objects is still up-to-date. To learn how to use the etag field, see [Managing concurrency in Blob storage](./concurrency-manage.md?toc=/azure/storage/blobs/toc.json#managing-concurrency-in-blob-storage).  
+
+- As messages can arrive out of order, use the sequencer fields to understand the order of events on any particular object. The sequencer field is a string value that represents the logical sequence of events for any particular blob name. You can use standard string comparison to understand the relative sequence of two events on the same blob name.
+
+- Storage events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries between backend nodes and services or availability of subscriptions, duplicate messages may occur. To learn more about message delivery and retry, see [Event Grid message delivery and retry](../../event-grid/delivery-and-retry.md).
+
+- Use the blobType field to understand what type of operations are allowed on the blob, and which client library types you should use to access the blob. Valid values are either `BlockBlob` or `PageBlob`.
+
+- Use the url field with the `CloudBlockBlob` and `CloudAppendBlob` constructors to access the blob.
+
+- Ignore fields you don't understand. This practice will help keep you resilient to new features that might be added in the future.
+
+- If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `CopyBlob`, `PutBlob`, `PutBlockList` or `FlushWithClose` REST API calls. These API calls trigger the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](../../event-grid/how-to-filter-events.md).
 
 ## Feature support
 

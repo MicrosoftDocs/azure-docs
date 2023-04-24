@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point CloudGuard Posture Management | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point CloudGuard Posture Management"
 description: Learn how to configure single sign-on between Azure Active Directory and Check Point CloudGuard Posture Management.
 services: active-directory
 author: jeevansd

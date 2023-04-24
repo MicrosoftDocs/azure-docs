@@ -1,5 +1,5 @@
 ---
-title: Use a template to create a secure workspace
+title: "Use a template to create a secure workspace"
 titleSuffix: Azure Machine Learning
 description: Use a template to create an Azure Machine Learning workspace and required Azure services inside a secure virtual network.
 services: machine-learning
@@ -11,8 +11,9 @@ ms.author: jhirono
 author: jhirono
 ms.date: 12/02/2021
 ms.topic: tutorial
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
-# How to create a secure workspace by using template
+# Tutorial: How to create a secure workspace by using template
 
 Templates provide a convenient way to create reproducible service deployments. The template defines what will be created, with some information provided by you when you use the template. For example, specifying a unique name for the Azure Machine Learning workspace.
 
@@ -148,32 +149,29 @@ To run the Bicep template, use the following commands from the `machine-learning
 
     ---
 
-1. To run the template, use the following command:
-
-    # [Azure CLI](#tab/cli)
+1. To run the template, use the following command. Replace the `prefix` with a unique prefix. The prefix will be used when creating Azure resources that are required for Azure Machine Learning. Replace the `securepassword` with a secure password for the jump box. The password is for the login account for the jump box (`azureadmin` in the examples below):
 
     > [!TIP]
-    > The `prefix` must be 5 or less characters.
+    > The `prefix` must be 5 or less characters. It can't be entirely numeric or contain the following characters: `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`.
+
+    # [Azure CLI](#tab/cli)
 
     ```azurecli
     az deployment group create \
         --resource-group exampleRG \
         --template-file main.bicep \
         --parameters \
-        prefix=myprefix \
+        prefix=prefix \
         dsvmJumpboxUsername=azureadmin \
         dsvmJumpboxPassword=securepassword
     ```
     # [Azure PowerShell](#tab/ps1)
 
-    > [!TIP]
-    > The `prefix` must be 5 or less characters.
-
     ```azurepowershell
     $dsvmPassword = ConvertTo-SecureString "mysecurepassword" -AsPlainText -Force
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG `
         -TemplateFile ./main.bicep `
-        -prefix "myprefix" `
+        -prefix "prefix" `
         -dsvmJumpboxUsername "azureadmin" `
         -dsvmJumpboxPassword $dsvmPassword
     ```
@@ -236,6 +234,16 @@ After the template completes, use the following steps to connect to the DSVM:
 
 1. From the DSVM desktop, start __Microsoft Edge__ and enter `https://ml.azure.com` as the address. Sign in to your Azure subscription, and then select the workspace created by the template. The studio for your workspace is displayed.
 
+## Troubleshooting
+
+### Error: Windows computer name cannot be more than 15 characters long, be entirely numeric, or contain the following characters
+
+This error can occur when the name for the DSVM jump box is greater than 15 characters or includes one of the following characters: `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`.
+
+When using the Bicep template, the jump box name is generated programmatically using the prefix value provided to the template. To make sure the name does not exceed 15 characters or contain any invalid characters, use a prefix that is 5 characters or less and do not use any of the following characters in the prefix: `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`.
+
+When using the Terraform template, the jump box name is passed using the `dsvm_name` parameter. To avoid this error, use a name that is not greater than 15 characters and does not use any of the following characters as part of the name: `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`.
+
 ## Next steps
 
 > [!IMPORTANT]
@@ -245,6 +253,8 @@ After the template completes, use the following steps to connect to the DSVM:
 > * [Create/manage VMs (Windows)](../virtual-machines/windows/tutorial-manage-vm.md).
 > * [Create/manage compute instance](how-to-create-manage-compute-instance.md).
 
+:::moniker range="azureml-api-2"
 To continue learning how to use the secured workspace from the DSVM, see [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
+:::moniker-end
 
 To learn more about common secure workspace configurations and input/output requirements, see [Azure Machine Learning secure workspace traffic flow](concept-secure-network-traffic-flow.md).

@@ -1,7 +1,6 @@
 ---
 title: Azure Kubernetes Service (AKS) Diagnostics Overview
 description: Learn about self-diagnosing clusters in Azure Kubernetes Service.
-services: container-service
 ms.topic: conceptual
 ms.date: 11/15/2022
 ---

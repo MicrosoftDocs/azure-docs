@@ -49,6 +49,8 @@ If you disable the automatic installation of any component, you can easily deplo
     >
     > If you choose to disable all of the automatic installation configuration options, no agents, or components will be deployed to your clusters. Protection will be limited to the Agentless features only. Learn which features are Agentless in the [availability section](../supported-machines-endpoint-solutions-clouds-containers.md) for Defender for Containers.
 
+Learn more about the [roles used to provision Defender for Containers extensions](../permissions.md#roles-used-to-automatically-provision-agents-and-extensions).
+
 ## Deploy the Defender profile
 
 You can enable the Defender for Containers plan and deploy all of the relevant components from the Azure portal, the REST API, or with a Resource Manager template. For detailed steps, select the relevant tab.
@@ -142,12 +144,6 @@ Request body parameters:
 
     > [!IMPORTANT]
     > Ensure that you use the same subscription ID for ``<your-subscription-id>`` as the one associated with your AKS cluster.
-
-1. Enable the feature flag in the CLI:
-
-    ```azurecli
-    az feature register --namespace Microsoft.ContainerService --name AKS-AzureDefender
-    ```
 
 1. Enable the Defender profile on your containers:
 

@@ -41,17 +41,11 @@ The log size varies by the string lengths of performance counters. It can increa
 
 Access VM insights for all your virtual machines and virtual machine scale sets by selecting **Virtual Machines** from the **Monitor** menu in the Azure portal. To access VM insights for a single virtual machine or virtual machine scale set, select **Insights** from the machine's menu in the Azure portal.
 
-## Configure VM insights
+## Limitations
 
-To configure VM insights, follow the steps in each link for detailed guidance:
-
-- [Create a Log Analytics workspace](./vminsights-configure-workspace.md#create-log-analytics-workspace).
-- [Add the VMInsights solution to a workspace](./vminsights-configure-workspace.md#add-vminsights-solution-to-workspace) (Log Analytics agent only).
-- [Install agents on the virtual machine and virtual machine scale set to be monitored](./vminsights-enable-overview.md).
-
-> [!NOTE]
-> VM insights doesn't support sending data to more than one Log Analytics workspace (multi-homing).
+- VM insights doesn't support sending data to multiple Log Analytics workspaces (multi-homing).
 
 ## Next steps
 
-See [Deploy VM insights](./vminsights-enable-overview.md) for requirements and methods to enable monitoring for your virtual machines.
+- [Enable and configure VM insights](./vminsights-enable-overview.md).
+- [Migrate machines with VM insights from Log Analytics agent to Azure Monitor Agent](../vm/vminsights-enable-overview.md#migrate-from-log-analytics-agent-to-azure-monitor-agent).

@@ -23,31 +23,32 @@ In this article you'll learn how to define the triggers and conditions that will
 
 ### Determine the scope
 
-The first step in designing and defining your automation rule is figuring out which incidents (or alerts, in preview) you want it to apply to. This determination will directly impact how you create the rule.
+The first step in designing and defining your automation rule is figuring out which incidents (or alerts) you want it to apply to. This determination will directly impact how you create the rule.
 
 You also want to determine your use case. What are you trying to accomplish with this automation? Consider the following options:
 
+- (**Preview**) Create tasks for your analysts to follow in triaging, investigating, and remediating incidents.
 - Suppress noisy incidents (see [this article on handling false positives](false-positives.md#add-exceptions-by-using-automation-rules) instead)
 - Triage new incidents by changing their status from New to Active and assigning an owner.
 - Tag incidents to classify them.
 - Escalate an incident by assigning a new owner.
 - Close resolved incidents, specifying a reason and adding comments.
 - Analyze the incident's contents (alerts, entities, and other properties) and take further action by calling a playbook.
-- (**Preview**) Handle or respond to an alert without an associated incident.
+- Handle or respond to an alert without an associated incident.
 
 ### Determine the trigger
 
-Do you want this automation to be activated when new incidents (or alerts, in preview) are created? Or any time an incident gets updated?
+Do you want this automation to be activated when new incidents (or alerts, in preview) are created? Or anytime an incident gets updated?
 
-Automation rules are triggered **when an incident is created or updated** (the update trigger is now in **Preview**) or **when an alert is created** (also in **Preview**). Recall that incidents include alerts, and that both alerts and incidents are created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
+Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents are created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
 
 The following table shows the different possible scenarios that will cause an automation rule to run.
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
 | **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
-| **When incident is updated**<br>(Preview) | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
-| **When alert is created**<br>(Preview) | - An alert is created by a scheduled analytics rule.
+| **When incident is updated**<br> | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
+| **When alert is created**<br> | - An alert is created by a scheduled analytics rule.
 
 ## Create your automation rule
 
@@ -68,7 +69,7 @@ Most of the following instructions apply to any and all use cases for which you'
 
 ### Choose your trigger
 
-From the **Trigger** drop-down, select **When incident is created**, **When incident is updated (Preview)**, or **When alert is created (Preview)**, according to what you decided when designing your rule.
+From the **Trigger** drop-down, select **When incident is created**, **When incident is updated**, or **When alert is created**, according to what you decided when designing your rule.
 
 :::image type="content" source="media/create-manage-use-automation-rules/select-trigger.png" alt-text="Screenshot of selecting the incident create or incident update trigger.":::
 
@@ -208,5 +209,6 @@ In this document, you learned how to use automation rules to centrally manage re
 - To learn how to add advanced conditions with `OR` operators to automation rules, see [Add advanced conditions to Microsoft Sentinel automation rules](add-advanced-conditions-to-automation-rules.md).
 - To learn more about automation rules, see [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
 - To learn more about advanced automation options, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
+- To learn how to use automation rules to add tasks to incidents, see [Create incident tasks in Microsoft Sentinel using automation rules](create-tasks-automation-rule.md).
 - To migrate alert-trigger playbooks to be invoked by automation rules, see [Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules](migrate-playbooks-to-automation-rules.md)
-- For help in implementing automation rules and playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
+- For help with implementing automation rules and playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).

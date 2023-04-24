@@ -1,6 +1,6 @@
 ---
-title: Usage and insights report | Microsoft Docs
-description: Introduction to usage and insights report in the Azure Active Directory portal 
+title: Usage and insights report
+description: Introduction to usage and insights report in the Azure portal 
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/03/2022
+ms.date: 01/10/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -29,7 +29,7 @@ Accessing the data from Usage and insights requires:
 
 * An Azure AD tenant
 * An Azure AD premium (P1/P2) license to view the sign-in data
-* A user in the Global Administrator, Security Administrator, Security Reader, or Report Reader roles.
+* A user in the Global Administrator, Security Administrator, Security Reader, or Reports Reader roles.
 
 To access Usage & insights:
 
@@ -44,7 +44,9 @@ There are currently three reports available in Azure AD Usage & insights. All th
 
 ### Azure AD application activity (preview)
 
-The **Azure AD application activity (preview)** report shows the list of applications with one or more sign-in attempts. The report allows you to sort by the number of successful sign-ins, failed sign-ins, and the success rate.
+The **Azure AD application activity (preview)** report shows the list of applications with one or more sign-in attempts. Any application activity during the selected date range appears in the report. The report allows you to sort by the number of successful sign-ins, failed sign-ins, and the success rate.
+
+It's possible that activity for a deleted application may appear in the report if the activity took place during the selected date range and before the application was deleted. Other scenarios could include a user attempting to sign in to an application that doesn't have a service principal associated with the app. For these types of scenarios, you may need to review the audit logs or sign-in logs to investigate further.
 
 Select the **View sign in activity** link for an application to view more details. The sign-in graph per application counts interactive user sign-ins. The details of any sign-in failures appears below the table. 
 

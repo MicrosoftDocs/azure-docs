@@ -5,9 +5,9 @@ description: Learn about how to set up routes to access a shared service VNet wi
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: quickstart
-ms.date: 06/14/2022
+ms.date: 03/03/2023
 ms.author: cherylmc
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Route to shared services VNets using an ARM template
@@ -74,7 +74,7 @@ To deploy this template properly, you must use the button to Deploy to Azure but
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-route-tables%2fazuredeploy.json)
 1. To view the template, click **Edit template**. On this page, you can adjust some of the values such as address space or the name of certain resources. **Save** to save your changes, or **Discard**.
-1. On the template page, enter the values. For this template, the P2S public certificate data is required. If you're using this article as an exercise, you can use the following data from this .cer file as sample data for both hubs. Once the template runs and deployment is complete, in order to use the P2S configuration, you must replace this information with the public key [certificate data](certificates-point-to-site.md#cer) for your own deployment.
+1. On the template page, enter the values. For this template, the P2S public certificate data is required. The following example shows the certificate data. You can use the same certificate data for both hubs. Note that while it may be possible to use this example data to run the steps for this exercise, in order to connect properly, you must supply your own certificate data for your hubs. For more information, see [certificate data](certificates-point-to-site.md#cer).
 
    ```certificate-data
    MIIC5zCCAc+gAwIBAgIQGxd3Av1q6LJDZ71e3TzqcTANBgkqhkiG9w0BAQsFADAW

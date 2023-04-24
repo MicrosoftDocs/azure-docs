@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Create a service connection and store secrets into Key Vault
 description: Tutorial showing how to create a service connection and store secrets into Key Vault
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: tutorial
@@ -117,7 +117,7 @@ Now you can create a service connection to another target service and directly s
 1. Select **Secrets** in the Key Vault left ToC, and select the blob storage secret name.
 
   > [!TIP]
-  > Don't have permission to list secrets? Refer to [troubleshooting](../key-vault/general/troubleshooting-access-issues.md#i-am-not-able-to-list-or-get-secretskeyscertificate-i-am-seeing-something-went-wrong-error).
+  > Don't have permission to list secrets? Refer to [troubleshooting](../key-vault/general/troubleshooting-access-issues.md#im-not-able-to-list-or-get-secretskeyscertificate-im-seeing-a-something-went-wrong-error).
 
 4. Select a version ID from the Current Version list.
 

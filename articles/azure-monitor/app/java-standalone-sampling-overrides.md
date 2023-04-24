@@ -69,7 +69,7 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 
 ## How it works
 
-`telemetryType` must be one of `request`, `dependency`, `trace` (log), or `exception`.
+`telemetryType` (`telemetryKind` in Application Insights 3.4.0) must be one of `request`, `dependency`, `trace` (log), or `exception`.
 
 When a span is started, the type of span and the attributes present on it at that time are used to check if any of the sampling
 overrides match.

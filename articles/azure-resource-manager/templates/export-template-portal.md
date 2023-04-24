@@ -2,6 +2,7 @@
 title: Export template in Azure portal
 description: Use Azure portal to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 09/01/2021
 ---
 # Use Azure portal to export a template

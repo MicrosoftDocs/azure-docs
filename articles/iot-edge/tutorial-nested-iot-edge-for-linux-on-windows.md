@@ -4,15 +4,14 @@ description: This tutorial shows you how to create a hierarchical structure of I
 author: PatAltimore
 
 ms.author: fcabrera
-ms.date: 08/04/2022
+ms.date: 11/15/2022
 ms.topic: tutorial
 ms.service: iot-edge
-monikerRange: ">=iotedge-2020-11"
 ---
 
 # Tutorial: Create a hierarchy of IoT Edge devices using IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 Deploy Azure IoT Edge nodes across networks organized in hierarchical layers. Each layer in a hierarchy is a gateway device that handles messages and requests from devices in the layer beneath it.
 
@@ -47,6 +46,9 @@ This tutorial uses a two device hierarchy for simplicity, pictured below. One de
 
 ![Diagram that shows the structure of the tutorial hierarchy, containing two devices: the top layer device and the lower layer device.](./media/tutorial-nested-iot-edge/tutorial-hierarchy-diagram.png)
 
+>[!NOTE]
+>A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
+
 ## Prerequisites
 
 To create a hierarchy of IoT Edge devices, you'll need:
@@ -73,7 +75,7 @@ To create a hierarchy of IoT Edge devices, you'll need:
 
 ### Create a hierarchy of IoT Edge devices
 
-IoT Edge devices make up the layers of your hierarchy. This tutorial will create a hierarchy of two IoT Edge devices: the **top layer device** and its child, the **lower layer device**. You can create additional child devices as needed.
+IoT Edge devices make up the layers of your hierarchy. This tutorial will create a hierarchy of two IoT Edge devices: the **top layer device** and its downstream, the **lower layer device**. You can create additional downstream devices as needed.
 
 To create and configure your hierarchy of IoT Edge devices, you'll use the `iotedge-config` tool. This tool simplifies the configuration of the hierarchy by automating and condensing several steps into two:
 
@@ -367,7 +369,7 @@ You can also view these messages through the [Azure Cloud Shell](https://shell.a
 
 Run the `iotedge check` command to verify the configuration and to troubleshoot errors.
 
-You can run `iotedge check` in a nested hierarchy, even if the child machines don't have direct internet access.
+You can run `iotedge check` in a nested hierarchy, even if the downstream devices don't have direct internet access.
 
 When you run `iotedge check` from the lower layer, the program tries to pull the image from the parent through port 443.
 
