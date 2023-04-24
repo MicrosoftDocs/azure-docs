@@ -33,7 +33,7 @@ In the support table, **NA** indicates that the feature is not available.
 **[Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)** | Public preview | NA | NA
 **[Defender for Azure SQL database servers](defender-for-sql-introduction.md)**<br/><br/> Partial GA in Vianet21<br/> - A subset of alerts/vulnerability assessments is available.<br/>- Behavioral threat protection isn't available.| GA | GA | GA
 **[Defender for Containers](defender-for-containers-introduction.md)**| GA | GA | GA
-[Azure Arc extension for Kubernetes clusters/servers/data services](defender-for-kubernetes-azure-arc.md): | Public preview | NA | NA
+[Azure Arc extension for Kubernetes clusters/servers/data services](defender-for-kubernetes-azure-arc.md) | Public preview | NA | NA
 Runtime visibility of vulnerabilities in container images | Public preview | NA | NA
 **[Defender for DNS](defender-for-dns-introduction.md)** | GA | GA | GA
 **[Defender for Key Vault](./defender-for-key-vault-introduction.md)** | GA | NA | NA
