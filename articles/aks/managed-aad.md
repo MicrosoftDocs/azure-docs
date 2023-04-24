@@ -2,7 +2,7 @@
 title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 03/02/2023
+ms.date: 04/17/2023
 ms.custom: devx-track-azurecli
 ms.author: miwithro
 ---
@@ -143,6 +143,23 @@ In order to access the cluster, follow the steps in [access an Azure AD enabled 
 ## Non-interactive sign in with kubelogin
 
 There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with `kubectl`. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to connect to the cluster with a non-interactive service principal credential.
+
+Starting with Kubernetes version 1.24, the default format of the clusterUser credential for Azure AD clusters is `exec`, which requires  [kubelogin](https://github.com/Azure/kubelogin) binary in the execution PATH. If you use the Azure CLI, it prompts you to download kubelogin. For non-Azure AD clusters, or Azure AD clusters where the version of Kubernetes is older than 1.24, there is no change in behavior. The version of kubeconfig installed continues to work.
+
+An optional query parameter named `format` is available when retrieving the clusterUser credential to overwrite the default behavior change. You can set the value to `azure` to use the original kubeconfig format.
+
+Example:
+
+```azurecli-interactive
+az aks get-credentials --format azure
+```
+
+For Azure AD integrated clusters using a version of Kubernetes newer than 1.24, it uses the kubelogin format automatically and no conversion is needed. For Azure AD integrated clusters running a version older than 1.24, you need to run the following commands to convert the kubeconfig format manually
+
+```azurecli-interactive
+export KUBECONFIG=/path/to/kubeconfig
+kubelogin convert-kubeconfig
+```
 
 ## Disable local accounts
 

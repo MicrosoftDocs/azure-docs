@@ -43,7 +43,7 @@ To create a custom workbook based on any of these workbooks, select the **View W
     - IPs assigned to a pod.
 
 >[!NOTE]
-> By default 16 IP's are allocated from subnet to each node. This cannot be modified to be less than 16. For instructions on how to enable subnet IP usage metrics, see [Monitor IP Subnet Usage](../../aks/configure-azure-cni.md#monitor-ip-subnet-usage).
+> By default 16 IP's are allocated from subnet to each node. This cannot be modified to be less than 16. For instructions on how to enable subnet IP usage metrics, see [Monitor IP Subnet Usage](../../aks/configure-azure-cni-dynamic-ip-allocation.md#monitor-ip-subnet-usage).
 
 ## Resource Monitoring workbooks
 
