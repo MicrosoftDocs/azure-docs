@@ -46,11 +46,11 @@ When a Rolling Upgrade Policy, the scale set must also have a [health probe](../
  
 
 ### Manual
-In this mode, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing VMs when changes occur to the scale model. New instances added to the scale set will use the most update-to-date model available. If no upgrade policy is set during VM creation, the default value is manual. 
+In this mode, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing VMs when changes occur to the scale set model. New instances added to the scale set will use the most update-to-date model available. If no upgrade policy is set during VM creation, the default value is manual. 
 
 ## Setting the Upgrade Policy
 
-The Upgrade Policy can be set during the initial scale set deployment or updated post deployment.  
+The Upgrade Policy can be set during deployment or updated post deployment.  
 
 ### CLI
 Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create) and set the Upgrade Policy to `Rolling` and enable `MaxSurge`. When using an Upgrade Policy set to Rolling, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
@@ -127,14 +127,6 @@ The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point i
 Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and set the Upgrade Policy from `Manual` to `Rolling` with `MaxSurge` enabled. If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
 
 ```azurecli-interactive
-
-# Create a health probe
-az network lb probe create --resource-group MyResourceGroup --lb-name MyLoadBalancer --name MyProbe --protocol tcp --port 80
-
-# Update the load balancing rule with the health probe
-az network lb rule update --resource-group MyResourceGroup --lb-name myLoadBalancer --name MyLbRule --protocol Tcp --frontend-ip-name LoadBalancerFrontEnd --frontend-port 80 --backend-pool-name MyLoadBalancerbepool --backend-port 80 --probe myProbe
-
-#Create the scale set
 az vmss update \
     --resource-group myResourceGroup \
     --name myScaleSet \
