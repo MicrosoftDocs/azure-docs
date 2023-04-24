@@ -137,7 +137,7 @@ az vmss update \
     --max-surge true
 ```
 
-### PowerShell]
+### PowerShell
 Update an existing Virtual Machine Scale Set using [Set-AzVmssRollingUpgradePolicy](/powershell/module/az.compute/set-azvmssrollingupgradepolicy) and [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
 ```azurepowershell-interactive
