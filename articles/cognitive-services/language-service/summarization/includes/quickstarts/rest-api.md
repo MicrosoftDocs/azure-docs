@@ -46,7 +46,7 @@ Use this quickstart to send text summarization requests using the REST API. In t
 > [!NOTE]
 > * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 > * You can find language specific samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
-> * Go to the Azure portal and find the key and endpoint for the Language resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**. Then replace the strings in the code below with your key and endpoint.
+> * Go to the Azure portal and find the key and endpoint for the Language resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
 To call the API, you need the following information:
 
 Choose the type of summarization you would like to perform, and select one of the tabs below to see an example API call:
@@ -62,12 +62,12 @@ Choose the type of summarization you would like to perform, and select one of th
 
 |parameter  |Description  |
 |---------|---------|
-|`-X POST <endpoint>`     | Specifies your endpoint for accessing the API.        |
+|`-X POST $LANGUAGE_ENDPOINT`     | Specifies your endpoint for accessing the API.        |
 |`-H Content-Type: application/json`     | The content type for sending JSON data.          |
-|`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the key for accessing the API.        |
+|`-H "Ocp-Apim-Subscription-Key:$LANGUAGE_KEY`    | Specifies the key for accessing the API.        |
 |`-d <documents>`     | The JSON containing the documents you want to send.         |
 
-The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
+The following cURL commands are executed from a BASH shell. Edit these commands with your own JSON values.
 
 ## Document summarization
 

@@ -63,7 +63,7 @@ npm install --save @azure/ai-language-text@1.1.0-beta.1
 
 ## Code example 
 
-Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
+Open the file and copy the below code. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
