@@ -21,11 +21,11 @@ Introducing Run Commands for VMware HCX on Azure VMware Solution. You can use th
 
 All new Azure VMware Solution private clouds are being deployed with VMware NSX-T Data Center version 3.2.2. NSX-T Data Center versions in existing private clouds will be upgraded to NSX-T Data Center version 3.2.2 through April 2023.
 
-**HCX Enterprise Edition - Default**
+**VMware HCX Enterprise Edition - Default**
 
 VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
 
-**Log analytics - monitor Azure VMware Solution**
+**Azure Log analytics - monitor Azure VMware Solution**
 
 The data in Azure Log Analytics offer insights into issues by searching using Kusto Query Language.
 
