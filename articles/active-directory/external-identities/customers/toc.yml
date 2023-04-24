@@ -48,15 +48,25 @@ items:
         - name: Configure code samples
           items: 
             - name: Single-page app
-              href: https://learn.microsoft.com/azure/active-directory/develop/single-page-app-quickstart
+              items:
+                - name: JavaScript
+                  items:
+                    - name: Sign in users and call an API
+                      href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart  
+                - name: React
+                  items:
+                    - name: Sign in users and call an API
+                      href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart 
             - name: Web app
               items:
                 - name: Node.js
                   items:
                     - name: Sign in users
                       href: how-to-web-app-node-sample-sign-in.md
-            - name: Web API
-              href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                - name: ASP.NET
+                  items:
+                    - name: Sign in users
+                      href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart 
             - name: Headless app
               href: https://learn.microsoft.com/azure/active-directory/develop/console-app-quickstart
             - name: Desktop app
@@ -69,12 +79,37 @@ items:
           items: 
             - name: Single-page app (SPA)
               items: 
-                - name: Vanilla JS​ - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code
+                - name: JavaScript 
+                  items:
+                    - name: Sign in users
+                      items:
+                        - name: Overview
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                        - name: Prepare tenant
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                        - name: Prepare app
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                        - name: Configure app for authentication
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                        - name: Sign in and sign out
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                - name: React
+                  items:
+                    - name: Sign in users
+                      items:
+                        - name: Overview
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                        - name: Prepare tenant
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                        - name: Prepare app
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                        - name: Configure app for authentication
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                        - name: Sign in and sign out
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
                 - name: Angular JS - Sign in users and call an API
                   href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-angular-auth-code
-                - name: React JS​ - Sign in users and call an API
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-react
+
             - name: Web app
               items: 
                 - name: Node/Express.js
@@ -89,12 +124,31 @@ items:
                           href: how-to-web-app-node-sign-in-prepare-app.md
                         - name: Add sign-in and sign-out
                           href: how-to-web-app-node-sign-in-sign-in-out.md
-                - name: ASP.NET - Sign in users and call an API
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                - name: ASP.NET
+                  items:
+                    - name: Sign in users
+                      items:
+                        - name: Overview
+                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                        - name: Prepare tenant
+                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                        - name: Prepare app
+                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                        - name: Sign in and sign out
+                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
             - name: Web API
               items: 
-                - name: ASP.NET ​- Protect an API
-                  href: https://learn.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview
+                - name: Protect ASP.NET API
+                  items:
+                    - name: Overview
+                      href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                    - name: Prepare API app
+                      href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                    - name: Protect API endpoints
+                      href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                    - name: Test API
+                      href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+
             - name: Headless app
               items: 
                 - name: Node​ - Sign in users
