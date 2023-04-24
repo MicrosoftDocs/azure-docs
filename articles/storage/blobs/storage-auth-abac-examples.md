@@ -1365,7 +1365,71 @@ There are two potential actions for reading existing blobs. To make this conditi
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+
+# [Visual editor](#tab/visual-editor)
+
+Select the **Portal** tab below to see how to add this condition using the visual condition editor in the Azure portal.
+
+# [Code editor](#tab/code-editor)
+
+Select the **Portal** tab below to see how to add this condition using the code condition editor in the Azure portal.
+
+---
+
+# [Portal](#tab/portal/visual-editor)
+
+#### Add action
+
+Select **Add action**, then select only the **Read a blob** suboperation as shown in the following table.
+
+| Action                                    | Suboperation |
+| ----------------------------------------- | ------------ |
+| All read operations                       | Read a blob  |
+
+Do not select the top-level **All read operations** action or any other suboperations as shown in the following image:
+
+:::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of just the read operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
+
+#### Build expression
+
+Use the values in the following table to build the expression portion of the condition:
+
+> | Setting | Value |
+> | ------- | ----- |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+> | Value | `container1` |
+> | Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
+> | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | Attribute | [UtcNow](storage-auth-abac-attributes.md#utc-now) |
+> | Operator | [DateTimeGreaterThan](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
+> | Value | `2023-05-01T13:00:00.000Z` |
+
+The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
+
+:::image type="content" source="./media/storage-auth-abac-examples/environ-utcnow-containers-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access allowed after a specific date and time." lightbox="./media/storage-auth-abac-examples/environ-utcnow-containers-read-portal.png":::
+
+# [Portal](#tab/portal/code-editor)
+
+To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+
+```
+( 
+ ( 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) 
+ ) 
+ OR  
+ ( 
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1'
+  AND 
+  @Environment[UtcNow] DateTimeGreaterThan '2023-05-01T13:00:00.000Z' 
+ ) 
+) 
+```
+
+After entering your code, switch back to the visual editor to validate it.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1401,68 +1465,6 @@ $testRa.ConditionVersion = "2.0"
 Set-AzRoleAssignment -InputObject $testRa -PassThru
 ```
 
-# [Portal](#tab/portal)
-
-In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
-
----
-
-# [Visual editor](#tab/visual-editor/portal)
-
-Here are the settings to add this condition using the visual condition editor in the Azure portal.
-
-#### Add action
-
-Select **Add action**, then select only the **Read a blob** suboperation as shown in the following table.
-
-| Action                                    | Suboperation |
-| ----------------------------------------- | ------------ |
-| All read operations                       | Read a blob  |
-
-Do not select the top-level **All read operations** action or any other suboperations as shown in the following image:
-
-:::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of just the read operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
-
-#### Build expression
-
-Use the values in the following table to build the expression portion of the condition:
-
-> | Setting | Value |
-> | ------- | ----- |
-> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Value | `container1` |
-> | Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
-> | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | Attribute | [UtcNow](storage-auth-abac-attributes.md#utc-now) |
-> | Operator | [DateTimeGreaterThan](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
-> | Value | `2023-05-01T13:00:00.000Z` |
-
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
-
-:::image type="content" source="./media/storage-auth-abac-examples/environ-utcnow-containers-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access allowed after a specific date and time." lightbox="./media/storage-auth-abac-examples/environ-utcnow-containers-read-portal.png":::
-
-# [Code editor](#tab/code-editor/portal)
-
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
-
-```
-( 
- ( 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) 
- ) 
- OR  
- ( 
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1'
-  AND 
-  @Environment[UtcNow] DateTimeGreaterThan '2023-05-01T13:00:00.000Z' 
- ) 
-) 
-```
-
-After entering your code, switch back to the visual editor to validate it.
-
 ---
 
 ### Example: Allow access to blobs in specific containers from a specific subnet
@@ -1479,7 +1481,80 @@ There are five potential actions for read, write, add and delete access to exist
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`                |  |
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+
+# [Visual editor](#tab/visual-editor)
+
+Select the **Portal** tab below to see how to add this condition using the visual condition editor in the Azure portal.
+
+# [Code editor](#tab/code-editor)
+
+Select the **Portal** tab below to see how to add this condition using the code condition editor in the Azure portal.
+
+---
+
+# [Portal](#tab/portal/visual-editor)
+
+#### Add action
+
+Select **Add action**, then select only the top-level actions shown in the following table.
+
+| Action                                    | Suboperation |
+| ----------------------------------------- | ------------ |
+| All read operations                       | *n/a*        |
+| Write to a blob                           | *n/a*        |
+| Create a blob or snapshot, or append data | *n/a*        |
+| Delete a blob                             | *n/a*        |
+
+Do not select any individual suboperations as shown in the following image:
+
+:::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read, write, add and delete operations." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png":::
+
+#### Build expression
+
+Use the values in the following table to build the expression portion of the condition:
+
+> | Setting | Value |
+> | ------- | ----- |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+> | Value | `container1` |
+> | Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
+> | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | Attribute | [Subnet](storage-auth-abac-attributes.md#subnet-name) |
+> | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
+> | Value | `/subscriptions/<your subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default` |
+
+The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
+
+:::image type="content" source="./media/storage-auth-abac-examples/environ-subnet-containers-read-write-delete-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access to specific containers allowed from a specific subnet." lightbox="./media/storage-auth-abac-examples/environ-subnet-containers-read-write-delete-portal.png":::
+
+# [Portal](#tab/portal/code-editor)
+
+To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'})
+ )
+ OR
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name]StringEquals 'container1'
+  AND
+  @Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'
+ )
+)
+```
+
+After entering your code, switch back to the visual editor to validate it.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -1522,77 +1597,6 @@ $testRa.ConditionVersion = "2.0"
 Set-AzRoleAssignment -InputObject $testRa -PassThru
 ```
 
-# [Portal](#tab/portal)
-
-In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
-
----
-
-# [Visual editor](#tab/visual-editor/portal)
-
-Here are the settings to add this condition using the Azure portal.
-
-#### Add action
-
-Select **Add action**, then select only the top-level actions shown in the following table.
-
-| Action                                    | Suboperation |
-| ----------------------------------------- | ------------ |
-| All read operations                       | *n/a*        |
-| Write to a blob                           | *n/a*        |
-| Create a blob or snapshot, or append data | *n/a*        |
-| Delete a blob                             | *n/a*        |
-
-Do not select any individual suboperations as shown in the following image:
-
-:::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read, write, add and delete operations." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png":::
-
-#### Build expression
-
-Use the values in the following table to build the expression portion of the condition:
-
-> | Setting | Value |
-> | ------- | ----- |
-> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Value | `container1` |
-> | Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
-> | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | Attribute | [Subnet](storage-auth-abac-attributes.md#subnet-name) |
-> | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Value | `/subscriptions/<your subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default` |
-
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
-
-:::image type="content" source="./media/storage-auth-abac-examples/environ-subnet-containers-read-write-delete-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access to specific containers allowed from a specific subnet." lightbox="./media/storage-auth-abac-examples/environ-subnet-containers-read-write-delete-portal.png":::
-
-# [Code editor](#tab/code-editor/portal)
-
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
-
-```
-(
- (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})
-  AND
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})
-  AND
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})
-  AND
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'})
- )
- OR
- (
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name]StringEquals 'container1'
-  AND
-  @Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'
- )
-)
-```
-
-After entering your code, switch back to the visual editor to validate it.
-
 ---
 
 ### Example: Require private link access to read blobs with high sensitivity
@@ -1615,51 +1619,19 @@ There are two potential actions for reading existing blobs. To make this conditi
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
 
-# [PowerShell](#tab/azure-powershell)
+# [Visual editor](#tab/visual-editor)
 
-Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
+Select the **Portal** tab below to see how to add this condition using the visual condition editor in the Azure portal.
 
-```azurepowershell
-$subId = "<your subscription id>"
-$rgName = "<resource group name>"
-$storageAccountName = "<storage account name>"
-$roleDefinitionName = "Storage Blob Data Reader"
-$userUpn = "<user UPN>"
-$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
-$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+# [Code editor](#tab/code-editor)
 
-$condition = `
-"( `
- ( `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
- ) `
- OR `
- ( `
-  ( `
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringEquals 'high' `
-   AND `
-   @Environment[isPrivateLink] BoolEquals true `
-  ) `
-  OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
- ) `
-)"
-
-$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
-$testRa.Condition = $condition
-$testRa.ConditionVersion = "2.0"
-Set-AzRoleAssignment -InputObject $testRa -PassThru
-```
-
-# [Portal](#tab/portal)
-
-In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+Select the **Portal** tab below to see how to add this condition using the code condition editor in the Azure portal.
 
 ---
 
-# [Visual editor](#tab/visual-editor/portal)
+# [Portal](#tab/portal/visual-editor)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
@@ -1704,7 +1676,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring any private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
-# [Code editor](#tab/code-editor/portal)
+# [Portal](#tab/portal/code-editor)
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
@@ -1728,6 +1700,42 @@ To add the condition using the code editor, copy the condition code sample below
 
 After entering your code, switch back to the visual editor to validate it.
 
+# [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
+
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Reader"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+$condition = `
+"( `
+ ( `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
+ ) `
+ OR `
+ ( `
+  ( `
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringEquals 'high' `
+   AND `
+   @Environment[isPrivateLink] BoolEquals true `
+  ) `
+  OR `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
+ ) `
+)"
+
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
+
 ---
 
 ### Example: Allow access to a container only from a specific private endpoint
@@ -1744,59 +1752,19 @@ There are five potential actions for read, write and delete of existing blobs. T
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`                |       |
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner.<br/>Add if the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
 
-# [PowerShell](#tab/azure-powershell)
+# [Visual editor](#tab/visual-editor)
 
-Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+Select the **Portal** tab below to see how to add this condition using the visual condition editor in the Azure portal.
 
-```azurepowershell
-$subId = "<your subscription id>"
-$rgName = "<resource group name>"
-$storageAccountName = "<storage account name>"
-$roleDefinitionName = "Storage Blob Data Contributor"
-$userUpn = "<user UPN>"
-$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
-$containerName = "container1"
-$privateEndpointName = "privateendpoint1"
-$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+# [Code editor](#tab/code-editor)
 
-$condition = `
-"( `
- ( `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
-  AND `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
-  AND `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
-  AND `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
- ) `
- OR `
- ( `
-  ( `
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
-   AND `
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
-  ) `
-  OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals '$containerName' `
- ) `
-)"
-
-$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
-$testRa.Condition = $condition
-$testRa.ConditionVersion = "2.0"
-Set-AzRoleAssignment -InputObject $testRa -PassThru
-```
-
-# [Portal](#tab/portal)
-
-In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+Select the **Portal** tab below to see how to add this condition using the code condition editor in the Azure portal.
 
 ---
 
-# [Visual editor](#tab/visual-editor/portal)
+# [Portal](#tab/portal/visual-editor)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
@@ -1842,7 +1810,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers with private endpoint environment attribute." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png":::
 
-# [Code editor](#tab/code-editor/portal)
+# [Portal](#tab/portal/code-editor)
 
 To add the condition using the code editor, choose one of the condition code samples below, depending on the role associated with the assignment.
 
@@ -1902,6 +1870,50 @@ To add the condition using the code editor, choose one of the condition code sam
 
 After entering your code, switch back to the visual editor to validate it.
 
+# [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Contributor"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$containerName = "container1"
+$privateEndpointName = "privateendpoint1"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+$condition = `
+"( `
+ ( `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
+ ) `
+ OR `
+ ( `
+  ( `
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
+   AND `
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
+  ) `
+  OR `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals '$containerName' `
+ ) `
+)"
+
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
+
 ---
 
 ### Example: Allow read access to highly sensitive blob data only from a specific private endpoint and by users tagged for access
@@ -1915,52 +1927,19 @@ There are two potential actions for reading existing blobs. To make this conditi
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
 
-# [PowerShell](#tab/azure-powershell)
+# [Visual editor](#tab/visual-editor)
 
-Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
+Select the **Portal** tab below to see how to add this condition using the visual condition editor in the Azure portal.
 
-```azurepowershell
-$subId = "<your subscription id>"
-$rgName = "<resource group name>"
-$storageAccountName = "<storage account name>"
-$roleDefinitionName = "Storage Blob Data Reader"
-$userUpn = "<user UPN>"
-$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
-$privateEndpointName = "privateendpoint1"
-$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+# [Code editor](#tab/code-editor)
 
-$condition = `
-"( `
- ( `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
- ) `
- OR `
- ( `
-  ( `
-   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] `
-   AND `
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
-  ) `
-  OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
- ) `
-)"
-
-$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
-$testRa.Condition = $condition
-$testRa.ConditionVersion = "2.0"
-Set-AzRoleAssignment -InputObject $testRa -PassThru
-```
-
-# [Portal](#tab/portal)
-
-In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+Select the **Portal** tab below to see how to add this condition using the code condition editor in the Azure portal.
 
 ---
 
-# [Visual editor](#tab/visual-editor/portal)
+# [Portal](#tab/portal/visual-editor)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
@@ -2008,7 +1987,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-read-tagged-users-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read access allowed over a specific private endpoint for tagged users." lightbox="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-read-tagged-users-portal.png":::
 
-# [Code editor](#tab/code-editor/portal)
+# [Portal](#tab/portal/code-editor)
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
@@ -2031,6 +2010,43 @@ To add the condition using the code editor, copy the condition code sample below
 ```
 
 After entering your code, switch back to the visual editor to validate it.
+
+# [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
+
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Reader"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$privateEndpointName = "privateendpoint1"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+$condition = `
+"( `
+ ( `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
+ ) `
+ OR `
+ ( `
+  ( `
+   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] `
+   AND `
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
+  ) `
+  OR `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
+ ) `
+)"
+
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
 
 ---
 
