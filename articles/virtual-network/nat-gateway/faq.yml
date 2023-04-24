@@ -13,11 +13,11 @@ sections:
     questions:
       - question: How can I use NAT gateway to connect outbound in a setup where load balancer outbound rules or virtual machine public IPs are being used?
         answer: |
-          NAT gateway will automatically connect outbound to the internet as soon as it's associated with a public IP address or prefix and a subnet. NAT gateway takes precedence over load balancer or instance-level public IP addresses on virtual machines for outbound connectivity.
+          NAT gateway automatically connects outbound to the internet as soon as it's associated with a public IP address or prefix and a subnet. NAT gateway takes precedence over load balancer or instance-level public IP addresses on virtual machines for outbound connectivity.
      
       - question: Is there a drop in packets when a virtual network configured with Load balancer outbound rules switches to NAT gateway after being configured to a subnet?
         answer: |
-          No, there is no drop in packets. Existing connections with Load balancer continue to work until those connections officially close. After NAT gateway is added to the subnet of the virtual network, all new connections use NAT gateway for making outbound connections. 
+          No, there's no drop in packets. Existing connections with Load balancer continue to work until those connections officially close. After NAT gateway is added to the subnet of the virtual network, all new connections use NAT gateway for making outbound connections. 
      
       - question: Can NAT gateway be used to connect inbound?
         answer: |
@@ -29,7 +29,7 @@ sections:
       
       - question: If multiple public IP addresses are assigned to a NAT gateway, is traffic flow disrupted when one of the IP addresses is removed?
         answer: |
-          Any active connections associated with a public IP address terminate upon the public IP address being removed. If the NAT gateway resource has multiple public IPs, new traffic is edistributed among the assigned IPs.
+          Any active connections associated with a public IP address terminate upon the public IP address being removed. If the NAT gateway resource has multiple public IPs, new traffic is distributed among the assigned IPs.
           
       - question: Can NAT gateway be used with IPv6 public IP addresses?
         answer: |
@@ -55,9 +55,9 @@ sections:
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
-          No, the address of an existing public IP can't be changed. A different or additional IP can be added to NAT gateway.  Associate either an existing or newly created public IP address to the NAT gateway resource.  Disassociate the old IP address. See [add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
+          No, the address of an existing public IP can't be changed.  Associate either an existing or newly created public IP address to the NAT gateway resource.  Disassociate the old IP address. See [add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
 
-      - question: If multiple public IP addresses are assigned to a NAT gateway resource, which public IPs will my subnet resources use?
+      - question: If multiple public IP addresses are assigned to a NAT gateway resource, which public IPs does my subnet resources use?
         answer: |
           Your subnet resources can use any of the public IP addresses configured to your NAT gateway resource for outbound connectivity. Each time a new outbound connection is made through NAT gateway, the outbound public IP is selected at random. 
       
@@ -95,7 +95,7 @@ sections:
           
       - question: Can multiple NAT gateways be attached to a single subnet?
         answer: |
-          No. NAT gateway operates based on the properties of the subnet it is attached to, and so multiple NAT gateways can't be attached to a single subnet.
+          No. NAT gateway operates based on the properties of the subnet it's attached to, and so multiple NAT gateways can't be attached to a single subnet.
 
       - question: How does NAT gateway work with availability zones?   
         answer: |
@@ -109,7 +109,7 @@ sections:
 
       - question: Can NAT gateway be moved from a region/subscription/resource group to another?
         answer: |
-          No. NAT gateway cannot be moved across subscriptions, regions, or resource groups. A new NAT gateway must be created for the other subscription, region, or resource group.
+          No. NAT gateway can't be moved across subscriptions, regions, or resource groups. A new NAT gateway must be created for the other subscription, region, or resource group.
       
       - question: How does NAT gateway work in a hub and spoke network architecture?
         answer: |
@@ -137,11 +137,11 @@ sections:
 
       - question: Can I use NAT gateway with Azure Firewall?
         answer: |
-          Yes. NAT gateway can be used with Azure Firewall. Azure Firewall when used with NAT gateway should be in a zonal configuration. NAT gateway will work with a zone redundant firewall, but it’s not a recommended deployment at this time. For more information about NAT gateway integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md).
+          Yes. NAT gateway can be used with Azure Firewall. Azure Firewall when used with NAT gateway should be in a zonal configuration. NAT gateway works with a zone redundant firewall, but it’s not a recommended deployment at this time. For more information about NAT gateway integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md).
 
       - question: Can I use NAT gateway with Virtual Network service endpoints or Private Link?
         answer: | 
-           Yes. The addition of a NAT gateway to a subnet with service endpoints doesn't affect the endpoints. [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md) enable a more specific route for the destination Azure service traffic they represent. Traffic for the service endpoint will continue to be routed toward the service and won't go via the NAT gateway. Private Link is recommended over service endpoints when connecting to Azure PaaS services directly from your Azure network.
+           Yes. The addition of a NAT gateway to a subnet with service endpoints doesn't affect the endpoints. [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md) enable a more specific route for the destination Azure service traffic they represent. Traffic for the service endpoint traverses the Azure backbone instead of the internet. Private Link is recommended over service endpoints when connecting to Azure PaaS services directly from your Azure network.
 
 additionalContent: |
 
