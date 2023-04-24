@@ -33,9 +33,10 @@ https://dlcdn.apache.org/hbase/hbase-operator-tools-1.2.0/hbase-operator-tools-1
 An HBCK Report page was added to the Master in 2.1.6 at /hbck.jsp, which shows output from two inspections run by the master on an interval; one is output by the CatalogJanitor whenever it runs. If overlaps or holes in, `hbase:meta`, the CatalogJanitor lists what it has found. Another background 'chore' process was added to compare `hbase:meta` and filesystem content; if any anomaly, it makes note in its HBCK Report section.
 
 To run the CatalogJanitor, execute the command in hbase shell: `catalogjanitor_run`
-To run hbck chore, execute the  command in hbase shell: `hbck_chore_run`
-B
-oth commands don't take any inputs.
+
+To run hbck chore, execute the command in hbase shell: `hbck_chore_run`
+
+Both commands don't take any inputs.
 
 ## Running HBCK2
 
