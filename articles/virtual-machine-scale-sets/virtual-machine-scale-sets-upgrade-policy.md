@@ -27,16 +27,23 @@ In this mode, the Scale Set makes no guarantees about the order of VMs being bro
 
 ### Rolling
 
-In this mode, the Scale Set rolls out the update in batches with an optional pause time in between. Additionally, when selecting a **Rolling**, users can select to enable **MaxSurge**. When MaxSurge is enabled, new instances are created and brought up-to-date to the latest scale model in batches. Once complete, the new instances are added to the Scale Set and the old instances are removed. This occurs in multiple batches, which is configurable, until all the instances are brought up to date. 
+When using a Rolling Upgrade Policy, the Scale Set rolls out the update in batches with an optional pause time in between. There are two types of Rolling Upgrade Policies that can be configured:
 
-With MaxSurge disabled, the existing instances in a Scale Set are brought down in batches to be upgraded rather than new ones being created. Once the upgrade is complete, the instances will begin taking traffic again. Rolling upgrades with MaxSurge enabled allows all the Scale Set instances to continue to take traffic while upgrades are being done.
+1. **Rolling Upgrades with MaxSurge disabled**
+    
+    With MaxSurge disabled, the existing instances in a Scale Set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again and the next batch will begin.
 
-When using an Upgrade Policy set to Rolling, the Scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health 
- 
+1. **Rolling Upgrades with MaxSurge enabled**
+    
+    With MaxSurge enabled, new instances are created and brought up-to-date with the latest scale model in batches rather than taking down the old instances for upgrades. Once complete, the new instances are added to the Scale Set and the old instances are removed. This occurs in multiple batches until all the instances are brought up to date. 
+
 > [!IMPORTANT]
 > Rolling Upgrades with MaxSurge is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 >
 > To enable this feature for your subscription, run `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute` in [Azure CloudShell](../cloud-shell/overview.md?).
+
+When a Rolling Upgrade Policy, the Scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
+ 
 
 ### Manual
 In this mode, you choose when to initiate an update to the Scale Set instances. Nothing happens automatically to the existing VMs when changes occur to the scale model. New instances added to the Scale Set will use the most update-to-date model available. If no upgrade policy is set during VM creation, the default value is manual. 
