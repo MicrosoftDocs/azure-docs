@@ -18,7 +18,7 @@ ms.custom: aaddev, curation-claims
 
 The business logic of an application determines how authorization should be handled. The general approach to claims-based authorization, and which claims should be used, is described in the following sections.
 
-To make sure that a token is secure, you must validate the following information in claims:
+To make sure that your authorization logic is secure, you must validate the following information in claims:
 
 * The appropriate audience is specified for the token.
 * The tenant ID of the token matches the ID of the tenant where data is stored.
