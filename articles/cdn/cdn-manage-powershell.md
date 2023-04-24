@@ -182,7 +182,7 @@ Update-AzCdnEndpoint -Name cdnposhdoc -ProfileName CdnPoshDemo -ResourceGroupNam
 Clear-AzCdnEndpointContent -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -EndpointName cdnposhdoc -ContentFilePath @("/images/kitten.png","/video/rickroll.mp4")
 ```
 
-# Pre-load some assets
+## Pre-load some assets
 
 > [!NOTE]
 > Pre-loading is only available on Azure CDN from Verizon profiles.
