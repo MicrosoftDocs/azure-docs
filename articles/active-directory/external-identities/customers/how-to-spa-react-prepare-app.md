@@ -1,6 +1,6 @@
 ---
 title: Prepare a React Single Page App (SPA) for authentication in Microsoft Entra
-description: Learn how to rrepare a React Single Page App (SPA) for authentication in Microsoft Entra
+description: Learn how to prepare a React Single Page App (SPA) for authentication in Microsoft Entra
 services: active-directory
 author: godonnell
 manager: celestedg
